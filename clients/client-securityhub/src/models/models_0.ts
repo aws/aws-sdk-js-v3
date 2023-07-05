@@ -792,8 +792,7 @@ export interface WorkflowUpdate {
 /**
  * @public
  * <p>
- *          Identifies the finding fields that the automation rule action will update when a
- *          finding matches the defined criteria.
+ *          Identifies the finding fields that the automation rule action updates when a finding matches the defined criteria.
  *       </p>
  */
 export interface AutomationRulesFindingFieldsUpdate {
@@ -809,35 +808,35 @@ export interface AutomationRulesFindingFieldsUpdate {
 
   /**
    * <p>
-   *          The rule action will update the <code>VerificationState</code> field of a finding.
+   *          The rule action updates the <code>VerificationState</code> field of a finding.
    *       </p>
    */
   VerificationState?: VerificationState | string;
 
   /**
    * <p>
-   *          The rule action will update the <code>Confidence</code> field of a finding.
+   *          The rule action updates the <code>Confidence</code> field of a finding.
    *       </p>
    */
   Confidence?: number;
 
   /**
    * <p>
-   *          The rule action will update the <code>Criticality</code> field of a finding.
+   *          The rule action updates the <code>Criticality</code> field of a finding.
    *       </p>
    */
   Criticality?: number;
 
   /**
    * <p>
-   *          The rule action will update the <code>Types</code> field of a finding.
+   *          The rule action updates the <code>Types</code> field of a finding.
    *       </p>
    */
   Types?: string[];
 
   /**
    * <p>
-   *          The rule action will update the <code>UserDefinedFields</code> field of a finding.
+   *          The rule action updates the <code>UserDefinedFields</code> field of a finding.
    *       </p>
    */
   UserDefinedFields?: Record<string, string>;
@@ -849,7 +848,7 @@ export interface AutomationRulesFindingFieldsUpdate {
 
   /**
    * <p>
-   *             A list of findings that are related to a finding.
+   *             The rule action updates the <code>RelatedFindings</code> field of a finding.
    *         </p>
    */
   RelatedFindings?: RelatedFinding[];
@@ -879,8 +878,7 @@ export interface AutomationRulesAction {
   /**
    * <p>
    *          Specifies that the rule action should update the <code>Types</code> finding field. The <code>Types</code>
-   *          finding field provides one or more finding types in the format of
-   *          namespace/category/classifier that classify a finding. For more information, see
+   *          finding field classifies findings in the format of namespace/category/classifier. For more information, see
    *          <a href="https://docs.aws.amazon.com/securityhub/latest/userguide/securityhub-findings-format-type-taxonomy.html">Types taxonomy for ASFF</a> in
    *          the <i>Security Hub User Guide</i>.
    *       </p>
@@ -1637,7 +1635,7 @@ export interface AutomationRulesConfig {
   /**
    * <p>
    *          Whether the rule is active after it is created. If
-   *          this parameter is equal to <code>>ENABLED</code>, Security Hub will apply the rule to findings
+   *          this parameter is equal to <code>ENABLED</code>, Security Hub starts applying the rule to findings
    *          and finding updates after the rule is created.
    *       </p>
    */
@@ -1668,15 +1666,16 @@ export interface AutomationRulesConfig {
    * <p>Specifies whether a rule is the last to be applied with respect to a finding that matches the rule criteria. This is useful
    *             when a finding matches the criteria for multiple rules, and each rule has different actions. If the value of this
    *             field is set to <code>true</code> for a rule, Security Hub applies the rule action to a finding that matches
-   *             the rule criteria and won't evaluate other rules for the finding.  The default value of this field is <code>false</code>.
+   *             the rule criteria and doesn't evaluate other rules for the finding.  The default value of this field is <code>false</code>.
    *         </p>
    */
   IsTerminal?: boolean;
 
   /**
    * <p>
-   *          A set of <a href="https://docs.aws.amazon.com/securityhub/latest/userguide/securityhub-findings-format.html">Amazon Web Services Security Finding Format</a> finding field attributes and corresponding expected values that
-   *          Security Hub uses to filter findings. If a finding matches the conditions specified in
+   *          A set of <a href="https://docs.aws.amazon.com/securityhub/latest/userguide/securityhub-findings-format.html">Amazon Web Services
+   *              Security Finding Format</a> finding field attributes and corresponding expected values that
+   *          Security Hub uses to filter findings. If a rule is enabled and a finding matches the conditions specified in
    *          this parameter, Security Hub applies the rule action to the finding.
    *       </p>
    */
@@ -1736,9 +1735,11 @@ export interface AutomationRulesMetadata {
   /**
    * <p>
    *          Whether the rule is active after it is created. If
-   *          this parameter is equal to <code>ENABLED</code>, Security Hub will apply the rule to findings
+   *          this parameter is equal to <code>ENABLED</code>, Security Hub starts applying the rule to findings
    *          and finding updates after the rule is created. To change the value of this
-   *          parameter after creating a rule, use <code>BatchUpdateAutomationRules</code>.
+   *          parameter after creating a rule, use <a href="https://docs.aws.amazon.com/securityhub/1.0/APIReference/API_BatchUpdateAutomationRules.html">
+   *                <code>BatchUpdateAutomationRules</code>
+   *             </a>.
    *       </p>
    */
   RuleStatus?: RuleStatus | string;
@@ -1769,7 +1770,7 @@ export interface AutomationRulesMetadata {
    *             Specifies whether a rule is the last to be applied with respect to a finding that matches the rule criteria. This is useful
    *             when a finding matches the criteria for multiple rules, and each rule has different actions. If the value of this
    *             field is set to <code>true</code> for a rule, Security Hub applies the rule action to a finding that matches
-   *             the rule criteria and won't evaluate other rules for the finding.  The default value of this field is <code>false</code>.
+   *             the rule criteria and doesn't evaluate other rules for the finding.  The default value of this field is <code>false</code>.
    *         </p>
    */
   IsTerminal?: boolean;

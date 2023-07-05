@@ -381,9 +381,7 @@ export interface SecurityControl {
 
   /**
    * <p>
-   *          The status of a security control based on the compliance status of its findings. For more information about how control
-   *          status is determined, see <a href="https://docs.aws.amazon.com/securityhub/latest/userguide/controls-overall-status.html">Determining the overall status of a control from its findings</a> in the
-   *          <i>Security Hub User Guide</i>.
+   *          The enablement status of a security control in a specific standard.
    *       </p>
    */
   SecurityControlStatus: ControlStatus | string | undefined;
@@ -686,9 +684,11 @@ export interface UpdateAutomationRulesRequestItem {
   /**
    * <p>
    *          Whether the rule is active after it is created. If
-   *          this parameter is equal to <code>ENABLED</code>, Security Hub will apply the rule to findings
+   *          this parameter is equal to <code>ENABLED</code>, Security Hub starts applying the rule to findings
    *          and finding updates after the rule is created. To change the value of this
-   *          parameter after creating a rule, use <code>BatchUpdateAutomationRules</code>.
+   *          parameter after creating a rule, use <a href="https://docs.aws.amazon.com/securityhub/1.0/APIReference/API_BatchUpdateAutomationRules.html">
+   *                <code>BatchUpdateAutomationRules</code>
+   *             </a>.
    *       </p>
    */
   RuleStatus?: RuleStatus | string;
@@ -718,7 +718,7 @@ export interface UpdateAutomationRulesRequestItem {
    * <p>Specifies whether a rule is the last to be applied with respect to a finding that matches the rule criteria. This is useful
    *             when a finding matches the criteria for multiple rules, and each rule has different actions. If the value of this
    *             field is set to <code>true</code> for a rule, Security Hub applies the rule action to a finding that matches
-   *             the rule criteria and won't evaluate other rules for the finding.  The default value of this field is <code>false</code>.
+   *             the rule criteria and doesn't evaluate other rules for the finding.  The default value of this field is <code>false</code>.
    *         </p>
    */
   IsTerminal?: boolean;
@@ -726,7 +726,7 @@ export interface UpdateAutomationRulesRequestItem {
   /**
    * <p>
    *          A set of ASFF finding field attributes and corresponding expected values that
-   *          Security Hub uses to filter findings. If a finding matches the conditions specified in
+   *          Security Hub uses to filter findings. If a rule is enabled and a finding matches the conditions specified in
    *          this parameter, Security Hub applies the rule action to the finding.
    *       </p>
    */
@@ -1143,9 +1143,11 @@ export interface CreateAutomationRuleRequest {
   /**
    * <p>
    *          Whether the rule is active after it is created. If
-   *          this parameter is equal to <code>Enabled</code>, Security Hub will apply the rule to findings
+   *          this parameter is equal to <code>ENABLED</code>, Security Hub starts applying the rule to findings
    *          and finding updates after the rule is created. To change the value of this
-   *          parameter after creating a rule, use <code>BatchUpdateAutomationRules</code>.
+   *          parameter after creating a rule, use <a href="https://docs.aws.amazon.com/securityhub/1.0/APIReference/API_BatchUpdateAutomationRules.html">
+   *                <code>BatchUpdateAutomationRules</code>
+   *             </a>.
    *       </p>
    */
   RuleStatus?: RuleStatus | string;
@@ -1175,7 +1177,7 @@ export interface CreateAutomationRuleRequest {
    * <p>Specifies whether a rule is the last to be applied with respect to a finding that matches the rule criteria. This is useful when a finding
    *             matches the criteria for multiple rules, and each rule has different actions. If the value of this field is
    *             set to <code>true</code> for a rule, Security Hub applies the rule action to a finding that matches
-   *             the rule criteria and won't evaluate other rules for the finding. The default value of this field is <code>false</code>.
+   *             the rule criteria and doesn't evaluate other rules for the finding. The default value of this field is <code>false</code>.
    *         </p>
    */
   IsTerminal?: boolean;
@@ -1183,7 +1185,7 @@ export interface CreateAutomationRuleRequest {
   /**
    * <p>
    *          A set of ASFF finding field attributes and corresponding expected values that
-   *          Security Hub uses to filter findings. If a finding matches the conditions specified in
+   *          Security Hub uses to filter findings. If a rule is enabled and a finding matches the conditions specified in
    *          this parameter, Security Hub applies the rule action to the finding.
    *       </p>
    */
