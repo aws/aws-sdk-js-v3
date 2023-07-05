@@ -869,7 +869,8 @@ export interface MetricFilterV2 {
    * <p>The key to use for filtering data. </p>
    *          <p>Valid metric filter keys: <code>INITIATION_METHOD</code>, <code>DISCONNECT_REASON</code>.
    *    These are the same values as the <code>InitiationMethod</code> and <code>DisconnectReason</code>
-   *    in the contact record. For more information, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/ctr-data-model.html#ctr-ContactTraceRecord">ContactTraceRecord</a> in the <i>Amazon Connect Administrator's Guide</i>. </p>
+   *    in the contact record. For more information, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/ctr-data-model.html#ctr-ContactTraceRecord">ContactTraceRecord</a> in the <i>Amazon Connect Administrator's
+   *    Guide</i>. </p>
    */
   MetricFilterKey?: string;
 
@@ -993,10 +994,10 @@ export interface GetMetricDataV2Request {
    *             <li>
    *                <p>
    *                   <b>Filter values</b>: A maximum of 100 filter values are
-   *      supported in a single request. For example, a <code>GetMetricDataV2</code> request can filter
-   *      by 50 queues, 35 agents, and 15 routing profiles for a total of 100 filter values.
-   *       <code>VOICE</code>, <code>CHAT</code>, and <code>TASK</code> are valid
-   *       <code>filterValue</code> for the <code>CHANNEL</code> filter key.</p>
+   *      supported in a single request. VOICE, CHAT, and TASK are valid <code>filterValue</code> for the CHANNEL
+   *      filter key. They do not count towards limitation of 100 filter values. For example, a
+   *      GetMetricDataV2 request can filter by 50 queues, 35 agents, and 15 routing profiles for a total
+   *      of 100 filter values, along with 3 channel filters.</p>
    *             </li>
    *          </ul>
    */
@@ -4436,8 +4437,8 @@ export interface SearchQuickConnectsResponse {
 
 /**
  * @public
- * <p>Maximum number (1000) of tags have been returned with current request. Consider
- *    changing request parameters to get more tags.</p>
+ * <p>Maximum number (1000) of tags have been returned with current request. Consider changing
+ *    request parameters to get more tags.</p>
  */
 export class MaximumResultReturnedException extends __BaseException {
   readonly name: "MaximumResultReturnedException" = "MaximumResultReturnedException";
@@ -4473,12 +4474,14 @@ export interface TagSearchCondition {
   tagValue?: string;
 
   /**
-   * <p>The type of comparison to be made when evaluating the tag key in tag search condition.</p>
+   * <p>The type of comparison to be made when evaluating the tag key in tag search
+   *    condition.</p>
    */
   tagKeyComparisonType?: StringComparisonType | string;
 
   /**
-   * <p>The type of comparison to be made when evaluating the tag value in tag search condition.</p>
+   * <p>The type of comparison to be made when evaluating the tag value in tag search
+   *    condition.</p>
    */
   tagValueComparisonType?: StringComparisonType | string;
 }
@@ -4505,14 +4508,14 @@ export interface SearchResourceTagsRequest {
   InstanceId: string | undefined;
 
   /**
-   * <p>The list of resource types to be used to search tags from. If not provided or if any empty list
-   *    is provided, this API will search from all supported resource types.</p>
+   * <p>The list of resource types to be used to search tags from. If not provided or if any empty
+   *    list is provided, this API will search from all supported resource types.</p>
    */
   ResourceTypes?: string[];
 
   /**
-   * <p>The token for the next set of results. Use the value returned in the previous response in the
-   *    next request to retrieve the next set of results.</p>
+   * <p>The token for the next set of results. Use the value returned in the previous response in
+   *    the next request to retrieve the next set of results.</p>
    */
   NextToken?: string;
 
@@ -7382,7 +7385,7 @@ export interface HoursOfOperationSearchCriteria {
    * <p>A leaf node condition which can be used to specify a string condition.</p>
    *          <note>
    *             <p>The currently supported values for <code>FieldName</code> are <code>name</code>,
-   *     <code>description</code>, <code>timezone</code>, and <code>resourceID</code>.</p>
+   *      <code>description</code>, <code>timezone</code>, and <code>resourceID</code>.</p>
    *          </note>
    */
   StringCondition?: StringCondition;
@@ -7407,7 +7410,7 @@ export interface PromptSearchCriteria {
    * <p>A leaf node condition which can be used to specify a string condition.</p>
    *          <note>
    *             <p>The currently supported values for <code>FieldName</code> are <code>name</code>,
-   *     <code>description</code>, and <code>resourceID</code>.</p>
+   *      <code>description</code>, and <code>resourceID</code>.</p>
    *          </note>
    */
   StringCondition?: StringCondition;
@@ -7437,7 +7440,7 @@ export interface QueueSearchCriteria {
    * <p>A leaf node condition which can be used to specify a string condition.</p>
    *          <note>
    *             <p>The currently supported values for <code>FieldName</code> are <code>name</code>,
-   *     <code>description</code>, and <code>resourceID</code>.</p>
+   *      <code>description</code>, and <code>resourceID</code>.</p>
    *          </note>
    */
   StringCondition?: StringCondition;

@@ -37,8 +37,7 @@ export interface SearchSecurityProfilesCommandOutput extends SearchSecurityProfi
 
 /**
  * @public
- * <p>This API is in preview release for Amazon Connect and is subject to change.</p>
- *          <p>Searches security profiles in an Amazon Connect instance, with optional
+ * <p>Searches security profiles in an Amazon Connect instance, with optional
  *    filtering.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.

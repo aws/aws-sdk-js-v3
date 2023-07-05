@@ -37,9 +37,10 @@ export interface SuspendContactRecordingCommandOutput extends SuspendContactReco
 /**
  * @public
  * <p>When a contact is being recorded, this API suspends recording the call or screen. For
- *    example, you might suspend the call or screen recording while collecting sensitive
- *    information, such as a credit card number. Then use ResumeContactRecording to restart recording.</p>
- *          <p>The period of time that the recording is suspended is filled with silence in the final recording.</p>
+ *    example, you might suspend the call or screen recording while collecting sensitive information,
+ *    such as a credit card number. Then use ResumeContactRecording to restart recording.</p>
+ *          <p>The period of time that the recording is suspended is filled with silence in the final
+ *    recording.</p>
  *          <p>Voice and screen recordings are supported.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
