@@ -63,7 +63,7 @@
     "@smithy/node-http-handler": "^1.0.2",
     "@smithy/protocol-http": "^1.0.1",
     "@smithy/smithy-client": "^1.0.3",
-    "@smithy/types": "^1.0.0",
+    "@smithy/types": "^1.1.0",
     "@smithy/url-parser": "^1.0.1",
     "@smithy/util-base64": "^1.0.1",
     "@smithy/util-body-length-browser": "^1.0.1",
