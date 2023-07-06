@@ -54,7 +54,7 @@ export interface ListAssetsCommandOutput extends ListAssetsOutput, __MetadataBea
  *   MaxResults: Number("int"),
  *   NextToken: "STRING_VALUE",
  *   StatusFilter: [ // StatusList
- *     "ACTIVE" || "RETIRING",
+ *     "ACTIVE" || "RETIRING" || "ISOLATED",
  *   ],
  * };
  * const command = new ListAssetsCommand(input);

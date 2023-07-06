@@ -36,7 +36,9 @@ export interface CreateSiteCommandOutput extends CreateSiteOutput, __MetadataBea
 
 /**
  * @public
- * <p> Creates a site for an Outpost. </p>
+ * <p>
+ *       Creates a site for an Outpost.
+ *     </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

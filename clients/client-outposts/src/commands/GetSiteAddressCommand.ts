@@ -36,7 +36,9 @@ export interface GetSiteAddressCommandOutput extends GetSiteAddressOutput, __Met
 
 /**
  * @public
- * <p> Gets the site address of the specified site. </p>
+ * <p>
+ *       Gets the site address of the specified site.
+ *     </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
