@@ -7,7 +7,8 @@ import {
   AxisDisplayOptions,
   BarChartVisual,
   BarsArrangement,
-  BoxPlotVisual,
+  BoxPlotFieldWells,
+  BoxPlotOptions,
   CalculatedField,
   CalculatedFieldFilterSensitiveLog,
   ChartAxisLabelOptions,
@@ -16,8 +17,6 @@ import {
   ColumnHierarchy,
   ColumnIdentifier,
   ColumnSort,
-  ComboChartFieldWells,
-  ComboChartSortConfiguration,
   ContributionAnalysisDefault,
   DataLabelOptions,
   DataLabelOptionsFilterSensitiveLog,
@@ -66,6 +65,184 @@ import {
   VisualTitleLabelOptions,
   WidgetStatus,
 } from "./models_0";
+
+/**
+ * @public
+ * <p>The sort configuration of a <code>BoxPlotVisual</code>.</p>
+ */
+export interface BoxPlotSortConfiguration {
+  /**
+   * <p>The sort configuration of a group by fields.</p>
+   */
+  CategorySort?: FieldSortOptions[];
+
+  /**
+   * <p>The pagination configuration of a table visual or box plot.</p>
+   */
+  PaginationConfiguration?: PaginationConfiguration;
+}
+
+/**
+ * @public
+ * <p>The configuration of a <code>BoxPlotVisual</code>.</p>
+ */
+export interface BoxPlotChartConfiguration {
+  /**
+   * <p>The field wells of the visual.</p>
+   */
+  FieldWells?: BoxPlotFieldWells;
+
+  /**
+   * <p>The sort configuration of a <code>BoxPlotVisual</code>.</p>
+   */
+  SortConfiguration?: BoxPlotSortConfiguration;
+
+  /**
+   * <p>The box plot chart options for a box plot visual</p>
+   */
+  BoxPlotOptions?: BoxPlotOptions;
+
+  /**
+   * <p>The label display options (grid line, range, scale, axis step) of a box plot category.</p>
+   */
+  CategoryAxis?: AxisDisplayOptions;
+
+  /**
+   * <p>The label options (label text, label visibility and sort Icon visibility) of a box plot category.</p>
+   */
+  CategoryLabelOptions?: ChartAxisLabelOptions;
+
+  /**
+   * <p>The label display options (grid line, range, scale, axis step) of a box plot category.</p>
+   */
+  PrimaryYAxisDisplayOptions?: AxisDisplayOptions;
+
+  /**
+   * <p>The label options (label text, label visibility and sort icon visibility) of a box plot value.</p>
+   */
+  PrimaryYAxisLabelOptions?: ChartAxisLabelOptions;
+
+  /**
+   * <p>The options for the legend setup of a visual.</p>
+   */
+  Legend?: LegendOptions;
+
+  /**
+   * <p>The tooltip display setup of the visual.</p>
+   */
+  Tooltip?: TooltipOptions;
+
+  /**
+   * <p>The reference line setup of the visual.</p>
+   */
+  ReferenceLines?: ReferenceLine[];
+
+  /**
+   * <p>The palette (chart color) display setup of the visual.</p>
+   */
+  VisualPalette?: VisualPalette;
+}
+
+/**
+ * @public
+ * <p>A box plot.</p>
+ *          <p>For more information, see <a href="https://docs.aws.amazon.com/quicksight/latest/user/box-plots.html">Using box plots</a> in the <i>Amazon QuickSight User Guide</i>.</p>
+ */
+export interface BoxPlotVisual {
+  /**
+   * <p>The unique identifier of a visual. This identifier must be unique within the context of a dashboard, template, or analysis. Two dashboards, analyses, or templates can have visuals with the same identifiers..</p>
+   */
+  VisualId: string | undefined;
+
+  /**
+   * <p>The title that is displayed on the visual.</p>
+   */
+  Title?: VisualTitleLabelOptions;
+
+  /**
+   * <p>The subtitle that is displayed on the visual.</p>
+   */
+  Subtitle?: VisualSubtitleLabelOptions;
+
+  /**
+   * <p>The configuration settings of the visual.</p>
+   */
+  ChartConfiguration?: BoxPlotChartConfiguration;
+
+  /**
+   * <p>The list of custom actions that are configured for a visual.</p>
+   */
+  Actions?: VisualCustomAction[];
+
+  /**
+   * <p>The column hierarchy that is used during drill-downs and drill-ups.</p>
+   */
+  ColumnHierarchies?: ColumnHierarchy[];
+}
+
+/**
+ * @public
+ * <p>The aggregated field wells of a combo chart.</p>
+ */
+export interface ComboChartAggregatedFieldWells {
+  /**
+   * <p>The aggregated category field wells of a combo chart.</p>
+   */
+  Category?: DimensionField[];
+
+  /**
+   * <p>The aggregated <code>BarValues</code> field well of a combo chart.</p>
+   */
+  BarValues?: MeasureField[];
+
+  /**
+   * <p>The aggregated colors field well of a combo chart.</p>
+   */
+  Colors?: DimensionField[];
+
+  /**
+   * <p>The aggregated <code>LineValues</code> field well of a combo chart.</p>
+   */
+  LineValues?: MeasureField[];
+}
+
+/**
+ * @public
+ * <p>The field wells of the visual.</p>
+ *          <p>This is a union type structure. For this structure to be valid, only one of the attributes can be defined.</p>
+ */
+export interface ComboChartFieldWells {
+  /**
+   * <p>The aggregated field wells of a combo chart. Combo charts only have aggregated field wells. Columns in a combo chart are aggregated by category.</p>
+   */
+  ComboChartAggregatedFieldWells?: ComboChartAggregatedFieldWells;
+}
+
+/**
+ * @public
+ * <p>The sort configuration of a <code>ComboChartVisual</code>.</p>
+ */
+export interface ComboChartSortConfiguration {
+  /**
+   * <p>The sort configuration of the category field well in a combo chart.</p>
+   */
+  CategorySort?: FieldSortOptions[];
+
+  /**
+   * <p>The item limit configuration for the category field well of a combo chart.</p>
+   */
+  CategoryItemsLimit?: ItemsLimitConfiguration;
+
+  /**
+   * <p>The sort configuration of the color field well in a combo chart.</p>
+   */
+  ColorSort?: FieldSortOptions[];
+
+  /**
+   * <p>The item limit configuration of the color field well in a combo chart.</p>
+   */
+  ColorItemsLimit?: ItemsLimitConfiguration;
+}
 
 /**
  * @public
@@ -6830,105 +7007,38 @@ export interface AssetBundleImportJobDataSetOverrideParameters {
 }
 
 /**
- * @public
- * <p>A username and password credential pair to use to import a data source resource.</p>
+ * @internal
  */
-export interface AssetBundleImportJobDataSourceCredentialPair {
-  /**
-   * <p>The username for the data source connection.</p>
-   */
-  Username: string | undefined;
-
-  /**
-   * <p>The password for the data source connection.</p>
-   */
-  Password: string | undefined;
-}
+export const BoxPlotChartConfigurationFilterSensitiveLog = (obj: BoxPlotChartConfiguration): any => ({
+  ...obj,
+  ...(obj.ReferenceLines && {
+    ReferenceLines: obj.ReferenceLines.map((item) => ReferenceLineFilterSensitiveLog(item)),
+  }),
+  ...(obj.VisualPalette && { VisualPalette: VisualPaletteFilterSensitiveLog(obj.VisualPalette) }),
+});
 
 /**
- * @public
- * <p>The login credentials to use to import a data source resource.</p>
+ * @internal
  */
-export interface AssetBundleImportJobDataSourceCredentials {
-  /**
-   * <p>A username and password credential pair to be used to create the imported data source. Keep this field blank if you are using a Secrets Manager secret to provide credentials.</p>
-   */
-  CredentialPair?: AssetBundleImportJobDataSourceCredentialPair;
-
-  /**
-   * <p>The ARN of the Secrets Manager secret that's used to create the imported data source. Keep this field blank, unless you are using a secret in place of a credential pair.</p>
-   */
-  SecretArn?: string;
-}
+export const BoxPlotVisualFilterSensitiveLog = (obj: BoxPlotVisual): any => ({
+  ...obj,
+});
 
 /**
- * @public
- * <p>Parameters for Amazon Athena.</p>
+ * @internal
  */
-export interface AthenaParameters {
-  /**
-   * <p>The workgroup that Amazon Athena uses.</p>
-   */
-  WorkGroup?: string;
-
-  /**
-   * <p>Use the <code>RoleArn</code> structure to override an account-wide role for a specific Athena data source. For example, say an account administrator has turned off all Athena access with an account-wide role. The administrator can then use <code>RoleArn</code> to bypass the account-wide role and allow Athena access for the single Athena data source that is specified in the structure, even if the account-wide role forbidding Athena access is still active.</p>
-   */
-  RoleArn?: string;
-}
+export const ComboChartAggregatedFieldWellsFilterSensitiveLog = (obj: ComboChartAggregatedFieldWells): any => ({
+  ...obj,
+  ...(obj.BarValues && { BarValues: obj.BarValues.map((item) => MeasureFieldFilterSensitiveLog(item)) }),
+  ...(obj.LineValues && { LineValues: obj.LineValues.map((item) => MeasureFieldFilterSensitiveLog(item)) }),
+});
 
 /**
- * @public
- * <p>Parameters for Amazon Aurora.</p>
+ * @internal
  */
-export interface AuroraParameters {
-  /**
-   * <p>Host.</p>
-   */
-  Host: string | undefined;
-
-  /**
-   * <p>Port.</p>
-   */
-  Port: number | undefined;
-
-  /**
-   * <p>Database.</p>
-   */
-  Database: string | undefined;
-}
-
-/**
- * @public
- * <p>Parameters for Amazon Aurora PostgreSQL-Compatible Edition.</p>
- */
-export interface AuroraPostgreSqlParameters {
-  /**
-   * <p>The Amazon Aurora PostgreSQL-Compatible host to connect to.</p>
-   */
-  Host: string | undefined;
-
-  /**
-   * <p>The port that Amazon Aurora PostgreSQL is listening on.</p>
-   */
-  Port: number | undefined;
-
-  /**
-   * <p>The Amazon Aurora PostgreSQL database to connect to.</p>
-   */
-  Database: string | undefined;
-}
-
-/**
- * @public
- * <p>The parameters for IoT Analytics.</p>
- */
-export interface AwsIotAnalyticsParameters {
-  /**
-   * <p>Dataset name.</p>
-   */
-  DataSetName: string | undefined;
-}
+export const ComboChartFieldWellsFilterSensitiveLog = (obj: ComboChartFieldWells): any => ({
+  ...obj,
+});
 
 /**
  * @internal
@@ -8078,23 +8188,4 @@ export const AnalysisDefinitionFilterSensitiveLog = (obj: AnalysisDefinition): a
   ...(obj.ColumnConfigurations && {
     ColumnConfigurations: obj.ColumnConfigurations.map((item) => ColumnConfigurationFilterSensitiveLog(item)),
   }),
-});
-
-/**
- * @internal
- */
-export const AssetBundleImportJobDataSourceCredentialPairFilterSensitiveLog = (
-  obj: AssetBundleImportJobDataSourceCredentialPair
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AssetBundleImportJobDataSourceCredentialsFilterSensitiveLog = (
-  obj: AssetBundleImportJobDataSourceCredentials
-): any => ({
-  ...obj,
-  ...(obj.CredentialPair && { CredentialPair: SENSITIVE_STRING }),
 });

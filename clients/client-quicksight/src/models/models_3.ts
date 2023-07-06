@@ -71,6 +71,7 @@ import {
   IngestionStatus,
   LogicalTable,
   LogicalTableFilterSensitiveLog,
+  MemberType,
   NamespaceStatus,
   PhysicalTable,
   RefreshSchedule,
@@ -92,6 +93,134 @@ import {
   VPCConnectionResourceStatus,
 } from "./models_2";
 import { QuickSightServiceException as __BaseException } from "./QuickSightServiceException";
+
+/**
+ * @public
+ */
+export interface DeleteFolderResponse {
+  /**
+   * <p>The HTTP status of the request.</p>
+   */
+  Status?: number;
+
+  /**
+   * <p>The Amazon Resource Name of the deleted folder.</p>
+   */
+  Arn?: string;
+
+  /**
+   * <p>The ID of the folder.</p>
+   */
+  FolderId?: string;
+
+  /**
+   * <p>The Amazon Web Services request ID for this operation.</p>
+   */
+  RequestId?: string;
+}
+
+/**
+ * @public
+ */
+export interface DeleteFolderMembershipRequest {
+  /**
+   * <p>The ID for the Amazon Web Services account that contains the folder.</p>
+   */
+  AwsAccountId: string | undefined;
+
+  /**
+   * <p>The Folder ID.</p>
+   */
+  FolderId: string | undefined;
+
+  /**
+   * <p>The ID of the asset (the dashboard, analysis, or dataset) that you want to delete.</p>
+   */
+  MemberId: string | undefined;
+
+  /**
+   * <p>The type of the member, including <code>DASHBOARD</code>, <code>ANALYSIS</code>, and <code>DATASET</code>
+   *          </p>
+   */
+  MemberType: MemberType | string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DeleteFolderMembershipResponse {
+  /**
+   * <p>The HTTP status of the request.</p>
+   */
+  Status?: number;
+
+  /**
+   * <p>The Amazon Web Services request ID for this operation.</p>
+   */
+  RequestId?: string;
+}
+
+/**
+ * @public
+ */
+export interface DeleteGroupRequest {
+  /**
+   * <p>The name of the group that you want to delete.</p>
+   */
+  GroupName: string | undefined;
+
+  /**
+   * <p>The ID for the Amazon Web Services account that the group is in. Currently, you use the ID for the
+   * 			Amazon Web Services account that contains your Amazon QuickSight account.</p>
+   */
+  AwsAccountId: string | undefined;
+
+  /**
+   * <p>The namespace of the group that you want to delete.</p>
+   */
+  Namespace: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DeleteGroupResponse {
+  /**
+   * <p>The Amazon Web Services request ID for this operation.</p>
+   */
+  RequestId?: string;
+
+  /**
+   * <p>The HTTP status of the request.</p>
+   */
+  Status?: number;
+}
+
+/**
+ * @public
+ */
+export interface DeleteGroupMembershipRequest {
+  /**
+   * <p>The name of the user that you want to delete from the group membership.</p>
+   */
+  MemberName: string | undefined;
+
+  /**
+   * <p>The name of the group that you want to delete the user from.</p>
+   */
+  GroupName: string | undefined;
+
+  /**
+   * <p>The ID for the Amazon Web Services account that the group is in. Currently, you use the ID for the
+   * 			Amazon Web Services account that contains your Amazon QuickSight account.</p>
+   */
+  AwsAccountId: string | undefined;
+
+  /**
+   * <p>The namespace of the group that you want to remove a user from.</p>
+   */
+  Namespace: string | undefined;
+}
 
 /**
  * @public
@@ -1043,7 +1172,7 @@ export interface DescribeAssetBundleExportJobResponse {
   IncludeAllDependencies?: boolean;
 
   /**
-   * <p>The format of the export.</p>
+   * <p>The format of the exported asset bundle. A <code>QUICKSIGHT_JSON</code> formatted file can be used to make a <code>StartAssetBundleImportJob</code> API call. A <code>CLOUDFORMATION_JSON</code> formatted file can be used in the CloudFormation console and with the CloudFormation APIs.</p>
    */
   ExportFormat?: AssetBundleExportFormat | string;
 
@@ -6871,7 +7000,8 @@ export interface StartAssetBundleImportJobRequest {
   AssetBundleImportJobId: string | undefined;
 
   /**
-   * <p>The source of the asset bundle zip file that contains the data that you want to import.</p>
+   * <p>The source of the asset bundle zip file that contains the data that you want to import. The file must be in <code>QUICKSIGHT_JSON</code> format.
+   *       </p>
    */
   AssetBundleImportSource: AssetBundleImportSource | undefined;
 
@@ -8230,179 +8360,6 @@ export interface UpdateTemplateAliasRequest {
    * <p>The version number of the template.</p>
    */
   TemplateVersionNumber: number | undefined;
-}
-
-/**
- * @public
- */
-export interface UpdateTemplateAliasResponse {
-  /**
-   * <p>The template alias.</p>
-   */
-  TemplateAlias?: TemplateAlias;
-
-  /**
-   * <p>The HTTP status of the request.</p>
-   */
-  Status?: number;
-
-  /**
-   * <p>The Amazon Web Services request ID for this operation.</p>
-   */
-  RequestId?: string;
-}
-
-/**
- * @public
- */
-export interface UpdateTemplatePermissionsRequest {
-  /**
-   * <p>The ID of the Amazon Web Services account that contains the template.</p>
-   */
-  AwsAccountId: string | undefined;
-
-  /**
-   * <p>The ID for the template.</p>
-   */
-  TemplateId: string | undefined;
-
-  /**
-   * <p>A list of resource permissions to be granted on the template. </p>
-   */
-  GrantPermissions?: ResourcePermission[];
-
-  /**
-   * <p>A list of resource permissions to be revoked from the template. </p>
-   */
-  RevokePermissions?: ResourcePermission[];
-}
-
-/**
- * @public
- */
-export interface UpdateTemplatePermissionsResponse {
-  /**
-   * <p>The ID for the template.</p>
-   */
-  TemplateId?: string;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) of the template.</p>
-   */
-  TemplateArn?: string;
-
-  /**
-   * <p>A list of resource permissions to be set on the template.</p>
-   */
-  Permissions?: ResourcePermission[];
-
-  /**
-   * <p>The Amazon Web Services request ID for this operation.</p>
-   */
-  RequestId?: string;
-
-  /**
-   * <p>The HTTP status of the request.</p>
-   */
-  Status?: number;
-}
-
-/**
- * @public
- */
-export interface UpdateThemeRequest {
-  /**
-   * <p>The ID of the Amazon Web Services account that contains the theme that you're updating.</p>
-   */
-  AwsAccountId: string | undefined;
-
-  /**
-   * <p>The ID for the theme.</p>
-   */
-  ThemeId: string | undefined;
-
-  /**
-   * <p>The name for the theme.</p>
-   */
-  Name?: string;
-
-  /**
-   * <p>The theme ID, defined by Amazon QuickSight, that a custom theme inherits from.
-   * 		All themes initially inherit from a default Amazon QuickSight theme.</p>
-   */
-  BaseThemeId: string | undefined;
-
-  /**
-   * <p>A description of the theme version that you're updating Every time that you call
-   * 				<code>UpdateTheme</code>, you create a new version of the theme. Each version of the
-   * 			theme maintains a description of the version in <code>VersionDescription</code>.</p>
-   */
-  VersionDescription?: string;
-
-  /**
-   * <p>The theme configuration, which contains the theme display properties.</p>
-   */
-  Configuration?: ThemeConfiguration;
-}
-
-/**
- * @public
- */
-export interface UpdateThemeResponse {
-  /**
-   * <p>The ID for the theme.</p>
-   */
-  ThemeId?: string;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) for the theme.</p>
-   */
-  Arn?: string;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) for the new version of the theme.</p>
-   */
-  VersionArn?: string;
-
-  /**
-   * <p>The creation status of the theme.</p>
-   */
-  CreationStatus?: ResourceStatus | string;
-
-  /**
-   * <p>The HTTP status of the request.</p>
-   */
-  Status?: number;
-
-  /**
-   * <p>The Amazon Web Services request ID for this operation.</p>
-   */
-  RequestId?: string;
-}
-
-/**
- * @public
- */
-export interface UpdateThemeAliasRequest {
-  /**
-   * <p>The ID of the Amazon Web Services account that contains the theme alias that you're updating.</p>
-   */
-  AwsAccountId: string | undefined;
-
-  /**
-   * <p>The ID for the theme.</p>
-   */
-  ThemeId: string | undefined;
-
-  /**
-   * <p>The name of the theme alias that you want to update.</p>
-   */
-  AliasName: string | undefined;
-
-  /**
-   * <p>The version number of the theme that the alias should reference.</p>
-   */
-  ThemeVersionNumber: number | undefined;
 }
 
 /**

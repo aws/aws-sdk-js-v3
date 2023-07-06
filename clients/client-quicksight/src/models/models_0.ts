@@ -432,7 +432,7 @@ export interface AggregationSortConfiguration {
   /**
    * <p>The function that aggregates the values in <code>Column</code>.</p>
    */
-  AggregationFunction: AggregationFunction | undefined;
+  AggregationFunction?: AggregationFunction;
 }
 
 /**
@@ -916,6 +916,53 @@ export interface CalculatedField {
 
 /**
  * @public
+ * @enum
+ */
+export const SpecialValue = {
+  EMPTY: "EMPTY",
+  NULL: "NULL",
+  OTHER: "OTHER",
+} as const;
+
+/**
+ * @public
+ */
+export type SpecialValue = (typeof SpecialValue)[keyof typeof SpecialValue];
+
+/**
+ * @public
+ * <p>Determines the color that's applied to a particular data value in a column.</p>
+ */
+export interface CustomColor {
+  /**
+   * <p>The data value that the color is applied to.</p>
+   */
+  FieldValue?: string;
+
+  /**
+   * <p>The color that is applied to the data value.</p>
+   */
+  Color: string | undefined;
+
+  /**
+   * <p>The value of a special data value.</p>
+   */
+  SpecialValue?: SpecialValue | string;
+}
+
+/**
+ * @public
+ * <p>The color configurations for a column.</p>
+ */
+export interface ColorsConfiguration {
+  /**
+   * <p>A list of up to 50 custom colors.</p>
+   */
+  CustomColors?: CustomColor[];
+}
+
+/**
+ * @public
  * <p>The options that determine the null value format configuration.</p>
  */
 export interface NullValueFormatConfiguration {
@@ -1287,6 +1334,11 @@ export interface ColumnConfiguration {
    * <p>The role of the column.</p>
    */
   Role?: ColumnRole | string;
+
+  /**
+   * <p>The color configurations of the column.</p>
+   */
+  ColorsConfiguration?: ColorsConfiguration;
 }
 
 /**
@@ -5797,6 +5849,51 @@ export interface PanelConfiguration {
 
 /**
  * @public
+ * @enum
+ */
+export const SmallMultiplesAxisPlacement = {
+  INSIDE: "INSIDE",
+  OUTSIDE: "OUTSIDE",
+} as const;
+
+/**
+ * @public
+ */
+export type SmallMultiplesAxisPlacement =
+  (typeof SmallMultiplesAxisPlacement)[keyof typeof SmallMultiplesAxisPlacement];
+
+/**
+ * @public
+ * @enum
+ */
+export const SmallMultiplesAxisScale = {
+  INDEPENDENT: "INDEPENDENT",
+  SHARED: "SHARED",
+} as const;
+
+/**
+ * @public
+ */
+export type SmallMultiplesAxisScale = (typeof SmallMultiplesAxisScale)[keyof typeof SmallMultiplesAxisScale];
+
+/**
+ * @public
+ * <p>Configures the properties of a chart's axes that are used by small multiples panels.</p>
+ */
+export interface SmallMultiplesAxisProperties {
+  /**
+   * <p>Determines whether scale of the axes are shared or independent. The default value is <code>SHARED</code>.</p>
+   */
+  Scale?: SmallMultiplesAxisScale | string;
+
+  /**
+   * <p>Defines the placement of the axis. By default, axes are rendered <code>OUTSIDE</code> of the panels. Axes with <code>INDEPENDENT</code> scale are rendered <code>INSIDE</code> the panels.</p>
+   */
+  Placement?: SmallMultiplesAxisPlacement | string;
+}
+
+/**
+ * @public
  * <p>Options that determine the layout and display options of a chart's small multiples.</p>
  */
 export interface SmallMultiplesOptions {
@@ -5818,6 +5915,16 @@ export interface SmallMultiplesOptions {
    * <p>Configures the display options for each small multiples panel.</p>
    */
   PanelConfiguration?: PanelConfiguration;
+
+  /**
+   * <p>The properties of a small multiples X axis.</p>
+   */
+  XAxis?: SmallMultiplesAxisProperties;
+
+  /**
+   * <p>The properties of a small multiples Y axis.</p>
+   */
+  YAxis?: SmallMultiplesAxisProperties;
 }
 
 /**
@@ -6644,189 +6751,27 @@ export interface PaginationConfiguration {
 }
 
 /**
- * @public
- * <p>The sort configuration of a <code>BoxPlotVisual</code>.</p>
- */
-export interface BoxPlotSortConfiguration {
-  /**
-   * <p>The sort configuration of a group by fields.</p>
-   */
-  CategorySort?: FieldSortOptions[];
-
-  /**
-   * <p>The pagination configuration of a table visual or box plot.</p>
-   */
-  PaginationConfiguration?: PaginationConfiguration;
-}
-
-/**
- * @public
- * <p>The configuration of a <code>BoxPlotVisual</code>.</p>
- */
-export interface BoxPlotChartConfiguration {
-  /**
-   * <p>The field wells of the visual.</p>
-   */
-  FieldWells?: BoxPlotFieldWells;
-
-  /**
-   * <p>The sort configuration of a <code>BoxPlotVisual</code>.</p>
-   */
-  SortConfiguration?: BoxPlotSortConfiguration;
-
-  /**
-   * <p>The box plot chart options for a box plot visual</p>
-   */
-  BoxPlotOptions?: BoxPlotOptions;
-
-  /**
-   * <p>The label display options (grid line, range, scale, axis step) of a box plot category.</p>
-   */
-  CategoryAxis?: AxisDisplayOptions;
-
-  /**
-   * <p>The label options (label text, label visibility and sort Icon visibility) of a box plot category.</p>
-   */
-  CategoryLabelOptions?: ChartAxisLabelOptions;
-
-  /**
-   * <p>The label display options (grid line, range, scale, axis step) of a box plot category.</p>
-   */
-  PrimaryYAxisDisplayOptions?: AxisDisplayOptions;
-
-  /**
-   * <p>The label options (label text, label visibility and sort icon visibility) of a box plot value.</p>
-   */
-  PrimaryYAxisLabelOptions?: ChartAxisLabelOptions;
-
-  /**
-   * <p>The options for the legend setup of a visual.</p>
-   */
-  Legend?: LegendOptions;
-
-  /**
-   * <p>The tooltip display setup of the visual.</p>
-   */
-  Tooltip?: TooltipOptions;
-
-  /**
-   * <p>The reference line setup of the visual.</p>
-   */
-  ReferenceLines?: ReferenceLine[];
-
-  /**
-   * <p>The palette (chart color) display setup of the visual.</p>
-   */
-  VisualPalette?: VisualPalette;
-}
-
-/**
- * @public
- * <p>A box plot.</p>
- *          <p>For more information, see <a href="https://docs.aws.amazon.com/quicksight/latest/user/box-plots.html">Using box plots</a> in the <i>Amazon QuickSight User Guide</i>.</p>
- */
-export interface BoxPlotVisual {
-  /**
-   * <p>The unique identifier of a visual. This identifier must be unique within the context of a dashboard, template, or analysis. Two dashboards, analyses, or templates can have visuals with the same identifiers..</p>
-   */
-  VisualId: string | undefined;
-
-  /**
-   * <p>The title that is displayed on the visual.</p>
-   */
-  Title?: VisualTitleLabelOptions;
-
-  /**
-   * <p>The subtitle that is displayed on the visual.</p>
-   */
-  Subtitle?: VisualSubtitleLabelOptions;
-
-  /**
-   * <p>The configuration settings of the visual.</p>
-   */
-  ChartConfiguration?: BoxPlotChartConfiguration;
-
-  /**
-   * <p>The list of custom actions that are configured for a visual.</p>
-   */
-  Actions?: VisualCustomAction[];
-
-  /**
-   * <p>The column hierarchy that is used during drill-downs and drill-ups.</p>
-   */
-  ColumnHierarchies?: ColumnHierarchy[];
-}
-
-/**
- * @public
- * <p>The aggregated field wells of a combo chart.</p>
- */
-export interface ComboChartAggregatedFieldWells {
-  /**
-   * <p>The aggregated category field wells of a combo chart.</p>
-   */
-  Category?: DimensionField[];
-
-  /**
-   * <p>The aggregated <code>BarValues</code> field well of a combo chart.</p>
-   */
-  BarValues?: MeasureField[];
-
-  /**
-   * <p>The aggregated colors field well of a combo chart.</p>
-   */
-  Colors?: DimensionField[];
-
-  /**
-   * <p>The aggregated <code>LineValues</code> field well of a combo chart.</p>
-   */
-  LineValues?: MeasureField[];
-}
-
-/**
- * @public
- * <p>The field wells of the visual.</p>
- *          <p>This is a union type structure. For this structure to be valid, only one of the attributes can be defined.</p>
- */
-export interface ComboChartFieldWells {
-  /**
-   * <p>The aggregated field wells of a combo chart. Combo charts only have aggregated field wells. Columns in a combo chart are aggregated by category.</p>
-   */
-  ComboChartAggregatedFieldWells?: ComboChartAggregatedFieldWells;
-}
-
-/**
- * @public
- * <p>The sort configuration of a <code>ComboChartVisual</code>.</p>
- */
-export interface ComboChartSortConfiguration {
-  /**
-   * <p>The sort configuration of the category field well in a combo chart.</p>
-   */
-  CategorySort?: FieldSortOptions[];
-
-  /**
-   * <p>The item limit configuration for the category field well of a combo chart.</p>
-   */
-  CategoryItemsLimit?: ItemsLimitConfiguration;
-
-  /**
-   * <p>The sort configuration of the color field well in a combo chart.</p>
-   */
-  ColorSort?: FieldSortOptions[];
-
-  /**
-   * <p>The item limit configuration of the color field well in a combo chart.</p>
-   */
-  ColorItemsLimit?: ItemsLimitConfiguration;
-}
-
-/**
  * @internal
  */
 export const CalculatedFieldFilterSensitiveLog = (obj: CalculatedField): any => ({
   ...obj,
   ...(obj.Expression && { Expression: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const CustomColorFilterSensitiveLog = (obj: CustomColor): any => ({
+  ...obj,
+  ...(obj.FieldValue && { FieldValue: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const ColorsConfigurationFilterSensitiveLog = (obj: ColorsConfiguration): any => ({
+  ...obj,
+  ...(obj.CustomColors && { CustomColors: obj.CustomColors.map((item) => CustomColorFilterSensitiveLog(item)) }),
 });
 
 /**
@@ -6956,6 +6901,9 @@ export const ColumnConfigurationFilterSensitiveLog = (obj: ColumnConfiguration):
   ...obj,
   ...(obj.FormatConfiguration && {
     FormatConfiguration: FormatConfigurationFilterSensitiveLog(obj.FormatConfiguration),
+  }),
+  ...(obj.ColorsConfiguration && {
+    ColorsConfiguration: ColorsConfigurationFilterSensitiveLog(obj.ColorsConfiguration),
   }),
 });
 
@@ -7517,39 +7465,5 @@ export const BoxPlotAggregatedFieldWellsFilterSensitiveLog = (obj: BoxPlotAggreg
  * @internal
  */
 export const BoxPlotFieldWellsFilterSensitiveLog = (obj: BoxPlotFieldWells): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const BoxPlotChartConfigurationFilterSensitiveLog = (obj: BoxPlotChartConfiguration): any => ({
-  ...obj,
-  ...(obj.ReferenceLines && {
-    ReferenceLines: obj.ReferenceLines.map((item) => ReferenceLineFilterSensitiveLog(item)),
-  }),
-  ...(obj.VisualPalette && { VisualPalette: VisualPaletteFilterSensitiveLog(obj.VisualPalette) }),
-});
-
-/**
- * @internal
- */
-export const BoxPlotVisualFilterSensitiveLog = (obj: BoxPlotVisual): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ComboChartAggregatedFieldWellsFilterSensitiveLog = (obj: ComboChartAggregatedFieldWells): any => ({
-  ...obj,
-  ...(obj.BarValues && { BarValues: obj.BarValues.map((item) => MeasureFieldFilterSensitiveLog(item)) }),
-  ...(obj.LineValues && { LineValues: obj.LineValues.map((item) => MeasureFieldFilterSensitiveLog(item)) }),
-});
-
-/**
- * @internal
- */
-export const ComboChartFieldWellsFilterSensitiveLog = (obj: ComboChartFieldWells): any => ({
   ...obj,
 });

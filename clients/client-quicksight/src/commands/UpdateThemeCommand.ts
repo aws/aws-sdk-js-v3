@@ -13,7 +13,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@smithy/types";
 
-import { UpdateThemeRequest, UpdateThemeResponse } from "../models/models_3";
+import { UpdateThemeRequest, UpdateThemeResponse } from "../models/models_4";
 import { de_UpdateThemeCommand, se_UpdateThemeCommand } from "../protocols/Aws_restJson1";
 import { QuickSightClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../QuickSightClient";
 

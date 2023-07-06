@@ -458,12 +458,9 @@ import {
   BodySectionConfiguration,
   BodySectionContent,
   BoxPlotAggregatedFieldWells,
-  BoxPlotChartConfiguration,
   BoxPlotFieldWells,
   BoxPlotOptions,
-  BoxPlotSortConfiguration,
   BoxPlotStyleOptions,
-  BoxPlotVisual,
   CalculatedField,
   CalculatedMeasureField,
   CascadingControlConfiguration,
@@ -474,20 +471,19 @@ import {
   CategoryFilter,
   CategoryFilterConfiguration,
   ChartAxisLabelOptions,
+  ColorsConfiguration,
   ColumnConfiguration,
   ColumnHierarchy,
   ColumnIdentifier,
   ColumnSort,
   ColumnTooltipItem,
-  ComboChartAggregatedFieldWells,
-  ComboChartFieldWells,
-  ComboChartSortConfiguration,
   ContributionAnalysisDefault,
   CurrencyDisplayFormatConfiguration,
   CustomActionFilterOperation,
   CustomActionNavigationOperation,
   CustomActionSetParametersOperation,
   CustomActionURLOperation,
+  CustomColor,
   CustomFilterConfiguration,
   CustomFilterListConfiguration,
   CustomParameterValues,
@@ -639,6 +635,7 @@ import {
   SheetVisualScopingConfiguration,
   ShortFormatText,
   SliderControlDisplayOptions,
+  SmallMultiplesAxisProperties,
   SmallMultiplesOptions,
   Spacing,
   StringDefaultValues,
@@ -697,18 +694,18 @@ import {
   AssetBundleImportJobAnalysisOverrideParameters,
   AssetBundleImportJobDashboardOverrideParameters,
   AssetBundleImportJobDataSetOverrideParameters,
-  AssetBundleImportJobDataSourceCredentialPair,
-  AssetBundleImportJobDataSourceCredentials,
-  AthenaParameters,
-  AuroraParameters,
-  AuroraPostgreSqlParameters,
-  AwsIotAnalyticsParameters,
   BinCountOptions,
   BinWidthOptions,
+  BoxPlotChartConfiguration,
+  BoxPlotSortConfiguration,
+  BoxPlotVisual,
   ClusterMarker,
   ClusterMarkerConfiguration,
   ColorScale,
+  ComboChartAggregatedFieldWells,
   ComboChartConfiguration,
+  ComboChartFieldWells,
+  ComboChartSortConfiguration,
   ComboChartVisual,
   ComparisonConfiguration,
   ComparisonFormatConfiguration,
@@ -918,6 +915,8 @@ import {
 } from "../models/models_1";
 import {
   _Parameters,
+  AssetBundleImportJobDataSourceCredentialPair,
+  AssetBundleImportJobDataSourceCredentials,
   AssetBundleImportJobDataSourceOverrideParameters,
   AssetBundleImportJobOverrideParameters,
   AssetBundleImportJobRefreshScheduleOverrideParameters,
@@ -926,7 +925,11 @@ import {
   AssetBundleImportJobThemeOverrideParameters,
   AssetBundleImportJobVPCConnectionOverrideParameters,
   AssetBundleImportSource,
+  AthenaParameters,
+  AuroraParameters,
+  AuroraPostgreSqlParameters,
   AuthorSpecifiedAggregation,
+  AwsIotAnalyticsParameters,
   BookmarksConfigurations,
   BorderStyle,
   CalculatedColumn,
@@ -19137,6 +19140,8 @@ const se_ColorScaleColorList = (input: DataColor[], context: __SerdeContext): an
     });
 };
 
+// se_ColorsConfiguration omitted.
+
 // se_ColumnConfiguration omitted.
 
 // se_ColumnConfigurationList omitted.
@@ -19392,6 +19397,10 @@ const se_CustomActionSetParametersOperation = (
 };
 
 // se_CustomActionURLOperation omitted.
+
+// se_CustomColor omitted.
+
+// se_CustomColorsList omitted.
 
 // se_CustomContentConfiguration omitted.
 
@@ -22265,6 +22274,8 @@ const se_SheetDefinitionList = (input: SheetDefinition[], context: __SerdeContex
 
 // se_SliderControlDisplayOptions omitted.
 
+// se_SmallMultiplesAxisProperties omitted.
+
 // se_SmallMultiplesDimensionFieldList omitted.
 
 // se_SmallMultiplesOptions omitted.
@@ -23794,6 +23805,8 @@ const de_ColorScaleColorList = (output: any, context: __SerdeContext): DataColor
   return retVal;
 };
 
+// de_ColorsConfiguration omitted.
+
 // de_ColumnConfiguration omitted.
 
 // de_ColumnConfigurationList omitted.
@@ -24049,6 +24062,10 @@ const de_CustomActionSetParametersOperation = (
 };
 
 // de_CustomActionURLOperation omitted.
+
+// de_CustomColor omitted.
+
+// de_CustomColorsList omitted.
 
 // de_CustomContentConfiguration omitted.
 
@@ -27164,6 +27181,8 @@ const de_SheetDefinitionList = (output: any, context: __SerdeContext): SheetDefi
 // de_SimpleClusterMarker omitted.
 
 // de_SliderControlDisplayOptions omitted.
+
+// de_SmallMultiplesAxisProperties omitted.
 
 // de_SmallMultiplesDimensionFieldList omitted.
 

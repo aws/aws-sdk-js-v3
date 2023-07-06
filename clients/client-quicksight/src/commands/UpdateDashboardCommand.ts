@@ -1721,6 +1721,14 @@ export interface UpdateDashboardCommandOutput extends UpdateDashboardResponse, _
  *                     BackgroundVisibility: "HIDDEN" || "VISIBLE",
  *                     BackgroundColor: "STRING_VALUE",
  *                   },
+ *                   XAxis: { // SmallMultiplesAxisProperties
+ *                     Scale: "SHARED" || "INDEPENDENT",
+ *                     Placement: "OUTSIDE" || "INSIDE",
+ *                   },
+ *                   YAxis: {
+ *                     Scale: "SHARED" || "INDEPENDENT",
+ *                     Placement: "OUTSIDE" || "INSIDE",
+ *                   },
  *                 },
  *                 CategoryAxis: { // AxisDisplayOptions
  *                   TickLabelOptions: { // AxisTickLabelOptions
@@ -2435,6 +2443,14 @@ export interface UpdateDashboardCommandOutput extends UpdateDashboardResponse, _
  *                     BackgroundVisibility: "HIDDEN" || "VISIBLE",
  *                     BackgroundColor: "STRING_VALUE",
  *                   },
+ *                   XAxis: {
+ *                     Scale: "SHARED" || "INDEPENDENT",
+ *                     Placement: "OUTSIDE" || "INSIDE",
+ *                   },
+ *                   YAxis: {
+ *                     Scale: "SHARED" || "INDEPENDENT",
+ *                     Placement: "OUTSIDE" || "INSIDE",
+ *                   },
  *                 },
  *                 CategoryLabelOptions: {
  *                   Visibility: "HIDDEN" || "VISIBLE",
@@ -2832,6 +2848,11 @@ export interface UpdateDashboardCommandOutput extends UpdateDashboardResponse, _
  *                     BackgroundVisibility: "HIDDEN" || "VISIBLE",
  *                     BackgroundColor: "STRING_VALUE",
  *                   },
+ *                   XAxis: {
+ *                     Scale: "SHARED" || "INDEPENDENT",
+ *                     Placement: "OUTSIDE" || "INSIDE",
+ *                   },
+ *                   YAxis: "<SmallMultiplesAxisProperties>",
  *                 },
  *                 XAxisDisplayOptions: {
  *                   TickLabelOptions: {
@@ -4365,7 +4386,7 @@ export interface UpdateDashboardCommandOutput extends UpdateDashboardResponse, _
  *                 { // AggregationSortConfiguration
  *                   Column: "<ColumnIdentifier>", // required
  *                   SortDirection: "ASC" || "DESC", // required
- *                   AggregationFunction: "<AggregationFunction>", // required
+ *                   AggregationFunction: "<AggregationFunction>",
  *                 },
  *               ],
  *               TimeGranularity: "YEAR" || "QUARTER" || "MONTH" || "WEEK" || "DAY" || "HOUR" || "MINUTE" || "SECOND" || "MILLISECOND",
@@ -4399,6 +4420,15 @@ export interface UpdateDashboardCommandOutput extends UpdateDashboardResponse, _
  *           DateTimeFormatConfiguration: "<DateTimeFormatConfiguration>",
  *         },
  *         Role: "DIMENSION" || "MEASURE",
+ *         ColorsConfiguration: { // ColorsConfiguration
+ *           CustomColors: [ // CustomColorsList
+ *             { // CustomColor
+ *               FieldValue: "STRING_VALUE",
+ *               Color: "STRING_VALUE", // required
+ *               SpecialValue: "EMPTY" || "NULL" || "OTHER",
+ *             },
+ *           ],
+ *         },
  *       },
  *     ],
  *     AnalysisDefaults: { // AnalysisDefaults

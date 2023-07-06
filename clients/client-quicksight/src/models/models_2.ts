@@ -30,17 +30,112 @@ import {
   AssetBundleImportJobAnalysisOverrideParameters,
   AssetBundleImportJobDashboardOverrideParameters,
   AssetBundleImportJobDataSetOverrideParameters,
-  AssetBundleImportJobDataSourceCredentials,
-  AssetBundleImportJobDataSourceCredentialsFilterSensitiveLog,
-  AthenaParameters,
-  AuroraParameters,
-  AuroraPostgreSqlParameters,
-  AwsIotAnalyticsParameters,
   DataSetReference,
   FilterOperator,
   SheetDefinition,
 } from "./models_1";
 import { QuickSightServiceException as __BaseException } from "./QuickSightServiceException";
+
+/**
+ * @public
+ * <p>A username and password credential pair to use to import a data source resource.</p>
+ */
+export interface AssetBundleImportJobDataSourceCredentialPair {
+  /**
+   * <p>The username for the data source connection.</p>
+   */
+  Username: string | undefined;
+
+  /**
+   * <p>The password for the data source connection.</p>
+   */
+  Password: string | undefined;
+}
+
+/**
+ * @public
+ * <p>The login credentials to use to import a data source resource.</p>
+ */
+export interface AssetBundleImportJobDataSourceCredentials {
+  /**
+   * <p>A username and password credential pair to be used to create the imported data source. Keep this field blank if you are using a Secrets Manager secret to provide credentials.</p>
+   */
+  CredentialPair?: AssetBundleImportJobDataSourceCredentialPair;
+
+  /**
+   * <p>The ARN of the Secrets Manager secret that's used to create the imported data source. Keep this field blank, unless you are using a secret in place of a credential pair.</p>
+   */
+  SecretArn?: string;
+}
+
+/**
+ * @public
+ * <p>Parameters for Amazon Athena.</p>
+ */
+export interface AthenaParameters {
+  /**
+   * <p>The workgroup that Amazon Athena uses.</p>
+   */
+  WorkGroup?: string;
+
+  /**
+   * <p>Use the <code>RoleArn</code> structure to override an account-wide role for a specific Athena data source. For example, say an account administrator has turned off all Athena access with an account-wide role. The administrator can then use <code>RoleArn</code> to bypass the account-wide role and allow Athena access for the single Athena data source that is specified in the structure, even if the account-wide role forbidding Athena access is still active.</p>
+   */
+  RoleArn?: string;
+}
+
+/**
+ * @public
+ * <p>Parameters for Amazon Aurora.</p>
+ */
+export interface AuroraParameters {
+  /**
+   * <p>Host.</p>
+   */
+  Host: string | undefined;
+
+  /**
+   * <p>Port.</p>
+   */
+  Port: number | undefined;
+
+  /**
+   * <p>Database.</p>
+   */
+  Database: string | undefined;
+}
+
+/**
+ * @public
+ * <p>Parameters for Amazon Aurora PostgreSQL-Compatible Edition.</p>
+ */
+export interface AuroraPostgreSqlParameters {
+  /**
+   * <p>The Amazon Aurora PostgreSQL-Compatible host to connect to.</p>
+   */
+  Host: string | undefined;
+
+  /**
+   * <p>The port that Amazon Aurora PostgreSQL is listening on.</p>
+   */
+  Port: number | undefined;
+
+  /**
+   * <p>The Amazon Aurora PostgreSQL database to connect to.</p>
+   */
+  Database: string | undefined;
+}
+
+/**
+ * @public
+ * <p>The parameters for IoT Analytics.</p>
+ */
+export interface AwsIotAnalyticsParameters {
+  /**
+   * <p>Dataset name.</p>
+   */
+  DataSetName: string | undefined;
+}
 
 /**
  * @public
@@ -1460,7 +1555,7 @@ export interface AssetBundleImportJobSummary {
 
 /**
  * @public
- * <p>The source of the asset bundle zip file that contains the data that you want to import.</p>
+ * <p>The source of the asset bundle zip file that contains the data that you want to import. The file must be in <code>QUICKSIGHT_JSON</code> format.</p>
  */
 export interface AssetBundleImportSource {
   /**
@@ -8448,132 +8543,23 @@ export interface DeleteFolderRequest {
 }
 
 /**
- * @public
+ * @internal
  */
-export interface DeleteFolderResponse {
-  /**
-   * <p>The HTTP status of the request.</p>
-   */
-  Status?: number;
-
-  /**
-   * <p>The Amazon Resource Name of the deleted folder.</p>
-   */
-  Arn?: string;
-
-  /**
-   * <p>The ID of the folder.</p>
-   */
-  FolderId?: string;
-
-  /**
-   * <p>The Amazon Web Services request ID for this operation.</p>
-   */
-  RequestId?: string;
-}
+export const AssetBundleImportJobDataSourceCredentialPairFilterSensitiveLog = (
+  obj: AssetBundleImportJobDataSourceCredentialPair
+): any => ({
+  ...obj,
+});
 
 /**
- * @public
+ * @internal
  */
-export interface DeleteFolderMembershipRequest {
-  /**
-   * <p>The ID for the Amazon Web Services account that contains the folder.</p>
-   */
-  AwsAccountId: string | undefined;
-
-  /**
-   * <p>The Folder ID.</p>
-   */
-  FolderId: string | undefined;
-
-  /**
-   * <p>The ID of the asset (the dashboard, analysis, or dataset) that you want to delete.</p>
-   */
-  MemberId: string | undefined;
-
-  /**
-   * <p>The type of the member, including <code>DASHBOARD</code>, <code>ANALYSIS</code>, and <code>DATASET</code>
-   *          </p>
-   */
-  MemberType: MemberType | string | undefined;
-}
-
-/**
- * @public
- */
-export interface DeleteFolderMembershipResponse {
-  /**
-   * <p>The HTTP status of the request.</p>
-   */
-  Status?: number;
-
-  /**
-   * <p>The Amazon Web Services request ID for this operation.</p>
-   */
-  RequestId?: string;
-}
-
-/**
- * @public
- */
-export interface DeleteGroupRequest {
-  /**
-   * <p>The name of the group that you want to delete.</p>
-   */
-  GroupName: string | undefined;
-
-  /**
-   * <p>The ID for the Amazon Web Services account that the group is in. Currently, you use the ID for the
-   * 			Amazon Web Services account that contains your Amazon QuickSight account.</p>
-   */
-  AwsAccountId: string | undefined;
-
-  /**
-   * <p>The namespace of the group that you want to delete.</p>
-   */
-  Namespace: string | undefined;
-}
-
-/**
- * @public
- */
-export interface DeleteGroupResponse {
-  /**
-   * <p>The Amazon Web Services request ID for this operation.</p>
-   */
-  RequestId?: string;
-
-  /**
-   * <p>The HTTP status of the request.</p>
-   */
-  Status?: number;
-}
-
-/**
- * @public
- */
-export interface DeleteGroupMembershipRequest {
-  /**
-   * <p>The name of the user that you want to delete from the group membership.</p>
-   */
-  MemberName: string | undefined;
-
-  /**
-   * <p>The name of the group that you want to delete the user from.</p>
-   */
-  GroupName: string | undefined;
-
-  /**
-   * <p>The ID for the Amazon Web Services account that the group is in. Currently, you use the ID for the
-   * 			Amazon Web Services account that contains your Amazon QuickSight account.</p>
-   */
-  AwsAccountId: string | undefined;
-
-  /**
-   * <p>The namespace of the group that you want to remove a user from.</p>
-   */
-  Namespace: string | undefined;
-}
+export const AssetBundleImportJobDataSourceCredentialsFilterSensitiveLog = (
+  obj: AssetBundleImportJobDataSourceCredentials
+): any => ({
+  ...obj,
+  ...(obj.CredentialPair && { CredentialPair: SENSITIVE_STRING }),
+});
 
 /**
  * @internal

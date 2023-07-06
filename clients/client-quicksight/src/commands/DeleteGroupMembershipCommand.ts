@@ -13,8 +13,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@smithy/types";
 
-import { DeleteGroupMembershipRequest } from "../models/models_2";
-import { DeleteGroupMembershipResponse } from "../models/models_3";
+import { DeleteGroupMembershipRequest, DeleteGroupMembershipResponse } from "../models/models_3";
 import { de_DeleteGroupMembershipCommand, se_DeleteGroupMembershipCommand } from "../protocols/Aws_restJson1";
 import { QuickSightClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../QuickSightClient";
 

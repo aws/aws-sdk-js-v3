@@ -13,7 +13,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@smithy/types";
 
-import { UpdateTemplateAliasRequest, UpdateTemplateAliasResponse } from "../models/models_3";
+import { UpdateTemplateAliasRequest } from "../models/models_3";
+import { UpdateTemplateAliasResponse } from "../models/models_4";
 import { de_UpdateTemplateAliasCommand, se_UpdateTemplateAliasCommand } from "../protocols/Aws_restJson1";
 import { QuickSightClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../QuickSightClient";
 

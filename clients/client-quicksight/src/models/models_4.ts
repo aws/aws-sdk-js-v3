@@ -1,13 +1,189 @@
 // smithy-typescript generated code
+import { ResourceStatus } from "./models_0";
 import {
   ResourcePermission,
+  TemplateAlias,
   ThemeAlias,
+  ThemeConfiguration,
   TopicDetails,
   TopicRefreshSchedule,
   VPCConnectionAvailabilityStatus,
   VPCConnectionResourceStatus,
 } from "./models_2";
 import { User, UserRole } from "./models_3";
+
+/**
+ * @public
+ */
+export interface UpdateTemplateAliasResponse {
+  /**
+   * <p>The template alias.</p>
+   */
+  TemplateAlias?: TemplateAlias;
+
+  /**
+   * <p>The HTTP status of the request.</p>
+   */
+  Status?: number;
+
+  /**
+   * <p>The Amazon Web Services request ID for this operation.</p>
+   */
+  RequestId?: string;
+}
+
+/**
+ * @public
+ */
+export interface UpdateTemplatePermissionsRequest {
+  /**
+   * <p>The ID of the Amazon Web Services account that contains the template.</p>
+   */
+  AwsAccountId: string | undefined;
+
+  /**
+   * <p>The ID for the template.</p>
+   */
+  TemplateId: string | undefined;
+
+  /**
+   * <p>A list of resource permissions to be granted on the template. </p>
+   */
+  GrantPermissions?: ResourcePermission[];
+
+  /**
+   * <p>A list of resource permissions to be revoked from the template. </p>
+   */
+  RevokePermissions?: ResourcePermission[];
+}
+
+/**
+ * @public
+ */
+export interface UpdateTemplatePermissionsResponse {
+  /**
+   * <p>The ID for the template.</p>
+   */
+  TemplateId?: string;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the template.</p>
+   */
+  TemplateArn?: string;
+
+  /**
+   * <p>A list of resource permissions to be set on the template.</p>
+   */
+  Permissions?: ResourcePermission[];
+
+  /**
+   * <p>The Amazon Web Services request ID for this operation.</p>
+   */
+  RequestId?: string;
+
+  /**
+   * <p>The HTTP status of the request.</p>
+   */
+  Status?: number;
+}
+
+/**
+ * @public
+ */
+export interface UpdateThemeRequest {
+  /**
+   * <p>The ID of the Amazon Web Services account that contains the theme that you're updating.</p>
+   */
+  AwsAccountId: string | undefined;
+
+  /**
+   * <p>The ID for the theme.</p>
+   */
+  ThemeId: string | undefined;
+
+  /**
+   * <p>The name for the theme.</p>
+   */
+  Name?: string;
+
+  /**
+   * <p>The theme ID, defined by Amazon QuickSight, that a custom theme inherits from.
+   * 		All themes initially inherit from a default Amazon QuickSight theme.</p>
+   */
+  BaseThemeId: string | undefined;
+
+  /**
+   * <p>A description of the theme version that you're updating Every time that you call
+   * 				<code>UpdateTheme</code>, you create a new version of the theme. Each version of the
+   * 			theme maintains a description of the version in <code>VersionDescription</code>.</p>
+   */
+  VersionDescription?: string;
+
+  /**
+   * <p>The theme configuration, which contains the theme display properties.</p>
+   */
+  Configuration?: ThemeConfiguration;
+}
+
+/**
+ * @public
+ */
+export interface UpdateThemeResponse {
+  /**
+   * <p>The ID for the theme.</p>
+   */
+  ThemeId?: string;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) for the theme.</p>
+   */
+  Arn?: string;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) for the new version of the theme.</p>
+   */
+  VersionArn?: string;
+
+  /**
+   * <p>The creation status of the theme.</p>
+   */
+  CreationStatus?: ResourceStatus | string;
+
+  /**
+   * <p>The HTTP status of the request.</p>
+   */
+  Status?: number;
+
+  /**
+   * <p>The Amazon Web Services request ID for this operation.</p>
+   */
+  RequestId?: string;
+}
+
+/**
+ * @public
+ */
+export interface UpdateThemeAliasRequest {
+  /**
+   * <p>The ID of the Amazon Web Services account that contains the theme alias that you're updating.</p>
+   */
+  AwsAccountId: string | undefined;
+
+  /**
+   * <p>The ID for the theme.</p>
+   */
+  ThemeId: string | undefined;
+
+  /**
+   * <p>The name of the theme alias that you want to update.</p>
+   */
+  AliasName: string | undefined;
+
+  /**
+   * <p>The version number of the theme that the alias should reference.</p>
+   */
+  ThemeVersionNumber: number | undefined;
+}
 
 /**
  * @public
