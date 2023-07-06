@@ -4951,11 +4951,11 @@ export interface ModifyDBInstanceMessage {
   Domain?: string;
 
   /**
-   * <p>Specifies the fully qualified domain name of an Active Directory domain.</p>
+   * <p>The fully qualified domain name (FQDN) of an Active Directory domain.</p>
    *          <p>Constraints:</p>
    *          <ul>
    *             <li>
-   *                <p>Cannot be greater than 64 characters.</p>
+   *                <p>Can't be longer than 64 characters.</p>
    *             </li>
    *          </ul>
    *          <p>Example: <code>mymanagedADtest.mymanagedAD.mydomain</code>
@@ -4971,7 +4971,7 @@ export interface ModifyDBInstanceMessage {
    *                <p>Must be in the distinguished name format.</p>
    *             </li>
    *             <li>
-   *                <p>Cannot be greater than 64 characters.</p>
+   *                <p>Can't be longer than 64 characters.</p>
    *             </li>
    *          </ul>
    *          <p>Example: <code>OU=mymanagedADtestOU,DC=mymanagedADtest,DC=mymanagedAD,DC=mydomain</code>
@@ -4980,7 +4980,7 @@ export interface ModifyDBInstanceMessage {
   DomainOu?: string;
 
   /**
-   * <p>The ARN for the Secrets Manager secret that contains the credentials for the user performing the domain join.</p>
+   * <p>The ARN for the Secrets Manager secret with the credentials for the user joining the domain.</p>
    *          <p>Example: <code>arn:aws:secretsmanager:region:account-number:secret:myselfmanagedADtestsecret-123456</code>
    *          </p>
    */
@@ -5103,7 +5103,7 @@ export interface ModifyDBInstanceMessage {
   DomainIAMRoleName?: string;
 
   /**
-   * <p>Boolean.  If present, removes the instance from the Active Directory domain.</p>
+   * <p>Specifies whether to remove the DB instance from the Active Directory domain.</p>
    */
   DisableDomain?: boolean;
 
@@ -8183,11 +8183,11 @@ export interface RestoreDBInstanceFromDBSnapshotMessage {
   Domain?: string;
 
   /**
-   * <p>Specifies the fully qualified domain name of an Active Directory domain.</p>
+   * <p>The fully qualified domain name (FQDN) of an Active Directory domain.</p>
    *          <p>Constraints:</p>
    *          <ul>
    *             <li>
-   *                <p>Cannot be greater than 64 characters.</p>
+   *                <p>Can't be longer than 64 characters.</p>
    *             </li>
    *          </ul>
    *          <p>Example: <code>mymanagedADtest.mymanagedAD.mydomain</code>
@@ -8203,7 +8203,7 @@ export interface RestoreDBInstanceFromDBSnapshotMessage {
    *                <p>Must be in the distinguished name format.</p>
    *             </li>
    *             <li>
-   *                <p>Cannot be greater than 64 characters.</p>
+   *                <p>Can't be longer than 64 characters.</p>
    *             </li>
    *          </ul>
    *          <p>Example: <code>OU=mymanagedADtestOU,DC=mymanagedADtest,DC=mymanagedAD,DC=mydomain</code>
@@ -8212,7 +8212,7 @@ export interface RestoreDBInstanceFromDBSnapshotMessage {
   DomainOu?: string;
 
   /**
-   * <p>The ARN for the Secrets Manager secret that contains the credentials for the user performing the domain join.</p>
+   * <p>The ARN for the Secrets Manager secret with the credentials for the user joining the domain.</p>
    *          <p>Constraints:</p>
    *          <p>Example: <code>arn:aws:secretsmanager:region:account-number:secret:myselfmanagedADtestsecret-123456</code>
    *          </p>
@@ -8243,8 +8243,8 @@ export interface RestoreDBInstanceFromDBSnapshotMessage {
   CopyTagsToSnapshot?: boolean;
 
   /**
-   * <p>Specify the name of the IAM role to be used when making API calls to the Directory Service.</p>
-   *          <p>This setting doesn't apply to RDS Custom.</p>
+   * <p>The name of the IAM role to use when making API calls to the Directory Service.</p>
+   *          <p>This setting doesn't apply to RDS Custom DB instances.</p>
    */
   DomainIAMRoleName?: string;
 
@@ -9272,17 +9272,17 @@ export interface RestoreDBInstanceToPointInTimeMessage {
   Domain?: string;
 
   /**
-   * <p>Specify the name of the IAM role to be used when making API calls to the Directory Service.</p>
-   *          <p>This setting doesn't apply to RDS Custom.</p>
+   * <p>The name of the IAM role to use when making API calls to the Directory Service.</p>
+   *          <p>This setting doesn't apply to RDS Custom DB instances.</p>
    */
   DomainIAMRoleName?: string;
 
   /**
-   * <p>Specifies the fully qualified domain name of an Active Directory domain.</p>
+   * <p>The fully qualified domain name (FQDN) of an Active Directory domain.</p>
    *          <p>Constraints:</p>
    *          <ul>
    *             <li>
-   *                <p>Cannot be greater than 64 characters.</p>
+   *                <p>Can't be longer than 64 characters.</p>
    *             </li>
    *          </ul>
    *          <p>Example: <code>mymanagedADtest.mymanagedAD.mydomain</code>
@@ -9298,7 +9298,7 @@ export interface RestoreDBInstanceToPointInTimeMessage {
    *                <p>Must be in the distinguished name format.</p>
    *             </li>
    *             <li>
-   *                <p>Cannot be greater than 64 characters.</p>
+   *                <p>Can't be longer than 64 characters.</p>
    *             </li>
    *          </ul>
    *          <p>Example: <code>OU=mymanagedADtestOU,DC=mymanagedADtest,DC=mymanagedAD,DC=mydomain</code>
@@ -9307,11 +9307,11 @@ export interface RestoreDBInstanceToPointInTimeMessage {
   DomainOu?: string;
 
   /**
-   * <p>The ARN for the Secrets Manager secret that contains the credentials for the user performing the domain join.</p>
+   * <p>The ARN for the Secrets Manager secret with the credentials for the user joining the domain.</p>
    *          <p>Constraints:</p>
    *          <ul>
    *             <li>
-   *                <p>Cannot be greater than 64 characters.</p>
+   *                <p>Can't be longer than 64 characters.</p>
    *             </li>
    *          </ul>
    *          <p>Example: <code>arn:aws:secretsmanager:region:account-number:secret:myselfmanagedADtestsecret-123456</code>

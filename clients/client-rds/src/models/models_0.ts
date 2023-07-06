@@ -4641,7 +4641,7 @@ export interface DomainMembership {
   Domain?: string;
 
   /**
-   * <p>The status of the Active Directory Domain membership for the DB instance or cluster. Values include joined, pending-join, failed, and so on.</p>
+   * <p>The status of the Active Directory Domain membership for the DB instance or cluster. Values include <code>joined</code>, <code>pending-join</code>, <code>failed</code>, and so on.</p>
    */
   Status?: string;
 
@@ -4651,22 +4651,22 @@ export interface DomainMembership {
   FQDN?: string;
 
   /**
-   * <p>The name of the IAM role to be used when making API calls to the Directory Service.</p>
+   * <p>The name of the IAM role used when making API calls to the Directory Service.</p>
    */
   IAMRoleName?: string;
 
   /**
-   * <p>The Active Directory organizational unit for your DB instance to join.</p>
+   * <p>The Active Directory organizational unit for the DB instance or cluster.</p>
    */
   OU?: string;
 
   /**
-   * <p>The ARN for the Secrets Manager secret that contains the credentials for the user performing the domain join.</p>
+   * <p>The ARN for the Secrets Manager secret with the credentials for the user that's a member of the domain.</p>
    */
   AuthSecretArn?: string;
 
   /**
-   * <p>The IPv4 DNS IP addresses of your primary and secondary Active Directory domain controllers.</p>
+   * <p>The IPv4 DNS IP addresses of the primary and secondary Active Directory domain controllers.</p>
    */
   DnsIps?: string[];
 }
@@ -6006,14 +6006,6 @@ export interface CreateDBInstanceMessage {
    * <p>The meaning of this parameter differs depending on the database engine.</p>
    *          <dl>
    *             <dt>Amazon Aurora MySQL</dt>
-   *             <dt>Amazon Aurora PostgreSQL</dt>
-   *             <dt>Amazon RDS Custom for Oracle</dt>
-   *             <dt>Amazon RDS Custom for SQL Server</dt>
-   *             <dt>RDS for MariaDB</dt>
-   *             <dt>RDS for MySQL</dt>
-   *             <dt>RDS for Oracle</dt>
-   *             <dt>RDS for PostgreSQL</dt>
-   *             <dt>RDS for SQL Server</dt>
    *             <dd>
    *                <p>The name of the database to create when the primary DB instance of the Aurora MySQL DB cluster is
    *                 created. If you don't specify a value, Amazon RDS doesn't create a database in the DB cluster.</p>
@@ -6027,6 +6019,7 @@ export interface CreateDBInstanceMessage {
    *                   </li>
    *                </ul>
    *             </dd>
+   *             <dt>Amazon Aurora PostgreSQL</dt>
    *             <dd>
    *                <p>The name of the database to create when the primary DB instance of the Aurora PostgreSQL DB cluster is
    *                   created.</p>
@@ -6047,6 +6040,7 @@ export interface CreateDBInstanceMessage {
    *                   </li>
    *                </ul>
    *             </dd>
+   *             <dt>Amazon RDS Custom for Oracle</dt>
    *             <dd>
    *                <p>The Oracle System ID (SID) of the created RDS Custom DB instance.</p>
    *                <p>Default: <code>ORCL</code>
@@ -6064,9 +6058,11 @@ export interface CreateDBInstanceMessage {
    *                   </li>
    *                </ul>
    *             </dd>
+   *             <dt>Amazon RDS Custom for SQL Server</dt>
    *             <dd>
    *                <p>Not applicable. Must be null.</p>
    *             </dd>
+   *             <dt>RDS for MariaDB</dt>
    *             <dd>
    *                <p>The name of the database to create when the DB instance is created. If you don't specify a value, Amazon RDS doesn't create a database in the DB instance.</p>
    *                <p>Constraints:</p>
@@ -6082,6 +6078,7 @@ export interface CreateDBInstanceMessage {
    *                   </li>
    *                </ul>
    *             </dd>
+   *             <dt>RDS for MySQL</dt>
    *             <dd>
    *                <p>The name of the database to create when the DB instance is created. If you don't specify a value, Amazon RDS doesn't create a database in the DB instance.</p>
    *                <p>Constraints:</p>
@@ -6097,6 +6094,7 @@ export interface CreateDBInstanceMessage {
    *                   </li>
    *                </ul>
    *             </dd>
+   *             <dt>RDS for Oracle</dt>
    *             <dd>
    *                <p>The Oracle System ID (SID) of the created DB instance.</p>
    *                <p>Default: <code>ORCL</code>
@@ -6111,6 +6109,7 @@ export interface CreateDBInstanceMessage {
    *                   </li>
    *                </ul>
    *             </dd>
+   *             <dt>RDS for PostgreSQL</dt>
    *             <dd>
    *                <p>The name of the database to create when the DB instance is created.</p>
    *                <p>Default: <code>postgres</code>
@@ -6128,6 +6127,7 @@ export interface CreateDBInstanceMessage {
    *                   </li>
    *                </ul>
    *             </dd>
+   *             <dt>RDS for SQL Server</dt>
    *             <dd>
    *                <p>Not applicable. Must be null.</p>
    *             </dd>
@@ -6160,11 +6160,6 @@ export interface CreateDBInstanceMessage {
    *                     database increases, though you are only charged for the space that you use in an Aurora cluster volume.</p>
    *          <dl>
    *             <dt>Amazon RDS Custom</dt>
-   *             <dt>RDS for MariaDB</dt>
-   *             <dt>RDS for MySQL</dt>
-   *             <dt>RDS for Oracle</dt>
-   *             <dt>RDS for PostgreSQL</dt>
-   *             <dt>RDS for SQL Server</dt>
    *             <dd>
    *                <p>Constraints to the amount of storage for each storage type are the following:</p>
    *                <ul>
@@ -6178,6 +6173,7 @@ export interface CreateDBInstanceMessage {
    *                   </li>
    *                </ul>
    *             </dd>
+   *             <dt>RDS for MariaDB</dt>
    *             <dd>
    *                <p>Constraints to the amount of storage for each storage type are the following:</p>
    *                <ul>
@@ -6192,6 +6188,7 @@ export interface CreateDBInstanceMessage {
    *                   </li>
    *                </ul>
    *             </dd>
+   *             <dt>RDS for MySQL</dt>
    *             <dd>
    *                <p>Constraints to the amount of storage for each storage type are the following:</p>
    *                <ul>
@@ -6206,6 +6203,7 @@ export interface CreateDBInstanceMessage {
    *                   </li>
    *                </ul>
    *             </dd>
+   *             <dt>RDS for Oracle</dt>
    *             <dd>
    *                <p>Constraints to the amount of storage for each storage type are the following:</p>
    *                <ul>
@@ -6220,6 +6218,7 @@ export interface CreateDBInstanceMessage {
    *                   </li>
    *                </ul>
    *             </dd>
+   *             <dt>RDS for PostgreSQL</dt>
    *             <dd>
    *                <p>Constraints to the amount of storage for each storage type are the following:</p>
    *                <ul>
@@ -6234,6 +6233,7 @@ export interface CreateDBInstanceMessage {
    *                   </li>
    *                </ul>
    *             </dd>
+   *             <dt>RDS for SQL Server</dt>
    *             <dd>
    *                <p>Constraints to the amount of storage for each storage type are the following:</p>
    *                <ul>
@@ -6644,38 +6644,38 @@ export interface CreateDBInstanceMessage {
    *           Amazon RDS. Not every database engine is available for every Amazon Web Services Region.</p>
    *          <dl>
    *             <dt>Amazon RDS Custom for Oracle</dt>
-   *             <dt>Amazon RDS Custom for SQL Server</dt>
-   *             <dt>RDS for MariaDB</dt>
-   *             <dt>RDS for Microsoft SQL Server</dt>
-   *             <dt>RDS for MySQL</dt>
-   *             <dt>RDS for Oracle</dt>
-   *             <dt>RDS for PostgreSQL</dt>
    *             <dd>
    *                <p>A custom engine version (CEV) that you have previously created. This setting is required for RDS Custom for Oracle. The CEV
    *                 name has the following format: 19.<i>customized_string</i>. A valid CEV name is
    *                 <code>19.my_cev1</code>. For more information, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/custom-creating.html#custom-creating.create">
    *                 Creating an RDS Custom for Oracle DB instance</a> in the <i>Amazon RDS User Guide</i>.</p>
    *             </dd>
+   *             <dt>Amazon RDS Custom for SQL Server</dt>
    *             <dd>
    *                <p>See <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/custom-reqs-limits-MS.html">RDS Custom for SQL Server general requirements</a>
    *                 in the <i>Amazon RDS User Guide</i>.</p>
    *             </dd>
+   *             <dt>RDS for MariaDB</dt>
    *             <dd>
    *                <p>For information, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_MariaDB.html#MariaDB.Concepts.VersionMgmt">MariaDB on Amazon RDS versions</a> in the
    *                 <i>Amazon RDS User Guide</i>.</p>
    *             </dd>
+   *             <dt>RDS for Microsoft SQL Server</dt>
    *             <dd>
    *                <p>For information, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_SQLServer.html#SQLServer.Concepts.General.VersionSupport">Microsoft SQL Server versions on Amazon RDS</a> in the
    *                   <i>Amazon RDS User Guide</i>.</p>
    *             </dd>
+   *             <dt>RDS for MySQL</dt>
    *             <dd>
    *                <p>For information, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_MySQL.html#MySQL.Concepts.VersionMgmt">MySQL on Amazon RDS versions</a> in the
    *                 <i>Amazon RDS User Guide</i>.</p>
    *             </dd>
+   *             <dt>RDS for Oracle</dt>
    *             <dd>
    *                <p>For information, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Appendix.Oracle.PatchComposition.html">Oracle Database Engine release notes</a> in the
    *                 <i>Amazon RDS User Guide</i>.</p>
    *             </dd>
+   *             <dt>RDS for PostgreSQL</dt>
    *             <dd>
    *                <p>For information, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_PostgreSQL.html#PostgreSQL.Concepts">Amazon RDS for PostgreSQL versions and extensions</a> in the
    *                   <i>Amazon RDS User Guide</i>.</p>
@@ -6877,11 +6877,11 @@ export interface CreateDBInstanceMessage {
   Domain?: string;
 
   /**
-   * <p>Specifies the fully qualified domain name of an Active Directory domain.</p>
+   * <p>The fully qualified domain name (FQDN) of an Active Directory domain.</p>
    *          <p>Constraints:</p>
    *          <ul>
    *             <li>
-   *                <p>Cannot be greater than 64 characters.</p>
+   *                <p>Can't be longer than 64 characters.</p>
    *             </li>
    *          </ul>
    *          <p>Example: <code>mymanagedADtest.mymanagedAD.mydomain</code>
@@ -6897,7 +6897,7 @@ export interface CreateDBInstanceMessage {
    *                <p>Must be in the distinguished name format.</p>
    *             </li>
    *             <li>
-   *                <p>Cannot be greater than 64 characters.</p>
+   *                <p>Can't be longer than 64 characters.</p>
    *             </li>
    *          </ul>
    *          <p>Example: <code>OU=mymanagedADtestOU,DC=mymanagedADtest,DC=mymanagedAD,DC=mydomain</code>
@@ -6906,7 +6906,7 @@ export interface CreateDBInstanceMessage {
   DomainOu?: string;
 
   /**
-   * <p>The ARN for the Secrets Manager secret that contains the credentials for the user performing the domain join.</p>
+   * <p>The ARN for the Secrets Manager secret with the credentials for the user joining the domain.</p>
    *          <p>Example: <code>arn:aws:secretsmanager:region:account-number:secret:myselfmanagedADtestsecret-123456</code>
    *          </p>
    */
@@ -6926,7 +6926,7 @@ export interface CreateDBInstanceMessage {
   DomainDnsIps?: string[];
 
   /**
-   * <p>Spcifies whether to copy tags from the DB instance to snapshots of the DB instance. By default, tags are not copied.</p>
+   * <p>Specifies whether to copy tags from the DB instance to snapshots of the DB instance. By default, tags are not copied.</p>
    *          <p>This setting doesn't apply to Amazon Aurora DB instances. Copying tags to snapshots is managed by the DB cluster. Setting this
    *           value for an Aurora DB instance has no effect on the DB cluster setting.</p>
    */
@@ -8824,11 +8824,11 @@ export interface CreateDBInstanceReadReplicaMessage {
   DomainIAMRoleName?: string;
 
   /**
-   * <p>Specifies the fully qualified domain name of an Active Directory domain.</p>
+   * <p>The fully qualified domain name (FQDN) of an Active Directory domain.</p>
    *          <p>Constraints:</p>
    *          <ul>
    *             <li>
-   *                <p>Cannot be greater than 64 characters.</p>
+   *                <p>Can't be longer than 64 characters.</p>
    *             </li>
    *          </ul>
    *          <p>Example: <code>mymanagedADtest.mymanagedAD.mydomain</code>
@@ -8844,7 +8844,7 @@ export interface CreateDBInstanceReadReplicaMessage {
    *                <p>Must be in the distinguished name format.</p>
    *             </li>
    *             <li>
-   *                <p>Cannot be greater than 64 characters.</p>
+   *                <p>Can't be longer than 64 characters.</p>
    *             </li>
    *          </ul>
    *          <p>Example: <code>OU=mymanagedADtestOU,DC=mymanagedADtest,DC=mymanagedAD,DC=mydomain</code>
@@ -8853,7 +8853,7 @@ export interface CreateDBInstanceReadReplicaMessage {
   DomainOu?: string;
 
   /**
-   * <p>The ARN for the Secrets Manager secret that contains the credentials for the user performing the domain join.</p>
+   * <p>The ARN for the Secrets Manager secret with the credentials for the user joining the domain.</p>
    *          <p>Example: <code>arn:aws:secretsmanager:region:account-number:secret:myselfmanagedADtestsecret-123456</code>
    *          </p>
    */
@@ -10279,41 +10279,88 @@ export class SubscriptionCategoryNotFoundFault extends __BaseException {
  */
 export interface CreateGlobalClusterMessage {
   /**
-   * <p>The cluster identifier of the new global database cluster. This parameter is stored as a lowercase string.</p>
+   * <p>The cluster identifier for this global database cluster. This parameter is stored as a lowercase string.</p>
    */
   GlobalClusterIdentifier?: string;
 
   /**
-   * <p>The Amazon Resource Name (ARN) to use as the primary cluster of the global database.
-   *         This parameter is optional.</p>
+   * <p>The Amazon Resource Name (ARN) to use as the primary cluster of the global database.</p>
+   *          <p>If you provide a value for this parameter, don't specify values for the following settings because Amazon Aurora uses the values from the specified source DB cluster:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>DatabaseName</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>Engine</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>EngineVersion</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>StorageEncrypted</code>
+   *                </p>
+   *             </li>
+   *          </ul>
    */
   SourceDBClusterIdentifier?: string;
 
   /**
-   * <p>The name of the database engine to be used for this DB cluster.</p>
+   * <p>The database engine to use for this global database cluster.</p>
+   *          <p>Valid Values: <code>aurora-mysql | aurora-postgresql</code>
+   *          </p>
+   *          <p>Constraints:</p>
+   *          <ul>
+   *             <li>
+   *                <p>Can't be specified if <code>SourceDBClusterIdentifier</code> is specified. In this case, Amazon Aurora uses the engine of the source DB cluster.</p>
+   *             </li>
+   *          </ul>
    */
   Engine?: string;
 
   /**
-   * <p>The engine version of the Aurora global database.</p>
+   * <p>The engine version to use for this global database cluster.</p>
+   *          <p>Constraints:</p>
+   *          <ul>
+   *             <li>
+   *                <p>Can't be specified if <code>SourceDBClusterIdentifier</code> is specified. In this case, Amazon Aurora uses the engine version of the source DB cluster.</p>
+   *             </li>
+   *          </ul>
    */
   EngineVersion?: string;
 
   /**
-   * <p>The deletion protection setting for the new global database.
+   * <p>Specifies whether to enable deletion protection for the new global database cluster.
    *         The global database can't be deleted when deletion protection is enabled.</p>
    */
   DeletionProtection?: boolean;
 
   /**
-   * <p>The name for your database of up to 64 alphanumeric characters. If you do not provide
-   *             a name, Amazon Aurora will not create a database in the global database cluster you are
-   *             creating.</p>
+   * <p>The name for your database of up to 64 alphanumeric characters. If you don't specify
+   *             a name, Amazon Aurora doesn't create a database in the global database cluster.</p>
+   *          <p>Constraints:</p>
+   *          <ul>
+   *             <li>
+   *                <p>Can't be specified if <code>SourceDBClusterIdentifier</code> is specified. In this case, Amazon Aurora uses the database name from the source DB cluster.</p>
+   *             </li>
+   *          </ul>
    */
   DatabaseName?: string;
 
   /**
-   * <p>The storage encryption setting for the new global database cluster.</p>
+   * <p>Specifies whether to enable storage encryption for the new global database cluster.</p>
+   *          <p>Constraints:</p>
+   *          <ul>
+   *             <li>
+   *                <p>Can't be specified if <code>SourceDBClusterIdentifier</code> is specified. In this case, Amazon Aurora uses the setting from the source DB cluster.</p>
+   *             </li>
+   *          </ul>
    */
   StorageEncrypted?: boolean;
 }

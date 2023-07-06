@@ -47,7 +47,7 @@ export interface CreateGlobalClusterCommandOutput extends CreateGlobalClusterRes
  *         Or you can specify an existing Aurora cluster during the create operation,
  *         and this cluster becomes the primary cluster of the global database.</p>
  *          <note>
- *             <p>This action applies only to Aurora DB clusters.</p>
+ *             <p>This operation applies only to Aurora DB clusters.</p>
  *          </note>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
