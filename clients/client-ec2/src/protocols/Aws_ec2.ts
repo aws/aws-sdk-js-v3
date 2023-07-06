@@ -3281,7 +3281,6 @@ import {
   VerifiedAccessLogCloudWatchLogsDestination,
   VerifiedAccessLogDeliveryStatus,
   VerifiedAccessLogKinesisDataFirehoseDestination,
-  VerifiedAccessLogs,
   VerifiedAccessLogS3Destination,
 } from "../models/models_4";
 import {
@@ -3525,7 +3524,6 @@ import {
   ImportClientVpnClientCertificateRevocationListRequest,
   ImportClientVpnClientCertificateRevocationListResult,
   ImportImageLicenseConfigurationRequest,
-  ImportImageRequest,
   InstanceEventWindowDisassociationRequest,
   InstanceFamilyCreditSpecification,
   InstanceRequirementsWithMetadataRequest,
@@ -3560,6 +3558,7 @@ import {
   TransitGatewayRouteTablePropagation,
   UserBucket,
   VerifiedAccessInstanceLoggingConfiguration,
+  VerifiedAccessLogs,
   VolumeModification,
   VolumeStatusAction,
   VolumeStatusAttachmentStatus,
@@ -3585,6 +3584,7 @@ import {
   EnclaveOptionsRequest,
   HibernationOptionsRequest,
   ImageRecycleBinInfo,
+  ImportImageRequest,
   ImportImageResult,
   ImportInstanceLaunchSpecification,
   ImportInstanceRequest,
@@ -3834,7 +3834,6 @@ import {
   RevokeSecurityGroupIngressResult,
   RunInstancesRequest,
   RunScheduledInstancesRequest,
-  RunScheduledInstancesResult,
   ScheduledInstancesBlockDeviceMapping,
   ScheduledInstancesEbs,
   ScheduledInstancesIamInstanceProfile,
@@ -3865,6 +3864,7 @@ import {
 } from "../models/models_6";
 import {
   InstanceStateChange,
+  RunScheduledInstancesResult,
   SearchLocalGatewayRoutesRequest,
   SearchLocalGatewayRoutesResult,
   SearchTransitGatewayMulticastGroupsRequest,
@@ -80225,6 +80225,9 @@ const de_InstanceTypeInfo = (output: any, context: __SerdeContext): InstanceType
       __getArrayIfSingleItem(output["supportedBootModes"]["item"]),
       context
     );
+  }
+  if (output["nitroEnclavesSupport"] !== undefined) {
+    contents.NitroEnclavesSupport = __expectString(output["nitroEnclavesSupport"]);
   }
   return contents;
 };

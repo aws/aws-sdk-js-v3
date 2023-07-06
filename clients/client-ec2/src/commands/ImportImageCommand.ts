@@ -14,8 +14,12 @@ import {
 } from "@smithy/types";
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
-import { ImportImageRequest, ImportImageRequestFilterSensitiveLog } from "../models/models_5";
-import { ImportImageResult, ImportImageResultFilterSensitiveLog } from "../models/models_6";
+import {
+  ImportImageRequest,
+  ImportImageRequestFilterSensitiveLog,
+  ImportImageResult,
+  ImportImageResultFilterSensitiveLog,
+} from "../models/models_6";
 import { de_ImportImageCommand, se_ImportImageCommand } from "../protocols/Aws_ec2";
 
 /**

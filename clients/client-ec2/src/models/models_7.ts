@@ -14,6 +14,17 @@ import { InstanceMonitoring } from "./models_6";
 
 /**
  * @public
+ * <p>Contains the output of RunScheduledInstances.</p>
+ */
+export interface RunScheduledInstancesResult {
+  /**
+   * <p>The IDs of the newly launched instances.</p>
+   */
+  InstanceIdSet?: string[];
+}
+
+/**
+ * @public
  */
 export interface SearchLocalGatewayRoutesRequest {
   /**

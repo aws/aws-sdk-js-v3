@@ -14,11 +14,8 @@ import {
 } from "@smithy/types";
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
-import {
-  RunScheduledInstancesRequest,
-  RunScheduledInstancesRequestFilterSensitiveLog,
-  RunScheduledInstancesResult,
-} from "../models/models_6";
+import { RunScheduledInstancesRequest, RunScheduledInstancesRequestFilterSensitiveLog } from "../models/models_6";
+import { RunScheduledInstancesResult } from "../models/models_7";
 import { de_RunScheduledInstancesCommand, se_RunScheduledInstancesCommand } from "../protocols/Aws_ec2";
 
 /**

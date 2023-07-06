@@ -9146,14 +9146,14 @@ export interface ElasticInferenceAcceleratorAssociation {
 /**
  * @public
  * <p>Indicates whether your instance is configured for hibernation. This parameter is valid
- *             only if the instance meets the <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Hibernate.html#hibernating-prerequisites">hibernation
+ *             only if the instance meets the <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/hibernating-prerequisites.html">hibernation
  *                 prerequisites</a>. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Hibernate.html">Hibernate your instance</a> in the
  *                 <i>Amazon EC2 User Guide</i>.</p>
  */
 export interface HibernationOptions {
   /**
-   * <p>If this parameter is set to <code>true</code>, your instance is enabled for
-   *             hibernation; otherwise, it is not enabled for hibernation.</p>
+   * <p>If <code>true</code>, your instance is enabled for hibernation; otherwise, it is not
+   *             enabled for hibernation.</p>
    */
   Configured?: boolean;
 }

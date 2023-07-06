@@ -198,6 +198,7 @@ export interface DescribeInstanceTypesCommandOutput extends DescribeInstanceType
  * //       SupportedBootModes: [ // BootModeTypeList
  * //         "legacy-bios" || "uefi",
  * //       ],
+ * //       NitroEnclavesSupport: "unsupported" || "supported",
  * //     },
  * //   ],
  * //   NextToken: "STRING_VALUE",

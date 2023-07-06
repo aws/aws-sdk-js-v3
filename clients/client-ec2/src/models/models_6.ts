@@ -153,6 +153,9 @@ import {
 } from "./models_4";
 import {
   ClientData,
+  ImageDiskContainer,
+  ImageDiskContainerFilterSensitiveLog,
+  ImportImageLicenseConfigurationRequest,
   InstanceFamilyCreditSpecification,
   IpamResourceCidr,
   Purchase,
@@ -161,6 +164,131 @@ import {
   VerifiedAccessInstanceLoggingConfiguration,
   VolumeModification,
 } from "./models_5";
+
+/**
+ * @public
+ */
+export interface ImportImageRequest {
+  /**
+   * <p>The architecture of the virtual machine.</p>
+   *          <p>Valid values: <code>i386</code> | <code>x86_64</code>
+   *          </p>
+   */
+  Architecture?: string;
+
+  /**
+   * <p>The client-specific data.</p>
+   */
+  ClientData?: ClientData;
+
+  /**
+   * <p>The token to enable idempotency for VM import requests.</p>
+   */
+  ClientToken?: string;
+
+  /**
+   * <p>A description string for the import image task.</p>
+   */
+  Description?: string;
+
+  /**
+   * <p>Information about the disk containers.</p>
+   */
+  DiskContainers?: ImageDiskContainer[];
+
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually making the request,
+   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
+   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   */
+  DryRun?: boolean;
+
+  /**
+   * <p>Specifies whether the destination AMI of the imported image should be encrypted. The default KMS key for EBS is used
+   *    unless you specify a non-default KMS key using <code>KmsKeyId</code>. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSEncryption.html">Amazon EBS Encryption</a> in the
+   *     <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
+   */
+  Encrypted?: boolean;
+
+  /**
+   * <p>The target hypervisor platform.</p>
+   *          <p>Valid values: <code>xen</code>
+   *          </p>
+   */
+  Hypervisor?: string;
+
+  /**
+   * <p>An identifier for the symmetric KMS key to use when creating the
+   *    encrypted AMI. This parameter is only required if you want to use a non-default KMS key; if this
+   *    parameter is not specified, the default KMS key for EBS is used. If a <code>KmsKeyId</code> is
+   *    specified, the <code>Encrypted</code> flag must also be set. </p>
+   *          <p>The KMS key identifier may be provided in any of the following formats: </p>
+   *          <ul>
+   *             <li>
+   *                <p>Key ID</p>
+   *             </li>
+   *             <li>
+   *                <p>Key alias. The alias ARN contains the <code>arn:aws:kms</code> namespace, followed by the Region of the key, the Amazon Web Services account ID of the key owner, the <code>alias</code> namespace, and then the key alias. For example, arn:aws:kms:<i>us-east-1</i>:<i>012345678910</i>:alias/<i>ExampleAlias</i>.</p>
+   *             </li>
+   *             <li>
+   *                <p>ARN using key ID. The ID ARN contains the <code>arn:aws:kms</code> namespace, followed by the Region of the key, the Amazon Web Services account ID of the key owner, the <code>key</code> namespace, and then the key ID. For example, arn:aws:kms:<i>us-east-1</i>:<i>012345678910</i>:key/<i>abcd1234-a123-456a-a12b-a123b4cd56ef</i>.</p>
+   *             </li>
+   *             <li>
+   *                <p>ARN using key alias. The alias ARN contains the <code>arn:aws:kms</code> namespace, followed by the Region of the key, the Amazon Web Services account ID of the key owner, the <code>alias</code> namespace, and then the key alias. For example, arn:aws:kms:<i>us-east-1</i>:<i>012345678910</i>:alias/<i>ExampleAlias</i>. </p>
+   *             </li>
+   *          </ul>
+   *          <p>Amazon Web Services parses <code>KmsKeyId</code> asynchronously, meaning that the action you call may appear to complete even
+   *    though you provided an invalid identifier. This action will eventually report failure. </p>
+   *          <p>The specified KMS key must exist in the Region that the AMI is being copied to.</p>
+   *          <p>Amazon EBS does not support asymmetric KMS keys.</p>
+   */
+  KmsKeyId?: string;
+
+  /**
+   * <p>The license type to be used for the Amazon Machine Image (AMI) after importing.</p>
+   *          <p>Specify <code>AWS</code> to replace the source-system license with an Amazon Web Services
+   *    license or <code>BYOL</code> to retain the source-system license. Leaving this parameter
+   *    undefined is the same as choosing <code>AWS</code> when importing a Windows Server operating
+   *    system, and the same as choosing <code>BYOL</code> when importing a Windows client operating
+   *    system (such as Windows 10) or a Linux operating system.</p>
+   *          <p>To use <code>BYOL</code>, you must have existing licenses with rights to use these licenses in a third party
+   *    cloud, such as Amazon Web Services. For more information, see <a href="https://docs.aws.amazon.com/vm-import/latest/userguide/vmimport-image-import.html#prerequisites-image">Prerequisites</a> in the
+   *    VM Import/Export User Guide.</p>
+   */
+  LicenseType?: string;
+
+  /**
+   * <p>The operating system of the virtual machine.</p>
+   *          <p>Valid values: <code>Windows</code> | <code>Linux</code>
+   *          </p>
+   */
+  Platform?: string;
+
+  /**
+   * <p>The name of the role to use when not using the default role, 'vmimport'.</p>
+   */
+  RoleName?: string;
+
+  /**
+   * <p>The ARNs of the license configurations.</p>
+   */
+  LicenseSpecifications?: ImportImageLicenseConfigurationRequest[];
+
+  /**
+   * <p>The tags to apply to the import image task during creation.</p>
+   */
+  TagSpecifications?: TagSpecification[];
+
+  /**
+   * <p>The usage operation value. For more information, see <a href="https://docs.aws.amazon.com/vm-import/latest/userguide/vmie_prereqs.html#prerequisites">Licensing options</a> in the <i>VM Import/Export User Guide</i>.</p>
+   */
+  UsageOperation?: string;
+
+  /**
+   * <p>The boot mode of the virtual machine.</p>
+   */
+  BootMode?: BootModeValues | string;
+}
 
 /**
  * @public
@@ -7598,14 +7726,13 @@ export interface EnclaveOptionsRequest {
 /**
  * @public
  * <p>Indicates whether your instance is configured for hibernation. This parameter is valid
- *             only if the instance meets the <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Hibernate.html#hibernating-prerequisites">hibernation
+ *             only if the instance meets the <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/hibernating-prerequisites.html">hibernation
  *                 prerequisites</a>. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Hibernate.html">Hibernate your instance</a> in the
  *                 <i>Amazon EC2 User Guide</i>.</p>
  */
 export interface HibernationOptionsRequest {
   /**
-   * <p>If you set this parameter to <code>true</code>, your instance is enabled for
-   *             hibernation.</p>
+   * <p>Set to <code>true</code> to enable your instance for hibernation.</p>
    *          <p>Default: <code>false</code>
    *          </p>
    */
@@ -8140,9 +8267,10 @@ export interface RunInstancesRequest {
   CapacityReservationSpecification?: CapacityReservationSpecification;
 
   /**
-   * <p>Indicates whether an instance is enabled for hibernation. For more information, see
-   *                 <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Hibernate.html">Hibernate
-   *                 your instance</a> in the <i>Amazon EC2 User Guide</i>.</p>
+   * <p>Indicates whether an instance is enabled for hibernation. This parameter is valid only
+   *             if the instance meets the <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/hibernating-prerequisites.html">hibernation
+   *                 prerequisites</a>. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Hibernate.html">Hibernate your instance</a> in the
+   *                 <i>Amazon EC2 User Guide</i>.</p>
    *          <p>You can't enable hibernation and Amazon Web Services Nitro Enclaves on the same
    *             instance.</p>
    */
@@ -8160,7 +8288,7 @@ export interface RunInstancesRequest {
 
   /**
    * <p>Indicates whether the instance is enabled for Amazon Web Services Nitro Enclaves. For
-   *             more information, see <a href="https://docs.aws.amazon.com/enclaves/latest/user/nitro-enclave.html"> What is Amazon Web Services Nitro
+   *             more information, see <a href="https://docs.aws.amazon.com/enclaves/latest/user/nitro-enclave.html">What is Amazon Web Services Nitro
    *                 Enclaves?</a> in the <i>Amazon Web Services Nitro Enclaves User
    *                 Guide</i>.</p>
    *          <p>You can't enable Amazon Web Services Nitro Enclaves and hibernation on the same
@@ -8524,15 +8652,14 @@ export interface RunScheduledInstancesRequest {
 }
 
 /**
- * @public
- * <p>Contains the output of RunScheduledInstances.</p>
+ * @internal
  */
-export interface RunScheduledInstancesResult {
-  /**
-   * <p>The IDs of the newly launched instances.</p>
-   */
-  InstanceIdSet?: string[];
-}
+export const ImportImageRequestFilterSensitiveLog = (obj: ImportImageRequest): any => ({
+  ...obj,
+  ...(obj.DiskContainers && {
+    DiskContainers: obj.DiskContainers.map((item) => ImageDiskContainerFilterSensitiveLog(item)),
+  }),
+});
 
 /**
  * @internal

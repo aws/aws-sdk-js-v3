@@ -2171,6 +2171,20 @@ export interface NetworkInfo {
  * @public
  * @enum
  */
+export const NitroEnclavesSupport = {
+  SUPPORTED: "supported",
+  UNSUPPORTED: "unsupported",
+} as const;
+
+/**
+ * @public
+ */
+export type NitroEnclavesSupport = (typeof NitroEnclavesSupport)[keyof typeof NitroEnclavesSupport];
+
+/**
+ * @public
+ * @enum
+ */
 export const PlacementGroupStrategy = {
   cluster: "cluster",
   partition: "partition",
@@ -2446,6 +2460,11 @@ export interface InstanceTypeInfo {
    *    <i>Amazon EC2 User Guide</i>.</p>
    */
   SupportedBootModes?: (BootModeType | string)[];
+
+  /**
+   * <p>Indicates whether Nitro Enclaves is supported.</p>
+   */
+  NitroEnclavesSupport?: NitroEnclavesSupport | string;
 }
 
 /**
@@ -11133,41 +11152,6 @@ export interface VerifiedAccessLogS3Destination {
    * <p>The Amazon Web Services account number that owns the bucket.</p>
    */
   BucketOwner?: string;
-}
-
-/**
- * @public
- * <p>Describes the options for Verified Access logs.</p>
- */
-export interface VerifiedAccessLogs {
-  /**
-   * <p>Amazon S3 logging options.</p>
-   */
-  S3?: VerifiedAccessLogS3Destination;
-
-  /**
-   * <p>CloudWatch Logs logging destination.</p>
-   */
-  CloudWatchLogs?: VerifiedAccessLogCloudWatchLogsDestination;
-
-  /**
-   * <p>Kinesis logging destination.</p>
-   */
-  KinesisDataFirehose?: VerifiedAccessLogKinesisDataFirehoseDestination;
-
-  /**
-   * <p>
-   *          Describes current setting for the logging version.
-   *       </p>
-   */
-  LogVersion?: string;
-
-  /**
-   * <p>
-   * 		   Describes current setting for including trust data into the logs.
-   * 	   </p>
-   */
-  IncludeTrustContext?: boolean;
 }
 
 /**
