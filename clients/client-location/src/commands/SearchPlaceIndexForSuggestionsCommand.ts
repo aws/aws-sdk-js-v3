@@ -81,6 +81,7 @@ export interface SearchPlaceIndexForSuggestionsCommandOutput
  *   FilterCategories: [ // FilterPlaceCategoryList
  *     "STRING_VALUE",
  *   ],
+ *   Key: "STRING_VALUE",
  * };
  * const command = new SearchPlaceIndexForSuggestionsCommand(input);
  * const response = await client.send(command);

@@ -37,11 +37,6 @@ export interface ListKeysCommandOutput extends ListKeysResponse, __MetadataBeare
 /**
  * @public
  * <p>Lists API key resources in your Amazon Web Services account.</p>
- *          <important>
- *             <p>The API keys feature is in preview. We may add, change, or remove
- *             features before announcing general availability. For more information, see
- *             <a href="https://docs.aws.amazon.com/location/latest/developerguide/using-apikeys.html">Using API keys</a>.</p>
- *          </important>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

@@ -37,11 +37,6 @@ export interface DescribeKeyCommandOutput extends DescribeKeyResponse, __Metadat
 /**
  * @public
  * <p>Retrieves the API key resource details.</p>
- *          <important>
- *             <p>The API keys feature is in preview. We may add, change, or remove
- *             features before announcing general availability. For more information, see
- *             <a href="https://docs.aws.amazon.com/location/latest/developerguide/using-apikeys.html">Using API keys</a>.</p>
- *          </important>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

@@ -54,6 +54,7 @@ export interface CreateTrackerCommandOutput extends CreateTrackerResponse, __Met
  *     "<keys>": "STRING_VALUE",
  *   },
  *   PositionFiltering: "STRING_VALUE",
+ *   EventBridgeEnabled: true || false,
  * };
  * const command = new CreateTrackerCommand(input);
  * const response = await client.send(command);

@@ -123,6 +123,7 @@ export interface CalculateRouteMatrixCommandOutput extends CalculateRouteMatrixR
  *       Unit: "STRING_VALUE",
  *     },
  *   },
+ *   Key: "STRING_VALUE",
  * };
  * const command = new CalculateRouteMatrixCommand(input);
  * const response = await client.send(command);

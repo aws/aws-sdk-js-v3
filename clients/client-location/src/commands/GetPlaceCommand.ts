@@ -14,7 +14,12 @@ import {
 } from "@smithy/types";
 
 import { LocationClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LocationClient";
-import { GetPlaceRequest, GetPlaceResponse, GetPlaceResponseFilterSensitiveLog } from "../models/models_0";
+import {
+  GetPlaceRequest,
+  GetPlaceRequestFilterSensitiveLog,
+  GetPlaceResponse,
+  GetPlaceResponseFilterSensitiveLog,
+} from "../models/models_0";
 import { de_GetPlaceCommand, se_GetPlaceCommand } from "../protocols/Aws_restJson1";
 
 /**
@@ -63,6 +68,7 @@ export interface GetPlaceCommandOutput extends GetPlaceResponse, __MetadataBeare
  *   IndexName: "STRING_VALUE", // required
  *   PlaceId: "STRING_VALUE", // required
  *   Language: "STRING_VALUE",
+ *   Key: "STRING_VALUE",
  * };
  * const command = new GetPlaceCommand(input);
  * const response = await client.send(command);
@@ -172,7 +178,7 @@ export class GetPlaceCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: (_: any) => _,
+      inputFilterSensitiveLog: GetPlaceRequestFilterSensitiveLog,
       outputFilterSensitiveLog: GetPlaceResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;

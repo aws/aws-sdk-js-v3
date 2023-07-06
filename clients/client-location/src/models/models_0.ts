@@ -72,59 +72,100 @@ export class ConflictException extends __BaseException {
 export interface ApiKeyRestrictions {
   /**
    * <p>A list of allowed actions that an API key resource grants permissions to
-   *             perform</p>
+   *             perform. You must have at least one action for each type of resource. For example,
+   *             if you have a place resource, you must include at least one place action.</p>
+   *          <p>The following are valid values for the actions.</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <b>Map actions</b>
+   *                </p>
+   *                <ul>
+   *                   <li>
+   *                      <p>
+   *                         <code>geo:GetMap*</code> - Allows all actions needed for map rendering.</p>
+   *                   </li>
+   *                </ul>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <b>Place actions</b>
+   *                </p>
+   *                <ul>
+   *                   <li>
+   *                      <p>
+   *                         <code>geo:SearchPlaceIndexForText</code> - Allows geocoding.</p>
+   *                   </li>
+   *                   <li>
+   *                      <p>
+   *                         <code>geo:SearchPlaceIndexForPosition</code> - Allows reverse
+   *                             geocoding.</p>
+   *                   </li>
+   *                   <li>
+   *                      <p>
+   *                         <code>geo:SearchPlaceIndexForSuggestions</code> - Allows generating
+   *                             suggestions from text.</p>
+   *                   </li>
+   *                   <li>
+   *                      <p>
+   *                         <code>GetPlace</code> - Allows finding a place by place ID.</p>
+   *                   </li>
+   *                </ul>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <b>Route actions</b>
+   *                </p>
+   *                <ul>
+   *                   <li>
+   *                      <p>
+   *                         <code>geo:CalculateRoute</code> - Allows point to point routing.</p>
+   *                   </li>
+   *                   <li>
+   *                      <p>
+   *                         <code>geo:CalculateRouteMatrix</code> - Allows calculating a matrix of
+   *                             routes.</p>
+   *                   </li>
+   *                </ul>
+   *             </li>
+   *          </ul>
    *          <note>
-   *             <p>Currently, the only valid action is <code>geo:GetMap*</code> as an input to the
-   *                 list. For example, <code>["geo:GetMap*"]</code> is valid but
-   *                     <code>["geo:GetMapTile"]</code> is not.</p>
+   *             <p>You must use these strings exactly. For example, to provide access to map
+   *                 rendering, the only valid action is <code>geo:GetMap*</code> as an input to
+   *                 the list. <code>["geo:GetMap*"]</code> is valid but
+   *                     <code>["geo:GetMapTile"]</code> is not. Similarly, you cannot use
+   *                 <code>["geo:SearchPlaceIndexFor*"]</code> - you must list each of the Place
+   *                 actions separately.</p>
    *          </note>
    */
   AllowActions: string[] | undefined;
 
   /**
-   * <p>A list of allowed resource ARNs that a API key bearer can perform actions on</p>
-   *          <p>For more information about ARN format, see <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource Names
-   *                 (ARNs)</a>.</p>
-   *          <note>
-   *             <p>In this preview, you can allow only map resources.</p>
-   *          </note>
-   *          <p>Requirements:</p>
+   * <p>A list of allowed resource ARNs that a API key bearer can perform actions on.</p>
    *          <ul>
    *             <li>
-   *                <p>Must be prefixed with <code>arn</code>.</p>
+   *                <p>The ARN must be the correct ARN for a map, place, or route ARN. You may
+   *                     include wildcards in the resource-id to match multiple resources of the
+   *                     same type.</p>
    *             </li>
    *             <li>
-   *                <p>
-   *                   <code>partition</code> and <code>service</code> must not be empty and should
-   *                     begin with only alphanumeric characters (A–Z, a–z, 0–9) and contain only
-   *                     alphanumeric numbers, hyphens (-) and periods (.).</p>
+   *                <p>The resources must be in the same <code>partition</code>,
+   *                     <code>region</code>, and <code>account-id</code> as the key that is being
+   *                     created.</p>
    *             </li>
    *             <li>
-   *                <p>
-   *                   <code>region</code> and <code>account-id</code> can be empty or should begin
-   *                     with only alphanumeric characters (A–Z, a–z, 0–9) and contain only alphanumeric
-   *                     numbers, hyphens (-) and periods (.).</p>
+   *                <p>Other than wildcards, you must include the full ARN, including the
+   *                     <code>arn</code>, <code>partition</code>, <code>service</code>,
+   *                     <code>region</code>, <code>account-id</code> and <code>resource-id</code>,
+   *                     delimited by colons (:).</p>
    *             </li>
    *             <li>
-   *                <p>
-   *                   <code>resource-id</code> can begin with any character except for forward slash
-   *                     (/) and contain any characters after, including forward slashes to form a
-   *                     path.</p>
-   *                <p>
-   *                   <code>resource-id</code> can also include wildcard characters, denoted by an
-   *                     asterisk (*).</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>arn</code>, <code>partition</code>, <code>service</code>,
-   *                         <code>region</code>, <code>account-id</code> and <code>resource-id</code>
-   *                     must be delimited by a colon (:).</p>
-   *             </li>
-   *             <li>
-   *                <p>No spaces allowed. For example,
-   *                             <code>arn:aws:geo:region:<i>account-id</i>:map/ExampleMap*</code>.</p>
+   *                <p>No spaces allowed, even with wildcards. For example,
+   *                     <code>arn:aws:geo:region:<i>account-id</i>:map/ExampleMap*</code>.</p>
    *             </li>
    *          </ul>
+   *          <p>For more information about ARN format, see <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource Names
+   *             (ARNs)</a>.</p>
    */
   AllowResources: string[] | undefined;
 
@@ -1078,8 +1119,11 @@ export interface BatchPutGeofenceRequestEntry {
   Geometry: GeofenceGeometry | undefined;
 
   /**
-   * <p>Specifies additional user-defined properties to store with the Geofence. An array
-   *             of key-value pairs.</p>
+   * <p>Associates one of more properties with the geofence. A property is a key-value
+   *             pair stored with the geofence and added to any geofence event triggered with that
+   *             geofence.</p>
+   *          <p>Format: <code>"key" : "value"</code>
+   *          </p>
    */
   GeofenceProperties?: Record<string, string>;
 }
@@ -1541,6 +1585,12 @@ export interface CalculateRouteRequest {
    *          <p>Requirements: <code>TravelMode</code> must be specified as <code>Truck</code>.</p>
    */
   TruckModeOptions?: CalculateRouteTruckModeOptions;
+
+  /**
+   * <p>The optional <a href="https://docs.aws.amazon.com/location/latest/developerguide/using-apikeys.html">API key</a> to authorize
+   *             the request.</p>
+   */
+  Key?: string;
 }
 
 /**
@@ -1948,6 +1998,12 @@ export interface CalculateRouteMatrixRequest {
    *          <p>Requirements: <code>TravelMode</code> must be specified as <code>Truck</code>.</p>
    */
   TruckModeOptions?: CalculateRouteTruckModeOptions;
+
+  /**
+   * <p>The optional <a href="https://docs.aws.amazon.com/location/latest/developerguide/using-apikeys.html">API key</a> to authorize
+   *             the request.</p>
+   */
+  Key?: string;
 }
 
 /**
@@ -2954,6 +3010,17 @@ export interface CreateTrackerRequest {
    *          <p>This field is optional. If not specified, the default value is <code>TimeBased</code>.</p>
    */
   PositionFiltering?: PositionFiltering | string;
+
+  /**
+   * <p>Whether to enable position <code>UPDATE</code> events from this tracker to be sent to
+   *             EventBridge.</p>
+   *          <note>
+   *             <p>You do not need enable this feature to get <code>ENTER</code> and
+   *                 <code>EXIT</code> events for geofences with this tracker. Those events are
+   *                 always sent to EventBridge.</p>
+   *          </note>
+   */
+  EventBridgeEnabled?: boolean;
 }
 
 /**
@@ -3476,6 +3543,12 @@ export interface DescribeTrackerResponse {
    * <p>The position filtering method of the tracker resource.</p>
    */
   PositionFiltering?: PositionFiltering | string;
+
+  /**
+   * <p>Whether <code>UPDATE</code> events from this tracker in EventBridge are
+   *             enabled. If set to <code>true</code> these events will be sent to EventBridge.</p>
+   */
+  EventBridgeEnabled?: boolean;
 }
 
 /**
@@ -3694,8 +3767,11 @@ export interface GetGeofenceResponse {
   UpdateTime: Date | undefined;
 
   /**
-   * <p>Contains additional user-defined properties stored with the geofence. An array of
-   *             key-value pairs.</p>
+   * <p>User defined properties of the geofence. A property is a key-value
+   *             pair stored with the geofence and added to any geofence event triggered with that
+   *             geofence.</p>
+   *          <p>Format: <code>"key" : "value"</code>
+   *          </p>
    */
   GeofenceProperties?: Record<string, string>;
 }
@@ -3865,8 +3941,11 @@ export interface ListGeofenceResponseEntry {
   UpdateTime: Date | undefined;
 
   /**
-   * <p>Contains additional user-defined properties stored with the geofence. An array of
-   *             key-value pairs.</p>
+   * <p>User defined properties of the geofence. A property is a key-value
+   *             pair stored with the geofence and added to any geofence event triggered with that
+   *             geofence.</p>
+   *          <p>Format: <code>"key" : "value"</code>
+   *          </p>
    */
   GeofenceProperties?: Record<string, string>;
 }
@@ -3912,8 +3991,11 @@ export interface PutGeofenceRequest {
   Geometry: GeofenceGeometry | undefined;
 
   /**
-   * <p>Specifies additional user-defined properties to store with the Geofence. An array
-   *             of key-value pairs.</p>
+   * <p>Associates one of more properties with the geofence. A property is a key-value
+   *             pair stored with the geofence and added to any geofence event triggered with that
+   *             geofence.</p>
+   *          <p>Format: <code>"key" : "value"</code>
+   *          </p>
    */
   GeofenceProperties?: Record<string, string>;
 }
@@ -4447,6 +4529,12 @@ export interface GetPlaceRequest {
    *             that the provider does support.</p>
    */
   Language?: string;
+
+  /**
+   * <p>The optional <a href="https://docs.aws.amazon.com/location/latest/developerguide/using-apikeys.html">API key</a> to authorize
+   *             the request.</p>
+   */
+  Key?: string;
 }
 
 /**
@@ -5207,6 +5295,12 @@ export interface SearchPlaceIndexForPositionRequest {
    *             that the provider does support.</p>
    */
   Language?: string;
+
+  /**
+   * <p>The optional <a href="https://docs.aws.amazon.com/location/latest/developerguide/using-apikeys.html">API key</a> to authorize
+   *             the request.</p>
+   */
+  Key?: string;
 }
 
 /**
@@ -5399,6 +5493,12 @@ export interface SearchPlaceIndexForSuggestionsRequest {
    *                     Guide</i>.</p>
    */
   FilterCategories?: string[];
+
+  /**
+   * <p>The optional <a href="https://docs.aws.amazon.com/location/latest/developerguide/using-apikeys.html">API key</a> to authorize
+   *             the request.</p>
+   */
+  Key?: string;
 }
 
 /**
@@ -5624,6 +5724,12 @@ export interface SearchPlaceIndexForTextRequest {
    *                     Guide</i>.</p>
    */
   FilterCategories?: string[];
+
+  /**
+   * <p>The optional <a href="https://docs.aws.amazon.com/location/latest/developerguide/using-apikeys.html">API key</a> to authorize
+   *             the request.</p>
+   */
+  Key?: string;
 }
 
 /**
@@ -5937,6 +6043,17 @@ export interface UpdateTrackerRequest {
    *          </ul>
    */
   PositionFiltering?: PositionFiltering | string;
+
+  /**
+   * <p>Whether to enable position <code>UPDATE</code> events from this tracker to be sent to
+   *             EventBridge.</p>
+   *          <note>
+   *             <p>You do not need enable this feature to get <code>ENTER</code> and
+   *                 <code>EXIT</code> events for geofences with this tracker. Those events are
+   *                 always sent to EventBridge.</p>
+   *          </note>
+   */
+  EventBridgeEnabled?: boolean;
 }
 
 /**
@@ -6071,6 +6188,7 @@ export const CalculateRouteRequestFilterSensitiveLog = (obj: CalculateRouteReque
   ...(obj.DeparturePosition && { DeparturePosition: SENSITIVE_STRING }),
   ...(obj.DestinationPosition && { DestinationPosition: SENSITIVE_STRING }),
   ...(obj.WaypointPositions && { WaypointPositions: SENSITIVE_STRING }),
+  ...(obj.Key && { Key: SENSITIVE_STRING }),
 });
 
 /**
@@ -6125,6 +6243,7 @@ export const CalculateRouteMatrixRequestFilterSensitiveLog = (obj: CalculateRout
   ...obj,
   ...(obj.DeparturePositions && { DeparturePositions: SENSITIVE_STRING }),
   ...(obj.DestinationPositions && { DestinationPositions: SENSITIVE_STRING }),
+  ...(obj.Key && { Key: SENSITIVE_STRING }),
 });
 
 /**
@@ -6225,6 +6344,14 @@ export const GetMapTileRequestFilterSensitiveLog = (obj: GetMapTileRequest): any
 /**
  * @internal
  */
+export const GetPlaceRequestFilterSensitiveLog = (obj: GetPlaceRequest): any => ({
+  ...obj,
+  ...(obj.Key && { Key: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
 export const PlaceGeometryFilterSensitiveLog = (obj: PlaceGeometry): any => ({
   ...obj,
   ...(obj.Point && { Point: SENSITIVE_STRING }),
@@ -6269,6 +6396,7 @@ export const ListDevicePositionsResponseFilterSensitiveLog = (obj: ListDevicePos
 export const SearchPlaceIndexForPositionRequestFilterSensitiveLog = (obj: SearchPlaceIndexForPositionRequest): any => ({
   ...obj,
   ...(obj.Position && { Position: SENSITIVE_STRING }),
+  ...(obj.Key && { Key: SENSITIVE_STRING }),
 });
 
 /**
@@ -6308,6 +6436,7 @@ export const SearchPlaceIndexForSuggestionsRequestFilterSensitiveLog = (
   ...(obj.Text && { Text: SENSITIVE_STRING }),
   ...(obj.BiasPosition && { BiasPosition: SENSITIVE_STRING }),
   ...(obj.FilterBBox && { FilterBBox: SENSITIVE_STRING }),
+  ...(obj.Key && { Key: SENSITIVE_STRING }),
 });
 
 /**
@@ -6340,6 +6469,7 @@ export const SearchPlaceIndexForTextRequestFilterSensitiveLog = (obj: SearchPlac
   ...(obj.Text && { Text: SENSITIVE_STRING }),
   ...(obj.BiasPosition && { BiasPosition: SENSITIVE_STRING }),
   ...(obj.FilterBBox && { FilterBBox: SENSITIVE_STRING }),
+  ...(obj.Key && { Key: SENSITIVE_STRING }),
 });
 
 /**

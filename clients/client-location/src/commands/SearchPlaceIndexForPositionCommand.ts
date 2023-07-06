@@ -61,6 +61,7 @@ export interface SearchPlaceIndexForPositionCommandOutput
  *   ],
  *   MaxResults: Number("int"),
  *   Language: "STRING_VALUE",
+ *   Key: "STRING_VALUE",
  * };
  * const command = new SearchPlaceIndexForPositionCommand(input);
  * const response = await client.send(command);

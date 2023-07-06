@@ -117,6 +117,7 @@ export interface CalculateRouteCommandOutput extends CalculateRouteResponse, __M
  *       Unit: "STRING_VALUE",
  *     },
  *   },
+ *   Key: "STRING_VALUE",
  * };
  * const command = new CalculateRouteCommand(input);
  * const response = await client.send(command);

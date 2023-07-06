@@ -74,6 +74,7 @@ export interface SearchPlaceIndexForTextCommandOutput extends SearchPlaceIndexFo
  *   FilterCategories: [ // FilterPlaceCategoryList
  *     "STRING_VALUE",
  *   ],
+ *   Key: "STRING_VALUE",
  * };
  * const command = new SearchPlaceIndexForTextCommand(input);
  * const response = await client.send(command);

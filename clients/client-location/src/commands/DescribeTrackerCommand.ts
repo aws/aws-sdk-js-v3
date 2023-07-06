@@ -61,6 +61,7 @@ export interface DescribeTrackerCommandOutput extends DescribeTrackerResponse, _
  * //   UpdateTime: new Date("TIMESTAMP"), // required
  * //   KmsKeyId: "STRING_VALUE",
  * //   PositionFiltering: "STRING_VALUE",
+ * //   EventBridgeEnabled: true || false,
  * // };
  *
  * ```

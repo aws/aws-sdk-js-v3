@@ -49,6 +49,7 @@ export interface UpdateTrackerCommandOutput extends UpdateTrackerResponse, __Met
  *   PricingPlanDataSource: "STRING_VALUE",
  *   Description: "STRING_VALUE",
  *   PositionFiltering: "STRING_VALUE",
+ *   EventBridgeEnabled: true || false,
  * };
  * const command = new UpdateTrackerCommand(input);
  * const response = await client.send(command);
