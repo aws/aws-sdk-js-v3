@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.367.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.366.0...v3.367.0) (2023-07-06)
+
+
+### Features
+
+* **client-outposts:** Added paginator support to several APIs. Added the ISOLATED enum value to AssetState. ([18a5919](https://github.com/aws/aws-sdk-js-v3/commit/18a59199bdd1f5ceb466c3f58d3dd67b8265d784))
+
+
+
+
+
 # [3.363.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.362.0...v3.363.0) (2023-06-29)
 
 

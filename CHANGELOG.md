@@ -3,6 +3,27 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.367.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.366.0...v3.367.0) (2023-07-06)
+
+
+### Bug Fixes
+
+* **hash-blob-browser:** add back missing dep ([#4932](https://github.com/aws/aws-sdk-js-v3/issues/4932)) ([0f3c27f](https://github.com/aws/aws-sdk-js-v3/commit/0f3c27f3f6a3acc3b58b403c01934301171accbf))
+
+
+### Features
+
+* **client-ec2:** Add Nitro Enclaves support on DescribeInstanceTypes ([1db6ac4](https://github.com/aws/aws-sdk-js-v3/commit/1db6ac4a611406765828d4842ad2c6eda8604159))
+* **client-location:** This release adds support for authenticating with Amazon Location Service's Places & Routes APIs with an API Key. Also, with this release developers can publish tracked device position updates to Amazon EventBridge. ([9e9ef3f](https://github.com/aws/aws-sdk-js-v3/commit/9e9ef3f55954ca836f3d06497c427bc60cb508ac))
+* **client-outposts:** Added paginator support to several APIs. Added the ISOLATED enum value to AssetState. ([18a5919](https://github.com/aws/aws-sdk-js-v3/commit/18a59199bdd1f5ceb466c3f58d3dd67b8265d784))
+* **client-quicksight:** This release includes below three changes: small multiples axes improvement, field based coloring, removed required trait from Aggregation function for TopBottomFilter. ([32dded9](https://github.com/aws/aws-sdk-js-v3/commit/32dded9cb8424d6fc57b375d845055653c9e1a4e))
+* **clients:** update client endpoints as of 2023-07-06 ([a1fe760](https://github.com/aws/aws-sdk-js-v3/commit/a1fe7602f30f38d1fe7518081526c7e83b92d369))
+* **codegen:** bump codegen version to 0.17.0 ([#4920](https://github.com/aws/aws-sdk-js-v3/issues/4920)) ([eb03dbd](https://github.com/aws/aws-sdk-js-v3/commit/eb03dbdee3dd804e8bebf4c6279640387107b0ed))
+
+
+
+
+
 # [3.366.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.365.0...v3.366.0) (2023-07-05)
 
 

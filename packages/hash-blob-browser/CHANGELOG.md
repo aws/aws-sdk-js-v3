@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.367.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.366.0...v3.367.0) (2023-07-06)
+
+
+### Bug Fixes
+
+* **hash-blob-browser:** add back missing dep ([#4932](https://github.com/aws/aws-sdk-js-v3/issues/4932)) ([0f3c27f](https://github.com/aws/aws-sdk-js-v3/commit/0f3c27f3f6a3acc3b58b403c01934301171accbf))
+
+
+
+
+
 # [3.357.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.356.0...v3.357.0) (2023-06-21)
 
 **Note:** Version bump only for package @aws-sdk/hash-blob-browser
