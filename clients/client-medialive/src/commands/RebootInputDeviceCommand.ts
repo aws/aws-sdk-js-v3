@@ -14,7 +14,7 @@ import {
 } from "@smithy/types";
 
 import { MediaLiveClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MediaLiveClient";
-import { RebootInputDeviceRequest, RebootInputDeviceResponse } from "../models/models_1";
+import { RebootInputDeviceRequest, RebootInputDeviceResponse } from "../models/models_2";
 import { de_RebootInputDeviceCommand, se_RebootInputDeviceCommand } from "../protocols/Aws_restJson1";
 
 /**

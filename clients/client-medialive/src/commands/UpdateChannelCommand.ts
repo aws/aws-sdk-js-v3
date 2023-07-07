@@ -868,6 +868,9 @@ export interface UpdateChannelCommandOutput extends UpdateChannelResponse, __Met
  *         Width: Number("int"),
  *       },
  *     ],
+ *     ThumbnailConfiguration: { // ThumbnailConfiguration
+ *       State: "AUTO" || "DISABLED", // required
+ *     },
  *   },
  *   InputAttachments: [ // __listOfInputAttachment
  *     { // InputAttachment
@@ -1849,6 +1852,9 @@ export interface UpdateChannelCommandOutput extends UpdateChannelResponse, __Met
  * //           Width: Number("int"),
  * //         },
  * //       ],
+ * //       ThumbnailConfiguration: { // ThumbnailConfiguration
+ * //         State: "AUTO" || "DISABLED", // required
+ * //       },
  * //     },
  * //     Id: "STRING_VALUE",
  * //     InputAttachments: [ // __listOfInputAttachment

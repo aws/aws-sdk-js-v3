@@ -879,6 +879,9 @@ export interface StopChannelCommandOutput extends StopChannelResponse, __Metadat
  * //         Width: Number("int"),
  * //       },
  * //     ],
+ * //     ThumbnailConfiguration: { // ThumbnailConfiguration
+ * //       State: "AUTO" || "DISABLED", // required
+ * //     },
  * //   },
  * //   Id: "STRING_VALUE",
  * //   InputAttachments: [ // __listOfInputAttachment

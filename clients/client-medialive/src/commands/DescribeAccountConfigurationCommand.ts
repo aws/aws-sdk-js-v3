@@ -14,13 +14,10 @@ import {
 } from "@smithy/types";
 
 import { MediaLiveClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MediaLiveClient";
+import { DescribeAccountConfigurationRequest, DescribeAccountConfigurationResponse } from "../models/models_1";
 import {
-  StartInputDeviceMaintenanceWindowRequest,
-  StartInputDeviceMaintenanceWindowResponse,
-} from "../models/models_2";
-import {
-  de_StartInputDeviceMaintenanceWindowCommand,
-  se_StartInputDeviceMaintenanceWindowCommand,
+  de_DescribeAccountConfigurationCommand,
+  se_DescribeAccountConfigurationCommand,
 } from "../protocols/Aws_restJson1";
 
 /**
@@ -30,40 +27,42 @@ export { __MetadataBearer, $Command };
 /**
  * @public
  *
- * The input for {@link StartInputDeviceMaintenanceWindowCommand}.
+ * The input for {@link DescribeAccountConfigurationCommand}.
  */
-export interface StartInputDeviceMaintenanceWindowCommandInput extends StartInputDeviceMaintenanceWindowRequest {}
+export interface DescribeAccountConfigurationCommandInput extends DescribeAccountConfigurationRequest {}
 /**
  * @public
  *
- * The output of {@link StartInputDeviceMaintenanceWindowCommand}.
+ * The output of {@link DescribeAccountConfigurationCommand}.
  */
-export interface StartInputDeviceMaintenanceWindowCommandOutput
-  extends StartInputDeviceMaintenanceWindowResponse,
+export interface DescribeAccountConfigurationCommandOutput
+  extends DescribeAccountConfigurationResponse,
     __MetadataBearer {}
 
 /**
  * @public
- * Start a maintenance window for the specified input device. Starting a maintenance window will give the device up to two hours to install software. If the device was streaming prior to the maintenance, it will resume streaming when the software is fully installed. Devices automatically install updates while they are powered on and their MediaLive channels are stopped. A maintenance window allows you to update a device without having to stop MediaLive channels that use the device. The device must remain powered on and connected to the internet for the duration of the maintenance.
+ * Get account configuration
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { MediaLiveClient, StartInputDeviceMaintenanceWindowCommand } from "@aws-sdk/client-medialive"; // ES Modules import
- * // const { MediaLiveClient, StartInputDeviceMaintenanceWindowCommand } = require("@aws-sdk/client-medialive"); // CommonJS import
+ * import { MediaLiveClient, DescribeAccountConfigurationCommand } from "@aws-sdk/client-medialive"; // ES Modules import
+ * // const { MediaLiveClient, DescribeAccountConfigurationCommand } = require("@aws-sdk/client-medialive"); // CommonJS import
  * const client = new MediaLiveClient(config);
- * const input = { // StartInputDeviceMaintenanceWindowRequest
- *   InputDeviceId: "STRING_VALUE", // required
- * };
- * const command = new StartInputDeviceMaintenanceWindowCommand(input);
+ * const input = {};
+ * const command = new DescribeAccountConfigurationCommand(input);
  * const response = await client.send(command);
- * // {};
+ * // { // DescribeAccountConfigurationResponse
+ * //   AccountConfiguration: { // AccountConfiguration
+ * //     KmsKeyId: "STRING_VALUE",
+ * //   },
+ * // };
  *
  * ```
  *
- * @param StartInputDeviceMaintenanceWindowCommandInput - {@link StartInputDeviceMaintenanceWindowCommandInput}
- * @returns {@link StartInputDeviceMaintenanceWindowCommandOutput}
- * @see {@link StartInputDeviceMaintenanceWindowCommandInput} for command's `input` shape.
- * @see {@link StartInputDeviceMaintenanceWindowCommandOutput} for command's `response` shape.
+ * @param DescribeAccountConfigurationCommandInput - {@link DescribeAccountConfigurationCommandInput}
+ * @returns {@link DescribeAccountConfigurationCommandOutput}
+ * @see {@link DescribeAccountConfigurationCommandInput} for command's `input` shape.
+ * @see {@link DescribeAccountConfigurationCommandOutput} for command's `response` shape.
  * @see {@link MediaLiveClientResolvedConfig | config} for MediaLiveClient's `config` shape.
  *
  * @throws {@link BadGatewayException} (server fault)
@@ -81,22 +80,16 @@ export interface StartInputDeviceMaintenanceWindowCommandOutput
  * @throws {@link InternalServerErrorException} (server fault)
  *  Placeholder documentation for InternalServerErrorException
  *
- * @throws {@link NotFoundException} (client fault)
- *  Placeholder documentation for NotFoundException
- *
  * @throws {@link TooManyRequestsException} (client fault)
  *  Placeholder documentation for TooManyRequestsException
- *
- * @throws {@link UnprocessableEntityException} (client fault)
- *  Placeholder documentation for UnprocessableEntityException
  *
  * @throws {@link MediaLiveServiceException}
  * <p>Base exception class for all service exceptions from MediaLive service.</p>
  *
  */
-export class StartInputDeviceMaintenanceWindowCommand extends $Command<
-  StartInputDeviceMaintenanceWindowCommandInput,
-  StartInputDeviceMaintenanceWindowCommandOutput,
+export class DescribeAccountConfigurationCommand extends $Command<
+  DescribeAccountConfigurationCommandInput,
+  DescribeAccountConfigurationCommandOutput,
   MediaLiveClientResolvedConfig
 > {
   // Start section: command_properties
@@ -114,7 +107,7 @@ export class StartInputDeviceMaintenanceWindowCommand extends $Command<
   /**
    * @public
    */
-  constructor(readonly input: StartInputDeviceMaintenanceWindowCommandInput) {
+  constructor(readonly input: DescribeAccountConfigurationCommandInput) {
     // Start section: command_constructor
     super();
     // End section: command_constructor
@@ -127,17 +120,17 @@ export class StartInputDeviceMaintenanceWindowCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: MediaLiveClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<StartInputDeviceMaintenanceWindowCommandInput, StartInputDeviceMaintenanceWindowCommandOutput> {
+  ): Handler<DescribeAccountConfigurationCommandInput, DescribeAccountConfigurationCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
     this.middlewareStack.use(
-      getEndpointPlugin(configuration, StartInputDeviceMaintenanceWindowCommand.getEndpointParameterInstructions())
+      getEndpointPlugin(configuration, DescribeAccountConfigurationCommand.getEndpointParameterInstructions())
     );
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
     const clientName = "MediaLiveClient";
-    const commandName = "StartInputDeviceMaintenanceWindowCommand";
+    const commandName = "DescribeAccountConfigurationCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
       clientName,
@@ -156,11 +149,8 @@ export class StartInputDeviceMaintenanceWindowCommand extends $Command<
   /**
    * @internal
    */
-  private serialize(
-    input: StartInputDeviceMaintenanceWindowCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
-    return se_StartInputDeviceMaintenanceWindowCommand(input, context);
+  private serialize(input: DescribeAccountConfigurationCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
+    return se_DescribeAccountConfigurationCommand(input, context);
   }
 
   /**
@@ -169,8 +159,8 @@ export class StartInputDeviceMaintenanceWindowCommand extends $Command<
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
-  ): Promise<StartInputDeviceMaintenanceWindowCommandOutput> {
-    return de_StartInputDeviceMaintenanceWindowCommand(output, context);
+  ): Promise<DescribeAccountConfigurationCommandOutput> {
+    return de_DescribeAccountConfigurationCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -1841,6 +1841,62 @@ export interface ScheduleAction {
  * @public
  * @enum
  */
+export const ThumbnailType = {
+  CURRENT_ACTIVE: "CURRENT_ACTIVE",
+  UNSPECIFIED: "UNSPECIFIED",
+} as const;
+
+/**
+ * @public
+ */
+export type ThumbnailType = (typeof ThumbnailType)[keyof typeof ThumbnailType];
+
+/**
+ * @public
+ * Details of a single thumbnail
+ */
+export interface Thumbnail {
+  /**
+   * The binary data for the latest thumbnail.
+   */
+  Body?: string;
+
+  /**
+   * The content type for the latest thumbnail.
+   */
+  ContentType?: string;
+
+  /**
+   * Thumbnail Type
+   */
+  ThumbnailType?: ThumbnailType | string;
+
+  /**
+   * Time stamp for the latest thumbnail.
+   */
+  TimeStamp?: Date;
+}
+
+/**
+ * @public
+ * Thumbnail details for one pipeline of a running channel.
+ */
+export interface ThumbnailDetail {
+  /**
+   * Pipeline ID
+   */
+  PipelineId?: string;
+
+  /**
+   * thumbnails of a single pipeline
+   */
+  Thumbnails?: Thumbnail[];
+}
+
+/**
+ * @public
+ * @enum
+ */
 export const InputDeviceTransferType = {
   INCOMING: "INCOMING",
   OUTGOING: "OUTGOING",
@@ -3726,6 +3782,17 @@ export class UnprocessableEntityException extends __BaseException {
 
 /**
  * @public
+ * Placeholder documentation for AccountConfiguration
+ */
+export interface AccountConfiguration {
+  /**
+   * Specifies the KMS key to use for all features that use key encryption. Specify the ARN of a KMS key that you have created. Or leave blank to use the key that MediaLive creates and manages for you.
+   */
+  KmsKeyId?: string;
+}
+
+/**
+ * @public
  * @enum
  */
 export const AvailBlankingState = {
@@ -4441,6 +4508,31 @@ export interface NielsenConfiguration {
  * @public
  * @enum
  */
+export const ThumbnailState = {
+  AUTO: "AUTO",
+  DISABLED: "DISABLED",
+} as const;
+
+/**
+ * @public
+ */
+export type ThumbnailState = (typeof ThumbnailState)[keyof typeof ThumbnailState];
+
+/**
+ * @public
+ * Thumbnail Configuration
+ */
+export interface ThumbnailConfiguration {
+  /**
+   * Whether Thumbnail is enabled.
+   */
+  State: ThumbnailState | string | undefined;
+}
+
+/**
+ * @public
+ * @enum
+ */
 export const TimecodeConfigSource = {
   EMBEDDED: "EMBEDDED",
   SYSTEMCLOCK: "SYSTEMCLOCK",
@@ -4535,6 +4627,11 @@ export interface EncoderSettings {
    * Placeholder documentation for __listOfVideoDescription
    */
   VideoDescriptions: VideoDescription[] | undefined;
+
+  /**
+   * Thumbnail configuration settings.
+   */
+  ThumbnailConfiguration?: ThumbnailConfiguration;
 }
 
 /**
@@ -5738,6 +5835,23 @@ export interface DeleteTagsRequest {
 
 /**
  * @public
+ * Placeholder documentation for DescribeAccountConfigurationRequest
+ */
+export interface DescribeAccountConfigurationRequest {}
+
+/**
+ * @public
+ * Placeholder documentation for DescribeAccountConfigurationResponse
+ */
+export interface DescribeAccountConfigurationResponse {
+  /**
+   * Placeholder documentation for AccountConfiguration
+   */
+  AccountConfiguration?: AccountConfiguration;
+}
+
+/**
+ * @public
  * Placeholder documentation for DescribeChannelRequest
  */
 export interface DescribeChannelRequest {
@@ -6457,6 +6571,38 @@ export interface DescribeScheduleResponse {
 
 /**
  * @public
+ * Placeholder documentation for DescribeThumbnailsRequest
+ */
+export interface DescribeThumbnailsRequest {
+  /**
+   * Unique ID of the channel
+   */
+  ChannelId: string | undefined;
+
+  /**
+   * Pipeline ID ("0" or "1")
+   */
+  PipelineId: string | undefined;
+
+  /**
+   * thumbnail type
+   */
+  ThumbnailType: string | undefined;
+}
+
+/**
+ * @public
+ * Placeholder documentation for DescribeThumbnailsResponse
+ */
+export interface DescribeThumbnailsResponse {
+  /**
+   * Placeholder documentation for __listOfThumbnailDetail
+   */
+  ThumbnailDetails?: ThumbnailDetail[];
+}
+
+/**
+ * @public
  * Configurable settings for the input device.
  */
 export interface InputDeviceConfigurableSettings {
@@ -6905,231 +7051,6 @@ export interface MaintenanceUpdateSettings {
    * Choose the hour that maintenance will start. The chosen time is used for all future maintenance windows.
    */
   MaintenanceStartTime?: string;
-}
-
-/**
- * @public
- * Placeholder documentation for PurchaseOfferingRequest
- */
-export interface PurchaseOfferingRequest {
-  /**
-   * Number of resources
-   */
-  Count: number | undefined;
-
-  /**
-   * Name for the new reservation
-   */
-  Name?: string;
-
-  /**
-   * Offering to purchase, e.g. '87654321'
-   */
-  OfferingId: string | undefined;
-
-  /**
-   * Renewal settings for the reservation
-   */
-  RenewalSettings?: RenewalSettings;
-
-  /**
-   * Unique request ID to be specified. This is needed to prevent retries from creating multiple resources.
-   */
-  RequestId?: string;
-
-  /**
-   * Requested reservation start time (UTC) in ISO-8601 format. The specified time must be between the first day of the current month and one year from now. If no value is given, the default is now.
-   */
-  Start?: string;
-
-  /**
-   * A collection of key-value pairs
-   */
-  Tags?: Record<string, string>;
-}
-
-/**
- * @public
- * Placeholder documentation for PurchaseOfferingResponse
- */
-export interface PurchaseOfferingResponse {
-  /**
-   * Reserved resources available to use
-   */
-  Reservation?: Reservation;
-}
-
-/**
- * @public
- * @enum
- */
-export const RebootInputDeviceForce = {
-  NO: "NO",
-  YES: "YES",
-} as const;
-
-/**
- * @public
- */
-export type RebootInputDeviceForce = (typeof RebootInputDeviceForce)[keyof typeof RebootInputDeviceForce];
-
-/**
- * @public
- * A request to reboot an AWS Elemental device.
- */
-export interface RebootInputDeviceRequest {
-  /**
-   * Force a reboot of an input device. If the device is streaming, it will stop streaming and begin rebooting within a few seconds of sending the command. If the device was streaming prior to the reboot, the device will resume streaming when the reboot completes.
-   */
-  Force?: RebootInputDeviceForce | string;
-
-  /**
-   * The unique ID of the input device to reboot. For example, hd-123456789abcdef.
-   */
-  InputDeviceId: string | undefined;
-}
-
-/**
- * @public
- * Placeholder documentation for RebootInputDeviceResponse
- */
-export interface RebootInputDeviceResponse {}
-
-/**
- * @public
- * Placeholder documentation for RejectInputDeviceTransferRequest
- */
-export interface RejectInputDeviceTransferRequest {
-  /**
-   * The unique ID of the input device to reject. For example, hd-123456789abcdef.
-   */
-  InputDeviceId: string | undefined;
-}
-
-/**
- * @public
- * Placeholder documentation for RejectInputDeviceTransferResponse
- */
-export interface RejectInputDeviceTransferResponse {}
-
-/**
- * @public
- * Placeholder documentation for StartChannelRequest
- */
-export interface StartChannelRequest {
-  /**
-   * A request to start a channel
-   */
-  ChannelId: string | undefined;
-}
-
-/**
- * @public
- * Placeholder documentation for StartChannelResponse
- */
-export interface StartChannelResponse {
-  /**
-   * The unique arn of the channel.
-   */
-  Arn?: string;
-
-  /**
-   * Specification of CDI inputs for this channel
-   */
-  CdiInputSpecification?: CdiInputSpecification;
-
-  /**
-   * The class for this channel. STANDARD for a channel with two pipelines or SINGLE_PIPELINE for a channel with one pipeline.
-   */
-  ChannelClass?: ChannelClass | string;
-
-  /**
-   * A list of destinations of the channel. For UDP outputs, there is one
-   * destination per output. For other types (HLS, for example), there is
-   * one destination per packager.
-   */
-  Destinations?: OutputDestination[];
-
-  /**
-   * The endpoints where outgoing connections initiate from
-   */
-  EgressEndpoints?: ChannelEgressEndpoint[];
-
-  /**
-   * Encoder Settings
-   */
-  EncoderSettings?: EncoderSettings;
-
-  /**
-   * The unique id of the channel.
-   */
-  Id?: string;
-
-  /**
-   * List of input attachments for channel.
-   */
-  InputAttachments?: InputAttachment[];
-
-  /**
-   * Specification of network and file inputs for this channel
-   */
-  InputSpecification?: InputSpecification;
-
-  /**
-   * The log level being written to CloudWatch Logs.
-   */
-  LogLevel?: LogLevel | string;
-
-  /**
-   * Maintenance settings for this channel.
-   */
-  Maintenance?: MaintenanceStatus;
-
-  /**
-   * The name of the channel. (user-mutable)
-   */
-  Name?: string;
-
-  /**
-   * Runtime details for the pipelines of a running channel.
-   */
-  PipelineDetails?: PipelineDetail[];
-
-  /**
-   * The number of currently healthy pipelines.
-   */
-  PipelinesRunningCount?: number;
-
-  /**
-   * The Amazon Resource Name (ARN) of the role assumed when running the Channel.
-   */
-  RoleArn?: string;
-
-  /**
-   * Placeholder documentation for ChannelState
-   */
-  State?: ChannelState | string;
-
-  /**
-   * A collection of key-value pairs.
-   */
-  Tags?: Record<string, string>;
-
-  /**
-   * Settings for VPC output
-   */
-  Vpc?: VpcOutputSettingsDescription;
-}
-
-/**
- * @public
- * Placeholder documentation for StartInputDeviceMaintenanceWindowRequest
- */
-export interface StartInputDeviceMaintenanceWindowRequest {
-  /**
-   * The unique ID of the input device to start a maintenance window for. For example, hd-123456789abcdef.
-   */
-  InputDeviceId: string | undefined;
 }
 
 /**

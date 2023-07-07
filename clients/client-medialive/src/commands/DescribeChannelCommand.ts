@@ -879,6 +879,9 @@ export interface DescribeChannelCommandOutput extends DescribeChannelResponse, _
  * //         Width: Number("int"),
  * //       },
  * //     ],
+ * //     ThumbnailConfiguration: { // ThumbnailConfiguration
+ * //       State: "AUTO" || "DISABLED", // required
+ * //     },
  * //   },
  * //   Id: "STRING_VALUE",
  * //   InputAttachments: [ // __listOfInputAttachment

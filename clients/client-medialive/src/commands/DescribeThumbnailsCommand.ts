@@ -14,14 +14,8 @@ import {
 } from "@smithy/types";
 
 import { MediaLiveClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MediaLiveClient";
-import {
-  StartInputDeviceMaintenanceWindowRequest,
-  StartInputDeviceMaintenanceWindowResponse,
-} from "../models/models_2";
-import {
-  de_StartInputDeviceMaintenanceWindowCommand,
-  se_StartInputDeviceMaintenanceWindowCommand,
-} from "../protocols/Aws_restJson1";
+import { DescribeThumbnailsRequest, DescribeThumbnailsResponse } from "../models/models_1";
+import { de_DescribeThumbnailsCommand, se_DescribeThumbnailsCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -30,40 +24,54 @@ export { __MetadataBearer, $Command };
 /**
  * @public
  *
- * The input for {@link StartInputDeviceMaintenanceWindowCommand}.
+ * The input for {@link DescribeThumbnailsCommand}.
  */
-export interface StartInputDeviceMaintenanceWindowCommandInput extends StartInputDeviceMaintenanceWindowRequest {}
+export interface DescribeThumbnailsCommandInput extends DescribeThumbnailsRequest {}
 /**
  * @public
  *
- * The output of {@link StartInputDeviceMaintenanceWindowCommand}.
+ * The output of {@link DescribeThumbnailsCommand}.
  */
-export interface StartInputDeviceMaintenanceWindowCommandOutput
-  extends StartInputDeviceMaintenanceWindowResponse,
-    __MetadataBearer {}
+export interface DescribeThumbnailsCommandOutput extends DescribeThumbnailsResponse, __MetadataBearer {}
 
 /**
  * @public
- * Start a maintenance window for the specified input device. Starting a maintenance window will give the device up to two hours to install software. If the device was streaming prior to the maintenance, it will resume streaming when the software is fully installed. Devices automatically install updates while they are powered on and their MediaLive channels are stopped. A maintenance window allows you to update a device without having to stop MediaLive channels that use the device. The device must remain powered on and connected to the internet for the duration of the maintenance.
+ * Describe the latest thumbnails data.
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { MediaLiveClient, StartInputDeviceMaintenanceWindowCommand } from "@aws-sdk/client-medialive"; // ES Modules import
- * // const { MediaLiveClient, StartInputDeviceMaintenanceWindowCommand } = require("@aws-sdk/client-medialive"); // CommonJS import
+ * import { MediaLiveClient, DescribeThumbnailsCommand } from "@aws-sdk/client-medialive"; // ES Modules import
+ * // const { MediaLiveClient, DescribeThumbnailsCommand } = require("@aws-sdk/client-medialive"); // CommonJS import
  * const client = new MediaLiveClient(config);
- * const input = { // StartInputDeviceMaintenanceWindowRequest
- *   InputDeviceId: "STRING_VALUE", // required
+ * const input = { // DescribeThumbnailsRequest
+ *   ChannelId: "STRING_VALUE", // required
+ *   PipelineId: "STRING_VALUE", // required
+ *   ThumbnailType: "STRING_VALUE", // required
  * };
- * const command = new StartInputDeviceMaintenanceWindowCommand(input);
+ * const command = new DescribeThumbnailsCommand(input);
  * const response = await client.send(command);
- * // {};
+ * // { // DescribeThumbnailsResponse
+ * //   ThumbnailDetails: [ // __listOfThumbnailDetail
+ * //     { // ThumbnailDetail
+ * //       PipelineId: "STRING_VALUE",
+ * //       Thumbnails: [ // __listOfThumbnail
+ * //         { // Thumbnail
+ * //           Body: "STRING_VALUE",
+ * //           ContentType: "STRING_VALUE",
+ * //           ThumbnailType: "UNSPECIFIED" || "CURRENT_ACTIVE",
+ * //           TimeStamp: new Date("TIMESTAMP"),
+ * //         },
+ * //       ],
+ * //     },
+ * //   ],
+ * // };
  *
  * ```
  *
- * @param StartInputDeviceMaintenanceWindowCommandInput - {@link StartInputDeviceMaintenanceWindowCommandInput}
- * @returns {@link StartInputDeviceMaintenanceWindowCommandOutput}
- * @see {@link StartInputDeviceMaintenanceWindowCommandInput} for command's `input` shape.
- * @see {@link StartInputDeviceMaintenanceWindowCommandOutput} for command's `response` shape.
+ * @param DescribeThumbnailsCommandInput - {@link DescribeThumbnailsCommandInput}
+ * @returns {@link DescribeThumbnailsCommandOutput}
+ * @see {@link DescribeThumbnailsCommandInput} for command's `input` shape.
+ * @see {@link DescribeThumbnailsCommandOutput} for command's `response` shape.
  * @see {@link MediaLiveClientResolvedConfig | config} for MediaLiveClient's `config` shape.
  *
  * @throws {@link BadGatewayException} (server fault)
@@ -71,6 +79,9 @@ export interface StartInputDeviceMaintenanceWindowCommandOutput
  *
  * @throws {@link BadRequestException} (client fault)
  *  Placeholder documentation for BadRequestException
+ *
+ * @throws {@link ConflictException} (client fault)
+ *  Placeholder documentation for ConflictException
  *
  * @throws {@link ForbiddenException} (client fault)
  *  Placeholder documentation for ForbiddenException
@@ -87,16 +98,13 @@ export interface StartInputDeviceMaintenanceWindowCommandOutput
  * @throws {@link TooManyRequestsException} (client fault)
  *  Placeholder documentation for TooManyRequestsException
  *
- * @throws {@link UnprocessableEntityException} (client fault)
- *  Placeholder documentation for UnprocessableEntityException
- *
  * @throws {@link MediaLiveServiceException}
  * <p>Base exception class for all service exceptions from MediaLive service.</p>
  *
  */
-export class StartInputDeviceMaintenanceWindowCommand extends $Command<
-  StartInputDeviceMaintenanceWindowCommandInput,
-  StartInputDeviceMaintenanceWindowCommandOutput,
+export class DescribeThumbnailsCommand extends $Command<
+  DescribeThumbnailsCommandInput,
+  DescribeThumbnailsCommandOutput,
   MediaLiveClientResolvedConfig
 > {
   // Start section: command_properties
@@ -114,7 +122,7 @@ export class StartInputDeviceMaintenanceWindowCommand extends $Command<
   /**
    * @public
    */
-  constructor(readonly input: StartInputDeviceMaintenanceWindowCommandInput) {
+  constructor(readonly input: DescribeThumbnailsCommandInput) {
     // Start section: command_constructor
     super();
     // End section: command_constructor
@@ -127,17 +135,17 @@ export class StartInputDeviceMaintenanceWindowCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: MediaLiveClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<StartInputDeviceMaintenanceWindowCommandInput, StartInputDeviceMaintenanceWindowCommandOutput> {
+  ): Handler<DescribeThumbnailsCommandInput, DescribeThumbnailsCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
     this.middlewareStack.use(
-      getEndpointPlugin(configuration, StartInputDeviceMaintenanceWindowCommand.getEndpointParameterInstructions())
+      getEndpointPlugin(configuration, DescribeThumbnailsCommand.getEndpointParameterInstructions())
     );
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
     const clientName = "MediaLiveClient";
-    const commandName = "StartInputDeviceMaintenanceWindowCommand";
+    const commandName = "DescribeThumbnailsCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
       clientName,
@@ -156,21 +164,15 @@ export class StartInputDeviceMaintenanceWindowCommand extends $Command<
   /**
    * @internal
    */
-  private serialize(
-    input: StartInputDeviceMaintenanceWindowCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
-    return se_StartInputDeviceMaintenanceWindowCommand(input, context);
+  private serialize(input: DescribeThumbnailsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
+    return se_DescribeThumbnailsCommand(input, context);
   }
 
   /**
    * @internal
    */
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<StartInputDeviceMaintenanceWindowCommandOutput> {
-    return de_StartInputDeviceMaintenanceWindowCommand(output, context);
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeThumbnailsCommandOutput> {
+    return de_DescribeThumbnailsCommand(output, context);
   }
 
   // Start section: command_body_extra

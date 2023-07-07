@@ -879,6 +879,9 @@ export interface DeleteChannelCommandOutput extends DeleteChannelResponse, __Met
  * //         Width: Number("int"),
  * //       },
  * //     ],
+ * //     ThumbnailConfiguration: { // ThumbnailConfiguration
+ * //       State: "AUTO" || "DISABLED", // required
+ * //     },
  * //   },
  * //   Id: "STRING_VALUE",
  * //   InputAttachments: [ // __listOfInputAttachment

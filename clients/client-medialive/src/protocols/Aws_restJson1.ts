@@ -12,6 +12,7 @@ import {
   extendedEncodeURIComponent as __extendedEncodeURIComponent,
   limitedParseDouble as __limitedParseDouble,
   map,
+  parseRfc3339DateTimeWithOffset as __parseRfc3339DateTimeWithOffset,
   parseRfc7231DateTime as __parseRfc7231DateTime,
   resolvedPath as __resolvedPath,
   serializeFloat as __serializeFloat,
@@ -70,6 +71,10 @@ import {
 import { DeleteReservationCommandInput, DeleteReservationCommandOutput } from "../commands/DeleteReservationCommand";
 import { DeleteScheduleCommandInput, DeleteScheduleCommandOutput } from "../commands/DeleteScheduleCommand";
 import { DeleteTagsCommandInput, DeleteTagsCommandOutput } from "../commands/DeleteTagsCommand";
+import {
+  DescribeAccountConfigurationCommandInput,
+  DescribeAccountConfigurationCommandOutput,
+} from "../commands/DescribeAccountConfigurationCommand";
 import { DescribeChannelCommandInput, DescribeChannelCommandOutput } from "../commands/DescribeChannelCommand";
 import { DescribeInputCommandInput, DescribeInputCommandOutput } from "../commands/DescribeInputCommand";
 import {
@@ -95,6 +100,7 @@ import {
   DescribeReservationCommandOutput,
 } from "../commands/DescribeReservationCommand";
 import { DescribeScheduleCommandInput, DescribeScheduleCommandOutput } from "../commands/DescribeScheduleCommand";
+import { DescribeThumbnailsCommandInput, DescribeThumbnailsCommandOutput } from "../commands/DescribeThumbnailsCommand";
 import { ListChannelsCommandInput, ListChannelsCommandOutput } from "../commands/ListChannelsCommand";
 import { ListInputDevicesCommandInput, ListInputDevicesCommandOutput } from "../commands/ListInputDevicesCommand";
 import {
@@ -135,6 +141,10 @@ import {
   TransferInputDeviceCommandInput,
   TransferInputDeviceCommandOutput,
 } from "../commands/TransferInputDeviceCommand";
+import {
+  UpdateAccountConfigurationCommandInput,
+  UpdateAccountConfigurationCommandOutput,
+} from "../commands/UpdateAccountConfigurationCommand";
 import { UpdateChannelClassCommandInput, UpdateChannelClassCommandOutput } from "../commands/UpdateChannelClassCommand";
 import { UpdateChannelCommandInput, UpdateChannelCommandOutput } from "../commands/UpdateChannelCommand";
 import { UpdateInputCommandInput, UpdateInputCommandOutput } from "../commands/UpdateInputCommand";
@@ -298,6 +308,7 @@ import {
   WebvttDestinationSettings,
 } from "../models/models_0";
 import {
+  AccountConfiguration,
   AvailBlanking,
   AvailConfiguration,
   AvailSettings,
@@ -389,6 +400,9 @@ import {
   StaticImageDeactivateScheduleActionSettings,
   StopTimecode,
   TemporalFilterSettings,
+  Thumbnail,
+  ThumbnailConfiguration,
+  ThumbnailDetail,
   TimecodeBurninSettings,
   TimecodeConfig,
   TooManyRequestsException,
@@ -1071,6 +1085,32 @@ export const se_DeleteTagsCommand = async (
 };
 
 /**
+ * serializeAws_restJson1DescribeAccountConfigurationCommand
+ */
+export const se_DescribeAccountConfigurationCommand = async (
+  input: DescribeAccountConfigurationCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  const resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/prod/accountConfiguration";
+  let body: any;
+  body = "";
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "GET",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
+/**
  * serializeAws_restJson1DescribeChannelCommand
  */
 export const se_DescribeChannelCommand = async (
@@ -1334,6 +1374,35 @@ export const se_DescribeScheduleCommand = async (
   const query: any = map({
     maxResults: [() => input.MaxResults !== void 0, () => input.MaxResults!.toString()],
     nextToken: [, input.NextToken!],
+  });
+  let body: any;
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "GET",
+    headers,
+    path: resolvedPath,
+    query,
+    body,
+  });
+};
+
+/**
+ * serializeAws_restJson1DescribeThumbnailsCommand
+ */
+export const se_DescribeThumbnailsCommand = async (
+  input: DescribeThumbnailsCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {};
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/prod/channels/{ChannelId}/thumbnails";
+  resolvedPath = __resolvedPath(resolvedPath, input, "ChannelId", () => input.ChannelId!, "{ChannelId}", false);
+  const query: any = map({
+    pipelineId: [, __expectNonNull(input.PipelineId!, `PipelineId`)],
+    thumbnailType: [, __expectNonNull(input.ThumbnailType!, `ThumbnailType`)],
   });
   let body: any;
   return new __HttpRequest({
@@ -1905,6 +1974,36 @@ export const se_TransferInputDeviceCommand = async (
     hostname,
     port,
     method: "POST",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
+/**
+ * serializeAws_restJson1UpdateAccountConfigurationCommand
+ */
+export const se_UpdateAccountConfigurationCommand = async (
+  input: UpdateAccountConfigurationCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  const resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/prod/accountConfiguration";
+  let body: any;
+  body = JSON.stringify(
+    take(input, {
+      accountConfiguration: [, (_) => se_AccountConfiguration(_, context), `AccountConfiguration`],
+    })
+  );
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "PUT",
     headers,
     path: resolvedPath,
     body,
@@ -3677,6 +3776,68 @@ const de_DeleteTagsCommandError = async (
 };
 
 /**
+ * deserializeAws_restJson1DescribeAccountConfigurationCommand
+ */
+export const de_DescribeAccountConfigurationCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeAccountConfigurationCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_DescribeAccountConfigurationCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    AccountConfiguration: [, (_) => de_AccountConfiguration(_, context), `accountConfiguration`],
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1DescribeAccountConfigurationCommandError
+ */
+const de_DescribeAccountConfigurationCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeAccountConfigurationCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "BadGatewayException":
+    case "com.amazonaws.medialive#BadGatewayException":
+      throw await de_BadGatewayExceptionRes(parsedOutput, context);
+    case "BadRequestException":
+    case "com.amazonaws.medialive#BadRequestException":
+      throw await de_BadRequestExceptionRes(parsedOutput, context);
+    case "ForbiddenException":
+    case "com.amazonaws.medialive#ForbiddenException":
+      throw await de_ForbiddenExceptionRes(parsedOutput, context);
+    case "GatewayTimeoutException":
+    case "com.amazonaws.medialive#GatewayTimeoutException":
+      throw await de_GatewayTimeoutExceptionRes(parsedOutput, context);
+    case "InternalServerErrorException":
+    case "com.amazonaws.medialive#InternalServerErrorException":
+      throw await de_InternalServerErrorExceptionRes(parsedOutput, context);
+    case "TooManyRequestsException":
+    case "com.amazonaws.medialive#TooManyRequestsException":
+      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
  * deserializeAws_restJson1DescribeChannelCommand
  */
 export const de_DescribeChannelCommand = async (
@@ -4400,6 +4561,74 @@ const de_DescribeScheduleCommandError = async (
     case "BadRequestException":
     case "com.amazonaws.medialive#BadRequestException":
       throw await de_BadRequestExceptionRes(parsedOutput, context);
+    case "ForbiddenException":
+    case "com.amazonaws.medialive#ForbiddenException":
+      throw await de_ForbiddenExceptionRes(parsedOutput, context);
+    case "GatewayTimeoutException":
+    case "com.amazonaws.medialive#GatewayTimeoutException":
+      throw await de_GatewayTimeoutExceptionRes(parsedOutput, context);
+    case "InternalServerErrorException":
+    case "com.amazonaws.medialive#InternalServerErrorException":
+      throw await de_InternalServerErrorExceptionRes(parsedOutput, context);
+    case "NotFoundException":
+    case "com.amazonaws.medialive#NotFoundException":
+      throw await de_NotFoundExceptionRes(parsedOutput, context);
+    case "TooManyRequestsException":
+    case "com.amazonaws.medialive#TooManyRequestsException":
+      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
+ * deserializeAws_restJson1DescribeThumbnailsCommand
+ */
+export const de_DescribeThumbnailsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeThumbnailsCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_DescribeThumbnailsCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    ThumbnailDetails: [, (_) => de___listOfThumbnailDetail(_, context), `thumbnailDetails`],
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1DescribeThumbnailsCommandError
+ */
+const de_DescribeThumbnailsCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeThumbnailsCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "BadGatewayException":
+    case "com.amazonaws.medialive#BadGatewayException":
+      throw await de_BadGatewayExceptionRes(parsedOutput, context);
+    case "BadRequestException":
+    case "com.amazonaws.medialive#BadRequestException":
+      throw await de_BadRequestExceptionRes(parsedOutput, context);
+    case "ConflictException":
+    case "com.amazonaws.medialive#ConflictException":
+      throw await de_ConflictExceptionRes(parsedOutput, context);
     case "ForbiddenException":
     case "com.amazonaws.medialive#ForbiddenException":
       throw await de_ForbiddenExceptionRes(parsedOutput, context);
@@ -5709,6 +5938,71 @@ const de_TransferInputDeviceCommandError = async (
 };
 
 /**
+ * deserializeAws_restJson1UpdateAccountConfigurationCommand
+ */
+export const de_UpdateAccountConfigurationCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateAccountConfigurationCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_UpdateAccountConfigurationCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    AccountConfiguration: [, (_) => de_AccountConfiguration(_, context), `accountConfiguration`],
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1UpdateAccountConfigurationCommandError
+ */
+const de_UpdateAccountConfigurationCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateAccountConfigurationCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "BadGatewayException":
+    case "com.amazonaws.medialive#BadGatewayException":
+      throw await de_BadGatewayExceptionRes(parsedOutput, context);
+    case "BadRequestException":
+    case "com.amazonaws.medialive#BadRequestException":
+      throw await de_BadRequestExceptionRes(parsedOutput, context);
+    case "ForbiddenException":
+    case "com.amazonaws.medialive#ForbiddenException":
+      throw await de_ForbiddenExceptionRes(parsedOutput, context);
+    case "GatewayTimeoutException":
+    case "com.amazonaws.medialive#GatewayTimeoutException":
+      throw await de_GatewayTimeoutExceptionRes(parsedOutput, context);
+    case "InternalServerErrorException":
+    case "com.amazonaws.medialive#InternalServerErrorException":
+      throw await de_InternalServerErrorExceptionRes(parsedOutput, context);
+    case "TooManyRequestsException":
+    case "com.amazonaws.medialive#TooManyRequestsException":
+      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
+    case "UnprocessableEntityException":
+    case "com.amazonaws.medialive#UnprocessableEntityException":
+      throw await de_UnprocessableEntityExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
  * deserializeAws_restJson1UpdateChannelCommand
  */
 export const de_UpdateChannelCommand = async (
@@ -6742,6 +7036,15 @@ const se_Ac3Settings = (input: Ac3Settings, context: __SerdeContext): any => {
 };
 
 /**
+ * serializeAws_restJson1AccountConfiguration
+ */
+const se_AccountConfiguration = (input: AccountConfiguration, context: __SerdeContext): any => {
+  return take(input, {
+    kmsKeyId: [, , `KmsKeyId`],
+  });
+};
+
+/**
  * serializeAws_restJson1AncillarySourceSettings
  */
 const se_AncillarySourceSettings = (input: AncillarySourceSettings, context: __SerdeContext): any => {
@@ -7317,6 +7620,7 @@ const se_EncoderSettings = (input: EncoderSettings, context: __SerdeContext): an
     motionGraphicsConfiguration: [, (_) => se_MotionGraphicsConfiguration(_, context), `MotionGraphicsConfiguration`],
     nielsenConfiguration: [, (_) => se_NielsenConfiguration(_, context), `NielsenConfiguration`],
     outputGroups: [, (_) => se___listOfOutputGroup(_, context), `OutputGroups`],
+    thumbnailConfiguration: [, (_) => se_ThumbnailConfiguration(_, context), `ThumbnailConfiguration`],
     timecodeConfig: [, (_) => se_TimecodeConfig(_, context), `TimecodeConfig`],
     videoDescriptions: [, (_) => se___listOfVideoDescription(_, context), `VideoDescriptions`],
   });
@@ -8901,6 +9205,15 @@ const se_TemporalFilterSettings = (input: TemporalFilterSettings, context: __Ser
 };
 
 /**
+ * serializeAws_restJson1ThumbnailConfiguration
+ */
+const se_ThumbnailConfiguration = (input: ThumbnailConfiguration, context: __SerdeContext): any => {
+  return take(input, {
+    state: [, , `State`],
+  });
+};
+
+/**
  * serializeAws_restJson1TimecodeBurninSettings
  */
 const se_TimecodeBurninSettings = (input: TimecodeBurninSettings, context: __SerdeContext): any => {
@@ -9538,6 +9851,30 @@ const de___listOfScte35Descriptor = (output: any, context: __SerdeContext): Scte
 };
 
 /**
+ * deserializeAws_restJson1__listOfThumbnail
+ */
+const de___listOfThumbnail = (output: any, context: __SerdeContext): Thumbnail[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      return de_Thumbnail(entry, context);
+    });
+  return retVal;
+};
+
+/**
+ * deserializeAws_restJson1__listOfThumbnailDetail
+ */
+const de___listOfThumbnailDetail = (output: any, context: __SerdeContext): ThumbnailDetail[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      return de_ThumbnailDetail(entry, context);
+    });
+  return retVal;
+};
+
+/**
  * deserializeAws_restJson1__listOfTransferringInputDeviceSummary
  */
 const de___listOfTransferringInputDeviceSummary = (
@@ -9605,6 +9942,15 @@ const de_Ac3Settings = (output: any, context: __SerdeContext): Ac3Settings => {
     DrcProfile: [, __expectString, `drcProfile`],
     LfeFilter: [, __expectString, `lfeFilter`],
     MetadataControl: [, __expectString, `metadataControl`],
+  }) as any;
+};
+
+/**
+ * deserializeAws_restJson1AccountConfiguration
+ */
+const de_AccountConfiguration = (output: any, context: __SerdeContext): AccountConfiguration => {
+  return take(output, {
+    KmsKeyId: [, __expectString, `kmsKeyId`],
   }) as any;
 };
 
@@ -10270,6 +10616,7 @@ const de_EncoderSettings = (output: any, context: __SerdeContext): EncoderSettin
     ],
     NielsenConfiguration: [, (_: any) => de_NielsenConfiguration(_, context), `nielsenConfiguration`],
     OutputGroups: [, (_: any) => de___listOfOutputGroup(_, context), `outputGroups`],
+    ThumbnailConfiguration: [, (_: any) => de_ThumbnailConfiguration(_, context), `thumbnailConfiguration`],
     TimecodeConfig: [, (_: any) => de_TimecodeConfig(_, context), `timecodeConfig`],
     VideoDescriptions: [, (_: any) => de___listOfVideoDescription(_, context), `videoDescriptions`],
   }) as any;
@@ -12141,6 +12488,37 @@ const de_TemporalFilterSettings = (output: any, context: __SerdeContext): Tempor
   return take(output, {
     PostFilterSharpening: [, __expectString, `postFilterSharpening`],
     Strength: [, __expectString, `strength`],
+  }) as any;
+};
+
+/**
+ * deserializeAws_restJson1Thumbnail
+ */
+const de_Thumbnail = (output: any, context: __SerdeContext): Thumbnail => {
+  return take(output, {
+    Body: [, __expectString, `body`],
+    ContentType: [, __expectString, `contentType`],
+    ThumbnailType: [, __expectString, `thumbnailType`],
+    TimeStamp: [, (_: any) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)), `timeStamp`],
+  }) as any;
+};
+
+/**
+ * deserializeAws_restJson1ThumbnailConfiguration
+ */
+const de_ThumbnailConfiguration = (output: any, context: __SerdeContext): ThumbnailConfiguration => {
+  return take(output, {
+    State: [, __expectString, `state`],
+  }) as any;
+};
+
+/**
+ * deserializeAws_restJson1ThumbnailDetail
+ */
+const de_ThumbnailDetail = (output: any, context: __SerdeContext): ThumbnailDetail => {
+  return take(output, {
+    PipelineId: [, __expectString, `pipelineId`],
+    Thumbnails: [, (_: any) => de___listOfThumbnail(_, context), `thumbnails`],
   }) as any;
 };
 

@@ -14,7 +14,7 @@ import {
 } from "@smithy/types";
 
 import { MediaLiveClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MediaLiveClient";
-import { RejectInputDeviceTransferRequest, RejectInputDeviceTransferResponse } from "../models/models_1";
+import { RejectInputDeviceTransferRequest, RejectInputDeviceTransferResponse } from "../models/models_2";
 import { de_RejectInputDeviceTransferCommand, se_RejectInputDeviceTransferCommand } from "../protocols/Aws_restJson1";
 
 /**

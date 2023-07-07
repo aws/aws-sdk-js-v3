@@ -14,7 +14,7 @@ import {
 } from "@smithy/types";
 
 import { MediaLiveClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MediaLiveClient";
-import { StartChannelRequest, StartChannelResponse } from "../models/models_1";
+import { StartChannelRequest, StartChannelResponse } from "../models/models_2";
 import { de_StartChannelCommand, se_StartChannelCommand } from "../protocols/Aws_restJson1";
 
 /**
@@ -879,6 +879,9 @@ export interface StartChannelCommandOutput extends StartChannelResponse, __Metad
  * //         Width: Number("int"),
  * //       },
  * //     ],
+ * //     ThumbnailConfiguration: { // ThumbnailConfiguration
+ * //       State: "AUTO" || "DISABLED", // required
+ * //     },
  * //   },
  * //   Id: "STRING_VALUE",
  * //   InputAttachments: [ // __listOfInputAttachment

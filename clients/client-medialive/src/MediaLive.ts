@@ -81,6 +81,11 @@ import {
 } from "./commands/DeleteScheduleCommand";
 import { DeleteTagsCommand, DeleteTagsCommandInput, DeleteTagsCommandOutput } from "./commands/DeleteTagsCommand";
 import {
+  DescribeAccountConfigurationCommand,
+  DescribeAccountConfigurationCommandInput,
+  DescribeAccountConfigurationCommandOutput,
+} from "./commands/DescribeAccountConfigurationCommand";
+import {
   DescribeChannelCommand,
   DescribeChannelCommandInput,
   DescribeChannelCommandOutput,
@@ -130,6 +135,11 @@ import {
   DescribeScheduleCommandInput,
   DescribeScheduleCommandOutput,
 } from "./commands/DescribeScheduleCommand";
+import {
+  DescribeThumbnailsCommand,
+  DescribeThumbnailsCommandInput,
+  DescribeThumbnailsCommandOutput,
+} from "./commands/DescribeThumbnailsCommand";
 import {
   ListChannelsCommand,
   ListChannelsCommandInput,
@@ -218,6 +228,11 @@ import {
   TransferInputDeviceCommandOutput,
 } from "./commands/TransferInputDeviceCommand";
 import {
+  UpdateAccountConfigurationCommand,
+  UpdateAccountConfigurationCommandInput,
+  UpdateAccountConfigurationCommandOutput,
+} from "./commands/UpdateAccountConfigurationCommand";
+import {
   UpdateChannelClassCommand,
   UpdateChannelClassCommandInput,
   UpdateChannelClassCommandOutput,
@@ -278,6 +293,7 @@ const commands = {
   DeleteReservationCommand,
   DeleteScheduleCommand,
   DeleteTagsCommand,
+  DescribeAccountConfigurationCommand,
   DescribeChannelCommand,
   DescribeInputCommand,
   DescribeInputDeviceCommand,
@@ -288,6 +304,7 @@ const commands = {
   DescribeOfferingCommand,
   DescribeReservationCommand,
   DescribeScheduleCommand,
+  DescribeThumbnailsCommand,
   ListChannelsCommand,
   ListInputDevicesCommand,
   ListInputDeviceTransfersCommand,
@@ -307,6 +324,7 @@ const commands = {
   StopChannelCommand,
   StopMultiplexCommand,
   TransferInputDeviceCommand,
+  UpdateAccountConfigurationCommand,
   UpdateChannelCommand,
   UpdateChannelClassCommand,
   UpdateInputCommand,
@@ -624,6 +642,23 @@ export interface MediaLive {
   ): void;
 
   /**
+   * @see {@link DescribeAccountConfigurationCommand}
+   */
+  describeAccountConfiguration(
+    args: DescribeAccountConfigurationCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DescribeAccountConfigurationCommandOutput>;
+  describeAccountConfiguration(
+    args: DescribeAccountConfigurationCommandInput,
+    cb: (err: any, data?: DescribeAccountConfigurationCommandOutput) => void
+  ): void;
+  describeAccountConfiguration(
+    args: DescribeAccountConfigurationCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DescribeAccountConfigurationCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link DescribeChannelCommand}
    */
   describeChannel(
@@ -782,6 +817,23 @@ export interface MediaLive {
     args: DescribeScheduleCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: DescribeScheduleCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DescribeThumbnailsCommand}
+   */
+  describeThumbnails(
+    args: DescribeThumbnailsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DescribeThumbnailsCommandOutput>;
+  describeThumbnails(
+    args: DescribeThumbnailsCommandInput,
+    cb: (err: any, data?: DescribeThumbnailsCommandOutput) => void
+  ): void;
+  describeThumbnails(
+    args: DescribeThumbnailsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DescribeThumbnailsCommandOutput) => void
   ): void;
 
   /**
@@ -1063,6 +1115,23 @@ export interface MediaLive {
     args: TransferInputDeviceCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: TransferInputDeviceCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link UpdateAccountConfigurationCommand}
+   */
+  updateAccountConfiguration(
+    args: UpdateAccountConfigurationCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateAccountConfigurationCommandOutput>;
+  updateAccountConfiguration(
+    args: UpdateAccountConfigurationCommandInput,
+    cb: (err: any, data?: UpdateAccountConfigurationCommandOutput) => void
+  ): void;
+  updateAccountConfiguration(
+    args: UpdateAccountConfigurationCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UpdateAccountConfigurationCommandOutput) => void
   ): void;
 
   /**
