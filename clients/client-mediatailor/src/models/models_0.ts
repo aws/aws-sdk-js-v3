@@ -5,6 +5,22 @@ import { MediaTailorServiceException as __BaseException } from "./MediaTailorSer
 
 /**
  * @public
+ * <p>For <code>SCTE35_ENHANCED</code> output, defines a key and corresponding value. MediaTailor generates these pairs within the <code>EXT-X-ASSET</code>tag.</p>
+ */
+export interface KeyValuePair {
+  /**
+   * <p>For <code>SCTE35_ENHANCED</code> output, defines a key. MediaTailor takes this key, and its associated value, and generates the key/value pair within the <code>EXT-X-ASSET</code>tag. If you specify a key, you must also specify a corresponding value.</p>
+   */
+  Key: string | undefined;
+
+  /**
+   * <p>For <code>SCTE35_ENHANCED</code> output, defines a vaue. MediaTailor; takes this value, and its associated key, and generates the key/value pair within the <code>EXT-X-ASSET</code>tag. If you specify a value, you must also specify a corresponding key.</p>
+   */
+  Value: string | undefined;
+}
+
+/**
+ * @public
  * @enum
  */
 export const MessageType = {
@@ -152,6 +168,11 @@ export interface AdBreak {
    *          <p>See section 9.7.4 of the 2022 SCTE-35 specification for more information.</p>
    */
   TimeSignalMessage?: TimeSignalMessage;
+
+  /**
+   * <p>Defines a list of key/value pairs that MediaTailor generates within the <code>EXT-X-ASSET</code>tag for <code>SCTE35_ENHANCED</code> output.</p>
+   */
+  AdBreakMetadata?: KeyValuePair[];
 }
 
 /**
@@ -269,6 +290,20 @@ export interface DashPlaylistSettings {
 
 /**
  * @public
+ * @enum
+ */
+export const AdMarkupType = {
+  DATERANGE: "DATERANGE",
+  SCTE35_ENHANCED: "SCTE35_ENHANCED",
+} as const;
+
+/**
+ * @public
+ */
+export type AdMarkupType = (typeof AdMarkupType)[keyof typeof AdMarkupType];
+
+/**
+ * @public
  * <p>HLS playlist configuration parameters.</p>
  */
 export interface HlsPlaylistSettings {
@@ -276,6 +311,11 @@ export interface HlsPlaylistSettings {
    * <p>The total duration (in seconds) of each manifest. Minimum value: <code>30</code> seconds. Maximum value: <code>3600</code> seconds.</p>
    */
   ManifestWindowSeconds?: number;
+
+  /**
+   * <p>Determines the type of SCTE 35 tags to use in ad markup. Specify <code>DATERANGE</code> to use <code>DATERANGE</code> tags (for live or VOD content). Specify <code>SCTE35_ENHANCED</code> to use <code>EXT-X-CUE-OUT</code> and <code>EXT-X-CUE-IN</code> tags (for VOD content only).</p>
+   */
+  AdMarkupType?: (AdMarkupType | string)[];
 }
 
 /**

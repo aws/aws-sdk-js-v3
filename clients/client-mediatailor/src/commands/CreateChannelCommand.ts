@@ -59,6 +59,9 @@ export interface CreateChannelCommandOutput extends CreateChannelResponse, __Met
  *       },
  *       HlsPlaylistSettings: { // HlsPlaylistSettings
  *         ManifestWindowSeconds: Number("int"),
+ *         AdMarkupType: [ // adMarkupTypes
+ *           "DATERANGE" || "SCTE35_ENHANCED",
+ *         ],
  *       },
  *       ManifestName: "STRING_VALUE", // required
  *       SourceGroup: "STRING_VALUE", // required
@@ -92,6 +95,9 @@ export interface CreateChannelCommandOutput extends CreateChannelResponse, __Met
  * //       },
  * //       HlsPlaylistSettings: { // HlsPlaylistSettings
  * //         ManifestWindowSeconds: Number("int"),
+ * //         AdMarkupType: [ // adMarkupTypes
+ * //           "DATERANGE" || "SCTE35_ENHANCED",
+ * //         ],
  * //       },
  * //       ManifestName: "STRING_VALUE", // required
  * //       PlaybackUrl: "STRING_VALUE", // required

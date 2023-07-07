@@ -68,6 +68,9 @@ export interface DescribeChannelCommandOutput extends DescribeChannelResponse, _
  * //       },
  * //       HlsPlaylistSettings: { // HlsPlaylistSettings
  * //         ManifestWindowSeconds: Number("int"),
+ * //         AdMarkupType: [ // adMarkupTypes
+ * //           "DATERANGE" || "SCTE35_ENHANCED",
+ * //         ],
  * //       },
  * //       ManifestName: "STRING_VALUE", // required
  * //       PlaybackUrl: "STRING_VALUE", // required

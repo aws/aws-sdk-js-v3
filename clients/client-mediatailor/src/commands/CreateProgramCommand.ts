@@ -72,6 +72,12 @@ export interface CreateProgramCommandOutput extends CreateProgramResponse, __Met
  *           },
  *         ],
  *       },
+ *       AdBreakMetadata: [ // AdBreakMetadataList
+ *         { // KeyValuePair
+ *           Key: "STRING_VALUE", // required
+ *           Value: "STRING_VALUE", // required
+ *         },
+ *       ],
  *     },
  *   ],
  *   ChannelName: "STRING_VALUE", // required
@@ -123,6 +129,12 @@ export interface CreateProgramCommandOutput extends CreateProgramResponse, __Met
  * //           },
  * //         ],
  * //       },
+ * //       AdBreakMetadata: [ // AdBreakMetadataList
+ * //         { // KeyValuePair
+ * //           Key: "STRING_VALUE", // required
+ * //           Value: "STRING_VALUE", // required
+ * //         },
+ * //       ],
  * //     },
  * //   ],
  * //   Arn: "STRING_VALUE",

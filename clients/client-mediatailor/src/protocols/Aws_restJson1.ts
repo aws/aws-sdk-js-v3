@@ -123,6 +123,7 @@ import {
   AccessConfiguration,
   AdBreak,
   AdMarkerPassthrough,
+  AdMarkupType,
   Alert,
   AvailMatchingCriteria,
   AvailSuppression,
@@ -137,6 +138,7 @@ import {
   HlsPlaylistSettings,
   HttpConfiguration,
   HttpPackageConfiguration,
+  KeyValuePair,
   LivePreRollConfiguration,
   LiveSource,
   LogType,
@@ -3589,7 +3591,11 @@ const de_BadRequestExceptionRes = async (parsedOutput: any, context: __SerdeCont
 
 // se_AdBreak omitted.
 
+// se_AdBreakMetadataList omitted.
+
 // se_AdMarkerPassthrough omitted.
+
+// se_adMarkupTypes omitted.
 
 // se_AvailMatchingCriteria omitted.
 
@@ -3616,6 +3622,8 @@ const de_BadRequestExceptionRes = async (parsedOutput: any, context: __SerdeCont
 // se_HttpPackageConfiguration omitted.
 
 // se_HttpPackageConfigurations omitted.
+
+// se_KeyValuePair omitted.
 
 // se_LivePreRollConfiguration omitted.
 
@@ -3793,7 +3801,11 @@ const de___listOfVodSource = (output: any, context: __SerdeContext): VodSource[]
 
 // de_AdBreak omitted.
 
+// de_AdBreakMetadataList omitted.
+
 // de_AdMarkerPassthrough omitted.
+
+// de_adMarkupTypes omitted.
 
 /**
  * deserializeAws_restJson1Alert
@@ -3854,6 +3866,8 @@ const de_Channel = (output: any, context: __SerdeContext): Channel => {
 // de_HttpPackageConfiguration omitted.
 
 // de_HttpPackageConfigurations omitted.
+
+// de_KeyValuePair omitted.
 
 // de_LivePreRollConfiguration omitted.
 
