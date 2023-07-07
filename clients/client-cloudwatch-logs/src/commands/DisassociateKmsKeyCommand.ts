@@ -36,12 +36,29 @@ export interface DisassociateKmsKeyCommandOutput extends __MetadataBearer {}
 
 /**
  * @public
- * <p>Disassociates the associated KMS key from the specified log
- *       group.</p>
- *          <p>After the KMS key is disassociated from the log group, CloudWatch Logs stops encrypting newly ingested data for the log group. All previously ingested data
- *       remains encrypted, and CloudWatch Logs requires permissions for the KMS key
- *       whenever the encrypted data is requested.</p>
- *          <p>Note that it can take up to 5 minutes for this operation to take effect.</p>
+ * <p>Disassociates the specified KMS key from the specified log
+ *       group or from all CloudWatch Logs Insights query results in the account.</p>
+ *          <p>When you use <code>DisassociateKmsKey</code>, you specify either the <code>logGroupName</code> parameter
+ *       or the <code>resourceIdentifier</code> parameter. You can't specify both of those parameters in the same operation.</p>
+ *          <ul>
+ *             <li>
+ *                <p>Specify the <code>logGroupName</code> parameter to stop using the KMS key
+ *           to encrypt future log events ingested and stored in the log group. Instead, they will be
+ *           encrypted with the default CloudWatch Logs method. The log events that were ingested
+ *           while the key was associated with the log group are still encrypted with that key.
+ *           Therefore, CloudWatch Logs will need permissions for the key whenever that data is
+ *           accessed.</p>
+ *             </li>
+ *             <li>
+ *                <p>Specify the <code>resourceIdentifier</code> parameter with the <code>query-result</code>
+ *           resource to stop using the KMS key to encrypt the results of all
+ *           future <a href="https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_StartQuery.html">StartQuery</a>
+ *           operations in the account. They will instead be encrypted with the default CloudWatch Logs method. The results from queries that ran while the key was associated with
+ *           the account are still encrypted with that key. Therefore, CloudWatch Logs will need
+ *           permissions for the key whenever that data is accessed.</p>
+ *             </li>
+ *          </ul>
+ *          <p>It can take up to 5 minutes for this operation to take effect.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -49,7 +66,8 @@ export interface DisassociateKmsKeyCommandOutput extends __MetadataBearer {}
  * // const { CloudWatchLogsClient, DisassociateKmsKeyCommand } = require("@aws-sdk/client-cloudwatch-logs"); // CommonJS import
  * const client = new CloudWatchLogsClient(config);
  * const input = { // DisassociateKmsKeyRequest
- *   logGroupName: "STRING_VALUE", // required
+ *   logGroupName: "STRING_VALUE",
+ *   resourceIdentifier: "STRING_VALUE",
  * };
  * const command = new DisassociateKmsKeyCommand(input);
  * const response = await client.send(command);

@@ -3947,6 +3947,7 @@ const de_DescribeMetricFiltersResponse = (output: any, context: __SerdeContext):
  */
 const de_GetQueryResultsResponse = (output: any, context: __SerdeContext): GetQueryResultsResponse => {
   return take(output, {
+    encryptionKey: __expectString,
     results: _json,
     statistics: (_: any) => de_QueryStatistics(_, context),
     status: __expectString,

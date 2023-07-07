@@ -39,6 +39,15 @@ export interface StartQueryCommandOutput extends StartQueryResponse, __MetadataB
  * <p>Schedules a query of a log group using CloudWatch Logs Insights. You specify the log group
  *       and time range to query and the query string to use.</p>
  *          <p>For more information, see <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/CWL_QuerySyntax.html">CloudWatch Logs Insights Query Syntax</a>.</p>
+ *          <p>After you run a query using <code>StartQuery</code>, the query results are stored by CloudWatch Logs.
+ *       You can use <a href="https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_GetQueryResults.html">GetQueryResults</a> to retrieve
+ *       the results of a query, using the <code>queryId</code> that <code>StartQuery</code> returns.
+ *     </p>
+ *          <p>If you have associated a KMS key with the query results in this account,
+ *     then
+ *       <a href="https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_StartQuery.html">StartQuery</a> uses that key to
+ *       encrypt the results when it stores them. If no key is associated with query results, the query results are
+ *     encrypted with the default CloudWatch Logs encryption method.</p>
  *          <p>Queries time out after 60 minutes of runtime. If your queries are timing out, reduce the
  *       time range being searched or partition your query into a number of queries.</p>
  *          <p>If you are using CloudWatch cross-account observability, you can use this operation in a

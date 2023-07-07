@@ -75,6 +75,7 @@ export interface GetQueryResultsCommandOutput extends GetQueryResultsResponse, _
  * //     bytesScanned: Number("double"),
  * //   },
  * //   status: "Scheduled" || "Running" || "Complete" || "Failed" || "Cancelled" || "Timeout" || "Unknown",
+ * //   encryptionKey: "STRING_VALUE",
  * // };
  *
  * ```
