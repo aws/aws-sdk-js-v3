@@ -45,6 +45,10 @@ import {
   CreateFleetAdvisorCollectorCommandOutput,
 } from "../commands/CreateFleetAdvisorCollectorCommand";
 import {
+  CreateReplicationConfigCommandInput,
+  CreateReplicationConfigCommandOutput,
+} from "../commands/CreateReplicationConfigCommand";
+import {
   CreateReplicationInstanceCommandInput,
   CreateReplicationInstanceCommandOutput,
 } from "../commands/CreateReplicationInstanceCommand";
@@ -71,6 +75,10 @@ import {
   DeleteFleetAdvisorDatabasesCommandInput,
   DeleteFleetAdvisorDatabasesCommandOutput,
 } from "../commands/DeleteFleetAdvisorDatabasesCommand";
+import {
+  DeleteReplicationConfigCommandInput,
+  DeleteReplicationConfigCommandOutput,
+} from "../commands/DeleteReplicationConfigCommand";
 import {
   DeleteReplicationInstanceCommandInput,
   DeleteReplicationInstanceCommandOutput,
@@ -162,6 +170,10 @@ import {
   DescribeRefreshSchemasStatusCommandOutput,
 } from "../commands/DescribeRefreshSchemasStatusCommand";
 import {
+  DescribeReplicationConfigsCommandInput,
+  DescribeReplicationConfigsCommandOutput,
+} from "../commands/DescribeReplicationConfigsCommand";
+import {
   DescribeReplicationInstancesCommandInput,
   DescribeReplicationInstancesCommandOutput,
 } from "../commands/DescribeReplicationInstancesCommand";
@@ -170,9 +182,17 @@ import {
   DescribeReplicationInstanceTaskLogsCommandOutput,
 } from "../commands/DescribeReplicationInstanceTaskLogsCommand";
 import {
+  DescribeReplicationsCommandInput,
+  DescribeReplicationsCommandOutput,
+} from "../commands/DescribeReplicationsCommand";
+import {
   DescribeReplicationSubnetGroupsCommandInput,
   DescribeReplicationSubnetGroupsCommandOutput,
 } from "../commands/DescribeReplicationSubnetGroupsCommand";
+import {
+  DescribeReplicationTableStatisticsCommandInput,
+  DescribeReplicationTableStatisticsCommandOutput,
+} from "../commands/DescribeReplicationTableStatisticsCommand";
 import {
   DescribeReplicationTaskAssessmentResultsCommandInput,
   DescribeReplicationTaskAssessmentResultsCommandOutput,
@@ -205,6 +225,10 @@ import {
   ModifyEventSubscriptionCommandOutput,
 } from "../commands/ModifyEventSubscriptionCommand";
 import {
+  ModifyReplicationConfigCommandInput,
+  ModifyReplicationConfigCommandOutput,
+} from "../commands/ModifyReplicationConfigCommand";
+import {
   ModifyReplicationInstanceCommandInput,
   ModifyReplicationInstanceCommandOutput,
 } from "../commands/ModifyReplicationInstanceCommand";
@@ -225,6 +249,10 @@ import {
   RebootReplicationInstanceCommandOutput,
 } from "../commands/RebootReplicationInstanceCommand";
 import { RefreshSchemasCommandInput, RefreshSchemasCommandOutput } from "../commands/RefreshSchemasCommand";
+import {
+  ReloadReplicationTablesCommandInput,
+  ReloadReplicationTablesCommandOutput,
+} from "../commands/ReloadReplicationTablesCommand";
 import { ReloadTablesCommandInput, ReloadTablesCommandOutput } from "../commands/ReloadTablesCommand";
 import {
   RemoveTagsFromResourceCommandInput,
@@ -238,6 +266,7 @@ import {
   StartRecommendationsCommandInput,
   StartRecommendationsCommandOutput,
 } from "../commands/StartRecommendationsCommand";
+import { StartReplicationCommandInput, StartReplicationCommandOutput } from "../commands/StartReplicationCommand";
 import {
   StartReplicationTaskAssessmentCommandInput,
   StartReplicationTaskAssessmentCommandOutput,
@@ -250,6 +279,7 @@ import {
   StartReplicationTaskCommandInput,
   StartReplicationTaskCommandOutput,
 } from "../commands/StartReplicationTaskCommand";
+import { StopReplicationCommandInput, StopReplicationCommandOutput } from "../commands/StopReplicationCommand";
 import {
   StopReplicationTaskCommandInput,
   StopReplicationTaskCommandOutput,
@@ -270,9 +300,12 @@ import {
   CancelReplicationTaskAssessmentRunResponse,
   Certificate,
   CollectorNotFoundFault,
+  ComputeConfig,
   CreateEndpointMessage,
   CreateEventSubscriptionMessage,
   CreateFleetAdvisorCollectorRequest,
+  CreateReplicationConfigMessage,
+  CreateReplicationConfigResponse,
   CreateReplicationInstanceMessage,
   CreateReplicationInstanceResponse,
   CreateReplicationSubnetGroupMessage,
@@ -285,6 +318,8 @@ import {
   DeleteEndpointMessage,
   DeleteEventSubscriptionMessage,
   DeleteFleetAdvisorDatabasesRequest,
+  DeleteReplicationConfigMessage,
+  DeleteReplicationConfigResponse,
   DeleteReplicationInstanceMessage,
   DeleteReplicationInstanceResponse,
   DeleteReplicationSubnetGroupMessage,
@@ -318,10 +353,16 @@ import {
   DescribeRecommendationsResponse,
   DescribeRefreshSchemasStatusMessage,
   DescribeRefreshSchemasStatusResponse,
+  DescribeReplicationConfigsMessage,
+  DescribeReplicationConfigsResponse,
   DescribeReplicationInstancesMessage,
   DescribeReplicationInstancesResponse,
   DescribeReplicationInstanceTaskLogsMessage,
+  DescribeReplicationsMessage,
+  DescribeReplicationsResponse,
   DescribeReplicationSubnetGroupsMessage,
+  DescribeReplicationTableStatisticsMessage,
+  DescribeReplicationTableStatisticsResponse,
   DescribeReplicationTaskAssessmentResultsMessage,
   DescribeReplicationTaskAssessmentResultsResponse,
   DescribeReplicationTaskAssessmentRunsMessage,
@@ -361,6 +402,8 @@ import {
   MicrosoftSQLServerSettings,
   ModifyEndpointMessage,
   ModifyEventSubscriptionMessage,
+  ModifyReplicationConfigMessage,
+  ModifyReplicationConfigResponse,
   ModifyReplicationInstanceMessage,
   ModifyReplicationInstanceResponse,
   ModifyReplicationSubnetGroupMessage,
@@ -374,6 +417,7 @@ import {
   OracleSettings,
   PendingMaintenanceAction,
   PostgreSQLSettings,
+  ProvisionData,
   RdsConfiguration,
   RdsRecommendation,
   RdsRequirements,
@@ -387,9 +431,13 @@ import {
   RefreshSchemasMessage,
   RefreshSchemasResponse,
   RefreshSchemasStatus,
+  ReloadReplicationTablesMessage,
   ReloadTablesMessage,
   RemoveTagsFromResourceMessage,
+  Replication,
+  ReplicationConfig,
   ReplicationInstance,
+  ReplicationStats,
   ReplicationSubnetGroupDoesNotCoverEnoughAZs,
   ReplicationTask,
   ReplicationTaskAssessmentResult,
@@ -408,12 +456,16 @@ import {
   SNSNoAuthorizationFault,
   StartRecommendationsRequest,
   StartRecommendationsRequestEntry,
+  StartReplicationMessage,
+  StartReplicationResponse,
   StartReplicationTaskAssessmentMessage,
   StartReplicationTaskAssessmentResponse,
   StartReplicationTaskAssessmentRunMessage,
   StartReplicationTaskAssessmentRunResponse,
   StartReplicationTaskMessage,
   StartReplicationTaskResponse,
+  StopReplicationMessage,
+  StopReplicationResponse,
   StopReplicationTaskMessage,
   StopReplicationTaskResponse,
   StorageQuotaExceededFault,
@@ -423,6 +475,7 @@ import {
   TableToReload,
   Tag,
   TestConnectionMessage,
+  TimestreamSettings,
   UpdateSubscriptionsToEventBridgeMessage,
   UpgradeDependencyFailureFault,
 } from "../models/models_0";
@@ -513,6 +566,19 @@ export const se_CreateFleetAdvisorCollectorCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("CreateFleetAdvisorCollector");
+  let body: any;
+  body = JSON.stringify(_json(input));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+/**
+ * serializeAws_json1_1CreateReplicationConfigCommand
+ */
+export const se_CreateReplicationConfigCommand = async (
+  input: CreateReplicationConfigCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = sharedHeaders("CreateReplicationConfig");
   let body: any;
   body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -630,6 +696,19 @@ export const se_DeleteFleetAdvisorDatabasesCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("DeleteFleetAdvisorDatabases");
+  let body: any;
+  body = JSON.stringify(_json(input));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+/**
+ * serializeAws_json1_1DeleteReplicationConfigCommand
+ */
+export const se_DeleteReplicationConfigCommand = async (
+  input: DeleteReplicationConfigCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = sharedHeaders("DeleteReplicationConfig");
   let body: any;
   body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -948,6 +1027,19 @@ export const se_DescribeRefreshSchemasStatusCommand = async (
 };
 
 /**
+ * serializeAws_json1_1DescribeReplicationConfigsCommand
+ */
+export const se_DescribeReplicationConfigsCommand = async (
+  input: DescribeReplicationConfigsCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = sharedHeaders("DescribeReplicationConfigs");
+  let body: any;
+  body = JSON.stringify(_json(input));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+/**
  * serializeAws_json1_1DescribeReplicationInstancesCommand
  */
 export const se_DescribeReplicationInstancesCommand = async (
@@ -974,6 +1066,19 @@ export const se_DescribeReplicationInstanceTaskLogsCommand = async (
 };
 
 /**
+ * serializeAws_json1_1DescribeReplicationsCommand
+ */
+export const se_DescribeReplicationsCommand = async (
+  input: DescribeReplicationsCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = sharedHeaders("DescribeReplications");
+  let body: any;
+  body = JSON.stringify(_json(input));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+/**
  * serializeAws_json1_1DescribeReplicationSubnetGroupsCommand
  */
 export const se_DescribeReplicationSubnetGroupsCommand = async (
@@ -981,6 +1086,19 @@ export const se_DescribeReplicationSubnetGroupsCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("DescribeReplicationSubnetGroups");
+  let body: any;
+  body = JSON.stringify(_json(input));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+/**
+ * serializeAws_json1_1DescribeReplicationTableStatisticsCommand
+ */
+export const se_DescribeReplicationTableStatisticsCommand = async (
+  input: DescribeReplicationTableStatisticsCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = sharedHeaders("DescribeReplicationTableStatistics");
   let body: any;
   body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1117,6 +1235,19 @@ export const se_ModifyEventSubscriptionCommand = async (
 };
 
 /**
+ * serializeAws_json1_1ModifyReplicationConfigCommand
+ */
+export const se_ModifyReplicationConfigCommand = async (
+  input: ModifyReplicationConfigCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = sharedHeaders("ModifyReplicationConfig");
+  let body: any;
+  body = JSON.stringify(_json(input));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+/**
  * serializeAws_json1_1ModifyReplicationInstanceCommand
  */
 export const se_ModifyReplicationInstanceCommand = async (
@@ -1195,6 +1326,19 @@ export const se_RefreshSchemasCommand = async (
 };
 
 /**
+ * serializeAws_json1_1ReloadReplicationTablesCommand
+ */
+export const se_ReloadReplicationTablesCommand = async (
+  input: ReloadReplicationTablesCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = sharedHeaders("ReloadReplicationTables");
+  let body: any;
+  body = JSON.stringify(_json(input));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+/**
  * serializeAws_json1_1ReloadTablesCommand
  */
 export const se_ReloadTablesCommand = async (
@@ -1246,6 +1390,19 @@ export const se_StartRecommendationsCommand = async (
 };
 
 /**
+ * serializeAws_json1_1StartReplicationCommand
+ */
+export const se_StartReplicationCommand = async (
+  input: StartReplicationCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = sharedHeaders("StartReplication");
+  let body: any;
+  body = JSON.stringify(se_StartReplicationMessage(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+/**
  * serializeAws_json1_1StartReplicationTaskCommand
  */
 export const se_StartReplicationTaskCommand = async (
@@ -1279,6 +1436,19 @@ export const se_StartReplicationTaskAssessmentRunCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("StartReplicationTaskAssessmentRun");
+  let body: any;
+  body = JSON.stringify(_json(input));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+/**
+ * serializeAws_json1_1StopReplicationCommand
+ */
+export const se_StopReplicationCommand = async (
+  input: StopReplicationCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = sharedHeaders("StopReplication");
   let body: any;
   body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1704,6 +1874,73 @@ const de_CreateFleetAdvisorCollectorCommandError = async (
     case "S3ResourceNotFoundFault":
     case "com.amazonaws.databasemigrationservice#S3ResourceNotFoundFault":
       throw await de_S3ResourceNotFoundFaultRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
+ * deserializeAws_json1_1CreateReplicationConfigCommand
+ */
+export const de_CreateReplicationConfigCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CreateReplicationConfigCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CreateReplicationConfigCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_CreateReplicationConfigResponse(data, context);
+  const response: CreateReplicationConfigCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1CreateReplicationConfigCommandError
+ */
+const de_CreateReplicationConfigCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CreateReplicationConfigCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedFault":
+    case "com.amazonaws.databasemigrationservice#AccessDeniedFault":
+      throw await de_AccessDeniedFaultRes(parsedOutput, context);
+    case "InvalidResourceStateFault":
+    case "com.amazonaws.databasemigrationservice#InvalidResourceStateFault":
+      throw await de_InvalidResourceStateFaultRes(parsedOutput, context);
+    case "InvalidSubnet":
+    case "com.amazonaws.databasemigrationservice#InvalidSubnet":
+      throw await de_InvalidSubnetRes(parsedOutput, context);
+    case "KMSKeyNotAccessibleFault":
+    case "com.amazonaws.databasemigrationservice#KMSKeyNotAccessibleFault":
+      throw await de_KMSKeyNotAccessibleFaultRes(parsedOutput, context);
+    case "ReplicationSubnetGroupDoesNotCoverEnoughAZs":
+    case "com.amazonaws.databasemigrationservice#ReplicationSubnetGroupDoesNotCoverEnoughAZs":
+      throw await de_ReplicationSubnetGroupDoesNotCoverEnoughAZsRes(parsedOutput, context);
+    case "ResourceAlreadyExistsFault":
+    case "com.amazonaws.databasemigrationservice#ResourceAlreadyExistsFault":
+      throw await de_ResourceAlreadyExistsFaultRes(parsedOutput, context);
+    case "ResourceNotFoundFault":
+    case "com.amazonaws.databasemigrationservice#ResourceNotFoundFault":
+      throw await de_ResourceNotFoundFaultRes(parsedOutput, context);
+    case "ResourceQuotaExceededFault":
+    case "com.amazonaws.databasemigrationservice#ResourceQuotaExceededFault":
+      throw await de_ResourceQuotaExceededFaultRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       return throwDefaultError({
@@ -2190,6 +2427,58 @@ const de_DeleteFleetAdvisorDatabasesCommandError = async (
     case "InvalidOperationFault":
     case "com.amazonaws.databasemigrationservice#InvalidOperationFault":
       throw await de_InvalidOperationFaultRes(parsedOutput, context);
+    case "ResourceNotFoundFault":
+    case "com.amazonaws.databasemigrationservice#ResourceNotFoundFault":
+      throw await de_ResourceNotFoundFaultRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
+ * deserializeAws_json1_1DeleteReplicationConfigCommand
+ */
+export const de_DeleteReplicationConfigCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteReplicationConfigCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_DeleteReplicationConfigCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_DeleteReplicationConfigResponse(data, context);
+  const response: DeleteReplicationConfigCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1DeleteReplicationConfigCommandError
+ */
+const de_DeleteReplicationConfigCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteReplicationConfigCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedFault":
+    case "com.amazonaws.databasemigrationservice#AccessDeniedFault":
+      throw await de_AccessDeniedFaultRes(parsedOutput, context);
+    case "InvalidResourceStateFault":
+    case "com.amazonaws.databasemigrationservice#InvalidResourceStateFault":
+      throw await de_InvalidResourceStateFaultRes(parsedOutput, context);
     case "ResourceNotFoundFault":
     case "com.amazonaws.databasemigrationservice#ResourceNotFoundFault":
       throw await de_ResourceNotFoundFaultRes(parsedOutput, context);
@@ -3302,6 +3591,52 @@ const de_DescribeRefreshSchemasStatusCommandError = async (
 };
 
 /**
+ * deserializeAws_json1_1DescribeReplicationConfigsCommand
+ */
+export const de_DescribeReplicationConfigsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeReplicationConfigsCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_DescribeReplicationConfigsCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_DescribeReplicationConfigsResponse(data, context);
+  const response: DescribeReplicationConfigsCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1DescribeReplicationConfigsCommandError
+ */
+const de_DescribeReplicationConfigsCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeReplicationConfigsCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "ResourceNotFoundFault":
+    case "com.amazonaws.databasemigrationservice#ResourceNotFoundFault":
+      throw await de_ResourceNotFoundFaultRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
  * deserializeAws_json1_1DescribeReplicationInstancesCommand
  */
 export const de_DescribeReplicationInstancesCommand = async (
@@ -3397,6 +3732,52 @@ const de_DescribeReplicationInstanceTaskLogsCommandError = async (
 };
 
 /**
+ * deserializeAws_json1_1DescribeReplicationsCommand
+ */
+export const de_DescribeReplicationsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeReplicationsCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_DescribeReplicationsCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_DescribeReplicationsResponse(data, context);
+  const response: DescribeReplicationsCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1DescribeReplicationsCommandError
+ */
+const de_DescribeReplicationsCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeReplicationsCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "ResourceNotFoundFault":
+    case "com.amazonaws.databasemigrationservice#ResourceNotFoundFault":
+      throw await de_ResourceNotFoundFaultRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
  * deserializeAws_json1_1DescribeReplicationSubnetGroupsCommand
  */
 export const de_DescribeReplicationSubnetGroupsCommand = async (
@@ -3429,6 +3810,55 @@ const de_DescribeReplicationSubnetGroupsCommandError = async (
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
+    case "ResourceNotFoundFault":
+    case "com.amazonaws.databasemigrationservice#ResourceNotFoundFault":
+      throw await de_ResourceNotFoundFaultRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
+ * deserializeAws_json1_1DescribeReplicationTableStatisticsCommand
+ */
+export const de_DescribeReplicationTableStatisticsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeReplicationTableStatisticsCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_DescribeReplicationTableStatisticsCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_DescribeReplicationTableStatisticsResponse(data, context);
+  const response: DescribeReplicationTableStatisticsCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1DescribeReplicationTableStatisticsCommandError
+ */
+const de_DescribeReplicationTableStatisticsCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeReplicationTableStatisticsCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "InvalidResourceStateFault":
+    case "com.amazonaws.databasemigrationservice#InvalidResourceStateFault":
+      throw await de_InvalidResourceStateFaultRes(parsedOutput, context);
     case "ResourceNotFoundFault":
     case "com.amazonaws.databasemigrationservice#ResourceNotFoundFault":
       throw await de_ResourceNotFoundFaultRes(parsedOutput, context);
@@ -3951,6 +4381,67 @@ const de_ModifyEventSubscriptionCommandError = async (
 };
 
 /**
+ * deserializeAws_json1_1ModifyReplicationConfigCommand
+ */
+export const de_ModifyReplicationConfigCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ModifyReplicationConfigCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_ModifyReplicationConfigCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_ModifyReplicationConfigResponse(data, context);
+  const response: ModifyReplicationConfigCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1ModifyReplicationConfigCommandError
+ */
+const de_ModifyReplicationConfigCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ModifyReplicationConfigCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedFault":
+    case "com.amazonaws.databasemigrationservice#AccessDeniedFault":
+      throw await de_AccessDeniedFaultRes(parsedOutput, context);
+    case "InvalidResourceStateFault":
+    case "com.amazonaws.databasemigrationservice#InvalidResourceStateFault":
+      throw await de_InvalidResourceStateFaultRes(parsedOutput, context);
+    case "InvalidSubnet":
+    case "com.amazonaws.databasemigrationservice#InvalidSubnet":
+      throw await de_InvalidSubnetRes(parsedOutput, context);
+    case "KMSKeyNotAccessibleFault":
+    case "com.amazonaws.databasemigrationservice#KMSKeyNotAccessibleFault":
+      throw await de_KMSKeyNotAccessibleFaultRes(parsedOutput, context);
+    case "ReplicationSubnetGroupDoesNotCoverEnoughAZs":
+    case "com.amazonaws.databasemigrationservice#ReplicationSubnetGroupDoesNotCoverEnoughAZs":
+      throw await de_ReplicationSubnetGroupDoesNotCoverEnoughAZsRes(parsedOutput, context);
+    case "ResourceNotFoundFault":
+    case "com.amazonaws.databasemigrationservice#ResourceNotFoundFault":
+      throw await de_ResourceNotFoundFaultRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
  * deserializeAws_json1_1ModifyReplicationInstanceCommand
  */
 export const de_ModifyReplicationInstanceCommand = async (
@@ -4293,6 +4784,55 @@ const de_RefreshSchemasCommandError = async (
 };
 
 /**
+ * deserializeAws_json1_1ReloadReplicationTablesCommand
+ */
+export const de_ReloadReplicationTablesCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ReloadReplicationTablesCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_ReloadReplicationTablesCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = _json(data);
+  const response: ReloadReplicationTablesCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1ReloadReplicationTablesCommandError
+ */
+const de_ReloadReplicationTablesCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ReloadReplicationTablesCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "InvalidResourceStateFault":
+    case "com.amazonaws.databasemigrationservice#InvalidResourceStateFault":
+      throw await de_InvalidResourceStateFaultRes(parsedOutput, context);
+    case "ResourceNotFoundFault":
+    case "com.amazonaws.databasemigrationservice#ResourceNotFoundFault":
+      throw await de_ResourceNotFoundFaultRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
  * deserializeAws_json1_1ReloadTablesCommand
  */
 export const de_ReloadTablesCommand = async (
@@ -4460,6 +5000,58 @@ const de_StartRecommendationsCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<StartRecommendationsCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedFault":
+    case "com.amazonaws.databasemigrationservice#AccessDeniedFault":
+      throw await de_AccessDeniedFaultRes(parsedOutput, context);
+    case "InvalidResourceStateFault":
+    case "com.amazonaws.databasemigrationservice#InvalidResourceStateFault":
+      throw await de_InvalidResourceStateFaultRes(parsedOutput, context);
+    case "ResourceNotFoundFault":
+    case "com.amazonaws.databasemigrationservice#ResourceNotFoundFault":
+      throw await de_ResourceNotFoundFaultRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
+ * deserializeAws_json1_1StartReplicationCommand
+ */
+export const de_StartReplicationCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<StartReplicationCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_StartReplicationCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_StartReplicationResponse(data, context);
+  const response: StartReplicationCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1StartReplicationCommandError
+ */
+const de_StartReplicationCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<StartReplicationCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseErrorBody(output.body, context),
@@ -4655,6 +5247,58 @@ const de_StartReplicationTaskAssessmentRunCommandError = async (
     case "S3ResourceNotFoundFault":
     case "com.amazonaws.databasemigrationservice#S3ResourceNotFoundFault":
       throw await de_S3ResourceNotFoundFaultRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
+ * deserializeAws_json1_1StopReplicationCommand
+ */
+export const de_StopReplicationCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<StopReplicationCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_StopReplicationCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_StopReplicationResponse(data, context);
+  const response: StopReplicationCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1StopReplicationCommandError
+ */
+const de_StopReplicationCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<StopReplicationCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedFault":
+    case "com.amazonaws.databasemigrationservice#AccessDeniedFault":
+      throw await de_AccessDeniedFaultRes(parsedOutput, context);
+    case "InvalidResourceStateFault":
+    case "com.amazonaws.databasemigrationservice#InvalidResourceStateFault":
+      throw await de_InvalidResourceStateFaultRes(parsedOutput, context);
+    case "ResourceNotFoundFault":
+    case "com.amazonaws.databasemigrationservice#ResourceNotFoundFault":
+      throw await de_ResourceNotFoundFaultRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       return throwDefaultError({
@@ -5207,11 +5851,15 @@ const de_UpgradeDependencyFailureFaultRes = async (
 
 // se_CancelReplicationTaskAssessmentRunMessage omitted.
 
+// se_ComputeConfig omitted.
+
 // se_CreateEndpointMessage omitted.
 
 // se_CreateEventSubscriptionMessage omitted.
 
 // se_CreateFleetAdvisorCollectorRequest omitted.
+
+// se_CreateReplicationConfigMessage omitted.
 
 // se_CreateReplicationInstanceMessage omitted.
 
@@ -5249,6 +5897,8 @@ const se_CreateReplicationTaskMessage = (input: CreateReplicationTaskMessage, co
 // se_DeleteEventSubscriptionMessage omitted.
 
 // se_DeleteFleetAdvisorDatabasesRequest omitted.
+
+// se_DeleteReplicationConfigMessage omitted.
 
 // se_DeleteReplicationInstanceMessage omitted.
 
@@ -5313,11 +5963,17 @@ const se_DescribeEventsMessage = (input: DescribeEventsMessage, context: __Serde
 
 // se_DescribeRefreshSchemasStatusMessage omitted.
 
+// se_DescribeReplicationConfigsMessage omitted.
+
 // se_DescribeReplicationInstancesMessage omitted.
 
 // se_DescribeReplicationInstanceTaskLogsMessage omitted.
 
+// se_DescribeReplicationsMessage omitted.
+
 // se_DescribeReplicationSubnetGroupsMessage omitted.
+
+// se_DescribeReplicationTableStatisticsMessage omitted.
 
 // se_DescribeReplicationTaskAssessmentResultsMessage omitted.
 
@@ -5383,6 +6039,8 @@ const se_ImportCertificateMessage = (input: ImportCertificateMessage, context: _
 
 // se_ModifyEventSubscriptionMessage omitted.
 
+// se_ModifyReplicationConfigMessage omitted.
+
 // se_ModifyReplicationInstanceMessage omitted.
 
 // se_ModifyReplicationSubnetGroupMessage omitted.
@@ -5426,6 +6084,8 @@ const se_ModifyReplicationTaskMessage = (input: ModifyReplicationTaskMessage, co
 
 // se_RefreshSchemasMessage omitted.
 
+// se_ReloadReplicationTablesMessage omitted.
+
 // se_ReloadTablesMessage omitted.
 
 // se_RemoveTagsFromResourceMessage omitted.
@@ -5439,6 +6099,19 @@ const se_ModifyReplicationTaskMessage = (input: ModifyReplicationTaskMessage, co
 // se_StartRecommendationsRequestEntry omitted.
 
 // se_StartRecommendationsRequestEntryList omitted.
+
+/**
+ * serializeAws_json1_1StartReplicationMessage
+ */
+const se_StartReplicationMessage = (input: StartReplicationMessage, context: __SerdeContext): any => {
+  return take(input, {
+    CdcStartPosition: [],
+    CdcStartTime: (_) => Math.round(_.getTime() / 1000),
+    CdcStopPosition: [],
+    ReplicationConfigArn: [],
+    StartReplicationType: [],
+  });
+};
 
 // se_StartReplicationTaskAssessmentMessage omitted.
 
@@ -5457,6 +6130,8 @@ const se_StartReplicationTaskMessage = (input: StartReplicationTaskMessage, cont
   });
 };
 
+// se_StopReplicationMessage omitted.
+
 // se_StopReplicationTaskMessage omitted.
 
 // se_StringList omitted.
@@ -5474,6 +6149,8 @@ const se_StartReplicationTaskMessage = (input: StartReplicationTaskMessage, cont
 // se_TagList omitted.
 
 // se_TestConnectionMessage omitted.
+
+// se_TimestreamSettings omitted.
 
 // se_UpdateSubscriptionsToEventBridgeMessage omitted.
 
@@ -5563,6 +6240,8 @@ const de_CertificateList = (output: any, context: __SerdeContext): Certificate[]
 
 // de_CollectorsList omitted.
 
+// de_ComputeConfig omitted.
+
 // de_Connection omitted.
 
 // de_ConnectionList omitted.
@@ -5572,6 +6251,15 @@ const de_CertificateList = (output: any, context: __SerdeContext): Certificate[]
 // de_CreateEventSubscriptionResponse omitted.
 
 // de_CreateFleetAdvisorCollectorResponse omitted.
+
+/**
+ * deserializeAws_json1_1CreateReplicationConfigResponse
+ */
+const de_CreateReplicationConfigResponse = (output: any, context: __SerdeContext): CreateReplicationConfigResponse => {
+  return take(output, {
+    ReplicationConfig: (_: any) => de_ReplicationConfig(_, context),
+  }) as any;
+};
 
 /**
  * deserializeAws_json1_1CreateReplicationInstanceResponse
@@ -5620,6 +6308,15 @@ const de_DeleteCertificateResponse = (output: any, context: __SerdeContext): Del
 // de_DeleteEventSubscriptionResponse omitted.
 
 // de_DeleteFleetAdvisorDatabasesResponse omitted.
+
+/**
+ * deserializeAws_json1_1DeleteReplicationConfigResponse
+ */
+const de_DeleteReplicationConfigResponse = (output: any, context: __SerdeContext): DeleteReplicationConfigResponse => {
+  return take(output, {
+    ReplicationConfig: (_: any) => de_ReplicationConfig(_, context),
+  }) as any;
+};
 
 /**
  * deserializeAws_json1_1DeleteReplicationInstanceResponse
@@ -5753,6 +6450,19 @@ const de_DescribeRefreshSchemasStatusResponse = (
 };
 
 /**
+ * deserializeAws_json1_1DescribeReplicationConfigsResponse
+ */
+const de_DescribeReplicationConfigsResponse = (
+  output: any,
+  context: __SerdeContext
+): DescribeReplicationConfigsResponse => {
+  return take(output, {
+    Marker: __expectString,
+    ReplicationConfigs: (_: any) => de_ReplicationConfigList(_, context),
+  }) as any;
+};
+
+/**
  * deserializeAws_json1_1DescribeReplicationInstancesResponse
  */
 const de_DescribeReplicationInstancesResponse = (
@@ -5767,7 +6477,31 @@ const de_DescribeReplicationInstancesResponse = (
 
 // de_DescribeReplicationInstanceTaskLogsResponse omitted.
 
+/**
+ * deserializeAws_json1_1DescribeReplicationsResponse
+ */
+const de_DescribeReplicationsResponse = (output: any, context: __SerdeContext): DescribeReplicationsResponse => {
+  return take(output, {
+    Marker: __expectString,
+    Replications: (_: any) => de_ReplicationList(_, context),
+  }) as any;
+};
+
 // de_DescribeReplicationSubnetGroupsResponse omitted.
+
+/**
+ * deserializeAws_json1_1DescribeReplicationTableStatisticsResponse
+ */
+const de_DescribeReplicationTableStatisticsResponse = (
+  output: any,
+  context: __SerdeContext
+): DescribeReplicationTableStatisticsResponse => {
+  return take(output, {
+    Marker: __expectString,
+    ReplicationConfigArn: __expectString,
+    ReplicationTableStatistics: (_: any) => de_ReplicationTableStatisticsList(_, context),
+  }) as any;
+};
 
 /**
  * deserializeAws_json1_1DescribeReplicationTaskAssessmentResultsResponse
@@ -5968,6 +6702,15 @@ const de_ImportCertificateResponse = (output: any, context: __SerdeContext): Imp
 // de_ModifyEventSubscriptionResponse omitted.
 
 /**
+ * deserializeAws_json1_1ModifyReplicationConfigResponse
+ */
+const de_ModifyReplicationConfigResponse = (output: any, context: __SerdeContext): ModifyReplicationConfigResponse => {
+  return take(output, {
+    ReplicationConfig: (_: any) => de_ReplicationConfig(_, context),
+  }) as any;
+};
+
+/**
  * deserializeAws_json1_1ModifyReplicationInstanceResponse
  */
 const de_ModifyReplicationInstanceResponse = (
@@ -6052,12 +6795,27 @@ const de_PendingMaintenanceActions = (output: any, context: __SerdeContext): Res
 // de_PostgreSQLSettings omitted.
 
 /**
+ * deserializeAws_json1_1ProvisionData
+ */
+const de_ProvisionData = (output: any, context: __SerdeContext): ProvisionData => {
+  return take(output, {
+    DateNewProvisioningDataAvailable: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    DateProvisioned: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    IsNewProvisioningAvailable: __expectBoolean,
+    ProvisionState: __expectString,
+    ProvisionedCapacityUnits: __expectInt32,
+    ReasonForNewProvisioningData: __expectString,
+  }) as any;
+};
+
+/**
  * deserializeAws_json1_1RdsConfiguration
  */
 const de_RdsConfiguration = (output: any, context: __SerdeContext): RdsConfiguration => {
   return take(output, {
     DeploymentOption: __expectString,
     EngineEdition: __expectString,
+    EngineVersion: __expectString,
     InstanceMemory: __limitedParseDouble,
     InstanceType: __expectString,
     InstanceVcpu: __limitedParseDouble,
@@ -6084,6 +6842,7 @@ const de_RdsRequirements = (output: any, context: __SerdeContext): RdsRequiremen
   return take(output, {
     DeploymentOption: __expectString,
     EngineEdition: __expectString,
+    EngineVersion: __expectString,
     InstanceMemory: __limitedParseDouble,
     InstanceVcpu: __limitedParseDouble,
     StorageIops: __expectInt32,
@@ -6167,9 +6926,68 @@ const de_RefreshSchemasStatus = (output: any, context: __SerdeContext): RefreshS
   }) as any;
 };
 
+// de_ReloadReplicationTablesResponse omitted.
+
 // de_ReloadTablesResponse omitted.
 
 // de_RemoveTagsFromResourceResponse omitted.
+
+/**
+ * deserializeAws_json1_1Replication
+ */
+const de_Replication = (output: any, context: __SerdeContext): Replication => {
+  return take(output, {
+    CdcStartPosition: __expectString,
+    CdcStartTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    CdcStopPosition: __expectString,
+    FailureMessages: _json,
+    ProvisionData: (_: any) => de_ProvisionData(_, context),
+    RecoveryCheckpoint: __expectString,
+    ReplicationConfigArn: __expectString,
+    ReplicationConfigIdentifier: __expectString,
+    ReplicationCreateTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    ReplicationLastStopTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    ReplicationStats: (_: any) => de_ReplicationStats(_, context),
+    ReplicationType: __expectString,
+    ReplicationUpdateTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    SourceEndpointArn: __expectString,
+    StartReplicationType: __expectString,
+    Status: __expectString,
+    StopReason: __expectString,
+    TargetEndpointArn: __expectString,
+  }) as any;
+};
+
+/**
+ * deserializeAws_json1_1ReplicationConfig
+ */
+const de_ReplicationConfig = (output: any, context: __SerdeContext): ReplicationConfig => {
+  return take(output, {
+    ComputeConfig: _json,
+    ReplicationConfigArn: __expectString,
+    ReplicationConfigCreateTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    ReplicationConfigIdentifier: __expectString,
+    ReplicationConfigUpdateTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    ReplicationSettings: __expectString,
+    ReplicationType: __expectString,
+    SourceEndpointArn: __expectString,
+    SupplementalSettings: __expectString,
+    TableMappings: __expectString,
+    TargetEndpointArn: __expectString,
+  }) as any;
+};
+
+/**
+ * deserializeAws_json1_1ReplicationConfigList
+ */
+const de_ReplicationConfigList = (output: any, context: __SerdeContext): ReplicationConfig[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      return de_ReplicationConfig(entry, context);
+    });
+  return retVal;
+};
 
 /**
  * deserializeAws_json1_1ReplicationInstance
@@ -6226,13 +7044,56 @@ const de_ReplicationInstanceList = (output: any, context: __SerdeContext): Repli
 
 // de_ReplicationInstanceTaskLogsList omitted.
 
+/**
+ * deserializeAws_json1_1ReplicationList
+ */
+const de_ReplicationList = (output: any, context: __SerdeContext): Replication[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      return de_Replication(entry, context);
+    });
+  return retVal;
+};
+
 // de_ReplicationPendingModifiedValues omitted.
+
+/**
+ * deserializeAws_json1_1ReplicationStats
+ */
+const de_ReplicationStats = (output: any, context: __SerdeContext): ReplicationStats => {
+  return take(output, {
+    ElapsedTimeMillis: __expectLong,
+    FreshStartDate: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    FullLoadFinishDate: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    FullLoadProgressPercent: __expectInt32,
+    FullLoadStartDate: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    StartDate: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    StopDate: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    TablesErrored: __expectInt32,
+    TablesLoaded: __expectInt32,
+    TablesLoading: __expectInt32,
+    TablesQueued: __expectInt32,
+  }) as any;
+};
 
 // de_ReplicationSubnetGroup omitted.
 
 // de_ReplicationSubnetGroupDoesNotCoverEnoughAZs omitted.
 
 // de_ReplicationSubnetGroups omitted.
+
+/**
+ * deserializeAws_json1_1ReplicationTableStatisticsList
+ */
+const de_ReplicationTableStatisticsList = (output: any, context: __SerdeContext): TableStatistics[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      return de_TableStatistics(entry, context);
+    });
+  return retVal;
+};
 
 /**
  * deserializeAws_json1_1ReplicationTask
@@ -6444,6 +7305,15 @@ const de_SchemaResponse = (output: any, context: __SerdeContext): SchemaResponse
 // de_SourceIdsList omitted.
 
 /**
+ * deserializeAws_json1_1StartReplicationResponse
+ */
+const de_StartReplicationResponse = (output: any, context: __SerdeContext): StartReplicationResponse => {
+  return take(output, {
+    Replication: (_: any) => de_Replication(_, context),
+  }) as any;
+};
+
+/**
  * deserializeAws_json1_1StartReplicationTaskAssessmentResponse
  */
 const de_StartReplicationTaskAssessmentResponse = (
@@ -6473,6 +7343,15 @@ const de_StartReplicationTaskAssessmentRunResponse = (
 const de_StartReplicationTaskResponse = (output: any, context: __SerdeContext): StartReplicationTaskResponse => {
   return take(output, {
     ReplicationTask: (_: any) => de_ReplicationTask(_, context),
+  }) as any;
+};
+
+/**
+ * deserializeAws_json1_1StopReplicationResponse
+ */
+const de_StopReplicationResponse = (output: any, context: __SerdeContext): StopReplicationResponse => {
+  return take(output, {
+    Replication: (_: any) => de_Replication(_, context),
   }) as any;
 };
 
@@ -6549,6 +7428,8 @@ const de_TableStatisticsList = (output: any, context: __SerdeContext): TableStat
 // de_TagList omitted.
 
 // de_TestConnectionResponse omitted.
+
+// de_TimestreamSettings omitted.
 
 // de_UpdateSubscriptionsToEventBridgeResponse omitted.
 

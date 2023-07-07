@@ -38,6 +38,11 @@ import {
   CreateFleetAdvisorCollectorCommandOutput,
 } from "./commands/CreateFleetAdvisorCollectorCommand";
 import {
+  CreateReplicationConfigCommand,
+  CreateReplicationConfigCommandInput,
+  CreateReplicationConfigCommandOutput,
+} from "./commands/CreateReplicationConfigCommand";
+import {
   CreateReplicationInstanceCommand,
   CreateReplicationInstanceCommandInput,
   CreateReplicationInstanceCommandOutput,
@@ -82,6 +87,11 @@ import {
   DeleteFleetAdvisorDatabasesCommandInput,
   DeleteFleetAdvisorDatabasesCommandOutput,
 } from "./commands/DeleteFleetAdvisorDatabasesCommand";
+import {
+  DeleteReplicationConfigCommand,
+  DeleteReplicationConfigCommandInput,
+  DeleteReplicationConfigCommandOutput,
+} from "./commands/DeleteReplicationConfigCommand";
 import {
   DeleteReplicationInstanceCommand,
   DeleteReplicationInstanceCommandInput,
@@ -203,6 +213,11 @@ import {
   DescribeRefreshSchemasStatusCommandOutput,
 } from "./commands/DescribeRefreshSchemasStatusCommand";
 import {
+  DescribeReplicationConfigsCommand,
+  DescribeReplicationConfigsCommandInput,
+  DescribeReplicationConfigsCommandOutput,
+} from "./commands/DescribeReplicationConfigsCommand";
+import {
   DescribeReplicationInstancesCommand,
   DescribeReplicationInstancesCommandInput,
   DescribeReplicationInstancesCommandOutput,
@@ -213,10 +228,20 @@ import {
   DescribeReplicationInstanceTaskLogsCommandOutput,
 } from "./commands/DescribeReplicationInstanceTaskLogsCommand";
 import {
+  DescribeReplicationsCommand,
+  DescribeReplicationsCommandInput,
+  DescribeReplicationsCommandOutput,
+} from "./commands/DescribeReplicationsCommand";
+import {
   DescribeReplicationSubnetGroupsCommand,
   DescribeReplicationSubnetGroupsCommandInput,
   DescribeReplicationSubnetGroupsCommandOutput,
 } from "./commands/DescribeReplicationSubnetGroupsCommand";
+import {
+  DescribeReplicationTableStatisticsCommand,
+  DescribeReplicationTableStatisticsCommandInput,
+  DescribeReplicationTableStatisticsCommandOutput,
+} from "./commands/DescribeReplicationTableStatisticsCommand";
 import {
   DescribeReplicationTaskAssessmentResultsCommand,
   DescribeReplicationTaskAssessmentResultsCommandInput,
@@ -268,6 +293,11 @@ import {
   ModifyEventSubscriptionCommandOutput,
 } from "./commands/ModifyEventSubscriptionCommand";
 import {
+  ModifyReplicationConfigCommand,
+  ModifyReplicationConfigCommandInput,
+  ModifyReplicationConfigCommandOutput,
+} from "./commands/ModifyReplicationConfigCommand";
+import {
   ModifyReplicationInstanceCommand,
   ModifyReplicationInstanceCommandInput,
   ModifyReplicationInstanceCommandOutput,
@@ -298,6 +328,11 @@ import {
   RefreshSchemasCommandOutput,
 } from "./commands/RefreshSchemasCommand";
 import {
+  ReloadReplicationTablesCommand,
+  ReloadReplicationTablesCommandInput,
+  ReloadReplicationTablesCommandOutput,
+} from "./commands/ReloadReplicationTablesCommand";
+import {
   ReloadTablesCommand,
   ReloadTablesCommandInput,
   ReloadTablesCommandOutput,
@@ -318,6 +353,11 @@ import {
   StartRecommendationsCommandOutput,
 } from "./commands/StartRecommendationsCommand";
 import {
+  StartReplicationCommand,
+  StartReplicationCommandInput,
+  StartReplicationCommandOutput,
+} from "./commands/StartReplicationCommand";
+import {
   StartReplicationTaskAssessmentCommand,
   StartReplicationTaskAssessmentCommandInput,
   StartReplicationTaskAssessmentCommandOutput,
@@ -332,6 +372,11 @@ import {
   StartReplicationTaskCommandInput,
   StartReplicationTaskCommandOutput,
 } from "./commands/StartReplicationTaskCommand";
+import {
+  StopReplicationCommand,
+  StopReplicationCommandInput,
+  StopReplicationCommandOutput,
+} from "./commands/StopReplicationCommand";
 import {
   StopReplicationTaskCommand,
   StopReplicationTaskCommandInput,
@@ -357,6 +402,7 @@ const commands = {
   CreateEndpointCommand,
   CreateEventSubscriptionCommand,
   CreateFleetAdvisorCollectorCommand,
+  CreateReplicationConfigCommand,
   CreateReplicationInstanceCommand,
   CreateReplicationSubnetGroupCommand,
   CreateReplicationTaskCommand,
@@ -366,6 +412,7 @@ const commands = {
   DeleteEventSubscriptionCommand,
   DeleteFleetAdvisorCollectorCommand,
   DeleteFleetAdvisorDatabasesCommand,
+  DeleteReplicationConfigCommand,
   DeleteReplicationInstanceCommand,
   DeleteReplicationSubnetGroupCommand,
   DeleteReplicationTaskCommand,
@@ -390,9 +437,12 @@ const commands = {
   DescribeRecommendationLimitationsCommand,
   DescribeRecommendationsCommand,
   DescribeRefreshSchemasStatusCommand,
+  DescribeReplicationConfigsCommand,
   DescribeReplicationInstancesCommand,
   DescribeReplicationInstanceTaskLogsCommand,
+  DescribeReplicationsCommand,
   DescribeReplicationSubnetGroupsCommand,
+  DescribeReplicationTableStatisticsCommand,
   DescribeReplicationTaskAssessmentResultsCommand,
   DescribeReplicationTaskAssessmentRunsCommand,
   DescribeReplicationTaskIndividualAssessmentsCommand,
@@ -403,19 +453,23 @@ const commands = {
   ListTagsForResourceCommand,
   ModifyEndpointCommand,
   ModifyEventSubscriptionCommand,
+  ModifyReplicationConfigCommand,
   ModifyReplicationInstanceCommand,
   ModifyReplicationSubnetGroupCommand,
   ModifyReplicationTaskCommand,
   MoveReplicationTaskCommand,
   RebootReplicationInstanceCommand,
   RefreshSchemasCommand,
+  ReloadReplicationTablesCommand,
   ReloadTablesCommand,
   RemoveTagsFromResourceCommand,
   RunFleetAdvisorLsaAnalysisCommand,
   StartRecommendationsCommand,
+  StartReplicationCommand,
   StartReplicationTaskCommand,
   StartReplicationTaskAssessmentCommand,
   StartReplicationTaskAssessmentRunCommand,
+  StopReplicationCommand,
   StopReplicationTaskCommand,
   TestConnectionCommand,
   UpdateSubscriptionsToEventBridgeCommand,
@@ -536,6 +590,23 @@ export interface DatabaseMigrationService {
     args: CreateFleetAdvisorCollectorCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: CreateFleetAdvisorCollectorCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link CreateReplicationConfigCommand}
+   */
+  createReplicationConfig(
+    args: CreateReplicationConfigCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateReplicationConfigCommandOutput>;
+  createReplicationConfig(
+    args: CreateReplicationConfigCommandInput,
+    cb: (err: any, data?: CreateReplicationConfigCommandOutput) => void
+  ): void;
+  createReplicationConfig(
+    args: CreateReplicationConfigCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CreateReplicationConfigCommandOutput) => void
   ): void;
 
   /**
@@ -686,6 +757,23 @@ export interface DatabaseMigrationService {
     args: DeleteFleetAdvisorDatabasesCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: DeleteFleetAdvisorDatabasesCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DeleteReplicationConfigCommand}
+   */
+  deleteReplicationConfig(
+    args: DeleteReplicationConfigCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteReplicationConfigCommandOutput>;
+  deleteReplicationConfig(
+    args: DeleteReplicationConfigCommandInput,
+    cb: (err: any, data?: DeleteReplicationConfigCommandOutput) => void
+  ): void;
+  deleteReplicationConfig(
+    args: DeleteReplicationConfigCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteReplicationConfigCommandOutput) => void
   ): void;
 
   /**
@@ -1094,6 +1182,23 @@ export interface DatabaseMigrationService {
   ): void;
 
   /**
+   * @see {@link DescribeReplicationConfigsCommand}
+   */
+  describeReplicationConfigs(
+    args: DescribeReplicationConfigsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DescribeReplicationConfigsCommandOutput>;
+  describeReplicationConfigs(
+    args: DescribeReplicationConfigsCommandInput,
+    cb: (err: any, data?: DescribeReplicationConfigsCommandOutput) => void
+  ): void;
+  describeReplicationConfigs(
+    args: DescribeReplicationConfigsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DescribeReplicationConfigsCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link DescribeReplicationInstancesCommand}
    */
   describeReplicationInstances(
@@ -1128,6 +1233,23 @@ export interface DatabaseMigrationService {
   ): void;
 
   /**
+   * @see {@link DescribeReplicationsCommand}
+   */
+  describeReplications(
+    args: DescribeReplicationsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DescribeReplicationsCommandOutput>;
+  describeReplications(
+    args: DescribeReplicationsCommandInput,
+    cb: (err: any, data?: DescribeReplicationsCommandOutput) => void
+  ): void;
+  describeReplications(
+    args: DescribeReplicationsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DescribeReplicationsCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link DescribeReplicationSubnetGroupsCommand}
    */
   describeReplicationSubnetGroups(
@@ -1142,6 +1264,23 @@ export interface DatabaseMigrationService {
     args: DescribeReplicationSubnetGroupsCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: DescribeReplicationSubnetGroupsCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DescribeReplicationTableStatisticsCommand}
+   */
+  describeReplicationTableStatistics(
+    args: DescribeReplicationTableStatisticsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DescribeReplicationTableStatisticsCommandOutput>;
+  describeReplicationTableStatistics(
+    args: DescribeReplicationTableStatisticsCommandInput,
+    cb: (err: any, data?: DescribeReplicationTableStatisticsCommandOutput) => void
+  ): void;
+  describeReplicationTableStatistics(
+    args: DescribeReplicationTableStatisticsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DescribeReplicationTableStatisticsCommandOutput) => void
   ): void;
 
   /**
@@ -1309,6 +1448,23 @@ export interface DatabaseMigrationService {
   ): void;
 
   /**
+   * @see {@link ModifyReplicationConfigCommand}
+   */
+  modifyReplicationConfig(
+    args: ModifyReplicationConfigCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ModifyReplicationConfigCommandOutput>;
+  modifyReplicationConfig(
+    args: ModifyReplicationConfigCommandInput,
+    cb: (err: any, data?: ModifyReplicationConfigCommandOutput) => void
+  ): void;
+  modifyReplicationConfig(
+    args: ModifyReplicationConfigCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ModifyReplicationConfigCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link ModifyReplicationInstanceCommand}
    */
   modifyReplicationInstance(
@@ -1408,6 +1564,23 @@ export interface DatabaseMigrationService {
   ): void;
 
   /**
+   * @see {@link ReloadReplicationTablesCommand}
+   */
+  reloadReplicationTables(
+    args: ReloadReplicationTablesCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ReloadReplicationTablesCommandOutput>;
+  reloadReplicationTables(
+    args: ReloadReplicationTablesCommandInput,
+    cb: (err: any, data?: ReloadReplicationTablesCommandOutput) => void
+  ): void;
+  reloadReplicationTables(
+    args: ReloadReplicationTablesCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ReloadReplicationTablesCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link ReloadTablesCommand}
    */
   reloadTables(args: ReloadTablesCommandInput, options?: __HttpHandlerOptions): Promise<ReloadTablesCommandOutput>;
@@ -1470,6 +1643,23 @@ export interface DatabaseMigrationService {
   ): void;
 
   /**
+   * @see {@link StartReplicationCommand}
+   */
+  startReplication(
+    args: StartReplicationCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<StartReplicationCommandOutput>;
+  startReplication(
+    args: StartReplicationCommandInput,
+    cb: (err: any, data?: StartReplicationCommandOutput) => void
+  ): void;
+  startReplication(
+    args: StartReplicationCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: StartReplicationCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link StartReplicationTaskCommand}
    */
   startReplicationTask(
@@ -1518,6 +1708,20 @@ export interface DatabaseMigrationService {
     args: StartReplicationTaskAssessmentRunCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: StartReplicationTaskAssessmentRunCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link StopReplicationCommand}
+   */
+  stopReplication(
+    args: StopReplicationCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<StopReplicationCommandOutput>;
+  stopReplication(args: StopReplicationCommandInput, cb: (err: any, data?: StopReplicationCommandOutput) => void): void;
+  stopReplication(
+    args: StopReplicationCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: StopReplicationCommandOutput) => void
   ): void;
 
   /**

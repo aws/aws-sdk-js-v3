@@ -84,6 +84,7 @@ export interface DescribeRecommendationsCommandOutput extends DescribeRecommenda
  * //             StorageSize: Number("int"),
  * //             StorageIops: Number("int"),
  * //             DeploymentOption: "STRING_VALUE",
+ * //             EngineVersion: "STRING_VALUE",
  * //           },
  * //           TargetConfiguration: { // RdsConfiguration
  * //             EngineEdition: "STRING_VALUE",
@@ -94,6 +95,7 @@ export interface DescribeRecommendationsCommandOutput extends DescribeRecommenda
  * //             StorageSize: Number("int"),
  * //             StorageIops: Number("int"),
  * //             DeploymentOption: "STRING_VALUE",
+ * //             EngineVersion: "STRING_VALUE",
  * //           },
  * //         },
  * //       },

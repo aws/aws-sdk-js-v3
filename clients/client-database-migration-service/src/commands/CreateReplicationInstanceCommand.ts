@@ -163,7 +163,7 @@ export interface CreateReplicationInstanceCommandOutput extends CreateReplicatio
  *  <p>The resource is in a state that prevents it from being used for database migration.</p>
  *
  * @throws {@link InvalidSubnet} (client fault)
- *  <p>The subnet provided is invalid.</p>
+ *  <p>The subnet provided isn't valid.</p>
  *
  * @throws {@link KMSKeyNotAccessibleFault} (client fault)
  *  <p>DMS cannot access the KMS key.</p>

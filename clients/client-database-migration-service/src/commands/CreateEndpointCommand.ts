@@ -146,6 +146,8 @@ export interface CreateEndpointCommandOutput extends CreateEndpointResponse, __M
  *     KmsKeyId: "STRING_VALUE",
  *     SecretsManagerAccessRoleArn: "STRING_VALUE",
  *     SecretsManagerSecretId: "STRING_VALUE",
+ *     UseUpdateLookUp: true || false,
+ *     ReplicateShardCollections: true || false,
  *   },
  *   KinesisSettings: { // KinesisSettings
  *     StreamArn: "STRING_VALUE",
@@ -179,6 +181,7 @@ export interface CreateEndpointCommandOutput extends CreateEndpointResponse, __M
  *     SaslPassword: "STRING_VALUE",
  *     NoHexPrefix: true || false,
  *     SaslMechanism: "scram-sha-512" || "plain",
+ *     SslEndpointIdentificationAlgorithm: "none" || "https",
  *   },
  *   ElasticsearchSettings: { // ElasticsearchSettings
  *     ServiceAccessRoleArn: "STRING_VALUE", // required
@@ -250,6 +253,8 @@ export interface CreateEndpointCommandOutput extends CreateEndpointResponse, __M
  *     SecretsManagerSecretId: "STRING_VALUE",
  *     TrimSpaceInChar: true || false,
  *     MapBooleanAsBoolean: true || false,
+ *     MapJsonbAsClob: true || false,
+ *     MapLongVarcharAs: "wstring" || "clob" || "nclob",
  *   },
  *   MySQLSettings: { // MySQLSettings
  *     AfterConnectScript: "STRING_VALUE",
@@ -312,6 +317,7 @@ export interface CreateEndpointCommandOutput extends CreateEndpointResponse, __M
  *     SecretsManagerOracleAsmSecretId: "STRING_VALUE",
  *     TrimSpaceInChar: true || false,
  *     ConvertTimestampWithZoneToUTC: true || false,
+ *     OpenTransactionWindow: Number("int"),
  *   },
  *   SybaseSettings: { // SybaseSettings
  *     DatabaseName: "STRING_VALUE",
@@ -366,6 +372,8 @@ export interface CreateEndpointCommandOutput extends CreateEndpointResponse, __M
  *     KmsKeyId: "STRING_VALUE",
  *     SecretsManagerAccessRoleArn: "STRING_VALUE",
  *     SecretsManagerSecretId: "STRING_VALUE",
+ *     UseUpdateLookUp: true || false,
+ *     ReplicateShardCollections: true || false,
  *   },
  *   RedisSettings: { // RedisSettings
  *     ServerName: "STRING_VALUE", // required
@@ -391,6 +399,13 @@ export interface CreateEndpointCommandOutput extends CreateEndpointResponse, __M
  *     Username: "STRING_VALUE",
  *     SecretsManagerAccessRoleArn: "STRING_VALUE",
  *     SecretsManagerSecretId: "STRING_VALUE",
+ *   },
+ *   TimestreamSettings: { // TimestreamSettings
+ *     DatabaseName: "STRING_VALUE", // required
+ *     MemoryDuration: Number("int"), // required
+ *     MagneticDuration: Number("int"), // required
+ *     CdcInsertsAndUpdates: true || false,
+ *     EnableMagneticStoreWrites: true || false,
  *   },
  * };
  * const command = new CreateEndpointCommand(input);
@@ -479,6 +494,8 @@ export interface CreateEndpointCommandOutput extends CreateEndpointResponse, __M
  * //       KmsKeyId: "STRING_VALUE",
  * //       SecretsManagerAccessRoleArn: "STRING_VALUE",
  * //       SecretsManagerSecretId: "STRING_VALUE",
+ * //       UseUpdateLookUp: true || false,
+ * //       ReplicateShardCollections: true || false,
  * //     },
  * //     KinesisSettings: { // KinesisSettings
  * //       StreamArn: "STRING_VALUE",
@@ -512,6 +529,7 @@ export interface CreateEndpointCommandOutput extends CreateEndpointResponse, __M
  * //       SaslPassword: "STRING_VALUE",
  * //       NoHexPrefix: true || false,
  * //       SaslMechanism: "scram-sha-512" || "plain",
+ * //       SslEndpointIdentificationAlgorithm: "none" || "https",
  * //     },
  * //     ElasticsearchSettings: { // ElasticsearchSettings
  * //       ServiceAccessRoleArn: "STRING_VALUE", // required
@@ -583,6 +601,8 @@ export interface CreateEndpointCommandOutput extends CreateEndpointResponse, __M
  * //       SecretsManagerSecretId: "STRING_VALUE",
  * //       TrimSpaceInChar: true || false,
  * //       MapBooleanAsBoolean: true || false,
+ * //       MapJsonbAsClob: true || false,
+ * //       MapLongVarcharAs: "wstring" || "clob" || "nclob",
  * //     },
  * //     MySQLSettings: { // MySQLSettings
  * //       AfterConnectScript: "STRING_VALUE",
@@ -645,6 +665,7 @@ export interface CreateEndpointCommandOutput extends CreateEndpointResponse, __M
  * //       SecretsManagerOracleAsmSecretId: "STRING_VALUE",
  * //       TrimSpaceInChar: true || false,
  * //       ConvertTimestampWithZoneToUTC: true || false,
+ * //       OpenTransactionWindow: Number("int"),
  * //     },
  * //     SybaseSettings: { // SybaseSettings
  * //       DatabaseName: "STRING_VALUE",
@@ -698,6 +719,8 @@ export interface CreateEndpointCommandOutput extends CreateEndpointResponse, __M
  * //       KmsKeyId: "STRING_VALUE",
  * //       SecretsManagerAccessRoleArn: "STRING_VALUE",
  * //       SecretsManagerSecretId: "STRING_VALUE",
+ * //       UseUpdateLookUp: true || false,
+ * //       ReplicateShardCollections: true || false,
  * //     },
  * //     RedisSettings: { // RedisSettings
  * //       ServerName: "STRING_VALUE", // required
@@ -723,6 +746,13 @@ export interface CreateEndpointCommandOutput extends CreateEndpointResponse, __M
  * //       Username: "STRING_VALUE",
  * //       SecretsManagerAccessRoleArn: "STRING_VALUE",
  * //       SecretsManagerSecretId: "STRING_VALUE",
+ * //     },
+ * //     TimestreamSettings: { // TimestreamSettings
+ * //       DatabaseName: "STRING_VALUE", // required
+ * //       MemoryDuration: Number("int"), // required
+ * //       MagneticDuration: Number("int"), // required
+ * //       CdcInsertsAndUpdates: true || false,
+ * //       EnableMagneticStoreWrites: true || false,
  * //     },
  * //   },
  * // };

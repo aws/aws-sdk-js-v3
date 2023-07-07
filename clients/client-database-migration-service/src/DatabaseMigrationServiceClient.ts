@@ -72,6 +72,10 @@ import {
   CreateFleetAdvisorCollectorCommandOutput,
 } from "./commands/CreateFleetAdvisorCollectorCommand";
 import {
+  CreateReplicationConfigCommandInput,
+  CreateReplicationConfigCommandOutput,
+} from "./commands/CreateReplicationConfigCommand";
+import {
   CreateReplicationInstanceCommandInput,
   CreateReplicationInstanceCommandOutput,
 } from "./commands/CreateReplicationInstanceCommand";
@@ -98,6 +102,10 @@ import {
   DeleteFleetAdvisorDatabasesCommandInput,
   DeleteFleetAdvisorDatabasesCommandOutput,
 } from "./commands/DeleteFleetAdvisorDatabasesCommand";
+import {
+  DeleteReplicationConfigCommandInput,
+  DeleteReplicationConfigCommandOutput,
+} from "./commands/DeleteReplicationConfigCommand";
 import {
   DeleteReplicationInstanceCommandInput,
   DeleteReplicationInstanceCommandOutput,
@@ -189,6 +197,10 @@ import {
   DescribeRefreshSchemasStatusCommandOutput,
 } from "./commands/DescribeRefreshSchemasStatusCommand";
 import {
+  DescribeReplicationConfigsCommandInput,
+  DescribeReplicationConfigsCommandOutput,
+} from "./commands/DescribeReplicationConfigsCommand";
+import {
   DescribeReplicationInstancesCommandInput,
   DescribeReplicationInstancesCommandOutput,
 } from "./commands/DescribeReplicationInstancesCommand";
@@ -197,9 +209,17 @@ import {
   DescribeReplicationInstanceTaskLogsCommandOutput,
 } from "./commands/DescribeReplicationInstanceTaskLogsCommand";
 import {
+  DescribeReplicationsCommandInput,
+  DescribeReplicationsCommandOutput,
+} from "./commands/DescribeReplicationsCommand";
+import {
   DescribeReplicationSubnetGroupsCommandInput,
   DescribeReplicationSubnetGroupsCommandOutput,
 } from "./commands/DescribeReplicationSubnetGroupsCommand";
+import {
+  DescribeReplicationTableStatisticsCommandInput,
+  DescribeReplicationTableStatisticsCommandOutput,
+} from "./commands/DescribeReplicationTableStatisticsCommand";
 import {
   DescribeReplicationTaskAssessmentResultsCommandInput,
   DescribeReplicationTaskAssessmentResultsCommandOutput,
@@ -232,6 +252,10 @@ import {
   ModifyEventSubscriptionCommandOutput,
 } from "./commands/ModifyEventSubscriptionCommand";
 import {
+  ModifyReplicationConfigCommandInput,
+  ModifyReplicationConfigCommandOutput,
+} from "./commands/ModifyReplicationConfigCommand";
+import {
   ModifyReplicationInstanceCommandInput,
   ModifyReplicationInstanceCommandOutput,
 } from "./commands/ModifyReplicationInstanceCommand";
@@ -252,6 +276,10 @@ import {
   RebootReplicationInstanceCommandOutput,
 } from "./commands/RebootReplicationInstanceCommand";
 import { RefreshSchemasCommandInput, RefreshSchemasCommandOutput } from "./commands/RefreshSchemasCommand";
+import {
+  ReloadReplicationTablesCommandInput,
+  ReloadReplicationTablesCommandOutput,
+} from "./commands/ReloadReplicationTablesCommand";
 import { ReloadTablesCommandInput, ReloadTablesCommandOutput } from "./commands/ReloadTablesCommand";
 import {
   RemoveTagsFromResourceCommandInput,
@@ -265,6 +293,7 @@ import {
   StartRecommendationsCommandInput,
   StartRecommendationsCommandOutput,
 } from "./commands/StartRecommendationsCommand";
+import { StartReplicationCommandInput, StartReplicationCommandOutput } from "./commands/StartReplicationCommand";
 import {
   StartReplicationTaskAssessmentCommandInput,
   StartReplicationTaskAssessmentCommandOutput,
@@ -277,6 +306,7 @@ import {
   StartReplicationTaskCommandInput,
   StartReplicationTaskCommandOutput,
 } from "./commands/StartReplicationTaskCommand";
+import { StopReplicationCommandInput, StopReplicationCommandOutput } from "./commands/StopReplicationCommand";
 import {
   StopReplicationTaskCommandInput,
   StopReplicationTaskCommandOutput,
@@ -307,6 +337,7 @@ export type ServiceInputTypes =
   | CreateEndpointCommandInput
   | CreateEventSubscriptionCommandInput
   | CreateFleetAdvisorCollectorCommandInput
+  | CreateReplicationConfigCommandInput
   | CreateReplicationInstanceCommandInput
   | CreateReplicationSubnetGroupCommandInput
   | CreateReplicationTaskCommandInput
@@ -316,6 +347,7 @@ export type ServiceInputTypes =
   | DeleteEventSubscriptionCommandInput
   | DeleteFleetAdvisorCollectorCommandInput
   | DeleteFleetAdvisorDatabasesCommandInput
+  | DeleteReplicationConfigCommandInput
   | DeleteReplicationInstanceCommandInput
   | DeleteReplicationSubnetGroupCommandInput
   | DeleteReplicationTaskAssessmentRunCommandInput
@@ -340,32 +372,39 @@ export type ServiceInputTypes =
   | DescribeRecommendationLimitationsCommandInput
   | DescribeRecommendationsCommandInput
   | DescribeRefreshSchemasStatusCommandInput
+  | DescribeReplicationConfigsCommandInput
   | DescribeReplicationInstanceTaskLogsCommandInput
   | DescribeReplicationInstancesCommandInput
   | DescribeReplicationSubnetGroupsCommandInput
+  | DescribeReplicationTableStatisticsCommandInput
   | DescribeReplicationTaskAssessmentResultsCommandInput
   | DescribeReplicationTaskAssessmentRunsCommandInput
   | DescribeReplicationTaskIndividualAssessmentsCommandInput
   | DescribeReplicationTasksCommandInput
+  | DescribeReplicationsCommandInput
   | DescribeSchemasCommandInput
   | DescribeTableStatisticsCommandInput
   | ImportCertificateCommandInput
   | ListTagsForResourceCommandInput
   | ModifyEndpointCommandInput
   | ModifyEventSubscriptionCommandInput
+  | ModifyReplicationConfigCommandInput
   | ModifyReplicationInstanceCommandInput
   | ModifyReplicationSubnetGroupCommandInput
   | ModifyReplicationTaskCommandInput
   | MoveReplicationTaskCommandInput
   | RebootReplicationInstanceCommandInput
   | RefreshSchemasCommandInput
+  | ReloadReplicationTablesCommandInput
   | ReloadTablesCommandInput
   | RemoveTagsFromResourceCommandInput
   | RunFleetAdvisorLsaAnalysisCommandInput
   | StartRecommendationsCommandInput
+  | StartReplicationCommandInput
   | StartReplicationTaskAssessmentCommandInput
   | StartReplicationTaskAssessmentRunCommandInput
   | StartReplicationTaskCommandInput
+  | StopReplicationCommandInput
   | StopReplicationTaskCommandInput
   | TestConnectionCommandInput
   | UpdateSubscriptionsToEventBridgeCommandInput;
@@ -381,6 +420,7 @@ export type ServiceOutputTypes =
   | CreateEndpointCommandOutput
   | CreateEventSubscriptionCommandOutput
   | CreateFleetAdvisorCollectorCommandOutput
+  | CreateReplicationConfigCommandOutput
   | CreateReplicationInstanceCommandOutput
   | CreateReplicationSubnetGroupCommandOutput
   | CreateReplicationTaskCommandOutput
@@ -390,6 +430,7 @@ export type ServiceOutputTypes =
   | DeleteEventSubscriptionCommandOutput
   | DeleteFleetAdvisorCollectorCommandOutput
   | DeleteFleetAdvisorDatabasesCommandOutput
+  | DeleteReplicationConfigCommandOutput
   | DeleteReplicationInstanceCommandOutput
   | DeleteReplicationSubnetGroupCommandOutput
   | DeleteReplicationTaskAssessmentRunCommandOutput
@@ -414,32 +455,39 @@ export type ServiceOutputTypes =
   | DescribeRecommendationLimitationsCommandOutput
   | DescribeRecommendationsCommandOutput
   | DescribeRefreshSchemasStatusCommandOutput
+  | DescribeReplicationConfigsCommandOutput
   | DescribeReplicationInstanceTaskLogsCommandOutput
   | DescribeReplicationInstancesCommandOutput
   | DescribeReplicationSubnetGroupsCommandOutput
+  | DescribeReplicationTableStatisticsCommandOutput
   | DescribeReplicationTaskAssessmentResultsCommandOutput
   | DescribeReplicationTaskAssessmentRunsCommandOutput
   | DescribeReplicationTaskIndividualAssessmentsCommandOutput
   | DescribeReplicationTasksCommandOutput
+  | DescribeReplicationsCommandOutput
   | DescribeSchemasCommandOutput
   | DescribeTableStatisticsCommandOutput
   | ImportCertificateCommandOutput
   | ListTagsForResourceCommandOutput
   | ModifyEndpointCommandOutput
   | ModifyEventSubscriptionCommandOutput
+  | ModifyReplicationConfigCommandOutput
   | ModifyReplicationInstanceCommandOutput
   | ModifyReplicationSubnetGroupCommandOutput
   | ModifyReplicationTaskCommandOutput
   | MoveReplicationTaskCommandOutput
   | RebootReplicationInstanceCommandOutput
   | RefreshSchemasCommandOutput
+  | ReloadReplicationTablesCommandOutput
   | ReloadTablesCommandOutput
   | RemoveTagsFromResourceCommandOutput
   | RunFleetAdvisorLsaAnalysisCommandOutput
   | StartRecommendationsCommandOutput
+  | StartReplicationCommandOutput
   | StartReplicationTaskAssessmentCommandOutput
   | StartReplicationTaskAssessmentRunCommandOutput
   | StartReplicationTaskCommandOutput
+  | StopReplicationCommandOutput
   | StopReplicationTaskCommandOutput
   | TestConnectionCommandOutput
   | UpdateSubscriptionsToEventBridgeCommandOutput;

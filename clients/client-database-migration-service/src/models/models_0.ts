@@ -635,6 +635,28 @@ export interface DocDbSettings {
    *          that contains the DocumentDB endpoint connection details.</p>
    */
   SecretsManagerSecretId?: string;
+
+  /**
+   * <p>If <code>true</code>, DMS retrieves the entire document from the DocumentDB source during migration.
+   *          This may cause a migration failure if the server response exceeds bandwidth limits. To fetch only updates
+   *          and deletes during migration, set this parameter to <code>false</code>.</p>
+   */
+  UseUpdateLookUp?: boolean;
+
+  /**
+   * <p>If <code>true</code>, DMS replicates data to shard collections. DMS only uses this setting if
+   *       the target endpoint is a DocumentDB elastic cluster.</p>
+   *          <p>When this setting is <code>true</code>, note the following:</p>
+   *          <ul>
+   *             <li>
+   *                <p>You must set <code>TargetTablePrepMode</code> to <code>nothing</code>.</p>
+   *             </li>
+   *             <li>
+   *                <p>DMS automatically sets <code>useUpdateLookup</code> to <code>false</code>.</p>
+   *             </li>
+   *          </ul>
+   */
+  ReplicateShardCollections?: boolean;
 }
 
 /**
@@ -955,6 +977,21 @@ export type KafkaSecurityProtocol = (typeof KafkaSecurityProtocol)[keyof typeof 
 
 /**
  * @public
+ * @enum
+ */
+export const KafkaSslEndpointIdentificationAlgorithm = {
+  HTTPS: "https",
+  NONE: "none",
+} as const;
+
+/**
+ * @public
+ */
+export type KafkaSslEndpointIdentificationAlgorithm =
+  (typeof KafkaSslEndpointIdentificationAlgorithm)[keyof typeof KafkaSslEndpointIdentificationAlgorithm];
+
+/**
+ * @public
  * <p>Provides information that describes an Apache Kafka endpoint. This
  *          information includes the output format of records applied to the endpoint and details of
  *          transaction and control table data information.</p>
@@ -1090,6 +1127,12 @@ export interface KafkaSettings {
    *          </p>
    */
   SaslMechanism?: KafkaSaslMechanism | string;
+
+  /**
+   * <p>Sets hostname verification
+   *          for the certificate. This setting is supported in DMS version 3.5.1 and later. </p>
+   */
+  SslEndpointIdentificationAlgorithm?: KafkaSslEndpointIdentificationAlgorithm | string;
 }
 
 /**
@@ -1482,6 +1525,28 @@ export interface MongoDbSettings {
    * <p>The full ARN, partial ARN, or friendly name of the <code>SecretsManagerSecret</code> that contains the MongoDB endpoint connection details.</p>
    */
   SecretsManagerSecretId?: string;
+
+  /**
+   * <p>If <code>true</code>, DMS retrieves the entire document from the MongoDB source during migration.
+   *          This may cause a migration failure if the server response exceeds bandwidth limits. To fetch only updates
+   *          and deletes during migration, set this parameter to <code>false</code>.</p>
+   */
+  UseUpdateLookUp?: boolean;
+
+  /**
+   * <p>If <code>true</code>, DMS replicates data to shard collections. DMS only uses this setting if
+   *          the target endpoint is a DocumentDB elastic cluster.</p>
+   *          <p>When this setting is <code>true</code>, note the following:</p>
+   *          <ul>
+   *             <li>
+   *                <p>You must set <code>TargetTablePrepMode</code> to <code>nothing</code>.</p>
+   *             </li>
+   *             <li>
+   *                <p>DMS automatically sets <code>useUpdateLookup</code> to <code>false</code>.</p>
+   *             </li>
+   *          </ul>
+   */
+  ReplicateShardCollections?: boolean;
 }
 
 /**
@@ -2079,7 +2144,33 @@ export interface OracleSettings {
    * <p>When true, converts timestamps with the <code>timezone</code> datatype to their UTC value.</p>
    */
   ConvertTimestampWithZoneToUTC?: boolean;
+
+  /**
+   * <p>The timeframe in minutes to check for open transactions for a CDC-only task.</p>
+   *          <p>You can
+   *          specify an integer value between 0 (the default) and 240 (the maximum). </p>
+   *          <note>
+   *             <p>This parameter is only valid in DMS version 3.5.0 and later. DMS supports
+   *       a window of up to 9.5 hours including the value for <code>OpenTransactionWindow</code>.</p>
+   *          </note>
+   */
+  OpenTransactionWindow?: number;
 }
+
+/**
+ * @public
+ * @enum
+ */
+export const LongVarcharMappingType = {
+  CLOB: "clob",
+  NCLOB: "nclob",
+  WSTRING: "wstring",
+} as const;
+
+/**
+ * @public
+ */
+export type LongVarcharMappingType = (typeof LongVarcharMappingType)[keyof typeof LongVarcharMappingType];
 
 /**
  * @public
@@ -2216,7 +2307,7 @@ export interface PostgreSQLSettings {
    *          <code>CdcStartPosition</code> setting, DMS raises an
    *          error.</p>
    *          <p>For more information about setting the <code>CdcStartPosition</code> request parameter,
-   *          see <a href="dms/latest/userguide/CHAP_Task.CDC.html#CHAP_Task.CDC.StartPoint.Native">Determining a CDC native start point</a> in the <i>Database Migration Service User
+   *          see <a href="https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Task.CDC.html#CHAP_Task.CDC.StartPoint.Native">Determining a CDC native start point</a> in the <i>Database Migration Service User
    *             Guide</i>. For more information about using <code>CdcStartPosition</code>, see
    *             <a href="https://docs.aws.amazon.com/dms/latest/APIReference/API_CreateReplicationTask.html">CreateReplicationTask</a>, <a href="https://docs.aws.amazon.com/dms/latest/APIReference/API_StartReplicationTask.html">StartReplicationTask</a>, and <a href="https://docs.aws.amazon.com/dms/latest/APIReference/API_ModifyReplicationTask.html">ModifyReplicationTask</a>.</p>
    */
@@ -2263,6 +2354,16 @@ export interface PostgreSQLSettings {
    *          <code>varchar(5)</code>.</p>
    */
   MapBooleanAsBoolean?: boolean;
+
+  /**
+   * <p>When true, DMS migrates JSONB values as CLOB.</p>
+   */
+  MapJsonbAsClob?: boolean;
+
+  /**
+   * <p>When true, DMS migrates LONG values as VARCHAR.</p>
+   */
+  MapLongVarcharAs?: LongVarcharMappingType | string;
 }
 
 /**
@@ -2945,10 +3046,12 @@ export interface S3Settings {
 
   /**
    * <p>A value that enables a full load to write INSERT operations to the comma-separated value
-   *          (.csv) output files only to indicate how the rows were added to the source database.</p>
+   *          (.csv) or .parquet output files only to indicate how the rows were added to the source database.</p>
    *          <note>
    *             <p>DMS supports the <code>IncludeOpForFullLoad</code> parameter in versions 3.1.4 and
    *             later.</p>
+   *             <p>DMS supports the use of the .parquet files with the <code>IncludeOpForFullLoad</code>
+   *             parameter in versions 3.4.7 and later.</p>
    *          </note>
    *          <p>For full load, records can only be inserted. By default (the <code>false</code>
    *          setting), no information is recorded in these output files for a full load to indicate that
@@ -3050,8 +3153,11 @@ export interface S3Settings {
    *          operations to .csv or .parquet (columnar storage) output files. The default setting is
    *             <code>false</code>, but when <code>CdcInsertsAndUpdates</code> is set to
    *             <code>true</code> or <code>y</code>, only INSERTs and UPDATEs from the source database
-   *          are migrated to the .csv or .parquet file. </p>
-   *          <p>For .csv file format only, how these INSERTs and UPDATEs are recorded depends on the
+   *          are migrated to the .csv or .parquet file.</p>
+   *          <important>
+   *             <p>DMS supports the use of the .parquet files in versions 3.4.7 and later.</p>
+   *          </important>
+   *          <p>How these INSERTs and UPDATEs are recorded depends on the
    *          value of the <code>IncludeOpForFullLoad</code> parameter. If
    *             <code>IncludeOpForFullLoad</code> is set to <code>true</code>, the first field of every
    *          CDC record is set to either <code>I</code> or <code>U</code> to indicate INSERT and UPDATE
@@ -3369,6 +3475,50 @@ export interface SybaseSettings {
 
 /**
  * @public
+ * <p>Provides information that defines an Amazon Timestream endpoint.</p>
+ */
+export interface TimestreamSettings {
+  /**
+   * <p>Database name for the endpoint.</p>
+   */
+  DatabaseName: string | undefined;
+
+  /**
+   * <p>Set this attribute to specify the length of time to store all of the tables in memory
+   *          that are migrated into Amazon Timestream from the source database. Time is measured in units
+   *          of hours. When Timestream data comes in, it first resides in memory for the specified duration,
+   *          which allows quick access to it.</p>
+   */
+  MemoryDuration: number | undefined;
+
+  /**
+   * <p>Set this attribute to specify the default magnetic duration applied to the Amazon Timestream
+   *          tables in days. This is the number of days that records remain in magnetic store
+   *          before being discarded. For more information, see <a href="https://docs.aws.amazon.com/timestream/latest/developerguide/storage.html">Storage</a> in the
+   *          <a href="https://docs.aws.amazon.com/timestream/latest/developerguide/">Amazon Timestream Developer Guide</a>.</p>
+   */
+  MagneticDuration: number | undefined;
+
+  /**
+   * <p>Set this attribute to <code>true</code> to specify that DMS only
+   *          applies inserts and updates, and not deletes. Amazon Timestream does not allow
+   *          deleting records, so if this value is <code>false</code>, DMS nulls out
+   *          the corresponding record in the Timestream database rather than deleting it.</p>
+   */
+  CdcInsertsAndUpdates?: boolean;
+
+  /**
+   * <p>Set this attribute to <code>true</code> to enable memory store writes.
+   *          When this value is <code>false</code>, DMS does not write records that are older
+   *          in days than the value specified in <code>MagneticDuration</code>, because Amazon Timestream does not
+   *          allow memory writes by default. For more information, see <a href="https://docs.aws.amazon.com/timestream/latest/developerguide/storage.html">Storage</a> in the
+   *          <a href="https://docs.aws.amazon.com/timestream/latest/developerguide/">Amazon Timestream Developer Guide</a>.</p>
+   */
+  EnableMagneticStoreWrites?: boolean;
+}
+
+/**
+ * @public
  * <p></p>
  */
 export interface CreateEndpointMessage {
@@ -3642,6 +3792,11 @@ export interface CreateEndpointMessage {
    * <p>Settings in JSON format for the source GCP MySQL endpoint.</p>
    */
   GcpMySQLSettings?: GcpMySQLSettings;
+
+  /**
+   * <p>Settings in JSON format for the target Amazon Timestream endpoint.</p>
+   */
+  TimestreamSettings?: TimestreamSettings;
 }
 
 /**
@@ -3873,6 +4028,12 @@ export interface Endpoint {
    * <p>Settings in JSON format for the source GCP MySQL endpoint.</p>
    */
   GcpMySQLSettings?: GcpMySQLSettings;
+
+  /**
+   * <p>The settings for the Amazon Timestream target endpoint. For more information, see the
+   *          <code>TimestreamSettings</code> structure.</p>
+   */
+  TimestreamSettings?: TimestreamSettings;
 }
 
 /**
@@ -3913,7 +4074,11 @@ export class KMSKeyNotAccessibleFault extends __BaseException {
 export class ResourceAlreadyExistsFault extends __BaseException {
   readonly name: "ResourceAlreadyExistsFault" = "ResourceAlreadyExistsFault";
   readonly $fault: "client" = "client";
+  /**
+   * <p></p>
+   */
   resourceArn?: string;
+
   /**
    * @internal
    */
@@ -4316,6 +4481,315 @@ export class S3ResourceNotFoundFault extends __BaseException {
 
 /**
  * @public
+ * <p>Configuration parameters for provisioning an DMS Serverless replication.</p>
+ */
+export interface ComputeConfig {
+  /**
+   * <p>The Availability Zone where the DMS Serverless replication using this configuration will run.
+   *          The default value is a random, system-chosen Availability Zone in the configuration's Amazon Web Services Region,
+   *          for example, <code>"us-west-2"</code>. You can't set this parameter if the <code>MultiAZ</code>
+   *          parameter is set to <code>true</code>.</p>
+   */
+  AvailabilityZone?: string;
+
+  /**
+   * <p>A list of custom DNS name servers supported for the DMS Serverless replication
+   *          to access your source or target database. This list overrides the default name servers
+   *          supported by the DMS Serverless replication. You can specify a comma-separated list of
+   *          internet addresses for up to four DNS name servers.
+   *          For example: <code>"1.1.1.1,2.2.2.2,3.3.3.3,4.4.4.4"</code>
+   *          </p>
+   */
+  DnsNameServers?: string;
+
+  /**
+   * <p>An Key Management Service (KMS) key Amazon Resource Name (ARN) that is used to encrypt the data during
+   *          DMS Serverless replication.</p>
+   *          <p>If you don't specify a value for the <code>KmsKeyId</code> parameter, DMS uses your default
+   *          encryption key.</p>
+   *          <p>KMS creates the default encryption key for your Amazon Web Services account. Your Amazon Web Services account has a
+   *          different default encryption key for each Amazon Web Services Region.</p>
+   */
+  KmsKeyId?: string;
+
+  /**
+   * <p>Specifies the maximum value of the DMS capacity units (DCUs) for which a given DMS Serverless
+   *          replication can be provisioned. A single DCU is 2GB of RAM, with 2 DCUs as the minimum value allowed.
+   *          The list of valid DCU values includes 2, 4, 8, 16, 32, 64, 128, 192, 256, and 384. So, the maximum value
+   *          that you can specify for DMS Serverless is 384. The <code>MaxCapacityUnits</code> parameter is the only
+   *          DCU parameter you are required to specify.</p>
+   */
+  MaxCapacityUnits?: number;
+
+  /**
+   * <p>Specifies the minimum value of the DMS capacity units (DCUs) for which a given DMS
+   *          Serverless replication can be provisioned. A single DCU is 2GB of RAM, with 2 DCUs as the minimum value
+   *          allowed. The list of valid DCU values includes 2, 4, 8, 16, 32, 64, 128, 192, 256, and 384. So, the minimum DCU
+   *          value that you can specify for DMS Serverless is 2. You don't have to specify a value for the
+   *          <code>MinCapacityUnits</code> parameter. If you don't set this value, DMS scans the current activity
+   *          of available source tables to identify an optimum setting for this parameter. If there is no current
+   *          source activity or DMS can't otherwise identify a more appropriate value, it sets this parameter to
+   *          the minimum DCU value allowed, 2.</p>
+   */
+  MinCapacityUnits?: number;
+
+  /**
+   * <p>Specifies whether the DMS Serverless replication is a Multi-AZ deployment. You can't set the
+   *          <code>AvailabilityZone</code> parameter if the <code>MultiAZ</code> parameter is set to
+   *          <code>true</code>.</p>
+   */
+  MultiAZ?: boolean;
+
+  /**
+   * <p>The weekly time range during which system maintenance can occur for the DMS Serverless
+   *          replication, in Universal Coordinated Time (UTC). The format is <code>ddd:hh24:mi-ddd:hh24:mi</code>.</p>
+   *          <p>The default is a 30-minute window selected at random from an 8-hour block of time per Amazon Web Services Region.
+   *          This maintenance occurs on a random day of the week. Valid values for days of the week include
+   *          <code>Mon</code>, <code>Tue</code>, <code>Wed</code>, <code>Thu</code>, <code>Fri</code>, <code>Sat</code>,
+   *          and <code>Sun</code>.</p>
+   *          <p>Constraints include a minimum 30-minute window.</p>
+   */
+  PreferredMaintenanceWindow?: string;
+
+  /**
+   * <p>Specifies a subnet group identifier to associate with the DMS Serverless replication.</p>
+   */
+  ReplicationSubnetGroupId?: string;
+
+  /**
+   * <p>Specifies the virtual private cloud (VPC) security group to use with the DMS Serverless
+   *          replication. The VPC security group must work with the VPC containing the replication.</p>
+   */
+  VpcSecurityGroupIds?: string[];
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const MigrationTypeValue = {
+  CDC: "cdc",
+  FULL_LOAD: "full-load",
+  FULL_LOAD_AND_CDC: "full-load-and-cdc",
+} as const;
+
+/**
+ * @public
+ */
+export type MigrationTypeValue = (typeof MigrationTypeValue)[keyof typeof MigrationTypeValue];
+
+/**
+ * @public
+ * <p></p>
+ */
+export interface CreateReplicationConfigMessage {
+  /**
+   * <p>A unique identifier that you want to use to create a <code>ReplicationConfigArn</code> that is
+   *          returned as part of the output from this action. You can then pass this output <code>ReplicationConfigArn</code>
+   *          as the value of the <code>ReplicationConfigArn</code> option for other actions to identify both
+   *          DMS Serverless replications and replication configurations that you want those actions to operate on.
+   *          For some actions, you can also use either this unique identifier or a corresponding ARN in action filters to
+   *          identify the specific replication and replication configuration to operate on.</p>
+   */
+  ReplicationConfigIdentifier: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the source endpoint for
+   *          this DMS Serverless replication configuration.</p>
+   */
+  SourceEndpointArn: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the target endpoint for
+   *          this DMS serverless replication configuration.</p>
+   */
+  TargetEndpointArn: string | undefined;
+
+  /**
+   * <p>Configuration parameters for provisioning an DMS Serverless replication.</p>
+   */
+  ComputeConfig: ComputeConfig | undefined;
+
+  /**
+   * <p>The type of DMS Serverless replication to provision
+   *          using this replication configuration.</p>
+   *          <p>Possible values:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>"full-load"</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>"cdc"</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>"full-load-and-cdc"</code>
+   *                </p>
+   *             </li>
+   *          </ul>
+   */
+  ReplicationType: MigrationTypeValue | string | undefined;
+
+  /**
+   * <p>JSON table mappings for DMS Serverless replications that are provisioned
+   *          using this replication configuration. For more information, see
+   *          <a href="https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Tasks.CustomizingTasks.TableMapping.SelectionTransformation.html">
+   *             Specifying table selection and transformations rules using JSON</a>.</p>
+   */
+  TableMappings: string | undefined;
+
+  /**
+   * <p>Optional JSON settings for DMS Serverless replications that are
+   *          provisioned using this replication configuration. For example, see
+   *          <a href="https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Tasks.CustomizingTasks.TaskSettings.ChangeProcessingTuning.html">
+   *             Change processing tuning settings</a>.</p>
+   */
+  ReplicationSettings?: string;
+
+  /**
+   * <p>Optional JSON settings for specifying supplemental data. For more information, see
+   *          <a href="https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Tasks.TaskData.html">
+   *             Specifying supplemental data for task settings</a>.</p>
+   */
+  SupplementalSettings?: string;
+
+  /**
+   * <p>Optional unique value or name that you set for a given resource
+   *          that can be used to construct an Amazon Resource Name (ARN) for that resource. For more information, see
+   *          <a href="https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Security.html#CHAP_Security.FineGrainedAccess">
+   *             Fine-grained access control using resource names and tags</a>.</p>
+   */
+  ResourceIdentifier?: string;
+
+  /**
+   * <p>One or more optional tags associated with resources used by the DMS Serverless replication.
+   *          For more information, see <a href="https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Tagging.html">
+   *             Tagging resources in Database Migration Service</a>.</p>
+   */
+  Tags?: Tag[];
+}
+
+/**
+ * @public
+ * <p>This object provides configuration information about a serverless replication.</p>
+ */
+export interface ReplicationConfig {
+  /**
+   * <p>The identifier for the <code>ReplicationConfig</code> associated with the replication.</p>
+   */
+  ReplicationConfigIdentifier?: string;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of
+   *          this DMS Serverless replication configuration.</p>
+   */
+  ReplicationConfigArn?: string;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the source endpoint for
+   *          this DMS serverless replication configuration.</p>
+   */
+  SourceEndpointArn?: string;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the target endpoint for
+   *          this DMS serverless replication configuration.</p>
+   */
+  TargetEndpointArn?: string;
+
+  /**
+   * <p>The type of the replication.</p>
+   */
+  ReplicationType?: MigrationTypeValue | string;
+
+  /**
+   * <p>Configuration parameters for provisioning an DMS serverless replication.</p>
+   */
+  ComputeConfig?: ComputeConfig;
+
+  /**
+   * <p>Configuration parameters for an DMS serverless replication.</p>
+   */
+  ReplicationSettings?: string;
+
+  /**
+   * <p>Additional parameters for an DMS serverless replication.</p>
+   */
+  SupplementalSettings?: string;
+
+  /**
+   * <p>Table mappings specified in the replication.</p>
+   */
+  TableMappings?: string;
+
+  /**
+   * <p>The time the serverless replication config was created.</p>
+   */
+  ReplicationConfigCreateTime?: Date;
+
+  /**
+   * <p>The time the serverless replication config was updated.</p>
+   */
+  ReplicationConfigUpdateTime?: Date;
+}
+
+/**
+ * @public
+ * <p></p>
+ */
+export interface CreateReplicationConfigResponse {
+  /**
+   * <p>Configuration parameters returned from the DMS Serverless replication after it is created.</p>
+   */
+  ReplicationConfig?: ReplicationConfig;
+}
+
+/**
+ * @public
+ * <p>The subnet provided isn't valid.</p>
+ */
+export class InvalidSubnet extends __BaseException {
+  readonly name: "InvalidSubnet" = "InvalidSubnet";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<InvalidSubnet, __BaseException>) {
+    super({
+      name: "InvalidSubnet",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, InvalidSubnet.prototype);
+  }
+}
+
+/**
+ * @public
+ * <p>The replication subnet group does not cover enough Availability Zones (AZs). Edit the replication subnet group and add more AZs.</p>
+ */
+export class ReplicationSubnetGroupDoesNotCoverEnoughAZs extends __BaseException {
+  readonly name: "ReplicationSubnetGroupDoesNotCoverEnoughAZs" = "ReplicationSubnetGroupDoesNotCoverEnoughAZs";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<ReplicationSubnetGroupDoesNotCoverEnoughAZs, __BaseException>) {
+    super({
+      name: "ReplicationSubnetGroupDoesNotCoverEnoughAZs",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ReplicationSubnetGroupDoesNotCoverEnoughAZs.prototype);
+  }
+}
+
+/**
+ * @public
  * <p></p>
  */
 export interface CreateReplicationInstanceMessage {
@@ -4349,8 +4823,9 @@ export interface CreateReplicationInstanceMessage {
    * <p>The compute and memory capacity of the replication instance as defined for the specified
    *          replication instance class. For example to specify the instance class dms.c4.large, set this parameter to <code>"dms.c4.large"</code>.</p>
    *          <p>For more information on the settings and capacities for the available replication instance classes, see
-   *          <a href="https://docs.aws.amazon.com/dms/latest/userguide/CHAP_ReplicationInstance.html#CHAP_ReplicationInstance.InDepth">
-   *             Selecting the right DMS replication instance for your migration</a>.
+   *          <a href="https://docs.aws.amazon.com/dms/latest/userguide/CHAP_ReplicationInstance.Types.html ">
+   *             Choosing the right DMS replication instance</a>; and,
+   *          <a href="https://docs.aws.amazon.com/dms/latest/userguide/CHAP_BestPractices.SizingReplicationInstance.html">Selecting the best size for a replication instance</a>.
    *       </p>
    */
   ReplicationInstanceClass: string | undefined;
@@ -4364,8 +4839,7 @@ export interface CreateReplicationInstanceMessage {
   /**
    * <p>The Availability Zone where the replication instance will be created. The default
    *          value is a random, system-chosen Availability Zone in the endpoint's Amazon Web Services Region, for
-   *          example: <code>us-east-1d</code>
-   *          </p>
+   *          example: <code>us-east-1d</code>.</p>
    */
   AvailabilityZone?: string;
 
@@ -4888,46 +5362,6 @@ export class InsufficientResourceCapacityFault extends __BaseException {
 
 /**
  * @public
- * <p>The subnet provided is invalid.</p>
- */
-export class InvalidSubnet extends __BaseException {
-  readonly name: "InvalidSubnet" = "InvalidSubnet";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<InvalidSubnet, __BaseException>) {
-    super({
-      name: "InvalidSubnet",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, InvalidSubnet.prototype);
-  }
-}
-
-/**
- * @public
- * <p>The replication subnet group does not cover enough Availability Zones (AZs). Edit the replication subnet group and add more AZs.</p>
- */
-export class ReplicationSubnetGroupDoesNotCoverEnoughAZs extends __BaseException {
-  readonly name: "ReplicationSubnetGroupDoesNotCoverEnoughAZs" = "ReplicationSubnetGroupDoesNotCoverEnoughAZs";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ReplicationSubnetGroupDoesNotCoverEnoughAZs, __BaseException>) {
-    super({
-      name: "ReplicationSubnetGroupDoesNotCoverEnoughAZs",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ReplicationSubnetGroupDoesNotCoverEnoughAZs.prototype);
-  }
-}
-
-/**
- * @public
  * <p>The storage quota has been exceeded.</p>
  */
 export class StorageQuotaExceededFault extends __BaseException {
@@ -4987,21 +5421,6 @@ export interface CreateReplicationSubnetGroupResponse {
    */
   ReplicationSubnetGroup?: ReplicationSubnetGroup;
 }
-
-/**
- * @public
- * @enum
- */
-export const MigrationTypeValue = {
-  CDC: "cdc",
-  FULL_LOAD: "full-load",
-  FULL_LOAD_AND_CDC: "full-load-and-cdc",
-} as const;
-
-/**
- * @public
- */
-export type MigrationTypeValue = (typeof MigrationTypeValue)[keyof typeof MigrationTypeValue];
 
 /**
  * @public
@@ -5795,6 +6214,28 @@ export class InvalidOperationFault extends __BaseException {
  * @public
  * <p></p>
  */
+export interface DeleteReplicationConfigMessage {
+  /**
+   * <p>The replication config to delete.</p>
+   */
+  ReplicationConfigArn: string | undefined;
+}
+
+/**
+ * @public
+ * <p></p>
+ */
+export interface DeleteReplicationConfigResponse {
+  /**
+   * <p>Configuration parameters returned for the DMS Serverless replication after it is deleted.</p>
+   */
+  ReplicationConfig?: ReplicationConfig;
+}
+
+/**
+ * @public
+ * <p></p>
+ */
 export interface DeleteReplicationInstanceMessage {
   /**
    * <p>The Amazon Resource Name (ARN) of the replication instance to be deleted.</p>
@@ -6138,7 +6579,7 @@ export interface DescribeEndpointsResponse {
  */
 export interface DescribeEndpointSettingsMessage {
   /**
-   * <p>The databse engine used for your source or target endpoint.</p>
+   * <p>The database engine used for your source or target endpoint.</p>
    */
   EngineName: string | undefined;
 
@@ -7650,6 +8091,11 @@ export interface RdsRequirements {
    *             Single-AZ deployments.</p>
    */
   DeploymentOption?: string;
+
+  /**
+   * <p>The required target Amazon RDS engine version.</p>
+   */
+  EngineVersion?: string;
 }
 
 /**
@@ -7706,6 +8152,11 @@ export interface RdsConfiguration {
    *                 <code>"MULTI_AZ"</code> and <code>"SINGLE_AZ"</code>.</p>
    */
   DeploymentOption?: string;
+
+  /**
+   * <p>Describes the recommended target Amazon RDS engine version.</p>
+   */
+  EngineVersion?: string;
 }
 
 /**
@@ -7888,6 +8339,47 @@ export interface DescribeRefreshSchemasStatusResponse {
  * @public
  * <p></p>
  */
+export interface DescribeReplicationConfigsMessage {
+  /**
+   * <p>Filters applied to the replication configs.</p>
+   */
+  Filters?: Filter[];
+
+  /**
+   * <p>The maximum number of records to include in the response. If more records exist than the specified
+   *          <code>MaxRecords</code> value, a pagination token called a marker is included in the response so that
+   *          the remaining results can be retrieved. </p>
+   */
+  MaxRecords?: number;
+
+  /**
+   * <p>An optional pagination token provided by a previous request. If this parameter is specified,
+   *          the response includes only records beyond the marker, up to the value specified by <code>MaxRecords</code>. </p>
+   */
+  Marker?: string;
+}
+
+/**
+ * @public
+ * <p></p>
+ */
+export interface DescribeReplicationConfigsResponse {
+  /**
+   * <p>An optional pagination token provided by a previous request. If this parameter is specified, the response
+   *          includes only records beyond the marker, up to the value specified by <code>MaxRecords</code>. </p>
+   */
+  Marker?: string;
+
+  /**
+   * <p>Returned configuration parameters that describe each provisioned DMS Serverless replication.</p>
+   */
+  ReplicationConfigs?: ReplicationConfig[];
+}
+
+/**
+ * @public
+ * <p></p>
+ */
 export interface DescribeReplicationInstancesMessage {
   /**
    * <p>Filters applied to replication instances.</p>
@@ -8005,6 +8497,315 @@ export interface DescribeReplicationInstanceTaskLogsResponse {
  * @public
  * <p></p>
  */
+export interface DescribeReplicationsMessage {
+  /**
+   * <p>Filters applied to the replications.</p>
+   */
+  Filters?: Filter[];
+
+  /**
+   * <p>The maximum number of records to include in the response. If more records exist than the specified
+   *          <code>MaxRecords</code> value, a pagination token called a marker is included in the response so that
+   *          the remaining results can be retrieved. </p>
+   */
+  MaxRecords?: number;
+
+  /**
+   * <p>An optional pagination token provided by a previous request. If this parameter is specified,
+   *          the response includes only records beyond the marker, up to the value specified by <code>MaxRecords</code>. </p>
+   */
+  Marker?: string;
+}
+
+/**
+ * @public
+ * <p>Information about provisioning resources for an DMS serverless replication.</p>
+ */
+export interface ProvisionData {
+  /**
+   * <p>The current provisioning state </p>
+   */
+  ProvisionState?: string;
+
+  /**
+   * <p>The number of capacity units the replication is using.</p>
+   */
+  ProvisionedCapacityUnits?: number;
+
+  /**
+   * <p>The timestamp when DMS provisioned replication resources.</p>
+   */
+  DateProvisioned?: Date;
+
+  /**
+   * <p>Whether the new provisioning is available to the replication.</p>
+   */
+  IsNewProvisioningAvailable?: boolean;
+
+  /**
+   * <p>The timestamp when provisioning became available.</p>
+   */
+  DateNewProvisioningDataAvailable?: Date;
+
+  /**
+   * <p>A message describing the reason that DMS provisioned new resources for the serverless replication.</p>
+   */
+  ReasonForNewProvisioningData?: string;
+}
+
+/**
+ * @public
+ * <p>This object provides a collection of statistics about a serverless replication.</p>
+ */
+export interface ReplicationStats {
+  /**
+   * <p>The percent complete for the full load serverless replication.</p>
+   */
+  FullLoadProgressPercent?: number;
+
+  /**
+   * <p>The elapsed time of the replication, in milliseconds.</p>
+   */
+  ElapsedTimeMillis?: number;
+
+  /**
+   * <p>The number of tables loaded for this replication.</p>
+   */
+  TablesLoaded?: number;
+
+  /**
+   * <p>The number of tables currently loading for this replication.</p>
+   */
+  TablesLoading?: number;
+
+  /**
+   * <p>The number of tables queued for this replication.</p>
+   */
+  TablesQueued?: number;
+
+  /**
+   * <p>The number of errors that have occured for this replication.</p>
+   */
+  TablesErrored?: number;
+
+  /**
+   * <p>The date the replication was started either with a fresh start or a target reload.</p>
+   */
+  FreshStartDate?: Date;
+
+  /**
+   * <p>The date the replication is scheduled to start.</p>
+   */
+  StartDate?: Date;
+
+  /**
+   * <p>The date the replication was stopped.</p>
+   */
+  StopDate?: Date;
+
+  /**
+   * <p>The date the replication full load was started.</p>
+   */
+  FullLoadStartDate?: Date;
+
+  /**
+   * <p>The date the replication full load was finished.</p>
+   */
+  FullLoadFinishDate?: Date;
+}
+
+/**
+ * @public
+ * <p>Provides information that describes a serverless replication created by the <code>CreateReplication</code> operation.</p>
+ */
+export interface Replication {
+  /**
+   * <p>The identifier for the <code>ReplicationConfig</code> associated with the replication.</p>
+   */
+  ReplicationConfigIdentifier?: string;
+
+  /**
+   * <p>The Amazon Resource Name for the <code>ReplicationConfig</code> associated with the replication.</p>
+   */
+  ReplicationConfigArn?: string;
+
+  /**
+   * <p>The Amazon Resource Name for an existing <code>Endpoint</code> the serverless replication uses for its data source.</p>
+   */
+  SourceEndpointArn?: string;
+
+  /**
+   * <p>The Amazon Resource Name for an existing <code>Endpoint</code> the serverless replication uses for its data target.</p>
+   */
+  TargetEndpointArn?: string;
+
+  /**
+   * <p>The type of the serverless replication.</p>
+   */
+  ReplicationType?: MigrationTypeValue | string;
+
+  /**
+   * <p>The current status of the serverless replication.</p>
+   */
+  Status?: string;
+
+  /**
+   * <p>Information about provisioning resources for an DMS serverless replication.</p>
+   */
+  ProvisionData?: ProvisionData;
+
+  /**
+   * <p>The reason the replication task was stopped. This response parameter can return one of
+   *          the following values:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>"Stop Reason NORMAL"</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>"Stop Reason RECOVERABLE_ERROR"</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>"Stop Reason FATAL_ERROR"</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>"Stop Reason FULL_LOAD_ONLY_FINISHED"</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>"Stop Reason STOPPED_AFTER_FULL_LOAD"</code> – Full load completed, with cached changes not applied</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>"Stop Reason STOPPED_AFTER_CACHED_EVENTS"</code>  – Full load completed, with cached changes applied</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>"Stop Reason EXPRESS_LICENSE_LIMITS_REACHED"</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>"Stop Reason STOPPED_AFTER_DDL_APPLY"</code> – User-defined stop task after DDL applied</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>"Stop Reason STOPPED_DUE_TO_LOW_MEMORY"</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>"Stop Reason STOPPED_DUE_TO_LOW_DISK"</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>"Stop Reason STOPPED_AT_SERVER_TIME"</code> – User-defined server time for stopping task</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>"Stop Reason STOPPED_AT_COMMIT_TIME"</code> –  User-defined commit time for stopping task</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>"Stop Reason RECONFIGURATION_RESTART"</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>"Stop Reason RECYCLE_TASK"</code>
+   *                </p>
+   *             </li>
+   *          </ul>
+   */
+  StopReason?: string;
+
+  /**
+   * <p>Error and other information about why a serverless replication failed.</p>
+   */
+  FailureMessages?: string[];
+
+  /**
+   * <p>This object provides a collection of statistics about a serverless replication.</p>
+   */
+  ReplicationStats?: ReplicationStats;
+
+  /**
+   * <p>The replication type.</p>
+   */
+  StartReplicationType?: string;
+
+  /**
+   * <p>Indicates the start time for a change data capture (CDC) operation. Use either
+   *          <code>CdcStartTime</code> or <code>CdcStartPosition</code> to specify when you want a CDC operation to start.
+   *          Specifying both values results in an error.</p>
+   */
+  CdcStartTime?: Date;
+
+  /**
+   * <p>Indicates the start time for a change data capture (CDC) operation. Use either
+   *          <code>CdcStartTime</code> or <code>CdcStartPosition</code> to specify when you want a CDC operation to start.
+   *          Specifying both values results in an error.</p>
+   */
+  CdcStartPosition?: string;
+
+  /**
+   * <p>Indicates when you want a change data capture (CDC) operation to stop. The value can be
+   *          either server time or commit time.</p>
+   */
+  CdcStopPosition?: string;
+
+  /**
+   * <p>Indicates the last checkpoint that occurred during a change data capture (CDC)
+   *          operation. You can provide this value to the <code>CdcStartPosition</code> parameter to
+   *          start a CDC operation that begins at that checkpoint.</p>
+   */
+  RecoveryCheckpoint?: string;
+
+  /**
+   * <p>The time the serverless replication was created.</p>
+   */
+  ReplicationCreateTime?: Date;
+
+  /**
+   * <p>The time the serverless replication was updated.</p>
+   */
+  ReplicationUpdateTime?: Date;
+
+  /**
+   * <p>The timestamp when replication was last stopped.</p>
+   */
+  ReplicationLastStopTime?: Date;
+}
+
+/**
+ * @public
+ * <p></p>
+ */
+export interface DescribeReplicationsResponse {
+  /**
+   * <p>An optional pagination token provided by a previous request. If this parameter is specified,
+   *          the response includes only records beyond the marker, up to the value specified by <code>MaxRecords</code>. </p>
+   */
+  Marker?: string;
+
+  /**
+   * <p>The replication descriptions.</p>
+   */
+  Replications?: Replication[];
+}
+
+/**
+ * @public
+ * <p></p>
+ */
 export interface DescribeReplicationSubnetGroupsMessage {
   /**
    * <p>Filters applied to replication subnet groups.</p>
@@ -8045,6 +8846,227 @@ export interface DescribeReplicationSubnetGroupsResponse {
    * <p>A description of the replication subnet groups.</p>
    */
   ReplicationSubnetGroups?: ReplicationSubnetGroup[];
+}
+
+/**
+ * @public
+ * <p></p>
+ */
+export interface DescribeReplicationTableStatisticsMessage {
+  /**
+   * <p>The replication config to describe.</p>
+   */
+  ReplicationConfigArn: string | undefined;
+
+  /**
+   * <p>The maximum number of records to include in the response. If more records exist than the specified
+   *          <code>MaxRecords</code> value, a pagination token called a marker is included in the response so that
+   *          the remaining results can be retrieved. </p>
+   */
+  MaxRecords?: number;
+
+  /**
+   * <p>An optional pagination token provided by a previous request. If this parameter is specified,
+   *          the response includes only records beyond the marker, up to the value specified by <code>MaxRecords</code>. </p>
+   */
+  Marker?: string;
+
+  /**
+   * <p>Filters applied to the replication table statistics.</p>
+   */
+  Filters?: Filter[];
+}
+
+/**
+ * @public
+ * <p>Provides a collection of table statistics in response to a request by the
+ *          <code>DescribeTableStatistics</code> operation.</p>
+ */
+export interface TableStatistics {
+  /**
+   * <p>The schema name.</p>
+   */
+  SchemaName?: string;
+
+  /**
+   * <p>The name of the table.</p>
+   */
+  TableName?: string;
+
+  /**
+   * <p>The number of insert actions performed on a table.</p>
+   */
+  Inserts?: number;
+
+  /**
+   * <p>The number of delete actions performed on a table.</p>
+   */
+  Deletes?: number;
+
+  /**
+   * <p>The number of update actions performed on a table.</p>
+   */
+  Updates?: number;
+
+  /**
+   * <p>The data definition language (DDL) used to build and modify the structure of your tables.</p>
+   */
+  Ddls?: number;
+
+  /**
+   * <p>The number of insert actions applied on a target table.</p>
+   */
+  AppliedInserts?: number;
+
+  /**
+   * <p>The number of delete actions applied on a target table.</p>
+   */
+  AppliedDeletes?: number;
+
+  /**
+   * <p>The number of update actions applied on a target table.</p>
+   */
+  AppliedUpdates?: number;
+
+  /**
+   * <p>The number of data definition language (DDL) statements used to build and modify the structure
+   *          of your tables applied on the target.</p>
+   */
+  AppliedDdls?: number;
+
+  /**
+   * <p>The number of rows added during the full load operation.</p>
+   */
+  FullLoadRows?: number;
+
+  /**
+   * <p>The number of rows that failed conditional checks during the full load operation (valid
+   *          only for migrations where DynamoDB is the target).</p>
+   */
+  FullLoadCondtnlChkFailedRows?: number;
+
+  /**
+   * <p>The number of rows that failed to load during the full load operation (valid only for
+   *          migrations where DynamoDB is the target).</p>
+   */
+  FullLoadErrorRows?: number;
+
+  /**
+   * <p>The time when the full load operation started.</p>
+   */
+  FullLoadStartTime?: Date;
+
+  /**
+   * <p>The time when the full load operation completed.</p>
+   */
+  FullLoadEndTime?: Date;
+
+  /**
+   * <p>A value that indicates if the table was reloaded (<code>true</code>)
+   *          or loaded as part of a new full load operation (<code>false</code>).</p>
+   */
+  FullLoadReloaded?: boolean;
+
+  /**
+   * <p>The last time a table was updated.</p>
+   */
+  LastUpdateTime?: Date;
+
+  /**
+   * <p>The state of the tables described.</p>
+   *          <p>Valid states: Table does not exist | Before load | Full load | Table completed | Table
+   *          cancelled | Table error | Table is being reloaded</p>
+   */
+  TableState?: string;
+
+  /**
+   * <p>The number of records that have yet to be validated.</p>
+   */
+  ValidationPendingRecords?: number;
+
+  /**
+   * <p>The number of records that failed validation.</p>
+   */
+  ValidationFailedRecords?: number;
+
+  /**
+   * <p>The number of records that couldn't be validated.</p>
+   */
+  ValidationSuspendedRecords?: number;
+
+  /**
+   * <p>The validation state of the table.</p>
+   *          <p>This parameter can have the following values:</p>
+   *          <ul>
+   *             <li>
+   *                <p>Not enabled – Validation isn't enabled for the table in the migration
+   *                task.</p>
+   *             </li>
+   *             <li>
+   *                <p>Pending records – Some records in the table are waiting for validation.</p>
+   *             </li>
+   *             <li>
+   *                <p>Mismatched records – Some records in the table don't match between the source
+   *                and target.</p>
+   *             </li>
+   *             <li>
+   *                <p>Suspended records – Some records in the table couldn't be validated.</p>
+   *             </li>
+   *             <li>
+   *                <p>No primary key  –The table couldn't be validated because it has no primary
+   *                key.</p>
+   *             </li>
+   *             <li>
+   *                <p>Table error – The table wasn't validated because it's in an error state
+   *                and some data wasn't migrated.</p>
+   *             </li>
+   *             <li>
+   *                <p>Validated – All rows in the table are validated. If the table is updated, the
+   *                status can change from Validated.</p>
+   *             </li>
+   *             <li>
+   *                <p>Error – The table couldn't be validated because of an unexpected
+   *                error.</p>
+   *             </li>
+   *             <li>
+   *                <p>Pending validation – The table is waiting validation.</p>
+   *             </li>
+   *             <li>
+   *                <p>Preparing table – Preparing the table enabled in the migration task for validation.</p>
+   *             </li>
+   *             <li>
+   *                <p>Pending revalidation – All rows in the table are pending validation after the table was updated.</p>
+   *             </li>
+   *          </ul>
+   */
+  ValidationState?: string;
+
+  /**
+   * <p>Additional details about the state of validation.</p>
+   */
+  ValidationStateDetails?: string;
+}
+
+/**
+ * @public
+ * <p></p>
+ */
+export interface DescribeReplicationTableStatisticsResponse {
+  /**
+   * <p>The Amazon Resource Name of the replication config.</p>
+   */
+  ReplicationConfigArn?: string;
+
+  /**
+   * <p>An optional pagination token provided by a previous request. If this parameter is specified,
+   *          the response includes only records beyond the marker, up to the value specified by <code>MaxRecords</code>. </p>
+   */
+  Marker?: string;
+
+  /**
+   * <p>Returns table statistics on the replication, including table name, rows inserted, rows updated, and rows deleted.</p>
+   */
+  ReplicationTableStatistics?: TableStatistics[];
 }
 
 /**
@@ -8443,176 +9465,6 @@ export interface DescribeTableStatisticsMessage {
 
 /**
  * @public
- * <p>Provides a collection of table statistics in response to a request by the
- *          <code>DescribeTableStatistics</code> operation.</p>
- */
-export interface TableStatistics {
-  /**
-   * <p>The schema name.</p>
-   */
-  SchemaName?: string;
-
-  /**
-   * <p>The name of the table.</p>
-   */
-  TableName?: string;
-
-  /**
-   * <p>The number of insert actions performed on a table.</p>
-   */
-  Inserts?: number;
-
-  /**
-   * <p>The number of delete actions performed on a table.</p>
-   */
-  Deletes?: number;
-
-  /**
-   * <p>The number of update actions performed on a table.</p>
-   */
-  Updates?: number;
-
-  /**
-   * <p>The data definition language (DDL) used to build and modify the structure of your tables.</p>
-   */
-  Ddls?: number;
-
-  /**
-   * <p>The number of insert actions applied on a target table.</p>
-   */
-  AppliedInserts?: number;
-
-  /**
-   * <p>The number of delete actions applied on a target table.</p>
-   */
-  AppliedDeletes?: number;
-
-  /**
-   * <p>The number of update actions applied on a target table.</p>
-   */
-  AppliedUpdates?: number;
-
-  /**
-   * <p>The number of data definition language (DDL) statements used to build and modify the structure
-   *          of your tables applied on the target.</p>
-   */
-  AppliedDdls?: number;
-
-  /**
-   * <p>The number of rows added during the full load operation.</p>
-   */
-  FullLoadRows?: number;
-
-  /**
-   * <p>The number of rows that failed conditional checks during the full load operation (valid
-   *          only for migrations where DynamoDB is the target).</p>
-   */
-  FullLoadCondtnlChkFailedRows?: number;
-
-  /**
-   * <p>The number of rows that failed to load during the full load operation (valid only for
-   *          migrations where DynamoDB is the target).</p>
-   */
-  FullLoadErrorRows?: number;
-
-  /**
-   * <p>The time when the full load operation started.</p>
-   */
-  FullLoadStartTime?: Date;
-
-  /**
-   * <p>The time when the full load operation completed.</p>
-   */
-  FullLoadEndTime?: Date;
-
-  /**
-   * <p>A value that indicates if the table was reloaded (<code>true</code>)
-   *          or loaded as part of a new full load operation (<code>false</code>).</p>
-   */
-  FullLoadReloaded?: boolean;
-
-  /**
-   * <p>The last time a table was updated.</p>
-   */
-  LastUpdateTime?: Date;
-
-  /**
-   * <p>The state of the tables described.</p>
-   *          <p>Valid states: Table does not exist | Before load | Full load | Table completed | Table
-   *          cancelled | Table error | Table is being reloaded</p>
-   */
-  TableState?: string;
-
-  /**
-   * <p>The number of records that have yet to be validated.</p>
-   */
-  ValidationPendingRecords?: number;
-
-  /**
-   * <p>The number of records that failed validation.</p>
-   */
-  ValidationFailedRecords?: number;
-
-  /**
-   * <p>The number of records that couldn't be validated.</p>
-   */
-  ValidationSuspendedRecords?: number;
-
-  /**
-   * <p>The validation state of the table.</p>
-   *          <p>This parameter can have the following values:</p>
-   *          <ul>
-   *             <li>
-   *                <p>Not enabled – Validation isn't enabled for the table in the migration
-   *                task.</p>
-   *             </li>
-   *             <li>
-   *                <p>Pending records – Some records in the table are waiting for validation.</p>
-   *             </li>
-   *             <li>
-   *                <p>Mismatched records – Some records in the table don't match between the source
-   *                and target.</p>
-   *             </li>
-   *             <li>
-   *                <p>Suspended records – Some records in the table couldn't be validated.</p>
-   *             </li>
-   *             <li>
-   *                <p>No primary key  –The table couldn't be validated because it has no primary
-   *                key.</p>
-   *             </li>
-   *             <li>
-   *                <p>Table error – The table wasn't validated because it's in an error state
-   *                and some data wasn't migrated.</p>
-   *             </li>
-   *             <li>
-   *                <p>Validated – All rows in the table are validated. If the table is updated, the
-   *                status can change from Validated.</p>
-   *             </li>
-   *             <li>
-   *                <p>Error – The table couldn't be validated because of an unexpected
-   *                error.</p>
-   *             </li>
-   *             <li>
-   *                <p>Pending validation – The table is waiting validation.</p>
-   *             </li>
-   *             <li>
-   *                <p>Preparing table – Preparing the table enabled in the migration task for validation.</p>
-   *             </li>
-   *             <li>
-   *                <p>Pending revalidation – All rows in the table are pending validation after the table was updated.</p>
-   *             </li>
-   *          </ul>
-   */
-  ValidationState?: string;
-
-  /**
-   * <p>Additional details about the state of validation.</p>
-   */
-  ValidationStateDetails?: string;
-}
-
-/**
- * @public
  * <p></p>
  */
 export interface DescribeTableStatisticsResponse {
@@ -8998,6 +9850,11 @@ export interface ModifyEndpointMessage {
    * <p>Settings in JSON format for the source GCP MySQL endpoint.</p>
    */
   GcpMySQLSettings?: GcpMySQLSettings;
+
+  /**
+   * <p>Settings in JSON format for the target Amazon Timestream endpoint.</p>
+   */
+  TimestreamSettings?: TimestreamSettings;
 }
 
 /**
@@ -9055,6 +9912,69 @@ export interface ModifyEventSubscriptionResponse {
    * <p>The modified event subscription.</p>
    */
   EventSubscription?: EventSubscription;
+}
+
+/**
+ * @public
+ * <p></p>
+ */
+export interface ModifyReplicationConfigMessage {
+  /**
+   * <p>The Amazon Resource Name of the replication to modify.</p>
+   */
+  ReplicationConfigArn: string | undefined;
+
+  /**
+   * <p>The new replication config to apply to the replication.</p>
+   */
+  ReplicationConfigIdentifier?: string;
+
+  /**
+   * <p>The type of replication.</p>
+   */
+  ReplicationType?: MigrationTypeValue | string;
+
+  /**
+   * <p>Table mappings specified in the replication.</p>
+   */
+  TableMappings?: string;
+
+  /**
+   * <p>The settings for the replication.</p>
+   */
+  ReplicationSettings?: string;
+
+  /**
+   * <p>Additional settings for the replication.</p>
+   */
+  SupplementalSettings?: string;
+
+  /**
+   * <p>Configuration parameters for provisioning an DMS Serverless replication.</p>
+   */
+  ComputeConfig?: ComputeConfig;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the source endpoint for
+   *          this DMS serverless replication configuration.</p>
+   */
+  SourceEndpointArn?: string;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the target endpoint for
+   *          this DMS serverless replication configuration.</p>
+   */
+  TargetEndpointArn?: string;
+}
+
+/**
+ * @public
+ */
+export interface ModifyReplicationConfigResponse {
+  /**
+   * <p>Information about the serverless replication config that was modified.</p>
+   */
+  ReplicationConfig?: ReplicationConfig;
 }
 
 /**
@@ -9478,6 +10398,40 @@ export interface TableToReload {
 
 /**
  * @public
+ * <p></p>
+ */
+export interface ReloadReplicationTablesMessage {
+  /**
+   * <p>The Amazon Resource Name of the replication config for which to reload tables.</p>
+   */
+  ReplicationConfigArn: string | undefined;
+
+  /**
+   * <p>The list of tables to reload.</p>
+   */
+  TablesToReload: TableToReload[] | undefined;
+
+  /**
+   * <p>Options for reload. Specify <code>data-reload</code> to reload the data and re-validate
+   *          it if validation is enabled. Specify <code>validate-only</code> to re-validate the table.
+   *          This option applies only when validation is enabled for the replication. </p>
+   */
+  ReloadOption?: ReloadOptionValue | string;
+}
+
+/**
+ * @public
+ * <p></p>
+ */
+export interface ReloadReplicationTablesResponse {
+  /**
+   * <p>The Amazon Resource Name of the replication config for which to reload tables.</p>
+   */
+  ReplicationConfigArn?: string;
+}
+
+/**
+ * @public
  */
 export interface ReloadTablesMessage {
   /**
@@ -9566,6 +10520,53 @@ export interface StartRecommendationsRequest {
    *             Dev/Test (Single-AZ deployments).</p>
    */
   Settings: RecommendationSettings | undefined;
+}
+
+/**
+ * @public
+ * <p></p>
+ */
+export interface StartReplicationMessage {
+  /**
+   * <p>The Amazon Resource Name of the replication for which to start replication.</p>
+   */
+  ReplicationConfigArn: string | undefined;
+
+  /**
+   * <p>The replication type.</p>
+   */
+  StartReplicationType: string | undefined;
+
+  /**
+   * <p>Indicates the start time for a change data capture (CDC) operation. Use either <code>CdcStartTime</code>
+   *          or <code>CdcStartPosition</code> to specify when you want a CDC operation to start. Specifying both values results in an error.</p>
+   */
+  CdcStartTime?: Date;
+
+  /**
+   * <p>Indicates when you want a change data capture (CDC) operation to start. Use either
+   *          <code>CdcStartPosition</code> or <code>CdcStartTime</code> to specify when you want a
+   *          CDC operation to start. Specifying both values results in an error.</p>
+   *          <p>The value can be in date, checkpoint, or LSN/SCN format.</p>
+   */
+  CdcStartPosition?: string;
+
+  /**
+   * <p>Indicates when you want a change data capture (CDC) operation to stop. The value can be
+   *          either server time or commit time.</p>
+   */
+  CdcStopPosition?: string;
+}
+
+/**
+ * @public
+ * <p></p>
+ */
+export interface StartReplicationResponse {
+  /**
+   * <p>The replication that DMS started.</p>
+   */
+  Replication?: Replication;
 }
 
 /**
@@ -9799,6 +10800,27 @@ export interface StartReplicationTaskAssessmentRunResponse {
    * <p>The premigration assessment run that was started.</p>
    */
   ReplicationTaskAssessmentRun?: ReplicationTaskAssessmentRun;
+}
+
+/**
+ * @public
+ * <p></p>
+ */
+export interface StopReplicationMessage {
+  /**
+   * <p>The Amazon Resource Name of the replication to stop.</p>
+   */
+  ReplicationConfigArn: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface StopReplicationResponse {
+  /**
+   * <p>The replication that DMS stopped.</p>
+   */
+  Replication?: Replication;
 }
 
 /**

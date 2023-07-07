@@ -95,7 +95,7 @@ export interface ModifyReplicationSubnetGroupCommandOutput
  *             role is correctly configured.</p>
  *
  * @throws {@link InvalidSubnet} (client fault)
- *  <p>The subnet provided is invalid.</p>
+ *  <p>The subnet provided isn't valid.</p>
  *
  * @throws {@link ReplicationSubnetGroupDoesNotCoverEnoughAZs} (client fault)
  *  <p>The replication subnet group does not cover enough Availability Zones (AZs). Edit the replication subnet group and add more AZs.</p>
