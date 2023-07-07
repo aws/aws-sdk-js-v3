@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.368.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.367.0...v3.368.0) (2023-07-07)
+
+
+### Features
+
+* **client-cloudwatch-logs:** Add CMK encryption support for CloudWatch Logs Insights query result data ([c16a285](https://github.com/aws/aws-sdk-js-v3/commit/c16a285761eedb6239e717b70043cc41a1bf8b9e))
+
+
+
+
+
 # [3.363.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.362.0...v3.363.0) (2023-06-29)
 
 

@@ -3,6 +3,22 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.368.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.367.0...v3.368.0) (2023-07-07)
+
+
+### Features
+
+* **client-cloudwatch-logs:** Add CMK encryption support for CloudWatch Logs Insights query result data ([c16a285](https://github.com/aws/aws-sdk-js-v3/commit/c16a285761eedb6239e717b70043cc41a1bf8b9e))
+* **client-database-migration-service:** Releasing DMS Serverless. Adding support for PostgreSQL 15.x as source and target endpoint. Adding support for DocDB Elastic Clusters with sharded collections, PostgreSQL datatype mapping customization and disabling hostname validation of the certificate authority in Kafka endpoint settings ([c225679](https://github.com/aws/aws-sdk-js-v3/commit/c2256797241187e7f967ad6a1a7669a1d95f4fa6))
+* **client-glue:** This release enables customers to create new Apache Iceberg tables and associated metadata in Amazon S3 by using native AWS Glue CreateTable operation. ([f4ee5d6](https://github.com/aws/aws-sdk-js-v3/commit/f4ee5d60ae8f417c5cd5111f4641722bf09de726))
+* **client-medialive:** This release enables the use of Thumbnails in AWS Elemental MediaLive. ([cf90da6](https://github.com/aws/aws-sdk-js-v3/commit/cf90da6315029b53aea1585a36ad7145337a40e6))
+* **client-mediatailor:** The AWS Elemental MediaTailor SDK for Channel Assembly has added support for EXT-X-CUE-OUT and EXT-X-CUE-IN tags to specify ad breaks in HLS outputs, including support for EXT-OATCLS, EXT-X-ASSET, and EXT-X-CUE-OUT-CONT accessory tags. ([13bec3b](https://github.com/aws/aws-sdk-js-v3/commit/13bec3bce60c5d5434070c1ab67e12aedb8e25d0))
+* **clients:** update client endpoints as of 2023-07-07 ([f594a42](https://github.com/aws/aws-sdk-js-v3/commit/f594a42210bbd0c2252e55223812be0579def92e))
+
+
+
+
+
 # [3.367.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.366.0...v3.367.0) (2023-07-06)
 
 
