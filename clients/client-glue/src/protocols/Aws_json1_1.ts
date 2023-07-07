@@ -831,16 +831,16 @@ import {
   GetUnfilteredPartitionsMetadataRequest,
   GetUnfilteredPartitionsMetadataResponse,
   GetUnfilteredTableMetadataRequest,
-  GetUnfilteredTableMetadataResponse,
-  GetUserDefinedFunctionRequest,
   GluePolicy,
   GrokClassifier,
+  IcebergInput,
   JobBookmarksEncryption,
   JsonClassifier,
   Location,
   LongColumnStatisticsData,
   MappingEntry,
   MLTransform,
+  OpenTableFormatInput,
   PartitionIndex,
   PermissionType,
   PermissionTypeMismatchException,
@@ -892,6 +892,8 @@ import {
   DevEndpointCustomLibraries,
   GetJobResponse,
   GetJobsResponse,
+  GetUnfilteredTableMetadataResponse,
+  GetUserDefinedFunctionRequest,
   GetUserDefinedFunctionResponse,
   GetUserDefinedFunctionsRequest,
   GetUserDefinedFunctionsResponse,
@@ -16117,6 +16119,7 @@ const se_CreateTableRequest = (input: CreateTableRequest, context: __SerdeContex
   return take(input, {
     CatalogId: [],
     DatabaseName: [],
+    OpenTableFormatInput: _json,
     PartitionIndexes: _json,
     TableInput: (_) => se_TableInput(_, context),
     TransactionId: [],
@@ -16656,6 +16659,8 @@ const se_GetTablesRequest = (input: GetTablesRequest, context: __SerdeContext): 
 
 // se_GovernedCatalogTarget omitted.
 
+// se_IcebergInput omitted.
+
 // se_IcebergTarget omitted.
 
 // se_IcebergTargetList omitted.
@@ -16946,6 +16951,8 @@ const se_Mappings = (input: Mapping[], context: __SerdeContext): any => {
 // se_NullValueFields omitted.
 
 // se_OneInput omitted.
+
+// se_OpenTableFormatInput omitted.
 
 // se_Option omitted.
 

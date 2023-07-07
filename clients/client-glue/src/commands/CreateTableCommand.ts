@@ -139,6 +139,12 @@ export interface CreateTableCommandOutput extends CreateTableResponse, __Metadat
  *     },
  *   ],
  *   TransactionId: "STRING_VALUE",
+ *   OpenTableFormatInput: { // OpenTableFormatInput
+ *     IcebergInput: { // IcebergInput
+ *       MetadataOperation: "CREATE", // required
+ *       Version: "STRING_VALUE",
+ *     },
+ *   },
  * };
  * const command = new CreateTableCommand(input);
  * const response = await client.send(command);

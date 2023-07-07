@@ -1019,6 +1019,46 @@ export interface CreateSessionResponse {
 
 /**
  * @public
+ * @enum
+ */
+export const MetadataOperation = {
+  CREATE: "CREATE",
+} as const;
+
+/**
+ * @public
+ */
+export type MetadataOperation = (typeof MetadataOperation)[keyof typeof MetadataOperation];
+
+/**
+ * @public
+ * <p>A structure that defines an Apache Iceberg metadata table to create in the catalog.</p>
+ */
+export interface IcebergInput {
+  /**
+   * <p>A required metadata operation. Can only be set to <code>CREATE</code>.</p>
+   */
+  MetadataOperation: MetadataOperation | string | undefined;
+
+  /**
+   * <p>The table version for the Iceberg table. Defaults to 2.</p>
+   */
+  Version?: string;
+}
+
+/**
+ * @public
+ * <p>A structure representing an open format table.</p>
+ */
+export interface OpenTableFormatInput {
+  /**
+   * <p>Specifies an <code>IcebergInput</code> structure that defines an Apache Iceberg metadata table.</p>
+   */
+  IcebergInput?: IcebergInput;
+}
+
+/**
+ * @public
  * <p>A structure that describes a target table for resource linking.</p>
  */
 export interface TableIdentifier {
@@ -1170,6 +1210,11 @@ export interface CreateTableRequest {
    * <p>The ID of the transaction.</p>
    */
   TransactionId?: string;
+
+  /**
+   * <p>Specifies an <code>OpenTableFormatInput</code> structure when creating an open format table.</p>
+   */
+  OpenTableFormatInput?: OpenTableFormatInput;
 }
 
 /**
@@ -7168,67 +7213,4 @@ export interface GetUnfilteredTableMetadataRequest {
    * <p>(Required) A list of supported permission types. </p>
    */
   SupportedPermissionTypes: (PermissionType | string)[] | undefined;
-}
-
-/**
- * @public
- * <p>A filter that uses both column-level and row-level filtering.</p>
- */
-export interface ColumnRowFilter {
-  /**
-   * <p>A string containing the name of the column.</p>
-   */
-  ColumnName?: string;
-
-  /**
-   * <p>A string containing the row-level filter expression.</p>
-   */
-  RowFilterExpression?: string;
-}
-
-/**
- * @public
- */
-export interface GetUnfilteredTableMetadataResponse {
-  /**
-   * <p>A Table object containing the table metadata.</p>
-   */
-  Table?: Table;
-
-  /**
-   * <p>A list of column names that the user has been granted access to.</p>
-   */
-  AuthorizedColumns?: string[];
-
-  /**
-   * <p>A Boolean value that indicates whether the partition location is registered
-   *           with Lake Formation.</p>
-   */
-  IsRegisteredWithLakeFormation?: boolean;
-
-  /**
-   * <p>A list of column row filters.</p>
-   */
-  CellFilters?: ColumnRowFilter[];
-}
-
-/**
- * @public
- */
-export interface GetUserDefinedFunctionRequest {
-  /**
-   * <p>The ID of the Data Catalog where the function to be retrieved is located. If none is
-   *       provided, the Amazon Web Services account ID is used by default.</p>
-   */
-  CatalogId?: string;
-
-  /**
-   * <p>The name of the catalog database where the function is located.</p>
-   */
-  DatabaseName: string | undefined;
-
-  /**
-   * <p>The name of the function.</p>
-   */
-  FunctionName: string | undefined;
 }

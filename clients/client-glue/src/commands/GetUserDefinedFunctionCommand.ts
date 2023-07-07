@@ -14,8 +14,7 @@ import {
 } from "@smithy/types";
 
 import { GlueClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GlueClient";
-import { GetUserDefinedFunctionRequest } from "../models/models_1";
-import { GetUserDefinedFunctionResponse } from "../models/models_2";
+import { GetUserDefinedFunctionRequest, GetUserDefinedFunctionResponse } from "../models/models_2";
 import { de_GetUserDefinedFunctionCommand, se_GetUserDefinedFunctionCommand } from "../protocols/Aws_json1_1";
 
 /**
