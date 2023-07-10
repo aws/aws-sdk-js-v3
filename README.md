@@ -294,10 +294,10 @@ Lastly we have higher level libraries in `/lib`. These are javascript specific l
 Certain command outputs include streams, which have different implementations in
 Node.js and browsers. For convenience, a set of stream handling methods will be
 merged (`Object.assign`) to the output stream object, as defined in
-[SdkStreamMixin](serde-code-url).
+[SdkStreamMixin][serde-code-url].
 
 Output types having this feature will be indicated by the `WithSdkStreamMixin<T, StreamKey>`
-[wrapper type](serde-code-url), where `T` is the original output type
+[wrapper type][serde-code-url], where `T` is the original output type
 and `StreamKey` is the output property key having a stream type specific to
 the runtime environment.
 
