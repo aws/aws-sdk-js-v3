@@ -24,6 +24,7 @@
     "@aws-sdk/middleware-bucket-endpoint": "*",
     "@aws-sdk/types": "*",
     "@aws-sdk/util-arn-parser": "*",
+    "@aws-sdk/util-endpoints": "*",
     "@smithy/protocol-http": "^1.1.0",
     "@smithy/types": "^1.1.0",
     "tslib": "^2.5.0"
