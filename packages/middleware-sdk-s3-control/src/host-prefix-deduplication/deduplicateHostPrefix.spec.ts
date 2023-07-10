@@ -14,4 +14,11 @@ describe(deduplicateHostPrefix.name, () => {
 
     expect(deduplicateHostPrefix("12345.abcdefgh.12345.12345.host.com")).toEqual("12345.abcdefgh.12345.12345.host.com");
   });
+
+  it("should not act on IP hostnames", () => {
+    expect(deduplicateHostPrefix("1.2.3.4")).toEqual("1.2.3.4");
+    expect(deduplicateHostPrefix("1.2.3.4:80")).toEqual("1.2.3.4:80");
+    expect(deduplicateHostPrefix("10.10.10.10")).toEqual("10.10.10.10");
+    expect(deduplicateHostPrefix("10.10.10.10:80")).toEqual("10.10.10.10:80");
+  });
 });

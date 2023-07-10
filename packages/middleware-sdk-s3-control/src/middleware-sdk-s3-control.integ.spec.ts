@@ -23,6 +23,28 @@ describe("middleware-sdk-s3-control", () => {
       expect.hasAssertions();
     });
 
+    it("doesn't dedupe host prefixes for IP addresses", async () => {
+      const client = new S3Control({
+        region: "snow",
+        endpoint: "https://10.10.10.10:8000/path?query=query",
+        useFipsEndpoint: false,
+        useDualstackEndpoint: false,
+        disableHostPrefix: true,
+      });
+
+      requireRequestsFrom(client).toMatch({
+        hostname: /^10.10.10.10$/,
+        port: /^8000$/,
+      });
+
+      await client.listAccessPoints({
+        AccountId: "123456789012",
+        Bucket: "my-bucket",
+      });
+
+      expect.hasAssertions();
+    });
+
     it("parses outpost ARNs", async () => {
       const client = new S3Control({
         region: "us-west-2",
