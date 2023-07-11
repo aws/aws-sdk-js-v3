@@ -37,13 +37,13 @@
     "@smithy/hash-node": "^1.0.1",
     "@smithy/invalid-dependency": "^1.0.1",
     "@smithy/middleware-content-length": "^1.0.1",
-    "@smithy/middleware-endpoint": "^1.0.1",
-    "@smithy/middleware-retry": "^1.0.2",
+    "@smithy/middleware-endpoint": "^1.0.2",
+    "@smithy/middleware-retry": "^1.0.3",
     "@smithy/middleware-serde": "^1.0.1",
     "@smithy/middleware-stack": "^1.0.1",
     "@smithy/node-config-provider": "^1.0.1",
     "@smithy/node-http-handler": "^1.0.2",
-    "@smithy/protocol-http": "^1.0.1",
+    "@smithy/protocol-http": "^1.1.0",
     "@smithy/smithy-client": "^1.0.3",
     "@smithy/types": "^1.1.0",
     "@smithy/url-parser": "^1.0.1",
@@ -52,7 +52,7 @@
     "@smithy/util-body-length-node": "^1.0.1",
     "@smithy/util-defaults-mode-browser": "^1.0.1",
     "@smithy/util-defaults-mode-node": "^1.0.1",
-    "@smithy/util-retry": "^1.0.2",
+    "@smithy/util-retry": "^1.0.3",
     "@smithy/util-utf8": "^1.0.1",
     "tslib": "^2.5.0",
     "uuid": "^8.3.2"
@@ -67,7 +67,7 @@
     "downlevel-dts": "0.10.1",
     "rimraf": "3.0.2",
     "typedoc": "0.23.23",
-    "typescript": "~4.6.2"
+    "typescript": "~4.9.5"
   },
   "engines": {
     "node": ">=14.0.0"
