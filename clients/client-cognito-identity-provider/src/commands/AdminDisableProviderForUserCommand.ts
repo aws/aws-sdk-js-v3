@@ -50,18 +50,18 @@ export interface AdminDisableProviderForUserCommandOutput
  *             user is removed. When the external user signs in again, and the user is no longer
  *             attached to the previously linked <code>DestinationUser</code>, the user must create a
  *             new user account. See <a href="https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_AdminLinkProviderForUser.html">AdminLinkProviderForUser</a>.</p>
- *         <p>This action is enabled only for admin access and requires developer
+ *          <p>This action is enabled only for admin access and requires developer
  *             credentials.</p>
- *         <p>The <code>ProviderName</code> must match the value specified when creating an IdP for
+ *          <p>The <code>ProviderName</code> must match the value specified when creating an IdP for
  *             the pool. </p>
- *         <p>To deactivate a native username + password user, the <code>ProviderName</code> value
+ *          <p>To deactivate a native username + password user, the <code>ProviderName</code> value
  *             must be <code>Cognito</code> and the <code>ProviderAttributeName</code> must be
  *                 <code>Cognito_Subject</code>. The <code>ProviderAttributeValue</code> must be the
  *             name that is used in the user pool for the user.</p>
- *         <p>The <code>ProviderAttributeName</code> must always be <code>Cognito_Subject</code> for
+ *          <p>The <code>ProviderAttributeName</code> must always be <code>Cognito_Subject</code> for
  *             social IdPs. The <code>ProviderAttributeValue</code> must always be the exact subject
  *             that was used when the user was originally linked as a source user.</p>
- *         <p>For de-linking a SAML identity, there are two scenarios. If the linked identity has
+ *          <p>For de-linking a SAML identity, there are two scenarios. If the linked identity has
  *             not yet been used to sign in, the <code>ProviderAttributeName</code> and
  *                 <code>ProviderAttributeValue</code> must be the same values that were used for the
  *                 <code>SourceUser</code> when the identities were originally linked using <code>

@@ -47,7 +47,7 @@ export interface AdminGetDeviceCommandOutput extends AdminGetDeviceResponse, __M
 /**
  * @public
  * <p>Gets the device, as an administrator.</p>
- *         <p>Calling this action requires developer credentials.</p>
+ *          <p>Calling this action requires developer credentials.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

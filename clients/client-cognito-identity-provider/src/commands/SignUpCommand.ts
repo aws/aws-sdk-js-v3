@@ -42,7 +42,6 @@ export interface SignUpCommandOutput extends SignUpResponse, __MetadataBearer {}
  * @public
  * <p>Registers the user in the specified user pool and creates a user name, password, and
  *             user attributes.</p>
- *
  *          <note>
  *             <p>This action might generate an SMS text message. Starting June 1, 2021, US telecom carriers
  *                 require you to register an origination phone number before you can send SMS messages

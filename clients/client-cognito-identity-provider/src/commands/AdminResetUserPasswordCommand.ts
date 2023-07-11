@@ -47,7 +47,7 @@ export interface AdminResetUserPasswordCommandOutput extends AdminResetUserPassw
  * @public
  * <p>Resets the specified user's password in a user pool as an administrator. Works on any
  *             user.</p>
- *         <p>When a developer calls this API, the current password is invalidated, so it must be
+ *          <p>When a developer calls this API, the current password is invalidated, so it must be
  *             changed. If a user tries to sign in after the API is called, the app will get a
  *             PasswordResetRequiredException exception back and should direct the user down the flow
  *             to reset the password, which is the same as the forgot password flow. In addition, if
@@ -55,7 +55,6 @@ export interface AdminResetUserPasswordCommandOutput extends AdminResetUserPassw
  *             user, or if email verification is selected and a verified email exists for the user,
  *             calling this API will also result in sending a message to the end user with the code to
  *             change their password.</p>
- *
  *          <note>
  *             <p>This action might generate an SMS text message. Starting June 1, 2021, US telecom carriers
  *                 require you to register an origination phone number before you can send SMS messages
@@ -73,8 +72,7 @@ export interface AdminResetUserPasswordCommandOutput extends AdminResetUserPassw
  *                 of the sandbox and into production. For more information, see <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-identity-pools-sms-userpool-settings.html"> SMS message settings for Amazon Cognito user pools</a> in the <i>Amazon Cognito
  *                     Developer Guide</i>.</p>
  *          </note>
- *
- *         <p>Calling this action requires developer credentials.</p>
+ *          <p>Calling this action requires developer credentials.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

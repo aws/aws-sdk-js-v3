@@ -45,7 +45,7 @@ export interface VerifyUserAttributeCommandOutput extends VerifyUserAttributeRes
 /**
  * @public
  * <p>Verifies the specified user attributes in the user pool.</p>
- *         <p>
+ *          <p>
  *             If your user pool requires verification before Amazon Cognito updates the attribute value,
  *             VerifyUserAttribute updates the affected attribute to its pending value. For more information,
  *             see <a href="https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_UserAttributeUpdateSettingsType.html">

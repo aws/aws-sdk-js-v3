@@ -47,7 +47,7 @@ export interface AdminDisableUserCommandOutput extends AdminDisableUserResponse,
  * @public
  * <p>Deactivates a user and revokes all access tokens for the user. A deactivated user can't sign in,
  *             but still appears in the responses to <code>GetUser</code> and <code>ListUsers</code> API requests.</p>
- *         <p>You must make this API request with Amazon Web Services credentials that have <code>cognito-idp:AdminDisableUser</code> permissions.</p>
+ *          <p>You must make this API request with Amazon Web Services credentials that have <code>cognito-idp:AdminDisableUser</code> permissions.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

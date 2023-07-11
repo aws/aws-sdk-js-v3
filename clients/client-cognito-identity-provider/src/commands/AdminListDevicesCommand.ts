@@ -47,7 +47,7 @@ export interface AdminListDevicesCommandOutput extends AdminListDevicesResponse,
 /**
  * @public
  * <p>Lists devices, as an administrator.</p>
- *         <p>Calling this action requires developer credentials.</p>
+ *          <p>Calling this action requires developer credentials.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

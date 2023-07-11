@@ -23,6 +23,7 @@ import {
   VerifySoftwareTokenRequest,
   VerifySoftwareTokenRequestFilterSensitiveLog,
   VerifySoftwareTokenResponse,
+  VerifySoftwareTokenResponseFilterSensitiveLog,
 } from "../models/models_1";
 import { de_VerifySoftwareTokenCommand, se_VerifySoftwareTokenCommand } from "../protocols/Aws_json1_1";
 
@@ -174,7 +175,7 @@ export class VerifySoftwareTokenCommand extends $Command<
       clientName,
       commandName,
       inputFilterSensitiveLog: VerifySoftwareTokenRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: VerifySoftwareTokenResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

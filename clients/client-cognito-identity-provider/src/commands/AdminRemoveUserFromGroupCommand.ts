@@ -42,7 +42,7 @@ export interface AdminRemoveUserFromGroupCommandOutput extends __MetadataBearer 
 /**
  * @public
  * <p>Removes the specified user from the specified group.</p>
- *         <p>Calling this action requires developer credentials.</p>
+ *          <p>Calling this action requires developer credentials.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

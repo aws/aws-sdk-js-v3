@@ -46,7 +46,6 @@ export interface RespondToAuthChallengeCommandOutput extends RespondToAuthChalle
 /**
  * @public
  * <p>Responds to the authentication challenge.</p>
- *
  *          <note>
  *             <p>This action might generate an SMS text message. Starting June 1, 2021, US telecom carriers
  *                 require you to register an origination phone number before you can send SMS messages

@@ -42,7 +42,7 @@ export interface DeleteGroupCommandOutput extends __MetadataBearer {}
 /**
  * @public
  * <p>Deletes a group.</p>
- *         <p>Calling this action requires developer credentials.</p>
+ *          <p>Calling this action requires developer credentials.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

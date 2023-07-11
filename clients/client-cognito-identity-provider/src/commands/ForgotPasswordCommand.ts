@@ -52,7 +52,6 @@ export interface ForgotPasswordCommandOutput extends ForgotPasswordResponse, __M
  *             neither a verified phone number nor a verified email exists, an
  *                 <code>InvalidParameterException</code> is thrown. To use the confirmation code for
  *             resetting the password, call <a href="https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_ConfirmForgotPassword.html">ConfirmForgotPassword</a>. </p>
- *
  *          <note>
  *             <p>This action might generate an SMS text message. Starting June 1, 2021, US telecom carriers
  *                 require you to register an origination phone number before you can send SMS messages

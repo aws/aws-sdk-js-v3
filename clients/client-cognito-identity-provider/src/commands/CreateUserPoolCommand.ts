@@ -43,7 +43,6 @@ export interface CreateUserPoolCommandOutput extends CreateUserPoolResponse, __M
  * @public
  * <p>Creates a new Amazon Cognito user pool and sets the password policy for the
  *             pool.</p>
- *
  *          <note>
  *             <p>This action might generate an SMS text message. Starting June 1, 2021, US telecom carriers
  *                 require you to register an origination phone number before you can send SMS messages

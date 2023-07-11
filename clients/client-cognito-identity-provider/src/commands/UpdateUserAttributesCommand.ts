@@ -45,7 +45,6 @@ export interface UpdateUserAttributesCommandOutput extends UpdateUserAttributesR
 /**
  * @public
  * <p>Allows a user to update a specific attribute (one at a time).</p>
- *
  *          <note>
  *             <p>This action might generate an SMS text message. Starting June 1, 2021, US telecom carriers
  *                 require you to register an origination phone number before you can send SMS messages

@@ -42,7 +42,7 @@ export interface UpdateGroupCommandOutput extends UpdateGroupResponse, __Metadat
 /**
  * @public
  * <p>Updates the specified group with the specified attributes.</p>
- *         <p>Calling this action requires developer credentials.</p>
+ *          <p>Calling this action requires developer credentials.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

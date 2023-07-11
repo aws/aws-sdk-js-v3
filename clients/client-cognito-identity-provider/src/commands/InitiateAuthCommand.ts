@@ -47,7 +47,6 @@ export interface InitiateAuthCommandOutput extends InitiateAuthResponse, __Metad
  * @public
  * <p>Initiates sign-in for a user in the Amazon Cognito user directory. You can't sign in a user
  *             with a federated IdP with <code>InitiateAuth</code>. For more information, see <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-pools-identity-federation.html"> Adding user pool sign-in through a third party</a>.</p>
- *
  *          <note>
  *             <p>This action might generate an SMS text message. Starting June 1, 2021, US telecom carriers
  *                 require you to register an origination phone number before you can send SMS messages

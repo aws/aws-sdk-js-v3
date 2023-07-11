@@ -47,19 +47,18 @@ export interface AdminLinkProviderForUserCommandOutput extends AdminLinkProvider
  *             user account to an external federated user identity that has not yet been used to sign
  *             in. You can then use the federated user identity to sign in as the existing user
  *             account. </p>
- *         <p> For example, if there is an existing user with a username and password, this API
+ *          <p> For example, if there is an existing user with a username and password, this API
  *             links that user to a federated user identity. When the user signs in with a federated
  *             user identity, they sign in as the existing user account.</p>
- *         <note>
+ *          <note>
  *             <p>The maximum number of federated identities linked to a user is five.</p>
- *         </note>
- *         <important>
+ *          </note>
+ *          <important>
  *             <p>Because this API allows a user with an external federated identity to sign in as
  *                 an existing user in the user pool, it is critical that it only be used with external
  *                 IdPs and provider attributes that have been trusted by the application owner.</p>
- *         </important>
- *
- *         <p>This action is administrative and requires developer credentials.</p>
+ *          </important>
+ *          <p>This action is administrative and requires developer credentials.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

@@ -42,7 +42,7 @@ export interface ListGroupsCommandOutput extends ListGroupsResponse, __MetadataB
 /**
  * @public
  * <p>Lists the groups associated with a user pool.</p>
- *         <p>Calling this action requires developer credentials.</p>
+ *          <p>Calling this action requires developer credentials.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

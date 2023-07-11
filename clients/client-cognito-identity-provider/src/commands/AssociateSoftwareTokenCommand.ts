@@ -51,7 +51,7 @@ export interface AssociateSoftwareTokenCommandOutput extends AssociateSoftwareTo
  *             response. You can authorize an <code>AssociateSoftwareToken</code> request with either
  *             the user's access token, or a session string from a challenge response that you received
  *             from Amazon Cognito.</p>
- *         <note>
+ *          <note>
  *             <p>Amazon Cognito disassociates an existing software token when you verify the new token in a
  *                     <a href="https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_VerifySoftwareToken.html"> VerifySoftwareToken</a> API request. If you don't verify the software
  *                 token and your user pool doesn't require MFA, the user can then authenticate with
@@ -62,7 +62,7 @@ export interface AssociateSoftwareTokenCommandOutput extends AssociateSoftwareTo
  *             <p>After you set up software token MFA for your user, Amazon Cognito generates a
  *                     <code>SOFTWARE_TOKEN_MFA</code> challenge when they authenticate. Respond to
  *                 this challenge with your user's TOTP.</p>
- *         </note>
+ *          </note>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

@@ -66,7 +66,7 @@ export interface SignUpRequest {
 
   /**
    * <p>An array of name-value pairs representing user attributes.</p>
-   *         <p>For custom attributes, you must prepend the <code>custom:</code> prefix to the
+   *          <p>For custom attributes, you must prepend the <code>custom:</code> prefix to the
    *             attribute name.</p>
    */
   UserAttributes?: AttributeType[];
@@ -92,7 +92,7 @@ export interface SignUpRequest {
   /**
    * <p>A map of custom key-value pairs that you can provide as input for any custom workflows
    *             that this action triggers.</p>
-   *         <p>You create custom workflows by assigning Lambda functions to user pool triggers.
+   *          <p>You create custom workflows by assigning Lambda functions to user pool triggers.
    *             When you use the SignUp API action, Amazon Cognito invokes any functions that are assigned to the
    *             following triggers: <i>pre sign-up</i>, <i>custom
    *                 message</i>, and <i>post confirmation</i>. When Amazon Cognito invokes
@@ -101,29 +101,27 @@ export interface SignUpRequest {
    *             that you assigned to the ClientMetadata parameter in your SignUp request. In your
    *             function code in Lambda, you can process the <code>clientMetadata</code> value to enhance
    *             your workflow for your specific needs.</p>
-   *
    *          <p>For more information, see <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-identity-pools-working-with-aws-lambda-triggers.html">
    * Customizing user pool Workflows with Lambda Triggers</a> in the <i>Amazon Cognito Developer Guide</i>.</p>
-   *
-   *         <note>
+   *          <note>
    *             <p>When you use the ClientMetadata parameter, remember that Amazon Cognito won't do the
    *                 following:</p>
    *             <ul>
    *                <li>
-   *                     <p>Store the ClientMetadata value. This data is available only to Lambda
+   *                   <p>Store the ClientMetadata value. This data is available only to Lambda
    *                         triggers that are assigned to a user pool to support custom workflows. If
    *                         your user pool configuration doesn't include triggers, the ClientMetadata
    *                         parameter serves no purpose.</p>
-   *                 </li>
+   *                </li>
    *                <li>
-   *                     <p>Validate the ClientMetadata value.</p>
-   *                 </li>
+   *                   <p>Validate the ClientMetadata value.</p>
+   *                </li>
    *                <li>
-   *                     <p>Encrypt the ClientMetadata value. Don't use Amazon Cognito to provide sensitive
+   *                   <p>Encrypt the ClientMetadata value. Don't use Amazon Cognito to provide sensitive
    *                         information.</p>
-   *                 </li>
+   *                </li>
    *             </ul>
-   *         </note>
+   *          </note>
    */
   ClientMetadata?: Record<string, string>;
 }
@@ -437,9 +435,9 @@ export interface UpdateResourceServerResponse {
 export interface UpdateUserAttributesRequest {
   /**
    * <p>An array of name-value pairs representing user attributes.</p>
-   *         <p>For custom attributes, you must prepend the <code>custom:</code> prefix to the
+   *          <p>For custom attributes, you must prepend the <code>custom:</code> prefix to the
    *             attribute name.</p>
-   *         <p>If you have set an attribute to require verification before Amazon Cognito updates its value,
+   *          <p>If you have set an attribute to require verification before Amazon Cognito updates its value,
    *             this request doesn’t immediately update the value of that attribute. After your user
    *             receives and responds to a verification message to verify the new value, Amazon Cognito updates
    *             the attribute value. Your user can sign in and receive messages with the original
@@ -456,7 +454,7 @@ export interface UpdateUserAttributesRequest {
   /**
    * <p>A map of custom key-value pairs that you can provide as input for any custom workflows
    *             that this action initiates. </p>
-   *         <p>You create custom workflows by assigning Lambda functions to user pool triggers. When
+   *          <p>You create custom workflows by assigning Lambda functions to user pool triggers. When
    *             you use the UpdateUserAttributes API action, Amazon Cognito invokes the function that is assigned
    *             to the <i>custom message</i> trigger. When Amazon Cognito invokes this function, it
    *             passes a JSON payload, which the function receives as input. This payload contains a
@@ -464,29 +462,27 @@ export interface UpdateUserAttributesRequest {
    *             the ClientMetadata parameter in your UpdateUserAttributes request. In your function code
    *             in Lambda, you can process the <code>clientMetadata</code> value to enhance your workflow
    *             for your specific needs.</p>
-   *
    *          <p>For more information, see <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-identity-pools-working-with-aws-lambda-triggers.html">
    * Customizing user pool Workflows with Lambda Triggers</a> in the <i>Amazon Cognito Developer Guide</i>.</p>
-   *
-   *         <note>
+   *          <note>
    *             <p>When you use the ClientMetadata parameter, remember that Amazon Cognito won't do the
    *                 following:</p>
    *             <ul>
    *                <li>
-   *                     <p>Store the ClientMetadata value. This data is available only to Lambda
+   *                   <p>Store the ClientMetadata value. This data is available only to Lambda
    *                         triggers that are assigned to a user pool to support custom workflows. If
    *                         your user pool configuration doesn't include triggers, the ClientMetadata
    *                         parameter serves no purpose.</p>
-   *                 </li>
+   *                </li>
    *                <li>
-   *                     <p>Validate the ClientMetadata value.</p>
-   *                 </li>
+   *                   <p>Validate the ClientMetadata value.</p>
+   *                </li>
    *                <li>
-   *                     <p>Encrypt the ClientMetadata value. Don't use Amazon Cognito to provide sensitive
+   *                   <p>Encrypt the ClientMetadata value. Don't use Amazon Cognito to provide sensitive
    *                         information.</p>
-   *                 </li>
+   *                </li>
    *             </ul>
-   *         </note>
+   *          </note>
    */
   ClientMetadata?: Record<string, string>;
 }
@@ -523,7 +519,7 @@ export interface UpdateUserPoolRequest {
    * <p>When active, <code>DeletionProtection</code> prevents accidental deletion of your user
    *         pool. Before you can delete a user pool that you have protected against deletion, you
    *         must deactivate this feature.</p>
-   *         <p>When you try to delete a protected user pool in a <code>DeleteUserPool</code> API request,
+   *          <p>When you try to delete a protected user pool in a <code>DeleteUserPool</code> API request,
    *         Amazon Cognito returns an <code>InvalidParameterException</code> error. To delete a protected user pool,
    *         send a new <code>DeleteUserPool</code> request after you deactivate deletion protection in an
    *         <code>UpdateUserPool</code> API request.</p>
@@ -576,22 +572,22 @@ export interface UpdateUserPoolRequest {
 
   /**
    * <p>Possible values include:</p>
-   *         <ul>
+   *          <ul>
    *             <li>
-   *                 <p>
-   *                     <code>OFF</code> - MFA tokens aren't required and can't be specified during user
+   *                <p>
+   *                   <code>OFF</code> - MFA tokens aren't required and can't be specified during user
    *                     registration.</p>
    *             </li>
    *             <li>
-   *                 <p>
-   *                     <code>ON</code> - MFA tokens are required for all user registrations. You can
+   *                <p>
+   *                   <code>ON</code> - MFA tokens are required for all user registrations. You can
    *                     only specify ON when you're initially creating a user pool. You can use the
    *                         <a href="https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_SetUserPoolMfaConfig.html">SetUserPoolMfaConfig</a> API operation to turn MFA "ON" for existing
    *                     user pools. </p>
    *             </li>
    *             <li>
-   *                 <p>
-   *                     <code>OPTIONAL</code> - Users have the option when registering to create an MFA
+   *                <p>
+   *                   <code>OPTIONAL</code> - Users have the option when registering to create an MFA
    *                     token.</p>
    *             </li>
    *          </ul>
@@ -600,9 +596,9 @@ export interface UpdateUserPoolRequest {
 
   /**
    * <p>The device-remembering configuration for a user pool. A null value indicates that you have deactivated device remembering in your user pool.</p>
-   *         <note>
+   *          <note>
    *             <p>When you provide a value for any <code>DeviceConfiguration</code> field, you activate the Amazon Cognito device-remembering feature.</p>
-   *         </note>
+   *          </note>
    */
   DeviceConfiguration?: DeviceConfigurationType;
 
@@ -683,14 +679,14 @@ export interface UpdateUserPoolClientRequest {
    *         their refresh token. To specify the time unit for <code>RefreshTokenValidity</code> as
    *         <code>seconds</code>, <code>minutes</code>, <code>hours</code>, or <code>days</code>,
    *         set a <code>TokenValidityUnits</code> value in your API request.</p>
-   *         <p>For example, when you set <code>RefreshTokenValidity</code> as <code>10</code> and
+   *          <p>For example, when you set <code>RefreshTokenValidity</code> as <code>10</code> and
    *         <code>TokenValidityUnits</code> as <code>days</code>, your user can refresh their session
    *         and retrieve new access and ID tokens for 10 days.</p>
-   *         <p>The default time unit for <code>RefreshTokenValidity</code> in an API request is days.
+   *          <p>The default time unit for <code>RefreshTokenValidity</code> in an API request is days.
    *         You can't set <code>RefreshTokenValidity</code> to 0. If you do, Amazon Cognito overrides the
    *         value with the default value of 30 days. <i>Valid range</i> is displayed below
    *         in seconds.</p>
-   *         <p>If you don't specify otherwise in the configuration of your app client, your refresh
+   *          <p>If you don't specify otherwise in the configuration of your app client, your refresh
    *         tokens are valid for 30 days.</p>
    */
   RefreshTokenValidity?: number;
@@ -700,12 +696,12 @@ export interface UpdateUserPoolClientRequest {
    *         their access token. To specify the time unit for <code>AccessTokenValidity</code> as
    *         <code>seconds</code>, <code>minutes</code>, <code>hours</code>, or <code>days</code>,
    *         set a <code>TokenValidityUnits</code> value in your API request.</p>
-   *         <p>For example, when you set <code>AccessTokenValidity</code> to <code>10</code> and
+   *          <p>For example, when you set <code>AccessTokenValidity</code> to <code>10</code> and
    *         <code>TokenValidityUnits</code> to <code>hours</code>, your user can authorize access with
    *         their access token for 10 hours.</p>
-   *         <p>The default time unit for <code>AccessTokenValidity</code> in an API request is hours.
+   *          <p>The default time unit for <code>AccessTokenValidity</code> in an API request is hours.
    *         <i>Valid range</i> is displayed below in seconds.</p>
-   *         <p>If you don't specify otherwise in the configuration of your app client, your access
+   *          <p>If you don't specify otherwise in the configuration of your app client, your access
    *         tokens are valid for one hour.</p>
    */
   AccessTokenValidity?: number;
@@ -715,12 +711,12 @@ export interface UpdateUserPoolClientRequest {
    *         their ID token. To specify the time unit for <code>IdTokenValidity</code> as
    *         <code>seconds</code>, <code>minutes</code>, <code>hours</code>, or <code>days</code>,
    *         set a <code>TokenValidityUnits</code> value in your API request.</p>
-   *         <p>For example, when you set <code>IdTokenValidity</code> as <code>10</code> and
+   *          <p>For example, when you set <code>IdTokenValidity</code> as <code>10</code> and
    *         <code>TokenValidityUnits</code> as <code>hours</code>, your user can authenticate their
    *         session with their ID token for 10 hours.</p>
-   *         <p>The default time unit for <code>AccessTokenValidity</code> in an API request is hours.
+   *          <p>The default time unit for <code>AccessTokenValidity</code> in an API request is hours.
    *         <i>Valid range</i> is displayed below in seconds.</p>
-   *         <p>If you don't specify otherwise in the configuration of your app client, your ID
+   *          <p>If you don't specify otherwise in the configuration of your app client, your ID
    *         tokens are valid for one hour.</p>
    */
   IdTokenValidity?: number;
@@ -794,23 +790,23 @@ export interface UpdateUserPoolClientRequest {
 
   /**
    * <p>A list of allowed redirect (callback) URLs for the IdPs.</p>
-   *         <p>A redirect URI must:</p>
-   *         <ul>
+   *          <p>A redirect URI must:</p>
+   *          <ul>
    *             <li>
-   *                 <p>Be an absolute URI.</p>
+   *                <p>Be an absolute URI.</p>
    *             </li>
    *             <li>
-   *                 <p>Be registered with the authorization server.</p>
+   *                <p>Be registered with the authorization server.</p>
    *             </li>
    *             <li>
-   *                 <p>Not include a fragment component.</p>
+   *                <p>Not include a fragment component.</p>
    *             </li>
    *          </ul>
-   *         <p>See <a href="https://tools.ietf.org/html/rfc6749#section-3.1.2">OAuth 2.0 -
+   *          <p>See <a href="https://tools.ietf.org/html/rfc6749#section-3.1.2">OAuth 2.0 -
    *                 Redirection Endpoint</a>.</p>
-   *         <p>Amazon Cognito requires HTTPS over HTTP except for http://localhost for testing purposes
+   *          <p>Amazon Cognito requires HTTPS over HTTP except for http://localhost for testing purposes
    *             only.</p>
-   *         <p>App callback URLs such as <code>myapp://example</code> are also supported.</p>
+   *          <p>App callback URLs such as <code>myapp://example</code> are also supported.</p>
    */
   CallbackURLs?: string[];
 
@@ -821,46 +817,46 @@ export interface UpdateUserPoolClientRequest {
 
   /**
    * <p>The default redirect URI. Must be in the <code>CallbackURLs</code> list.</p>
-   *         <p>A redirect URI must:</p>
-   *         <ul>
+   *          <p>A redirect URI must:</p>
+   *          <ul>
    *             <li>
-   *                 <p>Be an absolute URI.</p>
+   *                <p>Be an absolute URI.</p>
    *             </li>
    *             <li>
-   *                 <p>Be registered with the authorization server.</p>
+   *                <p>Be registered with the authorization server.</p>
    *             </li>
    *             <li>
-   *                 <p>Not include a fragment component.</p>
+   *                <p>Not include a fragment component.</p>
    *             </li>
    *          </ul>
-   *         <p>See <a href="https://tools.ietf.org/html/rfc6749#section-3.1.2">OAuth 2.0 -
+   *          <p>See <a href="https://tools.ietf.org/html/rfc6749#section-3.1.2">OAuth 2.0 -
    *                 Redirection Endpoint</a>.</p>
-   *         <p>Amazon Cognito requires HTTPS over HTTP except for <code>http://localhost</code> for testing
+   *          <p>Amazon Cognito requires HTTPS over HTTP except for <code>http://localhost</code> for testing
    *             purposes only.</p>
-   *         <p>App callback URLs such as <code>myapp://example</code> are also supported.</p>
+   *          <p>App callback URLs such as <code>myapp://example</code> are also supported.</p>
    */
   DefaultRedirectURI?: string;
 
   /**
    * <p>The allowed OAuth flows.</p>
-   *         <dl>
+   *          <dl>
    *             <dt>code</dt>
    *             <dd>
-   *                     <p>Use a code grant flow, which provides an authorization code as the
+   *                <p>Use a code grant flow, which provides an authorization code as the
    *                         response. This code can be exchanged for access tokens with the
    *                             <code>/oauth2/token</code> endpoint.</p>
-   *                 </dd>
+   *             </dd>
    *             <dt>implicit</dt>
    *             <dd>
-   *                     <p>Issue the access token (and, optionally, ID token, based on scopes)
+   *                <p>Issue the access token (and, optionally, ID token, based on scopes)
    *                         directly to your user.</p>
-   *                 </dd>
+   *             </dd>
    *             <dt>client_credentials</dt>
    *             <dd>
-   *                     <p>Issue the access token from the <code>/oauth2/token</code> endpoint
+   *                <p>Issue the access token from the <code>/oauth2/token</code> endpoint
    *                         directly to a non-person user using a combination of the client ID and
    *                         client secret.</p>
-   *                 </dd>
+   *             </dd>
    *          </dl>
    */
   AllowedOAuthFlows?: (OAuthFlowType | string)[];
@@ -882,11 +878,11 @@ export interface UpdateUserPoolClientRequest {
   /**
    * <p>The Amazon Pinpoint analytics configuration necessary to collect metrics for this user
    *             pool.</p>
-   *         <note>
+   *          <note>
    *             <p>In Amazon Web Services Regions where Amazon Pinpoint isn't available, user pools only support sending
    *                 events to Amazon Pinpoint projects in us-east-1. In Regions where Amazon Pinpoint is available, user
    *                 pools support sending events to Amazon Pinpoint projects within that same Region.</p>
-   *         </note>
+   *          </note>
    */
   AnalyticsConfiguration?: AnalyticsConfigurationType;
 
@@ -899,14 +895,14 @@ export interface UpdateUserPoolClientRequest {
    *             destination. When set to <code>LEGACY</code>, those APIs return a
    *                 <code>UserNotFoundException</code> exception if the user doesn't exist in the user
    *             pool.</p>
-   *         <p>Valid values include:</p>
-   *         <ul>
+   *          <p>Valid values include:</p>
+   *          <ul>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>ENABLED</code> - This prevents user existence-related errors.</p>
    *             </li>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>LEGACY</code> - This represents the early behavior of Amazon Cognito where user
    *                     existence related errors aren't prevented.</p>
    *             </li>
@@ -958,7 +954,7 @@ export interface UpdateUserPoolDomainRequest {
   /**
    * <p>The domain name for the custom domain that hosts the sign-up and sign-in pages for
    *             your application. One example might be <code>auth.example.com</code>. </p>
-   *         <p>This string can include only lowercase letters, numbers, and hyphens. Don't use a
+   *          <p>This string can include only lowercase letters, numbers, and hyphens. Don't use a
    *             hyphen for the first or last character. Use periods to separate subdomain names.</p>
    */
   Domain: string | undefined;
@@ -1164,6 +1160,15 @@ export const UpdateUserPoolClientResponseFilterSensitiveLog = (obj: UpdateUserPo
 export const VerifySoftwareTokenRequestFilterSensitiveLog = (obj: VerifySoftwareTokenRequest): any => ({
   ...obj,
   ...(obj.AccessToken && { AccessToken: SENSITIVE_STRING }),
+  ...(obj.Session && { Session: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const VerifySoftwareTokenResponseFilterSensitiveLog = (obj: VerifySoftwareTokenResponse): any => ({
+  ...obj,
+  ...(obj.Session && { Session: SENSITIVE_STRING }),
 });
 
 /**

@@ -49,7 +49,7 @@ export interface SetRiskConfigurationCommandOutput extends SetRiskConfigurationR
  * <p>Configures actions on detected risks. To delete the risk configuration for
  *                 <code>UserPoolId</code> or <code>ClientId</code>, pass null values for all four
  *             configuration types.</p>
- *         <p>To activate Amazon Cognito advanced security features, update the user pool to include the
+ *          <p>To activate Amazon Cognito advanced security features, update the user pool to include the
  *                 <code>UserPoolAddOns</code> key<code>AdvancedSecurityMode</code>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.

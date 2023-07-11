@@ -51,7 +51,7 @@ export interface AdminUserGlobalSignOutCommandOutput extends AdminUserGlobalSign
  *             default, access and ID tokens expire one hour after they're issued. A user can still use
  *             a hosted UI cookie to retrieve new tokens for the duration of the cookie validity period
  *             of 1 hour.</p>
- *         <p>Calling this action requires developer credentials.</p>
+ *          <p>Calling this action requires developer credentials.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

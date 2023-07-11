@@ -47,7 +47,7 @@ export interface AdminDeleteUserAttributesCommandOutput extends AdminDeleteUserA
  * @public
  * <p>Deletes the user attributes in a user pool as an administrator. Works on any
  *             user.</p>
- *         <p>Calling this action requires developer credentials.</p>
+ *          <p>Calling this action requires developer credentials.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

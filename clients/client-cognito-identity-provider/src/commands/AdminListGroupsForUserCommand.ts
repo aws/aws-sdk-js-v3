@@ -46,7 +46,7 @@ export interface AdminListGroupsForUserCommandOutput extends AdminListGroupsForU
 /**
  * @public
  * <p>Lists the groups that the user belongs to.</p>
- *         <p>Calling this action requires developer credentials.</p>
+ *          <p>Calling this action requires developer credentials.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

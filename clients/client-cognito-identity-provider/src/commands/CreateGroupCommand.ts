@@ -42,7 +42,7 @@ export interface CreateGroupCommandOutput extends CreateGroupResponse, __Metadat
 /**
  * @public
  * <p>Creates a new group in the specified user pool.</p>
- *         <p>Calling this action requires developer credentials.</p>
+ *          <p>Calling this action requires developer credentials.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
