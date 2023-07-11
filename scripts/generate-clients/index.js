@@ -55,6 +55,8 @@ const {
 
 (async () => {
   try {
+    require('../runtime-dependency-version-check/runtime-dep-version-check');
+
     if (serverOnly === true) {
       await generateProtocolTests();
       await eslintFixCode();

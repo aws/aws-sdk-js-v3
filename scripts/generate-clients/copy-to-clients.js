@@ -2,6 +2,7 @@
 const { join } = require("path");
 const { copySync, removeSync } = require("fs-extra");
 const prettier = require("prettier");
+const semver = require("semver");
 const { readdirSync, lstatSync, readFileSync, existsSync, writeFileSync } = require("fs");
 
 const getOverwritableDirectories = (subDirectories, packageName) => {
@@ -35,7 +36,7 @@ const getOverwritableDirectories = (subDirectories, packageName) => {
  * from codegen, but maintain the newer dependency versions
  * in existing package.json
  */
-const mergeManifest = (fromContent = {}, toContent = {}) => {
+const mergeManifest = (fromContent = {}, toContent = {}, parentKey = "root") => {
   const merged = {};
   for (const name of Object.keys(fromContent)) {
     if (fromContent[name].constructor.name === "Object") {
@@ -59,7 +60,7 @@ const mergeManifest = (fromContent = {}, toContent = {}) => {
         fromContent[name]["build:include:deps"] = "lerna run --scope $npm_package_name --include-dependencies build";
       }
 
-      merged[name] = mergeManifest(fromContent[name], toContent[name]);
+      merged[name] = mergeManifest(fromContent[name], toContent[name], name);
 
       if (name === "scripts" || name === "devDependencies") {
         // Allow target package.json(toContent) has its own special script or
@@ -79,6 +80,24 @@ const mergeManifest = (fromContent = {}, toContent = {}) => {
       // If key (say dependency) is present in both codegen and
       // package.json, we prefer latter
       merged[name] = toContent[name] || fromContent[name];
+
+      // use the higher version dependency.
+      if (parentKey === "dependencies" || parentKey === "devDependencies") {
+        const toSemver = semver.coerce(toContent[name]);
+        const fromSemver = semver.coerce(fromContent[name]);
+        if (semver.valid(toSemver) && semver.valid(fromSemver)) {
+          const useToContentVersion = semver.gt(toSemver, fromSemver);
+          if (useToContentVersion) {
+            merged[name] = toContent[name];
+          } else {
+            merged[name] = fromContent[name];
+          }
+        } else {
+          if (toContent[name] === "*" && fromContent[name] !== "*") {
+            merged[name] = fromContent[name];
+          }
+        }
+      }
     }
   }
   return merged;
