@@ -38,7 +38,6 @@
   },
   "devDependencies": {
     "@aws-sdk/client-s3": "*",
-    "@smithy/abort-controller": "^1.0.1",
     "@smithy/types": "^1.1.0",
     "@tsconfig/recommended": "1.0.1",
     "@types/node": "^14.11.2",
