@@ -3,6 +3,23 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.369.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.368.0...v3.369.0) (2023-07-11)
+
+
+### Bug Fixes
+
+* **middleware-sdk-s3-control:** ignore IP address in host prefix dedupe ([#4944](https://github.com/aws/aws-sdk-js-v3/issues/4944)) ([6dd73dd](https://github.com/aws/aws-sdk-js-v3/commit/6dd73dda712bf53c2b11f9a3b16ab43145214871))
+
+
+### Features
+
+* **client-cognito-identity-provider:** API model updated in Amazon Cognito ([c654928](https://github.com/aws/aws-sdk-js-v3/commit/c65492812447f79fae4d6aac62fbc24ea8aec7db))
+* **codegen:** bump codegen version to 0.17.1 ([#4937](https://github.com/aws/aws-sdk-js-v3/issues/4937)) ([86691eb](https://github.com/aws/aws-sdk-js-v3/commit/86691ebf037e6919e335c5347c5ea1a4a1233f00))
+
+
+
+
+
 # [3.368.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.367.0...v3.368.0) (2023-07-07)
 
 

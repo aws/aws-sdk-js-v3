@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.369.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.368.0...v3.369.0) (2023-07-11)
+
+
+### Features
+
+* **client-cognito-identity-provider:** API model updated in Amazon Cognito ([c654928](https://github.com/aws/aws-sdk-js-v3/commit/c65492812447f79fae4d6aac62fbc24ea8aec7db))
+
+
+
+
+
 # [3.363.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.362.0...v3.363.0) (2023-06-29)
 
 
