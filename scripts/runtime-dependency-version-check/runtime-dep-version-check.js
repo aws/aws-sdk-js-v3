@@ -51,7 +51,7 @@ const nonRuntimeDependencies = {
 
 for (const pkg of allPackages) {
   const pkgJson = require(path.join(pkg, "package.json"));
-  const { dependencies = {}, devDepdencies = {} } = pkgJson;
+  const { dependencies = {}, devDependencies = {} } = pkgJson;
 
   for (const [name, version] of Object.entries(dependencies)) {
     if (version.startsWith("file:")) {
@@ -62,7 +62,7 @@ for (const pkg of allPackages) {
     runtimeDependencies[name][version].push(pkgJson.name);
   }
 
-  for (const [name, version] of Object.entries(devDepdencies)) {
+  for (const [name, version] of Object.entries(devDependencies)) {
     if (version.startsWith("file:")) {
       continue;
     }
