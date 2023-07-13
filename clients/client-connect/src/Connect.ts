@@ -195,11 +195,17 @@ import {
   DeletePromptCommandInput,
   DeletePromptCommandOutput,
 } from "./commands/DeletePromptCommand";
+import { DeleteQueueCommand, DeleteQueueCommandInput, DeleteQueueCommandOutput } from "./commands/DeleteQueueCommand";
 import {
   DeleteQuickConnectCommand,
   DeleteQuickConnectCommandInput,
   DeleteQuickConnectCommandOutput,
 } from "./commands/DeleteQuickConnectCommand";
+import {
+  DeleteRoutingProfileCommand,
+  DeleteRoutingProfileCommandInput,
+  DeleteRoutingProfileCommandOutput,
+} from "./commands/DeleteRoutingProfileCommand";
 import { DeleteRuleCommand, DeleteRuleCommandInput, DeleteRuleCommandOutput } from "./commands/DeleteRuleCommand";
 import {
   DeleteSecurityProfileCommand,
@@ -956,7 +962,9 @@ const commands = {
   DeleteInstanceCommand,
   DeleteIntegrationAssociationCommand,
   DeletePromptCommand,
+  DeleteQueueCommand,
   DeleteQuickConnectCommand,
+  DeleteRoutingProfileCommand,
   DeleteRuleCommand,
   DeleteSecurityProfileCommand,
   DeleteTaskTemplateCommand,
@@ -1759,6 +1767,17 @@ export interface Connect {
   ): void;
 
   /**
+   * @see {@link DeleteQueueCommand}
+   */
+  deleteQueue(args: DeleteQueueCommandInput, options?: __HttpHandlerOptions): Promise<DeleteQueueCommandOutput>;
+  deleteQueue(args: DeleteQueueCommandInput, cb: (err: any, data?: DeleteQueueCommandOutput) => void): void;
+  deleteQueue(
+    args: DeleteQueueCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteQueueCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link DeleteQuickConnectCommand}
    */
   deleteQuickConnect(
@@ -1773,6 +1792,23 @@ export interface Connect {
     args: DeleteQuickConnectCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: DeleteQuickConnectCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DeleteRoutingProfileCommand}
+   */
+  deleteRoutingProfile(
+    args: DeleteRoutingProfileCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteRoutingProfileCommandOutput>;
+  deleteRoutingProfile(
+    args: DeleteRoutingProfileCommandInput,
+    cb: (err: any, data?: DeleteRoutingProfileCommandOutput) => void
+  ): void;
+  deleteRoutingProfile(
+    args: DeleteRoutingProfileCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteRoutingProfileCommandOutput) => void
   ): void;
 
   /**

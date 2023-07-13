@@ -37,8 +37,7 @@ export interface SearchHoursOfOperationsCommandOutput extends SearchHoursOfOpera
 
 /**
  * @public
- * <p>Searches the hours of operation in an Amazon Connect instance, with optional
- *    filtering.</p>
+ * <p>Searches the hours of operation in an Amazon Connect instance, with optional filtering.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

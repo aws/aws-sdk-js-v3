@@ -543,10 +543,26 @@ DeletePrompt
 </details>
 <details>
 <summary>
+DeleteQueue
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-connect/classes/deletequeuecommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-connect/interfaces/deletequeuecommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-connect/interfaces/deletequeuecommandoutput.html)
+
+</details>
+<details>
+<summary>
 DeleteQuickConnect
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-connect/classes/deletequickconnectcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-connect/interfaces/deletequickconnectcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-connect/interfaces/deletequickconnectcommandoutput.html)
+
+</details>
+<details>
+<summary>
+DeleteRoutingProfile
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-connect/classes/deleteroutingprofilecommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-connect/interfaces/deleteroutingprofilecommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-connect/interfaces/deleteroutingprofilecommandoutput.html)
 
 </details>
 <details>

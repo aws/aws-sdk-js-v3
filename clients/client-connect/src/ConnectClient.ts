@@ -159,7 +159,12 @@ import {
   DeleteIntegrationAssociationCommandOutput,
 } from "./commands/DeleteIntegrationAssociationCommand";
 import { DeletePromptCommandInput, DeletePromptCommandOutput } from "./commands/DeletePromptCommand";
+import { DeleteQueueCommandInput, DeleteQueueCommandOutput } from "./commands/DeleteQueueCommand";
 import { DeleteQuickConnectCommandInput, DeleteQuickConnectCommandOutput } from "./commands/DeleteQuickConnectCommand";
+import {
+  DeleteRoutingProfileCommandInput,
+  DeleteRoutingProfileCommandOutput,
+} from "./commands/DeleteRoutingProfileCommand";
 import { DeleteRuleCommandInput, DeleteRuleCommandOutput } from "./commands/DeleteRuleCommand";
 import {
   DeleteSecurityProfileCommandInput,
@@ -646,7 +651,9 @@ export type ServiceInputTypes =
   | DeleteInstanceCommandInput
   | DeleteIntegrationAssociationCommandInput
   | DeletePromptCommandInput
+  | DeleteQueueCommandInput
   | DeleteQuickConnectCommandInput
+  | DeleteRoutingProfileCommandInput
   | DeleteRuleCommandInput
   | DeleteSecurityProfileCommandInput
   | DeleteTaskTemplateCommandInput
@@ -845,7 +852,9 @@ export type ServiceOutputTypes =
   | DeleteInstanceCommandOutput
   | DeleteIntegrationAssociationCommandOutput
   | DeletePromptCommandOutput
+  | DeleteQueueCommandOutput
   | DeleteQuickConnectCommandOutput
+  | DeleteRoutingProfileCommandOutput
   | DeleteRuleCommandOutput
   | DeleteSecurityProfileCommandOutput
   | DeleteTaskTemplateCommandOutput

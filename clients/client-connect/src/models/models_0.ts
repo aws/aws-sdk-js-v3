@@ -67,8 +67,8 @@ export interface ActivateEvaluationFormRequest {
   EvaluationFormId: string | undefined;
 
   /**
-   * <p>The version of the evaluation form to activate. If the version property is not provided, the
-   *    latest version of the evaluation form is activated.</p>
+   * <p>The version of the evaluation form to activate. If the version property is not provided, the latest version of the
+   *    evaluation form is activated.</p>
    */
   EvaluationFormVersion: number | undefined;
 }
@@ -2188,8 +2188,8 @@ export interface ParticipantTokenCredentials {
  */
 export interface CreateParticipantResponse {
   /**
-   * <p>The token used by the chat participant to call <code>CreateParticipantConnection</code>. The
-   *    participant token is valid for the lifetime of a chat participant.</p>
+   * <p>The token used by the chat participant to call <code>CreateParticipantConnection</code>. The participant
+   *    token is valid for the lifetime of a chat participant.</p>
    */
   ParticipantCredentials?: ParticipantTokenCredentials;
 
@@ -3817,46 +3817,16 @@ export interface DeletePromptRequest {
 /**
  * @public
  */
-export interface DeleteQuickConnectRequest {
+export interface DeleteQueueRequest {
   /**
    * <p>The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
    */
   InstanceId: string | undefined;
 
   /**
-   * <p>The identifier for the quick connect.</p>
+   * <p>The identifier for the queue.</p>
    */
-  QuickConnectId: string | undefined;
-}
-
-/**
- * @public
- */
-export interface DeleteRuleRequest {
-  /**
-   * <p>The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
-   */
-  InstanceId: string | undefined;
-
-  /**
-   * <p>A unique identifier for the rule.</p>
-   */
-  RuleId: string | undefined;
-}
-
-/**
- * @public
- */
-export interface DeleteSecurityProfileRequest {
-  /**
-   * <p>The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
-   */
-  InstanceId: string | undefined;
-
-  /**
-   * <p>The identifier for the security profle.</p>
-   */
-  SecurityProfileId: string | undefined;
+  QueueId: string | undefined;
 }
 
 /**
@@ -3909,6 +3879,66 @@ export class ResourceInUseException extends __BaseException {
     this.ResourceType = opts.ResourceType;
     this.ResourceId = opts.ResourceId;
   }
+}
+
+/**
+ * @public
+ */
+export interface DeleteQuickConnectRequest {
+  /**
+   * <p>The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
+   */
+  InstanceId: string | undefined;
+
+  /**
+   * <p>The identifier for the quick connect.</p>
+   */
+  QuickConnectId: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DeleteRoutingProfileRequest {
+  /**
+   * <p>The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
+   */
+  InstanceId: string | undefined;
+
+  /**
+   * <p>The identifier of the routing profile.</p>
+   */
+  RoutingProfileId: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DeleteRuleRequest {
+  /**
+   * <p>The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
+   */
+  InstanceId: string | undefined;
+
+  /**
+   * <p>A unique identifier for the rule.</p>
+   */
+  RuleId: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DeleteSecurityProfileRequest {
+  /**
+   * <p>The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
+   */
+  InstanceId: string | undefined;
+
+  /**
+   * <p>The identifier for the security profle.</p>
+   */
+  SecurityProfileId: string | undefined;
 }
 
 /**
@@ -4833,7 +4863,7 @@ export interface Instance {
   OutboundCallsEnabled?: boolean;
 
   /**
-   * <p>This URL allows contact center users to access Amazon Connect admin website.</p>
+   * <p>This URL allows contact center users to access the Amazon Connect admin website.</p>
    */
   InstanceAccessUrl?: string;
 }
@@ -6591,201 +6621,6 @@ export const SortOrder = {
  * @public
  */
 export type SortOrder = (typeof SortOrder)[keyof typeof SortOrder];
-
-/**
- * @public
- * <p>The way to sort the resulting response based on metrics. By default resources are sorted
- *    based on <code>AGENTS_ONLINE</code>, <code>DESCENDING</code>. The metric collection is sorted
- *    based on the input metrics.</p>
- */
-export interface CurrentMetricSortCriteria {
-  /**
-   * <p>The current metric names.</p>
-   */
-  SortByMetric?: CurrentMetricName | string;
-
-  /**
-   * <p>The way to sort.</p>
-   */
-  SortOrder?: SortOrder | string;
-}
-
-/**
- * @public
- */
-export interface GetCurrentMetricDataRequest {
-  /**
-   * <p>The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
-   */
-  InstanceId: string | undefined;
-
-  /**
-   * <p>The filters to apply to returned metrics. You can filter up to the following limits:</p>
-   *          <ul>
-   *             <li>
-   *                <p>Queues: 100</p>
-   *             </li>
-   *             <li>
-   *                <p>Routing profiles: 100</p>
-   *             </li>
-   *             <li>
-   *                <p>Channels: 3 (VOICE, CHAT, and TASK channels are supported.)</p>
-   *             </li>
-   *          </ul>
-   *          <p>Metric data is retrieved only for the resources associated with the queues or routing
-   *    profiles, and by any channels included in the filter. (You cannot filter by both queue AND
-   *    routing profile.) You can include both resource IDs and resource ARNs in the same request. </p>
-   *          <p>Currently tagging is only supported on the resources that are passed in the filter.</p>
-   */
-  Filters: Filters | undefined;
-
-  /**
-   * <p>The grouping applied to the metrics returned. For example, when grouped by
-   *     <code>QUEUE</code>, the metrics returned apply to each queue rather than aggregated for all
-   *    queues. </p>
-   *          <ul>
-   *             <li>
-   *                <p>If you group by <code>CHANNEL</code>, you should include a Channels filter.
-   *      VOICE, CHAT, and TASK channels are supported.</p>
-   *             </li>
-   *             <li>
-   *                <p>If you group by <code>ROUTING_PROFILE</code>, you must include either a queue or routing
-   *      profile filter. In addition, a routing profile filter is required for metrics
-   *       <code>CONTACTS_SCHEDULED</code>, <code>CONTACTS_IN_QUEUE</code>, and <code>
-   *       OLDEST_CONTACT_AGE</code>.</p>
-   *             </li>
-   *             <li>
-   *                <p>If no <code>Grouping</code> is included in the request, a summary of metrics is
-   *      returned.</p>
-   *             </li>
-   *          </ul>
-   */
-  Groupings?: (Grouping | string)[];
-
-  /**
-   * <p>The metrics to retrieve. Specify the name and unit for each metric. The following metrics
-   *    are available. For a description of all the metrics, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/real-time-metrics-definitions.html">Real-time Metrics
-   *     Definitions</a> in the <i>Amazon Connect Administrator Guide</i>.</p>
-   *          <dl>
-   *             <dt>AGENTS_AFTER_CONTACT_WORK</dt>
-   *             <dd>
-   *                <p>Unit: COUNT</p>
-   *                <p>Name in real-time metrics report: <a href="https://docs.aws.amazon.com/connect/latest/adminguide/real-time-metrics-definitions.html#aftercallwork-real-time">ACW</a>
-   *                </p>
-   *             </dd>
-   *             <dt>AGENTS_AVAILABLE</dt>
-   *             <dd>
-   *                <p>Unit: COUNT</p>
-   *                <p>Name in real-time metrics report: <a href="https://docs.aws.amazon.com/connect/latest/adminguide/real-time-metrics-definitions.html#available-real-time">Available</a>
-   *                </p>
-   *             </dd>
-   *             <dt>AGENTS_ERROR</dt>
-   *             <dd>
-   *                <p>Unit: COUNT</p>
-   *                <p>Name in real-time metrics report: <a href="https://docs.aws.amazon.com/connect/latest/adminguide/real-time-metrics-definitions.html#error-real-time">Error</a>
-   *                </p>
-   *             </dd>
-   *             <dt>AGENTS_NON_PRODUCTIVE</dt>
-   *             <dd>
-   *                <p>Unit: COUNT</p>
-   *                <p>Name in real-time metrics report: <a href="https://docs.aws.amazon.com/connect/latest/adminguide/real-time-metrics-definitions.html#non-productive-time-real-time">NPT (Non-Productive Time)</a>
-   *                </p>
-   *             </dd>
-   *             <dt>AGENTS_ON_CALL</dt>
-   *             <dd>
-   *                <p>Unit: COUNT</p>
-   *                <p>Name in real-time metrics report: <a href="https://docs.aws.amazon.com/connect/latest/adminguide/real-time-metrics-definitions.html#on-call-real-time">On
-   *        contact</a>
-   *                </p>
-   *             </dd>
-   *             <dt>AGENTS_ON_CONTACT</dt>
-   *             <dd>
-   *                <p>Unit: COUNT</p>
-   *                <p>Name in real-time metrics report: <a href="https://docs.aws.amazon.com/connect/latest/adminguide/real-time-metrics-definitions.html#on-call-real-time">On
-   *        contact</a>
-   *                </p>
-   *             </dd>
-   *             <dt>AGENTS_ONLINE</dt>
-   *             <dd>
-   *                <p>Unit: COUNT</p>
-   *                <p>Name in real-time metrics report: <a href="https://docs.aws.amazon.com/connect/latest/adminguide/real-time-metrics-definitions.html#online-real-time">Online</a>
-   *                </p>
-   *             </dd>
-   *             <dt>AGENTS_STAFFED</dt>
-   *             <dd>
-   *                <p>Unit: COUNT</p>
-   *                <p>Name in real-time metrics report: <a href="https://docs.aws.amazon.com/connect/latest/adminguide/real-time-metrics-definitions.html#staffed-real-time">Staffed</a>
-   *                </p>
-   *             </dd>
-   *             <dt>CONTACTS_IN_QUEUE</dt>
-   *             <dd>
-   *                <p>Unit: COUNT</p>
-   *                <p>Name in real-time metrics report: <a href="https://docs.aws.amazon.com/connect/latest/adminguide/real-time-metrics-definitions.html#in-queue-real-time">In
-   *        queue</a>
-   *                </p>
-   *             </dd>
-   *             <dt>CONTACTS_SCHEDULED</dt>
-   *             <dd>
-   *                <p>Unit: COUNT</p>
-   *                <p>Name in real-time metrics report: <a href="https://docs.aws.amazon.com/connect/latest/adminguide/real-time-metrics-definitions.html#scheduled-real-time">Scheduled</a>
-   *                </p>
-   *             </dd>
-   *             <dt>OLDEST_CONTACT_AGE</dt>
-   *             <dd>
-   *                <p>Unit: SECONDS</p>
-   *                <p>When you use groupings, Unit says SECONDS and the Value is returned in SECONDS. </p>
-   *                <p>When you do not use groupings, Unit says SECONDS but the Value is returned in
-   *       MILLISECONDS. For example, if you get a response like this:</p>
-   *                <p>
-   *                   <code>\{ "Metric": \{ "Name": "OLDEST_CONTACT_AGE", "Unit": "SECONDS" \}, "Value": 24113.0
-   *       </code>\}</p>
-   *                <p>The actual OLDEST_CONTACT_AGE is 24 seconds.</p>
-   *                <p>Name in real-time metrics report: <a href="https://docs.aws.amazon.com/connect/latest/adminguide/real-time-metrics-definitions.html#oldest-real-time">Oldest</a>
-   *                </p>
-   *             </dd>
-   *             <dt>SLOTS_ACTIVE</dt>
-   *             <dd>
-   *                <p>Unit: COUNT</p>
-   *                <p>Name in real-time metrics report: <a href="https://docs.aws.amazon.com/connect/latest/adminguide/real-time-metrics-definitions.html#active-real-time">Active</a>
-   *                </p>
-   *             </dd>
-   *             <dt>SLOTS_AVAILABLE</dt>
-   *             <dd>
-   *                <p>Unit: COUNT</p>
-   *                <p>Name in real-time metrics report: <a href="https://docs.aws.amazon.com/connect/latest/adminguide/real-time-metrics-definitions.html#availability-real-time">Availability</a>
-   *                </p>
-   *             </dd>
-   *          </dl>
-   */
-  CurrentMetrics: CurrentMetric[] | undefined;
-
-  /**
-   * <p>The token for the next set of results. Use the value returned in the previous
-   * response in the next request to retrieve the next set of results.</p>
-   *          <p>The token expires after 5 minutes from the time it is created. Subsequent requests that use
-   *    the token must use the same request parameters as the request that generated the token.</p>
-   */
-  NextToken?: string;
-
-  /**
-   * <p>The maximum number of results to return per page.</p>
-   */
-  MaxResults?: number;
-
-  /**
-   * <p>The way to sort the resulting response based on metrics. You can enter one sort criteria. By
-   *    default resources are sorted based on <code>AGENTS_ONLINE</code>, <code>DESCENDING</code>. The
-   *    metric collection is sorted based on the input metrics.</p>
-   *          <p>Note the following:</p>
-   *          <ul>
-   *             <li>
-   *                <p>Sorting on <code>SLOTS_ACTIVE</code> and <code>SLOTS_AVAILABLE</code> is not
-   *      supported.</p>
-   *             </li>
-   *          </ul>
-   */
-  SortCriteria?: CurrentMetricSortCriteria[];
-}
 
 /**
  * @internal

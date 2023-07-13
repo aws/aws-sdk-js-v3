@@ -7,16 +7,75 @@ import {
   HierarchyGroupCondition,
   HoursOfOperationSearchCriteria,
   HoursOfOperationSearchFilter,
-  PromptSearchCriteria,
   PromptSearchFilter,
-  QueueSearchCriteria,
   QueueSearchFilter,
   QuickConnectSearchFilter,
   RoutingProfileSearchFilter,
+  SearchableQueueType,
   SecurityProfilesSearchFilter,
   StringCondition,
   UserSearchFilter,
 } from "./models_1";
+
+/**
+ * @public
+ * <p>The search criteria to be used to return prompts.</p>
+ */
+export interface PromptSearchCriteria {
+  /**
+   * <p>A list of conditions which would be applied together with an OR condition.</p>
+   */
+  OrConditions?: PromptSearchCriteria[];
+
+  /**
+   * <p>A list of conditions which would be applied together with an AND condition.</p>
+   */
+  AndConditions?: PromptSearchCriteria[];
+
+  /**
+   * <p>A leaf node condition which can be used to specify a string condition.</p>
+   *          <note>
+   *             <p>The currently supported values for <code>FieldName</code> are <code>name</code>,
+   *      <code>description</code>, and <code>resourceID</code>.</p>
+   *          </note>
+   */
+  StringCondition?: StringCondition;
+}
+
+/**
+ * @public
+ * <p>The search criteria to be used to return queues.</p>
+ *          <note>
+ *             <p>The <code>name</code> and <code>description</code> fields support "contains" queries with
+ *     a minimum of 2 characters and a maximum of 25 characters. Any queries with character lengths
+ *     outside of this range will throw invalid results. </p>
+ *          </note>
+ */
+export interface QueueSearchCriteria {
+  /**
+   * <p>A list of conditions which would be applied together with an OR condition.</p>
+   */
+  OrConditions?: QueueSearchCriteria[];
+
+  /**
+   * <p>A list of conditions which would be applied together with an AND condition.</p>
+   */
+  AndConditions?: QueueSearchCriteria[];
+
+  /**
+   * <p>A leaf node condition which can be used to specify a string condition.</p>
+   *          <note>
+   *             <p>The currently supported values for <code>FieldName</code> are <code>name</code>,
+   *      <code>description</code>, and <code>resourceID</code>.</p>
+   *          </note>
+   */
+  StringCondition?: StringCondition;
+
+  /**
+   * <p>The type of queue.</p>
+   */
+  QueueTypeCondition?: SearchableQueueType | string;
+}
 
 /**
  * @public

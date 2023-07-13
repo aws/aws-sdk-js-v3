@@ -138,7 +138,12 @@ import {
   DeleteIntegrationAssociationCommandOutput,
 } from "../commands/DeleteIntegrationAssociationCommand";
 import { DeletePromptCommandInput, DeletePromptCommandOutput } from "../commands/DeletePromptCommand";
+import { DeleteQueueCommandInput, DeleteQueueCommandOutput } from "../commands/DeleteQueueCommand";
 import { DeleteQuickConnectCommandInput, DeleteQuickConnectCommandOutput } from "../commands/DeleteQuickConnectCommand";
+import {
+  DeleteRoutingProfileCommandInput,
+  DeleteRoutingProfileCommandOutput,
+} from "../commands/DeleteRoutingProfileCommand";
 import { DeleteRuleCommandInput, DeleteRuleCommandOutput } from "../commands/DeleteRuleCommand";
 import {
   DeleteSecurityProfileCommandInput,
@@ -583,7 +588,6 @@ import {
   ContactState,
   CrossChannelBehavior,
   CurrentMetric,
-  CurrentMetricSortCriteria,
   DuplicateResourceException,
   EncryptionConfig,
   Evaluation,
@@ -674,6 +678,7 @@ import {
   Credentials,
   CurrentMetricData,
   CurrentMetricResult,
+  CurrentMetricSortCriteria,
   DestinationNotAllowedException,
   Distribution,
   EvaluationAnswerInput,
@@ -704,9 +709,7 @@ import {
   ParticipantTimerConfiguration,
   ParticipantTimerValue,
   PersistentChat,
-  PromptSearchCriteria,
   PromptSearchFilter,
-  QueueSearchCriteria,
   QueueSearchFilter,
   QuickConnectSearchFilter,
   ResourceTagsSearchCriteria,
@@ -730,6 +733,8 @@ import {
   VoiceRecordingConfiguration,
 } from "../models/models_1";
 import {
+  PromptSearchCriteria,
+  QueueSearchCriteria,
   QuickConnectSearchCriteria,
   RoutingProfileSearchCriteria,
   SecurityProfileSearchCriteria,
@@ -2148,6 +2153,31 @@ export const se_DeletePromptCommand = async (
 };
 
 /**
+ * serializeAws_restJson1DeleteQueueCommand
+ */
+export const se_DeleteQueueCommand = async (
+  input: DeleteQueueCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {};
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/queues/{InstanceId}/{QueueId}";
+  resolvedPath = __resolvedPath(resolvedPath, input, "InstanceId", () => input.InstanceId!, "{InstanceId}", false);
+  resolvedPath = __resolvedPath(resolvedPath, input, "QueueId", () => input.QueueId!, "{QueueId}", false);
+  let body: any;
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "DELETE",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
+/**
  * serializeAws_restJson1DeleteQuickConnectCommand
  */
 export const se_DeleteQuickConnectCommand = async (
@@ -2166,6 +2196,39 @@ export const se_DeleteQuickConnectCommand = async (
     "QuickConnectId",
     () => input.QuickConnectId!,
     "{QuickConnectId}",
+    false
+  );
+  let body: any;
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "DELETE",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
+/**
+ * serializeAws_restJson1DeleteRoutingProfileCommand
+ */
+export const se_DeleteRoutingProfileCommand = async (
+  input: DeleteRoutingProfileCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {};
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
+    "/routing-profiles/{InstanceId}/{RoutingProfileId}";
+  resolvedPath = __resolvedPath(resolvedPath, input, "InstanceId", () => input.InstanceId!, "{InstanceId}", false);
+  resolvedPath = __resolvedPath(
+    resolvedPath,
+    input,
+    "RoutingProfileId",
+    () => input.RoutingProfileId!,
+    "{RoutingProfileId}",
     false
   );
   let body: any;
@@ -9761,6 +9824,64 @@ const de_DeletePromptCommandError = async (
 };
 
 /**
+ * deserializeAws_restJson1DeleteQueueCommand
+ */
+export const de_DeleteQueueCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteQueueCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_DeleteQueueCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  await collectBody(output.body, context);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1DeleteQueueCommandError
+ */
+const de_DeleteQueueCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteQueueCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "InternalServiceException":
+    case "com.amazonaws.connect#InternalServiceException":
+      throw await de_InternalServiceExceptionRes(parsedOutput, context);
+    case "InvalidParameterException":
+    case "com.amazonaws.connect#InvalidParameterException":
+      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
+    case "InvalidRequestException":
+    case "com.amazonaws.connect#InvalidRequestException":
+      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
+    case "ResourceInUseException":
+    case "com.amazonaws.connect#ResourceInUseException":
+      throw await de_ResourceInUseExceptionRes(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.connect#ResourceNotFoundException":
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
+    case "ThrottlingException":
+    case "com.amazonaws.connect#ThrottlingException":
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
  * deserializeAws_restJson1DeleteQuickConnectCommand
  */
 export const de_DeleteQuickConnectCommand = async (
@@ -9799,6 +9920,64 @@ const de_DeleteQuickConnectCommandError = async (
     case "InvalidRequestException":
     case "com.amazonaws.connect#InvalidRequestException":
       throw await de_InvalidRequestExceptionRes(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.connect#ResourceNotFoundException":
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
+    case "ThrottlingException":
+    case "com.amazonaws.connect#ThrottlingException":
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
+ * deserializeAws_restJson1DeleteRoutingProfileCommand
+ */
+export const de_DeleteRoutingProfileCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteRoutingProfileCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_DeleteRoutingProfileCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  await collectBody(output.body, context);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1DeleteRoutingProfileCommandError
+ */
+const de_DeleteRoutingProfileCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteRoutingProfileCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "InternalServiceException":
+    case "com.amazonaws.connect#InternalServiceException":
+      throw await de_InternalServiceExceptionRes(parsedOutput, context);
+    case "InvalidParameterException":
+    case "com.amazonaws.connect#InvalidParameterException":
+      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
+    case "InvalidRequestException":
+    case "com.amazonaws.connect#InvalidRequestException":
+      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
+    case "ResourceInUseException":
+    case "com.amazonaws.connect#ResourceInUseException":
+      throw await de_ResourceInUseExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.connect#ResourceNotFoundException":
       throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
