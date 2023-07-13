@@ -67,6 +67,8 @@ export interface GetComponentCommandOutput extends GetComponentOutput, __Metadat
  * //     deploymentStatusMessage: "STRING_VALUE",
  * //     serviceSpec: "STRING_VALUE",
  * //     lastClientRequestToken: "STRING_VALUE",
+ * //     lastAttemptedDeploymentId: "STRING_VALUE",
+ * //     lastSucceededDeploymentId: "STRING_VALUE",
  * //   },
  * // };
  *

@@ -37,17 +37,13 @@ export interface GetResourcesSummaryCommandOutput extends GetResourcesSummaryOut
 /**
  * @public
  * <p>Get counts of Proton resources.</p>
- *          <p>For infrastructure-provisioning resources (environments, services, service instances,
- *    pipelines), the action returns staleness counts. A resource is stale when it's behind the
- *    recommended version of the Proton template that it uses and it needs an update to become
- *    current.</p>
- *          <p>The action returns staleness counts (counts of resources that are up-to-date, behind a
- *    template major version, or behind a template minor version), the total number of resources, and
- *    the number of resources that are in a failed state, grouped by resource type. Components,
- *    environments, and service templates return less information - see the <code>components</code>,
- *     <code>environments</code>, and <code>serviceTemplates</code> field descriptions.</p>
- *          <p>For context, the action also returns the total number of each type of Proton template in the
- *    Amazon Web Services account.</p>
+ *          <p>For infrastructure-provisioning resources (environments, services, service instances, pipelines), the action returns staleness counts. A
+ *    resource is stale when it's behind the recommended version of the Proton template that it uses and it needs an update to become current.</p>
+ *          <p>The action returns staleness counts (counts of resources that are up-to-date, behind a template major version, or behind a template minor
+ *    version), the total number of resources, and the number of resources that are in a failed state, grouped by resource type. Components,
+ *    environments, and service templates return less information - see the <code>components</code>, <code>environments</code>, and
+ *     <code>serviceTemplates</code> field descriptions.</p>
+ *          <p>For context, the action also returns the total number of each type of Proton template in the Amazon Web Services account.</p>
  *          <p>For more information, see <a href="https://docs.aws.amazon.com/proton/latest/userguide/monitoring-dashboard.html">Proton dashboard</a> in the
  *     <i>Proton User Guide</i>.</p>
  * @example

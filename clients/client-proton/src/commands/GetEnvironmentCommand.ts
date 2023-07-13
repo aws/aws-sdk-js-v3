@@ -74,6 +74,8 @@ export interface GetEnvironmentCommandOutput extends GetEnvironmentOutput, __Met
  * //     },
  * //     componentRoleArn: "STRING_VALUE",
  * //     codebuildRoleArn: "STRING_VALUE",
+ * //     lastAttemptedDeploymentId: "STRING_VALUE",
+ * //     lastSucceededDeploymentId: "STRING_VALUE",
  * //   },
  * // };
  *

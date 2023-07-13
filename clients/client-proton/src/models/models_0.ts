@@ -337,33 +337,29 @@ export interface RepositoryBranchInput {
  */
 export interface UpdateAccountSettingsInput {
   /**
-   * <p>The Amazon Resource Name (ARN) of the service role you want to use for provisioning
-   *    pipelines. Assumed by Proton for Amazon Web Services-managed provisioning, and by customer-owned automation for
-   *    self-managed provisioning.</p>
+   * <p>The Amazon Resource Name (ARN) of the service role you want to use for provisioning pipelines. Assumed by Proton for Amazon Web Services-managed
+   *    provisioning, and by customer-owned automation for self-managed provisioning.</p>
    *          <p>To remove a previously configured ARN, specify an empty string.</p>
    */
   pipelineServiceRoleArn?: string;
 
   /**
-   * <p>A linked repository for pipeline provisioning. Specify it if you have environments
-   *    configured for self-managed provisioning with services that include pipelines. A linked
-   *    repository is a repository that has been registered with Proton. For more information, see
-   *     <a>CreateRepository</a>.</p>
-   *          <p>To remove a previously configured repository, set
-   *     <code>deletePipelineProvisioningRepository</code> to <code>true</code>, and don't set
+   * <p>A linked repository for pipeline provisioning. Specify it if you have environments configured for self-managed provisioning with services that
+   *    include pipelines. A linked repository is a repository that has been registered with Proton. For more information, see <a>CreateRepository</a>.</p>
+   *          <p>To remove a previously configured repository, set <code>deletePipelineProvisioningRepository</code> to <code>true</code>, and don't set
    *     <code>pipelineProvisioningRepository</code>.</p>
    */
   pipelineProvisioningRepository?: RepositoryBranchInput;
 
   /**
-   * <p>Set to <code>true</code> to remove a configured pipeline repository from the account
-   *    settings. Don't set this field if you are updating the configured pipeline repository.</p>
+   * <p>Set to <code>true</code> to remove a configured pipeline repository from the account settings. Don't set this field if you are updating the
+   *    configured pipeline repository.</p>
    */
   deletePipelineProvisioningRepository?: boolean;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the service role you want to use for provisioning
-   *    pipelines. Proton assumes this role for CodeBuild-based provisioning.</p>
+   * <p>The Amazon Resource Name (ARN) of the service role you want to use for provisioning pipelines. Proton assumes this role for CodeBuild-based
+   *    provisioning.</p>
    */
   pipelineCodebuildRoleArn?: string;
 }
@@ -485,6 +481,16 @@ export interface Component {
    * <p>The last token the client requested.</p>
    */
   lastClientRequestToken?: string;
+
+  /**
+   * <p>The ID of the last attempted deployment of this component.</p>
+   */
+  lastAttemptedDeploymentId?: string;
+
+  /**
+   * <p>The ID of the last successful deployment of this component.</p>
+   */
+  lastSucceededDeploymentId?: string;
 }
 
 /**
@@ -627,6 +633,16 @@ export interface Environment {
    *       behalf.</p>
    */
   codebuildRoleArn?: string;
+
+  /**
+   * <p>The ID of the last attempted deployment of this environment.</p>
+   */
+  lastAttemptedDeploymentId?: string;
+
+  /**
+   * <p>The ID of the last successful deployment of this environment.</p>
+   */
+  lastSucceededDeploymentId?: string;
 }
 
 /**
@@ -730,6 +746,16 @@ export interface ServiceInstance {
    * <p>The last client request token received.</p>
    */
   lastClientRequestToken?: string;
+
+  /**
+   * <p>The ID of the last attempted deployment of this service instance.</p>
+   */
+  lastAttemptedDeploymentId?: string;
+
+  /**
+   * <p>The ID of the last successful deployment of this service instance.</p>
+   */
+  lastSucceededDeploymentId?: string;
 }
 
 /**
@@ -808,6 +834,16 @@ export interface ServicePipeline {
    * <p>The service spec that was used to create the service pipeline.</p>
    */
   spec?: string;
+
+  /**
+   * <p>The ID of the last attempted deployment of this service pipeline.</p>
+   */
+  lastAttemptedDeploymentId?: string;
+
+  /**
+   * <p>The ID of the last successful deployment of this service pipeline.</p>
+   */
+  lastSucceededDeploymentId?: string;
 }
 
 /**
@@ -833,6 +869,11 @@ export interface ListComponentOutputsInput {
    * <p>A token that indicates the location of the next output in the array of outputs, after the list of outputs that was previously requested.</p>
    */
   nextToken?: string;
+
+  /**
+   * <p>The ID of the deployment whose outputs you want.</p>
+   */
+  deploymentId?: string;
 }
 
 /**
@@ -1181,6 +1222,16 @@ export interface ComponentSummary {
    * <p>The message associated with the component deployment status.</p>
    */
   deploymentStatusMessage?: string;
+
+  /**
+   * <p>The ID of the last attempted deployment of this component.</p>
+   */
+  lastAttemptedDeploymentId?: string;
+
+  /**
+   * <p>The ID of the last successful deployment of this component.</p>
+   */
+  lastSucceededDeploymentId?: string;
 }
 
 /**
@@ -1292,6 +1343,519 @@ export interface UpdateComponentOutput {
    * <p>The detailed data of the updated component.</p>
    */
   component: Component | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DeleteDeploymentInput {
+  /**
+   * <p>The ID of the deployment to delete.</p>
+   */
+  id: string | undefined;
+}
+
+/**
+ * @public
+ * <p>The detailed data about the current state of the component.</p>
+ */
+export interface ComponentState {
+  /**
+   * <p>The name of the service that <code>serviceInstanceName</code> is associated with. Provided when a component is attached to a service instance.</p>
+   */
+  serviceName?: string;
+
+  /**
+   * <p>The name of the service instance that this component is attached to. Provided when a component is attached to a service instance.</p>
+   */
+  serviceInstanceName?: string;
+
+  /**
+   * <p>The service spec that the component uses to access service inputs. Provided when a component is attached to a service instance.</p>
+   */
+  serviceSpec?: string;
+
+  /**
+   * <p>The template file used.</p>
+   */
+  templateFile?: string;
+}
+
+/**
+ * @public
+ * <p>The detailed data about the current state of the environment.</p>
+ */
+export interface EnvironmentState {
+  /**
+   * <p>The environment spec that was used to create the environment.</p>
+   */
+  spec?: string;
+
+  /**
+   * <p>The name of the environment template that was used to create the environment.</p>
+   */
+  templateName: string | undefined;
+
+  /**
+   * <p>The major version of the environment template that was used to create the environment.</p>
+   */
+  templateMajorVersion: string | undefined;
+
+  /**
+   * <p>The minor version of the environment template that was used to create the environment.</p>
+   */
+  templateMinorVersion: string | undefined;
+}
+
+/**
+ * @public
+ * <p>The detailed data about the current state of this service instance.</p>
+ */
+export interface ServiceInstanceState {
+  /**
+   * <p>The service spec that was used to create the service instance.</p>
+   */
+  spec: string | undefined;
+
+  /**
+   * <p>The name of the service template that was used to create the service instance.</p>
+   */
+  templateName: string | undefined;
+
+  /**
+   * <p>The major version of the service template that was used to create the service
+   *       pipeline.</p>
+   */
+  templateMajorVersion: string | undefined;
+
+  /**
+   * <p>The minor version of the service template that was used to create the service
+   *       pipeline.</p>
+   */
+  templateMinorVersion: string | undefined;
+
+  /**
+   * <p>The IDs for the last successful components deployed for this service instance.</p>
+   */
+  lastSuccessfulComponentDeploymentIds?: string[];
+
+  /**
+   * <p>The ID for the last successful environment deployed for this service instance.</p>
+   */
+  lastSuccessfulEnvironmentDeploymentId?: string;
+
+  /**
+   * <p>The ID for the last successful service pipeline deployed for this service instance.</p>
+   */
+  lastSuccessfulServicePipelineDeploymentId?: string;
+}
+
+/**
+ * @public
+ * <p>The detailed data about the current state of the service pipeline.</p>
+ */
+export interface ServicePipelineState {
+  /**
+   * <p>The service spec that was used to create the service pipeline.</p>
+   */
+  spec?: string;
+
+  /**
+   * <p>The name of the service template that was used to create the service pipeline.</p>
+   */
+  templateName: string | undefined;
+
+  /**
+   * <p>The major version of the service template that was used to create the service
+   *       pipeline.</p>
+   */
+  templateMajorVersion: string | undefined;
+
+  /**
+   * <p>The minor version of the service template that was used to create the service
+   *       pipeline.</p>
+   */
+  templateMinorVersion: string | undefined;
+}
+
+/**
+ * @public
+ * <p>The detailed data about the current state of the deployment.</p>
+ */
+export type DeploymentState =
+  | DeploymentState.ComponentMember
+  | DeploymentState.EnvironmentMember
+  | DeploymentState.ServiceInstanceMember
+  | DeploymentState.ServicePipelineMember
+  | DeploymentState.$UnknownMember;
+
+/**
+ * @public
+ */
+export namespace DeploymentState {
+  /**
+   * <p>The state of the service instance associated with the deployment.</p>
+   */
+  export interface ServiceInstanceMember {
+    serviceInstance: ServiceInstanceState;
+    environment?: never;
+    servicePipeline?: never;
+    component?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>The state of the environment associated with the deployment.</p>
+   */
+  export interface EnvironmentMember {
+    serviceInstance?: never;
+    environment: EnvironmentState;
+    servicePipeline?: never;
+    component?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>The state of the service pipeline associated with the deployment.</p>
+   */
+  export interface ServicePipelineMember {
+    serviceInstance?: never;
+    environment?: never;
+    servicePipeline: ServicePipelineState;
+    component?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>The state of the component associated with the deployment.</p>
+   */
+  export interface ComponentMember {
+    serviceInstance?: never;
+    environment?: never;
+    servicePipeline?: never;
+    component: ComponentState;
+    $unknown?: never;
+  }
+
+  export interface $UnknownMember {
+    serviceInstance?: never;
+    environment?: never;
+    servicePipeline?: never;
+    component?: never;
+    $unknown: [string, any];
+  }
+
+  export interface Visitor<T> {
+    serviceInstance: (value: ServiceInstanceState) => T;
+    environment: (value: EnvironmentState) => T;
+    servicePipeline: (value: ServicePipelineState) => T;
+    component: (value: ComponentState) => T;
+    _: (name: string, value: any) => T;
+  }
+
+  export const visit = <T>(value: DeploymentState, visitor: Visitor<T>): T => {
+    if (value.serviceInstance !== undefined) return visitor.serviceInstance(value.serviceInstance);
+    if (value.environment !== undefined) return visitor.environment(value.environment);
+    if (value.servicePipeline !== undefined) return visitor.servicePipeline(value.servicePipeline);
+    if (value.component !== undefined) return visitor.component(value.component);
+    return visitor._(value.$unknown[0], value.$unknown[1]);
+  };
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const DeploymentTargetResourceType = {
+  COMPONENT: "COMPONENT",
+  ENVIRONMENT: "ENVIRONMENT",
+  SERVICE_INSTANCE: "SERVICE_INSTANCE",
+  SERVICE_PIPELINE: "SERVICE_PIPELINE",
+} as const;
+
+/**
+ * @public
+ */
+export type DeploymentTargetResourceType =
+  (typeof DeploymentTargetResourceType)[keyof typeof DeploymentTargetResourceType];
+
+/**
+ * @public
+ * <p>The detailed information about a deployment.</p>
+ */
+export interface Deployment {
+  /**
+   * <p>The ID of the deployment.</p>
+   */
+  id: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the deployment.</p>
+   */
+  arn: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the target of the deployment.</p>
+   */
+  targetArn: string | undefined;
+
+  /**
+   * <p>The date and time the depoyment target was created.</p>
+   */
+  targetResourceCreatedAt: Date | undefined;
+
+  /**
+   * <p>The resource type of the deployment target. It can be an environment, service, service instance, or component.</p>
+   */
+  targetResourceType: DeploymentTargetResourceType | string | undefined;
+
+  /**
+   * <p>The name of the environment associated with this deployment.</p>
+   */
+  environmentName: string | undefined;
+
+  /**
+   * <p>The name of the service in this deployment.</p>
+   */
+  serviceName?: string;
+
+  /**
+   * <p>The name of the deployment's service instance.</p>
+   */
+  serviceInstanceName?: string;
+
+  /**
+   * <p>The name of the component associated with this deployment.</p>
+   */
+  componentName?: string;
+
+  /**
+   * <p>The status of the deployment.</p>
+   */
+  deploymentStatus: DeploymentStatus | string | undefined;
+
+  /**
+   * <p>The deployment status message.</p>
+   */
+  deploymentStatusMessage?: string;
+
+  /**
+   * <p>The date and time the deployment was created.</p>
+   */
+  createdAt: Date | undefined;
+
+  /**
+   * <p>The date and time the deployment was last modified.</p>
+   */
+  lastModifiedAt: Date | undefined;
+
+  /**
+   * <p>The date and time the deployment was completed.</p>
+   */
+  completedAt?: Date;
+
+  /**
+   * <p>The ID of the last attempted deployment.</p>
+   */
+  lastAttemptedDeploymentId?: string;
+
+  /**
+   * <p>The ID of the last successful deployment.</p>
+   */
+  lastSucceededDeploymentId?: string;
+
+  /**
+   * <p>The initial state of the target resource at the time of the deployment.</p>
+   */
+  initialState?: DeploymentState;
+
+  /**
+   * <p>The target state of the target resource at the time of the deployment.</p>
+   */
+  targetState?: DeploymentState;
+}
+
+/**
+ * @public
+ */
+export interface DeleteDeploymentOutput {
+  /**
+   * <p>The detailed data of the deployment being deleted.</p>
+   */
+  deployment?: Deployment;
+}
+
+/**
+ * @public
+ */
+export interface GetDeploymentInput {
+  /**
+   * <p>The ID of the deployment that you want to get the detailed data for.</p>
+   */
+  id: string | undefined;
+
+  /**
+   * <p>The name of a environment that you want to get the detailed data for.</p>
+   */
+  environmentName?: string;
+
+  /**
+   * <p>The name of the service associated with the given deployment ID.</p>
+   */
+  serviceName?: string;
+
+  /**
+   * <p>The name of the service instance associated with the given deployment ID. <code>serviceName</code> must be specified to identify the service
+   *    instance.</p>
+   */
+  serviceInstanceName?: string;
+
+  /**
+   * <p>The name of a component that you want to get the detailed data for.</p>
+   */
+  componentName?: string;
+}
+
+/**
+ * @public
+ */
+export interface GetDeploymentOutput {
+  /**
+   * <p>The detailed data of the requested deployment.</p>
+   */
+  deployment?: Deployment;
+}
+
+/**
+ * @public
+ */
+export interface ListDeploymentsInput {
+  /**
+   * <p>A token that indicates the location of the next deployment in the array of deployment, after the list of deployment that was previously
+   *    requested.</p>
+   */
+  nextToken?: string;
+
+  /**
+   * <p>The name of an environment for result list filtering. Proton returns deployments associated with the environment.</p>
+   */
+  environmentName?: string;
+
+  /**
+   * <p>The name of a service for result list filtering. Proton returns deployments associated with service instances of the service.</p>
+   */
+  serviceName?: string;
+
+  /**
+   * <p>The name of a service instance for result list filtering. Proton returns the deployments associated with the service instance.</p>
+   */
+  serviceInstanceName?: string;
+
+  /**
+   * <p>The name of a component for result list filtering. Proton returns deployments associated with that component.</p>
+   */
+  componentName?: string;
+
+  /**
+   * <p>The maximum number of deployments to list.</p>
+   */
+  maxResults?: number;
+}
+
+/**
+ * @public
+ * <p>Summary data of the deployment.</p>
+ */
+export interface DeploymentSummary {
+  /**
+   * <p>The ID of the deployment.</p>
+   */
+  id: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the deployment.</p>
+   */
+  arn: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the target of the deployment.</p>
+   */
+  targetArn: string | undefined;
+
+  /**
+   * <p>The date and time the target resource was created.</p>
+   */
+  targetResourceCreatedAt: Date | undefined;
+
+  /**
+   * <p>The resource type of the deployment target. It can be an environment, service, service instance, or component.</p>
+   */
+  targetResourceType: DeploymentTargetResourceType | string | undefined;
+
+  /**
+   * <p>The date and time the deployment was created.</p>
+   */
+  createdAt: Date | undefined;
+
+  /**
+   * <p>The date and time the deployment was last modified.</p>
+   */
+  lastModifiedAt: Date | undefined;
+
+  /**
+   * <p>The date and time the deployment was completed.</p>
+   */
+  completedAt?: Date;
+
+  /**
+   * <p>The name of the environment associated with the deployment.</p>
+   */
+  environmentName: string | undefined;
+
+  /**
+   * <p>The name of the service associated with the deployment.</p>
+   */
+  serviceName?: string;
+
+  /**
+   * <p>The name of the service instance associated with the deployment.</p>
+   */
+  serviceInstanceName?: string;
+
+  /**
+   * <p>The name of the component associated with the deployment.</p>
+   */
+  componentName?: string;
+
+  /**
+   * <p>The ID of the last attempted deployment.</p>
+   */
+  lastAttemptedDeploymentId?: string;
+
+  /**
+   * <p>The ID of the last successful deployment.</p>
+   */
+  lastSucceededDeploymentId?: string;
+
+  /**
+   * <p>The current status of the deployment.</p>
+   */
+  deploymentStatus: DeploymentStatus | string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListDeploymentsOutput {
+  /**
+   * <p>A token that indicates the location of the next deployment in the array of deployment, after the current requested list of deployment.</p>
+   */
+  nextToken?: string;
+
+  /**
+   * <p>An array of deployment with summary data.</p>
+   */
+  deployments: DeploymentSummary[] | undefined;
 }
 
 /**
@@ -1597,6 +2161,11 @@ export interface ListEnvironmentOutputsInput {
    *       previously requested.</p>
    */
   nextToken?: string;
+
+  /**
+   * <p>The ID of the deployment whose outputs you want.</p>
+   */
+  deploymentId?: string;
 }
 
 /**
@@ -1908,6 +2477,16 @@ export interface EnvironmentSummary {
    *   <i>Proton User Guide</i>.</p>
    */
   componentRoleArn?: string;
+
+  /**
+   * <p>The ID of the last attempted deployment of this environment.</p>
+   */
+  lastAttemptedDeploymentId?: string;
+
+  /**
+   * <p>The ID of the last successful deployment of this environment.</p>
+   */
+  lastSucceededDeploymentId?: string;
 }
 
 /**
@@ -3204,8 +3783,8 @@ export interface ListTagsForResourceInput {
   resourceArn: string | undefined;
 
   /**
-   * <p>A token that indicates the location of the next resource tag in the array of resource tags,
-   *    after the list of resource tags that was previously requested.</p>
+   * <p>A token that indicates the location of the next resource tag in the array of resource tags, after the list of resource tags that was
+   *    previously requested.</p>
    */
   nextToken?: string;
 
@@ -3225,8 +3804,8 @@ export interface ListTagsForResourceOutput {
   tags: Tag[] | undefined;
 
   /**
-   * <p>A token that indicates the location of the next resource tag in the array of resource tags,
-   *    after the current requested list of resource tags.</p>
+   * <p>A token that indicates the location of the next resource tag in the array of resource tags, after the current requested list of resource
+   *    tags.</p>
    */
   nextToken?: string;
 }
@@ -3480,6 +4059,11 @@ export interface ListServiceInstanceOutputsInput {
    *       list of outputs that was previously requested.</p>
    */
   nextToken?: string;
+
+  /**
+   * <p>The ID of the deployment whose outputs you want.</p>
+   */
+  deploymentId?: string;
 }
 
 /**
@@ -3799,6 +4383,16 @@ export interface ServiceInstanceSummary {
    * <p>A service instance deployment status message.</p>
    */
   deploymentStatusMessage?: string;
+
+  /**
+   * <p>The ID of the last attempted deployment of this service instance.</p>
+   */
+  lastAttemptedDeploymentId?: string;
+
+  /**
+   * <p>The ID of the last successful deployment of this service instance.</p>
+   */
+  lastSucceededDeploymentId?: string;
 }
 
 /**
@@ -3920,6 +4514,11 @@ export interface ListServicePipelineOutputsInput {
    *       list of outputs that was previously requested.</p>
    */
   nextToken?: string;
+
+  /**
+   * <p>The ID of the deployment you want the outputs for.</p>
+   */
+  deploymentId?: string;
 }
 
 /**
@@ -5447,8 +6046,8 @@ export interface CreateTemplateSyncConfigInput {
   branch: string | undefined;
 
   /**
-   * <p>A repository subdirectory path to your template bundle directory. When included, Proton
-   *    limits the template bundle search to this repository directory.</p>
+   * <p>A repository subdirectory path to your template bundle directory. When included, Proton limits the template bundle search to this
+   *    repository directory.</p>
    */
   subdirectory?: string;
 }
@@ -5579,8 +6178,7 @@ export interface UpdateTemplateSyncConfigInput {
   branch: string | undefined;
 
   /**
-   * <p>A subdirectory path to your template bundle version. When included, limits the template
-   *    bundle search to this repository directory.</p>
+   * <p>A subdirectory path to your template bundle version. When included, limits the template bundle search to this repository directory.</p>
    */
   subdirectory?: string;
 }
@@ -5605,8 +6203,7 @@ export interface UntagResourceInput {
   resourceArn: string | undefined;
 
   /**
-   * <p>A list of customer tag keys that indicate the customer tags to be removed from the
-   *    resource.</p>
+   * <p>A list of customer tag keys that indicate the customer tags to be removed from the resource.</p>
    */
   tagKeys: string[] | undefined;
 }
@@ -5772,6 +6369,78 @@ export const UpdateComponentInputFilterSensitiveLog = (obj: UpdateComponentInput
 export const UpdateComponentOutputFilterSensitiveLog = (obj: UpdateComponentOutput): any => ({
   ...obj,
   ...(obj.component && { component: ComponentFilterSensitiveLog(obj.component) }),
+});
+
+/**
+ * @internal
+ */
+export const ComponentStateFilterSensitiveLog = (obj: ComponentState): any => ({
+  ...obj,
+  ...(obj.serviceSpec && { serviceSpec: SENSITIVE_STRING }),
+  ...(obj.templateFile && { templateFile: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const EnvironmentStateFilterSensitiveLog = (obj: EnvironmentState): any => ({
+  ...obj,
+  ...(obj.spec && { spec: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const ServiceInstanceStateFilterSensitiveLog = (obj: ServiceInstanceState): any => ({
+  ...obj,
+  ...(obj.spec && { spec: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const ServicePipelineStateFilterSensitiveLog = (obj: ServicePipelineState): any => ({
+  ...obj,
+  ...(obj.spec && { spec: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const DeploymentStateFilterSensitiveLog = (obj: DeploymentState): any => {
+  if (obj.serviceInstance !== undefined)
+    return { serviceInstance: ServiceInstanceStateFilterSensitiveLog(obj.serviceInstance) };
+  if (obj.environment !== undefined) return { environment: EnvironmentStateFilterSensitiveLog(obj.environment) };
+  if (obj.servicePipeline !== undefined)
+    return { servicePipeline: ServicePipelineStateFilterSensitiveLog(obj.servicePipeline) };
+  if (obj.component !== undefined) return { component: ComponentStateFilterSensitiveLog(obj.component) };
+  if (obj.$unknown !== undefined) return { [obj.$unknown[0]]: "UNKNOWN" };
+};
+
+/**
+ * @internal
+ */
+export const DeploymentFilterSensitiveLog = (obj: Deployment): any => ({
+  ...obj,
+  ...(obj.deploymentStatusMessage && { deploymentStatusMessage: SENSITIVE_STRING }),
+  ...(obj.initialState && { initialState: DeploymentStateFilterSensitiveLog(obj.initialState) }),
+  ...(obj.targetState && { targetState: DeploymentStateFilterSensitiveLog(obj.targetState) }),
+});
+
+/**
+ * @internal
+ */
+export const DeleteDeploymentOutputFilterSensitiveLog = (obj: DeleteDeploymentOutput): any => ({
+  ...obj,
+  ...(obj.deployment && { deployment: DeploymentFilterSensitiveLog(obj.deployment) }),
+});
+
+/**
+ * @internal
+ */
+export const GetDeploymentOutputFilterSensitiveLog = (obj: GetDeploymentOutput): any => ({
+  ...obj,
+  ...(obj.deployment && { deployment: DeploymentFilterSensitiveLog(obj.deployment) }),
 });
 
 /**

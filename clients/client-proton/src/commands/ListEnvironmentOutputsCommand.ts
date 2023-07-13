@@ -50,6 +50,7 @@ export interface ListEnvironmentOutputsCommandOutput extends ListEnvironmentOutp
  * const input = { // ListEnvironmentOutputsInput
  *   environmentName: "STRING_VALUE", // required
  *   nextToken: "STRING_VALUE",
+ *   deploymentId: "STRING_VALUE",
  * };
  * const command = new ListEnvironmentOutputsCommand(input);
  * const response = await client.send(command);

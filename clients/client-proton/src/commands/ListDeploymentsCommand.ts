@@ -13,12 +13,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@smithy/types";
 
-import {
-  ListEnvironmentsInput,
-  ListEnvironmentsOutput,
-  ListEnvironmentsOutputFilterSensitiveLog,
-} from "../models/models_0";
-import { de_ListEnvironmentsCommand, se_ListEnvironmentsCommand } from "../protocols/Aws_json1_0";
+import { ListDeploymentsInput, ListDeploymentsOutput } from "../models/models_0";
+import { de_ListDeploymentsCommand, se_ListDeploymentsCommand } from "../protocols/Aws_json1_0";
 import { ProtonClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ProtonClient";
 
 /**
@@ -28,69 +24,64 @@ export { __MetadataBearer, $Command };
 /**
  * @public
  *
- * The input for {@link ListEnvironmentsCommand}.
+ * The input for {@link ListDeploymentsCommand}.
  */
-export interface ListEnvironmentsCommandInput extends ListEnvironmentsInput {}
+export interface ListDeploymentsCommandInput extends ListDeploymentsInput {}
 /**
  * @public
  *
- * The output of {@link ListEnvironmentsCommand}.
+ * The output of {@link ListDeploymentsCommand}.
  */
-export interface ListEnvironmentsCommandOutput extends ListEnvironmentsOutput, __MetadataBearer {}
+export interface ListDeploymentsCommandOutput extends ListDeploymentsOutput, __MetadataBearer {}
 
 /**
  * @public
- * <p>List environments with detail data summaries.</p>
+ * <p>List deployments. You can filter the result list by environment, service, or a single service instance.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ProtonClient, ListEnvironmentsCommand } from "@aws-sdk/client-proton"; // ES Modules import
- * // const { ProtonClient, ListEnvironmentsCommand } = require("@aws-sdk/client-proton"); // CommonJS import
+ * import { ProtonClient, ListDeploymentsCommand } from "@aws-sdk/client-proton"; // ES Modules import
+ * // const { ProtonClient, ListDeploymentsCommand } = require("@aws-sdk/client-proton"); // CommonJS import
  * const client = new ProtonClient(config);
- * const input = { // ListEnvironmentsInput
+ * const input = { // ListDeploymentsInput
  *   nextToken: "STRING_VALUE",
+ *   environmentName: "STRING_VALUE",
+ *   serviceName: "STRING_VALUE",
+ *   serviceInstanceName: "STRING_VALUE",
+ *   componentName: "STRING_VALUE",
  *   maxResults: Number("int"),
- *   environmentTemplates: [ // EnvironmentTemplateFilterList
- *     { // EnvironmentTemplateFilter
- *       templateName: "STRING_VALUE", // required
- *       majorVersion: "STRING_VALUE", // required
- *     },
- *   ],
  * };
- * const command = new ListEnvironmentsCommand(input);
+ * const command = new ListDeploymentsCommand(input);
  * const response = await client.send(command);
- * // { // ListEnvironmentsOutput
+ * // { // ListDeploymentsOutput
  * //   nextToken: "STRING_VALUE",
- * //   environments: [ // EnvironmentSummaryList // required
- * //     { // EnvironmentSummary
- * //       name: "STRING_VALUE", // required
- * //       description: "STRING_VALUE",
- * //       createdAt: new Date("TIMESTAMP"), // required
- * //       lastDeploymentAttemptedAt: new Date("TIMESTAMP"), // required
- * //       lastDeploymentSucceededAt: new Date("TIMESTAMP"), // required
+ * //   deployments: [ // DeploymentSummaryList // required
+ * //     { // DeploymentSummary
+ * //       id: "STRING_VALUE", // required
  * //       arn: "STRING_VALUE", // required
- * //       templateName: "STRING_VALUE", // required
- * //       templateMajorVersion: "STRING_VALUE", // required
- * //       templateMinorVersion: "STRING_VALUE", // required
- * //       deploymentStatus: "STRING_VALUE", // required
- * //       deploymentStatusMessage: "STRING_VALUE",
- * //       protonServiceRoleArn: "STRING_VALUE",
- * //       environmentAccountConnectionId: "STRING_VALUE",
- * //       environmentAccountId: "STRING_VALUE",
- * //       provisioning: "STRING_VALUE",
- * //       componentRoleArn: "STRING_VALUE",
+ * //       targetArn: "STRING_VALUE", // required
+ * //       targetResourceCreatedAt: new Date("TIMESTAMP"), // required
+ * //       targetResourceType: "STRING_VALUE", // required
+ * //       createdAt: new Date("TIMESTAMP"), // required
+ * //       lastModifiedAt: new Date("TIMESTAMP"), // required
+ * //       completedAt: new Date("TIMESTAMP"),
+ * //       environmentName: "STRING_VALUE", // required
+ * //       serviceName: "STRING_VALUE",
+ * //       serviceInstanceName: "STRING_VALUE",
+ * //       componentName: "STRING_VALUE",
  * //       lastAttemptedDeploymentId: "STRING_VALUE",
  * //       lastSucceededDeploymentId: "STRING_VALUE",
+ * //       deploymentStatus: "STRING_VALUE", // required
  * //     },
  * //   ],
  * // };
  *
  * ```
  *
- * @param ListEnvironmentsCommandInput - {@link ListEnvironmentsCommandInput}
- * @returns {@link ListEnvironmentsCommandOutput}
- * @see {@link ListEnvironmentsCommandInput} for command's `input` shape.
- * @see {@link ListEnvironmentsCommandOutput} for command's `response` shape.
+ * @param ListDeploymentsCommandInput - {@link ListDeploymentsCommandInput}
+ * @returns {@link ListDeploymentsCommandOutput}
+ * @see {@link ListDeploymentsCommandInput} for command's `input` shape.
+ * @see {@link ListDeploymentsCommandOutput} for command's `response` shape.
  * @see {@link ProtonClientResolvedConfig | config} for ProtonClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
@@ -112,9 +103,9 @@ export interface ListEnvironmentsCommandOutput extends ListEnvironmentsOutput, _
  * <p>Base exception class for all service exceptions from Proton service.</p>
  *
  */
-export class ListEnvironmentsCommand extends $Command<
-  ListEnvironmentsCommandInput,
-  ListEnvironmentsCommandOutput,
+export class ListDeploymentsCommand extends $Command<
+  ListDeploymentsCommandInput,
+  ListDeploymentsCommandOutput,
   ProtonClientResolvedConfig
 > {
   // Start section: command_properties
@@ -132,7 +123,7 @@ export class ListEnvironmentsCommand extends $Command<
   /**
    * @public
    */
-  constructor(readonly input: ListEnvironmentsCommandInput) {
+  constructor(readonly input: ListDeploymentsCommandInput) {
     // Start section: command_constructor
     super();
     // End section: command_constructor
@@ -145,23 +136,23 @@ export class ListEnvironmentsCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ProtonClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<ListEnvironmentsCommandInput, ListEnvironmentsCommandOutput> {
+  ): Handler<ListDeploymentsCommandInput, ListDeploymentsCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
     this.middlewareStack.use(
-      getEndpointPlugin(configuration, ListEnvironmentsCommand.getEndpointParameterInstructions())
+      getEndpointPlugin(configuration, ListDeploymentsCommand.getEndpointParameterInstructions())
     );
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
     const clientName = "ProtonClient";
-    const commandName = "ListEnvironmentsCommand";
+    const commandName = "ListDeploymentsCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
       clientName,
       commandName,
       inputFilterSensitiveLog: (_: any) => _,
-      outputFilterSensitiveLog: ListEnvironmentsOutputFilterSensitiveLog,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -174,15 +165,15 @@ export class ListEnvironmentsCommand extends $Command<
   /**
    * @internal
    */
-  private serialize(input: ListEnvironmentsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return se_ListEnvironmentsCommand(input, context);
+  private serialize(input: ListDeploymentsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
+    return se_ListDeploymentsCommand(input, context);
   }
 
   /**
    * @internal
    */
-  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListEnvironmentsCommandOutput> {
-    return de_ListEnvironmentsCommand(output, context);
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListDeploymentsCommandOutput> {
+    return de_ListDeploymentsCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -106,6 +106,7 @@ import {
   CreateTemplateSyncConfigCommandOutput,
 } from "./commands/CreateTemplateSyncConfigCommand";
 import { DeleteComponentCommandInput, DeleteComponentCommandOutput } from "./commands/DeleteComponentCommand";
+import { DeleteDeploymentCommandInput, DeleteDeploymentCommandOutput } from "./commands/DeleteDeploymentCommand";
 import {
   DeleteEnvironmentAccountConnectionCommandInput,
   DeleteEnvironmentAccountConnectionCommandOutput,
@@ -139,6 +140,7 @@ import {
 } from "./commands/DeleteTemplateSyncConfigCommand";
 import { GetAccountSettingsCommandInput, GetAccountSettingsCommandOutput } from "./commands/GetAccountSettingsCommand";
 import { GetComponentCommandInput, GetComponentCommandOutput } from "./commands/GetComponentCommand";
+import { GetDeploymentCommandInput, GetDeploymentCommandOutput } from "./commands/GetDeploymentCommand";
 import {
   GetEnvironmentAccountConnectionCommandInput,
   GetEnvironmentAccountConnectionCommandOutput,
@@ -197,6 +199,7 @@ import {
   ListComponentProvisionedResourcesCommandOutput,
 } from "./commands/ListComponentProvisionedResourcesCommand";
 import { ListComponentsCommandInput, ListComponentsCommandOutput } from "./commands/ListComponentsCommand";
+import { ListDeploymentsCommandInput, ListDeploymentsCommandOutput } from "./commands/ListDeploymentsCommand";
 import {
   ListEnvironmentAccountConnectionsCommandInput,
   ListEnvironmentAccountConnectionsCommandOutput,
@@ -345,6 +348,7 @@ export type ServiceInputTypes =
   | CreateServiceTemplateVersionCommandInput
   | CreateTemplateSyncConfigCommandInput
   | DeleteComponentCommandInput
+  | DeleteDeploymentCommandInput
   | DeleteEnvironmentAccountConnectionCommandInput
   | DeleteEnvironmentCommandInput
   | DeleteEnvironmentTemplateCommandInput
@@ -357,6 +361,7 @@ export type ServiceInputTypes =
   | DeleteTemplateSyncConfigCommandInput
   | GetAccountSettingsCommandInput
   | GetComponentCommandInput
+  | GetDeploymentCommandInput
   | GetEnvironmentAccountConnectionCommandInput
   | GetEnvironmentCommandInput
   | GetEnvironmentTemplateCommandInput
@@ -376,6 +381,7 @@ export type ServiceInputTypes =
   | ListComponentOutputsCommandInput
   | ListComponentProvisionedResourcesCommandInput
   | ListComponentsCommandInput
+  | ListDeploymentsCommandInput
   | ListEnvironmentAccountConnectionsCommandInput
   | ListEnvironmentOutputsCommandInput
   | ListEnvironmentProvisionedResourcesCommandInput
@@ -434,6 +440,7 @@ export type ServiceOutputTypes =
   | CreateServiceTemplateVersionCommandOutput
   | CreateTemplateSyncConfigCommandOutput
   | DeleteComponentCommandOutput
+  | DeleteDeploymentCommandOutput
   | DeleteEnvironmentAccountConnectionCommandOutput
   | DeleteEnvironmentCommandOutput
   | DeleteEnvironmentTemplateCommandOutput
@@ -446,6 +453,7 @@ export type ServiceOutputTypes =
   | DeleteTemplateSyncConfigCommandOutput
   | GetAccountSettingsCommandOutput
   | GetComponentCommandOutput
+  | GetDeploymentCommandOutput
   | GetEnvironmentAccountConnectionCommandOutput
   | GetEnvironmentCommandOutput
   | GetEnvironmentTemplateCommandOutput
@@ -465,6 +473,7 @@ export type ServiceOutputTypes =
   | ListComponentOutputsCommandOutput
   | ListComponentProvisionedResourcesCommandOutput
   | ListComponentsCommandOutput
+  | ListDeploymentsCommandOutput
   | ListEnvironmentAccountConnectionsCommandOutput
   | ListEnvironmentOutputsCommandOutput
   | ListEnvironmentProvisionedResourcesCommandOutput

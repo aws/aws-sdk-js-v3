@@ -109,6 +109,8 @@ export interface UpdateServicePipelineCommandOutput extends UpdateServicePipelin
  * //     deploymentStatus: "STRING_VALUE", // required
  * //     deploymentStatusMessage: "STRING_VALUE",
  * //     spec: "STRING_VALUE",
+ * //     lastAttemptedDeploymentId: "STRING_VALUE",
+ * //     lastSucceededDeploymentId: "STRING_VALUE",
  * //   },
  * // };
  *

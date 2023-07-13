@@ -36,10 +36,9 @@ export interface UpdateTemplateSyncConfigCommandOutput extends UpdateTemplateSyn
 
 /**
  * @public
- * <p>Update template sync configuration parameters, except for the <code>templateName</code> and
- *     <code>templateType</code>. Repository details (branch, name, and provider) should be of a linked
- *    repository. A linked repository is a repository that has been registered with Proton. For more
- *    information, see <a>CreateRepository</a>.</p>
+ * <p>Update template sync configuration parameters, except for the <code>templateName</code> and <code>templateType</code>. Repository details
+ *    (branch, name, and provider) should be of a linked repository. A linked repository is a repository that has been registered with Proton. For
+ *    more information, see <a>CreateRepository</a>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

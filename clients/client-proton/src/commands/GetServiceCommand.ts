@@ -70,6 +70,8 @@ export interface GetServiceCommandOutput extends GetServiceOutput, __MetadataBea
  * //       deploymentStatus: "STRING_VALUE", // required
  * //       deploymentStatusMessage: "STRING_VALUE",
  * //       spec: "STRING_VALUE",
+ * //       lastAttemptedDeploymentId: "STRING_VALUE",
+ * //       lastSucceededDeploymentId: "STRING_VALUE",
  * //     },
  * //     repositoryConnectionArn: "STRING_VALUE",
  * //     repositoryId: "STRING_VALUE",

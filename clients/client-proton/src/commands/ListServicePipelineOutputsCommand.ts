@@ -50,6 +50,7 @@ export interface ListServicePipelineOutputsCommandOutput extends ListServicePipe
  * const input = { // ListServicePipelineOutputsInput
  *   serviceName: "STRING_VALUE", // required
  *   nextToken: "STRING_VALUE",
+ *   deploymentId: "STRING_VALUE",
  * };
  * const command = new ListServicePipelineOutputsCommand(input);
  * const response = await client.send(command);

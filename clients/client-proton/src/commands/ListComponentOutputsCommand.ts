@@ -53,6 +53,7 @@ export interface ListComponentOutputsCommandOutput extends ListComponentOutputsO
  * const input = { // ListComponentOutputsInput
  *   componentName: "STRING_VALUE", // required
  *   nextToken: "STRING_VALUE",
+ *   deploymentId: "STRING_VALUE",
  * };
  * const command = new ListComponentOutputsCommand(input);
  * const response = await client.send(command);

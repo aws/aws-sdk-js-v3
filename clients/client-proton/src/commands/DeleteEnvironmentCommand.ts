@@ -78,6 +78,8 @@ export interface DeleteEnvironmentCommandOutput extends DeleteEnvironmentOutput,
  * //     },
  * //     componentRoleArn: "STRING_VALUE",
  * //     codebuildRoleArn: "STRING_VALUE",
+ * //     lastAttemptedDeploymentId: "STRING_VALUE",
+ * //     lastSucceededDeploymentId: "STRING_VALUE",
  * //   },
  * // };
  *

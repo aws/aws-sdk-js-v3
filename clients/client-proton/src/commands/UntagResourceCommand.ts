@@ -36,10 +36,9 @@ export interface UntagResourceCommandOutput extends UntagResourceOutput, __Metad
 
 /**
  * @public
- * <p>Remove a customer tag from a resource. A tag is a key-value pair of metadata associated with
- *    an Proton resource.</p>
- *          <p>For more information, see <a href="https://docs.aws.amazon.com/proton/latest/userguide/resources.html">Proton resources and tagging</a> in the
- *     <i>Proton User Guide</i>.</p>
+ * <p>Remove a customer tag from a resource. A tag is a key-value pair of metadata associated with an Proton resource.</p>
+ *          <p>For more information, see <a href="https://docs.aws.amazon.com/proton/latest/userguide/resources.html">Proton resources and tagging</a> in
+ *    the <i>Proton User Guide</i>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

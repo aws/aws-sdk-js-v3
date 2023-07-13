@@ -71,6 +71,8 @@ export interface DeleteComponentCommandOutput extends DeleteComponentOutput, __M
  * //     deploymentStatusMessage: "STRING_VALUE",
  * //     serviceSpec: "STRING_VALUE",
  * //     lastClientRequestToken: "STRING_VALUE",
+ * //     lastAttemptedDeploymentId: "STRING_VALUE",
+ * //     lastSucceededDeploymentId: "STRING_VALUE",
  * //   },
  * // };
  *

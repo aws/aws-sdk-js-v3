@@ -93,6 +93,11 @@ import {
   DeleteComponentCommandOutput,
 } from "./commands/DeleteComponentCommand";
 import {
+  DeleteDeploymentCommand,
+  DeleteDeploymentCommandInput,
+  DeleteDeploymentCommandOutput,
+} from "./commands/DeleteDeploymentCommand";
+import {
   DeleteEnvironmentAccountConnectionCommand,
   DeleteEnvironmentAccountConnectionCommandInput,
   DeleteEnvironmentAccountConnectionCommandOutput,
@@ -152,6 +157,11 @@ import {
   GetComponentCommandInput,
   GetComponentCommandOutput,
 } from "./commands/GetComponentCommand";
+import {
+  GetDeploymentCommand,
+  GetDeploymentCommandInput,
+  GetDeploymentCommandOutput,
+} from "./commands/GetDeploymentCommand";
 import {
   GetEnvironmentAccountConnectionCommand,
   GetEnvironmentAccountConnectionCommandInput,
@@ -243,6 +253,11 @@ import {
   ListComponentsCommandInput,
   ListComponentsCommandOutput,
 } from "./commands/ListComponentsCommand";
+import {
+  ListDeploymentsCommand,
+  ListDeploymentsCommandInput,
+  ListDeploymentsCommandOutput,
+} from "./commands/ListDeploymentsCommand";
 import {
   ListEnvironmentAccountConnectionsCommand,
   ListEnvironmentAccountConnectionsCommandInput,
@@ -435,6 +450,7 @@ const commands = {
   CreateServiceTemplateVersionCommand,
   CreateTemplateSyncConfigCommand,
   DeleteComponentCommand,
+  DeleteDeploymentCommand,
   DeleteEnvironmentCommand,
   DeleteEnvironmentAccountConnectionCommand,
   DeleteEnvironmentTemplateCommand,
@@ -447,6 +463,7 @@ const commands = {
   DeleteTemplateSyncConfigCommand,
   GetAccountSettingsCommand,
   GetComponentCommand,
+  GetDeploymentCommand,
   GetEnvironmentCommand,
   GetEnvironmentAccountConnectionCommand,
   GetEnvironmentTemplateCommand,
@@ -466,6 +483,7 @@ const commands = {
   ListComponentOutputsCommand,
   ListComponentProvisionedResourcesCommand,
   ListComponentsCommand,
+  ListDeploymentsCommand,
   ListEnvironmentAccountConnectionsCommand,
   ListEnvironmentOutputsCommand,
   ListEnvironmentProvisionedResourcesCommand,
@@ -799,6 +817,23 @@ export interface Proton {
   ): void;
 
   /**
+   * @see {@link DeleteDeploymentCommand}
+   */
+  deleteDeployment(
+    args: DeleteDeploymentCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteDeploymentCommandOutput>;
+  deleteDeployment(
+    args: DeleteDeploymentCommandInput,
+    cb: (err: any, data?: DeleteDeploymentCommandOutput) => void
+  ): void;
+  deleteDeployment(
+    args: DeleteDeploymentCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteDeploymentCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link DeleteEnvironmentCommand}
    */
   deleteEnvironment(
@@ -988,6 +1023,17 @@ export interface Proton {
     args: GetComponentCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: GetComponentCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link GetDeploymentCommand}
+   */
+  getDeployment(args: GetDeploymentCommandInput, options?: __HttpHandlerOptions): Promise<GetDeploymentCommandOutput>;
+  getDeployment(args: GetDeploymentCommandInput, cb: (err: any, data?: GetDeploymentCommandOutput) => void): void;
+  getDeployment(
+    args: GetDeploymentCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetDeploymentCommandOutput) => void
   ): void;
 
   /**
@@ -1293,6 +1339,20 @@ export interface Proton {
     args: ListComponentsCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: ListComponentsCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ListDeploymentsCommand}
+   */
+  listDeployments(
+    args: ListDeploymentsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListDeploymentsCommandOutput>;
+  listDeployments(args: ListDeploymentsCommandInput, cb: (err: any, data?: ListDeploymentsCommandOutput) => void): void;
+  listDeployments(
+    args: ListDeploymentsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListDeploymentsCommandOutput) => void
   ): void;
 
   /**

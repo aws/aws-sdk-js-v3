@@ -3,6 +3,7 @@ export * from "./Interfaces";
 export * from "./ListComponentOutputsPaginator";
 export * from "./ListComponentProvisionedResourcesPaginator";
 export * from "./ListComponentsPaginator";
+export * from "./ListDeploymentsPaginator";
 export * from "./ListEnvironmentAccountConnectionsPaginator";
 export * from "./ListEnvironmentOutputsPaginator";
 export * from "./ListEnvironmentProvisionedResourcesPaginator";

@@ -51,6 +51,7 @@ export interface ListServiceInstanceOutputsCommandOutput extends ListServiceInst
  *   serviceInstanceName: "STRING_VALUE", // required
  *   serviceName: "STRING_VALUE", // required
  *   nextToken: "STRING_VALUE",
+ *   deploymentId: "STRING_VALUE",
  * };
  * const command = new ListServiceInstanceOutputsCommand(input);
  * const response = await client.send(command);

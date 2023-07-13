@@ -70,6 +70,8 @@ export interface ListComponentsCommandOutput extends ListComponentsOutput, __Met
  * //       lastDeploymentSucceededAt: new Date("TIMESTAMP"),
  * //       deploymentStatus: "STRING_VALUE", // required
  * //       deploymentStatusMessage: "STRING_VALUE",
+ * //       lastAttemptedDeploymentId: "STRING_VALUE",
+ * //       lastSucceededDeploymentId: "STRING_VALUE",
  * //     },
  * //   ],
  * // };

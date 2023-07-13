@@ -7,6 +7,7 @@ import {
   expectNonNull as __expectNonNull,
   expectNumber as __expectNumber,
   expectString as __expectString,
+  expectUnion as __expectUnion,
   parseEpochTimestamp as __parseEpochTimestamp,
   take,
   withBaseException,
@@ -76,6 +77,7 @@ import {
   CreateTemplateSyncConfigCommandOutput,
 } from "../commands/CreateTemplateSyncConfigCommand";
 import { DeleteComponentCommandInput, DeleteComponentCommandOutput } from "../commands/DeleteComponentCommand";
+import { DeleteDeploymentCommandInput, DeleteDeploymentCommandOutput } from "../commands/DeleteDeploymentCommand";
 import {
   DeleteEnvironmentAccountConnectionCommandInput,
   DeleteEnvironmentAccountConnectionCommandOutput,
@@ -109,6 +111,7 @@ import {
 } from "../commands/DeleteTemplateSyncConfigCommand";
 import { GetAccountSettingsCommandInput, GetAccountSettingsCommandOutput } from "../commands/GetAccountSettingsCommand";
 import { GetComponentCommandInput, GetComponentCommandOutput } from "../commands/GetComponentCommand";
+import { GetDeploymentCommandInput, GetDeploymentCommandOutput } from "../commands/GetDeploymentCommand";
 import {
   GetEnvironmentAccountConnectionCommandInput,
   GetEnvironmentAccountConnectionCommandOutput,
@@ -167,6 +170,7 @@ import {
   ListComponentProvisionedResourcesCommandOutput,
 } from "../commands/ListComponentProvisionedResourcesCommand";
 import { ListComponentsCommandInput, ListComponentsCommandOutput } from "../commands/ListComponentsCommand";
+import { ListDeploymentsCommandInput, ListDeploymentsCommandOutput } from "../commands/ListDeploymentsCommand";
 import {
   ListEnvironmentAccountConnectionsCommandInput,
   ListEnvironmentAccountConnectionsCommandOutput,
@@ -297,6 +301,7 @@ import {
   CancelServicePipelineDeploymentOutput,
   CompatibleEnvironmentTemplateInput,
   Component,
+  ComponentState,
   ComponentSummary,
   ConflictException,
   CreateComponentInput,
@@ -322,6 +327,8 @@ import {
   CreateTemplateSyncConfigInput,
   DeleteComponentInput,
   DeleteComponentOutput,
+  DeleteDeploymentInput,
+  DeleteDeploymentOutput,
   DeleteEnvironmentAccountConnectionInput,
   DeleteEnvironmentAccountConnectionOutput,
   DeleteEnvironmentInput,
@@ -339,10 +346,14 @@ import {
   DeleteServiceTemplateVersionInput,
   DeleteServiceTemplateVersionOutput,
   DeleteTemplateSyncConfigInput,
+  Deployment,
+  DeploymentState,
+  DeploymentSummary,
   Environment,
   EnvironmentAccountConnection,
   EnvironmentAccountConnectionStatus,
   EnvironmentAccountConnectionSummary,
+  EnvironmentState,
   EnvironmentSummary,
   EnvironmentTemplate,
   EnvironmentTemplateFilter,
@@ -352,6 +363,8 @@ import {
   GetAccountSettingsInput,
   GetComponentInput,
   GetComponentOutput,
+  GetDeploymentInput,
+  GetDeploymentOutput,
   GetEnvironmentAccountConnectionInput,
   GetEnvironmentAccountConnectionOutput,
   GetEnvironmentInput,
@@ -385,6 +398,8 @@ import {
   ListComponentProvisionedResourcesInput,
   ListComponentsInput,
   ListComponentsOutput,
+  ListDeploymentsInput,
+  ListDeploymentsOutput,
   ListEnvironmentAccountConnectionsInput,
   ListEnvironmentAccountConnectionsOutput,
   ListEnvironmentOutputsInput,
@@ -424,8 +439,10 @@ import {
   S3ObjectSource,
   Service,
   ServiceInstance,
+  ServiceInstanceState,
   ServiceInstanceSummary,
   ServicePipeline,
+  ServicePipelineState,
   ServiceQuotaExceededException,
   ServiceSummary,
   ServiceSyncBlockerSummary,
@@ -704,6 +721,19 @@ export const se_DeleteComponentCommand = async (
 };
 
 /**
+ * serializeAws_json1_0DeleteDeploymentCommand
+ */
+export const se_DeleteDeploymentCommand = async (
+  input: DeleteDeploymentCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = sharedHeaders("DeleteDeployment");
+  let body: any;
+  body = JSON.stringify(_json(input));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+/**
  * serializeAws_json1_0DeleteEnvironmentCommand
  */
 export const se_DeleteEnvironmentCommand = async (
@@ -854,6 +884,19 @@ export const se_GetComponentCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("GetComponent");
+  let body: any;
+  body = JSON.stringify(_json(input));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+/**
+ * serializeAws_json1_0GetDeploymentCommand
+ */
+export const se_GetDeploymentCommand = async (
+  input: GetDeploymentCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = sharedHeaders("GetDeployment");
   let body: any;
   body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1101,6 +1144,19 @@ export const se_ListComponentsCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("ListComponents");
+  let body: any;
+  body = JSON.stringify(_json(input));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+/**
+ * serializeAws_json1_0ListDeploymentsCommand
+ */
+export const se_ListDeploymentsCommand = async (
+  input: ListDeploymentsCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = sharedHeaders("ListDeployments");
   let body: any;
   body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -2675,6 +2731,64 @@ const de_DeleteComponentCommandError = async (
 };
 
 /**
+ * deserializeAws_json1_0DeleteDeploymentCommand
+ */
+export const de_DeleteDeploymentCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteDeploymentCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_DeleteDeploymentCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_DeleteDeploymentOutput(data, context);
+  const response: DeleteDeploymentCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_0DeleteDeploymentCommandError
+ */
+const de_DeleteDeploymentCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteDeploymentCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.proton#AccessDeniedException":
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
+    case "InternalServerException":
+    case "com.amazonaws.proton#InternalServerException":
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.proton#ResourceNotFoundException":
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
+    case "ThrottlingException":
+    case "com.amazonaws.proton#ThrottlingException":
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
+    case "ValidationException":
+    case "com.amazonaws.proton#ValidationException":
+      throw await de_ValidationExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
  * deserializeAws_json1_0DeleteEnvironmentCommand
  */
 export const de_DeleteEnvironmentCommand = async (
@@ -3369,6 +3483,64 @@ const de_GetComponentCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetComponentCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.proton#AccessDeniedException":
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
+    case "InternalServerException":
+    case "com.amazonaws.proton#InternalServerException":
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.proton#ResourceNotFoundException":
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
+    case "ThrottlingException":
+    case "com.amazonaws.proton#ThrottlingException":
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
+    case "ValidationException":
+    case "com.amazonaws.proton#ValidationException":
+      throw await de_ValidationExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
+ * deserializeAws_json1_0GetDeploymentCommand
+ */
+export const de_GetDeploymentCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetDeploymentCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_GetDeploymentCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_GetDeploymentOutput(data, context);
+  const response: GetDeploymentCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_0GetDeploymentCommandError
+ */
+const de_GetDeploymentCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetDeploymentCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseErrorBody(output.body, context),
@@ -4480,6 +4652,64 @@ const de_ListComponentsCommandError = async (
     case "InternalServerException":
     case "com.amazonaws.proton#InternalServerException":
       throw await de_InternalServerExceptionRes(parsedOutput, context);
+    case "ThrottlingException":
+    case "com.amazonaws.proton#ThrottlingException":
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
+    case "ValidationException":
+    case "com.amazonaws.proton#ValidationException":
+      throw await de_ValidationExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
+ * deserializeAws_json1_0ListDeploymentsCommand
+ */
+export const de_ListDeploymentsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListDeploymentsCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_ListDeploymentsCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_ListDeploymentsOutput(data, context);
+  const response: ListDeploymentsCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_0ListDeploymentsCommandError
+ */
+const de_ListDeploymentsCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListDeploymentsCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.proton#AccessDeniedException":
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
+    case "InternalServerException":
+    case "com.amazonaws.proton#InternalServerException":
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.proton#ResourceNotFoundException":
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "ThrottlingException":
     case "com.amazonaws.proton#ThrottlingException":
       throw await de_ThrottlingExceptionRes(parsedOutput, context);
@@ -6825,6 +7055,8 @@ const se_CreateServiceTemplateVersionInput = (
 
 // se_DeleteComponentInput omitted.
 
+// se_DeleteDeploymentInput omitted.
+
 // se_DeleteEnvironmentAccountConnectionInput omitted.
 
 // se_DeleteEnvironmentInput omitted.
@@ -6854,6 +7086,8 @@ const se_CreateServiceTemplateVersionInput = (
 // se_GetAccountSettingsInput omitted.
 
 // se_GetComponentInput omitted.
+
+// se_GetDeploymentInput omitted.
 
 // se_GetEnvironmentAccountConnectionInput omitted.
 
@@ -6892,6 +7126,8 @@ const se_CreateServiceTemplateVersionInput = (
 // se_ListComponentProvisionedResourcesInput omitted.
 
 // se_ListComponentsInput omitted.
+
+// se_ListDeploymentsInput omitted.
 
 // se_ListEnvironmentAccountConnectionsInput omitted.
 
@@ -7125,14 +7361,30 @@ const de_Component = (output: any, context: __SerdeContext): Component => {
     deploymentStatusMessage: __expectString,
     description: __expectString,
     environmentName: __expectString,
+    lastAttemptedDeploymentId: __expectString,
     lastClientRequestToken: __expectString,
     lastDeploymentAttemptedAt: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
     lastDeploymentSucceededAt: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
     lastModifiedAt: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    lastSucceededDeploymentId: __expectString,
     name: __expectString,
     serviceInstanceName: __expectString,
     serviceName: __expectString,
     serviceSpec: __expectString,
+  }) as any;
+};
+
+// de_ComponentDeploymentIdList omitted.
+
+/**
+ * deserializeAws_json1_0ComponentState
+ */
+const de_ComponentState = (output: any, context: __SerdeContext): ComponentState => {
+  return take(output, {
+    serviceInstanceName: __expectString,
+    serviceName: __expectString,
+    serviceSpec: __expectString,
+    templateFile: __expectString,
   }) as any;
 };
 
@@ -7146,9 +7398,11 @@ const de_ComponentSummary = (output: any, context: __SerdeContext): ComponentSum
     deploymentStatus: __expectString,
     deploymentStatusMessage: __expectString,
     environmentName: __expectString,
+    lastAttemptedDeploymentId: __expectString,
     lastDeploymentAttemptedAt: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
     lastDeploymentSucceededAt: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
     lastModifiedAt: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    lastSucceededDeploymentId: __expectString,
     name: __expectString,
     serviceInstanceName: __expectString,
     serviceName: __expectString,
@@ -7277,6 +7531,15 @@ const de_DeleteComponentOutput = (output: any, context: __SerdeContext): DeleteC
 };
 
 /**
+ * deserializeAws_json1_0DeleteDeploymentOutput
+ */
+const de_DeleteDeploymentOutput = (output: any, context: __SerdeContext): DeleteDeploymentOutput => {
+  return take(output, {
+    deployment: (_: any) => de_Deployment(_, context),
+  }) as any;
+};
+
+/**
  * deserializeAws_json1_0DeleteEnvironmentAccountConnectionOutput
  */
 const de_DeleteEnvironmentAccountConnectionOutput = (
@@ -7355,6 +7618,94 @@ const de_DeleteServiceTemplateVersionOutput = (
 // de_DeleteTemplateSyncConfigOutput omitted.
 
 /**
+ * deserializeAws_json1_0Deployment
+ */
+const de_Deployment = (output: any, context: __SerdeContext): Deployment => {
+  return take(output, {
+    arn: __expectString,
+    completedAt: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    componentName: __expectString,
+    createdAt: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    deploymentStatus: __expectString,
+    deploymentStatusMessage: __expectString,
+    environmentName: __expectString,
+    id: __expectString,
+    initialState: (_: any) => de_DeploymentState(__expectUnion(_), context),
+    lastAttemptedDeploymentId: __expectString,
+    lastModifiedAt: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    lastSucceededDeploymentId: __expectString,
+    serviceInstanceName: __expectString,
+    serviceName: __expectString,
+    targetArn: __expectString,
+    targetResourceCreatedAt: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    targetResourceType: __expectString,
+    targetState: (_: any) => de_DeploymentState(__expectUnion(_), context),
+  }) as any;
+};
+
+/**
+ * deserializeAws_json1_0DeploymentState
+ */
+const de_DeploymentState = (output: any, context: __SerdeContext): DeploymentState => {
+  if (output.component != null) {
+    return {
+      component: de_ComponentState(output.component, context),
+    };
+  }
+  if (output.environment != null) {
+    return {
+      environment: de_EnvironmentState(output.environment, context),
+    };
+  }
+  if (output.serviceInstance != null) {
+    return {
+      serviceInstance: de_ServiceInstanceState(output.serviceInstance, context),
+    };
+  }
+  if (output.servicePipeline != null) {
+    return {
+      servicePipeline: de_ServicePipelineState(output.servicePipeline, context),
+    };
+  }
+  return { $unknown: Object.entries(output)[0] };
+};
+
+/**
+ * deserializeAws_json1_0DeploymentSummary
+ */
+const de_DeploymentSummary = (output: any, context: __SerdeContext): DeploymentSummary => {
+  return take(output, {
+    arn: __expectString,
+    completedAt: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    componentName: __expectString,
+    createdAt: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    deploymentStatus: __expectString,
+    environmentName: __expectString,
+    id: __expectString,
+    lastAttemptedDeploymentId: __expectString,
+    lastModifiedAt: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    lastSucceededDeploymentId: __expectString,
+    serviceInstanceName: __expectString,
+    serviceName: __expectString,
+    targetArn: __expectString,
+    targetResourceCreatedAt: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    targetResourceType: __expectString,
+  }) as any;
+};
+
+/**
+ * deserializeAws_json1_0DeploymentSummaryList
+ */
+const de_DeploymentSummaryList = (output: any, context: __SerdeContext): DeploymentSummary[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      return de_DeploymentSummary(entry, context);
+    });
+  return retVal;
+};
+
+/**
  * deserializeAws_json1_0Environment
  */
 const de_Environment = (output: any, context: __SerdeContext): Environment => {
@@ -7368,8 +7719,10 @@ const de_Environment = (output: any, context: __SerdeContext): Environment => {
     description: __expectString,
     environmentAccountConnectionId: __expectString,
     environmentAccountId: __expectString,
+    lastAttemptedDeploymentId: __expectString,
     lastDeploymentAttemptedAt: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
     lastDeploymentSucceededAt: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    lastSucceededDeploymentId: __expectString,
     name: __expectString,
     protonServiceRoleArn: __expectString,
     provisioning: __expectString,
@@ -7437,6 +7790,18 @@ const de_EnvironmentAccountConnectionSummaryList = (
 };
 
 /**
+ * deserializeAws_json1_0EnvironmentState
+ */
+const de_EnvironmentState = (output: any, context: __SerdeContext): EnvironmentState => {
+  return take(output, {
+    spec: __expectString,
+    templateMajorVersion: __expectString,
+    templateMinorVersion: __expectString,
+    templateName: __expectString,
+  }) as any;
+};
+
+/**
  * deserializeAws_json1_0EnvironmentSummary
  */
 const de_EnvironmentSummary = (output: any, context: __SerdeContext): EnvironmentSummary => {
@@ -7449,8 +7814,10 @@ const de_EnvironmentSummary = (output: any, context: __SerdeContext): Environmen
     description: __expectString,
     environmentAccountConnectionId: __expectString,
     environmentAccountId: __expectString,
+    lastAttemptedDeploymentId: __expectString,
     lastDeploymentAttemptedAt: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
     lastDeploymentSucceededAt: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    lastSucceededDeploymentId: __expectString,
     name: __expectString,
     protonServiceRoleArn: __expectString,
     provisioning: __expectString,
@@ -7580,6 +7947,15 @@ const de_EnvironmentTemplateVersionSummaryList = (
 const de_GetComponentOutput = (output: any, context: __SerdeContext): GetComponentOutput => {
   return take(output, {
     component: (_: any) => de_Component(_, context),
+  }) as any;
+};
+
+/**
+ * deserializeAws_json1_0GetDeploymentOutput
+ */
+const de_GetDeploymentOutput = (output: any, context: __SerdeContext): GetDeploymentOutput => {
+  return take(output, {
+    deployment: (_: any) => de_Deployment(_, context),
   }) as any;
 };
 
@@ -7739,6 +8115,16 @@ const de_LatestSyncBlockers = (output: any, context: __SerdeContext): SyncBlocke
 const de_ListComponentsOutput = (output: any, context: __SerdeContext): ListComponentsOutput => {
   return take(output, {
     components: (_: any) => de_ComponentSummaryList(_, context),
+    nextToken: __expectString,
+  }) as any;
+};
+
+/**
+ * deserializeAws_json1_0ListDeploymentsOutput
+ */
+const de_ListDeploymentsOutput = (output: any, context: __SerdeContext): ListDeploymentsOutput => {
+  return take(output, {
+    deployments: (_: any) => de_DeploymentSummaryList(_, context),
     nextToken: __expectString,
   }) as any;
 };
@@ -7994,11 +8380,28 @@ const de_ServiceInstance = (output: any, context: __SerdeContext): ServiceInstan
     deploymentStatus: __expectString,
     deploymentStatusMessage: __expectString,
     environmentName: __expectString,
+    lastAttemptedDeploymentId: __expectString,
     lastClientRequestToken: __expectString,
     lastDeploymentAttemptedAt: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
     lastDeploymentSucceededAt: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    lastSucceededDeploymentId: __expectString,
     name: __expectString,
     serviceName: __expectString,
+    spec: __expectString,
+    templateMajorVersion: __expectString,
+    templateMinorVersion: __expectString,
+    templateName: __expectString,
+  }) as any;
+};
+
+/**
+ * deserializeAws_json1_0ServiceInstanceState
+ */
+const de_ServiceInstanceState = (output: any, context: __SerdeContext): ServiceInstanceState => {
+  return take(output, {
+    lastSuccessfulComponentDeploymentIds: _json,
+    lastSuccessfulEnvironmentDeploymentId: __expectString,
+    lastSuccessfulServicePipelineDeploymentId: __expectString,
     spec: __expectString,
     templateMajorVersion: __expectString,
     templateMinorVersion: __expectString,
@@ -8016,8 +8419,10 @@ const de_ServiceInstanceSummary = (output: any, context: __SerdeContext): Servic
     deploymentStatus: __expectString,
     deploymentStatusMessage: __expectString,
     environmentName: __expectString,
+    lastAttemptedDeploymentId: __expectString,
     lastDeploymentAttemptedAt: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
     lastDeploymentSucceededAt: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    lastSucceededDeploymentId: __expectString,
     name: __expectString,
     serviceName: __expectString,
     templateMajorVersion: __expectString,
@@ -8047,8 +8452,22 @@ const de_ServicePipeline = (output: any, context: __SerdeContext): ServicePipeli
     createdAt: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
     deploymentStatus: __expectString,
     deploymentStatusMessage: __expectString,
+    lastAttemptedDeploymentId: __expectString,
     lastDeploymentAttemptedAt: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
     lastDeploymentSucceededAt: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    lastSucceededDeploymentId: __expectString,
+    spec: __expectString,
+    templateMajorVersion: __expectString,
+    templateMinorVersion: __expectString,
+    templateName: __expectString,
+  }) as any;
+};
+
+/**
+ * deserializeAws_json1_0ServicePipelineState
+ */
+const de_ServicePipelineState = (output: any, context: __SerdeContext): ServicePipelineState => {
+  return take(output, {
     spec: __expectString,
     templateMajorVersion: __expectString,
     templateMinorVersion: __expectString,

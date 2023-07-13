@@ -45,10 +45,8 @@ export interface NotifyResourceDeploymentStatusChangeCommandOutput
 
 /**
  * @public
- * <p>Notify Proton of status changes to a provisioned resource when you use self-managed
- *    provisioning.</p>
- *          <p>For more information, see <a href="https://docs.aws.amazon.com/proton/latest/userguide/ag-works-prov-methods.html#ag-works-prov-methods-self">Self-managed
- *     provisioning</a> in the <i>Proton User Guide</i>.</p>
+ * <p>Notify Proton of status changes to a provisioned resource when you use self-managed provisioning.</p>
+ *          <p>For more information, see <a href="https://docs.aws.amazon.com/proton/latest/userguide/ag-works-prov-methods.html#ag-works-prov-methods-self">Self-managed provisioning</a> in the <i>Proton User Guide</i>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

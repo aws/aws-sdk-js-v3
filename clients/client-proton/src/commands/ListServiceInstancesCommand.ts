@@ -79,6 +79,8 @@ export interface ListServiceInstancesCommandOutput extends ListServiceInstancesO
  * //       templateMinorVersion: "STRING_VALUE", // required
  * //       deploymentStatus: "STRING_VALUE", // required
  * //       deploymentStatusMessage: "STRING_VALUE",
+ * //       lastAttemptedDeploymentId: "STRING_VALUE",
+ * //       lastSucceededDeploymentId: "STRING_VALUE",
  * //     },
  * //   ],
  * // };

@@ -71,6 +71,8 @@ export interface CancelComponentDeploymentCommandOutput extends CancelComponentD
  * //     deploymentStatusMessage: "STRING_VALUE",
  * //     serviceSpec: "STRING_VALUE",
  * //     lastClientRequestToken: "STRING_VALUE",
+ * //     lastAttemptedDeploymentId: "STRING_VALUE",
+ * //     lastSucceededDeploymentId: "STRING_VALUE",
  * //   },
  * // };
  *
