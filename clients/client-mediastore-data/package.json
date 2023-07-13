@@ -60,7 +60,6 @@
     "tslib": "^2.5.0"
   },
   "devDependencies": {
-    "@aws-sdk/service-client-documentation-generator": "*",
     "@smithy/service-client-documentation-generator": "^1.0.1",
     "@tsconfig/node14": "1.0.3",
     "@types/chai": "^4.2.11",
