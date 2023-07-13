@@ -128,6 +128,7 @@ import {
   ActiveDirectoryError,
   AdministrativeAction,
   AssociateFileSystemAliasesRequest,
+  AutocommitPeriod,
   AutoExportPolicy,
   AutoImportPolicy,
   Backup,
@@ -160,6 +161,7 @@ import {
   CreateOntapVolumeConfiguration,
   CreateOpenZFSOriginSnapshotConfiguration,
   CreateOpenZFSVolumeConfiguration,
+  CreateSnaplockConfiguration,
   CreateSnapshotRequest,
   CreateSnapshotResponse,
   CreateStorageVirtualMachineRequest,
@@ -249,10 +251,12 @@ import {
   RestoreOpenZFSVolumeOption,
   RestoreVolumeFromSnapshotRequest,
   RestoreVolumeFromSnapshotResponse,
+  RetentionPeriod,
   S3DataRepositoryConfiguration,
   SelfManagedActiveDirectoryConfiguration,
   SelfManagedActiveDirectoryConfigurationUpdates,
   ServiceLimitExceeded,
+  SnaplockRetentionPeriod,
   Snapshot,
   SnapshotFilter,
   SnapshotNotFound,
@@ -278,6 +282,7 @@ import {
   UpdateFileSystemWindowsConfiguration,
   UpdateOntapVolumeConfiguration,
   UpdateOpenZFSVolumeConfiguration,
+  UpdateSnaplockConfiguration,
   UpdateSnapshotRequest,
   UpdateSnapshotResponse,
   UpdateStorageVirtualMachineRequest,
@@ -3772,6 +3777,8 @@ const se_AssociateFileSystemAliasesRequest = (
   });
 };
 
+// se_AutocommitPeriod omitted.
+
 // se_AutoExportPolicy omitted.
 
 // se_AutoImportPolicy omitted.
@@ -3922,6 +3929,8 @@ const se_CreateFileSystemRequest = (input: CreateFileSystemRequest, context: __S
 // se_CreateOpenZFSOriginSnapshotConfiguration omitted.
 
 // se_CreateOpenZFSVolumeConfiguration omitted.
+
+// se_CreateSnaplockConfiguration omitted.
 
 /**
  * serializeAws_json1_1CreateSnapshotRequest
@@ -4205,6 +4214,8 @@ const se_RestoreVolumeFromSnapshotRequest = (input: RestoreVolumeFromSnapshotReq
   });
 };
 
+// se_RetentionPeriod omitted.
+
 // se_RouteTableIds omitted.
 
 // se_S3DataRepositoryConfiguration omitted.
@@ -4214,6 +4225,8 @@ const se_RestoreVolumeFromSnapshotRequest = (input: RestoreVolumeFromSnapshotReq
 // se_SelfManagedActiveDirectoryConfiguration omitted.
 
 // se_SelfManagedActiveDirectoryConfigurationUpdates omitted.
+
+// se_SnaplockRetentionPeriod omitted.
 
 // se_SnapshotFilter omitted.
 
@@ -4303,6 +4316,8 @@ const se_UpdateFileSystemRequest = (input: UpdateFileSystemRequest, context: __S
 // se_UpdateOntapVolumeConfiguration omitted.
 
 // se_UpdateOpenZFSVolumeConfiguration omitted.
+
+// se_UpdateSnaplockConfiguration omitted.
 
 /**
  * serializeAws_json1_1UpdateSnapshotRequest
@@ -4394,6 +4409,8 @@ const de_AdministrativeActions = (output: any, context: __SerdeContext): Adminis
 // de_Aliases omitted.
 
 // de_AssociateFileSystemAliasesResponse omitted.
+
+// de_AutocommitPeriod omitted.
 
 // de_AutoExportPolicy omitted.
 
@@ -5010,6 +5027,8 @@ const de_RestoreVolumeFromSnapshotResponse = (
   }) as any;
 };
 
+// de_RetentionPeriod omitted.
+
 // de_RouteTableIds omitted.
 
 // de_S3DataRepositoryConfiguration omitted.
@@ -5017,6 +5036,10 @@ const de_RestoreVolumeFromSnapshotResponse = (
 // de_SelfManagedActiveDirectoryAttributes omitted.
 
 // de_ServiceLimitExceeded omitted.
+
+// de_SnaplockConfiguration omitted.
+
+// de_SnaplockRetentionPeriod omitted.
 
 /**
  * deserializeAws_json1_1Snapshot

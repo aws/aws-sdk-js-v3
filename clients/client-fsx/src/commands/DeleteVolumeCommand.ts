@@ -55,6 +55,7 @@ export interface DeleteVolumeCommandOutput extends DeleteVolumeResponse, __Metad
  *         Value: "STRING_VALUE", // required
  *       },
  *     ],
+ *     BypassSnaplockEnterpriseRetention: true || false,
  *   },
  *   OpenZFSConfiguration: { // DeleteVolumeOpenZFSConfiguration
  *     Options: [ // DeleteOpenZFSVolumeOptions

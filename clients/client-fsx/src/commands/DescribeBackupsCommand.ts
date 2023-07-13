@@ -326,6 +326,30 @@ export interface DescribeBackupsCommandOutput extends DescribeBackupsResponse, _
  * //                       OntapVolumeType: "RW" || "DP" || "LS",
  * //                       SnapshotPolicy: "STRING_VALUE",
  * //                       CopyTagsToBackups: true || false,
+ * //                       SnaplockConfiguration: { // SnaplockConfiguration
+ * //                         AuditLogVolume: true || false,
+ * //                         AutocommitPeriod: { // AutocommitPeriod
+ * //                           Type: "MINUTES" || "HOURS" || "DAYS" || "MONTHS" || "YEARS" || "NONE", // required
+ * //                           Value: Number("int"),
+ * //                         },
+ * //                         PrivilegedDelete: "DISABLED" || "ENABLED" || "PERMANENTLY_DISABLED",
+ * //                         RetentionPeriod: { // SnaplockRetentionPeriod
+ * //                           DefaultRetention: { // RetentionPeriod
+ * //                             Type: "SECONDS" || "MINUTES" || "HOURS" || "DAYS" || "MONTHS" || "YEARS" || "INFINITE" || "UNSPECIFIED", // required
+ * //                             Value: Number("int"),
+ * //                           },
+ * //                           MinimumRetention: {
+ * //                             Type: "SECONDS" || "MINUTES" || "HOURS" || "DAYS" || "MONTHS" || "YEARS" || "INFINITE" || "UNSPECIFIED", // required
+ * //                             Value: Number("int"),
+ * //                           },
+ * //                           MaximumRetention: {
+ * //                             Type: "SECONDS" || "MINUTES" || "HOURS" || "DAYS" || "MONTHS" || "YEARS" || "INFINITE" || "UNSPECIFIED", // required
+ * //                             Value: Number("int"),
+ * //                           },
+ * //                         },
+ * //                         SnaplockType: "COMPLIANCE" || "ENTERPRISE",
+ * //                         VolumeAppendModeEnabled: true || false,
+ * //                       },
  * //                     },
  * //                     ResourceARN: "STRING_VALUE",
  * //                     Tags: "<Tags>",
@@ -458,6 +482,27 @@ export interface DescribeBackupsCommandOutput extends DescribeBackupsResponse, _
  * //                 OntapVolumeType: "RW" || "DP" || "LS",
  * //                 SnapshotPolicy: "STRING_VALUE",
  * //                 CopyTagsToBackups: true || false,
+ * //                 SnaplockConfiguration: {
+ * //                   AuditLogVolume: true || false,
+ * //                   AutocommitPeriod: {
+ * //                     Type: "MINUTES" || "HOURS" || "DAYS" || "MONTHS" || "YEARS" || "NONE", // required
+ * //                     Value: Number("int"),
+ * //                   },
+ * //                   PrivilegedDelete: "DISABLED" || "ENABLED" || "PERMANENTLY_DISABLED",
+ * //                   RetentionPeriod: {
+ * //                     DefaultRetention: {
+ * //                       Type: "SECONDS" || "MINUTES" || "HOURS" || "DAYS" || "MONTHS" || "YEARS" || "INFINITE" || "UNSPECIFIED", // required
+ * //                       Value: Number("int"),
+ * //                     },
+ * //                     MinimumRetention: {
+ * //                       Type: "SECONDS" || "MINUTES" || "HOURS" || "DAYS" || "MONTHS" || "YEARS" || "INFINITE" || "UNSPECIFIED", // required
+ * //                       Value: Number("int"),
+ * //                     },
+ * //                     MaximumRetention: "<RetentionPeriod>", // required
+ * //                   },
+ * //                   SnaplockType: "COMPLIANCE" || "ENTERPRISE",
+ * //                   VolumeAppendModeEnabled: true || false,
+ * //                 },
  * //               },
  * //               ResourceARN: "STRING_VALUE",
  * //               Tags: "<Tags>",
