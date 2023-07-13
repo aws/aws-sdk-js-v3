@@ -3814,6 +3814,7 @@ const de_Alert = (output: any, context: __SerdeContext): Alert => {
   return take(output, {
     AlertCode: __expectString,
     AlertMessage: __expectString,
+    Category: __expectString,
     LastModifiedTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
     RelatedResourceArns: _json,
     ResourceArn: __expectString,

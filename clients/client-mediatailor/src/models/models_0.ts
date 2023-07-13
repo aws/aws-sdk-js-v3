@@ -14,7 +14,7 @@ export interface KeyValuePair {
   Key: string | undefined;
 
   /**
-   * <p>For <code>SCTE35_ENHANCED</code> output, defines a vaue. MediaTailor; takes this value, and its associated key, and generates the key/value pair within the <code>EXT-X-ASSET</code>tag. If you specify a value, you must also specify a corresponding key.</p>
+   * <p>For <code>SCTE35_ENHANCED</code> output, defines a value. MediaTailor; takes this value, and its associated key, and generates the key/value pair within the <code>EXT-X-ASSET</code>tag. If you specify a value, you must also specify a corresponding key.</p>
    */
   Value: string | undefined;
 }
@@ -177,6 +177,21 @@ export interface AdBreak {
 
 /**
  * @public
+ * @enum
+ */
+export const AlertCategory = {
+  INFO: "INFO",
+  PLAYBACK_WARNING: "PLAYBACK_WARNING",
+  SCHEDULING_ERROR: "SCHEDULING_ERROR",
+} as const;
+
+/**
+ * @public
+ */
+export type AlertCategory = (typeof AlertCategory)[keyof typeof AlertCategory];
+
+/**
+ * @public
  * <p>Alert configuration parameters.</p>
  */
 export interface Alert {
@@ -204,6 +219,11 @@ export interface Alert {
    * <p>The Amazon Resource Name (ARN) of the resource.</p>
    */
   ResourceArn: string | undefined;
+
+  /**
+   * <p>The category that MediaTailor assigns to the alert.</p>
+   */
+  Category?: AlertCategory | string;
 }
 
 /**

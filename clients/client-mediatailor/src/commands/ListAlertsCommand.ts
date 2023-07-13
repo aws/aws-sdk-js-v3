@@ -60,6 +60,7 @@ export interface ListAlertsCommandOutput extends ListAlertsResponse, __MetadataB
  * //         "STRING_VALUE",
  * //       ],
  * //       ResourceArn: "STRING_VALUE", // required
+ * //       Category: "SCHEDULING_ERROR" || "PLAYBACK_WARNING" || "INFO",
  * //     },
  * //   ],
  * //   NextToken: "STRING_VALUE",
