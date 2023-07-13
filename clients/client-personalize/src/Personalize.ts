@@ -307,6 +307,11 @@ import {
   UpdateCampaignCommandOutput,
 } from "./commands/UpdateCampaignCommand";
 import {
+  UpdateDatasetCommand,
+  UpdateDatasetCommandInput,
+  UpdateDatasetCommandOutput,
+} from "./commands/UpdateDatasetCommand";
+import {
   UpdateMetricAttributionCommand,
   UpdateMetricAttributionCommandInput,
   UpdateMetricAttributionCommandOutput,
@@ -383,6 +388,7 @@ const commands = {
   TagResourceCommand,
   UntagResourceCommand,
   UpdateCampaignCommand,
+  UpdateDatasetCommand,
   UpdateMetricAttributionCommand,
   UpdateRecommenderCommand,
 };
@@ -1360,6 +1366,17 @@ export interface Personalize {
     args: UpdateCampaignCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: UpdateCampaignCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link UpdateDatasetCommand}
+   */
+  updateDataset(args: UpdateDatasetCommandInput, options?: __HttpHandlerOptions): Promise<UpdateDatasetCommandOutput>;
+  updateDataset(args: UpdateDatasetCommandInput, cb: (err: any, data?: UpdateDatasetCommandOutput) => void): void;
+  updateDataset(
+    args: UpdateDatasetCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UpdateDatasetCommandOutput) => void
   ): void;
 
   /**

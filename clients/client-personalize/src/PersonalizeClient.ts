@@ -191,6 +191,7 @@ import {
 import { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
 import { UntagResourceCommandInput, UntagResourceCommandOutput } from "./commands/UntagResourceCommand";
 import { UpdateCampaignCommandInput, UpdateCampaignCommandOutput } from "./commands/UpdateCampaignCommand";
+import { UpdateDatasetCommandInput, UpdateDatasetCommandOutput } from "./commands/UpdateDatasetCommand";
 import {
   UpdateMetricAttributionCommandInput,
   UpdateMetricAttributionCommandOutput,
@@ -274,6 +275,7 @@ export type ServiceInputTypes =
   | TagResourceCommandInput
   | UntagResourceCommandInput
   | UpdateCampaignCommandInput
+  | UpdateDatasetCommandInput
   | UpdateMetricAttributionCommandInput
   | UpdateRecommenderCommandInput;
 
@@ -345,6 +347,7 @@ export type ServiceOutputTypes =
   | TagResourceCommandOutput
   | UntagResourceCommandOutput
   | UpdateCampaignCommandOutput
+  | UpdateDatasetCommandOutput
   | UpdateMetricAttributionCommandOutput
   | UpdateRecommenderCommandOutput;
 

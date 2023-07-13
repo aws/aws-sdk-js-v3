@@ -63,5 +63,6 @@ export * from "./StopSolutionVersionCreationCommand";
 export * from "./TagResourceCommand";
 export * from "./UntagResourceCommand";
 export * from "./UpdateCampaignCommand";
+export * from "./UpdateDatasetCommand";
 export * from "./UpdateMetricAttributionCommand";
 export * from "./UpdateRecommenderCommand";

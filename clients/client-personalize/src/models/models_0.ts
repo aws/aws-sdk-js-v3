@@ -1416,7 +1416,7 @@ export interface CreateSolutionRequest {
   performAutoML?: boolean;
 
   /**
-   * <p>The ARN of the recipe to use for model training. Only specified when
+   * <p>The ARN of the recipe to use for model training. This is required when
    *       <code>performAutoML</code> is false.</p>
    */
   recipeArn?: string;
@@ -1995,6 +1995,37 @@ export interface DescribeDatasetRequest {
 
 /**
  * @public
+ * <p>Describes an update to a dataset.</p>
+ */
+export interface DatasetUpdateSummary {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the schema that replaced the previous schema of the dataset.</p>
+   */
+  schemaArn?: string;
+
+  /**
+   * <p>The status of the dataset update. </p>
+   */
+  status?: string;
+
+  /**
+   * <p>If updating a dataset fails, provides the reason why.</p>
+   */
+  failureReason?: string;
+
+  /**
+   * <p>The creation date and time (in Unix time) of the dataset update.</p>
+   */
+  creationDateTime?: Date;
+
+  /**
+   * <p>The last update date and time (in Unix time) of the dataset.</p>
+   */
+  lastUpdatedDateTime?: Date;
+}
+
+/**
+ * @public
  * <p>Provides metadata for a dataset.</p>
  */
 export interface Dataset {
@@ -2059,6 +2090,11 @@ export interface Dataset {
    * <p>A time stamp that shows when the dataset was updated.</p>
    */
   lastUpdatedDateTime?: Date;
+
+  /**
+   * <p>Describes the latest update to the dataset.</p>
+   */
+  latestDatasetUpdate?: DatasetUpdateSummary;
 }
 
 /**
@@ -3052,7 +3088,8 @@ export interface Solution {
   performAutoML?: boolean;
 
   /**
-   * <p>The ARN of the recipe used to create the solution.</p>
+   * <p>The ARN of the recipe used to create the solution. This is required when
+   *       <code>performAutoML</code> is false.</p>
    */
   recipeArn?: string;
 
@@ -4748,6 +4785,31 @@ export interface UpdateCampaignResponse {
    * <p>The same campaign ARN as given in the request.</p>
    */
   campaignArn?: string;
+}
+
+/**
+ * @public
+ */
+export interface UpdateDatasetRequest {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the dataset that you want to update.</p>
+   */
+  datasetArn: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the new schema you want use.</p>
+   */
+  schemaArn: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface UpdateDatasetResponse {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the dataset you updated.</p>
+   */
+  datasetArn?: string;
 }
 
 /**

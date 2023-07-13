@@ -718,6 +718,14 @@ UpdateCampaign
 </details>
 <details>
 <summary>
+UpdateDataset
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-personalize/classes/updatedatasetcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-personalize/interfaces/updatedatasetcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-personalize/interfaces/updatedatasetcommandoutput.html)
+
+</details>
+<details>
+<summary>
 UpdateMetricAttribution
 </summary>
 

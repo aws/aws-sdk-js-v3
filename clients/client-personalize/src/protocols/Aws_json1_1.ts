@@ -164,6 +164,7 @@ import {
 import { TagResourceCommandInput, TagResourceCommandOutput } from "../commands/TagResourceCommand";
 import { UntagResourceCommandInput, UntagResourceCommandOutput } from "../commands/UntagResourceCommand";
 import { UpdateCampaignCommandInput, UpdateCampaignCommandOutput } from "../commands/UpdateCampaignCommand";
+import { UpdateDatasetCommandInput, UpdateDatasetCommandOutput } from "../commands/UpdateDatasetCommand";
 import {
   UpdateMetricAttributionCommandInput,
   UpdateMetricAttributionCommandOutput,
@@ -212,6 +213,7 @@ import {
   DatasetSchema,
   DatasetSchemaSummary,
   DatasetSummary,
+  DatasetUpdateSummary,
   DataSource,
   DefaultContinuousHyperParameterRange,
   DefaultHyperParameterRanges,
@@ -335,6 +337,7 @@ import {
   TrainingDataConfig,
   UntagResourceRequest,
   UpdateCampaignRequest,
+  UpdateDatasetRequest,
   UpdateMetricAttributionRequest,
   UpdateRecommenderRequest,
 } from "../models/models_0";
@@ -1167,6 +1170,19 @@ export const se_UpdateCampaignCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("UpdateCampaign");
+  let body: any;
+  body = JSON.stringify(_json(input));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+/**
+ * serializeAws_json1_1UpdateDatasetCommand
+ */
+export const se_UpdateDatasetCommand = async (
+  input: UpdateDatasetCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = sharedHeaders("UpdateDataset");
   let body: any;
   body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -4509,6 +4525,58 @@ const de_UpdateCampaignCommandError = async (
 };
 
 /**
+ * deserializeAws_json1_1UpdateDatasetCommand
+ */
+export const de_UpdateDatasetCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateDatasetCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_UpdateDatasetCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = _json(data);
+  const response: UpdateDatasetCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1UpdateDatasetCommandError
+ */
+const de_UpdateDatasetCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateDatasetCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "InvalidInputException":
+    case "com.amazonaws.personalize#InvalidInputException":
+      throw await de_InvalidInputExceptionRes(parsedOutput, context);
+    case "ResourceInUseException":
+    case "com.amazonaws.personalize#ResourceInUseException":
+      throw await de_ResourceInUseExceptionRes(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.personalize#ResourceNotFoundException":
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
  * deserializeAws_json1_1UpdateMetricAttributionCommand
  */
 export const de_UpdateMetricAttributionCommand = async (
@@ -5008,6 +5076,8 @@ const se_SolutionConfig = (input: SolutionConfig, context: __SerdeContext): any 
 
 // se_UpdateCampaignRequest omitted.
 
+// se_UpdateDatasetRequest omitted.
+
 // se_UpdateMetricAttributionRequest omitted.
 
 // se_UpdateRecommenderRequest omitted.
@@ -5273,6 +5343,7 @@ const de_Dataset = (output: any, context: __SerdeContext): Dataset => {
     datasetGroupArn: __expectString,
     datasetType: __expectString,
     lastUpdatedDateTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    latestDatasetUpdate: (_: any) => de_DatasetUpdateSummary(_, context),
     name: __expectString,
     schemaArn: __expectString,
     status: __expectString,
@@ -5464,6 +5535,19 @@ const de_DatasetSummary = (output: any, context: __SerdeContext): DatasetSummary
     datasetType: __expectString,
     lastUpdatedDateTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
     name: __expectString,
+    status: __expectString,
+  }) as any;
+};
+
+/**
+ * deserializeAws_json1_1DatasetUpdateSummary
+ */
+const de_DatasetUpdateSummary = (output: any, context: __SerdeContext): DatasetUpdateSummary => {
+  return take(output, {
+    creationDateTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    failureReason: __expectString,
+    lastUpdatedDateTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    schemaArn: __expectString,
     status: __expectString,
   }) as any;
 };
@@ -6315,6 +6399,8 @@ const de_SolutionVersionSummary = (output: any, context: __SerdeContext): Soluti
 // de_UntagResourceResponse omitted.
 
 // de_UpdateCampaignResponse omitted.
+
+// de_UpdateDatasetResponse omitted.
 
 // de_UpdateMetricAttributionResponse omitted.
 
