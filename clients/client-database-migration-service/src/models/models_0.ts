@@ -2161,6 +2161,20 @@ export interface OracleSettings {
  * @public
  * @enum
  */
+export const DatabaseMode = {
+  BABELFISH: "babelfish",
+  DEFAULT: "default",
+} as const;
+
+/**
+ * @public
+ */
+export type DatabaseMode = (typeof DatabaseMode)[keyof typeof DatabaseMode];
+
+/**
+ * @public
+ * @enum
+ */
 export const LongVarcharMappingType = {
   CLOB: "clob",
   NCLOB: "nclob",
@@ -2364,6 +2378,18 @@ export interface PostgreSQLSettings {
    * <p>When true, DMS migrates LONG values as VARCHAR.</p>
    */
   MapLongVarcharAs?: LongVarcharMappingType | string;
+
+  /**
+   * <p>Specifies whether to use default or custom replication behavior for
+   *          PostgreSQL-compatible endpoints. You can use this setting to specify replication
+   *          behavior for endpoints that require additional configuration, such as Babelfish endpoints.</p>
+   */
+  DatabaseMode?: DatabaseMode | string;
+
+  /**
+   * <p>The Babelfish for Aurora PostgreSQL database name for the endpoint.</p>
+   */
+  BabelfishDatabaseName?: string;
 }
 
 /**

@@ -254,6 +254,8 @@ export interface DeleteEndpointCommandOutput extends DeleteEndpointResponse, __M
  * //       MapBooleanAsBoolean: true || false,
  * //       MapJsonbAsClob: true || false,
  * //       MapLongVarcharAs: "wstring" || "clob" || "nclob",
+ * //       DatabaseMode: "default" || "babelfish",
+ * //       BabelfishDatabaseName: "STRING_VALUE",
  * //     },
  * //     MySQLSettings: { // MySQLSettings
  * //       AfterConnectScript: "STRING_VALUE",
