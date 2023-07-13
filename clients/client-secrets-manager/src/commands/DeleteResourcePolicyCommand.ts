@@ -109,7 +109,7 @@ export interface DeleteResourcePolicyCommandOutput extends DeleteResourcePolicyR
  * const response = await client.send(command);
  * /* response ==
  * {
- *   "ARN": "arn:aws:secretsmanager:us-west-2:123456789012:secret:MyTestDatabaseMasterSecret-a1b2c3",
+ *   "ARN": "arn:aws:secretsmanager:us-west-2:123456789012:secret:MyTestDatabaseSecret-a1b2c3",
  *   "Name": "MyTestDatabaseSecret"
  * }
  * *\/
