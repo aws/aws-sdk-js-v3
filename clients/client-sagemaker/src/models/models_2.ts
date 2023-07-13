@@ -180,6 +180,16 @@ import {
 /**
  * @public
  */
+export interface DeleteHumanTaskUiRequest {
+  /**
+   * <p>The name of the human task user interface (work task template) you want to delete.</p>
+   */
+  HumanTaskUiName: string | undefined;
+}
+
+/**
+ * @public
+ */
 export interface DeleteHumanTaskUiResponse {}
 
 /**
@@ -10084,33 +10094,6 @@ export interface GetSagemakerServicecatalogPortfolioStatusOutput {
    */
   Status?: SagemakerServicecatalogStatus | string;
 }
-
-/**
- * @public
- * @enum
- */
-export const ResourceType = {
-  ENDPOINT: "Endpoint",
-  EXPERIMENT: "Experiment",
-  EXPERIMENT_TRIAL: "ExperimentTrial",
-  EXPERIMENT_TRIAL_COMPONENT: "ExperimentTrialComponent",
-  FEATURE_GROUP: "FeatureGroup",
-  FEATURE_METADATA: "FeatureMetadata",
-  HYPER_PARAMETER_TUNING_JOB: "HyperParameterTuningJob",
-  MODEL: "Model",
-  MODEL_CARD: "ModelCard",
-  MODEL_PACKAGE: "ModelPackage",
-  MODEL_PACKAGE_GROUP: "ModelPackageGroup",
-  PIPELINE: "Pipeline",
-  PIPELINE_EXECUTION: "PipelineExecution",
-  PROJECT: "Project",
-  TRAINING_JOB: "TrainingJob",
-} as const;
-
-/**
- * @public
- */
-export type ResourceType = (typeof ResourceType)[keyof typeof ResourceType];
 
 /**
  * @internal

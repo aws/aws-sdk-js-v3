@@ -68,7 +68,6 @@ import {
   ResourceSpec,
   RSessionAppSettings,
   RStudioServerProAccessStatus,
-  RStudioServerProUserGroup,
   StoppingCondition,
   Tag,
   TrainingInputMode,
@@ -79,6 +78,20 @@ import {
   TransformResources,
   VpcConfig,
 } from "./models_0";
+
+/**
+ * @public
+ * @enum
+ */
+export const RStudioServerProUserGroup = {
+  Admin: "R_STUDIO_ADMIN",
+  User: "R_STUDIO_USER",
+} as const;
+
+/**
+ * @public
+ */
+export type RStudioServerProUserGroup = (typeof RStudioServerProUserGroup)[keyof typeof RStudioServerProUserGroup];
 
 /**
  * @public
@@ -605,10 +618,9 @@ export interface CreateEdgePackagingJobRequest {
  */
 export interface RollingUpdatePolicy {
   /**
-   * <p>Specifies the type and size of the endpoint capacity to activate for a blue/green deployment, a rolling deployment, or a rollback strategy.
-   *         You can specify your batches as either instance count or the overall percentage or your fleet.</p>
-   *          <p>For a rollback strategy, if you don't specify the fields in this object, or if you set the <code>Value</code> to 100%, then SageMaker
-   *         uses a blue/green rollback strategy and rolls all traffic back to the blue fleet.</p>
+   * <p>Batch size for each rolling step to provision capacity and turn on traffic on the new
+   *             endpoint fleet, and terminate capacity on the old endpoint fleet. Value must be between
+   *             5% to 50% of the variant's total instance count.</p>
    */
   MaximumBatchSize: CapacitySize | undefined;
 
@@ -623,10 +635,10 @@ export interface RollingUpdatePolicy {
   MaximumExecutionTimeoutInSeconds?: number;
 
   /**
-   * <p>Specifies the type and size of the endpoint capacity to activate for a blue/green deployment, a rolling deployment, or a rollback strategy.
-   *         You can specify your batches as either instance count or the overall percentage or your fleet.</p>
-   *          <p>For a rollback strategy, if you don't specify the fields in this object, or if you set the <code>Value</code> to 100%, then SageMaker
-   *         uses a blue/green rollback strategy and rolls all traffic back to the blue fleet.</p>
+   * <p>Batch size for rollback to the old endpoint fleet. Each rolling step to provision
+   *             capacity and turn on traffic on the old endpoint fleet, and terminate capacity on the new
+   *             endpoint fleet. If this field is absent, the default value will be set to 100% of total
+   *             capacity which means to bring up the whole capacity of the old fleet at once during rollback.</p>
    */
   RollbackMaximumBatchSize?: CapacitySize;
 }
@@ -10807,16 +10819,6 @@ export interface DeleteHubContentRequest {
    * <p>The version of the content that you want to delete from a hub.</p>
    */
   HubContentVersion: string | undefined;
-}
-
-/**
- * @public
- */
-export interface DeleteHumanTaskUiRequest {
-  /**
-   * <p>The name of the human task user interface (work task template) you want to delete.</p>
-   */
-  HumanTaskUiName: string | undefined;
 }
 
 /**

@@ -151,7 +151,6 @@ import {
   ProjectStatus,
   RecommendationJobStatus,
   RecommendationMetrics,
-  ResourceType,
   ScheduleStatus,
   SecondaryStatus,
   SecondaryStatusTransition,
@@ -170,6 +169,33 @@ import {
   Workforce,
   Workteam,
 } from "./models_2";
+
+/**
+ * @public
+ * @enum
+ */
+export const ResourceType = {
+  ENDPOINT: "Endpoint",
+  EXPERIMENT: "Experiment",
+  EXPERIMENT_TRIAL: "ExperimentTrial",
+  EXPERIMENT_TRIAL_COMPONENT: "ExperimentTrialComponent",
+  FEATURE_GROUP: "FeatureGroup",
+  FEATURE_METADATA: "FeatureMetadata",
+  HYPER_PARAMETER_TUNING_JOB: "HyperParameterTuningJob",
+  MODEL: "Model",
+  MODEL_CARD: "ModelCard",
+  MODEL_PACKAGE: "ModelPackage",
+  MODEL_PACKAGE_GROUP: "ModelPackageGroup",
+  PIPELINE: "Pipeline",
+  PIPELINE_EXECUTION: "PipelineExecution",
+  PROJECT: "Project",
+  TRAINING_JOB: "TrainingJob",
+} as const;
+
+/**
+ * @public
+ */
+export type ResourceType = (typeof ResourceType)[keyof typeof ResourceType];
 
 /**
  * @public
@@ -10018,33 +10044,6 @@ export interface Trial {
    *       component's properties is included.</p>
    */
   TrialComponentSummaries?: TrialComponentSimpleSummary[];
-}
-
-/**
- * @public
- * <p>Detailed information about the source of a trial component. Either
- *         <code>ProcessingJob</code> or <code>TrainingJob</code> is returned.</p>
- */
-export interface TrialComponentSourceDetail {
-  /**
-   * <p>The Amazon Resource Name (ARN) of the source.</p>
-   */
-  SourceArn?: string;
-
-  /**
-   * <p>Information about a training job that's the source of a trial component.</p>
-   */
-  TrainingJob?: TrainingJob;
-
-  /**
-   * <p>Information about a processing job that's the source of a trial component.</p>
-   */
-  ProcessingJob?: ProcessingJob;
-
-  /**
-   * <p>Information about a transform job that's the source of a trial component.</p>
-   */
-  TransformJob?: TransformJob;
 }
 
 /**

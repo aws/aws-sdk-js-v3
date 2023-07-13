@@ -971,6 +971,7 @@ import {
   TransformResources,
   TransformS3DataSource,
   VpcConfig,
+  WorkspaceSettings,
 } from "../models/models_0";
 import {
   CreateDomainRequest,
@@ -1042,7 +1043,6 @@ import {
   DeleteFlowDefinitionRequest,
   DeleteHubContentRequest,
   DeleteHubRequest,
-  DeleteHumanTaskUiRequest,
   DeploymentConfig,
   DeploymentStage,
   DeviceSelectionConfig,
@@ -1189,6 +1189,7 @@ import {
   WorkforceVpcConfigRequest,
 } from "../models/models_1";
 import {
+  DeleteHumanTaskUiRequest,
   DeleteImageRequest,
   DeleteImageVersionRequest,
   DeleteInferenceExperimentRequest,
@@ -1593,7 +1594,6 @@ import {
   TransformJobSummary,
   Trial,
   TrialComponentSimpleSummary,
-  TrialComponentSourceDetail,
   TrialComponentSummary,
   TrialSummary,
   UserProfileDetails,
@@ -1626,6 +1626,7 @@ import {
   StopTrainingJobRequest,
   StopTransformJobRequest,
   TrialComponent,
+  TrialComponentSourceDetail,
   UpdateActionRequest,
   UpdateAppImageConfigRequest,
   UpdateArtifactRequest,
@@ -22043,6 +22044,8 @@ const se_UpdateTrialComponentRequest = (input: UpdateTrialComponentRequest, cont
 
 // se_WorkforceVpcConfigRequest omitted.
 
+// se_WorkspaceSettings omitted.
+
 // de_ActionSource omitted.
 
 /**
@@ -28284,6 +28287,8 @@ const de_Workforces = (output: any, context: __SerdeContext): Workforce[] => {
 // de_WorkforceSubnets omitted.
 
 // de_WorkforceVpcConfigResponse omitted.
+
+// de_WorkspaceSettings omitted.
 
 /**
  * deserializeAws_json1_1Workteam

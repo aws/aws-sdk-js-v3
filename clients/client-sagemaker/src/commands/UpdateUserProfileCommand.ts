@@ -126,6 +126,10 @@ export interface UpdateUserProfileCommandOutput extends UpdateUserProfileRespons
  *         Status: "ENABLED" || "DISABLED",
  *         CrossAccountModelRegisterRoleArn: "STRING_VALUE",
  *       },
+ *       WorkspaceSettings: { // WorkspaceSettings
+ *         S3ArtifactPath: "STRING_VALUE",
+ *         S3KmsKeyId: "STRING_VALUE",
+ *       },
  *     },
  *   },
  * };

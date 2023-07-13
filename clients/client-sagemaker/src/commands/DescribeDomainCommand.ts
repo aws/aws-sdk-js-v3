@@ -139,6 +139,10 @@ export interface DescribeDomainCommandOutput extends DescribeDomainResponse, __M
  * //         Status: "ENABLED" || "DISABLED",
  * //         CrossAccountModelRegisterRoleArn: "STRING_VALUE",
  * //       },
+ * //       WorkspaceSettings: { // WorkspaceSettings
+ * //         S3ArtifactPath: "STRING_VALUE",
+ * //         S3KmsKeyId: "STRING_VALUE",
+ * //       },
  * //     },
  * //   },
  * //   AppNetworkAccessType: "PublicInternetOnly" || "VpcOnly",

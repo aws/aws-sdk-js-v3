@@ -13,8 +13,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@smithy/types";
 
-import { DeleteHumanTaskUiRequest } from "../models/models_1";
-import { DeleteHumanTaskUiResponse } from "../models/models_2";
+import { DeleteHumanTaskUiRequest, DeleteHumanTaskUiResponse } from "../models/models_2";
 import { de_DeleteHumanTaskUiCommand, se_DeleteHumanTaskUiCommand } from "../protocols/Aws_json1_1";
 import { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
 

@@ -58,7 +58,6 @@ import {
   FeatureMetadata,
   FeatureParameter,
   Filter,
-  ResourceType,
   SelectiveExecutionConfig,
   TrialComponentMetricSummary,
   TrialComponentSource,
@@ -81,14 +80,43 @@ import {
   Parent,
   Pipeline,
   PipelineExecution,
+  ProcessingJob,
   ProfilerConfigForUpdate,
   Project,
   ResourceConfigForUpdate,
+  ResourceType,
   SearchSortOrder,
   TrainingJob,
+  TransformJob,
   Trial,
-  TrialComponentSourceDetail,
 } from "./models_3";
+
+/**
+ * @public
+ * <p>Detailed information about the source of a trial component. Either
+ *         <code>ProcessingJob</code> or <code>TrainingJob</code> is returned.</p>
+ */
+export interface TrialComponentSourceDetail {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the source.</p>
+   */
+  SourceArn?: string;
+
+  /**
+   * <p>Information about a training job that's the source of a trial component.</p>
+   */
+  TrainingJob?: TrainingJob;
+
+  /**
+   * <p>Information about a processing job that's the source of a trial component.</p>
+   */
+  ProcessingJob?: ProcessingJob;
+
+  /**
+   * <p>Information about a transform job that's the source of a trial component.</p>
+   */
+  TransformJob?: TransformJob;
+}
 
 /**
  * @public

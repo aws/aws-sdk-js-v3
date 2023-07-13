@@ -125,6 +125,10 @@ export interface UpdateDomainCommandOutput extends UpdateDomainResponse, __Metad
  *         Status: "ENABLED" || "DISABLED",
  *         CrossAccountModelRegisterRoleArn: "STRING_VALUE",
  *       },
+ *       WorkspaceSettings: { // WorkspaceSettings
+ *         S3ArtifactPath: "STRING_VALUE",
+ *         S3KmsKeyId: "STRING_VALUE",
+ *       },
  *     },
  *   },
  *   DomainSettingsForUpdate: { // DomainSettingsForUpdate
