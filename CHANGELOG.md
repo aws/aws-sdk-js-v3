@@ -3,6 +3,34 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.370.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.369.0...v3.370.0) (2023-07-13)
+
+
+### Bug Fixes
+
+* **codegen:** pkg.json merge behavior ([#4954](https://github.com/aws/aws-sdk-js-v3/issues/4954)) ([4fc0b7f](https://github.com/aws/aws-sdk-js-v3/commit/4fc0b7f3961fe8a88c781c8f34269aef12d5f620))
+* **lib-storage:** add @smithy/abort-controller to dependencies ([#4953](https://github.com/aws/aws-sdk-js-v3/issues/4953)) ([d001e81](https://github.com/aws/aws-sdk-js-v3/commit/d001e81f386ea60dc381539e00d2e322a139f1f6))
+
+
+### Features
+
+* **client-cognito-identity-provider:** API model updated in Amazon Cognito ([a6c3b78](https://github.com/aws/aws-sdk-js-v3/commit/a6c3b781734085f9b36728d73da091bf4064d4a5))
+* **client-connect:** Add support for deleting Queues and Routing Profiles. ([243007b](https://github.com/aws/aws-sdk-js-v3/commit/243007bf6d116a9e29257dd2c9a861d8310cd267))
+* **client-database-migration-service:** Enhanced PostgreSQL target endpoint settings for providing Babelfish support. ([082547a](https://github.com/aws/aws-sdk-js-v3/commit/082547add22c025a41f68a58e83dfc673b5fc982))
+* **client-datasync:** Added LunCount to the response object of DescribeStorageSystemResourcesResponse, LunCount represents the number of LUNs on a storage system resource. ([c2a2e69](https://github.com/aws/aws-sdk-js-v3/commit/c2a2e69f1441ffb3850297dd2bc7216f15b2881c))
+* **client-ec2:** This release adds support for the C7gn and Hpc7g instances. C7gn instances are powered by AWS Graviton3 processors and the fifth-generation AWS Nitro Cards. Hpc7g instances are powered by AWS Graviton 3E processors and provide up to 200 Gbps network bandwidth. ([b3fabe8](https://github.com/aws/aws-sdk-js-v3/commit/b3fabe846589ac537b96629043fd475122431a1f))
+* **client-fsx:** Amazon FSx for NetApp ONTAP now supports SnapLock, an ONTAP feature that enables you to protect your files in a volume by transitioning them to a write once, read many (WORM) state. ([0641ce5](https://github.com/aws/aws-sdk-js-v3/commit/0641ce552c5946360f309dab692cbf8a4ca89869))
+* **client-mediatailor:** Adds categories to MediaTailor channel assembly alerts ([107bce6](https://github.com/aws/aws-sdk-js-v3/commit/107bce67e4e0aa8ba1fda100fcf54e2455ff5d1e))
+* **client-personalize:** This release provides ability to customers to change schema associated with their datasets in Amazon Personalize ([537b4b3](https://github.com/aws/aws-sdk-js-v3/commit/537b4b3e3dfba6c8926d7922a507c1da079bf1f5))
+* **client-proton:** This release adds support for deployment history for Proton provisioned resources ([d1ec971](https://github.com/aws/aws-sdk-js-v3/commit/d1ec9711671ed7fd178da73532ae7ee1d1f395df))
+* **client-s3:** S3 Inventory now supports Object Access Control List and Object Owner as available object metadata fields in inventory reports. ([53ac18c](https://github.com/aws/aws-sdk-js-v3/commit/53ac18c55817906a60bef92d8088a2646e1b919c))
+* **client-sagemaker:** Amazon SageMaker Canvas adds WorkspeceSettings support for CanvasAppSettings ([4fd0ab0](https://github.com/aws/aws-sdk-js-v3/commit/4fd0ab0424bc0ef6f65faea2eca58534787164ab))
+* **clients:** update client endpoints as of 2023-07-13 ([fbde913](https://github.com/aws/aws-sdk-js-v3/commit/fbde91354e68985513f1d1ede36a398c8929ddf8))
+
+
+
+
+
 # [3.369.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.368.0...v3.369.0) (2023-07-11)
 
 
