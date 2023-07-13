@@ -1108,6 +1108,7 @@ export const SignUpRequestFilterSensitiveLog = (obj: SignUpRequest): any => ({
   ...(obj.ValidationData && {
     ValidationData: obj.ValidationData.map((item) => AttributeTypeFilterSensitiveLog(item)),
   }),
+  ...(obj.UserContextData && { UserContextData: SENSITIVE_STRING }),
 });
 
 /**
@@ -1161,6 +1162,7 @@ export const VerifySoftwareTokenRequestFilterSensitiveLog = (obj: VerifySoftware
   ...obj,
   ...(obj.AccessToken && { AccessToken: SENSITIVE_STRING }),
   ...(obj.Session && { Session: SENSITIVE_STRING }),
+  ...(obj.UserCode && { UserCode: SENSITIVE_STRING }),
 });
 
 /**

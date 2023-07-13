@@ -8912,12 +8912,20 @@ export const ConfirmDeviceRequestFilterSensitiveLog = (obj: ConfirmDeviceRequest
 /**
  * @internal
  */
+export const UserContextDataTypeFilterSensitiveLog = (obj: UserContextDataType): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
 export const ConfirmForgotPasswordRequestFilterSensitiveLog = (obj: ConfirmForgotPasswordRequest): any => ({
   ...obj,
   ...(obj.ClientId && { ClientId: SENSITIVE_STRING }),
   ...(obj.SecretHash && { SecretHash: SENSITIVE_STRING }),
   ...(obj.Username && { Username: SENSITIVE_STRING }),
   ...(obj.Password && { Password: SENSITIVE_STRING }),
+  ...(obj.UserContextData && { UserContextData: SENSITIVE_STRING }),
 });
 
 /**
@@ -8928,6 +8936,7 @@ export const ConfirmSignUpRequestFilterSensitiveLog = (obj: ConfirmSignUpRequest
   ...(obj.ClientId && { ClientId: SENSITIVE_STRING }),
   ...(obj.SecretHash && { SecretHash: SENSITIVE_STRING }),
   ...(obj.Username && { Username: SENSITIVE_STRING }),
+  ...(obj.UserContextData && { UserContextData: SENSITIVE_STRING }),
 });
 
 /**
@@ -9026,6 +9035,7 @@ export const ForgotPasswordRequestFilterSensitiveLog = (obj: ForgotPasswordReque
   ...obj,
   ...(obj.ClientId && { ClientId: SENSITIVE_STRING }),
   ...(obj.SecretHash && { SecretHash: SENSITIVE_STRING }),
+  ...(obj.UserContextData && { UserContextData: SENSITIVE_STRING }),
   ...(obj.Username && { Username: SENSITIVE_STRING }),
 });
 
@@ -9113,6 +9123,7 @@ export const InitiateAuthRequestFilterSensitiveLog = (obj: InitiateAuthRequest):
   ...obj,
   ...(obj.AuthParameters && { AuthParameters: SENSITIVE_STRING }),
   ...(obj.ClientId && { ClientId: SENSITIVE_STRING }),
+  ...(obj.UserContextData && { UserContextData: SENSITIVE_STRING }),
 });
 
 /**
@@ -9182,6 +9193,7 @@ export const ResendConfirmationCodeRequestFilterSensitiveLog = (obj: ResendConfi
   ...obj,
   ...(obj.ClientId && { ClientId: SENSITIVE_STRING }),
   ...(obj.SecretHash && { SecretHash: SENSITIVE_STRING }),
+  ...(obj.UserContextData && { UserContextData: SENSITIVE_STRING }),
   ...(obj.Username && { Username: SENSITIVE_STRING }),
 });
 
@@ -9193,6 +9205,7 @@ export const RespondToAuthChallengeRequestFilterSensitiveLog = (obj: RespondToAu
   ...(obj.ClientId && { ClientId: SENSITIVE_STRING }),
   ...(obj.Session && { Session: SENSITIVE_STRING }),
   ...(obj.ChallengeResponses && { ChallengeResponses: SENSITIVE_STRING }),
+  ...(obj.UserContextData && { UserContextData: SENSITIVE_STRING }),
 });
 
 /**
