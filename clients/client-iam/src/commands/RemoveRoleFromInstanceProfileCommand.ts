@@ -46,9 +46,10 @@ export interface RemoveRoleFromInstanceProfileCommandOutput extends __MetadataBe
  *                 profile that is associated with a running instance might break any applications
  *                 running on the instance.</p>
  *          </important>
- *          <p> For more information about IAM roles, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/WorkingWithRoles.html">Working with roles</a>. For more
- *             information about instance profiles, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/AboutInstanceProfiles.html">About instance
- *             profiles</a>.</p>
+ *          <p> For more information about roles, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles.html">IAM roles</a> in the
+ *                 <i>IAM User Guide</i>. For more information about instance profiles,
+ *             see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_use_switch-role-ec2_instance-profiles.html">Using
+ *                 instance profiles</a> in the <i>IAM User Guide</i>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

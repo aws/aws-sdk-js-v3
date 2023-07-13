@@ -69,11 +69,11 @@ export interface CreateOpenIDConnectProviderCommandOutput
  *             Amazon Web Services.</p>
  *          <note>
  *             <p>Amazon Web Services secures communication with some OIDC identity providers (IdPs) through our
- *             library of trusted certificate authorities (CAs) instead of using a certificate
- *             thumbprint to verify your IdP server certificate. These OIDC IdPs include Google, Auth0,
- *             and those that use an Amazon S3 bucket to host a JSON Web Key Set (JWKS) endpoint. In these
- *             cases, your legacy thumbprint remains in your configuration, but is no longer used for
- *             validation.</p>
+ *             library of trusted root certificate authorities (CAs) instead of using a certificate
+ *             thumbprint to verify your IdP server certificate. These OIDC IdPs include Auth0, GitHub,
+ *             Google, and those that use an Amazon S3 bucket to host a JSON Web Key Set (JWKS) endpoint. In
+ *             these cases, your legacy thumbprint remains in your configuration, but is no longer used
+ *             for validation.</p>
  *          </note>
  *          <note>
  *             <p>The trust for the OIDC provider is derived from the IAM provider that this

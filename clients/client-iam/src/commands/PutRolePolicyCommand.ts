@@ -44,10 +44,10 @@ export interface PutRolePolicyCommandOutput extends __MetadataBearer {}
  *                <code>CreateRole</code>
  *             </a>.
  *             You can update a role's trust policy using <a href="https://docs.aws.amazon.com/IAM/latest/APIReference/API_UpdateAssumeRolePolicy.html">
- *                <code>UpdateAssumerolePolicy</code>
- *             </a>. For more information about IAM
- *             roles, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/roles-toplevel.html">Using
- *                 roles to delegate permissions and federate identities</a>.</p>
+ *                <code>UpdateAssumeRolePolicy</code>
+ *             </a>. For more information about roles,
+ *             see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/roles-toplevel.html">IAM
+ *                 roles</a> in the <i>IAM User Guide</i>.</p>
  *          <p>A role can also have a managed policy attached to it. To attach a managed policy to a
  *             role, use <a href="https://docs.aws.amazon.com/IAM/latest/APIReference/API_AttachRolePolicy.html">
  *                <code>AttachRolePolicy</code>

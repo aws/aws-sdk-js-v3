@@ -51,8 +51,8 @@ export interface GetRolePolicyCommandOutput extends GetRolePolicyResponse, __Met
  *             the policy document.</p>
  *          <p>For more information about policies, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/policies-managed-vs-inline.html">Managed policies and inline
  *                 policies</a> in the <i>IAM User Guide</i>.</p>
- *          <p>For more information about roles, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/roles-toplevel.html">Using roles to delegate permissions and
- *                 federate identities</a>.</p>
+ *          <p> For more information about roles, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles.html">IAM roles</a> in the
+ *                 <i>IAM User Guide</i>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

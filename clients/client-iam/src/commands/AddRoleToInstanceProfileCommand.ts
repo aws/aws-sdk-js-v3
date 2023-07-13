@@ -46,9 +46,10 @@ export interface AddRoleToInstanceProfileCommandOutput extends __MetadataBearer 
  *             <p>The caller of this operation must be granted the <code>PassRole</code> permission
  *                 on the IAM role by a permissions policy.</p>
  *          </note>
- *          <p>For more information about roles, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/WorkingWithRoles.html">Working with roles</a>. For more
- *             information about instance profiles, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/AboutInstanceProfiles.html">About instance
- *             profiles</a>.</p>
+ *          <p> For more information about roles, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles.html">IAM roles</a> in the
+ *                 <i>IAM User Guide</i>. For more information about instance profiles,
+ *             see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_use_switch-role-ec2_instance-profiles.html">Using
+ *                 instance profiles</a> in the <i>IAM User Guide</i>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

@@ -3594,8 +3594,9 @@ export interface GetMFADeviceResponse {
   EnableDate?: Date;
 
   /**
-   * <p>The certifications of a specified user's MFA device. We currently provide FIPS-140-2, FIPS-140-3, and FIDO certification levels
-   *             obtained from <a href="https://fidoalliance.org/metadata/"> FIDO Alliance Metadata Service (MDS)</a>.</p>
+   * <p>The certifications of a specified user's MFA device. We currently provide FIPS-140-2,
+   *             FIPS-140-3, and FIDO certification levels obtained from <a href="https://fidoalliance.org/metadata/"> FIDO Alliance Metadata Service
+   *                 (MDS)</a>.</p>
    */
   Certifications?: Record<string, string>;
 }
@@ -7130,7 +7131,7 @@ export interface PutGroupPolicyRequest {
    * <p>The policy document.</p>
    *          <p>You must provide policies in JSON format in IAM. However, for CloudFormation templates
    *             formatted in YAML, you can provide the policy in JSON or YAML format. CloudFormation always
-   *             converts a YAML policy to JSON format before submitting it to = IAM.</p>
+   *             converts a YAML policy to JSON format before submitting it to IAM.</p>
    *          <p>The <a href="http://wikipedia.org/wiki/regex">regex pattern</a>
    *     used to validate this parameter is a string of characters consisting of the following:</p>
    *          <ul>
