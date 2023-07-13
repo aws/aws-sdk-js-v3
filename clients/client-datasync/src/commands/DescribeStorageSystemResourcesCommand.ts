@@ -104,6 +104,7 @@ export interface DescribeStorageSystemResourcesCommandOutput
  * //         NfsExportedVolumes: Number("long"),
  * //         RecommendationStatus: "NONE" || "IN_PROGRESS" || "COMPLETED" || "FAILED",
  * //         TotalSnapshotCapacityUsed: Number("long"),
+ * //         LunCount: Number("long"),
  * //       },
  * //     ],
  * //     NetAppONTAPVolumes: [ // NetAppONTAPVolumes
@@ -142,6 +143,7 @@ export interface DescribeStorageSystemResourcesCommandOutput
  * //           },
  * //         ],
  * //         RecommendationStatus: "NONE" || "IN_PROGRESS" || "COMPLETED" || "FAILED",
+ * //         LunCount: Number("long"),
  * //       },
  * //     ],
  * //     NetAppONTAPClusters: [ // NetAppONTAPClusters
@@ -176,6 +178,7 @@ export interface DescribeStorageSystemResourcesCommandOutput
  * //           },
  * //         ],
  * //         RecommendationStatus: "NONE" || "IN_PROGRESS" || "COMPLETED" || "FAILED",
+ * //         LunCount: Number("long"),
  * //       },
  * //     ],
  * //   },

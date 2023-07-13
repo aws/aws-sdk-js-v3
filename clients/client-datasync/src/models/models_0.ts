@@ -283,56 +283,46 @@ export interface Capacity {
  */
 export interface CreateAgentRequest {
   /**
-   * <p>Your agent activation key. You can get the activation key either by sending an HTTP GET
-   *       request with redirects that enable you to get the agent IP address (port 80). Alternatively,
-   *       you can get it from the DataSync console.</p>
-   *          <p>The redirect URL returned in the response provides you the activation key for your
-   *       agent in the query string parameter <code>activationKey</code>. It might also include other
-   *       activation-related parameters; however, these are merely defaults. The arguments you pass to
-   *       this API call determine the actual configuration of your agent.</p>
-   *          <p>For more information, see Activating an Agent in the <i>DataSync User Guide.</i>
-   *          </p>
+   * <p>Specifies your DataSync agent's activation key. If you don't have an
+   *       activation key, see <a href="https://docs.aws.amazon.com/datasync/latest/userguide/activate-agent.html">Activate your agent</a>.</p>
    */
   ActivationKey: string | undefined;
 
   /**
-   * <p>The name you configured for your agent. This value is a text reference that is used to
-   *       identify the agent in the console.</p>
+   * <p>Specifies a name for your agent. You can see this name in the DataSync
+   *       console.</p>
    */
   AgentName?: string;
 
   /**
-   * <p>The key-value pair that represents the tag that you want to associate with the agent.
-   *       The value can be an empty string. This value helps you manage, filter, and search for your
-   *       agents.</p>
-   *          <note>
-   *             <p>Valid characters for key and value are letters, spaces, and numbers representable in
-   *         UTF-8 format, and the following special characters: + - = . _ : / @. </p>
-   *          </note>
+   * <p>Specifies labels that help you categorize, filter, and search for your Amazon Web Services resources.
+   *       We recommend creating at least one tag for your agent.</p>
    */
   Tags?: TagListEntry[];
 
   /**
-   * <p>The ID of the VPC (virtual private cloud) endpoint that the agent has access to. This is
-   *       the client-side VPC endpoint, also called a PrivateLink. If you don't have a PrivateLink VPC
-   *       endpoint, see <a href="https://docs.aws.amazon.com/vpc/latest/userguide/endpoint-service.html#create-endpoint-service">Creating a VPC
-   *         Endpoint Service Configuration</a> in the Amazon VPC User Guide.</p>
-   *          <p>VPC endpoint ID looks like this: <code>vpce-01234d5aff67890e1</code>.</p>
+   * <p>Specifies the ID of the VPC endpoint that you want your agent to connect to. For example,
+   *       a VPC endpoint ID looks like <code>vpce-01234d5aff67890e1</code>.</p>
+   *          <important>
+   *             <p>The VPC endpoint you use must include the DataSync service name (for example,
+   *           <code>com.amazonaws.us-east-2.datasync</code>).</p>
+   *          </important>
    */
   VpcEndpointId?: string;
 
   /**
-   * <p>The Amazon Resource Names (ARNs) of the subnets in which DataSync will create
-   *       elastic network interfaces for each data transfer task. The agent that runs a task must be
-   *       private. When you start a task that is associated with an agent created in a VPC, or one that
-   *       has access to an IP address in a VPC, then the task is also private. In this case, DataSync creates four network interfaces for each task in your subnet. For a data transfer
-   *       to work, the agent must be able to route to all these four network interfaces.</p>
+   * <p>Specifies the ARN of the subnet where you want to run your DataSync task when
+   *       using a VPC endpoint. This is the subnet where DataSync creates and manages the
+   *         <a href="https://docs.aws.amazon.com/datasync/latest/userguide/datasync-network.html#required-network-interfaces">network
+   *         interfaces</a> for your transfer.</p>
    */
   SubnetArns?: string[];
 
   /**
-   * <p>The ARNs of the security groups used to protect your data transfer task subnets. See
-   *         <a href="https://docs.aws.amazon.com/datasync/latest/userguide/API_Ec2Config.html#DataSync-Type-Ec2Config-SecurityGroupArns">SecurityGroupArns</a>.</p>
+   * <p>Specifies the Amazon Resource Name (ARN) of the security group that protects your task's
+   *         <a href="https://docs.aws.amazon.com/datasync/latest/userguide/datasync-network.html#required-network-interfaces">network
+   *           interfaces</a> when <a href="https://docs.aws.amazon.com/datasync/latest/userguide/choose-service-endpoint.html#choose-service-endpoint-vpc">using a virtual private cloud (VPC)
+   *       endpoint</a>.</p>
    */
   SecurityGroupArns?: string[];
 }
@@ -343,8 +333,8 @@ export interface CreateAgentRequest {
  */
 export interface CreateAgentResponse {
   /**
-   * <p>The Amazon Resource Name (ARN) of the agent. Use the <code>ListAgents</code> operation
-   *       to return a list of agents for your account and Amazon Web Services Region.</p>
+   * <p>The ARN of the agent that you just activated. Use the <a href="https://docs.aws.amazon.com/datasync/latest/userguide/API_ListAgents.html">ListAgents</a> operation to return a
+   *       list of agents in your Amazon Web Services account and Amazon Web Services Region.</p>
    */
   AgentArn?: string;
 }
@@ -859,10 +849,9 @@ export interface CreateLocationFsxWindowsRequest {
   Tags?: TagListEntry[];
 
   /**
-   * <p>Specifies the user who has the permissions to access files and folders in the file
-   *       system.</p>
-   *          <p>For information about choosing a user name that ensures sufficient permissions to files,
-   *       folders, and metadata, see <a href="create-fsx-location.html#FSxWuser">user</a>.</p>
+   * <p>Specifies the user who has the permissions to access files, folders, and metadata in your
+   *       file system.</p>
+   *          <p>For information about choosing a user with sufficient permissions, see <a href="https://docs.aws.amazon.com/datasync/latest/userguide/create-fsx-location.html#create-fsx-windows-location-permissions">Required permissions</a>.</p>
    */
   User: string | undefined;
 
@@ -1252,10 +1241,24 @@ export interface CreateLocationObjectStorageRequest {
   Tags?: TagListEntry[];
 
   /**
-   * <p>Specifies a certificate to authenticate with an object storage system that uses a private
-   *       or self-signed certificate authority (CA). You must specify a Base64-encoded <code>.pem</code>
-   *       file (for example, <code>file:///home/user/.ssh/storage_sys_certificate.pem</code>). The
-   *       certificate can be up to 32768 bytes (before Base64 encoding).</p>
+   * <p>Specifies a file with the certificates that are used to sign the object storage server's
+   *       certificate (for example, <code>file:///home/user/.ssh/storage_sys_certificate.pem</code>).
+   *       The file you specify must include the following:</p>
+   *          <ul>
+   *             <li>
+   *                <p>The certificate of the signing certificate authority (CA)</p>
+   *             </li>
+   *             <li>
+   *                <p>Any intermediate certificates</p>
+   *             </li>
+   *             <li>
+   *                <p>base64 encoding</p>
+   *             </li>
+   *             <li>
+   *                <p>A <code>.pem</code> extension</p>
+   *             </li>
+   *          </ul>
+   *          <p>The file can be up to 32768 bytes (before base64 encoding).</p>
    *          <p>To use this parameter, configure <code>ServerProtocol</code> to <code>HTTPS</code>.</p>
    */
   ServerCertificate?: Uint8Array;
@@ -1847,11 +1850,9 @@ export interface Options {
   BytesPerSecond?: number;
 
   /**
-   * <p>Specifies whether tasks should be queued before executing the tasks. The default is
-   *         <code>ENABLED</code>, which means the tasks will be queued.</p>
-   *          <p>If you use the same agent to run multiple tasks, you can enable the tasks to run in
-   *       series. For more information, see <a href="https://docs.aws.amazon.com/datasync/latest/userguide/run-task.html#queue-task-execution">Queueing task
-   *         executions</a>.</p>
+   * <p>Specifies whether your transfer tasks should be put into a queue during certain scenarios
+   *       when <a href="https://docs.aws.amazon.com/datasync/latest/userguide/run-task.html#running-multiple-tasks">running multiple
+   *         tasks</a>. This is <code>ENABLED</code> by default.</p>
    */
   TaskQueueing?: TaskQueueing | string;
 
@@ -3308,6 +3309,11 @@ export interface NetAppONTAPCluster {
    *          <p>For more information, see <a href="https://docs.aws.amazon.com/datasync/latest/userguide/discovery-job-statuses.html#recommendation-statuses-table">Recommendation statuses</a>.</p>
    */
   RecommendationStatus?: RecommendationStatus | string;
+
+  /**
+   * <p>The number of LUNs (logical unit numbers) in the cluster.</p>
+   */
+  LunCount?: number;
 }
 
 /**
@@ -3385,6 +3391,11 @@ export interface NetAppONTAPSVM {
    * <p>The amount of storage in the SVM that's being used for snapshots.</p>
    */
   TotalSnapshotCapacityUsed?: number;
+
+  /**
+   * <p>The number of LUNs (logical unit numbers) in the SVM.</p>
+   */
+  LunCount?: number;
 }
 
 /**
@@ -3467,6 +3478,11 @@ export interface NetAppONTAPVolume {
    *          <p>For more information, see <a href="https://docs.aws.amazon.com/datasync/latest/userguide/discovery-job-statuses.html#recommendation-statuses-table">Recommendation statuses</a>.</p>
    */
   RecommendationStatus?: RecommendationStatus | string;
+
+  /**
+   * <p>The number of LUNs (logical unit numbers) in the volume.</p>
+   */
+  LunCount?: number;
 }
 
 /**
