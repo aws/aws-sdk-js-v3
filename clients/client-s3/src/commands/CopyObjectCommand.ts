@@ -75,7 +75,9 @@ export interface CopyObjectCommandOutput extends CopyObjectOutput, __MetadataBea
  *             body.</p>
  *          </note>
  *          <p>The copy request charge is based on the storage class and Region that you specify for
- *          the destination object. For pricing information, see <a href="http://aws.amazon.com/s3/pricing/">Amazon S3 pricing</a>.</p>
+ *          the destination object. The request can also result in a data retrieval charge for the
+ *          source if the source storage class bills for data retrieval. For pricing information, see
+ *             <a href="http://aws.amazon.com/s3/pricing/">Amazon S3 pricing</a>.</p>
  *          <important>
  *             <p>Amazon S3 transfer acceleration does not support cross-Region copies. If you request a
  *             cross-Region copy using a transfer acceleration endpoint, you get a 400 <code>Bad

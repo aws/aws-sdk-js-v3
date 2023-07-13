@@ -108,7 +108,7 @@ export interface GetBucketInventoryConfigurationCommandOutput
  * //     Id: "STRING_VALUE", // required
  * //     IncludedObjectVersions: "All" || "Current", // required
  * //     OptionalFields: [ // InventoryOptionalFields
- * //       "Size" || "LastModifiedDate" || "StorageClass" || "ETag" || "IsMultipartUploaded" || "ReplicationStatus" || "EncryptionStatus" || "ObjectLockRetainUntilDate" || "ObjectLockMode" || "ObjectLockLegalHoldStatus" || "IntelligentTieringAccessTier" || "BucketKeyStatus" || "ChecksumAlgorithm",
+ * //       "Size" || "LastModifiedDate" || "StorageClass" || "ETag" || "IsMultipartUploaded" || "ReplicationStatus" || "EncryptionStatus" || "ObjectLockRetainUntilDate" || "ObjectLockMode" || "ObjectLockLegalHoldStatus" || "IntelligentTieringAccessTier" || "BucketKeyStatus" || "ChecksumAlgorithm" || "ObjectAccessControlList" || "ObjectOwner",
  * //     ],
  * //     Schedule: { // InventorySchedule
  * //       Frequency: "Daily" || "Weekly", // required

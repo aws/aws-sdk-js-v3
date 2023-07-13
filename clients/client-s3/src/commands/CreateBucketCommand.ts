@@ -132,7 +132,7 @@ export interface CreateBucketCommandOutput extends CreateBucketOutput, __Metadat
  *   ACL: "private" || "public-read" || "public-read-write" || "authenticated-read",
  *   Bucket: "STRING_VALUE", // required
  *   CreateBucketConfiguration: { // CreateBucketConfiguration
- *     LocationConstraint: "af-south-1" || "ap-east-1" || "ap-northeast-1" || "ap-northeast-2" || "ap-northeast-3" || "ap-south-1" || "ap-southeast-1" || "ap-southeast-2" || "ap-southeast-3" || "ca-central-1" || "cn-north-1" || "cn-northwest-1" || "EU" || "eu-central-1" || "eu-north-1" || "eu-south-1" || "eu-west-1" || "eu-west-2" || "eu-west-3" || "me-south-1" || "sa-east-1" || "us-east-2" || "us-gov-east-1" || "us-gov-west-1" || "us-west-1" || "us-west-2",
+ *     LocationConstraint: "af-south-1" || "ap-east-1" || "ap-northeast-1" || "ap-northeast-2" || "ap-northeast-3" || "ap-south-1" || "ap-southeast-1" || "ap-southeast-2" || "ap-southeast-3" || "ca-central-1" || "cn-north-1" || "cn-northwest-1" || "EU" || "eu-central-1" || "eu-north-1" || "eu-south-1" || "eu-west-1" || "eu-west-2" || "eu-west-3" || "me-south-1" || "sa-east-1" || "us-east-2" || "us-gov-east-1" || "us-gov-west-1" || "us-west-1" || "us-west-2" || "ap-south-2" || "eu-south-2",
  *   },
  *   GrantFullControl: "STRING_VALUE",
  *   GrantRead: "STRING_VALUE",
@@ -169,22 +169,6 @@ export interface CreateBucketCommandOutput extends CreateBucketOutput, __Metadat
  * @throws {@link S3ServiceException}
  * <p>Base exception class for all service exceptions from S3 service.</p>
  *
- * @example To create a bucket
- * ```javascript
- * // The following example creates a bucket.
- * const input = {
- *   "Bucket": "examplebucket"
- * };
- * const command = new CreateBucketCommand(input);
- * const response = await client.send(command);
- * /* response ==
- * {
- *   "Location": "/examplebucket"
- * }
- * *\/
- * // example id: to-create-a-bucket--1472851826060
- * ```
- *
  * @example To create a bucket in a specific region
  * ```javascript
  * // The following example creates a bucket. The request specifies an AWS region where to create the bucket.
@@ -202,6 +186,22 @@ export interface CreateBucketCommandOutput extends CreateBucketOutput, __Metadat
  * }
  * *\/
  * // example id: to-create-a-bucket-in-a-specific-region-1483399072992
+ * ```
+ *
+ * @example To create a bucket
+ * ```javascript
+ * // The following example creates a bucket.
+ * const input = {
+ *   "Bucket": "examplebucket"
+ * };
+ * const command = new CreateBucketCommand(input);
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "Location": "/examplebucket"
+ * }
+ * *\/
+ * // example id: to-create-a-bucket--1472851826060
  * ```
  *
  */
