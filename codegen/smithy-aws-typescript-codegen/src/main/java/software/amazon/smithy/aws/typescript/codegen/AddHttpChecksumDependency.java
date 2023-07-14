@@ -136,14 +136,14 @@ public class AddHttpChecksumDependency implements TypeScriptIntegration {
             case BROWSER:
                 return MapUtils.of(
                     "streamHasher", writer -> {
-                        writer.addDependency(AwsDependency.STREAM_HASHER_BROWSER);
+                        writer.addDependency(TypeScriptDependency.STREAM_HASHER_BROWSER);
                         writer.addImport("blobHasher", "streamHasher",
-                                AwsDependency.STREAM_HASHER_BROWSER.packageName);
+                                TypeScriptDependency.STREAM_HASHER_BROWSER);
                         writer.write("streamHasher");
                     },
                     "md5", writer -> {
-                        writer.addDependency(AwsDependency.MD5_BROWSER);
-                        writer.addImport("Md5", "Md5", AwsDependency.MD5_BROWSER.packageName);
+                        writer.addDependency(TypeScriptDependency.MD5_BROWSER);
+                        writer.addImport("Md5", "Md5", TypeScriptDependency.MD5_BROWSER);
                         writer.write("Md5");
                     },
                     "sha1", writer -> {
