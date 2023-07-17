@@ -59,14 +59,14 @@ export interface GetTemporaryGluePartitionCredentialsCommandOutput
  *     ],
  *   },
  *   Permissions: [ // PermissionList
- *     "ALL" || "SELECT" || "ALTER" || "DROP" || "DELETE" || "INSERT" || "DESCRIBE" || "CREATE_DATABASE" || "CREATE_TABLE" || "DATA_LOCATION_ACCESS" || "CREATE_TAG" || "ASSOCIATE",
+ *     "ALL" || "SELECT" || "ALTER" || "DROP" || "DELETE" || "INSERT" || "DESCRIBE" || "CREATE_DATABASE" || "CREATE_TABLE" || "DATA_LOCATION_ACCESS" || "CREATE_LF_TAG" || "ASSOCIATE" || "GRANT_WITH_LF_TAG_EXPRESSION",
  *   ],
  *   DurationSeconds: Number("int"),
  *   AuditContext: { // AuditContext
  *     AdditionalAuditContext: "STRING_VALUE",
  *   },
- *   SupportedPermissionTypes: [ // PermissionTypeList // required
- *     "COLUMN_PERMISSION" || "CELL_FILTER_PERMISSION",
+ *   SupportedPermissionTypes: [ // PermissionTypeList
+ *     "COLUMN_PERMISSION" || "CELL_FILTER_PERMISSION" || "NESTED_PERMISSION" || "NESTED_CELL_PERMISSION",
  *   ],
  * };
  * const command = new GetTemporaryGluePartitionCredentialsCommand(input);

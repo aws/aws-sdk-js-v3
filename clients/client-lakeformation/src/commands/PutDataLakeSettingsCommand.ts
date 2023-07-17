@@ -52,13 +52,18 @@ export interface PutDataLakeSettingsCommandOutput extends PutDataLakeSettingsRes
  *         DataLakePrincipalIdentifier: "STRING_VALUE",
  *       },
  *     ],
+ *     ReadOnlyAdmins: [
+ *       {
+ *         DataLakePrincipalIdentifier: "STRING_VALUE",
+ *       },
+ *     ],
  *     CreateDatabaseDefaultPermissions: [ // PrincipalPermissionsList
  *       { // PrincipalPermissions
  *         Principal: {
  *           DataLakePrincipalIdentifier: "STRING_VALUE",
  *         },
  *         Permissions: [ // PermissionList
- *           "ALL" || "SELECT" || "ALTER" || "DROP" || "DELETE" || "INSERT" || "DESCRIBE" || "CREATE_DATABASE" || "CREATE_TABLE" || "DATA_LOCATION_ACCESS" || "CREATE_TAG" || "ASSOCIATE",
+ *           "ALL" || "SELECT" || "ALTER" || "DROP" || "DELETE" || "INSERT" || "DESCRIBE" || "CREATE_DATABASE" || "CREATE_TABLE" || "DATA_LOCATION_ACCESS" || "CREATE_LF_TAG" || "ASSOCIATE" || "GRANT_WITH_LF_TAG_EXPRESSION",
  *         ],
  *       },
  *     ],
@@ -68,7 +73,7 @@ export interface PutDataLakeSettingsCommandOutput extends PutDataLakeSettingsRes
  *           DataLakePrincipalIdentifier: "STRING_VALUE",
  *         },
  *         Permissions: [
- *           "ALL" || "SELECT" || "ALTER" || "DROP" || "DELETE" || "INSERT" || "DESCRIBE" || "CREATE_DATABASE" || "CREATE_TABLE" || "DATA_LOCATION_ACCESS" || "CREATE_TAG" || "ASSOCIATE",
+ *           "ALL" || "SELECT" || "ALTER" || "DROP" || "DELETE" || "INSERT" || "DESCRIBE" || "CREATE_DATABASE" || "CREATE_TABLE" || "DATA_LOCATION_ACCESS" || "CREATE_LF_TAG" || "ASSOCIATE" || "GRANT_WITH_LF_TAG_EXPRESSION",
  *         ],
  *       },
  *     ],
@@ -79,6 +84,7 @@ export interface PutDataLakeSettingsCommandOutput extends PutDataLakeSettingsRes
  *       "STRING_VALUE",
  *     ],
  *     AllowExternalDataFiltering: true || false,
+ *     AllowFullTableExternalDataAccess: true || false,
  *     ExternalDataFilteringAllowList: [
  *       {
  *         DataLakePrincipalIdentifier: "STRING_VALUE",

@@ -623,12 +623,13 @@ export const Permission = {
   ALTER: "ALTER",
   ASSOCIATE: "ASSOCIATE",
   CREATE_DATABASE: "CREATE_DATABASE",
+  CREATE_LF_TAG: "CREATE_LF_TAG",
   CREATE_TABLE: "CREATE_TABLE",
-  CREATE_TAG: "CREATE_TAG",
   DATA_LOCATION_ACCESS: "DATA_LOCATION_ACCESS",
   DELETE: "DELETE",
   DESCRIBE: "DESCRIBE",
   DROP: "DROP",
+  GRANT_WITH_LF_TAG_EXPRESSION: "GRANT_WITH_LF_TAG_EXPRESSION",
   INSERT: "INSERT",
   SELECT: "SELECT",
 } as const;
@@ -920,7 +921,7 @@ export interface DataCellsFilter {
   RowFilter?: RowFilter;
 
   /**
-   * <p>A list of column names.</p>
+   * <p>A list of column names and/or nested column attributes. When specifying nested attributes, use a qualified dot (.) delimited format such as "address"."zip". Nested attributes within this list may not exceed a depth of 5.</p>
    */
   ColumnNames?: string[];
 
@@ -1323,6 +1324,11 @@ export interface DataLakeSettings {
   DataLakeAdmins?: DataLakePrincipal[];
 
   /**
+   * <p>A list of Lake Formation principals with only view access to the resources, without the ability to make changes. Supported principals are IAM users or IAM roles.</p>
+   */
+  ReadOnlyAdmins?: DataLakePrincipal[];
+
+  /**
    * <p>Specifies whether access control on newly created database is managed by Lake Formation permissions or exclusively by IAM permissions.</p>
    *          <p>A null value indicates access control by Lake Formation permissions. A value that assigns ALL to IAM_ALLOWED_PRINCIPALS indicates access control by IAM permissions. This is referred to as the setting "Use only IAM access control," and is for backward compatibility with the Glue permission model implemented by IAM permissions.</p>
    *          <p>The only permitted values are an empty array or an array that contains a single JSON object that grants ALL to IAM_ALLOWED_PRINCIPALS.</p>
@@ -1353,9 +1359,14 @@ export interface DataLakeSettings {
    * <p>Whether to allow Amazon EMR clusters to access data managed by Lake Formation. </p>
    *          <p>If true, you allow Amazon EMR clusters to access data in Amazon S3 locations that are registered with Lake Formation.</p>
    *          <p>If false or null, no Amazon EMR clusters will be able to access data in Amazon S3 locations that are registered with Lake Formation.</p>
-   *          <p>For more information, see <a href="https://docs-aws.amazon.com/lake-formation/latest/dg/getting-started-setup.html#emr-switch">(Optional) Allow Data Filtering on Amazon EMR</a>.</p>
+   *          <p>For more information, see <a href="https://docs.aws.amazon.com/lake-formation/latest/dg/initial-LF-setup.html#external-data-filter">(Optional) Allow external data filtering</a>.</p>
    */
   AllowExternalDataFiltering?: boolean;
+
+  /**
+   * <p>Whether to allow a third-party query engine to get data access credentials without session tags when a caller has full data access permissions.</p>
+   */
+  AllowFullTableExternalDataAccess?: boolean;
 
   /**
    * <p>A list of the account IDs of Amazon Web Services accounts with Amazon EMR clusters that are to perform data filtering.></p>
@@ -1915,6 +1926,8 @@ export interface PartitionValueList {
 export const PermissionType = {
   CELL_FILTER_PERMISSION: "CELL_FILTER_PERMISSION",
   COLUMN_PERMISSION: "COLUMN_PERMISSION",
+  NESTED_CELL_PERMISSION: "NESTED_CELL_PERMISSION",
+  NESTED_PERMISSION: "NESTED_PERMISSION",
 } as const;
 
 /**
@@ -1954,7 +1967,7 @@ export interface GetTemporaryGluePartitionCredentialsRequest {
   /**
    * <p>A list of supported permission types for the partition. Valid values are <code>COLUMN_PERMISSION</code> and <code>CELL_FILTER_PERMISSION</code>.</p>
    */
-  SupportedPermissionTypes: (PermissionType | string)[] | undefined;
+  SupportedPermissionTypes?: (PermissionType | string)[];
 }
 
 /**
@@ -2034,7 +2047,7 @@ export interface GetTemporaryGlueTableCredentialsRequest {
   /**
    * <p>A list of supported permission types for the table. Valid values are <code>COLUMN_PERMISSION</code> and <code>CELL_FILTER_PERMISSION</code>.</p>
    */
-  SupportedPermissionTypes: (PermissionType | string)[] | undefined;
+  SupportedPermissionTypes?: (PermissionType | string)[];
 }
 
 /**
