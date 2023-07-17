@@ -63,7 +63,7 @@ export interface GetUnfilteredPartitionsMetadataCommandOutput
  *     AllColumnsRequested: true || false,
  *   },
  *   SupportedPermissionTypes: [ // PermissionTypeList // required
- *     "COLUMN_PERMISSION" || "CELL_FILTER_PERMISSION",
+ *     "COLUMN_PERMISSION" || "CELL_FILTER_PERMISSION" || "NESTED_PERMISSION" || "NESTED_CELL_PERMISSION",
  *   ],
  *   NextToken: "STRING_VALUE",
  *   Segment: { // Segment

@@ -58,7 +58,7 @@ export interface GetUnfilteredTableMetadataCommandOutput extends GetUnfilteredTa
  *     AllColumnsRequested: true || false,
  *   },
  *   SupportedPermissionTypes: [ // PermissionTypeList // required
- *     "COLUMN_PERMISSION" || "CELL_FILTER_PERMISSION",
+ *     "COLUMN_PERMISSION" || "CELL_FILTER_PERMISSION" || "NESTED_PERMISSION" || "NESTED_CELL_PERMISSION",
  *   ],
  * };
  * const command = new GetUnfilteredTableMetadataCommand(input);
