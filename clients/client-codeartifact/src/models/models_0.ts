@@ -3628,6 +3628,7 @@ export interface PublishPackageVersionRequest {
 
   /**
    * <p>A format that specifies the type of the package version with the requested asset file.</p>
+   *          <p>The only supported value is <code>generic</code>.</p>
    */
   format: PackageFormat | string | undefined;
 
