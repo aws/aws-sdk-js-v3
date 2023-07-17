@@ -380,6 +380,56 @@ export interface BatchStartViewerSessionRevocationResponse {
  * @public
  * <p/>
  */
+export class PendingVerification extends __BaseException {
+  readonly name: "PendingVerification" = "PendingVerification";
+  readonly $fault: "client" = "client";
+  /**
+   * <p> Your account is pending verification. </p>
+   */
+  exceptionMessage?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<PendingVerification, __BaseException>) {
+    super({
+      name: "PendingVerification",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, PendingVerification.prototype);
+    this.exceptionMessage = opts.exceptionMessage;
+  }
+}
+
+/**
+ * @public
+ * <p/>
+ */
+export class ThrottlingException extends __BaseException {
+  readonly name: "ThrottlingException" = "ThrottlingException";
+  readonly $fault: "client" = "client";
+  /**
+   * <p>Request was denied due to request throttling.</p>
+   */
+  exceptionMessage?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<ThrottlingException, __BaseException>) {
+    super({
+      name: "ThrottlingException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ThrottlingException.prototype);
+    this.exceptionMessage = opts.exceptionMessage;
+  }
+}
+
+/**
+ * @public
+ * <p/>
+ */
 export class ValidationException extends __BaseException {
   readonly name: "ValidationException" = "ValidationException";
   readonly $fault: "client" = "client";
@@ -535,31 +585,6 @@ export interface CreateChannelResponse {
  * @public
  * <p/>
  */
-export class PendingVerification extends __BaseException {
-  readonly name: "PendingVerification" = "PendingVerification";
-  readonly $fault: "client" = "client";
-  /**
-   * <p> Your account is pending verification. </p>
-   */
-  exceptionMessage?: string;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<PendingVerification, __BaseException>) {
-    super({
-      name: "PendingVerification",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, PendingVerification.prototype);
-    this.exceptionMessage = opts.exceptionMessage;
-  }
-}
-
-/**
- * @public
- * <p/>
- */
 export class ResourceNotFoundException extends __BaseException {
   readonly name: "ResourceNotFoundException" = "ResourceNotFoundException";
   readonly $fault: "client" = "client";
@@ -659,6 +684,62 @@ export interface DestinationConfiguration {
  * @public
  * @enum
  */
+export const RenditionConfigurationRendition = {
+  FULL_HD: "FULL_HD",
+  HD: "HD",
+  LOWEST_RESOLUTION: "LOWEST_RESOLUTION",
+  SD: "SD",
+} as const;
+
+/**
+ * @public
+ */
+export type RenditionConfigurationRendition =
+  (typeof RenditionConfigurationRendition)[keyof typeof RenditionConfigurationRendition];
+
+/**
+ * @public
+ * @enum
+ */
+export const RenditionConfigurationRenditionSelection = {
+  ALL: "ALL",
+  CUSTOM: "CUSTOM",
+  NONE: "NONE",
+} as const;
+
+/**
+ * @public
+ */
+export type RenditionConfigurationRenditionSelection =
+  (typeof RenditionConfigurationRenditionSelection)[keyof typeof RenditionConfigurationRenditionSelection];
+
+/**
+ * @public
+ * <p>Object that describes which renditions should be recorded for a stream.</p>
+ */
+export interface RenditionConfiguration {
+  /**
+   * <p>Indicates which set of renditions are recorded for a stream. For <code>BASIC</code>
+   *       channels, the <code>CUSTOM</code> value has no effect. If <code>CUSTOM</code> is specified, a
+   *       set of renditions must be specified in the <code>renditions</code> field. Default:
+   *         <code>ALL</code>.</p>
+   */
+  renditionSelection?: RenditionConfigurationRenditionSelection | string;
+
+  /**
+   * <p>Indicates which renditions are recorded for a stream, if <code>renditionSelection</code>
+   *       is <code>CUSTOM</code>; otherwise, this field is irrelevant. The selected renditions are
+   *       recorded if they are available during the stream. If a selected rendition is unavailable, the
+   *       best available rendition is recorded. For details on the resolution dimensions of each
+   *       rendition, see <a href="https://docs.aws.amazon.com/ivs/latest/userguide/record-to-s3.html">Auto-Record to Amazon S3</a>.</p>
+   */
+  renditions?: (RenditionConfigurationRendition | string)[];
+}
+
+/**
+ * @public
+ * @enum
+ */
 export const RecordingMode = {
   Disabled: "DISABLED",
   Interval: "INTERVAL",
@@ -668,6 +749,38 @@ export const RecordingMode = {
  * @public
  */
 export type RecordingMode = (typeof RecordingMode)[keyof typeof RecordingMode];
+
+/**
+ * @public
+ * @enum
+ */
+export const ThumbnailConfigurationResolution = {
+  FULL_HD: "FULL_HD",
+  HD: "HD",
+  LOWEST_RESOLUTION: "LOWEST_RESOLUTION",
+  SD: "SD",
+} as const;
+
+/**
+ * @public
+ */
+export type ThumbnailConfigurationResolution =
+  (typeof ThumbnailConfigurationResolution)[keyof typeof ThumbnailConfigurationResolution];
+
+/**
+ * @public
+ * @enum
+ */
+export const ThumbnailConfigurationStorage = {
+  LATEST: "LATEST",
+  SEQUENTIAL: "SEQUENTIAL",
+} as const;
+
+/**
+ * @public
+ */
+export type ThumbnailConfigurationStorage =
+  (typeof ThumbnailConfigurationStorage)[keyof typeof ThumbnailConfigurationStorage];
 
 /**
  * @public
@@ -683,15 +796,33 @@ export interface ThumbnailConfiguration {
    * <p>The targeted thumbnail-generation interval in seconds. This is configurable (and required)
    *       only if <code>recordingMode</code> is <code>INTERVAL</code>. Default: 60.</p>
    *          <p>
-   *             <b>Important:</b> Setting a value for
-   *         <code>targetIntervalSeconds</code> does not guarantee that thumbnails are generated at the
-   *       specified interval. For thumbnails to be generated at the <code>targetIntervalSeconds</code>
-   *       interval, the <code>IDR/Keyframe</code> value for the input video must be less than the
-   *         <code>targetIntervalSeconds</code> value. See <a href="https://docs.aws.amazon.com/ivs/latest/userguide/streaming-config.html"> Amazon IVS Streaming Configuration</a>
-   *       for information on setting <code>IDR/Keyframe</code> to the recommended value in video-encoder
-   *       settings.</p>
+   *             <b>Important:</b> For the <code>BASIC</code> channel type,
+   *       setting a value for <code>targetIntervalSeconds</code> does not guarantee that thumbnails are
+   *       generated at the specified interval. For thumbnails to be generated at the
+   *         <code>targetIntervalSeconds</code> interval, the <code>IDR/Keyframe</code> value for the
+   *       input video must be less than the <code>targetIntervalSeconds</code> value. See <a href="https://docs.aws.amazon.com/ivs/latest/userguide/streaming-config.html"> Amazon IVS Streaming
+   *         Configuration</a> for information on setting <code>IDR/Keyframe</code> to the
+   *       recommended value in video-encoder settings.</p>
    */
   targetIntervalSeconds?: number;
+
+  /**
+   * <p>Indicates the desired resolution of recorded thumbnails. Thumbnails are recorded at the
+   *       selected resolution if the corresponding rendition is available during the stream; otherwise,
+   *       they are recorded at source resolution. For more information about resolution values and their
+   *       corresponding height and width dimensions, see <a href="https://docs.aws.amazon.com/ivs/latest/userguide/record-to-s3.html">Auto-Record to Amazon S3</a>. Default:
+   *       Null (source resolution is returned).</p>
+   */
+  resolution?: ThumbnailConfigurationResolution | string;
+
+  /**
+   * <p>Indicates the format in which thumbnails are recorded. <code>SEQUENTIAL</code> records all
+   *       generated thumbnails in a serial manner, to the media/thumbnails directory.
+   *         <code>LATEST</code> saves the latest thumbnail in media/latest_thumbnail/thumb.jpg and
+   *       overwrites it at the interval specified by <code>targetIntervalSeconds</code>. You can enable
+   *       both <code>SEQUENTIAL</code> and <code>LATEST</code>. Default: <code>SEQUENTIAL</code>.</p>
+   */
+  storage?: (ThumbnailConfigurationStorage | string)[];
 }
 
 /**
@@ -728,6 +859,11 @@ export interface CreateRecordingConfigurationRequest {
    *       streams will be considered a single broadcast and merged together. Default: 0.</p>
    */
   recordingReconnectWindowSeconds?: number;
+
+  /**
+   * <p>Object that describes which renditions should be recorded for a stream.</p>
+   */
+  renditionConfiguration?: RenditionConfiguration;
 }
 
 /**
@@ -791,6 +927,11 @@ export interface RecordingConfiguration {
    *       streams will be considered a single broadcast and merged together. Default: 0.</p>
    */
   recordingReconnectWindowSeconds?: number;
+
+  /**
+   * <p>Object that describes which renditions should be recorded for a stream.</p>
+   */
+  renditionConfiguration?: RenditionConfiguration;
 }
 
 /**
@@ -1896,31 +2037,6 @@ export interface PutMetadataRequest {
    * <p>Metadata to insert into the stream. Maximum: 1 KB per request.</p>
    */
   metadata: string | undefined;
-}
-
-/**
- * @public
- * <p/>
- */
-export class ThrottlingException extends __BaseException {
-  readonly name: "ThrottlingException" = "ThrottlingException";
-  readonly $fault: "client" = "client";
-  /**
-   * <p>Request was denied due to request throttling.</p>
-   */
-  exceptionMessage?: string;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ThrottlingException, __BaseException>) {
-    super({
-      name: "ThrottlingException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ThrottlingException.prototype);
-    this.exceptionMessage = opts.exceptionMessage;
-  }
 }
 
 /**

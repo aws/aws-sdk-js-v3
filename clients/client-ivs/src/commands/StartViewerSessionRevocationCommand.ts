@@ -75,6 +75,12 @@ export interface StartViewerSessionRevocationCommandOutput
  * @throws {@link InternalServerException} (server fault)
  *  <p/>
  *
+ * @throws {@link PendingVerification} (client fault)
+ *  <p/>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p/>
+ *
  * @throws {@link ThrottlingException} (client fault)
  *  <p/>
  *

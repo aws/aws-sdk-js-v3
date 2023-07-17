@@ -92,6 +92,8 @@ import {
   DestinationConfiguration,
   InternalServerException,
   PendingVerification,
+  RenditionConfiguration,
+  RenditionConfigurationRendition,
   ResourceNotFoundException,
   S3DestinationConfiguration,
   ServiceQuotaExceededException,
@@ -103,6 +105,7 @@ import {
   StreamUnavailable,
   ThrottlingException,
   ThumbnailConfiguration,
+  ThumbnailConfigurationStorage,
   ValidationException,
 } from "../models/models_0";
 
@@ -249,6 +252,7 @@ export const se_CreateRecordingConfigurationCommand = async (
       destinationConfiguration: (_) => _json(_),
       name: [],
       recordingReconnectWindowSeconds: [],
+      renditionConfiguration: (_) => _json(_),
       tags: (_) => _json(_),
       thumbnailConfiguration: (_) => _json(_),
     })
@@ -1132,6 +1136,15 @@ const de_BatchStartViewerSessionRevocationCommandError = async (
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.ivs#AccessDeniedException":
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
+    case "PendingVerification":
+    case "com.amazonaws.ivs#PendingVerification":
+      throw await de_PendingVerificationRes(parsedOutput, context);
+    case "ThrottlingException":
+    case "com.amazonaws.ivs#ThrottlingException":
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.ivs#ValidationException":
       throw await de_ValidationExceptionRes(parsedOutput, context);
@@ -2385,6 +2398,12 @@ const de_StartViewerSessionRevocationCommandError = async (
     case "InternalServerException":
     case "com.amazonaws.ivs#InternalServerException":
       throw await de_InternalServerExceptionRes(parsedOutput, context);
+    case "PendingVerification":
+    case "com.amazonaws.ivs#PendingVerification":
+      throw await de_PendingVerificationRes(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.ivs#ResourceNotFoundException":
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "ThrottlingException":
     case "com.amazonaws.ivs#ThrottlingException":
       throw await de_ThrottlingExceptionRes(parsedOutput, context);
@@ -2807,6 +2826,10 @@ const de_ValidationExceptionRes = async (parsedOutput: any, context: __SerdeCont
 
 // se_DestinationConfiguration omitted.
 
+// se_RenditionConfiguration omitted.
+
+// se_RenditionConfigurationRenditionList omitted.
+
 // se_S3DestinationConfiguration omitted.
 
 // se_StreamFilters omitted.
@@ -2816,6 +2839,8 @@ const de_ValidationExceptionRes = async (parsedOutput: any, context: __SerdeCont
 // se_Tags omitted.
 
 // se_ThumbnailConfiguration omitted.
+
+// se_ThumbnailConfigurationStorageList omitted.
 
 // de_AudioConfiguration omitted.
 
@@ -2850,6 +2875,10 @@ const de_ValidationExceptionRes = async (parsedOutput: any, context: __SerdeCont
 // de_RecordingConfigurationList omitted.
 
 // de_RecordingConfigurationSummary omitted.
+
+// de_RenditionConfiguration omitted.
+
+// de_RenditionConfigurationRenditionList omitted.
 
 // de_S3DestinationConfiguration omitted.
 
@@ -2967,6 +2996,8 @@ const de_StreamSummary = (output: any, context: __SerdeContext): StreamSummary =
 // de_Tags omitted.
 
 // de_ThumbnailConfiguration omitted.
+
+// de_ThumbnailConfigurationStorageList omitted.
 
 // de_VideoConfiguration omitted.
 

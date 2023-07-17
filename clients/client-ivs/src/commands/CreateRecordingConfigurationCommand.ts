@@ -72,8 +72,18 @@ export interface CreateRecordingConfigurationCommandOutput
  *   thumbnailConfiguration: { // ThumbnailConfiguration
  *     recordingMode: "STRING_VALUE",
  *     targetIntervalSeconds: Number("long"),
+ *     resolution: "STRING_VALUE",
+ *     storage: [ // ThumbnailConfigurationStorageList
+ *       "STRING_VALUE",
+ *     ],
  *   },
  *   recordingReconnectWindowSeconds: Number("int"),
+ *   renditionConfiguration: { // RenditionConfiguration
+ *     renditionSelection: "STRING_VALUE",
+ *     renditions: [ // RenditionConfigurationRenditionList
+ *       "STRING_VALUE",
+ *     ],
+ *   },
  * };
  * const command = new CreateRecordingConfigurationCommand(input);
  * const response = await client.send(command);
@@ -93,8 +103,18 @@ export interface CreateRecordingConfigurationCommandOutput
  * //     thumbnailConfiguration: { // ThumbnailConfiguration
  * //       recordingMode: "STRING_VALUE",
  * //       targetIntervalSeconds: Number("long"),
+ * //       resolution: "STRING_VALUE",
+ * //       storage: [ // ThumbnailConfigurationStorageList
+ * //         "STRING_VALUE",
+ * //       ],
  * //     },
  * //     recordingReconnectWindowSeconds: Number("int"),
+ * //     renditionConfiguration: { // RenditionConfiguration
+ * //       renditionSelection: "STRING_VALUE",
+ * //       renditions: [ // RenditionConfigurationRenditionList
+ * //         "STRING_VALUE",
+ * //       ],
+ * //     },
  * //   },
  * // };
  *

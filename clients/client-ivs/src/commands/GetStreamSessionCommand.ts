@@ -102,8 +102,18 @@ export interface GetStreamSessionCommandOutput extends GetStreamSessionResponse,
  * //       thumbnailConfiguration: { // ThumbnailConfiguration
  * //         recordingMode: "STRING_VALUE",
  * //         targetIntervalSeconds: Number("long"),
+ * //         resolution: "STRING_VALUE",
+ * //         storage: [ // ThumbnailConfigurationStorageList
+ * //           "STRING_VALUE",
+ * //         ],
  * //       },
  * //       recordingReconnectWindowSeconds: Number("int"),
+ * //       renditionConfiguration: { // RenditionConfiguration
+ * //         renditionSelection: "STRING_VALUE",
+ * //         renditions: [ // RenditionConfigurationRenditionList
+ * //           "STRING_VALUE",
+ * //         ],
+ * //       },
  * //     },
  * //     truncatedEvents: [ // StreamEvents
  * //       { // StreamEvent
