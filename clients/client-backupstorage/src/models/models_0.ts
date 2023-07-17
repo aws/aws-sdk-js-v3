@@ -1,6 +1,6 @@
 // smithy-typescript generated code
 import { ExceptionOptionType as __ExceptionOptionType } from "@smithy/smithy-client";
-import { Readable } from "stream";
+import { StreamingBlobTypes } from "@smithy/types";
 
 import { BackupStorageServiceException as __BaseException } from "./BackupStorageServiceException";
 
@@ -288,7 +288,7 @@ export interface GetChunkOutput {
   /**
    * Chunk data
    */
-  Data: Readable | ReadableStream | Blob | undefined;
+  Data: StreamingBlobTypes | undefined;
 
   /**
    * Data length
@@ -355,7 +355,7 @@ export interface GetObjectMetadataOutput {
   /**
    * Metadata blob.
    */
-  MetadataBlob?: Readable | ReadableStream | Blob;
+  MetadataBlob?: StreamingBlobTypes;
 
   /**
    * The size of MetadataBlob.
@@ -500,7 +500,7 @@ export interface NotifyObjectCompleteInput {
   /**
    * Optional metadata associated with an Object. Maximum length is 4MB.
    */
-  MetadataBlob?: Readable | ReadableStream | Blob;
+  MetadataBlob?: StreamingBlobTypes;
 
   /**
    * The size of MetadataBlob.
@@ -577,7 +577,7 @@ export interface PutChunkInput {
   /**
    * Data to be uploaded
    */
-  Data: Readable | ReadableStream | Blob | undefined;
+  Data: StreamingBlobTypes | undefined;
 
   /**
    * Data length
@@ -632,7 +632,7 @@ export interface PutObjectInput {
   /**
    * Inline chunk data to be uploaded.
    */
-  InlineChunk?: Readable | ReadableStream | Blob;
+  InlineChunk?: StreamingBlobTypes;
 
   /**
    * Length of the inline chunk data.

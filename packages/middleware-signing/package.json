@@ -22,11 +22,11 @@
   "license": "Apache-2.0",
   "dependencies": {
     "@aws-sdk/types": "*",
-    "@smithy/property-provider": "^1.0.1",
-    "@smithy/protocol-http": "^1.1.0",
-    "@smithy/signature-v4": "^1.0.1",
-    "@smithy/types": "^1.1.0",
-    "@smithy/util-middleware": "^1.0.1",
+    "@smithy/property-provider": "^2.0.0",
+    "@smithy/protocol-http": "^2.0.1",
+    "@smithy/signature-v4": "^2.0.0",
+    "@smithy/types": "^2.0.2",
+    "@smithy/util-middleware": "^2.0.0",
     "tslib": "^2.5.0"
   },
   "engines": {

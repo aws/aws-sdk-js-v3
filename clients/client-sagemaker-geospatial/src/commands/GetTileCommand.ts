@@ -10,10 +10,9 @@ import {
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
-  SdkStream as __SdkStream,
   SdkStreamSerdeContext as __SdkStreamSerdeContext,
   SerdeContext as __SerdeContext,
-  WithSdkStreamMixin as __WithSdkStreamMixin,
+  StreamingBlobPayloadOutputTypes,
 } from "@smithy/types";
 
 import { GetTileInput, GetTileOutput, GetTileOutputFilterSensitiveLog } from "../models/models_0";
@@ -39,7 +38,9 @@ export interface GetTileCommandInput extends GetTileInput {}
  *
  * The output of {@link GetTileCommand}.
  */
-export interface GetTileCommandOutput extends __WithSdkStreamMixin<GetTileOutput, "BinaryFile">, __MetadataBearer {}
+export interface GetTileCommandOutput extends Omit<GetTileOutput, "BinaryFile">, __MetadataBearer {
+  BinaryFile?: StreamingBlobPayloadOutputTypes;
+}
 
 /**
  * @public

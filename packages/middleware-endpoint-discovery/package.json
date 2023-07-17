@@ -21,7 +21,7 @@
   },
   "license": "Apache-2.0",
   "devDependencies": {
-    "@smithy/node-config-provider": "^1.0.1",
+    "@smithy/node-config-provider": "^2.0.1",
     "@tsconfig/recommended": "1.0.1",
     "concurrently": "7.0.0",
     "downlevel-dts": "0.10.1",
@@ -32,8 +32,8 @@
   "dependencies": {
     "@aws-sdk/endpoint-cache": "*",
     "@aws-sdk/types": "*",
-    "@smithy/protocol-http": "^1.1.0",
-    "@smithy/types": "^1.1.0",
+    "@smithy/protocol-http": "^2.0.1",
+    "@smithy/types": "^2.0.2",
     "tslib": "^2.5.0"
   },
   "engines": {

@@ -10,10 +10,9 @@ import {
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
-  SdkStream as __SdkStream,
   SdkStreamSerdeContext as __SdkStreamSerdeContext,
   SerdeContext as __SerdeContext,
-  WithSdkStreamMixin as __WithSdkStreamMixin,
+  StreamingBlobPayloadOutputTypes,
 } from "@smithy/types";
 
 import {
@@ -39,7 +38,9 @@ export interface GetClipCommandInput extends GetClipInput {}
  *
  * The output of {@link GetClipCommand}.
  */
-export interface GetClipCommandOutput extends __WithSdkStreamMixin<GetClipOutput, "Payload">, __MetadataBearer {}
+export interface GetClipCommandOutput extends Omit<GetClipOutput, "Payload">, __MetadataBearer {
+  Payload?: StreamingBlobPayloadOutputTypes;
+}
 
 /**
  * @public

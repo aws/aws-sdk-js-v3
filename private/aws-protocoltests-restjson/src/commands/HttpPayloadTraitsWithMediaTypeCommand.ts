@@ -1,9 +1,9 @@
 // smithy-typescript generated code
-import { BlobTypes } from "@aws-sdk/types";
 import { getSerdePlugin } from "@smithy/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
 import { Command as $Command } from "@smithy/smithy-client";
 import {
+  BlobPayloadInputTypes,
   FinalizeHandlerArguments,
   Handler,
   HandlerExecutionContext,
@@ -29,7 +29,7 @@ export { __MetadataBearer, $Command };
  * @public
  */
 export type HttpPayloadTraitsWithMediaTypeCommandInputType = Omit<HttpPayloadTraitsWithMediaTypeInputOutput, "blob"> & {
-  blob?: BlobTypes;
+  blob?: BlobPayloadInputTypes;
 };
 
 /**

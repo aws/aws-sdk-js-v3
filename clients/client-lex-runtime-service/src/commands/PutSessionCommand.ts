@@ -10,10 +10,9 @@ import {
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
-  SdkStream as __SdkStream,
   SdkStreamSerdeContext as __SdkStreamSerdeContext,
   SerdeContext as __SerdeContext,
-  WithSdkStreamMixin as __WithSdkStreamMixin,
+  StreamingBlobPayloadOutputTypes,
 } from "@smithy/types";
 
 import {
@@ -44,9 +43,9 @@ export interface PutSessionCommandInput extends PutSessionRequest {}
  *
  * The output of {@link PutSessionCommand}.
  */
-export interface PutSessionCommandOutput
-  extends __WithSdkStreamMixin<PutSessionResponse, "audioStream">,
-    __MetadataBearer {}
+export interface PutSessionCommandOutput extends Omit<PutSessionResponse, "audioStream">, __MetadataBearer {
+  audioStream?: StreamingBlobPayloadOutputTypes;
+}
 
 /**
  * @public

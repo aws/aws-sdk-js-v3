@@ -9,10 +9,10 @@ import {
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
-  SdkStream as __SdkStream,
   SdkStreamSerdeContext as __SdkStreamSerdeContext,
   SerdeContext as __SerdeContext,
-  WithSdkStreamMixin as __WithSdkStreamMixin,
+  StreamingBlobPayloadInputTypes,
+  StreamingBlobPayloadOutputTypes,
 } from "@smithy/types";
 
 import { StreamingTraitsInputOutput, StreamingTraitsInputOutputFilterSensitiveLog } from "../models/models_0";
@@ -23,26 +23,23 @@ import { RestJsonProtocolClientResolvedConfig, ServiceInputTypes, ServiceOutputT
  * @public
  */
 export { __MetadataBearer, $Command };
-export type StreamingTraitsCommandInputType = Omit<StreamingTraitsInputOutput, "blob"> & {
-  /**
-   * For *`StreamingTraitsInputOutput["blob"]`*, see {@link StreamingTraitsInputOutput.blob}.
-   */
-  blob?: StreamingTraitsInputOutput["blob"] | string | Uint8Array | Buffer;
-};
 /**
  * @public
  *
  * The input for {@link StreamingTraitsCommand}.
  */
-export interface StreamingTraitsCommandInput extends StreamingTraitsCommandInputType {}
+export interface StreamingTraitsCommandInput extends Omit<StreamingTraitsInputOutput, "blob"> {
+  blob?: StreamingBlobPayloadInputTypes;
+}
+
 /**
  * @public
  *
  * The output of {@link StreamingTraitsCommand}.
  */
-export interface StreamingTraitsCommandOutput
-  extends __WithSdkStreamMixin<StreamingTraitsInputOutput, "blob">,
-    __MetadataBearer {}
+export interface StreamingTraitsCommandOutput extends Omit<StreamingTraitsInputOutput, "blob">, __MetadataBearer {
+  blob?: StreamingBlobPayloadOutputTypes;
+}
 
 /**
  * @public

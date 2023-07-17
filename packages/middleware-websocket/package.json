@@ -24,12 +24,12 @@
     "@aws-sdk/middleware-signing": "*",
     "@aws-sdk/types": "*",
     "@aws-sdk/util-format-url": "*",
-    "@smithy/eventstream-serde-browser": "^1.0.1",
-    "@smithy/fetch-http-handler": "^1.0.1",
-    "@smithy/protocol-http": "^1.1.0",
-    "@smithy/signature-v4": "^1.0.1",
-    "@smithy/types": "^1.1.0",
-    "@smithy/util-hex-encoding": "^1.0.1",
+    "@smithy/eventstream-serde-browser": "^2.0.1",
+    "@smithy/fetch-http-handler": "^2.0.1",
+    "@smithy/protocol-http": "^2.0.1",
+    "@smithy/signature-v4": "^2.0.0",
+    "@smithy/types": "^2.0.2",
+    "@smithy/util-hex-encoding": "^2.0.0",
     "tslib": "^2.5.0"
   },
   "devDependencies": {

@@ -13,6 +13,7 @@ import {
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
   SerdeContext as __SerdeContext,
+  StreamingBlobPayloadInputTypes,
 } from "@smithy/types";
 
 import {
@@ -28,18 +29,15 @@ import { S3ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from ".
  * @public
  */
 export { __MetadataBearer, $Command };
-export type UploadPartCommandInputType = Omit<UploadPartRequest, "Body"> & {
-  /**
-   * For *`UploadPartRequest["Body"]`*, see {@link UploadPartRequest.Body}.
-   */
-  Body?: UploadPartRequest["Body"] | string | Uint8Array | Buffer;
-};
 /**
  * @public
  *
  * The input for {@link UploadPartCommand}.
  */
-export interface UploadPartCommandInput extends UploadPartCommandInputType {}
+export interface UploadPartCommandInput extends Omit<UploadPartRequest, "Body"> {
+  Body?: StreamingBlobPayloadInputTypes;
+}
+
 /**
  * @public
  *

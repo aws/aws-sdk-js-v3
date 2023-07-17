@@ -1,6 +1,6 @@
 // smithy-typescript generated code
 import { ExceptionOptionType as __ExceptionOptionType, SENSITIVE_STRING } from "@smithy/smithy-client";
-import { Readable } from "stream";
+import { StreamingBlobTypes } from "@smithy/types";
 
 import { SageMakerGeospatialServiceException as __BaseException } from "./SageMakerGeospatialServiceException";
 
@@ -2002,7 +2002,7 @@ export interface GetTileOutput {
   /**
    * <p>The output binary file.</p>
    */
-  BinaryFile?: Readable | ReadableStream | Blob;
+  BinaryFile?: StreamingBlobTypes;
 }
 
 /**

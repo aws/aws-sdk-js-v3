@@ -1,6 +1,6 @@
 // smithy-typescript generated code
 import { ExceptionOptionType as __ExceptionOptionType } from "@smithy/smithy-client";
-import { Readable } from "stream";
+import { StreamingBlobTypes } from "@smithy/types";
 
 import { MediaLiveServiceException as __BaseException } from "./MediaLiveServiceException";
 import {
@@ -6164,7 +6164,7 @@ export interface DescribeInputDeviceThumbnailResponse {
   /**
    * The binary data for the thumbnail that the Link device has most recently sent to MediaLive.
    */
-  Body?: Readable | ReadableStream | Blob;
+  Body?: StreamingBlobTypes;
 
   /**
    * Specifies the media type of the thumbnail.

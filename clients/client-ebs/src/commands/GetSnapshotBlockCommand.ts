@@ -10,10 +10,9 @@ import {
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
-  SdkStream as __SdkStream,
   SdkStreamSerdeContext as __SdkStreamSerdeContext,
   SerdeContext as __SerdeContext,
-  WithSdkStreamMixin as __WithSdkStreamMixin,
+  StreamingBlobPayloadOutputTypes,
 } from "@smithy/types";
 
 import { EBSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EBSClient";
@@ -39,9 +38,9 @@ export interface GetSnapshotBlockCommandInput extends GetSnapshotBlockRequest {}
  *
  * The output of {@link GetSnapshotBlockCommand}.
  */
-export interface GetSnapshotBlockCommandOutput
-  extends __WithSdkStreamMixin<GetSnapshotBlockResponse, "BlockData">,
-    __MetadataBearer {}
+export interface GetSnapshotBlockCommandOutput extends Omit<GetSnapshotBlockResponse, "BlockData">, __MetadataBearer {
+  BlockData?: StreamingBlobPayloadOutputTypes;
+}
 
 /**
  * @public

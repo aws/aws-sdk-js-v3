@@ -1,6 +1,6 @@
 // smithy-typescript generated code
 import { ExceptionOptionType as __ExceptionOptionType } from "@smithy/smithy-client";
-import { Readable } from "stream";
+import { StreamingBlobTypes } from "@smithy/types";
 
 import { CloudSearchDomainServiceException as __BaseException } from "./CloudSearchDomainServiceException";
 
@@ -620,7 +620,7 @@ export interface UploadDocumentsRequest {
   /**
    * <p>A batch of documents formatted in JSON or HTML.</p>
    */
-  documents: Readable | ReadableStream | Blob | undefined;
+  documents: StreamingBlobTypes | undefined;
 
   /**
    * <p>The format of the batch you are uploading. Amazon CloudSearch supports two document batch formats:</p>

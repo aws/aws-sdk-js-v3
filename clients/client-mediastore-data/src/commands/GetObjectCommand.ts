@@ -10,10 +10,9 @@ import {
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
-  SdkStream as __SdkStream,
   SdkStreamSerdeContext as __SdkStreamSerdeContext,
   SerdeContext as __SerdeContext,
-  WithSdkStreamMixin as __WithSdkStreamMixin,
+  StreamingBlobPayloadOutputTypes,
 } from "@smithy/types";
 
 import { MediaStoreDataClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MediaStoreDataClient";
@@ -35,7 +34,9 @@ export interface GetObjectCommandInput extends GetObjectRequest {}
  *
  * The output of {@link GetObjectCommand}.
  */
-export interface GetObjectCommandOutput extends __WithSdkStreamMixin<GetObjectResponse, "Body">, __MetadataBearer {}
+export interface GetObjectCommandOutput extends Omit<GetObjectResponse, "Body">, __MetadataBearer {
+  Body?: StreamingBlobPayloadOutputTypes;
+}
 
 /**
  * @public

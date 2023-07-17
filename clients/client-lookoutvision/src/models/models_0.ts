@@ -1,6 +1,6 @@
 // smithy-typescript generated code
 import { ExceptionOptionType as __ExceptionOptionType } from "@smithy/smithy-client";
-import { Readable } from "stream";
+import { StreamingBlobTypes } from "@smithy/types";
 
 import { LookoutVisionServiceException as __BaseException } from "./LookoutVisionServiceException";
 
@@ -1424,7 +1424,7 @@ export interface DetectAnomaliesRequest {
   /**
    * <p>The unencrypted image bytes that you want to analyze. </p>
    */
-  Body: Readable | ReadableStream | Blob | undefined;
+  Body: StreamingBlobTypes | undefined;
 
   /**
    * <p>The type of the image passed in <code>Body</code>.

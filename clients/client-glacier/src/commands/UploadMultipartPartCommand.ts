@@ -11,6 +11,7 @@ import {
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
   SerdeContext as __SerdeContext,
+  StreamingBlobPayloadInputTypes,
 } from "@smithy/types";
 
 import { GlacierClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GlacierClient";
@@ -25,18 +26,15 @@ import { de_UploadMultipartPartCommand, se_UploadMultipartPartCommand } from "..
  * @public
  */
 export { __MetadataBearer, $Command };
-export type UploadMultipartPartCommandInputType = Omit<UploadMultipartPartInput, "body"> & {
-  /**
-   * For *`UploadMultipartPartInput["body"]`*, see {@link UploadMultipartPartInput.body}.
-   */
-  body?: UploadMultipartPartInput["body"] | string | Uint8Array | Buffer;
-};
 /**
  * @public
  *
  * The input for {@link UploadMultipartPartCommand}.
  */
-export interface UploadMultipartPartCommandInput extends UploadMultipartPartCommandInputType {}
+export interface UploadMultipartPartCommandInput extends Omit<UploadMultipartPartInput, "body"> {
+  body?: StreamingBlobPayloadInputTypes;
+}
+
 /**
  * @public
  *

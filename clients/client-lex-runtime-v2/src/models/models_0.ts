@@ -1,6 +1,6 @@
 // smithy-typescript generated code
 import { ExceptionOptionType as __ExceptionOptionType, SENSITIVE_STRING } from "@smithy/smithy-client";
-import { Readable } from "stream";
+import { StreamingBlobTypes } from "@smithy/types";
 
 import { LexRuntimeV2ServiceException as __BaseException } from "./LexRuntimeV2ServiceException";
 
@@ -697,7 +697,7 @@ export interface PutSessionResponse {
    * <p>If the requested content type was audio, the audio version of the
    *          message to convey to the user.</p>
    */
-  audioStream?: Readable | ReadableStream | Blob;
+  audioStream?: StreamingBlobTypes;
 }
 
 /**
@@ -851,7 +851,7 @@ export interface RecognizeUtteranceRequest {
    * <p>User input in PCM or Opus audio format or text format as described
    *          in the <code>requestContentType</code> parameter.</p>
    */
-  inputStream?: Readable | ReadableStream | Blob;
+  inputStream?: StreamingBlobTypes;
 }
 
 /**
@@ -947,7 +947,7 @@ export interface RecognizeUtteranceResponse {
    *          to convey to the user. Then Amazon Lex V2 sends that message in the
    *          response.</p>
    */
-  audioStream?: Readable | ReadableStream | Blob;
+  audioStream?: StreamingBlobTypes;
 
   /**
    * <p>The bot member that recognized the utterance.</p>

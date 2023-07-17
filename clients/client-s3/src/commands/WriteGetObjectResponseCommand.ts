@@ -11,6 +11,7 @@ import {
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
   SerdeContext as __SerdeContext,
+  StreamingBlobPayloadInputTypes,
 } from "@smithy/types";
 
 import { WriteGetObjectResponseRequest, WriteGetObjectResponseRequestFilterSensitiveLog } from "../models/models_1";
@@ -21,18 +22,15 @@ import { S3ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from ".
  * @public
  */
 export { __MetadataBearer, $Command };
-export type WriteGetObjectResponseCommandInputType = Omit<WriteGetObjectResponseRequest, "Body"> & {
-  /**
-   * For *`WriteGetObjectResponseRequest["Body"]`*, see {@link WriteGetObjectResponseRequest.Body}.
-   */
-  Body?: WriteGetObjectResponseRequest["Body"] | string | Uint8Array | Buffer;
-};
 /**
  * @public
  *
  * The input for {@link WriteGetObjectResponseCommand}.
  */
-export interface WriteGetObjectResponseCommandInput extends WriteGetObjectResponseCommandInputType {}
+export interface WriteGetObjectResponseCommandInput extends Omit<WriteGetObjectResponseRequest, "Body"> {
+  Body?: StreamingBlobPayloadInputTypes;
+}
+
 /**
  * @public
  *

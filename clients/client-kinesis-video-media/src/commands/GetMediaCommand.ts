@@ -10,10 +10,9 @@ import {
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
-  SdkStream as __SdkStream,
   SdkStreamSerdeContext as __SdkStreamSerdeContext,
   SerdeContext as __SerdeContext,
-  WithSdkStreamMixin as __WithSdkStreamMixin,
+  StreamingBlobPayloadOutputTypes,
 } from "@smithy/types";
 
 import {
@@ -39,7 +38,9 @@ export interface GetMediaCommandInput extends GetMediaInput {}
  *
  * The output of {@link GetMediaCommand}.
  */
-export interface GetMediaCommandOutput extends __WithSdkStreamMixin<GetMediaOutput, "Payload">, __MetadataBearer {}
+export interface GetMediaCommandOutput extends Omit<GetMediaOutput, "Payload">, __MetadataBearer {
+  Payload?: StreamingBlobPayloadOutputTypes;
+}
 
 /**
  * @public

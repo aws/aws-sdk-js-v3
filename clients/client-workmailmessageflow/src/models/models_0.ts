@@ -1,6 +1,6 @@
 // smithy-typescript generated code
 import { ExceptionOptionType as __ExceptionOptionType } from "@smithy/smithy-client";
-import { Readable } from "stream";
+import { StreamingBlobTypes } from "@smithy/types";
 
 import { WorkMailMessageFlowServiceException as __BaseException } from "./WorkMailMessageFlowServiceException";
 
@@ -21,7 +21,7 @@ export interface GetRawMessageContentResponse {
   /**
    * <p>The raw content of the email message, in MIME format.</p>
    */
-  messageContent: Readable | ReadableStream | Blob | undefined;
+  messageContent: StreamingBlobTypes | undefined;
 }
 
 /**

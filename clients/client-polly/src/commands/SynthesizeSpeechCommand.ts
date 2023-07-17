@@ -10,10 +10,9 @@ import {
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
-  SdkStream as __SdkStream,
   SdkStreamSerdeContext as __SdkStreamSerdeContext,
   SerdeContext as __SerdeContext,
-  WithSdkStreamMixin as __WithSdkStreamMixin,
+  StreamingBlobPayloadOutputTypes,
 } from "@smithy/types";
 
 import {
@@ -39,9 +38,9 @@ export interface SynthesizeSpeechCommandInput extends SynthesizeSpeechInput {}
  *
  * The output of {@link SynthesizeSpeechCommand}.
  */
-export interface SynthesizeSpeechCommandOutput
-  extends __WithSdkStreamMixin<SynthesizeSpeechOutput, "AudioStream">,
-    __MetadataBearer {}
+export interface SynthesizeSpeechCommandOutput extends Omit<SynthesizeSpeechOutput, "AudioStream">, __MetadataBearer {
+  AudioStream?: StreamingBlobPayloadOutputTypes;
+}
 
 /**
  * @public

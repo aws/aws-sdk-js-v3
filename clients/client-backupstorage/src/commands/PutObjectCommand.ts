@@ -11,6 +11,7 @@ import {
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
   SerdeContext as __SerdeContext,
+  StreamingBlobPayloadInputTypes,
 } from "@smithy/types";
 
 import { BackupStorageClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../BackupStorageClient";
@@ -21,18 +22,15 @@ import { de_PutObjectCommand, se_PutObjectCommand } from "../protocols/Aws_restJ
  * @public
  */
 export { __MetadataBearer, $Command };
-export type PutObjectCommandInputType = Omit<PutObjectInput, "InlineChunk"> & {
-  /**
-   * For *`PutObjectInput["InlineChunk"]`*, see {@link PutObjectInput.InlineChunk}.
-   */
-  InlineChunk?: PutObjectInput["InlineChunk"] | string | Uint8Array | Buffer;
-};
 /**
  * @public
  *
  * The input for {@link PutObjectCommand}.
  */
-export interface PutObjectCommandInput extends PutObjectCommandInputType {}
+export interface PutObjectCommandInput extends Omit<PutObjectInput, "InlineChunk"> {
+  InlineChunk?: StreamingBlobPayloadInputTypes;
+}
+
 /**
  * @public
  *

@@ -23,8 +23,8 @@
   "dependencies": {
     "@aws-sdk/types": "*",
     "@aws-sdk/util-endpoints": "*",
-    "@smithy/protocol-http": "^1.1.0",
-    "@smithy/types": "^1.1.0",
+    "@smithy/protocol-http": "^2.0.1",
+    "@smithy/types": "^2.0.2",
     "tslib": "^2.5.0"
   },
   "devDependencies": {

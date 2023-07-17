@@ -1,6 +1,6 @@
 // smithy-typescript generated code
 import { ExceptionOptionType as __ExceptionOptionType, SENSITIVE_STRING } from "@smithy/smithy-client";
-import { Readable } from "stream";
+import { StreamingBlobTypes } from "@smithy/types";
 
 import { PollyServiceException as __BaseException } from "./PollyServiceException";
 
@@ -1335,7 +1335,7 @@ export interface SynthesizeSpeechOutput {
   /**
    * <p> Stream containing the synthesized speech. </p>
    */
-  AudioStream?: Readable | ReadableStream | Blob;
+  AudioStream?: StreamingBlobTypes;
 
   /**
    * <p> Specifies the type audio stream. This should reflect the

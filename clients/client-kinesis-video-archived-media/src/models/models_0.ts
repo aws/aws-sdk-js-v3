@@ -1,6 +1,6 @@
 // smithy-typescript generated code
 import { ExceptionOptionType as __ExceptionOptionType } from "@smithy/smithy-client";
-import { Readable } from "stream";
+import { StreamingBlobTypes } from "@smithy/types";
 
 import { KinesisVideoArchivedMediaServiceException as __BaseException } from "./KinesisVideoArchivedMediaServiceException";
 
@@ -127,7 +127,7 @@ export interface GetClipOutput {
    *             timestamp. For more information, see <a href="https://docs.aws.amazon.com/kinesisvideostreams/latest/dg/limits.html">Kinesis
    *                 Video Streams Limits</a>. </p>
    */
-  Payload?: Readable | ReadableStream | Blob;
+  Payload?: StreamingBlobTypes;
 }
 
 /**
@@ -1234,7 +1234,7 @@ export interface GetMediaForFragmentListOutput {
    *             </li>
    *          </ul>
    */
-  Payload?: Readable | ReadableStream | Blob;
+  Payload?: StreamingBlobTypes;
 }
 
 /**

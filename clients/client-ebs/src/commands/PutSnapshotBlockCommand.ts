@@ -11,6 +11,7 @@ import {
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
   SerdeContext as __SerdeContext,
+  StreamingBlobPayloadInputTypes,
 } from "@smithy/types";
 
 import { EBSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EBSClient";
@@ -25,18 +26,15 @@ import { de_PutSnapshotBlockCommand, se_PutSnapshotBlockCommand } from "../proto
  * @public
  */
 export { __MetadataBearer, $Command };
-export type PutSnapshotBlockCommandInputType = Omit<PutSnapshotBlockRequest, "BlockData"> & {
-  /**
-   * For *`PutSnapshotBlockRequest["BlockData"]`*, see {@link PutSnapshotBlockRequest.BlockData}.
-   */
-  BlockData: PutSnapshotBlockRequest["BlockData"] | string | Uint8Array | Buffer;
-};
 /**
  * @public
  *
  * The input for {@link PutSnapshotBlockCommand}.
  */
-export interface PutSnapshotBlockCommandInput extends PutSnapshotBlockCommandInputType {}
+export interface PutSnapshotBlockCommandInput extends Omit<PutSnapshotBlockRequest, "BlockData"> {
+  BlockData: StreamingBlobPayloadInputTypes;
+}
+
 /**
  * @public
  *

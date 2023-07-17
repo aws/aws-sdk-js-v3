@@ -11,6 +11,7 @@ import {
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
   SerdeContext as __SerdeContext,
+  StreamingBlobPayloadInputTypes,
 } from "@smithy/types";
 
 import {
@@ -29,18 +30,15 @@ import { de_UploadDocumentsCommand, se_UploadDocumentsCommand } from "../protoco
  * @public
  */
 export { __MetadataBearer, $Command };
-export type UploadDocumentsCommandInputType = Omit<UploadDocumentsRequest, "documents"> & {
-  /**
-   * For *`UploadDocumentsRequest["documents"]`*, see {@link UploadDocumentsRequest.documents}.
-   */
-  documents: UploadDocumentsRequest["documents"] | string | Uint8Array | Buffer;
-};
 /**
  * @public
  *
  * The input for {@link UploadDocumentsCommand}.
  */
-export interface UploadDocumentsCommandInput extends UploadDocumentsCommandInputType {}
+export interface UploadDocumentsCommandInput extends Omit<UploadDocumentsRequest, "documents"> {
+  documents: StreamingBlobPayloadInputTypes;
+}
+
 /**
  * @public
  *

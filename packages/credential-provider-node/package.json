@@ -33,10 +33,10 @@
     "@aws-sdk/credential-provider-sso": "*",
     "@aws-sdk/credential-provider-web-identity": "*",
     "@aws-sdk/types": "*",
-    "@smithy/credential-provider-imds": "^1.0.1",
-    "@smithy/property-provider": "^1.0.1",
-    "@smithy/shared-ini-file-loader": "^1.0.1",
-    "@smithy/types": "^1.1.0",
+    "@smithy/credential-provider-imds": "^2.0.0",
+    "@smithy/property-provider": "^2.0.0",
+    "@smithy/shared-ini-file-loader": "^2.0.0",
+    "@smithy/types": "^2.0.2",
     "tslib": "^2.5.0"
   },
   "devDependencies": {

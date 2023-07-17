@@ -11,6 +11,7 @@ import {
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
   SerdeContext as __SerdeContext,
+  StreamingBlobPayloadInputTypes,
 } from "@smithy/types";
 
 import { CodeartifactClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CodeartifactClient";
@@ -25,18 +26,15 @@ import { de_PublishPackageVersionCommand, se_PublishPackageVersionCommand } from
  * @public
  */
 export { __MetadataBearer, $Command };
-export type PublishPackageVersionCommandInputType = Omit<PublishPackageVersionRequest, "assetContent"> & {
-  /**
-   * For *`PublishPackageVersionRequest["assetContent"]`*, see {@link PublishPackageVersionRequest.assetContent}.
-   */
-  assetContent: PublishPackageVersionRequest["assetContent"] | string | Uint8Array | Buffer;
-};
 /**
  * @public
  *
  * The input for {@link PublishPackageVersionCommand}.
  */
-export interface PublishPackageVersionCommandInput extends PublishPackageVersionCommandInputType {}
+export interface PublishPackageVersionCommandInput extends Omit<PublishPackageVersionRequest, "assetContent"> {
+  assetContent: StreamingBlobPayloadInputTypes;
+}
+
 /**
  * @public
  *

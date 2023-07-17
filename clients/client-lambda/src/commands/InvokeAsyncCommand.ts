@@ -11,6 +11,7 @@ import {
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
   SerdeContext as __SerdeContext,
+  StreamingBlobPayloadInputTypes,
 } from "@smithy/types";
 
 import { LambdaClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LambdaClient";
@@ -21,18 +22,15 @@ import { de_InvokeAsyncCommand, se_InvokeAsyncCommand } from "../protocols/Aws_r
  * @public
  */
 export { __MetadataBearer, $Command };
-export type InvokeAsyncCommandInputType = Omit<InvokeAsyncRequest, "InvokeArgs"> & {
-  /**
-   * For *`InvokeAsyncRequest["InvokeArgs"]`*, see {@link InvokeAsyncRequest.InvokeArgs}.
-   */
-  InvokeArgs: InvokeAsyncRequest["InvokeArgs"] | string | Uint8Array | Buffer;
-};
 /**
  * @public
  *
  * The input for {@link InvokeAsyncCommand}.
  */
-export interface InvokeAsyncCommandInput extends InvokeAsyncCommandInputType {}
+export interface InvokeAsyncCommandInput extends Omit<InvokeAsyncRequest, "InvokeArgs"> {
+  InvokeArgs: StreamingBlobPayloadInputTypes;
+}
+
 /**
  * @public
  *

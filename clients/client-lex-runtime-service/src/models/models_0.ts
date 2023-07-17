@@ -4,7 +4,7 @@ import {
   LazyJsonString as __LazyJsonString,
   SENSITIVE_STRING,
 } from "@smithy/smithy-client";
-import { Readable } from "stream";
+import { StreamingBlobTypes } from "@smithy/types";
 
 import { LexRuntimeServiceServiceException as __BaseException } from "./LexRuntimeServiceServiceException";
 
@@ -844,7 +844,7 @@ export interface PostContentRequest {
    *       better performance if you stream audio data rather than buffering the data
    *       locally.</p>
    */
-  inputStream: Readable | ReadableStream | Blob | undefined;
+  inputStream: StreamingBlobTypes | undefined;
 
   /**
    * <p>A list of contexts active for the request. A context can be activated
@@ -1119,7 +1119,7 @@ export interface PostContentResponse {
    *       intent, and sent a message to convey to the user. Then Amazon Lex sends that
    *       message in the response. </p>
    */
-  audioStream?: Readable | ReadableStream | Blob;
+  audioStream?: StreamingBlobTypes;
 
   /**
    * <p>The version of the bot that responded to the conversation. You can use
@@ -1875,7 +1875,7 @@ export interface PutSessionResponse {
   /**
    * <p>The audio version of the message to convey to the user.</p>
    */
-  audioStream?: Readable | ReadableStream | Blob;
+  audioStream?: StreamingBlobTypes;
 
   /**
    * <p>A unique identifier for the session.</p>

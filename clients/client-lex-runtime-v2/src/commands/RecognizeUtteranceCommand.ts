@@ -10,10 +10,10 @@ import {
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
-  SdkStream as __SdkStream,
   SdkStreamSerdeContext as __SdkStreamSerdeContext,
   SerdeContext as __SerdeContext,
-  WithSdkStreamMixin as __WithSdkStreamMixin,
+  StreamingBlobPayloadInputTypes,
+  StreamingBlobPayloadOutputTypes,
 } from "@smithy/types";
 
 import { LexRuntimeV2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LexRuntimeV2Client";
@@ -29,26 +29,25 @@ import { de_RecognizeUtteranceCommand, se_RecognizeUtteranceCommand } from "../p
  * @public
  */
 export { __MetadataBearer, $Command };
-export type RecognizeUtteranceCommandInputType = Omit<RecognizeUtteranceRequest, "inputStream"> & {
-  /**
-   * For *`RecognizeUtteranceRequest["inputStream"]`*, see {@link RecognizeUtteranceRequest.inputStream}.
-   */
-  inputStream?: RecognizeUtteranceRequest["inputStream"] | string | Uint8Array | Buffer;
-};
 /**
  * @public
  *
  * The input for {@link RecognizeUtteranceCommand}.
  */
-export interface RecognizeUtteranceCommandInput extends RecognizeUtteranceCommandInputType {}
+export interface RecognizeUtteranceCommandInput extends Omit<RecognizeUtteranceRequest, "inputStream"> {
+  inputStream?: StreamingBlobPayloadInputTypes;
+}
+
 /**
  * @public
  *
  * The output of {@link RecognizeUtteranceCommand}.
  */
 export interface RecognizeUtteranceCommandOutput
-  extends __WithSdkStreamMixin<RecognizeUtteranceResponse, "audioStream">,
-    __MetadataBearer {}
+  extends Omit<RecognizeUtteranceResponse, "audioStream">,
+    __MetadataBearer {
+  audioStream?: StreamingBlobPayloadOutputTypes;
+}
 
 /**
  * @public

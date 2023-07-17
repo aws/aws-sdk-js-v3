@@ -111,7 +111,7 @@ public class AddHttpChecksumDependency implements TypeScriptIntegration {
             case NODE:
                 return MapUtils.of(
                     "streamHasher", writer -> {
-                        writer.addDependency(AwsDependency.STREAM_HASHER_NODE);
+                        writer.addDependency(TypeScriptDependency.STREAM_HASHER_NODE);
                         writer.addImport("readableStreamHasher", "streamHasher",
                                 TypeScriptDependency.STREAM_HASHER_NODE);
                         writer.write("streamHasher");

@@ -1,6 +1,6 @@
 // smithy-typescript generated code
 import { ExceptionOptionType as __ExceptionOptionType, SENSITIVE_STRING } from "@smithy/smithy-client";
-import { Readable } from "stream";
+import { StreamingBlobTypes } from "@smithy/types";
 
 import { LakeFormationServiceException as __BaseException } from "./LakeFormationServiceException";
 
@@ -2103,7 +2103,7 @@ export interface GetWorkUnitResultsResponse {
   /**
    * <p>Rows returned from the <code>GetWorkUnitResults</code> operation as a stream of Apache Arrow v1.0 messages.</p>
    */
-  ResultStream?: Readable | ReadableStream | Blob;
+  ResultStream?: StreamingBlobTypes;
 }
 
 /**

@@ -10,10 +10,9 @@ import {
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
-  SdkStream as __SdkStream,
   SdkStreamSerdeContext as __SdkStreamSerdeContext,
   SerdeContext as __SerdeContext,
-  WithSdkStreamMixin as __WithSdkStreamMixin,
+  StreamingBlobPayloadOutputTypes,
 } from "@smithy/types";
 
 import { BackupStorageClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../BackupStorageClient";
@@ -35,7 +34,9 @@ export interface GetChunkCommandInput extends GetChunkInput {}
  *
  * The output of {@link GetChunkCommand}.
  */
-export interface GetChunkCommandOutput extends __WithSdkStreamMixin<GetChunkOutput, "Data">, __MetadataBearer {}
+export interface GetChunkCommandOutput extends Omit<GetChunkOutput, "Data">, __MetadataBearer {
+  Data: StreamingBlobPayloadOutputTypes;
+}
 
 /**
  * @public

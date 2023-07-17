@@ -9,10 +9,10 @@ import {
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
-  SdkStream as __SdkStream,
   SdkStreamSerdeContext as __SdkStreamSerdeContext,
   SerdeContext as __SerdeContext,
-  WithSdkStreamMixin as __WithSdkStreamMixin,
+  StreamingBlobPayloadInputTypes,
+  StreamingBlobPayloadOutputTypes,
 } from "@smithy/types";
 
 import {
@@ -29,26 +29,26 @@ import { RestJsonProtocolClientResolvedConfig, ServiceInputTypes, ServiceOutputT
  * @public
  */
 export { __MetadataBearer, $Command };
-export type StreamingTraitsWithMediaTypeCommandInputType = Omit<StreamingTraitsWithMediaTypeInputOutput, "blob"> & {
-  /**
-   * For *`StreamingTraitsWithMediaTypeInputOutput["blob"]`*, see {@link StreamingTraitsWithMediaTypeInputOutput.blob}.
-   */
-  blob?: StreamingTraitsWithMediaTypeInputOutput["blob"] | string | Uint8Array | Buffer;
-};
 /**
  * @public
  *
  * The input for {@link StreamingTraitsWithMediaTypeCommand}.
  */
-export interface StreamingTraitsWithMediaTypeCommandInput extends StreamingTraitsWithMediaTypeCommandInputType {}
+export interface StreamingTraitsWithMediaTypeCommandInput
+  extends Omit<StreamingTraitsWithMediaTypeInputOutput, "blob"> {
+  blob?: StreamingBlobPayloadInputTypes;
+}
+
 /**
  * @public
  *
  * The output of {@link StreamingTraitsWithMediaTypeCommand}.
  */
 export interface StreamingTraitsWithMediaTypeCommandOutput
-  extends __WithSdkStreamMixin<StreamingTraitsWithMediaTypeInputOutput, "blob">,
-    __MetadataBearer {}
+  extends Omit<StreamingTraitsWithMediaTypeInputOutput, "blob">,
+    __MetadataBearer {
+  blob?: StreamingBlobPayloadOutputTypes;
+}
 
 /**
  * @public

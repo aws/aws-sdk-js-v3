@@ -10,10 +10,9 @@ import {
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
-  SdkStream as __SdkStream,
   SdkStreamSerdeContext as __SdkStreamSerdeContext,
   SerdeContext as __SerdeContext,
-  WithSdkStreamMixin as __WithSdkStreamMixin,
+  StreamingBlobPayloadOutputTypes,
 } from "@smithy/types";
 
 import { GlacierClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GlacierClient";
@@ -35,7 +34,9 @@ export interface GetJobOutputCommandInput extends GetJobOutputInput {}
  *
  * The output of {@link GetJobOutputCommand}.
  */
-export interface GetJobOutputCommandOutput extends __WithSdkStreamMixin<GetJobOutputOutput, "body">, __MetadataBearer {}
+export interface GetJobOutputCommandOutput extends Omit<GetJobOutputOutput, "body">, __MetadataBearer {
+  body?: StreamingBlobPayloadOutputTypes;
+}
 
 /**
  * @public
