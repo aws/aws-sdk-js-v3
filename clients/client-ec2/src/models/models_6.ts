@@ -153,9 +153,6 @@ import {
 } from "./models_4";
 import {
   ClientData,
-  ImageDiskContainer,
-  ImageDiskContainerFilterSensitiveLog,
-  ImportImageLicenseConfigurationRequest,
   InstanceFamilyCreditSpecification,
   IpamResourceCidr,
   Purchase,
@@ -164,6 +161,56 @@ import {
   VerifiedAccessInstanceLoggingConfiguration,
   VolumeModification,
 } from "./models_5";
+
+/**
+ * @public
+ * <p>Describes the disk container object for an import image task.</p>
+ */
+export interface ImageDiskContainer {
+  /**
+   * <p>The description of the disk image.</p>
+   */
+  Description?: string;
+
+  /**
+   * <p>The block device mapping for the disk.</p>
+   */
+  DeviceName?: string;
+
+  /**
+   * <p>The format of the disk image being imported.</p>
+   *          <p>Valid values: <code>OVA</code> | <code>VHD</code> | <code>VHDX</code> | <code>VMDK</code> | <code>RAW</code>
+   *          </p>
+   */
+  Format?: string;
+
+  /**
+   * <p>The ID of the EBS snapshot to be used for importing the snapshot.</p>
+   */
+  SnapshotId?: string;
+
+  /**
+   * <p>The URL to the Amazon S3-based disk image being imported. The URL can either be a https URL (https://..) or an
+   *    Amazon S3 URL (s3://..)</p>
+   */
+  Url?: string;
+
+  /**
+   * <p>The S3 bucket for the disk image.</p>
+   */
+  UserBucket?: UserBucket;
+}
+
+/**
+ * @public
+ * <p>The request information of license configurations.</p>
+ */
+export interface ImportImageLicenseConfigurationRequest {
+  /**
+   * <p>The ARN of a license configuration.</p>
+   */
+  LicenseConfigurationArn?: string;
+}
 
 /**
  * @public
@@ -8536,120 +8583,12 @@ export interface ScheduledInstancesPlacement {
 }
 
 /**
- * @public
- * <p>Describes the launch specification for a Scheduled Instance.</p>
- *          <p>If you are launching the Scheduled Instance in EC2-VPC, you must specify the ID of the subnet.
- *           You can specify the subnet using either <code>SubnetId</code> or <code>NetworkInterface</code>.</p>
+ * @internal
  */
-export interface ScheduledInstancesLaunchSpecification {
-  /**
-   * <p>The block device mapping entries.</p>
-   */
-  BlockDeviceMappings?: ScheduledInstancesBlockDeviceMapping[];
-
-  /**
-   * <p>Indicates whether the instances are optimized for EBS I/O. This optimization provides dedicated throughput to Amazon EBS and an optimized configuration stack to provide optimal EBS I/O performance. This optimization isn't available with all instance types. Additional usage charges apply when using an EBS-optimized instance.</p>
-   *          <p>Default: <code>false</code>
-   *          </p>
-   */
-  EbsOptimized?: boolean;
-
-  /**
-   * <p>The IAM instance profile.</p>
-   */
-  IamInstanceProfile?: ScheduledInstancesIamInstanceProfile;
-
-  /**
-   * <p>The ID of the Amazon Machine Image (AMI).</p>
-   */
-  ImageId: string | undefined;
-
-  /**
-   * <p>The instance type.</p>
-   */
-  InstanceType?: string;
-
-  /**
-   * <p>The ID of the kernel.</p>
-   */
-  KernelId?: string;
-
-  /**
-   * <p>The name of the key pair.</p>
-   */
-  KeyName?: string;
-
-  /**
-   * <p>Enable or disable monitoring for the instances.</p>
-   */
-  Monitoring?: ScheduledInstancesMonitoring;
-
-  /**
-   * <p>The network interfaces.</p>
-   */
-  NetworkInterfaces?: ScheduledInstancesNetworkInterface[];
-
-  /**
-   * <p>The placement information.</p>
-   */
-  Placement?: ScheduledInstancesPlacement;
-
-  /**
-   * <p>The ID of the RAM disk.</p>
-   */
-  RamdiskId?: string;
-
-  /**
-   * <p>The IDs of the security groups.</p>
-   */
-  SecurityGroupIds?: string[];
-
-  /**
-   * <p>The ID of the subnet in which to launch the instances.</p>
-   */
-  SubnetId?: string;
-
-  /**
-   * <p>The base64-encoded MIME user data.</p>
-   */
-  UserData?: string;
-}
-
-/**
- * @public
- * <p>Contains the parameters for RunScheduledInstances.</p>
- */
-export interface RunScheduledInstancesRequest {
-  /**
-   * <p>Unique, case-sensitive identifier that ensures the idempotency of the request.
-   *          For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html">Ensuring Idempotency</a>.</p>
-   */
-  ClientToken?: string;
-
-  /**
-   * <p>Checks whether you have the required permissions for the action, without actually making the request,
-   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
-   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   */
-  DryRun?: boolean;
-
-  /**
-   * <p>The number of instances.</p>
-   *          <p>Default: 1</p>
-   */
-  InstanceCount?: number;
-
-  /**
-   * <p>The launch specification. You must match the instance type, Availability Zone,
-   *          network, and platform of the schedule that you purchased.</p>
-   */
-  LaunchSpecification: ScheduledInstancesLaunchSpecification | undefined;
-
-  /**
-   * <p>The Scheduled Instance ID.</p>
-   */
-  ScheduledInstanceId: string | undefined;
-}
+export const ImageDiskContainerFilterSensitiveLog = (obj: ImageDiskContainer): any => ({
+  ...obj,
+  ...(obj.Url && { Url: SENSITIVE_STRING }),
+});
 
 /**
  * @internal
@@ -8889,21 +8828,4 @@ export const RequestSpotInstancesResultFilterSensitiveLog = (obj: RequestSpotIns
 export const RunInstancesRequestFilterSensitiveLog = (obj: RunInstancesRequest): any => ({
   ...obj,
   ...(obj.UserData && { UserData: SENSITIVE_STRING }),
-});
-
-/**
- * @internal
- */
-export const ScheduledInstancesLaunchSpecificationFilterSensitiveLog = (
-  obj: ScheduledInstancesLaunchSpecification
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const RunScheduledInstancesRequestFilterSensitiveLog = (obj: RunScheduledInstancesRequest): any => ({
-  ...obj,
-  ...(obj.LaunchSpecification && { LaunchSpecification: SENSITIVE_STRING }),
 });

@@ -81,9 +81,60 @@ import {
   AnalysisStatus,
   ArchitectureType,
   VerifiedAccessLogCloudWatchLogsDestination,
-  VerifiedAccessLogKinesisDataFirehoseDestination,
-  VerifiedAccessLogS3Destination,
+  VerifiedAccessLogDeliveryStatus,
 } from "./models_4";
+
+/**
+ * @public
+ * <p>Options for Kinesis as a logging destination.</p>
+ */
+export interface VerifiedAccessLogKinesisDataFirehoseDestination {
+  /**
+   * <p>Indicates whether logging is enabled.</p>
+   */
+  Enabled?: boolean;
+
+  /**
+   * <p>The delivery status.</p>
+   */
+  DeliveryStatus?: VerifiedAccessLogDeliveryStatus;
+
+  /**
+   * <p>The ID of the delivery stream.</p>
+   */
+  DeliveryStream?: string;
+}
+
+/**
+ * @public
+ * <p>Options for Amazon S3 as a logging destination.</p>
+ */
+export interface VerifiedAccessLogS3Destination {
+  /**
+   * <p>Indicates whether logging is enabled.</p>
+   */
+  Enabled?: boolean;
+
+  /**
+   * <p>The delivery status.</p>
+   */
+  DeliveryStatus?: VerifiedAccessLogDeliveryStatus;
+
+  /**
+   * <p>The bucket name.</p>
+   */
+  BucketName?: string;
+
+  /**
+   * <p>The bucket prefix.</p>
+   */
+  Prefix?: string;
+
+  /**
+   * <p>The Amazon Web Services account number that owns the bucket.</p>
+   */
+  BucketOwner?: string;
+}
 
 /**
  * @public
@@ -7600,56 +7651,6 @@ export interface UserBucket {
 }
 
 /**
- * @public
- * <p>Describes the disk container object for an import image task.</p>
- */
-export interface ImageDiskContainer {
-  /**
-   * <p>The description of the disk image.</p>
-   */
-  Description?: string;
-
-  /**
-   * <p>The block device mapping for the disk.</p>
-   */
-  DeviceName?: string;
-
-  /**
-   * <p>The format of the disk image being imported.</p>
-   *          <p>Valid values: <code>OVA</code> | <code>VHD</code> | <code>VHDX</code> | <code>VMDK</code> | <code>RAW</code>
-   *          </p>
-   */
-  Format?: string;
-
-  /**
-   * <p>The ID of the EBS snapshot to be used for importing the snapshot.</p>
-   */
-  SnapshotId?: string;
-
-  /**
-   * <p>The URL to the Amazon S3-based disk image being imported. The URL can either be a https URL (https://..) or an
-   *    Amazon S3 URL (s3://..)</p>
-   */
-  Url?: string;
-
-  /**
-   * <p>The S3 bucket for the disk image.</p>
-   */
-  UserBucket?: UserBucket;
-}
-
-/**
- * @public
- * <p>The request information of license configurations.</p>
- */
-export interface ImportImageLicenseConfigurationRequest {
-  /**
-   * <p>The ARN of a license configuration.</p>
-   */
-  LicenseConfigurationArn?: string;
-}
-
-/**
  * @internal
  */
 export const DescribeVerifiedAccessTrustProvidersResultFilterSensitiveLog = (
@@ -7703,12 +7704,4 @@ export const GetVpnConnectionDeviceSampleConfigurationResultFilterSensitiveLog =
 ): any => ({
   ...obj,
   ...(obj.VpnConnectionDeviceSampleConfiguration && { VpnConnectionDeviceSampleConfiguration: SENSITIVE_STRING }),
-});
-
-/**
- * @internal
- */
-export const ImageDiskContainerFilterSensitiveLog = (obj: ImageDiskContainer): any => ({
-  ...obj,
-  ...(obj.Url && { Url: SENSITIVE_STRING }),
 });

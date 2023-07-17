@@ -2183,6 +2183,31 @@ export type NitroEnclavesSupport = (typeof NitroEnclavesSupport)[keyof typeof Ni
 
 /**
  * @public
+ * <p>Describes the supported NitroTPM versions for the instance type.</p>
+ */
+export interface NitroTpmInfo {
+  /**
+   * <p>Indicates the supported NitroTPM versions.</p>
+   */
+  SupportedVersions?: string[];
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const NitroTpmSupport = {
+  SUPPORTED: "supported",
+  UNSUPPORTED: "unsupported",
+} as const;
+
+/**
+ * @public
+ */
+export type NitroTpmSupport = (typeof NitroTpmSupport)[keyof typeof NitroTpmSupport];
+
+/**
+ * @public
  * @enum
  */
 export const PlacementGroupStrategy = {
@@ -2465,6 +2490,16 @@ export interface InstanceTypeInfo {
    * <p>Indicates whether Nitro Enclaves is supported.</p>
    */
   NitroEnclavesSupport?: NitroEnclavesSupport | string;
+
+  /**
+   * <p>Indicates whether NitroTPM is supported.</p>
+   */
+  NitroTpmSupport?: NitroTpmSupport | string;
+
+  /**
+   * <p>Describes the supported NitroTPM versions for the instance type.</p>
+   */
+  NitroTpmInfo?: NitroTpmInfo;
 }
 
 /**
@@ -11100,58 +11135,6 @@ export interface VerifiedAccessLogCloudWatchLogsDestination {
    * <p>The ID of the CloudWatch Logs log group.</p>
    */
   LogGroup?: string;
-}
-
-/**
- * @public
- * <p>Options for Kinesis as a logging destination.</p>
- */
-export interface VerifiedAccessLogKinesisDataFirehoseDestination {
-  /**
-   * <p>Indicates whether logging is enabled.</p>
-   */
-  Enabled?: boolean;
-
-  /**
-   * <p>The delivery status.</p>
-   */
-  DeliveryStatus?: VerifiedAccessLogDeliveryStatus;
-
-  /**
-   * <p>The ID of the delivery stream.</p>
-   */
-  DeliveryStream?: string;
-}
-
-/**
- * @public
- * <p>Options for Amazon S3 as a logging destination.</p>
- */
-export interface VerifiedAccessLogS3Destination {
-  /**
-   * <p>Indicates whether logging is enabled.</p>
-   */
-  Enabled?: boolean;
-
-  /**
-   * <p>The delivery status.</p>
-   */
-  DeliveryStatus?: VerifiedAccessLogDeliveryStatus;
-
-  /**
-   * <p>The bucket name.</p>
-   */
-  BucketName?: string;
-
-  /**
-   * <p>The bucket prefix.</p>
-   */
-  Prefix?: string;
-
-  /**
-   * <p>The Amazon Web Services account number that owns the bucket.</p>
-   */
-  BucketOwner?: string;
 }
 
 /**

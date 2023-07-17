@@ -1,4 +1,6 @@
 // smithy-typescript generated code
+import { SENSITIVE_STRING } from "@smithy/smithy-client";
+
 import {
   ByoipCidr,
   IpPermission,
@@ -10,7 +12,130 @@ import { LocalGatewayRoute } from "./models_1";
 import { TransitGatewayRoute } from "./models_2";
 import { ClientVpnConnectionStatus, Filter } from "./models_3";
 import { InstanceState, NetworkInsightsAccessScopeAnalysis, NetworkInsightsAnalysis } from "./models_4";
-import { InstanceMonitoring } from "./models_6";
+import {
+  InstanceMonitoring,
+  ScheduledInstancesBlockDeviceMapping,
+  ScheduledInstancesIamInstanceProfile,
+  ScheduledInstancesMonitoring,
+  ScheduledInstancesNetworkInterface,
+  ScheduledInstancesPlacement,
+} from "./models_6";
+
+/**
+ * @public
+ * <p>Describes the launch specification for a Scheduled Instance.</p>
+ *          <p>If you are launching the Scheduled Instance in EC2-VPC, you must specify the ID of the subnet.
+ *           You can specify the subnet using either <code>SubnetId</code> or <code>NetworkInterface</code>.</p>
+ */
+export interface ScheduledInstancesLaunchSpecification {
+  /**
+   * <p>The block device mapping entries.</p>
+   */
+  BlockDeviceMappings?: ScheduledInstancesBlockDeviceMapping[];
+
+  /**
+   * <p>Indicates whether the instances are optimized for EBS I/O. This optimization provides dedicated throughput to Amazon EBS and an optimized configuration stack to provide optimal EBS I/O performance. This optimization isn't available with all instance types. Additional usage charges apply when using an EBS-optimized instance.</p>
+   *          <p>Default: <code>false</code>
+   *          </p>
+   */
+  EbsOptimized?: boolean;
+
+  /**
+   * <p>The IAM instance profile.</p>
+   */
+  IamInstanceProfile?: ScheduledInstancesIamInstanceProfile;
+
+  /**
+   * <p>The ID of the Amazon Machine Image (AMI).</p>
+   */
+  ImageId: string | undefined;
+
+  /**
+   * <p>The instance type.</p>
+   */
+  InstanceType?: string;
+
+  /**
+   * <p>The ID of the kernel.</p>
+   */
+  KernelId?: string;
+
+  /**
+   * <p>The name of the key pair.</p>
+   */
+  KeyName?: string;
+
+  /**
+   * <p>Enable or disable monitoring for the instances.</p>
+   */
+  Monitoring?: ScheduledInstancesMonitoring;
+
+  /**
+   * <p>The network interfaces.</p>
+   */
+  NetworkInterfaces?: ScheduledInstancesNetworkInterface[];
+
+  /**
+   * <p>The placement information.</p>
+   */
+  Placement?: ScheduledInstancesPlacement;
+
+  /**
+   * <p>The ID of the RAM disk.</p>
+   */
+  RamdiskId?: string;
+
+  /**
+   * <p>The IDs of the security groups.</p>
+   */
+  SecurityGroupIds?: string[];
+
+  /**
+   * <p>The ID of the subnet in which to launch the instances.</p>
+   */
+  SubnetId?: string;
+
+  /**
+   * <p>The base64-encoded MIME user data.</p>
+   */
+  UserData?: string;
+}
+
+/**
+ * @public
+ * <p>Contains the parameters for RunScheduledInstances.</p>
+ */
+export interface RunScheduledInstancesRequest {
+  /**
+   * <p>Unique, case-sensitive identifier that ensures the idempotency of the request.
+   *          For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html">Ensuring Idempotency</a>.</p>
+   */
+  ClientToken?: string;
+
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually making the request,
+   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
+   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   */
+  DryRun?: boolean;
+
+  /**
+   * <p>The number of instances.</p>
+   *          <p>Default: 1</p>
+   */
+  InstanceCount?: number;
+
+  /**
+   * <p>The launch specification. You must match the instance type, Availability Zone,
+   *          network, and platform of the schedule that you purchased.</p>
+   */
+  LaunchSpecification: ScheduledInstancesLaunchSpecification | undefined;
+
+  /**
+   * <p>The Scheduled Instance ID.</p>
+   */
+  ScheduledInstanceId: string | undefined;
+}
 
 /**
  * @public
@@ -946,3 +1071,20 @@ export interface WithdrawByoipCidrResult {
    */
   ByoipCidr?: ByoipCidr;
 }
+
+/**
+ * @internal
+ */
+export const ScheduledInstancesLaunchSpecificationFilterSensitiveLog = (
+  obj: ScheduledInstancesLaunchSpecification
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const RunScheduledInstancesRequestFilterSensitiveLog = (obj: RunScheduledInstancesRequest): any => ({
+  ...obj,
+  ...(obj.LaunchSpecification && { LaunchSpecification: SENSITIVE_STRING }),
+});

@@ -199,6 +199,12 @@ export interface DescribeInstanceTypesCommandOutput extends DescribeInstanceType
  * //         "legacy-bios" || "uefi",
  * //       ],
  * //       NitroEnclavesSupport: "unsupported" || "supported",
+ * //       NitroTpmSupport: "unsupported" || "supported",
+ * //       NitroTpmInfo: { // NitroTpmInfo
+ * //         SupportedVersions: [ // NitroTpmSupportedVersionsList
+ * //           "STRING_VALUE",
+ * //         ],
+ * //       },
  * //     },
  * //   ],
  * //   NextToken: "STRING_VALUE",

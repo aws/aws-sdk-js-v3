@@ -3226,6 +3226,7 @@ import {
   NetworkInfo,
   NetworkInsightsAccessScopeAnalysis,
   NetworkInsightsAnalysis,
+  NitroTpmInfo,
   PlacementGroupInfo,
   PlacementGroupStrategy,
   PoolCidrBlock,
@@ -3280,8 +3281,6 @@ import {
   VCpuInfo,
   VerifiedAccessLogCloudWatchLogsDestination,
   VerifiedAccessLogDeliveryStatus,
-  VerifiedAccessLogKinesisDataFirehoseDestination,
-  VerifiedAccessLogS3Destination,
 } from "../models/models_4";
 import {
   AssociatedRole,
@@ -3520,10 +3519,8 @@ import {
   GetVpnConnectionDeviceTypesResult,
   GetVpnTunnelReplacementStatusRequest,
   GetVpnTunnelReplacementStatusResult,
-  ImageDiskContainer,
   ImportClientVpnClientCertificateRevocationListRequest,
   ImportClientVpnClientCertificateRevocationListResult,
-  ImportImageLicenseConfigurationRequest,
   InstanceEventWindowDisassociationRequest,
   InstanceFamilyCreditSpecification,
   InstanceRequirementsWithMetadataRequest,
@@ -3558,7 +3555,9 @@ import {
   TransitGatewayRouteTablePropagation,
   UserBucket,
   VerifiedAccessInstanceLoggingConfiguration,
+  VerifiedAccessLogKinesisDataFirehoseDestination,
   VerifiedAccessLogs,
+  VerifiedAccessLogS3Destination,
   VolumeModification,
   VolumeStatusAction,
   VolumeStatusAttachmentStatus,
@@ -3583,7 +3582,9 @@ import {
   ElasticInferenceAccelerator,
   EnclaveOptionsRequest,
   HibernationOptionsRequest,
+  ImageDiskContainer,
   ImageRecycleBinInfo,
+  ImportImageLicenseConfigurationRequest,
   ImportImageRequest,
   ImportImageResult,
   ImportInstanceLaunchSpecification,
@@ -3833,12 +3834,10 @@ import {
   RevokeSecurityGroupIngressRequest,
   RevokeSecurityGroupIngressResult,
   RunInstancesRequest,
-  RunScheduledInstancesRequest,
   ScheduledInstancesBlockDeviceMapping,
   ScheduledInstancesEbs,
   ScheduledInstancesIamInstanceProfile,
   ScheduledInstancesIpv6Address,
-  ScheduledInstancesLaunchSpecification,
   ScheduledInstancesMonitoring,
   ScheduledInstancesNetworkInterface,
   ScheduledInstancesPlacement,
@@ -3864,7 +3863,9 @@ import {
 } from "../models/models_6";
 import {
   InstanceStateChange,
+  RunScheduledInstancesRequest,
   RunScheduledInstancesResult,
+  ScheduledInstancesLaunchSpecification,
   SearchLocalGatewayRoutesRequest,
   SearchLocalGatewayRoutesResult,
   SearchTransitGatewayMulticastGroupsRequest,
@@ -80229,6 +80230,12 @@ const de_InstanceTypeInfo = (output: any, context: __SerdeContext): InstanceType
   if (output["nitroEnclavesSupport"] !== undefined) {
     contents.NitroEnclavesSupport = __expectString(output["nitroEnclavesSupport"]);
   }
+  if (output["nitroTpmSupport"] !== undefined) {
+    contents.NitroTpmSupport = __expectString(output["nitroTpmSupport"]);
+  }
+  if (output["nitroTpmInfo"] !== undefined) {
+    contents.NitroTpmInfo = de_NitroTpmInfo(output["nitroTpmInfo"], context);
+  }
   return contents;
 };
 
@@ -84634,6 +84641,33 @@ const de_NetworkInterfacePrivateIpAddressList = (
     .filter((e: any) => e != null)
     .map((entry: any) => {
       return de_NetworkInterfacePrivateIpAddress(entry, context);
+    });
+};
+
+/**
+ * deserializeAws_ec2NitroTpmInfo
+ */
+const de_NitroTpmInfo = (output: any, context: __SerdeContext): NitroTpmInfo => {
+  const contents: any = {};
+  if (output.supportedVersions === "") {
+    contents.SupportedVersions = [];
+  } else if (output["supportedVersions"] !== undefined && output["supportedVersions"]["item"] !== undefined) {
+    contents.SupportedVersions = de_NitroTpmSupportedVersionsList(
+      __getArrayIfSingleItem(output["supportedVersions"]["item"]),
+      context
+    );
+  }
+  return contents;
+};
+
+/**
+ * deserializeAws_ec2NitroTpmSupportedVersionsList
+ */
+const de_NitroTpmSupportedVersionsList = (output: any, context: __SerdeContext): string[] => {
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      return __expectString(entry) as any;
     });
 };
 
