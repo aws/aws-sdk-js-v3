@@ -6317,6 +6317,9 @@ const se_ModifyDBClusterMessage = (input: ModifyDBClusterMessage, context: __Ser
   if (input.EngineVersion != null) {
     entries["EngineVersion"] = input.EngineVersion;
   }
+  if (input.AllowMajorVersionUpgrade != null) {
+    entries["AllowMajorVersionUpgrade"] = input.AllowMajorVersionUpgrade;
+  }
   if (input.DeletionProtection != null) {
     entries["DeletionProtection"] = input.DeletionProtection;
   }

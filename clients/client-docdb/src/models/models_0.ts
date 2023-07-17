@@ -4714,9 +4714,23 @@ export interface ModifyDBClusterMessage {
   CloudwatchLogsExportConfiguration?: CloudwatchLogsExportConfiguration;
 
   /**
-   * <p>The version number of the database engine to which you want to upgrade. Modifying engine version is not supported on Amazon DocumentDB.</p>
+   * <p>The version number of the database engine to which you want to upgrade.
+   *              Changing this parameter results in an outage. The change is applied during
+   *              the next maintenance window unless <code>ApplyImmediately</code> is enabled.</p>
+   *          <p>To list all of the available engine versions for Amazon DocumentDB use the following command:</p>
+   *          <p>
+   *             <code>aws docdb describe-db-engine-versions --engine docdb --query "DBEngineVersions[].EngineVersion"</code>
+   *          </p>
    */
   EngineVersion?: string;
+
+  /**
+   * <p>A value that indicates whether major version upgrades are allowed.</p>
+   *          <p>Constraints: You must allow major version upgrades when specifying a value for the
+   *              <code>EngineVersion</code> parameter that is a different major version than the DB
+   *              cluster's current version.</p>
+   */
+  AllowMajorVersionUpgrade?: boolean;
 
   /**
    * <p>Specifies whether this cluster can be deleted. If <code>DeletionProtection</code> is

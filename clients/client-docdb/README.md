@@ -6,7 +6,9 @@
 
 AWS SDK for JavaScript DocDB Client for Node.js, Browser and React Native.
 
-<p>Amazon DocumentDB API documentation</p>
+<p>Amazon DocumentDB is a fast, reliable, and fully managed database service.
+Amazon DocumentDB makes it easy to set up, operate, and scale MongoDB-compatible databases in the cloud.
+With Amazon DocumentDB, you can run the same application code and use the same drivers and tools that you use with MongoDB.</p>
 
 ## Installing
 

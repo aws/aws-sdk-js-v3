@@ -67,6 +67,7 @@ export interface ModifyDBClusterCommandOutput extends ModifyDBClusterResult, __M
  *     ],
  *   },
  *   EngineVersion: "STRING_VALUE",
+ *   AllowMajorVersionUpgrade: true || false,
  *   DeletionProtection: true || false,
  * };
  * const command = new ModifyDBClusterCommand(input);
