@@ -3,6 +3,22 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.371.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.370.0...v3.371.0) (2023-07-17)
+
+
+### Features
+
+* **client-docdb:** Added major version upgrade option in ModifyDBCluster API ([c12cffb](https://github.com/aws/aws-sdk-js-v3/commit/c12cffbf610ad9f8c898e5e6c82bfa9bd2297d54))
+* **client-ec2:** Add Nitro TPM support on DescribeInstanceTypes ([001f5d7](https://github.com/aws/aws-sdk-js-v3/commit/001f5d7d9ac7edd2ea2f58285206f07352faf1ef))
+* **client-glue:** Adding new supported permission type flags to get-unfiltered endpoints that callers may pass to indicate support for enforcing Lake Formation fine-grained access control on nested column attributes. ([5e3726d](https://github.com/aws/aws-sdk-js-v3/commit/5e3726d7f799cb7c453691918668b7230f45f431))
+* **client-ivs:** This release provides the flexibility to configure what renditions or thumbnail qualities to record when creating recording configuration. ([7850f23](https://github.com/aws/aws-sdk-js-v3/commit/7850f23315cadd2a77e060a4b6742b202d58505f))
+* **client-lakeformation:** Adds supports for ReadOnlyAdmins and AllowFullTableExternalDataAccess. Adds NESTED_PERMISSION and NESTED_CELL_PERMISSION to SUPPORTED_PERMISSION_TYPES enum. Adds CREATE_LF_TAG on catalog resource and ALTER, DROP, and GRANT_WITH_LF_TAG_EXPRESSION on LF Tag resource. ([367d6f4](https://github.com/aws/aws-sdk-js-v3/commit/367d6f45ca134a8f7edc0b85ac72bb734bd8e408))
+* **clients:** update client endpoints as of 2023-07-17 ([1defec3](https://github.com/aws/aws-sdk-js-v3/commit/1defec31bf0f2809a7b7390e33005351d32d404b))
+
+
+
+
+
 # [3.370.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.369.0...v3.370.0) (2023-07-13)
 
 

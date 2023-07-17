@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.371.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.370.0...v3.371.0) (2023-07-17)
+
+
+### Features
+
+* **client-ivs:** This release provides the flexibility to configure what renditions or thumbnail qualities to record when creating recording configuration. ([7850f23](https://github.com/aws/aws-sdk-js-v3/commit/7850f23315cadd2a77e060a4b6742b202d58505f))
+
+
+
+
+
 # [3.370.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.369.0...v3.370.0) (2023-07-13)
 
 
