@@ -6,7 +6,11 @@
 
 AWS SDK for JavaScript CodeGuruSecurity Client for Node.js, Browser and React Native.
 
-<p>This section provides documentation for the <a href="https://docs.aws.amazon.com/https:/docs.aws.amazon.com/codeguru/latest/security-ug/what-is-codeguru-security.html">Amazon CodeGuru Security</a> API operations.
+<note>
+<p>Amazon CodeGuru Security is in preview release and is subject to
+change.</p>
+</note>
+<p>This section provides documentation for the Amazon CodeGuru Security API operations.
 CodeGuru Security is a service that uses program analysis and machine learning to detect
 security policy violations and vulnerabilities, and recommends ways to address these security
 risks.</p>

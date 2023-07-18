@@ -36,7 +36,8 @@ export interface ListScansCommandOutput extends ListScansResponse, __MetadataBea
 
 /**
  * @public
- * <p>Returns a list of all the scans in an account.</p>
+ * <p>Returns a list of all the standard scans in an account. Does not return express
+ *       scans.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

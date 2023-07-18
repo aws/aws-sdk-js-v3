@@ -738,7 +738,7 @@ export interface CreateScanRequest {
 
   /**
    * <p>The type of analysis you want CodeGuru Security to perform in the scan, either
-   *         <code>Security</code> or <code>All</code>. The <code>Secuirty</code> type only generates
+   *         <code>Security</code> or <code>All</code>. The <code>Security</code> type only generates
    *       findings related to security. The <code>All</code> type generates both security findings and
    *       quality findings. Defaults to <code>Security</code> type if missing.</p>
    */
