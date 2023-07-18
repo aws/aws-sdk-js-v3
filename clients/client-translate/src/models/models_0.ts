@@ -1764,12 +1764,19 @@ export interface Document {
    * <p>Describes the format of the document. You can specify one of the following:</p>
    *          <ul>
    *             <li>
-   *                <p>text/html - The input data consists of HTML content.
+   *                <p>
+   *                   <code>text/html</code> - The input data consists of HTML content.
    *         Amazon Translate translates only the text in the HTML element.</p>
    *             </li>
    *             <li>
-   *                <p>text/plain - The input data consists of unformatted text.
+   *                <p>
+   *                   <code>text/plain</code> - The input data consists of unformatted text.
    *         Amazon Translate translates every character in the content. </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>application/vnd.openxmlformats-officedocument.wordprocessingml.document</code> - The
+   *           input data consists of a Word document (.docx).</p>
    *             </li>
    *          </ul>
    */
