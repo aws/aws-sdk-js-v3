@@ -11500,6 +11500,7 @@
             "ap-south-1": {},
             "ap-southeast-1": {},
             "ap-southeast-2": {},
+            "ca-central-1": {},
             "eu-central-1": {},
             "eu-north-1": {},
             "eu-west-1": {},
@@ -11519,6 +11520,7 @@
             "ap-south-1": {},
             "ap-southeast-1": {},
             "ap-southeast-2": {},
+            "ca-central-1": {},
             "eu-central-1": {},
             "eu-north-1": {},
             "eu-west-1": {},
@@ -22076,6 +22078,13 @@
         },
         "codepipeline": {
           "endpoints": {
+            "fips-us-gov-east-1": {
+              "credentialScope": {
+                "region": "us-gov-east-1"
+              },
+              "deprecated": true,
+              "hostname": "codepipeline-fips.us-gov-east-1.amazonaws.com"
+            },
             "fips-us-gov-west-1": {
               "credentialScope": {
                 "region": "us-gov-west-1"
@@ -22083,7 +22092,14 @@
               "deprecated": true,
               "hostname": "codepipeline-fips.us-gov-west-1.amazonaws.com"
             },
-            "us-gov-east-1": {},
+            "us-gov-east-1": {
+              "variants": [
+                {
+                  "hostname": "codepipeline-fips.us-gov-east-1.amazonaws.com",
+                  "tags": ["fips"]
+                }
+              ]
+            },
             "us-gov-west-1": {
               "variants": [
                 {
