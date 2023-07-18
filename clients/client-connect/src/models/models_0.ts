@@ -67,8 +67,8 @@ export interface ActivateEvaluationFormRequest {
   EvaluationFormId: string | undefined;
 
   /**
-   * <p>The version of the evaluation form to activate. If the version property is not provided, the latest version of the
-   *    evaluation form is activated.</p>
+   * <p>The version of the evaluation form to activate. If the version property is not provided, the
+   *    latest version of the evaluation form is activated.</p>
    */
   EvaluationFormVersion: number | undefined;
 }
@@ -2188,8 +2188,8 @@ export interface ParticipantTokenCredentials {
  */
 export interface CreateParticipantResponse {
   /**
-   * <p>The token used by the chat participant to call <code>CreateParticipantConnection</code>. The participant
-   *    token is valid for the lifetime of a chat participant.</p>
+   * <p>The token used by the chat participant to call <code>CreateParticipantConnection</code>. The
+   *    participant token is valid for the lifetime of a chat participant.</p>
    */
   ParticipantCredentials?: ParticipantTokenCredentials;
 
