@@ -5,11 +5,40 @@ import {
   ActiveContext,
   AgentTurnResult,
   AgentTurnSpecification,
+  AggregatedUtterancesFilter,
+  AggregatedUtterancesSortBy,
+  AggregatedUtterancesSummary,
+  AnalyticsBinBySpecification,
+  AnalyticsIntentFilter,
+  AnalyticsIntentGroupBySpecification,
+  AnalyticsIntentMetric,
+  AnalyticsIntentNodeSummary,
+  AnalyticsIntentResult,
+  AnalyticsIntentStageFilter,
+  AnalyticsIntentStageGroupBySpecification,
+  AnalyticsIntentStageMetric,
+  AnalyticsIntentStageResult,
+  AnalyticsModality,
+  AnalyticsPathFilter,
+  AnalyticsSessionFilter,
+  AnalyticsSessionGroupBySpecification,
+  AnalyticsSessionMetric,
+  AnalyticsSessionResult,
+  AnalyticsSessionSortByName,
+  AnalyticsSortOrder,
+  AnalyticsUtteranceAttribute,
+  AnalyticsUtteranceFilter,
+  AnalyticsUtteranceGroupBySpecification,
+  AnalyticsUtteranceMetric,
+  AnalyticsUtteranceResult,
+  AnalyticsUtteranceSortByName,
   AssociatedTranscript,
   AssociatedTranscriptFilter,
   BotAliasLocaleSettings,
   BotAliasStatus,
   BotAliasSummary,
+  BotAliasTestExecutionTarget,
+  BotChannelType,
   BotFilter,
   BotLocaleFilter,
   BotLocaleSortBy,
@@ -30,9 +59,11 @@ import {
   BuiltInSlotTypeSummary,
   CompositeSlotTypeSetting,
   Condition,
+  ConversationEndState,
   ConversationLevelResultDetail,
   ConversationLevelTestResults,
   ConversationLevelTestResultsFilterBy,
+  ConversationLogsDataSource,
   ConversationLogSettings,
   CustomVocabularyItem,
   DataPrivacy,
@@ -42,25 +73,15 @@ import {
   EncryptionSetting,
   EncryptionSettingFilterSensitiveLog,
   ExecutionErrorDetails,
-  ExportFilter,
   ExportResourceSpecification,
-  ExportSortBy,
   ExportStatus,
-  ExportSummary,
   ExternalSourceSetting,
   FulfillmentUpdatesSpecification,
+  ImageResponseCard,
   ImportExportFileFormat,
-  ImportFilter,
   ImportResourceSpecification,
-  ImportSortBy,
   ImportStatus,
-  ImportSummary,
   InputContext,
-  IntentClassificationTestResults,
-  IntentFilter,
-  IntentLevelSlotResolutionTestResults,
-  IntentSortBy,
-  IntentSummary,
   KendraConfiguration,
   MergeStrategy,
   MultipleValuesSetting,
@@ -68,7 +89,6 @@ import {
   OutputContext,
   PromptSpecification,
   ResponseSpecification,
-  RuntimeHintValue,
   SampleUtterance,
   SentimentAnalysisSettings,
   SlotConstraint,
@@ -80,20 +100,1386 @@ import {
   SlotValueSelectionSetting,
   SortOrder,
   SubSlotSetting,
-  TestExecutionApiMode,
-  TestExecutionModality,
-  TestExecutionStatus,
-  TestExecutionTarget,
   TestResultMatchStatus,
-  TestSetGenerationDataSource,
-  TestSetGenerationStatus,
+  TestSetDiscrepancyReportResourceTarget,
   TestSetModality,
-  TestSetStatus,
   TestSetStorageLocation,
   TranscriptSourceSetting,
   VoiceSettings,
   WaitAndContinueSpecification,
 } from "./models_0";
+
+/**
+ * @public
+ */
+export interface DescribeSlotTypeRequest {
+  /**
+   * <p>The identifier of the slot type.</p>
+   */
+  slotTypeId: string | undefined;
+
+  /**
+   * <p>The identifier of the bot associated with the slot type.</p>
+   */
+  botId: string | undefined;
+
+  /**
+   * <p>The version of the bot associated with the slot type.</p>
+   */
+  botVersion: string | undefined;
+
+  /**
+   * <p>The identifier of the language and locale of the slot type to
+   *          describe. The string must match one of the supported locales. For more
+   *          information, see <a href="https://docs.aws.amazon.com/lexv2/latest/dg/how-languages.html">Supported languages</a>.</p>
+   */
+  localeId: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DescribeSlotTypeResponse {
+  /**
+   * <p>The unique identifier for the slot type.</p>
+   */
+  slotTypeId?: string;
+
+  /**
+   * <p>The name specified for the slot type.</p>
+   */
+  slotTypeName?: string;
+
+  /**
+   * <p>The description specified for the slot type.</p>
+   */
+  description?: string;
+
+  /**
+   * <p>The values that the slot type can take. Includes any synonyms for
+   *          the slot type values.</p>
+   */
+  slotTypeValues?: SlotTypeValue[];
+
+  /**
+   * <p>The strategy that Amazon Lex uses to choose a value from a list of
+   *          possible values.</p>
+   */
+  valueSelectionSetting?: SlotValueSelectionSetting;
+
+  /**
+   * <p>The built in slot type used as a parent to this slot type.</p>
+   */
+  parentSlotTypeSignature?: string;
+
+  /**
+   * <p>The identifier of the bot associated with the slot type.</p>
+   */
+  botId?: string;
+
+  /**
+   * <p>The version of the bot associated with the slot type.</p>
+   */
+  botVersion?: string;
+
+  /**
+   * <p>The language and locale specified for the slot type.</p>
+   */
+  localeId?: string;
+
+  /**
+   * <p>A timestamp of the date and time that the slot type was
+   *          created.</p>
+   */
+  creationDateTime?: Date;
+
+  /**
+   * <p>A timestamp of the date and time that the slot type was last
+   *          updated.</p>
+   */
+  lastUpdatedDateTime?: Date;
+
+  /**
+   * <p>Provides information about the external source of the slot type's definition.</p>
+   */
+  externalSourceSetting?: ExternalSourceSetting;
+
+  /**
+   * <p>Specifications for a composite slot type.</p>
+   */
+  compositeSlotTypeSetting?: CompositeSlotTypeSetting;
+}
+
+/**
+ * @public
+ */
+export interface DescribeTestExecutionRequest {
+  /**
+   * <p>The execution Id of the test set execution.</p>
+   */
+  testExecutionId: string | undefined;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const TestExecutionApiMode = {
+  NonStreaming: "NonStreaming",
+  Streaming: "Streaming",
+} as const;
+
+/**
+ * @public
+ */
+export type TestExecutionApiMode = (typeof TestExecutionApiMode)[keyof typeof TestExecutionApiMode];
+
+/**
+ * @public
+ * <p>Contains information about the bot used for the test execution.</p>
+ */
+export interface TestExecutionTarget {
+  /**
+   * <p>Contains information about the bot alias used for the test execution.</p>
+   */
+  botAliasTarget?: BotAliasTestExecutionTarget;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const TestExecutionModality = {
+  Audio: "Audio",
+  Text: "Text",
+} as const;
+
+/**
+ * @public
+ */
+export type TestExecutionModality = (typeof TestExecutionModality)[keyof typeof TestExecutionModality];
+
+/**
+ * @public
+ * @enum
+ */
+export const TestExecutionStatus = {
+  Completed: "Completed",
+  Failed: "Failed",
+  InProgress: "InProgress",
+  Pending: "Pending",
+  Stopped: "Stopped",
+  Stopping: "Stopping",
+  Waiting: "Waiting",
+} as const;
+
+/**
+ * @public
+ */
+export type TestExecutionStatus = (typeof TestExecutionStatus)[keyof typeof TestExecutionStatus];
+
+/**
+ * @public
+ */
+export interface DescribeTestExecutionResponse {
+  /**
+   * <p>The execution Id for the test set execution.</p>
+   */
+  testExecutionId?: string;
+
+  /**
+   * <p>The execution creation date and time for the test set execution.</p>
+   */
+  creationDateTime?: Date;
+
+  /**
+   * <p>The date and time of the last update for the execution.</p>
+   */
+  lastUpdatedDateTime?: Date;
+
+  /**
+   * <p>The test execution status for the test execution.</p>
+   */
+  testExecutionStatus?: TestExecutionStatus | string;
+
+  /**
+   * <p>The test set Id for the test set execution.</p>
+   */
+  testSetId?: string;
+
+  /**
+   * <p>The test set name of the test set execution.</p>
+   */
+  testSetName?: string;
+
+  /**
+   * <p>The target bot for the test set execution details.</p>
+   */
+  target?: TestExecutionTarget;
+
+  /**
+   * <p>Indicates whether we use streaming or non-streaming APIs are used for
+   *       the test set execution. For streaming, <code>StartConversation</code>
+   *       Amazon Lex Runtime API is used. Whereas for non-streaming, <code>RecognizeUtterance</code>
+   *       and <code>RecognizeText</code> Amazon Lex Runtime API is used.</p>
+   */
+  apiMode?: TestExecutionApiMode | string;
+
+  /**
+   * <p>Indicates whether test set is audio or text.</p>
+   */
+  testExecutionModality?: TestExecutionModality | string;
+
+  /**
+   * <p>Reasons for the failure of the test set execution.</p>
+   */
+  failureReasons?: string[];
+}
+
+/**
+ * @public
+ */
+export interface DescribeTestSetRequest {
+  /**
+   * <p>The test set Id for the test set request.</p>
+   */
+  testSetId: string | undefined;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const TestSetStatus = {
+  Deleting: "Deleting",
+  Importing: "Importing",
+  PendingAnnotation: "PendingAnnotation",
+  Ready: "Ready",
+  ValidationError: "ValidationError",
+} as const;
+
+/**
+ * @public
+ */
+export type TestSetStatus = (typeof TestSetStatus)[keyof typeof TestSetStatus];
+
+/**
+ * @public
+ */
+export interface DescribeTestSetResponse {
+  /**
+   * <p>The test set Id for the test set response.</p>
+   */
+  testSetId?: string;
+
+  /**
+   * <p>The test set name of the test set.</p>
+   */
+  testSetName?: string;
+
+  /**
+   * <p>The description of the test set.</p>
+   */
+  description?: string;
+
+  /**
+   * <p>Indicates whether the test set is audio or text data.</p>
+   */
+  modality?: TestSetModality | string;
+
+  /**
+   * <p>The status of the test set.</p>
+   */
+  status?: TestSetStatus | string;
+
+  /**
+   * <p>The roleARN used for any operation in the test set to access
+   *       resources in the Amazon Web Services account.</p>
+   */
+  roleArn?: string;
+
+  /**
+   * <p>The total number of agent and user turn in the test set.</p>
+   */
+  numTurns?: number;
+
+  /**
+   * <p>The Amazon S3 storage location for the test set data.</p>
+   */
+  storageLocation?: TestSetStorageLocation;
+
+  /**
+   * <p>The creation date and time for the test set data.</p>
+   */
+  creationDateTime?: Date;
+
+  /**
+   * <p>The date and time for the last update of the test set data.</p>
+   */
+  lastUpdatedDateTime?: Date;
+}
+
+/**
+ * @public
+ */
+export interface DescribeTestSetDiscrepancyReportRequest {
+  /**
+   * <p>The unique identifier of the test set discrepancy report.</p>
+   */
+  testSetDiscrepancyReportId: string | undefined;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const TestSetDiscrepancyReportStatus = {
+  Completed: "Completed",
+  Failed: "Failed",
+  InProgress: "InProgress",
+} as const;
+
+/**
+ * @public
+ */
+export type TestSetDiscrepancyReportStatus =
+  (typeof TestSetDiscrepancyReportStatus)[keyof typeof TestSetDiscrepancyReportStatus];
+
+/**
+ * @public
+ * <p>Contains information about discrepancy in an intent information between the test set and the
+ *        bot.</p>
+ */
+export interface TestSetIntentDiscrepancyItem {
+  /**
+   * <p>The name of the intent in the discrepancy report.</p>
+   */
+  intentName: string | undefined;
+
+  /**
+   * <p>The error message for a discrepancy for an intent between the test set and the bot.</p>
+   */
+  errorMessage: string | undefined;
+}
+
+/**
+ * @public
+ * <p>Contains information about discrepancy in a slot information between the test set and the bot.</p>
+ */
+export interface TestSetSlotDiscrepancyItem {
+  /**
+   * <p>The name of the intent associated with the slot in the discrepancy report.</p>
+   */
+  intentName: string | undefined;
+
+  /**
+   * <p>The name of the slot in the discrepancy report.</p>
+   */
+  slotName: string | undefined;
+
+  /**
+   * <p>The error message for a discrepancy for an intent between the test set and the bot.</p>
+   */
+  errorMessage: string | undefined;
+}
+
+/**
+ * @public
+ * <p>Contains details about the errors in the test set discrepancy report</p>
+ */
+export interface TestSetDiscrepancyErrors {
+  /**
+   * <p>Contains information about discrepancies found for intents between the test set and the bot.</p>
+   */
+  intentDiscrepancies: TestSetIntentDiscrepancyItem[] | undefined;
+
+  /**
+   * <p>Contains information about discrepancies found for slots between the test set and the bot.</p>
+   */
+  slotDiscrepancies: TestSetSlotDiscrepancyItem[] | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DescribeTestSetDiscrepancyReportResponse {
+  /**
+   * <p>The unique identifier of the test set discrepancy report to describe.</p>
+   */
+  testSetDiscrepancyReportId?: string;
+
+  /**
+   * <p>The test set Id for the test set discrepancy report.</p>
+   */
+  testSetId?: string;
+
+  /**
+   * <p>The time and date of creation for the test set discrepancy report.</p>
+   */
+  creationDateTime?: Date;
+
+  /**
+   * <p>The target bot location for the test set discrepancy report.</p>
+   */
+  target?: TestSetDiscrepancyReportResourceTarget;
+
+  /**
+   * <p>The status for the test set discrepancy report.</p>
+   */
+  testSetDiscrepancyReportStatus?: TestSetDiscrepancyReportStatus | string;
+
+  /**
+   * <p>The date and time of the last update for the test set discrepancy report.</p>
+   */
+  lastUpdatedDataTime?: Date;
+
+  /**
+   * <p>The top 200 error results from the test set discrepancy report.</p>
+   */
+  testSetDiscrepancyTopErrors?: TestSetDiscrepancyErrors;
+
+  /**
+   * <p>Pre-signed Amazon S3 URL to download the test set discrepancy report.</p>
+   */
+  testSetDiscrepancyRawOutputUrl?: string;
+
+  /**
+   * <p>The failure report for the test set discrepancy report generation action.</p>
+   */
+  failureReasons?: string[];
+}
+
+/**
+ * @public
+ */
+export interface DescribeTestSetGenerationRequest {
+  /**
+   * <p>The unique identifier of the test set generation.</p>
+   */
+  testSetGenerationId: string | undefined;
+}
+
+/**
+ * @public
+ * <p>Contains information about the data source from which the test set is generated.</p>
+ */
+export interface TestSetGenerationDataSource {
+  /**
+   * <p>Contains information about the bot from which the conversation logs are sourced.</p>
+   */
+  conversationLogsDataSource?: ConversationLogsDataSource;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const TestSetGenerationStatus = {
+  Failed: "Failed",
+  Generating: "Generating",
+  Pending: "Pending",
+  Ready: "Ready",
+} as const;
+
+/**
+ * @public
+ */
+export type TestSetGenerationStatus = (typeof TestSetGenerationStatus)[keyof typeof TestSetGenerationStatus];
+
+/**
+ * @public
+ */
+export interface DescribeTestSetGenerationResponse {
+  /**
+   * <p>The unique identifier of the test set generation.</p>
+   */
+  testSetGenerationId?: string;
+
+  /**
+   * <p>The status for the test set generation.</p>
+   */
+  testSetGenerationStatus?: TestSetGenerationStatus | string;
+
+  /**
+   * <p>The reasons the test set generation failed.</p>
+   */
+  failureReasons?: string[];
+
+  /**
+   * <p>The unique identifier for the test set created for the generated test set.</p>
+   */
+  testSetId?: string;
+
+  /**
+   * <p>The test set name for the generated test set.</p>
+   */
+  testSetName?: string;
+
+  /**
+   * <p>The test set description for the test set generation.</p>
+   */
+  description?: string;
+
+  /**
+   * <p>The Amazon S3 storage location for the test set generation.</p>
+   */
+  storageLocation?: TestSetStorageLocation;
+
+  /**
+   * <p>The data source of the test set used for the test set generation.</p>
+   */
+  generationDataSource?: TestSetGenerationDataSource;
+
+  /**
+   * <p> The roleARN of the test set used for the test set generation.</p>
+   */
+  roleArn?: string;
+
+  /**
+   * <p>The creation date and time for the test set generation.</p>
+   */
+  creationDateTime?: Date;
+
+  /**
+   * <p>The date and time of the last update for the test set generation.</p>
+   */
+  lastUpdatedDateTime?: Date;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const ExportFilterName = {
+  ExportResourceType: "ExportResourceType",
+} as const;
+
+/**
+ * @public
+ */
+export type ExportFilterName = (typeof ExportFilterName)[keyof typeof ExportFilterName];
+
+/**
+ * @public
+ * @enum
+ */
+export const ExportFilterOperator = {
+  Contains: "CO",
+  Equals: "EQ",
+} as const;
+
+/**
+ * @public
+ */
+export type ExportFilterOperator = (typeof ExportFilterOperator)[keyof typeof ExportFilterOperator];
+
+/**
+ * @public
+ * <p>Filters the response form the <a href="https://docs.aws.amazon.com/lexv2/latest/APIReference/API_ListExports.html">ListExports</a> operation</p>
+ */
+export interface ExportFilter {
+  /**
+   * <p>The name of the field to use for filtering.</p>
+   */
+  name: ExportFilterName | string | undefined;
+
+  /**
+   * <p>The values to use to filter the response. The values must be
+   *          <code>Bot</code>, <code>BotLocale</code>, or
+   *          <code>CustomVocabulary</code>.</p>
+   */
+  values: string[] | undefined;
+
+  /**
+   * <p>The operator to use for the filter. Specify EQ when the
+   *          <code>ListExports</code> operation should return only resource types
+   *          that equal the specified value. Specify CO when the
+   *          <code>ListExports</code> operation should return resource types that
+   *          contain the specified value.</p>
+   */
+  operator: ExportFilterOperator | string | undefined;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const ExportSortAttribute = {
+  LastUpdatedDateTime: "LastUpdatedDateTime",
+} as const;
+
+/**
+ * @public
+ */
+export type ExportSortAttribute = (typeof ExportSortAttribute)[keyof typeof ExportSortAttribute];
+
+/**
+ * @public
+ * <p>Provides information about sorting a list of exports.</p>
+ */
+export interface ExportSortBy {
+  /**
+   * <p>The export field to use for sorting.</p>
+   */
+  attribute: ExportSortAttribute | string | undefined;
+
+  /**
+   * <p>The order to sort the list.</p>
+   */
+  order: SortOrder | string | undefined;
+}
+
+/**
+ * @public
+ * <p>Provides summary information about an export in an export list.
+ *       </p>
+ */
+export interface ExportSummary {
+  /**
+   * <p>The unique identifier that Amazon Lex assigned to the export.</p>
+   */
+  exportId?: string;
+
+  /**
+   * <p>Information about the bot or bot locale that was exported.</p>
+   */
+  resourceSpecification?: ExportResourceSpecification;
+
+  /**
+   * <p>The file format used in the export files.</p>
+   */
+  fileFormat?: ImportExportFileFormat | string;
+
+  /**
+   * <p>The status of the export. When the status is <code>Completed</code>
+   *          the export is ready to download.</p>
+   */
+  exportStatus?: ExportStatus | string;
+
+  /**
+   * <p>The date and time that the export was created.</p>
+   */
+  creationDateTime?: Date;
+
+  /**
+   * <p>The date and time that the export was last updated.</p>
+   */
+  lastUpdatedDateTime?: Date;
+}
+
+/**
+ * @public
+ */
+export interface GetTestExecutionArtifactsUrlRequest {
+  /**
+   * <p>The unique identifier of the completed test execution.</p>
+   */
+  testExecutionId: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetTestExecutionArtifactsUrlResponse {
+  /**
+   * <p>The unique identifier of the completed test execution.</p>
+   */
+  testExecutionId?: string;
+
+  /**
+   * <p>The pre-signed Amazon S3 URL to download completed test execution.</p>
+   */
+  downloadArtifactsUrl?: string;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const ImportFilterName = {
+  ImportResourceType: "ImportResourceType",
+} as const;
+
+/**
+ * @public
+ */
+export type ImportFilterName = (typeof ImportFilterName)[keyof typeof ImportFilterName];
+
+/**
+ * @public
+ * @enum
+ */
+export const ImportFilterOperator = {
+  Contains: "CO",
+  Equals: "EQ",
+} as const;
+
+/**
+ * @public
+ */
+export type ImportFilterOperator = (typeof ImportFilterOperator)[keyof typeof ImportFilterOperator];
+
+/**
+ * @public
+ * <p>Filters the response from the <a href="https://docs.aws.amazon.com/lexv2/latest/APIReference/API_ListImports.html">ListImports</a> operation.</p>
+ */
+export interface ImportFilter {
+  /**
+   * <p>The name of the field to use for filtering.</p>
+   */
+  name: ImportFilterName | string | undefined;
+
+  /**
+   * <p>The values to use to filter the response. The values must be
+   *          <code>Bot</code>, <code>BotLocale</code>, or
+   *          <code>CustomVocabulary</code>.</p>
+   */
+  values: string[] | undefined;
+
+  /**
+   * <p>The operator to use for the filter. Specify EQ when the
+   *          <code>ListImports</code> operation should return only resource types
+   *          that equal the specified value. Specify CO when the
+   *          <code>ListImports</code> operation should return resource types that
+   *          contain the specified value.</p>
+   */
+  operator: ImportFilterOperator | string | undefined;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const ImportResourceType = {
+  Bot: "Bot",
+  BotLocale: "BotLocale",
+  CustomVocabulary: "CustomVocabulary",
+  TestSet: "TestSet",
+} as const;
+
+/**
+ * @public
+ */
+export type ImportResourceType = (typeof ImportResourceType)[keyof typeof ImportResourceType];
+
+/**
+ * @public
+ * @enum
+ */
+export const ImportSortAttribute = {
+  LastUpdatedDateTime: "LastUpdatedDateTime",
+} as const;
+
+/**
+ * @public
+ */
+export type ImportSortAttribute = (typeof ImportSortAttribute)[keyof typeof ImportSortAttribute];
+
+/**
+ * @public
+ * <p>Provides information for sorting a list of imports.</p>
+ */
+export interface ImportSortBy {
+  /**
+   * <p>The export field to use for sorting.</p>
+   */
+  attribute: ImportSortAttribute | string | undefined;
+
+  /**
+   * <p>The order to sort the list.</p>
+   */
+  order: SortOrder | string | undefined;
+}
+
+/**
+ * @public
+ * <p>Provides summary information about an import in an import
+ *          list.</p>
+ */
+export interface ImportSummary {
+  /**
+   * <p>The unique identifier that Amazon Lex assigned to the import.</p>
+   */
+  importId?: string;
+
+  /**
+   * <p>The unique identifier that Amazon Lex assigned to the imported
+   *          resource.</p>
+   */
+  importedResourceId?: string;
+
+  /**
+   * <p>The name that you gave the imported resource.</p>
+   */
+  importedResourceName?: string;
+
+  /**
+   * <p>The status of the resource. When the status is
+   *          <code>Completed</code> the resource is ready to build.</p>
+   */
+  importStatus?: ImportStatus | string;
+
+  /**
+   * <p>The strategy used to merge existing bot or bot locale definitions
+   *          with the imported definition.</p>
+   */
+  mergeStrategy?: MergeStrategy | string;
+
+  /**
+   * <p>The date and time that the import was created.</p>
+   */
+  creationDateTime?: Date;
+
+  /**
+   * <p>The date and time that the import was last updated.</p>
+   */
+  lastUpdatedDateTime?: Date;
+
+  /**
+   * <p>The type of resource that was imported.</p>
+   */
+  importedResourceType?: ImportResourceType | string;
+}
+
+/**
+ * @public
+ * <p>Provides the phrase that Amazon Lex should look for in the user's input
+ *  to the bot.</p>
+ */
+export interface RuntimeHintValue {
+  /**
+   * <p>The phrase that Amazon Lex should look for in the user's input to the
+   *  bot.</p>
+   */
+  phrase: string | undefined;
+}
+
+/**
+ * @public
+ * <p>The number of items in the intent classification test.</p>
+ */
+export interface IntentClassificationTestResultItemCounts {
+  /**
+   * <p>The total number of results in the intent classification test.</p>
+   */
+  totalResultCount: number | undefined;
+
+  /**
+   * <p>The number of matched, mismatched, and execution error results for speech transcription for the intent.</p>
+   */
+  speechTranscriptionResultCounts?: Record<string, number>;
+
+  /**
+   * <p>The number of matched and mismatched results for intent recognition for the intent.</p>
+   */
+  intentMatchResultCounts: Record<string, number> | undefined;
+}
+
+/**
+ * @public
+ * <p>Information for an intent that is classified by the test workbench.</p>
+ */
+export interface IntentClassificationTestResultItem {
+  /**
+   * <p>The name of the intent.</p>
+   */
+  intentName: string | undefined;
+
+  /**
+   * <p>Indicates whether the conversation involves multiple turns or not.</p>
+   */
+  multiTurnConversation: boolean | undefined;
+
+  /**
+   * <p>The result of the intent classification test.</p>
+   */
+  resultCounts: IntentClassificationTestResultItemCounts | undefined;
+}
+
+/**
+ * @public
+ * <p>Information for the results of the intent classification test. </p>
+ */
+export interface IntentClassificationTestResults {
+  /**
+   * <p>A list of the results for the intent classification test.</p>
+   */
+  items: IntentClassificationTestResultItem[] | undefined;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const IntentFilterName = {
+  IntentName: "IntentName",
+} as const;
+
+/**
+ * @public
+ */
+export type IntentFilterName = (typeof IntentFilterName)[keyof typeof IntentFilterName];
+
+/**
+ * @public
+ * @enum
+ */
+export const IntentFilterOperator = {
+  Contains: "CO",
+  Equals: "EQ",
+} as const;
+
+/**
+ * @public
+ */
+export type IntentFilterOperator = (typeof IntentFilterOperator)[keyof typeof IntentFilterOperator];
+
+/**
+ * @public
+ * <p>Filters the response from the <code>ListIntents</code>
+ *          operation.</p>
+ */
+export interface IntentFilter {
+  /**
+   * <p>The name of the field to use for the filter.</p>
+   */
+  name: IntentFilterName | string | undefined;
+
+  /**
+   * <p>The value to use for the filter.</p>
+   */
+  values: string[] | undefined;
+
+  /**
+   * <p>The operator to use for the filter. Specify <code>EQ</code> when the
+   *          <code>ListIntents</code> operation should return only aliases that
+   *          equal the specified value. Specify <code>CO</code> when the
+   *          <code>ListIntents</code> operation should return aliases that
+   *          contain the specified value.</p>
+   */
+  operator: IntentFilterOperator | string | undefined;
+}
+
+/**
+ * @public
+ * <p>Information about the counts for a slot resolution in the results of a test execution.</p>
+ */
+export interface SlotResolutionTestResultItemCounts {
+  /**
+   * <p>The total number of results.</p>
+   */
+  totalResultCount: number | undefined;
+
+  /**
+   * <p>The number of matched, mismatched and execution error results for speech transcription for the slot.</p>
+   */
+  speechTranscriptionResultCounts?: Record<string, number>;
+
+  /**
+   * <p>The number of matched and mismatched results for slot resolution for the slot.</p>
+   */
+  slotMatchResultCounts: Record<string, number> | undefined;
+}
+
+/**
+ * @public
+ * <p>Information about the success and failure rate of slot resolution
+ *  in the results of a test execution.</p>
+ */
+export interface SlotResolutionTestResultItem {
+  /**
+   * <p>The name of the slot.</p>
+   */
+  slotName: string | undefined;
+
+  /**
+   * <p>A result for slot resolution in the results of a test execution.</p>
+   */
+  resultCounts: SlotResolutionTestResultItemCounts | undefined;
+}
+
+/**
+ * @public
+ * <p>Information about intent-level slot resolution in a test result.</p>
+ */
+export interface IntentLevelSlotResolutionTestResultItem {
+  /**
+   * <p>The name of the intent that was recognized.</p>
+   */
+  intentName: string | undefined;
+
+  /**
+   * <p>Indicates whether the conversation involves multiple turns or not.</p>
+   */
+  multiTurnConversation: boolean | undefined;
+
+  /**
+   * <p>The results for the slot resolution in the test execution result.</p>
+   */
+  slotResolutionResults: SlotResolutionTestResultItem[] | undefined;
+}
+
+/**
+ * @public
+ * <p>Indicates the success or failure of slots at the intent level.</p>
+ */
+export interface IntentLevelSlotResolutionTestResults {
+  /**
+   * <p>Indicates the items for the slot level resolution for the intents.</p>
+   */
+  items: IntentLevelSlotResolutionTestResultItem[] | undefined;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const IntentSortAttribute = {
+  IntentName: "IntentName",
+  LastUpdatedDateTime: "LastUpdatedDateTime",
+} as const;
+
+/**
+ * @public
+ */
+export type IntentSortAttribute = (typeof IntentSortAttribute)[keyof typeof IntentSortAttribute];
+
+/**
+ * @public
+ * <p>Specifies attributes for sorting a list of intents.</p>
+ */
+export interface IntentSortBy {
+  /**
+   * <p>The attribute to use to sort the list of intents.</p>
+   */
+  attribute: IntentSortAttribute | string | undefined;
+
+  /**
+   * <p>The order to sort the list. You can choose ascending or
+   *          descending.</p>
+   */
+  order: SortOrder | string | undefined;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const IntentState = {
+  Failed: "Failed",
+  Fulfilled: "Fulfilled",
+  FulfillmentInProgress: "FulfillmentInProgress",
+  InProgress: "InProgress",
+  ReadyForFulfillment: "ReadyForFulfillment",
+  Waiting: "Waiting",
+} as const;
+
+/**
+ * @public
+ */
+export type IntentState = (typeof IntentState)[keyof typeof IntentState];
+
+/**
+ * @public
+ * <p>Summary information about an intent returned by the
+ *          <code>ListIntents</code> operation.</p>
+ */
+export interface IntentSummary {
+  /**
+   * <p>The unique identifier assigned to the intent. Use this ID to get
+   *          detailed information about the intent with the
+   *          <code>DescribeIntent</code> operation.</p>
+   */
+  intentId?: string;
+
+  /**
+   * <p>The name of the intent.</p>
+   */
+  intentName?: string;
+
+  /**
+   * <p>The description of the intent.</p>
+   */
+  description?: string;
+
+  /**
+   * <p>If this intent is derived from a built-in intent, the name of the
+   *          parent intent.</p>
+   */
+  parentIntentSignature?: string;
+
+  /**
+   * <p>The input contexts that must be active for this intent to be
+   *          considered for recognition.</p>
+   */
+  inputContexts?: InputContext[];
+
+  /**
+   * <p>The output contexts that are activated when this intent is
+   *          fulfilled.</p>
+   */
+  outputContexts?: OutputContext[];
+
+  /**
+   * <p>The timestamp of the date and time that the intent was last
+   *          updated.</p>
+   */
+  lastUpdatedDateTime?: Date;
+}
+
+/**
+ * @public
+ * <p>An object containing the name of an intent that was invoked.</p>
+ */
+export interface InvokedIntentSample {
+  /**
+   * <p>The name of an intent that was invoked.</p>
+   */
+  intentName?: string;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const TimeDimension = {
+  Days: "Days",
+  Hours: "Hours",
+  Weeks: "Weeks",
+} as const;
+
+/**
+ * @public
+ */
+export type TimeDimension = (typeof TimeDimension)[keyof typeof TimeDimension];
+
+/**
+ * @public
+ * <p>Specifies the time window that utterance statistics are returned
+ *             for. The time window is always relative to the last time that the that
+ *             utterances were aggregated. For example, if the
+ *             <code>ListAggregatedUtterances</code> operation is called at 1600,
+ *             the time window is set to 1 hour, and the last refresh time was 1530,
+ *             only utterances made between 1430 and 1530 are returned.</p>
+ *          <p>You can choose the time window that statistics should be returned
+ *             for.</p>
+ *          <ul>
+ *             <li>
+ *                <p>
+ *                   <b>Hours</b> - You can request
+ *                     utterance statistics for 1, 3, 6, 12, or 24 hour time windows.
+ *                     Statistics are refreshed every half hour for 1 hour time windows,
+ *                     and hourly for the other time windows.</p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <b>Days</b> - You can request
+ *                     utterance statistics for 3 days. Statistics are refreshed every 6
+ *                     hours.</p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <b>Weeks</b> - You can see
+ *                     statistics for one or two weeks. Statistics are refreshed every
+ *                     12 hours for one week time windows, and once per day for two week
+ *                     time windows.</p>
+ *             </li>
+ *          </ul>
+ */
+export interface RelativeAggregationDuration {
+  /**
+   * <p>The type of time period that the <code>timeValue</code> field
+   *             represents. </p>
+   */
+  timeDimension: TimeDimension | string | undefined;
+
+  /**
+   * <p>The period of the time window to gather statistics for. The valid
+   *             value depends on the setting of the <code>timeDimension</code>
+   *             field.</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>Hours</code> - 1/3/6/12/24</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>Days</code> - 3</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>Weeks</code> - 1/2</p>
+   *             </li>
+   *          </ul>
+   */
+  timeValue: number | undefined;
+}
+
+/**
+ * @public
+ * <p>Provides parameters for setting the time window and duration for
+ *             aggregating utterance data.</p>
+ */
+export interface UtteranceAggregationDuration {
+  /**
+   * <p>The desired time window for aggregating utterances. </p>
+   */
+  relativeAggregationDuration: RelativeAggregationDuration | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListAggregatedUtterancesRequest {
+  /**
+   * <p>The unique identifier of the bot associated with this
+   *          request.</p>
+   */
+  botId: string | undefined;
+
+  /**
+   * <p>The identifier of the bot alias associated with this request. If you
+   *          specify the bot alias, you can't specify the bot version.</p>
+   */
+  botAliasId?: string;
+
+  /**
+   * <p>The identifier of the bot version associated with this request. If
+   *          you specify the bot version, you can't specify the bot alias.</p>
+   */
+  botVersion?: string;
+
+  /**
+   * <p>The identifier of the language and locale where the utterances were
+   *          collected. For more information, see <a href="https://docs.aws.amazon.com/lexv2/latest/dg/how-languages.html">Supported
+   *          languages</a>.</p>
+   */
+  localeId: string | undefined;
+
+  /**
+   * <p>The time window for aggregating the utterance information. You can
+   *          specify a time between one hour and two weeks.</p>
+   */
+  aggregationDuration: UtteranceAggregationDuration | undefined;
+
+  /**
+   * <p>Specifies sorting parameters for the list of utterances. You can
+   *          sort by the hit count, the missed count, or the number of distinct
+   *          sessions the utterance appeared in.</p>
+   */
+  sortBy?: AggregatedUtterancesSortBy;
+
+  /**
+   * <p>Provides the specification of a filter used to limit the utterances
+   *          in the response to only those that match the filter specification. You
+   *          can only specify one filter and one string to filter on.</p>
+   */
+  filters?: AggregatedUtterancesFilter[];
+
+  /**
+   * <p>The maximum number of utterances to return in each page of results.
+   *          If there are fewer results than the maximum page size, only the actual
+   *          number of results are returned. If you don't specify the
+   *             <code>maxResults</code> parameter, 1,000 results are
+   *          returned.</p>
+   */
+  maxResults?: number;
+
+  /**
+   * <p>If the response from the <code>ListAggregatedUtterances</code>
+   *          operation contains more results that specified in the
+   *             <code>maxResults</code> parameter, a token is returned in the
+   *          response. Use that token in the <code>nextToken</code> parameter to
+   *          return the next page of results.</p>
+   */
+  nextToken?: string;
+}
+
+/**
+ * @public
+ */
+export interface ListAggregatedUtterancesResponse {
+  /**
+   * <p>The identifier of the bot that contains the utterances.</p>
+   */
+  botId?: string;
+
+  /**
+   * <p>The identifier of the bot alias that contains the utterances. If you
+   *          specified the bot version, the bot alias ID isn't returned.</p>
+   */
+  botAliasId?: string;
+
+  /**
+   * <p>The identifier of the bot version that contains the utterances. If
+   *          you specified the bot alias, the bot version isn't returned.</p>
+   */
+  botVersion?: string;
+
+  /**
+   * <p>The identifier of the language and locale that the utterances are
+   *          in.</p>
+   */
+  localeId?: string;
+
+  /**
+   * <p>The time period used to aggregate the utterance data.</p>
+   */
+  aggregationDuration?: UtteranceAggregationDuration;
+
+  /**
+   * <p>The date and time that the aggregation window begins. Only data
+   *          collected after this time is returned in the results.</p>
+   */
+  aggregationWindowStartTime?: Date;
+
+  /**
+   * <p>The date and time that the aggregation window ends. Only data
+   *          collected between the start time and the end time are returned in the
+   *          results. </p>
+   */
+  aggregationWindowEndTime?: Date;
+
+  /**
+   * <p>The last date and time that the aggregated data was collected. The
+   *          time period depends on the length of the aggregation window.</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <b>Hours</b> - for 1 hour time
+   *                window, every half hour; otherwise every hour.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <b>Days</b> - every 6 hours</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <b>Weeks</b> - for a one week time
+   *                window, every 12 hours; otherwise, every day</p>
+   *             </li>
+   *          </ul>
+   */
+  aggregationLastRefreshedDateTime?: Date;
+
+  /**
+   * <p>Summaries of the aggregated utterance data. Each response contains
+   *          information about the number of times that the utterance was seen
+   *          during the time period, whether it was detected or missed, and when it
+   *          was seen during the time period.</p>
+   */
+  aggregatedUtterancesSummaries?: AggregatedUtterancesSummary[];
+
+  /**
+   * <p>A token that indicates whether there are more results to return in a
+   *          response to the <code>ListAggregatedUtterances</code> operation. If the
+   *             <code>nextToken</code> field is present, you send the contents as
+   *          the <code>nextToken</code> parameter of a
+   *             <code>ListAggregatedUtterances</code> operation request to get the
+   *          next page of results.</p>
+   */
+  nextToken?: string;
+}
 
 /**
  * @public
@@ -816,6 +2202,139 @@ export interface ListImportsResponse {
 /**
  * @public
  */
+export interface ListIntentMetricsRequest {
+  /**
+   * <p>The identifier for the bot for which you want to retrieve intent metrics.</p>
+   */
+  botId: string | undefined;
+
+  /**
+   * <p>The timestamp that marks the beginning of the range of time for which you want to see intent metrics.</p>
+   */
+  startDateTime: Date | undefined;
+
+  /**
+   * <p>The date and time that marks the end of the range of time for which you want to see intent metrics.</p>
+   */
+  endDateTime: Date | undefined;
+
+  /**
+   * <p>A list of objects, each of which contains a metric you want to list, the statistic for the metric you want to return, and the order by which to organize the results.</p>
+   */
+  metrics: AnalyticsIntentMetric[] | undefined;
+
+  /**
+   * <p>A list of objects, each of which contains specifications for organizing the results by time.</p>
+   */
+  binBy?: AnalyticsBinBySpecification[];
+
+  /**
+   * <p>A list of objects, each of which specifies how to group the results. You can group by the following criteria:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>IntentName</code> – The name of the intent.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>IntentEndState</code> – The final state of the intent. The possible end states are detailed in <a href="https://docs.aws.amazon.com/analytics-key-definitions-intents">Key definitions</a> in the user guide.</p>
+   *             </li>
+   *          </ul>
+   */
+  groupBy?: AnalyticsIntentGroupBySpecification[];
+
+  /**
+   * <p>A list of objects, each of which describes a condition by which you want to filter the results.</p>
+   */
+  filters?: AnalyticsIntentFilter[];
+
+  /**
+   * <p>The maximum number of results to return in each page of results. If there are fewer results than the maximum page size, only the actual number of results are returned.</p>
+   */
+  maxResults?: number;
+
+  /**
+   * <p>If the response from the ListIntentMetrics operation contains more results than specified in the maxResults parameter, a token is returned in the response.</p>
+   *          <p>Use the returned token in the nextToken parameter of a ListIntentMetrics request to return the next page of results. For a complete set of results, call the ListIntentMetrics operation until the nextToken returned in the response is null.</p>
+   */
+  nextToken?: string;
+}
+
+/**
+ * @public
+ */
+export interface ListIntentMetricsResponse {
+  /**
+   * <p>The identifier for the bot for which you retrieved intent metrics.</p>
+   */
+  botId?: string;
+
+  /**
+   * <p>The results for the intent metrics.</p>
+   */
+  results?: AnalyticsIntentResult[];
+
+  /**
+   * <p>If the response from the ListIntentMetrics operation contains more results than specified in the maxResults parameter, a token is returned in the response.</p>
+   *          <p>Use the returned token in the nextToken parameter of a ListIntentMetrics request to return the next page of results. For a complete set of results, call the ListIntentMetrics operation until the nextToken returned in the response is null.</p>
+   */
+  nextToken?: string;
+}
+
+/**
+ * @public
+ */
+export interface ListIntentPathsRequest {
+  /**
+   * <p>The identifier for the bot for which you want to retrieve intent path metrics.</p>
+   */
+  botId: string | undefined;
+
+  /**
+   * <p>The date and time that marks the beginning of the range of time for which you want to see intent path metrics.</p>
+   */
+  startDateTime: Date | undefined;
+
+  /**
+   * <p>The date and time that marks the end of the range of time for which you want to see intent path metrics.</p>
+   */
+  endDateTime: Date | undefined;
+
+  /**
+   * <p>The intent path for which you want to retrieve metrics. Use a forward slash to separate intents in the path. For example:</p>
+   *          <ul>
+   *             <li>
+   *                <p>/BookCar</p>
+   *             </li>
+   *             <li>
+   *                <p>/BookCar/BookHotel</p>
+   *             </li>
+   *             <li>
+   *                <p>/BookHotel/BookCar</p>
+   *             </li>
+   *          </ul>
+   */
+  intentPath: string | undefined;
+
+  /**
+   * <p>A list of objects, each describes a condition by which you want to filter the results.</p>
+   */
+  filters?: AnalyticsPathFilter[];
+}
+
+/**
+ * @public
+ */
+export interface ListIntentPathsResponse {
+  /**
+   * <p>A list of objects, each of which contains information about a node in the intent path for which you requested metrics.</p>
+   */
+  nodeSummaries?: AnalyticsIntentNodeSummary[];
+}
+
+/**
+ * @public
+ */
 export interface ListIntentsRequest {
   /**
    * <p>The unique identifier of the bot that contains the intent.</p>
@@ -903,6 +2422,88 @@ export interface ListIntentsResponse {
    *             <code>nextToken</code> field is present, you send the contents as
    *          the <code>nextToken</code> parameter of a <code>ListIntents</code>
    *          operation request to get the next page of results.</p>
+   */
+  nextToken?: string;
+}
+
+/**
+ * @public
+ */
+export interface ListIntentStageMetricsRequest {
+  /**
+   * <p>The identifier for the bot for which you want to retrieve intent stage metrics.</p>
+   */
+  botId: string | undefined;
+
+  /**
+   * <p>The date and time that marks the beginning of the range of time for which you want to see intent stage metrics.</p>
+   */
+  startDateTime: Date | undefined;
+
+  /**
+   * <p>The date and time that marks the end of the range of time for which you want to see intent stage metrics.</p>
+   */
+  endDateTime: Date | undefined;
+
+  /**
+   * <p>A list of objects, each of which contains a metric you want to list, the statistic for the metric you want to return, and the method by which to organize the results.</p>
+   */
+  metrics: AnalyticsIntentStageMetric[] | undefined;
+
+  /**
+   * <p>A list of objects, each of which contains specifications for organizing the results by time.</p>
+   */
+  binBy?: AnalyticsBinBySpecification[];
+
+  /**
+   * <p>A list of objects, each of which specifies how to group the results. You can group by the following criteria:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>IntentStageName</code> – The name of the intent stage.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>SwitchedToIntent</code> – The intent to which the conversation was switched (if any).</p>
+   *             </li>
+   *          </ul>
+   */
+  groupBy?: AnalyticsIntentStageGroupBySpecification[];
+
+  /**
+   * <p>A list of objects, each of which describes a condition by which you want to filter the results.</p>
+   */
+  filters?: AnalyticsIntentStageFilter[];
+
+  /**
+   * <p>The maximum number of results to return in each page of results. If there are fewer results than the maximum page size, only the actual number of results are returned.</p>
+   */
+  maxResults?: number;
+
+  /**
+   * <p>If the response from the ListIntentStageMetrics operation contains more results than specified in the maxResults parameter, a token is returned in the response.</p>
+   *          <p>Use the returned token in the nextToken parameter of a ListIntentStageMetrics request to return the next page of results. For a complete set of results, call the ListIntentStageMetrics operation until the nextToken returned in the response is null.</p>
+   */
+  nextToken?: string;
+}
+
+/**
+ * @public
+ */
+export interface ListIntentStageMetricsResponse {
+  /**
+   * <p>The identifier for the bot for which you retrieved intent stage metrics.</p>
+   */
+  botId?: string;
+
+  /**
+   * <p>The results for the intent stage metrics.</p>
+   */
+  results?: AnalyticsIntentStageResult[];
+
+  /**
+   * <p>If the response from the ListIntentStageMetrics operation contains more results than specified in the maxResults parameter, a token is returned in the response.</p>
+   *          <p>Use the returned token in the nextToken parameter of a ListIntentStageMetrics request to return the next page of results. For a complete set of results, call the ListIntentStageMetrics operation until the nextToken returned in the response is null.</p>
    */
   nextToken?: string;
 }
@@ -1017,6 +2618,269 @@ export interface ListRecommendedIntentsResponse {
    *          field is present, you send the contents as the nextToken parameter of a
    *          ListRecommendedIntents operation request to get the next page of
    *          results.</p>
+   */
+  nextToken?: string;
+}
+
+/**
+ * @public
+ * <p>An object specifying the measure and method by which to sort the session analytics data.</p>
+ */
+export interface SessionDataSortBy {
+  /**
+   * <p>The measure by which to sort the session analytics data.</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>conversationStartTime</code> – The date and time when the conversation began. A conversation is defined as a unique combination of a <code>sessionId</code> and an <code>originatingRequestId</code>.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>numberOfTurns</code> – The number of turns that the session took.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>conversationDurationSeconds</code> – The duration of the conversation in seconds.</p>
+   *             </li>
+   *          </ul>
+   */
+  name: AnalyticsSessionSortByName | string | undefined;
+
+  /**
+   * <p>Specifies whether to sort the results in ascending or descending order.</p>
+   */
+  order: AnalyticsSortOrder | string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListSessionAnalyticsDataRequest {
+  /**
+   * <p>The identifier for the bot for which you want to retrieve session analytics.</p>
+   */
+  botId: string | undefined;
+
+  /**
+   * <p>The date and time that marks the beginning of the range of time for which you want to see session analytics.</p>
+   */
+  startDateTime: Date | undefined;
+
+  /**
+   * <p>The date and time that marks the end of the range of time for which you want to see session analytics.</p>
+   */
+  endDateTime: Date | undefined;
+
+  /**
+   * <p>An object specifying the measure and method by which to sort the session analytics data.</p>
+   */
+  sortBy?: SessionDataSortBy;
+
+  /**
+   * <p>A list of objects, each of which describes a condition by which you want to filter the results.</p>
+   */
+  filters?: AnalyticsSessionFilter[];
+
+  /**
+   * <p>The maximum number of results to return in each page of results. If there are fewer results than the maximum page size, only the actual number of results are returned.</p>
+   */
+  maxResults?: number;
+
+  /**
+   * <p>If the response from the ListSessionAnalyticsData operation contains more results than specified in the maxResults parameter, a token is returned in the response.</p>
+   *          <p>Use the returned token in the nextToken parameter of a ListSessionAnalyticsData request to return the next page of results. For a complete set of results, call the ListSessionAnalyticsData operation until the nextToken returned in the response is null.</p>
+   */
+  nextToken?: string;
+}
+
+/**
+ * @public
+ * <p>An object containing information about a specific session.</p>
+ */
+export interface SessionSpecification {
+  /**
+   * <p>The identifier of the alias of the bot that the session was held with.</p>
+   */
+  botAliasId?: string;
+
+  /**
+   * <p>The version of the bot that the session was held with.</p>
+   */
+  botVersion?: string;
+
+  /**
+   * <p>The locale of the bot that the session was held with.</p>
+   */
+  localeId?: string;
+
+  /**
+   * <p>The channel that is integrated with the bot that the session was held with.</p>
+   */
+  channel?: BotChannelType | string;
+
+  /**
+   * <p>The identifier of the session.</p>
+   */
+  sessionId?: string;
+
+  /**
+   * <p>The date and time when the conversation began. A conversation is defined as a unique combination of a <code>sessionId</code> and an <code>originatingRequestId</code>.</p>
+   */
+  conversationStartTime?: Date;
+
+  /**
+   * <p>The date and time when the conversation ended. A conversation is defined as a unique combination of a <code>sessionId</code> and an <code>originatingRequestId</code>.</p>
+   */
+  conversationEndTime?: Date;
+
+  /**
+   * <p>The duration of the conversation in seconds. A conversation is defined as a unique combination of a <code>sessionId</code> and an <code>originatingRequestId</code>.</p>
+   */
+  conversationDurationSeconds?: number;
+
+  /**
+   * <p>The final state of the conversation. A conversation is defined as a unique combination of a <code>sessionId</code> and an <code>originatingRequestId</code>.</p>
+   */
+  conversationEndState?: ConversationEndState | string;
+
+  /**
+   * <p>The mode of the session. The possible values are as follows:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>Speech</code> – The session was spoken.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>Text</code> – The session was written.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>DTMF</code> – The session used a touch-tone keypad (Dual Tone Multi-Frequency).</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>MultiMode</code> – The session used multiple modes.</p>
+   *             </li>
+   *          </ul>
+   */
+  mode?: AnalyticsModality | string;
+
+  /**
+   * <p>The number of turns that the session took.</p>
+   */
+  numberOfTurns?: number;
+
+  /**
+   * <p>A list of objects containing the name of an intent that was invoked.</p>
+   */
+  invokedIntentSamples?: InvokedIntentSample[];
+
+  /**
+   * <p>The identifier of the first request in a session.</p>
+   */
+  originatingRequestId?: string;
+}
+
+/**
+ * @public
+ */
+export interface ListSessionAnalyticsDataResponse {
+  /**
+   * <p>The unique identifier of the bot that the sessions belong to.</p>
+   */
+  botId?: string;
+
+  /**
+   * <p>If the response from the ListSessionAnalyticsData operation contains more results than specified in the maxResults parameter, a token is returned in the response.</p>
+   *          <p>Use the returned token in the nextToken parameter of a ListSessionAnalyticsData request to return the next page of results. For a complete set of results, call the ListSessionAnalyticsData operation until the nextToken returned in the response is null.</p>
+   */
+  nextToken?: string;
+
+  /**
+   * <p>A list of objects, each of which contains information about a session with the bot.</p>
+   */
+  sessions?: SessionSpecification[];
+}
+
+/**
+ * @public
+ */
+export interface ListSessionMetricsRequest {
+  /**
+   * <p>The identifier for the bot for which you want to retrieve session metrics.</p>
+   */
+  botId: string | undefined;
+
+  /**
+   * <p>The date and time that marks the beginning of the range of time for which you want to see session metrics.</p>
+   */
+  startDateTime: Date | undefined;
+
+  /**
+   * <p>The date and time that marks the end of the range of time for which you want to see session metrics.</p>
+   */
+  endDateTime: Date | undefined;
+
+  /**
+   * <p>A list of objects, each of which contains a metric you want to list, the statistic for the metric you want to return, and the method by which to organize the results.</p>
+   */
+  metrics: AnalyticsSessionMetric[] | undefined;
+
+  /**
+   * <p>A list of objects, each of which contains specifications for organizing the results by time.</p>
+   */
+  binBy?: AnalyticsBinBySpecification[];
+
+  /**
+   * <p>A list of objects, each of which specifies how to group the results. You can group by the following criteria:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>ConversationEndState</code> – The final state of the conversation. The possible end states are detailed in <a href="https://docs.aws.amazon.com/analytics-key-definitions-conversations">Key definitions</a> in the user guide.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>LocaleId</code> – The unique identifier of the bot locale.</p>
+   *             </li>
+   *          </ul>
+   */
+  groupBy?: AnalyticsSessionGroupBySpecification[];
+
+  /**
+   * <p>A list of objects, each of which describes a condition by which you want to filter the results.</p>
+   */
+  filters?: AnalyticsSessionFilter[];
+
+  /**
+   * <p>The maximum number of results to return in each page of results. If there are fewer results than the maximum page size, only the actual number of results are returned.</p>
+   */
+  maxResults?: number;
+
+  /**
+   * <p>If the response from the ListSessionMetrics operation contains more results than specified in the maxResults parameter, a token is returned in the response.</p>
+   *          <p>Use the returned token in the nextToken parameter of a ListSessionMetrics request to return the next page of results. For a complete set of results, call the ListSessionMetrics operation until the nextToken returned in the response is null.</p>
+   */
+  nextToken?: string;
+}
+
+/**
+ * @public
+ */
+export interface ListSessionMetricsResponse {
+  /**
+   * <p>The identifier for the bot for which you retrieved session metrics.</p>
+   */
+  botId?: string;
+
+  /**
+   * <p>The results for the session metrics.</p>
+   */
+  results?: AnalyticsSessionResult[];
+
+  /**
+   * <p>If the response from the ListSessionMetrics operation contains more results than specified in the maxResults parameter, a token is returned in the response.</p>
+   *          <p>Use the returned token in the nextToken parameter of a ListSessionMetrics request to return the next page of results. For a complete set of results, call the ListSessionMetrics operation until the nextToken returned in the response is null.</p>
    */
   nextToken?: string;
 }
@@ -1927,6 +3791,447 @@ export interface ListTestSetsResponse {
    *       to the ListTestSets operation. If the nextToken field is present, you send the
    *       contents as the nextToken parameter of a ListTestSets operation request to get
    *       the next page of results.</p>
+   */
+  nextToken?: string;
+}
+
+/**
+ * @public
+ * <p>An object specifying the measure and method by which to sort the utterance data.</p>
+ */
+export interface UtteranceDataSortBy {
+  /**
+   * <p>The measure by which to sort the utterance analytics data.</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>Count</code> – The number of utterances.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>UtteranceTimeStamp</code> – The date and time of the utterance.</p>
+   *             </li>
+   *          </ul>
+   */
+  name: AnalyticsUtteranceSortByName | string | undefined;
+
+  /**
+   * <p>Specifies whether to sort the results in ascending or descending order.</p>
+   */
+  order: AnalyticsSortOrder | string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListUtteranceAnalyticsDataRequest {
+  /**
+   * <p>The identifier for the bot for which you want to retrieve utterance analytics.</p>
+   */
+  botId: string | undefined;
+
+  /**
+   * <p>The date and time that marks the beginning of the range of time for which you want to see utterance analytics.</p>
+   */
+  startDateTime: Date | undefined;
+
+  /**
+   * <p>The date and time that marks the end of the range of time for which you want to see utterance analytics.</p>
+   */
+  endDateTime: Date | undefined;
+
+  /**
+   * <p>An object specifying the measure and method by which to sort the utterance analytics data.</p>
+   */
+  sortBy?: UtteranceDataSortBy;
+
+  /**
+   * <p>A list of objects, each of which describes a condition by which you want to filter the results.</p>
+   */
+  filters?: AnalyticsUtteranceFilter[];
+
+  /**
+   * <p>The maximum number of results to return in each page of results. If there are fewer results than the maximum page size, only the actual number of results are returned.</p>
+   */
+  maxResults?: number;
+
+  /**
+   * <p>If the response from the ListUtteranceAnalyticsData operation contains more results than specified in the maxResults parameter, a token is returned in the response.</p>
+   *          <p>Use the returned token in the nextToken parameter of a ListUtteranceAnalyticsData request to return the next page of results. For a complete set of results, call the ListUtteranceAnalyticsData operation until the nextToken returned in the response is null.</p>
+   */
+  nextToken?: string;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const UtteranceContentType = {
+  CustomPayload: "CustomPayload",
+  ImageResponseCard: "ImageResponseCard",
+  PlainText: "PlainText",
+  SSML: "SSML",
+} as const;
+
+/**
+ * @public
+ */
+export type UtteranceContentType = (typeof UtteranceContentType)[keyof typeof UtteranceContentType];
+
+/**
+ * @public
+ * <p>An object that contains a response to the utterance from the bot.</p>
+ */
+export interface UtteranceBotResponse {
+  /**
+   * <p>The text of the response to the utterance from the bot.</p>
+   */
+  content?: string;
+
+  /**
+   * <p>The type of the response. The following values are possible:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>PlainText</code> – A plain text string.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>CustomPayload</code> – A response string that you can customize to include data or metadata for your application.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>SSML</code> – A string that includes Speech Synthesis Markup Language to customize the audio response.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>ImageResponseCard</code> – An image with buttons that the customer can select. See <a href="https://docs.aws.amazon.com/lexv2/latest/APIReference/API_runtime_ImageResponseCard.html">ImageResponseCard</a> for more information.</p>
+   *             </li>
+   *          </ul>
+   */
+  contentType?: UtteranceContentType | string;
+
+  /**
+   * <p>A card that is shown to the user by a messaging platform. You define
+   *          the contents of the card, the card is displayed by the platform. </p>
+   *          <p>When you use a response card, the response from the user is
+   *          constrained to the text associated with a button on the card.</p>
+   */
+  imageResponseCard?: ImageResponseCard;
+}
+
+/**
+ * @public
+ * <p>An object containing information about a specific utterance.</p>
+ */
+export interface UtteranceSpecification {
+  /**
+   * <p>The identifier of the alias of the bot that the utterance was made to.</p>
+   */
+  botAliasId?: string;
+
+  /**
+   * <p>The version of the bot that the utterance was made to.</p>
+   */
+  botVersion?: string;
+
+  /**
+   * <p>The locale of the bot that the utterance was made to.</p>
+   */
+  localeId?: string;
+
+  /**
+   * <p>The identifier of the session that the utterance was made in.</p>
+   */
+  sessionId?: string;
+
+  /**
+   * <p>The channel that is integrated with the bot that the utterance was made to.</p>
+   */
+  channel?: BotChannelType | string;
+
+  /**
+   * <p>The mode of the session. The possible values are as follows:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>Speech</code> – The session consisted of spoken dialogue.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>Text</code> – The session consisted of written dialogue.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>DTMF</code> – The session consisted of touch-tone keypad (Dual Tone Multi-Frequency) key presses.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>MultiMode</code> – The session consisted of multiple modes.</p>
+   *             </li>
+   *          </ul>
+   */
+  mode?: AnalyticsModality | string;
+
+  /**
+   * <p>The date and time when the conversation in which the utterance took place began. A conversation is defined as a unique combination of a <code>sessionId</code> and an <code>originatingRequestId</code>.</p>
+   */
+  conversationStartTime?: Date;
+
+  /**
+   * <p>The date and time when the conversation in which the utterance took place ended. A conversation is defined as a unique combination of a <code>sessionId</code> and an <code>originatingRequestId</code>.</p>
+   */
+  conversationEndTime?: Date;
+
+  /**
+   * <p>The text of the utterance.</p>
+   */
+  utterance?: string;
+
+  /**
+   * <p>The date and time when the utterance took place.</p>
+   */
+  utteranceTimestamp?: Date;
+
+  /**
+   * <p>The duration in milliseconds of the audio associated with the utterance.</p>
+   */
+  audioVoiceDurationMillis?: number;
+
+  /**
+   * <p>Specifies whether the bot understood the utterance or not.</p>
+   */
+  utteranceUnderstood?: boolean;
+
+  /**
+   * <p>The input type of the utterance. The possible values are as follows:</p>
+   *          <ul>
+   *             <li>
+   *                <p>PCM format: audio data must be in little-endian byte order.</p>
+   *                <ul>
+   *                   <li>
+   *                      <p>
+   *                         <code>audio/l16; rate=16000; channels=1</code>
+   *                      </p>
+   *                   </li>
+   *                   <li>
+   *                      <p>
+   *                         <code>audio/x-l16; sample-rate=16000; channel-count=1</code>
+   *                      </p>
+   *                   </li>
+   *                   <li>
+   *                      <p>
+   *                         <code>audio/lpcm; sample-rate=8000; sample-size-bits=16; channel-count=1; is-big-endian=false</code>
+   *                      </p>
+   *                   </li>
+   *                </ul>
+   *             </li>
+   *             <li>
+   *                <p>Opus format</p>
+   *                <ul>
+   *                   <li>
+   *                      <p>
+   *                         <code>audio/x-cbr-opus-with-preamble;preamble-size=0;bit-rate=256000;frame-size-milliseconds=4</code>
+   *                      </p>
+   *                   </li>
+   *                </ul>
+   *             </li>
+   *             <li>
+   *                <p>Text format</p>
+   *                <ul>
+   *                   <li>
+   *                      <p>
+   *                         <code>text/plain; charset=utf-8</code>
+   *                      </p>
+   *                   </li>
+   *                </ul>
+   *             </li>
+   *          </ul>
+   */
+  inputType?: string;
+
+  /**
+   * <p>The output type of the utterance. The possible values are as follows:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>audio/mpeg</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>audio/ogg</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>audio/pcm (16 KHz)</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>audio/</code> (defaults to <code>mpeg</code>)</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>text/plain; charset=utf-8</code>
+   *                </p>
+   *             </li>
+   *          </ul>
+   */
+  outputType?: string;
+
+  /**
+   * <p>The name of the intent that the utterance is associated to.</p>
+   */
+  associatedIntentName?: string;
+
+  /**
+   * <p>The name of the slot that the utterance is associated to.</p>
+   */
+  associatedSlotName?: string;
+
+  /**
+   * <p>The state of the intent that the utterance is associated to.</p>
+   */
+  intentState?: IntentState | string;
+
+  /**
+   * <p>The type of dialog action that the utterance is associated to. See the <code>type</code> field in <a href="https://docs.aws.amazon.com/lexv2/latest/APIReference/API_runtime_DialogAction.html">DialogAction</a> for more information.</p>
+   */
+  dialogActionType?: string;
+
+  /**
+   * <p>The identifier for the audio of the bot response.</p>
+   */
+  botResponseAudioVoiceId?: string;
+
+  /**
+   * <p>The slots that have been filled in the session by the time of the utterance.</p>
+   */
+  slotsFilledInSession?: string;
+
+  /**
+   * <p>The identifier of the request associated with the utterance.</p>
+   */
+  utteranceRequestId?: string;
+
+  /**
+   * <p>A list of objects containing information about the bot response to the utterance.</p>
+   */
+  botResponses?: UtteranceBotResponse[];
+}
+
+/**
+ * @public
+ */
+export interface ListUtteranceAnalyticsDataResponse {
+  /**
+   * <p>The unique identifier of the bot that the utterances belong to.</p>
+   */
+  botId?: string;
+
+  /**
+   * <p>If the response from the ListUtteranceAnalyticsData operation contains more results than specified in the maxResults parameter, a token is returned in the response.</p>
+   *          <p>Use the returned token in the nextToken parameter of a ListUtteranceAnalyticsData request to return the next page of results. For a complete set of results, call the ListUtteranceAnalyticsData operation until the nextToken returned in the response is null.</p>
+   */
+  nextToken?: string;
+
+  /**
+   * <p>A list of objects, each of which contains information about an utterance in a user session with your bot.</p>
+   */
+  utterances?: UtteranceSpecification[];
+}
+
+/**
+ * @public
+ */
+export interface ListUtteranceMetricsRequest {
+  /**
+   * <p>The identifier for the bot for which you want to retrieve utterance metrics.</p>
+   */
+  botId: string | undefined;
+
+  /**
+   * <p>The date and time that marks the beginning of the range of time for which you want to see utterance metrics.</p>
+   */
+  startDateTime: Date | undefined;
+
+  /**
+   * <p>The date and time that marks the end of the range of time for which you want to see utterance metrics.</p>
+   */
+  endDateTime: Date | undefined;
+
+  /**
+   * <p>A list of objects, each of which contains a metric you want to list, the statistic for the metric you want to return, and the method by which to organize the results.</p>
+   */
+  metrics: AnalyticsUtteranceMetric[] | undefined;
+
+  /**
+   * <p>A list of objects, each of which contains specifications for organizing the results by time.</p>
+   */
+  binBy?: AnalyticsBinBySpecification[];
+
+  /**
+   * <p>A list of objects, each of which specifies how to group the results. You can group by the following criteria:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>UtteranceText</code> – The transcription of the utterance.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>UtteranceState</code> – The state of the utterance. The possible states are detailed in <a href="https://docs.aws.amazon.com/analytics-key-definitions-utterances">Key definitions</a> in the user guide.</p>
+   *             </li>
+   *          </ul>
+   */
+  groupBy?: AnalyticsUtteranceGroupBySpecification[];
+
+  /**
+   * <p>A list containing attributes related to the utterance that you want the response to return. The following attributes are possible:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>LastUsedIntent</code> – The last used intent at the time of the utterance.</p>
+   *             </li>
+   *          </ul>
+   */
+  attributes?: AnalyticsUtteranceAttribute[];
+
+  /**
+   * <p>A list of objects, each of which describes a condition by which you want to filter the results.</p>
+   */
+  filters?: AnalyticsUtteranceFilter[];
+
+  /**
+   * <p>The maximum number of results to return in each page of results. If there are fewer results than the maximum page size, only the actual number of results are returned.</p>
+   */
+  maxResults?: number;
+
+  /**
+   * <p>If the response from the ListUtteranceMetrics operation contains more results than specified in the maxResults parameter, a token is returned in the response.</p>
+   *          <p>Use the returned token in the nextToken parameter of a ListUtteranceMetrics request to return the next page of results. For a complete set of results, call the ListUtteranceMetrics operation until the nextToken returned in the response is null.</p>
+   */
+  nextToken?: string;
+}
+
+/**
+ * @public
+ */
+export interface ListUtteranceMetricsResponse {
+  /**
+   * <p>The identifier for the bot for which you retrieved utterance metrics.</p>
+   */
+  botId?: string;
+
+  /**
+   * <p>The results for the utterance metrics.</p>
+   */
+  results?: AnalyticsUtteranceResult[];
+
+  /**
+   * <p>If the response from the ListUtteranceMetrics operation contains more results than specified in the maxResults parameter, a token is returned in the response.</p>
+   *          <p>Use the returned token in the nextToken parameter of a ListUtteranceMetrics request to return the next page of results. For a complete set of results, call the ListUtteranceMetrics operation until the nextToken returned in the response is null.</p>
    */
   nextToken?: string;
 }

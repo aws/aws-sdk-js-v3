@@ -14,7 +14,7 @@ import {
 } from "@smithy/types";
 
 import { LexModelsV2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LexModelsV2Client";
-import { DescribeTestSetDiscrepancyReportRequest, DescribeTestSetDiscrepancyReportResponse } from "../models/models_0";
+import { DescribeTestSetDiscrepancyReportRequest, DescribeTestSetDiscrepancyReportResponse } from "../models/models_1";
 import {
   de_DescribeTestSetDiscrepancyReportCommand,
   se_DescribeTestSetDiscrepancyReportCommand,

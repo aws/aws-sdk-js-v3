@@ -167,11 +167,22 @@ import {
 } from "./commands/ListCustomVocabularyItemsCommand";
 import { ListExportsCommandInput, ListExportsCommandOutput } from "./commands/ListExportsCommand";
 import { ListImportsCommandInput, ListImportsCommandOutput } from "./commands/ListImportsCommand";
+import { ListIntentMetricsCommandInput, ListIntentMetricsCommandOutput } from "./commands/ListIntentMetricsCommand";
+import { ListIntentPathsCommandInput, ListIntentPathsCommandOutput } from "./commands/ListIntentPathsCommand";
 import { ListIntentsCommandInput, ListIntentsCommandOutput } from "./commands/ListIntentsCommand";
+import {
+  ListIntentStageMetricsCommandInput,
+  ListIntentStageMetricsCommandOutput,
+} from "./commands/ListIntentStageMetricsCommand";
 import {
   ListRecommendedIntentsCommandInput,
   ListRecommendedIntentsCommandOutput,
 } from "./commands/ListRecommendedIntentsCommand";
+import {
+  ListSessionAnalyticsDataCommandInput,
+  ListSessionAnalyticsDataCommandOutput,
+} from "./commands/ListSessionAnalyticsDataCommand";
+import { ListSessionMetricsCommandInput, ListSessionMetricsCommandOutput } from "./commands/ListSessionMetricsCommand";
 import { ListSlotsCommandInput, ListSlotsCommandOutput } from "./commands/ListSlotsCommand";
 import { ListSlotTypesCommandInput, ListSlotTypesCommandOutput } from "./commands/ListSlotTypesCommand";
 import {
@@ -185,6 +196,14 @@ import {
 import { ListTestExecutionsCommandInput, ListTestExecutionsCommandOutput } from "./commands/ListTestExecutionsCommand";
 import { ListTestSetRecordsCommandInput, ListTestSetRecordsCommandOutput } from "./commands/ListTestSetRecordsCommand";
 import { ListTestSetsCommandInput, ListTestSetsCommandOutput } from "./commands/ListTestSetsCommand";
+import {
+  ListUtteranceAnalyticsDataCommandInput,
+  ListUtteranceAnalyticsDataCommandOutput,
+} from "./commands/ListUtteranceAnalyticsDataCommand";
+import {
+  ListUtteranceMetricsCommandInput,
+  ListUtteranceMetricsCommandOutput,
+} from "./commands/ListUtteranceMetricsCommand";
 import {
   SearchAssociatedTranscriptsCommandInput,
   SearchAssociatedTranscriptsCommandOutput,
@@ -293,8 +312,13 @@ export type ServiceInputTypes =
   | ListCustomVocabularyItemsCommandInput
   | ListExportsCommandInput
   | ListImportsCommandInput
+  | ListIntentMetricsCommandInput
+  | ListIntentPathsCommandInput
+  | ListIntentStageMetricsCommandInput
   | ListIntentsCommandInput
   | ListRecommendedIntentsCommandInput
+  | ListSessionAnalyticsDataCommandInput
+  | ListSessionMetricsCommandInput
   | ListSlotTypesCommandInput
   | ListSlotsCommandInput
   | ListTagsForResourceCommandInput
@@ -302,6 +326,8 @@ export type ServiceInputTypes =
   | ListTestExecutionsCommandInput
   | ListTestSetRecordsCommandInput
   | ListTestSetsCommandInput
+  | ListUtteranceAnalyticsDataCommandInput
+  | ListUtteranceMetricsCommandInput
   | SearchAssociatedTranscriptsCommandInput
   | StartBotRecommendationCommandInput
   | StartImportCommandInput
@@ -383,8 +409,13 @@ export type ServiceOutputTypes =
   | ListCustomVocabularyItemsCommandOutput
   | ListExportsCommandOutput
   | ListImportsCommandOutput
+  | ListIntentMetricsCommandOutput
+  | ListIntentPathsCommandOutput
+  | ListIntentStageMetricsCommandOutput
   | ListIntentsCommandOutput
   | ListRecommendedIntentsCommandOutput
+  | ListSessionAnalyticsDataCommandOutput
+  | ListSessionMetricsCommandOutput
   | ListSlotTypesCommandOutput
   | ListSlotsCommandOutput
   | ListTagsForResourceCommandOutput
@@ -392,6 +423,8 @@ export type ServiceOutputTypes =
   | ListTestExecutionsCommandOutput
   | ListTestSetRecordsCommandOutput
   | ListTestSetsCommandOutput
+  | ListUtteranceAnalyticsDataCommandOutput
+  | ListUtteranceMetricsCommandOutput
   | SearchAssociatedTranscriptsCommandOutput
   | StartBotRecommendationCommandOutput
   | StartImportCommandOutput

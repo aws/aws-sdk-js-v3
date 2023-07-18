@@ -14,7 +14,7 @@ import {
 } from "@smithy/types";
 
 import { LexModelsV2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LexModelsV2Client";
-import { ListAggregatedUtterancesRequest, ListAggregatedUtterancesResponse } from "../models/models_0";
+import { ListAggregatedUtterancesRequest, ListAggregatedUtterancesResponse } from "../models/models_1";
 import { de_ListAggregatedUtterancesCommand, se_ListAggregatedUtterancesCommand } from "../protocols/Aws_restJson1";
 
 /**

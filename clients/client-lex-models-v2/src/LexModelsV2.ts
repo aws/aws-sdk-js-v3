@@ -260,12 +260,37 @@ import {
 } from "./commands/ListCustomVocabularyItemsCommand";
 import { ListExportsCommand, ListExportsCommandInput, ListExportsCommandOutput } from "./commands/ListExportsCommand";
 import { ListImportsCommand, ListImportsCommandInput, ListImportsCommandOutput } from "./commands/ListImportsCommand";
+import {
+  ListIntentMetricsCommand,
+  ListIntentMetricsCommandInput,
+  ListIntentMetricsCommandOutput,
+} from "./commands/ListIntentMetricsCommand";
+import {
+  ListIntentPathsCommand,
+  ListIntentPathsCommandInput,
+  ListIntentPathsCommandOutput,
+} from "./commands/ListIntentPathsCommand";
 import { ListIntentsCommand, ListIntentsCommandInput, ListIntentsCommandOutput } from "./commands/ListIntentsCommand";
+import {
+  ListIntentStageMetricsCommand,
+  ListIntentStageMetricsCommandInput,
+  ListIntentStageMetricsCommandOutput,
+} from "./commands/ListIntentStageMetricsCommand";
 import {
   ListRecommendedIntentsCommand,
   ListRecommendedIntentsCommandInput,
   ListRecommendedIntentsCommandOutput,
 } from "./commands/ListRecommendedIntentsCommand";
+import {
+  ListSessionAnalyticsDataCommand,
+  ListSessionAnalyticsDataCommandInput,
+  ListSessionAnalyticsDataCommandOutput,
+} from "./commands/ListSessionAnalyticsDataCommand";
+import {
+  ListSessionMetricsCommand,
+  ListSessionMetricsCommandInput,
+  ListSessionMetricsCommandOutput,
+} from "./commands/ListSessionMetricsCommand";
 import { ListSlotsCommand, ListSlotsCommandInput, ListSlotsCommandOutput } from "./commands/ListSlotsCommand";
 import {
   ListSlotTypesCommand,
@@ -297,6 +322,16 @@ import {
   ListTestSetsCommandInput,
   ListTestSetsCommandOutput,
 } from "./commands/ListTestSetsCommand";
+import {
+  ListUtteranceAnalyticsDataCommand,
+  ListUtteranceAnalyticsDataCommandInput,
+  ListUtteranceAnalyticsDataCommandOutput,
+} from "./commands/ListUtteranceAnalyticsDataCommand";
+import {
+  ListUtteranceMetricsCommand,
+  ListUtteranceMetricsCommandInput,
+  ListUtteranceMetricsCommandOutput,
+} from "./commands/ListUtteranceMetricsCommand";
 import {
   SearchAssociatedTranscriptsCommand,
   SearchAssociatedTranscriptsCommandInput,
@@ -432,8 +467,13 @@ const commands = {
   ListCustomVocabularyItemsCommand,
   ListExportsCommand,
   ListImportsCommand,
+  ListIntentMetricsCommand,
+  ListIntentPathsCommand,
   ListIntentsCommand,
+  ListIntentStageMetricsCommand,
   ListRecommendedIntentsCommand,
+  ListSessionAnalyticsDataCommand,
+  ListSessionMetricsCommand,
   ListSlotsCommand,
   ListSlotTypesCommand,
   ListTagsForResourceCommand,
@@ -441,6 +481,8 @@ const commands = {
   ListTestExecutionsCommand,
   ListTestSetRecordsCommand,
   ListTestSetsCommand,
+  ListUtteranceAnalyticsDataCommand,
+  ListUtteranceMetricsCommand,
   SearchAssociatedTranscriptsCommand,
   StartBotRecommendationCommand,
   StartImportCommand,
@@ -1314,6 +1356,37 @@ export interface LexModelsV2 {
   ): void;
 
   /**
+   * @see {@link ListIntentMetricsCommand}
+   */
+  listIntentMetrics(
+    args: ListIntentMetricsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListIntentMetricsCommandOutput>;
+  listIntentMetrics(
+    args: ListIntentMetricsCommandInput,
+    cb: (err: any, data?: ListIntentMetricsCommandOutput) => void
+  ): void;
+  listIntentMetrics(
+    args: ListIntentMetricsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListIntentMetricsCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ListIntentPathsCommand}
+   */
+  listIntentPaths(
+    args: ListIntentPathsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListIntentPathsCommandOutput>;
+  listIntentPaths(args: ListIntentPathsCommandInput, cb: (err: any, data?: ListIntentPathsCommandOutput) => void): void;
+  listIntentPaths(
+    args: ListIntentPathsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListIntentPathsCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link ListIntentsCommand}
    */
   listIntents(args: ListIntentsCommandInput, options?: __HttpHandlerOptions): Promise<ListIntentsCommandOutput>;
@@ -1322,6 +1395,23 @@ export interface LexModelsV2 {
     args: ListIntentsCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: ListIntentsCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ListIntentStageMetricsCommand}
+   */
+  listIntentStageMetrics(
+    args: ListIntentStageMetricsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListIntentStageMetricsCommandOutput>;
+  listIntentStageMetrics(
+    args: ListIntentStageMetricsCommandInput,
+    cb: (err: any, data?: ListIntentStageMetricsCommandOutput) => void
+  ): void;
+  listIntentStageMetrics(
+    args: ListIntentStageMetricsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListIntentStageMetricsCommandOutput) => void
   ): void;
 
   /**
@@ -1339,6 +1429,40 @@ export interface LexModelsV2 {
     args: ListRecommendedIntentsCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: ListRecommendedIntentsCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ListSessionAnalyticsDataCommand}
+   */
+  listSessionAnalyticsData(
+    args: ListSessionAnalyticsDataCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListSessionAnalyticsDataCommandOutput>;
+  listSessionAnalyticsData(
+    args: ListSessionAnalyticsDataCommandInput,
+    cb: (err: any, data?: ListSessionAnalyticsDataCommandOutput) => void
+  ): void;
+  listSessionAnalyticsData(
+    args: ListSessionAnalyticsDataCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListSessionAnalyticsDataCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ListSessionMetricsCommand}
+   */
+  listSessionMetrics(
+    args: ListSessionMetricsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListSessionMetricsCommandOutput>;
+  listSessionMetrics(
+    args: ListSessionMetricsCommandInput,
+    cb: (err: any, data?: ListSessionMetricsCommandOutput) => void
+  ): void;
+  listSessionMetrics(
+    args: ListSessionMetricsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListSessionMetricsCommandOutput) => void
   ): void;
 
   /**
@@ -1440,6 +1564,40 @@ export interface LexModelsV2 {
     args: ListTestSetsCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: ListTestSetsCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ListUtteranceAnalyticsDataCommand}
+   */
+  listUtteranceAnalyticsData(
+    args: ListUtteranceAnalyticsDataCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListUtteranceAnalyticsDataCommandOutput>;
+  listUtteranceAnalyticsData(
+    args: ListUtteranceAnalyticsDataCommandInput,
+    cb: (err: any, data?: ListUtteranceAnalyticsDataCommandOutput) => void
+  ): void;
+  listUtteranceAnalyticsData(
+    args: ListUtteranceAnalyticsDataCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListUtteranceAnalyticsDataCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ListUtteranceMetricsCommand}
+   */
+  listUtteranceMetrics(
+    args: ListUtteranceMetricsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListUtteranceMetricsCommandOutput>;
+  listUtteranceMetrics(
+    args: ListUtteranceMetricsCommandInput,
+    cb: (err: any, data?: ListUtteranceMetricsCommandOutput) => void
+  ): void;
+  listUtteranceMetrics(
+    args: ListUtteranceMetricsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListUtteranceMetricsCommandOutput) => void
   ): void;
 
   /**

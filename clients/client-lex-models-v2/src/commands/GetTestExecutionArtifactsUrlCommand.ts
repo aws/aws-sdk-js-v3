@@ -14,7 +14,7 @@ import {
 } from "@smithy/types";
 
 import { LexModelsV2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LexModelsV2Client";
-import { GetTestExecutionArtifactsUrlRequest, GetTestExecutionArtifactsUrlResponse } from "../models/models_0";
+import { GetTestExecutionArtifactsUrlRequest, GetTestExecutionArtifactsUrlResponse } from "../models/models_1";
 import {
   de_GetTestExecutionArtifactsUrlCommand,
   se_GetTestExecutionArtifactsUrlCommand,

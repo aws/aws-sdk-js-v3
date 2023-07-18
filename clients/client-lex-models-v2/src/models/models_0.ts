@@ -266,6 +266,1933 @@ export interface AllowedInputTypes {
 
 /**
  * @public
+ * @enum
+ */
+export const AnalyticsInterval = {
+  OneDay: "OneDay",
+  OneHour: "OneHour",
+} as const;
+
+/**
+ * @public
+ */
+export type AnalyticsInterval = (typeof AnalyticsInterval)[keyof typeof AnalyticsInterval];
+
+/**
+ * @public
+ * @enum
+ */
+export const AnalyticsBinByName = {
+  ConversationStartTime: "ConversationStartTime",
+  UtteranceTimestamp: "UtteranceTimestamp",
+} as const;
+
+/**
+ * @public
+ */
+export type AnalyticsBinByName = (typeof AnalyticsBinByName)[keyof typeof AnalyticsBinByName];
+
+/**
+ * @public
+ * @enum
+ */
+export const AnalyticsSortOrder = {
+  Ascending: "Ascending",
+  Descending: "Descending",
+} as const;
+
+/**
+ * @public
+ */
+export type AnalyticsSortOrder = (typeof AnalyticsSortOrder)[keyof typeof AnalyticsSortOrder];
+
+/**
+ * @public
+ * <p>Contains the time metric, interval, and method by which to bin the analytics data.</p>
+ */
+export interface AnalyticsBinBySpecification {
+  /**
+   * <p>Specifies the time metric by which to bin the analytics data.</p>
+   */
+  name: AnalyticsBinByName | string | undefined;
+
+  /**
+   * <p>Specifies the interval of time by which to bin the analytics data.</p>
+   */
+  interval: AnalyticsInterval | string | undefined;
+
+  /**
+   * <p>Specifies whether to bin the analytics data in ascending or descending order. If this field is left blank, the default order is by the key of the bin in descending order.</p>
+   */
+  order?: AnalyticsSortOrder | string;
+}
+
+/**
+ * @public
+ * <p>An object containing the criterion by which to bin the results and the value that defines that bin.</p>
+ */
+export interface AnalyticsBinKey {
+  /**
+   * <p>The criterion by which to bin the results.</p>
+   */
+  name?: AnalyticsBinByName | string;
+
+  /**
+   * <p>The value of the criterion that defines the bin.</p>
+   */
+  value?: number;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const AnalyticsCommonFilterName = {
+  BotAliasId: "BotAliasId",
+  BotVersion: "BotVersion",
+  Channel: "Channel",
+  LocaleId: "LocaleId",
+  Modality: "Modality",
+} as const;
+
+/**
+ * @public
+ */
+export type AnalyticsCommonFilterName = (typeof AnalyticsCommonFilterName)[keyof typeof AnalyticsCommonFilterName];
+
+/**
+ * @public
+ * @enum
+ */
+export const AnalyticsFilterOperator = {
+  Equals: "EQ",
+  GreaterThan: "GT",
+  LessThan: "LT",
+} as const;
+
+/**
+ * @public
+ */
+export type AnalyticsFilterOperator = (typeof AnalyticsFilterOperator)[keyof typeof AnalyticsFilterOperator];
+
+/**
+ * @public
+ * @enum
+ */
+export const AnalyticsIntentField = {
+  IntentEndState: "IntentEndState",
+  IntentLevel: "IntentLevel",
+  IntentName: "IntentName",
+} as const;
+
+/**
+ * @public
+ */
+export type AnalyticsIntentField = (typeof AnalyticsIntentField)[keyof typeof AnalyticsIntentField];
+
+/**
+ * @public
+ * @enum
+ */
+export const AnalyticsIntentFilterName = {
+  BotAliasId: "BotAliasId",
+  BotVersion: "BotVersion",
+  Channel: "Channel",
+  IntentEndState: "IntentEndState",
+  IntentName: "IntentName",
+  LocaleId: "LocaleId",
+  Modality: "Modality",
+  OriginatingRequestId: "OriginatingRequestId",
+  SessionId: "SessionId",
+} as const;
+
+/**
+ * @public
+ */
+export type AnalyticsIntentFilterName = (typeof AnalyticsIntentFilterName)[keyof typeof AnalyticsIntentFilterName];
+
+/**
+ * @public
+ * <p>Contains fields describing a condition by which to filter the intents. The expression may be understood as <code>name</code>
+ *             <code>operator</code>
+ *             <code>values</code>. For example:</p>
+ *          <ul>
+ *             <li>
+ *                <p>
+ *                   <code>IntentName CO Book</code> – The intent name contains the string "Book."</p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <code>BotVersion EQ 2</code> – The bot version is equal to two.</p>
+ *             </li>
+ *          </ul>
+ *          <p>The operators that each filter supports are listed below:</p>
+ *          <ul>
+ *             <li>
+ *                <p>
+ *                   <code>BotAlias</code> – <code>EQ</code>.</p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <code>BotVersion</code> – <code>EQ</code>.</p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <code>LocaleId</code> – <code>EQ</code>.</p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <code>Modality</code> – <code>EQ</code>.</p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <code>Channel</code> – <code>EQ</code>.</p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <code>SessionId</code> – <code>EQ</code>.</p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <code>OriginatingRequestId</code> – <code>EQ</code>.</p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <code>IntentName</code> – <code>EQ</code>, <code>CO</code>.</p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <code>IntentEndState</code> – <code>EQ</code>, <code>CO</code>.</p>
+ *             </li>
+ *          </ul>
+ */
+export interface AnalyticsIntentFilter {
+  /**
+   * <p>The category by which to filter the intents. The descriptions for each option are as follows:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>BotAlias</code> – The name of the bot alias.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>BotVersion</code> – The version of the bot.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>LocaleId</code> – The locale of the bot.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>Modality</code> – The modality of the session with the bot (audio, DTMF, or text).</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>Channel</code> – The channel that the bot is integrated with.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>SessionId</code> – The identifier of the session with the bot.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>OriginatingRequestId</code> – The identifier of the first request in a session.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>IntentName</code> – The name of the intent.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>IntentEndState</code> – The final state of the intent.</p>
+   *             </li>
+   *          </ul>
+   */
+  name: AnalyticsIntentFilterName | string | undefined;
+
+  /**
+   * <p>The operation by which to filter the category. The following operations are possible:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>CO</code> – Contains</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>EQ</code> – Equals</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>GT</code> – Greater than</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>LT</code> – Less than</p>
+   *             </li>
+   *          </ul>
+   *          <p>The operators that each filter supports are listed below:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>BotAlias</code> – <code>EQ</code>.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>BotVersion</code> – <code>EQ</code>.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>LocaleId</code> – <code>EQ</code>.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>Modality</code> – <code>EQ</code>.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>Channel</code> – <code>EQ</code>.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>SessionId</code> – <code>EQ</code>.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>OriginatingRequestId</code> – <code>EQ</code>.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>IntentName</code> – <code>EQ</code>, <code>CO</code>.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>IntentEndState</code> – <code>EQ</code>, <code>CO</code>.</p>
+   *             </li>
+   *          </ul>
+   */
+  operator: AnalyticsFilterOperator | string | undefined;
+
+  /**
+   * <p>An array containing the values of the category by which to apply the operator to filter the results. You can provide multiple values if the operator is <code>EQ</code> or <code>CO</code>. If you provide multiple values, you filter for results that equal/contain any of the values. For example, if the <code>name</code>, <code>operator</code>, and <code>values</code> fields are <code>Modality</code>, <code>EQ</code>, and <code>[Speech, Text]</code>, the operation filters for results where the modality was either <code>Speech</code> or <code>Text</code>.</p>
+   */
+  values: string[] | undefined;
+}
+
+/**
+ * @public
+ * <p>Contains the category by which the intent analytics were grouped and a member of that category.</p>
+ */
+export interface AnalyticsIntentGroupByKey {
+  /**
+   * <p>A category by which the intent analytics were grouped.</p>
+   */
+  name?: AnalyticsIntentField | string;
+
+  /**
+   * <p>A member of the category by which the intent analytics were grouped.</p>
+   */
+  value?: string;
+}
+
+/**
+ * @public
+ * <p>Contains the category by which to group the intents.</p>
+ */
+export interface AnalyticsIntentGroupBySpecification {
+  /**
+   * <p>Specifies whether to group the intent stages by their name or their end state.</p>
+   */
+  name: AnalyticsIntentField | string | undefined;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const AnalyticsIntentMetricName = {
+  Count: "Count",
+  Dropped: "Dropped",
+  Failure: "Failure",
+  Success: "Success",
+  Switched: "Switched",
+} as const;
+
+/**
+ * @public
+ */
+export type AnalyticsIntentMetricName = (typeof AnalyticsIntentMetricName)[keyof typeof AnalyticsIntentMetricName];
+
+/**
+ * @public
+ * @enum
+ */
+export const AnalyticsMetricStatistic = {
+  Avg: "Avg",
+  Max: "Max",
+  Sum: "Sum",
+} as const;
+
+/**
+ * @public
+ */
+export type AnalyticsMetricStatistic = (typeof AnalyticsMetricStatistic)[keyof typeof AnalyticsMetricStatistic];
+
+/**
+ * @public
+ * <p>Contains the metric and the summary statistic you want to calculate, and the order in which to sort the results, for the intents in the bot.</p>
+ */
+export interface AnalyticsIntentMetric {
+  /**
+   * <p>The metric for which you want to get intent summary statistics.</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>Count</code> – The number of times the intent was invoked.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>Success</code> – The number of times the intent succeeded.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>Failure</code> – The number of times the intent failed.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>Switched</code> – The number of times there was a switch to a different intent.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>Dropped</code> – The number of times the user dropped the intent.</p>
+   *             </li>
+   *          </ul>
+   */
+  name: AnalyticsIntentMetricName | string | undefined;
+
+  /**
+   * <p>The summary statistic to calculate.</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>Sum</code> – The total count for the category you provide in <code>name</code>.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>Average</code> – The total count divided by the number of intents in the category you provide in <code>name</code>.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>Max</code> – The highest count in the category you provide in <code>name</code>.</p>
+   *             </li>
+   *          </ul>
+   */
+  statistic: AnalyticsMetricStatistic | string | undefined;
+
+  /**
+   * <p>Specifies whether to sort the results in ascending or descending order.</p>
+   */
+  order?: AnalyticsSortOrder | string;
+}
+
+/**
+ * @public
+ * <p>An object containing the results for the intent metric you requested.</p>
+ */
+export interface AnalyticsIntentMetricResult {
+  /**
+   * <p>The metric that you requested. See <a href="https://docs.aws.amazon.com/lexv2/latest/dg/analytics-key-definitions.html">Key definitions</a> for more details about these metrics.</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>Count</code> – The number of times the intent was invoked.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>Success</code> – The number of times the intent succeeded.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>Failure</code> – The number of times the intent failed.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>Switched</code> – The number of times there was a switch to a different intent.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>Dropped</code> – The number of times the user dropped the intent.</p>
+   *             </li>
+   *          </ul>
+   */
+  name?: AnalyticsIntentMetricName | string;
+
+  /**
+   * <p>The statistic that you requested to calculate.</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>Sum</code> – The total count for the category you provide in <code>name</code>.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>Average</code> – The total count divided by the number of intents in the category you provide in <code>name</code>.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>Max</code> – The highest count in the category you provide in <code>name</code>.</p>
+   *             </li>
+   *          </ul>
+   */
+  statistic?: AnalyticsMetricStatistic | string;
+
+  /**
+   * <p>The value of the summary statistic for the metric that you requested.</p>
+   */
+  value?: number;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const AnalyticsNodeType = {
+  Exit: "Exit",
+  Inner: "Inner",
+} as const;
+
+/**
+ * @public
+ */
+export type AnalyticsNodeType = (typeof AnalyticsNodeType)[keyof typeof AnalyticsNodeType];
+
+/**
+ * @public
+ * <p>An object containing information about the requested path.</p>
+ */
+export interface AnalyticsIntentNodeSummary {
+  /**
+   * <p>The name of the intent at the end of the requested path.</p>
+   */
+  intentName?: string;
+
+  /**
+   * <p>The path.</p>
+   */
+  intentPath?: string;
+
+  /**
+   * <p>The total number of sessions that follow the given path to the given intent.</p>
+   */
+  intentCount?: number;
+
+  /**
+   * <p>The number of intents up to and including the requested path.</p>
+   */
+  intentLevel?: number;
+
+  /**
+   * <p>Specifies whether the node is the end of a path (<code>Exit</code>) or not (<code>Inner</code>).</p>
+   */
+  nodeType?: AnalyticsNodeType | string;
+}
+
+/**
+ * @public
+ * <p>An object containing the results for the intent metrics you requested and the bin and/or group(s) they refer to, if applicable.</p>
+ */
+export interface AnalyticsIntentResult {
+  /**
+   * <p>A list of objects containing the criteria you requested for binning results and the values of the bins.</p>
+   */
+  binKeys?: AnalyticsBinKey[];
+
+  /**
+   * <p>A list of objects containing the criteria you requested for grouping results and the values of the groups.</p>
+   */
+  groupByKeys?: AnalyticsIntentGroupByKey[];
+
+  /**
+   * <p>A list of objects, each of which contains a metric you want to list, the statistic for the metric you want to return, and the method by which to organize the results.</p>
+   */
+  metricsResults?: AnalyticsIntentMetricResult[];
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const AnalyticsIntentStageField = {
+  IntentStageName: "IntentStageName",
+  SwitchedToIntent: "SwitchedToIntent",
+} as const;
+
+/**
+ * @public
+ */
+export type AnalyticsIntentStageField = (typeof AnalyticsIntentStageField)[keyof typeof AnalyticsIntentStageField];
+
+/**
+ * @public
+ * @enum
+ */
+export const AnalyticsIntentStageFilterName = {
+  BotAliasId: "BotAliasId",
+  BotVersion: "BotVersion",
+  Channel: "Channel",
+  IntentName: "IntentName",
+  IntentStageName: "IntentStageName",
+  LocaleId: "LocaleId",
+  Modality: "Modality",
+  OriginatingRequestId: "OriginatingRequestId",
+  SessionId: "SessionId",
+} as const;
+
+/**
+ * @public
+ */
+export type AnalyticsIntentStageFilterName =
+  (typeof AnalyticsIntentStageFilterName)[keyof typeof AnalyticsIntentStageFilterName];
+
+/**
+ * @public
+ * <p>Contains fields describing a condition by which to filter the intent stages. The expression may be understood as <code>name</code>
+ *             <code>operator</code>
+ *             <code>values</code>. For example:</p>
+ *          <ul>
+ *             <li>
+ *                <p>
+ *                   <code>IntentName CO Book</code> – The intent name contains the string "Book."</p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <code>BotVersion EQ 2</code> – The bot version is equal to two.</p>
+ *             </li>
+ *          </ul>
+ *          <p>The operators that each filter supports are listed below:</p>
+ *          <ul>
+ *             <li>
+ *                <p>
+ *                   <code>BotAlias</code> – <code>EQ</code>.</p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <code>BotVersion</code> – <code>EQ</code>.</p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <code>LocaleId</code> – <code>EQ</code>.</p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <code>Modality</code> – <code>EQ</code>.</p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <code>Channel</code> – <code>EQ</code>.</p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <code>SessionId</code> – <code>EQ</code>.</p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <code>OriginatingRequestId</code> – <code>EQ</code>.</p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <code>IntentName</code> – <code>EQ</code>, <code>CO</code>.</p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <code>IntentStageName</code> – <code>EQ</code>, <code>CO</code>.</p>
+ *             </li>
+ *          </ul>
+ */
+export interface AnalyticsIntentStageFilter {
+  /**
+   * <p>The category by which to filter the intent stages. The descriptions for each option are as follows:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>BotAlias</code> – The name of the bot alias.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>BotVersion</code> – The version of the bot.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>LocaleId</code> – The locale of the bot.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>Modality</code> – The modality of the session with the bot (audio, DTMF, or text).</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>Channel</code> – The channel that the bot is integrated with.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>SessionId</code> – The identifier of the session with the bot.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>OriginatingRequestId</code> – The identifier of the first request in a session.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>IntentName</code> – The name of the intent.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>IntentStageName</code> – The stage in the intent.</p>
+   *             </li>
+   *          </ul>
+   */
+  name: AnalyticsIntentStageFilterName | string | undefined;
+
+  /**
+   * <p>The operation by which to filter the category. The following operations are possible:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>CO</code> – Contains</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>EQ</code> – Equals</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>GT</code> – Greater than</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>LT</code> – Less than</p>
+   *             </li>
+   *          </ul>
+   *          <p>The operators that each filter supports are listed below:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>BotAlias</code> – <code>EQ</code>.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>BotVersion</code> – <code>EQ</code>.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>LocaleId</code> – <code>EQ</code>.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>Modality</code> – <code>EQ</code>.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>Channel</code> – <code>EQ</code>.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>SessionId</code> – <code>EQ</code>.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>OriginatingRequestId</code> – <code>EQ</code>.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>IntentName</code> – <code>EQ</code>, <code>CO</code>.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>IntentStageName</code> – <code>EQ</code>, <code>CO</code>.</p>
+   *             </li>
+   *          </ul>
+   */
+  operator: AnalyticsFilterOperator | string | undefined;
+
+  /**
+   * <p>An array containing the values of the category by which to apply the operator to filter the results. You can provide multiple values if the operator is <code>EQ</code> or <code>CO</code>. If you provide multiple values, you filter for results that equal/contain any of the values. For example, if the <code>name</code>, <code>operator</code>, and <code>values</code> fields are <code>Modality</code>, <code>EQ</code>, and <code>[Speech, Text]</code>, the operation filters for results where the modality was either <code>Speech</code> or <code>Text</code>.</p>
+   */
+  values: string[] | undefined;
+}
+
+/**
+ * @public
+ * <p>Contains the category by which the intent stage analytics and the values for that category were grouped.</p>
+ */
+export interface AnalyticsIntentStageGroupByKey {
+  /**
+   * <p>A category by which the intent stage analytics were grouped.</p>
+   */
+  name?: AnalyticsIntentStageField | string;
+
+  /**
+   * <p>A member of the category by which the intent stage analytics were grouped.</p>
+   */
+  value?: string;
+}
+
+/**
+ * @public
+ * <p>Contains the category by which to group the intent stages.</p>
+ */
+export interface AnalyticsIntentStageGroupBySpecification {
+  /**
+   * <p>Specifies whether to group the intent stages by their name or the intent to which the session was switched.</p>
+   */
+  name: AnalyticsIntentStageField | string | undefined;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const AnalyticsIntentStageMetricName = {
+  Count: "Count",
+  Dropped: "Dropped",
+  Failed: "Failed",
+  Retry: "Retry",
+  Success: "Success",
+} as const;
+
+/**
+ * @public
+ */
+export type AnalyticsIntentStageMetricName =
+  (typeof AnalyticsIntentStageMetricName)[keyof typeof AnalyticsIntentStageMetricName];
+
+/**
+ * @public
+ * <p>Contains the metric and the summary statistic you want to calculate, and the order in which to sort the results, for the intent stages across the user sessions with the bot.</p>
+ */
+export interface AnalyticsIntentStageMetric {
+  /**
+   * <p>The metric for which you want to get intent stage summary statistics. See <a href="https://docs.aws.amazon.com/lexv2/latest/dg/analytics-key-definitions.html">Key definitions</a> for more details about these metrics.</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>Count</code> – The number of times the intent stage occurred.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>Success</code> – The number of times the intent stage succeeded.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>Failure</code> – The number of times the intent stage failed.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>Dropped</code> – The number of times the user dropped the intent stage.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>Retry</code> – The number of times the bot tried to elicit a response from the user at this stage.</p>
+   *             </li>
+   *          </ul>
+   */
+  name: AnalyticsIntentStageMetricName | string | undefined;
+
+  /**
+   * <p>The summary statistic to calculate.</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>Sum</code> – The total count for the category you provide in <code>name</code>.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>Average</code> – The total count divided by the number of intent stages in the category you provide in <code>name</code>.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>Max</code> – The highest count in the category you provide in <code>name</code>.</p>
+   *             </li>
+   *          </ul>
+   */
+  statistic: AnalyticsMetricStatistic | string | undefined;
+
+  /**
+   * <p>Specifies whether to sort the results in ascending or descending order of the summary statistic (<code>value</code> in the response).</p>
+   */
+  order?: AnalyticsSortOrder | string;
+}
+
+/**
+ * @public
+ * <p>An object containing the results for an intent stage metric you requested.</p>
+ */
+export interface AnalyticsIntentStageMetricResult {
+  /**
+   * <p>The metric that you requested.</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>Count</code> – The number of times the intent stage occurred.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>Success</code> – The number of times the intent stage succeeded.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>Failure</code> – The number of times the intent stage failed.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>Dropped</code> – The number of times the user dropped the intent stage.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>Retry</code> – The number of times the bot tried to elicit a response from the user at this stage.</p>
+   *             </li>
+   *          </ul>
+   */
+  name?: AnalyticsIntentStageMetricName | string;
+
+  /**
+   * <p>The summary statistic that you requested to calculate.</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>Sum</code> – The total count for the category you provide in <code>name</code>.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>Average</code> – The total count divided by the number of intent stages in the category you provide in <code>name</code>.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>Max</code> – The highest count in the category you provide in <code>name</code>.</p>
+   *             </li>
+   *          </ul>
+   */
+  statistic?: AnalyticsMetricStatistic | string;
+
+  /**
+   * <p>The value of the summary statistic for the metric that you requested.</p>
+   */
+  value?: number;
+}
+
+/**
+ * @public
+ * <p>An object containing the results for the intent stage metrics you requested and the bin and/or group they refer to, if applicable.</p>
+ */
+export interface AnalyticsIntentStageResult {
+  /**
+   * <p>A list of objects containing the criteria you requested for binning results and the values of the bins.</p>
+   */
+  binKeys?: AnalyticsBinKey[];
+
+  /**
+   * <p>A list of objects containing the criteria you requested for grouping results and the values of the bins.</p>
+   */
+  groupByKeys?: AnalyticsIntentStageGroupByKey[];
+
+  /**
+   * <p>A list of objects, each of which contains a metric you want to list, the statistic for the metric you want to return, and the method by which to organize the results.</p>
+   */
+  metricsResults?: AnalyticsIntentStageMetricResult[];
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const AnalyticsModality = {
+  DTMF: "DTMF",
+  MultiMode: "MultiMode",
+  Speech: "Speech",
+  Text: "Text",
+} as const;
+
+/**
+ * @public
+ */
+export type AnalyticsModality = (typeof AnalyticsModality)[keyof typeof AnalyticsModality];
+
+/**
+ * @public
+ * <p>Contains fields describing a condition by which to filter the paths. The expression may be understood as <code>name</code>
+ *             <code>operator</code>
+ *             <code>values</code>. For example:</p>
+ *          <ul>
+ *             <li>
+ *                <p>
+ *                   <code>LocaleId EQ en</code> – The locale is "en".</p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <code>BotVersion EQ 2</code> – The bot version is equal to two.</p>
+ *             </li>
+ *          </ul>
+ *          <p>The operators that each filter supports are listed below:</p>
+ *          <ul>
+ *             <li>
+ *                <p>
+ *                   <code>BotAlias</code> – <code>EQ</code>.</p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <code>BotVersion</code> – <code>EQ</code>.</p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <code>LocaleId</code> – <code>EQ</code>.</p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <code>Modality</code> – <code>EQ</code>.</p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <code>Channel</code> – <code>EQ</code>.</p>
+ *             </li>
+ *          </ul>
+ */
+export interface AnalyticsPathFilter {
+  /**
+   * <p>The category by which to filter the intent paths. The descriptions for each option are as follows:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>BotAlias</code> – The name of the bot alias.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>BotVersion</code> – The version of the bot.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>LocaleId</code> – The locale of the bot.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>Modality</code> – The modality of the session with the bot (audio, DTMF, or text).</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>Channel</code> – The channel that the bot is integrated with.</p>
+   *             </li>
+   *          </ul>
+   */
+  name: AnalyticsCommonFilterName | string | undefined;
+
+  /**
+   * <p>The operation by which to filter the category. The following operations are possible:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>CO</code> – Contains</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>EQ</code> – Equals</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>GT</code> – Greater than</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>LT</code> – Less than</p>
+   *             </li>
+   *          </ul>
+   *          <p>The operators that each filter supports are listed below:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>BotAlias</code> – <code>EQ</code>.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>BotVersion</code> – <code>EQ</code>.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>LocaleId</code> – <code>EQ</code>.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>Modality</code> – <code>EQ</code>.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>Channel</code> – <code>EQ</code>.</p>
+   *             </li>
+   *          </ul>
+   */
+  operator: AnalyticsFilterOperator | string | undefined;
+
+  /**
+   * <p>An array containing the values of the category by which to apply the operator to filter the results. You can provide multiple values if the operator is <code>EQ</code> or <code>CO</code>. If you provide multiple values, you filter for results that equal/contain any of the values. For example, if the <code>name</code>, <code>operator</code>, and <code>values</code> fields are <code>Modality</code>, <code>EQ</code>, and <code>[Speech, Text]</code>, the operation filters for results where the modality was either <code>Speech</code> or <code>Text</code>.</p>
+   */
+  values: string[] | undefined;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const AnalyticsSessionField = {
+  ConversationEndState: "ConversationEndState",
+  LocaleId: "LocaleId",
+} as const;
+
+/**
+ * @public
+ */
+export type AnalyticsSessionField = (typeof AnalyticsSessionField)[keyof typeof AnalyticsSessionField];
+
+/**
+ * @public
+ * @enum
+ */
+export const AnalyticsSessionFilterName = {
+  BotAliasId: "BotAliasId",
+  BotVersion: "BotVersion",
+  Channel: "Channel",
+  ConversationEndState: "ConversationEndState",
+  Duration: "Duration",
+  IntentPath: "IntentPath",
+  LocaleId: "LocaleId",
+  Modality: "Modality",
+  OriginatingRequestId: "OriginatingRequestId",
+  SessionId: "SessionId",
+} as const;
+
+/**
+ * @public
+ */
+export type AnalyticsSessionFilterName = (typeof AnalyticsSessionFilterName)[keyof typeof AnalyticsSessionFilterName];
+
+/**
+ * @public
+ * <p>Contains fields describing a condition by which to filter the sessions. The expression may be understood as <code>name</code>
+ *             <code>operator</code>
+ *             <code>values</code>. For example:</p>
+ *          <ul>
+ *             <li>
+ *                <p>
+ *                   <code>LocaleId EQ en</code> – The locale is "en".</p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <code>Duration GT 200</code> – The duration is greater than 200 seconds.</p>
+ *             </li>
+ *          </ul>
+ *          <p>The operators that each filter supports are listed below:</p>
+ *          <ul>
+ *             <li>
+ *                <p>
+ *                   <code>BotAlias</code> – <code>EQ</code>.</p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <code>BotVersion</code> – <code>EQ</code>.</p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <code>LocaleId</code> – <code>EQ</code>.</p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <code>Modality</code> – <code>EQ</code>.</p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <code>Channel</code> – <code>EQ</code>.</p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <code>Duration</code> – <code>EQ</code>, <code>GT</code>, <code>LT</code>.</p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <code>conversationEndState</code> – <code>EQ</code>, <code>CO</code>.</p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <code>SessionId</code> – <code>EQ</code>.</p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <code>OriginatingRequestId</code> – <code>EQ</code>.</p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <code>IntentPath</code> – <code>EQ</code>.</p>
+ *             </li>
+ *          </ul>
+ */
+export interface AnalyticsSessionFilter {
+  /**
+   * <p>The category by which to filter the sessions. The descriptions for each option are as follows:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>BotAlias</code> – The name of the bot alias.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>BotVersion</code> – The version of the bot.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>LocaleId</code> – The locale of the bot.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>Modality</code> – The modality of the session with the bot (audio, DTMF, or text).</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>Channel</code> – The channel that the bot is integrated with.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>Duration</code> – The duration of the session.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>conversationEndState</code> – The final state of the session.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>SessionId</code> – The identifier of the session with the bot.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>OriginatingRequestId</code> – The identifier of the first request in a session.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>IntentPath</code> – The order of intents taken in a session.</p>
+   *             </li>
+   *          </ul>
+   */
+  name: AnalyticsSessionFilterName | string | undefined;
+
+  /**
+   * <p>The operation by which to filter the category. The following operations are possible:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>CO</code> – Contains</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>EQ</code> – Equals</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>GT</code> – Greater than</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>LT</code> – Less than</p>
+   *             </li>
+   *          </ul>
+   *          <p>The operators that each filter supports are listed below:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>BotAlias</code> – <code>EQ</code>.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>BotVersion</code> – <code>EQ</code>.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>LocaleId</code> – <code>EQ</code>.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>Modality</code> – <code>EQ</code>.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>Channel</code> – <code>EQ</code>.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>Duration</code> – <code>EQ</code>, <code>GT</code>, <code>LT</code>.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>conversationEndState</code> – <code>EQ</code>, <code>CO</code>.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>SessionId</code> – <code>EQ</code>.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>OriginatingRequestId</code> – <code>EQ</code>.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>IntentPath</code> – <code>EQ</code>.</p>
+   *             </li>
+   *          </ul>
+   */
+  operator: AnalyticsFilterOperator | string | undefined;
+
+  /**
+   * <p>An array containing the values of the category by which to apply the operator to filter the results. You can provide multiple values if the operator is <code>EQ</code> or <code>CO</code>. If you provide multiple values, you filter for results that equal/contain any of the values. For example, if the <code>name</code>, <code>operator</code>, and <code>values</code> fields are <code>Modality</code>, <code>EQ</code>, and <code>[Speech, Text]</code>, the operation filters for results where the modality was either <code>Speech</code> or <code>Text</code>.</p>
+   */
+  values: string[] | undefined;
+}
+
+/**
+ * @public
+ * <p>Contains the category by which the session analytics were grouped and a member of that category.</p>
+ */
+export interface AnalyticsSessionGroupByKey {
+  /**
+   * <p>The category by which the session analytics were grouped.</p>
+   */
+  name?: AnalyticsSessionField | string;
+
+  /**
+   * <p>A member of the category by which the session analytics were grouped.</p>
+   */
+  value?: string;
+}
+
+/**
+ * @public
+ * <p>Contains the category by which to group the sessions.</p>
+ */
+export interface AnalyticsSessionGroupBySpecification {
+  /**
+   * <p>Specifies whether to group the session by their end state or their locale.</p>
+   */
+  name: AnalyticsSessionField | string | undefined;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const AnalyticsSessionMetricName = {
+  Concurrency: "Concurrency",
+  Count: "Count",
+  Dropped: "Dropped",
+  Duration: "Duration",
+  Failure: "Failure",
+  Success: "Success",
+  TurnsPerConversation: "TurnsPerConversation",
+} as const;
+
+/**
+ * @public
+ */
+export type AnalyticsSessionMetricName = (typeof AnalyticsSessionMetricName)[keyof typeof AnalyticsSessionMetricName];
+
+/**
+ * @public
+ * <p>Contains the metric and the summary statistic you want to calculate, and the order in which to sort the results, for the user sessions with the bot.</p>
+ */
+export interface AnalyticsSessionMetric {
+  /**
+   * <p>The metric for which you want to get session summary statistics.</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>Count</code> – The number of sessions.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>Success</code> – The number of sessions that succeeded.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>Failure</code> – The number of sessions that failed.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>Dropped</code> – The number of sessions that the user dropped.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>Duration</code> – The duration of sessions.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>TurnsPerSession</code> – The number of turns in the sessions.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>Concurrency</code> – The number of sessions occurring in the same period of time.</p>
+   *             </li>
+   *          </ul>
+   */
+  name: AnalyticsSessionMetricName | string | undefined;
+
+  /**
+   * <p>The summary statistic to calculate.</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>Sum</code> – The total count for the category you provide in <code>name</code>.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>Average</code> – The total count divided by the number of sessions in the category you provide in <code>name</code>.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>Max</code> – The highest count in the category you provide in <code>name</code>.</p>
+   *             </li>
+   *          </ul>
+   */
+  statistic: AnalyticsMetricStatistic | string | undefined;
+
+  /**
+   * <p>Specifies whether to sort the results in ascending or descending order.</p>
+   */
+  order?: AnalyticsSortOrder | string;
+}
+
+/**
+ * @public
+ * <p>An object containing the results for a session metric you requested.</p>
+ */
+export interface AnalyticsSessionMetricResult {
+  /**
+   * <p>The metric that you requested.</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>Count</code> – The number of sessions.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>Success</code> – The number of sessions that succeeded.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>Failure</code> – The number of sessions that failed.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>Dropped</code> – The number of sessions that the user dropped.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>Duration</code> – The duration of sessions.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>TurnPersession</code> – The number of turns in the sessions.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>Concurrency</code> – The number of sessions occurring in the same period of time.</p>
+   *             </li>
+   *          </ul>
+   */
+  name?: AnalyticsSessionMetricName | string;
+
+  /**
+   * <p>The summary statistic that you requested to calculate.</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>Sum</code> – The total count for the category you provide in <code>name</code>.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>Average</code> – The total count divided by the number of sessions in the category you provide in <code>name</code>.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>Max</code> – The highest count in the category you provide in <code>name</code>.</p>
+   *             </li>
+   *          </ul>
+   */
+  statistic?: AnalyticsMetricStatistic | string;
+
+  /**
+   * <p>The value of the summary statistic for the metric that you requested.</p>
+   */
+  value?: number;
+}
+
+/**
+ * @public
+ * <p>An object containing the results for the session metrics you requested and the bin and/or group(s) they refer to, if applicable.</p>
+ */
+export interface AnalyticsSessionResult {
+  /**
+   * <p>A list of objects containing the criteria you requested for binning results and the values of the bins.</p>
+   */
+  binKeys?: AnalyticsBinKey[];
+
+  /**
+   * <p>A list of objects containing the criteria you requested for grouping results and the values of the bins.</p>
+   */
+  groupByKeys?: AnalyticsSessionGroupByKey[];
+
+  /**
+   * <p>A list of objects, each of which contains a metric you want to list, the statistic for the metric you want to return, and the method by which to organize the results.</p>
+   */
+  metricsResults?: AnalyticsSessionMetricResult[];
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const AnalyticsSessionSortByName = {
+  ConversationStartTime: "ConversationStartTime",
+  Duration: "Duration",
+  NumberOfTurns: "NumberOfTurns",
+} as const;
+
+/**
+ * @public
+ */
+export type AnalyticsSessionSortByName = (typeof AnalyticsSessionSortByName)[keyof typeof AnalyticsSessionSortByName];
+
+/**
+ * @public
+ * @enum
+ */
+export const AnalyticsUtteranceAttributeName = {
+  LastUsedIntent: "LastUsedIntent",
+} as const;
+
+/**
+ * @public
+ */
+export type AnalyticsUtteranceAttributeName =
+  (typeof AnalyticsUtteranceAttributeName)[keyof typeof AnalyticsUtteranceAttributeName];
+
+/**
+ * @public
+ * <p>An object that specifies the last used intent at the time of the utterance as an attribute to return.</p>
+ */
+export interface AnalyticsUtteranceAttribute {
+  /**
+   * <p>An attribute to return. The only available attribute is the intent that the bot mapped the utterance to.</p>
+   */
+  name: AnalyticsUtteranceAttributeName | string | undefined;
+}
+
+/**
+ * @public
+ * <p>An object containing the intent that the bot mapped the utterance to.</p>
+ */
+export interface AnalyticsUtteranceAttributeResult {
+  /**
+   * <p>The intent that the bot mapped the utterance to.</p>
+   */
+  lastUsedIntent?: string;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const AnalyticsUtteranceField = {
+  UtteranceState: "UtteranceState",
+  UtteranceText: "UtteranceText",
+} as const;
+
+/**
+ * @public
+ */
+export type AnalyticsUtteranceField = (typeof AnalyticsUtteranceField)[keyof typeof AnalyticsUtteranceField];
+
+/**
+ * @public
+ * @enum
+ */
+export const AnalyticsUtteranceFilterName = {
+  BotAliasId: "BotAliasId",
+  BotVersion: "BotVersion",
+  Channel: "Channel",
+  LocaleId: "LocaleId",
+  Modality: "Modality",
+  OriginatingRequestId: "OriginatingRequestId",
+  SessionId: "SessionId",
+  UtteranceState: "UtteranceState",
+  UtteranceText: "UtteranceText",
+} as const;
+
+/**
+ * @public
+ */
+export type AnalyticsUtteranceFilterName =
+  (typeof AnalyticsUtteranceFilterName)[keyof typeof AnalyticsUtteranceFilterName];
+
+/**
+ * @public
+ * <p>Contains fields describing a condition by which to filter the utterances. The expression may be understood as <code>name</code>
+ *             <code>operator</code>
+ *             <code>values</code>. For example:</p>
+ *          <ul>
+ *             <li>
+ *                <p>
+ *                   <code>LocaleId EQ Book</code> – The locale is the string "en".</p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <code>UtteranceText CO help</code> – The text of the utterance contains the string "help".</p>
+ *             </li>
+ *          </ul>
+ *          <p>The operators that each filter supports are listed below:</p>
+ *          <ul>
+ *             <li>
+ *                <p>
+ *                   <code>BotAlias</code> – <code>EQ</code>.</p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <code>BotVersion</code> – <code>EQ</code>.</p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <code>LocaleId</code> – <code>EQ</code>.</p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <code>Modality</code> – <code>EQ</code>.</p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <code>Channel</code> – <code>EQ</code>.</p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <code>SessionId</code> – <code>EQ</code>.</p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <code>OriginatingRequestId</code> – <code>EQ</code>.</p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <code>UtteranceState</code> – <code>EQ</code>.</p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <code>UtteranceText</code> – <code>EQ</code>, <code>CO</code>.</p>
+ *             </li>
+ *          </ul>
+ */
+export interface AnalyticsUtteranceFilter {
+  /**
+   * <p>The category by which to filter the utterances. The descriptions for each option are as follows:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>BotAlias</code> – The name of the bot alias.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>BotVersion</code> – The version of the bot.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>LocaleId</code> – The locale of the bot.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>Modality</code> – The modality of the session with the bot (audio, DTMF, or text).</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>Channel</code> – The channel that the bot is integrated with.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>SessionId</code> – The identifier of the session with the bot.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>OriginatingRequestId</code> – The identifier of the first request in a session.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>UtteranceState</code> – The state of the utterance.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>UtteranceText</code> – The text in the utterance.</p>
+   *             </li>
+   *          </ul>
+   */
+  name: AnalyticsUtteranceFilterName | string | undefined;
+
+  /**
+   * <p>The operation by which to filter the category. The following operations are possible:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>CO</code> – Contains</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>EQ</code> – Equals</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>GT</code> – Greater than</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>LT</code> – Less than</p>
+   *             </li>
+   *          </ul>
+   *          <p>The operators that each filter supports are listed below:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>BotAlias</code> – <code>EQ</code>.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>BotVersion</code> – <code>EQ</code>.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>LocaleId</code> – <code>EQ</code>.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>Modality</code> – <code>EQ</code>.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>Channel</code> – <code>EQ</code>.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>SessionId</code> – <code>EQ</code>.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>OriginatingRequestId</code> – <code>EQ</code>.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>UtteranceState</code> – <code>EQ</code>.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>UtteranceText</code> – <code>EQ</code>, <code>CO</code>.</p>
+   *             </li>
+   *          </ul>
+   */
+  operator: AnalyticsFilterOperator | string | undefined;
+
+  /**
+   * <p>An array containing the values of the category by which to apply the operator to filter the results. You can provide multiple values if the operator is <code>EQ</code> or <code>CO</code>. If you provide multiple values, you filter for results that equal/contain any of the values. For example, if the <code>name</code>, <code>operator</code>, and <code>values</code> fields are <code>Modality</code>, <code>EQ</code>, and <code>[Speech, Text]</code>, the operation filters for results where the modality was either <code>Speech</code> or <code>Text</code>.</p>
+   */
+  values: string[] | undefined;
+}
+
+/**
+ * @public
+ * <p>Contains the category by which the utterance analytics were grouped and the values for that category.</p>
+ */
+export interface AnalyticsUtteranceGroupByKey {
+  /**
+   * <p>The category by which the utterance analytics were grouped.</p>
+   */
+  name?: AnalyticsUtteranceField | string;
+
+  /**
+   * <p>A member of the category by which the utterance analytics were grouped.</p>
+   */
+  value?: string;
+}
+
+/**
+ * @public
+ * <p>Contains the category by which to group the utterances.</p>
+ */
+export interface AnalyticsUtteranceGroupBySpecification {
+  /**
+   * <p>Specifies whether to group the utterances by their text or their state.</p>
+   */
+  name: AnalyticsUtteranceField | string | undefined;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const AnalyticsUtteranceMetricName = {
+  Count: "Count",
+  Detected: "Detected",
+  Missed: "Missed",
+  UtteranceTimestamp: "UtteranceTimestamp",
+} as const;
+
+/**
+ * @public
+ */
+export type AnalyticsUtteranceMetricName =
+  (typeof AnalyticsUtteranceMetricName)[keyof typeof AnalyticsUtteranceMetricName];
+
+/**
+ * @public
+ * <p>Contains the metric and the summary statistic you want to calculate, and the order in which to sort the results, for the utterances across the user sessions with the bot.</p>
+ */
+export interface AnalyticsUtteranceMetric {
+  /**
+   * <p>The metric for which you want to get utterance summary statistics.</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>Count</code> – The number of utterances.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>Missed</code> – The number of utterances that Amazon Lex failed to recognize.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>Detected</code> – The number of utterances that Amazon Lex managed to detect.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>UtteranceTimestamp</code> – The date and time of the utterance.</p>
+   *             </li>
+   *          </ul>
+   */
+  name: AnalyticsUtteranceMetricName | string | undefined;
+
+  /**
+   * <p>The summary statistic to calculate.</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>Sum</code> – The total count for the category you provide in <code>name</code>.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>Average</code> – The total count divided by the number of utterances in the category you provide in <code>name</code>.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>Max</code> – The highest count in the category you provide in <code>name</code>.</p>
+   *             </li>
+   *          </ul>
+   */
+  statistic: AnalyticsMetricStatistic | string | undefined;
+
+  /**
+   * <p>Specifies whether to sort the results in ascending or descending order.</p>
+   */
+  order?: AnalyticsSortOrder | string;
+}
+
+/**
+ * @public
+ * <p>An object containing the results for the utterance metric you requested.</p>
+ */
+export interface AnalyticsUtteranceMetricResult {
+  /**
+   * <p>The metric that you requested.</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>Count</code> – The number of utterances.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>Missed</code> – The number of utterances that Amazon Lex failed to recognize.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>Detected</code> – The number of utterances that Amazon Lex managed to detect.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>UtteranceTimeStamp</code> – The date and time of the utterance.</p>
+   *             </li>
+   *          </ul>
+   */
+  name?: AnalyticsUtteranceMetricName | string;
+
+  /**
+   * <p>The summary statistic that you requested to calculate.</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>Sum</code> – The total count for the category you provide in <code>name</code>.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>Average</code> – The total count divided by the number of utterances in the category you provide in <code>name</code>.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>Max</code> – The highest count in the category you provide in <code>name</code>.</p>
+   *             </li>
+   *          </ul>
+   */
+  statistic?: AnalyticsMetricStatistic | string;
+
+  /**
+   * <p>The value of the summary statistic for the metric that you requested.</p>
+   */
+  value?: number;
+}
+
+/**
+ * @public
+ * <p>An object containing the results for the utterance metrics you requested and the bin and/or group(s) they refer to, if applicable.</p>
+ */
+export interface AnalyticsUtteranceResult {
+  /**
+   * <p>A list of objects containing the criteria you requested for binning results and the values of the bins.</p>
+   */
+  binKeys?: AnalyticsBinKey[];
+
+  /**
+   * <p>A list of objects containing the criteria you requested for grouping results and the values of the bins.</p>
+   */
+  groupByKeys?: AnalyticsUtteranceGroupByKey[];
+
+  /**
+   * <p>A list of objects, each of which contains a metric you want to list, the statistic for the metric you want to return, and the method by which to organize the results.</p>
+   */
+  metricsResults?: AnalyticsUtteranceMetricResult[];
+
+  /**
+   * <p>A list of objects containing information about the last used intent at the time of an utterance.</p>
+   */
+  attributeResults?: AnalyticsUtteranceAttributeResult[];
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const AnalyticsUtteranceSortByName = {
+  UtteranceTimestamp: "UtteranceTimestamp",
+} as const;
+
+/**
+ * @public
+ */
+export type AnalyticsUtteranceSortByName =
+  (typeof AnalyticsUtteranceSortByName)[keyof typeof AnalyticsUtteranceSortByName];
+
+/**
+ * @public
  * <p>The object containing information that associates the recommended
  *          intent/slot type with a conversation.</p>
  */
@@ -1001,6 +2928,21 @@ export interface BotAliasTestExecutionTarget {
    */
   localeId: string | undefined;
 }
+
+/**
+ * @public
+ * @enum
+ */
+export const BotChannelType = {
+  Facebook: "Facebook",
+  Slack: "Slack",
+  TwilioSms: "TwilioSms",
+} as const;
+
+/**
+ * @public
+ */
+export type BotChannelType = (typeof BotChannelType)[keyof typeof BotChannelType];
 
 /**
  * @public
@@ -2273,6 +4215,21 @@ export interface ResponseSpecification {
    */
   allowInterrupt?: boolean;
 }
+
+/**
+ * @public
+ * @enum
+ */
+export const ConversationEndState = {
+  Dropped: "Dropped",
+  Failure: "Failure",
+  Success: "Success",
+} as const;
+
+/**
+ * @public
+ */
+export type ConversationEndState = (typeof ConversationEndState)[keyof typeof ConversationEndState];
 
 /**
  * @public
@@ -5861,1349 +7818,6 @@ export interface DescribeSlotRequest {
    * <p>The identifier of the intent that contains the slot.</p>
    */
   intentId: string | undefined;
-}
-
-/**
- * @public
- */
-export interface DescribeSlotTypeRequest {
-  /**
-   * <p>The identifier of the slot type.</p>
-   */
-  slotTypeId: string | undefined;
-
-  /**
-   * <p>The identifier of the bot associated with the slot type.</p>
-   */
-  botId: string | undefined;
-
-  /**
-   * <p>The version of the bot associated with the slot type.</p>
-   */
-  botVersion: string | undefined;
-
-  /**
-   * <p>The identifier of the language and locale of the slot type to
-   *          describe. The string must match one of the supported locales. For more
-   *          information, see <a href="https://docs.aws.amazon.com/lexv2/latest/dg/how-languages.html">Supported languages</a>.</p>
-   */
-  localeId: string | undefined;
-}
-
-/**
- * @public
- */
-export interface DescribeSlotTypeResponse {
-  /**
-   * <p>The unique identifier for the slot type.</p>
-   */
-  slotTypeId?: string;
-
-  /**
-   * <p>The name specified for the slot type.</p>
-   */
-  slotTypeName?: string;
-
-  /**
-   * <p>The description specified for the slot type.</p>
-   */
-  description?: string;
-
-  /**
-   * <p>The values that the slot type can take. Includes any synonyms for
-   *          the slot type values.</p>
-   */
-  slotTypeValues?: SlotTypeValue[];
-
-  /**
-   * <p>The strategy that Amazon Lex uses to choose a value from a list of
-   *          possible values.</p>
-   */
-  valueSelectionSetting?: SlotValueSelectionSetting;
-
-  /**
-   * <p>The built in slot type used as a parent to this slot type.</p>
-   */
-  parentSlotTypeSignature?: string;
-
-  /**
-   * <p>The identifier of the bot associated with the slot type.</p>
-   */
-  botId?: string;
-
-  /**
-   * <p>The version of the bot associated with the slot type.</p>
-   */
-  botVersion?: string;
-
-  /**
-   * <p>The language and locale specified for the slot type.</p>
-   */
-  localeId?: string;
-
-  /**
-   * <p>A timestamp of the date and time that the slot type was
-   *          created.</p>
-   */
-  creationDateTime?: Date;
-
-  /**
-   * <p>A timestamp of the date and time that the slot type was last
-   *          updated.</p>
-   */
-  lastUpdatedDateTime?: Date;
-
-  /**
-   * <p>Provides information about the external source of the slot type's definition.</p>
-   */
-  externalSourceSetting?: ExternalSourceSetting;
-
-  /**
-   * <p>Specifications for a composite slot type.</p>
-   */
-  compositeSlotTypeSetting?: CompositeSlotTypeSetting;
-}
-
-/**
- * @public
- */
-export interface DescribeTestExecutionRequest {
-  /**
-   * <p>The execution Id of the test set execution.</p>
-   */
-  testExecutionId: string | undefined;
-}
-
-/**
- * @public
- * @enum
- */
-export const TestExecutionApiMode = {
-  NonStreaming: "NonStreaming",
-  Streaming: "Streaming",
-} as const;
-
-/**
- * @public
- */
-export type TestExecutionApiMode = (typeof TestExecutionApiMode)[keyof typeof TestExecutionApiMode];
-
-/**
- * @public
- * <p>Contains information about the bot used for the test execution.</p>
- */
-export interface TestExecutionTarget {
-  /**
-   * <p>Contains information about the bot alias used for the test execution.</p>
-   */
-  botAliasTarget?: BotAliasTestExecutionTarget;
-}
-
-/**
- * @public
- * @enum
- */
-export const TestExecutionModality = {
-  Audio: "Audio",
-  Text: "Text",
-} as const;
-
-/**
- * @public
- */
-export type TestExecutionModality = (typeof TestExecutionModality)[keyof typeof TestExecutionModality];
-
-/**
- * @public
- * @enum
- */
-export const TestExecutionStatus = {
-  Completed: "Completed",
-  Failed: "Failed",
-  InProgress: "InProgress",
-  Pending: "Pending",
-  Stopped: "Stopped",
-  Stopping: "Stopping",
-  Waiting: "Waiting",
-} as const;
-
-/**
- * @public
- */
-export type TestExecutionStatus = (typeof TestExecutionStatus)[keyof typeof TestExecutionStatus];
-
-/**
- * @public
- */
-export interface DescribeTestExecutionResponse {
-  /**
-   * <p>The execution Id for the test set execution.</p>
-   */
-  testExecutionId?: string;
-
-  /**
-   * <p>The execution creation date and time for the test set execution.</p>
-   */
-  creationDateTime?: Date;
-
-  /**
-   * <p>The date and time of the last update for the execution.</p>
-   */
-  lastUpdatedDateTime?: Date;
-
-  /**
-   * <p>The test execution status for the test execution.</p>
-   */
-  testExecutionStatus?: TestExecutionStatus | string;
-
-  /**
-   * <p>The test set Id for the test set execution.</p>
-   */
-  testSetId?: string;
-
-  /**
-   * <p>The test set name of the test set execution.</p>
-   */
-  testSetName?: string;
-
-  /**
-   * <p>The target bot for the test set execution details.</p>
-   */
-  target?: TestExecutionTarget;
-
-  /**
-   * <p>Indicates whether we use streaming or non-streaming APIs are used for
-   *       the test set execution. For streaming, <code>StartConversation</code>
-   *       Amazon Lex Runtime API is used. Whereas for non-streaming, <code>RecognizeUtterance</code>
-   *       and <code>RecognizeText</code> Amazon Lex Runtime API is used.</p>
-   */
-  apiMode?: TestExecutionApiMode | string;
-
-  /**
-   * <p>Indicates whether test set is audio or text.</p>
-   */
-  testExecutionModality?: TestExecutionModality | string;
-
-  /**
-   * <p>Reasons for the failure of the test set execution.</p>
-   */
-  failureReasons?: string[];
-}
-
-/**
- * @public
- */
-export interface DescribeTestSetRequest {
-  /**
-   * <p>The test set Id for the test set request.</p>
-   */
-  testSetId: string | undefined;
-}
-
-/**
- * @public
- * @enum
- */
-export const TestSetStatus = {
-  Deleting: "Deleting",
-  Importing: "Importing",
-  PendingAnnotation: "PendingAnnotation",
-  Ready: "Ready",
-  ValidationError: "ValidationError",
-} as const;
-
-/**
- * @public
- */
-export type TestSetStatus = (typeof TestSetStatus)[keyof typeof TestSetStatus];
-
-/**
- * @public
- */
-export interface DescribeTestSetResponse {
-  /**
-   * <p>The test set Id for the test set response.</p>
-   */
-  testSetId?: string;
-
-  /**
-   * <p>The test set name of the test set.</p>
-   */
-  testSetName?: string;
-
-  /**
-   * <p>The description of the test set.</p>
-   */
-  description?: string;
-
-  /**
-   * <p>Indicates whether the test set is audio or text data.</p>
-   */
-  modality?: TestSetModality | string;
-
-  /**
-   * <p>The status of the test set.</p>
-   */
-  status?: TestSetStatus | string;
-
-  /**
-   * <p>The roleARN used for any operation in the test set to access
-   *       resources in the Amazon Web Services account.</p>
-   */
-  roleArn?: string;
-
-  /**
-   * <p>The total number of agent and user turn in the test set.</p>
-   */
-  numTurns?: number;
-
-  /**
-   * <p>The Amazon S3 storage location for the test set data.</p>
-   */
-  storageLocation?: TestSetStorageLocation;
-
-  /**
-   * <p>The creation date and time for the test set data.</p>
-   */
-  creationDateTime?: Date;
-
-  /**
-   * <p>The date and time for the last update of the test set data.</p>
-   */
-  lastUpdatedDateTime?: Date;
-}
-
-/**
- * @public
- */
-export interface DescribeTestSetDiscrepancyReportRequest {
-  /**
-   * <p>The unique identifier of the test set discrepancy report.</p>
-   */
-  testSetDiscrepancyReportId: string | undefined;
-}
-
-/**
- * @public
- * @enum
- */
-export const TestSetDiscrepancyReportStatus = {
-  Completed: "Completed",
-  Failed: "Failed",
-  InProgress: "InProgress",
-} as const;
-
-/**
- * @public
- */
-export type TestSetDiscrepancyReportStatus =
-  (typeof TestSetDiscrepancyReportStatus)[keyof typeof TestSetDiscrepancyReportStatus];
-
-/**
- * @public
- * <p>Contains information about discrepancy in an intent information between the test set and the
- *        bot.</p>
- */
-export interface TestSetIntentDiscrepancyItem {
-  /**
-   * <p>The name of the intent in the discrepancy report.</p>
-   */
-  intentName: string | undefined;
-
-  /**
-   * <p>The error message for a discrepancy for an intent between the test set and the bot.</p>
-   */
-  errorMessage: string | undefined;
-}
-
-/**
- * @public
- * <p>Contains information about discrepancy in a slot information between the test set and the bot.</p>
- */
-export interface TestSetSlotDiscrepancyItem {
-  /**
-   * <p>The name of the intent associated with the slot in the discrepancy report.</p>
-   */
-  intentName: string | undefined;
-
-  /**
-   * <p>The name of the slot in the discrepancy report.</p>
-   */
-  slotName: string | undefined;
-
-  /**
-   * <p>The error message for a discrepancy for an intent between the test set and the bot.</p>
-   */
-  errorMessage: string | undefined;
-}
-
-/**
- * @public
- * <p>Contains details about the errors in the test set discrepancy report</p>
- */
-export interface TestSetDiscrepancyErrors {
-  /**
-   * <p>Contains information about discrepancies found for intents between the test set and the bot.</p>
-   */
-  intentDiscrepancies: TestSetIntentDiscrepancyItem[] | undefined;
-
-  /**
-   * <p>Contains information about discrepancies found for slots between the test set and the bot.</p>
-   */
-  slotDiscrepancies: TestSetSlotDiscrepancyItem[] | undefined;
-}
-
-/**
- * @public
- */
-export interface DescribeTestSetDiscrepancyReportResponse {
-  /**
-   * <p>The unique identifier of the test set discrepancy report to describe.</p>
-   */
-  testSetDiscrepancyReportId?: string;
-
-  /**
-   * <p>The test set Id for the test set discrepancy report.</p>
-   */
-  testSetId?: string;
-
-  /**
-   * <p>The time and date of creation for the test set discrepancy report.</p>
-   */
-  creationDateTime?: Date;
-
-  /**
-   * <p>The target bot location for the test set discrepancy report.</p>
-   */
-  target?: TestSetDiscrepancyReportResourceTarget;
-
-  /**
-   * <p>The status for the test set discrepancy report.</p>
-   */
-  testSetDiscrepancyReportStatus?: TestSetDiscrepancyReportStatus | string;
-
-  /**
-   * <p>The date and time of the last update for the test set discrepancy report.</p>
-   */
-  lastUpdatedDataTime?: Date;
-
-  /**
-   * <p>The top 200 error results from the test set discrepancy report.</p>
-   */
-  testSetDiscrepancyTopErrors?: TestSetDiscrepancyErrors;
-
-  /**
-   * <p>Pre-signed Amazon S3 URL to download the test set discrepancy report.</p>
-   */
-  testSetDiscrepancyRawOutputUrl?: string;
-
-  /**
-   * <p>The failure report for the test set discrepancy report generation action.</p>
-   */
-  failureReasons?: string[];
-}
-
-/**
- * @public
- */
-export interface DescribeTestSetGenerationRequest {
-  /**
-   * <p>The unique identifier of the test set generation.</p>
-   */
-  testSetGenerationId: string | undefined;
-}
-
-/**
- * @public
- * <p>Contains information about the data source from which the test set is generated.</p>
- */
-export interface TestSetGenerationDataSource {
-  /**
-   * <p>Contains information about the bot from which the conversation logs are sourced.</p>
-   */
-  conversationLogsDataSource?: ConversationLogsDataSource;
-}
-
-/**
- * @public
- * @enum
- */
-export const TestSetGenerationStatus = {
-  Failed: "Failed",
-  Generating: "Generating",
-  Pending: "Pending",
-  Ready: "Ready",
-} as const;
-
-/**
- * @public
- */
-export type TestSetGenerationStatus = (typeof TestSetGenerationStatus)[keyof typeof TestSetGenerationStatus];
-
-/**
- * @public
- */
-export interface DescribeTestSetGenerationResponse {
-  /**
-   * <p>The unique identifier of the test set generation.</p>
-   */
-  testSetGenerationId?: string;
-
-  /**
-   * <p>The status for the test set generation.</p>
-   */
-  testSetGenerationStatus?: TestSetGenerationStatus | string;
-
-  /**
-   * <p>The reasons the test set generation failed.</p>
-   */
-  failureReasons?: string[];
-
-  /**
-   * <p>The unique identifier for the test set created for the generated test set.</p>
-   */
-  testSetId?: string;
-
-  /**
-   * <p>The test set name for the generated test set.</p>
-   */
-  testSetName?: string;
-
-  /**
-   * <p>The test set description for the test set generation.</p>
-   */
-  description?: string;
-
-  /**
-   * <p>The Amazon S3 storage location for the test set generation.</p>
-   */
-  storageLocation?: TestSetStorageLocation;
-
-  /**
-   * <p>The data source of the test set used for the test set generation.</p>
-   */
-  generationDataSource?: TestSetGenerationDataSource;
-
-  /**
-   * <p> The roleARN of the test set used for the test set generation.</p>
-   */
-  roleArn?: string;
-
-  /**
-   * <p>The creation date and time for the test set generation.</p>
-   */
-  creationDateTime?: Date;
-
-  /**
-   * <p>The date and time of the last update for the test set generation.</p>
-   */
-  lastUpdatedDateTime?: Date;
-}
-
-/**
- * @public
- * @enum
- */
-export const ExportFilterName = {
-  ExportResourceType: "ExportResourceType",
-} as const;
-
-/**
- * @public
- */
-export type ExportFilterName = (typeof ExportFilterName)[keyof typeof ExportFilterName];
-
-/**
- * @public
- * @enum
- */
-export const ExportFilterOperator = {
-  Contains: "CO",
-  Equals: "EQ",
-} as const;
-
-/**
- * @public
- */
-export type ExportFilterOperator = (typeof ExportFilterOperator)[keyof typeof ExportFilterOperator];
-
-/**
- * @public
- * <p>Filters the response form the <a href="https://docs.aws.amazon.com/lexv2/latest/APIReference/API_ListExports.html">ListExports</a> operation</p>
- */
-export interface ExportFilter {
-  /**
-   * <p>The name of the field to use for filtering.</p>
-   */
-  name: ExportFilterName | string | undefined;
-
-  /**
-   * <p>The values to use to filter the response. The values must be
-   *          <code>Bot</code>, <code>BotLocale</code>, or
-   *          <code>CustomVocabulary</code>.</p>
-   */
-  values: string[] | undefined;
-
-  /**
-   * <p>The operator to use for the filter. Specify EQ when the
-   *          <code>ListExports</code> operation should return only resource types
-   *          that equal the specified value. Specify CO when the
-   *          <code>ListExports</code> operation should return resource types that
-   *          contain the specified value.</p>
-   */
-  operator: ExportFilterOperator | string | undefined;
-}
-
-/**
- * @public
- * @enum
- */
-export const ExportSortAttribute = {
-  LastUpdatedDateTime: "LastUpdatedDateTime",
-} as const;
-
-/**
- * @public
- */
-export type ExportSortAttribute = (typeof ExportSortAttribute)[keyof typeof ExportSortAttribute];
-
-/**
- * @public
- * <p>Provides information about sorting a list of exports.</p>
- */
-export interface ExportSortBy {
-  /**
-   * <p>The export field to use for sorting.</p>
-   */
-  attribute: ExportSortAttribute | string | undefined;
-
-  /**
-   * <p>The order to sort the list.</p>
-   */
-  order: SortOrder | string | undefined;
-}
-
-/**
- * @public
- * <p>Provides summary information about an export in an export list.
- *       </p>
- */
-export interface ExportSummary {
-  /**
-   * <p>The unique identifier that Amazon Lex assigned to the export.</p>
-   */
-  exportId?: string;
-
-  /**
-   * <p>Information about the bot or bot locale that was exported.</p>
-   */
-  resourceSpecification?: ExportResourceSpecification;
-
-  /**
-   * <p>The file format used in the export files.</p>
-   */
-  fileFormat?: ImportExportFileFormat | string;
-
-  /**
-   * <p>The status of the export. When the status is <code>Completed</code>
-   *          the export is ready to download.</p>
-   */
-  exportStatus?: ExportStatus | string;
-
-  /**
-   * <p>The date and time that the export was created.</p>
-   */
-  creationDateTime?: Date;
-
-  /**
-   * <p>The date and time that the export was last updated.</p>
-   */
-  lastUpdatedDateTime?: Date;
-}
-
-/**
- * @public
- */
-export interface GetTestExecutionArtifactsUrlRequest {
-  /**
-   * <p>The unique identifier of the completed test execution.</p>
-   */
-  testExecutionId: string | undefined;
-}
-
-/**
- * @public
- */
-export interface GetTestExecutionArtifactsUrlResponse {
-  /**
-   * <p>The unique identifier of the completed test execution.</p>
-   */
-  testExecutionId?: string;
-
-  /**
-   * <p>The pre-signed Amazon S3 URL to download completed test execution.</p>
-   */
-  downloadArtifactsUrl?: string;
-}
-
-/**
- * @public
- * @enum
- */
-export const ImportFilterName = {
-  ImportResourceType: "ImportResourceType",
-} as const;
-
-/**
- * @public
- */
-export type ImportFilterName = (typeof ImportFilterName)[keyof typeof ImportFilterName];
-
-/**
- * @public
- * @enum
- */
-export const ImportFilterOperator = {
-  Contains: "CO",
-  Equals: "EQ",
-} as const;
-
-/**
- * @public
- */
-export type ImportFilterOperator = (typeof ImportFilterOperator)[keyof typeof ImportFilterOperator];
-
-/**
- * @public
- * <p>Filters the response from the <a href="https://docs.aws.amazon.com/lexv2/latest/APIReference/API_ListImports.html">ListImports</a> operation.</p>
- */
-export interface ImportFilter {
-  /**
-   * <p>The name of the field to use for filtering.</p>
-   */
-  name: ImportFilterName | string | undefined;
-
-  /**
-   * <p>The values to use to filter the response. The values must be
-   *          <code>Bot</code>, <code>BotLocale</code>, or
-   *          <code>CustomVocabulary</code>.</p>
-   */
-  values: string[] | undefined;
-
-  /**
-   * <p>The operator to use for the filter. Specify EQ when the
-   *          <code>ListImports</code> operation should return only resource types
-   *          that equal the specified value. Specify CO when the
-   *          <code>ListImports</code> operation should return resource types that
-   *          contain the specified value.</p>
-   */
-  operator: ImportFilterOperator | string | undefined;
-}
-
-/**
- * @public
- * @enum
- */
-export const ImportResourceType = {
-  Bot: "Bot",
-  BotLocale: "BotLocale",
-  CustomVocabulary: "CustomVocabulary",
-  TestSet: "TestSet",
-} as const;
-
-/**
- * @public
- */
-export type ImportResourceType = (typeof ImportResourceType)[keyof typeof ImportResourceType];
-
-/**
- * @public
- * @enum
- */
-export const ImportSortAttribute = {
-  LastUpdatedDateTime: "LastUpdatedDateTime",
-} as const;
-
-/**
- * @public
- */
-export type ImportSortAttribute = (typeof ImportSortAttribute)[keyof typeof ImportSortAttribute];
-
-/**
- * @public
- * <p>Provides information for sorting a list of imports.</p>
- */
-export interface ImportSortBy {
-  /**
-   * <p>The export field to use for sorting.</p>
-   */
-  attribute: ImportSortAttribute | string | undefined;
-
-  /**
-   * <p>The order to sort the list.</p>
-   */
-  order: SortOrder | string | undefined;
-}
-
-/**
- * @public
- * <p>Provides summary information about an import in an import
- *          list.</p>
- */
-export interface ImportSummary {
-  /**
-   * <p>The unique identifier that Amazon Lex assigned to the import.</p>
-   */
-  importId?: string;
-
-  /**
-   * <p>The unique identifier that Amazon Lex assigned to the imported
-   *          resource.</p>
-   */
-  importedResourceId?: string;
-
-  /**
-   * <p>The name that you gave the imported resource.</p>
-   */
-  importedResourceName?: string;
-
-  /**
-   * <p>The status of the resource. When the status is
-   *          <code>Completed</code> the resource is ready to build.</p>
-   */
-  importStatus?: ImportStatus | string;
-
-  /**
-   * <p>The strategy used to merge existing bot or bot locale definitions
-   *          with the imported definition.</p>
-   */
-  mergeStrategy?: MergeStrategy | string;
-
-  /**
-   * <p>The date and time that the import was created.</p>
-   */
-  creationDateTime?: Date;
-
-  /**
-   * <p>The date and time that the import was last updated.</p>
-   */
-  lastUpdatedDateTime?: Date;
-
-  /**
-   * <p>The type of resource that was imported.</p>
-   */
-  importedResourceType?: ImportResourceType | string;
-}
-
-/**
- * @public
- * <p>Provides the phrase that Amazon Lex should look for in the user's input
- *  to the bot.</p>
- */
-export interface RuntimeHintValue {
-  /**
-   * <p>The phrase that Amazon Lex should look for in the user's input to the
-   *  bot.</p>
-   */
-  phrase: string | undefined;
-}
-
-/**
- * @public
- * <p>The number of items in the intent classification test.</p>
- */
-export interface IntentClassificationTestResultItemCounts {
-  /**
-   * <p>The total number of results in the intent classification test.</p>
-   */
-  totalResultCount: number | undefined;
-
-  /**
-   * <p>The number of matched, mismatched, and execution error results for speech transcription for the intent.</p>
-   */
-  speechTranscriptionResultCounts?: Record<string, number>;
-
-  /**
-   * <p>The number of matched and mismatched results for intent recognition for the intent.</p>
-   */
-  intentMatchResultCounts: Record<string, number> | undefined;
-}
-
-/**
- * @public
- * <p>Information for an intent that is classified by the test workbench.</p>
- */
-export interface IntentClassificationTestResultItem {
-  /**
-   * <p>The name of the intent.</p>
-   */
-  intentName: string | undefined;
-
-  /**
-   * <p>Indicates whether the conversation involves multiple turns or not.</p>
-   */
-  multiTurnConversation: boolean | undefined;
-
-  /**
-   * <p>The result of the intent classification test.</p>
-   */
-  resultCounts: IntentClassificationTestResultItemCounts | undefined;
-}
-
-/**
- * @public
- * <p>Information for the results of the intent classification test. </p>
- */
-export interface IntentClassificationTestResults {
-  /**
-   * <p>A list of the results for the intent classification test.</p>
-   */
-  items: IntentClassificationTestResultItem[] | undefined;
-}
-
-/**
- * @public
- * @enum
- */
-export const IntentFilterName = {
-  IntentName: "IntentName",
-} as const;
-
-/**
- * @public
- */
-export type IntentFilterName = (typeof IntentFilterName)[keyof typeof IntentFilterName];
-
-/**
- * @public
- * @enum
- */
-export const IntentFilterOperator = {
-  Contains: "CO",
-  Equals: "EQ",
-} as const;
-
-/**
- * @public
- */
-export type IntentFilterOperator = (typeof IntentFilterOperator)[keyof typeof IntentFilterOperator];
-
-/**
- * @public
- * <p>Filters the response from the <code>ListIntents</code>
- *          operation.</p>
- */
-export interface IntentFilter {
-  /**
-   * <p>The name of the field to use for the filter.</p>
-   */
-  name: IntentFilterName | string | undefined;
-
-  /**
-   * <p>The value to use for the filter.</p>
-   */
-  values: string[] | undefined;
-
-  /**
-   * <p>The operator to use for the filter. Specify <code>EQ</code> when the
-   *          <code>ListIntents</code> operation should return only aliases that
-   *          equal the specified value. Specify <code>CO</code> when the
-   *          <code>ListIntents</code> operation should return aliases that
-   *          contain the specified value.</p>
-   */
-  operator: IntentFilterOperator | string | undefined;
-}
-
-/**
- * @public
- * <p>Information about the counts for a slot resolution in the results of a test execution.</p>
- */
-export interface SlotResolutionTestResultItemCounts {
-  /**
-   * <p>The total number of results.</p>
-   */
-  totalResultCount: number | undefined;
-
-  /**
-   * <p>The number of matched, mismatched and execution error results for speech transcription for the slot.</p>
-   */
-  speechTranscriptionResultCounts?: Record<string, number>;
-
-  /**
-   * <p>The number of matched and mismatched results for slot resolution for the slot.</p>
-   */
-  slotMatchResultCounts: Record<string, number> | undefined;
-}
-
-/**
- * @public
- * <p>Information about the success and failure rate of slot resolution
- *  in the results of a test execution.</p>
- */
-export interface SlotResolutionTestResultItem {
-  /**
-   * <p>The name of the slot.</p>
-   */
-  slotName: string | undefined;
-
-  /**
-   * <p>A result for slot resolution in the results of a test execution.</p>
-   */
-  resultCounts: SlotResolutionTestResultItemCounts | undefined;
-}
-
-/**
- * @public
- * <p>Information about intent-level slot resolution in a test result.</p>
- */
-export interface IntentLevelSlotResolutionTestResultItem {
-  /**
-   * <p>The name of the intent that was recognized.</p>
-   */
-  intentName: string | undefined;
-
-  /**
-   * <p>Indicates whether the conversation involves multiple turns or not.</p>
-   */
-  multiTurnConversation: boolean | undefined;
-
-  /**
-   * <p>The results for the slot resolution in the test execution result.</p>
-   */
-  slotResolutionResults: SlotResolutionTestResultItem[] | undefined;
-}
-
-/**
- * @public
- * <p>Indicates the success or failure of slots at the intent level.</p>
- */
-export interface IntentLevelSlotResolutionTestResults {
-  /**
-   * <p>Indicates the items for the slot level resolution for the intents.</p>
-   */
-  items: IntentLevelSlotResolutionTestResultItem[] | undefined;
-}
-
-/**
- * @public
- * @enum
- */
-export const IntentSortAttribute = {
-  IntentName: "IntentName",
-  LastUpdatedDateTime: "LastUpdatedDateTime",
-} as const;
-
-/**
- * @public
- */
-export type IntentSortAttribute = (typeof IntentSortAttribute)[keyof typeof IntentSortAttribute];
-
-/**
- * @public
- * <p>Specifies attributes for sorting a list of intents.</p>
- */
-export interface IntentSortBy {
-  /**
-   * <p>The attribute to use to sort the list of intents.</p>
-   */
-  attribute: IntentSortAttribute | string | undefined;
-
-  /**
-   * <p>The order to sort the list. You can choose ascending or
-   *          descending.</p>
-   */
-  order: SortOrder | string | undefined;
-}
-
-/**
- * @public
- * <p>Summary information about an intent returned by the
- *          <code>ListIntents</code> operation.</p>
- */
-export interface IntentSummary {
-  /**
-   * <p>The unique identifier assigned to the intent. Use this ID to get
-   *          detailed information about the intent with the
-   *          <code>DescribeIntent</code> operation.</p>
-   */
-  intentId?: string;
-
-  /**
-   * <p>The name of the intent.</p>
-   */
-  intentName?: string;
-
-  /**
-   * <p>The description of the intent.</p>
-   */
-  description?: string;
-
-  /**
-   * <p>If this intent is derived from a built-in intent, the name of the
-   *          parent intent.</p>
-   */
-  parentIntentSignature?: string;
-
-  /**
-   * <p>The input contexts that must be active for this intent to be
-   *          considered for recognition.</p>
-   */
-  inputContexts?: InputContext[];
-
-  /**
-   * <p>The output contexts that are activated when this intent is
-   *          fulfilled.</p>
-   */
-  outputContexts?: OutputContext[];
-
-  /**
-   * <p>The timestamp of the date and time that the intent was last
-   *          updated.</p>
-   */
-  lastUpdatedDateTime?: Date;
-}
-
-/**
- * @public
- * @enum
- */
-export const TimeDimension = {
-  Days: "Days",
-  Hours: "Hours",
-  Weeks: "Weeks",
-} as const;
-
-/**
- * @public
- */
-export type TimeDimension = (typeof TimeDimension)[keyof typeof TimeDimension];
-
-/**
- * @public
- * <p>Specifies the time window that utterance statistics are returned
- *             for. The time window is always relative to the last time that the that
- *             utterances were aggregated. For example, if the
- *             <code>ListAggregatedUtterances</code> operation is called at 1600,
- *             the time window is set to 1 hour, and the last refresh time was 1530,
- *             only utterances made between 1430 and 1530 are returned.</p>
- *          <p>You can choose the time window that statistics should be returned
- *             for.</p>
- *          <ul>
- *             <li>
- *                <p>
- *                   <b>Hours</b> - You can request
- *                     utterance statistics for 1, 3, 6, 12, or 24 hour time windows.
- *                     Statistics are refreshed every half hour for 1 hour time windows,
- *                     and hourly for the other time windows.</p>
- *             </li>
- *             <li>
- *                <p>
- *                   <b>Days</b> - You can request
- *                     utterance statistics for 3 days. Statistics are refreshed every 6
- *                     hours.</p>
- *             </li>
- *             <li>
- *                <p>
- *                   <b>Weeks</b> - You can see
- *                     statistics for one or two weeks. Statistics are refreshed every
- *                     12 hours for one week time windows, and once per day for two week
- *                     time windows.</p>
- *             </li>
- *          </ul>
- */
-export interface RelativeAggregationDuration {
-  /**
-   * <p>The type of time period that the <code>timeValue</code> field
-   *             represents. </p>
-   */
-  timeDimension: TimeDimension | string | undefined;
-
-  /**
-   * <p>The period of the time window to gather statistics for. The valid
-   *             value depends on the setting of the <code>timeDimension</code>
-   *             field.</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>Hours</code> - 1/3/6/12/24</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>Days</code> - 3</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>Weeks</code> - 1/2</p>
-   *             </li>
-   *          </ul>
-   */
-  timeValue: number | undefined;
-}
-
-/**
- * @public
- * <p>Provides parameters for setting the time window and duration for
- *             aggregating utterance data.</p>
- */
-export interface UtteranceAggregationDuration {
-  /**
-   * <p>The desired time window for aggregating utterances. </p>
-   */
-  relativeAggregationDuration: RelativeAggregationDuration | undefined;
-}
-
-/**
- * @public
- */
-export interface ListAggregatedUtterancesRequest {
-  /**
-   * <p>The unique identifier of the bot associated with this
-   *          request.</p>
-   */
-  botId: string | undefined;
-
-  /**
-   * <p>The identifier of the bot alias associated with this request. If you
-   *          specify the bot alias, you can't specify the bot version.</p>
-   */
-  botAliasId?: string;
-
-  /**
-   * <p>The identifier of the bot version associated with this request. If
-   *          you specify the bot version, you can't specify the bot alias.</p>
-   */
-  botVersion?: string;
-
-  /**
-   * <p>The identifier of the language and locale where the utterances were
-   *          collected. For more information, see <a href="https://docs.aws.amazon.com/lexv2/latest/dg/how-languages.html">Supported
-   *          languages</a>.</p>
-   */
-  localeId: string | undefined;
-
-  /**
-   * <p>The time window for aggregating the utterance information. You can
-   *          specify a time between one hour and two weeks.</p>
-   */
-  aggregationDuration: UtteranceAggregationDuration | undefined;
-
-  /**
-   * <p>Specifies sorting parameters for the list of utterances. You can
-   *          sort by the hit count, the missed count, or the number of distinct
-   *          sessions the utterance appeared in.</p>
-   */
-  sortBy?: AggregatedUtterancesSortBy;
-
-  /**
-   * <p>Provides the specification of a filter used to limit the utterances
-   *          in the response to only those that match the filter specification. You
-   *          can only specify one filter and one string to filter on.</p>
-   */
-  filters?: AggregatedUtterancesFilter[];
-
-  /**
-   * <p>The maximum number of utterances to return in each page of results.
-   *          If there are fewer results than the maximum page size, only the actual
-   *          number of results are returned. If you don't specify the
-   *             <code>maxResults</code> parameter, 1,000 results are
-   *          returned.</p>
-   */
-  maxResults?: number;
-
-  /**
-   * <p>If the response from the <code>ListAggregatedUtterances</code>
-   *          operation contains more results that specified in the
-   *             <code>maxResults</code> parameter, a token is returned in the
-   *          response. Use that token in the <code>nextToken</code> parameter to
-   *          return the next page of results.</p>
-   */
-  nextToken?: string;
-}
-
-/**
- * @public
- */
-export interface ListAggregatedUtterancesResponse {
-  /**
-   * <p>The identifier of the bot that contains the utterances.</p>
-   */
-  botId?: string;
-
-  /**
-   * <p>The identifier of the bot alias that contains the utterances. If you
-   *          specified the bot version, the bot alias ID isn't returned.</p>
-   */
-  botAliasId?: string;
-
-  /**
-   * <p>The identifier of the bot version that contains the utterances. If
-   *          you specified the bot alias, the bot version isn't returned.</p>
-   */
-  botVersion?: string;
-
-  /**
-   * <p>The identifier of the language and locale that the utterances are
-   *          in.</p>
-   */
-  localeId?: string;
-
-  /**
-   * <p>The time period used to aggregate the utterance data.</p>
-   */
-  aggregationDuration?: UtteranceAggregationDuration;
-
-  /**
-   * <p>The date and time that the aggregation window begins. Only data
-   *          collected after this time is returned in the results.</p>
-   */
-  aggregationWindowStartTime?: Date;
-
-  /**
-   * <p>The date and time that the aggregation window ends. Only data
-   *          collected between the start time and the end time are returned in the
-   *          results. </p>
-   */
-  aggregationWindowEndTime?: Date;
-
-  /**
-   * <p>The last date and time that the aggregated data was collected. The
-   *          time period depends on the length of the aggregation window.</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <b>Hours</b> - for 1 hour time
-   *                window, every half hour; otherwise every hour.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <b>Days</b> - every 6 hours</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <b>Weeks</b> - for a one week time
-   *                window, every 12 hours; otherwise, every day</p>
-   *             </li>
-   *          </ul>
-   */
-  aggregationLastRefreshedDateTime?: Date;
-
-  /**
-   * <p>Summaries of the aggregated utterance data. Each response contains
-   *          information about the number of times that the utterance was seen
-   *          during the time period, whether it was detected or missed, and when it
-   *          was seen during the time period.</p>
-   */
-  aggregatedUtterancesSummaries?: AggregatedUtterancesSummary[];
-
-  /**
-   * <p>A token that indicates whether there are more results to return in a
-   *          response to the <code>ListAggregatedUtterances</code> operation. If the
-   *             <code>nextToken</code> field is present, you send the contents as
-   *          the <code>nextToken</code> parameter of a
-   *             <code>ListAggregatedUtterances</code> operation request to get the
-   *          next page of results.</p>
-   */
-  nextToken?: string;
 }
 
 /**

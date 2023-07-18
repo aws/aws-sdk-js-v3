@@ -14,7 +14,7 @@ import {
 } from "@smithy/types";
 
 import { LexModelsV2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LexModelsV2Client";
-import { DescribeSlotTypeRequest, DescribeSlotTypeResponse } from "../models/models_0";
+import { DescribeSlotTypeRequest, DescribeSlotTypeResponse } from "../models/models_1";
 import { de_DescribeSlotTypeCommand, se_DescribeSlotTypeCommand } from "../protocols/Aws_restJson1";
 
 /**

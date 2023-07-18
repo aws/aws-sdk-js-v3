@@ -14,7 +14,7 @@ import {
 } from "@smithy/types";
 
 import { LexModelsV2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LexModelsV2Client";
-import { DescribeTestExecutionRequest, DescribeTestExecutionResponse } from "../models/models_0";
+import { DescribeTestExecutionRequest, DescribeTestExecutionResponse } from "../models/models_1";
 import { de_DescribeTestExecutionCommand, se_DescribeTestExecutionCommand } from "../protocols/Aws_restJson1";
 
 /**

@@ -669,6 +669,22 @@ ListImports
 </details>
 <details>
 <summary>
+ListIntentMetrics
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lex-models-v2/classes/listintentmetricscommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lex-models-v2/interfaces/listintentmetricscommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lex-models-v2/interfaces/listintentmetricscommandoutput.html)
+
+</details>
+<details>
+<summary>
+ListIntentPaths
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lex-models-v2/classes/listintentpathscommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lex-models-v2/interfaces/listintentpathscommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lex-models-v2/interfaces/listintentpathscommandoutput.html)
+
+</details>
+<details>
+<summary>
 ListIntents
 </summary>
 
@@ -677,10 +693,34 @@ ListIntents
 </details>
 <details>
 <summary>
+ListIntentStageMetrics
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lex-models-v2/classes/listintentstagemetricscommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lex-models-v2/interfaces/listintentstagemetricscommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lex-models-v2/interfaces/listintentstagemetricscommandoutput.html)
+
+</details>
+<details>
+<summary>
 ListRecommendedIntents
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lex-models-v2/classes/listrecommendedintentscommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lex-models-v2/interfaces/listrecommendedintentscommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lex-models-v2/interfaces/listrecommendedintentscommandoutput.html)
+
+</details>
+<details>
+<summary>
+ListSessionAnalyticsData
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lex-models-v2/classes/listsessionanalyticsdatacommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lex-models-v2/interfaces/listsessionanalyticsdatacommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lex-models-v2/interfaces/listsessionanalyticsdatacommandoutput.html)
+
+</details>
+<details>
+<summary>
+ListSessionMetrics
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lex-models-v2/classes/listsessionmetricscommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lex-models-v2/interfaces/listsessionmetricscommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lex-models-v2/interfaces/listsessionmetricscommandoutput.html)
 
 </details>
 <details>
@@ -737,6 +777,22 @@ ListTestSets
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lex-models-v2/classes/listtestsetscommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lex-models-v2/interfaces/listtestsetscommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lex-models-v2/interfaces/listtestsetscommandoutput.html)
+
+</details>
+<details>
+<summary>
+ListUtteranceAnalyticsData
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lex-models-v2/classes/listutteranceanalyticsdatacommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lex-models-v2/interfaces/listutteranceanalyticsdatacommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lex-models-v2/interfaces/listutteranceanalyticsdatacommandoutput.html)
+
+</details>
+<details>
+<summary>
+ListUtteranceMetrics
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lex-models-v2/classes/listutterancemetricscommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lex-models-v2/interfaces/listutterancemetricscommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lex-models-v2/interfaces/listutterancemetricscommandoutput.html)
 
 </details>
 <details>
