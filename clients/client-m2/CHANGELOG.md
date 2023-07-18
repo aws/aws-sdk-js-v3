@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.372.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.371.0...v3.372.0) (2023-07-18)
+
+
+### Features
+
+* **client-m2:** Allows UpdateEnvironment to update the environment to 0 host capacity. New GetSignedBluinsightsUrl API ([059361e](https://github.com/aws/aws-sdk-js-v3/commit/059361e507350cdf167bf0a3afe57e04771d51a4))
+
+
+
+
+
 # [3.370.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.369.0...v3.370.0) (2023-07-13)
 
 

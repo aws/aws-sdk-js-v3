@@ -3,6 +3,21 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.372.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.371.0...v3.372.0) (2023-07-18)
+
+
+### Features
+
+* **client-elasticsearch-service:** Regex Validation on the ElasticSearch Engine Version attribute ([282169b](https://github.com/aws/aws-sdk-js-v3/commit/282169b0d5148005f2327be6ec09ef3a6b32ce13))
+* **client-lex-models-v2:** This release adds support for Lex Developers to view analytics for their bots. ([22bd601](https://github.com/aws/aws-sdk-js-v3/commit/22bd601a4c633b3456af9af7301af5c49c55e302))
+* **client-m2:** Allows UpdateEnvironment to update the environment to 0 host capacity. New GetSignedBluinsightsUrl API ([059361e](https://github.com/aws/aws-sdk-js-v3/commit/059361e507350cdf167bf0a3afe57e04771d51a4))
+* **client-snowball:** Adds support for RACK_5U_C. This is the first AWS Snow Family device designed to meet U.S. Military Ruggedization Standards (MIL-STD-810H) with 208 vCPU device in a portable, compact 5U, half-rack width form-factor. ([16e1114](https://github.com/aws/aws-sdk-js-v3/commit/16e11142287977f69f7520337ac020fc13a8a523))
+* **clients:** update client endpoints as of 2023-07-18 ([1c027bb](https://github.com/aws/aws-sdk-js-v3/commit/1c027bb2f0524594db1ebed264a512194c8b53c0))
+
+
+
+
+
 # [3.371.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.370.0...v3.371.0) (2023-07-17)
 
 

@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.372.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.371.0...v3.372.0) (2023-07-18)
+
+
+### Features
+
+* **client-lex-models-v2:** This release adds support for Lex Developers to view analytics for their bots. ([22bd601](https://github.com/aws/aws-sdk-js-v3/commit/22bd601a4c633b3456af9af7301af5c49c55e302))
+
+
+
+
+
 # [3.370.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.369.0...v3.370.0) (2023-07-13)
 
 

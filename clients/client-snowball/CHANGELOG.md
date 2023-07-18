@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.372.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.371.0...v3.372.0) (2023-07-18)
+
+
+### Features
+
+* **client-snowball:** Adds support for RACK_5U_C. This is the first AWS Snow Family device designed to meet U.S. Military Ruggedization Standards (MIL-STD-810H) with 208 vCPU device in a portable, compact 5U, half-rack width form-factor. ([16e1114](https://github.com/aws/aws-sdk-js-v3/commit/16e11142287977f69f7520337ac020fc13a8a523))
+
+
+
+
+
 # [3.370.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.369.0...v3.370.0) (2023-07-13)
 
 
