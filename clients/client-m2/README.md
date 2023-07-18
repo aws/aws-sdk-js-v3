@@ -329,6 +329,14 @@ GetEnvironment
 </details>
 <details>
 <summary>
+GetSignedBluinsightsUrl
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-m2/classes/getsignedbluinsightsurlcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-m2/interfaces/getsignedbluinsightsurlcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-m2/interfaces/getsignedbluinsightsurlcommandoutput.html)
+
+</details>
+<details>
+<summary>
 ListApplications
 </summary>
 

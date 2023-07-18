@@ -59,6 +59,10 @@ import {
 } from "../commands/GetDataSetImportTaskCommand";
 import { GetDeploymentCommandInput, GetDeploymentCommandOutput } from "../commands/GetDeploymentCommand";
 import { GetEnvironmentCommandInput, GetEnvironmentCommandOutput } from "../commands/GetEnvironmentCommand";
+import {
+  GetSignedBluinsightsUrlCommandInput,
+  GetSignedBluinsightsUrlCommandOutput,
+} from "../commands/GetSignedBluinsightsUrlCommand";
 import { ListApplicationsCommandInput, ListApplicationsCommandOutput } from "../commands/ListApplicationsCommand";
 import {
   ListApplicationVersionsCommandInput,
@@ -653,6 +657,31 @@ export const se_GetEnvironmentCommand = async (
     false
   );
   let body: any;
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "GET",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
+/**
+ * serializeAws_restJson1GetSignedBluinsightsUrlCommand
+ */
+export const se_GetSignedBluinsightsUrlCommand = async (
+  input: GetSignedBluinsightsUrlCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/signed-bi-url";
+  let body: any;
+  body = "";
   return new __HttpRequest({
     protocol,
     hostname,
@@ -2215,6 +2244,59 @@ const de_GetEnvironmentCommandError = async (
     case "ValidationException":
     case "com.amazonaws.m2#ValidationException":
       throw await de_ValidationExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
+ * deserializeAws_restJson1GetSignedBluinsightsUrlCommand
+ */
+export const de_GetSignedBluinsightsUrlCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetSignedBluinsightsUrlCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_GetSignedBluinsightsUrlCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    signedBiUrl: __expectString,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1GetSignedBluinsightsUrlCommandError
+ */
+const de_GetSignedBluinsightsUrlCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetSignedBluinsightsUrlCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.m2#AccessDeniedException":
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
+    case "InternalServerException":
+    case "com.amazonaws.m2#InternalServerException":
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
+    case "ThrottlingException":
+    case "com.amazonaws.m2#ThrottlingException":
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       return throwDefaultError({

@@ -14,6 +14,7 @@ export * from "./GetDataSetDetailsCommand";
 export * from "./GetDataSetImportTaskCommand";
 export * from "./GetDeploymentCommand";
 export * from "./GetEnvironmentCommand";
+export * from "./GetSignedBluinsightsUrlCommand";
 export * from "./ListApplicationVersionsCommand";
 export * from "./ListApplicationsCommand";
 export * from "./ListBatchJobDefinitionsCommand";

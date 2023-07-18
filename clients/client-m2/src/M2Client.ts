@@ -82,6 +82,10 @@ import {
 } from "./commands/GetDataSetImportTaskCommand";
 import { GetDeploymentCommandInput, GetDeploymentCommandOutput } from "./commands/GetDeploymentCommand";
 import { GetEnvironmentCommandInput, GetEnvironmentCommandOutput } from "./commands/GetEnvironmentCommand";
+import {
+  GetSignedBluinsightsUrlCommandInput,
+  GetSignedBluinsightsUrlCommandOutput,
+} from "./commands/GetSignedBluinsightsUrlCommand";
 import { ListApplicationsCommandInput, ListApplicationsCommandOutput } from "./commands/ListApplicationsCommand";
 import {
   ListApplicationVersionsCommandInput,
@@ -143,6 +147,7 @@ export type ServiceInputTypes =
   | GetDataSetImportTaskCommandInput
   | GetDeploymentCommandInput
   | GetEnvironmentCommandInput
+  | GetSignedBluinsightsUrlCommandInput
   | ListApplicationVersionsCommandInput
   | ListApplicationsCommandInput
   | ListBatchJobDefinitionsCommandInput
@@ -180,6 +185,7 @@ export type ServiceOutputTypes =
   | GetDataSetImportTaskCommandOutput
   | GetDeploymentCommandOutput
   | GetEnvironmentCommandOutput
+  | GetSignedBluinsightsUrlCommandOutput
   | ListApplicationVersionsCommandOutput
   | ListApplicationsCommandOutput
   | ListBatchJobDefinitionsCommandOutput

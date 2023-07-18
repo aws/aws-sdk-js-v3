@@ -376,7 +376,8 @@ export interface CreateApplicationRequest {
   kmsKeyId?: string;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the role associated with the application.</p>
+   * <p>The Amazon Resource Name (ARN) that identifies a role that the application uses to access Amazon Web Services resources
+   *          that are not part of the application or are in a different Amazon Web Services account.</p>
    */
   roleArn?: string;
 }
@@ -481,7 +482,8 @@ export interface PoAttributes {
   encoding?: string;
 
   /**
-   * <p>An array containing one or more filename extensions, allowing you to specify which files to be included as PDS member.</p>
+   * <p>An array containing one or more filename extensions, allowing you to specify which files
+   *          to be included as PDS member.</p>
    */
   memberFileExtensions: string[] | undefined;
 }
@@ -2519,7 +2521,7 @@ export interface UpdateApplicationResponse {
  */
 export interface HighAvailabilityConfig {
   /**
-   * <p>The number of instances in a high availability configuration.</p>
+   * <p>The number of instances in a high availability configuration. The minimum possible value is 1 and the maximum is 100.</p>
    */
   desiredCapacity: number | undefined;
 }
@@ -2992,7 +2994,7 @@ export interface UpdateEnvironmentRequest {
   environmentId: string | undefined;
 
   /**
-   * <p>The desired capacity for the runtime environment to update.</p>
+   * <p>The desired capacity for the runtime environment to update. The minimum possible value is 0 and the maximum is 100.</p>
    */
   desiredCapacity?: number;
 
@@ -3030,6 +3032,16 @@ export interface UpdateEnvironmentResponse {
    * <p>The unique identifier of the runtime environment that was updated.</p>
    */
   environmentId: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetSignedBluinsightsUrlResponse {
+  /**
+   * <p>Single sign-on AWS Blu Insights URL.</p>
+   */
+  signedBiUrl: string | undefined;
 }
 
 /**

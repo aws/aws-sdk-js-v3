@@ -78,6 +78,11 @@ import {
   GetEnvironmentCommandOutput,
 } from "./commands/GetEnvironmentCommand";
 import {
+  GetSignedBluinsightsUrlCommand,
+  GetSignedBluinsightsUrlCommandInput,
+  GetSignedBluinsightsUrlCommandOutput,
+} from "./commands/GetSignedBluinsightsUrlCommand";
+import {
   ListApplicationsCommand,
   ListApplicationsCommandInput,
   ListApplicationsCommandOutput,
@@ -176,6 +181,7 @@ const commands = {
   GetDataSetImportTaskCommand,
   GetDeploymentCommand,
   GetEnvironmentCommand,
+  GetSignedBluinsightsUrlCommand,
   ListApplicationsCommand,
   ListApplicationVersionsCommand,
   ListBatchJobDefinitionsCommand,
@@ -437,6 +443,23 @@ export interface M2 {
     args: GetEnvironmentCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: GetEnvironmentCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link GetSignedBluinsightsUrlCommand}
+   */
+  getSignedBluinsightsUrl(
+    args: GetSignedBluinsightsUrlCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetSignedBluinsightsUrlCommandOutput>;
+  getSignedBluinsightsUrl(
+    args: GetSignedBluinsightsUrlCommandInput,
+    cb: (err: any, data?: GetSignedBluinsightsUrlCommandOutput) => void
+  ): void;
+  getSignedBluinsightsUrl(
+    args: GetSignedBluinsightsUrlCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetSignedBluinsightsUrlCommandOutput) => void
   ): void;
 
   /**
