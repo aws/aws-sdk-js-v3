@@ -1,7 +1,21 @@
 // smithy-typescript generated code
-import { ExceptionOptionType as __ExceptionOptionType } from "@smithy/smithy-client";
+import { ExceptionOptionType as __ExceptionOptionType, SENSITIVE_STRING } from "@smithy/smithy-client";
 
 import { SnowballServiceException as __BaseException } from "./SnowballServiceException";
+
+/**
+ * @public
+ * @enum
+ */
+export const AddressType = {
+  AWS_SHIP: "AWS_SHIP",
+  CUST_PICKUP: "CUST_PICKUP",
+} as const;
+
+/**
+ * @public
+ */
+export type AddressType = (typeof AddressType)[keyof typeof AddressType];
 
 /**
  * @public
@@ -86,6 +100,11 @@ export interface Address {
    *       true. This field is not supported in most regions.</p>
    */
   IsRestricted?: boolean;
+
+  /**
+   * <p>Differentiates between delivery address and pickup address in the customer account. Provided at job creation.</p>
+   */
+  Type?: AddressType | string;
 }
 
 /**
@@ -333,6 +352,11 @@ export interface Notification {
    * <p>Any change in job state will trigger a notification for this job.</p>
    */
   NotifyAll?: boolean;
+
+  /**
+   * <p>Used to send SNS notifications for the person picking up the device (identified during job creation).</p>
+   */
+  DevicePickupSnsTopicARN?: string;
 }
 
 /**
@@ -462,6 +486,7 @@ export interface OnDeviceServiceConfiguration {
 export const RemoteManagement = {
   INSTALLED_AUTOSTART: "INSTALLED_AUTOSTART",
   INSTALLED_ONLY: "INSTALLED_ONLY",
+  NOT_INSTALLED: "NOT_INSTALLED",
 } as const;
 
 /**
@@ -472,7 +497,7 @@ export type RemoteManagement = (typeof RemoteManagement)[keyof typeof RemoteMana
 /**
  * @public
  * <p>A JSON-formatted object that contains the IDs for an Amazon Machine Image (AMI),
- *       including the Amazon EC2 AMI ID and the Snow device AMI ID. Each AMI has these two IDs to
+ *       including the Amazon EC2-compatible AMI ID and the Snow device AMI ID. Each AMI has these two IDs to
  *       simplify identifying the AMI in both the Amazon Web Services Cloud and on the device.</p>
  */
 export interface Ec2AmiResource {
@@ -661,6 +686,7 @@ export type ShippingOption = (typeof ShippingOption)[keyof typeof ShippingOption
 export const SnowballCapacity = {
   NO_PREFERENCE: "NoPreference",
   T100: "T100",
+  T13: "T13",
   T14: "T14",
   T240: "T240",
   T32: "T32",
@@ -685,6 +711,7 @@ export const SnowballType = {
   EDGE_C: "EDGE_C",
   EDGE_CG: "EDGE_CG",
   EDGE_S: "EDGE_S",
+  RACK_5U_C: "RACK_5U_C",
   SNC1_HDD: "SNC1_HDD",
   SNC1_SSD: "SNC1_SSD",
   STANDARD: "STANDARD",
@@ -942,7 +969,7 @@ export interface CreateClusterResult {
   ClusterId?: string;
 
   /**
-   * <p>List of jobs created for this cluster. For syntax, see <a href="https://docs.aws.amazon.com/snowball/latest/api-reference/API_ListJobs.html#API_ListJobs_ResponseSyntax">ListJobsResult$JobListEntries</a> in this guide.</p>
+   * <p>List of jobs created for this cluster. For syntax, see <a href="http://amazonaws.com/snowball/latest/api-reference/API_ListJobs.html#API_ListJobs_ResponseSyntax">ListJobsResult$JobListEntries</a> in this guide.</p>
    */
   JobListEntries?: JobListEntry[];
 }
@@ -1048,6 +1075,64 @@ export interface DeviceConfiguration {
    *       job.</p>
    */
   SnowconeDeviceConfiguration?: SnowconeDeviceConfiguration;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const ImpactLevel = {
+  IL2: "IL2",
+  IL4: "IL4",
+  IL5: "IL5",
+  IL6: "IL6",
+  IL99: "IL99",
+} as const;
+
+/**
+ * @public
+ */
+export type ImpactLevel = (typeof ImpactLevel)[keyof typeof ImpactLevel];
+
+/**
+ * @public
+ * <p>Information identifying the person picking up the device.</p>
+ */
+export interface PickupDetails {
+  /**
+   * <p>The name of the person picking up the device.</p>
+   */
+  Name?: string;
+
+  /**
+   * <p>The phone number of the person picking up the device.</p>
+   */
+  PhoneNumber?: string;
+
+  /**
+   * <p>The email address of the person picking up the device.</p>
+   */
+  Email?: string;
+
+  /**
+   * <p>The number on the credential identifying the person picking up the device.</p>
+   */
+  IdentificationNumber?: string;
+
+  /**
+   * <p>Expiration date of the credential identifying the person picking up the device.</p>
+   */
+  IdentificationExpirationDate?: Date;
+
+  /**
+   * <p>Organization that issued the credential identifying the person picking up the device.</p>
+   */
+  IdentificationIssuingOrg?: string;
+
+  /**
+   * <p>The unique ID for a device that will be picked up.</p>
+   */
+  DevicePickupId?: string;
 }
 
 /**
@@ -1198,7 +1283,7 @@ export interface CreateJobRequest {
    * <p>Allows you to securely operate and manage Snowcone devices remotely from outside of your
    *       internal network. When set to <code>INSTALLED_AUTOSTART</code>, remote management will
    *       automatically be available when the device arrives at your location. Otherwise, you need to
-   *       use the Snowball Client to manage the device.</p>
+   *       use the Snowball Edge client to manage the device. When set to <code>NOT_INSTALLED</code>, remote management will not be available on the device. </p>
    */
   RemoteManagement?: RemoteManagement | string;
 
@@ -1206,6 +1291,16 @@ export interface CreateJobRequest {
    * <p>The ID of the long-term pricing type for the device.</p>
    */
   LongTermPricingId?: string;
+
+  /**
+   * <p>The highest impact level of data that will be stored or processed on the device, provided at job creation.</p>
+   */
+  ImpactLevel?: ImpactLevel | string;
+
+  /**
+   * <p>Information identifying the person picking up the device.</p>
+   */
+  PickupDetails?: PickupDetails;
 }
 
 /**
@@ -1253,7 +1348,7 @@ export interface CreateLongTermPricingRequest {
   /**
    * <p>The type of Snow Family devices to use for the long-term pricing job.</p>
    */
-  SnowballType?: SnowballType | string;
+  SnowballType: SnowballType | string | undefined;
 }
 
 /**
@@ -1879,6 +1974,21 @@ export interface JobMetadata {
    *       device.</p>
    */
   OnDeviceServiceConfiguration?: OnDeviceServiceConfiguration;
+
+  /**
+   * <p>The highest impact level of data that will be stored or processed on the device, provided at job creation.</p>
+   */
+  ImpactLevel?: ImpactLevel | string;
+
+  /**
+   * <p>Information identifying the person picking up the device.</p>
+   */
+  PickupDetails?: PickupDetails;
+
+  /**
+   * <p>Unique ID associated with a device.</p>
+   */
+  SnowballId?: string;
 }
 
 /**
@@ -2305,6 +2415,36 @@ export interface ListLongTermPricingResult {
 
 /**
  * @public
+ */
+export interface ListPickupLocationsRequest {
+  /**
+   * <p>The maximum number of locations to list per page.</p>
+   */
+  MaxResults?: number;
+
+  /**
+   * <p>HTTP requests are stateless. To identify what object comes "next" in the list of <code>ListPickupLocationsRequest</code> objects, you have the option of specifying <code>NextToken</code> as the starting point for your returned list.</p>
+   */
+  NextToken?: string;
+}
+
+/**
+ * @public
+ */
+export interface ListPickupLocationsResult {
+  /**
+   * <p>Information about the address of pickup locations.</p>
+   */
+  Addresses?: Address[];
+
+  /**
+   * <p>HTTP requests are stateless. To identify what object comes "next" in the list of <code>ListPickupLocationsResult</code> objects, you have the option of specifying <code>NextToken</code> as the starting point for your returned list.</p>
+   */
+  NextToken?: string;
+}
+
+/**
+ * @public
  * @enum
  */
 export const ServiceName = {
@@ -2524,6 +2664,11 @@ export interface UpdateJobRequest {
    *       supported in most regions.</p>
    */
   ForwardingAddressId?: string;
+
+  /**
+   * <p>Information identifying the person picking up the device.</p>
+   */
+  PickupDetails?: PickupDetails;
 }
 
 /**
@@ -2594,3 +2739,45 @@ export interface UpdateLongTermPricingRequest {
  * @public
  */
 export interface UpdateLongTermPricingResult {}
+
+/**
+ * @internal
+ */
+export const PickupDetailsFilterSensitiveLog = (obj: PickupDetails): any => ({
+  ...obj,
+  ...(obj.PhoneNumber && { PhoneNumber: SENSITIVE_STRING }),
+  ...(obj.Email && { Email: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const CreateJobRequestFilterSensitiveLog = (obj: CreateJobRequest): any => ({
+  ...obj,
+  ...(obj.PickupDetails && { PickupDetails: PickupDetailsFilterSensitiveLog(obj.PickupDetails) }),
+});
+
+/**
+ * @internal
+ */
+export const JobMetadataFilterSensitiveLog = (obj: JobMetadata): any => ({
+  ...obj,
+  ...(obj.PickupDetails && { PickupDetails: PickupDetailsFilterSensitiveLog(obj.PickupDetails) }),
+});
+
+/**
+ * @internal
+ */
+export const DescribeJobResultFilterSensitiveLog = (obj: DescribeJobResult): any => ({
+  ...obj,
+  ...(obj.JobMetadata && { JobMetadata: JobMetadataFilterSensitiveLog(obj.JobMetadata) }),
+  ...(obj.SubJobMetadata && { SubJobMetadata: obj.SubJobMetadata.map((item) => JobMetadataFilterSensitiveLog(item)) }),
+});
+
+/**
+ * @internal
+ */
+export const UpdateJobRequestFilterSensitiveLog = (obj: UpdateJobRequest): any => ({
+  ...obj,
+  ...(obj.PickupDetails && { PickupDetails: PickupDetailsFilterSensitiveLog(obj.PickupDetails) }),
+});

@@ -111,6 +111,7 @@ export interface UpdateClusterCommandOutput extends UpdateClusterResult, __Metad
  *       "New" || "PreparingAppliance" || "PreparingShipment" || "InTransitToCustomer" || "WithCustomer" || "InTransitToAWS" || "WithAWSSortingFacility" || "WithAWS" || "InProgress" || "Complete" || "Cancelled" || "Listing" || "Pending",
  *     ],
  *     NotifyAll: true || false,
+ *     DevicePickupSnsTopicARN: "STRING_VALUE",
  *   },
  *   ForwardingAddressId: "STRING_VALUE",
  * };

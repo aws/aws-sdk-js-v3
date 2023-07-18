@@ -13,7 +13,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@smithy/types";
 
-import { DescribeJobRequest, DescribeJobResult } from "../models/models_0";
+import { DescribeJobRequest, DescribeJobResult, DescribeJobResultFilterSensitiveLog } from "../models/models_0";
 import { de_DescribeJobCommand, se_DescribeJobCommand } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, SnowballClientResolvedConfig } from "../SnowballClient";
 
@@ -54,7 +54,7 @@ export interface DescribeJobCommandOutput extends DescribeJobResult, __MetadataB
  * //     JobId: "STRING_VALUE",
  * //     JobState: "New" || "PreparingAppliance" || "PreparingShipment" || "InTransitToCustomer" || "WithCustomer" || "InTransitToAWS" || "WithAWSSortingFacility" || "WithAWS" || "InProgress" || "Complete" || "Cancelled" || "Listing" || "Pending",
  * //     JobType: "IMPORT" || "EXPORT" || "LOCAL_USE",
- * //     SnowballType: "STANDARD" || "EDGE" || "EDGE_C" || "EDGE_CG" || "EDGE_S" || "SNC1_HDD" || "SNC1_SSD" || "V3_5C" || "V3_5S",
+ * //     SnowballType: "STANDARD" || "EDGE" || "EDGE_C" || "EDGE_CG" || "EDGE_S" || "SNC1_HDD" || "SNC1_SSD" || "V3_5C" || "V3_5S" || "RACK_5U_C",
  * //     CreationDate: new Date("TIMESTAMP"),
  * //     Resources: { // JobResource
  * //       S3Resources: [ // S3ResourceList
@@ -104,13 +104,14 @@ export interface DescribeJobCommandOutput extends DescribeJobResult, __MetadataB
  * //         TrackingNumber: "STRING_VALUE",
  * //       },
  * //     },
- * //     SnowballCapacityPreference: "T50" || "T80" || "T100" || "T42" || "T98" || "T8" || "T14" || "T32" || "NoPreference" || "T240",
+ * //     SnowballCapacityPreference: "T50" || "T80" || "T100" || "T42" || "T98" || "T8" || "T14" || "T32" || "NoPreference" || "T240" || "T13",
  * //     Notification: { // Notification
  * //       SnsTopicARN: "STRING_VALUE",
  * //       JobStatesToNotify: [ // JobStateList
  * //         "New" || "PreparingAppliance" || "PreparingShipment" || "InTransitToCustomer" || "WithCustomer" || "InTransitToAWS" || "WithAWSSortingFacility" || "WithAWS" || "InProgress" || "Complete" || "Cancelled" || "Listing" || "Pending",
  * //       ],
  * //       NotifyAll: true || false,
+ * //       DevicePickupSnsTopicARN: "STRING_VALUE",
  * //     },
  * //     DataTransferProgress: { // DataTransfer
  * //       BytesTransferred: Number("long"),
@@ -137,7 +138,7 @@ export interface DescribeJobCommandOutput extends DescribeJobResult, __MetadataB
  * //         },
  * //       },
  * //     },
- * //     RemoteManagement: "INSTALLED_ONLY" || "INSTALLED_AUTOSTART",
+ * //     RemoteManagement: "INSTALLED_ONLY" || "INSTALLED_AUTOSTART" || "NOT_INSTALLED",
  * //     LongTermPricingId: "STRING_VALUE",
  * //     OnDeviceServiceConfiguration: { // OnDeviceServiceConfiguration
  * //       NFSOnDeviceService: { // NFSOnDeviceServiceConfiguration
@@ -159,13 +160,24 @@ export interface DescribeJobCommandOutput extends DescribeJobResult, __MetadataB
  * //         FaultTolerance: Number("int"),
  * //       },
  * //     },
+ * //     ImpactLevel: "IL2" || "IL4" || "IL5" || "IL6" || "IL99",
+ * //     PickupDetails: { // PickupDetails
+ * //       Name: "STRING_VALUE",
+ * //       PhoneNumber: "STRING_VALUE",
+ * //       Email: "STRING_VALUE",
+ * //       IdentificationNumber: "STRING_VALUE",
+ * //       IdentificationExpirationDate: new Date("TIMESTAMP"),
+ * //       IdentificationIssuingOrg: "STRING_VALUE",
+ * //       DevicePickupId: "STRING_VALUE",
+ * //     },
+ * //     SnowballId: "STRING_VALUE",
  * //   },
  * //   SubJobMetadata: [ // JobMetadataList
  * //     {
  * //       JobId: "STRING_VALUE",
  * //       JobState: "New" || "PreparingAppliance" || "PreparingShipment" || "InTransitToCustomer" || "WithCustomer" || "InTransitToAWS" || "WithAWSSortingFacility" || "WithAWS" || "InProgress" || "Complete" || "Cancelled" || "Listing" || "Pending",
  * //       JobType: "IMPORT" || "EXPORT" || "LOCAL_USE",
- * //       SnowballType: "STANDARD" || "EDGE" || "EDGE_C" || "EDGE_CG" || "EDGE_S" || "SNC1_HDD" || "SNC1_SSD" || "V3_5C" || "V3_5S",
+ * //       SnowballType: "STANDARD" || "EDGE" || "EDGE_C" || "EDGE_CG" || "EDGE_S" || "SNC1_HDD" || "SNC1_SSD" || "V3_5C" || "V3_5S" || "RACK_5U_C",
  * //       CreationDate: new Date("TIMESTAMP"),
  * //       Resources: {
  * //         S3Resources: [
@@ -215,13 +227,14 @@ export interface DescribeJobCommandOutput extends DescribeJobResult, __MetadataB
  * //           TrackingNumber: "STRING_VALUE",
  * //         },
  * //       },
- * //       SnowballCapacityPreference: "T50" || "T80" || "T100" || "T42" || "T98" || "T8" || "T14" || "T32" || "NoPreference" || "T240",
+ * //       SnowballCapacityPreference: "T50" || "T80" || "T100" || "T42" || "T98" || "T8" || "T14" || "T32" || "NoPreference" || "T240" || "T13",
  * //       Notification: {
  * //         SnsTopicARN: "STRING_VALUE",
  * //         JobStatesToNotify: [
  * //           "New" || "PreparingAppliance" || "PreparingShipment" || "InTransitToCustomer" || "WithCustomer" || "InTransitToAWS" || "WithAWSSortingFacility" || "WithAWS" || "InProgress" || "Complete" || "Cancelled" || "Listing" || "Pending",
  * //         ],
  * //         NotifyAll: true || false,
+ * //         DevicePickupSnsTopicARN: "STRING_VALUE",
  * //       },
  * //       DataTransferProgress: {
  * //         BytesTransferred: Number("long"),
@@ -248,7 +261,7 @@ export interface DescribeJobCommandOutput extends DescribeJobResult, __MetadataB
  * //           },
  * //         },
  * //       },
- * //       RemoteManagement: "INSTALLED_ONLY" || "INSTALLED_AUTOSTART",
+ * //       RemoteManagement: "INSTALLED_ONLY" || "INSTALLED_AUTOSTART" || "NOT_INSTALLED",
  * //       LongTermPricingId: "STRING_VALUE",
  * //       OnDeviceServiceConfiguration: {
  * //         NFSOnDeviceService: {
@@ -270,6 +283,17 @@ export interface DescribeJobCommandOutput extends DescribeJobResult, __MetadataB
  * //           FaultTolerance: Number("int"),
  * //         },
  * //       },
+ * //       ImpactLevel: "IL2" || "IL4" || "IL5" || "IL6" || "IL99",
+ * //       PickupDetails: {
+ * //         Name: "STRING_VALUE",
+ * //         PhoneNumber: "STRING_VALUE",
+ * //         Email: "STRING_VALUE",
+ * //         IdentificationNumber: "STRING_VALUE",
+ * //         IdentificationExpirationDate: new Date("TIMESTAMP"),
+ * //         IdentificationIssuingOrg: "STRING_VALUE",
+ * //         DevicePickupId: "STRING_VALUE",
+ * //       },
+ * //       SnowballId: "STRING_VALUE",
  * //     },
  * //   ],
  * // };
@@ -379,7 +403,7 @@ export class DescribeJobCommand extends $Command<
       clientName,
       commandName,
       inputFilterSensitiveLog: (_: any) => _,
-      outputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: DescribeJobResultFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

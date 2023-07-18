@@ -86,6 +86,10 @@ import {
   ListLongTermPricingCommandOutput,
 } from "./commands/ListLongTermPricingCommand";
 import {
+  ListPickupLocationsCommandInput,
+  ListPickupLocationsCommandOutput,
+} from "./commands/ListPickupLocationsCommand";
+import {
   ListServiceVersionsCommandInput,
   ListServiceVersionsCommandOutput,
 } from "./commands/ListServiceVersionsCommand";
@@ -134,6 +138,7 @@ export type ServiceInputTypes =
   | ListCompatibleImagesCommandInput
   | ListJobsCommandInput
   | ListLongTermPricingCommandInput
+  | ListPickupLocationsCommandInput
   | ListServiceVersionsCommandInput
   | UpdateClusterCommandInput
   | UpdateJobCommandInput
@@ -165,6 +170,7 @@ export type ServiceOutputTypes =
   | ListCompatibleImagesCommandOutput
   | ListJobsCommandOutput
   | ListLongTermPricingCommandOutput
+  | ListPickupLocationsCommandOutput
   | ListServiceVersionsCommandOutput
   | UpdateClusterCommandOutput
   | UpdateJobCommandOutput

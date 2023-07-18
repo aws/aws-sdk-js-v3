@@ -59,6 +59,10 @@ import {
   ListLongTermPricingCommandOutput,
 } from "../commands/ListLongTermPricingCommand";
 import {
+  ListPickupLocationsCommandInput,
+  ListPickupLocationsCommandOutput,
+} from "../commands/ListPickupLocationsCommand";
+import {
   ListServiceVersionsCommandInput,
   ListServiceVersionsCommandOutput,
 } from "../commands/ListServiceVersionsCommand";
@@ -126,11 +130,13 @@ import {
   ListJobsResult,
   ListLongTermPricingRequest,
   ListLongTermPricingResult,
+  ListPickupLocationsRequest,
   ListServiceVersionsRequest,
   LongTermPricingListEntry,
   NFSOnDeviceServiceConfiguration,
   Notification,
   OnDeviceServiceConfiguration,
+  PickupDetails,
   ReturnShippingLabelAlreadyExistsException,
   S3OnDeviceServiceConfiguration,
   S3Resource,
@@ -416,6 +422,19 @@ export const se_ListLongTermPricingCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("ListLongTermPricing");
+  let body: any;
+  body = JSON.stringify(_json(input));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+/**
+ * serializeAws_json1_1ListPickupLocationsCommand
+ */
+export const se_ListPickupLocationsCommand = async (
+  input: ListPickupLocationsCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = sharedHeaders("ListPickupLocations");
   let body: any;
   body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1522,6 +1541,52 @@ const de_ListLongTermPricingCommandError = async (
 };
 
 /**
+ * deserializeAws_json1_1ListPickupLocationsCommand
+ */
+export const de_ListPickupLocationsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListPickupLocationsCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_ListPickupLocationsCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = _json(data);
+  const response: ListPickupLocationsCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1ListPickupLocationsCommandError
+ */
+const de_ListPickupLocationsCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListPickupLocationsCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "InvalidResourceException":
+    case "com.amazonaws.snowball#InvalidResourceException":
+      throw await de_InvalidResourceExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
  * deserializeAws_json1_1ListServiceVersionsCommand
  */
 export const de_ListServiceVersionsCommand = async (
@@ -2000,11 +2065,13 @@ const se_CreateJobRequest = (input: CreateJobRequest, context: __SerdeContext): 
     Description: [],
     DeviceConfiguration: _json,
     ForwardingAddressId: [],
+    ImpactLevel: [],
     JobType: [],
     KmsKeyARN: [],
     LongTermPricingId: [],
     Notification: _json,
     OnDeviceServiceConfiguration: (_) => se_OnDeviceServiceConfiguration(_, context),
+    PickupDetails: (_) => se_PickupDetails(_, context),
     RemoteManagement: [],
     Resources: _json,
     RoleARN: [],
@@ -2075,6 +2142,8 @@ const se_CreateJobRequest = (input: CreateJobRequest, context: __SerdeContext): 
 
 // se_ListLongTermPricingRequest omitted.
 
+// se_ListPickupLocationsRequest omitted.
+
 // se_ListServiceVersionsRequest omitted.
 
 // se_LongTermPricingIdList omitted.
@@ -2092,6 +2161,21 @@ const se_OnDeviceServiceConfiguration = (input: OnDeviceServiceConfiguration, co
     NFSOnDeviceService: _json,
     S3OnDeviceService: (_) => se_S3OnDeviceServiceConfiguration(_, context),
     TGWOnDeviceService: _json,
+  });
+};
+
+/**
+ * serializeAws_json1_1PickupDetails
+ */
+const se_PickupDetails = (input: PickupDetails, context: __SerdeContext): any => {
+  return take(input, {
+    DevicePickupId: [],
+    Email: [],
+    IdentificationExpirationDate: (_) => Math.round(_.getTime() / 1000),
+    IdentificationIssuingOrg: [],
+    IdentificationNumber: [],
+    Name: [],
+    PhoneNumber: [],
   });
 };
 
@@ -2151,6 +2235,7 @@ const se_UpdateJobRequest = (input: UpdateJobRequest, context: __SerdeContext): 
     JobId: [],
     Notification: _json,
     OnDeviceServiceConfiguration: (_) => se_OnDeviceServiceConfiguration(_, context),
+    PickupDetails: (_) => se_PickupDetails(_, context),
     Resources: _json,
     RoleARN: [],
     ShippingOption: [],
@@ -2363,6 +2448,7 @@ const de_JobMetadata = (output: any, context: __SerdeContext): JobMetadata => {
     Description: __expectString,
     DeviceConfiguration: _json,
     ForwardingAddressId: __expectString,
+    ImpactLevel: __expectString,
     JobId: __expectString,
     JobLogInfo: _json,
     JobState: __expectString,
@@ -2371,11 +2457,13 @@ const de_JobMetadata = (output: any, context: __SerdeContext): JobMetadata => {
     LongTermPricingId: __expectString,
     Notification: _json,
     OnDeviceServiceConfiguration: (_: any) => de_OnDeviceServiceConfiguration(_, context),
+    PickupDetails: (_: any) => de_PickupDetails(_, context),
     RemoteManagement: __expectString,
     Resources: _json,
     RoleARN: __expectString,
     ShippingDetails: _json,
     SnowballCapacityPreference: __expectString,
+    SnowballId: __expectString,
     SnowballType: __expectString,
     TaxDocuments: _json,
   }) as any;
@@ -2447,6 +2535,8 @@ const de_ListLongTermPricingResult = (output: any, context: __SerdeContext): Lis
   }) as any;
 };
 
+// de_ListPickupLocationsResult omitted.
+
 // de_ListServiceVersionsResult omitted.
 
 // de_LongTermPricingAssociatedJobIdList omitted.
@@ -2494,6 +2584,21 @@ const de_OnDeviceServiceConfiguration = (output: any, context: __SerdeContext): 
     NFSOnDeviceService: _json,
     S3OnDeviceService: (_: any) => de_S3OnDeviceServiceConfiguration(_, context),
     TGWOnDeviceService: _json,
+  }) as any;
+};
+
+/**
+ * deserializeAws_json1_1PickupDetails
+ */
+const de_PickupDetails = (output: any, context: __SerdeContext): PickupDetails => {
+  return take(output, {
+    DevicePickupId: __expectString,
+    Email: __expectString,
+    IdentificationExpirationDate: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    IdentificationIssuingOrg: __expectString,
+    IdentificationNumber: __expectString,
+    Name: __expectString,
+    PhoneNumber: __expectString,
   }) as any;
 };
 

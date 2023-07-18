@@ -6,3 +6,4 @@ export * from "./ListClustersPaginator";
 export * from "./ListCompatibleImagesPaginator";
 export * from "./ListJobsPaginator";
 export * from "./ListLongTermPricingPaginator";
+export * from "./ListPickupLocationsPaginator";

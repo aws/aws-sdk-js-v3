@@ -13,8 +13,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@smithy/types";
 
-import { ListCompatibleImagesRequest, ListCompatibleImagesResult } from "../models/models_0";
-import { de_ListCompatibleImagesCommand, se_ListCompatibleImagesCommand } from "../protocols/Aws_json1_1";
+import { ListPickupLocationsRequest, ListPickupLocationsResult } from "../models/models_0";
+import { de_ListPickupLocationsCommand, se_ListPickupLocationsCommand } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, SnowballClientResolvedConfig } from "../SnowballClient";
 
 /**
@@ -24,39 +24,49 @@ export { __MetadataBearer, $Command };
 /**
  * @public
  *
- * The input for {@link ListCompatibleImagesCommand}.
+ * The input for {@link ListPickupLocationsCommand}.
  */
-export interface ListCompatibleImagesCommandInput extends ListCompatibleImagesRequest {}
+export interface ListPickupLocationsCommandInput extends ListPickupLocationsRequest {}
 /**
  * @public
  *
- * The output of {@link ListCompatibleImagesCommand}.
+ * The output of {@link ListPickupLocationsCommand}.
  */
-export interface ListCompatibleImagesCommandOutput extends ListCompatibleImagesResult, __MetadataBearer {}
+export interface ListPickupLocationsCommandOutput extends ListPickupLocationsResult, __MetadataBearer {}
 
 /**
  * @public
- * <p>This action returns a list of the different Amazon EC2-compatible Amazon Machine Images (AMIs)
- *       that are owned by your Amazon Web Services accountthat would be supported for use on a Snow
- *       device. Currently, supported AMIs are based on the Amazon Linux-2, Ubuntu 20.04 LTS - Focal, or Ubuntu 22.04 LTS - Jammy images, available on the
- *       Amazon Web Services Marketplace. Ubuntu 16.04 LTS - Xenial (HVM) images are no longer supported in the Market, but still supported for use on devices through Amazon EC2 VM Import/Export and running locally in AMIs.</p>
+ * <p>A list of locations from which the customer can choose to pickup a device.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { SnowballClient, ListCompatibleImagesCommand } from "@aws-sdk/client-snowball"; // ES Modules import
- * // const { SnowballClient, ListCompatibleImagesCommand } = require("@aws-sdk/client-snowball"); // CommonJS import
+ * import { SnowballClient, ListPickupLocationsCommand } from "@aws-sdk/client-snowball"; // ES Modules import
+ * // const { SnowballClient, ListPickupLocationsCommand } = require("@aws-sdk/client-snowball"); // CommonJS import
  * const client = new SnowballClient(config);
- * const input = { // ListCompatibleImagesRequest
+ * const input = { // ListPickupLocationsRequest
  *   MaxResults: Number("int"),
  *   NextToken: "STRING_VALUE",
  * };
- * const command = new ListCompatibleImagesCommand(input);
+ * const command = new ListPickupLocationsCommand(input);
  * const response = await client.send(command);
- * // { // ListCompatibleImagesResult
- * //   CompatibleImages: [ // CompatibleImageList
- * //     { // CompatibleImage
- * //       AmiId: "STRING_VALUE",
+ * // { // ListPickupLocationsResult
+ * //   Addresses: [ // AddressList
+ * //     { // Address
+ * //       AddressId: "STRING_VALUE",
  * //       Name: "STRING_VALUE",
+ * //       Company: "STRING_VALUE",
+ * //       Street1: "STRING_VALUE",
+ * //       Street2: "STRING_VALUE",
+ * //       Street3: "STRING_VALUE",
+ * //       City: "STRING_VALUE",
+ * //       StateOrProvince: "STRING_VALUE",
+ * //       PrefectureOrDistrict: "STRING_VALUE",
+ * //       Landmark: "STRING_VALUE",
+ * //       Country: "STRING_VALUE",
+ * //       PostalCode: "STRING_VALUE",
+ * //       PhoneNumber: "STRING_VALUE",
+ * //       IsRestricted: true || false,
+ * //       Type: "CUST_PICKUP" || "AWS_SHIP",
  * //     },
  * //   ],
  * //   NextToken: "STRING_VALUE",
@@ -64,28 +74,23 @@ export interface ListCompatibleImagesCommandOutput extends ListCompatibleImagesR
  *
  * ```
  *
- * @param ListCompatibleImagesCommandInput - {@link ListCompatibleImagesCommandInput}
- * @returns {@link ListCompatibleImagesCommandOutput}
- * @see {@link ListCompatibleImagesCommandInput} for command's `input` shape.
- * @see {@link ListCompatibleImagesCommandOutput} for command's `response` shape.
+ * @param ListPickupLocationsCommandInput - {@link ListPickupLocationsCommandInput}
+ * @returns {@link ListPickupLocationsCommandOutput}
+ * @see {@link ListPickupLocationsCommandInput} for command's `input` shape.
+ * @see {@link ListPickupLocationsCommandOutput} for command's `response` shape.
  * @see {@link SnowballClientResolvedConfig | config} for SnowballClient's `config` shape.
  *
- * @throws {@link Ec2RequestFailedException} (client fault)
- *  <p>Your user lacks the necessary Amazon EC2 permissions to perform the attempted
- *       action.</p>
- *
- * @throws {@link InvalidNextTokenException} (client fault)
- *  <p>The <code>NextToken</code> string was altered unexpectedly, and the operation has
- *       stopped. Run the operation without changing the <code>NextToken</code> string, and try
- *       again.</p>
+ * @throws {@link InvalidResourceException} (client fault)
+ *  <p>The specified resource can't be found. Check the information you provided in your last
+ *       request, and try again.</p>
  *
  * @throws {@link SnowballServiceException}
  * <p>Base exception class for all service exceptions from Snowball service.</p>
  *
  */
-export class ListCompatibleImagesCommand extends $Command<
-  ListCompatibleImagesCommandInput,
-  ListCompatibleImagesCommandOutput,
+export class ListPickupLocationsCommand extends $Command<
+  ListPickupLocationsCommandInput,
+  ListPickupLocationsCommandOutput,
   SnowballClientResolvedConfig
 > {
   // Start section: command_properties
@@ -103,7 +108,7 @@ export class ListCompatibleImagesCommand extends $Command<
   /**
    * @public
    */
-  constructor(readonly input: ListCompatibleImagesCommandInput) {
+  constructor(readonly input: ListPickupLocationsCommandInput) {
     // Start section: command_constructor
     super();
     // End section: command_constructor
@@ -116,17 +121,17 @@ export class ListCompatibleImagesCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: SnowballClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<ListCompatibleImagesCommandInput, ListCompatibleImagesCommandOutput> {
+  ): Handler<ListPickupLocationsCommandInput, ListPickupLocationsCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
     this.middlewareStack.use(
-      getEndpointPlugin(configuration, ListCompatibleImagesCommand.getEndpointParameterInstructions())
+      getEndpointPlugin(configuration, ListPickupLocationsCommand.getEndpointParameterInstructions())
     );
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
     const clientName = "SnowballClient";
-    const commandName = "ListCompatibleImagesCommand";
+    const commandName = "ListPickupLocationsCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
       clientName,
@@ -145,15 +150,15 @@ export class ListCompatibleImagesCommand extends $Command<
   /**
    * @internal
    */
-  private serialize(input: ListCompatibleImagesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return se_ListCompatibleImagesCommand(input, context);
+  private serialize(input: ListPickupLocationsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
+    return se_ListPickupLocationsCommand(input, context);
   }
 
   /**
    * @internal
    */
-  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListCompatibleImagesCommandOutput> {
-    return de_ListCompatibleImagesCommand(output, context);
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListPickupLocationsCommandOutput> {
+    return de_ListPickupLocationsCommand(output, context);
   }
 
   // Start section: command_body_extra

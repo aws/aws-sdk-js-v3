@@ -65,6 +65,7 @@ export interface DescribeAddressCommandOutput extends DescribeAddressResult, __M
  * //     PostalCode: "STRING_VALUE",
  * //     PhoneNumber: "STRING_VALUE",
  * //     IsRestricted: true || false,
+ * //     Type: "CUST_PICKUP" || "AWS_SHIP",
  * //   },
  * // };
  *

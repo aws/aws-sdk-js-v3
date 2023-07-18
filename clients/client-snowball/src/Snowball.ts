@@ -92,6 +92,11 @@ import {
   ListLongTermPricingCommandOutput,
 } from "./commands/ListLongTermPricingCommand";
 import {
+  ListPickupLocationsCommand,
+  ListPickupLocationsCommandInput,
+  ListPickupLocationsCommandOutput,
+} from "./commands/ListPickupLocationsCommand";
+import {
   ListServiceVersionsCommand,
   ListServiceVersionsCommandInput,
   ListServiceVersionsCommandOutput,
@@ -136,6 +141,7 @@ const commands = {
   ListCompatibleImagesCommand,
   ListJobsCommand,
   ListLongTermPricingCommand,
+  ListPickupLocationsCommand,
   ListServiceVersionsCommand,
   UpdateClusterCommand,
   UpdateJobCommand,
@@ -439,6 +445,23 @@ export interface Snowball {
     args: ListLongTermPricingCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: ListLongTermPricingCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ListPickupLocationsCommand}
+   */
+  listPickupLocations(
+    args: ListPickupLocationsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListPickupLocationsCommandOutput>;
+  listPickupLocations(
+    args: ListPickupLocationsCommandInput,
+    cb: (err: any, data?: ListPickupLocationsCommandOutput) => void
+  ): void;
+  listPickupLocations(
+    args: ListPickupLocationsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListPickupLocationsCommandOutput) => void
   ): void;
 
   /**

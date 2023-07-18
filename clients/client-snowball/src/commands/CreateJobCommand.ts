@@ -13,7 +13,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@smithy/types";
 
-import { CreateJobRequest, CreateJobResult } from "../models/models_0";
+import { CreateJobRequest, CreateJobRequestFilterSensitiveLog, CreateJobResult } from "../models/models_0";
 import { de_CreateJobCommand, se_CreateJobCommand } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, SnowballClientResolvedConfig } from "../SnowballClient";
 
@@ -128,6 +128,9 @@ export interface CreateJobCommandOutput extends CreateJobResult, __MetadataBeare
  *                      <p>Description: Snowball Edge Storage Optimized with EC2 Compute</p>
  *                   </li>
  *                </ul>
+ *                <note>
+ *                   <p>This device is replaced with T98.</p>
+ *                </note>
  *                <p></p>
  *             </li>
  *             <li>
@@ -164,17 +167,16 @@ export interface CreateJobCommandOutput extends CreateJobResult, __MetadataBeare
  *                <p></p>
  *             </li>
  *             <li>
- *                <p>Device type: <b>V3_5C</b>
+ *                <p>Snow Family device type: <b>RACK_5U_C</b>
  *                </p>
  *                <ul>
  *                   <li>
- *                      <p>Capacity: T32</p>
+ *                      <p>Capacity: T13 </p>
  *                   </li>
  *                   <li>
- *                      <p>Description: Snowball Edge Compute Optimized without GPU</p>
+ *                      <p>Description: Snowblade.</p>
  *                   </li>
  *                </ul>
- *                <p></p>
  *             </li>
  *             <li>
  *                <p>Device type: <b>V3_5S</b>
@@ -187,7 +189,6 @@ export interface CreateJobCommandOutput extends CreateJobResult, __MetadataBeare
  *                      <p>Description: Snowball Edge Storage Optimized 210TB</p>
  *                   </li>
  *                </ul>
- *                <p></p>
  *             </li>
  *          </ul>
  * @example
@@ -255,7 +256,7 @@ export interface CreateJobCommandOutput extends CreateJobResult, __MetadataBeare
  *   AddressId: "STRING_VALUE",
  *   KmsKeyARN: "STRING_VALUE",
  *   RoleARN: "STRING_VALUE",
- *   SnowballCapacityPreference: "T50" || "T80" || "T100" || "T42" || "T98" || "T8" || "T14" || "T32" || "NoPreference" || "T240",
+ *   SnowballCapacityPreference: "T50" || "T80" || "T100" || "T42" || "T98" || "T8" || "T14" || "T32" || "NoPreference" || "T240" || "T13",
  *   ShippingOption: "SECOND_DAY" || "NEXT_DAY" || "EXPRESS" || "STANDARD",
  *   Notification: { // Notification
  *     SnsTopicARN: "STRING_VALUE",
@@ -263,9 +264,10 @@ export interface CreateJobCommandOutput extends CreateJobResult, __MetadataBeare
  *       "New" || "PreparingAppliance" || "PreparingShipment" || "InTransitToCustomer" || "WithCustomer" || "InTransitToAWS" || "WithAWSSortingFacility" || "WithAWS" || "InProgress" || "Complete" || "Cancelled" || "Listing" || "Pending",
  *     ],
  *     NotifyAll: true || false,
+ *     DevicePickupSnsTopicARN: "STRING_VALUE",
  *   },
  *   ClusterId: "STRING_VALUE",
- *   SnowballType: "STANDARD" || "EDGE" || "EDGE_C" || "EDGE_CG" || "EDGE_S" || "SNC1_HDD" || "SNC1_SSD" || "V3_5C" || "V3_5S",
+ *   SnowballType: "STANDARD" || "EDGE" || "EDGE_C" || "EDGE_CG" || "EDGE_S" || "SNC1_HDD" || "SNC1_SSD" || "V3_5C" || "V3_5S" || "RACK_5U_C",
  *   ForwardingAddressId: "STRING_VALUE",
  *   TaxDocuments: { // TaxDocuments
  *     IND: { // INDTaxDocuments
@@ -279,8 +281,18 @@ export interface CreateJobCommandOutput extends CreateJobResult, __MetadataBeare
  *       },
  *     },
  *   },
- *   RemoteManagement: "INSTALLED_ONLY" || "INSTALLED_AUTOSTART",
+ *   RemoteManagement: "INSTALLED_ONLY" || "INSTALLED_AUTOSTART" || "NOT_INSTALLED",
  *   LongTermPricingId: "STRING_VALUE",
+ *   ImpactLevel: "IL2" || "IL4" || "IL5" || "IL6" || "IL99",
+ *   PickupDetails: { // PickupDetails
+ *     Name: "STRING_VALUE",
+ *     PhoneNumber: "STRING_VALUE",
+ *     Email: "STRING_VALUE",
+ *     IdentificationNumber: "STRING_VALUE",
+ *     IdentificationExpirationDate: new Date("TIMESTAMP"),
+ *     IdentificationIssuingOrg: "STRING_VALUE",
+ *     DevicePickupId: "STRING_VALUE",
+ *   },
  * };
  * const command = new CreateJobCommand(input);
  * const response = await client.send(command);
@@ -401,7 +413,7 @@ export class CreateJobCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: (_: any) => _,
+      inputFilterSensitiveLog: CreateJobRequestFilterSensitiveLog,
       outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;

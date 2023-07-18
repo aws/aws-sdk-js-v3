@@ -57,7 +57,7 @@ export interface DescribeClusterCommandOutput extends DescribeClusterResult, __M
  * //     RoleARN: "STRING_VALUE",
  * //     ClusterState: "AwaitingQuorum" || "Pending" || "InUse" || "Complete" || "Cancelled",
  * //     JobType: "IMPORT" || "EXPORT" || "LOCAL_USE",
- * //     SnowballType: "STANDARD" || "EDGE" || "EDGE_C" || "EDGE_CG" || "EDGE_S" || "SNC1_HDD" || "SNC1_SSD" || "V3_5C" || "V3_5S",
+ * //     SnowballType: "STANDARD" || "EDGE" || "EDGE_C" || "EDGE_CG" || "EDGE_S" || "SNC1_HDD" || "SNC1_SSD" || "V3_5C" || "V3_5S" || "RACK_5U_C",
  * //     CreationDate: new Date("TIMESTAMP"),
  * //     Resources: { // JobResource
  * //       S3Resources: [ // S3ResourceList
@@ -100,6 +100,7 @@ export interface DescribeClusterCommandOutput extends DescribeClusterResult, __M
  * //         "New" || "PreparingAppliance" || "PreparingShipment" || "InTransitToCustomer" || "WithCustomer" || "InTransitToAWS" || "WithAWSSortingFacility" || "WithAWS" || "InProgress" || "Complete" || "Cancelled" || "Listing" || "Pending",
  * //       ],
  * //       NotifyAll: true || false,
+ * //       DevicePickupSnsTopicARN: "STRING_VALUE",
  * //     },
  * //     ForwardingAddressId: "STRING_VALUE",
  * //     TaxDocuments: { // TaxDocuments

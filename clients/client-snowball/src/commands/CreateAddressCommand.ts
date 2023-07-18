@@ -62,6 +62,7 @@ export interface CreateAddressCommandOutput extends CreateAddressResult, __Metad
  *     PostalCode: "STRING_VALUE",
  *     PhoneNumber: "STRING_VALUE",
  *     IsRestricted: true || false,
+ *     Type: "CUST_PICKUP" || "AWS_SHIP",
  *   },
  * };
  * const command = new CreateAddressCommand(input);

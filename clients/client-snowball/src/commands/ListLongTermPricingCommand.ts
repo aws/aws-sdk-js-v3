@@ -60,7 +60,7 @@ export interface ListLongTermPricingCommandOutput extends ListLongTermPricingRes
  * //       ReplacementJob: "STRING_VALUE",
  * //       IsLongTermPricingAutoRenew: true || false,
  * //       LongTermPricingStatus: "STRING_VALUE",
- * //       SnowballType: "STANDARD" || "EDGE" || "EDGE_C" || "EDGE_CG" || "EDGE_S" || "SNC1_HDD" || "SNC1_SSD" || "V3_5C" || "V3_5S",
+ * //       SnowballType: "STANDARD" || "EDGE" || "EDGE_C" || "EDGE_CG" || "EDGE_S" || "SNC1_HDD" || "SNC1_SSD" || "V3_5C" || "V3_5S" || "RACK_5U_C",
  * //       JobIds: [ // LongTermPricingAssociatedJobIdList
  * //         "STRING_VALUE",
  * //       ],

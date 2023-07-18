@@ -13,7 +13,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@smithy/types";
 
-import { UpdateJobRequest, UpdateJobResult } from "../models/models_0";
+import { UpdateJobRequest, UpdateJobRequestFilterSensitiveLog, UpdateJobResult } from "../models/models_0";
 import { de_UpdateJobCommand, se_UpdateJobCommand } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, SnowballClientResolvedConfig } from "../SnowballClient";
 
@@ -54,6 +54,7 @@ export interface UpdateJobCommandOutput extends UpdateJobResult, __MetadataBeare
  *       "New" || "PreparingAppliance" || "PreparingShipment" || "InTransitToCustomer" || "WithCustomer" || "InTransitToAWS" || "WithAWSSortingFacility" || "WithAWS" || "InProgress" || "Complete" || "Cancelled" || "Listing" || "Pending",
  *     ],
  *     NotifyAll: true || false,
+ *     DevicePickupSnsTopicARN: "STRING_VALUE",
  *   },
  *   Resources: { // JobResource
  *     S3Resources: [ // S3ResourceList
@@ -111,8 +112,17 @@ export interface UpdateJobCommandOutput extends UpdateJobResult, __MetadataBeare
  *   AddressId: "STRING_VALUE",
  *   ShippingOption: "SECOND_DAY" || "NEXT_DAY" || "EXPRESS" || "STANDARD",
  *   Description: "STRING_VALUE",
- *   SnowballCapacityPreference: "T50" || "T80" || "T100" || "T42" || "T98" || "T8" || "T14" || "T32" || "NoPreference" || "T240",
+ *   SnowballCapacityPreference: "T50" || "T80" || "T100" || "T42" || "T98" || "T8" || "T14" || "T32" || "NoPreference" || "T240" || "T13",
  *   ForwardingAddressId: "STRING_VALUE",
+ *   PickupDetails: { // PickupDetails
+ *     Name: "STRING_VALUE",
+ *     PhoneNumber: "STRING_VALUE",
+ *     Email: "STRING_VALUE",
+ *     IdentificationNumber: "STRING_VALUE",
+ *     IdentificationExpirationDate: new Date("TIMESTAMP"),
+ *     IdentificationIssuingOrg: "STRING_VALUE",
+ *     DevicePickupId: "STRING_VALUE",
+ *   },
  * };
  * const command = new UpdateJobCommand(input);
  * const response = await client.send(command);
@@ -215,7 +225,7 @@ export class UpdateJobCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: (_: any) => _,
+      inputFilterSensitiveLog: UpdateJobRequestFilterSensitiveLog,
       outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;

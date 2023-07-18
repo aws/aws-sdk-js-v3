@@ -103,7 +103,7 @@ export interface CreateClusterCommandOutput extends CreateClusterResult, __Metad
  *   AddressId: "STRING_VALUE", // required
  *   KmsKeyARN: "STRING_VALUE",
  *   RoleARN: "STRING_VALUE",
- *   SnowballType: "STANDARD" || "EDGE" || "EDGE_C" || "EDGE_CG" || "EDGE_S" || "SNC1_HDD" || "SNC1_SSD" || "V3_5C" || "V3_5S", // required
+ *   SnowballType: "STANDARD" || "EDGE" || "EDGE_C" || "EDGE_CG" || "EDGE_S" || "SNC1_HDD" || "SNC1_SSD" || "V3_5C" || "V3_5S" || "RACK_5U_C", // required
  *   ShippingOption: "SECOND_DAY" || "NEXT_DAY" || "EXPRESS" || "STANDARD", // required
  *   Notification: { // Notification
  *     SnsTopicARN: "STRING_VALUE",
@@ -111,6 +111,7 @@ export interface CreateClusterCommandOutput extends CreateClusterResult, __Metad
  *       "New" || "PreparingAppliance" || "PreparingShipment" || "InTransitToCustomer" || "WithCustomer" || "InTransitToAWS" || "WithAWSSortingFacility" || "WithAWS" || "InProgress" || "Complete" || "Cancelled" || "Listing" || "Pending",
  *     ],
  *     NotifyAll: true || false,
+ *     DevicePickupSnsTopicARN: "STRING_VALUE",
  *   },
  *   ForwardingAddressId: "STRING_VALUE",
  *   TaxDocuments: { // TaxDocuments
@@ -118,13 +119,13 @@ export interface CreateClusterCommandOutput extends CreateClusterResult, __Metad
  *       GSTIN: "STRING_VALUE",
  *     },
  *   },
- *   RemoteManagement: "INSTALLED_ONLY" || "INSTALLED_AUTOSTART",
+ *   RemoteManagement: "INSTALLED_ONLY" || "INSTALLED_AUTOSTART" || "NOT_INSTALLED",
  *   InitialClusterSize: Number("int"),
  *   ForceCreateJobs: true || false,
  *   LongTermPricingIds: [ // LongTermPricingIdList
  *     "STRING_VALUE",
  *   ],
- *   SnowballCapacityPreference: "T50" || "T80" || "T100" || "T42" || "T98" || "T8" || "T14" || "T32" || "NoPreference" || "T240",
+ *   SnowballCapacityPreference: "T50" || "T80" || "T100" || "T42" || "T98" || "T8" || "T14" || "T32" || "NoPreference" || "T240" || "T13",
  * };
  * const command = new CreateClusterCommand(input);
  * const response = await client.send(command);
@@ -136,7 +137,7 @@ export interface CreateClusterCommandOutput extends CreateClusterResult, __Metad
  * //       JobState: "New" || "PreparingAppliance" || "PreparingShipment" || "InTransitToCustomer" || "WithCustomer" || "InTransitToAWS" || "WithAWSSortingFacility" || "WithAWS" || "InProgress" || "Complete" || "Cancelled" || "Listing" || "Pending",
  * //       IsMaster: true || false,
  * //       JobType: "IMPORT" || "EXPORT" || "LOCAL_USE",
- * //       SnowballType: "STANDARD" || "EDGE" || "EDGE_C" || "EDGE_CG" || "EDGE_S" || "SNC1_HDD" || "SNC1_SSD" || "V3_5C" || "V3_5S",
+ * //       SnowballType: "STANDARD" || "EDGE" || "EDGE_C" || "EDGE_CG" || "EDGE_S" || "SNC1_HDD" || "SNC1_SSD" || "V3_5C" || "V3_5S" || "RACK_5U_C",
  * //       CreationDate: new Date("TIMESTAMP"),
  * //       Description: "STRING_VALUE",
  * //     },

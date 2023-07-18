@@ -378,6 +378,14 @@ ListLongTermPricing
 </details>
 <details>
 <summary>
+ListPickupLocations
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-snowball/classes/listpickuplocationscommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-snowball/interfaces/listpickuplocationscommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-snowball/interfaces/listpickuplocationscommandoutput.html)
+
+</details>
+<details>
+<summary>
 ListServiceVersions
 </summary>
 
