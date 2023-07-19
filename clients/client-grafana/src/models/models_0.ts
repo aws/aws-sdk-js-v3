@@ -555,18 +555,28 @@ export type DataSourceType = (typeof DataSourceType)[keyof typeof DataSourceType
  * @public
  * <p>The configuration settings for in-bound network access to your workspace.</p>
  *          <p>When this is configured, only listed IP addresses and VPC endpoints will be able to
- *             access your workspace. Standard Grafana authentication and authorization will still be
+ *             access your workspace. Standard Grafana authentication and authorization are still
  *             required.</p>
- *          <p>If this is not configured, or is removed, then all IP addresses and VPC endpoints will
- *             be allowed. Standard Grafana authentication and authorization will still be
+ *          <p>Access is granted to a caller that is in either the IP address list or the VPC
+ *             endpoint list - they do not need to be in both.</p>
+ *          <p>If this is not configured, or is removed, then all IP addresses and VPC endpoints are
+ *             allowed. Standard Grafana authentication and authorization are still
  *             required.</p>
+ *          <note>
+ *             <p>While both <code>prefixListIds</code> and <code>vpceIds</code> are required, you
+ *                 can pass in an empty array of strings for either parameter if you do not want to allow any
+ *                 of that type.</p>
+ *             <p>If both are passed as empty arrays, no traffic is allowed to the workspace,
+ *                 because only <i>explicitly</i> allowed connections are accepted.</p>
+ *          </note>
  */
 export interface NetworkAccessConfiguration {
   /**
    * <p>An array of prefix list IDs. A prefix list is a list of CIDR ranges of IP addresses.
    *             The IP addresses specified are allowed to access your workspace. If the list is not
-   *             included in the configuration then no IP addresses will be allowed to access the
-   *             workspace. You create a prefix list using the Amazon VPC console.</p>
+   *             included in the configuration (passed an empty array) then no IP addresses are
+   *             allowed to access the workspace. You create a prefix list using the Amazon VPC
+   *             console.</p>
    *          <p>Prefix list IDs have the format <code>pl-<i>1a2b3c4d</i>
    *             </code>.</p>
    *          <p>For more information about prefix lists, see <a href="https://docs.aws.amazon.com/vpc/latest/userguide/managed-prefix-lists.html">Group CIDR blocks using managed
@@ -579,7 +589,8 @@ export interface NetworkAccessConfiguration {
    * <p>An array of Amazon VPC endpoint IDs for the workspace. You can create VPC
    *             endpoints to your Amazon Managed Grafana workspace for access from within a VPC. If a
    *                 <code>NetworkAccessConfiguration</code> is specified then only VPC endpoints
-   *             specified here will be allowed to access the workspace.</p>
+   *             specified here are allowed to access the workspace. If you pass in an empty array
+   *             of strings, then no VPCs are allowed to access the workspace.</p>
    *          <p>VPC endpoint IDs have the format
    *             <code>vpce-<i>1a2b3c4d</i>
    *             </code>.</p>
@@ -589,7 +600,7 @@ export interface NetworkAccessConfiguration {
    *          <note>
    *             <p>The only VPC endpoints that can be specified here are interface VPC endpoints for
    *                 Grafana workspaces (using the <code>com.amazonaws.[region].grafana-workspace</code>
-   *                 service endpoint). Other VPC endpoints will be ignored.</p>
+   *                 service endpoint). Other VPC endpoints are ignored.</p>
    *          </note>
    */
   vpceIds: string[] | undefined;
@@ -681,6 +692,14 @@ export const WorkspaceStatus = {
    * Workspace is being upgraded to enterprise.
    */
   UPGRADING: "UPGRADING",
+  /**
+   * Workspace version update failed.
+   */
+  VERSION_UPDATE_FAILED: "VERSION_UPDATE_FAILED",
+  /**
+   * Workspace version is being updated.
+   */
+  VERSION_UPDATING: "VERSION_UPDATING",
 } as const;
 
 /**
@@ -695,6 +714,8 @@ export type WorkspaceStatus = (typeof WorkspaceStatus)[keyof typeof WorkspaceSta
  *          <note>
  *             <p>Provided <code>securityGroupIds</code> and <code>subnetIds</code> must be part of
  *                 the same VPC.</p>
+ *             <p>Connecting to a private VPC is not yet available in the Asia Pacific (Seoul)
+ *                 Region (ap-northeast-2).</p>
  *          </note>
  */
 export interface VpcConfiguration {
@@ -1121,6 +1142,11 @@ export interface DescribeWorkspaceConfigurationResponse {
    *                 workspace</a>.</p>
    */
   configuration: __LazyJsonString | string | undefined;
+
+  /**
+   * <p>The supported Grafana version for the workspace.</p>
+   */
+  grafanaVersion?: string;
 }
 
 /**
@@ -1138,6 +1164,15 @@ export interface UpdateWorkspaceConfigurationRequest {
    * <p>The ID of the workspace to update.</p>
    */
   workspaceId: string | undefined;
+
+  /**
+   * <p>Specifies the version of Grafana to support in the new workspace.</p>
+   *          <p>Can only be used to upgrade (for example, from 8.4 to 9.4), not
+   *             downgrade (for example, from 9.4 to 8.4).</p>
+   *          <p>To know what versions are available to upgrade to for a specific workspace, see
+   *             the <code>ListVersions</code> operation.</p>
+   */
+  grafanaVersion?: string;
 }
 
 /**
@@ -1188,6 +1223,46 @@ export interface ListTagsForResourceResponse {
    * <p>The list of tags that are associated with the resource.</p>
    */
   tags?: Record<string, string>;
+}
+
+/**
+ * @public
+ */
+export interface ListVersionsRequest {
+  /**
+   * <p>The maximum number of results to include in the response.</p>
+   */
+  maxResults?: number;
+
+  /**
+   * <p>The token to use when requesting the next set of results. You receive this token from
+   *             a previous <code>ListVersions</code> operation.</p>
+   */
+  nextToken?: string;
+
+  /**
+   * <p>The ID of the workspace to list the available upgrade versions. If not included,
+   *             lists all versions of Grafana that are supported for
+   *             <code>CreateWorkspace</code>.</p>
+   */
+  workspaceId?: string;
+}
+
+/**
+ * @public
+ */
+export interface ListVersionsResponse {
+  /**
+   * <p>The token to use in a subsequent <code>ListVersions</code> operation to return the
+   *             next set of results.</p>
+   */
+  nextToken?: string;
+
+  /**
+   * <p>The Grafana versions available to create. If a workspace ID is included in the
+   *             request, the Grafana versions to which this workspace can be upgraded.</p>
+   */
+  grafanaVersions?: string[];
 }
 
 /**
@@ -1560,6 +1635,10 @@ export interface CreateWorkspaceRequest {
   /**
    * <p>The configuration settings for an Amazon VPC that contains data sources for
    *             your Grafana workspace to connect to.</p>
+   *          <note>
+   *             <p>Connecting to a private VPC is not yet available in the Asia Pacific (Seoul)
+   *                 Region (ap-northeast-2).</p>
+   *          </note>
    */
   vpcConfiguration?: VpcConfiguration;
 
@@ -1583,7 +1662,8 @@ export interface CreateWorkspaceRequest {
 
   /**
    * <p>Specifies the version of Grafana to support in the new workspace.</p>
-   *          <p>Supported values are <code>8.4</code> and <code>9.4</code>.</p>
+   *          <p>To get a list of supported version, use the <code>ListVersions</code>
+   *             operation.</p>
    */
   grafanaVersion?: string;
 }

@@ -78,6 +78,7 @@ import {
   ListTagsForResourceCommandInput,
   ListTagsForResourceCommandOutput,
 } from "./commands/ListTagsForResourceCommand";
+import { ListVersionsCommandInput, ListVersionsCommandOutput } from "./commands/ListVersionsCommand";
 import { ListWorkspacesCommandInput, ListWorkspacesCommandOutput } from "./commands/ListWorkspacesCommand";
 import { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
 import { UntagResourceCommandInput, UntagResourceCommandOutput } from "./commands/UntagResourceCommand";
@@ -116,6 +117,7 @@ export type ServiceInputTypes =
   | DisassociateLicenseCommandInput
   | ListPermissionsCommandInput
   | ListTagsForResourceCommandInput
+  | ListVersionsCommandInput
   | ListWorkspacesCommandInput
   | TagResourceCommandInput
   | UntagResourceCommandInput
@@ -139,6 +141,7 @@ export type ServiceOutputTypes =
   | DisassociateLicenseCommandOutput
   | ListPermissionsCommandOutput
   | ListTagsForResourceCommandOutput
+  | ListVersionsCommandOutput
   | ListWorkspacesCommandOutput
   | TagResourceCommandOutput
   | UntagResourceCommandOutput

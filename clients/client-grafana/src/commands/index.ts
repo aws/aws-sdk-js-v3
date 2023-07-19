@@ -10,6 +10,7 @@ export * from "./DescribeWorkspaceConfigurationCommand";
 export * from "./DisassociateLicenseCommand";
 export * from "./ListPermissionsCommand";
 export * from "./ListTagsForResourceCommand";
+export * from "./ListVersionsCommand";
 export * from "./ListWorkspacesCommand";
 export * from "./TagResourceCommand";
 export * from "./UntagResourceCommand";

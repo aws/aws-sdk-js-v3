@@ -301,6 +301,14 @@ ListTagsForResource
 </details>
 <details>
 <summary>
+ListVersions
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-grafana/classes/listversionscommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-grafana/interfaces/listversionscommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-grafana/interfaces/listversionscommandoutput.html)
+
+</details>
+<details>
+<summary>
 ListWorkspaces
 </summary>
 

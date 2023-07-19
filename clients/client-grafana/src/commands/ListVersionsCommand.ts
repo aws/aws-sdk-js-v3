@@ -14,11 +14,8 @@ import {
 } from "@smithy/types";
 
 import { GrafanaClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GrafanaClient";
-import { DescribeWorkspaceConfigurationRequest, DescribeWorkspaceConfigurationResponse } from "../models/models_0";
-import {
-  de_DescribeWorkspaceConfigurationCommand,
-  se_DescribeWorkspaceConfigurationCommand,
-} from "../protocols/Aws_restJson1";
+import { ListVersionsRequest, ListVersionsResponse } from "../models/models_0";
+import { de_ListVersionsCommand, se_ListVersionsCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -27,43 +24,47 @@ export { __MetadataBearer, $Command };
 /**
  * @public
  *
- * The input for {@link DescribeWorkspaceConfigurationCommand}.
+ * The input for {@link ListVersionsCommand}.
  */
-export interface DescribeWorkspaceConfigurationCommandInput extends DescribeWorkspaceConfigurationRequest {}
+export interface ListVersionsCommandInput extends ListVersionsRequest {}
 /**
  * @public
  *
- * The output of {@link DescribeWorkspaceConfigurationCommand}.
+ * The output of {@link ListVersionsCommand}.
  */
-export interface DescribeWorkspaceConfigurationCommandOutput
-  extends DescribeWorkspaceConfigurationResponse,
-    __MetadataBearer {}
+export interface ListVersionsCommandOutput extends ListVersionsResponse, __MetadataBearer {}
 
 /**
  * @public
- * <p>Gets the current configuration string for the given workspace.</p>
+ * <p>Lists available versions of Grafana. These are available when calling
+ *             <code>CreateWorkspace</code>. Optionally, include a workspace to list the versions
+ *             to which it can be upgraded.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { GrafanaClient, DescribeWorkspaceConfigurationCommand } from "@aws-sdk/client-grafana"; // ES Modules import
- * // const { GrafanaClient, DescribeWorkspaceConfigurationCommand } = require("@aws-sdk/client-grafana"); // CommonJS import
+ * import { GrafanaClient, ListVersionsCommand } from "@aws-sdk/client-grafana"; // ES Modules import
+ * // const { GrafanaClient, ListVersionsCommand } = require("@aws-sdk/client-grafana"); // CommonJS import
  * const client = new GrafanaClient(config);
- * const input = { // DescribeWorkspaceConfigurationRequest
- *   workspaceId: "STRING_VALUE", // required
+ * const input = { // ListVersionsRequest
+ *   maxResults: Number("int"),
+ *   nextToken: "STRING_VALUE",
+ *   workspaceId: "STRING_VALUE",
  * };
- * const command = new DescribeWorkspaceConfigurationCommand(input);
+ * const command = new ListVersionsCommand(input);
  * const response = await client.send(command);
- * // { // DescribeWorkspaceConfigurationResponse
- * //   configuration: "STRING_VALUE", // required
- * //   grafanaVersion: "STRING_VALUE",
+ * // { // ListVersionsResponse
+ * //   nextToken: "STRING_VALUE",
+ * //   grafanaVersions: [ // GrafanaVersionList
+ * //     "STRING_VALUE",
+ * //   ],
  * // };
  *
  * ```
  *
- * @param DescribeWorkspaceConfigurationCommandInput - {@link DescribeWorkspaceConfigurationCommandInput}
- * @returns {@link DescribeWorkspaceConfigurationCommandOutput}
- * @see {@link DescribeWorkspaceConfigurationCommandInput} for command's `input` shape.
- * @see {@link DescribeWorkspaceConfigurationCommandOutput} for command's `response` shape.
+ * @param ListVersionsCommandInput - {@link ListVersionsCommandInput}
+ * @returns {@link ListVersionsCommandOutput}
+ * @see {@link ListVersionsCommandInput} for command's `input` shape.
+ * @see {@link ListVersionsCommandOutput} for command's `response` shape.
  * @see {@link GrafanaClientResolvedConfig | config} for GrafanaClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
@@ -78,13 +79,16 @@ export interface DescribeWorkspaceConfigurationCommandOutput
  * @throws {@link ThrottlingException} (client fault)
  *  <p>The request was denied because of request throttling. Retry the request.</p>
  *
+ * @throws {@link ValidationException} (client fault)
+ *  <p>The value of a parameter in the request caused an error.</p>
+ *
  * @throws {@link GrafanaServiceException}
  * <p>Base exception class for all service exceptions from Grafana service.</p>
  *
  */
-export class DescribeWorkspaceConfigurationCommand extends $Command<
-  DescribeWorkspaceConfigurationCommandInput,
-  DescribeWorkspaceConfigurationCommandOutput,
+export class ListVersionsCommand extends $Command<
+  ListVersionsCommandInput,
+  ListVersionsCommandOutput,
   GrafanaClientResolvedConfig
 > {
   // Start section: command_properties
@@ -102,7 +106,7 @@ export class DescribeWorkspaceConfigurationCommand extends $Command<
   /**
    * @public
    */
-  constructor(readonly input: DescribeWorkspaceConfigurationCommandInput) {
+  constructor(readonly input: ListVersionsCommandInput) {
     // Start section: command_constructor
     super();
     // End section: command_constructor
@@ -115,17 +119,15 @@ export class DescribeWorkspaceConfigurationCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: GrafanaClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<DescribeWorkspaceConfigurationCommandInput, DescribeWorkspaceConfigurationCommandOutput> {
+  ): Handler<ListVersionsCommandInput, ListVersionsCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
-    this.middlewareStack.use(
-      getEndpointPlugin(configuration, DescribeWorkspaceConfigurationCommand.getEndpointParameterInstructions())
-    );
+    this.middlewareStack.use(getEndpointPlugin(configuration, ListVersionsCommand.getEndpointParameterInstructions()));
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
     const clientName = "GrafanaClient";
-    const commandName = "DescribeWorkspaceConfigurationCommand";
+    const commandName = "ListVersionsCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
       clientName,
@@ -144,21 +146,15 @@ export class DescribeWorkspaceConfigurationCommand extends $Command<
   /**
    * @internal
    */
-  private serialize(
-    input: DescribeWorkspaceConfigurationCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
-    return se_DescribeWorkspaceConfigurationCommand(input, context);
+  private serialize(input: ListVersionsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
+    return se_ListVersionsCommand(input, context);
   }
 
   /**
    * @internal
    */
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<DescribeWorkspaceConfigurationCommandOutput> {
-    return de_DescribeWorkspaceConfigurationCommand(output, context);
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListVersionsCommandOutput> {
+    return de_ListVersionsCommand(output, context);
   }
 
   // Start section: command_body_extra

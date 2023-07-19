@@ -51,6 +51,7 @@ export interface UpdateWorkspaceConfigurationCommandOutput
  * const input = { // UpdateWorkspaceConfigurationRequest
  *   configuration: "STRING_VALUE", // required
  *   workspaceId: "STRING_VALUE", // required
+ *   grafanaVersion: "STRING_VALUE",
  * };
  * const command = new UpdateWorkspaceConfigurationCommand(input);
  * const response = await client.send(command);
