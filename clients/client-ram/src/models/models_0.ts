@@ -502,6 +502,12 @@ export interface AssociateResourceShareRequest {
    *              error.</p>
    */
   clientToken?: string;
+
+  /**
+   * <p>Specifies from which source accounts the service principal
+   *             has access to the resources in this resource share.</p>
+   */
+  sources?: string[];
 }
 
 /**
@@ -1395,6 +1401,12 @@ export interface CreateResourceShareRequest {
    *             each resource type included in the resource share.</p>
    */
   permissionArns?: string[];
+
+  /**
+   * <p>Specifies from which source accounts the service principal
+   *             has access to the resources in this resource share.</p>
+   */
+  sources?: string[];
 }
 
 /**
@@ -1543,6 +1555,27 @@ export interface CreateResourceShareResponse {
    *              parameters must also have the same values that you used in the first call.</p>
    */
   clientToken?: string;
+}
+
+/**
+ * @public
+ * <p>The operation failed because it would exceed the limit for tags for your
+ *             Amazon Web Services account.</p>
+ */
+export class TagLimitExceededException extends __BaseException {
+  readonly name: "TagLimitExceededException" = "TagLimitExceededException";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<TagLimitExceededException, __BaseException>) {
+    super({
+      name: "TagLimitExceededException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, TagLimitExceededException.prototype);
+  }
 }
 
 /**
@@ -1789,6 +1822,12 @@ export interface DisassociateResourceShareRequest {
    *              error.</p>
    */
   clientToken?: string;
+
+  /**
+   * <p>Specifies from which source accounts the
+   *             service principal no longer has access to the resources in this resource share.</p>
+   */
+  sources?: string[];
 }
 
 /**
@@ -2041,7 +2080,7 @@ export interface GetResourceShareAssociationsRequest {
   /**
    * <p>Specifies the ID of the principal whose resource shares you want to retrieve. This can be an
    *             Amazon Web Services account ID, an organization ID, an organizational unit ID, or the <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource Name (ARN)</a> of an
-   *             individual IAM user or role.</p>
+   *             individual IAM role or user.</p>
    *          <p>You cannot specify this parameter if the association type is
    *             <code>RESOURCE</code>.</p>
    */
@@ -3701,27 +3740,6 @@ export interface SetDefaultPermissionVersionResponse {
    *              parameters must also have the same values that you used in the first call.</p>
    */
   clientToken?: string;
-}
-
-/**
- * @public
- * <p>The operation failed because it would exceed the limit for tags for your
- *             Amazon Web Services account.</p>
- */
-export class TagLimitExceededException extends __BaseException {
-  readonly name: "TagLimitExceededException" = "TagLimitExceededException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<TagLimitExceededException, __BaseException>) {
-    super({
-      name: "TagLimitExceededException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, TagLimitExceededException.prototype);
-  }
 }
 
 /**

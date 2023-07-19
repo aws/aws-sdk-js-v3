@@ -69,6 +69,9 @@ export interface CreateResourceShareCommandOutput extends CreateResourceShareRes
  *   permissionArns: [ // PermissionArnList
  *     "STRING_VALUE",
  *   ],
+ *   sources: [ // SourceArnOrAccountList
+ *     "STRING_VALUE",
+ *   ],
  * };
  * const command = new CreateResourceShareCommand(input);
  * const response = await client.send(command);
@@ -134,6 +137,10 @@ export interface CreateResourceShareCommandOutput extends CreateResourceShareRes
  *
  * @throws {@link ServiceUnavailableException} (server fault)
  *  <p>The operation failed because the service isn't available. Try again later.</p>
+ *
+ * @throws {@link TagLimitExceededException} (client fault)
+ *  <p>The operation failed because it would exceed the limit for tags for your
+ *             Amazon Web Services account.</p>
  *
  * @throws {@link TagPolicyViolationException} (client fault)
  *  <p>The operation failed because the specified tag key is a reserved word and can't be

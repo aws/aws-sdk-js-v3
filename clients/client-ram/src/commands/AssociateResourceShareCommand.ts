@@ -54,6 +54,9 @@ export interface AssociateResourceShareCommandOutput extends AssociateResourceSh
  *     "STRING_VALUE",
  *   ],
  *   clientToken: "STRING_VALUE",
+ *   sources: [ // SourceArnOrAccountList
+ *     "STRING_VALUE",
+ *   ],
  * };
  * const command = new AssociateResourceShareCommand(input);
  * const response = await client.send(command);

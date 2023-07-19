@@ -53,6 +53,9 @@ export interface DisassociateResourceShareCommandOutput extends DisassociateReso
  *     "STRING_VALUE",
  *   ],
  *   clientToken: "STRING_VALUE",
+ *   sources: [ // SourceArnOrAccountList
+ *     "STRING_VALUE",
+ *   ],
  * };
  * const command = new DisassociateResourceShareCommand(input);
  * const response = await client.send(command);

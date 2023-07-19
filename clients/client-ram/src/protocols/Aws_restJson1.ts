@@ -221,6 +221,7 @@ export const se_AssociateResourceShareCommand = async (
       principals: (_) => _json(_),
       resourceArns: (_) => _json(_),
       resourceShareArn: [],
+      sources: (_) => _json(_),
     })
   );
   return new __HttpRequest({
@@ -354,6 +355,7 @@ export const se_CreateResourceShareCommand = async (
       permissionArns: (_) => _json(_),
       principals: (_) => _json(_),
       resourceArns: (_) => _json(_),
+      sources: (_) => _json(_),
       tags: (_) => _json(_),
     })
   );
@@ -474,6 +476,7 @@ export const se_DisassociateResourceShareCommand = async (
       principals: (_) => _json(_),
       resourceArns: (_) => _json(_),
       resourceShareArn: [],
+      sources: (_) => _json(_),
     })
   );
   return new __HttpRequest({
@@ -1694,6 +1697,9 @@ const de_CreateResourceShareCommandError = async (
     case "ServiceUnavailableException":
     case "com.amazonaws.ram#ServiceUnavailableException":
       throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
+    case "TagLimitExceededException":
+    case "com.amazonaws.ram#TagLimitExceededException":
+      throw await de_TagLimitExceededExceptionRes(parsedOutput, context);
     case "TagPolicyViolationException":
     case "com.amazonaws.ram#TagPolicyViolationException":
       throw await de_TagPolicyViolationExceptionRes(parsedOutput, context);
@@ -4116,6 +4122,8 @@ const de_UnmatchedPolicyPermissionExceptionRes = async (
 // se_ResourceShareArnList omitted.
 
 // se_ResourceShareInvitationArnList omitted.
+
+// se_SourceArnOrAccountList omitted.
 
 // se_Tag omitted.
 
