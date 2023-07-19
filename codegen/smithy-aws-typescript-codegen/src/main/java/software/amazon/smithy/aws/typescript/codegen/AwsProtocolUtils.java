@@ -161,8 +161,8 @@ final class AwsProtocolUtils {
         // Include an XML body parser used to deserialize documents from HTTP responses.
         writer.addImport("SerdeContext", "__SerdeContext", TypeScriptDependency.SMITHY_TYPES);
         writer.addImport("getValueFromTextNode", "__getValueFromTextNode", TypeScriptDependency.AWS_SMITHY_CLIENT);
-        writer.addDependency(AwsDependency.XML_PARSER);
-        writer.addImport("XMLParser", null, "fast-xml-parser");
+        writer.addDependency(TypeScriptDependency.XML_PARSER);
+        writer.addImport("XMLParser", null, TypeScriptDependency.XML_PARSER);
         writer.openBlock("const parseBody = (streamBody: any, context: __SerdeContext): "
                 + "any => collectBodyString(streamBody, context).then(encoded => {", "});", () -> {
                     writer.openBlock("if (encoded.length) {", "}", () -> {
@@ -298,9 +298,9 @@ final class AwsProtocolUtils {
                     TypeScriptWriter writer = context.getWriter();
 
                     // Include the uuid package and import the v4 function as our more clearly named alias.
-                    writer.addDependency(AwsDependency.UUID_GENERATOR);
+                    writer.addDependency(TypeScriptDependency.UUID);
                     writer.addDependency(AwsDependency.UUID_GENERATOR_TYPES);
-                    writer.addImport("v4", "generateIdempotencyToken", "uuid");
+                    writer.addImport("v4", "generateIdempotencyToken", TypeScriptDependency.UUID);
                 });
     }
 

@@ -48,7 +48,7 @@ public class AddHttp2Dependency implements TypeScriptIntegration {
                 return MapUtils.of("requestHandler", writer -> {
                     writer.addDependency(TypeScriptDependency.AWS_SDK_NODE_HTTP_HANDLER);
                     writer.addImport("NodeHttp2Handler", "RequestHandler",
-                            TypeScriptDependency.AWS_SDK_NODE_HTTP_HANDLER.packageName);
+                            TypeScriptDependency.AWS_SDK_NODE_HTTP_HANDLER);
                     writer.openBlock("new RequestHandler(async () => ({", "}))", () -> {
                         writer.write("...await defaultConfigProvider(),");
                         // TODO: remove this when root cause of #3809 is found
