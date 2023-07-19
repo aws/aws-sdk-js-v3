@@ -87,6 +87,32 @@ export interface ListPickupLocationsCommandOutput extends ListPickupLocationsRes
  * @throws {@link SnowballServiceException}
  * <p>Base exception class for all service exceptions from Snowball service.</p>
  *
+ * @example To get a list of locations from which the customer can choose to pickup a device.
+ * ```javascript
+ * // Returns a specified number of Address objects. Each Address is a pickup location address for Snow Family devices.
+ * const input = {};
+ * const command = new ListPickupLocationsCommand(input);
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "Addresses": [
+ *     {
+ *       "AddressId": "ADID1234ab12-3eec-4eb3-9be6-9374c10eb51b",
+ *       "City": "Seattle",
+ *       "Company": "My Company",
+ *       "Country": "US",
+ *       "Name": "My Name",
+ *       "PhoneNumber": "425-555-5555",
+ *       "PostalCode": "98101",
+ *       "StateOrProvince": "WA",
+ *       "Street1": "123 Main Street"
+ *     }
+ *   ]
+ * }
+ * *\/
+ * // example id: to-get-a-list-of-locations-from-which-the-customer-can-choose-to-pickup-a-device-1482542167627
+ * ```
+ *
  */
 export class ListPickupLocationsCommand extends $Command<
   ListPickupLocationsCommandInput,
