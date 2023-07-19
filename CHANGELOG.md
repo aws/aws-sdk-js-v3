@@ -3,6 +3,23 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.373.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.372.0...v3.373.0) (2023-07-19)
+
+
+### Features
+
+* **client-cloudformation:** SDK and documentation updates for GetTemplateSummary API (unrecognized resources) ([99e559f](https://github.com/aws/aws-sdk-js-v3/commit/99e559f8108b352b20eb11d2b02ef8cf9238d7d4))
+* **client-grafana:** Amazon Managed Grafana now supports grafanaVersion update for existing workspaces with UpdateWorkspaceConfiguration API. DescribeWorkspaceConfiguration API additionally returns grafanaVersion. A new ListVersions API lists available versions or, if given a workspaceId, the versions it can upgrade to. ([c559f94](https://github.com/aws/aws-sdk-js-v3/commit/c559f942af9d88f6c2386f12db4649624cb77c20))
+* **client-medical-imaging:** General Availability (GA) release of AWS Health Imaging, enabling customers to store, transform, and analyze medical imaging data at petabyte-scale. ([4638bdc](https://github.com/aws/aws-sdk-js-v3/commit/4638bdcf48b8d00092fb287264e19ba13482c4a1))
+* **client-ram:** This release adds support for securely sharing with AWS service principals. ([23a3272](https://github.com/aws/aws-sdk-js-v3/commit/23a327207fc01049c01446cfd970762461675a3a))
+* **client-ssm-sap:** Added support for SAP Hana High Availability discovery (primary and secondary nodes) and Backint agent installation with SSM for SAP. ([4de12dc](https://github.com/aws/aws-sdk-js-v3/commit/4de12dc217af0905d7f596351c949da322e377c7))
+* **client-wafv2:** Added the URI path to the custom aggregation keys that you can specify for a rate-based rule. ([c3aefb0](https://github.com/aws/aws-sdk-js-v3/commit/c3aefb082d79cb958e271dc36ac6aa1eb6e0589f))
+* **clients:** update command documentation examples as of 2023-07-19 ([971796c](https://github.com/aws/aws-sdk-js-v3/commit/971796c6a6bde93b93a6e2fe9f9014bd50c669ae))
+
+
+
+
+
 # [3.372.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.371.0...v3.372.0) (2023-07-18)
 
 

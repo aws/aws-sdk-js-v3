@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.373.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.372.0...v3.373.0) (2023-07-19)
+
+
+### Features
+
+* **client-wafv2:** Added the URI path to the custom aggregation keys that you can specify for a rate-based rule. ([c3aefb0](https://github.com/aws/aws-sdk-js-v3/commit/c3aefb082d79cb958e271dc36ac6aa1eb6e0589f))
+
+
+
+
+
 # [3.370.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.369.0...v3.370.0) (2023-07-13)
 
 

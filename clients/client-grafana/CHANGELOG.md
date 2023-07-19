@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.373.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.372.0...v3.373.0) (2023-07-19)
+
+
+### Features
+
+* **client-grafana:** Amazon Managed Grafana now supports grafanaVersion update for existing workspaces with UpdateWorkspaceConfiguration API. DescribeWorkspaceConfiguration API additionally returns grafanaVersion. A new ListVersions API lists available versions or, if given a workspaceId, the versions it can upgrade to. ([c559f94](https://github.com/aws/aws-sdk-js-v3/commit/c559f942af9d88f6c2386f12db4649624cb77c20))
+
+
+
+
+
 # [3.370.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.369.0...v3.370.0) (2023-07-13)
 
 

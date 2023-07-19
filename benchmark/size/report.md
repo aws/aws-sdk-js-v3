@@ -5,7 +5,7 @@
 |@aws-sdk/client-application-insights|3.369.0|544.4 KB|✅(5.77.0)|✅(3.20.2)|✅(0.17.15)|
 |@aws-sdk/client-athena|3.369.0|1.2 MB|✅(5.77.0)|✅(3.20.2)|✅(0.17.15)|
 |@aws-sdk/client-auto-scaling|3.369.0|1.8 MB|✅(5.77.0)|✅(3.20.2)|✅(0.17.15)|
-|@aws-sdk/client-cloudformation|3.369.0|1.9 MB|✅(5.77.0)|✅(3.20.2)|✅(0.17.15)|
+|@aws-sdk/client-cloudformation|3.370.0|1.9 MB|✅(5.77.0)|✅(3.20.2)|✅(0.17.15)|
 |@aws-sdk/client-cloudhsm-v2|3.369.0|356.5 KB|✅(5.77.0)|✅(3.20.2)|✅(0.17.15)|
 |@aws-sdk/client-cloudwatch|3.369.0|1 MB|✅(5.77.0)|✅(3.20.2)|✅(0.17.15)|
 |@aws-sdk/client-cloudwatch-logs|3.369.0|958.1 KB|✅(5.77.0)|✅(3.20.2)|✅(0.17.15)|
@@ -17,7 +17,7 @@
 |@aws-sdk/client-cognito-identity-provider|3.369.0|2.4 MB|✅(5.77.0)|✅(3.20.2)|✅(0.17.15)|
 |@aws-sdk/client-cognito-sync|3.369.0|435.2 KB|✅(5.77.0)|✅(3.20.2)|✅(0.17.15)|
 |@aws-sdk/client-dynamodb|3.369.0|1.7 MB|✅(5.77.0)|✅(3.20.2)|✅(0.17.15)|
-|@aws-sdk/client-ec2|3.370.0|14.8 MB|✅(5.77.0)|✅(3.20.2)|✅(0.17.15)|
+|@aws-sdk/client-ec2|3.371.0|14.8 MB|✅(5.77.0)|✅(3.20.2)|✅(0.17.15)|
 |@aws-sdk/client-efs|3.369.0|766.8 KB|✅(5.77.0)|✅(3.20.2)|✅(0.17.15)|
 |@aws-sdk/client-eventbridge|3.369.0|1 MB|✅(5.77.0)|✅(3.20.2)|✅(0.17.15)|
 |@aws-sdk/client-firehose|3.369.0|507.2 KB|✅(5.77.0)|✅(3.20.2)|✅(0.17.15)|
@@ -29,7 +29,7 @@
 |@aws-sdk/client-opsworks|3.369.0|1.3 MB|✅(5.77.0)|✅(3.20.2)|✅(0.17.15)|
 |@aws-sdk/client-pinpoint|3.369.0|2.9 MB|✅(5.77.0)|✅(3.20.2)|✅(0.17.15)|
 |@aws-sdk/client-resource-groups-tagging-api|3.369.0|264 KB|✅(5.77.0)|✅(3.20.2)|✅(0.17.15)|
-|@aws-sdk/client-s3|3.369.0|2.9 MB|✅(5.77.0)|✅(3.20.2)|✅(0.17.15)|
+|@aws-sdk/client-s3|3.370.0|2.9 MB|✅(5.77.0)|✅(3.20.2)|✅(0.17.15)|
 |@aws-sdk/client-ses|3.369.0|1.5 MB|✅(5.77.0)|✅(3.20.2)|✅(0.17.15)|
 |@aws-sdk/client-sns|3.369.0|1006.2 KB|✅(5.77.0)|✅(3.20.2)|✅(0.17.15)|
 |@aws-sdk/client-ssm|3.369.0|3.3 MB|✅(5.77.0)|✅(3.20.2)|✅(0.17.15)|
@@ -46,11 +46,11 @@
 |@aws-sdk/credential-providers|3.369.0|80.9 KB|✅(5.77.0)|✅(3.20.2)|✅(0.17.15)|
 |@aws-sdk/fetch-http-handler|3.369.0|27.2 KB|✅(5.77.0)|✅(3.20.2)|✅(0.17.15)|
 |@aws-sdk/lib-dynamodb|3.369.0|155.1 KB|✅(5.77.0)|✅(3.20.2)|✅(0.17.15)|
-|@aws-sdk/lib-storage|3.369.0|53.3 KB|✅(5.77.0)|✅(3.20.2)|✅(0.17.15)|
+|@aws-sdk/lib-storage|3.370.0|53.3 KB|✅(5.77.0)|✅(3.20.2)|✅(0.17.15)|
 |@aws-sdk/node-http-handler|3.369.0|70.9 KB|N/A|N/A|N/A|
 |@aws-sdk/polly-request-presigner|3.369.0|23.2 KB|✅(5.77.0)|✅(3.20.2)|✅(0.17.15)|
-|@aws-sdk/s3-presigned-post|3.369.0|26.2 KB|✅(5.77.0)|✅(3.20.2)|✅(0.17.15)|
-|@aws-sdk/s3-request-presigner|3.369.0|29.5 KB|✅(5.77.0)|✅(3.20.2)|✅(0.17.15)|
+|@aws-sdk/s3-presigned-post|3.370.0|26.2 KB|✅(5.77.0)|✅(3.20.2)|✅(0.17.15)|
+|@aws-sdk/s3-request-presigner|3.370.0|29.5 KB|✅(5.77.0)|✅(3.20.2)|✅(0.17.15)|
 |@aws-sdk/signature-v4|3.369.0|96.1 KB|✅(5.77.0)|✅(3.20.2)|✅(0.17.15)|
 |@aws-sdk/signature-v4-crt|3.369.0|69.2 KB|N/A|N/A|N/A|
 |@aws-sdk/smithy-client|3.369.0|106.8 KB|✅(5.77.0)|✅(3.20.2)|✅(0.17.15)|

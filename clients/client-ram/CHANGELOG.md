@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.373.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.372.0...v3.373.0) (2023-07-19)
+
+
+### Features
+
+* **client-ram:** This release adds support for securely sharing with AWS service principals. ([23a3272](https://github.com/aws/aws-sdk-js-v3/commit/23a327207fc01049c01446cfd970762461675a3a))
+
+
+
+
+
 # [3.370.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.369.0...v3.370.0) (2023-07-13)
 
 

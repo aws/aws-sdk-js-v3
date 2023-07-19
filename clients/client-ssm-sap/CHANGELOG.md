@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.373.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.372.0...v3.373.0) (2023-07-19)
+
+
+### Features
+
+* **client-ssm-sap:** Added support for SAP Hana High Availability discovery (primary and secondary nodes) and Backint agent installation with SSM for SAP. ([4de12dc](https://github.com/aws/aws-sdk-js-v3/commit/4de12dc217af0905d7f596351c949da322e377c7))
+
+
+
+
+
 # [3.370.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.369.0...v3.370.0) (2023-07-13)
 
 
