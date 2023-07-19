@@ -55,6 +55,9 @@ export interface GetTemplateSummaryCommandOutput extends GetTemplateSummaryOutpu
  *   StackName: "STRING_VALUE",
  *   StackSetName: "STRING_VALUE",
  *   CallAs: "SELF" || "DELEGATED_ADMIN",
+ *   TemplateSummaryConfig: { // TemplateSummaryConfig
+ *     TreatUnrecognizedResourceTypesAsWarnings: true || false,
+ *   },
  * };
  * const command = new GetTemplateSummaryCommand(input);
  * const response = await client.send(command);
@@ -97,6 +100,11 @@ export interface GetTemplateSummaryCommandOutput extends GetTemplateSummaryOutpu
  * //       ],
  * //     },
  * //   ],
+ * //   Warnings: { // Warnings
+ * //     UnrecognizedResourceTypes: [
+ * //       "STRING_VALUE",
+ * //     ],
+ * //   },
  * // };
  *
  * ```

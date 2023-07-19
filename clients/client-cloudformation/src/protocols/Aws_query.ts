@@ -383,6 +383,7 @@ import {
   Tag,
   TemplateParameter,
   TemplateStage,
+  TemplateSummaryConfig,
   TestTypeInput,
   TestTypeOutput,
   TokenAlreadyExistsException,
@@ -403,6 +404,7 @@ import {
   UpdateTerminationProtectionOutput,
   ValidateTemplateInput,
   ValidateTemplateOutput,
+  Warnings,
 } from "../models/models_0";
 
 /**
@@ -6256,6 +6258,13 @@ const se_GetTemplateSummaryInput = (input: GetTemplateSummaryInput, context: __S
   if (input.CallAs != null) {
     entries["CallAs"] = input.CallAs;
   }
+  if (input.TemplateSummaryConfig != null) {
+    const memberEntries = se_TemplateSummaryConfig(input.TemplateSummaryConfig, context);
+    Object.entries(memberEntries).forEach(([key, value]) => {
+      const loc = `TemplateSummaryConfig.${key}`;
+      entries[loc] = value;
+    });
+  }
   return entries;
 };
 
@@ -7255,6 +7264,17 @@ const se_Tags = (input: Tag[], context: __SerdeContext): any => {
       entries[`member.${counter}.${key}`] = value;
     });
     counter++;
+  }
+  return entries;
+};
+
+/**
+ * serializeAws_queryTemplateSummaryConfig
+ */
+const se_TemplateSummaryConfig = (input: TemplateSummaryConfig, context: __SerdeContext): any => {
+  const entries: any = {};
+  if (input.TreatUnrecognizedResourceTypesAsWarnings != null) {
+    entries["TreatUnrecognizedResourceTypesAsWarnings"] = input.TreatUnrecognizedResourceTypesAsWarnings;
   }
   return entries;
 };
@@ -8746,6 +8766,9 @@ const de_GetTemplateSummaryOutput = (output: any, context: __SerdeContext): GetT
       __getArrayIfSingleItem(output["ResourceIdentifierSummaries"]["member"]),
       context
     );
+  }
+  if (output["Warnings"] !== undefined) {
+    contents.Warnings = de_Warnings(output["Warnings"], context);
   }
   return contents;
 };
@@ -11059,6 +11082,25 @@ const de_ValidateTemplateOutput = (output: any, context: __SerdeContext): Valida
   } else if (output["DeclaredTransforms"] !== undefined && output["DeclaredTransforms"]["member"] !== undefined) {
     contents.DeclaredTransforms = de_TransformsList(
       __getArrayIfSingleItem(output["DeclaredTransforms"]["member"]),
+      context
+    );
+  }
+  return contents;
+};
+
+/**
+ * deserializeAws_queryWarnings
+ */
+const de_Warnings = (output: any, context: __SerdeContext): Warnings => {
+  const contents: any = {};
+  if (output.UnrecognizedResourceTypes === "") {
+    contents.UnrecognizedResourceTypes = [];
+  } else if (
+    output["UnrecognizedResourceTypes"] !== undefined &&
+    output["UnrecognizedResourceTypes"]["member"] !== undefined
+  ) {
+    contents.UnrecognizedResourceTypes = de_ResourceTypes(
+      __getArrayIfSingleItem(output["UnrecognizedResourceTypes"]["member"]),
       context
     );
   }
