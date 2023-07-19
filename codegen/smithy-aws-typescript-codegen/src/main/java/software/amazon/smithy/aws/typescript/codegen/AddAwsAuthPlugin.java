@@ -202,8 +202,9 @@ public final class AddAwsAuthPlugin implements TypeScriptIntegration {
                             writer.addImport("decorateDefaultCredentialProvider", "decorateDefaultCredentialProvider",
                                     AwsDependency.STS_CLIENT);
                         } else {
-                            writer.addRelativeImport("decorateDefaultCredentialProvider", "decorateDefaultCredentialProvider",
-                                Paths.get(".", CodegenUtils.SOURCE_FOLDER, STS_ROLE_ASSUMERS_FILE));
+                            writer.addRelativeImport("decorateDefaultCredentialProvider",
+                                "decorateDefaultCredentialProvider", Paths.get(".", CodegenUtils.SOURCE_FOLDER,
+                                STS_ROLE_ASSUMERS_FILE));
                         }
                         writer.addDependency(AwsDependency.CREDENTIAL_PROVIDER_NODE);
                         writer.addImport("defaultProvider", "credentialDefaultProvider",
