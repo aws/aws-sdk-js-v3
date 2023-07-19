@@ -70,7 +70,7 @@ public class AddEventStreamHandlingDependency implements TypeScriptIntegration {
     ) {
         if (hasEventStreamInput(model, settings.getService(model))) {
             writer.addImport("EventStreamPayloadHandlerProvider", "__EventStreamPayloadHandlerProvider",
-                    TypeScriptDependency.AWS_SDK_TYPES.packageName);
+                    TypeScriptDependency.AWS_SDK_TYPES);
             writer.writeDocs("The function that provides necessary utilities for handling request event stream.\n"
                             + "@internal");
             writer.write("eventStreamPayloadHandlerProvider?: __EventStreamPayloadHandlerProvider;\n");
@@ -94,7 +94,7 @@ public class AddEventStreamHandlingDependency implements TypeScriptIntegration {
                 return MapUtils.of("eventStreamPayloadHandlerProvider", writer -> {
                     writer.addDependency(AwsDependency.AWS_SDK_EVENTSTREAM_HANDLER_NODE);
                     writer.addImport("eventStreamPayloadHandlerProvider", "eventStreamPayloadHandlerProvider",
-                            AwsDependency.AWS_SDK_EVENTSTREAM_HANDLER_NODE.packageName);
+                            AwsDependency.AWS_SDK_EVENTSTREAM_HANDLER_NODE);
                     writer.write("eventStreamPayloadHandlerProvider");
                 });
             case BROWSER:
@@ -107,7 +107,7 @@ public class AddEventStreamHandlingDependency implements TypeScriptIntegration {
                 return MapUtils.of("eventStreamPayloadHandlerProvider", writer -> {
                     writer.addDependency(TypeScriptDependency.INVALID_DEPENDENCY);
                     writer.addImport("invalidFunction", "invalidFunction",
-                            TypeScriptDependency.INVALID_DEPENDENCY.packageName);
+                            TypeScriptDependency.INVALID_DEPENDENCY);
                     writer.openBlock("(() => ({", "}))", () -> {
                         writer.write("handle: invalidFunction(\"event stream request is not supported in browser.\"),");
                     });
@@ -121,7 +121,7 @@ public class AddEventStreamHandlingDependency implements TypeScriptIntegration {
                 return MapUtils.of("eventStreamPayloadHandlerProvider", writer -> {
                     writer.addDependency(TypeScriptDependency.INVALID_DEPENDENCY);
                     writer.addImport("invalidFunction", "invalidFunction",
-                            TypeScriptDependency.INVALID_DEPENDENCY.packageName);
+                            TypeScriptDependency.INVALID_DEPENDENCY);
                     writer.openBlock("(() => ({", "}))", () -> {
                         writer.write("handle: invalidFunction(\"event stream request "
                                 + "is not supported in ReactNative.\"),");

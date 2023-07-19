@@ -73,14 +73,14 @@ public class AddBodyChecksumGeneratorDependency implements TypeScriptIntegration
                 return MapUtils.of("bodyChecksumGenerator", writer -> {
                     writer.addDependency(AwsDependency.BODY_CHECKSUM_GENERATOR_NODE);
                     writer.addImport("bodyChecksumGenerator", "bodyChecksumGenerator",
-                            AwsDependency.BODY_CHECKSUM_GENERATOR_NODE.packageName);
+                            AwsDependency.BODY_CHECKSUM_GENERATOR_NODE);
                     writer.write("bodyChecksumGenerator");
                 });
             case BROWSER:
                 return MapUtils.of("bodyChecksumGenerator", writer -> {
                     writer.addDependency(AwsDependency.BODY_CHECKSUM_GENERATOR_BROWSER);
                     writer.addImport("bodyChecksumGenerator", "bodyChecksumGenerator",
-                            AwsDependency.BODY_CHECKSUM_GENERATOR_BROWSER.packageName);
+                            AwsDependency.BODY_CHECKSUM_GENERATOR_BROWSER);
                     writer.write("bodyChecksumGenerator");
                 });
             default:
