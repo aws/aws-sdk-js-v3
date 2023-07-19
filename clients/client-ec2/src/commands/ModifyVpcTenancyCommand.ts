@@ -43,7 +43,7 @@ export interface ModifyVpcTenancyCommandOutput extends ModifyVpcTenancyResult, _
  *             VPC have a tenancy of <code>default</code>, unless you specify otherwise during launch.
  *             The tenancy of any existing instances in the VPC is not affected.</p>
  *          <p>For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/dedicated-instance.html">Dedicated Instances</a> in the
- * 				<i>Amazon Elastic Compute Cloud User Guide</i>.</p>
+ * 				<i>Amazon EC2 User Guide</i>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

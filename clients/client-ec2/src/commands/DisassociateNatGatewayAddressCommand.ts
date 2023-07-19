@@ -38,13 +38,14 @@ export interface DisassociateNatGatewayAddressCommandOutput
 
 /**
  * @public
- * <p>Disassociates secondary Elastic IP addresses (EIPs) from a public NAT gateway. You cannot disassociate your primary EIP. For more information, see <a href="https://docs.aws.amazon.com/vpc/latest/userguide/vpc-nat-gateway.html#nat-gateway-edit-secondary">Edit secondary IP address associations</a> in the <i>Amazon Virtual Private Cloud User Guide</i>.</p>
+ * <p>Disassociates secondary Elastic IP addresses (EIPs) from a public NAT gateway.
+ *             You cannot disassociate your primary EIP. For more information, see <a href="https://docs.aws.amazon.com/vpc/latest/userguide/vpc-nat-gateway.html#nat-gateway-edit-secondary">Edit secondary IP address associations</a> in the <i>Amazon VPC User Guide</i>.</p>
  *          <p>While disassociating is in progress, you cannot associate/disassociate additional EIPs while the connections are being drained. You are, however, allowed to delete the NAT gateway.</p>
- *          <p>An EIP will only be released at the end of MaxDrainDurationSeconds. The EIPs stay
- *             associated and support the existing connections but do not support any new connections
+ *          <p>An EIP is released only at the end of MaxDrainDurationSeconds. It stays
+ *             associated and supports the existing connections but does not support any new connections
  *             (new connections are distributed across the remaining associated EIPs). As the existing
- *             connections drain out, the EIPs (and the corresponding private IPs mapped to them) get
- *             released.</p>
+ *             connections drain out, the EIPs (and the corresponding private IP addresses mapped to them)
+ *             are released.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

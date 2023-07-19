@@ -1052,7 +1052,7 @@ export interface NewDhcpConfiguration {
   Key?: string;
 
   /**
-   * <p>One or more values for the DHCP option.</p>
+   * <p>The values for the DHCP option.</p>
    */
   Values?: string[];
 }
@@ -1101,18 +1101,18 @@ export interface DhcpConfiguration {
   Key?: string;
 
   /**
-   * <p>One or more values for the DHCP option.</p>
+   * <p>The values for the DHCP option.</p>
    */
   Values?: AttributeValue[];
 }
 
 /**
  * @public
- * <p>Describes a set of DHCP options.</p>
+ * <p>The set of DHCP options.</p>
  */
 export interface DhcpOptions {
   /**
-   * <p>One or more DHCP options in the set.</p>
+   * <p>The DHCP options in the set.</p>
    */
   DhcpConfigurations?: DhcpConfiguration[];
 
@@ -1173,8 +1173,7 @@ export interface CreateEgressOnlyInternetGatewayRequest {
 
 /**
  * @public
- * <p>Describes the attachment of a VPC to an internet gateway or an egress-only internet
- * 			gateway.</p>
+ * <p>Describes the attachment of a VPC to an internet gateway or an egress-only internet gateway.</p>
  */
 export interface InternetGatewayAttachment {
   /**
@@ -1496,6 +1495,8 @@ export interface VCpuCountRangeRequest {
  * @public
  * <p>The attributes for the instance types. When you specify instance attributes, Amazon EC2 will
  *          identify instance types with these attributes.</p>
+ *          <p>You must specify <code>VCpuCount</code> and <code>MemoryMiB</code>. All other attributes
+ *          are optional. Any unspecified optional attribute is set to its default.</p>
  *          <p>When you specify multiple attributes, you get instance types that satisfy all of the
  *          specified attributes. If you specify multiple values for an attribute, you get instance
  *          types that satisfy any of the specified values.</p>
@@ -1514,8 +1515,14 @@ export interface VCpuCountRangeRequest {
  *             </li>
  *          </ul>
  *          <note>
- *             <p>You must specify <code>VCpuCount</code> and <code>MemoryMiB</code>. All other attributes
- *             are optional. Any unspecified optional attribute is set to its default.</p>
+ *             <p>If you specify <code>InstanceRequirements</code>, you can't specify
+ *             <code>InstanceType</code>.</p>
+ *             <p>Attribute-based instance type selection is only supported when using Auto Scaling
+ *             groups, EC2 Fleet, and Spot Fleet to launch instances. If you plan to use the launch template in
+ *             the <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-launch-instance-wizard.html">launch instance
+ *                wizard</a>, or with the <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_RunInstances.html">RunInstances</a> API or
+ *                <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-instance.html">AWS::EC2::Instance</a> Amazon Web Services CloudFormation resource, you can't specify
+ *                <code>InstanceRequirements</code>.</p>
  *          </note>
  *          <p>For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-fleet-attribute-based-instance-type-selection.html">Attribute-based instance type selection for EC2 Fleet</a>, <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/spot-fleet-attribute-based-instance-type-selection.html">Attribute-based instance type selection for Spot Fleet</a>, and <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/spot-placement-score.html">Spot
  *                placement score</a> in the <i>Amazon EC2 User Guide</i>.</p>
@@ -1815,7 +1822,8 @@ export interface InstanceRequirementsRequest {
   AcceleratorTotalMemoryMiB?: AcceleratorTotalMemoryMiBRequest;
 
   /**
-   * <p>The minimum and maximum amount of network bandwidth, in gigabits per second (Gbps).</p>
+   * <p>The minimum and maximum amount of baseline network bandwidth, in gigabits per second
+   *           (Gbps). For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-instance-network-bandwidth.html">Amazon EC2 instance network bandwidth</a> in the <i>Amazon EC2 User Guide</i>.</p>
    *          <p>Default: No minimum or maximum limits</p>
    */
   NetworkBandwidthGbps?: NetworkBandwidthGbpsRequest;
@@ -2703,6 +2711,8 @@ export interface VCpuCountRange {
  * @public
  * <p>The attributes for the instance types. When you specify instance attributes, Amazon EC2 will
  *          identify instance types with these attributes.</p>
+ *          <p>You must specify <code>VCpuCount</code> and <code>MemoryMiB</code>. All other attributes
+ *          are optional. Any unspecified optional attribute is set to its default.</p>
  *          <p>When you specify multiple attributes, you get instance types that satisfy all of the
  *          specified attributes. If you specify multiple values for an attribute, you get instance
  *          types that satisfy any of the specified values.</p>
@@ -2721,8 +2731,13 @@ export interface VCpuCountRange {
  *             </li>
  *          </ul>
  *          <note>
- *             <p>You must specify <code>VCpuCount</code> and <code>MemoryMiB</code>. All other attributes
- *             are optional. Any unspecified optional attribute is set to its default.</p>
+ *             <p>If you specify <code>InstanceRequirements</code>, you can't specify
+ *             <code>InstanceType</code>.</p>
+ *             <p>Attribute-based instance type selection is only supported when using Auto Scaling
+ *             groups, EC2 Fleet, and Spot Fleet to launch instances. If you plan to use the launch template in
+ *             the <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-launch-instance-wizard.html">launch instance
+ *                wizard</a> or with the <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_RunInstances.html">RunInstances API</a>, you
+ *             can't specify <code>InstanceRequirements</code>.</p>
  *          </note>
  *          <p>For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-fleet-attribute-based-instance-type-selection.html">Attribute-based instance type selection for EC2 Fleet</a>, <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/spot-fleet-attribute-based-instance-type-selection.html">Attribute-based instance type selection for Spot Fleet</a>, and <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/spot-placement-score.html">Spot
  *                placement score</a> in the <i>Amazon EC2 User Guide</i>.</p>
@@ -3805,17 +3820,25 @@ export interface CreateImageRequest {
   Name: string | undefined;
 
   /**
-   * <p>By default, when Amazon EC2 creates the new AMI, it reboots the instance so that it can
-   * 					take snapshots of the attached volumes while data is at rest, in order to ensure a consistent
-   * 					state. You can set the <code>NoReboot</code> parameter to <code>true</code> in the API request,
-   * 					or use the <code>--no-reboot</code> option in the CLI to prevent Amazon EC2 from shutting down and
-   * 					rebooting the instance.</p>
-   *          <important>
-   *             <p>If you choose to bypass the shutdown and reboot process by setting the <code>NoReboot</code>
-   * 					parameter to <code>true</code> in the API request, or by using the <code>--no-reboot</code> option
-   * 					in the CLI, we can't guarantee the file system integrity of the created image.</p>
-   *          </important>
-   *          <p>Default: <code>false</code> (follow standard reboot process)</p>
+   * <p>Indicates whether or not the instance should be automatically rebooted before creating
+   *        the image. Specify one of the following values:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>true</code> - The instance is not rebooted before creating the image. This
+   *            creates crash-consistent snapshots that include only the data that has been written
+   *            to the volumes at the time the snapshots are created. Buffered data and data in
+   *            memory that has not yet been written to the volumes is not included in the snapshots.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>false</code> - The instance is rebooted before creating the image. This
+   *            ensures that all buffered data and data in memory is written to the volumes before the
+   *            snapshots are created.</p>
+   *             </li>
+   *          </ul>
+   *          <p>Default: <code>false</code>
+   *          </p>
    */
   NoReboot?: boolean;
 
@@ -5518,7 +5541,8 @@ export interface LaunchTemplateCpuOptionsRequest {
 
   /**
    * <p>Indicates whether to enable the instance for AMD SEV-SNP. AMD SEV-SNP is supported
-   *             with M6a, R6a, and C6a instance types only.</p>
+   *             with M6a, R6a, and C6a instance types only. For more information, see
+   *             <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/sev-snp.html">AMD SEV-SNP</a>.</p>
    */
   AmdSevSnp?: AmdSevSnpSpecification | string;
 }
@@ -6446,8 +6470,36 @@ export interface RequestLaunchTemplateData {
   /**
    * <p>The attributes for the instance types. When you specify instance attributes, Amazon EC2 will
    *          identify instance types with these attributes.</p>
-   *          <p>If you specify <code>InstanceRequirements</code>, you can't specify
+   *          <p>You must specify <code>VCpuCount</code> and <code>MemoryMiB</code>. All other attributes
+   *          are optional. Any unspecified optional attribute is set to its default.</p>
+   *          <p>When you specify multiple attributes, you get instance types that satisfy all of the
+   *          specified attributes. If you specify multiple values for an attribute, you get instance
+   *          types that satisfy any of the specified values.</p>
+   *          <p>To limit the list of instance types from which Amazon EC2 can identify matching instance types,
+   *          you can use one of the following parameters, but not both in the same request:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>AllowedInstanceTypes</code> - The instance types to include in the list. All
+   *                other instance types are ignored, even if they match your specified attributes.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>ExcludedInstanceTypes</code> - The instance types to exclude from the list,
+   *                even if they match your specified attributes.</p>
+   *             </li>
+   *          </ul>
+   *          <note>
+   *             <p>If you specify <code>InstanceRequirements</code>, you can't specify
    *             <code>InstanceType</code>.</p>
+   *             <p>Attribute-based instance type selection is only supported when using Auto Scaling
+   *             groups, EC2 Fleet, and Spot Fleet to launch instances. If you plan to use the launch template in
+   *             the <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-launch-instance-wizard.html">launch instance
+   *                wizard</a>, or with the <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_RunInstances.html">RunInstances</a> API or
+   *               <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-instance.html">AWS::EC2::Instance</a> Amazon Web Services CloudFormation resource, you can't specify <code>InstanceRequirements</code>.</p>
+   *          </note>
+   *          <p>For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-fleet-attribute-based-instance-type-selection.html">Attribute-based instance type selection for EC2 Fleet</a>, <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/spot-fleet-attribute-based-instance-type-selection.html">Attribute-based instance type selection for Spot Fleet</a>, and <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/spot-placement-score.html">Spot
+   *             placement score</a> in the <i>Amazon EC2 User Guide</i>.</p>
    */
   InstanceRequirements?: InstanceRequirementsRequest;
 
@@ -6806,8 +6858,8 @@ export interface LaunchTemplateCpuOptions {
   ThreadsPerCore?: number;
 
   /**
-   * <p>Indicates whether the instance is enabled for
-   *             AMD SEV-SNP.</p>
+   * <p>Indicates whether the instance is enabled for AMD SEV-SNP. For more information, see
+   *             <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/sev-snp.html">AMD SEV-SNP</a>.</p>
    */
   AmdSevSnp?: AmdSevSnpSpecification | string;
 }
@@ -8270,17 +8322,20 @@ export interface CreateNatGatewayRequest {
   PrivateIpAddress?: string;
 
   /**
-   * <p>Secondary EIP allocation IDs. For more information about secondary addresses, see <a href="https://docs.aws.amazon.com/vpc/latest/userguide/vpc-nat-gateway.html#nat-gateway-creating">Create a NAT gateway</a> in the <i>Amazon Virtual Private Cloud User Guide</i>.</p>
+   * <p>Secondary EIP allocation IDs. For more information, see <a href="https://docs.aws.amazon.com/vpc/latest/userguide/vpc-nat-gateway.html#nat-gateway-creating">Create a NAT gateway</a>
+   *             in the <i>Amazon VPC User Guide</i>.</p>
    */
   SecondaryAllocationIds?: string[];
 
   /**
-   * <p>Secondary private IPv4 addresses. For more information about secondary addresses, see <a href="https://docs.aws.amazon.com/vpc/latest/userguide/vpc-nat-gateway.html#nat-gateway-creating">Create a NAT gateway</a> in the <i>Amazon Virtual Private Cloud User Guide</i>.</p>
+   * <p>Secondary private IPv4 addresses. For more information about secondary addresses, see <a href="https://docs.aws.amazon.com/vpc/latest/userguide/vpc-nat-gateway.html#nat-gateway-creating">Create a NAT gateway</a> in the <i>Amazon VPC User Guide</i>.</p>
    */
   SecondaryPrivateIpAddresses?: string[];
 
   /**
-   * <p>[Private NAT gateway only] The number of secondary private IPv4 addresses you want to assign to the NAT gateway. For more information about secondary addresses, see <a href="https://docs.aws.amazon.com/vpc/latest/userguide/vpc-nat-gateway.html#nat-gateway-creating">Create a NAT gateway</a> in the <i>Amazon Virtual Private Cloud User Guide</i>.</p>
+   * <p>[Private NAT gateway only] The number of secondary private IPv4 addresses you want to assign to the NAT gateway.
+   *             For more information about secondary addresses, see <a href="https://docs.aws.amazon.com/vpc/latest/userguide/vpc-nat-gateway.html#nat-gateway-creating">Create a NAT gateway</a>
+   *             in the <i>Amazon VPC User Guide</i>.</p>
    */
   SecondaryPrivateIpAddressCount?: number;
 }
@@ -8595,7 +8650,7 @@ export interface NetworkAcl {
   Associations?: NetworkAclAssociation[];
 
   /**
-   * <p>One or more entries (rules) in the network ACL.</p>
+   * <p>The entries (rules) in the network ACL.</p>
    */
   Entries?: NetworkAclEntry[];
 

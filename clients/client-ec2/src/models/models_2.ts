@@ -723,22 +723,19 @@ export interface CreateSecurityGroupRequest {
   /**
    * <p>A description for the security group.</p>
    *          <p>Constraints: Up to 255 characters in length</p>
-   *          <p>Constraints for EC2-Classic: ASCII characters</p>
-   *          <p>Constraints for EC2-VPC: a-z, A-Z, 0-9, spaces, and ._-:/()#,@[]+=&;\{\}!$*</p>
+   *          <p>Valid characters: a-z, A-Z, 0-9, spaces, and ._-:/()#,@[]+=&;\{\}!$*</p>
    */
   Description: string | undefined;
 
   /**
    * <p>The name of the security group.</p>
-   *          <p>Constraints: Up to 255 characters in length. Cannot start with
-   *             <code>sg-</code>.</p>
-   *          <p>Constraints for EC2-Classic: ASCII characters</p>
-   *          <p>Constraints for EC2-VPC: a-z, A-Z, 0-9, spaces, and ._-:/()#,@[]+=&;\{\}!$*</p>
+   *          <p>Constraints: Up to 255 characters in length. Cannot start with <code>sg-</code>.</p>
+   *          <p>Valid characters: a-z, A-Z, 0-9, spaces, and ._-:/()#,@[]+=&;\{\}!$*</p>
    */
   GroupName: string | undefined;
 
   /**
-   * <p>[EC2-VPC] The ID of the VPC. Required for EC2-VPC.</p>
+   * <p>The ID of the VPC. Required for a nondefault VPC.</p>
    */
   VpcId?: string;
 
@@ -1300,7 +1297,7 @@ export interface CreateSubnetRequest {
    *           do not necessarily select a different zone for each subnet.</p>
    *          <p>To create a subnet in a Local Zone, set this value to the Local Zone ID, for example
    *           <code>us-west-2-lax-1a</code>. For information about the Regions that support Local Zones,
-   *            see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-regions-availability-zones.html#concepts-available-regions">Available Regions</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
+   *            see <a href="http://aws.amazon.com/about-aws/global-infrastructure/localzones/locations/">Local Zones locations</a>.</p>
    *          <p>To create a subnet in an Outpost, set this value to the Availability Zone for the
    *            Outpost and specify the Outpost ARN.</p>
    */
@@ -4155,7 +4152,7 @@ export interface CreateVerifiedAccessTrustProviderResult {
  */
 export interface CreateVolumeRequest {
   /**
-   * <p>The Availability Zone in which to create the volume.</p>
+   * <p>The ID of the Availability Zone in which to create the volume. For example, <code>us-east-1a</code>.</p>
    */
   AvailabilityZone: string | undefined;
 
@@ -4611,12 +4608,12 @@ export interface CreateVpcEndpointRequest {
   VpcEndpointType?: VpcEndpointType | string;
 
   /**
-   * <p>The ID of the VPC for the endpoint.</p>
+   * <p>The ID of the VPC.</p>
    */
   VpcId: string | undefined;
 
   /**
-   * <p>The service name.</p>
+   * <p>The name of the endpoint service.</p>
    */
   ServiceName: string | undefined;
 

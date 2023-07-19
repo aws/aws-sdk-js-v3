@@ -39,7 +39,7 @@ export interface DescribeRouteTablesCommandOutput extends DescribeRouteTablesRes
  * <p>Describes one or more of your route tables.</p>
  *          <p>Each subnet in your VPC must be associated with a route table. If a subnet is not explicitly associated with any route table, it is implicitly associated with the main route table. This command does not return the subnet ID for implicit associations.</p>
  *          <p>For more information, see <a href="https://docs.aws.amazon.com/vpc/latest/userguide/VPC_Route_Tables.html">Route tables</a> in the
- * 				<i>Amazon Virtual Private Cloud User Guide</i>.</p>
+ * 				<i>Amazon VPC User Guide</i>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

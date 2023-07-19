@@ -41,7 +41,7 @@ export interface ReplaceRouteTableAssociationCommandOutput
  * <p>Changes the route table associated with a given subnet, internet gateway, or virtual private gateway in a VPC. After the operation
  *         completes, the subnet or gateway uses the routes in the new route table. For more
  *         information about route tables, see <a href="https://docs.aws.amazon.com/vpc/latest/userguide/VPC_Route_Tables.html">Route
- *         tables</a> in the <i>Amazon Virtual Private Cloud User Guide</i>.</p>
+ *         tables</a> in the <i>Amazon VPC User Guide</i>.</p>
  *          <p>You can also use this operation to change which table is the main route table in the VPC. Specify the main route table's association ID and the route table ID of the new main route table.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.

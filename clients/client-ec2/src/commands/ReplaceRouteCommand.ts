@@ -41,7 +41,7 @@ export interface ReplaceRouteCommandOutput extends __MetadataBearer {}
  *            exactly one of the resources from the parameter list, or reset the local route to its default
  *            target.</p>
  *          <p>For more information, see <a href="https://docs.aws.amazon.com/vpc/latest/userguide/VPC_Route_Tables.html">Route tables</a> in the
- *                 <i>Amazon Virtual Private Cloud User Guide</i>.</p>
+ *                 <i>Amazon VPC User Guide</i>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

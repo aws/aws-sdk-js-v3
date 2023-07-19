@@ -52,7 +52,7 @@ export interface CreateSubnetCommandOutput extends CreateSubnetResult, __Metadat
  *          <p>When you stop an instance in a subnet, it retains its private IPv4 address. It's
  *             therefore possible to have a subnet with no running instances (they're all stopped), but
  *             no remaining IP addresses available.</p>
- *          <p>For more information, see <a href="https://docs.aws.amazon.com/vpc/latest/userguide/configure-subnets.html">Subnets</a> in the <i>Amazon Virtual Private Cloud User Guide</i>.</p>
+ *          <p>For more information, see <a href="https://docs.aws.amazon.com/vpc/latest/userguide/configure-subnets.html">Subnets</a> in the <i>Amazon VPC User Guide</i>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

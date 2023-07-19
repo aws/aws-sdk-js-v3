@@ -42,7 +42,7 @@ export interface AssociateRouteTableCommandOutput extends AssociateRouteTableRes
  *             action returns an association ID, which you need in order to disassociate the route
  *             table later. A route table can be associated with multiple subnets.</p>
  *          <p>For more information, see <a href="https://docs.aws.amazon.com/vpc/latest/userguide/VPC_Route_Tables.html">Route tables</a> in the
- *                 <i>Amazon Virtual Private Cloud User Guide</i>.</p>
+ *                 <i>Amazon VPC User Guide</i>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

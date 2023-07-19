@@ -36,7 +36,7 @@ export interface DescribeStaleSecurityGroupsCommandOutput extends DescribeStaleS
 
 /**
  * @public
- * <p>[VPC only] Describes the stale security group rules for security groups in a specified VPC.
+ * <p>Describes the stale security group rules for security groups in a specified VPC.
  *           Rules are stale when they reference a deleted security group in the same VPC or in a peer VPC,
  *           or if they reference a security group in a peer VPC for which the VPC peering connection has
  *           been deleted.</p>

@@ -37,8 +37,8 @@ export interface DescribeSubnetsCommandOutput extends DescribeSubnetsResult, __M
 /**
  * @public
  * <p>Describes one or more of your subnets.</p>
- *          <p>For more information, see <a href="https://docs.aws.amazon.com/vpc/latest/userguide/VPC_Subnets.html">Your VPC and subnets</a> in the
- * 				<i>Amazon Virtual Private Cloud User Guide</i>.</p>
+ *          <p>For more information, see <a href="https://docs.aws.amazon.com/vpc/latest/userguide/configure-subnets.html">Subnets</a> in the
+ * 				<i>Amazon VPC User Guide</i>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

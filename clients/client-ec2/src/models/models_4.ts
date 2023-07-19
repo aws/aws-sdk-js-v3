@@ -1454,8 +1454,8 @@ export interface DescribeInstanceTypesRequest {
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>burstable-performance-supported</code> - Indicates whether it is a burstable
-   *      performance instance type  (<code>true</code> | <code>false</code>).</p>
+   *                   <code>burstable-performance-supported</code> - Indicates whether the instance type is a
+   *      burstable performance T instance type  (<code>true</code> | <code>false</code>).</p>
    *             </li>
    *             <li>
    *                <p>
@@ -1613,6 +1613,20 @@ export interface DescribeInstanceTypesRequest {
    *                <p>
    *                   <code>network-info.network-performance</code> - The network performance (for example, "25
    *      Gigabit").</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>nitro-enclaves-support</code> - Indicates whether Nitro Enclaves is supported (<code>supported</code> |
+   *      <code>unsupported</code>).</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>nitro-tpm-support</code> - Indicates whether NitroTPM is supported (<code>supported</code> |
+   *      <code>unsupported</code>).</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>nitro-tpm-info.supported-versions</code> - The supported NitroTPM version (<code>2.0</code>).</p>
    *             </li>
    *             <li>
    *                <p>
@@ -2466,7 +2480,9 @@ export interface InstanceTypeInfo {
   HibernationSupported?: boolean;
 
   /**
-   * <p>Indicates whether the instance type is a burstable performance instance type.</p>
+   * <p>Indicates whether the instance type is a burstable performance T instance
+   *    type. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/burstable-performance-instances.html">Burstable
+   *     performance instances</a>.</p>
    */
   BurstablePerformanceSupported?: boolean;
 
@@ -2508,10 +2524,6 @@ export interface InstanceTypeInfo {
 export interface DescribeInstanceTypesResult {
   /**
    * <p>The instance type. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-types.html">Instance types</a> in the <i>Amazon EC2 User Guide</i>.</p>
-   *          <p>When you change your EBS-backed instance type, instance restart or replacement behavior depends on the
-   *  		instance type compatibility between the old and new types. An instance that's backed by an instance store volume
-   *  		is always replaced. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-instance-resize.html">Change the instance type</a> in the
-   *  		<i>Amazon EC2 User Guide</i>.</p>
    */
   InstanceTypes?: InstanceTypeInfo[];
 
@@ -2527,7 +2539,7 @@ export interface DescribeInstanceTypesResult {
  */
 export interface DescribeInternetGatewaysRequest {
   /**
-   * <p>One or more filters.</p>
+   * <p>The filters.</p>
    *          <ul>
    *             <li>
    *                <p>
@@ -2567,7 +2579,7 @@ export interface DescribeInternetGatewaysRequest {
   DryRun?: boolean;
 
   /**
-   * <p>One or more internet gateway IDs.</p>
+   * <p>The IDs of the internet gateways.</p>
    *          <p>Default: Describes all your internet gateways.</p>
    */
   InternetGatewayIds?: string[];
@@ -4037,7 +4049,7 @@ export interface DescribeNatGatewaysRequest {
   DryRun?: boolean;
 
   /**
-   * <p>One or more filters.</p>
+   * <p>The filters.</p>
    *          <ul>
    *             <li>
    *                <p>
@@ -4077,7 +4089,7 @@ export interface DescribeNatGatewaysRequest {
   MaxResults?: number;
 
   /**
-   * <p>One or more NAT gateway IDs.</p>
+   * <p>The IDs of the NAT gateways.</p>
    */
   NatGatewayIds?: string[];
 
@@ -4107,7 +4119,7 @@ export interface DescribeNatGatewaysResult {
  */
 export interface DescribeNetworkAclsRequest {
   /**
-   * <p>One or more filters.</p>
+   * <p>The filters.</p>
    *          <ul>
    *             <li>
    *                <p>
@@ -4200,7 +4212,7 @@ export interface DescribeNetworkAclsRequest {
   DryRun?: boolean;
 
   /**
-   * <p>One or more network ACL IDs.</p>
+   * <p>The IDs of the network ACLs.</p>
    *          <p>Default: Describes all your network ACLs.</p>
    */
   NetworkAclIds?: string[];
@@ -6360,7 +6372,7 @@ export interface DescribeReservedInstancesOfferingsResult {
  */
 export interface DescribeRouteTablesRequest {
   /**
-   * <p>One or more filters.</p>
+   * <p>The filters.</p>
    *          <ul>
    *             <li>
    *                <p>
@@ -6473,7 +6485,7 @@ export interface DescribeRouteTablesRequest {
   DryRun?: boolean;
 
   /**
-   * <p>One or more route table IDs.</p>
+   * <p>The IDs of the route tables.</p>
    *          <p>Default: Describes all your route tables.</p>
    */
   RouteTableIds?: string[];
@@ -7164,9 +7176,8 @@ export interface DescribeSecurityGroupsRequest {
   GroupIds?: string[];
 
   /**
-   * <p>[EC2-Classic and default VPC only] The names of the security groups. You can specify either
-   * 			the security group name or the security group ID. For security groups in a nondefault VPC, use
-   * 			the <code>group-name</code> filter to describe security groups by name.</p>
+   * <p>[Default VPC] The names of the security groups. You can specify either
+   * 			the security group name or the security group ID.</p>
    *          <p>Default: Describes all of your security groups.</p>
    */
   GroupNames?: string[];
@@ -7224,7 +7235,7 @@ export interface SecurityGroup {
   GroupId?: string;
 
   /**
-   * <p>[VPC only] The outbound rules associated with the security group.</p>
+   * <p>The outbound rules associated with the security group.</p>
    */
   IpPermissionsEgress?: IpPermission[];
 
@@ -7234,7 +7245,7 @@ export interface SecurityGroup {
   Tags?: Tag[];
 
   /**
-   * <p>[VPC only] The ID of the VPC for the security group.</p>
+   * <p>The ID of the VPC for the security group.</p>
    */
   VpcId?: string;
 }
@@ -9623,7 +9634,7 @@ export interface DescribeStoreImageTasksResult {
  */
 export interface DescribeSubnetsRequest {
   /**
-   * <p>One or more filters.</p>
+   * <p>The filters.</p>
    *          <ul>
    *             <li>
    *                <p>
@@ -9761,7 +9772,7 @@ export interface DescribeSubnetsRequest {
   Filters?: Filter[];
 
   /**
-   * <p>One or more subnet IDs.</p>
+   * <p>The IDs of the subnets.</p>
    *          <p>Default: Describes all your subnets.</p>
    */
   SubnetIds?: string[];

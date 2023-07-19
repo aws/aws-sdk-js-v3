@@ -275,7 +275,7 @@ export interface ImportImageRequest {
    *                <p>Key ID</p>
    *             </li>
    *             <li>
-   *                <p>Key alias. The alias ARN contains the <code>arn:aws:kms</code> namespace, followed by the Region of the key, the Amazon Web Services account ID of the key owner, the <code>alias</code> namespace, and then the key alias. For example, arn:aws:kms:<i>us-east-1</i>:<i>012345678910</i>:alias/<i>ExampleAlias</i>.</p>
+   *                <p>Key alias</p>
    *             </li>
    *             <li>
    *                <p>ARN using key ID. The ID ARN contains the <code>arn:aws:kms</code> namespace, followed by the Region of the key, the Amazon Web Services account ID of the key owner, the <code>key</code> namespace, and then the key ID. For example, arn:aws:kms:<i>us-east-1</i>:<i>012345678910</i>:key/<i>abcd1234-a123-456a-a12b-a123b4cd56ef</i>.</p>
@@ -305,7 +305,9 @@ export interface ImportImageRequest {
   LicenseType?: string;
 
   /**
-   * <p>The operating system of the virtual machine.</p>
+   * <p>The operating system of the virtual machine. If you import a VM that is compatible with
+   *    Unified Extensible Firmware Interface (UEFI) using an EBS snapshot, you must specify a value for
+   *    the platform.</p>
    *          <p>Valid values: <code>Windows</code> | <code>Linux</code>
    *          </p>
    */
@@ -733,7 +735,7 @@ export interface ImportSnapshotRequest {
    *                <p>Key ID</p>
    *             </li>
    *             <li>
-   *                <p>Key alias. The alias ARN contains the <code>arn:aws:kms</code> namespace, followed by the Region of the key, the Amazon Web Services account ID of the key owner, the <code>alias</code> namespace, and then the key alias. For example, arn:aws:kms:<i>us-east-1</i>:<i>012345678910</i>:alias/<i>ExampleAlias</i>.</p>
+   *                <p>Key alias</p>
    *             </li>
    *             <li>
    *                <p>ARN using key ID. The ID ARN contains the <code>arn:aws:kms</code> namespace, followed by the Region of the key, the Amazon Web Services account ID of the key owner, the <code>key</code> namespace, and then the key ID. For example, arn:aws:kms:<i>us-east-1</i>:<i>012345678910</i>:key/<i>abcd1234-a123-456a-a12b-a123b4cd56ef</i>.</p>
@@ -2382,8 +2384,8 @@ export interface ModifyInstanceMetadataOptionsRequest {
   DryRun?: boolean;
 
   /**
-   * <p>Enables or disables the IPv6 endpoint for the instance metadata service. This setting
-   *             applies only if you have enabled the HTTP metadata endpoint.</p>
+   * <p>Enables or disables the IPv6 endpoint for the instance metadata service.
+   *             Applies only if you enabled the HTTP metadata endpoint.</p>
    */
   HttpProtocolIpv6?: InstanceMetadataProtocolState | string;
 
@@ -4767,26 +4769,22 @@ export interface ModifyVpcEndpointServicePermissionsResult {
 
 /**
  * @public
- * <note>
- *             <p>We are retiring EC2-Classic. We recommend that you migrate from EC2-Classic to a VPC. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/vpc-migrate.html">Migrate from EC2-Classic to a VPC</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
- *          </note>
- *          <p>The VPC peering connection options.</p>
+ * <p>The VPC peering connection options.</p>
  */
 export interface PeeringConnectionOptionsRequest {
   /**
-   * <p>If true, enables a local VPC to resolve public DNS hostnames to private IP addresses when queried from instances in the peer VPC.</p>
+   * <p>If true, enables a local VPC to resolve public DNS hostnames to private IP addresses
+   *         when queried from instances in the peer VPC.</p>
    */
   AllowDnsResolutionFromRemoteVpc?: boolean;
 
   /**
-   * <p>If true, enables outbound communication from an EC2-Classic instance that's linked to
-   *             a local VPC using ClassicLink to instances in a peer VPC.</p>
+   * <p>Deprecated.</p>
    */
   AllowEgressFromLocalClassicLinkToRemoteVpc?: boolean;
 
   /**
-   * <p>If true, enables outbound communication from instances in a local VPC to an
-   *             EC2-Classic instance that's linked to a peer VPC using ClassicLink.</p>
+   * <p>Deprecated.</p>
    */
   AllowEgressFromLocalVpcToRemoteClassicLink?: boolean;
 }
@@ -4820,10 +4818,7 @@ export interface ModifyVpcPeeringConnectionOptionsRequest {
 
 /**
  * @public
- * <note>
- *             <p>We are retiring EC2-Classic. We recommend that you migrate from EC2-Classic to a VPC. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/vpc-migrate.html">Migrate from EC2-Classic to a VPC</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
- *          </note>
- *          <p>Describes the VPC peering connection options.</p>
+ * <p>Describes the VPC peering connection options.</p>
  */
 export interface PeeringConnectionOptions {
   /**
@@ -4833,14 +4828,12 @@ export interface PeeringConnectionOptions {
   AllowDnsResolutionFromRemoteVpc?: boolean;
 
   /**
-   * <p>If true, enables outbound communication from an EC2-Classic instance that's linked to
-   *             a local VPC using ClassicLink to instances in a peer VPC.</p>
+   * <p>Deprecated.</p>
    */
   AllowEgressFromLocalClassicLinkToRemoteVpc?: boolean;
 
   /**
-   * <p>If true, enables outbound communication from instances in a local VPC to an
-   *             EC2-Classic instance that's linked to a peer VPC using ClassicLink.</p>
+   * <p>Deprecated.</p>
    */
   AllowEgressFromLocalVpcToRemoteClassicLink?: boolean;
 }
@@ -7635,14 +7628,12 @@ export interface RevokeSecurityGroupIngressRequest {
   FromPort?: number;
 
   /**
-   * <p>The ID of the security group. You must specify either the security group ID or the
-   *            security group name in the request. For security groups in a nondefault VPC, you must
-   *            specify the security group ID.</p>
+   * <p>The ID of the security group.</p>
    */
   GroupId?: string;
 
   /**
-   * <p>[EC2-Classic, default VPC] The name of the security group. You must specify either the
+   * <p>[Default VPC] The name of the security group. You must specify either the
    *             security group ID or the security group name in the request. For security groups in a
    *             nondefault VPC, you must specify the security group ID.</p>
    */
@@ -7661,12 +7652,15 @@ export interface RevokeSecurityGroupIngressRequest {
   IpProtocol?: string;
 
   /**
-   * <p>[EC2-Classic, default VPC] The name of the source security group. You can't specify this parameter in combination with the following parameters: the CIDR IP address range, the start of the port range, the IP protocol, and the end of the port range. For EC2-VPC, the source security group must be in the same VPC. To revoke a specific rule for an IP protocol and port range, use a set of IP permissions instead.</p>
+   * <p>[Default VPC] The name of the source security group. You can't specify this parameter
+   *          in combination with the following parameters: the CIDR IP address range, the start of the port range,
+   *          the IP protocol, and the end of the port range. The source security group must be in the same VPC.
+   *          To revoke a specific rule for an IP protocol and port range, use a set of IP permissions instead.</p>
    */
   SourceSecurityGroupName?: string;
 
   /**
-   * <p>[EC2-Classic] The Amazon Web Services account ID of the source security group, if the source security group is in a different account. You can't specify this parameter in combination with the following parameters: the CIDR IP address range, the IP protocol, the start of the port range, and the end of the port range. To revoke a specific rule for an IP protocol and port range, use a set of IP permissions instead.</p>
+   * <p>Not supported.</p>
    */
   SourceSecurityGroupOwnerId?: string;
 
@@ -8019,12 +8013,6 @@ export interface RunInstancesRequest {
   /**
    * <p>The instance type. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-types.html">Instance types</a> in the
    *                 <i>Amazon EC2 User Guide</i>.</p>
-   *          <p>When you change your EBS-backed instance type, instance restart or replacement behavior depends on the
-   *     		instance type compatibility between the old and new types. An instance that's backed by an instance store volume
-   *     		is always replaced. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-instance-resize.html">Change the instance type</a> in the
-   *     		<i>Amazon EC2 User Guide</i>.</p>
-   *          <p>Default: <code>m1.small</code>
-   *          </p>
    */
   InstanceType?: _InstanceType | string;
 
@@ -8344,8 +8332,9 @@ export interface RunInstancesRequest {
   EnclaveOptions?: EnclaveOptionsRequest;
 
   /**
-   * <p>The options for the instance hostname. The default values are inherited from the
-   *             subnet.</p>
+   * <p>The options for the instance hostname.
+   *             The default values are inherited from the subnet.
+   *             Applies only if creating a network interface, not attaching an existing one.</p>
    */
   PrivateDnsNameOptions?: PrivateDnsNameOptionsRequest;
 

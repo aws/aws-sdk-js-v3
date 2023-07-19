@@ -36,8 +36,8 @@ export interface ReplaceNetworkAclEntryCommandOutput extends __MetadataBearer {}
 
 /**
  * @public
- * <p>Replaces an entry (rule) in a network ACL. For more information, see <a href="https://docs.aws.amazon.com/vpc/latest/userguide/VPC_ACLs.html">Network ACLs</a> in the
- * 				<i>Amazon Virtual Private Cloud User Guide</i>.</p>
+ * <p>Replaces an entry (rule) in a network ACL. For more information, see <a href="https://docs.aws.amazon.com/vpc/latest/userguide/vpc-network-acls.html">Network ACLs</a> in the
+ * 				<i>Amazon VPC User Guide</i>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

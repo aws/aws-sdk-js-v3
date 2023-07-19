@@ -36,10 +36,10 @@ export interface CreateVpcEndpointCommandOutput extends CreateVpcEndpointResult,
 
 /**
  * @public
- * <p>Creates a VPC endpoint for a specified service. An endpoint enables you to create a
- *             private connection between your VPC and the service. The service may be provided by Amazon Web Services,
- *             an Amazon Web Services Marketplace Partner, or another Amazon Web Services account. For more information,
- *             see the <a href="https://docs.aws.amazon.com/vpc/latest/privatelink/">Amazon Web Services PrivateLink Guide</a>.</p>
+ * <p>Creates a VPC endpoint. A VPC endpoint provides a private connection between the
+ *             specified VPC and the specified endpoint service. You can use an endpoint service
+ *             provided by Amazon Web Services, an Amazon Web Services Marketplace Partner, or another
+ *             Amazon Web Services account. For more information, see the <a href="https://docs.aws.amazon.com/vpc/latest/privatelink/">Amazon Web Services PrivateLink User Guide</a>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

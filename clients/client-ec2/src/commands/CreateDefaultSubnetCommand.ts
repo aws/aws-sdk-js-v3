@@ -38,8 +38,8 @@ export interface CreateDefaultSubnetCommandOutput extends CreateDefaultSubnetRes
  * @public
  * <p>Creates a default subnet with a size <code>/20</code> IPv4 CIDR block in the
  *             specified Availability Zone in your default VPC. You can have only one default subnet
- *             per Availability Zone. For more information, see <a href="https://docs.aws.amazon.com/vpc/latest/userguide/default-vpc.html#create-default-subnet">Creating a default
- *                 subnet</a> in the <i>Amazon Virtual Private Cloud User Guide</i>.</p>
+ *             per Availability Zone. For more information, see <a href="https://docs.aws.amazon.com/vpc/latest/userguide/default-vpc.html#create-default-subnet">Create a default
+ *                 subnet</a> in the <i>Amazon VPC User Guide</i>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

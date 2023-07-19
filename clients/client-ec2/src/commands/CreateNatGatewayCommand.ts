@@ -45,7 +45,7 @@ export interface CreateNatGatewayCommandOutput extends CreateNatGatewayResult, _
  *             networks through a transit gateway or virtual private gateway. Common use cases include
  *             running large workloads behind a small pool of allowlisted IPv4 addresses, preserving
  *             private IPv4 addresses, and communicating between overlapping networks.</p>
- *          <p>For more information, see <a href="https://docs.aws.amazon.com/vpc/latest/userguide/vpc-nat-gateway.html">NAT gateways</a> in the <i>Amazon Virtual Private Cloud User Guide</i>.</p>
+ *          <p>For more information, see <a href="https://docs.aws.amazon.com/vpc/latest/userguide/vpc-nat-gateway.html">NAT gateways</a> in the <i>Amazon VPC User Guide</i>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

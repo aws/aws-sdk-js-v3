@@ -171,12 +171,12 @@ export interface DeleteRouteTableRequest {
  */
 export interface DeleteSecurityGroupRequest {
   /**
-   * <p>The ID of the security group. Required for a nondefault VPC.</p>
+   * <p>The ID of the security group.</p>
    */
   GroupId?: string;
 
   /**
-   * <p>[EC2-Classic, default VPC] The name of the security group. You can specify either the
+   * <p>[Default VPC] The name of the security group. You can specify either the
    *             security group name or the security group ID. For security groups in a nondefault VPC,
    *             you must specify the security group ID.</p>
    */
@@ -2575,7 +2575,7 @@ export interface DescribeCarrierGatewaysResult {
  */
 export interface DescribeClassicLinkInstancesRequest {
   /**
-   * <p>One or more filters.</p>
+   * <p>The filters.</p>
    *          <ul>
    *             <li>
    *                <p>
@@ -2596,10 +2596,7 @@ export interface DescribeClassicLinkInstancesRequest {
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>vpc-id</code> - The ID of the VPC to which the instance is
-   * 					linked.</p>
-   *                <p>
-   *                   <code>vpc-id</code> - The ID of the VPC that the instance is linked to.</p>
+   *                   <code>vpc-id</code> - The ID of the VPC to which the instance is linked.</p>
    *             </li>
    *          </ul>
    */
@@ -2613,7 +2610,7 @@ export interface DescribeClassicLinkInstancesRequest {
   DryRun?: boolean;
 
   /**
-   * <p>One or more instance IDs. Must be instances linked to a VPC through ClassicLink.</p>
+   * <p>The instance IDs. Must be instances linked to a VPC through ClassicLink.</p>
    */
   InstanceIds?: string[];
 
@@ -2634,13 +2631,13 @@ export interface DescribeClassicLinkInstancesRequest {
 /**
  * @public
  * <note>
- *             <p>We are retiring EC2-Classic. We recommend that you migrate from EC2-Classic to a VPC. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/vpc-migrate.html">Migrate from EC2-Classic to a VPC</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
+ *             <p>Deprecated.</p>
  *          </note>
  *          <p>Describes a linked EC2-Classic instance.</p>
  */
 export interface ClassicLinkInstance {
   /**
-   * <p>A list of security groups.</p>
+   * <p>The security groups.</p>
    */
   Groups?: GroupIdentifier[];
 
@@ -3897,7 +3894,7 @@ export interface DescribeDhcpOptionsRequest {
   DhcpOptionsIds?: string[];
 
   /**
-   * <p>One or more filters.</p>
+   * <p>The filters.</p>
    *          <ul>
    *             <li>
    *                <p>
@@ -3975,7 +3972,7 @@ export interface DescribeEgressOnlyInternetGatewaysRequest {
   DryRun?: boolean;
 
   /**
-   * <p>One or more egress-only internet gateway IDs.</p>
+   * <p>The IDs of the egress-only internet gateways.</p>
    */
   EgressOnlyInternetGatewayIds?: string[];
 
@@ -3992,7 +3989,7 @@ export interface DescribeEgressOnlyInternetGatewaysRequest {
   NextToken?: string;
 
   /**
-   * <p>One or more filters.</p>
+   * <p>The filters.</p>
    *          <ul>
    *             <li>
    *                <p>
@@ -7114,8 +7111,8 @@ export interface DescribeImagesRequest {
    *          <ul>
    *             <li>
    *                <p>
-   *                   <code>architecture</code> - The image architecture (<code>i386</code> |
-   *             <code>x86_64</code> | <code>arm64</code>).</p>
+   *                   <code>architecture</code> - The image architecture (<code>i386</code> | <code>x86_64</code> |
+   *           <code>arm64</code> | <code>x86_64_mac</code> | <code>arm64_mac</code>).</p>
    *             </li>
    *             <li>
    *                <p>

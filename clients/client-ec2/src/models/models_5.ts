@@ -1060,7 +1060,7 @@ export interface DescribeVpcAttributeResult {
  */
 export interface DescribeVpcClassicLinkRequest {
   /**
-   * <p>One or more filters.</p>
+   * <p>The filters.</p>
    *          <ul>
    *             <li>
    *                <p>
@@ -1088,7 +1088,7 @@ export interface DescribeVpcClassicLinkRequest {
   DryRun?: boolean;
 
   /**
-   * <p>One or more VPCs for which you want to describe the ClassicLink status.</p>
+   * <p>The VPCs for which you want to describe the ClassicLink status.</p>
    */
   VpcIds?: string[];
 }
@@ -1096,7 +1096,7 @@ export interface DescribeVpcClassicLinkRequest {
 /**
  * @public
  * <note>
- *             <p>We are retiring EC2-Classic. We recommend that you migrate from EC2-Classic to a VPC. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/vpc-migrate.html">Migrate from EC2-Classic to a VPC</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
+ *             <p>Deprecated.</p>
  *          </note>
  *          <p>Describes whether a VPC is enabled for ClassicLink.</p>
  */
@@ -1122,7 +1122,7 @@ export interface VpcClassicLink {
  */
 export interface DescribeVpcClassicLinkResult {
   /**
-   * <p>The ClassicLink status of one or more VPCs.</p>
+   * <p>The ClassicLink status of the VPCs.</p>
    */
   Vpcs?: VpcClassicLink[];
 }
@@ -1144,14 +1144,17 @@ export interface DescribeVpcClassicLinkDnsSupportRequest {
   NextToken?: string;
 
   /**
-   * <p>One or more VPC IDs.</p>
+   * <p>The IDs of the VPCs.</p>
    */
   VpcIds?: string[];
 }
 
 /**
  * @public
- * <p>Describes the ClassicLink DNS support status of a VPC.</p>
+ * <note>
+ *             <p>Deprecated.</p>
+ *          </note>
+ *          <p>Describes the ClassicLink DNS support status of a VPC.</p>
  */
 export interface ClassicLinkDnsSupport {
   /**
@@ -1799,7 +1802,7 @@ export interface DescribeVpcEndpointServicesResult {
  */
 export interface DescribeVpcPeeringConnectionsRequest {
   /**
-   * <p>One or more filters.</p>
+   * <p>The filters.</p>
    *          <ul>
    *             <li>
    *                <p>
@@ -1872,7 +1875,7 @@ export interface DescribeVpcPeeringConnectionsRequest {
   DryRun?: boolean;
 
   /**
-   * <p>One or more VPC peering connection IDs.</p>
+   * <p>The IDs of the VPC peering connections.</p>
    *          <p>Default: Describes all your VPC peering connections.</p>
    */
   VpcPeeringConnectionIds?: string[];
@@ -1910,7 +1913,7 @@ export interface DescribeVpcPeeringConnectionsResult {
  */
 export interface DescribeVpcsRequest {
   /**
-   * <p>One or more filters.</p>
+   * <p>The filters.</p>
    *          <ul>
    *             <li>
    *                <p>
@@ -1987,7 +1990,7 @@ export interface DescribeVpcsRequest {
   Filters?: Filter[];
 
   /**
-   * <p>One or more VPC IDs.</p>
+   * <p>The IDs of the VPCs.</p>
    *          <p>Default: Describes all your VPCs.</p>
    */
   VpcIds?: string[];
@@ -3160,7 +3163,7 @@ export interface DisassociateIpamResourceDiscoveryResult {
  */
 export interface DisassociateNatGatewayAddressRequest {
   /**
-   * <p>The NAT gateway ID.</p>
+   * <p>The ID of the NAT gateway.</p>
    */
   NatGatewayId: string | undefined;
 
@@ -3187,7 +3190,7 @@ export interface DisassociateNatGatewayAddressRequest {
  */
 export interface DisassociateNatGatewayAddressResult {
   /**
-   * <p>The NAT gateway ID.</p>
+   * <p>The ID of the NAT gateway.</p>
    */
   NatGatewayId?: string;
 

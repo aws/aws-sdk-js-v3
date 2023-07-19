@@ -37,9 +37,9 @@ export interface CreateInstanceExportTaskCommandOutput extends CreateInstanceExp
 /**
  * @public
  * <p>Exports a running or stopped instance to an Amazon S3 bucket.</p>
- *          <p>For information about the supported operating systems, image formats, and known limitations
- *    for the types of instances you can export, see <a href="https://docs.aws.amazon.com/vm-import/latest/userguide/vmexport.html">Exporting an instance as a VM Using VM Import/Export</a>
- *    in the <i>VM Import/Export User Guide</i>.</p>
+ *          <p>For information about the prerequisites for your Amazon S3 bucket, supported operating systems,
+ *    image formats, and known limitations for the types of instances you can export, see <a href="https://docs.aws.amazon.com/vm-import/latest/userguide/vmexport.html">Exporting an instance as a VM Using VM
+ *     Import/Export</a> in the <i>VM Import/Export User Guide</i>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

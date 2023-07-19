@@ -38,7 +38,8 @@ export interface CreateInternetGatewayCommandOutput extends CreateInternetGatewa
  * @public
  * <p>Creates an internet gateway for use with a VPC. After creating the internet gateway,
  * 			you attach it to a VPC using <a>AttachInternetGateway</a>.</p>
- *          <p>For more information about your VPC and internet gateway, see the <a href="https://docs.aws.amazon.com/vpc/latest/userguide/">Amazon Virtual Private Cloud User Guide</a>.</p>
+ *          <p>For more information, see <a href="https://docs.aws.amazon.com/vpc/latest/userguide/VPC_Internet_Gateway.html">Internet gateways</a> in the
+ *            <i>Amazon VPC User Guide</i>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

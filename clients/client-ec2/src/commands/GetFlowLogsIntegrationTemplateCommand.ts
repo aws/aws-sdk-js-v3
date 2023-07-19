@@ -59,6 +59,11 @@ export interface GetFlowLogsIntegrationTemplateCommandOutput
  *                <p>Create a set of named queries in Athena that you can use to get started quickly</p>
  *             </li>
  *          </ul>
+ *          <note>
+ *             <p>
+ *                <code>GetFlowLogsIntegrationTemplate</code> does not support integration between
+ *                     Amazon Web Services Transit Gateway Flow Logs and Amazon Athena.</p>
+ *          </note>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

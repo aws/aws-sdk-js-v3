@@ -37,8 +37,8 @@ export interface DescribeNetworkAclsCommandOutput extends DescribeNetworkAclsRes
 /**
  * @public
  * <p>Describes one or more of your network ACLs.</p>
- *          <p>For more information, see <a href="https://docs.aws.amazon.com/vpc/latest/userguide/VPC_ACLs.html">Network ACLs</a> in the
- * 				<i>Amazon Virtual Private Cloud User Guide</i>.</p>
+ *          <p>For more information, see <a href="https://docs.aws.amazon.com/vpc/latest/userguide/vpc-network-acls.html">Network ACLs</a> in the
+ * 				<i>Amazon VPC User Guide</i>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

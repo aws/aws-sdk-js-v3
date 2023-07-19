@@ -37,15 +37,6 @@ export interface DescribeSecurityGroupsCommandOutput extends DescribeSecurityGro
 /**
  * @public
  * <p>Describes the specified security groups or all of your security groups.</p>
- *          <p>A security group is for use with instances either in the EC2-Classic platform
- * 				or in a specific VPC. For more information, see
- * 				<a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-network-security.html">Amazon EC2 security groups</a> in
- * 				the <i>Amazon Elastic Compute Cloud User Guide</i> and
- * 				<a href="https://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_SecurityGroups.html">Security groups for your VPC</a> in the
- * 				<i>Amazon Virtual Private Cloud User Guide</i>.</p>
- *          <note>
- *             <p>We are retiring EC2-Classic. We recommend that you migrate from EC2-Classic to a VPC. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/vpc-migrate.html">Migrate from EC2-Classic to a VPC</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
- *          </note>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

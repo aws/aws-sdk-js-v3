@@ -42,13 +42,13 @@ export interface DescribeVpcClassicLinkDnsSupportCommandOutput
 /**
  * @public
  * <note>
- *             <p>We are retiring EC2-Classic. We recommend that you migrate from EC2-Classic to a VPC. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/vpc-migrate.html">Migrate from EC2-Classic to a VPC</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
+ *             <p>This action is deprecated.</p>
  *          </note>
  *          <p>Describes the ClassicLink DNS support status of one or more VPCs. If enabled, the DNS
  *             hostname of a linked EC2-Classic instance resolves to its private IP address when
  *             addressed from an instance in the VPC to which it's linked. Similarly, the DNS hostname
  *             of an instance in a VPC resolves to its private IP address when addressed from a linked
- *             EC2-Classic instance. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/vpc-classiclink.html">ClassicLink</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
+ *             EC2-Classic instance.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

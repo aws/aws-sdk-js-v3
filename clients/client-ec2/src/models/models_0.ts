@@ -957,24 +957,22 @@ export interface Ipv6CidrBlock {
 
 /**
  * @public
- * <note>
- *             <p>We are retiring EC2-Classic. We recommend that you migrate from EC2-Classic to a VPC. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/vpc-migrate.html">Migrate from EC2-Classic to a VPC</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
- *          </note>
- *          <p>Describes the VPC peering connection options.</p>
+ * <p>Describes the VPC peering connection options.</p>
  */
 export interface VpcPeeringConnectionOptionsDescription {
   /**
-   * <p>Indicates whether a local VPC can resolve public DNS hostnames to private IP addresses when queried from instances in a peer VPC.</p>
+   * <p>Indicates whether a local VPC can resolve public DNS hostnames to private IP addresses
+   *         when queried from instances in a peer VPC.</p>
    */
   AllowDnsResolutionFromRemoteVpc?: boolean;
 
   /**
-   * <p>Indicates whether a local ClassicLink connection can communicate with the peer VPC over the VPC peering connection.</p>
+   * <p>Deprecated.</p>
    */
   AllowEgressFromLocalClassicLinkToRemoteVpc?: boolean;
 
   /**
-   * <p>Indicates whether a local VPC can communicate with a ClassicLink connection in the peer VPC over the VPC peering connection.</p>
+   * <p>Deprecated.</p>
    */
   AllowEgressFromLocalVpcToRemoteClassicLink?: boolean;
 }
@@ -3369,7 +3367,7 @@ export interface AssignPrivateIpAddressesResult {
  */
 export interface AssignPrivateNatGatewayAddressRequest {
   /**
-   * <p>The NAT gateway ID.</p>
+   * <p>The ID of the NAT gateway.</p>
    */
   NatGatewayId: string | undefined;
 
@@ -3460,7 +3458,7 @@ export interface NatGatewayAddress {
  */
 export interface AssignPrivateNatGatewayAddressResult {
   /**
-   * <p>The NAT gateway ID.</p>
+   * <p>The ID of the NAT gateway.</p>
    */
   NatGatewayId?: string;
 
@@ -4144,7 +4142,7 @@ export interface AssociateIpamResourceDiscoveryResult {
  */
 export interface AssociateNatGatewayAddressRequest {
   /**
-   * <p>The NAT gateway ID.</p>
+   * <p>The ID of the NAT gateway.</p>
    */
   NatGatewayId: string | undefined;
 
@@ -4171,7 +4169,7 @@ export interface AssociateNatGatewayAddressRequest {
  */
 export interface AssociateNatGatewayAddressResult {
   /**
-   * <p>The NAT gateway ID.</p>
+   * <p>The ID of the NAT gateway.</p>
    */
   NatGatewayId?: string;
 
@@ -4818,17 +4816,17 @@ export interface AttachClassicLinkVpcRequest {
   DryRun?: boolean;
 
   /**
-   * <p>The ID of one or more of the VPC's security groups. You cannot specify security groups from a different VPC.</p>
+   * <p>The IDs of the security groups. You cannot specify security groups from a different VPC.</p>
    */
   Groups: string[] | undefined;
 
   /**
-   * <p>The ID of an EC2-Classic instance to link to the ClassicLink-enabled VPC.</p>
+   * <p>The ID of the EC2-Classic instance.</p>
    */
   InstanceId: string | undefined;
 
   /**
-   * <p>The ID of a ClassicLink-enabled VPC.</p>
+   * <p>The ID of the ClassicLink-enabled VPC.</p>
    */
   VpcId: string | undefined;
 }
@@ -5479,7 +5477,7 @@ export interface IpRange {
 
 /**
  * @public
- * <p>[EC2-VPC only] Describes an IPv6 range.</p>
+ * <p>Describes an IPv6 range.</p>
  */
 export interface Ipv6Range {
   /**
@@ -5517,9 +5515,6 @@ export interface PrefixListId {
 /**
  * @public
  * <p>Describes a security group and Amazon Web Services account ID pair.</p>
- *          <note>
- *             <p>We are retiring EC2-Classic. We recommend that you migrate from EC2-Classic to a VPC. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/vpc-migrate.html">Migrate from EC2-Classic to a VPC</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
- *          </note>
  */
 export interface UserIdGroupPair {
   /**
@@ -5536,9 +5531,8 @@ export interface UserIdGroupPair {
   GroupId?: string;
 
   /**
-   * <p>The name of the security group. In a request, use this parameter for a security group
-   *             in EC2-Classic or a default VPC only. For a security group in a nondefault VPC, use the
-   *             security group ID. </p>
+   * <p>[Default VPC] The name of the security group. For a security group in a nondefault VPC,
+   *          use the security group ID. </p>
    *          <p>For a referenced security group in another VPC, this value is not returned if the
    *             referenced security group is deleted.</p>
    */
@@ -5554,8 +5548,6 @@ export interface UserIdGroupPair {
    *          <p>For a referenced security group in another VPC, the account ID of the referenced
    *             security group is returned in the response. If the referenced security group is deleted,
    *             this value is not returned.</p>
-   *          <p>[EC2-Classic] Required when adding or removing rules that reference a security group
-   *             in another Amazon Web Services account.</p>
    */
   UserId?: string;
 
@@ -5585,7 +5577,7 @@ export interface IpPermission {
   /**
    * <p>The IP protocol name (<code>tcp</code>, <code>udp</code>, <code>icmp</code>, <code>icmpv6</code>)
    *         or number (see <a href="http://www.iana.org/assignments/protocol-numbers/protocol-numbers.xhtml">Protocol Numbers</a>).</p>
-   *          <p>[VPC only] Use <code>-1</code> to specify all protocols. When authorizing
+   *          <p>Use <code>-1</code> to specify all protocols. When authorizing
    *         security group rules, specifying <code>-1</code> or a protocol number other than
    *         <code>tcp</code>, <code>udp</code>, <code>icmp</code>, or <code>icmpv6</code> allows
    *         traffic on all ports, regardless of any port range you specify. For <code>tcp</code>,
@@ -5600,12 +5592,12 @@ export interface IpPermission {
   IpRanges?: IpRange[];
 
   /**
-   * <p>[VPC only] The IPv6 ranges.</p>
+   * <p>The IPv6 ranges.</p>
    */
   Ipv6Ranges?: Ipv6Range[];
 
   /**
-   * <p>[VPC only] The prefix list IDs.</p>
+   * <p>The prefix list IDs.</p>
    */
   PrefixListIds?: PrefixListId[];
 
@@ -5833,7 +5825,7 @@ export interface AuthorizeSecurityGroupIngressRequest {
   GroupId?: string;
 
   /**
-   * <p>[EC2-Classic, default VPC] The name of the security group. You must specify either the
+   * <p>[Default VPC] The name of the security group. You must specify either the
    *             security group ID or the security group name in the request. For security groups in a
    *             nondefault VPC, you must specify the security group ID.</p>
    */
@@ -5847,7 +5839,7 @@ export interface AuthorizeSecurityGroupIngressRequest {
   /**
    * <p>The IP protocol name (<code>tcp</code>, <code>udp</code>, <code>icmp</code>) or number
    *       (see <a href="http://www.iana.org/assignments/protocol-numbers/protocol-numbers.xhtml">Protocol Numbers</a>). To specify <code>icmpv6</code>, use a set of IP permissions.</p>
-   *          <p>[VPC only] Use <code>-1</code> to specify all protocols. If you specify <code>-1</code> or a
+   *          <p>Use <code>-1</code> to specify all protocols. If you specify <code>-1</code> or a
    *          protocol other than <code>tcp</code>, <code>udp</code>, or <code>icmp</code>, traffic on all ports
    *          is allowed, regardless of any ports you specify.</p>
    *          <p>Alternatively, use a set of IP permissions to specify multiple rules and a description for the rule.</p>
@@ -5855,16 +5847,16 @@ export interface AuthorizeSecurityGroupIngressRequest {
   IpProtocol?: string;
 
   /**
-   * <p>[EC2-Classic, default VPC] The name of the source security group. You can't specify this parameter
+   * <p>[Default VPC] The name of the source security group. You can't specify this parameter
    *          in combination with the following parameters: the CIDR IP address range, the start of the port range,
    *          the IP protocol, and the end of the port range. Creates rules that grant full ICMP, UDP, and TCP access.
-   *          To create a rule with a specific IP protocol and port range, use a set of IP permissions instead. For
-   *          EC2-VPC, the source security group must be in the same VPC.</p>
+   *          To create a rule with a specific IP protocol and port range, use a set of IP permissions instead.
+   *          The source security group must be in the same VPC.</p>
    */
   SourceSecurityGroupName?: string;
 
   /**
-   * <p>[nondefault VPC] The Amazon Web Services account ID for the source security group, if the source security group is
+   * <p>[Nondefault VPC] The Amazon Web Services account ID for the source security group, if the source security group is
    *          in a different account. You can't specify this parameter in combination with the following parameters:
    *          the CIDR IP address range, the IP protocol, the start of the port range, and the end of the port range.
    *          Creates rules that grant full ICMP, UDP, and TCP access. To create a rule with a specific IP protocol

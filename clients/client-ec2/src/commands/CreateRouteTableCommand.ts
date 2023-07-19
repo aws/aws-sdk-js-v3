@@ -38,7 +38,7 @@ export interface CreateRouteTableCommandOutput extends CreateRouteTableResult, _
  * @public
  * <p>Creates a route table for the specified VPC. After you create a route table, you can add routes and associate the table with a subnet.</p>
  *          <p>For more information, see <a href="https://docs.aws.amazon.com/vpc/latest/userguide/VPC_Route_Tables.html">Route tables</a> in the
- * 				<i>Amazon Virtual Private Cloud User Guide</i>.</p>
+ * 				<i>Amazon VPC User Guide</i>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
