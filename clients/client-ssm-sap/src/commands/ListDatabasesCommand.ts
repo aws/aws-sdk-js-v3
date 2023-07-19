@@ -58,7 +58,7 @@ export interface ListDatabasesCommandOutput extends ListDatabasesOutput, __Metad
  * //       ApplicationId: "STRING_VALUE",
  * //       ComponentId: "STRING_VALUE",
  * //       DatabaseId: "STRING_VALUE",
- * //       DatabaseType: "STRING_VALUE",
+ * //       DatabaseType: "SYSTEM" || "TENANT",
  * //       Arn: "STRING_VALUE",
  * //       Tags: { // TagMap
  * //         "<keys>": "STRING_VALUE",

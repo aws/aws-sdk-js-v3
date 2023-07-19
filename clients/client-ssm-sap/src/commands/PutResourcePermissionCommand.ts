@@ -44,7 +44,7 @@ export interface PutResourcePermissionCommandOutput extends PutResourcePermissio
  * // const { SsmSapClient, PutResourcePermissionCommand } = require("@aws-sdk/client-ssm-sap"); // CommonJS import
  * const client = new SsmSapClient(config);
  * const input = { // PutResourcePermissionInput
- *   ActionType: "STRING_VALUE", // required
+ *   ActionType: "RESTORE", // required
  *   SourceResourceArn: "STRING_VALUE", // required
  *   ResourceArn: "STRING_VALUE", // required
  * };

@@ -13,8 +13,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@smithy/types";
 
-import { GetApplicationInput, GetApplicationOutput } from "../models/models_0";
-import { de_GetApplicationCommand, se_GetApplicationCommand } from "../protocols/Aws_restJson1";
+import { StartApplicationRefreshInput, StartApplicationRefreshOutput } from "../models/models_0";
+import { de_StartApplicationRefreshCommand, se_StartApplicationRefreshCommand } from "../protocols/Aws_restJson1";
 import { ServiceInputTypes, ServiceOutputTypes, SsmSapClientResolvedConfig } from "../SsmSapClient";
 
 /**
@@ -24,62 +24,50 @@ export { __MetadataBearer, $Command };
 /**
  * @public
  *
- * The input for {@link GetApplicationCommand}.
+ * The input for {@link StartApplicationRefreshCommand}.
  */
-export interface GetApplicationCommandInput extends GetApplicationInput {}
+export interface StartApplicationRefreshCommandInput extends StartApplicationRefreshInput {}
 /**
  * @public
  *
- * The output of {@link GetApplicationCommand}.
+ * The output of {@link StartApplicationRefreshCommand}.
  */
-export interface GetApplicationCommandOutput extends GetApplicationOutput, __MetadataBearer {}
+export interface StartApplicationRefreshCommandOutput extends StartApplicationRefreshOutput, __MetadataBearer {}
 
 /**
  * @public
- * <p>Gets an application registered with AWS Systems Manager for SAP. It also returns the
- *          components of the application.</p>
+ * <p>Refreshes a registered application.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { SsmSapClient, GetApplicationCommand } from "@aws-sdk/client-ssm-sap"; // ES Modules import
- * // const { SsmSapClient, GetApplicationCommand } = require("@aws-sdk/client-ssm-sap"); // CommonJS import
+ * import { SsmSapClient, StartApplicationRefreshCommand } from "@aws-sdk/client-ssm-sap"; // ES Modules import
+ * // const { SsmSapClient, StartApplicationRefreshCommand } = require("@aws-sdk/client-ssm-sap"); // CommonJS import
  * const client = new SsmSapClient(config);
- * const input = { // GetApplicationInput
- *   ApplicationId: "STRING_VALUE",
- *   ApplicationArn: "STRING_VALUE",
- *   AppRegistryArn: "STRING_VALUE",
+ * const input = { // StartApplicationRefreshInput
+ *   ApplicationId: "STRING_VALUE", // required
  * };
- * const command = new GetApplicationCommand(input);
+ * const command = new StartApplicationRefreshCommand(input);
  * const response = await client.send(command);
- * // { // GetApplicationOutput
- * //   Application: { // Application
- * //     Id: "STRING_VALUE",
- * //     Type: "HANA",
- * //     Arn: "STRING_VALUE",
- * //     AppRegistryArn: "STRING_VALUE",
- * //     Status: "ACTIVATED" || "STARTING" || "STOPPED" || "STOPPING" || "FAILED" || "REGISTERING" || "DELETING" || "UNKNOWN",
- * //     DiscoveryStatus: "SUCCESS" || "REGISTRATION_FAILED" || "REFRESH_FAILED" || "REGISTERING" || "DELETING",
- * //     Components: [ // ComponentIdList
- * //       "STRING_VALUE",
- * //     ],
- * //     LastUpdated: new Date("TIMESTAMP"),
- * //     StatusMessage: "STRING_VALUE",
- * //   },
- * //   Tags: { // TagMap
- * //     "<keys>": "STRING_VALUE",
- * //   },
+ * // { // StartApplicationRefreshOutput
+ * //   OperationId: "STRING_VALUE",
  * // };
  *
  * ```
  *
- * @param GetApplicationCommandInput - {@link GetApplicationCommandInput}
- * @returns {@link GetApplicationCommandOutput}
- * @see {@link GetApplicationCommandInput} for command's `input` shape.
- * @see {@link GetApplicationCommandOutput} for command's `response` shape.
+ * @param StartApplicationRefreshCommandInput - {@link StartApplicationRefreshCommandInput}
+ * @returns {@link StartApplicationRefreshCommandOutput}
+ * @see {@link StartApplicationRefreshCommandInput} for command's `input` shape.
+ * @see {@link StartApplicationRefreshCommandOutput} for command's `response` shape.
  * @see {@link SsmSapClientResolvedConfig | config} for SsmSapClient's `config` shape.
+ *
+ * @throws {@link ConflictException} (client fault)
+ *  <p>A conflict has occurred.</p>
  *
  * @throws {@link InternalServerException} (server fault)
  *  <p>An internal error has occurred.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>The resource is not available.</p>
  *
  * @throws {@link ValidationException} (client fault)
  *  <p>The input fails to satisfy the constraints specified by an AWS service. </p>
@@ -88,9 +76,9 @@ export interface GetApplicationCommandOutput extends GetApplicationOutput, __Met
  * <p>Base exception class for all service exceptions from SsmSap service.</p>
  *
  */
-export class GetApplicationCommand extends $Command<
-  GetApplicationCommandInput,
-  GetApplicationCommandOutput,
+export class StartApplicationRefreshCommand extends $Command<
+  StartApplicationRefreshCommandInput,
+  StartApplicationRefreshCommandOutput,
   SsmSapClientResolvedConfig
 > {
   // Start section: command_properties
@@ -108,7 +96,7 @@ export class GetApplicationCommand extends $Command<
   /**
    * @public
    */
-  constructor(readonly input: GetApplicationCommandInput) {
+  constructor(readonly input: StartApplicationRefreshCommandInput) {
     // Start section: command_constructor
     super();
     // End section: command_constructor
@@ -121,17 +109,17 @@ export class GetApplicationCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: SsmSapClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<GetApplicationCommandInput, GetApplicationCommandOutput> {
+  ): Handler<StartApplicationRefreshCommandInput, StartApplicationRefreshCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
     this.middlewareStack.use(
-      getEndpointPlugin(configuration, GetApplicationCommand.getEndpointParameterInstructions())
+      getEndpointPlugin(configuration, StartApplicationRefreshCommand.getEndpointParameterInstructions())
     );
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
     const clientName = "SsmSapClient";
-    const commandName = "GetApplicationCommand";
+    const commandName = "StartApplicationRefreshCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
       clientName,
@@ -150,15 +138,15 @@ export class GetApplicationCommand extends $Command<
   /**
    * @internal
    */
-  private serialize(input: GetApplicationCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return se_GetApplicationCommand(input, context);
+  private serialize(input: StartApplicationRefreshCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
+    return se_StartApplicationRefreshCommand(input, context);
   }
 
   /**
    * @internal
    */
-  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetApplicationCommandOutput> {
-    return de_GetApplicationCommand(output, context);
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<StartApplicationRefreshCommandOutput> {
+    return de_StartApplicationRefreshCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -51,7 +51,7 @@ export interface ListOperationsCommandOutput extends ListOperationsOutput, __Met
  *     { // Filter
  *       Name: "STRING_VALUE", // required
  *       Value: "STRING_VALUE", // required
- *       Operator: "STRING_VALUE", // required
+ *       Operator: "Equals" || "GreaterThanOrEquals" || "LessThanOrEquals", // required
  *     },
  *   ],
  * };
@@ -62,7 +62,7 @@ export interface ListOperationsCommandOutput extends ListOperationsOutput, __Met
  * //     { // Operation
  * //       Id: "STRING_VALUE",
  * //       Type: "STRING_VALUE",
- * //       Status: "STRING_VALUE",
+ * //       Status: "INPROGRESS" || "SUCCESS" || "ERROR",
  * //       StatusMessage: "STRING_VALUE",
  * //       Properties: { // OperationProperties
  * //         "<keys>": "STRING_VALUE",

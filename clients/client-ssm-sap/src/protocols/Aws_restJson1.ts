@@ -54,6 +54,10 @@ import {
   RegisterApplicationCommandInput,
   RegisterApplicationCommandOutput,
 } from "../commands/RegisterApplicationCommand";
+import {
+  StartApplicationRefreshCommandInput,
+  StartApplicationRefreshCommandOutput,
+} from "../commands/StartApplicationRefreshCommand";
 import { TagResourceCommandInput, TagResourceCommandOutput } from "../commands/TagResourceCommand";
 import { UntagResourceCommandInput, UntagResourceCommandOutput } from "../commands/UntagResourceCommand";
 import {
@@ -63,6 +67,7 @@ import {
 import {
   Application,
   ApplicationCredential,
+  BackintConfig,
   Component,
   ConflictException,
   Database,
@@ -505,6 +510,36 @@ export const se_RegisterApplicationCommand = async (
 };
 
 /**
+ * serializeAws_restJson1StartApplicationRefreshCommand
+ */
+export const se_StartApplicationRefreshCommand = async (
+  input: StartApplicationRefreshCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  const resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/start-application-refresh";
+  let body: any;
+  body = JSON.stringify(
+    take(input, {
+      ApplicationId: [],
+    })
+  );
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "POST",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
+/**
  * serializeAws_restJson1TagResourceCommand
  */
 export const se_TagResourceCommand = async (
@@ -581,6 +616,7 @@ export const se_UpdateApplicationSettingsCommand = async (
   body = JSON.stringify(
     take(input, {
       ApplicationId: [],
+      Backint: (_) => _json(_),
       CredentialsToAddOrUpdate: (_) => _json(_),
       CredentialsToRemove: (_) => _json(_),
     })
@@ -762,6 +798,7 @@ export const de_GetComponentCommand = async (
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   const doc = take(data, {
     Component: (_) => de_Component(_, context),
+    Tags: _json,
   });
   Object.assign(contents, doc);
   return contents;
@@ -1324,6 +1361,62 @@ const de_RegisterApplicationCommandError = async (
 };
 
 /**
+ * deserializeAws_restJson1StartApplicationRefreshCommand
+ */
+export const de_StartApplicationRefreshCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<StartApplicationRefreshCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_StartApplicationRefreshCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    OperationId: __expectString,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1StartApplicationRefreshCommandError
+ */
+const de_StartApplicationRefreshCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<StartApplicationRefreshCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "ConflictException":
+    case "com.amazonaws.ssmsap#ConflictException":
+      throw await de_ConflictExceptionRes(parsedOutput, context);
+    case "InternalServerException":
+    case "com.amazonaws.ssmsap#InternalServerException":
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.ssmsap#ResourceNotFoundException":
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
+    case "ValidationException":
+    case "com.amazonaws.ssmsap#ValidationException":
+      throw await de_ValidationExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
  * deserializeAws_restJson1TagResourceCommand
  */
 export const de_TagResourceCommand = async (
@@ -1456,6 +1549,9 @@ const de_UpdateApplicationSettingsCommandError = async (
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
+    case "ConflictException":
+    case "com.amazonaws.ssmsap#ConflictException":
+      throw await de_ConflictExceptionRes(parsedOutput, context);
     case "InternalServerException":
     case "com.amazonaws.ssmsap#InternalServerException":
       throw await de_InternalServerExceptionRes(parsedOutput, context);
@@ -1554,6 +1650,8 @@ const de_ValidationExceptionRes = async (parsedOutput: any, context: __SerdeCont
 
 // se_ApplicationCredentialList omitted.
 
+// se_BackintConfig omitted.
+
 // se_Filter omitted.
 
 // se_FilterList omitted.
@@ -1570,6 +1668,7 @@ const de_Application = (output: any, context: __SerdeContext): Application => {
     AppRegistryArn: __expectString,
     Arn: __expectString,
     Components: _json,
+    DiscoveryStatus: __expectString,
     Id: __expectString,
     LastUpdated: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
     Status: __expectString,
@@ -1586,18 +1685,28 @@ const de_Application = (output: any, context: __SerdeContext): Application => {
 
 // de_ApplicationSummaryList omitted.
 
+// de_AssociatedHost omitted.
+
 /**
  * deserializeAws_restJson1Component
  */
 const de_Component = (output: any, context: __SerdeContext): Component => {
   return take(output, {
     ApplicationId: __expectString,
+    Arn: __expectString,
+    AssociatedHost: _json,
+    ChildComponents: _json,
     ComponentId: __expectString,
     ComponentType: __expectString,
     Databases: _json,
+    HdbVersion: __expectString,
     Hosts: _json,
     LastUpdated: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    ParentComponent: __expectString,
     PrimaryHost: __expectString,
+    Resilience: _json,
+    SapHostname: __expectString,
+    SapKernelVersion: __expectString,
     Status: __expectString,
   }) as any;
 };
@@ -1683,6 +1792,8 @@ const de_OperationProperties = (output: any, context: __SerdeContext): Record<st
     return acc;
   }, {});
 };
+
+// de_Resilience omitted.
 
 // de_TagMap omitted.
 

@@ -7,6 +7,23 @@ import { SsmSapServiceException as __BaseException } from "./SsmSapServiceExcept
  * @public
  * @enum
  */
+export const ApplicationDiscoveryStatus = {
+  DELETING: "DELETING",
+  REFRESH_FAILED: "REFRESH_FAILED",
+  REGISTERING: "REGISTERING",
+  REGISTRATION_FAILED: "REGISTRATION_FAILED",
+  SUCCESS: "SUCCESS",
+} as const;
+
+/**
+ * @public
+ */
+export type ApplicationDiscoveryStatus = (typeof ApplicationDiscoveryStatus)[keyof typeof ApplicationDiscoveryStatus];
+
+/**
+ * @public
+ * @enum
+ */
 export const ApplicationStatus = {
   ACTIVATED: "ACTIVATED",
   DELETING: "DELETING",
@@ -65,6 +82,11 @@ export interface Application {
    * <p>The status of the application.</p>
    */
   Status?: ApplicationStatus | string;
+
+  /**
+   * <p>The latest discovery result for the application.</p>
+   */
+  DiscoveryStatus?: ApplicationDiscoveryStatus | string;
 
   /**
    * <p>The components of the application.</p>
@@ -146,10 +168,79 @@ export interface ApplicationSummary {
 
 /**
  * @public
+ * <p>Describes the properties of the associated host.</p>
+ */
+export interface AssociatedHost {
+  /**
+   * <p>The name of the host.</p>
+   */
+  Hostname?: string;
+
+  /**
+   * <p>The ID of the Amazon EC2 instance.</p>
+   */
+  Ec2InstanceId?: string;
+
+  /**
+   * <p>The version of the operating system.</p>
+   */
+  OsVersion?: string;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const BackintMode = {
+  AWSBackup: "AWSBackup",
+} as const;
+
+/**
+ * @public
+ */
+export type BackintMode = (typeof BackintMode)[keyof typeof BackintMode];
+
+/**
+ * @public
+ * <p>Configuration parameters for AWS Backint Agent for SAP HANA. You can backup your SAP
+ *          HANA database with AWS Backup or Amazon S3.</p>
+ */
+export interface BackintConfig {
+  /**
+   * <p>AWS service for your database backup.</p>
+   */
+  BackintMode: BackintMode | string | undefined;
+
+  /**
+   * <p/>
+   */
+  EnsureNoBackupInProcess: boolean | undefined;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const ClusterStatus = {
+  MAINTENANCE: "MAINTENANCE",
+  NONE: "NONE",
+  OFFLINE: "OFFLINE",
+  ONLINE: "ONLINE",
+  STANDBY: "STANDBY",
+} as const;
+
+/**
+ * @public
+ */
+export type ClusterStatus = (typeof ClusterStatus)[keyof typeof ClusterStatus];
+
+/**
+ * @public
  * @enum
  */
 export const ComponentType = {
   HANA: "HANA",
+  HANA_NODE: "HANA_NODE",
 } as const;
 
 /**
@@ -184,19 +275,89 @@ export interface Host {
   HostName?: string;
 
   /**
-   * <p>The role of the Dedicated Host.</p>
-   */
-  HostRole?: HostRole | string;
-
-  /**
    * <p>The IP address of the Dedicated Host. </p>
    */
   HostIp?: string;
 
   /**
+   * <p>The ID of Amazon EC2 instance.</p>
+   */
+  EC2InstanceId?: string;
+
+  /**
    * <p>The instance ID of the instance on the Dedicated Host.</p>
    */
   InstanceId?: string;
+
+  /**
+   * <p>The role of the Dedicated Host.</p>
+   */
+  HostRole?: HostRole | string;
+
+  /**
+   * <p>The version of the operating system.</p>
+   */
+  OsVersion?: string;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const OperationMode = {
+  DELTA_DATASHIPPING: "DELTA_DATASHIPPING",
+  LOGREPLAY: "LOGREPLAY",
+  LOGREPLAY_READACCESS: "LOGREPLAY_READACCESS",
+  NONE: "NONE",
+  PRIMARY: "PRIMARY",
+} as const;
+
+/**
+ * @public
+ */
+export type OperationMode = (typeof OperationMode)[keyof typeof OperationMode];
+
+/**
+ * @public
+ * @enum
+ */
+export const ReplicationMode = {
+  ASYNC: "ASYNC",
+  NONE: "NONE",
+  PRIMARY: "PRIMARY",
+  SYNC: "SYNC",
+  SYNCMEM: "SYNCMEM",
+} as const;
+
+/**
+ * @public
+ */
+export type ReplicationMode = (typeof ReplicationMode)[keyof typeof ReplicationMode];
+
+/**
+ * @public
+ * <p>Details of the SAP HANA system replication for the instance.</p>
+ */
+export interface Resilience {
+  /**
+   * <p>The tier of the component.</p>
+   */
+  HsrTier?: string;
+
+  /**
+   * <p>The replication mode of the component.</p>
+   */
+  HsrReplicationMode?: ReplicationMode | string;
+
+  /**
+   * <p>The operation mode of the component.</p>
+   */
+  HsrOperationMode?: OperationMode | string;
+
+  /**
+   * <p>The cluster status of the component.</p>
+   */
+  ClusterStatus?: ClusterStatus | string;
 }
 
 /**
@@ -205,6 +366,12 @@ export interface Host {
  */
 export const ComponentStatus = {
   ACTIVATED: "ACTIVATED",
+  RUNNING: "RUNNING",
+  RUNNING_WITH_ERROR: "RUNNING_WITH_ERROR",
+  STARTING: "STARTING",
+  STOPPED: "STOPPED",
+  STOPPING: "STOPPING",
+  UNDEFINED: "UNDEFINED",
 } as const;
 
 /**
@@ -223,6 +390,20 @@ export interface Component {
   ComponentId?: string;
 
   /**
+   * <p>The parent component of a highly available environment. For example, in a highly
+   *          available SAP on AWS workload, the parent component consists of the entire setup,
+   *          including the child components.</p>
+   */
+  ParentComponent?: string;
+
+  /**
+   * <p>The child components of a highly available environment. For example, in a highly
+   *          available SAP on AWS workload, the child component consists of the primary and secondar
+   *          instances.</p>
+   */
+  ChildComponents?: string[];
+
+  /**
    * <p>The ID of the application.</p>
    */
   ApplicationId?: string;
@@ -238,16 +419,45 @@ export interface Component {
   Status?: ComponentStatus | string;
 
   /**
+   * <p>The hostname of the component.</p>
+   */
+  SapHostname?: string;
+
+  /**
+   * <p>The kernel version of the component.</p>
+   */
+  SapKernelVersion?: string;
+
+  /**
+   * <p>The SAP HANA version of the component.</p>
+   */
+  HdbVersion?: string;
+
+  /**
+   * <p>Details of the SAP HANA system replication for the component.</p>
+   */
+  Resilience?: Resilience;
+
+  /**
+   * <p>The associated host of the component.</p>
+   */
+  AssociatedHost?: AssociatedHost;
+
+  /**
    * <p>The SAP HANA databases of the component.</p>
    */
   Databases?: string[];
 
   /**
+   * @deprecated
+   *
    * <p>The hosts of the component.</p>
    */
   Hosts?: Host[];
 
   /**
+   * @deprecated
+   *
    * <p>The primary host of the component.</p>
    */
   PrimaryHost?: string;
@@ -256,6 +466,11 @@ export interface Component {
    * <p>The time at which the component was last updated.</p>
    */
   LastUpdated?: Date;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the component.</p>
+   */
+  Arn?: string;
 }
 
 /**
@@ -282,6 +497,11 @@ export interface ComponentSummary {
    * <p>The tags of the component.</p>
    */
   Tags?: Record<string, string>;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the component summary.</p>
+   */
+  Arn?: string;
 }
 
 /**
@@ -325,6 +545,7 @@ export type DatabaseType = (typeof DatabaseType)[keyof typeof DatabaseType];
  * @enum
  */
 export const DatabaseStatus = {
+  ERROR: "ERROR",
   RUNNING: "RUNNING",
   STARTING: "STARTING",
   STOPPED: "STOPPED",
@@ -656,6 +877,11 @@ export interface GetComponentOutput {
    * <p>The component of an application registered with AWS Systems Manager for SAP.</p>
    */
   Component?: Component;
+
+  /**
+   * <p>The tags of a component.</p>
+   */
+  Tags?: Record<string, string>;
 }
 
 /**
@@ -928,8 +1154,8 @@ export interface ListDatabasesOutput {
   Databases?: DatabaseSummary[];
 
   /**
-   * <p>The token to use to retrieve the next page of results. This value is null when there are no more
-   *          results to return.</p>
+   * <p>The token to use to retrieve the next page of results. This value is null when there are
+   *          no more results to return.</p>
    */
   NextToken?: string;
 }
@@ -944,15 +1170,14 @@ export interface ListOperationsInput {
   ApplicationId: string | undefined;
 
   /**
-   * <p>The maximum number of results to return with a single call. To retrieve the remaining results, make
-   *          another call with the returned nextToken value.
-   *          If you do not specify a value for MaxResults, the request returns 50 items per page by default.</p>
+   * <p>The maximum number of results to return with a single call. To retrieve the remaining
+   *          results, make another call with the returned nextToken value. If you do not specify a value
+   *          for MaxResults, the request returns 50 items per page by default.</p>
    */
   MaxResults?: number;
 
   /**
-   * <p>The token for the next page of results.
-   *       </p>
+   * <p>The token for the next page of results. </p>
    */
   NextToken?: string;
 
@@ -972,8 +1197,8 @@ export interface ListOperationsOutput {
   Operations?: Operation[];
 
   /**
-   * <p>The token to use to retrieve the next page of results. This value is null when there are no more
-   *          results to return.</p>
+   * <p>The token to use to retrieve the next page of results. This value is null when there are
+   *          no more results to return.</p>
    */
   NextToken?: string;
 }
@@ -1086,6 +1311,26 @@ export interface RegisterApplicationOutput {
 /**
  * @public
  */
+export interface StartApplicationRefreshInput {
+  /**
+   * <p>The ID of the application.</p>
+   */
+  ApplicationId: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface StartApplicationRefreshOutput {
+  /**
+   * <p>The ID of the operation.</p>
+   */
+  OperationId?: string;
+}
+
+/**
+ * @public
+ */
 export interface TagResourceRequest {
   /**
    * <p>The Amazon Resource Name (ARN) of the resource.</p>
@@ -1142,6 +1387,11 @@ export interface UpdateApplicationSettingsInput {
    * <p>The credentials to be removed.</p>
    */
   CredentialsToRemove?: ApplicationCredential[];
+
+  /**
+   * <p>Installation of AWS Backint Agent for SAP HANA.</p>
+   */
+  Backint?: BackintConfig;
 }
 
 /**

@@ -59,15 +59,15 @@ export interface GetDatabaseCommandOutput extends GetDatabaseOutput, __MetadataB
  * //     Credentials: [ // ApplicationCredentialList
  * //       { // ApplicationCredential
  * //         DatabaseName: "STRING_VALUE", // required
- * //         CredentialType: "STRING_VALUE", // required
+ * //         CredentialType: "ADMIN", // required
  * //         SecretId: "STRING_VALUE", // required
  * //       },
  * //     ],
  * //     DatabaseId: "STRING_VALUE",
  * //     DatabaseName: "STRING_VALUE",
- * //     DatabaseType: "STRING_VALUE",
+ * //     DatabaseType: "SYSTEM" || "TENANT",
  * //     Arn: "STRING_VALUE",
- * //     Status: "STRING_VALUE",
+ * //     Status: "RUNNING" || "STARTING" || "STOPPED" || "WARNING" || "UNKNOWN" || "ERROR",
  * //     PrimaryHost: "STRING_VALUE",
  * //     SQLPort: Number("int"),
  * //     LastUpdated: new Date("TIMESTAMP"),

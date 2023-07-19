@@ -68,6 +68,11 @@ import {
   RegisterApplicationCommandInput,
   RegisterApplicationCommandOutput,
 } from "./commands/RegisterApplicationCommand";
+import {
+  StartApplicationRefreshCommand,
+  StartApplicationRefreshCommandInput,
+  StartApplicationRefreshCommandOutput,
+} from "./commands/StartApplicationRefreshCommand";
 import { TagResourceCommand, TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
 import {
   UntagResourceCommand,
@@ -96,6 +101,7 @@ const commands = {
   ListTagsForResourceCommand,
   PutResourcePermissionCommand,
   RegisterApplicationCommand,
+  StartApplicationRefreshCommand,
   TagResourceCommand,
   UntagResourceCommand,
   UpdateApplicationSettingsCommand,
@@ -305,6 +311,23 @@ export interface SsmSap {
     args: RegisterApplicationCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: RegisterApplicationCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link StartApplicationRefreshCommand}
+   */
+  startApplicationRefresh(
+    args: StartApplicationRefreshCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<StartApplicationRefreshCommandOutput>;
+  startApplicationRefresh(
+    args: StartApplicationRefreshCommandInput,
+    cb: (err: any, data?: StartApplicationRefreshCommandOutput) => void
+  ): void;
+  startApplicationRefresh(
+    args: StartApplicationRefreshCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: StartApplicationRefreshCommandOutput) => void
   ): void;
 
   /**

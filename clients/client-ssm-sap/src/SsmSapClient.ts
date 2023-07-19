@@ -81,6 +81,10 @@ import {
   RegisterApplicationCommandInput,
   RegisterApplicationCommandOutput,
 } from "./commands/RegisterApplicationCommand";
+import {
+  StartApplicationRefreshCommandInput,
+  StartApplicationRefreshCommandOutput,
+} from "./commands/StartApplicationRefreshCommand";
 import { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
 import { UntagResourceCommandInput, UntagResourceCommandOutput } from "./commands/UntagResourceCommand";
 import {
@@ -115,6 +119,7 @@ export type ServiceInputTypes =
   | ListTagsForResourceCommandInput
   | PutResourcePermissionCommandInput
   | RegisterApplicationCommandInput
+  | StartApplicationRefreshCommandInput
   | TagResourceCommandInput
   | UntagResourceCommandInput
   | UpdateApplicationSettingsCommandInput;
@@ -137,6 +142,7 @@ export type ServiceOutputTypes =
   | ListTagsForResourceCommandOutput
   | PutResourcePermissionCommandOutput
   | RegisterApplicationCommandOutput
+  | StartApplicationRefreshCommandOutput
   | TagResourceCommandOutput
   | UntagResourceCommandOutput
   | UpdateApplicationSettingsCommandOutput;

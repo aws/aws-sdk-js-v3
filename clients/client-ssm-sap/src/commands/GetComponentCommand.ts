@@ -53,22 +53,46 @@ export interface GetComponentCommandOutput extends GetComponentOutput, __Metadat
  * // { // GetComponentOutput
  * //   Component: { // Component
  * //     ComponentId: "STRING_VALUE",
+ * //     ParentComponent: "STRING_VALUE",
+ * //     ChildComponents: [ // ComponentIdList
+ * //       "STRING_VALUE",
+ * //     ],
  * //     ApplicationId: "STRING_VALUE",
- * //     ComponentType: "STRING_VALUE",
- * //     Status: "STRING_VALUE",
+ * //     ComponentType: "HANA" || "HANA_NODE",
+ * //     Status: "ACTIVATED" || "STARTING" || "STOPPED" || "STOPPING" || "RUNNING" || "RUNNING_WITH_ERROR" || "UNDEFINED",
+ * //     SapHostname: "STRING_VALUE",
+ * //     SapKernelVersion: "STRING_VALUE",
+ * //     HdbVersion: "STRING_VALUE",
+ * //     Resilience: { // Resilience
+ * //       HsrTier: "STRING_VALUE",
+ * //       HsrReplicationMode: "PRIMARY" || "NONE" || "SYNC" || "SYNCMEM" || "ASYNC",
+ * //       HsrOperationMode: "PRIMARY" || "LOGREPLAY" || "DELTA_DATASHIPPING" || "LOGREPLAY_READACCESS" || "NONE",
+ * //       ClusterStatus: "ONLINE" || "STANDBY" || "MAINTENANCE" || "OFFLINE" || "NONE",
+ * //     },
+ * //     AssociatedHost: { // AssociatedHost
+ * //       Hostname: "STRING_VALUE",
+ * //       Ec2InstanceId: "STRING_VALUE",
+ * //       OsVersion: "STRING_VALUE",
+ * //     },
  * //     Databases: [ // DatabaseIdList
  * //       "STRING_VALUE",
  * //     ],
  * //     Hosts: [ // HostList
  * //       { // Host
  * //         HostName: "STRING_VALUE",
- * //         HostRole: "STRING_VALUE",
  * //         HostIp: "STRING_VALUE",
+ * //         EC2InstanceId: "STRING_VALUE",
  * //         InstanceId: "STRING_VALUE",
+ * //         HostRole: "LEADER" || "WORKER" || "STANDBY" || "UNKNOWN",
+ * //         OsVersion: "STRING_VALUE",
  * //       },
  * //     ],
  * //     PrimaryHost: "STRING_VALUE",
  * //     LastUpdated: new Date("TIMESTAMP"),
+ * //     Arn: "STRING_VALUE",
+ * //   },
+ * //   Tags: { // TagMap
+ * //     "<keys>": "STRING_VALUE",
  * //   },
  * // };
  *

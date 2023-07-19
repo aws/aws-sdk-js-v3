@@ -319,6 +319,14 @@ RegisterApplication
 </details>
 <details>
 <summary>
+StartApplicationRefresh
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-ssm-sap/classes/startapplicationrefreshcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-ssm-sap/interfaces/startapplicationrefreshcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-ssm-sap/interfaces/startapplicationrefreshcommandoutput.html)
+
+</details>
+<details>
+<summary>
 TagResource
 </summary>
 

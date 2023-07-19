@@ -52,7 +52,7 @@ export interface GetOperationCommandOutput extends GetOperationOutput, __Metadat
  * //   Operation: { // Operation
  * //     Id: "STRING_VALUE",
  * //     Type: "STRING_VALUE",
- * //     Status: "STRING_VALUE",
+ * //     Status: "INPROGRESS" || "SUCCESS" || "ERROR",
  * //     StatusMessage: "STRING_VALUE",
  * //     Properties: { // OperationProperties
  * //       "<keys>": "STRING_VALUE",

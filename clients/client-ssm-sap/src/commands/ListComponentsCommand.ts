@@ -55,10 +55,11 @@ export interface ListComponentsCommandOutput extends ListComponentsOutput, __Met
  * //     { // ComponentSummary
  * //       ApplicationId: "STRING_VALUE",
  * //       ComponentId: "STRING_VALUE",
- * //       ComponentType: "STRING_VALUE",
+ * //       ComponentType: "HANA" || "HANA_NODE",
  * //       Tags: { // TagMap
  * //         "<keys>": "STRING_VALUE",
  * //       },
+ * //       Arn: "STRING_VALUE",
  * //     },
  * //   ],
  * //   NextToken: "STRING_VALUE",

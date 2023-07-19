@@ -53,17 +53,21 @@ export interface UpdateApplicationSettingsCommandOutput extends UpdateApplicatio
  *   CredentialsToAddOrUpdate: [ // ApplicationCredentialList
  *     { // ApplicationCredential
  *       DatabaseName: "STRING_VALUE", // required
- *       CredentialType: "STRING_VALUE", // required
+ *       CredentialType: "ADMIN", // required
  *       SecretId: "STRING_VALUE", // required
  *     },
  *   ],
  *   CredentialsToRemove: [
  *     {
  *       DatabaseName: "STRING_VALUE", // required
- *       CredentialType: "STRING_VALUE", // required
+ *       CredentialType: "ADMIN", // required
  *       SecretId: "STRING_VALUE", // required
  *     },
  *   ],
+ *   Backint: { // BackintConfig
+ *     BackintMode: "AWSBackup", // required
+ *     EnsureNoBackupInProcess: true || false, // required
+ *   },
  * };
  * const command = new UpdateApplicationSettingsCommand(input);
  * const response = await client.send(command);
@@ -81,6 +85,9 @@ export interface UpdateApplicationSettingsCommandOutput extends UpdateApplicatio
  * @see {@link UpdateApplicationSettingsCommandInput} for command's `input` shape.
  * @see {@link UpdateApplicationSettingsCommandOutput} for command's `response` shape.
  * @see {@link SsmSapClientResolvedConfig | config} for SsmSapClient's `config` shape.
+ *
+ * @throws {@link ConflictException} (client fault)
+ *  <p>A conflict has occurred.</p>
  *
  * @throws {@link InternalServerException} (server fault)
  *  <p>An internal error has occurred.</p>

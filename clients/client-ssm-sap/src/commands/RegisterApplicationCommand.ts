@@ -56,7 +56,7 @@ export interface RegisterApplicationCommandOutput extends RegisterApplicationOut
  * const client = new SsmSapClient(config);
  * const input = { // RegisterApplicationInput
  *   ApplicationId: "STRING_VALUE", // required
- *   ApplicationType: "STRING_VALUE", // required
+ *   ApplicationType: "HANA", // required
  *   Instances: [ // InstanceList // required
  *     "STRING_VALUE",
  *   ],
@@ -68,7 +68,7 @@ export interface RegisterApplicationCommandOutput extends RegisterApplicationOut
  *   Credentials: [ // ApplicationCredentialList // required
  *     { // ApplicationCredential
  *       DatabaseName: "STRING_VALUE", // required
- *       CredentialType: "STRING_VALUE", // required
+ *       CredentialType: "ADMIN", // required
  *       SecretId: "STRING_VALUE", // required
  *     },
  *   ],
@@ -78,10 +78,11 @@ export interface RegisterApplicationCommandOutput extends RegisterApplicationOut
  * // { // RegisterApplicationOutput
  * //   Application: { // Application
  * //     Id: "STRING_VALUE",
- * //     Type: "STRING_VALUE",
+ * //     Type: "HANA",
  * //     Arn: "STRING_VALUE",
  * //     AppRegistryArn: "STRING_VALUE",
- * //     Status: "STRING_VALUE",
+ * //     Status: "ACTIVATED" || "STARTING" || "STOPPED" || "STOPPING" || "FAILED" || "REGISTERING" || "DELETING" || "UNKNOWN",
+ * //     DiscoveryStatus: "SUCCESS" || "REGISTRATION_FAILED" || "REFRESH_FAILED" || "REGISTERING" || "DELETING",
  * //     Components: [ // ComponentIdList
  * //       "STRING_VALUE",
  * //     ],

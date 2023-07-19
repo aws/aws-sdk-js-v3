@@ -13,6 +13,7 @@ export * from "./ListOperationsCommand";
 export * from "./ListTagsForResourceCommand";
 export * from "./PutResourcePermissionCommand";
 export * from "./RegisterApplicationCommand";
+export * from "./StartApplicationRefreshCommand";
 export * from "./TagResourceCommand";
 export * from "./UntagResourceCommand";
 export * from "./UpdateApplicationSettingsCommand";

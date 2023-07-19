@@ -44,7 +44,7 @@ export interface GetResourcePermissionCommandOutput extends GetResourcePermissio
  * // const { SsmSapClient, GetResourcePermissionCommand } = require("@aws-sdk/client-ssm-sap"); // CommonJS import
  * const client = new SsmSapClient(config);
  * const input = { // GetResourcePermissionInput
- *   ActionType: "STRING_VALUE",
+ *   ActionType: "RESTORE",
  *   ResourceArn: "STRING_VALUE", // required
  * };
  * const command = new GetResourcePermissionCommand(input);

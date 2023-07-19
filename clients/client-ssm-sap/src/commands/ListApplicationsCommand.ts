@@ -53,7 +53,7 @@ export interface ListApplicationsCommandOutput extends ListApplicationsOutput, _
  * //   Applications: [ // ApplicationSummaryList
  * //     { // ApplicationSummary
  * //       Id: "STRING_VALUE",
- * //       Type: "STRING_VALUE",
+ * //       Type: "HANA",
  * //       Arn: "STRING_VALUE",
  * //       Tags: { // TagMap
  * //         "<keys>": "STRING_VALUE",
