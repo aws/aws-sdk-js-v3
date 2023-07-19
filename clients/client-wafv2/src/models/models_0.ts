@@ -195,7 +195,7 @@ export interface Body {
  * @public
  * <p>The filter to use to identify the subset of cookies to inspect in a web request. </p>
  *          <p>You must specify exactly one setting: either <code>All</code>, <code>IncludedCookies</code>, or <code>ExcludedCookies</code>.</p>
- *          <p>Example JSON: <code>"MatchPattern": \{ "IncludedCookies": \{"KeyToInclude1", "KeyToInclude2", "KeyToInclude3"\} \}</code>
+ *          <p>Example JSON: <code>"MatchPattern": \{ "IncludedCookies": [ "session-id-time", "session-id" ] \}</code>
  *          </p>
  */
 export interface CookieMatchPattern {
@@ -246,7 +246,7 @@ export interface Cookies {
   /**
    * <p>The filter to use to identify the subset of cookies to inspect in a web request. </p>
    *          <p>You must specify exactly one setting: either <code>All</code>, <code>IncludedCookies</code>, or <code>ExcludedCookies</code>.</p>
-   *          <p>Example JSON: <code>"MatchPattern": \{ "IncludedCookies": \{"KeyToInclude1", "KeyToInclude2", "KeyToInclude3"\} \}</code>
+   *          <p>Example JSON: <code>"MatchPattern": \{ "IncludedCookies": [ "session-id-time", "session-id" ] \}</code>
    *          </p>
    */
   MatchPattern: CookieMatchPattern | undefined;
@@ -321,7 +321,7 @@ export interface HeaderOrder {
  * @public
  * <p>The filter to use to identify the subset of headers to inspect in a web request. </p>
  *          <p>You must specify exactly one setting: either <code>All</code>, <code>IncludedHeaders</code>, or <code>ExcludedHeaders</code>.</p>
- *          <p>Example JSON: <code>"MatchPattern": \{ "ExcludedHeaders": \{"KeyToExclude1", "KeyToExclude2"\} \}</code>
+ *          <p>Example JSON: <code>"MatchPattern": \{ "ExcludedHeaders": [ "KeyToExclude1", "KeyToExclude2" ] \}</code>
  *          </p>
  */
 export interface HeaderMatchPattern {
@@ -360,7 +360,7 @@ export interface Headers {
   /**
    * <p>The filter to use to identify the subset of headers to inspect in a web request. </p>
    *          <p>You must specify exactly one setting: either <code>All</code>, <code>IncludedHeaders</code>, or <code>ExcludedHeaders</code>.</p>
-   *          <p>Example JSON: <code>"MatchPattern": \{ "ExcludedHeaders": \{"KeyToExclude1", "KeyToExclude2"\} \}</code>
+   *          <p>Example JSON: <code>"MatchPattern": \{ "ExcludedHeaders": [ "KeyToExclude1", "KeyToExclude2" ] \}</code>
    *          </p>
    */
   MatchPattern: HeaderMatchPattern | undefined;
@@ -2569,6 +2569,18 @@ export interface RateLimitQueryString {
 
 /**
  * @public
+ * <p>Specifies the request's URI path as an aggregate key for a rate-based rule. Each distinct URI path contributes to the aggregation instance. If you use just the
+ *     URI path as your custom key, then each URI path fully defines an aggregation instance.  </p>
+ */
+export interface RateLimitUriPath {
+  /**
+   * <p>Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection. Text transformations are used in rule match statements, to transform the <code>FieldToMatch</code> request component before inspecting it, and they're used in rate-based rule statements, to transform request components before using them as custom aggregation keys. If you specify one or more transformations to apply, WAF performs all transformations on the specified content, starting from the lowest priority setting, and then uses the component contents. </p>
+   */
+  TextTransformations: TextTransformation[] | undefined;
+}
+
+/**
+ * @public
  * <p>Specifies a single custom aggregate key for a rate-base rule. </p>
  *          <note>
  *             <p>Web requests that are missing any of the components specified in the aggregation keys
@@ -2628,6 +2640,12 @@ export interface RateBasedStatementCustomKey {
    *            <a href="https://docs.aws.amazon.com/waf/latest/developerguide/waf-rule-label-requirements.html">Label syntax and naming requirements</a> in the <i>WAF Developer Guide</i>.</p>
    */
   LabelNamespace?: RateLimitLabelNamespace;
+
+  /**
+   * <p>Use the request's URI path as an aggregate key. Each distinct URI path contributes to the aggregation instance. If you use just the
+   *     URI path as your custom key, then each URI path fully defines an aggregation instance.  </p>
+   */
+  UriPath?: RateLimitUriPath;
 }
 
 /**

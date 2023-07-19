@@ -562,6 +562,9 @@ export interface GetRuleGroupCommandOutput extends GetRuleGroupResponse, __Metad
  * //                     LabelNamespace: { // RateLimitLabelNamespace
  * //                       Namespace: "STRING_VALUE", // required
  * //                     },
+ * //                     UriPath: { // RateLimitUriPath
+ * //                       TextTransformations: "<TextTransformations>", // required
+ * //                     },
  * //                   },
  * //                 ],
  * //               },
@@ -778,6 +781,9 @@ export interface GetRuleGroupCommandOutput extends GetRuleGroupResponse, __Metad
  * //                 IP: {},
  * //                 LabelNamespace: {
  * //                   Namespace: "STRING_VALUE", // required
+ * //                 },
+ * //                 UriPath: {
+ * //                   TextTransformations: "<TextTransformations>", // required
  * //                 },
  * //               },
  * //             ],

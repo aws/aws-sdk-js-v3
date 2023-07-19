@@ -560,6 +560,9 @@ export interface CheckCapacityCommandOutput extends CheckCapacityResponse, __Met
  *                   LabelNamespace: { // RateLimitLabelNamespace
  *                     Namespace: "STRING_VALUE", // required
  *                   },
+ *                   UriPath: { // RateLimitUriPath
+ *                     TextTransformations: "<TextTransformations>", // required
+ *                   },
  *                 },
  *               ],
  *             },
@@ -776,6 +779,9 @@ export interface CheckCapacityCommandOutput extends CheckCapacityResponse, __Met
  *               IP: {},
  *               LabelNamespace: {
  *                 Namespace: "STRING_VALUE", // required
+ *               },
+ *               UriPath: {
+ *                 TextTransformations: "<TextTransformations>", // required
  *               },
  *             },
  *           ],

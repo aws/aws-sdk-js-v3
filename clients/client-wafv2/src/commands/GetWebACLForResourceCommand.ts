@@ -562,6 +562,9 @@ export interface GetWebACLForResourceCommandOutput extends GetWebACLForResourceR
  * //                     LabelNamespace: { // RateLimitLabelNamespace
  * //                       Namespace: "STRING_VALUE", // required
  * //                     },
+ * //                     UriPath: { // RateLimitUriPath
+ * //                       TextTransformations: "<TextTransformations>", // required
+ * //                     },
  * //                   },
  * //                 ],
  * //               },
@@ -770,6 +773,9 @@ export interface GetWebACLForResourceCommandOutput extends GetWebACLForResourceR
  * //                 IP: {},
  * //                 LabelNamespace: {
  * //                   Namespace: "STRING_VALUE", // required
+ * //                 },
+ * //                 UriPath: {
+ * //                   TextTransformations: "<TextTransformations>", // required
  * //                 },
  * //               },
  * //             ],

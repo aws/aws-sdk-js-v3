@@ -285,6 +285,7 @@ import {
   RateLimitLabelNamespace,
   RateLimitQueryArgument,
   RateLimitQueryString,
+  RateLimitUriPath,
   Regex,
   RegexMatchStatement,
   RegexPatternSetReferenceStatement,
@@ -4833,6 +4834,8 @@ const se_RateBasedStatement = (input: RateBasedStatement, context: __SerdeContex
 
 // se_RateLimitQueryString omitted.
 
+// se_RateLimitUriPath omitted.
+
 // se_RedactedFields omitted.
 
 // se_Regex omitted.
@@ -5615,6 +5618,8 @@ const de_RateBasedStatement = (output: any, context: __SerdeContext): RateBasedS
 // de_RateLimitQueryArgument omitted.
 
 // de_RateLimitQueryString omitted.
+
+// de_RateLimitUriPath omitted.
 
 // de_RedactedFields omitted.
 

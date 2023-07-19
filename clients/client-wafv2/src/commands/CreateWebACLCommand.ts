@@ -556,6 +556,9 @@ export interface CreateWebACLCommandOutput extends CreateWebACLResponse, __Metad
  *                   LabelNamespace: { // RateLimitLabelNamespace
  *                     Namespace: "STRING_VALUE", // required
  *                   },
+ *                   UriPath: { // RateLimitUriPath
+ *                     TextTransformations: "<TextTransformations>", // required
+ *                   },
  *                 },
  *               ],
  *             },
@@ -764,6 +767,9 @@ export interface CreateWebACLCommandOutput extends CreateWebACLResponse, __Metad
  *               IP: {},
  *               LabelNamespace: {
  *                 Namespace: "STRING_VALUE", // required
+ *               },
+ *               UriPath: {
+ *                 TextTransformations: "<TextTransformations>", // required
  *               },
  *             },
  *           ],

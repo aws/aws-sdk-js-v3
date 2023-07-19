@@ -564,6 +564,9 @@ export interface GetWebACLCommandOutput extends GetWebACLResponse, __MetadataBea
  * //                     LabelNamespace: { // RateLimitLabelNamespace
  * //                       Namespace: "STRING_VALUE", // required
  * //                     },
+ * //                     UriPath: { // RateLimitUriPath
+ * //                       TextTransformations: "<TextTransformations>", // required
+ * //                     },
  * //                   },
  * //                 ],
  * //               },
@@ -772,6 +775,9 @@ export interface GetWebACLCommandOutput extends GetWebACLResponse, __MetadataBea
  * //                 IP: {},
  * //                 LabelNamespace: {
  * //                   Namespace: "STRING_VALUE", // required
+ * //                 },
+ * //                 UriPath: {
+ * //                   TextTransformations: "<TextTransformations>", // required
  * //                 },
  * //               },
  * //             ],

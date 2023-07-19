@@ -570,6 +570,9 @@ export interface UpdateRuleGroupCommandOutput extends UpdateRuleGroupResponse, _
  *                   LabelNamespace: { // RateLimitLabelNamespace
  *                     Namespace: "STRING_VALUE", // required
  *                   },
+ *                   UriPath: { // RateLimitUriPath
+ *                     TextTransformations: "<TextTransformations>", // required
+ *                   },
  *                 },
  *               ],
  *             },
@@ -786,6 +789,9 @@ export interface UpdateRuleGroupCommandOutput extends UpdateRuleGroupResponse, _
  *               IP: {},
  *               LabelNamespace: {
  *                 Namespace: "STRING_VALUE", // required
+ *               },
+ *               UriPath: {
+ *                 TextTransformations: "<TextTransformations>", // required
  *               },
  *             },
  *           ],
