@@ -1,12 +1,1 @@
-/**
- * @internal
- */
-export * from "./EventStreamMarshaller";
-/**
- * @internal
- */
-export * from "./provider";
-/**
- * @internal
- */
-export * from "./utils";
+export * from "@smithy/eventstream-serde-browser";

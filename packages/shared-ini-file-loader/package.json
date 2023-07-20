@@ -2,7 +2,7 @@
   "name": "@aws-sdk/shared-ini-file-loader",
   "version": "3.370.0",
   "dependencies": {
-    "@aws-sdk/types": "*",
+    "@smithy/shared-ini-file-loader": "^1.0.1",
     "tslib": "^2.5.0"
   },
   "devDependencies": {
@@ -23,7 +23,7 @@
     "build:types:downlevel": "downlevel-dts dist-types dist-types/ts3.4",
     "clean": "rimraf ./dist-* && rimraf *.tsbuildinfo",
     "extract:docs": "api-extractor run --local",
-    "test": "jest"
+    "test": "exit 0"
   },
   "author": {
     "name": "AWS SDK for JavaScript Team",

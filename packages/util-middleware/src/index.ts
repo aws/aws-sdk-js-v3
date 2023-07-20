@@ -1,4 +1,1 @@
-/**
- * @internal
- */
-export * from "./normalizeProvider";
+export * from "@smithy/util-middleware";

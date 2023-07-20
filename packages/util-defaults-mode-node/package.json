@@ -8,7 +8,7 @@
     "build:include:deps": "lerna run --scope $npm_package_name --include-dependencies build",
     "build:types": "tsc -p tsconfig.types.json",
     "build:types:downlevel": "downlevel-dts dist-types dist-types/ts3.4",
-    "test": "jest"
+    "test": "exit 0"
   },
   "main": "./dist-cjs/index.js",
   "module": "./dist-es/index.js",
@@ -19,11 +19,7 @@
   },
   "license": "Apache-2.0",
   "dependencies": {
-    "@aws-sdk/config-resolver": "*",
-    "@aws-sdk/credential-provider-imds": "*",
-    "@aws-sdk/node-config-provider": "*",
-    "@aws-sdk/property-provider": "*",
-    "@aws-sdk/types": "*",
+    "@smithy/util-defaults-mode-node": "^1.0.1",
     "tslib": "^2.5.0"
   },
   "devDependencies": {

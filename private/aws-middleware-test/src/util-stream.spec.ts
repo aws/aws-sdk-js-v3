@@ -1,11 +1,11 @@
 import { Lambda } from "@aws-sdk/client-lambda";
-import { HttpResponse } from "@aws-sdk/protocol-http";
-import { HttpRequest as IHttpRequest } from "@aws-sdk/types";
-import { Uint8ArrayBlobAdapter } from "@aws-sdk/util-stream";
-import { fromUtf8 } from "@aws-sdk/util-utf8";
+import { HttpResponse } from "@smithy/protocol-http";
+import { HttpRequest as IHttpRequest } from "@smithy/types";
+import { Uint8ArrayBlobAdapter } from "@smithy/util-stream";
+import { fromUtf8 } from "@smithy/util-utf8";
 import { Readable } from "stream";
 
-import { requireRequestsFrom } from "../../../private/aws-util-test/src";
+import { requireRequestsFrom } from "../../aws-util-test/src";
 
 describe("util-stream", () => {
   describe(Lambda.name, () => {

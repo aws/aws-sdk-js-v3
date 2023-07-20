@@ -1,4 +1,1 @@
-/**
- * @internal
- */
-export * from "./EventStreamSerdeConfig";
+export * from "@smithy/eventstream-serde-config-resolver";

@@ -9,8 +9,7 @@
     "build:types": "tsc -p tsconfig.types.json",
     "build:types:downlevel": "downlevel-dts dist-types dist-types/ts3.4",
     "clean": "rimraf ./dist-* && rimraf *.tsbuildinfo",
-    "test": "jest && karma start karma.conf.js",
-    "test:integration": "jest -c jest.config.integ.js"
+    "test": "exit 0"
   },
   "main": "./dist-cjs/index.js",
   "module": "./dist-es/index.js",
@@ -21,13 +20,7 @@
   },
   "license": "Apache-2.0",
   "dependencies": {
-    "@aws-sdk/fetch-http-handler": "*",
-    "@aws-sdk/node-http-handler": "*",
-    "@aws-sdk/types": "*",
-    "@aws-sdk/util-base64": "*",
-    "@aws-sdk/util-buffer-from": "*",
-    "@aws-sdk/util-hex-encoding": "*",
-    "@aws-sdk/util-utf8": "*",
+    "@smithy/util-stream": "^1.0.1",
     "tslib": "^2.5.0"
   },
   "devDependencies": {

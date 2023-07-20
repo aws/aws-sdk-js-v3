@@ -1,2 +1,1 @@
-export * from "./createWaiter";
-export * from "./waiter";
+export * from "@smithy/util-waiter";

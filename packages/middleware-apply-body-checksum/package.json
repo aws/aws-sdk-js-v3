@@ -9,7 +9,7 @@
     "build:types": "tsc -p tsconfig.types.json",
     "build:types:downlevel": "downlevel-dts dist-types dist-types/ts3.4",
     "clean": "rimraf ./dist-* && rimraf *.tsbuildinfo",
-    "test": "jest --coverage"
+    "test": "exit 0"
   },
   "main": "./dist-cjs/index.js",
   "module": "./dist-es/index.js",
@@ -20,9 +20,7 @@
   },
   "license": "Apache-2.0",
   "dependencies": {
-    "@aws-sdk/is-array-buffer": "*",
-    "@aws-sdk/protocol-http": "*",
-    "@aws-sdk/types": "*",
+    "@smithy/middleware-apply-body-checksum": "^1.0.1",
     "tslib": "^2.5.0"
   },
   "engines": {

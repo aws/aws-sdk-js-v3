@@ -1,8 +1,1 @@
-/**
- * @internal
- */
-export * from "./invalidFunction";
-/**
- * @internal
- */
-export * from "./invalidProvider";
+export * from "@smithy/invalid-dependency";

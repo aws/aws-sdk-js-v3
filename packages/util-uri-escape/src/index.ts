@@ -1,8 +1,1 @@
-/**
- * @internal
- */
-export * from "./escape-uri";
-/**
- * @internal
- */
-export * from "./escape-uri-path";
+export * from "@smithy/util-uri-escape";

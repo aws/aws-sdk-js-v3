@@ -13,7 +13,7 @@
     "build:types:downlevel": "downlevel-dts dist-types dist-types/ts3.4",
     "clean": "rimraf ./dist-* && rimraf *.tsbuildinfo",
     "extract:docs": "api-extractor run --local",
-    "test": "jest"
+    "test": "exit 0"
   },
   "keywords": [
     "aws",
@@ -25,7 +25,7 @@
   },
   "license": "Apache-2.0",
   "dependencies": {
-    "@aws-sdk/service-error-classification": "*",
+    "@smithy/util-retry": "^1.0.3",
     "tslib": "^2.5.0"
   },
   "devDependencies": {
