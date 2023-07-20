@@ -2120,7 +2120,7 @@ export interface AnalyticsUtteranceMetricResult {
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>UtteranceTimeStamp</code> – The date and time of the utterance.</p>
+   *                   <code>UtteranceTimestamp</code> – The date and time of the utterance.</p>
    *             </li>
    *          </ul>
    */
@@ -2928,21 +2928,6 @@ export interface BotAliasTestExecutionTarget {
    */
   localeId: string | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const BotChannelType = {
-  Facebook: "Facebook",
-  Slack: "Slack",
-  TwilioSms: "TwilioSms",
-} as const;
-
-/**
- * @public
- */
-export type BotChannelType = (typeof BotChannelType)[keyof typeof BotChannelType];
 
 /**
  * @public
@@ -7818,6 +7803,33 @@ export interface DescribeSlotRequest {
    * <p>The identifier of the intent that contains the slot.</p>
    */
   intentId: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DescribeSlotTypeRequest {
+  /**
+   * <p>The identifier of the slot type.</p>
+   */
+  slotTypeId: string | undefined;
+
+  /**
+   * <p>The identifier of the bot associated with the slot type.</p>
+   */
+  botId: string | undefined;
+
+  /**
+   * <p>The version of the bot associated with the slot type.</p>
+   */
+  botVersion: string | undefined;
+
+  /**
+   * <p>The identifier of the language and locale of the slot type to
+   *          describe. The string must match one of the supported locales. For more
+   *          information, see <a href="https://docs.aws.amazon.com/lexv2/latest/dg/how-languages.html">Supported languages</a>.</p>
+   */
+  localeId: string | undefined;
 }
 
 /**

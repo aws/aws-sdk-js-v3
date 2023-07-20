@@ -38,7 +38,6 @@ import {
   BotAliasStatus,
   BotAliasSummary,
   BotAliasTestExecutionTarget,
-  BotChannelType,
   BotFilter,
   BotLocaleFilter,
   BotLocaleSortBy,
@@ -108,33 +107,6 @@ import {
   VoiceSettings,
   WaitAndContinueSpecification,
 } from "./models_0";
-
-/**
- * @public
- */
-export interface DescribeSlotTypeRequest {
-  /**
-   * <p>The identifier of the slot type.</p>
-   */
-  slotTypeId: string | undefined;
-
-  /**
-   * <p>The identifier of the bot associated with the slot type.</p>
-   */
-  botId: string | undefined;
-
-  /**
-   * <p>The version of the bot associated with the slot type.</p>
-   */
-  botVersion: string | undefined;
-
-  /**
-   * <p>The identifier of the language and locale of the slot type to
-   *          describe. The string must match one of the supported locales. For more
-   *          information, see <a href="https://docs.aws.amazon.com/lexv2/latest/dg/how-languages.html">Supported languages</a>.</p>
-   */
-  localeId: string | undefined;
-}
 
 /**
  * @public
@@ -2716,7 +2688,7 @@ export interface SessionSpecification {
   /**
    * <p>The channel that is integrated with the bot that the session was held with.</p>
    */
-  channel?: BotChannelType | string;
+  channel?: string;
 
   /**
    * <p>The identifier of the session.</p>
@@ -3809,7 +3781,7 @@ export interface UtteranceDataSortBy {
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>UtteranceTimeStamp</code> – The date and time of the utterance.</p>
+   *                   <code>UtteranceTimestamp</code> – The date and time of the utterance.</p>
    *             </li>
    *          </ul>
    */
@@ -3948,7 +3920,7 @@ export interface UtteranceSpecification {
   /**
    * <p>The channel that is integrated with the bot that the utterance was made to.</p>
    */
-  channel?: BotChannelType | string;
+  channel?: string;
 
   /**
    * <p>The mode of the session. The possible values are as follows:</p>

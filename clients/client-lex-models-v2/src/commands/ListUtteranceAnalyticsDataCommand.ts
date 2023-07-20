@@ -36,7 +36,20 @@ export interface ListUtteranceAnalyticsDataCommandOutput extends ListUtteranceAn
 
 /**
  * @public
- * <p>Retrieves a list of metadata for individual user utterances to your bot. The <code>startDateTime</code> and <code>endDateTime</code> fields are required. These fields define a time range for which you want to retrieve results. Of the optional fields, you can organize the results in the following ways:</p>
+ * <note>
+ *             <p>To use this API operation, your IAM role must have permissions to
+ *             perform the <a href="https://docs.aws.amazon.com/lexv2/latest/APIReference/API_ListAggregatedUtterances.html">ListAggregatedUtterances</a> operation, which provides access to
+ *             utterance-related analytics. See <a href="https://docs.aws.amazon.com/lexv2/latest/dg/monitoring-utterances.html">Viewing utterance
+ *                statistics</a> for the IAM policy to apply to the IAM role.</p>
+ *          </note>
+ *          <p>Retrieves a list of metadata for individual user utterances to your bot. The following fields are required:</p>
+ *          <ul>
+ *             <li>
+ *                <p>
+ *                   <code>startDateTime</code> and <code>endDateTime</code> – Define a time range for which you want to retrieve results.</p>
+ *             </li>
+ *          </ul>
+ *          <p>Of the optional fields, you can organize the results in the following ways:</p>
  *          <ul>
  *             <li>
  *                <p>Use the <code>filters</code> field to filter the results and the <code>sortBy</code> field to specify the values by which to sort the results.</p>
@@ -82,7 +95,7 @@ export interface ListUtteranceAnalyticsDataCommandOutput extends ListUtteranceAn
  * //       botVersion: "STRING_VALUE",
  * //       localeId: "STRING_VALUE",
  * //       sessionId: "STRING_VALUE",
- * //       channel: "Facebook" || "Slack" || "TwilioSms",
+ * //       channel: "STRING_VALUE",
  * //       mode: "Speech" || "Text" || "DTMF" || "MultiMode",
  * //       conversationStartTime: new Date("TIMESTAMP"),
  * //       conversationEndTime: new Date("TIMESTAMP"),

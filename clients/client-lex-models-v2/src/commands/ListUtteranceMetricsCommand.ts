@@ -36,7 +36,13 @@ export interface ListUtteranceMetricsCommandOutput extends ListUtteranceMetricsR
 
 /**
  * @public
- * <p>Retrieves summary metrics for the utterances in your bot. The following fields are required:</p>
+ * <note>
+ *             <p>To use this API operation, your IAM role must have permissions to
+ *             perform the <a href="https://docs.aws.amazon.com/lexv2/latest/APIReference/API_ListAggregatedUtterances.html">ListAggregatedUtterances</a> operation, which provides access to
+ *             utterance-related analytics. See <a href="https://docs.aws.amazon.com/lexv2/latest/dg/monitoring-utterances.html">Viewing utterance
+ *                statistics</a> for the IAM policy to apply to the IAM role.</p>
+ *          </note>
+ *          <p>Retrieves summary metrics for the utterances in your bot. The following fields are required:</p>
  *          <ul>
  *             <li>
  *                <p>

@@ -36,7 +36,7 @@ export interface ListIntentStageMetricsCommandOutput extends ListIntentStageMetr
 
 /**
  * @public
- * <p>Retrieves summary metrics for the intent stages in your bot. The following fields are required:</p>
+ * <p>Retrieves summary metrics for the stages within intents in your bot. The following fields are required:</p>
  *          <ul>
  *             <li>
  *                <p>

@@ -81,7 +81,7 @@ export interface ListSessionAnalyticsDataCommandOutput extends ListSessionAnalyt
  * //       botAliasId: "STRING_VALUE",
  * //       botVersion: "STRING_VALUE",
  * //       localeId: "STRING_VALUE",
- * //       channel: "Facebook" || "Slack" || "TwilioSms",
+ * //       channel: "STRING_VALUE",
  * //       sessionId: "STRING_VALUE",
  * //       conversationStartTime: new Date("TIMESTAMP"),
  * //       conversationEndTime: new Date("TIMESTAMP"),
