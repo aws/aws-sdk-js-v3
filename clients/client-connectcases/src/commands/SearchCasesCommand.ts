@@ -62,6 +62,7 @@ export interface SearchCasesCommandOutput extends SearchCasesResponse, __Metadat
  *           stringValue: "STRING_VALUE",
  *           doubleValue: Number("double"),
  *           booleanValue: true || false,
+ *           emptyValue: {},
  *         },
  *       },
  *       contains: {
@@ -70,6 +71,7 @@ export interface SearchCasesCommandOutput extends SearchCasesResponse, __Metadat
  *           stringValue: "STRING_VALUE",
  *           doubleValue: Number("double"),
  *           booleanValue: true || false,
+ *           emptyValue: {},
  *         },
  *       },
  *       greaterThan: {
@@ -78,6 +80,7 @@ export interface SearchCasesCommandOutput extends SearchCasesResponse, __Metadat
  *           stringValue: "STRING_VALUE",
  *           doubleValue: Number("double"),
  *           booleanValue: true || false,
+ *           emptyValue: {},
  *         },
  *       },
  *       greaterThanOrEqualTo: {
@@ -86,6 +89,7 @@ export interface SearchCasesCommandOutput extends SearchCasesResponse, __Metadat
  *           stringValue: "STRING_VALUE",
  *           doubleValue: Number("double"),
  *           booleanValue: true || false,
+ *           emptyValue: {},
  *         },
  *       },
  *       lessThan: {
@@ -94,6 +98,7 @@ export interface SearchCasesCommandOutput extends SearchCasesResponse, __Metadat
  *           stringValue: "STRING_VALUE",
  *           doubleValue: Number("double"),
  *           booleanValue: true || false,
+ *           emptyValue: {},
  *         },
  *       },
  *       lessThanOrEqualTo: "<FieldValue>",
@@ -111,8 +116,14 @@ export interface SearchCasesCommandOutput extends SearchCasesResponse, __Metadat
  *       andAll: [ // CaseFilterList
  *         "<CaseFilter>",
  *       ],
+ *       orAll: [
+ *         "<CaseFilter>",
+ *       ],
  *     },
  *     andAll: [
+ *       "<CaseFilter>",
+ *     ],
+ *     orAll: [
  *       "<CaseFilter>",
  *     ],
  *   },
@@ -143,6 +154,7 @@ export interface SearchCasesCommandOutput extends SearchCasesResponse, __Metadat
  * //             stringValue: "STRING_VALUE",
  * //             doubleValue: Number("double"),
  * //             booleanValue: true || false,
+ * //             emptyValue: {},
  * //           },
  * //         },
  * //       ],

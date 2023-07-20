@@ -83,6 +83,7 @@ import {
   Contact,
   ContactContent,
   ContactFilter,
+  EmptyFieldValue,
   EventBridgeConfiguration,
   EventIncludedData,
   FieldFilter,
@@ -2997,6 +2998,7 @@ const se_CaseFilter = (input: CaseFilter, context: __SerdeContext): any => {
     andAll: (value) => ({ andAll: se_CaseFilterList(value, context) }),
     field: (value) => ({ field: se_FieldFilter(value, context) }),
     not: (value) => ({ not: se_CaseFilter(value, context) }),
+    orAll: (value) => ({ orAll: se_CaseFilterList(value, context) }),
     _: (name, value) => ({ name: value } as any),
   });
 };
@@ -3021,6 +3023,8 @@ const se_CaseFilterList = (input: CaseFilter[], context: __SerdeContext): any =>
 // se_Contact omitted.
 
 // se_ContactFilter omitted.
+
+// se_EmptyFieldValue omitted.
 
 // se_EventBridgeConfiguration omitted.
 
@@ -3083,6 +3087,7 @@ const se_FieldValueUnion = (input: FieldValueUnion, context: __SerdeContext): an
   return FieldValueUnion.visit(input, {
     booleanValue: (value) => ({ booleanValue: value }),
     doubleValue: (value) => ({ doubleValue: __serializeFloat(value) }),
+    emptyValue: (value) => ({ emptyValue: _json(value) }),
     stringValue: (value) => ({ stringValue: value }),
     _: (name, value) => ({ name: value } as any),
   });
@@ -3167,6 +3172,8 @@ const de_ContactContent = (output: any, context: __SerdeContext): ContactContent
 
 // de_DomainSummaryList omitted.
 
+// de_EmptyFieldValue omitted.
+
 // de_EventBridgeConfiguration omitted.
 
 // de_EventIncludedData omitted.
@@ -3226,6 +3233,11 @@ const de_FieldValueUnion = (output: any, context: __SerdeContext): FieldValueUni
   }
   if (__limitedParseDouble(output.doubleValue) !== undefined) {
     return { doubleValue: __limitedParseDouble(output.doubleValue) as any };
+  }
+  if (output.emptyValue != null) {
+    return {
+      emptyValue: _json(output.emptyValue),
+    };
   }
   if (__expectString(output.stringValue) !== undefined) {
     return { stringValue: __expectString(output.stringValue) as any };

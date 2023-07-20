@@ -45,6 +45,7 @@ export interface CreateDomainCommandOutput extends CreateDomainResponse, __Metad
  *         <a href="https://docs.aws.amazon.com/connect/latest/APIReference/API_CreateIntegrationAssociation.html">CreateIntegrationAssociation</a> API. You need specific IAM
  *         permissions to successfully associate the Cases domain. For more information, see
  *           <a href="https://docs.aws.amazon.com/connect/latest/adminguide/required-permissions-iam-cases.html#onboard-cases-iam">Onboard to Cases</a>.</p>
+ *
  *          </important>
  * @example
  * Use a bare-bones client and the command you need to make an API call.

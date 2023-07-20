@@ -47,11 +47,19 @@ export class ConflictException extends __BaseException {
 
 /**
  * @public
+ * <p>An empty value. You cannot set <code>EmptyFieldValue</code> on a field that is required on a case template.</p>
+ *          <p>This structure will never have any data members. It signifies an empty value on a case field.</p>
+ */
+export interface EmptyFieldValue {}
+
+/**
+ * @public
  * <p>Object to store union of Field values.</p>
  */
 export type FieldValueUnion =
   | FieldValueUnion.BooleanValueMember
   | FieldValueUnion.DoubleValueMember
+  | FieldValueUnion.EmptyValueMember
   | FieldValueUnion.StringValueMember
   | FieldValueUnion.$UnknownMember;
 
@@ -66,6 +74,7 @@ export namespace FieldValueUnion {
     stringValue: string;
     doubleValue?: never;
     booleanValue?: never;
+    emptyValue?: never;
     $unknown?: never;
   }
 
@@ -77,6 +86,7 @@ export namespace FieldValueUnion {
     stringValue?: never;
     doubleValue: number;
     booleanValue?: never;
+    emptyValue?: never;
     $unknown?: never;
   }
 
@@ -87,6 +97,18 @@ export namespace FieldValueUnion {
     stringValue?: never;
     doubleValue?: never;
     booleanValue: boolean;
+    emptyValue?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>An empty value.</p>
+   */
+  export interface EmptyValueMember {
+    stringValue?: never;
+    doubleValue?: never;
+    booleanValue?: never;
+    emptyValue: EmptyFieldValue;
     $unknown?: never;
   }
 
@@ -94,6 +116,7 @@ export namespace FieldValueUnion {
     stringValue?: never;
     doubleValue?: never;
     booleanValue?: never;
+    emptyValue?: never;
     $unknown: [string, any];
   }
 
@@ -101,6 +124,7 @@ export namespace FieldValueUnion {
     stringValue: (value: string) => T;
     doubleValue: (value: number) => T;
     booleanValue: (value: boolean) => T;
+    emptyValue: (value: EmptyFieldValue) => T;
     _: (name: string, value: any) => T;
   }
 
@@ -108,6 +132,7 @@ export namespace FieldValueUnion {
     if (value.stringValue !== undefined) return visitor.stringValue(value.stringValue);
     if (value.doubleValue !== undefined) return visitor.doubleValue(value.doubleValue);
     if (value.booleanValue !== undefined) return visitor.booleanValue(value.booleanValue);
+    if (value.emptyValue !== undefined) return visitor.emptyValue(value.emptyValue);
     return visitor._(value.$unknown[0], value.$unknown[1]);
   };
 }
@@ -2257,6 +2282,7 @@ export type CaseFilter =
   | CaseFilter.AndAllMember
   | CaseFilter.FieldMember
   | CaseFilter.NotMember
+  | CaseFilter.OrAllMember
   | CaseFilter.$UnknownMember;
 
 /**
@@ -2270,6 +2296,7 @@ export namespace CaseFilter {
     field: FieldFilter;
     not?: never;
     andAll?: never;
+    orAll?: never;
     $unknown?: never;
   }
 
@@ -2280,6 +2307,7 @@ export namespace CaseFilter {
     field?: never;
     not: CaseFilter;
     andAll?: never;
+    orAll?: never;
     $unknown?: never;
   }
 
@@ -2290,6 +2318,18 @@ export namespace CaseFilter {
     field?: never;
     not?: never;
     andAll: CaseFilter[];
+    orAll?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>Provides "or all" filtering.</p>
+   */
+  export interface OrAllMember {
+    field?: never;
+    not?: never;
+    andAll?: never;
+    orAll: CaseFilter[];
     $unknown?: never;
   }
 
@@ -2297,6 +2337,7 @@ export namespace CaseFilter {
     field?: never;
     not?: never;
     andAll?: never;
+    orAll?: never;
     $unknown: [string, any];
   }
 
@@ -2304,6 +2345,7 @@ export namespace CaseFilter {
     field: (value: FieldFilter) => T;
     not: (value: CaseFilter) => T;
     andAll: (value: CaseFilter[]) => T;
+    orAll: (value: CaseFilter[]) => T;
     _: (name: string, value: any) => T;
   }
 
@@ -2311,6 +2353,7 @@ export namespace CaseFilter {
     if (value.field !== undefined) return visitor.field(value.field);
     if (value.not !== undefined) return visitor.not(value.not);
     if (value.andAll !== undefined) return visitor.andAll(value.andAll);
+    if (value.orAll !== undefined) return visitor.orAll(value.orAll);
     return visitor._(value.$unknown[0], value.$unknown[1]);
   };
 }

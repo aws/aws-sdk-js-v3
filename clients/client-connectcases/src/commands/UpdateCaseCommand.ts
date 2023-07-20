@@ -56,6 +56,7 @@ export interface UpdateCaseCommandOutput extends UpdateCaseResponse, __MetadataB
  *         stringValue: "STRING_VALUE",
  *         doubleValue: Number("double"),
  *         booleanValue: true || false,
+ *         emptyValue: {},
  *       },
  *     },
  *   ],
