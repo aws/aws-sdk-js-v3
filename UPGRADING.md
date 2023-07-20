@@ -58,7 +58,7 @@ This list is indexed by [v2 config parameters](https://docs.aws.amazon.com/AWSJa
   ```javascript
   const { Agent } = require("https");
   const { Agent: HttpAgent } = require("http");
-  const { NodeHttpHandler } = require("@aws-sdk/node-http-handler");
+  const { NodeHttpHandler } = require("@smithy/node-http-handler");
   const dynamodbClient = new DynamoDBClient({
     requestHandler: new NodeHttpHandler({
       httpsAgent: new Agent({
@@ -74,7 +74,7 @@ This list is indexed by [v2 config parameters](https://docs.aws.amazon.com/AWSJa
 
   ```javascript
   const { Agent } = require("http");
-  const { NodeHttpHandler } = require("@aws-sdk/node-http-handler");
+  const { NodeHttpHandler } = require("@smithy/node-http-handler");
 
   const dynamodbClient = new DynamoDBClient({
     requestHandler: new NodeHttpHandler({
@@ -90,7 +90,7 @@ This list is indexed by [v2 config parameters](https://docs.aws.amazon.com/AWSJa
   reference for FetchHttpHandler](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/classes/_aws_sdk_fetch_http_handler.fetchhttphandler-1.html).
 
   ```javascript
-  const { FetchHttpHandler } = require("@aws-sdk/fetch-http-handler");
+  const { FetchHttpHandler } = require("@smithy/fetch-http-handler");
   const dynamodbClient = new DynamoDBClient({
     requestHandler: new FetchHttpHandler({
       requestTimeout: /*number in milliseconds*/

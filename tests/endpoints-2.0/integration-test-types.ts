@@ -1,4 +1,4 @@
-import { EndpointParameterInstructionsSupplier } from "@aws-sdk/middleware-endpoint";
+import { EndpointParameterInstructionsSupplier } from "@smithy/middleware-endpoint";
 
 export interface EndpointTestCase {
   documentation?: string;

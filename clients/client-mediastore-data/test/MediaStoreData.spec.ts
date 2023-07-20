@@ -1,6 +1,6 @@
 /// <reference types="mocha" />
-import { HttpRequest } from "@aws-sdk/protocol-http";
-import { SerializeMiddleware } from "@aws-sdk/types";
+import { HttpRequest } from "@smithy/protocol-http";
+import { SerializeMiddleware } from "@smithy/types";
 import { expect } from "chai";
 
 import { MediaStoreData } from "../src/MediaStoreData";
