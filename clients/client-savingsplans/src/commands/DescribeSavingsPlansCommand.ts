@@ -53,11 +53,11 @@ export interface DescribeSavingsPlansCommandOutput extends DescribeSavingsPlansR
  *   nextToken: "STRING_VALUE",
  *   maxResults: Number("int"),
  *   states: [ // SavingsPlanStateList
- *     "STRING_VALUE",
+ *     "payment-pending" || "payment-failed" || "active" || "retired" || "queued" || "queued-deleted",
  *   ],
  *   filters: [ // SavingsPlanFilterList
  *     { // SavingsPlanFilter
- *       name: "STRING_VALUE",
+ *       name: "region" || "ec2-instance-family" || "commitment" || "upfront" || "term" || "savings-plan-type" || "payment-option" || "start" || "end",
  *       values: [ // ListOfStrings
  *         "STRING_VALUE",
  *       ],
@@ -75,15 +75,15 @@ export interface DescribeSavingsPlansCommandOutput extends DescribeSavingsPlansR
  * //       description: "STRING_VALUE",
  * //       start: "STRING_VALUE",
  * //       end: "STRING_VALUE",
- * //       state: "STRING_VALUE",
+ * //       state: "payment-pending" || "payment-failed" || "active" || "retired" || "queued" || "queued-deleted",
  * //       region: "STRING_VALUE",
  * //       ec2InstanceFamily: "STRING_VALUE",
- * //       savingsPlanType: "STRING_VALUE",
- * //       paymentOption: "STRING_VALUE",
+ * //       savingsPlanType: "Compute" || "EC2Instance" || "SageMaker",
+ * //       paymentOption: "All Upfront" || "Partial Upfront" || "No Upfront",
  * //       productTypes: [ // SavingsPlanProductTypeList
- * //         "STRING_VALUE",
+ * //         "EC2" || "Fargate" || "Lambda" || "SageMaker",
  * //       ],
- * //       currency: "STRING_VALUE",
+ * //       currency: "CNY" || "USD",
  * //       commitment: "STRING_VALUE",
  * //       upfrontPaymentAmount: "STRING_VALUE",
  * //       recurringPaymentAmount: "STRING_VALUE",

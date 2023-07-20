@@ -53,17 +53,17 @@ export interface DescribeSavingsPlansOfferingsCommandOutput
  *     "STRING_VALUE",
  *   ],
  *   paymentOptions: [ // SavingsPlanPaymentOptionList
- *     "STRING_VALUE",
+ *     "All Upfront" || "Partial Upfront" || "No Upfront",
  *   ],
- *   productType: "STRING_VALUE",
+ *   productType: "EC2" || "Fargate" || "Lambda" || "SageMaker",
  *   planTypes: [ // SavingsPlanTypeList
- *     "STRING_VALUE",
+ *     "Compute" || "EC2Instance" || "SageMaker",
  *   ],
  *   durations: [ // DurationsList
  *     Number("long"),
  *   ],
  *   currencies: [ // CurrencyList
- *     "STRING_VALUE",
+ *     "CNY" || "USD",
  *   ],
  *   descriptions: [ // SavingsPlanDescriptionsList
  *     "STRING_VALUE",
@@ -79,7 +79,7 @@ export interface DescribeSavingsPlansOfferingsCommandOutput
  *   ],
  *   filters: [ // SavingsPlanOfferingFiltersList
  *     { // SavingsPlanOfferingFilterElement
- *       name: "STRING_VALUE",
+ *       name: "region" || "instanceFamily",
  *       values: [ // FilterValuesList
  *         "STRING_VALUE",
  *       ],
@@ -95,19 +95,19 @@ export interface DescribeSavingsPlansOfferingsCommandOutput
  * //     { // SavingsPlanOffering
  * //       offeringId: "STRING_VALUE",
  * //       productTypes: [ // SavingsPlanProductTypeList
- * //         "STRING_VALUE",
+ * //         "EC2" || "Fargate" || "Lambda" || "SageMaker",
  * //       ],
- * //       planType: "STRING_VALUE",
+ * //       planType: "Compute" || "EC2Instance" || "SageMaker",
  * //       description: "STRING_VALUE",
- * //       paymentOption: "STRING_VALUE",
+ * //       paymentOption: "All Upfront" || "Partial Upfront" || "No Upfront",
  * //       durationSeconds: Number("long"),
- * //       currency: "STRING_VALUE",
+ * //       currency: "CNY" || "USD",
  * //       serviceCode: "STRING_VALUE",
  * //       usageType: "STRING_VALUE",
  * //       operation: "STRING_VALUE",
  * //       properties: [ // SavingsPlanOfferingPropertyList
  * //         { // SavingsPlanOfferingProperty
- * //           name: "STRING_VALUE",
+ * //           name: "region" || "instanceFamily",
  * //           value: "STRING_VALUE",
  * //         },
  * //       ],

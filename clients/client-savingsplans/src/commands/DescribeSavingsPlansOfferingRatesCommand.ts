@@ -56,16 +56,16 @@ export interface DescribeSavingsPlansOfferingRatesCommandOutput
  *     "STRING_VALUE",
  *   ],
  *   savingsPlanPaymentOptions: [ // SavingsPlanPaymentOptionList
- *     "STRING_VALUE",
+ *     "All Upfront" || "Partial Upfront" || "No Upfront",
  *   ],
  *   savingsPlanTypes: [ // SavingsPlanTypeList
- *     "STRING_VALUE",
+ *     "Compute" || "EC2Instance" || "SageMaker",
  *   ],
  *   products: [ // SavingsPlanProductTypeList
- *     "STRING_VALUE",
+ *     "EC2" || "Fargate" || "Lambda" || "SageMaker",
  *   ],
  *   serviceCodes: [ // SavingsPlanRateServiceCodeList
- *     "STRING_VALUE",
+ *     "AmazonEC2" || "AmazonECS" || "AmazonEKS" || "AWSLambda" || "AmazonSageMaker",
  *   ],
  *   usageTypes: [ // SavingsPlanRateUsageTypeList
  *     "STRING_VALUE",
@@ -75,7 +75,7 @@ export interface DescribeSavingsPlansOfferingRatesCommandOutput
  *   ],
  *   filters: [ // SavingsPlanOfferingRateFiltersList
  *     { // SavingsPlanOfferingRateFilterElement
- *       name: "STRING_VALUE",
+ *       name: "region" || "instanceFamily" || "instanceType" || "productDescription" || "tenancy" || "productId",
  *       values: [ // FilterValuesList
  *         "STRING_VALUE",
  *       ],
@@ -91,16 +91,16 @@ export interface DescribeSavingsPlansOfferingRatesCommandOutput
  * //     { // SavingsPlanOfferingRate
  * //       savingsPlanOffering: { // ParentSavingsPlanOffering
  * //         offeringId: "STRING_VALUE",
- * //         paymentOption: "STRING_VALUE",
- * //         planType: "STRING_VALUE",
+ * //         paymentOption: "All Upfront" || "Partial Upfront" || "No Upfront",
+ * //         planType: "Compute" || "EC2Instance" || "SageMaker",
  * //         durationSeconds: Number("long"),
- * //         currency: "STRING_VALUE",
+ * //         currency: "CNY" || "USD",
  * //         planDescription: "STRING_VALUE",
  * //       },
  * //       rate: "STRING_VALUE",
- * //       unit: "STRING_VALUE",
- * //       productType: "STRING_VALUE",
- * //       serviceCode: "STRING_VALUE",
+ * //       unit: "Hrs" || "Lambda-GB-Second" || "Request",
+ * //       productType: "EC2" || "Fargate" || "Lambda" || "SageMaker",
+ * //       serviceCode: "AmazonEC2" || "AmazonECS" || "AmazonEKS" || "AWSLambda" || "AmazonSageMaker",
  * //       usageType: "STRING_VALUE",
  * //       operation: "STRING_VALUE",
  * //       properties: [ // SavingsPlanOfferingRatePropertyList

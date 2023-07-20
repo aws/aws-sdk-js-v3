@@ -47,7 +47,7 @@ export interface DescribeSavingsPlanRatesCommandOutput extends DescribeSavingsPl
  *   savingsPlanId: "STRING_VALUE", // required
  *   filters: [ // SavingsPlanRateFilterList
  *     { // SavingsPlanRateFilter
- *       name: "STRING_VALUE",
+ *       name: "region" || "instanceType" || "productDescription" || "tenancy" || "productType" || "serviceCode" || "usageType" || "operation",
  *       values: [ // ListOfStrings
  *         "STRING_VALUE",
  *       ],
@@ -63,15 +63,15 @@ export interface DescribeSavingsPlanRatesCommandOutput extends DescribeSavingsPl
  * //   searchResults: [ // SavingsPlanRateList
  * //     { // SavingsPlanRate
  * //       rate: "STRING_VALUE",
- * //       currency: "STRING_VALUE",
- * //       unit: "STRING_VALUE",
- * //       productType: "STRING_VALUE",
- * //       serviceCode: "STRING_VALUE",
+ * //       currency: "CNY" || "USD",
+ * //       unit: "Hrs" || "Lambda-GB-Second" || "Request",
+ * //       productType: "EC2" || "Fargate" || "Lambda" || "SageMaker",
+ * //       serviceCode: "AmazonEC2" || "AmazonECS" || "AmazonEKS" || "AWSLambda" || "AmazonSageMaker",
  * //       usageType: "STRING_VALUE",
  * //       operation: "STRING_VALUE",
  * //       properties: [ // SavingsPlanRatePropertyList
  * //         { // SavingsPlanRateProperty
- * //           name: "STRING_VALUE",
+ * //           name: "region" || "instanceType" || "instanceFamily" || "productDescription" || "tenancy",
  * //           value: "STRING_VALUE",
  * //         },
  * //       ],

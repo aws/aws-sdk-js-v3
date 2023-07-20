@@ -209,8 +209,17 @@ export interface DescribeSavingsPlanRatesRequest {
 
 /**
  * @public
+ * @enum
  */
-export type CurrencyCode = "CNY" | "USD";
+export const CurrencyCode = {
+  CNY: "CNY",
+  USD: "USD",
+} as const;
+
+/**
+ * @public
+ */
+export type CurrencyCode = (typeof CurrencyCode)[keyof typeof CurrencyCode];
 
 /**
  * @public
@@ -355,7 +364,7 @@ export interface DescribeSavingsPlanRatesResponse {
 
   /**
    * <p>The token to use to retrieve the next page of results. This value is null when there are no more
-   *          results to return.</p>
+   *          results to return. </p>
    */
   nextToken?: string;
 }
