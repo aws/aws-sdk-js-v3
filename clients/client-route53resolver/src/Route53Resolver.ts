@@ -38,6 +38,11 @@ import {
   CreateFirewallRuleGroupCommandOutput,
 } from "./commands/CreateFirewallRuleGroupCommand";
 import {
+  CreateOutpostResolverCommand,
+  CreateOutpostResolverCommandInput,
+  CreateOutpostResolverCommandOutput,
+} from "./commands/CreateOutpostResolverCommand";
+import {
   CreateResolverEndpointCommand,
   CreateResolverEndpointCommandInput,
   CreateResolverEndpointCommandOutput,
@@ -67,6 +72,11 @@ import {
   DeleteFirewallRuleGroupCommandInput,
   DeleteFirewallRuleGroupCommandOutput,
 } from "./commands/DeleteFirewallRuleGroupCommand";
+import {
+  DeleteOutpostResolverCommand,
+  DeleteOutpostResolverCommandInput,
+  DeleteOutpostResolverCommandOutput,
+} from "./commands/DeleteOutpostResolverCommand";
 import {
   DeleteResolverEndpointCommand,
   DeleteResolverEndpointCommandInput,
@@ -127,6 +137,11 @@ import {
   GetFirewallRuleGroupPolicyCommandInput,
   GetFirewallRuleGroupPolicyCommandOutput,
 } from "./commands/GetFirewallRuleGroupPolicyCommand";
+import {
+  GetOutpostResolverCommand,
+  GetOutpostResolverCommandInput,
+  GetOutpostResolverCommandOutput,
+} from "./commands/GetOutpostResolverCommand";
 import {
   GetResolverConfigCommand,
   GetResolverConfigCommandInput,
@@ -207,6 +222,11 @@ import {
   ListFirewallRulesCommandInput,
   ListFirewallRulesCommandOutput,
 } from "./commands/ListFirewallRulesCommand";
+import {
+  ListOutpostResolversCommand,
+  ListOutpostResolversCommandInput,
+  ListOutpostResolversCommandOutput,
+} from "./commands/ListOutpostResolversCommand";
 import {
   ListResolverConfigsCommand,
   ListResolverConfigsCommandInput,
@@ -294,6 +314,11 @@ import {
   UpdateFirewallRuleGroupAssociationCommandOutput,
 } from "./commands/UpdateFirewallRuleGroupAssociationCommand";
 import {
+  UpdateOutpostResolverCommand,
+  UpdateOutpostResolverCommandInput,
+  UpdateOutpostResolverCommandOutput,
+} from "./commands/UpdateOutpostResolverCommand";
+import {
   UpdateResolverConfigCommand,
   UpdateResolverConfigCommandInput,
   UpdateResolverConfigCommandOutput,
@@ -323,12 +348,14 @@ const commands = {
   CreateFirewallDomainListCommand,
   CreateFirewallRuleCommand,
   CreateFirewallRuleGroupCommand,
+  CreateOutpostResolverCommand,
   CreateResolverEndpointCommand,
   CreateResolverQueryLogConfigCommand,
   CreateResolverRuleCommand,
   DeleteFirewallDomainListCommand,
   DeleteFirewallRuleCommand,
   DeleteFirewallRuleGroupCommand,
+  DeleteOutpostResolverCommand,
   DeleteResolverEndpointCommand,
   DeleteResolverQueryLogConfigCommand,
   DeleteResolverRuleCommand,
@@ -341,6 +368,7 @@ const commands = {
   GetFirewallRuleGroupCommand,
   GetFirewallRuleGroupAssociationCommand,
   GetFirewallRuleGroupPolicyCommand,
+  GetOutpostResolverCommand,
   GetResolverConfigCommand,
   GetResolverDnssecConfigCommand,
   GetResolverEndpointCommand,
@@ -357,6 +385,7 @@ const commands = {
   ListFirewallRuleGroupAssociationsCommand,
   ListFirewallRuleGroupsCommand,
   ListFirewallRulesCommand,
+  ListOutpostResolversCommand,
   ListResolverConfigsCommand,
   ListResolverDnssecConfigsCommand,
   ListResolverEndpointIpAddressesCommand,
@@ -375,6 +404,7 @@ const commands = {
   UpdateFirewallDomainsCommand,
   UpdateFirewallRuleCommand,
   UpdateFirewallRuleGroupAssociationCommand,
+  UpdateOutpostResolverCommand,
   UpdateResolverConfigCommand,
   UpdateResolverDnssecConfigCommand,
   UpdateResolverEndpointCommand,
@@ -502,6 +532,23 @@ export interface Route53Resolver {
   ): void;
 
   /**
+   * @see {@link CreateOutpostResolverCommand}
+   */
+  createOutpostResolver(
+    args: CreateOutpostResolverCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateOutpostResolverCommandOutput>;
+  createOutpostResolver(
+    args: CreateOutpostResolverCommandInput,
+    cb: (err: any, data?: CreateOutpostResolverCommandOutput) => void
+  ): void;
+  createOutpostResolver(
+    args: CreateOutpostResolverCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CreateOutpostResolverCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link CreateResolverEndpointCommand}
    */
   createResolverEndpoint(
@@ -601,6 +648,23 @@ export interface Route53Resolver {
     args: DeleteFirewallRuleGroupCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: DeleteFirewallRuleGroupCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DeleteOutpostResolverCommand}
+   */
+  deleteOutpostResolver(
+    args: DeleteOutpostResolverCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteOutpostResolverCommandOutput>;
+  deleteOutpostResolver(
+    args: DeleteOutpostResolverCommandInput,
+    cb: (err: any, data?: DeleteOutpostResolverCommandOutput) => void
+  ): void;
+  deleteOutpostResolver(
+    args: DeleteOutpostResolverCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteOutpostResolverCommandOutput) => void
   ): void;
 
   /**
@@ -805,6 +869,23 @@ export interface Route53Resolver {
     args: GetFirewallRuleGroupPolicyCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: GetFirewallRuleGroupPolicyCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link GetOutpostResolverCommand}
+   */
+  getOutpostResolver(
+    args: GetOutpostResolverCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetOutpostResolverCommandOutput>;
+  getOutpostResolver(
+    args: GetOutpostResolverCommandInput,
+    cb: (err: any, data?: GetOutpostResolverCommandOutput) => void
+  ): void;
+  getOutpostResolver(
+    args: GetOutpostResolverCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetOutpostResolverCommandOutput) => void
   ): void;
 
   /**
@@ -1074,6 +1155,23 @@ export interface Route53Resolver {
     args: ListFirewallRulesCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: ListFirewallRulesCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ListOutpostResolversCommand}
+   */
+  listOutpostResolvers(
+    args: ListOutpostResolversCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListOutpostResolversCommandOutput>;
+  listOutpostResolvers(
+    args: ListOutpostResolversCommandInput,
+    cb: (err: any, data?: ListOutpostResolversCommandOutput) => void
+  ): void;
+  listOutpostResolvers(
+    args: ListOutpostResolversCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListOutpostResolversCommandOutput) => void
   ): void;
 
   /**
@@ -1368,6 +1466,23 @@ export interface Route53Resolver {
     args: UpdateFirewallRuleGroupAssociationCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: UpdateFirewallRuleGroupAssociationCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link UpdateOutpostResolverCommand}
+   */
+  updateOutpostResolver(
+    args: UpdateOutpostResolverCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateOutpostResolverCommandOutput>;
+  updateOutpostResolver(
+    args: UpdateOutpostResolverCommandInput,
+    cb: (err: any, data?: UpdateOutpostResolverCommandOutput) => void
+  ): void;
+  updateOutpostResolver(
+    args: UpdateOutpostResolverCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UpdateOutpostResolverCommandOutput) => void
   ): void;
 
   /**

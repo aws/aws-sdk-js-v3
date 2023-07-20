@@ -77,6 +77,8 @@ export interface DeleteResolverEndpointCommandOutput extends DeleteResolverEndpo
  * //     CreationTime: "STRING_VALUE",
  * //     ModificationTime: "STRING_VALUE",
  * //     ResolverEndpointType: "IPV6" || "IPV4" || "DUALSTACK",
+ * //     OutpostArn: "STRING_VALUE",
+ * //     PreferredInstanceType: "STRING_VALUE",
  * //   },
  * // };
  *

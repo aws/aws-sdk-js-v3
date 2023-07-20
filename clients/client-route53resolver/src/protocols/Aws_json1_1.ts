@@ -41,6 +41,10 @@ import {
   CreateFirewallRuleGroupCommandOutput,
 } from "../commands/CreateFirewallRuleGroupCommand";
 import {
+  CreateOutpostResolverCommandInput,
+  CreateOutpostResolverCommandOutput,
+} from "../commands/CreateOutpostResolverCommand";
+import {
   CreateResolverEndpointCommandInput,
   CreateResolverEndpointCommandOutput,
 } from "../commands/CreateResolverEndpointCommand";
@@ -58,6 +62,10 @@ import {
   DeleteFirewallRuleGroupCommandInput,
   DeleteFirewallRuleGroupCommandOutput,
 } from "../commands/DeleteFirewallRuleGroupCommand";
+import {
+  DeleteOutpostResolverCommandInput,
+  DeleteOutpostResolverCommandOutput,
+} from "../commands/DeleteOutpostResolverCommand";
 import {
   DeleteResolverEndpointCommandInput,
   DeleteResolverEndpointCommandOutput,
@@ -100,6 +108,7 @@ import {
   GetFirewallRuleGroupPolicyCommandInput,
   GetFirewallRuleGroupPolicyCommandOutput,
 } from "../commands/GetFirewallRuleGroupPolicyCommand";
+import { GetOutpostResolverCommandInput, GetOutpostResolverCommandOutput } from "../commands/GetOutpostResolverCommand";
 import { GetResolverConfigCommandInput, GetResolverConfigCommandOutput } from "../commands/GetResolverConfigCommand";
 import {
   GetResolverDnssecConfigCommandInput,
@@ -155,6 +164,10 @@ import {
   ListFirewallRuleGroupsCommandOutput,
 } from "../commands/ListFirewallRuleGroupsCommand";
 import { ListFirewallRulesCommandInput, ListFirewallRulesCommandOutput } from "../commands/ListFirewallRulesCommand";
+import {
+  ListOutpostResolversCommandInput,
+  ListOutpostResolversCommandOutput,
+} from "../commands/ListOutpostResolversCommand";
 import {
   ListResolverConfigsCommandInput,
   ListResolverConfigsCommandOutput,
@@ -216,6 +229,10 @@ import {
   UpdateFirewallRuleGroupAssociationCommandOutput,
 } from "../commands/UpdateFirewallRuleGroupAssociationCommand";
 import {
+  UpdateOutpostResolverCommandInput,
+  UpdateOutpostResolverCommandOutput,
+} from "../commands/UpdateOutpostResolverCommand";
+import {
   UpdateResolverConfigCommandInput,
   UpdateResolverConfigCommandOutput,
 } from "../commands/UpdateResolverConfigCommand";
@@ -238,12 +255,14 @@ import {
   CreateFirewallDomainListRequest,
   CreateFirewallRuleGroupRequest,
   CreateFirewallRuleRequest,
+  CreateOutpostResolverRequest,
   CreateResolverEndpointRequest,
   CreateResolverQueryLogConfigRequest,
   CreateResolverRuleRequest,
   DeleteFirewallDomainListRequest,
   DeleteFirewallRuleGroupRequest,
   DeleteFirewallRuleRequest,
+  DeleteOutpostResolverRequest,
   DeleteResolverEndpointRequest,
   DeleteResolverQueryLogConfigRequest,
   DeleteResolverRuleRequest,
@@ -257,6 +276,7 @@ import {
   GetFirewallRuleGroupAssociationRequest,
   GetFirewallRuleGroupPolicyRequest,
   GetFirewallRuleGroupRequest,
+  GetOutpostResolverRequest,
   GetResolverConfigRequest,
   GetResolverDnssecConfigRequest,
   GetResolverEndpointRequest,
@@ -282,6 +302,7 @@ import {
   ListFirewallRuleGroupAssociationsRequest,
   ListFirewallRuleGroupsRequest,
   ListFirewallRulesRequest,
+  ListOutpostResolversRequest,
   ListResolverConfigsRequest,
   ListResolverDnssecConfigsRequest,
   ListResolverEndpointIpAddressesRequest,
@@ -299,6 +320,7 @@ import {
   ResourceInUseException,
   ResourceNotFoundException,
   ResourceUnavailableException,
+  ServiceQuotaExceededException,
   Tag,
   TagResourceRequest,
   TargetAddress,
@@ -310,6 +332,7 @@ import {
   UpdateFirewallRuleGroupAssociationRequest,
   UpdateFirewallRuleRequest,
   UpdateIpAddress,
+  UpdateOutpostResolverRequest,
   UpdateResolverConfigRequest,
   UpdateResolverDnssecConfigRequest,
   UpdateResolverEndpointRequest,
@@ -410,6 +433,19 @@ export const se_CreateFirewallRuleGroupCommand = async (
 };
 
 /**
+ * serializeAws_json1_1CreateOutpostResolverCommand
+ */
+export const se_CreateOutpostResolverCommand = async (
+  input: CreateOutpostResolverCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = sharedHeaders("CreateOutpostResolver");
+  let body: any;
+  body = JSON.stringify(_json(input));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+/**
  * serializeAws_json1_1CreateResolverEndpointCommand
  */
 export const se_CreateResolverEndpointCommand = async (
@@ -482,6 +518,19 @@ export const se_DeleteFirewallRuleGroupCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("DeleteFirewallRuleGroup");
+  let body: any;
+  body = JSON.stringify(_json(input));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+/**
+ * serializeAws_json1_1DeleteOutpostResolverCommand
+ */
+export const se_DeleteOutpostResolverCommand = async (
+  input: DeleteOutpostResolverCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = sharedHeaders("DeleteOutpostResolver");
   let body: any;
   body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -638,6 +687,19 @@ export const se_GetFirewallRuleGroupPolicyCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("GetFirewallRuleGroupPolicy");
+  let body: any;
+  body = JSON.stringify(_json(input));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+/**
+ * serializeAws_json1_1GetOutpostResolverCommand
+ */
+export const se_GetOutpostResolverCommand = async (
+  input: GetOutpostResolverCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = sharedHeaders("GetOutpostResolver");
   let body: any;
   body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -846,6 +908,19 @@ export const se_ListFirewallRulesCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("ListFirewallRules");
+  let body: any;
+  body = JSON.stringify(_json(input));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+/**
+ * serializeAws_json1_1ListOutpostResolversCommand
+ */
+export const se_ListOutpostResolversCommand = async (
+  input: ListOutpostResolversCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = sharedHeaders("ListOutpostResolvers");
   let body: any;
   body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1080,6 +1155,19 @@ export const se_UpdateFirewallRuleGroupAssociationCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("UpdateFirewallRuleGroupAssociation");
+  let body: any;
+  body = JSON.stringify(_json(input));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+/**
+ * serializeAws_json1_1UpdateOutpostResolverCommand
+ */
+export const se_UpdateOutpostResolverCommand = async (
+  input: UpdateOutpostResolverCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = sharedHeaders("UpdateOutpostResolver");
   let body: any;
   body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1577,6 +1665,67 @@ const de_CreateFirewallRuleGroupCommandError = async (
 };
 
 /**
+ * deserializeAws_json1_1CreateOutpostResolverCommand
+ */
+export const de_CreateOutpostResolverCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CreateOutpostResolverCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CreateOutpostResolverCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = _json(data);
+  const response: CreateOutpostResolverCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1CreateOutpostResolverCommandError
+ */
+const de_CreateOutpostResolverCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CreateOutpostResolverCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.route53resolver#AccessDeniedException":
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
+    case "InternalServiceErrorException":
+    case "com.amazonaws.route53resolver#InternalServiceErrorException":
+      throw await de_InternalServiceErrorExceptionRes(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.route53resolver#ResourceNotFoundException":
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
+    case "ServiceQuotaExceededException":
+    case "com.amazonaws.route53resolver#ServiceQuotaExceededException":
+      throw await de_ServiceQuotaExceededExceptionRes(parsedOutput, context);
+    case "ThrottlingException":
+    case "com.amazonaws.route53resolver#ThrottlingException":
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
+    case "ValidationException":
+    case "com.amazonaws.route53resolver#ValidationException":
+      throw await de_ValidationExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
  * deserializeAws_json1_1CreateResolverEndpointCommand
  */
 export const de_CreateResolverEndpointCommand = async (
@@ -1914,6 +2063,67 @@ const de_DeleteFirewallRuleGroupCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteFirewallRuleGroupCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.route53resolver#AccessDeniedException":
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
+    case "ConflictException":
+    case "com.amazonaws.route53resolver#ConflictException":
+      throw await de_ConflictExceptionRes(parsedOutput, context);
+    case "InternalServiceErrorException":
+    case "com.amazonaws.route53resolver#InternalServiceErrorException":
+      throw await de_InternalServiceErrorExceptionRes(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.route53resolver#ResourceNotFoundException":
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
+    case "ThrottlingException":
+    case "com.amazonaws.route53resolver#ThrottlingException":
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
+    case "ValidationException":
+    case "com.amazonaws.route53resolver#ValidationException":
+      throw await de_ValidationExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
+ * deserializeAws_json1_1DeleteOutpostResolverCommand
+ */
+export const de_DeleteOutpostResolverCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteOutpostResolverCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_DeleteOutpostResolverCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = _json(data);
+  const response: DeleteOutpostResolverCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1DeleteOutpostResolverCommandError
+ */
+const de_DeleteOutpostResolverCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteOutpostResolverCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseErrorBody(output.body, context),
@@ -2613,6 +2823,64 @@ const de_GetFirewallRuleGroupPolicyCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetFirewallRuleGroupPolicyCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.route53resolver#AccessDeniedException":
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
+    case "InternalServiceErrorException":
+    case "com.amazonaws.route53resolver#InternalServiceErrorException":
+      throw await de_InternalServiceErrorExceptionRes(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.route53resolver#ResourceNotFoundException":
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
+    case "ThrottlingException":
+    case "com.amazonaws.route53resolver#ThrottlingException":
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
+    case "ValidationException":
+    case "com.amazonaws.route53resolver#ValidationException":
+      throw await de_ValidationExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
+ * deserializeAws_json1_1GetOutpostResolverCommand
+ */
+export const de_GetOutpostResolverCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetOutpostResolverCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_GetOutpostResolverCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = _json(data);
+  const response: GetOutpostResolverCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1GetOutpostResolverCommandError
+ */
+const de_GetOutpostResolverCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetOutpostResolverCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseErrorBody(output.body, context),
@@ -3535,6 +3803,64 @@ const de_ListFirewallRulesCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListFirewallRulesCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.route53resolver#AccessDeniedException":
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
+    case "InternalServiceErrorException":
+    case "com.amazonaws.route53resolver#InternalServiceErrorException":
+      throw await de_InternalServiceErrorExceptionRes(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.route53resolver#ResourceNotFoundException":
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
+    case "ThrottlingException":
+    case "com.amazonaws.route53resolver#ThrottlingException":
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
+    case "ValidationException":
+    case "com.amazonaws.route53resolver#ValidationException":
+      throw await de_ValidationExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
+ * deserializeAws_json1_1ListOutpostResolversCommand
+ */
+export const de_ListOutpostResolversCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListOutpostResolversCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_ListOutpostResolversCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = _json(data);
+  const response: ListOutpostResolversCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1ListOutpostResolversCommandError
+ */
+const de_ListOutpostResolversCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListOutpostResolversCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseErrorBody(output.body, context),
@@ -4650,6 +4976,70 @@ const de_UpdateFirewallRuleGroupAssociationCommandError = async (
 };
 
 /**
+ * deserializeAws_json1_1UpdateOutpostResolverCommand
+ */
+export const de_UpdateOutpostResolverCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateOutpostResolverCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_UpdateOutpostResolverCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = _json(data);
+  const response: UpdateOutpostResolverCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1UpdateOutpostResolverCommandError
+ */
+const de_UpdateOutpostResolverCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateOutpostResolverCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.route53resolver#AccessDeniedException":
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
+    case "ConflictException":
+    case "com.amazonaws.route53resolver#ConflictException":
+      throw await de_ConflictExceptionRes(parsedOutput, context);
+    case "InternalServiceErrorException":
+    case "com.amazonaws.route53resolver#InternalServiceErrorException":
+      throw await de_InternalServiceErrorExceptionRes(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.route53resolver#ResourceNotFoundException":
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
+    case "ServiceQuotaExceededException":
+    case "com.amazonaws.route53resolver#ServiceQuotaExceededException":
+      throw await de_ServiceQuotaExceededExceptionRes(parsedOutput, context);
+    case "ThrottlingException":
+    case "com.amazonaws.route53resolver#ThrottlingException":
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
+    case "ValidationException":
+    case "com.amazonaws.route53resolver#ValidationException":
+      throw await de_ValidationExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
  * deserializeAws_json1_1UpdateResolverConfigCommand
  */
 export const de_UpdateResolverConfigCommand = async (
@@ -5105,6 +5495,22 @@ const de_ResourceUnavailableExceptionRes = async (
 };
 
 /**
+ * deserializeAws_json1_1ServiceQuotaExceededExceptionRes
+ */
+const de_ServiceQuotaExceededExceptionRes = async (
+  parsedOutput: any,
+  context: __SerdeContext
+): Promise<ServiceQuotaExceededException> => {
+  const body = parsedOutput.body;
+  const deserialized: any = _json(body);
+  const exception = new ServiceQuotaExceededException({
+    $metadata: deserializeMetadata(parsedOutput),
+    ...deserialized,
+  });
+  return __decorateServiceException(exception, body);
+};
+
+/**
  * deserializeAws_json1_1ThrottlingExceptionRes
  */
 const de_ThrottlingExceptionRes = async (parsedOutput: any, context: __SerdeContext): Promise<ThrottlingException> => {
@@ -5210,6 +5616,8 @@ const se_CreateFirewallRuleRequest = (input: CreateFirewallRuleRequest, context:
   });
 };
 
+// se_CreateOutpostResolverRequest omitted.
+
 // se_CreateResolverEndpointRequest omitted.
 
 /**
@@ -5234,6 +5642,8 @@ const se_CreateResolverQueryLogConfigRequest = (
 // se_DeleteFirewallRuleGroupRequest omitted.
 
 // se_DeleteFirewallRuleRequest omitted.
+
+// se_DeleteOutpostResolverRequest omitted.
 
 // se_DeleteResolverEndpointRequest omitted.
 
@@ -5266,6 +5676,8 @@ const se_CreateResolverQueryLogConfigRequest = (
 // se_GetFirewallRuleGroupPolicyRequest omitted.
 
 // se_GetFirewallRuleGroupRequest omitted.
+
+// se_GetOutpostResolverRequest omitted.
 
 // se_GetResolverConfigRequest omitted.
 
@@ -5304,6 +5716,8 @@ const se_CreateResolverQueryLogConfigRequest = (
 // se_ListFirewallRuleGroupsRequest omitted.
 
 // se_ListFirewallRulesRequest omitted.
+
+// se_ListOutpostResolversRequest omitted.
 
 // se_ListResolverConfigsRequest omitted.
 
@@ -5359,6 +5773,8 @@ const se_CreateResolverQueryLogConfigRequest = (
 
 // se_UpdateIpAddresses omitted.
 
+// se_UpdateOutpostResolverRequest omitted.
+
 // se_UpdateResolverConfigRequest omitted.
 
 // se_UpdateResolverDnssecConfigRequest omitted.
@@ -5385,6 +5801,8 @@ const se_CreateResolverQueryLogConfigRequest = (
 
 // de_CreateFirewallRuleResponse omitted.
 
+// de_CreateOutpostResolverResponse omitted.
+
 // de_CreateResolverEndpointResponse omitted.
 
 // de_CreateResolverQueryLogConfigResponse omitted.
@@ -5396,6 +5814,8 @@ const se_CreateResolverQueryLogConfigRequest = (
 // de_DeleteFirewallRuleGroupResponse omitted.
 
 // de_DeleteFirewallRuleResponse omitted.
+
+// de_DeleteOutpostResolverResponse omitted.
 
 // de_DeleteResolverEndpointResponse omitted.
 
@@ -5447,6 +5867,8 @@ const se_CreateResolverQueryLogConfigRequest = (
 
 // de_GetFirewallRuleGroupResponse omitted.
 
+// de_GetOutpostResolverResponse omitted.
+
 // de_GetResolverConfigResponse omitted.
 
 // de_GetResolverDnssecConfigResponse omitted.
@@ -5497,6 +5919,8 @@ const se_CreateResolverQueryLogConfigRequest = (
 
 // de_ListFirewallRulesResponse omitted.
 
+// de_ListOutpostResolversResponse omitted.
+
 // de_ListResolverConfigsResponse omitted.
 
 // de_ListResolverDnssecConfigsResponse omitted.
@@ -5514,6 +5938,10 @@ const se_CreateResolverQueryLogConfigRequest = (
 // de_ListResolverRulesResponse omitted.
 
 // de_ListTagsForResourceResponse omitted.
+
+// de_OutpostResolver omitted.
+
+// de_OutpostResolverList omitted.
 
 // de_PutFirewallRuleGroupPolicyResponse omitted.
 
@@ -5559,6 +5987,8 @@ const se_CreateResolverQueryLogConfigRequest = (
 
 // de_SecurityGroupIds omitted.
 
+// de_ServiceQuotaExceededException omitted.
+
 // de_Tag omitted.
 
 // de_TagList omitted.
@@ -5582,6 +6012,8 @@ const se_CreateResolverQueryLogConfigRequest = (
 // de_UpdateFirewallRuleGroupAssociationResponse omitted.
 
 // de_UpdateFirewallRuleResponse omitted.
+
+// de_UpdateOutpostResolverResponse omitted.
 
 // de_UpdateResolverConfigResponse omitted.
 

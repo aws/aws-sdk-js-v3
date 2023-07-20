@@ -13,8 +13,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@smithy/types";
 
-import { UpdateResolverEndpointRequest, UpdateResolverEndpointResponse } from "../models/models_0";
-import { de_UpdateResolverEndpointCommand, se_UpdateResolverEndpointCommand } from "../protocols/Aws_json1_1";
+import { CreateOutpostResolverRequest, CreateOutpostResolverResponse } from "../models/models_0";
+import { de_CreateOutpostResolverCommand, se_CreateOutpostResolverCommand } from "../protocols/Aws_json1_1";
 import { Route53ResolverClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../Route53ResolverClient";
 
 /**
@@ -24,91 +24,90 @@ export { __MetadataBearer, $Command };
 /**
  * @public
  *
- * The input for {@link UpdateResolverEndpointCommand}.
+ * The input for {@link CreateOutpostResolverCommand}.
  */
-export interface UpdateResolverEndpointCommandInput extends UpdateResolverEndpointRequest {}
+export interface CreateOutpostResolverCommandInput extends CreateOutpostResolverRequest {}
 /**
  * @public
  *
- * The output of {@link UpdateResolverEndpointCommand}.
+ * The output of {@link CreateOutpostResolverCommand}.
  */
-export interface UpdateResolverEndpointCommandOutput extends UpdateResolverEndpointResponse, __MetadataBearer {}
+export interface CreateOutpostResolverCommandOutput extends CreateOutpostResolverResponse, __MetadataBearer {}
 
 /**
  * @public
- * <p>Updates the name, or enpoint type for an inbound or an outbound Resolver endpoint.
- * 			You can only update between IPV4 and DUALSTACK, IPV6 endpoint type can't be updated to other type. </p>
+ * <p>Creates an Route 53 Resolver on an Outpost.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { Route53ResolverClient, UpdateResolverEndpointCommand } from "@aws-sdk/client-route53resolver"; // ES Modules import
- * // const { Route53ResolverClient, UpdateResolverEndpointCommand } = require("@aws-sdk/client-route53resolver"); // CommonJS import
+ * import { Route53ResolverClient, CreateOutpostResolverCommand } from "@aws-sdk/client-route53resolver"; // ES Modules import
+ * // const { Route53ResolverClient, CreateOutpostResolverCommand } = require("@aws-sdk/client-route53resolver"); // CommonJS import
  * const client = new Route53ResolverClient(config);
- * const input = { // UpdateResolverEndpointRequest
- *   ResolverEndpointId: "STRING_VALUE", // required
- *   Name: "STRING_VALUE",
- *   ResolverEndpointType: "IPV6" || "IPV4" || "DUALSTACK",
- *   UpdateIpAddresses: [ // UpdateIpAddresses
- *     { // UpdateIpAddress
- *       IpId: "STRING_VALUE", // required
- *       Ipv6: "STRING_VALUE", // required
+ * const input = { // CreateOutpostResolverRequest
+ *   CreatorRequestId: "STRING_VALUE", // required
+ *   Name: "STRING_VALUE", // required
+ *   InstanceCount: Number("int"),
+ *   PreferredInstanceType: "STRING_VALUE", // required
+ *   OutpostArn: "STRING_VALUE", // required
+ *   Tags: [ // TagList
+ *     { // Tag
+ *       Key: "STRING_VALUE", // required
+ *       Value: "STRING_VALUE", // required
  *     },
  *   ],
  * };
- * const command = new UpdateResolverEndpointCommand(input);
+ * const command = new CreateOutpostResolverCommand(input);
  * const response = await client.send(command);
- * // { // UpdateResolverEndpointResponse
- * //   ResolverEndpoint: { // ResolverEndpoint
- * //     Id: "STRING_VALUE",
- * //     CreatorRequestId: "STRING_VALUE",
+ * // { // CreateOutpostResolverResponse
+ * //   OutpostResolver: { // OutpostResolver
  * //     Arn: "STRING_VALUE",
- * //     Name: "STRING_VALUE",
- * //     SecurityGroupIds: [ // SecurityGroupIds
- * //       "STRING_VALUE",
- * //     ],
- * //     Direction: "INBOUND" || "OUTBOUND",
- * //     IpAddressCount: Number("int"),
- * //     HostVPCId: "STRING_VALUE",
- * //     Status: "CREATING" || "OPERATIONAL" || "UPDATING" || "AUTO_RECOVERING" || "ACTION_NEEDED" || "DELETING",
- * //     StatusMessage: "STRING_VALUE",
  * //     CreationTime: "STRING_VALUE",
  * //     ModificationTime: "STRING_VALUE",
- * //     ResolverEndpointType: "IPV6" || "IPV4" || "DUALSTACK",
- * //     OutpostArn: "STRING_VALUE",
+ * //     CreatorRequestId: "STRING_VALUE",
+ * //     Id: "STRING_VALUE",
+ * //     InstanceCount: Number("int"),
  * //     PreferredInstanceType: "STRING_VALUE",
+ * //     Name: "STRING_VALUE",
+ * //     Status: "CREATING" || "OPERATIONAL" || "UPDATING" || "DELETING" || "ACTION_NEEDED" || "FAILED_CREATION" || "FAILED_DELETION",
+ * //     StatusMessage: "STRING_VALUE",
+ * //     OutpostArn: "STRING_VALUE",
  * //   },
  * // };
  *
  * ```
  *
- * @param UpdateResolverEndpointCommandInput - {@link UpdateResolverEndpointCommandInput}
- * @returns {@link UpdateResolverEndpointCommandOutput}
- * @see {@link UpdateResolverEndpointCommandInput} for command's `input` shape.
- * @see {@link UpdateResolverEndpointCommandOutput} for command's `response` shape.
+ * @param CreateOutpostResolverCommandInput - {@link CreateOutpostResolverCommandInput}
+ * @returns {@link CreateOutpostResolverCommandOutput}
+ * @see {@link CreateOutpostResolverCommandInput} for command's `input` shape.
+ * @see {@link CreateOutpostResolverCommandOutput} for command's `response` shape.
  * @see {@link Route53ResolverClientResolvedConfig | config} for Route53ResolverClient's `config` shape.
+ *
+ * @throws {@link AccessDeniedException} (client fault)
+ *  <p>The current account doesn't have the IAM permissions required to perform the specified Resolver operation.</p>
  *
  * @throws {@link InternalServiceErrorException} (client fault)
  *  <p>We encountered an unknown error. Try again in a few minutes.</p>
  *
- * @throws {@link InvalidParameterException} (client fault)
- *  <p>One or more parameters in this request are not valid.</p>
- *
- * @throws {@link InvalidRequestException} (client fault)
- *  <p>The request is invalid.</p>
- *
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>The specified resource doesn't exist.</p>
  *
+ * @throws {@link ServiceQuotaExceededException} (client fault)
+ *  <p>Fulfilling the request would cause one or more quotas to be exceeded.</p>
+ *
  * @throws {@link ThrottlingException} (client fault)
  *  <p>The request was throttled. Try again in a few minutes.</p>
+ *
+ * @throws {@link ValidationException} (client fault)
+ *  <p>You have provided an invalid command. Supported values are <code>ADD</code>,
+ * 			<code>REMOVE</code>, or <code>REPLACE</code> a domain.</p>
  *
  * @throws {@link Route53ResolverServiceException}
  * <p>Base exception class for all service exceptions from Route53Resolver service.</p>
  *
  */
-export class UpdateResolverEndpointCommand extends $Command<
-  UpdateResolverEndpointCommandInput,
-  UpdateResolverEndpointCommandOutput,
+export class CreateOutpostResolverCommand extends $Command<
+  CreateOutpostResolverCommandInput,
+  CreateOutpostResolverCommandOutput,
   Route53ResolverClientResolvedConfig
 > {
   // Start section: command_properties
@@ -126,7 +125,7 @@ export class UpdateResolverEndpointCommand extends $Command<
   /**
    * @public
    */
-  constructor(readonly input: UpdateResolverEndpointCommandInput) {
+  constructor(readonly input: CreateOutpostResolverCommandInput) {
     // Start section: command_constructor
     super();
     // End section: command_constructor
@@ -139,17 +138,17 @@ export class UpdateResolverEndpointCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: Route53ResolverClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<UpdateResolverEndpointCommandInput, UpdateResolverEndpointCommandOutput> {
+  ): Handler<CreateOutpostResolverCommandInput, CreateOutpostResolverCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
     this.middlewareStack.use(
-      getEndpointPlugin(configuration, UpdateResolverEndpointCommand.getEndpointParameterInstructions())
+      getEndpointPlugin(configuration, CreateOutpostResolverCommand.getEndpointParameterInstructions())
     );
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
     const clientName = "Route53ResolverClient";
-    const commandName = "UpdateResolverEndpointCommand";
+    const commandName = "CreateOutpostResolverCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
       clientName,
@@ -168,15 +167,15 @@ export class UpdateResolverEndpointCommand extends $Command<
   /**
    * @internal
    */
-  private serialize(input: UpdateResolverEndpointCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return se_UpdateResolverEndpointCommand(input, context);
+  private serialize(input: CreateOutpostResolverCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
+    return se_CreateOutpostResolverCommand(input, context);
   }
 
   /**
    * @internal
    */
-  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateResolverEndpointCommandOutput> {
-    return de_UpdateResolverEndpointCommand(output, context);
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateOutpostResolverCommandOutput> {
+    return de_CreateOutpostResolverCommand(output, context);
   }
 
   // Start section: command_body_extra

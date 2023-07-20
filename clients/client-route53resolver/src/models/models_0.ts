@@ -603,6 +603,18 @@ export interface ResolverEndpoint {
    * 		</p>
    */
   ResolverEndpointType?: ResolverEndpointType | string;
+
+  /**
+   * <p>The ARN (Amazon Resource Name) for the Outpost.</p>
+   */
+  OutpostArn?: string;
+
+  /**
+   * <p>
+   * 			The Amazon EC2 instance type.
+   * 		</p>
+   */
+  PreferredInstanceType?: string;
 }
 
 /**
@@ -1432,6 +1444,167 @@ export interface CreateFirewallRuleGroupResponse {
 
 /**
  * @public
+ */
+export interface CreateOutpostResolverRequest {
+  /**
+   * <p>A unique string that identifies the request
+   * 		and that allows failed requests to be retried without the risk of running the operation twice. </p>
+   *          <p>
+   *             <code>CreatorRequestId</code> can be any unique string, for example, a date/time stamp.</p>
+   */
+  CreatorRequestId: string | undefined;
+
+  /**
+   * <p>A friendly name that lets you easily find a configuration in the
+   * 		Resolver dashboard in the Route 53 console.</p>
+   */
+  Name: string | undefined;
+
+  /**
+   * <p>Number of Amazon EC2 instances for the
+   * 		Resolver on Outpost.
+   * 		The default and minimal value is 4.</p>
+   */
+  InstanceCount?: number;
+
+  /**
+   * <p>
+   * 		The Amazon EC2 instance type. If you specify this, you must also specify a value for the <code>OutpostArn</code>.
+   * 	</p>
+   */
+  PreferredInstanceType: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the Outpost. If you specify this, you must also specify a value for the <code>PreferredInstanceType</code>.</p>
+   */
+  OutpostArn: string | undefined;
+
+  /**
+   * <p>
+   * 			A string that helps identify the Route 53 Resolvers on Outpost.
+   * 		</p>
+   */
+  Tags?: Tag[];
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const OutpostResolverStatus = {
+  ACTION_NEEDED: "ACTION_NEEDED",
+  CREATING: "CREATING",
+  DELETING: "DELETING",
+  FAILED_CREATION: "FAILED_CREATION",
+  FAILED_DELETION: "FAILED_DELETION",
+  OPERATIONAL: "OPERATIONAL",
+  UPDATING: "UPDATING",
+} as const;
+
+/**
+ * @public
+ */
+export type OutpostResolverStatus = (typeof OutpostResolverStatus)[keyof typeof OutpostResolverStatus];
+
+/**
+ * @public
+ * <p>A complex type that contains settings for an existing Resolver on an Outpost.</p>
+ */
+export interface OutpostResolver {
+  /**
+   * <p>The ARN (Amazon Resource Name) for the Resolver on an Outpost.</p>
+   */
+  Arn?: string;
+
+  /**
+   * <p>The date and time that the Outpost Resolver was created, in Unix time format and Coordinated Universal Time (UTC).</p>
+   */
+  CreationTime?: string;
+
+  /**
+   * <p>The date and time that the Outpost Resolver was modified, in Unix time format and Coordinated Universal Time (UTC).</p>
+   */
+  ModificationTime?: string;
+
+  /**
+   * <p>A unique string that identifies the request that created the Resolver endpoint.
+   * 		The <code>CreatorRequestId</code> allows failed requests to be retried without the risk of running the operation twice.</p>
+   */
+  CreatorRequestId?: string;
+
+  /**
+   * <p>The ID of the Resolver on Outpost.</p>
+   */
+  Id?: string;
+
+  /**
+   * <p>Amazon EC2 instance count for the Resolver on the Outpost.</p>
+   */
+  InstanceCount?: number;
+
+  /**
+   * <p>
+   * 			The Amazon EC2 instance type.
+   * 		</p>
+   */
+  PreferredInstanceType?: string;
+
+  /**
+   * <p>Name of the Resolver.</p>
+   */
+  Name?: string;
+
+  /**
+   * <p>Status of the Resolver.</p>
+   */
+  Status?: OutpostResolverStatus | string;
+
+  /**
+   * <p>A detailed description of the Resolver.</p>
+   */
+  StatusMessage?: string;
+
+  /**
+   * <p>The ARN (Amazon Resource Name) for the Outpost.</p>
+   */
+  OutpostArn?: string;
+}
+
+/**
+ * @public
+ */
+export interface CreateOutpostResolverResponse {
+  /**
+   * <p>Information about the <code>CreateOutpostResolver</code>
+   * 		request, including the status of the request.</p>
+   */
+  OutpostResolver?: OutpostResolver;
+}
+
+/**
+ * @public
+ * <p>Fulfilling the request would cause one or more quotas to be exceeded.</p>
+ */
+export class ServiceQuotaExceededException extends __BaseException {
+  readonly name: "ServiceQuotaExceededException" = "ServiceQuotaExceededException";
+  readonly $fault: "client" = "client";
+  Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<ServiceQuotaExceededException, __BaseException>) {
+    super({
+      name: "ServiceQuotaExceededException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ServiceQuotaExceededException.prototype);
+    this.Message = opts.Message;
+  }
+}
+
+/**
+ * @public
  * <p>In a
  * 			<a href="https://docs.aws.amazon.com/Route53/latest/APIReference/API_route53resolver_CreateResolverEndpoint.html">CreateResolverEndpoint</a>
  * 			request, the IP address that DNS queries originate from (for outbound endpoints) or that you forward DNS queries to (for inbound endpoints).
@@ -1508,12 +1681,23 @@ export interface CreateResolverEndpointRequest {
 
   /**
    * <p>
-   * 			For the endpoint type you can choose either IPv4, IPv6. or dual-stack.
+   * 			For the endpoint type you can choose either IPv4, IPv6, or dual-stack.
    * 			A dual-stack endpoint means that it will resolve via both IPv4 and IPv6. This
    * 			endpoint type is applied to all IP addresses.
    * 		</p>
    */
   ResolverEndpointType?: ResolverEndpointType | string;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the Outpost. If you specify this, you must also specify a
+   * 			value for the <code>PreferredInstanceType</code>. </p>
+   */
+  OutpostArn?: string;
+
+  /**
+   * <p>The  instance type. If you specify this, you must also specify a value for the <code>OutpostArn</code>.</p>
+   */
+  PreferredInstanceType?: string;
 }
 
 /**
@@ -1777,7 +1961,7 @@ export interface CreateResolverRuleRequest {
   DomainName: string | undefined;
 
   /**
-   * <p>The IPs that you want Resolver to forward DNS queries to. You can specify only IPv4 addresses. Separate IP addresses with a space.</p>
+   * <p>The IPs that you want Resolver to forward DNS queries to. You can specify either Ipv4 or Ipv6 addresses but not both in the same rule. Separate IP addresses with a space.</p>
    *          <p>
    *             <code>TargetIps</code> is available only when the value of <code>Rule type</code> is <code>FORWARD</code>.</p>
    */
@@ -1875,7 +2059,7 @@ export interface ResolverRule {
 
   /**
    * <p>An array that contains the IP addresses and ports that an outbound endpoint forwards DNS queries to. Typically,
-   * 			these are the IP addresses of DNS resolvers on your network. Specify IPv4 addresses. IPv6 is not supported.</p>
+   * 			these are the IP addresses of DNS resolvers on your network. </p>
    */
   TargetIps?: TargetAddress[];
 
@@ -1979,6 +2163,27 @@ export interface DeleteFirewallRuleGroupResponse {
    * <p>A collection of rules used to filter DNS network traffic. </p>
    */
   FirewallRuleGroup?: FirewallRuleGroup;
+}
+
+/**
+ * @public
+ */
+export interface DeleteOutpostResolverRequest {
+  /**
+   * <p>A unique string that identifies the Resolver on the Outpost.</p>
+   */
+  Id: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DeleteOutpostResolverResponse {
+  /**
+   * <p>Information about the <code>DeleteOutpostResolver</code>
+   * 		request, including the status of the request.</p>
+   */
+  OutpostResolver?: OutpostResolver;
 }
 
 /**
@@ -2688,6 +2893,27 @@ export interface GetFirewallRuleGroupPolicyResponse {
 /**
  * @public
  */
+export interface GetOutpostResolverRequest {
+  /**
+   * <p>The ID of the Resolver on the Outpost.</p>
+   */
+  Id: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetOutpostResolverResponse {
+  /**
+   * <p>Information about the <code>GetOutpostResolver</code>
+   * 		request, including the status of the request.</p>
+   */
+  OutpostResolver?: OutpostResolver;
+}
+
+/**
+ * @public
+ */
 export interface GetResolverConfigRequest {
   /**
    * <p>Resource ID of the Amazon VPC that you want to get information about.</p>
@@ -3149,6 +3375,7 @@ export const IpAddressStatus = {
   FailedResourceGone: "FAILED_RESOURCE_GONE",
   RemapAttaching: "REMAP_ATTACHING",
   RemapDetaching: "REMAP_DETACHING",
+  UpdateFailed: "UPDATE_FAILED",
   Updating: "UPDATING",
 } as const;
 
@@ -3503,6 +3730,46 @@ export interface ListFirewallRulesResponse {
    * 			see <code>MaxResults</code>. </p>
    */
   FirewallRules?: FirewallRule[];
+}
+
+/**
+ * @public
+ */
+export interface ListOutpostResolversRequest {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the Outpost.</p>
+   */
+  OutpostArn?: string;
+
+  /**
+   * <p>The maximum number of Resolvers on the Outpost that you want to return in the response to a
+   * 				<code>ListOutpostResolver</code> request. If you don't specify a value for
+   * 				<code>MaxResults</code>, the request returns up to 100 Resolvers.</p>
+   */
+  MaxResults?: number;
+
+  /**
+   * <p>For the first <code>ListOutpostResolver</code> request, omit this value.</p>
+   *          <p></p>
+   */
+  NextToken?: string;
+}
+
+/**
+ * @public
+ */
+export interface ListOutpostResolversResponse {
+  /**
+   * <p>The Resolvers on Outposts that were created by using the current Amazon Web Services account,
+   * 		and that match the specified filters, if any.</p>
+   */
+  OutpostResolvers?: OutpostResolver[];
+
+  /**
+   * <p>If more than <code>MaxResults</code> Resolvers match the specified criteria, you can submit another
+   * 		<code>ListOutpostResolver</code> request to get the next group of results. In the next request, specify the value of <code>NextToken</code> from the previous response.</p>
+   */
+  NextToken?: string;
 }
 
 /**
@@ -4189,11 +4456,6 @@ export interface PutResolverQueryLogConfigPolicyRequest {
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>route53resolver:ListResolverQueryLogConfigAssociations</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>
    *                   <code>route53resolver:ListResolverQueryLogConfigs</code>
    *                </p>
    *             </li>
@@ -4649,6 +4911,43 @@ export interface UpdateFirewallRuleGroupAssociationResponse {
 /**
  * @public
  */
+export interface UpdateOutpostResolverRequest {
+  /**
+   * <p>A unique string that identifies Resolver on an Outpost.</p>
+   */
+  Id: string | undefined;
+
+  /**
+   * <p>Name of the Resolver on the Outpost.</p>
+   */
+  Name?: string;
+
+  /**
+   * <p>The Amazon EC2 instance count for a Resolver on the Outpost.</p>
+   */
+  InstanceCount?: number;
+
+  /**
+   * <p>
+   * 			Amazon EC2 instance type.
+   * 		</p>
+   */
+  PreferredInstanceType?: string;
+}
+
+/**
+ * @public
+ */
+export interface UpdateOutpostResolverResponse {
+  /**
+   * <p>The response to an <code>UpdateOutpostResolver</code> request.</p>
+   */
+  OutpostResolver?: OutpostResolver;
+}
+
+/**
+ * @public
+ */
 export interface UpdateResolverConfigRequest {
   /**
    * <p>Resource ID of the Amazon VPC that you want to update the Resolver configuration for.</p>
@@ -4761,12 +5060,14 @@ export interface UpdateResolverEndpointRequest {
    * <p>
    * 			Specifies the endpoint type for what type of IP address the endpoint uses to forward DNS queries.
    * 		</p>
+   *          <p>Updating to <code>IPV6</code> type isn't currently supported.</p>
    */
   ResolverEndpointType?: ResolverEndpointType | string;
 
   /**
    * <p>
-   * 			Updates the Resolver endpoint type to IpV4, Ipv6, or dual-stack.
+   * 			Specifies the IPv6 address when you update the Resolver endpoint from IPv4 to dual-stack.
+   * 			If you don't specify an IPv6 address, one will be automatically chosen from your subnet.
    * 		</p>
    */
   UpdateIpAddresses?: UpdateIpAddress[];

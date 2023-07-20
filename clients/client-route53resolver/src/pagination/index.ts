@@ -6,6 +6,7 @@ export * from "./ListFirewallDomainsPaginator";
 export * from "./ListFirewallRuleGroupAssociationsPaginator";
 export * from "./ListFirewallRuleGroupsPaginator";
 export * from "./ListFirewallRulesPaginator";
+export * from "./ListOutpostResolversPaginator";
 export * from "./ListResolverConfigsPaginator";
 export * from "./ListResolverDnssecConfigsPaginator";
 export * from "./ListResolverEndpointIpAddressesPaginator";

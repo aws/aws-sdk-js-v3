@@ -74,6 +74,8 @@ export interface CreateResolverEndpointCommandOutput extends CreateResolverEndpo
  *     },
  *   ],
  *   ResolverEndpointType: "IPV6" || "IPV4" || "DUALSTACK",
+ *   OutpostArn: "STRING_VALUE",
+ *   PreferredInstanceType: "STRING_VALUE",
  * };
  * const command = new CreateResolverEndpointCommand(input);
  * const response = await client.send(command);
@@ -94,6 +96,8 @@ export interface CreateResolverEndpointCommandOutput extends CreateResolverEndpo
  * //     CreationTime: "STRING_VALUE",
  * //     ModificationTime: "STRING_VALUE",
  * //     ResolverEndpointType: "IPV6" || "IPV4" || "DUALSTACK",
+ * //     OutpostArn: "STRING_VALUE",
+ * //     PreferredInstanceType: "STRING_VALUE",
  * //   },
  * // };
  *

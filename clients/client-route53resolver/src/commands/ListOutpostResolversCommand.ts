@@ -13,11 +13,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@smithy/types";
 
-import { ListResolverEndpointIpAddressesRequest, ListResolverEndpointIpAddressesResponse } from "../models/models_0";
-import {
-  de_ListResolverEndpointIpAddressesCommand,
-  se_ListResolverEndpointIpAddressesCommand,
-} from "../protocols/Aws_json1_1";
+import { ListOutpostResolversRequest, ListOutpostResolversResponse } from "../models/models_0";
+import { de_ListOutpostResolversCommand, se_ListOutpostResolversCommand } from "../protocols/Aws_json1_1";
 import { Route53ResolverClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../Route53ResolverClient";
 
 /**
@@ -27,67 +24,64 @@ export { __MetadataBearer, $Command };
 /**
  * @public
  *
- * The input for {@link ListResolverEndpointIpAddressesCommand}.
+ * The input for {@link ListOutpostResolversCommand}.
  */
-export interface ListResolverEndpointIpAddressesCommandInput extends ListResolverEndpointIpAddressesRequest {}
+export interface ListOutpostResolversCommandInput extends ListOutpostResolversRequest {}
 /**
  * @public
  *
- * The output of {@link ListResolverEndpointIpAddressesCommand}.
+ * The output of {@link ListOutpostResolversCommand}.
  */
-export interface ListResolverEndpointIpAddressesCommandOutput
-  extends ListResolverEndpointIpAddressesResponse,
-    __MetadataBearer {}
+export interface ListOutpostResolversCommandOutput extends ListOutpostResolversResponse, __MetadataBearer {}
 
 /**
  * @public
- * <p>Gets the IP addresses for a specified Resolver endpoint.</p>
+ * <p>Lists all the Resolvers on Outposts that were created using the current Amazon Web Services account.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { Route53ResolverClient, ListResolverEndpointIpAddressesCommand } from "@aws-sdk/client-route53resolver"; // ES Modules import
- * // const { Route53ResolverClient, ListResolverEndpointIpAddressesCommand } = require("@aws-sdk/client-route53resolver"); // CommonJS import
+ * import { Route53ResolverClient, ListOutpostResolversCommand } from "@aws-sdk/client-route53resolver"; // ES Modules import
+ * // const { Route53ResolverClient, ListOutpostResolversCommand } = require("@aws-sdk/client-route53resolver"); // CommonJS import
  * const client = new Route53ResolverClient(config);
- * const input = { // ListResolverEndpointIpAddressesRequest
- *   ResolverEndpointId: "STRING_VALUE", // required
+ * const input = { // ListOutpostResolversRequest
+ *   OutpostArn: "STRING_VALUE",
  *   MaxResults: Number("int"),
  *   NextToken: "STRING_VALUE",
  * };
- * const command = new ListResolverEndpointIpAddressesCommand(input);
+ * const command = new ListOutpostResolversCommand(input);
  * const response = await client.send(command);
- * // { // ListResolverEndpointIpAddressesResponse
- * //   NextToken: "STRING_VALUE",
- * //   MaxResults: Number("int"),
- * //   IpAddresses: [ // IpAddressesResponse
- * //     { // IpAddressResponse
- * //       IpId: "STRING_VALUE",
- * //       SubnetId: "STRING_VALUE",
- * //       Ip: "STRING_VALUE",
- * //       Ipv6: "STRING_VALUE",
- * //       Status: "CREATING" || "FAILED_CREATION" || "ATTACHING" || "ATTACHED" || "REMAP_DETACHING" || "REMAP_ATTACHING" || "DETACHING" || "FAILED_RESOURCE_GONE" || "DELETING" || "DELETE_FAILED_FAS_EXPIRED" || "UPDATING" || "UPDATE_FAILED",
- * //       StatusMessage: "STRING_VALUE",
+ * // { // ListOutpostResolversResponse
+ * //   OutpostResolvers: [ // OutpostResolverList
+ * //     { // OutpostResolver
+ * //       Arn: "STRING_VALUE",
  * //       CreationTime: "STRING_VALUE",
  * //       ModificationTime: "STRING_VALUE",
+ * //       CreatorRequestId: "STRING_VALUE",
+ * //       Id: "STRING_VALUE",
+ * //       InstanceCount: Number("int"),
+ * //       PreferredInstanceType: "STRING_VALUE",
+ * //       Name: "STRING_VALUE",
+ * //       Status: "CREATING" || "OPERATIONAL" || "UPDATING" || "DELETING" || "ACTION_NEEDED" || "FAILED_CREATION" || "FAILED_DELETION",
+ * //       StatusMessage: "STRING_VALUE",
+ * //       OutpostArn: "STRING_VALUE",
  * //     },
  * //   ],
+ * //   NextToken: "STRING_VALUE",
  * // };
  *
  * ```
  *
- * @param ListResolverEndpointIpAddressesCommandInput - {@link ListResolverEndpointIpAddressesCommandInput}
- * @returns {@link ListResolverEndpointIpAddressesCommandOutput}
- * @see {@link ListResolverEndpointIpAddressesCommandInput} for command's `input` shape.
- * @see {@link ListResolverEndpointIpAddressesCommandOutput} for command's `response` shape.
+ * @param ListOutpostResolversCommandInput - {@link ListOutpostResolversCommandInput}
+ * @returns {@link ListOutpostResolversCommandOutput}
+ * @see {@link ListOutpostResolversCommandInput} for command's `input` shape.
+ * @see {@link ListOutpostResolversCommandOutput} for command's `response` shape.
  * @see {@link Route53ResolverClientResolvedConfig | config} for Route53ResolverClient's `config` shape.
+ *
+ * @throws {@link AccessDeniedException} (client fault)
+ *  <p>The current account doesn't have the IAM permissions required to perform the specified Resolver operation.</p>
  *
  * @throws {@link InternalServiceErrorException} (client fault)
  *  <p>We encountered an unknown error. Try again in a few minutes.</p>
- *
- * @throws {@link InvalidNextTokenException} (client fault)
- *  <p>The value that you specified for <code>NextToken</code> in a <code>List</code> request isn't valid.</p>
- *
- * @throws {@link InvalidParameterException} (client fault)
- *  <p>One or more parameters in this request are not valid.</p>
  *
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>The specified resource doesn't exist.</p>
@@ -95,13 +89,17 @@ export interface ListResolverEndpointIpAddressesCommandOutput
  * @throws {@link ThrottlingException} (client fault)
  *  <p>The request was throttled. Try again in a few minutes.</p>
  *
+ * @throws {@link ValidationException} (client fault)
+ *  <p>You have provided an invalid command. Supported values are <code>ADD</code>,
+ * 			<code>REMOVE</code>, or <code>REPLACE</code> a domain.</p>
+ *
  * @throws {@link Route53ResolverServiceException}
  * <p>Base exception class for all service exceptions from Route53Resolver service.</p>
  *
  */
-export class ListResolverEndpointIpAddressesCommand extends $Command<
-  ListResolverEndpointIpAddressesCommandInput,
-  ListResolverEndpointIpAddressesCommandOutput,
+export class ListOutpostResolversCommand extends $Command<
+  ListOutpostResolversCommandInput,
+  ListOutpostResolversCommandOutput,
   Route53ResolverClientResolvedConfig
 > {
   // Start section: command_properties
@@ -119,7 +117,7 @@ export class ListResolverEndpointIpAddressesCommand extends $Command<
   /**
    * @public
    */
-  constructor(readonly input: ListResolverEndpointIpAddressesCommandInput) {
+  constructor(readonly input: ListOutpostResolversCommandInput) {
     // Start section: command_constructor
     super();
     // End section: command_constructor
@@ -132,17 +130,17 @@ export class ListResolverEndpointIpAddressesCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: Route53ResolverClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<ListResolverEndpointIpAddressesCommandInput, ListResolverEndpointIpAddressesCommandOutput> {
+  ): Handler<ListOutpostResolversCommandInput, ListOutpostResolversCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
     this.middlewareStack.use(
-      getEndpointPlugin(configuration, ListResolverEndpointIpAddressesCommand.getEndpointParameterInstructions())
+      getEndpointPlugin(configuration, ListOutpostResolversCommand.getEndpointParameterInstructions())
     );
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
     const clientName = "Route53ResolverClient";
-    const commandName = "ListResolverEndpointIpAddressesCommand";
+    const commandName = "ListOutpostResolversCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
       clientName,
@@ -161,21 +159,15 @@ export class ListResolverEndpointIpAddressesCommand extends $Command<
   /**
    * @internal
    */
-  private serialize(
-    input: ListResolverEndpointIpAddressesCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
-    return se_ListResolverEndpointIpAddressesCommand(input, context);
+  private serialize(input: ListOutpostResolversCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
+    return se_ListOutpostResolversCommand(input, context);
   }
 
   /**
    * @internal
    */
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<ListResolverEndpointIpAddressesCommandOutput> {
-    return de_ListResolverEndpointIpAddressesCommand(output, context);
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListOutpostResolversCommandOutput> {
+    return de_ListOutpostResolversCommand(output, context);
   }
 
   // Start section: command_body_extra
