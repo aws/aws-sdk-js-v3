@@ -40,11 +40,22 @@ export interface PutRecordCommandOutput extends __MetadataBearer {}
 
 /**
  * @public
- * <p>Used for data ingestion into the <code>FeatureStore</code>. The <code>PutRecord</code>
- *          API writes to both the <code>OnlineStore</code> and <code>OfflineStore</code>. If the
- *          record is the latest record for the <code>recordIdentifier</code>, the record is written to
- *          both the <code>OnlineStore</code> and <code>OfflineStore</code>. If the record is a
- *          historic record, it is written only to the <code>OfflineStore</code>.</p>
+ * <p>The <code>PutRecord</code> API is used to ingest a list of <code>Records</code> into
+ *          your feature group. </p>
+ *          <p>If a new record’s <code>EventTime</code> is greater, the new record is written to both
+ *          the <code>OnlineStore</code> and <code>OfflineStore</code>. Otherwise, the record is a
+ *          historic record and it is written only to the <code>OfflineStore</code>. </p>
+ *          <p>You can specify the ingestion to be applied to the <code>OnlineStore</code>,
+ *             <code>OfflineStore</code>, or both by using the <code>TargetStores</code> request
+ *          parameter. </p>
+ *          <p>You can set the ingested record to expire at a given time to live (TTL) duration after
+ *          the record’s event time, <code>ExpiresAt</code> = <code>EventTime</code> +
+ *             <code>TtlDuration</code>, by specifying the <code>TtlDuration</code> parameter. A record
+ *          level <code>TtlDuration</code> is set when specifying the <code>TtlDuration</code>
+ *          parameter using the <code>PutRecord</code> API call. If the input <code>TtlDuration</code>
+ *          is <code>null</code> or unspecified, <code>TtlDuration</code> is set to the default feature
+ *          group level <code>TtlDuration</code>. A record level <code>TtlDuration</code> supersedes
+ *          the group level <code>TtlDuration</code>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

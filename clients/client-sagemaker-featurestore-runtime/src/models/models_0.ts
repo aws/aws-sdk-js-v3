@@ -46,7 +46,8 @@ export type ExpirationTimeResponse = (typeof ExpirationTimeResponse)[keyof typeo
  */
 export interface BatchGetRecordIdentifier {
   /**
-   * <p>A <code>FeatureGroupName</code> containing Records you are retrieving in a batch.</p>
+   * <p>The name or Amazon Resource Name (ARN) of the <code>FeatureGroup</code> containing the
+   *          records you are retrieving in a batch.</p>
    */
   FeatureGroupName: string | undefined;
 
@@ -67,15 +68,15 @@ export interface BatchGetRecordIdentifier {
  */
 export interface BatchGetRecordRequest {
   /**
-   * <p>A list of <code>FeatureGroup</code> names, with their corresponding
-   *             <code>RecordIdentifier</code> value, and Feature name that have been requested to be
-   *          retrieved in batch.</p>
+   * <p>A list containing the name or Amazon Resource Name (ARN) of the
+   *             <code>FeatureGroup</code>, the list of names of <code>Feature</code>s to be retrieved,
+   *          and the corresponding <code>RecordIdentifier</code> values as strings.</p>
    */
   Identifiers: BatchGetRecordIdentifier[] | undefined;
 
   /**
    * <p>Parameter to request <code>ExpiresAt</code> in response. If <code>Enabled</code>,
-   *          <code>BatchGetRecord</code> will return the value of <code>ExpiresAt</code>, if it is
+   *             <code>BatchGetRecord</code> will return the value of <code>ExpiresAt</code>, if it is
    *          not null. If <code>Disabled</code> and null, <code>BatchGetRecord</code> will return
    *          null.</p>
    */
@@ -131,7 +132,7 @@ export interface FeatureValue {
 
 /**
  * @public
- * <p>The output of Records that have been retrieved in a batch.</p>
+ * <p>The output of records that have been retrieved in a batch.</p>
  */
 export interface BatchGetRecordResultDetail {
   /**
@@ -276,7 +277,8 @@ export type TargetStore = (typeof TargetStore)[keyof typeof TargetStore];
  */
 export interface DeleteRecordRequest {
   /**
-   * <p>The name of the feature group to delete the record from. </p>
+   * <p>The name or Amazon Resource Name (ARN) of the feature group to delete the record from.
+   *       </p>
    */
   FeatureGroupName: string | undefined;
 
@@ -311,7 +313,8 @@ export interface DeleteRecordRequest {
  */
 export interface GetRecordRequest {
   /**
-   * <p>The name of the feature group from which you want to retrieve a record.</p>
+   * <p>The name or Amazon Resource Name (ARN) of the feature group from which you want to
+   *          retrieve a record.</p>
    */
   FeatureGroupName: string | undefined;
 
@@ -329,9 +332,8 @@ export interface GetRecordRequest {
 
   /**
    * <p>Parameter to request <code>ExpiresAt</code> in response. If <code>Enabled</code>,
-   *          <code>BatchGetRecord</code> will return the value of <code>ExpiresAt</code>, if it is
-   *          not null. If <code>Disabled</code> and null, <code>BatchGetRecord</code> will return
-   *          null.</p>
+   *             <code>GetRecord</code> will return the value of <code>ExpiresAt</code>, if it is not
+   *          null. If <code>Disabled</code> and null, <code>GetRecord</code> will return null.</p>
    */
   ExpirationTimeResponse?: ExpirationTimeResponse | string;
 }
@@ -415,7 +417,8 @@ export interface TtlDuration {
  */
 export interface PutRecordRequest {
   /**
-   * <p>The name of the feature group that you want to insert the record into.</p>
+   * <p>The name or Amazon Resource Name (ARN) of the feature group that you want to insert the
+   *          record into.</p>
    */
   FeatureGroupName: string | undefined;
 

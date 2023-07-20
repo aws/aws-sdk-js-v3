@@ -42,9 +42,9 @@ export interface DeleteRecordCommandOutput extends __MetadataBearer {}
  * @public
  * <p>Deletes a <code>Record</code> from a <code>FeatureGroup</code> in the
  *             <code>OnlineStore</code>. Feature Store supports both <code>SoftDelete</code> and
- *             <code>HardDelete</code>. For <code>SoftDelete</code> (default), feature columns are
- *          set to <code>null</code> and the record is no longer retrievable by <code>GetRecord</code>
- *          or <code>BatchGetRecord</code>. For <code>HardDelete</code>, the complete
+ *             <code>HardDelete</code>. For <code>SoftDelete</code> (default), feature columns are set
+ *          to <code>null</code> and the record is no longer retrievable by <code>GetRecord</code> or
+ *             <code>BatchGetRecord</code>. For <code>HardDelete</code>, the complete
  *             <code>Record</code> is removed from the <code>OnlineStore</code>. In both cases, Feature
  *          Store appends the deleted record marker to the <code>OfflineStore</code> with feature
  *          values set to <code>null</code>, <code>is_deleted</code> value set to <code>True</code>,
