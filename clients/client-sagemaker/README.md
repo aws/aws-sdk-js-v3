@@ -2052,6 +2052,14 @@ ListProjects
 </details>
 <details>
 <summary>
+ListResourceCatalogs
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-sagemaker/classes/listresourcecatalogscommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-sagemaker/interfaces/listresourcecatalogscommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-sagemaker/interfaces/listresourcecatalogscommandoutput.html)
+
+</details>
+<details>
+<summary>
 ListSpaces
 </summary>
 

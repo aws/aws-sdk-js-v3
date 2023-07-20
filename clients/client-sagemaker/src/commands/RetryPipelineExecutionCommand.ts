@@ -13,7 +13,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@smithy/types";
 
-import { RetryPipelineExecutionRequest, RetryPipelineExecutionResponse } from "../models/models_3";
+import { RetryPipelineExecutionRequest, RetryPipelineExecutionResponse } from "../models/models_4";
 import { de_RetryPipelineExecutionCommand, se_RetryPipelineExecutionCommand } from "../protocols/Aws_json1_1";
 import { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
 

@@ -13,12 +13,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@smithy/types";
 
-import { GetSagemakerServicecatalogPortfolioStatusInput } from "../models/models_2";
-import { GetSagemakerServicecatalogPortfolioStatusOutput } from "../models/models_3";
-import {
-  de_GetSagemakerServicecatalogPortfolioStatusCommand,
-  se_GetSagemakerServicecatalogPortfolioStatusCommand,
-} from "../protocols/Aws_json1_1";
+import { ListResourceCatalogsRequest, ListResourceCatalogsResponse } from "../models/models_3";
+import { de_ListResourceCatalogsCommand, se_ListResourceCatalogsCommand } from "../protocols/Aws_json1_1";
 import { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
 
 /**
@@ -28,51 +24,64 @@ export { __MetadataBearer, $Command };
 /**
  * @public
  *
- * The input for {@link GetSagemakerServicecatalogPortfolioStatusCommand}.
+ * The input for {@link ListResourceCatalogsCommand}.
  */
-export interface GetSagemakerServicecatalogPortfolioStatusCommandInput
-  extends GetSagemakerServicecatalogPortfolioStatusInput {}
+export interface ListResourceCatalogsCommandInput extends ListResourceCatalogsRequest {}
 /**
  * @public
  *
- * The output of {@link GetSagemakerServicecatalogPortfolioStatusCommand}.
+ * The output of {@link ListResourceCatalogsCommand}.
  */
-export interface GetSagemakerServicecatalogPortfolioStatusCommandOutput
-  extends GetSagemakerServicecatalogPortfolioStatusOutput,
-    __MetadataBearer {}
+export interface ListResourceCatalogsCommandOutput extends ListResourceCatalogsResponse, __MetadataBearer {}
 
 /**
  * @public
- * <p>Gets the status of Service Catalog in SageMaker. Service Catalog is used to create
- *             SageMaker projects.</p>
+ * <p> Lists Amazon SageMaker Catalogs based on given filters and orders. The maximum number of
+ *                 <code>ResourceCatalog</code>s viewable is 1000. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { SageMakerClient, GetSagemakerServicecatalogPortfolioStatusCommand } from "@aws-sdk/client-sagemaker"; // ES Modules import
- * // const { SageMakerClient, GetSagemakerServicecatalogPortfolioStatusCommand } = require("@aws-sdk/client-sagemaker"); // CommonJS import
+ * import { SageMakerClient, ListResourceCatalogsCommand } from "@aws-sdk/client-sagemaker"; // ES Modules import
+ * // const { SageMakerClient, ListResourceCatalogsCommand } = require("@aws-sdk/client-sagemaker"); // CommonJS import
  * const client = new SageMakerClient(config);
- * const input = {};
- * const command = new GetSagemakerServicecatalogPortfolioStatusCommand(input);
+ * const input = { // ListResourceCatalogsRequest
+ *   NameContains: "STRING_VALUE",
+ *   CreationTimeAfter: new Date("TIMESTAMP"),
+ *   CreationTimeBefore: new Date("TIMESTAMP"),
+ *   SortOrder: "Ascending" || "Descending",
+ *   SortBy: "CreationTime",
+ *   MaxResults: Number("int"),
+ *   NextToken: "STRING_VALUE",
+ * };
+ * const command = new ListResourceCatalogsCommand(input);
  * const response = await client.send(command);
- * // { // GetSagemakerServicecatalogPortfolioStatusOutput
- * //   Status: "Enabled" || "Disabled",
+ * // { // ListResourceCatalogsResponse
+ * //   ResourceCatalogs: [ // ResourceCatalogList
+ * //     { // ResourceCatalog
+ * //       ResourceCatalogArn: "STRING_VALUE", // required
+ * //       ResourceCatalogName: "STRING_VALUE", // required
+ * //       Description: "STRING_VALUE", // required
+ * //       CreationTime: new Date("TIMESTAMP"), // required
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
  * // };
  *
  * ```
  *
- * @param GetSagemakerServicecatalogPortfolioStatusCommandInput - {@link GetSagemakerServicecatalogPortfolioStatusCommandInput}
- * @returns {@link GetSagemakerServicecatalogPortfolioStatusCommandOutput}
- * @see {@link GetSagemakerServicecatalogPortfolioStatusCommandInput} for command's `input` shape.
- * @see {@link GetSagemakerServicecatalogPortfolioStatusCommandOutput} for command's `response` shape.
+ * @param ListResourceCatalogsCommandInput - {@link ListResourceCatalogsCommandInput}
+ * @returns {@link ListResourceCatalogsCommandOutput}
+ * @see {@link ListResourceCatalogsCommandInput} for command's `input` shape.
+ * @see {@link ListResourceCatalogsCommandOutput} for command's `response` shape.
  * @see {@link SageMakerClientResolvedConfig | config} for SageMakerClient's `config` shape.
  *
  * @throws {@link SageMakerServiceException}
  * <p>Base exception class for all service exceptions from SageMaker service.</p>
  *
  */
-export class GetSagemakerServicecatalogPortfolioStatusCommand extends $Command<
-  GetSagemakerServicecatalogPortfolioStatusCommandInput,
-  GetSagemakerServicecatalogPortfolioStatusCommandOutput,
+export class ListResourceCatalogsCommand extends $Command<
+  ListResourceCatalogsCommandInput,
+  ListResourceCatalogsCommandOutput,
   SageMakerClientResolvedConfig
 > {
   // Start section: command_properties
@@ -90,7 +99,7 @@ export class GetSagemakerServicecatalogPortfolioStatusCommand extends $Command<
   /**
    * @public
    */
-  constructor(readonly input: GetSagemakerServicecatalogPortfolioStatusCommandInput) {
+  constructor(readonly input: ListResourceCatalogsCommandInput) {
     // Start section: command_constructor
     super();
     // End section: command_constructor
@@ -103,23 +112,17 @@ export class GetSagemakerServicecatalogPortfolioStatusCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: SageMakerClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    GetSagemakerServicecatalogPortfolioStatusCommandInput,
-    GetSagemakerServicecatalogPortfolioStatusCommandOutput
-  > {
+  ): Handler<ListResourceCatalogsCommandInput, ListResourceCatalogsCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
     this.middlewareStack.use(
-      getEndpointPlugin(
-        configuration,
-        GetSagemakerServicecatalogPortfolioStatusCommand.getEndpointParameterInstructions()
-      )
+      getEndpointPlugin(configuration, ListResourceCatalogsCommand.getEndpointParameterInstructions())
     );
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
     const clientName = "SageMakerClient";
-    const commandName = "GetSagemakerServicecatalogPortfolioStatusCommand";
+    const commandName = "ListResourceCatalogsCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
       clientName,
@@ -138,21 +141,15 @@ export class GetSagemakerServicecatalogPortfolioStatusCommand extends $Command<
   /**
    * @internal
    */
-  private serialize(
-    input: GetSagemakerServicecatalogPortfolioStatusCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
-    return se_GetSagemakerServicecatalogPortfolioStatusCommand(input, context);
+  private serialize(input: ListResourceCatalogsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
+    return se_ListResourceCatalogsCommand(input, context);
   }
 
   /**
    * @internal
    */
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<GetSagemakerServicecatalogPortfolioStatusCommandOutput> {
-    return de_GetSagemakerServicecatalogPortfolioStatusCommand(output, context);
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListResourceCatalogsCommandOutput> {
+    return de_ListResourceCatalogsCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -54,6 +54,7 @@ export * from "./ListPipelineParametersForExecutionPaginator";
 export * from "./ListPipelinesPaginator";
 export * from "./ListProcessingJobsPaginator";
 export * from "./ListProjectsPaginator";
+export * from "./ListResourceCatalogsPaginator";
 export * from "./ListSpacesPaginator";
 export * from "./ListStageDevicesPaginator";
 export * from "./ListStudioLifecycleConfigsPaginator";

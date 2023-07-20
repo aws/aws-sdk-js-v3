@@ -180,6 +180,31 @@ import {
 /**
  * @public
  */
+export interface DeleteHubContentRequest {
+  /**
+   * <p>The name of the hub that you want to delete content in.</p>
+   */
+  HubName: string | undefined;
+
+  /**
+   * <p>The type of content that you want to delete from a hub.</p>
+   */
+  HubContentType: HubContentType | string | undefined;
+
+  /**
+   * <p>The name of the content that you want to delete from a hub.</p>
+   */
+  HubContentName: string | undefined;
+
+  /**
+   * <p>The version of the content that you want to delete from a hub.</p>
+   */
+  HubContentVersion: string | undefined;
+}
+
+/**
+ * @public
+ */
 export interface DeleteHumanTaskUiRequest {
   /**
    * <p>The name of the human task user interface (work task template) you want to delete.</p>
@@ -2793,7 +2818,8 @@ export interface DescribeExperimentResponse {
  */
 export interface DescribeFeatureGroupRequest {
   /**
-   * <p>The name of the <code>FeatureGroup</code> you want described. </p>
+   * <p>The name or Amazon Resource Name (ARN) of the <code>FeatureGroup</code> you want
+   *          described. </p>
    */
   FeatureGroupName: string | undefined;
 
@@ -2889,7 +2915,7 @@ export interface OfflineStoreStatus {
  */
 export interface DescribeFeatureGroupResponse {
   /**
-   * <p>The Amazon Resource Name (ARN) of the <code>FeatureGroup</code>.  </p>
+   * <p>The Amazon Resource Name (ARN) of the <code>FeatureGroup</code>. </p>
    */
   FeatureGroupArn: string | undefined;
 
@@ -2906,17 +2932,17 @@ export interface DescribeFeatureGroupResponse {
 
   /**
    * <p>The name of the feature that stores the <code>EventTime</code> of a Record in a
-   *          <code>FeatureGroup</code>.</p>
-   *          <p> An <code>EventTime</code> is a point in time when a new event occurs that
-   *          corresponds to the creation or update of a <code>Record</code> in a
-   *             <code>FeatureGroup</code>. All <code>Records</code> in the <code>FeatureGroup</code>
-   *          have a corresponding <code>EventTime</code>.</p>
+   *             <code>FeatureGroup</code>.</p>
+   *          <p> An <code>EventTime</code> is a point in time when a new event occurs that corresponds
+   *          to the creation or update of a <code>Record</code> in a <code>FeatureGroup</code>. All
+   *             <code>Records</code> in the <code>FeatureGroup</code> have a corresponding
+   *             <code>EventTime</code>.</p>
    */
   EventTimeFeatureName: string | undefined;
 
   /**
-   * <p>A list of the <code>Features</code> in the <code>FeatureGroup</code>.
-   *          Each feature is defined by a <code>FeatureName</code> and <code>FeatureType</code>.</p>
+   * <p>A list of the <code>Features</code> in the <code>FeatureGroup</code>. Each feature is
+   *          defined by a <code>FeatureName</code> and <code>FeatureType</code>.</p>
    */
   FeatureDefinitions: FeatureDefinition[] | undefined;
 
@@ -2948,7 +2974,8 @@ export interface DescribeFeatureGroupResponse {
    *                <p>Table format of the offline store.</p>
    *             </li>
    *             <li>
-   *                <p>Option to disable the automatic creation of a Glue table for the offline store.</p>
+   *                <p>Option to disable the automatic creation of a Glue table for the offline
+   *                store.</p>
    *             </li>
    *             <li>
    *                <p>Encryption configuration.</p>
@@ -2958,7 +2985,8 @@ export interface DescribeFeatureGroupResponse {
   OfflineStoreConfig?: OfflineStoreConfig;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the IAM execution role used to persist data into the OfflineStore if an OfflineStoreConfig is provided.</p>
+   * <p>The Amazon Resource Name (ARN) of the IAM execution role used to persist data into the
+   *          OfflineStore if an OfflineStoreConfig is provided.</p>
    */
   RoleArn?: string;
 
@@ -3018,7 +3046,8 @@ export interface DescribeFeatureGroupResponse {
  */
 export interface DescribeFeatureMetadataRequest {
   /**
-   * <p>The name of the feature group containing the feature.</p>
+   * <p>The name or Amazon Resource Name (ARN) of the feature group containing the
+   *          feature.</p>
    */
   FeatureGroupName: string | undefined;
 
@@ -3074,7 +3103,9 @@ export interface DescribeFeatureMetadataResponse {
   CreationTime: Date | undefined;
 
   /**
-   * <p>A timestamp indicating when the metadata for the feature group was modified. For example, if you add a parameter describing the feature, the timestamp changes to reflect the last time you </p>
+   * <p>A timestamp indicating when the metadata for the feature group was modified. For
+   *          example, if you add a parameter describing the feature, the timestamp changes to reflect
+   *          the last time you </p>
    */
   LastModifiedTime: Date | undefined;
 
@@ -9484,10 +9515,10 @@ export interface FailStepMetadata {
 
 /**
  * @public
- * <p>Amazon SageMaker Feature Store stores features in a collection called Feature Group.
- *          A Feature Group can be visualized as a table which has rows,
- *          with a unique identifier for each row where each column in the table is a feature.
- *          In principle, a Feature Group is composed of features and values per features.</p>
+ * <p>Amazon SageMaker Feature Store stores features in a collection called Feature Group. A
+ *          Feature Group can be visualized as a table which has rows, with a unique identifier for
+ *          each row where each column in the table is a feature. In principle, a Feature Group is
+ *          composed of features and values per features.</p>
  */
 export interface FeatureGroup {
   /**
@@ -9502,18 +9533,18 @@ export interface FeatureGroup {
 
   /**
    * <p>The name of the <code>Feature</code> whose value uniquely identifies a
-   *       <code>Record</code> defined in the <code>FeatureGroup</code>
+   *             <code>Record</code> defined in the <code>FeatureGroup</code>
    *             <code>FeatureDefinitions</code>.</p>
    */
   RecordIdentifierFeatureName?: string;
 
   /**
    * <p>The name of the feature that stores the <code>EventTime</code> of a Record in a
-   *          <code>FeatureGroup</code>.</p>
-   *          <p>A <code>EventTime</code> is point in time when a new event
-   *          occurs that corresponds to the creation or update of a <code>Record</code> in
-   *          <code>FeatureGroup</code>. All <code>Records</code> in the <code>FeatureGroup</code>
-   *          must have a corresponding <code>EventTime</code>.</p>
+   *             <code>FeatureGroup</code>.</p>
+   *          <p>A <code>EventTime</code> is point in time when a new event occurs that corresponds to
+   *          the creation or update of a <code>Record</code> in <code>FeatureGroup</code>. All
+   *             <code>Records</code> in the <code>FeatureGroup</code> must have a corresponding
+   *             <code>EventTime</code>.</p>
    */
   EventTimeFeatureName?: string;
 
@@ -9553,9 +9584,8 @@ export interface FeatureGroup {
    * <p>The configuration of an <code>OfflineStore</code>.</p>
    *          <p>Provide an <code>OfflineStoreConfig</code> in a request to
    *             <code>CreateFeatureGroup</code> to create an <code>OfflineStore</code>.</p>
-   *          <p>To encrypt an <code>OfflineStore</code> using at rest data encryption, specify Amazon Web Services Key
-   *          Management Service (KMS) key ID, or <code>KMSKeyId</code>, in
-   *          <code>S3StorageConfig</code>.</p>
+   *          <p>To encrypt an <code>OfflineStore</code> using at rest data encryption, specify Amazon Web Services Key Management Service (KMS) key ID, or <code>KMSKeyId</code>, in
+   *             <code>S3StorageConfig</code>.</p>
    */
   OfflineStoreConfig?: OfflineStoreConfig;
 
@@ -9581,10 +9611,10 @@ export interface FeatureGroup {
   LastUpdateStatus?: LastUpdateStatus;
 
   /**
-   * <p>The reason that the <code>FeatureGroup</code> failed to
-   *          be replicated in the <code>OfflineStore</code>. This is
-   *          failure may be due to a failure to create a <code>FeatureGroup</code> in
-   *          or delete a <code>FeatureGroup</code> from the <code>OfflineStore</code>.</p>
+   * <p>The reason that the <code>FeatureGroup</code> failed to be replicated in the
+   *             <code>OfflineStore</code>. This is failure may be due to a failure to create a
+   *             <code>FeatureGroup</code> in or delete a <code>FeatureGroup</code> from the
+   *             <code>OfflineStore</code>.</p>
    */
   FailureReason?: string;
 
@@ -9631,7 +9661,7 @@ export type FeatureGroupSortOrder = (typeof FeatureGroupSortOrder)[keyof typeof 
 
 /**
  * @public
- * <p>The name, Arn, <code>CreationTime</code>, <code>FeatureGroup</code> values,
+ * <p>The name, ARN, <code>CreationTime</code>, <code>FeatureGroup</code> values,
  *             <code>LastUpdatedTime</code> and <code>EnableOnlineStorage</code> status of a
  *             <code>FeatureGroup</code>.</p>
  */
@@ -9647,7 +9677,8 @@ export interface FeatureGroupSummary {
   FeatureGroupArn: string | undefined;
 
   /**
-   * <p>A timestamp indicating the time of creation time of the <code>FeatureGroup</code>.</p>
+   * <p>A timestamp indicating the time of creation time of the
+   *          <code>FeatureGroup</code>.</p>
    */
   CreationTime: Date | undefined;
 
@@ -9667,7 +9698,8 @@ export interface FeatureGroupSummary {
 
 /**
  * @public
- * <p>The metadata for a feature. It can either be metadata that you specify, or metadata that is updated automatically.</p>
+ * <p>The metadata for a feature. It can either be metadata that you specify, or metadata that
+ *          is updated automatically.</p>
  */
 export interface FeatureMetadata {
   /**
@@ -10084,16 +10116,6 @@ export const SagemakerServicecatalogStatus = {
  */
 export type SagemakerServicecatalogStatus =
   (typeof SagemakerServicecatalogStatus)[keyof typeof SagemakerServicecatalogStatus];
-
-/**
- * @public
- */
-export interface GetSagemakerServicecatalogPortfolioStatusOutput {
-  /**
-   * <p>Whether Service Catalog is enabled or disabled in SageMaker.</p>
-   */
-  Status?: SagemakerServicecatalogStatus | string;
-}
 
 /**
  * @internal

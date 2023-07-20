@@ -638,6 +638,10 @@ import {
 import { ListPipelinesCommandInput, ListPipelinesCommandOutput } from "./commands/ListPipelinesCommand";
 import { ListProcessingJobsCommandInput, ListProcessingJobsCommandOutput } from "./commands/ListProcessingJobsCommand";
 import { ListProjectsCommandInput, ListProjectsCommandOutput } from "./commands/ListProjectsCommand";
+import {
+  ListResourceCatalogsCommandInput,
+  ListResourceCatalogsCommandOutput,
+} from "./commands/ListResourceCatalogsCommand";
 import { ListSpacesCommandInput, ListSpacesCommandOutput } from "./commands/ListSpacesCommand";
 import { ListStageDevicesCommandInput, ListStageDevicesCommandOutput } from "./commands/ListStageDevicesCommand";
 import {
@@ -1050,6 +1054,7 @@ export type ServiceInputTypes =
   | ListPipelinesCommandInput
   | ListProcessingJobsCommandInput
   | ListProjectsCommandInput
+  | ListResourceCatalogsCommandInput
   | ListSpacesCommandInput
   | ListStageDevicesCommandInput
   | ListStudioLifecycleConfigsCommandInput
@@ -1357,6 +1362,7 @@ export type ServiceOutputTypes =
   | ListPipelinesCommandOutput
   | ListProcessingJobsCommandOutput
   | ListProjectsCommandOutput
+  | ListResourceCatalogsCommandOutput
   | ListSpacesCommandOutput
   | ListStageDevicesCommandOutput
   | ListStudioLifecycleConfigsCommandOutput

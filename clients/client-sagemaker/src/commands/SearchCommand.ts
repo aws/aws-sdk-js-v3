@@ -101,6 +101,7 @@ export interface SearchCommandOutput extends SearchResponse, __MetadataBearer {}
  *   SortOrder: "Ascending" || "Descending",
  *   NextToken: "STRING_VALUE",
  *   MaxResults: Number("int"),
+ *   CrossAccountFilterOption: "SameAccount" || "CrossAccount",
  * };
  * const command = new SearchCommand(input);
  * const response = await client.send(command);

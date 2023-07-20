@@ -228,6 +228,7 @@ export * from "./ListPipelineParametersForExecutionCommand";
 export * from "./ListPipelinesCommand";
 export * from "./ListProcessingJobsCommand";
 export * from "./ListProjectsCommand";
+export * from "./ListResourceCatalogsCommand";
 export * from "./ListSpacesCommand";
 export * from "./ListStageDevicesCommand";
 export * from "./ListStudioLifecycleConfigsCommand";

@@ -1179,18 +1179,20 @@ export interface DataCatalogConfig {
 
 /**
  * @public
- * <p>The Amazon Simple Storage (Amazon S3) location and and security configuration for <code>OfflineStore</code>.</p>
+ * <p>The Amazon Simple Storage (Amazon S3) location and and security configuration for
+ *             <code>OfflineStore</code>.</p>
  */
 export interface S3StorageConfig {
   /**
    * <p>The S3 URI, or location in Amazon S3, of <code>OfflineStore</code>.</p>
-   *          <p>S3 URIs have a format similar to the following: <code>s3://example-bucket/prefix/</code>.</p>
+   *          <p>S3 URIs have a format similar to the following:
+   *          <code>s3://example-bucket/prefix/</code>.</p>
    */
   S3Uri: string | undefined;
 
   /**
-   * <p>The Amazon Web Services Key Management Service (KMS) key ARN of the key used to encrypt any objects
-   *          written into the <code>OfflineStore</code> S3 location.</p>
+   * <p>The Amazon Web Services Key Management Service (KMS) key ARN of the key used to encrypt
+   *          any objects written into the <code>OfflineStore</code> S3 location.</p>
    *          <p>The IAM <code>roleARN</code> that is passed as a parameter to
    *             <code>CreateFeatureGroup</code> must have below permissions to the
    *          <code>KmsKeyId</code>:</p>
@@ -1229,9 +1231,8 @@ export type TableFormat = (typeof TableFormat)[keyof typeof TableFormat];
  * <p>The configuration of an <code>OfflineStore</code>.</p>
  *          <p>Provide an <code>OfflineStoreConfig</code> in a request to
  *             <code>CreateFeatureGroup</code> to create an <code>OfflineStore</code>.</p>
- *          <p>To encrypt an <code>OfflineStore</code> using at rest data encryption, specify Amazon Web Services Key
- *          Management Service (KMS) key ID, or <code>KMSKeyId</code>, in
- *          <code>S3StorageConfig</code>.</p>
+ *          <p>To encrypt an <code>OfflineStore</code> using at rest data encryption, specify Amazon Web Services Key Management Service (KMS) key ID, or <code>KMSKeyId</code>, in
+ *             <code>S3StorageConfig</code>.</p>
  */
 export interface OfflineStoreConfig {
   /**
@@ -1240,10 +1241,10 @@ export interface OfflineStoreConfig {
   S3StorageConfig: S3StorageConfig | undefined;
 
   /**
-   * <p>Set to <code>True</code> to disable the automatic creation of an Amazon Web Services Glue table when
-   *        configuring an <code>OfflineStore</code>. If set to <code>False</code>, Feature Store will name the
-   *          <code>OfflineStore</code> Glue table following
-   *          <a href="https://docs.aws.amazon.com/athena/latest/ug/tables-databases-columns-names.html">Athena's naming recommendations</a>.</p>
+   * <p>Set to <code>True</code> to disable the automatic creation of an Amazon Web Services Glue
+   *          table when configuring an <code>OfflineStore</code>. If set to <code>False</code>, Feature
+   *          Store will name the <code>OfflineStore</code> Glue table following <a href="https://docs.aws.amazon.com/athena/latest/ug/tables-databases-columns-names.html">Athena's
+   *             naming recommendations</a>.</p>
    *          <p>The default value is <code>False</code>.</p>
    */
   DisableGlueTableCreation?: boolean;
@@ -1266,10 +1267,11 @@ export interface OfflineStoreConfig {
  */
 export interface OnlineStoreSecurityConfig {
   /**
-   * <p>The Amazon Web Services Key Management Service (KMS) key ARN that SageMaker Feature Store uses
-   *          to encrypt the Amazon S3 objects at rest using Amazon S3 server-side encryption.</p>
-   *          <p>The caller (either user or IAM role) of <code>CreateFeatureGroup</code> must have
-   *          below permissions to the <code>OnlineStore</code>
+   * <p>The Amazon Web Services Key Management Service (KMS) key ARN that SageMaker Feature Store
+   *          uses to encrypt the Amazon S3 objects at rest using Amazon S3 server-side
+   *          encryption.</p>
+   *          <p>The caller (either user or IAM role) of <code>CreateFeatureGroup</code> must have below
+   *          permissions to the <code>OnlineStore</code>
    *             <code>KmsKeyId</code>:</p>
    *          <ul>
    *             <li>
@@ -1329,8 +1331,8 @@ export interface OnlineStoreSecurityConfig {
    *             </li>
    *          </ul>
    *          <p>The caller (either user or IAM role) to all DataPlane operations
-   *             (<code>PutRecord</code>, <code>GetRecord</code>, <code>DeleteRecord</code>) must have
-   *          the following permissions to the <code>KmsKeyId</code>:</p>
+   *          (<code>PutRecord</code>, <code>GetRecord</code>, <code>DeleteRecord</code>) must have the
+   *          following permissions to the <code>KmsKeyId</code>:</p>
    *          <ul>
    *             <li>
    *                <p>
@@ -1395,10 +1397,9 @@ export interface OnlineStoreConfig {
   SecurityConfig?: OnlineStoreSecurityConfig;
 
   /**
-   * <p>Turn <code>OnlineStore</code> off by specifying <code>False</code>
-   *       for the <code>EnableOnlineStore</code> flag. Turn <code>OnlineStore</code>
-   *       on by specifying <code>True</code>
-   *       for the <code>EnableOnlineStore</code> flag. </p>
+   * <p>Turn <code>OnlineStore</code> off by specifying <code>False</code> for the
+   *             <code>EnableOnlineStore</code> flag. Turn <code>OnlineStore</code> on by specifying
+   *             <code>True</code> for the <code>EnableOnlineStore</code> flag. </p>
    *          <p>The default value is <code>False</code>.</p>
    */
   EnableOnlineStore?: boolean;
@@ -1416,8 +1417,7 @@ export interface OnlineStoreConfig {
  */
 export interface CreateFeatureGroupRequest {
   /**
-   * <p>The name of the <code>FeatureGroup</code>. The name must be unique within an Amazon Web Services Region
-   *          in an Amazon Web Services account. The name:</p>
+   * <p>The name of the <code>FeatureGroup</code>. The name must be unique within an Amazon Web Services Region in an Amazon Web Services account. The name:</p>
    *          <ul>
    *             <li>
    *                <p>Must start and end with an alphanumeric character.</p>
@@ -1496,8 +1496,8 @@ export interface CreateFeatureGroupRequest {
   /**
    * <p>You can turn the <code>OnlineStore</code> on or off by specifying <code>True</code> for
    *          the <code>EnableOnlineStore</code> flag in <code>OnlineStoreConfig</code>.</p>
-   *          <p>You can also include an Amazon Web Services KMS key ID (<code>KMSKeyId</code>) for at-rest encryption of
-   *          the <code>OnlineStore</code>.</p>
+   *          <p>You can also include an Amazon Web Services KMS key ID (<code>KMSKeyId</code>) for
+   *          at-rest encryption of the <code>OnlineStore</code>.</p>
    *          <p>The default value is <code>False</code>.</p>
    */
   OnlineStoreConfig?: OnlineStoreConfig;
@@ -1511,16 +1511,19 @@ export interface CreateFeatureGroupRequest {
    *                   <code>OfflineStore</code>.</p>
    *             </li>
    *             <li>
-   *                <p>A configuration for an Amazon Web Services Glue or Amazon Web Services Hive data catalog. </p>
+   *                <p>A configuration for an Amazon Web Services Glue or Amazon Web Services Hive data
+   *                catalog. </p>
    *             </li>
    *             <li>
    *                <p>An KMS encryption key to encrypt the Amazon S3 location used for
-   *                <code>OfflineStore</code>. If KMS encryption key is not specified, by default we encrypt all data at rest using
-   *                Amazon Web Services KMS key. By defining your <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/bucket-key.html">bucket-level key</a> for SSE,
-   *                you can reduce Amazon Web Services KMS requests costs by up to 99 percent.</p>
+   *                   <code>OfflineStore</code>. If KMS encryption key is not specified, by default we
+   *                encrypt all data at rest using Amazon Web Services KMS key. By defining your <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/bucket-key.html">bucket-level
+   *                   key</a> for SSE, you can reduce Amazon Web Services KMS requests costs by up to
+   *                99 percent.</p>
    *             </li>
    *             <li>
-   *                <p>Format for the offline store table. Supported formats are Glue (Default) and <a href="https://iceberg.apache.org/">Apache Iceberg</a>.</p>
+   *                <p>Format for the offline store table. Supported formats are Glue (Default) and
+   *                   <a href="https://iceberg.apache.org/">Apache Iceberg</a>.</p>
    *             </li>
    *          </ul>
    *          <p>To learn more about this parameter, see <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_OfflineStoreConfig.html">OfflineStoreConfig</a>.</p>
@@ -10385,6 +10388,20 @@ export interface CreateWorkteamResponse {
 
 /**
  * @public
+ * @enum
+ */
+export const CrossAccountFilterOption = {
+  CROSS_ACCOUNT: "CrossAccount",
+  SAME_ACCOUNT: "SameAccount",
+} as const;
+
+/**
+ * @public
+ */
+export type CrossAccountFilterOption = (typeof CrossAccountFilterOption)[keyof typeof CrossAccountFilterOption];
+
+/**
+ * @public
  * <p>The currently active data capture configuration used by your Endpoint.</p>
  */
 export interface DataCaptureConfigSummary {
@@ -10795,31 +10812,6 @@ export const HubContentType = {
  * @public
  */
 export type HubContentType = (typeof HubContentType)[keyof typeof HubContentType];
-
-/**
- * @public
- */
-export interface DeleteHubContentRequest {
-  /**
-   * <p>The name of the hub that you want to delete content in.</p>
-   */
-  HubName: string | undefined;
-
-  /**
-   * <p>The type of content that you want to delete from a hub.</p>
-   */
-  HubContentType: HubContentType | string | undefined;
-
-  /**
-   * <p>The name of the content that you want to delete from a hub.</p>
-   */
-  HubContentName: string | undefined;
-
-  /**
-   * <p>The version of the content that you want to delete from a hub.</p>
-   */
-  HubContentVersion: string | undefined;
-}
 
 /**
  * @internal

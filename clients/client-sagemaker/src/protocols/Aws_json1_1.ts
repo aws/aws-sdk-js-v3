@@ -616,6 +616,10 @@ import {
 import { ListPipelinesCommandInput, ListPipelinesCommandOutput } from "../commands/ListPipelinesCommand";
 import { ListProcessingJobsCommandInput, ListProcessingJobsCommandOutput } from "../commands/ListProcessingJobsCommand";
 import { ListProjectsCommandInput, ListProjectsCommandOutput } from "../commands/ListProjectsCommand";
+import {
+  ListResourceCatalogsCommandInput,
+  ListResourceCatalogsCommandOutput,
+} from "../commands/ListResourceCatalogsCommand";
 import { ListSpacesCommandInput, ListSpacesCommandOutput } from "../commands/ListSpacesCommand";
 import { ListStageDevicesCommandInput, ListStageDevicesCommandOutput } from "../commands/ListStageDevicesCommand";
 import {
@@ -1041,7 +1045,6 @@ import {
   DeleteExperimentRequest,
   DeleteFeatureGroupRequest,
   DeleteFlowDefinitionRequest,
-  DeleteHubContentRequest,
   DeleteHubRequest,
   DeploymentConfig,
   DeploymentStage,
@@ -1189,6 +1192,7 @@ import {
   WorkforceVpcConfigRequest,
 } from "../models/models_1";
 import {
+  DeleteHubContentRequest,
   DeleteHumanTaskUiRequest,
   DeleteImageRequest,
   DeleteImageVersionRequest,
@@ -1515,6 +1519,8 @@ import {
   ListProcessingJobsResponse,
   ListProjectsInput,
   ListProjectsOutput,
+  ListResourceCatalogsRequest,
+  ListResourceCatalogsResponse,
   ListSpacesRequest,
   ListSpacesResponse,
   ListStageDevicesRequest,
@@ -1583,22 +1589,20 @@ import {
   RegisterDevicesRequest,
   RenderableTask,
   RenderUiTemplateRequest,
+  ResourceCatalog,
   ResourceConfigForUpdate,
-  RetryPipelineExecutionRequest,
   SpaceDetails,
   StudioLifecycleConfigDetails,
   SuggestionQuery,
-  TrainingJob,
   TrainingJobSummary,
   TransformJob,
   TransformJobSummary,
-  Trial,
-  TrialComponentSimpleSummary,
   TrialComponentSummary,
   TrialSummary,
   UserProfileDetails,
 } from "../models/models_3";
 import {
+  RetryPipelineExecutionRequest,
   SearchExpression,
   SearchRecord,
   SearchRequest,
@@ -1625,7 +1629,10 @@ import {
   StopProcessingJobRequest,
   StopTrainingJobRequest,
   StopTransformJobRequest,
+  TrainingJob,
+  Trial,
   TrialComponent,
+  TrialComponentSimpleSummary,
   TrialComponentSourceDetail,
   UpdateActionRequest,
   UpdateAppImageConfigRequest,
@@ -4640,6 +4647,19 @@ export const se_ListProjectsCommand = async (
   const headers: __HeaderBag = sharedHeaders("ListProjects");
   let body: any;
   body = JSON.stringify(se_ListProjectsInput(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+/**
+ * serializeAws_json1_1ListResourceCatalogsCommand
+ */
+export const se_ListResourceCatalogsCommand = async (
+  input: ListResourceCatalogsCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = sharedHeaders("ListResourceCatalogs");
+  let body: any;
+  body = JSON.stringify(se_ListResourceCatalogsRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -15722,6 +15742,46 @@ const de_ListProjectsCommandError = async (
 };
 
 /**
+ * deserializeAws_json1_1ListResourceCatalogsCommand
+ */
+export const de_ListResourceCatalogsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListResourceCatalogsCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_ListResourceCatalogsCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_ListResourceCatalogsResponse(data, context);
+  const response: ListResourceCatalogsCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1ListResourceCatalogsCommandError
+ */
+const de_ListResourceCatalogsCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListResourceCatalogsCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  const parsedBody = parsedOutput.body;
+  return throwDefaultError({
+    output,
+    parsedBody,
+    errorCode,
+  });
+};
+
+/**
  * deserializeAws_json1_1ListSpacesCommand
  */
 export const de_ListSpacesCommand = async (
@@ -21067,6 +21127,21 @@ const se_ListProjectsInput = (input: ListProjectsInput, context: __SerdeContext)
   });
 };
 
+/**
+ * serializeAws_json1_1ListResourceCatalogsRequest
+ */
+const se_ListResourceCatalogsRequest = (input: ListResourceCatalogsRequest, context: __SerdeContext): any => {
+  return take(input, {
+    CreationTimeAfter: (_) => Math.round(_.getTime() / 1000),
+    CreationTimeBefore: (_) => Math.round(_.getTime() / 1000),
+    MaxResults: [],
+    NameContains: [],
+    NextToken: [],
+    SortBy: [],
+    SortOrder: [],
+  });
+};
+
 // se_ListSpacesRequest omitted.
 
 // se_ListStageDevicesRequest omitted.
@@ -21666,6 +21741,7 @@ const se_SearchExpressionList = (input: SearchExpression[], context: __SerdeCont
  */
 const se_SearchRequest = (input: SearchRequest, context: __SerdeContext): any => {
   return take(input, {
+    CrossAccountFilterOption: [],
     MaxResults: [],
     NextToken: [],
     Resource: [],
@@ -25958,6 +26034,16 @@ const de_ListProjectsOutput = (output: any, context: __SerdeContext): ListProjec
 };
 
 /**
+ * deserializeAws_json1_1ListResourceCatalogsResponse
+ */
+const de_ListResourceCatalogsResponse = (output: any, context: __SerdeContext): ListResourceCatalogsResponse => {
+  return take(output, {
+    NextToken: __expectString,
+    ResourceCatalogs: (_: any) => de_ResourceCatalogList(_, context),
+  }) as any;
+};
+
+/**
  * deserializeAws_json1_1ListSpacesResponse
  */
 const de_ListSpacesResponse = (output: any, context: __SerdeContext): ListSpacesResponse => {
@@ -27493,6 +27579,30 @@ const de_RecommendationMetrics = (output: any, context: __SerdeContext): Recomme
 // de_RepositoryAuthConfig omitted.
 
 // de_ResolvedAttributes omitted.
+
+/**
+ * deserializeAws_json1_1ResourceCatalog
+ */
+const de_ResourceCatalog = (output: any, context: __SerdeContext): ResourceCatalog => {
+  return take(output, {
+    CreationTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    Description: __expectString,
+    ResourceCatalogArn: __expectString,
+    ResourceCatalogName: __expectString,
+  }) as any;
+};
+
+/**
+ * deserializeAws_json1_1ResourceCatalogList
+ */
+const de_ResourceCatalogList = (output: any, context: __SerdeContext): ResourceCatalog[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      return de_ResourceCatalog(entry, context);
+    });
+  return retVal;
+};
 
 // de_ResourceConfig omitted.
 

@@ -1051,6 +1051,11 @@ import {
   ListProjectsCommandInput,
   ListProjectsCommandOutput,
 } from "./commands/ListProjectsCommand";
+import {
+  ListResourceCatalogsCommand,
+  ListResourceCatalogsCommandInput,
+  ListResourceCatalogsCommandOutput,
+} from "./commands/ListResourceCatalogsCommand";
 import { ListSpacesCommand, ListSpacesCommandInput, ListSpacesCommandOutput } from "./commands/ListSpacesCommand";
 import {
   ListStageDevicesCommand,
@@ -1616,6 +1621,7 @@ const commands = {
   ListPipelinesCommand,
   ListProcessingJobsCommand,
   ListProjectsCommand,
+  ListResourceCatalogsCommand,
   ListSpacesCommand,
   ListStageDevicesCommand,
   ListStudioLifecycleConfigsCommand,
@@ -5259,6 +5265,23 @@ export interface SageMaker {
     args: ListProjectsCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: ListProjectsCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ListResourceCatalogsCommand}
+   */
+  listResourceCatalogs(
+    args: ListResourceCatalogsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListResourceCatalogsCommandOutput>;
+  listResourceCatalogs(
+    args: ListResourceCatalogsCommandInput,
+    cb: (err: any, data?: ListResourceCatalogsCommandOutput) => void
+  ): void;
+  listResourceCatalogs(
+    args: ListResourceCatalogsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListResourceCatalogsCommandOutput) => void
   ): void;
 
   /**
