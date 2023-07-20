@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.374.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.373.1...v3.374.0) (2023-07-20)
+
+
+### Features
+
+* **client-securitylake:** Adding support for Tags on Create and Resource Tagging API. ([596636d](https://github.com/aws/aws-sdk-js-v3/commit/596636d3c4696ec027249d5bbf9c970d13d39beb))
+
+
+
+
+
 # [3.370.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.369.0...v3.370.0) (2023-07-13)
 
 

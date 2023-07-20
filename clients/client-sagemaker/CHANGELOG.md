@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.374.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.373.1...v3.374.0) (2023-07-20)
+
+
+### Features
+
+* **client-sagemaker:** Cross account support for SageMaker Feature Store ([e4918c1](https://github.com/aws/aws-sdk-js-v3/commit/e4918c1e5a7f8a8d5c4c9dc4de0a12a8707d35cc))
+
+
+
+
+
 # [3.370.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.369.0...v3.370.0) (2023-07-13)
 
 

@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.374.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.373.1...v3.374.0) (2023-07-20)
+
+
+### Features
+
+* **client-transcribe:** Added API argument --toxicity-detection to startTranscriptionJob API, which allows users to view toxicity scores of submitted audio. ([9e7552a](https://github.com/aws/aws-sdk-js-v3/commit/9e7552a0ec27e12e4e84b565924995e1c0bb1411))
+
+
+
+
+
 # [3.370.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.369.0...v3.370.0) (2023-07-13)
 
 

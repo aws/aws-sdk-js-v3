@@ -1,6 +1,6 @@
 {
   "name": "@aws-sdk/util-waiter",
-  "version": "3.370.0",
+  "version": "3.374.0",
   "description": "Shared utilities for client waiters for the AWS SDK",
   "dependencies": {
     "@smithy/util-waiter": "^1.0.1",

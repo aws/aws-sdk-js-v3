@@ -3,6 +3,22 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.374.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.373.1...v3.374.0) (2023-07-20)
+
+
+### Bug Fixes
+
+* **packages:** fix migrated package imports ([#4990](https://github.com/aws/aws-sdk-js-v3/issues/4990)) ([d800f78](https://github.com/aws/aws-sdk-js-v3/commit/d800f78377a5fbfddda364a152fdccb6b46f4648))
+
+
+### Features
+
+* **client-s3:** Improve performance of S3 clients by simplifying and optimizing endpoint resolution. ([72eb598](https://github.com/aws/aws-sdk-js-v3/commit/72eb5981c9ae26beb893bc9399c94deba30cb1ad))
+
+
+
+
+
 # [3.373.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.372.0...v3.373.0) (2023-07-19)
 
 **Note:** Version bump only for package @aws-sdk/client-s3

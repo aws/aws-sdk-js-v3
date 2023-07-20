@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.374.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.373.1...v3.374.0) (2023-07-20)
+
+
+### Features
+
+* **client-lex-models-v2:** This release updates type for Channel field in SessionSpecification and UtteranceSpecification ([1f77d0a](https://github.com/aws/aws-sdk-js-v3/commit/1f77d0adbf87eeff9168ffff70b63b58851f3c4a))
+
+
+
+
+
 # [3.372.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.371.0...v3.372.0) (2023-07-18)
 
 

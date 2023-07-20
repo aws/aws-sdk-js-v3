@@ -1,6 +1,6 @@
 | Package | Version | Publish Size | browser:Webpack | browser:Rollup | browser:EsBuild |
 | :------ | :------ | :----------- | :------ | :----- | :------- |
-|@aws-sdk/abort-controller|3.369.0|17.2 KB|✅(5.77.0)|✅(3.20.2)|✅(0.17.15)|
+|@aws-sdk/abort-controller|3.370.0|14.3 KB|✅(5.77.0)|✅(3.20.2)|✅(0.17.15)|
 |@aws-sdk/client-app-mesh|3.369.0|1.1 MB|✅(5.77.0)|✅(3.20.2)|✅(0.17.15)|
 |@aws-sdk/client-application-insights|3.369.0|544.4 KB|✅(5.77.0)|✅(3.20.2)|✅(0.17.15)|
 |@aws-sdk/client-athena|3.369.0|1.2 MB|✅(5.77.0)|✅(3.20.2)|✅(0.17.15)|
@@ -29,7 +29,7 @@
 |@aws-sdk/client-opsworks|3.369.0|1.3 MB|✅(5.77.0)|✅(3.20.2)|✅(0.17.15)|
 |@aws-sdk/client-pinpoint|3.369.0|2.9 MB|✅(5.77.0)|✅(3.20.2)|✅(0.17.15)|
 |@aws-sdk/client-resource-groups-tagging-api|3.369.0|264 KB|✅(5.77.0)|✅(3.20.2)|✅(0.17.15)|
-|@aws-sdk/client-s3|3.370.0|2.9 MB|✅(5.77.0)|✅(3.20.2)|✅(0.17.15)|
+|@aws-sdk/client-s3|3.373.0|2.8 MB|✅(5.77.0)|✅(3.20.2)|✅(0.17.15)|
 |@aws-sdk/client-ses|3.369.0|1.5 MB|✅(5.77.0)|✅(3.20.2)|✅(0.17.15)|
 |@aws-sdk/client-sns|3.369.0|1006.2 KB|✅(5.77.0)|✅(3.20.2)|✅(0.17.15)|
 |@aws-sdk/client-ssm|3.369.0|3.3 MB|✅(5.77.0)|✅(3.20.2)|✅(0.17.15)|
@@ -37,21 +37,21 @@
 |@aws-sdk/client-xray|3.369.0|685.4 KB|✅(5.77.0)|✅(3.20.2)|✅(0.17.15)|
 |@aws-sdk/credential-provider-cognito-identity|3.369.0|36.2 KB|✅(5.77.0)|✅(3.20.2)|✅(0.17.15)|
 |@aws-sdk/credential-provider-env|3.369.0|17.3 KB|N/A|N/A|N/A|
-|@aws-sdk/credential-provider-imds|3.369.0|50.4 KB|N/A|N/A|N/A|
+|@aws-sdk/credential-provider-imds|3.370.0|14.8 KB|N/A|N/A|N/A|
 |@aws-sdk/credential-provider-ini|3.369.0|37 KB|N/A|N/A|N/A|
 |@aws-sdk/credential-provider-node|3.369.0|26.6 KB|N/A|N/A|N/A|
 |@aws-sdk/credential-provider-process|3.369.0|21.9 KB|N/A|N/A|N/A|
 |@aws-sdk/credential-provider-sso|3.369.0|30.9 KB|N/A|N/A|N/A|
 |@aws-sdk/credential-provider-web-identity|3.369.0|28.1 KB|✅(5.77.0)|✅(3.20.2)|✅(0.17.15)|
 |@aws-sdk/credential-providers|3.369.0|80.9 KB|✅(5.77.0)|✅(3.20.2)|✅(0.17.15)|
-|@aws-sdk/fetch-http-handler|3.369.0|27.2 KB|✅(5.77.0)|✅(3.20.2)|✅(0.17.15)|
+|@aws-sdk/fetch-http-handler|3.370.0|14.4 KB|✅(5.77.0)|✅(3.20.2)|✅(0.17.15)|
 |@aws-sdk/lib-dynamodb|3.369.0|155.1 KB|✅(5.77.0)|✅(3.20.2)|✅(0.17.15)|
-|@aws-sdk/lib-storage|3.370.0|53.3 KB|✅(5.77.0)|✅(3.20.2)|✅(0.17.15)|
-|@aws-sdk/node-http-handler|3.369.0|70.9 KB|N/A|N/A|N/A|
+|@aws-sdk/lib-storage|3.373.0|53.3 KB|✅(5.77.0)|✅(3.20.2)|✅(0.17.15)|
+|@aws-sdk/node-http-handler|3.370.0|14.4 KB|N/A|N/A|N/A|
 |@aws-sdk/polly-request-presigner|3.369.0|23.2 KB|✅(5.77.0)|✅(3.20.2)|✅(0.17.15)|
-|@aws-sdk/s3-presigned-post|3.370.0|26.2 KB|✅(5.77.0)|✅(3.20.2)|✅(0.17.15)|
-|@aws-sdk/s3-request-presigner|3.370.0|29.5 KB|✅(5.77.0)|✅(3.20.2)|✅(0.17.15)|
-|@aws-sdk/signature-v4|3.369.0|96.1 KB|✅(5.77.0)|✅(3.20.2)|✅(0.17.15)|
+|@aws-sdk/s3-presigned-post|3.373.0|26.2 KB|✅(5.77.0)|✅(3.20.2)|✅(0.17.15)|
+|@aws-sdk/s3-request-presigner|3.373.0|29.5 KB|✅(5.77.0)|✅(3.20.2)|✅(0.17.15)|
+|@aws-sdk/signature-v4|3.370.0|14.4 KB|✅(5.77.0)|✅(3.20.2)|✅(0.17.15)|
 |@aws-sdk/signature-v4-crt|3.369.0|69.2 KB|N/A|N/A|N/A|
-|@aws-sdk/smithy-client|3.369.0|106.8 KB|✅(5.77.0)|✅(3.20.2)|✅(0.17.15)|
+|@aws-sdk/smithy-client|3.370.0|18.8 KB|✅(5.77.0)|✅(3.20.2)|✅(0.17.15)|
 |@aws-sdk/types|3.369.0|34.1 KB|✅(5.77.0)|✅(3.20.2)|✅(0.17.15)|

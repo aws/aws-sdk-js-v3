@@ -1,6 +1,6 @@
 {
   "name": "@aws-sdk/shared-ini-file-loader",
-  "version": "3.370.0",
+  "version": "3.374.0",
   "dependencies": {
     "@smithy/shared-ini-file-loader": "^1.0.1",
     "tslib": "^2.5.0"

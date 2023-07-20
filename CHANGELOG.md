@@ -3,6 +3,31 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.374.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.373.1...v3.374.0) (2023-07-20)
+
+
+### Bug Fixes
+
+* **packages:** fix migrated package imports ([#4990](https://github.com/aws/aws-sdk-js-v3/issues/4990)) ([d800f78](https://github.com/aws/aws-sdk-js-v3/commit/d800f78377a5fbfddda364a152fdccb6b46f4648))
+
+
+### Features
+
+* **client-codecatalyst:** This release adds support for updating and deleting spaces and projects in Amazon CodeCatalyst. It also adds support for creating, getting, and deleting source repositories in CodeCatalyst projects. ([05a9f89](https://github.com/aws/aws-sdk-js-v3/commit/05a9f899f1c90d13ac0dca89cea040b7db1cb9cd))
+* **client-connectcases:** This release adds the ability to assign a case to a queue or user. ([f47d6f4](https://github.com/aws/aws-sdk-js-v3/commit/f47d6f4265de8a4240d832582c729a9599fb0ad7))
+* **client-lex-models-v2:** This release updates type for Channel field in SessionSpecification and UtteranceSpecification ([1f77d0a](https://github.com/aws/aws-sdk-js-v3/commit/1f77d0adbf87eeff9168ffff70b63b58851f3c4a))
+* **client-route53resolver:** This release adds support for Route 53 On Outposts, a new feature that allows customers to run Route 53 Resolver and Resolver endpoints locally on their Outposts. ([8acc64c](https://github.com/aws/aws-sdk-js-v3/commit/8acc64ccc93e5e6c55371784906c1168425dc86d))
+* **client-s3:** Improve performance of S3 clients by simplifying and optimizing endpoint resolution. ([72eb598](https://github.com/aws/aws-sdk-js-v3/commit/72eb5981c9ae26beb893bc9399c94deba30cb1ad))
+* **client-sagemaker-featurestore-runtime:** Cross account support for SageMaker Feature Store ([b0593ab](https://github.com/aws/aws-sdk-js-v3/commit/b0593aba67f141f6daf9e009b15bb8bbcf4773d7))
+* **client-sagemaker:** Cross account support for SageMaker Feature Store ([e4918c1](https://github.com/aws/aws-sdk-js-v3/commit/e4918c1e5a7f8a8d5c4c9dc4de0a12a8707d35cc))
+* **client-securitylake:** Adding support for Tags on Create and Resource Tagging API. ([596636d](https://github.com/aws/aws-sdk-js-v3/commit/596636d3c4696ec027249d5bbf9c970d13d39beb))
+* **client-transcribe:** Added API argument --toxicity-detection to startTranscriptionJob API, which allows users to view toxicity scores of submitted audio. ([9e7552a](https://github.com/aws/aws-sdk-js-v3/commit/9e7552a0ec27e12e4e84b565924995e1c0bb1411))
+* **smithy-client:** update client defaults provider ([830cb06](https://github.com/aws/aws-sdk-js-v3/commit/830cb068bc2fdeb6cd99cf8a5d1146b46494614b))
+
+
+
+
+
 ## [3.373.1](https://github.com/aws/aws-sdk-js-v3/compare/v3.373.0...v3.373.1) (2023-07-20)
 
 
