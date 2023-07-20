@@ -2,6 +2,7 @@
   "name": "@aws-sdk/node-http-handler",
   "version": "3.374.0",
   "description": "Provides a way to make requests",
+  "private": true,
   "scripts": {
     "build": "concurrently 'yarn:build:cjs' 'yarn:build:es' 'yarn:build:types'",
     "build:cjs": "tsc -p tsconfig.cjs.json",
