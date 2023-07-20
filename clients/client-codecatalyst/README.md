@@ -8,41 +8,11 @@ AWS SDK for JavaScript CodeCatalyst Client for Node.js, Browser and React Native
 
 <p>Welcome to the Amazon CodeCatalyst API reference. This reference provides descriptions of operations and data types for Amazon CodeCatalyst. You can use the Amazon CodeCatalyst
 API to work with the following objects. </p>
-<p>Dev Environments and the Amazon Web Services Toolkits, by calling the following:</p>
+<p>Spaces, by calling the following:</p>
 <ul>
 <li>
 <p>
-<a>CreateAccessToken</a>, which creates a personal access token (PAT) for the current user.</p>
-</li>
-<li>
-<p>
-<a>CreateDevEnvironment</a>, which creates a Dev Environment,
-where you can quickly work on the code stored in the source repositories of your project.</p>
-</li>
-<li>
-<p>
-<a>CreateProject</a> which creates a project in a specified space.</p>
-</li>
-<li>
-<p>
-<a>CreateSourceRepositoryBranch</a>, which creates a branch in a specified repository where you can work on code.</p>
-</li>
-<li>
-<p>
-<a>DeleteDevEnvironment</a>, which deletes a Dev Environment.</p>
-</li>
-<li>
-<p>
-<a>GetDevEnvironment</a>, which returns information about a Dev Environment.</p>
-</li>
-<li>
-<p>
-<a>GetProject</a>, which returns information about a project.</p>
-</li>
-<li>
-<p>
-<a>GetSourceRepositoryCloneUrls</a>, which returns information about the URLs that can be used with a Git client to clone a source
-repository.</p>
+<a>DeleteSpace</a>, which deletes a space.</p>
 </li>
 <li>
 <p>
@@ -55,19 +25,57 @@ and the billing plan for the space.</p>
 </li>
 <li>
 <p>
-<a>GetUserDetails</a>, which returns information about a user in Amazon CodeCatalyst.</p>
+<a>ListSpaces</a>, which retrieves a list of spaces.</p>
 </li>
 <li>
 <p>
-<a>ListDevEnvironments</a>, which retrieves a list of Dev Environments in a project.</p>
+<a>UpdateSpace</a>, which hanges one or more values for a space.</p>
+</li>
+</ul>
+<p>Projects, by calling the following:</p>
+<ul>
+<li>
+<p>
+<a>CreateProject</a> which creates a project in a specified space.</p>
 </li>
 <li>
 <p>
-<a>ListDevEnvironmentSessions</a>, which retrieves a list of active Dev Environment sessions in a project.</p>
+<a>GetProject</a>, which returns information about a project.</p>
 </li>
 <li>
 <p>
 <a>ListProjects</a>, which retrieves a list of projects in a space.</p>
+</li>
+</ul>
+<p>Users, by calling the following:</p>
+<ul>
+<li>
+<p>
+<a>GetUserDetails</a>, which returns information about a user in Amazon CodeCatalyst.</p>
+</li>
+</ul>
+<p>Source repositories, by calling the following:</p>
+<ul>
+<li>
+<p>
+<a>CreateSourceRepository</a>, which creates an empty Git-based source repository in a specified project.</p>
+</li>
+<li>
+<p>
+<a>CreateSourceRepositoryBranch</a>, which creates a branch in a specified repository where you can work on code.</p>
+</li>
+<li>
+<p>
+<a>DeleteSourceRepository</a>, which deletes a source repository.</p>
+</li>
+<li>
+<p>
+<a>GetSourceRepository</a>, which returns information about a source repository.</p>
+</li>
+<li>
+<p>
+<a>GetSourceRepositoryCloneUrls</a>, which returns information about the URLs that can be used with a Git client to clone a source
+repository.</p>
 </li>
 <li>
 <p>
@@ -77,9 +85,29 @@ and the billing plan for the space.</p>
 <p>
 <a>ListSourceRepositoryBranches</a>, which retrieves a list of branches in a source repository.</p>
 </li>
+</ul>
+<p>Dev Environments and the Amazon Web Services Toolkits, by calling the following:</p>
+<ul>
 <li>
 <p>
-<a>ListSpaces</a>, which retrieves a list of spaces.</p>
+<a>CreateDevEnvironment</a>, which creates a Dev Environment,
+where you can quickly work on the code stored in the source repositories of your project.</p>
+</li>
+<li>
+<p>
+<a>DeleteDevEnvironment</a>, which deletes a Dev Environment.</p>
+</li>
+<li>
+<p>
+<a>GetDevEnvironment</a>, which returns information about a Dev Environment.</p>
+</li>
+<li>
+<p>
+<a>ListDevEnvironments</a>, which retrieves a list of Dev Environments in a project.</p>
+</li>
+<li>
+<p>
+<a>ListDevEnvironmentSessions</a>, which retrieves a list of active Dev Environment sessions in a project.</p>
 </li>
 <li>
 <p>
@@ -101,13 +129,13 @@ and the billing plan for the space.</p>
 <p>
 <a>UpdateDevEnvironment</a>, which changes one or more values for a Dev Environment.</p>
 </li>
-<li>
-<p>
-<a>VerifySession</a>, which verifies whether the calling user has a valid Amazon CodeCatalyst login and session.</p>
-</li>
 </ul>
 <p>Security, activity, and resource management in Amazon CodeCatalyst, by calling the following:</p>
 <ul>
+<li>
+<p>
+<a>CreateAccessToken</a>, which creates a personal access token (PAT) for the current user.</p>
+</li>
 <li>
 <p>
 <a>DeleteAccessToken</a>, which deletes a specified personal access token (PAT).</p>
@@ -119,6 +147,10 @@ and the billing plan for the space.</p>
 <li>
 <p>
 <a>ListEventLogs</a>, which retrieves a list of events that occurred during a specified time period in a space.</p>
+</li>
+<li>
+<p>
+<a>VerifySession</a>, which verifies whether the calling user has a valid Amazon CodeCatalyst login and session.</p>
 </li>
 </ul>
 <note>
@@ -348,6 +380,14 @@ CreateProject
 </details>
 <details>
 <summary>
+CreateSourceRepository
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-codecatalyst/classes/createsourcerepositorycommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-codecatalyst/interfaces/createsourcerepositorycommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-codecatalyst/interfaces/createsourcerepositorycommandoutput.html)
+
+</details>
+<details>
+<summary>
 CreateSourceRepositoryBranch
 </summary>
 
@@ -372,6 +412,30 @@ DeleteDevEnvironment
 </details>
 <details>
 <summary>
+DeleteProject
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-codecatalyst/classes/deleteprojectcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-codecatalyst/interfaces/deleteprojectcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-codecatalyst/interfaces/deleteprojectcommandoutput.html)
+
+</details>
+<details>
+<summary>
+DeleteSourceRepository
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-codecatalyst/classes/deletesourcerepositorycommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-codecatalyst/interfaces/deletesourcerepositorycommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-codecatalyst/interfaces/deletesourcerepositorycommandoutput.html)
+
+</details>
+<details>
+<summary>
+DeleteSpace
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-codecatalyst/classes/deletespacecommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-codecatalyst/interfaces/deletespacecommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-codecatalyst/interfaces/deletespacecommandoutput.html)
+
+</details>
+<details>
+<summary>
 GetDevEnvironment
 </summary>
 
@@ -384,6 +448,14 @@ GetProject
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-codecatalyst/classes/getprojectcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-codecatalyst/interfaces/getprojectcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-codecatalyst/interfaces/getprojectcommandoutput.html)
+
+</details>
+<details>
+<summary>
+GetSourceRepository
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-codecatalyst/classes/getsourcerepositorycommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-codecatalyst/interfaces/getsourcerepositorycommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-codecatalyst/interfaces/getsourcerepositorycommandoutput.html)
 
 </details>
 <details>
@@ -520,6 +592,22 @@ UpdateDevEnvironment
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-codecatalyst/classes/updatedevenvironmentcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-codecatalyst/interfaces/updatedevenvironmentcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-codecatalyst/interfaces/updatedevenvironmentcommandoutput.html)
+
+</details>
+<details>
+<summary>
+UpdateProject
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-codecatalyst/classes/updateprojectcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-codecatalyst/interfaces/updateprojectcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-codecatalyst/interfaces/updateprojectcommandoutput.html)
+
+</details>
+<details>
+<summary>
+UpdateSpace
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-codecatalyst/classes/updatespacecommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-codecatalyst/interfaces/updatespacecommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-codecatalyst/interfaces/updatespacecommandoutput.html)
 
 </details>
 <details>

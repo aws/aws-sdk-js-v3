@@ -3,24 +3,90 @@
 /**
  * <p>Welcome to the Amazon CodeCatalyst API reference. This reference provides descriptions of operations and data types for Amazon CodeCatalyst. You can use the Amazon CodeCatalyst
  *       API to work with the following objects. </p>
- *          <p>Dev Environments and the Amazon Web Services Toolkits, by calling the following:</p>
+ *          <p>Spaces, by calling the following:</p>
  *          <ul>
  *             <li>
  *                <p>
- *                   <a>CreateAccessToken</a>, which creates a personal access token (PAT) for the current user.</p>
+ *                   <a>DeleteSpace</a>, which deletes a space.</p>
  *             </li>
  *             <li>
  *                <p>
- *                   <a>CreateDevEnvironment</a>, which creates a Dev Environment,
- *        where you can quickly work on the code stored in the source repositories of your project.</p>
+ *                   <a>GetSpace</a>, which returns information about a space.</p>
  *             </li>
+ *             <li>
+ *                <p>
+ *                   <a>GetSubscription</a>, which returns information about the Amazon Web Services account used for billing purposes
+ *         and the billing plan for the space.</p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <a>ListSpaces</a>, which retrieves a list of spaces.</p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <a>UpdateSpace</a>, which hanges one or more values for a space.</p>
+ *             </li>
+ *          </ul>
+ *          <p>Projects, by calling the following:</p>
+ *          <ul>
  *             <li>
  *                <p>
  *                   <a>CreateProject</a> which creates a project in a specified space.</p>
  *             </li>
  *             <li>
  *                <p>
+ *                   <a>GetProject</a>, which returns information about a project.</p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <a>ListProjects</a>, which retrieves a list of projects in a space.</p>
+ *             </li>
+ *          </ul>
+ *          <p>Users, by calling the following:</p>
+ *          <ul>
+ *             <li>
+ *                <p>
+ *                   <a>GetUserDetails</a>, which returns information about a user in Amazon CodeCatalyst.</p>
+ *             </li>
+ *          </ul>
+ *          <p>Source repositories, by calling the following:</p>
+ *          <ul>
+ *             <li>
+ *                <p>
+ *                   <a>CreateSourceRepository</a>, which creates an empty Git-based source repository in a specified project.</p>
+ *             </li>
+ *             <li>
+ *                <p>
  *                   <a>CreateSourceRepositoryBranch</a>, which creates a branch in a specified repository where you can work on code.</p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <a>DeleteSourceRepository</a>, which deletes a source repository.</p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <a>GetSourceRepository</a>, which returns information about a source repository.</p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <a>GetSourceRepositoryCloneUrls</a>, which returns information about the URLs that can be used with a Git client to clone a source
+ *         repository.</p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <a>ListSourceRepositories</a>, which retrieves a list of source repositories in a project.</p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <a>ListSourceRepositoryBranches</a>, which retrieves a list of branches in a source repository.</p>
+ *             </li>
+ *          </ul>
+ *          <p>Dev Environments and the Amazon Web Services Toolkits, by calling the following:</p>
+ *          <ul>
+ *             <li>
+ *                <p>
+ *                   <a>CreateDevEnvironment</a>, which creates a Dev Environment,
+ *        where you can quickly work on the code stored in the source repositories of your project.</p>
  *             </li>
  *             <li>
  *                <p>
@@ -32,49 +98,11 @@
  *             </li>
  *             <li>
  *                <p>
- *                   <a>GetProject</a>, which returns information about a project.</p>
- *             </li>
- *             <li>
- *                <p>
- *                   <a>GetSourceRepositoryCloneUrls</a>, which returns information about the URLs that can be used with a Git client to clone a source
- *        repository.</p>
- *             </li>
- *             <li>
- *                <p>
- *                   <a>GetSpace</a>, which returns information about a space.</p>
- *             </li>
- *             <li>
- *                <p>
- *                   <a>GetSubscription</a>, which returns information about the Amazon Web Services account used for billing purposes
- *        and the billing plan for the space.</p>
- *             </li>
- *             <li>
- *                <p>
- *                   <a>GetUserDetails</a>, which returns information about a user in Amazon CodeCatalyst.</p>
- *             </li>
- *             <li>
- *                <p>
  *                   <a>ListDevEnvironments</a>, which retrieves a list of Dev Environments in a project.</p>
  *             </li>
  *             <li>
  *                <p>
  *                   <a>ListDevEnvironmentSessions</a>, which retrieves a list of active Dev Environment sessions in a project.</p>
- *             </li>
- *             <li>
- *                <p>
- *                   <a>ListProjects</a>, which retrieves a list of projects in a space.</p>
- *             </li>
- *             <li>
- *                <p>
- *                   <a>ListSourceRepositories</a>, which retrieves a list of source repositories in a project.</p>
- *             </li>
- *             <li>
- *                <p>
- *                   <a>ListSourceRepositoryBranches</a>, which retrieves a list of branches in a source repository.</p>
- *             </li>
- *             <li>
- *                <p>
- *                   <a>ListSpaces</a>, which retrieves a list of spaces.</p>
  *             </li>
  *             <li>
  *                <p>
@@ -96,13 +124,13 @@
  *                <p>
  *                   <a>UpdateDevEnvironment</a>, which changes one or more values for a Dev Environment.</p>
  *             </li>
- *             <li>
- *                <p>
- *                   <a>VerifySession</a>, which verifies whether the calling user has a valid Amazon CodeCatalyst login and session.</p>
- *             </li>
  *          </ul>
  *          <p>Security, activity, and resource management in Amazon CodeCatalyst, by calling the following:</p>
  *          <ul>
+ *             <li>
+ *                <p>
+ *                   <a>CreateAccessToken</a>, which creates a personal access token (PAT) for the current user.</p>
+ *             </li>
  *             <li>
  *                <p>
  *                   <a>DeleteAccessToken</a>, which deletes a specified personal access token (PAT).</p>
@@ -114,6 +142,10 @@
  *             <li>
  *                <p>
  *                   <a>ListEventLogs</a>, which retrieves a list of events that occurred during a specified time period in a space.</p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <a>VerifySession</a>, which verifies whether the calling user has a valid Amazon CodeCatalyst login and session.</p>
  *             </li>
  *          </ul>
  *          <note>

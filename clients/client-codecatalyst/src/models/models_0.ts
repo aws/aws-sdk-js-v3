@@ -296,6 +296,31 @@ export interface GetUserDetailsResponse {
 /**
  * @public
  */
+export interface DeleteSpaceRequest {
+  /**
+   * <p>The name of the space.  To retrieve a list of space names, use <a>ListSpaces</a>.</p>
+   */
+  name: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DeleteSpaceResponse {
+  /**
+   * <p>The name of the space.</p>
+   */
+  name: string | undefined;
+
+  /**
+   * <p>The friendly name of the space displayed to users of the space in Amazon CodeCatalyst.</p>
+   */
+  displayName?: string;
+}
+
+/**
+ * @public
+ */
 export interface ListEventLogsRequest {
   /**
    * <p>The name of the space.</p>
@@ -400,7 +425,7 @@ export interface UserIdentity {
   userType: UserType | string | undefined;
 
   /**
-   * <p/>
+   * <p>The ID of the Amazon CodeCatalyst service principal.</p>
    */
   principalId: string | undefined;
 
@@ -491,7 +516,7 @@ export interface EventLogEntry {
   sourceIpAddress?: string;
 
   /**
-   * <p/>
+   * <p>The user agent whose actions are recorded in the event.</p>
    */
   userAgent?: string;
 }
@@ -645,6 +670,41 @@ export interface CreateProjectResponse {
 
 /**
  * @public
+ */
+export interface DeleteProjectRequest {
+  /**
+   * <p>The name of the space.</p>
+   */
+  spaceName: string | undefined;
+
+  /**
+   * <p>The name of the project in the space. To retrieve a list of project names, use <a>ListProjects</a>.</p>
+   */
+  name: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DeleteProjectResponse {
+  /**
+   * <p>The name of the space.</p>
+   */
+  spaceName: string | undefined;
+
+  /**
+   * <p>The name of the project in the space.</p>
+   */
+  name: string | undefined;
+
+  /**
+   * <p>The friendly name displayed to users of the project in Amazon CodeCatalyst.</p>
+   */
+  displayName?: string;
+}
+
+/**
+ * @public
  * <p>Information about the configuration of an integrated development environment (IDE) for a Dev Environment.</p>
  */
 export interface IdeConfiguration {
@@ -744,7 +804,7 @@ export interface CreateDevEnvironmentRequest {
    *       Dev Environment.</p>
    *          <note>
    *             <p>An IDE is required to create a Dev Environment. For Dev Environment creation, this field
-   *         contains configuration information and must be provided.</p>
+   *         contains configuration information and must be provided. </p>
    *          </note>
    */
   ides?: IdeConfiguration[];
@@ -990,21 +1050,21 @@ export interface GetDevEnvironmentResponse {
 
 /**
  * @public
- * <p/>
+ * <p>Information about a filter used to limit results of a query.</p>
  */
 export interface Filter {
   /**
-   * <p/>
+   * <p>A key that can be used to sort results.</p>
    */
   key: string | undefined;
 
   /**
-   * <p/>
+   * <p>The values of the key.</p>
    */
   values: string[] | undefined;
 
   /**
-   * <p/>
+   * <p>The operator used to compare the fields.</p>
    */
   comparisonOperator?: string;
 }
@@ -1654,7 +1714,7 @@ export interface ProjectListFilter {
   key: FilterKey | string | undefined;
 
   /**
-   * <p>The value of the key.</p>
+   * <p>The values of the key.</p>
    */
   values: string[] | undefined;
 
@@ -1723,6 +1783,151 @@ export interface ListProjectsResponse {
    * <p>Information about the projects.</p>
    */
   items?: ProjectSummary[];
+}
+
+/**
+ * @public
+ */
+export interface CreateSourceRepositoryRequest {
+  /**
+   * <p>The name of the space.</p>
+   */
+  spaceName: string | undefined;
+
+  /**
+   * <p>The name of the project in the space.</p>
+   */
+  projectName: string | undefined;
+
+  /**
+   * <p>The name of the source repository. For more information about name requirements, see <a href="https://docs.aws.amazon.com/codecatalyst/latest/userguide/source-quotas.html">Quotas for source repositories</a>.</p>
+   */
+  name: string | undefined;
+
+  /**
+   * <p>The description of the source repository.</p>
+   */
+  description?: string;
+}
+
+/**
+ * @public
+ */
+export interface CreateSourceRepositoryResponse {
+  /**
+   * <p>The name of the space.</p>
+   */
+  spaceName: string | undefined;
+
+  /**
+   * <p>The name of the project in the space.</p>
+   */
+  projectName: string | undefined;
+
+  /**
+   * <p>The name of the source repository.</p>
+   */
+  name: string | undefined;
+
+  /**
+   * <p>The description of the source repository.</p>
+   */
+  description?: string;
+}
+
+/**
+ * @public
+ */
+export interface DeleteSourceRepositoryRequest {
+  /**
+   * <p>The name of the space.</p>
+   */
+  spaceName: string | undefined;
+
+  /**
+   * <p>The name of the project in the space.</p>
+   */
+  projectName: string | undefined;
+
+  /**
+   * <p>The name of the source repository.</p>
+   */
+  name: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DeleteSourceRepositoryResponse {
+  /**
+   * <p>The name of the space.</p>
+   */
+  spaceName: string | undefined;
+
+  /**
+   * <p>The name of the project in the space.</p>
+   */
+  projectName: string | undefined;
+
+  /**
+   * <p>The name of the repository.</p>
+   */
+  name: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetSourceRepositoryRequest {
+  /**
+   * <p>The name of the space.</p>
+   */
+  spaceName: string | undefined;
+
+  /**
+   * <p>The name of the project in the space.</p>
+   */
+  projectName: string | undefined;
+
+  /**
+   * <p>The name of the source repository.</p>
+   */
+  name: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetSourceRepositoryResponse {
+  /**
+   * <p>The name of the space.</p>
+   */
+  spaceName: string | undefined;
+
+  /**
+   * <p>The name of the project in the space.</p>
+   */
+  projectName: string | undefined;
+
+  /**
+   * <p>The name of the source repository.</p>
+   */
+  name: string | undefined;
+
+  /**
+   * <p>The description of the source repository.</p>
+   */
+  description?: string;
+
+  /**
+   * <p>The time the source repository was last updated, in coordinated universal time (UTC) timestamp format as specified in <a href="https://www.rfc-editor.org/rfc/rfc3339#section-5.6">RFC 3339</a>.</p>
+   */
+  lastUpdatedTime: Date | undefined;
+
+  /**
+   * <p>The time the source repository was created, in coordinated universal time (UTC) timestamp format as specified in <a href="https://www.rfc-editor.org/rfc/rfc3339#section-5.6">RFC 3339</a>.</p>
+   */
+  createdTime: Date | undefined;
 }
 
 /**
@@ -1955,6 +2160,51 @@ export interface ListSourceRepositoryBranchesResponse {
 /**
  * @public
  */
+export interface UpdateProjectRequest {
+  /**
+   * <p>The name of the space.</p>
+   */
+  spaceName: string | undefined;
+
+  /**
+   * <p>The name of the project.</p>
+   */
+  name: string | undefined;
+
+  /**
+   * <p>The description of the project.</p>
+   */
+  description?: string;
+}
+
+/**
+ * @public
+ */
+export interface UpdateProjectResponse {
+  /**
+   * <p>The name of the space.</p>
+   */
+  spaceName?: string;
+
+  /**
+   * <p>The name of the project.</p>
+   */
+  name?: string;
+
+  /**
+   * <p>The friendly name of the project displayed to users in Amazon CodeCatalyst.</p>
+   */
+  displayName?: string;
+
+  /**
+   * <p>The description of the project.</p>
+   */
+  description?: string;
+}
+
+/**
+ * @public
+ */
 export interface GetSubscriptionRequest {
   /**
    * <p>The name of the space.</p>
@@ -1975,6 +2225,41 @@ export interface GetSubscriptionResponse {
    * <p>The display name of the Amazon Web Services account used for billing for the space.</p>
    */
   awsAccountName?: string;
+}
+
+/**
+ * @public
+ */
+export interface UpdateSpaceRequest {
+  /**
+   * <p>The name of the space.</p>
+   */
+  name: string | undefined;
+
+  /**
+   * <p>The description of the space.</p>
+   */
+  description?: string;
+}
+
+/**
+ * @public
+ */
+export interface UpdateSpaceResponse {
+  /**
+   * <p>The name of the space.</p>
+   */
+  name?: string;
+
+  /**
+   * <p>The friendly name of the space displayed to users in Amazon CodeCatalyst.</p>
+   */
+  displayName?: string;
+
+  /**
+   * <p>The description of the space.</p>
+   */
+  description?: string;
 }
 
 /**
