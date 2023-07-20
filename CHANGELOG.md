@@ -3,6 +3,22 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [3.373.1](https://github.com/aws/aws-sdk-js-v3/compare/v3.373.0...v3.373.1) (2023-07-20)
+
+
+### Bug Fixes
+
+* **codegen:** fix line length ([#4988](https://github.com/aws/aws-sdk-js-v3/issues/4988)) ([71e1e2b](https://github.com/aws/aws-sdk-js-v3/commit/71e1e2b5cc391e6b1f2f47f9c834ad6765df2d9a))
+
+
+### Features
+
+* **clients:** update client endpoints as of 2023-07-20 ([9c27140](https://github.com/aws/aws-sdk-js-v3/commit/9c27140dbc7a2c1316759a635e402f257479167e))
+
+
+
+
+
 # [3.373.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.372.0...v3.373.0) (2023-07-19)
 
 
