@@ -36,8 +36,8 @@ export interface ListDataLakesCommandOutput extends ListDataLakesResponse, __Met
 
 /**
  * @public
- * <p>Retrieves the Amazon Security Lake configuration object for the specified Amazon Web Services account ID. You can use the <code>ListDataLakes</code> API to know whether
- *          Security Lake is enabled for any region.</p>
+ * <p>Retrieves the Amazon Security Lake configuration object for the specified Amazon Web Services Regions. You can use this operation to determine whether
+ *          Security Lake is enabled for a Region.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

@@ -109,9 +109,15 @@ import { ListDataLakesCommandInput, ListDataLakesCommandOutput } from "./command
 import { ListLogSourcesCommandInput, ListLogSourcesCommandOutput } from "./commands/ListLogSourcesCommand";
 import { ListSubscribersCommandInput, ListSubscribersCommandOutput } from "./commands/ListSubscribersCommand";
 import {
+  ListTagsForResourceCommandInput,
+  ListTagsForResourceCommandOutput,
+} from "./commands/ListTagsForResourceCommand";
+import {
   RegisterDataLakeDelegatedAdministratorCommandInput,
   RegisterDataLakeDelegatedAdministratorCommandOutput,
 } from "./commands/RegisterDataLakeDelegatedAdministratorCommand";
+import { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
+import { UntagResourceCommandInput, UntagResourceCommandOutput } from "./commands/UntagResourceCommand";
 import { UpdateDataLakeCommandInput, UpdateDataLakeCommandOutput } from "./commands/UpdateDataLakeCommand";
 import {
   UpdateDataLakeExceptionSubscriptionCommandInput,
@@ -159,7 +165,10 @@ export type ServiceInputTypes =
   | ListDataLakesCommandInput
   | ListLogSourcesCommandInput
   | ListSubscribersCommandInput
+  | ListTagsForResourceCommandInput
   | RegisterDataLakeDelegatedAdministratorCommandInput
+  | TagResourceCommandInput
+  | UntagResourceCommandInput
   | UpdateDataLakeCommandInput
   | UpdateDataLakeExceptionSubscriptionCommandInput
   | UpdateSubscriberCommandInput
@@ -192,7 +201,10 @@ export type ServiceOutputTypes =
   | ListDataLakesCommandOutput
   | ListLogSourcesCommandOutput
   | ListSubscribersCommandOutput
+  | ListTagsForResourceCommandOutput
   | RegisterDataLakeDelegatedAdministratorCommandOutput
+  | TagResourceCommandOutput
+  | UntagResourceCommandOutput
   | UpdateDataLakeCommandOutput
   | UpdateDataLakeExceptionSubscriptionCommandOutput
   | UpdateSubscriberCommandOutput

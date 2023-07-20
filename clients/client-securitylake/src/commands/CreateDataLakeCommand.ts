@@ -38,8 +38,7 @@ export interface CreateDataLakeCommandOutput extends CreateDataLakeResponse, __M
  * @public
  * <p>Initializes an Amazon Security Lake instance with the provided (or default) configuration. You
  *          can enable Security Lake in Amazon Web Services Regions with customized settings before enabling
- *          log collection in Regions. By default, the <code>CreateDataLake</code> Security Lake in all
- *          Regions. To specify particular Regions, configure these Regions using the
+ *          log collection in Regions. To specify particular Regions, configure these Regions using the
  *             <code>configurations</code> parameter. If you have already enabled Security Lake in a Region
  *          when you call this command, the command will update the Region if you provide new
  *          configuration parameters. If you have not already enabled Security Lake in the Region when you
@@ -84,6 +83,12 @@ export interface CreateDataLakeCommandOutput extends CreateDataLakeResponse, __M
  *     },
  *   ],
  *   metaStoreManagerRoleArn: "STRING_VALUE", // required
+ *   tags: [ // TagList
+ *     { // Tag
+ *       key: "STRING_VALUE", // required
+ *       value: "STRING_VALUE", // required
+ *     },
+ *   ],
  * };
  * const command = new CreateDataLakeCommand(input);
  * const response = await client.send(command);

@@ -693,6 +693,31 @@ export interface DataLakeConfiguration {
 
 /**
  * @public
+ * <p>A <i>tag</i> is a label that you can define and associate with Amazon Web Services resources, including certain types of Amazon Security Lake resources.
+ *          Tags can help you identify, categorize, and manage resources in different ways, such as by owner, environment, or other criteria. You can associate tags with
+ *          the following types of Security Lake resources: subscribers, and the data lake configuration for your Amazon Web Services account in individual Amazon Web Services Regions.</p>
+ *          <p>A resource can have up to 50 tags. Each tag consists of a required <i>tag key</i> and an associated <i>tag value</i>. A
+ *          <i>tag key</i> is a general label that acts as a category for a more specific tag value. Each tag key must be unique and it can have only one tag
+ *          value. A <i>tag value</i> acts as a descriptor for a tag key. Tag keys and values are case sensitive. They can contain letters, numbers, spaces,
+ *          or the following symbols: _ . : / = + @ -</p>
+ *          <p>For more information, see <a href="https://docs.aws.amazon.com/security-lake/latest/userguide/tagging-resources.html">Tagging Amazon Security Lake resources</a> in
+ *          the <i>Amazon Security Lake User Guide</i>.</p>
+ */
+export interface Tag {
+  /**
+   * <p>The  name of the tag. This is a general label that acts as a category for a more specific tag value (<code>value</code>).</p>
+   */
+  key: string | undefined;
+
+  /**
+   * <p>The value that’s associated with the specified tag key (<code>key</code>). This value acts as a descriptor for the tag key. A tag value cannot be
+   *          null, but it can be an empty string.</p>
+   */
+  value: string | undefined;
+}
+
+/**
+ * @public
  */
 export interface CreateDataLakeRequest {
   /**
@@ -706,6 +731,12 @@ export interface CreateDataLakeRequest {
    *           Amazon Web Services log sources and custom sources.</p>
    */
   metaStoreManagerRoleArn: string | undefined;
+
+  /**
+   * <p>An array of objects, one for each tag to associate with the data lake configuration. For each tag, you must specify both a tag key and a tag value. A tag
+   *          value cannot be null, but it can be an empty string.</p>
+   */
+  tags?: Tag[];
 }
 
 /**
@@ -887,7 +918,7 @@ export interface CreateDataLakeOrganizationConfigurationResponse {}
 /**
  * @public
  * <p>The supported source types from which logs and events are collected in Amazon Security Lake.
- *          For the list of supported Amazon Web Services, see the <a href="https://docs.aws.amazon.com/security-lake/latest/userguide/internal-sources.html">Amazon Security Lake User Guide</a>.</p>
+ *          For a list of supported Amazon Web Services, see the <a href="https://docs.aws.amazon.com/security-lake/latest/userguide/internal-sources.html">Amazon Security Lake User Guide</a>.</p>
  */
 export type LogSourceResource =
   | LogSourceResource.AwsLogSourceMember
@@ -899,7 +930,7 @@ export type LogSourceResource =
  */
 export namespace LogSourceResource {
   /**
-   * <p>Amazon Security Lake supports log and event collection for natively supported Amazon Web Services.</p>
+   * <p>Amazon Security Lake supports log and event collection for natively supported Amazon Web Services. For more information, see the <a href="https://docs.aws.amazon.com/security-lake/latest/userguide/internal-sources.html">Amazon Security Lake User Guide</a>.</p>
    */
   export interface AwsLogSourceMember {
     awsLogSource: AwsLogSourceResource;
@@ -908,8 +939,7 @@ export namespace LogSourceResource {
   }
 
   /**
-   * <p>Amazon Security Lake supports custom source types. For a detailed list, see the Amazon Security Lake
-   *          User Guide.</p>
+   * <p>Amazon Security Lake supports custom source types. For more information, see the <a href="https://docs.aws.amazon.com/security-lake/latest/userguide/custom-sources.html">Amazon Security Lake User Guide</a>.</p>
    */
   export interface CustomLogSourceMember {
     awsLogSource?: never;
@@ -965,6 +995,12 @@ export interface CreateSubscriberRequest {
    * <p>The Amazon S3 or Lake Formation access type.</p>
    */
   accessTypes?: (AccessType | string)[];
+
+  /**
+   * <p>An array of objects, one for each tag to associate with the subscriber. For each tag, you must specify both a tag key and a tag value. A tag
+   *          value cannot be null, but it can be an empty string.</p>
+   */
+  tags?: Tag[];
 }
 
 /**
@@ -1018,7 +1054,7 @@ export interface SubscriberResource {
   subscriberDescription?: string;
 
   /**
-   * <p>Amazon Security Lake supports log and event collection for natively supported Amazon Web Services. For more information, see the Amazon Security Lake User Guide.</p>
+   * <p>Amazon Security Lake supports log and event collection for natively supported Amazon Web Services. For more information, see the <a href="https://docs.aws.amazon.com/security-lake/latest/userguide/source-management.html">Amazon Security Lake User Guide</a>.</p>
    */
   sources: LogSourceResource[] | undefined;
 
@@ -1130,7 +1166,7 @@ export interface HttpsNotificationConfiguration {
   /**
    * <p>The Amazon Resource Name (ARN) of the EventBridge API destinations IAM role that you
    *          created. For more information about ARNs and how to use them in policies, see <a href="https://docs.aws.amazon.com//security-lake/latest/userguide/subscriber-data-access.html">Managing data access</a> and <a href="https://docs.aws.amazon.com/security-lake/latest/userguide/security-iam-awsmanpol.html">Amazon Web Services
-   *             Managed Policies</a> in the Amazon Security Lake User Guide.</p>
+   *             Managed Policies</a> in the <i>Amazon Security Lake User Guide</i>.</p>
    */
   targetRoleArn: string | undefined;
 }
@@ -1283,8 +1319,7 @@ export interface DeleteDataLakeResponse {}
  */
 export interface DeleteDataLakeOrganizationConfigurationRequest {
   /**
-   * <p>Removes the automatic enablement of configuration settings for new member accounts in
-   *          Security Lake.</p>
+   * <p>Turns off automatic enablement of Security Lake for member accounts that are added to an organization.</p>
    */
   autoEnableNewAccount: DataLakeAutoEnableNewAccountConfiguration[] | undefined;
 }
@@ -1676,7 +1711,7 @@ export interface UpdateDataLakeResponse {
 
 /**
  * @public
- * <p>The details for a Security Lake exception</p>
+ * <p>The details for an Amazon Security Lake exception.</p>
  */
 export interface DataLakeException {
   /**
@@ -1874,6 +1909,26 @@ export interface ListSubscribersResponse {
 /**
  * @public
  */
+export interface ListTagsForResourceRequest {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the Amazon Security Lake resource to retrieve the tags for.</p>
+   */
+  resourceArn: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListTagsForResourceResponse {
+  /**
+   * <p>An array of objects, one for each tag (key and value) that’s associated with the Amazon Security Lake resource.</p>
+   */
+  tags?: Tag[];
+}
+
+/**
+ * @public
+ */
 export interface RegisterDataLakeDelegatedAdministratorRequest {
   /**
    * <p>The Amazon Web Services account ID of the Security Lake delegated administrator.</p>
@@ -1951,6 +2006,47 @@ export interface UpdateSubscriberNotificationResponse {
    */
   subscriberEndpoint?: string;
 }
+
+/**
+ * @public
+ */
+export interface TagResourceRequest {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the Amazon Security Lake resource to add or update the tags for.</p>
+   */
+  resourceArn: string | undefined;
+
+  /**
+   * <p>An array of objects, one for each tag (key and value) to associate with the Amazon Security Lake resource. For each tag, you must
+   *          specify both a tag key and a tag value. A tag value cannot be null, but it can be an empty string.</p>
+   */
+  tags: Tag[] | undefined;
+}
+
+/**
+ * @public
+ */
+export interface TagResourceResponse {}
+
+/**
+ * @public
+ */
+export interface UntagResourceRequest {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the Amazon Security Lake resource to remove one or more tags from.</p>
+   */
+  resourceArn: string | undefined;
+
+  /**
+   * <p>A list of one or more tag keys. For each value in the list, specify the tag key for a tag to remove from the Amazon Security Lake resource.</p>
+   */
+  tagKeys: string[] | undefined;
+}
+
+/**
+ * @public
+ */
+export interface UntagResourceResponse {}
 
 /**
  * @public

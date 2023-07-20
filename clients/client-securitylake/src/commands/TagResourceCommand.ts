@@ -13,14 +13,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@smithy/types";
 
-import {
-  DeleteDataLakeOrganizationConfigurationRequest,
-  DeleteDataLakeOrganizationConfigurationResponse,
-} from "../models/models_0";
-import {
-  de_DeleteDataLakeOrganizationConfigurationCommand,
-  se_DeleteDataLakeOrganizationConfigurationCommand,
-} from "../protocols/Aws_restJson1";
+import { TagResourceRequest, TagResourceResponse } from "../models/models_0";
+import { de_TagResourceCommand, se_TagResourceCommand } from "../protocols/Aws_restJson1";
 import { SecurityLakeClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SecurityLakeClient";
 
 /**
@@ -30,53 +24,51 @@ export { __MetadataBearer, $Command };
 /**
  * @public
  *
- * The input for {@link DeleteDataLakeOrganizationConfigurationCommand}.
+ * The input for {@link TagResourceCommand}.
  */
-export interface DeleteDataLakeOrganizationConfigurationCommandInput
-  extends DeleteDataLakeOrganizationConfigurationRequest {}
+export interface TagResourceCommandInput extends TagResourceRequest {}
 /**
  * @public
  *
- * The output of {@link DeleteDataLakeOrganizationConfigurationCommand}.
+ * The output of {@link TagResourceCommand}.
  */
-export interface DeleteDataLakeOrganizationConfigurationCommandOutput
-  extends DeleteDataLakeOrganizationConfigurationResponse,
-    __MetadataBearer {}
+export interface TagResourceCommandOutput extends TagResourceResponse, __MetadataBearer {}
 
 /**
  * @public
- * <p>Turns off automatic enablement of Amazon Security Lake for member accounts that are added to an organization in Organizations. Only the delegated
- *          Security Lake administrator for an organization can perform this operation. If the delegated Security Lake administrator performs this operation, new member
- *          accounts won't automatically contribute data to the data lake.</p>
+ * <p>Adds or updates one or more tags that are associated with an Amazon Security Lake resource: a subscriber, or the data lake configuration for your
+ *          Amazon Web Services account in a particular Amazon Web Services Region. A <i>tag</i> is a label that you can define and associate with
+ *          Amazon Web Services resources. Each tag consists of a required <i>tag key</i> and an associated <i>tag value</i>. A
+ *          <i>tag key</i> is a general label that acts as a category for a more specific tag value. A <i>tag value</i> acts as a
+ *          descriptor for a tag key. Tags can help you identify, categorize, and manage resources in different ways, such as by owner, environment, or other
+ *          criteria. For more information, see
+ *          <a href="https://docs.aws.amazon.com/security-lake/latest/userguide/tagging-resources.html">Tagging Amazon Security Lake resources</a> in the
+ *          <i>Amazon Security Lake User Guide</i>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { SecurityLakeClient, DeleteDataLakeOrganizationConfigurationCommand } from "@aws-sdk/client-securitylake"; // ES Modules import
- * // const { SecurityLakeClient, DeleteDataLakeOrganizationConfigurationCommand } = require("@aws-sdk/client-securitylake"); // CommonJS import
+ * import { SecurityLakeClient, TagResourceCommand } from "@aws-sdk/client-securitylake"; // ES Modules import
+ * // const { SecurityLakeClient, TagResourceCommand } = require("@aws-sdk/client-securitylake"); // CommonJS import
  * const client = new SecurityLakeClient(config);
- * const input = { // DeleteDataLakeOrganizationConfigurationRequest
- *   autoEnableNewAccount: [ // DataLakeAutoEnableNewAccountConfigurationList // required
- *     { // DataLakeAutoEnableNewAccountConfiguration
- *       region: "STRING_VALUE", // required
- *       sources: [ // AwsLogSourceResourceList // required
- *         { // AwsLogSourceResource
- *           sourceName: "ROUTE53" || "VPC_FLOW" || "SH_FINDINGS" || "CLOUD_TRAIL_MGMT" || "LAMBDA_EXECUTION" || "S3_DATA",
- *           sourceVersion: "STRING_VALUE",
- *         },
- *       ],
+ * const input = { // TagResourceRequest
+ *   resourceArn: "STRING_VALUE", // required
+ *   tags: [ // TagList // required
+ *     { // Tag
+ *       key: "STRING_VALUE", // required
+ *       value: "STRING_VALUE", // required
  *     },
  *   ],
  * };
- * const command = new DeleteDataLakeOrganizationConfigurationCommand(input);
+ * const command = new TagResourceCommand(input);
  * const response = await client.send(command);
  * // {};
  *
  * ```
  *
- * @param DeleteDataLakeOrganizationConfigurationCommandInput - {@link DeleteDataLakeOrganizationConfigurationCommandInput}
- * @returns {@link DeleteDataLakeOrganizationConfigurationCommandOutput}
- * @see {@link DeleteDataLakeOrganizationConfigurationCommandInput} for command's `input` shape.
- * @see {@link DeleteDataLakeOrganizationConfigurationCommandOutput} for command's `response` shape.
+ * @param TagResourceCommandInput - {@link TagResourceCommandInput}
+ * @returns {@link TagResourceCommandOutput}
+ * @see {@link TagResourceCommandInput} for command's `input` shape.
+ * @see {@link TagResourceCommandOutput} for command's `response` shape.
  * @see {@link SecurityLakeClientResolvedConfig | config} for SecurityLakeClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
@@ -108,9 +100,9 @@ export interface DeleteDataLakeOrganizationConfigurationCommandOutput
  * <p>Base exception class for all service exceptions from SecurityLake service.</p>
  *
  */
-export class DeleteDataLakeOrganizationConfigurationCommand extends $Command<
-  DeleteDataLakeOrganizationConfigurationCommandInput,
-  DeleteDataLakeOrganizationConfigurationCommandOutput,
+export class TagResourceCommand extends $Command<
+  TagResourceCommandInput,
+  TagResourceCommandOutput,
   SecurityLakeClientResolvedConfig
 > {
   // Start section: command_properties
@@ -128,7 +120,7 @@ export class DeleteDataLakeOrganizationConfigurationCommand extends $Command<
   /**
    * @public
    */
-  constructor(readonly input: DeleteDataLakeOrganizationConfigurationCommandInput) {
+  constructor(readonly input: TagResourceCommandInput) {
     // Start section: command_constructor
     super();
     // End section: command_constructor
@@ -141,23 +133,15 @@ export class DeleteDataLakeOrganizationConfigurationCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: SecurityLakeClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    DeleteDataLakeOrganizationConfigurationCommandInput,
-    DeleteDataLakeOrganizationConfigurationCommandOutput
-  > {
+  ): Handler<TagResourceCommandInput, TagResourceCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
-    this.middlewareStack.use(
-      getEndpointPlugin(
-        configuration,
-        DeleteDataLakeOrganizationConfigurationCommand.getEndpointParameterInstructions()
-      )
-    );
+    this.middlewareStack.use(getEndpointPlugin(configuration, TagResourceCommand.getEndpointParameterInstructions()));
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
     const clientName = "SecurityLakeClient";
-    const commandName = "DeleteDataLakeOrganizationConfigurationCommand";
+    const commandName = "TagResourceCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
       clientName,
@@ -176,21 +160,15 @@ export class DeleteDataLakeOrganizationConfigurationCommand extends $Command<
   /**
    * @internal
    */
-  private serialize(
-    input: DeleteDataLakeOrganizationConfigurationCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
-    return se_DeleteDataLakeOrganizationConfigurationCommand(input, context);
+  private serialize(input: TagResourceCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
+    return se_TagResourceCommand(input, context);
   }
 
   /**
    * @internal
    */
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<DeleteDataLakeOrganizationConfigurationCommandOutput> {
-    return de_DeleteDataLakeOrganizationConfigurationCommand(output, context);
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<TagResourceCommandOutput> {
+    return de_TagResourceCommand(output, context);
   }
 
   // Start section: command_body_extra

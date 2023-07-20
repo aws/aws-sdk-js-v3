@@ -75,6 +75,12 @@ export interface CreateSubscriberCommandOutput extends CreateSubscriberResponse,
  *   accessTypes: [ // AccessTypeList
  *     "LAKEFORMATION" || "S3",
  *   ],
+ *   tags: [ // TagList
+ *     { // Tag
+ *       key: "STRING_VALUE", // required
+ *       value: "STRING_VALUE", // required
+ *     },
+ *   ],
  * };
  * const command = new CreateSubscriberCommand(input);
  * const response = await client.send(command);

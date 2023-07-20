@@ -118,10 +118,21 @@ import {
   ListSubscribersCommandOutput,
 } from "./commands/ListSubscribersCommand";
 import {
+  ListTagsForResourceCommand,
+  ListTagsForResourceCommandInput,
+  ListTagsForResourceCommandOutput,
+} from "./commands/ListTagsForResourceCommand";
+import {
   RegisterDataLakeDelegatedAdministratorCommand,
   RegisterDataLakeDelegatedAdministratorCommandInput,
   RegisterDataLakeDelegatedAdministratorCommandOutput,
 } from "./commands/RegisterDataLakeDelegatedAdministratorCommand";
+import { TagResourceCommand, TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
+import {
+  UntagResourceCommand,
+  UntagResourceCommandInput,
+  UntagResourceCommandOutput,
+} from "./commands/UntagResourceCommand";
 import {
   UpdateDataLakeCommand,
   UpdateDataLakeCommandInput,
@@ -168,7 +179,10 @@ const commands = {
   ListDataLakesCommand,
   ListLogSourcesCommand,
   ListSubscribersCommand,
+  ListTagsForResourceCommand,
   RegisterDataLakeDelegatedAdministratorCommand,
+  TagResourceCommand,
+  UntagResourceCommand,
   UpdateDataLakeCommand,
   UpdateDataLakeExceptionSubscriptionCommand,
   UpdateSubscriberCommand,
@@ -544,6 +558,23 @@ export interface SecurityLake {
   ): void;
 
   /**
+   * @see {@link ListTagsForResourceCommand}
+   */
+  listTagsForResource(
+    args: ListTagsForResourceCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListTagsForResourceCommandOutput>;
+  listTagsForResource(
+    args: ListTagsForResourceCommandInput,
+    cb: (err: any, data?: ListTagsForResourceCommandOutput) => void
+  ): void;
+  listTagsForResource(
+    args: ListTagsForResourceCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListTagsForResourceCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link RegisterDataLakeDelegatedAdministratorCommand}
    */
   registerDataLakeDelegatedAdministrator(
@@ -558,6 +589,28 @@ export interface SecurityLake {
     args: RegisterDataLakeDelegatedAdministratorCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: RegisterDataLakeDelegatedAdministratorCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link TagResourceCommand}
+   */
+  tagResource(args: TagResourceCommandInput, options?: __HttpHandlerOptions): Promise<TagResourceCommandOutput>;
+  tagResource(args: TagResourceCommandInput, cb: (err: any, data?: TagResourceCommandOutput) => void): void;
+  tagResource(
+    args: TagResourceCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: TagResourceCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link UntagResourceCommand}
+   */
+  untagResource(args: UntagResourceCommandInput, options?: __HttpHandlerOptions): Promise<UntagResourceCommandOutput>;
+  untagResource(args: UntagResourceCommandInput, cb: (err: any, data?: UntagResourceCommandOutput) => void): void;
+  untagResource(
+    args: UntagResourceCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UntagResourceCommandOutput) => void
   ): void;
 
   /**

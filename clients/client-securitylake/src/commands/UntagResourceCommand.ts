@@ -13,14 +13,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@smithy/types";
 
-import {
-  DeleteDataLakeOrganizationConfigurationRequest,
-  DeleteDataLakeOrganizationConfigurationResponse,
-} from "../models/models_0";
-import {
-  de_DeleteDataLakeOrganizationConfigurationCommand,
-  se_DeleteDataLakeOrganizationConfigurationCommand,
-} from "../protocols/Aws_restJson1";
+import { UntagResourceRequest, UntagResourceResponse } from "../models/models_0";
+import { de_UntagResourceCommand, se_UntagResourceCommand } from "../protocols/Aws_restJson1";
 import { SecurityLakeClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SecurityLakeClient";
 
 /**
@@ -30,53 +24,42 @@ export { __MetadataBearer, $Command };
 /**
  * @public
  *
- * The input for {@link DeleteDataLakeOrganizationConfigurationCommand}.
+ * The input for {@link UntagResourceCommand}.
  */
-export interface DeleteDataLakeOrganizationConfigurationCommandInput
-  extends DeleteDataLakeOrganizationConfigurationRequest {}
+export interface UntagResourceCommandInput extends UntagResourceRequest {}
 /**
  * @public
  *
- * The output of {@link DeleteDataLakeOrganizationConfigurationCommand}.
+ * The output of {@link UntagResourceCommand}.
  */
-export interface DeleteDataLakeOrganizationConfigurationCommandOutput
-  extends DeleteDataLakeOrganizationConfigurationResponse,
-    __MetadataBearer {}
+export interface UntagResourceCommandOutput extends UntagResourceResponse, __MetadataBearer {}
 
 /**
  * @public
- * <p>Turns off automatic enablement of Amazon Security Lake for member accounts that are added to an organization in Organizations. Only the delegated
- *          Security Lake administrator for an organization can perform this operation. If the delegated Security Lake administrator performs this operation, new member
- *          accounts won't automatically contribute data to the data lake.</p>
+ * <p>Removes one or more tags (keys and values) from an Amazon Security Lake resource: a subscriber, or the data lake configuration for your
+ *          Amazon Web Services account in a particular Amazon Web Services Region.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { SecurityLakeClient, DeleteDataLakeOrganizationConfigurationCommand } from "@aws-sdk/client-securitylake"; // ES Modules import
- * // const { SecurityLakeClient, DeleteDataLakeOrganizationConfigurationCommand } = require("@aws-sdk/client-securitylake"); // CommonJS import
+ * import { SecurityLakeClient, UntagResourceCommand } from "@aws-sdk/client-securitylake"; // ES Modules import
+ * // const { SecurityLakeClient, UntagResourceCommand } = require("@aws-sdk/client-securitylake"); // CommonJS import
  * const client = new SecurityLakeClient(config);
- * const input = { // DeleteDataLakeOrganizationConfigurationRequest
- *   autoEnableNewAccount: [ // DataLakeAutoEnableNewAccountConfigurationList // required
- *     { // DataLakeAutoEnableNewAccountConfiguration
- *       region: "STRING_VALUE", // required
- *       sources: [ // AwsLogSourceResourceList // required
- *         { // AwsLogSourceResource
- *           sourceName: "ROUTE53" || "VPC_FLOW" || "SH_FINDINGS" || "CLOUD_TRAIL_MGMT" || "LAMBDA_EXECUTION" || "S3_DATA",
- *           sourceVersion: "STRING_VALUE",
- *         },
- *       ],
- *     },
+ * const input = { // UntagResourceRequest
+ *   resourceArn: "STRING_VALUE", // required
+ *   tagKeys: [ // TagKeyList // required
+ *     "STRING_VALUE",
  *   ],
  * };
- * const command = new DeleteDataLakeOrganizationConfigurationCommand(input);
+ * const command = new UntagResourceCommand(input);
  * const response = await client.send(command);
  * // {};
  *
  * ```
  *
- * @param DeleteDataLakeOrganizationConfigurationCommandInput - {@link DeleteDataLakeOrganizationConfigurationCommandInput}
- * @returns {@link DeleteDataLakeOrganizationConfigurationCommandOutput}
- * @see {@link DeleteDataLakeOrganizationConfigurationCommandInput} for command's `input` shape.
- * @see {@link DeleteDataLakeOrganizationConfigurationCommandOutput} for command's `response` shape.
+ * @param UntagResourceCommandInput - {@link UntagResourceCommandInput}
+ * @returns {@link UntagResourceCommandOutput}
+ * @see {@link UntagResourceCommandInput} for command's `input` shape.
+ * @see {@link UntagResourceCommandOutput} for command's `response` shape.
  * @see {@link SecurityLakeClientResolvedConfig | config} for SecurityLakeClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
@@ -108,9 +91,9 @@ export interface DeleteDataLakeOrganizationConfigurationCommandOutput
  * <p>Base exception class for all service exceptions from SecurityLake service.</p>
  *
  */
-export class DeleteDataLakeOrganizationConfigurationCommand extends $Command<
-  DeleteDataLakeOrganizationConfigurationCommandInput,
-  DeleteDataLakeOrganizationConfigurationCommandOutput,
+export class UntagResourceCommand extends $Command<
+  UntagResourceCommandInput,
+  UntagResourceCommandOutput,
   SecurityLakeClientResolvedConfig
 > {
   // Start section: command_properties
@@ -128,7 +111,7 @@ export class DeleteDataLakeOrganizationConfigurationCommand extends $Command<
   /**
    * @public
    */
-  constructor(readonly input: DeleteDataLakeOrganizationConfigurationCommandInput) {
+  constructor(readonly input: UntagResourceCommandInput) {
     // Start section: command_constructor
     super();
     // End section: command_constructor
@@ -141,23 +124,15 @@ export class DeleteDataLakeOrganizationConfigurationCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: SecurityLakeClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    DeleteDataLakeOrganizationConfigurationCommandInput,
-    DeleteDataLakeOrganizationConfigurationCommandOutput
-  > {
+  ): Handler<UntagResourceCommandInput, UntagResourceCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
-    this.middlewareStack.use(
-      getEndpointPlugin(
-        configuration,
-        DeleteDataLakeOrganizationConfigurationCommand.getEndpointParameterInstructions()
-      )
-    );
+    this.middlewareStack.use(getEndpointPlugin(configuration, UntagResourceCommand.getEndpointParameterInstructions()));
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
     const clientName = "SecurityLakeClient";
-    const commandName = "DeleteDataLakeOrganizationConfigurationCommand";
+    const commandName = "UntagResourceCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
       clientName,
@@ -176,21 +151,15 @@ export class DeleteDataLakeOrganizationConfigurationCommand extends $Command<
   /**
    * @internal
    */
-  private serialize(
-    input: DeleteDataLakeOrganizationConfigurationCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
-    return se_DeleteDataLakeOrganizationConfigurationCommand(input, context);
+  private serialize(input: UntagResourceCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
+    return se_UntagResourceCommand(input, context);
   }
 
   /**
    * @internal
    */
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<DeleteDataLakeOrganizationConfigurationCommandOutput> {
-    return de_DeleteDataLakeOrganizationConfigurationCommand(output, context);
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UntagResourceCommandOutput> {
+    return de_UntagResourceCommand(output, context);
   }
 
   // Start section: command_body_extra
