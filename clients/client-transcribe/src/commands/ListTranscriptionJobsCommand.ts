@@ -85,6 +85,13 @@ export interface ListTranscriptionJobsCommandOutput extends ListTranscriptionJob
  * //           DurationInSeconds: Number("float"),
  * //         },
  * //       ],
+ * //       ToxicityDetection: [ // ToxicityDetection
+ * //         { // ToxicityDetectionSettings
+ * //           ToxicityCategories: [ // ToxicityCategories // required
+ * //             "ALL",
+ * //           ],
+ * //         },
+ * //       ],
  * //     },
  * //   ],
  * // };

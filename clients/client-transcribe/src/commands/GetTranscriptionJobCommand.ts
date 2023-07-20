@@ -134,6 +134,13 @@ export interface GetTranscriptionJobCommandOutput extends GetTranscriptionJobRes
  * //         LanguageModelName: "STRING_VALUE",
  * //       },
  * //     },
+ * //     ToxicityDetection: [ // ToxicityDetection
+ * //       { // ToxicityDetectionSettings
+ * //         ToxicityCategories: [ // ToxicityCategories // required
+ * //           "ALL",
+ * //         ],
+ * //       },
+ * //     ],
  * //   },
  * // };
  *

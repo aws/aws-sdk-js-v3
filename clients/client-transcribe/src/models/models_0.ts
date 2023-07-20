@@ -2772,6 +2772,34 @@ export interface SubtitlesOutput {
 
 /**
  * @public
+ * @enum
+ */
+export const ToxicityCategory = {
+  ALL: "ALL",
+} as const;
+
+/**
+ * @public
+ */
+export type ToxicityCategory = (typeof ToxicityCategory)[keyof typeof ToxicityCategory];
+
+/**
+ * @public
+ * <p>Contains <code>ToxicityCategories</code>, which is a required parameter if you
+ *             want to enable toxicity detection (<code>ToxicityDetection</code>) in your transcription
+ *             request.</p>
+ */
+export interface ToxicityDetectionSettings {
+  /**
+   * <p> If you include <code>ToxicityDetection</code> in your transcription request, you
+   *             must also include <code>ToxicityCategories</code>. The only accepted value for this
+   *             parameter is <code>ALL</code>.</p>
+   */
+  ToxicityCategories: (ToxicityCategory | string)[] | undefined;
+}
+
+/**
+ * @public
  * <p>Provides detailed information about a transcription job.</p>
  *          <p>To view the status of the specified transcription job, check the
  *                 <code>TranscriptionJobStatus</code> field. If the status is <code>COMPLETED</code>,
@@ -2977,6 +3005,11 @@ export interface TranscriptionJob {
    *             custom vocabulary filters that you included in your request.</p>
    */
   LanguageIdSettings?: Record<string, LanguageIdSettings>;
+
+  /**
+   * <p>Provides information about the toxicity detection settings applied to your transcription.</p>
+   */
+  ToxicityDetection?: ToxicityDetectionSettings[];
 }
 
 /**
@@ -3677,6 +3710,12 @@ export interface TranscriptionJobSummary {
    *             of this parameter, <code>LanguageCode</code>, is present.</p>
    */
   LanguageCodes?: LanguageCodeItem[];
+
+  /**
+   * <p>Indicates whether toxicity detection was enabled for the specified transcription
+   *             job.</p>
+   */
+  ToxicityDetection?: ToxicityDetectionSettings[];
 }
 
 /**
@@ -4508,6 +4547,16 @@ export interface StartTranscriptionJobRequest {
    *             sub-parameter.</p>
    */
   LanguageIdSettings?: Record<string, LanguageIdSettings>;
+
+  /**
+   * <p>Enables toxic speech detection in your transcript. If you include
+   *             <code>ToxicityDetection</code> in your request, you must also include
+   *             <code>ToxicityCategories</code>.</p>
+   *          <p>For information on the types of toxic speech Amazon Transcribe can detect, see
+   *             <a href="https://docs.aws.amazon.com/transcribe/latest/dg/toxic-language.html">Detecting toxic
+   *                 speech</a>.</p>
+   */
+  ToxicityDetection?: ToxicityDetectionSettings[];
 }
 
 /**

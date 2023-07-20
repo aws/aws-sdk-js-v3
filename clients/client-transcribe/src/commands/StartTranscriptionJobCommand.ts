@@ -140,6 +140,13 @@ export interface StartTranscriptionJobCommandOutput extends StartTranscriptionJo
  *       LanguageModelName: "STRING_VALUE",
  *     },
  *   },
+ *   ToxicityDetection: [ // ToxicityDetection
+ *     { // ToxicityDetectionSettings
+ *       ToxicityCategories: [ // ToxicityCategories // required
+ *         "ALL",
+ *       ],
+ *     },
+ *   ],
  * };
  * const command = new StartTranscriptionJobCommand(input);
  * const response = await client.send(command);
@@ -220,6 +227,13 @@ export interface StartTranscriptionJobCommandOutput extends StartTranscriptionJo
  * //         LanguageModelName: "STRING_VALUE",
  * //       },
  * //     },
+ * //     ToxicityDetection: [ // ToxicityDetection
+ * //       { // ToxicityDetectionSettings
+ * //         ToxicityCategories: [ // ToxicityCategories // required
+ * //           "ALL",
+ * //         ],
+ * //       },
+ * //     ],
  * //   },
  * // };
  *

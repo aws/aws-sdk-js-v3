@@ -245,6 +245,8 @@ import {
   Subtitles,
   Tag,
   TagResourceRequest,
+  ToxicityCategory,
+  ToxicityDetectionSettings,
   TranscriptFilter,
   TranscriptionJob,
   TranscriptionJobSummary,
@@ -3074,6 +3076,12 @@ const de_NotFoundExceptionRes = async (parsedOutput: any, context: __SerdeContex
 
 // se_TagResourceRequest omitted.
 
+// se_ToxicityCategories omitted.
+
+// se_ToxicityDetection omitted.
+
+// se_ToxicityDetectionSettings omitted.
+
 // se_TranscriptFilter omitted.
 
 // se_UntagResourceRequest omitted.
@@ -3611,6 +3619,12 @@ const de_StartTranscriptionJobResponse = (output: any, context: __SerdeContext):
 
 // de_TagResourceResponse omitted.
 
+// de_ToxicityCategories omitted.
+
+// de_ToxicityDetection omitted.
+
+// de_ToxicityDetectionSettings omitted.
+
 // de_Transcript omitted.
 
 // de_TranscriptFilter omitted.
@@ -3640,6 +3654,7 @@ const de_TranscriptionJob = (output: any, context: __SerdeContext): Transcriptio
     StartTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
     Subtitles: _json,
     Tags: _json,
+    ToxicityDetection: _json,
     Transcript: _json,
     TranscriptionJobName: __expectString,
     TranscriptionJobStatus: __expectString,
@@ -3675,6 +3690,7 @@ const de_TranscriptionJobSummary = (output: any, context: __SerdeContext): Trans
     ModelSettings: _json,
     OutputLocationType: __expectString,
     StartTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    ToxicityDetection: _json,
     TranscriptionJobName: __expectString,
     TranscriptionJobStatus: __expectString,
   }) as any;
