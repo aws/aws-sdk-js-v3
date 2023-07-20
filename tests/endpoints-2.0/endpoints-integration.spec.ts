@@ -1,5 +1,5 @@
-import { resolveParams } from "@aws-sdk/middleware-endpoint";
-import { EndpointParameters, EndpointV2 } from "@aws-sdk/types";
+import { resolveParams } from "@smithy/middleware-endpoint";
+import { EndpointParameters, EndpointV2 } from "@smithy/types";
 import * as fs from "fs";
 import * as path from "path";
 

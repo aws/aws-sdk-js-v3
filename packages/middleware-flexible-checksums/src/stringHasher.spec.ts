@@ -1,4 +1,4 @@
-import { toUint8Array } from "@aws-sdk/util-utf8/src";
+import { toUint8Array } from "@smithy/util-utf8";
 
 import { stringHasher } from "./stringHasher";
 

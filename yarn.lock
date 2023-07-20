@@ -183,7 +183,7 @@
     gensync "^1.0.0-beta.2"
     json5 "^2.2.2"
 
-"@babel/generator@^7.22.5", "@babel/generator@^7.22.7", "@babel/generator@^7.7.2":
+"@babel/generator@^7.22.5", "@babel/generator@^7.7.2":
   version "7.22.7"
   resolved "https://registry.yarnpkg.com/@babel/generator/-/generator-7.22.7.tgz#a6b8152d5a621893f2c9dacf9a4e286d520633d5"
   integrity sha512-p+jPjMG+SI8yvIaxGgeW24u7q9+5+TGpZh8/CuB7RhBKd7RCy8FayNEFNNKrNK/eUcY/4ExQqLmyrvBXKsIcwQ==

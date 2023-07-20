@@ -113,23 +113,23 @@ public class AddHttpChecksumDependency implements TypeScriptIntegration {
                     "streamHasher", writer -> {
                         writer.addDependency(AwsDependency.STREAM_HASHER_NODE);
                         writer.addImport("readableStreamHasher", "streamHasher",
-                                AwsDependency.STREAM_HASHER_NODE.packageName);
+                                TypeScriptDependency.STREAM_HASHER_NODE);
                         writer.write("streamHasher");
                     },
                     "md5", writer -> {
                             writer.addDependency(TypeScriptDependency.AWS_SDK_TYPES);
                             writer.addImport("HashConstructor", "__HashConstructor",
-                                    TypeScriptDependency.AWS_SDK_TYPES.packageName);
+                                    TypeScriptDependency.AWS_SDK_TYPES);
                             writer.addImport("ChecksumConstructor", "__ChecksumConstructor",
-                                    TypeScriptDependency.AWS_SDK_TYPES.packageName);
+                                    TypeScriptDependency.AWS_SDK_TYPES);
                             writer.write("Hash.bind(null, \"md5\")");
                     },
                     "sha1", writer -> {
                         writer.addDependency(TypeScriptDependency.AWS_SDK_TYPES);
                         writer.addImport("HashConstructor", "__HashConstructor",
-                                TypeScriptDependency.AWS_SDK_TYPES.packageName);
+                                TypeScriptDependency.AWS_SDK_TYPES);
                         writer.addImport("ChecksumConstructor", "__ChecksumConstructor",
-                                TypeScriptDependency.AWS_SDK_TYPES.packageName);
+                                TypeScriptDependency.AWS_SDK_TYPES);
                         writer.write("Hash.bind(null, \"sha1\")");
                     }
                 );
