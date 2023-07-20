@@ -2,6 +2,7 @@
   "name": "@aws-sdk/util-hex-encoding",
   "version": "3.374.0",
   "description": "Converts binary buffers to and from lowercase hexadecimal encoding",
+  "private": true,
   "scripts": {
     "build": "concurrently 'yarn:build:cjs' 'yarn:build:es' 'yarn:build:types'",
     "build:cjs": "tsc -p tsconfig.cjs.json",

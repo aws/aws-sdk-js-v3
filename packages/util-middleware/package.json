@@ -4,6 +4,7 @@
   "description": "Shared utilities for to be used in middleware packages.",
   "main": "./dist-cjs/index.js",
   "module": "./dist-es/index.js",
+  "private": true,
   "scripts": {
     "build": "concurrently 'yarn:build:cjs' 'yarn:build:es' 'yarn:build:types'",
     "build:cjs": "tsc -p tsconfig.cjs.json",

@@ -77,9 +77,9 @@ public enum AwsDependency implements PackageContainer, SymbolDependencyContainer
     MIDDLEWARE_WEBSOCKET(NORMAL_DEPENDENCY, "@aws-sdk/middleware-websocket"),
 
     // Conditionally added when httpChecksum trait is present
-    MD5_BROWSER(NORMAL_DEPENDENCY, "@aws-sdk/md5-js"),
-    STREAM_HASHER_NODE(NORMAL_DEPENDENCY, "@aws-sdk/hash-stream-node"),
-    STREAM_HASHER_BROWSER(NORMAL_DEPENDENCY, "@aws-sdk/hash-blob-browser"),
+    @Deprecated MD5_BROWSER(NORMAL_DEPENDENCY, "@aws-sdk/md5-js", "3.374.0"),
+    @Deprecated STREAM_HASHER_NODE(NORMAL_DEPENDENCY, "@aws-sdk/hash-stream-node", "3.374.0"),
+    @Deprecated STREAM_HASHER_BROWSER(NORMAL_DEPENDENCY, "@aws-sdk/hash-blob-browser", "3.374.0"),
     FLEXIBLE_CHECKSUMS_MIDDLEWARE(NORMAL_DEPENDENCY, "@aws-sdk/middleware-flexible-checksums"),
 
     // Conditionally added when auth trait is present
