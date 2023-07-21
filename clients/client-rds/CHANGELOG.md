@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.375.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.374.0...v3.375.0) (2023-07-21)
+
+
+### Features
+
+* **client-rds:** Adds support for the DBSystemID parameter of CreateDBInstance to RDS Custom for Oracle. ([e3bf192](https://github.com/aws/aws-sdk-js-v3/commit/e3bf192ef384140811cfd4c1caa030c63adebd4d))
+
+
+
+
+
 # [3.370.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.369.0...v3.370.0) (2023-07-13)
 
 

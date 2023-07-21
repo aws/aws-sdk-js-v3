@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.375.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.374.0...v3.375.0) (2023-07-21)
+
+
+### Features
+
+* **client-glue:** This release adds support for AWS Glue Crawler with Apache Hudi Tables, allowing Crawlers to discover Hudi Tables in S3 and register them in Glue Data Catalog for query engines to query against. ([de2d5b3](https://github.com/aws/aws-sdk-js-v3/commit/de2d5b3b5a8f7fc112e35165448b41f59612cb41))
+
+
+
+
+
 # [3.371.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.370.0...v3.371.0) (2023-07-17)
 
 

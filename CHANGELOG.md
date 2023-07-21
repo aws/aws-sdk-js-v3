@@ -3,6 +3,31 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.375.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.374.0...v3.375.0) (2023-07-21)
+
+
+### Bug Fixes
+
+* **codegen:** create folder stub ([#4995](https://github.com/aws/aws-sdk-js-v3/issues/4995)) ([bcfabc2](https://github.com/aws/aws-sdk-js-v3/commit/bcfabc25d59fcf987a7403df9ff7f3d7e45234b7))
+* **codegen:** include resource files in source jars ([#4994](https://github.com/aws/aws-sdk-js-v3/issues/4994)) ([2b57c3e](https://github.com/aws/aws-sdk-js-v3/commit/2b57c3e29c24bffb064ef4b5147d47292ceb74d0))
+* **codegen:** remove defaults mode provider codegen ([#4993](https://github.com/aws/aws-sdk-js-v3/issues/4993)) ([8ca8a06](https://github.com/aws/aws-sdk-js-v3/commit/8ca8a06632fef09a2954a484fd328e34f6be7333))
+* **codegen:** temporarily disable unused codegen ([#4996](https://github.com/aws/aws-sdk-js-v3/issues/4996)) ([bb6160b](https://github.com/aws/aws-sdk-js-v3/commit/bb6160b65191a3a4dc8b6ccc22f507eddbec4180))
+* consistent dependency versions for util-retry ([#4998](https://github.com/aws/aws-sdk-js-v3/issues/4998)) ([87af4fb](https://github.com/aws/aws-sdk-js-v3/commit/87af4fb5e1ccf4d61d53d3991d5aae9d67d48c1b))
+* move smithy-client back to packages ([#4997](https://github.com/aws/aws-sdk-js-v3/issues/4997)) ([1d7a7c9](https://github.com/aws/aws-sdk-js-v3/commit/1d7a7c94207eb5c5d7974ebec91dba261feae7fd))
+* remove p-map types ([#5000](https://github.com/aws/aws-sdk-js-v3/issues/5000)) ([8bcf5b8](https://github.com/aws/aws-sdk-js-v3/commit/8bcf5b845c739821945e1df00b0e52c227ca6203))
+
+
+### Features
+
+* **client-glue:** This release adds support for AWS Glue Crawler with Apache Hudi Tables, allowing Crawlers to discover Hudi Tables in S3 and register them in Glue Data Catalog for query engines to query against. ([de2d5b3](https://github.com/aws/aws-sdk-js-v3/commit/de2d5b3b5a8f7fc112e35165448b41f59612cb41))
+* **client-mediaconvert:** This release includes improvements to Preserve 444 handling, compatibility of HEVC sources without frame rates, and general improvements to MP4 outputs. ([684a32a](https://github.com/aws/aws-sdk-js-v3/commit/684a32a198bf8ee2dc0eb84965a014e4fa5a0803))
+* **client-rds:** Adds support for the DBSystemID parameter of CreateDBInstance to RDS Custom for Oracle. ([e3bf192](https://github.com/aws/aws-sdk-js-v3/commit/e3bf192ef384140811cfd4c1caa030c63adebd4d))
+* **clients:** update client endpoints as of 2023-07-21 ([1eaa322](https://github.com/aws/aws-sdk-js-v3/commit/1eaa322365de854d272eaf337751dcc553b98ec4))
+
+
+
+
+
 # [3.374.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.373.1...v3.374.0) (2023-07-20)
 
 

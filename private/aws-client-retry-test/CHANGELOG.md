@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.375.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.374.0...v3.375.0) (2023-07-21)
+
+
+### Bug Fixes
+
+* consistent dependency versions for util-retry ([#4998](https://github.com/aws/aws-sdk-js-v3/issues/4998)) ([87af4fb](https://github.com/aws/aws-sdk-js-v3/commit/87af4fb5e1ccf4d61d53d3991d5aae9d67d48c1b))
+
+
+
+
+
 # [3.374.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.373.1...v3.374.0) (2023-07-20)
 
 **Note:** Version bump only for package @aws-sdk/aws-client-retry-test

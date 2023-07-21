@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.375.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.374.0...v3.375.0) (2023-07-21)
+
+
+### Bug Fixes
+
+* **codegen:** create folder stub ([#4995](https://github.com/aws/aws-sdk-js-v3/issues/4995)) ([bcfabc2](https://github.com/aws/aws-sdk-js-v3/commit/bcfabc25d59fcf987a7403df9ff7f3d7e45234b7))
+* move smithy-client back to packages ([#4997](https://github.com/aws/aws-sdk-js-v3/issues/4997)) ([1d7a7c9](https://github.com/aws/aws-sdk-js-v3/commit/1d7a7c94207eb5c5d7974ebec91dba261feae7fd))
+
+
+
+
+
 # [3.374.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.373.1...v3.374.0) (2023-07-20)
 
 

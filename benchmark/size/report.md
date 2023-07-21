@@ -21,7 +21,7 @@
 |@aws-sdk/client-efs|3.369.0|766.8 KB|✅(5.77.0)|✅(3.20.2)|✅(0.17.15)|
 |@aws-sdk/client-eventbridge|3.369.0|1 MB|✅(5.77.0)|✅(3.20.2)|✅(0.17.15)|
 |@aws-sdk/client-firehose|3.369.0|507.2 KB|✅(5.77.0)|✅(3.20.2)|✅(0.17.15)|
-|@aws-sdk/client-glue|3.370.0|4.1 MB|✅(5.77.0)|✅(3.20.2)|✅(0.17.15)|
+|@aws-sdk/client-glue|3.371.0|4.1 MB|✅(5.88.2)|✅(3.26.3)|✅(0.18.15)|
 |@aws-sdk/client-iam|3.369.0|3.3 MB|✅(5.77.0)|✅(3.20.2)|✅(0.17.15)|
 |@aws-sdk/client-kinesis|3.369.0|741.5 KB|✅(5.77.0)|✅(3.20.2)|✅(0.17.15)|
 |@aws-sdk/client-kms|3.369.0|1.6 MB|✅(5.77.0)|✅(3.20.2)|✅(0.17.15)|
@@ -50,7 +50,7 @@
 |@aws-sdk/node-http-handler|3.370.0|14.4 KB|N/A|N/A|N/A|
 |@aws-sdk/polly-request-presigner|3.369.0|23.2 KB|✅(5.77.0)|✅(3.20.2)|✅(0.17.15)|
 |@aws-sdk/s3-presigned-post|3.373.0|26.2 KB|✅(5.77.0)|✅(3.20.2)|✅(0.17.15)|
-|@aws-sdk/s3-request-presigner|3.373.0|29.5 KB|✅(5.77.0)|✅(3.20.2)|✅(0.17.15)|
+|@aws-sdk/s3-request-presigner|3.374.0|29.5 KB|✅(5.88.2)|✅(3.26.3)|✅(0.18.15)|
 |@aws-sdk/signature-v4|3.370.0|14.4 KB|✅(5.77.0)|✅(3.20.2)|✅(0.17.15)|
 |@aws-sdk/signature-v4-crt|3.369.0|69.2 KB|N/A|N/A|N/A|
 |@aws-sdk/smithy-client|3.370.0|18.8 KB|✅(5.77.0)|✅(3.20.2)|✅(0.17.15)|
