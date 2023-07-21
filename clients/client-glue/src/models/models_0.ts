@@ -1660,6 +1660,34 @@ export interface DynamoDBTarget {
 
 /**
  * @public
+ * <p>Specifies an Apache Hudi data source.</p>
+ */
+export interface HudiTarget {
+  /**
+   * <p>An array of Amazon S3 location strings for Hudi, each indicating the root folder with which the metadata files for a Hudi table resides. The Hudi folder may be located in a child folder of the root folder.</p>
+   *          <p>The crawler will scan all folders underneath a path for a Hudi folder.</p>
+   */
+  Paths?: string[];
+
+  /**
+   * <p>The name of the connection to use to connect to the Hudi target. If your Hudi files are stored in buckets that require VPC authorization, you can set their connection properties here.</p>
+   */
+  ConnectionName?: string;
+
+  /**
+   * <p>A list of glob patterns used to exclude from the crawl.
+   *       For more information, see <a href="https://docs.aws.amazon.com/glue/latest/dg/add-crawler.html">Catalog Tables with a Crawler</a>.</p>
+   */
+  Exclusions?: string[];
+
+  /**
+   * <p>The maximum depth of Amazon S3 paths that the crawler can traverse to discover the Hudi metadata folder in your Amazon S3 path. Used to limit the crawler run time.</p>
+   */
+  MaximumTraversalDepth?: number;
+}
+
+/**
+ * @public
  * <p>Specifies an Apache Iceberg data source where Iceberg tables are stored in Amazon S3.</p>
  */
 export interface IcebergTarget {
@@ -1825,6 +1853,11 @@ export interface CrawlerTargets {
    * <p>Specifies Apache Iceberg data store targets.</p>
    */
   IcebergTargets?: IcebergTarget[];
+
+  /**
+   * <p>Specifies Apache Hudi data store targets.</p>
+   */
+  HudiTargets?: HudiTarget[];
 }
 
 /**
@@ -6281,24 +6314,25 @@ export interface JobRun {
 
   /**
    * <p>The type of predefined worker that is allocated when a job runs. Accepts a value of
-   *       Standard, G.1X, G.2X, or G.025X for Spark jobs. Accepts the value Z.2X for Ray jobs.</p>
+   *           G.1X, G.2X, G.4X, G.8X or G.025X for Spark jobs. Accepts the value Z.2X for Ray jobs.</p>
    *          <ul>
    *             <li>
-   *                <p>For the <code>Standard</code> worker type, each worker provides 4 vCPU, 16 GB of memory and a 50GB disk, and 2 executors per worker.</p>
+   *                <p>For the <code>G.1X</code> worker type, each worker maps to 1 DPU (4 vCPUs, 16 GB of memory) with 84GB disk (approximately 34GB free), and provides 1 executor per worker. We recommend this worker type for workloads such as data transforms, joins, and queries, to offers a scalable and cost effective way to run most jobs.</p>
    *             </li>
    *             <li>
-   *                <p>For the <code>G.1X</code> worker type, each worker maps to 1 DPU (4 vCPU, 16 GB of memory, 64 GB disk), and provides 1 executor per worker. We recommend this worker type for memory-intensive jobs.</p>
+   *                <p>For the <code>G.2X</code> worker type, each worker maps to 2 DPU (8 vCPUs, 32 GB of memory) with 128GB disk (approximately 77GB free), and provides 1 executor per worker. We recommend this worker type for workloads such as data transforms, joins, and queries, to offers a scalable and cost effective way to run most jobs.</p>
    *             </li>
    *             <li>
-   *                <p>For the <code>G.2X</code> worker type, each worker maps to 2 DPU (8 vCPU, 32 GB of memory, 128 GB disk), and provides 1 executor per worker. We recommend this worker type for memory-intensive jobs.</p>
+   *                <p>For the <code>G.4X</code> worker type, each worker maps to 4 DPU (16 vCPUs, 64 GB of memory) with 256GB disk (approximately 235GB free), and provides 1 executor per worker. We recommend this worker type for jobs whose workloads contain your most demanding transforms, aggregations, joins, and queries. This worker type is available only for Glue version 3.0 or later Spark ETL jobs in the following Amazon Web Services Regions: US East (Ohio), US East (N. Virginia), US West (Oregon), Asia Pacific (Singapore), Asia Pacific (Sydney), Asia Pacific (Tokyo), Canada (Central), Europe (Frankfurt), Europe (Ireland), and Europe (Stockholm).</p>
    *             </li>
    *             <li>
-   *                <p>For the <code>G.025X</code> worker type, each worker maps to 0.25 DPU (2 vCPU, 4 GB of memory, 64 GB disk), and provides 1 executor per worker. We recommend this worker type for low volume streaming jobs. This worker type is only available for Glue version 3.0 streaming jobs.</p>
+   *                <p>For the <code>G.8X</code> worker type, each worker maps to 8 DPU (32 vCPUs, 128 GB of memory) with 512GB disk (approximately 487GB free), and provides 1 executor per worker. We recommend this worker type for jobs whose workloads contain your most demanding transforms, aggregations, joins, and queries. This worker type is available only for Glue version 3.0 or later Spark ETL jobs, in the same Amazon Web Services Regions as supported for the <code>G.4X</code> worker type.</p>
    *             </li>
    *             <li>
-   *                <p>For the <code>Z.2X</code> worker type, each worker maps to 2 M-DPU (8vCPU, 64 GB of m
-   *           emory, 128 GB disk), and provides up to 8 Ray workers (one per vCPU) based on the
-   *           autoscaler.</p>
+   *                <p>For the <code>G.025X</code> worker type, each worker maps to 0.25 DPU (2 vCPUs, 4 GB of memory) with 84GB disk (approximately 34GB free), and provides 1 executor per worker. We recommend this worker type for low volume streaming jobs. This worker type is only available for Glue version 3.0 streaming jobs.</p>
+   *             </li>
+   *             <li>
+   *                <p>For the <code>Z.2X</code> worker type, each worker maps to 2 M-DPU (8vCPUs, 64 GB of memory) with 128 GB disk (approximately 120GB free), and provides up to 8 Ray workers based on the autoscaler.</p>
    *             </li>
    *          </ul>
    */
@@ -8207,27 +8241,3 @@ export const MLUserDataEncryptionModeString = {
  */
 export type MLUserDataEncryptionModeString =
   (typeof MLUserDataEncryptionModeString)[keyof typeof MLUserDataEncryptionModeString];
-
-/**
- * @public
- * <p>The encryption-at-rest settings of the transform that apply to accessing user data.</p>
- */
-export interface MLUserDataEncryption {
-  /**
-   * <p>The encryption mode applied to user data. Valid values are:</p>
-   *          <ul>
-   *             <li>
-   *                <p>DISABLED: encryption is disabled</p>
-   *             </li>
-   *             <li>
-   *                <p>SSEKMS: use of server-side encryption with Key Management Service (SSE-KMS) for user data stored in Amazon S3.</p>
-   *             </li>
-   *          </ul>
-   */
-  MlUserDataEncryptionMode: MLUserDataEncryptionModeString | string | undefined;
-
-  /**
-   * <p>The ID for the customer-provided KMS key.</p>
-   */
-  KmsKeyId?: string;
-}

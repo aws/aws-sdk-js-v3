@@ -14,8 +14,7 @@ import {
 } from "@smithy/types";
 
 import { GlueClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GlueClient";
-import { GetUnfilteredTableMetadataRequest } from "../models/models_1";
-import { GetUnfilteredTableMetadataResponse } from "../models/models_2";
+import { GetUnfilteredTableMetadataRequest, GetUnfilteredTableMetadataResponse } from "../models/models_2";
 import { de_GetUnfilteredTableMetadataCommand, se_GetUnfilteredTableMetadataCommand } from "../protocols/Aws_json1_1";
 
 /**

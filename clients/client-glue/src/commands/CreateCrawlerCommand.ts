@@ -122,6 +122,14 @@ export interface CreateCrawlerCommandOutput extends CreateCrawlerResponse, __Met
  *         MaximumTraversalDepth: Number("int"),
  *       },
  *     ],
+ *     HudiTargets: [ // HudiTargetList
+ *       { // HudiTarget
+ *         Paths: "<PathList>",
+ *         ConnectionName: "STRING_VALUE",
+ *         Exclusions: "<PathList>",
+ *         MaximumTraversalDepth: Number("int"),
+ *       },
+ *     ],
  *   },
  *   Schedule: "STRING_VALUE",
  *   Classifiers: [ // ClassifierNameList

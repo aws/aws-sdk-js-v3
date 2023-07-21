@@ -561,6 +561,7 @@ import {
   GlueTable,
   GovernedCatalogSource,
   GovernedCatalogTarget,
+  HudiTarget,
   IcebergTarget,
   IdempotentParameterMismatchException,
   IllegalSessionStateException,
@@ -586,7 +587,6 @@ import {
   Merge,
   MicrosoftSQLServerCatalogSource,
   MicrosoftSQLServerCatalogTarget,
-  MLUserDataEncryption,
   MongoDBTarget,
   MySQLCatalogSource,
   MySQLCatalogTarget,
@@ -830,7 +830,6 @@ import {
   GetUnfilteredPartitionMetadataResponse,
   GetUnfilteredPartitionsMetadataRequest,
   GetUnfilteredPartitionsMetadataResponse,
-  GetUnfilteredTableMetadataRequest,
   GluePolicy,
   GrokClassifier,
   IcebergInput,
@@ -840,6 +839,7 @@ import {
   LongColumnStatisticsData,
   MappingEntry,
   MLTransform,
+  MLUserDataEncryption,
   OpenTableFormatInput,
   PartitionIndex,
   PermissionType,
@@ -892,6 +892,7 @@ import {
   DevEndpointCustomLibraries,
   GetJobResponse,
   GetJobsResponse,
+  GetUnfilteredTableMetadataRequest,
   GetUnfilteredTableMetadataResponse,
   GetUserDefinedFunctionRequest,
   GetUserDefinedFunctionResponse,
@@ -15962,6 +15963,7 @@ const se_CrawlerTargets = (input: CrawlerTargets, context: __SerdeContext): any 
     CatalogTargets: _json,
     DeltaTargets: _json,
     DynamoDBTargets: (_) => se_DynamoDBTargetList(_, context),
+    HudiTargets: _json,
     IcebergTargets: _json,
     JdbcTargets: _json,
     MongoDBTargets: _json,
@@ -16658,6 +16660,10 @@ const se_GetTablesRequest = (input: GetTablesRequest, context: __SerdeContext): 
 // se_GovernedCatalogSource omitted.
 
 // se_GovernedCatalogTarget omitted.
+
+// se_HudiTarget omitted.
+
+// se_HudiTargetList omitted.
 
 // se_IcebergInput omitted.
 
@@ -18212,6 +18218,7 @@ const de_CrawlerTargets = (output: any, context: __SerdeContext): CrawlerTargets
     CatalogTargets: _json,
     DeltaTargets: _json,
     DynamoDBTargets: (_: any) => de_DynamoDBTargetList(_, context),
+    HudiTargets: _json,
     IcebergTargets: _json,
     JdbcTargets: _json,
     MongoDBTargets: _json,
@@ -19566,6 +19573,10 @@ const de_GrokClassifier = (output: any, context: __SerdeContext): GrokClassifier
     Version: __expectLong,
   }) as any;
 };
+
+// de_HudiTarget omitted.
+
+// de_HudiTargetList omitted.
 
 // de_IcebergTarget omitted.
 

@@ -127,6 +127,14 @@ export interface GetCrawlersCommandOutput extends GetCrawlersResponse, __Metadat
  * //             MaximumTraversalDepth: Number("int"),
  * //           },
  * //         ],
+ * //         HudiTargets: [ // HudiTargetList
+ * //           { // HudiTarget
+ * //             Paths: "<PathList>",
+ * //             ConnectionName: "STRING_VALUE",
+ * //             Exclusions: "<PathList>",
+ * //             MaximumTraversalDepth: Number("int"),
+ * //           },
+ * //         ],
  * //       },
  * //       DatabaseName: "STRING_VALUE",
  * //       Description: "STRING_VALUE",
