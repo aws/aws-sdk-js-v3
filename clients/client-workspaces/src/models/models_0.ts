@@ -1475,7 +1475,7 @@ export interface WorkspaceRequest {
   BundleId: string | undefined;
 
   /**
-   * <p>The symmetric KMS key used to encrypt data stored on your WorkSpace.
+   * <p>The ARN of the symmetric KMS key used to encrypt data stored on your WorkSpace.
    *          Amazon WorkSpaces does not support asymmetric KMS keys.</p>
    */
   VolumeEncryptionKey?: string;
@@ -1687,7 +1687,7 @@ export interface Workspace {
   ComputerName?: string;
 
   /**
-   * <p>The symmetric KMS key used to encrypt data stored on your WorkSpace.
+   * <p>The ARN of the symmetric KMS key used to encrypt data stored on your WorkSpace.
    *          Amazon WorkSpaces does not support asymmetric KMS keys.</p>
    */
   VolumeEncryptionKey?: string;
