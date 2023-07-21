@@ -2448,6 +2448,12 @@ export interface DBSnapshot {
    * <p>Specifies the storage throughput for the DB snapshot.</p>
    */
   StorageThroughput?: number;
+
+  /**
+   * <p>The Oracle system identifier (SID), which is the name of the Oracle database instance that
+   *             manages your database files. The Oracle SID is also the name of your CDB.</p>
+   */
+  DBSystemId?: string;
 }
 
 /**
@@ -3003,12 +3009,12 @@ export interface SwitchoverDetail {
 
 /**
  * @public
- * <p>Contains the details about a task for a blue/green deployment.</p>
- *          <p>For more information, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/blue-green-deployments.html">Using Amazon RDS Blue/Green Deployments
- *             for database updates</a> in the <i>Amazon RDS User Guide</i> and
- *             <a href="https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/blue-green-deployments.html">
- *             Using Amazon RDS Blue/Green Deployments for database updates</a> in the <i>Amazon Aurora
- *             User Guide</i>.</p>
+ * <p>Details about a task for a blue/green deployment.</p>
+ *          <p>For more information, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/blue-green-deployments.html">Using Amazon RDS
+ *                 Blue/Green Deployments for database updates</a> in the <i>Amazon RDS User
+ *                 Guide</i> and <a href="https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/blue-green-deployments.html">Using Amazon RDS
+ *                 Blue/Green Deployments for database updates</a> in the <i>Amazon Aurora
+ *                 User Guide</i>.</p>
  */
 export interface BlueGreenDeploymentTask {
   /**
@@ -3018,11 +3024,11 @@ export interface BlueGreenDeploymentTask {
 
   /**
    * <p>The status of the blue/green deployment task.</p>
-   *          <p>Values:</p>
+   *          <p>Valid Values:</p>
    *          <ul>
    *             <li>
    *                <p>
-   *                   <code>PENDING</code> - The resources are being prepared for deployment.</p>
+   *                   <code>PENDING</code> - The resource is being prepared for deployment.</p>
    *             </li>
    *             <li>
    *                <p>
@@ -3043,16 +3049,16 @@ export interface BlueGreenDeploymentTask {
 
 /**
  * @public
- * <p>Contains the details about a blue/green deployment.</p>
- *          <p>For more information, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/blue-green-deployments.html">Using Amazon RDS Blue/Green Deployments
- *             for database updates</a> in the <i>Amazon RDS User Guide</i> and
- *             <a href="https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/blue-green-deployments.html">
- *                 Using Amazon RDS Blue/Green Deployments for database updates</a> in the <i>Amazon Aurora
- *             User Guide</i>.</p>
+ * <p>Details about a blue/green deployment.</p>
+ *          <p>For more information, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/blue-green-deployments.html">Using Amazon RDS
+ *                 Blue/Green Deployments for database updates</a> in the <i>Amazon RDS User
+ *                 Guide</i> and <a href="https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/blue-green-deployments.html">Using Amazon RDS
+ *                 Blue/Green Deployments for database updates</a> in the <i>Amazon Aurora
+ *                 User Guide</i>.</p>
  */
 export interface BlueGreenDeployment {
   /**
-   * <p>The system-generated identifier of the blue/green deployment.</p>
+   * <p>The unique identifier of the blue/green deployment.</p>
    */
   BlueGreenDeploymentIdentifier?: string;
 
@@ -3085,7 +3091,7 @@ export interface BlueGreenDeployment {
 
   /**
    * <p>The status of the blue/green deployment.</p>
-   *          <p>Values:</p>
+   *          <p>Valid Values:</p>
    *          <ul>
    *             <li>
    *                <p>
@@ -3126,12 +3132,14 @@ export interface BlueGreenDeployment {
   StatusDetails?: string;
 
   /**
-   * <p>Specifies the time when the blue/green deployment was created, in Universal Coordinated Time (UTC).</p>
+   * <p>The time when the blue/green deployment was created, in Universal Coordinated Time
+   *             (UTC).</p>
    */
   CreateTime?: Date;
 
   /**
-   * <p>Specifies the time when the blue/green deployment was deleted, in Universal Coordinated Time (UTC).</p>
+   * <p>The time when the blue/green deployment was deleted, in Universal Coordinated Time
+   *             (UTC).</p>
    */
   DeleteTime?: Date;
 
@@ -3148,12 +3156,12 @@ export interface BlueGreenDeployment {
  */
 export interface CreateBlueGreenDeploymentResponse {
   /**
-   * <p>Contains the details about a blue/green deployment.</p>
-   *          <p>For more information, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/blue-green-deployments.html">Using Amazon RDS Blue/Green Deployments
-   *             for database updates</a> in the <i>Amazon RDS User Guide</i> and
-   *             <a href="https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/blue-green-deployments.html">
-   *                 Using Amazon RDS Blue/Green Deployments for database updates</a> in the <i>Amazon Aurora
-   *             User Guide</i>.</p>
+   * <p>Details about a blue/green deployment.</p>
+   *          <p>For more information, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/blue-green-deployments.html">Using Amazon RDS
+   *                 Blue/Green Deployments for database updates</a> in the <i>Amazon RDS User
+   *                 Guide</i> and <a href="https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/blue-green-deployments.html">Using Amazon RDS
+   *                 Blue/Green Deployments for database updates</a> in the <i>Amazon Aurora
+   *                 User Guide</i>.</p>
    */
   BlueGreenDeployment?: BlueGreenDeployment;
 }
@@ -6003,135 +6011,134 @@ export class CertificateNotFoundFault extends __BaseException {
  */
 export interface CreateDBInstanceMessage {
   /**
-   * <p>The meaning of this parameter differs depending on the database engine.</p>
-   *          <dl>
-   *             <dt>Amazon Aurora MySQL</dt>
-   *             <dd>
-   *                <p>The name of the database to create when the primary DB instance of the Aurora MySQL DB cluster is
-   *                 created. If you don't specify a value, Amazon RDS doesn't create a database in the DB cluster.</p>
-   *                <p>Constraints:</p>
-   *                <ul>
-   *                   <li>
-   *                      <p>Must contain 1 to 64 alphanumeric characters.</p>
-   *                   </li>
-   *                   <li>
-   *                      <p>Can't be a word reserved by the database engine.</p>
-   *                   </li>
-   *                </ul>
-   *             </dd>
-   *             <dt>Amazon Aurora PostgreSQL</dt>
-   *             <dd>
-   *                <p>The name of the database to create when the primary DB instance of the Aurora PostgreSQL DB cluster is
-   *                   created.</p>
-   *                <p>Default: <code>postgres</code>
-   *                </p>
-   *                <p>Constraints:</p>
-   *                <ul>
-   *                   <li>
-   *                      <p>Must contain 1 to 63 alphanumeric characters.</p>
-   *                   </li>
-   *                   <li>
-   *                      <p>Must begin with a letter.
-   *                           Subsequent characters can be letters, underscores, or digits
-   *                           (0 to 9).</p>
-   *                   </li>
-   *                   <li>
-   *                      <p>Can't be a word reserved by the database engine.</p>
-   *                   </li>
-   *                </ul>
-   *             </dd>
-   *             <dt>Amazon RDS Custom for Oracle</dt>
-   *             <dd>
-   *                <p>The Oracle System ID (SID) of the created RDS Custom DB instance.</p>
-   *                <p>Default: <code>ORCL</code>
-   *                </p>
-   *                <p>Constraints:</p>
-   *                <ul>
-   *                   <li>
-   *                      <p>Must contain 1 to 8 alphanumeric characters.</p>
-   *                   </li>
-   *                   <li>
-   *                      <p>Must contain a letter.</p>
-   *                   </li>
-   *                   <li>
-   *                      <p>Can't be a word reserved by the database engine.</p>
-   *                   </li>
-   *                </ul>
-   *             </dd>
-   *             <dt>Amazon RDS Custom for SQL Server</dt>
-   *             <dd>
-   *                <p>Not applicable. Must be null.</p>
-   *             </dd>
-   *             <dt>RDS for MariaDB</dt>
-   *             <dd>
-   *                <p>The name of the database to create when the DB instance is created. If you don't specify a value, Amazon RDS doesn't create a database in the DB instance.</p>
-   *                <p>Constraints:</p>
-   *                <ul>
-   *                   <li>
-   *                      <p>Must contain 1 to 64 letters or numbers.</p>
-   *                   </li>
-   *                   <li>
-   *                      <p>Must begin with a letter. Subsequent characters can be letters, underscores, or digits (0-9).</p>
-   *                   </li>
-   *                   <li>
-   *                      <p>Can't be a word reserved by the database engine.</p>
-   *                   </li>
-   *                </ul>
-   *             </dd>
-   *             <dt>RDS for MySQL</dt>
-   *             <dd>
-   *                <p>The name of the database to create when the DB instance is created. If you don't specify a value, Amazon RDS doesn't create a database in the DB instance.</p>
-   *                <p>Constraints:</p>
-   *                <ul>
-   *                   <li>
-   *                      <p>Must contain 1 to 64 letters or numbers.</p>
-   *                   </li>
-   *                   <li>
-   *                      <p>Must begin with a letter. Subsequent characters can be letters, underscores, or digits (0-9).</p>
-   *                   </li>
-   *                   <li>
-   *                      <p>Can't be a word reserved by the database engine.</p>
-   *                   </li>
-   *                </ul>
-   *             </dd>
-   *             <dt>RDS for Oracle</dt>
-   *             <dd>
-   *                <p>The Oracle System ID (SID) of the created DB instance.</p>
-   *                <p>Default: <code>ORCL</code>
-   *                </p>
-   *                <p>Constraints:</p>
-   *                <ul>
-   *                   <li>
-   *                      <p>Can't be longer than 8 characters.</p>
-   *                   </li>
-   *                   <li>
-   *                      <p>Can't be a word reserved by the database engine, such as the string <code>NULL</code>.</p>
-   *                   </li>
-   *                </ul>
-   *             </dd>
-   *             <dt>RDS for PostgreSQL</dt>
-   *             <dd>
-   *                <p>The name of the database to create when the DB instance is created.</p>
-   *                <p>Default: <code>postgres</code>
-   *                </p>
-   *                <p>Constraints:</p>
-   *                <ul>
-   *                   <li>
-   *                      <p>Must contain 1 to 63 letters, numbers, or underscores.</p>
-   *                   </li>
-   *                   <li>
-   *                      <p>Must begin with a letter. Subsequent characters can be letters, underscores, or digits (0-9).</p>
-   *                   </li>
-   *                   <li>
-   *                      <p>Can't be a word reserved by the database engine.</p>
-   *                   </li>
-   *                </ul>
-   *             </dd>
-   *             <dt>RDS for SQL Server</dt>
-   *             <dd>
-   *                <p>Not applicable. Must be null.</p>
-   *             </dd>
-   *          </dl>
+   * <p>The meaning of this parameter differs according to the database engine you use.</p>
+   *          <p>
+   *             <b>MySQL</b>
+   *          </p>
+   *          <p>The name of the database to create when the DB instance is created. If this parameter isn't specified, no database is created in the DB instance.</p>
+   *          <p>Constraints:</p>
+   *          <ul>
+   *             <li>
+   *                <p>Must contain 1 to 64 letters or numbers.</p>
+   *             </li>
+   *             <li>
+   *                <p>Must begin with a letter. Subsequent characters can be letters, underscores, or digits (0-9).</p>
+   *             </li>
+   *             <li>
+   *                <p>Can't be a word reserved by the specified database engine</p>
+   *             </li>
+   *          </ul>
+   *          <p>
+   *             <b>MariaDB</b>
+   *          </p>
+   *          <p>The name of the database to create when the DB instance is created. If this parameter isn't specified, no database is created in the DB instance.</p>
+   *          <p>Constraints:</p>
+   *          <ul>
+   *             <li>
+   *                <p>Must contain 1 to 64 letters or numbers.</p>
+   *             </li>
+   *             <li>
+   *                <p>Must begin with a letter. Subsequent characters can be letters, underscores, or digits (0-9).</p>
+   *             </li>
+   *             <li>
+   *                <p>Can't be a word reserved by the specified database engine</p>
+   *             </li>
+   *          </ul>
+   *          <p>
+   *             <b>PostgreSQL</b>
+   *          </p>
+   *          <p>The name of the database to create when the DB instance is created. If this parameter isn't specified, a database named <code>postgres</code>
+   *           is created in the DB instance.</p>
+   *          <p>Constraints:</p>
+   *          <ul>
+   *             <li>
+   *                <p>Must contain 1 to 63 letters, numbers, or underscores.</p>
+   *             </li>
+   *             <li>
+   *                <p>Must begin with a letter. Subsequent characters can be letters, underscores, or digits (0-9).</p>
+   *             </li>
+   *             <li>
+   *                <p>Can't be a word reserved by the specified database engine</p>
+   *             </li>
+   *          </ul>
+   *          <p>
+   *             <b>Oracle</b>
+   *          </p>
+   *          <p>The Oracle System ID (SID) of the created DB instance. If you don't specify a value,
+   *             the default value is <code>ORCL</code>. You can't specify the
+   *             string <code>null</code>, or any other reserved word, for <code>DBName</code>.</p>
+   *          <p>Default: <code>ORCL</code>
+   *          </p>
+   *          <p>Constraints:</p>
+   *          <ul>
+   *             <li>
+   *                <p>Can't be longer than 8 characters</p>
+   *             </li>
+   *          </ul>
+   *          <p>
+   *             <b>Amazon RDS Custom for Oracle</b>
+   *          </p>
+   *          <p>The Oracle System ID (SID) of the created RDS Custom DB instance.
+   *           If you don't specify a value, the default value is <code>ORCL</code> for non-CDBs and
+   *             <code>RDSCDB</code> for CDBs.</p>
+   *          <p>Default: <code>ORCL</code>
+   *          </p>
+   *          <p>Constraints:</p>
+   *          <ul>
+   *             <li>
+   *                <p>It must contain 1 to 8 alphanumeric characters.</p>
+   *             </li>
+   *             <li>
+   *                <p>It must contain a letter.</p>
+   *             </li>
+   *             <li>
+   *                <p>It can't be a word reserved by the database engine.</p>
+   *             </li>
+   *          </ul>
+   *          <p>
+   *             <b>Amazon RDS Custom for SQL Server</b>
+   *          </p>
+   *          <p>Not applicable. Must be null.</p>
+   *          <p>
+   *             <b>SQL Server</b>
+   *          </p>
+   *          <p>Not applicable. Must be null.</p>
+   *          <p>
+   *             <b>Amazon Aurora MySQL</b>
+   *          </p>
+   *          <p>The name of the database to create when the primary DB instance of the Aurora MySQL DB cluster is
+   *           created. If this parameter isn't specified for an Aurora MySQL DB cluster, no database is created
+   *           in the DB cluster.</p>
+   *          <p>Constraints:</p>
+   *          <ul>
+   *             <li>
+   *                <p>It must contain 1 to 64 alphanumeric characters.</p>
+   *             </li>
+   *             <li>
+   *                <p>It can't be a word reserved by the database engine.</p>
+   *             </li>
+   *          </ul>
+   *          <p>
+   *             <b>Amazon Aurora PostgreSQL</b>
+   *          </p>
+   *          <p>The name of the database to create when the primary DB instance of the Aurora PostgreSQL DB cluster is
+   *           created. If this parameter isn't specified for an Aurora PostgreSQL DB cluster,
+   *           a database named <code>postgres</code> is created in the DB cluster.</p>
+   *          <p>Constraints:</p>
+   *          <ul>
+   *             <li>
+   *                <p>It must contain 1 to 63 alphanumeric characters.</p>
+   *             </li>
+   *             <li>
+   *                <p>It must begin with a letter.
+   *                   Subsequent characters can be letters, underscores, or digits
+   *                   (0 to 9).</p>
+   *             </li>
+   *             <li>
+   *                <p>It can't be a word reserved by the
+   *                   database engine.</p>
+   *             </li>
+   *          </ul>
    */
   DBName?: string;
 
@@ -7243,6 +7250,14 @@ export interface CreateDBInstanceMessage {
    *             User Guide</i>.</p>
    */
   CACertificateIdentifier?: string;
+
+  /**
+   * <p>The Oracle system identifier (SID), which is the name of the Oracle database instance that
+   *             manages your database files. In this context, the term "Oracle database instance" refers exclusively
+   *             to the system global area (SGA) and Oracle background processes. If you don't specify a SID,
+   *             the value defaults to <code>RDSCDB</code>. The Oracle SID is also the name of your CDB.</p>
+   */
+  DBSystemId?: string;
 }
 
 /**
@@ -7772,15 +7787,9 @@ export interface DBInstance {
   MasterUsername?: string;
 
   /**
-   * <p>The meaning of this parameter differs depending on the database engine.</p>
-   *          <ul>
-   *             <li>
-   *                <p>For RDS for MariaDB, Microsoft SQL Server, MySQL, and PostgreSQL - The name of the initial database specified for this DB instance when it was created, if one was provided. This same name is returned for the life of the DB instance.</p>
-   *             </li>
-   *             <li>
-   *                <p>For RDS for Oracle - The Oracle System ID (SID) of the created DB instance. This value is only returned when the object returned is an Oracle DB instance.</p>
-   *             </li>
-   *          </ul>
+   * <p>Contains the initial database name that you provided (if required) when you created
+   *             the DB instance. This name is returned for the life of your DB instance. For an RDS for
+   *             Oracle CDB instance, the name identifies the PDB rather than the CDB.</p>
    */
   DBName?: string;
 
@@ -10683,7 +10692,8 @@ export interface CreateOptionGroupResult {
  */
 export interface DeleteBlueGreenDeploymentRequest {
   /**
-   * <p>The blue/green deployment identifier of the deployment to be deleted. This parameter isn't case-sensitive.</p>
+   * <p>The unique identifier of the blue/green deployment to delete. This parameter isn't
+   *             case-sensitive.</p>
    *          <p>Constraints:
    *         </p>
    *          <ul>
@@ -10695,9 +10705,9 @@ export interface DeleteBlueGreenDeploymentRequest {
   BlueGreenDeploymentIdentifier: string | undefined;
 
   /**
-   * <p>A value that indicates whether to delete the resources in the green environment. You
-   *             can't specify this option if the blue/green deployment <a href="https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_BlueGreenDeployment.html">status</a>
-   *             is <code>SWITCHOVER_COMPLETED</code>.</p>
+   * <p>Specifies whether to delete the resources in the green environment. You can't specify
+   *             this option if the blue/green deployment <a href="https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_BlueGreenDeployment.html">status</a> is
+   *                 <code>SWITCHOVER_COMPLETED</code>.</p>
    */
   DeleteTarget?: boolean;
 }
@@ -10707,12 +10717,12 @@ export interface DeleteBlueGreenDeploymentRequest {
  */
 export interface DeleteBlueGreenDeploymentResponse {
   /**
-   * <p>Contains the details about a blue/green deployment.</p>
-   *          <p>For more information, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/blue-green-deployments.html">Using Amazon RDS Blue/Green Deployments
-   *             for database updates</a> in the <i>Amazon RDS User Guide</i> and
-   *             <a href="https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/blue-green-deployments.html">
-   *                 Using Amazon RDS Blue/Green Deployments for database updates</a> in the <i>Amazon Aurora
-   *             User Guide</i>.</p>
+   * <p>Details about a blue/green deployment.</p>
+   *          <p>For more information, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/blue-green-deployments.html">Using Amazon RDS
+   *                 Blue/Green Deployments for database updates</a> in the <i>Amazon RDS User
+   *                 Guide</i> and <a href="https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/blue-green-deployments.html">Using Amazon RDS
+   *                 Blue/Green Deployments for database updates</a> in the <i>Amazon Aurora
+   *                 User Guide</i>.</p>
    */
   BlueGreenDeployment?: BlueGreenDeployment;
 }
@@ -11749,12 +11759,13 @@ export interface Filter {
  */
 export interface DescribeBlueGreenDeploymentsRequest {
   /**
-   * <p>The blue/green deployment identifier. If this parameter is specified, information from only the
-   *             specific blue/green deployment is returned. This parameter isn't case-sensitive.</p>
+   * <p>The blue/green deployment identifier. If you specify this parameter, the response only
+   *             includes information about the specific blue/green deployment. This parameter isn't
+   *             case-sensitive.</p>
    *          <p>Constraints:</p>
    *          <ul>
    *             <li>
-   *                <p>If supplied, must match an existing blue/green deployment identifier.</p>
+   *                <p>Must match an existing blue/green deployment identifier.</p>
    *             </li>
    *          </ul>
    */
@@ -11762,7 +11773,7 @@ export interface DescribeBlueGreenDeploymentsRequest {
 
   /**
    * <p>A filter that specifies one or more blue/green deployments to describe.</p>
-   *          <p>Supported filters:</p>
+   *          <p>Valid Values:</p>
    *          <ul>
    *             <li>
    *                <p>
@@ -11794,9 +11805,10 @@ export interface DescribeBlueGreenDeploymentsRequest {
   Filters?: Filter[];
 
   /**
-   * <p>An optional pagination token provided by a previous <code>DescribeBlueGreenDeployments</code> request.
-   *             If this parameter is specified, the response includes only records beyond the marker,
-   *             up to the value specified by <code>MaxRecords</code>.</p>
+   * <p>An optional pagination token provided by a previous
+   *                 <code>DescribeBlueGreenDeployments</code> request. If you specify this parameter,
+   *             the response only includes records beyond the marker, up to the value specified by
+   *                 <code>MaxRecords</code>.</p>
    */
   Marker?: string;
 
@@ -11805,7 +11817,15 @@ export interface DescribeBlueGreenDeploymentsRequest {
    *             If more records exist than the specified <code>MaxRecords</code> value,
    *             a pagination token called a marker is included in the response so you can retrieve the remaining results.</p>
    *          <p>Default: 100</p>
-   *          <p>Constraints: Minimum 20, maximum 100.</p>
+   *          <p>Constraints:</p>
+   *          <ul>
+   *             <li>
+   *                <p>Must be a minimum of 20.</p>
+   *             </li>
+   *             <li>
+   *                <p>Can't exceed 100.</p>
+   *             </li>
+   *          </ul>
    */
   MaxRecords?: number;
 }
@@ -11815,12 +11835,13 @@ export interface DescribeBlueGreenDeploymentsRequest {
  */
 export interface DescribeBlueGreenDeploymentsResponse {
   /**
-   * <p>Contains a list of blue/green deployments for the user.</p>
+   * <p>A list of blue/green deployments in the current account and Amazon Web Services Region.</p>
    */
   BlueGreenDeployments?: BlueGreenDeployment[];
 
   /**
-   * <p>A pagination token that can be used in a later DescribeBlueGreenDeployments request.</p>
+   * <p>A pagination token that can be used in a later
+   *                 <code>DescribeBlueGreenDeployments</code> request.</p>
    */
   Marker?: string;
 }

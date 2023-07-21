@@ -14091,6 +14091,9 @@ const se_CreateDBInstanceMessage = (input: CreateDBInstanceMessage, context: __S
   if (input.CACertificateIdentifier != null) {
     entries["CACertificateIdentifier"] = input.CACertificateIdentifier;
   }
+  if (input.DBSystemId != null) {
+    entries["DBSystemId"] = input.DBSystemId;
+  }
   return entries;
 };
 
@@ -22283,6 +22286,9 @@ const de_DBSnapshot = (output: any, context: __SerdeContext): DBSnapshot => {
   }
   if (output["StorageThroughput"] !== undefined) {
     contents.StorageThroughput = __strictParseInt32(output["StorageThroughput"]) as number;
+  }
+  if (output["DBSystemId"] !== undefined) {
+    contents.DBSystemId = __expectString(output["DBSystemId"]);
   }
   return contents;
 };

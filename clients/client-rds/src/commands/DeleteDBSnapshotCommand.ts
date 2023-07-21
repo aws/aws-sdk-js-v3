@@ -97,6 +97,7 @@ export interface DeleteDBSnapshotCommandOutput extends DeleteDBSnapshotResult, _
  * //     SnapshotDatabaseTime: new Date("TIMESTAMP"),
  * //     SnapshotTarget: "STRING_VALUE",
  * //     StorageThroughput: Number("int"),
+ * //     DBSystemId: "STRING_VALUE",
  * //   },
  * // };
  *

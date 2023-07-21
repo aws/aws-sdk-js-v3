@@ -44,11 +44,11 @@ export interface SwitchoverBlueGreenDeploymentCommandOutput
  * <p>Switches over a blue/green deployment.</p>
  *          <p>Before you switch over, production traffic is routed to the databases in the blue environment.
  *             After you switch over, production traffic is routed to the databases in the green environment.</p>
- *          <p>For more information, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/blue-green-deployments.html">Using Amazon RDS Blue/Green Deployments
- *             for database updates</a> in the <i>Amazon RDS User Guide</i> and
- *             <a href="https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/blue-green-deployments.html">
- *             Using Amazon RDS Blue/Green Deployments for database updates</a> in the <i>Amazon Aurora
- *             User Guide</i>.</p>
+ *          <p>For more information, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/blue-green-deployments.html">Using Amazon RDS
+ *                 Blue/Green Deployments for database updates</a> in the <i>Amazon RDS User
+ *                 Guide</i> and <a href="https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/blue-green-deployments.html">Using Amazon RDS
+ *                 Blue/Green Deployments for database updates</a> in the <i>Amazon Aurora
+ *                 User Guide</i>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

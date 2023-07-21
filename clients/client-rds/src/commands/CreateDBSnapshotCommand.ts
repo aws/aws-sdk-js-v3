@@ -101,6 +101,7 @@ export interface CreateDBSnapshotCommandOutput extends CreateDBSnapshotResult, _
  * //     SnapshotDatabaseTime: new Date("TIMESTAMP"),
  * //     SnapshotTarget: "STRING_VALUE",
  * //     StorageThroughput: Number("int"),
+ * //     DBSystemId: "STRING_VALUE",
  * //   },
  * // };
  *

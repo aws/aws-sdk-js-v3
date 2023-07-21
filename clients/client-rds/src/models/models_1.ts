@@ -10131,7 +10131,7 @@ export interface StopDBInstanceAutomatedBackupsReplicationResult {
  */
 export interface SwitchoverBlueGreenDeploymentRequest {
   /**
-   * <p>The blue/green deployment identifier.</p>
+   * <p>The unique identifier of the blue/green deployment.</p>
    *          <p>Constraints:</p>
    *          <ul>
    *             <li>
@@ -10142,7 +10142,8 @@ export interface SwitchoverBlueGreenDeploymentRequest {
   BlueGreenDeploymentIdentifier: string | undefined;
 
   /**
-   * <p>The amount of time, in seconds, for the switchover to complete. The default is 300.</p>
+   * <p>The amount of time, in seconds, for the switchover to complete.</p>
+   *          <p>Default: 300</p>
    *          <p>If the switchover takes longer than the specified duration, then any changes are rolled back,
    *            and no changes are made to the environments.</p>
    */
@@ -10154,12 +10155,12 @@ export interface SwitchoverBlueGreenDeploymentRequest {
  */
 export interface SwitchoverBlueGreenDeploymentResponse {
   /**
-   * <p>Contains the details about a blue/green deployment.</p>
-   *          <p>For more information, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/blue-green-deployments.html">Using Amazon RDS Blue/Green Deployments
-   *             for database updates</a> in the <i>Amazon RDS User Guide</i> and
-   *             <a href="https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/blue-green-deployments.html">
-   *                 Using Amazon RDS Blue/Green Deployments for database updates</a> in the <i>Amazon Aurora
-   *             User Guide</i>.</p>
+   * <p>Details about a blue/green deployment.</p>
+   *          <p>For more information, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/blue-green-deployments.html">Using Amazon RDS
+   *                 Blue/Green Deployments for database updates</a> in the <i>Amazon RDS User
+   *                 Guide</i> and <a href="https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/blue-green-deployments.html">Using Amazon RDS
+   *                 Blue/Green Deployments for database updates</a> in the <i>Amazon Aurora
+   *                 User Guide</i>.</p>
    */
   BlueGreenDeployment?: BlueGreenDeployment;
 }

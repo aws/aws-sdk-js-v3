@@ -110,6 +110,7 @@ export interface DescribeDBSnapshotsCommandOutput extends DBSnapshotMessage, __M
  * //       SnapshotDatabaseTime: new Date("TIMESTAMP"),
  * //       SnapshotTarget: "STRING_VALUE",
  * //       StorageThroughput: Number("int"),
+ * //       DBSystemId: "STRING_VALUE",
  * //     },
  * //   ],
  * // };
