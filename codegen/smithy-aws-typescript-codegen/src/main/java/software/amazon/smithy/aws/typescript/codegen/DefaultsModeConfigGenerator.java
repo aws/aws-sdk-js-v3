@@ -61,52 +61,55 @@ final class DefaultsModeConfigGenerator {
     private DefaultsModeConfigGenerator() {}
 
     public static void main(String[] args) throws IOException {
-        Path outputPath = Paths.get(args[0]);
-        TypeScriptWriter writer = new TypeScriptWriter(outputPath.toString());
-        String defaultsConfigJson = IoUtils.readUtf8Resource(DefaultsModeConfigGenerator.class,
-                "sdk-default-configuration.json");
-        ObjectNode defaultsConfigData = Node.parse(defaultsConfigJson).expectObjectNode();
-        ObjectNode baseNode = defaultsConfigData.expectObjectMember("base");
-        ObjectNode modesNode = defaultsConfigData.expectObjectMember("modes");
+        // file has been moved to smithy-typescript
+        return;
 
-        writer.writeDocs("@internal");
-        writer.openBlock(
-            "export const loadConfigsForDefaultMode = (mode: ResolvedDefaultsMode): DefaultsModeConfigs => {", "}\n",
-            () -> {
-                writer.openBlock("switch (mode) {", "}", () -> {
-                    modesNode.getMembers().forEach((name, mode) -> {
-                        writer.write("case $S:", name.getValue());
-                        DefaultsMode defaultsMode = new DefaultsMode(baseNode, mode.expectObjectNode());
-                        writer.indent();
-                        defaultsMode.useWriter(writer);
-                        writer.dedent();
-                    });
-                    writer.write("default:");
-                    writer.indent().write("return {};").dedent();
-                });
-        });
+        // Path outputPath = Paths.get(args[0]);
+        // TypeScriptWriter writer = new TypeScriptWriter(outputPath.toString());
+        // String defaultsConfigJson = IoUtils.readUtf8Resource(DefaultsModeConfigGenerator.class,
+        //         "sdk-default-configuration.json");
+        // ObjectNode defaultsConfigData = Node.parse(defaultsConfigJson).expectObjectNode();
+        // ObjectNode baseNode = defaultsConfigData.expectObjectMember("base");
+        // ObjectNode modesNode = defaultsConfigData.expectObjectMember("modes");
 
-        ObjectNode docNode = defaultsConfigData.expectObjectMember("documentation").expectObjectMember("modes");
-        List<String> defaultsModes = new LinkedList<String>();
-        StringBuilder defaultsModeDoc = new StringBuilder(DEFAULTS_MODE_DOC_INTRODUCTION);
-        for (Entry<StringNode, Node> map : docNode.getMembers().entrySet()) {
-            String modeName = map.getKey().getValue();
-            String doc = map.getValue().expectStringNode().getValue();
-            defaultsModes.add(modeName);
-            defaultsModeDoc.append(String.format("* `\"%s\"`: %s%n", modeName, doc));
-        }
-        defaultsModeDoc.append("\n@default \"legacy\"");
-        writer.writeDocs(defaultsModeDoc.toString());
-        writer.write("export type DefaultsMode = $L;\n",
-                String.join(" | ", defaultsModes.stream().map((mod) -> {
-                        return "\"" + mod + "\""; }).collect(Collectors.toList())));
-        writer.write(INTERNAL_INTERFACES_BLOCK);
+        // writer.writeDocs("@internal");
+        // writer.openBlock(
+        //     "export const loadConfigsForDefaultMode = (mode: ResolvedDefaultsMode): DefaultsModeConfigs => {", "}\n",
+        //     () -> {
+        //         writer.openBlock("switch (mode) {", "}", () -> {
+        //             modesNode.getMembers().forEach((name, mode) -> {
+        //                 writer.write("case $S:", name.getValue());
+        //                 DefaultsMode defaultsMode = new DefaultsMode(baseNode, mode.expectObjectNode());
+        //                 writer.indent();
+        //                 defaultsMode.useWriter(writer);
+        //                 writer.dedent();
+        //             });
+        //             writer.write("default:");
+        //             writer.indent().write("return {};").dedent();
+        //         });
+        // });
 
-        boolean exists = outputPath.toFile().createNewFile();
-        if (exists) {
-            // PASS
-        }
-        Files.write(outputPath, writer.toString().getBytes(StandardCharsets.UTF_8));
+        // ObjectNode docNode = defaultsConfigData.expectObjectMember("documentation").expectObjectMember("modes");
+        // List<String> defaultsModes = new LinkedList<String>();
+        // StringBuilder defaultsModeDoc = new StringBuilder(DEFAULTS_MODE_DOC_INTRODUCTION);
+        // for (Entry<StringNode, Node> map : docNode.getMembers().entrySet()) {
+        //     String modeName = map.getKey().getValue();
+        //     String doc = map.getValue().expectStringNode().getValue();
+        //     defaultsModes.add(modeName);
+        //     defaultsModeDoc.append(String.format("* `\"%s\"`: %s%n", modeName, doc));
+        // }
+        // defaultsModeDoc.append("\n@default \"legacy\"");
+        // writer.writeDocs(defaultsModeDoc.toString());
+        // writer.write("export type DefaultsMode = $L;\n",
+        //         String.join(" | ", defaultsModes.stream().map((mod) -> {
+        //                 return "\"" + mod + "\""; }).collect(Collectors.toList())));
+        // writer.write(INTERNAL_INTERFACES_BLOCK);
+
+        // boolean exists = outputPath.toFile().createNewFile();
+        // if (exists) {
+        //     // PASS
+        // }
+        // Files.write(outputPath, writer.toString().getBytes(StandardCharsets.UTF_8));
     }
 
     enum Modifier {
