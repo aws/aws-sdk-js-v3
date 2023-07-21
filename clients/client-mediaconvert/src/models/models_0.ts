@@ -6277,7 +6277,7 @@ export interface HlsGroupSettings {
   SegmentLengthControl?: HlsSegmentLengthControl | string;
 
   /**
-   * Specify the number of segments to write to a subdirectory before starting a new one. You must also set Directory structure to Subdirectory per stream for this setting to have an effect.
+   * Specify the number of segments to write to a subdirectory before starting a new one. You  must also set Directory structure to Subdirectory per stream for this setting to have an effect.
    */
   SegmentsPerSubdirectory?: number;
 
