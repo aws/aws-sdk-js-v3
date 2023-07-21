@@ -262,13 +262,6 @@
   resolved "https://registry.yarnpkg.com/@types/node/-/node-20.4.2.tgz#129cc9ae69f93824f92fac653eebfb4812ab4af9"
   integrity sha512-Dd0BYtWgnWJKwO1jkmTrzofjK2QXXcai0dmtzvIBhcA+RsG5h8R3xlyta0kGOZRNfL9GuRtb1knmPEhQrePCEw==
 
-"@types/p-map@^2.0.0":
-  version "2.0.0"
-  resolved "https://registry.yarnpkg.com/@types/p-map/-/p-map-2.0.0.tgz#ed446ac0472dcc3f056065287537494f7fff014c"
-  integrity sha512-Otsx/+wb9jVG2yMuSNCi4eg8zVoV94LcK44UGwtOrkMjsXFuW14KOqqIbSHAvxYUlG844YQjZmZzFgfEwWuzdA==
-  dependencies:
-    p-map "*"
-
 "@types/resolve@1.17.1":
   version "1.17.1"
   resolved "https://registry.yarnpkg.com/@types/resolve/-/resolve-1.17.1.tgz#3afd6ad8967c77e4376c598a82ddd58f46ec45d6"
@@ -957,11 +950,6 @@ onetime@^6.0.0:
   integrity sha512-1FlR+gjXK7X+AsAHso35MnyN5KqGwJRi/31ft6x0M194ht7S+rWAvd7PHss9xSKMzE0asv1pyIHaJYq+BbacAQ==
   dependencies:
     mimic-fn "^4.0.0"
-
-p-map@*:
-  version "6.0.0"
-  resolved "https://registry.yarnpkg.com/p-map/-/p-map-6.0.0.tgz#4d9c40d3171632f86c47601b709f4b4acd70fed4"
-  integrity sha512-T8BatKGY+k5rU+Q/GTYgrEf2r4xRMevAN5mtXc2aPc4rS1j3s+vWTaO2Wag94neXuCAUAs8cxBL9EeB5EA6diw==
 
 p-map@^5.5.0:
   version "5.5.0"
