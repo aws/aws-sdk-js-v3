@@ -48,7 +48,7 @@ JavaScript Example:
 ```javascript
 const { S3RequestPresigner } = require("@aws-sdk/s3-request-presigner");
 const { Sha256 } = require("@aws-crypto/sha256-browser");
-const { Hash } = require("@aws-sdk/hash-node");
+const { Hash } = require("@smithy/hash-node");
 const signer = new S3RequestPresigner({
   region: regionProvider,
   credentials: credentialsProvider,

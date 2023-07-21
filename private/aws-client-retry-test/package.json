@@ -18,7 +18,7 @@
   "sideEffects": false,
   "dependencies": {
     "@aws-sdk/client-s3": "*",
-    "@aws-sdk/util-retry": "*",
+    "@smithy/util-retry": "*",
     "@smithy/protocol-http": "^1.1.0",
     "@smithy/types": "^1.1.0",
     "tslib": "^2.5.0"

@@ -8,7 +8,7 @@ requiring a specific use case not covered by `fetch`.
 
 ## Warning :warning:
 
-The recommended `HttpHandler` for browser-like environments is `@aws-sdk/fetch-http-handler`,
+The recommended `HttpHandler` for browser-like environments is `@smithy/fetch-http-handler`,
 which is the default.
 This alternative has only been tested against `S3` in browsers.
 

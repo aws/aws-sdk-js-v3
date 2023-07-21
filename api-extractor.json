@@ -60,7 +60,7 @@
    * This would direct API Extractor to embed those types directly in the .d.ts rollup, as if they had been
    * local files for library1.
    */
-  // "bundledPackages": ["@aws-sdk/types", "@aws-sdk/util-waiter", "@aws-sdk/smithy-client", "@aws-smithy/types"],
+  // "bundledPackages": ["@smithy/types", "@smithy/util-waiter", "@smithy/smithy-client", "@smithy/types"],
 
   /**
    * Specifies what type of newlines API Extractor should use when writing output files.  By default, the output files
