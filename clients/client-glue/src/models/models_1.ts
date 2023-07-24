@@ -20,9 +20,9 @@ import {
   ErrorDetail,
   EventBatchingCondition,
   FederatedDatabase,
+  FindMatchesParameters,
   GlueTable,
   JobRun,
-  MLUserDataEncryptionModeString,
   Partition,
   PartitionInput,
   PartitionValueList,
@@ -32,12 +32,44 @@ import {
   SchemaId,
   StorageDescriptor,
   TaskStatusType,
-  TransformParameters,
   TransformType,
   Trigger,
   TriggerType,
   WorkerType,
 } from "./models_0";
+
+/**
+ * @public
+ * <p>The algorithm-specific parameters that are associated with the machine learning
+ *       transform.</p>
+ */
+export interface TransformParameters {
+  /**
+   * <p>The type of machine learning transform.</p>
+   *          <p>For information about the types of machine learning transforms, see <a href="https://docs.aws.amazon.com/glue/latest/dg/add-job-machine-learning-transform.html">Creating Machine Learning Transforms</a>.</p>
+   */
+  TransformType: TransformType | string | undefined;
+
+  /**
+   * <p>The parameters for the find matches algorithm.</p>
+   */
+  FindMatchesParameters?: FindMatchesParameters;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const MLUserDataEncryptionModeString = {
+  DISABLED: "DISABLED",
+  SSEKMS: "SSE-KMS",
+} as const;
+
+/**
+ * @public
+ */
+export type MLUserDataEncryptionModeString =
+  (typeof MLUserDataEncryptionModeString)[keyof typeof MLUserDataEncryptionModeString];
 
 /**
  * @public
@@ -7176,41 +7208,4 @@ export interface GetUnfilteredPartitionsMetadataRequest {
    * <p>The maximum number of partitions to return in a single response.</p>
    */
   MaxResults?: number;
-}
-
-/**
- * @public
- * <p>A partition that contains unfiltered metadata.</p>
- */
-export interface UnfilteredPartition {
-  /**
-   * <p>The partition object.</p>
-   */
-  Partition?: Partition;
-
-  /**
-   * <p>The list of columns the user has permissions to access.</p>
-   */
-  AuthorizedColumns?: string[];
-
-  /**
-   * <p>A Boolean value indicating that the partition location is registered with Lake Formation.</p>
-   */
-  IsRegisteredWithLakeFormation?: boolean;
-}
-
-/**
- * @public
- */
-export interface GetUnfilteredPartitionsMetadataResponse {
-  /**
-   * <p>A list of requested partitions.</p>
-   */
-  UnfilteredPartitions?: UnfilteredPartition[];
-
-  /**
-   * <p>A continuation token, if the returned list of partitions does not include the last
-   *       one.</p>
-   */
-  NextToken?: string;
 }

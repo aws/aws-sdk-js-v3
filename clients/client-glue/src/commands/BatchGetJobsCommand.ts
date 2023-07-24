@@ -1034,6 +1034,14 @@ export interface BatchGetJobsCommandOutput extends BatchGetJobsResponse, __Metad
  * //               StopJobOnFailureTiming: "Immediate" || "AfterDataLoad",
  * //             },
  * //           },
+ * //           Recipe: { // Recipe
+ * //             Name: "STRING_VALUE", // required
+ * //             Inputs: "<OneInput>", // required
+ * //             RecipeReference: { // RecipeReference
+ * //               RecipeArn: "STRING_VALUE", // required
+ * //               RecipeVersion: "STRING_VALUE", // required
+ * //             },
+ * //           },
  * //         },
  * //       },
  * //       ExecutionClass: "FLEX" || "STANDARD",

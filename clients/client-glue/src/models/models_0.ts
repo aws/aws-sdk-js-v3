@@ -4246,6 +4246,43 @@ export interface PostgreSQLCatalogTarget {
 
 /**
  * @public
+ * <p>A reference to a Glue DataBrew recipe.</p>
+ */
+export interface RecipeReference {
+  /**
+   * <p>The ARN of the DataBrew recipe.</p>
+   */
+  RecipeArn: string | undefined;
+
+  /**
+   * <p>The RecipeVersion of the DataBrew recipe.</p>
+   */
+  RecipeVersion: string | undefined;
+}
+
+/**
+ * @public
+ * <p>A Glue Studio node that uses a Glue DataBrew recipe in Glue jobs.</p>
+ */
+export interface Recipe {
+  /**
+   * <p>The name of the Glue Studio node.</p>
+   */
+  Name: string | undefined;
+
+  /**
+   * <p>The nodes that are inputs to the recipe node, identified by id.</p>
+   */
+  Inputs: string[] | undefined;
+
+  /**
+   * <p>A reference to the DataBrew recipe used by the node.</p>
+   */
+  RecipeReference: RecipeReference | undefined;
+}
+
+/**
+ * @public
  * <p>Specifies an Amazon Redshift data store.</p>
  */
 export interface RedshiftSource {
@@ -8208,36 +8245,3 @@ export const TransformType = {
  * @public
  */
 export type TransformType = (typeof TransformType)[keyof typeof TransformType];
-
-/**
- * @public
- * <p>The algorithm-specific parameters that are associated with the machine learning
- *       transform.</p>
- */
-export interface TransformParameters {
-  /**
-   * <p>The type of machine learning transform.</p>
-   *          <p>For information about the types of machine learning transforms, see <a href="https://docs.aws.amazon.com/glue/latest/dg/add-job-machine-learning-transform.html">Creating Machine Learning Transforms</a>.</p>
-   */
-  TransformType: TransformType | string | undefined;
-
-  /**
-   * <p>The parameters for the find matches algorithm.</p>
-   */
-  FindMatchesParameters?: FindMatchesParameters;
-}
-
-/**
- * @public
- * @enum
- */
-export const MLUserDataEncryptionModeString = {
-  DISABLED: "DISABLED",
-  SSEKMS: "SSE-KMS",
-} as const;
-
-/**
- * @public
- */
-export type MLUserDataEncryptionModeString =
-  (typeof MLUserDataEncryptionModeString)[keyof typeof MLUserDataEncryptionModeString];

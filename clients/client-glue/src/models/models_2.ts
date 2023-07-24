@@ -56,11 +56,13 @@ import {
   NotificationProperty,
   OracleSQLCatalogSource,
   OracleSQLCatalogTarget,
+  Partition,
   PartitionInput,
   PIIDetection,
   PostgreSQLCatalogSource,
   PostgreSQLCatalogTarget,
   Predicate,
+  Recipe,
   RecrawlPolicy,
   RedshiftSource,
   RedshiftTarget,
@@ -94,7 +96,6 @@ import {
   Spigot,
   SplitFields,
   TaskStatusType,
-  TransformParameters,
   Trigger,
   Union,
   WorkerType,
@@ -121,9 +122,47 @@ import {
   Table,
   TableInput,
   TransformFilterCriteria,
+  TransformParameters,
   TransformSortCriteria,
   UserDefinedFunctionInput,
 } from "./models_1";
+
+/**
+ * @public
+ * <p>A partition that contains unfiltered metadata.</p>
+ */
+export interface UnfilteredPartition {
+  /**
+   * <p>The partition object.</p>
+   */
+  Partition?: Partition;
+
+  /**
+   * <p>The list of columns the user has permissions to access.</p>
+   */
+  AuthorizedColumns?: string[];
+
+  /**
+   * <p>A Boolean value indicating that the partition location is registered with Lake Formation.</p>
+   */
+  IsRegisteredWithLakeFormation?: boolean;
+}
+
+/**
+ * @public
+ */
+export interface GetUnfilteredPartitionsMetadataResponse {
+  /**
+   * <p>A list of requested partitions.</p>
+   */
+  UnfilteredPartitions?: UnfilteredPartition[];
+
+  /**
+   * <p>A continuation token, if the returned list of partitions does not include the last
+   *       one.</p>
+   */
+  NextToken?: string;
+}
 
 /**
  * @public
@@ -4638,6 +4677,11 @@ export interface CodeGenConfigurationNode {
    * <p>Specifies your data quality evaluation criteria. Allows multiple input data and returns a collection of Dynamic Frames.</p>
    */
   EvaluateDataQualityMultiFrame?: EvaluateDataQualityMultiFrame;
+
+  /**
+   * <p>Specifies a Glue DataBrew recipe node.</p>
+   */
+  Recipe?: Recipe;
 }
 
 /**

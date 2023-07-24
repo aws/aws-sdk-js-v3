@@ -609,6 +609,8 @@ import {
   PostgreSQLCatalogTarget,
   Predicate,
   PrincipalPermissions,
+  Recipe,
+  RecipeReference,
   RecrawlPolicy,
   RedshiftSource,
   RedshiftTarget,
@@ -651,7 +653,6 @@ import {
   StorageDescriptor,
   StreamingDataPreviewOptions,
   TransformConfigParameter,
-  TransformParameters,
   Union,
   UpsertRedshiftTargetOptions,
   ValidationException,
@@ -829,7 +830,6 @@ import {
   GetUnfilteredPartitionMetadataRequest,
   GetUnfilteredPartitionMetadataResponse,
   GetUnfilteredPartitionsMetadataRequest,
-  GetUnfilteredPartitionsMetadataResponse,
   GluePolicy,
   GrokClassifier,
   IcebergInput,
@@ -865,8 +865,8 @@ import {
   TaskRunSortCriteria,
   TransformEncryption,
   TransformFilterCriteria,
+  TransformParameters,
   TransformSortCriteria,
-  UnfilteredPartition,
   UserDefinedFunctionInput,
   XMLClassifier,
 } from "../models/models_1";
@@ -892,6 +892,7 @@ import {
   DevEndpointCustomLibraries,
   GetJobResponse,
   GetJobsResponse,
+  GetUnfilteredPartitionsMetadataResponse,
   GetUnfilteredTableMetadataRequest,
   GetUnfilteredTableMetadataResponse,
   GetUserDefinedFunctionRequest,
@@ -974,6 +975,7 @@ import {
   StopWorkflowRunRequest,
   TagResourceRequest,
   TriggerUpdate,
+  UnfilteredPartition,
   UntagResourceRequest,
   UpdateBlueprintRequest,
   UpdateClassifierRequest,
@@ -15851,6 +15853,7 @@ const se_CodeGenConfigurationNode = (input: CodeGenConfigurationNode, context: _
     PIIDetection: (_) => se_PIIDetection(_, context),
     PostgreSQLCatalogSource: _json,
     PostgreSQLCatalogTarget: _json,
+    Recipe: _json,
     RedshiftSource: _json,
     RedshiftTarget: _json,
     RelationalCatalogSource: _json,
@@ -17056,6 +17059,10 @@ const se_PIIDetection = (input: PIIDetection, context: __SerdeContext): any => {
 
 // se_QuerySchemaVersionMetadataInput omitted.
 
+// se_Recipe omitted.
+
+// se_RecipeReference omitted.
+
 // se_RecrawlPolicy omitted.
 
 // se_RedshiftSource omitted.
@@ -17878,6 +17885,7 @@ const de_CodeGenConfigurationNode = (output: any, context: __SerdeContext): Code
     PIIDetection: (_: any) => de_PIIDetection(_, context),
     PostgreSQLCatalogSource: _json,
     PostgreSQLCatalogTarget: _json,
+    Recipe: _json,
     RedshiftSource: _json,
     RedshiftTarget: _json,
     RelationalCatalogSource: _json,
@@ -20176,6 +20184,10 @@ const de_PIIDetection = (output: any, context: __SerdeContext): PIIDetection => 
 // de_PutWorkflowRunPropertiesResponse omitted.
 
 // de_QuerySchemaVersionMetadataResponse omitted.
+
+// de_Recipe omitted.
+
+// de_RecipeReference omitted.
 
 // de_RecrawlPolicy omitted.
 
