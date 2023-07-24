@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.376.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.375.0...v3.376.0) (2023-07-24)
+
+
+### Features
+
+* **client-cloudformation:** This release supports filtering by DRIFT_STATUS for existing API ListStackInstances and adds support for a new API ListStackInstanceResourceDrifts. Customers can now view resource drift information from their StackSet management accounts. ([457b697](https://github.com/aws/aws-sdk-js-v3/commit/457b697933495fec2f9f29d0715e9d519e22d1f8))
+
+
+
+
+
 # [3.373.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.372.0...v3.373.0) (2023-07-19)
 
 

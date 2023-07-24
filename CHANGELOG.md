@@ -3,6 +3,23 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.376.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.375.0...v3.376.0) (2023-07-24)
+
+
+### Features
+
+* **client-chime-sdk-media-pipelines:** AWS Media Pipeline compositing enhancement and Media Insights Pipeline auto language identification. ([a6743ba](https://github.com/aws/aws-sdk-js-v3/commit/a6743ba55e8f8492904398a775a1348c49196794))
+* **client-cloudformation:** This release supports filtering by DRIFT_STATUS for existing API ListStackInstances and adds support for a new API ListStackInstanceResourceDrifts. Customers can now view resource drift information from their StackSet management accounts. ([457b697](https://github.com/aws/aws-sdk-js-v3/commit/457b697933495fec2f9f29d0715e9d519e22d1f8))
+* **client-cost-explorer:** This release introduces the new API 'GetSavingsPlanPurchaseRecommendationDetails', which retrieves the details for a Savings Plan recommendation. It also updates the existing API 'GetSavingsPlansPurchaseRecommendation' to include the recommendation detail ID. ([42c7966](https://github.com/aws/aws-sdk-js-v3/commit/42c7966a9fd90433cb4407a3d12bc6da27a0f712))
+* **client-ec2:** Add "disabled" enum value to SpotInstanceState. ([dedea39](https://github.com/aws/aws-sdk-js-v3/commit/dedea39839bd1f09445a96fce5ef1aace18aed1e))
+* **client-glue:** Added support for Data Preparation Recipe node in Glue Studio jobs ([cad1a3f](https://github.com/aws/aws-sdk-js-v3/commit/cad1a3ffc6583b0fc6d44cfd5cb868394e35921c))
+* **client-quicksight:** This release launches new Snapshot APIs for CSV and PDF exports, adds support for info icon for filters and parameters in Exploration APIs, adds modeled exception to the DeleteAccountCustomization API, and introduces AttributeAggregationFunction's ability to add UNIQUE_VALUE aggregation in tooltips. ([7057459](https://github.com/aws/aws-sdk-js-v3/commit/705745931409d55145276cd9a287335988a93c80))
+* **clients:** update client endpoints as of 2023-07-24 ([aef315b](https://github.com/aws/aws-sdk-js-v3/commit/aef315b24dc0a248ecf9d12d879b4b4e0616d0f1))
+
+
+
+
+
 # [3.375.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.374.0...v3.375.0) (2023-07-21)
 
 

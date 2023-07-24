@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.376.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.375.0...v3.376.0) (2023-07-24)
+
+
+### Features
+
+* **client-chime-sdk-media-pipelines:** AWS Media Pipeline compositing enhancement and Media Insights Pipeline auto language identification. ([a6743ba](https://github.com/aws/aws-sdk-js-v3/commit/a6743ba55e8f8492904398a775a1348c49196794))
+
+
+
+
+
 # [3.370.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.369.0...v3.370.0) (2023-07-13)
 
 

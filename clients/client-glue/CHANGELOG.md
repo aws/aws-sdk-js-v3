@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.376.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.375.0...v3.376.0) (2023-07-24)
+
+
+### Features
+
+* **client-glue:** Added support for Data Preparation Recipe node in Glue Studio jobs ([cad1a3f](https://github.com/aws/aws-sdk-js-v3/commit/cad1a3ffc6583b0fc6d44cfd5cb868394e35921c))
+
+
+
+
+
 # [3.375.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.374.0...v3.375.0) (2023-07-21)
 
 

@@ -5,7 +5,7 @@
 |@aws-sdk/client-application-insights|3.369.0|544.4 KB|✅(5.77.0)|✅(3.20.2)|✅(0.17.15)|
 |@aws-sdk/client-athena|3.369.0|1.2 MB|✅(5.77.0)|✅(3.20.2)|✅(0.17.15)|
 |@aws-sdk/client-auto-scaling|3.369.0|1.8 MB|✅(5.77.0)|✅(3.20.2)|✅(0.17.15)|
-|@aws-sdk/client-cloudformation|3.370.0|1.9 MB|✅(5.77.0)|✅(3.20.2)|✅(0.17.15)|
+|@aws-sdk/client-cloudformation|3.373.0|1.9 MB|✅(5.88.2)|✅(3.26.3)|✅(0.18.15)|
 |@aws-sdk/client-cloudhsm-v2|3.369.0|356.5 KB|✅(5.77.0)|✅(3.20.2)|✅(0.17.15)|
 |@aws-sdk/client-cloudwatch|3.369.0|1 MB|✅(5.77.0)|✅(3.20.2)|✅(0.17.15)|
 |@aws-sdk/client-cloudwatch-logs|3.369.0|958.1 KB|✅(5.77.0)|✅(3.20.2)|✅(0.17.15)|
@@ -17,11 +17,11 @@
 |@aws-sdk/client-cognito-identity-provider|3.369.0|2.4 MB|✅(5.77.0)|✅(3.20.2)|✅(0.17.15)|
 |@aws-sdk/client-cognito-sync|3.369.0|435.2 KB|✅(5.77.0)|✅(3.20.2)|✅(0.17.15)|
 |@aws-sdk/client-dynamodb|3.369.0|1.7 MB|✅(5.77.0)|✅(3.20.2)|✅(0.17.15)|
-|@aws-sdk/client-ec2|3.371.0|14.8 MB|✅(5.77.0)|✅(3.20.2)|✅(0.17.15)|
+|@aws-sdk/client-ec2|3.373.0|14.8 MB|✅(5.88.2)|✅(3.26.3)|✅(0.18.15)|
 |@aws-sdk/client-efs|3.369.0|766.8 KB|✅(5.77.0)|✅(3.20.2)|✅(0.17.15)|
 |@aws-sdk/client-eventbridge|3.369.0|1 MB|✅(5.77.0)|✅(3.20.2)|✅(0.17.15)|
 |@aws-sdk/client-firehose|3.369.0|507.2 KB|✅(5.77.0)|✅(3.20.2)|✅(0.17.15)|
-|@aws-sdk/client-glue|3.371.0|4.1 MB|✅(5.88.2)|✅(3.26.3)|✅(0.18.15)|
+|@aws-sdk/client-glue|3.375.0|4.1 MB|✅(5.88.2)|✅(3.26.3)|✅(0.18.15)|
 |@aws-sdk/client-iam|3.369.0|3.3 MB|✅(5.77.0)|✅(3.20.2)|✅(0.17.15)|
 |@aws-sdk/client-kinesis|3.369.0|741.5 KB|✅(5.77.0)|✅(3.20.2)|✅(0.17.15)|
 |@aws-sdk/client-kms|3.369.0|1.6 MB|✅(5.77.0)|✅(3.20.2)|✅(0.17.15)|
