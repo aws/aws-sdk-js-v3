@@ -7,6 +7,33 @@ import { ChimeSDKMediaPipelinesServiceException as __BaseException } from "./Chi
  * @public
  * @enum
  */
+export const ActiveSpeakerPosition = {
+  BottomLeft: "BottomLeft",
+  BottomRight: "BottomRight",
+  TopLeft: "TopLeft",
+  TopRight: "TopRight",
+} as const;
+
+/**
+ * @public
+ */
+export type ActiveSpeakerPosition = (typeof ActiveSpeakerPosition)[keyof typeof ActiveSpeakerPosition];
+
+/**
+ * @public
+ * <p>Defines the configuration for an <code>ActiveSpeakerOnly</code> video tile.</p>
+ */
+export interface ActiveSpeakerOnlyConfiguration {
+  /**
+   * <p>The position of the <code>ActiveSpeakerOnly</code> video tile.</p>
+   */
+  ActiveSpeakerPosition?: ActiveSpeakerPosition | string;
+}
+
+/**
+ * @public
+ * @enum
+ */
 export const ContentType = {
   PII: "PII",
 } as const;
@@ -233,7 +260,7 @@ export interface AmazonTranscribeProcessorConfiguration {
    *          <p>For a list of languages that real-time Call Analytics supports, see the <a href="https://docs.aws.amazon.com/transcribe/latest/dg/supported-languages.html">Supported languages table</a>
    *          in the <i>Amazon Transcribe Developer Guide</i>.</p>
    */
-  LanguageCode: CallAnalyticsLanguageCode | string | undefined;
+  LanguageCode?: CallAnalyticsLanguageCode | string;
 
   /**
    * <p>The name of the custom vocabulary that you specified in your Call Analytics
@@ -322,6 +349,31 @@ export interface AmazonTranscribeProcessorConfiguration {
    * <p>If true, <code>TranscriptEvents</code> with <code>IsPartial: true</code> are filtered out of the insights target.</p>
    */
   FilterPartialResults?: boolean;
+
+  /**
+   * <p>Turns language identification on or off.</p>
+   */
+  IdentifyLanguage?: boolean;
+
+  /**
+   * <p>The language options for the transcription, such as automatic language detection.</p>
+   */
+  LanguageOptions?: string;
+
+  /**
+   * <p>The preferred language for the transcription.</p>
+   */
+  PreferredLanguage?: CallAnalyticsLanguageCode | string;
+
+  /**
+   * <p>The names of the custom vocabulary or vocabularies used during transcription.</p>
+   */
+  VocabularyNames?: string;
+
+  /**
+   * <p>The names of the custom vocabulary filter or filters using during transcription.</p>
+   */
+  VocabularyFilterNames?: string;
 }
 
 /**
@@ -504,7 +556,22 @@ export interface AudioArtifactsConfiguration {
  * @public
  * @enum
  */
+export const CanvasOrientation = {
+  Landscape: "Landscape",
+  Portrait: "Portrait",
+} as const;
+
+/**
+ * @public
+ */
+export type CanvasOrientation = (typeof CanvasOrientation)[keyof typeof CanvasOrientation];
+
+/**
+ * @public
+ * @enum
+ */
 export const ContentShareLayoutOption = {
+  ActiveSpeakerOnly: "ActiveSpeakerOnly",
   Horizontal: "Horizontal",
   PresenterOnly: "PresenterOnly",
   Vertical: "Vertical",
@@ -514,6 +581,60 @@ export const ContentShareLayoutOption = {
  * @public
  */
 export type ContentShareLayoutOption = (typeof ContentShareLayoutOption)[keyof typeof ContentShareLayoutOption];
+
+/**
+ * @public
+ * @enum
+ */
+export const TileOrder = {
+  JoinSequence: "JoinSequence",
+  SpeakerSequence: "SpeakerSequence",
+} as const;
+
+/**
+ * @public
+ */
+export type TileOrder = (typeof TileOrder)[keyof typeof TileOrder];
+
+/**
+ * @public
+ * @enum
+ */
+export const HorizontalTilePosition = {
+  Bottom: "Bottom",
+  Top: "Top",
+} as const;
+
+/**
+ * @public
+ */
+export type HorizontalTilePosition = (typeof HorizontalTilePosition)[keyof typeof HorizontalTilePosition];
+
+/**
+ * @public
+ * <p>Defines the configuration settings for the horizontal layout.</p>
+ */
+export interface HorizontalLayoutConfiguration {
+  /**
+   * <p>Sets the automatic ordering of the video tiles.</p>
+   */
+  TileOrder?: TileOrder | string;
+
+  /**
+   * <p>Sets the position of horizontal tiles.</p>
+   */
+  TilePosition?: HorizontalTilePosition | string;
+
+  /**
+   * <p>The maximum number of video tiles to display.</p>
+   */
+  TileCount?: number;
+
+  /**
+   * <p>Sets the aspect ratio of the video tiles, such as 16:9.</p>
+   */
+  TileAspectRatio?: string;
+}
 
 /**
  * @public
@@ -544,6 +665,108 @@ export interface PresenterOnlyConfiguration {
 
 /**
  * @public
+ * @enum
+ */
+export const VerticalTilePosition = {
+  Left: "Left",
+  Right: "Right",
+} as const;
+
+/**
+ * @public
+ */
+export type VerticalTilePosition = (typeof VerticalTilePosition)[keyof typeof VerticalTilePosition];
+
+/**
+ * @public
+ * <p>Defines the configuration settings for a vertial layout.</p>
+ */
+export interface VerticalLayoutConfiguration {
+  /**
+   * <p>Sets the automatic ordering of the video tiles.</p>
+   */
+  TileOrder?: TileOrder | string;
+
+  /**
+   * <p>Sets the position of vertical tiles.</p>
+   */
+  TilePosition?: VerticalTilePosition | string;
+
+  /**
+   * <p>The maximum number of tiles to display.</p>
+   */
+  TileCount?: number;
+
+  /**
+   * <p>Sets the aspect ratio of the video tiles, such as 16:9.</p>
+   */
+  TileAspectRatio?: string;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const BorderColor = {
+  Black: "Black",
+  Blue: "Blue",
+  Green: "Green",
+  Red: "Red",
+  White: "White",
+  Yellow: "Yellow",
+} as const;
+
+/**
+ * @public
+ */
+export type BorderColor = (typeof BorderColor)[keyof typeof BorderColor];
+
+/**
+ * @public
+ * @enum
+ */
+export const HighlightColor = {
+  Black: "Black",
+  Blue: "Blue",
+  Green: "Green",
+  Red: "Red",
+  White: "White",
+  Yellow: "Yellow",
+} as const;
+
+/**
+ * @public
+ */
+export type HighlightColor = (typeof HighlightColor)[keyof typeof HighlightColor];
+
+/**
+ * @public
+ * <p>Defines the settings for a video tile.</p>
+ */
+export interface VideoAttribute {
+  /**
+   * <p>Sets the corner radius of all video tiles.</p>
+   */
+  CornerRadius?: number;
+
+  /**
+   * <p>Defines the border color of all video tiles.</p>
+   */
+  BorderColor?: BorderColor | string;
+
+  /**
+   * <p>Defines the highlight color for the active video tile.</p>
+   */
+  HighlightColor?: HighlightColor | string;
+
+  /**
+   * <p>Defines the border thickness for all video tiles.</p>
+   */
+  BorderThickness?: number;
+}
+
+/**
+ * @public
  * <p>Specifies the type of grid layout.</p>
  */
 export interface GridViewConfiguration {
@@ -556,6 +779,31 @@ export interface GridViewConfiguration {
    * <p>Defines the configuration options for a presenter only video tile.</p>
    */
   PresenterOnlyConfiguration?: PresenterOnlyConfiguration;
+
+  /**
+   * <p>The configuration settings for an <code>ActiveSpeakerOnly</code> video tile.</p>
+   */
+  ActiveSpeakerOnlyConfiguration?: ActiveSpeakerOnlyConfiguration;
+
+  /**
+   * <p>The configuration settings for a horizontal layout.</p>
+   */
+  HorizontalLayoutConfiguration?: HorizontalLayoutConfiguration;
+
+  /**
+   * <p>The configuration settings for a vertical layout.</p>
+   */
+  VerticalLayoutConfiguration?: VerticalLayoutConfiguration;
+
+  /**
+   * <p>The attribute settings for the video tiles.</p>
+   */
+  VideoAttribute?: VideoAttribute;
+
+  /**
+   * <p>The orientation setting, horizontal or vertical.</p>
+   */
+  CanvasOrientation?: CanvasOrientation | string;
 }
 
 /**
@@ -1585,7 +1833,7 @@ export interface CreateMediaInsightsPipelineRequest {
   KinesisVideoStreamRecordingSourceRuntimeConfiguration?: KinesisVideoStreamRecordingSourceRuntimeConfiguration;
 
   /**
-   * <p>The runtime configuration for the S3 recording sink.</p>
+   * <p>The runtime configuration for the S3 recording sink. If specified, the settings in this structure override any settings in <code>S3RecordingSinkConfiguration</code>.</p>
    */
   S3RecordingSinkRuntimeConfiguration?: S3RecordingSinkRuntimeConfiguration;
 

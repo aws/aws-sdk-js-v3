@@ -89,6 +89,7 @@ import {
 } from "../commands/UpdateMediaInsightsPipelineStatusCommand";
 import { ChimeSDKMediaPipelinesServiceException as __BaseException } from "../models/ChimeSDKMediaPipelinesServiceException";
 import {
+  ActiveSpeakerOnlyConfiguration,
   AmazonTranscribeCallAnalyticsProcessorConfiguration,
   AmazonTranscribeProcessorConfiguration,
   ArtifactsConcatenationConfiguration,
@@ -111,6 +112,7 @@ import {
   ForbiddenException,
   FragmentSelector,
   GridViewConfiguration,
+  HorizontalLayoutConfiguration,
   IssueDetectionConfiguration,
   KeywordMatchConfiguration,
   KinesisDataStreamSinkConfiguration,
@@ -153,7 +155,9 @@ import {
   TimestampRange,
   TranscriptionMessagesConcatenationConfiguration,
   UnauthorizedClientException,
+  VerticalLayoutConfiguration,
   VideoArtifactsConfiguration,
+  VideoAttribute,
   VideoConcatenationConfiguration,
   VoiceAnalyticsProcessorConfiguration,
 } from "../models/models_0";
@@ -2167,6 +2171,8 @@ const de_UnauthorizedClientExceptionRes = async (
   return __decorateServiceException(exception, parsedOutput.body);
 };
 
+// se_ActiveSpeakerOnlyConfiguration omitted.
+
 // se_AmazonTranscribeCallAnalyticsProcessorConfiguration omitted.
 
 // se_AmazonTranscribeProcessorConfiguration omitted.
@@ -2224,6 +2230,8 @@ const se_FragmentSelector = (input: FragmentSelector, context: __SerdeContext): 
 };
 
 // se_GridViewConfiguration omitted.
+
+// se_HorizontalLayoutConfiguration omitted.
 
 // se_IssueDetectionConfiguration omitted.
 
@@ -2324,11 +2332,17 @@ const se_TimestampRange = (input: TimestampRange, context: __SerdeContext): any 
 
 // se_TranscriptionMessagesConcatenationConfiguration omitted.
 
+// se_VerticalLayoutConfiguration omitted.
+
 // se_VideoArtifactsConfiguration omitted.
+
+// se_VideoAttribute omitted.
 
 // se_VideoConcatenationConfiguration omitted.
 
 // se_VoiceAnalyticsProcessorConfiguration omitted.
+
+// de_ActiveSpeakerOnlyConfiguration omitted.
 
 // de_AmazonTranscribeCallAnalyticsProcessorConfiguration omitted.
 
@@ -2387,6 +2401,8 @@ const de_FragmentSelector = (output: any, context: __SerdeContext): FragmentSele
 };
 
 // de_GridViewConfiguration omitted.
+
+// de_HorizontalLayoutConfiguration omitted.
 
 // de_IssueDetectionConfiguration omitted.
 
@@ -2594,7 +2610,11 @@ const de_TimestampRange = (output: any, context: __SerdeContext): TimestampRange
 
 // de_TranscriptionMessagesConcatenationConfiguration omitted.
 
+// de_VerticalLayoutConfiguration omitted.
+
 // de_VideoArtifactsConfiguration omitted.
+
+// de_VideoAttribute omitted.
 
 // de_VideoConcatenationConfiguration omitted.
 

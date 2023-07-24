@@ -111,7 +111,7 @@ export interface CreateMediaInsightsPipelineConfigurationCommandOutput
  *         ],
  *       },
  *       AmazonTranscribeProcessorConfiguration: { // AmazonTranscribeProcessorConfiguration
- *         LanguageCode: "en-US" || "en-GB" || "es-US" || "fr-CA" || "fr-FR" || "en-AU" || "it-IT" || "de-DE" || "pt-BR", // required
+ *         LanguageCode: "en-US" || "en-GB" || "es-US" || "fr-CA" || "fr-FR" || "en-AU" || "it-IT" || "de-DE" || "pt-BR",
  *         VocabularyName: "STRING_VALUE",
  *         VocabularyFilterName: "STRING_VALUE",
  *         VocabularyFilterMethod: "remove" || "mask" || "tag",
@@ -123,6 +123,11 @@ export interface CreateMediaInsightsPipelineConfigurationCommandOutput
  *         PiiEntityTypes: "STRING_VALUE",
  *         LanguageModelName: "STRING_VALUE",
  *         FilterPartialResults: true || false,
+ *         IdentifyLanguage: true || false,
+ *         LanguageOptions: "STRING_VALUE",
+ *         PreferredLanguage: "en-US" || "en-GB" || "es-US" || "fr-CA" || "fr-FR" || "en-AU" || "it-IT" || "de-DE" || "pt-BR",
+ *         VocabularyNames: "STRING_VALUE",
+ *         VocabularyFilterNames: "STRING_VALUE",
  *       },
  *       KinesisDataStreamSinkConfiguration: { // KinesisDataStreamSinkConfiguration
  *         InsightsTarget: "STRING_VALUE",
@@ -210,7 +215,7 @@ export interface CreateMediaInsightsPipelineConfigurationCommandOutput
  * //           ],
  * //         },
  * //         AmazonTranscribeProcessorConfiguration: { // AmazonTranscribeProcessorConfiguration
- * //           LanguageCode: "en-US" || "en-GB" || "es-US" || "fr-CA" || "fr-FR" || "en-AU" || "it-IT" || "de-DE" || "pt-BR", // required
+ * //           LanguageCode: "en-US" || "en-GB" || "es-US" || "fr-CA" || "fr-FR" || "en-AU" || "it-IT" || "de-DE" || "pt-BR",
  * //           VocabularyName: "STRING_VALUE",
  * //           VocabularyFilterName: "STRING_VALUE",
  * //           VocabularyFilterMethod: "remove" || "mask" || "tag",
@@ -222,6 +227,11 @@ export interface CreateMediaInsightsPipelineConfigurationCommandOutput
  * //           PiiEntityTypes: "STRING_VALUE",
  * //           LanguageModelName: "STRING_VALUE",
  * //           FilterPartialResults: true || false,
+ * //           IdentifyLanguage: true || false,
+ * //           LanguageOptions: "STRING_VALUE",
+ * //           PreferredLanguage: "en-US" || "en-GB" || "es-US" || "fr-CA" || "fr-FR" || "en-AU" || "it-IT" || "de-DE" || "pt-BR",
+ * //           VocabularyNames: "STRING_VALUE",
+ * //           VocabularyFilterNames: "STRING_VALUE",
  * //         },
  * //         KinesisDataStreamSinkConfiguration: { // KinesisDataStreamSinkConfiguration
  * //           InsightsTarget: "STRING_VALUE",

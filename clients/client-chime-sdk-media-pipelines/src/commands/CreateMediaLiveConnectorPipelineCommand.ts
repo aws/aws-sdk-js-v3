@@ -68,10 +68,32 @@ export interface CreateMediaLiveConnectorPipelineCommandOutput
  *           Layout: "GridView",
  *           Resolution: "HD" || "FHD",
  *           GridViewConfiguration: { // GridViewConfiguration
- *             ContentShareLayout: "PresenterOnly" || "Horizontal" || "Vertical", // required
+ *             ContentShareLayout: "PresenterOnly" || "Horizontal" || "Vertical" || "ActiveSpeakerOnly", // required
  *             PresenterOnlyConfiguration: { // PresenterOnlyConfiguration
  *               PresenterPosition: "TopLeft" || "TopRight" || "BottomLeft" || "BottomRight",
  *             },
+ *             ActiveSpeakerOnlyConfiguration: { // ActiveSpeakerOnlyConfiguration
+ *               ActiveSpeakerPosition: "TopLeft" || "TopRight" || "BottomLeft" || "BottomRight",
+ *             },
+ *             HorizontalLayoutConfiguration: { // HorizontalLayoutConfiguration
+ *               TileOrder: "JoinSequence" || "SpeakerSequence",
+ *               TilePosition: "Top" || "Bottom",
+ *               TileCount: Number("int"),
+ *               TileAspectRatio: "STRING_VALUE",
+ *             },
+ *             VerticalLayoutConfiguration: { // VerticalLayoutConfiguration
+ *               TileOrder: "JoinSequence" || "SpeakerSequence",
+ *               TilePosition: "Left" || "Right",
+ *               TileCount: Number("int"),
+ *               TileAspectRatio: "STRING_VALUE",
+ *             },
+ *             VideoAttribute: { // VideoAttribute
+ *               CornerRadius: Number("int"),
+ *               BorderColor: "Black" || "Blue" || "Red" || "Green" || "White" || "Yellow",
+ *               HighlightColor: "Black" || "Blue" || "Red" || "Green" || "White" || "Yellow",
+ *               BorderThickness: Number("int"),
+ *             },
+ *             CanvasOrientation: "Landscape" || "Portrait",
  *           },
  *         },
  *         SourceConfiguration: { // SourceConfiguration
@@ -119,10 +141,32 @@ export interface CreateMediaLiveConnectorPipelineCommandOutput
  * //             Layout: "GridView",
  * //             Resolution: "HD" || "FHD",
  * //             GridViewConfiguration: { // GridViewConfiguration
- * //               ContentShareLayout: "PresenterOnly" || "Horizontal" || "Vertical", // required
+ * //               ContentShareLayout: "PresenterOnly" || "Horizontal" || "Vertical" || "ActiveSpeakerOnly", // required
  * //               PresenterOnlyConfiguration: { // PresenterOnlyConfiguration
  * //                 PresenterPosition: "TopLeft" || "TopRight" || "BottomLeft" || "BottomRight",
  * //               },
+ * //               ActiveSpeakerOnlyConfiguration: { // ActiveSpeakerOnlyConfiguration
+ * //                 ActiveSpeakerPosition: "TopLeft" || "TopRight" || "BottomLeft" || "BottomRight",
+ * //               },
+ * //               HorizontalLayoutConfiguration: { // HorizontalLayoutConfiguration
+ * //                 TileOrder: "JoinSequence" || "SpeakerSequence",
+ * //                 TilePosition: "Top" || "Bottom",
+ * //                 TileCount: Number("int"),
+ * //                 TileAspectRatio: "STRING_VALUE",
+ * //               },
+ * //               VerticalLayoutConfiguration: { // VerticalLayoutConfiguration
+ * //                 TileOrder: "JoinSequence" || "SpeakerSequence",
+ * //                 TilePosition: "Left" || "Right",
+ * //                 TileCount: Number("int"),
+ * //                 TileAspectRatio: "STRING_VALUE",
+ * //               },
+ * //               VideoAttribute: { // VideoAttribute
+ * //                 CornerRadius: Number("int"),
+ * //                 BorderColor: "Black" || "Blue" || "Red" || "Green" || "White" || "Yellow",
+ * //                 HighlightColor: "Black" || "Blue" || "Red" || "Green" || "White" || "Yellow",
+ * //                 BorderThickness: Number("int"),
+ * //               },
+ * //               CanvasOrientation: "Landscape" || "Portrait",
  * //             },
  * //           },
  * //           SourceConfiguration: { // SourceConfiguration
