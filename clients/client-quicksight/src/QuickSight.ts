@@ -255,6 +255,16 @@ import {
   DescribeDashboardPermissionsCommandOutput,
 } from "./commands/DescribeDashboardPermissionsCommand";
 import {
+  DescribeDashboardSnapshotJobCommand,
+  DescribeDashboardSnapshotJobCommandInput,
+  DescribeDashboardSnapshotJobCommandOutput,
+} from "./commands/DescribeDashboardSnapshotJobCommand";
+import {
+  DescribeDashboardSnapshotJobResultCommand,
+  DescribeDashboardSnapshotJobResultCommandInput,
+  DescribeDashboardSnapshotJobResultCommandOutput,
+} from "./commands/DescribeDashboardSnapshotJobResultCommand";
+import {
   DescribeDataSetCommand,
   DescribeDataSetCommandInput,
   DescribeDataSetCommandOutput,
@@ -589,6 +599,11 @@ import {
   StartAssetBundleImportJobCommandInput,
   StartAssetBundleImportJobCommandOutput,
 } from "./commands/StartAssetBundleImportJobCommand";
+import {
+  StartDashboardSnapshotJobCommand,
+  StartDashboardSnapshotJobCommandInput,
+  StartDashboardSnapshotJobCommandOutput,
+} from "./commands/StartDashboardSnapshotJobCommand";
 import { TagResourceCommand, TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
 import {
   UntagResourceCommand,
@@ -783,6 +798,8 @@ const commands = {
   DescribeDashboardCommand,
   DescribeDashboardDefinitionCommand,
   DescribeDashboardPermissionsCommand,
+  DescribeDashboardSnapshotJobCommand,
+  DescribeDashboardSnapshotJobResultCommand,
   DescribeDataSetCommand,
   DescribeDataSetPermissionsCommand,
   DescribeDataSetRefreshPropertiesCommand,
@@ -854,6 +871,7 @@ const commands = {
   SearchGroupsCommand,
   StartAssetBundleExportJobCommand,
   StartAssetBundleImportJobCommand,
+  StartDashboardSnapshotJobCommand,
   TagResourceCommand,
   UntagResourceCommand,
   UpdateAccountCustomizationCommand,
@@ -1742,6 +1760,40 @@ export interface QuickSight {
     args: DescribeDashboardPermissionsCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: DescribeDashboardPermissionsCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DescribeDashboardSnapshotJobCommand}
+   */
+  describeDashboardSnapshotJob(
+    args: DescribeDashboardSnapshotJobCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DescribeDashboardSnapshotJobCommandOutput>;
+  describeDashboardSnapshotJob(
+    args: DescribeDashboardSnapshotJobCommandInput,
+    cb: (err: any, data?: DescribeDashboardSnapshotJobCommandOutput) => void
+  ): void;
+  describeDashboardSnapshotJob(
+    args: DescribeDashboardSnapshotJobCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DescribeDashboardSnapshotJobCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DescribeDashboardSnapshotJobResultCommand}
+   */
+  describeDashboardSnapshotJobResult(
+    args: DescribeDashboardSnapshotJobResultCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DescribeDashboardSnapshotJobResultCommandOutput>;
+  describeDashboardSnapshotJobResult(
+    args: DescribeDashboardSnapshotJobResultCommandInput,
+    cb: (err: any, data?: DescribeDashboardSnapshotJobResultCommandOutput) => void
+  ): void;
+  describeDashboardSnapshotJobResult(
+    args: DescribeDashboardSnapshotJobResultCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DescribeDashboardSnapshotJobResultCommandOutput) => void
   ): void;
 
   /**
@@ -2829,6 +2881,23 @@ export interface QuickSight {
     args: StartAssetBundleImportJobCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: StartAssetBundleImportJobCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link StartDashboardSnapshotJobCommand}
+   */
+  startDashboardSnapshotJob(
+    args: StartDashboardSnapshotJobCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<StartDashboardSnapshotJobCommandOutput>;
+  startDashboardSnapshotJob(
+    args: StartDashboardSnapshotJobCommandInput,
+    cb: (err: any, data?: StartDashboardSnapshotJobCommandOutput) => void
+  ): void;
+  startDashboardSnapshotJob(
+    args: StartDashboardSnapshotJobCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: StartDashboardSnapshotJobCommandOutput) => void
   ): void;
 
   /**

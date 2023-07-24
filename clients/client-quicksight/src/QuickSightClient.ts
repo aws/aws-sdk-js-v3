@@ -192,6 +192,14 @@ import {
   DescribeDashboardPermissionsCommandInput,
   DescribeDashboardPermissionsCommandOutput,
 } from "./commands/DescribeDashboardPermissionsCommand";
+import {
+  DescribeDashboardSnapshotJobCommandInput,
+  DescribeDashboardSnapshotJobCommandOutput,
+} from "./commands/DescribeDashboardSnapshotJobCommand";
+import {
+  DescribeDashboardSnapshotJobResultCommandInput,
+  DescribeDashboardSnapshotJobResultCommandOutput,
+} from "./commands/DescribeDashboardSnapshotJobResultCommand";
 import { DescribeDataSetCommandInput, DescribeDataSetCommandOutput } from "./commands/DescribeDataSetCommand";
 import {
   DescribeDataSetPermissionsCommandInput,
@@ -365,6 +373,10 @@ import {
   StartAssetBundleImportJobCommandInput,
   StartAssetBundleImportJobCommandOutput,
 } from "./commands/StartAssetBundleImportJobCommand";
+import {
+  StartDashboardSnapshotJobCommandInput,
+  StartDashboardSnapshotJobCommandOutput,
+} from "./commands/StartDashboardSnapshotJobCommand";
 import { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
 import { UntagResourceCommandInput, UntagResourceCommandOutput } from "./commands/UntagResourceCommand";
 import {
@@ -520,6 +532,8 @@ export type ServiceInputTypes =
   | DescribeDashboardCommandInput
   | DescribeDashboardDefinitionCommandInput
   | DescribeDashboardPermissionsCommandInput
+  | DescribeDashboardSnapshotJobCommandInput
+  | DescribeDashboardSnapshotJobResultCommandInput
   | DescribeDataSetCommandInput
   | DescribeDataSetPermissionsCommandInput
   | DescribeDataSetRefreshPropertiesCommandInput
@@ -591,6 +605,7 @@ export type ServiceInputTypes =
   | SearchGroupsCommandInput
   | StartAssetBundleExportJobCommandInput
   | StartAssetBundleImportJobCommandInput
+  | StartDashboardSnapshotJobCommandInput
   | TagResourceCommandInput
   | UntagResourceCommandInput
   | UpdateAccountCustomizationCommandInput
@@ -683,6 +698,8 @@ export type ServiceOutputTypes =
   | DescribeDashboardCommandOutput
   | DescribeDashboardDefinitionCommandOutput
   | DescribeDashboardPermissionsCommandOutput
+  | DescribeDashboardSnapshotJobCommandOutput
+  | DescribeDashboardSnapshotJobResultCommandOutput
   | DescribeDataSetCommandOutput
   | DescribeDataSetPermissionsCommandOutput
   | DescribeDataSetRefreshPropertiesCommandOutput
@@ -754,6 +771,7 @@ export type ServiceOutputTypes =
   | SearchGroupsCommandOutput
   | StartAssetBundleExportJobCommandOutput
   | StartAssetBundleImportJobCommandOutput
+  | StartDashboardSnapshotJobCommandOutput
   | TagResourceCommandOutput
   | UntagResourceCommandOutput
   | UpdateAccountCustomizationCommandOutput

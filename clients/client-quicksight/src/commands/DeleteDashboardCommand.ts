@@ -13,7 +13,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@smithy/types";
 
-import { DeleteDashboardRequest, DeleteDashboardResponse } from "../models/models_2";
+import { DeleteDashboardRequest, DeleteDashboardResponse } from "../models/models_3";
 import { de_DeleteDashboardCommand, se_DeleteDashboardCommand } from "../protocols/Aws_restJson1";
 import { QuickSightClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../QuickSightClient";
 

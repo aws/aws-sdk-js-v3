@@ -13,7 +13,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@smithy/types";
 
-import { UpdateIpRestrictionRequest, UpdateIpRestrictionResponse } from "../models/models_3";
+import { UpdateIpRestrictionRequest, UpdateIpRestrictionResponse } from "../models/models_4";
 import { de_UpdateIpRestrictionCommand, se_UpdateIpRestrictionCommand } from "../protocols/Aws_restJson1";
 import { QuickSightClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../QuickSightClient";
 

@@ -200,6 +200,42 @@ export interface AdHocFilteringOption {
  * @public
  * @enum
  */
+export const SimpleAttributeAggregationFunction = {
+  UNIQUE_VALUE: "UNIQUE_VALUE",
+} as const;
+
+/**
+ * @public
+ */
+export type SimpleAttributeAggregationFunction =
+  (typeof SimpleAttributeAggregationFunction)[keyof typeof SimpleAttributeAggregationFunction];
+
+/**
+ * @public
+ * <p>Aggregation for attributes.</p>
+ */
+export interface AttributeAggregationFunction {
+  /**
+   * <p>The built-in aggregation functions for attributes.</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>UNIQUE_VALUE</code>: Returns the unique value for a field, aggregated by the dimension fields.</p>
+   *             </li>
+   *          </ul>
+   */
+  SimpleAttributeAggregation?: SimpleAttributeAggregationFunction | string;
+
+  /**
+   * <p>Used by the <code>UNIQUE_VALUE</code> aggregation function. If there are multiple values for the field used by the aggregation, the value for this property will be returned instead. Defaults to '*'.</p>
+   */
+  ValueForMultipleValues?: string;
+}
+
+/**
+ * @public
+ * @enum
+ */
 export const CategoricalAggregationFunction = {
   COUNT: "COUNT",
   DISTINCT_COUNT: "DISTINCT_COUNT",
@@ -372,6 +408,11 @@ export interface AggregationFunction {
    *          </ul>
    */
   DateAggregationFunction?: DateAggregationFunction | string;
+
+  /**
+   * <p>Aggregation for attributes.</p>
+   */
+  AttributeAggregationFunction?: AttributeAggregationFunction;
 }
 
 /**
@@ -2719,6 +2760,22 @@ export interface ParameterDeclaration {
 
 /**
  * @public
+ * <p>A control to display info icons for filters and parameters.</p>
+ */
+export interface SheetControlInfoIconLabelOptions {
+  /**
+   * <p>The visibility configuration of info icon label options.</p>
+   */
+  Visibility?: Visibility | string;
+
+  /**
+   * <p> The text content of info icon.</p>
+   */
+  InfoIconText?: string;
+}
+
+/**
+ * @public
  * @enum
  */
 export const FontDecoration = {
@@ -2864,6 +2921,11 @@ export interface DateTimePickerControlDisplayOptions {
    * <p>Customize how dates are formatted in controls.</p>
    */
   DateTimeFormat?: string;
+
+  /**
+   * <p>The configuration of info icon label options.</p>
+   */
+  InfoIconLabelOptions?: SheetControlInfoIconLabelOptions;
 }
 
 /**
@@ -2975,6 +3037,11 @@ export interface DropDownControlDisplayOptions {
    * <p>The options to configure the title visibility, name, and font size.</p>
    */
   TitleOptions?: LabelOptions;
+
+  /**
+   * <p>The configuration of info icon label options.</p>
+   */
+  InfoIconLabelOptions?: SheetControlInfoIconLabelOptions;
 }
 
 /**
@@ -3083,6 +3150,11 @@ export interface ListControlDisplayOptions {
    * <p>The options to configure the title visibility, name, and font size.</p>
    */
   TitleOptions?: LabelOptions;
+
+  /**
+   * <p>The configuration of info icon label options.</p>
+   */
+  InfoIconLabelOptions?: SheetControlInfoIconLabelOptions;
 }
 
 /**
@@ -3150,6 +3222,11 @@ export interface RelativeDateTimeControlDisplayOptions {
    * <p>Customize how dates are formatted in controls.</p>
    */
   DateTimeFormat?: string;
+
+  /**
+   * <p>The configuration of info icon label options.</p>
+   */
+  InfoIconLabelOptions?: SheetControlInfoIconLabelOptions;
 }
 
 /**
@@ -3187,6 +3264,11 @@ export interface SliderControlDisplayOptions {
    * <p>The options to configure the title visibility, name, and font size.</p>
    */
   TitleOptions?: LabelOptions;
+
+  /**
+   * <p>The configuration of info icon label options.</p>
+   */
+  InfoIconLabelOptions?: SheetControlInfoIconLabelOptions;
 }
 
 /**
@@ -3284,6 +3366,11 @@ export interface TextAreaControlDisplayOptions {
    * <p>The configuration of the placeholder options in a text area control.</p>
    */
   PlaceholderOptions?: TextControlPlaceholderOptions;
+
+  /**
+   * <p>The configuration of info icon label options.</p>
+   */
+  InfoIconLabelOptions?: SheetControlInfoIconLabelOptions;
 }
 
 /**
@@ -3331,6 +3418,11 @@ export interface TextFieldControlDisplayOptions {
    * <p>The configuration of the placeholder options in a text field control.</p>
    */
   PlaceholderOptions?: TextControlPlaceholderOptions;
+
+  /**
+   * <p>The configuration of info icon label options.</p>
+   */
+  InfoIconLabelOptions?: SheetControlInfoIconLabelOptions;
 }
 
 /**
@@ -6707,50 +6799,6 @@ export interface BoxPlotOptions {
 }
 
 /**
- * @public
- * <p>The aggregated field well for a box plot.</p>
- */
-export interface BoxPlotAggregatedFieldWells {
-  /**
-   * <p>The group by field well of a box plot chart. Values are grouped based on group by fields.</p>
-   */
-  GroupBy?: DimensionField[];
-
-  /**
-   * <p>The value field well of a box plot chart. Values are aggregated based on group by fields.</p>
-   */
-  Values?: MeasureField[];
-}
-
-/**
- * @public
- * <p>The field wells of a <code>BoxPlotVisual</code>.</p>
- *          <p>This is a union type structure. For this structure to be valid, only one of the attributes can be defined.</p>
- */
-export interface BoxPlotFieldWells {
-  /**
-   * <p>The aggregated field wells of a box plot.</p>
-   */
-  BoxPlotAggregatedFieldWells?: BoxPlotAggregatedFieldWells;
-}
-
-/**
- * @public
- * <p>The pagination configuration for a table visual or boxplot.</p>
- */
-export interface PaginationConfiguration {
-  /**
-   * <p>Indicates how many items render in one page.</p>
-   */
-  PageSize: number | undefined;
-
-  /**
-   * <p>Indicates the page number.</p>
-   */
-  PageNumber: number | undefined;
-}
-
-/**
  * @internal
  */
 export const CalculatedFieldFilterSensitiveLog = (obj: CalculatedField): any => ({
@@ -7450,20 +7498,5 @@ export const BarChartConfigurationFilterSensitiveLog = (obj: BarChartConfigurati
  * @internal
  */
 export const BarChartVisualFilterSensitiveLog = (obj: BarChartVisual): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const BoxPlotAggregatedFieldWellsFilterSensitiveLog = (obj: BoxPlotAggregatedFieldWells): any => ({
-  ...obj,
-  ...(obj.Values && { Values: obj.Values.map((item) => MeasureFieldFilterSensitiveLog(item)) }),
-});
-
-/**
- * @internal
- */
-export const BoxPlotFieldWellsFilterSensitiveLog = (obj: BoxPlotFieldWells): any => ({
   ...obj,
 });

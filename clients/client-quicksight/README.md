@@ -658,6 +658,22 @@ DescribeDashboardPermissions
 </details>
 <details>
 <summary>
+DescribeDashboardSnapshotJob
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-quicksight/classes/describedashboardsnapshotjobcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-quicksight/interfaces/describedashboardsnapshotjobcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-quicksight/interfaces/describedashboardsnapshotjobcommandoutput.html)
+
+</details>
+<details>
+<summary>
+DescribeDashboardSnapshotJobResult
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-quicksight/classes/describedashboardsnapshotjobresultcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-quicksight/interfaces/describedashboardsnapshotjobresultcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-quicksight/interfaces/describedashboardsnapshotjobresultcommandoutput.html)
+
+</details>
+<details>
+<summary>
 DescribeDataSet
 </summary>
 
@@ -1222,6 +1238,14 @@ StartAssetBundleImportJob
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-quicksight/classes/startassetbundleimportjobcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-quicksight/interfaces/startassetbundleimportjobcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-quicksight/interfaces/startassetbundleimportjobcommandoutput.html)
+
+</details>
+<details>
+<summary>
+StartDashboardSnapshotJob
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-quicksight/classes/startdashboardsnapshotjobcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-quicksight/interfaces/startdashboardsnapshotjobcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-quicksight/interfaces/startdashboardsnapshotjobcommandoutput.html)
 
 </details>
 <details>

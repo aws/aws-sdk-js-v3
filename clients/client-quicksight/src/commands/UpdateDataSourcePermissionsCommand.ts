@@ -13,7 +13,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@smithy/types";
 
-import { UpdateDataSourcePermissionsRequest, UpdateDataSourcePermissionsResponse } from "../models/models_3";
+import { UpdateDataSourcePermissionsRequest, UpdateDataSourcePermissionsResponse } from "../models/models_4";
 import {
   de_UpdateDataSourcePermissionsCommand,
   se_UpdateDataSourcePermissionsCommand,

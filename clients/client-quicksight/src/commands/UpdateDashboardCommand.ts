@@ -178,6 +178,10 @@ export interface UpdateDashboardCommandOutput extends UpdateDashboardResponse, _
  *                   CustomLabel: "STRING_VALUE",
  *                 },
  *                 DateTimeFormat: "STRING_VALUE",
+ *                 InfoIconLabelOptions: { // SheetControlInfoIconLabelOptions
+ *                   Visibility: "HIDDEN" || "VISIBLE",
+ *                   InfoIconText: "STRING_VALUE",
+ *                 },
  *               },
  *             },
  *             List: { // ParameterListControl
@@ -205,6 +209,10 @@ export interface UpdateDashboardCommandOutput extends UpdateDashboardResponse, _
  *                     FontStyle: "NORMAL" || "ITALIC",
  *                   },
  *                   CustomLabel: "STRING_VALUE",
+ *                 },
+ *                 InfoIconLabelOptions: {
+ *                   Visibility: "HIDDEN" || "VISIBLE",
+ *                   InfoIconText: "STRING_VALUE",
  *                 },
  *               },
  *               Type: "MULTI_SELECT" || "SINGLE_SELECT",
@@ -252,6 +260,10 @@ export interface UpdateDashboardCommandOutput extends UpdateDashboardResponse, _
  *                   },
  *                   CustomLabel: "STRING_VALUE",
  *                 },
+ *                 InfoIconLabelOptions: {
+ *                   Visibility: "HIDDEN" || "VISIBLE",
+ *                   InfoIconText: "STRING_VALUE",
+ *                 },
  *               },
  *               Type: "MULTI_SELECT" || "SINGLE_SELECT",
  *               SelectableValues: {
@@ -298,6 +310,10 @@ export interface UpdateDashboardCommandOutput extends UpdateDashboardResponse, _
  *                 PlaceholderOptions: { // TextControlPlaceholderOptions
  *                   Visibility: "HIDDEN" || "VISIBLE",
  *                 },
+ *                 InfoIconLabelOptions: {
+ *                   Visibility: "HIDDEN" || "VISIBLE",
+ *                   InfoIconText: "STRING_VALUE",
+ *                 },
  *               },
  *             },
  *             TextArea: { // ParameterTextAreaControl
@@ -324,6 +340,10 @@ export interface UpdateDashboardCommandOutput extends UpdateDashboardResponse, _
  *                 PlaceholderOptions: {
  *                   Visibility: "HIDDEN" || "VISIBLE",
  *                 },
+ *                 InfoIconLabelOptions: {
+ *                   Visibility: "HIDDEN" || "VISIBLE",
+ *                   InfoIconText: "STRING_VALUE",
+ *                 },
  *               },
  *             },
  *             Slider: { // ParameterSliderControl
@@ -332,6 +352,7 @@ export interface UpdateDashboardCommandOutput extends UpdateDashboardResponse, _
  *               SourceParameterName: "STRING_VALUE", // required
  *               DisplayOptions: { // SliderControlDisplayOptions
  *                 TitleOptions: "<LabelOptions>",
+ *                 InfoIconLabelOptions: "<SheetControlInfoIconLabelOptions>",
  *               },
  *               MaximumValue: Number("double"), // required
  *               MinimumValue: Number("double"), // required
@@ -348,6 +369,7 @@ export interface UpdateDashboardCommandOutput extends UpdateDashboardResponse, _
  *               DisplayOptions: {
  *                 TitleOptions: "<LabelOptions>",
  *                 DateTimeFormat: "STRING_VALUE",
+ *                 InfoIconLabelOptions: "<SheetControlInfoIconLabelOptions>",
  *               },
  *               Type: "SINGLE_VALUED" || "DATE_RANGE",
  *             },
@@ -363,6 +385,7 @@ export interface UpdateDashboardCommandOutput extends UpdateDashboardResponse, _
  *                   Visibility: "HIDDEN" || "VISIBLE",
  *                 },
  *                 TitleOptions: "<LabelOptions>",
+ *                 InfoIconLabelOptions: "<SheetControlInfoIconLabelOptions>",
  *               },
  *               Type: "MULTI_SELECT" || "SINGLE_SELECT",
  *               SelectableValues: { // FilterSelectableValues
@@ -391,6 +414,7 @@ export interface UpdateDashboardCommandOutput extends UpdateDashboardResponse, _
  *                   Visibility: "HIDDEN" || "VISIBLE",
  *                 },
  *                 TitleOptions: "<LabelOptions>",
+ *                 InfoIconLabelOptions: "<SheetControlInfoIconLabelOptions>",
  *               },
  *               Type: "MULTI_SELECT" || "SINGLE_SELECT",
  *               SelectableValues: {
@@ -416,6 +440,7 @@ export interface UpdateDashboardCommandOutput extends UpdateDashboardResponse, _
  *                 PlaceholderOptions: {
  *                   Visibility: "HIDDEN" || "VISIBLE",
  *                 },
+ *                 InfoIconLabelOptions: "<SheetControlInfoIconLabelOptions>",
  *               },
  *             },
  *             TextArea: { // FilterTextAreaControl
@@ -428,6 +453,7 @@ export interface UpdateDashboardCommandOutput extends UpdateDashboardResponse, _
  *                 PlaceholderOptions: {
  *                   Visibility: "HIDDEN" || "VISIBLE",
  *                 },
+ *                 InfoIconLabelOptions: "<SheetControlInfoIconLabelOptions>",
  *               },
  *             },
  *             Slider: { // FilterSliderControl
@@ -436,6 +462,7 @@ export interface UpdateDashboardCommandOutput extends UpdateDashboardResponse, _
  *               SourceFilterId: "STRING_VALUE", // required
  *               DisplayOptions: {
  *                 TitleOptions: "<LabelOptions>",
+ *                 InfoIconLabelOptions: "<SheetControlInfoIconLabelOptions>",
  *               },
  *               Type: "SINGLE_POINT" || "RANGE",
  *               MaximumValue: Number("double"), // required
@@ -449,6 +476,7 @@ export interface UpdateDashboardCommandOutput extends UpdateDashboardResponse, _
  *               DisplayOptions: { // RelativeDateTimeControlDisplayOptions
  *                 TitleOptions: "<LabelOptions>",
  *                 DateTimeFormat: "STRING_VALUE",
+ *                 InfoIconLabelOptions: "<SheetControlInfoIconLabelOptions>",
  *               },
  *             },
  *           },
@@ -789,6 +817,10 @@ export interface UpdateDashboardCommandOutput extends UpdateDashboardResponse, _
  *                           },
  *                           CategoricalAggregationFunction: "COUNT" || "DISTINCT_COUNT",
  *                           DateAggregationFunction: "COUNT" || "DISTINCT_COUNT" || "MIN" || "MAX",
+ *                           AttributeAggregationFunction: { // AttributeAggregationFunction
+ *                             SimpleAttributeAggregation: "UNIQUE_VALUE",
+ *                             ValueForMultipleValues: "STRING_VALUE",
+ *                           },
  *                         },
  *                       },
  *                     },
@@ -1249,6 +1281,10 @@ export interface UpdateDashboardCommandOutput extends UpdateDashboardResponse, _
  *                             },
  *                             CategoricalAggregationFunction: "COUNT" || "DISTINCT_COUNT",
  *                             DateAggregationFunction: "COUNT" || "DISTINCT_COUNT" || "MIN" || "MAX",
+ *                             AttributeAggregationFunction: {
+ *                               SimpleAttributeAggregation: "UNIQUE_VALUE",
+ *                               ValueForMultipleValues: "STRING_VALUE",
+ *                             },
  *                           },
  *                         },
  *                         DataPath: { // DataPathSort
@@ -1640,6 +1676,10 @@ export interface UpdateDashboardCommandOutput extends UpdateDashboardResponse, _
  *                           NumericalAggregationFunction: "<NumericalAggregationFunction>",
  *                           CategoricalAggregationFunction: "COUNT" || "DISTINCT_COUNT",
  *                           DateAggregationFunction: "COUNT" || "DISTINCT_COUNT" || "MIN" || "MAX",
+ *                           AttributeAggregationFunction: {
+ *                             SimpleAttributeAggregation: "UNIQUE_VALUE",
+ *                             ValueForMultipleValues: "STRING_VALUE",
+ *                           },
  *                         },
  *                       },
  *                     },
@@ -1661,6 +1701,10 @@ export interface UpdateDashboardCommandOutput extends UpdateDashboardResponse, _
  *                           NumericalAggregationFunction: "<NumericalAggregationFunction>",
  *                           CategoricalAggregationFunction: "COUNT" || "DISTINCT_COUNT",
  *                           DateAggregationFunction: "COUNT" || "DISTINCT_COUNT" || "MIN" || "MAX",
+ *                           AttributeAggregationFunction: {
+ *                             SimpleAttributeAggregation: "UNIQUE_VALUE",
+ *                             ValueForMultipleValues: "STRING_VALUE",
+ *                           },
  *                         },
  *                       },
  *                     },
@@ -1682,6 +1726,10 @@ export interface UpdateDashboardCommandOutput extends UpdateDashboardResponse, _
  *                           NumericalAggregationFunction: "<NumericalAggregationFunction>",
  *                           CategoricalAggregationFunction: "COUNT" || "DISTINCT_COUNT",
  *                           DateAggregationFunction: "COUNT" || "DISTINCT_COUNT" || "MIN" || "MAX",
+ *                           AttributeAggregationFunction: {
+ *                             SimpleAttributeAggregation: "UNIQUE_VALUE",
+ *                             ValueForMultipleValues: "STRING_VALUE",
+ *                           },
  *                         },
  *                       },
  *                     },

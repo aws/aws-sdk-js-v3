@@ -7,7 +7,6 @@ import {
   AxisDisplayOptions,
   BarChartVisual,
   BarsArrangement,
-  BoxPlotFieldWells,
   BoxPlotOptions,
   CalculatedField,
   CalculatedFieldFilterSensitiveLog,
@@ -40,7 +39,6 @@ import {
   MeasureFieldFilterSensitiveLog,
   NumberDisplayFormatConfiguration,
   NumberDisplayFormatConfigurationFilterSensitiveLog,
-  PaginationConfiguration,
   ParameterControl,
   ParameterDeclaration,
   ParameterDeclarationFilterSensitiveLog,
@@ -65,6 +63,50 @@ import {
   VisualTitleLabelOptions,
   WidgetStatus,
 } from "./models_0";
+
+/**
+ * @public
+ * <p>The aggregated field well for a box plot.</p>
+ */
+export interface BoxPlotAggregatedFieldWells {
+  /**
+   * <p>The group by field well of a box plot chart. Values are grouped based on group by fields.</p>
+   */
+  GroupBy?: DimensionField[];
+
+  /**
+   * <p>The value field well of a box plot chart. Values are aggregated based on group by fields.</p>
+   */
+  Values?: MeasureField[];
+}
+
+/**
+ * @public
+ * <p>The field wells of a <code>BoxPlotVisual</code>.</p>
+ *          <p>This is a union type structure. For this structure to be valid, only one of the attributes can be defined.</p>
+ */
+export interface BoxPlotFieldWells {
+  /**
+   * <p>The aggregated field wells of a box plot.</p>
+   */
+  BoxPlotAggregatedFieldWells?: BoxPlotAggregatedFieldWells;
+}
+
+/**
+ * @public
+ * <p>The pagination configuration for a table visual or boxplot.</p>
+ */
+export interface PaginationConfiguration {
+  /**
+   * <p>Indicates how many items render in one page.</p>
+   */
+  PageSize: number | undefined;
+
+  /**
+   * <p>Indicates the page number.</p>
+   */
+  PageNumber: number | undefined;
+}
 
 /**
  * @public
@@ -6575,6 +6617,182 @@ export interface AnonymousUserEmbeddingExperienceConfiguration {
  * @public
  * @enum
  */
+export const SnapshotFileFormatType = {
+  CSV: "CSV",
+  PDF: "PDF",
+} as const;
+
+/**
+ * @public
+ */
+export type SnapshotFileFormatType = (typeof SnapshotFileFormatType)[keyof typeof SnapshotFileFormatType];
+
+/**
+ * @public
+ * @enum
+ */
+export const SnapshotFileSheetSelectionScope = {
+  ALL_VISUALS: "ALL_VISUALS",
+  SELECTED_VISUALS: "SELECTED_VISUALS",
+} as const;
+
+/**
+ * @public
+ */
+export type SnapshotFileSheetSelectionScope =
+  (typeof SnapshotFileSheetSelectionScope)[keyof typeof SnapshotFileSheetSelectionScope];
+
+/**
+ * @public
+ * <p>A structure that contains information that identifies the snapshot that needs to be generated.</p>
+ */
+export interface SnapshotFileSheetSelection {
+  /**
+   * <p>The sheet ID of the dashboard to generate the snapshot artifact from. This value is required for CSV or PDF format types.</p>
+   */
+  SheetId: string | undefined;
+
+  /**
+   * <p>The selection scope of the visuals on a sheet of a dashboard that you are generating a snapthot of. You can choose one of the following options.</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>ALL_VISUALS</code> - Selects all visuals that are on the sheet. This value is required if the snapshot is a PDF.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>SELECTED_VISUALS</code> - Select the visual that you want to add to the snapshot. This value is required if the snapshot is a CSV.</p>
+   *             </li>
+   *          </ul>
+   */
+  SelectionScope: SnapshotFileSheetSelectionScope | string | undefined;
+
+  /**
+   * <p>
+   *             A structure that lists the IDs of the visuals in the selected sheet. Supported visual types are table, pivot table visuals. This value is required if you are generating a CSV. This value supports a maximum of 1 visual ID.
+   *         </p>
+   */
+  VisualIds?: string[];
+}
+
+/**
+ * @public
+ * <p>A structure that contains the information for the snapshot that you want to generate. This information is provided by you when you start a new snapshot job.</p>
+ */
+export interface SnapshotFile {
+  /**
+   * <p>A list of <code>SnapshotFileSheetSelection</code> objects that contain information on the dashboard sheet that is exported. These objects provide information about the snapshot artifacts that are generated during the job. This structure can hold a maximum of 5 CSV configurations or 1 configuration for PDF.</p>
+   */
+  SheetSelections: SnapshotFileSheetSelection[] | undefined;
+
+  /**
+   * <p>The format of the snapshot file to be generated. You can choose between <code>CSV</code> and <code>PDF</code>.</p>
+   */
+  FormatType: SnapshotFileFormatType | string | undefined;
+}
+
+/**
+ * @public
+ * <p>Information on the error that caused the snapshot job to fail.</p>
+ */
+export interface SnapshotJobResultErrorInfo {
+  /**
+   * <p>The error message.</p>
+   */
+  ErrorMessage?: string;
+
+  /**
+   * <p>The error type.</p>
+   */
+  ErrorType?: string;
+}
+
+/**
+ * @public
+ * <p>An optional structure that contains the Amazon S3 bucket configuration that the generated snapshots are stored in. If you don't provide this information, generated snapshots are stored in the default Amazon QuickSight bucket.</p>
+ */
+export interface S3BucketConfiguration {
+  /**
+   * <p>The name of an existing Amazon S3 bucket where the generated snapshot artifacts are sent.</p>
+   */
+  BucketName: string | undefined;
+
+  /**
+   * <p>The prefix of the Amazon S3 bucket that the generated snapshots are stored in.</p>
+   */
+  BucketPrefix: string | undefined;
+
+  /**
+   * <p>The region that the Amazon S3 bucket is located in. The bucket must be located in the same region that the <code>StartDashboardSnapshotJob</code> API call is made.</p>
+   */
+  BucketRegion: string | undefined;
+}
+
+/**
+ * @public
+ * <p>A structure that describes the Amazon S3 settings to use to save the generated dashboard snapshot.</p>
+ */
+export interface SnapshotS3DestinationConfiguration {
+  /**
+   * <p>A structure that contains details about the Amazon S3 bucket that the generated dashboard snapshot is saved in.</p>
+   */
+  BucketConfiguration?: S3BucketConfiguration;
+}
+
+/**
+ * @public
+ * <p>The Amazon S3 result from the snapshot job. The result includes the <code>DestinationConfiguration</code> and the Amazon S3 Uri. If an error occured during the job, the result returns information on the error.</p>
+ */
+export interface SnapshotJobS3Result {
+  /**
+   * <p>A list of Amazon S3 bucket configurations that are provided when you make a <code>StartDashboardSnapshotJob</code> API call.
+   *         </p>
+   */
+  S3DestinationConfiguration?: SnapshotS3DestinationConfiguration;
+
+  /**
+   * <p>The Amazon S3 Uri.</p>
+   */
+  S3Uri?: string;
+
+  /**
+   * <p>An array of error records that describe any failures that occur while the dashboard snapshot job runs.</p>
+   */
+  ErrorInfo?: SnapshotJobResultErrorInfo[];
+}
+
+/**
+ * @public
+ * <p>A structure that contains information on the generated snapshot file groups.</p>
+ */
+export interface SnapshotJobResultFileGroup {
+  /**
+   * <p> A list of <code>SnapshotFile</code> objects.</p>
+   */
+  Files?: SnapshotFile[];
+
+  /**
+   * <p> A list of <code>SnapshotJobS3Result</code> objects.</p>
+   */
+  S3Results?: SnapshotJobS3Result[];
+}
+
+/**
+ * @public
+ * <p>A structure that contains the file groups that are requested for the artifact generation in a <code>StartDashboardSnapshotJob</code> API call.
+ *         </p>
+ */
+export interface AnonymousUserSnapshotJobResult {
+  /**
+   * <p>A list of <code>SnapshotJobResultFileGroup</code> objects that contain information on the files that are requested during a <code>StartDashboardSnapshotJob</code> API call. If the job succeeds, these objects contain the location where the snapshot artifacts are stored. If the job fails, the objects contain information about the error that caused the job to fail.</p>
+   */
+  FileGroups?: SnapshotJobResultFileGroup[];
+}
+
+/**
+ * @public
+ * @enum
+ */
 export const AssetBundleExportJobAnalysisPropertyToOverride = {
   NAME: "Name",
 } as const;
@@ -6749,262 +6967,19 @@ export interface AssetBundleExportJobResourceIdOverrideConfiguration {
 }
 
 /**
- * @public
- * @enum
+ * @internal
  */
-export const AssetBundleExportJobThemePropertyToOverride = {
-  NAME: "Name",
-} as const;
+export const BoxPlotAggregatedFieldWellsFilterSensitiveLog = (obj: BoxPlotAggregatedFieldWells): any => ({
+  ...obj,
+  ...(obj.Values && { Values: obj.Values.map((item) => MeasureFieldFilterSensitiveLog(item)) }),
+});
 
 /**
- * @public
+ * @internal
  */
-export type AssetBundleExportJobThemePropertyToOverride =
-  (typeof AssetBundleExportJobThemePropertyToOverride)[keyof typeof AssetBundleExportJobThemePropertyToOverride];
-
-/**
- * @public
- * <p>Controls how a specific <code>Theme</code> resource is parameterized in the returned CloudFormation template.</p>
- */
-export interface AssetBundleExportJobThemeOverrideProperties {
-  /**
-   * <p>The ARN of the specific <code>Theme</code> resource whose override properties are configured in this structure.</p>
-   */
-  Arn?: string;
-
-  /**
-   * <p>A list of <code>Theme</code> resource properties to generate variables for in the returned CloudFormation template.</p>
-   */
-  Properties: (AssetBundleExportJobThemePropertyToOverride | string)[] | undefined;
-}
-
-/**
- * @public
- * @enum
- */
-export const AssetBundleExportJobVPCConnectionPropertyToOverride = {
-  DNS_RESOLVERS: "DnsResolvers",
-  NAME: "Name",
-  ROLE_ARN: "RoleArn",
-} as const;
-
-/**
- * @public
- */
-export type AssetBundleExportJobVPCConnectionPropertyToOverride =
-  (typeof AssetBundleExportJobVPCConnectionPropertyToOverride)[keyof typeof AssetBundleExportJobVPCConnectionPropertyToOverride];
-
-/**
- * @public
- * <p>Controls how a specific <code>VPCConnection</code> resource is parameterized in the outputted CloudFormation template.</p>
- */
-export interface AssetBundleExportJobVPCConnectionOverrideProperties {
-  /**
-   * <p>The ARN of the specific <code>VPCConnection</code> resource whose override properties are configured in this structure.</p>
-   */
-  Arn?: string;
-
-  /**
-   * <p>A list of <code>VPCConnection</code> resource properties to generate variables for in the returned CloudFormation template.</p>
-   */
-  Properties: (AssetBundleExportJobVPCConnectionPropertyToOverride | string)[] | undefined;
-}
-
-/**
- * @public
- * <p>An optional collection of CloudFormation property configurations that control how the export job is generated.</p>
- */
-export interface AssetBundleCloudFormationOverridePropertyConfiguration {
-  /**
-   * <p>An optional list of structures that control how resource IDs are parameterized in the returned CloudFormation template.</p>
-   */
-  ResourceIdOverrideConfiguration?: AssetBundleExportJobResourceIdOverrideConfiguration;
-
-  /**
-   * <p>An optional list of structures that control how <code>VPCConnection</code> resources are parameterized in the returned CloudFormation template.</p>
-   */
-  VPCConnections?: AssetBundleExportJobVPCConnectionOverrideProperties[];
-
-  /**
-   * <p>An optional list of structures that control how <code>RefreshSchedule</code> resources are parameterized in the returned CloudFormation template.</p>
-   */
-  RefreshSchedules?: AssetBundleExportJobRefreshScheduleOverrideProperties[];
-
-  /**
-   * <p>An optional list of structures that control how <code>DataSource</code> resources are parameterized in the returned CloudFormation template.</p>
-   */
-  DataSources?: AssetBundleExportJobDataSourceOverrideProperties[];
-
-  /**
-   * <p>An optional list of structures that control how <code>DataSet</code> resources are parameterized in the returned CloudFormation template.</p>
-   */
-  DataSets?: AssetBundleExportJobDataSetOverrideProperties[];
-
-  /**
-   * <p>An optional list of structures that control how <code>Theme</code> resources are parameterized in the returned CloudFormation template.</p>
-   */
-  Themes?: AssetBundleExportJobThemeOverrideProperties[];
-
-  /**
-   * <p>An optional list of structures that control how <code>Analysis</code> resources are parameterized in the returned CloudFormation template.</p>
-   */
-  Analyses?: AssetBundleExportJobAnalysisOverrideProperties[];
-
-  /**
-   * <p>An optional list of structures that control how <code>Dashboard</code> resources are parameterized in the returned CloudFormation template.</p>
-   */
-  Dashboards?: AssetBundleExportJobDashboardOverrideProperties[];
-}
-
-/**
- * @public
- * @enum
- */
-export const AssetBundleExportFormat = {
-  CLOUDFORMATION_JSON: "CLOUDFORMATION_JSON",
-  QUICKSIGHT_JSON: "QUICKSIGHT_JSON",
-} as const;
-
-/**
- * @public
- */
-export type AssetBundleExportFormat = (typeof AssetBundleExportFormat)[keyof typeof AssetBundleExportFormat];
-
-/**
- * @public
- * <p>Describes an error that occurred during an Asset Bundle export job.</p>
- */
-export interface AssetBundleExportJobError {
-  /**
-   * <p>The ARN of the resource whose processing caused an error.</p>
-   */
-  Arn?: string;
-
-  /**
-   * <p>The specific error type of the error that occurred.</p>
-   */
-  Type?: string;
-
-  /**
-   * <p>A description of the error.</p>
-   */
-  Message?: string;
-}
-
-/**
- * @public
- * @enum
- */
-export const AssetBundleExportJobStatus = {
-  FAILED: "FAILED",
-  IN_PROGRESS: "IN_PROGRESS",
-  QUEUED_FOR_IMMEDIATE_EXECUTION: "QUEUED_FOR_IMMEDIATE_EXECUTION",
-  SUCCESSFUL: "SUCCESSFUL",
-} as const;
-
-/**
- * @public
- */
-export type AssetBundleExportJobStatus = (typeof AssetBundleExportJobStatus)[keyof typeof AssetBundleExportJobStatus];
-
-/**
- * @public
- * <p>A summary of the export job that includes details of the job's configuration and its current status.</p>
- */
-export interface AssetBundleExportJobSummary {
-  /**
-   * <p>The current status of the export job.</p>
-   */
-  JobStatus?: AssetBundleExportJobStatus | string;
-
-  /**
-   * <p>The ARN of the export job.</p>
-   */
-  Arn?: string;
-
-  /**
-   * <p>The time that the export job was created.</p>
-   */
-  CreatedTime?: Date;
-
-  /**
-   * <p>The ID of the export job.</p>
-   */
-  AssetBundleExportJobId?: string;
-
-  /**
-   * <p>The flag that determines the inclusion of resource dependencies in the returned asset bundle.</p>
-   */
-  IncludeAllDependencies?: boolean;
-
-  /**
-   * <p>The format for the export job.</p>
-   */
-  ExportFormat?: AssetBundleExportFormat | string;
-}
-
-/**
- * @public
- * @enum
- */
-export const AssetBundleImportFailureAction = {
-  DO_NOTHING: "DO_NOTHING",
-  ROLLBACK: "ROLLBACK",
-} as const;
-
-/**
- * @public
- */
-export type AssetBundleImportFailureAction =
-  (typeof AssetBundleImportFailureAction)[keyof typeof AssetBundleImportFailureAction];
-
-/**
- * @public
- * <p>The override parameters for a single analysis that is being imported.</p>
- */
-export interface AssetBundleImportJobAnalysisOverrideParameters {
-  /**
-   * <p>The ID of the analysis that you ant to apply overrides to.</p>
-   */
-  AnalysisId: string | undefined;
-
-  /**
-   * <p>A new name for the analysis.</p>
-   */
-  Name?: string;
-}
-
-/**
- * @public
- * <p>The override parameters for a single dashboard that is being imported.</p>
- */
-export interface AssetBundleImportJobDashboardOverrideParameters {
-  /**
-   * <p>The ID of the dashboard that you want to apply overrides to.</p>
-   */
-  DashboardId: string | undefined;
-
-  /**
-   * <p>A new name for the dashboard.</p>
-   */
-  Name?: string;
-}
-
-/**
- * @public
- * <p>The override parameters for a single dataset that is being imported.</p>
- */
-export interface AssetBundleImportJobDataSetOverrideParameters {
-  /**
-   * <p>The ID of the dataset to apply overrides to.</p>
-   */
-  DataSetId: string | undefined;
-
-  /**
-   * <p>A new name for the dataset.</p>
-   */
-  Name?: string;
-}
+export const BoxPlotFieldWellsFilterSensitiveLog = (obj: BoxPlotFieldWells): any => ({
+  ...obj,
+});
 
 /**
  * @internal
@@ -8188,4 +8163,27 @@ export const AnalysisDefinitionFilterSensitiveLog = (obj: AnalysisDefinition): a
   ...(obj.ColumnConfigurations && {
     ColumnConfigurations: obj.ColumnConfigurations.map((item) => ColumnConfigurationFilterSensitiveLog(item)),
   }),
+});
+
+/**
+ * @internal
+ */
+export const SnapshotJobS3ResultFilterSensitiveLog = (obj: SnapshotJobS3Result): any => ({
+  ...obj,
+  ...(obj.S3Uri && { S3Uri: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const SnapshotJobResultFileGroupFilterSensitiveLog = (obj: SnapshotJobResultFileGroup): any => ({
+  ...obj,
+  ...(obj.S3Results && { S3Results: obj.S3Results.map((item) => SnapshotJobS3ResultFilterSensitiveLog(item)) }),
+});
+
+/**
+ * @internal
+ */
+export const AnonymousUserSnapshotJobResultFilterSensitiveLog = (obj: AnonymousUserSnapshotJobResult): any => ({
+  ...obj,
 });

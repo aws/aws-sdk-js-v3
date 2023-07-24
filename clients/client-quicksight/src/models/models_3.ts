@@ -18,18 +18,21 @@ import {
   AnalysisSourceEntity,
   AnalysisSummary,
   AnonymousUserEmbeddingExperienceConfiguration,
+  AnonymousUserSnapshotJobResult,
+  DashboardVisualId,
+  FilterOperator,
+  SnapshotFile,
+  SnapshotS3DestinationConfiguration,
+} from "./models_1";
+import {
+  _Parameters,
+  _ParametersFilterSensitiveLog,
   AssetBundleCloudFormationOverridePropertyConfiguration,
   AssetBundleExportFormat,
   AssetBundleExportJobError,
   AssetBundleExportJobStatus,
   AssetBundleExportJobSummary,
   AssetBundleImportFailureAction,
-  DashboardVisualId,
-  FilterOperator,
-} from "./models_1";
-import {
-  _Parameters,
-  _ParametersFilterSensitiveLog,
   AssetBundleImportJobError,
   AssetBundleImportJobOverrideParameters,
   AssetBundleImportJobStatus,
@@ -39,8 +42,6 @@ import {
   AssetBundleImportSourceFilterSensitiveLog,
   AssignmentStatus,
   BookmarksConfigurations,
-  ColumnGroup,
-  ColumnLevelPermissionRule,
   Dashboard,
   DashboardError,
   DashboardPublishOptions,
@@ -52,47 +53,288 @@ import {
   DataSet,
   DataSetConfiguration,
   DataSetFilterSensitiveLog,
-  DataSetImportMode,
-  DatasetParameter,
   DataSetRefreshProperties,
   DataSetSearchFilter,
   DataSetSummary,
-  DataSetUsageConfiguration,
   DataSource,
-  DataSourceCredentials,
-  DataSourceParameters,
   DataSourceSearchFilter,
   DataSourceSummary,
-  FieldFolder,
   FolderType,
   Group,
   GroupMember,
   IdentityStore,
   IngestionStatus,
-  LogicalTable,
-  LogicalTableFilterSensitiveLog,
   MemberType,
   NamespaceStatus,
-  PhysicalTable,
   RefreshSchedule,
   ResourcePermission,
-  RowLevelPermissionDataSet,
-  RowLevelPermissionTagConfiguration,
-  RowLevelPermissionTagConfigurationFilterSensitiveLog,
-  SslProperties,
   Tag,
   TemplateAlias,
-  TemplateSourceEntity,
   TemplateVersionDefinition,
   ThemeAlias,
   ThemeConfiguration,
   TopicDetails,
   TopicRefreshSchedule,
   VPCConnectionAvailabilityStatus,
-  VpcConnectionProperties,
   VPCConnectionResourceStatus,
 } from "./models_2";
 import { QuickSightServiceException as __BaseException } from "./QuickSightServiceException";
+
+/**
+ * @public
+ */
+export interface DeleteAccountSubscriptionRequest {
+  /**
+   * <p>The Amazon Web Services account ID of the account that you want to delete.</p>
+   */
+  AwsAccountId: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DeleteAccountSubscriptionResponse {
+  /**
+   * <p>The Amazon Web Services request ID for this operation.</p>
+   */
+  RequestId?: string;
+
+  /**
+   * <p>The HTTP status of the request.</p>
+   */
+  Status?: number;
+}
+
+/**
+ * @public
+ */
+export interface DeleteAnalysisRequest {
+  /**
+   * <p>The ID of the Amazon Web Services account where you want to delete an analysis.</p>
+   */
+  AwsAccountId: string | undefined;
+
+  /**
+   * <p>The ID of the analysis that you're deleting.</p>
+   */
+  AnalysisId: string | undefined;
+
+  /**
+   * <p>A value that specifies the number of days that Amazon QuickSight waits before it deletes the
+   *             analysis. You can't use this parameter with the <code>ForceDeleteWithoutRecovery</code>
+   *             option in the same API call. The default value is 30.</p>
+   */
+  RecoveryWindowInDays?: number;
+
+  /**
+   * <p>This option defaults to the value <code>NoForceDeleteWithoutRecovery</code>. To
+   *             immediately delete the analysis, add the <code>ForceDeleteWithoutRecovery</code> option.
+   *             You can't restore an analysis after it's deleted. </p>
+   */
+  ForceDeleteWithoutRecovery?: boolean;
+}
+
+/**
+ * @public
+ */
+export interface DeleteAnalysisResponse {
+  /**
+   * <p>The HTTP status of the request.</p>
+   */
+  Status?: number;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the deleted analysis.</p>
+   */
+  Arn?: string;
+
+  /**
+   * <p>The ID of the deleted analysis.</p>
+   */
+  AnalysisId?: string;
+
+  /**
+   * <p>The date and time that the analysis is scheduled to be deleted.</p>
+   */
+  DeletionTime?: Date;
+
+  /**
+   * <p>The Amazon Web Services request ID for this operation.</p>
+   */
+  RequestId?: string;
+}
+
+/**
+ * @public
+ */
+export interface DeleteDashboardRequest {
+  /**
+   * <p>The ID of the Amazon Web Services account that contains the dashboard that you're
+   *             deleting.</p>
+   */
+  AwsAccountId: string | undefined;
+
+  /**
+   * <p>The ID for the dashboard.</p>
+   */
+  DashboardId: string | undefined;
+
+  /**
+   * <p>The version number of the dashboard. If the version number property is provided, only
+   *             the specified version of the dashboard is deleted.</p>
+   */
+  VersionNumber?: number;
+}
+
+/**
+ * @public
+ */
+export interface DeleteDashboardResponse {
+  /**
+   * <p>The HTTP status of the request.</p>
+   */
+  Status?: number;
+
+  /**
+   * <p>The Secure Socket Layer (SSL) properties that apply for the resource.</p>
+   */
+  Arn?: string;
+
+  /**
+   * <p>The ID of the dashboard.</p>
+   */
+  DashboardId?: string;
+
+  /**
+   * <p>The Amazon Web Services request ID for this operation.</p>
+   */
+  RequestId?: string;
+}
+
+/**
+ * @public
+ */
+export interface DeleteDataSetRequest {
+  /**
+   * <p>The Amazon Web Services account ID.</p>
+   */
+  AwsAccountId: string | undefined;
+
+  /**
+   * <p>The ID for the dataset that you want to create. This ID is unique per Amazon Web Services Region for each Amazon Web Services account.</p>
+   */
+  DataSetId: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DeleteDataSetResponse {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the dataset.</p>
+   */
+  Arn?: string;
+
+  /**
+   * <p>The ID for the dataset that you want to create. This ID is unique per Amazon Web Services Region for each Amazon Web Services account.</p>
+   */
+  DataSetId?: string;
+
+  /**
+   * <p>The Amazon Web Services request ID for this operation.</p>
+   */
+  RequestId?: string;
+
+  /**
+   * <p>The HTTP status of the request.</p>
+   */
+  Status?: number;
+}
+
+/**
+ * @public
+ */
+export interface DeleteDataSetRefreshPropertiesRequest {
+  /**
+   * <p>The Amazon Web Services account ID.</p>
+   */
+  AwsAccountId: string | undefined;
+
+  /**
+   * <p>The ID of the dataset.</p>
+   */
+  DataSetId: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DeleteDataSetRefreshPropertiesResponse {
+  /**
+   * <p>The Amazon Web Services request ID for this operation.</p>
+   */
+  RequestId?: string;
+
+  /**
+   * <p>The HTTP status of the request.</p>
+   */
+  Status?: number;
+}
+
+/**
+ * @public
+ */
+export interface DeleteDataSourceRequest {
+  /**
+   * <p>The Amazon Web Services account ID.</p>
+   */
+  AwsAccountId: string | undefined;
+
+  /**
+   * <p>The ID of the data source. This ID is unique per Amazon Web Services Region for each Amazon Web Services account.</p>
+   */
+  DataSourceId: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DeleteDataSourceResponse {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the data source that you deleted.</p>
+   */
+  Arn?: string;
+
+  /**
+   * <p>The ID of the data source. This ID is unique per Amazon Web Services Region for each Amazon Web Services account.</p>
+   */
+  DataSourceId?: string;
+
+  /**
+   * <p>The Amazon Web Services request ID for this operation.</p>
+   */
+  RequestId?: string;
+
+  /**
+   * <p>The HTTP status of the request.</p>
+   */
+  Status?: number;
+}
+
+/**
+ * @public
+ */
+export interface DeleteFolderRequest {
+  /**
+   * <p>The ID for the Amazon Web Services account that contains the folder.</p>
+   */
+  AwsAccountId: string | undefined;
+
+  /**
+   * <p>The ID of the folder.</p>
+   */
+  FolderId: string | undefined;
+}
 
 /**
  * @public
@@ -1545,6 +1787,290 @@ export interface DescribeDashboardPermissionsResponse {
    *             see <a href="https://docs.aws.amazon.com/quicksight/latest/user/sharing-a-dashboard.html">Sharing Dashboards</a>.</p>
    */
   LinkSharingConfiguration?: LinkSharingConfiguration;
+}
+
+/**
+ * @public
+ */
+export interface DescribeDashboardSnapshotJobRequest {
+  /**
+   * <p>The ID of the Amazon Web Services account that the dashboard snapshot job is executed in.</p>
+   */
+  AwsAccountId: string | undefined;
+
+  /**
+   * <p>The ID of the dashboard that you have started a snapshot job for.</p>
+   */
+  DashboardId: string | undefined;
+
+  /**
+   * <p>The ID of the job to be described. The job ID is set when you start a new job with a <code>StartDashboardSnapshotJob</code> API call.</p>
+   */
+  SnapshotJobId: string | undefined;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const SnapshotJobStatus = {
+  COMPLETED: "COMPLETED",
+  FAILED: "FAILED",
+  QUEUED: "QUEUED",
+  RUNNING: "RUNNING",
+} as const;
+
+/**
+ * @public
+ */
+export type SnapshotJobStatus = (typeof SnapshotJobStatus)[keyof typeof SnapshotJobStatus];
+
+/**
+ * @public
+ * <p>A structure that contains information on the Amazon S3 destinations of the generated snapshot.</p>
+ */
+export interface SnapshotDestinationConfiguration {
+  /**
+   * <p>
+   *             A list of <code>SnapshotS3DestinationConfiguration</code> objects that contain Amazon S3 destination configurations. This structure can hold a maximum of 1 <code>S3DestinationConfiguration</code>.
+   *         </p>
+   */
+  S3Destinations?: SnapshotS3DestinationConfiguration[];
+}
+
+/**
+ * @public
+ * <p>A structure that contains the information on the snapshot files.</p>
+ */
+export interface SnapshotFileGroup {
+  /**
+   * <p>A list of <code>SnapshotFile</code> objects that contain the information on the snapshot files that need to be generated. This structure can hold 1 configuration at a time.</p>
+   */
+  Files?: SnapshotFile[];
+}
+
+/**
+ * @public
+ * <p>Describes the configuration of the dashboard snapshot.</p>
+ */
+export interface SnapshotConfiguration {
+  /**
+   * <p>A list of <code>SnapshotJobResultFileGroup</code> objects that contain information about the snapshot that is generated. This list can hold a maximum of 6 <code>FileGroup</code> configurations.</p>
+   */
+  FileGroups: SnapshotFileGroup[] | undefined;
+
+  /**
+   * <p>A structure that contains information on the Amazon S3 bucket that the generated snapshot is stored in.</p>
+   */
+  DestinationConfiguration?: SnapshotDestinationConfiguration;
+
+  /**
+   * <p>A list of Amazon QuickSight parameters and the list's override values.</p>
+   */
+  Parameters?: _Parameters;
+}
+
+/**
+ * @public
+ * <p>Use this structure to redact sensitive information that you provide about an anonymous user from the snapshot.</p>
+ */
+export interface SnapshotAnonymousUserRedacted {
+  /**
+   * <p>The tag keys for the <code>RowLevelPermissionTags</code>.</p>
+   */
+  RowLevelPermissionTagKeys?: string[];
+}
+
+/**
+ * @public
+ * <p>A structure that contains information about the users that the dashboard snapshot is generated for. Sensitive user information is excluded.
+ *         </p>
+ */
+export interface SnapshotUserConfigurationRedacted {
+  /**
+   * <p>
+   *             An array of records that describe anonymous users that the dashboard snapshot is generated for. Sensitive user information is excluded.
+   *         </p>
+   */
+  AnonymousUsers?: SnapshotAnonymousUserRedacted[];
+}
+
+/**
+ * @public
+ */
+export interface DescribeDashboardSnapshotJobResponse {
+  /**
+   * <p>
+   *             The ID of the Amazon Web Services account that the dashboard snapshot job is executed in.
+   *         </p>
+   */
+  AwsAccountId?: string;
+
+  /**
+   * <p>The ID of the dashboard that you have started a snapshot job for.</p>
+   */
+  DashboardId?: string;
+
+  /**
+   * <p>The ID of the job to be described. The job ID is set when you start a new job with a <code>StartDashboardSnapshotJob</code> API call.</p>
+   */
+  SnapshotJobId?: string;
+
+  /**
+   * <p>The user configuration for the snapshot job. This information is provided when you make a <code>StartDashboardSnapshotJob</code> API call.</p>
+   */
+  UserConfiguration?: SnapshotUserConfigurationRedacted;
+
+  /**
+   * <p>The snapshot configuration of the job. This information is provided when you make a <code>StartDashboardSnapshotJob</code> API call.</p>
+   */
+  SnapshotConfiguration?: SnapshotConfiguration;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) for the snapshot job. The job ARN is generated when you start a new job with a <code>StartDashboardSnapshotJob</code> API call.</p>
+   */
+  Arn?: string;
+
+  /**
+   * <p>Indicates the status of a job. The status updates as the job executes. This shows one of the following values.</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>COMPLETED</code> - The job was completed successfully.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>FAILED</code> - The job failed to execute.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>QUEUED</code> - The job is queued and hasn't started yet.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>RUNNING</code> - The job is still running.</p>
+   *             </li>
+   *          </ul>
+   */
+  JobStatus?: SnapshotJobStatus | string;
+
+  /**
+   * <p>
+   *             The time that the snapshot job was created.
+   *         </p>
+   */
+  CreatedTime?: Date;
+
+  /**
+   * <p>
+   *             The time that the snapshot job status was last updated.
+   *         </p>
+   */
+  LastUpdatedTime?: Date;
+
+  /**
+   * <p>
+   *             The Amazon Web Services request ID for this operation.
+   *         </p>
+   */
+  RequestId?: string;
+
+  /**
+   * <p>The HTTP status of the request</p>
+   */
+  Status?: number;
+}
+
+/**
+ * @public
+ */
+export interface DescribeDashboardSnapshotJobResultRequest {
+  /**
+   * <p>The ID of the Amazon Web Services account that the dashboard snapshot job is executed in.</p>
+   */
+  AwsAccountId: string | undefined;
+
+  /**
+   * <p>The ID of the dashboard that you have started a snapshot job for.</p>
+   */
+  DashboardId: string | undefined;
+
+  /**
+   * <p>The ID of the job to be described. The job ID is set when you start a new job with a <code>StartDashboardSnapshotJob</code> API call.</p>
+   */
+  SnapshotJobId: string | undefined;
+}
+
+/**
+ * @public
+ * <p>An object that contains information on the error that caused the snapshot job to fail.</p>
+ */
+export interface SnapshotJobErrorInfo {
+  /**
+   * <p>The error message.</p>
+   */
+  ErrorMessage?: string;
+
+  /**
+   * <p>The error type.</p>
+   */
+  ErrorType?: string;
+}
+
+/**
+ * @public
+ * <p>An object that provides information on the result of a snapshot job. This object provides information about the job, the job status, and the location of the generated file.</p>
+ */
+export interface SnapshotJobResult {
+  /**
+   * <p> A list of <code>AnonymousUserSnapshotJobResult</code> objects that contain information on anonymous users and their user configurations. This data provided by you when you make a <code>StartDashboardSnapshotJob</code> API call.</p>
+   */
+  AnonymousUsers?: AnonymousUserSnapshotJobResult[];
+}
+
+/**
+ * @public
+ */
+export interface DescribeDashboardSnapshotJobResultResponse {
+  /**
+   * <p>The Amazon Resource Name (ARN) for the snapshot job. The job ARN is generated when you start a new job with a <code>StartDashboardSnapshotJob</code> API call.</p>
+   */
+  Arn?: string;
+
+  /**
+   * <p>Indicates the status of a job after it has reached a terminal state. A finished snapshot job will retuen a <code>COMPLETED</code> or <code>FAILED</code> status.</p>
+   */
+  JobStatus?: SnapshotJobStatus | string;
+
+  /**
+   * <p>The time that a snapshot job was created.</p>
+   */
+  CreatedTime?: Date;
+
+  /**
+   * <p>The time that a snapshot job status was last updated.</p>
+   */
+  LastUpdatedTime?: Date;
+
+  /**
+   * <p>The result of the snapshot job. Jobs that have successfully completed will return the S3Uri where they are located. Jobs that have failedwill return information on the error that caused the job to fail.</p>
+   */
+  Result?: SnapshotJobResult;
+
+  /**
+   * <p>Displays information for the error that caused a job to fail.</p>
+   */
+  ErrorInfo?: SnapshotJobErrorInfo;
+
+  /**
+   * <p>The Amazon Web Services request ID for this operation.</p>
+   */
+  RequestId?: string;
+
+  /**
+   * <p>The HTTP status of the request</p>
+   */
+  Status?: number;
 }
 
 /**
@@ -7046,6 +7572,88 @@ export interface StartAssetBundleImportJobResponse {
 
 /**
  * @public
+ * <p>A structure that contains information on the anonymous user configuration.</p>
+ */
+export interface SnapshotAnonymousUser {
+  /**
+   * <p>The tags to be used for row-level security (RLS). Make sure that the relevant datasets have RLS tags configured before you start a snapshot export job. You can configure the RLS tags of a dataset with a <code>DataSet$RowLevelPermissionTagConfiguration</code> API call.</p>
+   *          <p>These are not the tags that are used for Amazon Web Services resource tagging. For more information on row level security in Amazon QuickSight, see <a href="https://docs.aws.amazon.com/quicksight/latest/user/quicksight-dev-rls-tags.html">Using Row-Level Security (RLS) with Tags</a>in the <i>Amazon QuickSight User Guide</i>.</p>
+   */
+  RowLevelPermissionTags?: SessionTag[];
+}
+
+/**
+ * @public
+ * <p>A structure that contains information about the users that the dashboard snapshot is generated for.</p>
+ */
+export interface SnapshotUserConfiguration {
+  /**
+   * <p>An array of records that describe the anonymous users that the dashboard snapshot is generated for.</p>
+   */
+  AnonymousUsers?: SnapshotAnonymousUser[];
+}
+
+/**
+ * @public
+ */
+export interface StartDashboardSnapshotJobRequest {
+  /**
+   * <p>The ID of the Amazon Web Services account that the dashboard snapshot job is executed in.</p>
+   */
+  AwsAccountId: string | undefined;
+
+  /**
+   * <p>The ID of the dashboard that you want to start a snapshot job for.
+   *         </p>
+   */
+  DashboardId: string | undefined;
+
+  /**
+   * <p>An ID for the dashboard snapshot job. This ID is unique to the dashboard while the job is running. This ID can be used to poll the status of a job with a <code>DescribeDashboardSnapshotJob</code> while the job runs. You can reuse this ID for another job 24 hours after the current job is completed.</p>
+   */
+  SnapshotJobId: string | undefined;
+
+  /**
+   * <p>
+   *             A structure that contains information about the anonymous users that the generated snapshot is for. This API will not return information about registered Amazon QuickSight.</p>
+   */
+  UserConfiguration: SnapshotUserConfiguration | undefined;
+
+  /**
+   * <p>A structure that describes the configuration of the dashboard snapshot.</p>
+   */
+  SnapshotConfiguration: SnapshotConfiguration | undefined;
+}
+
+/**
+ * @public
+ */
+export interface StartDashboardSnapshotJobResponse {
+  /**
+   * <p>The Amazon Resource Name (ARN) for the dashboard snapshot job.</p>
+   */
+  Arn?: string;
+
+  /**
+   * <p>The ID of the job. The job ID is set when you start a new job with a <code>StartDashboardSnapshotJob</code> API call.</p>
+   */
+  SnapshotJobId?: string;
+
+  /**
+   * <p>
+   *             The Amazon Web Services request ID for this operation.
+   *         </p>
+   */
+  RequestId?: string;
+
+  /**
+   * <p>The HTTP status of the request</p>
+   */
+  Status?: number;
+}
+
+/**
+ * @public
  */
 export interface TagResourceRequest {
   /**
@@ -7472,897 +8080,6 @@ export interface UpdateDashboardResponse {
 }
 
 /**
- * @public
- */
-export interface UpdateDashboardPermissionsRequest {
-  /**
-   * <p>The ID of the Amazon Web Services account that contains the dashboard whose permissions you're
-   *             updating.</p>
-   */
-  AwsAccountId: string | undefined;
-
-  /**
-   * <p>The ID for the dashboard.</p>
-   */
-  DashboardId: string | undefined;
-
-  /**
-   * <p>The permissions that you want to grant on this resource.</p>
-   */
-  GrantPermissions?: ResourcePermission[];
-
-  /**
-   * <p>The permissions that you want to revoke from this resource.</p>
-   */
-  RevokePermissions?: ResourcePermission[];
-
-  /**
-   * <p>Grants link permissions to all users in a defined namespace.</p>
-   */
-  GrantLinkPermissions?: ResourcePermission[];
-
-  /**
-   * <p>Revokes link permissions from all users in a defined namespace.</p>
-   */
-  RevokeLinkPermissions?: ResourcePermission[];
-}
-
-/**
- * @public
- */
-export interface UpdateDashboardPermissionsResponse {
-  /**
-   * <p>The Amazon Resource Name (ARN) of the dashboard.</p>
-   */
-  DashboardArn?: string;
-
-  /**
-   * <p>The ID for the dashboard.</p>
-   */
-  DashboardId?: string;
-
-  /**
-   * <p>Information about the permissions on the dashboard.</p>
-   */
-  Permissions?: ResourcePermission[];
-
-  /**
-   * <p>The Amazon Web Services request ID for this operation.</p>
-   */
-  RequestId?: string;
-
-  /**
-   * <p>The HTTP status of the request.</p>
-   */
-  Status?: number;
-
-  /**
-   * <p>Updates the permissions of a shared link to an Amazon QuickSight dashboard.</p>
-   */
-  LinkSharingConfiguration?: LinkSharingConfiguration;
-}
-
-/**
- * @public
- */
-export interface UpdateDashboardPublishedVersionRequest {
-  /**
-   * <p>The ID of the Amazon Web Services account that contains the dashboard that you're
-   *             updating.</p>
-   */
-  AwsAccountId: string | undefined;
-
-  /**
-   * <p>The ID for the dashboard.</p>
-   */
-  DashboardId: string | undefined;
-
-  /**
-   * <p>The version number of the dashboard.</p>
-   */
-  VersionNumber: number | undefined;
-}
-
-/**
- * @public
- */
-export interface UpdateDashboardPublishedVersionResponse {
-  /**
-   * <p>The ID for the dashboard.</p>
-   */
-  DashboardId?: string;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) of the dashboard.</p>
-   */
-  DashboardArn?: string;
-
-  /**
-   * <p>The HTTP status of the request.</p>
-   */
-  Status?: number;
-
-  /**
-   * <p>The Amazon Web Services request ID for this operation.</p>
-   */
-  RequestId?: string;
-}
-
-/**
- * @public
- */
-export interface UpdateDataSetRequest {
-  /**
-   * <p>The Amazon Web Services account ID.</p>
-   */
-  AwsAccountId: string | undefined;
-
-  /**
-   * <p>The ID for the dataset that you want to update. This ID is unique per Amazon Web Services Region for each
-   * 			Amazon Web Services account.</p>
-   */
-  DataSetId: string | undefined;
-
-  /**
-   * <p>The display name for the dataset.</p>
-   */
-  Name: string | undefined;
-
-  /**
-   * <p>Declares the physical tables that are available in the underlying data sources.</p>
-   */
-  PhysicalTableMap: Record<string, PhysicalTable> | undefined;
-
-  /**
-   * <p>Configures the combination and transformation of the data from the physical tables.</p>
-   */
-  LogicalTableMap?: Record<string, LogicalTable>;
-
-  /**
-   * <p>Indicates whether you want to import the data into SPICE.</p>
-   */
-  ImportMode: DataSetImportMode | string | undefined;
-
-  /**
-   * <p>Groupings of columns that work together in certain Amazon QuickSight features. Currently, only geospatial hierarchy is supported.</p>
-   */
-  ColumnGroups?: ColumnGroup[];
-
-  /**
-   * <p>The folder that contains fields and nested subfolders for your dataset.</p>
-   */
-  FieldFolders?: Record<string, FieldFolder>;
-
-  /**
-   * <p>The row-level security configuration for the data you want to create.</p>
-   */
-  RowLevelPermissionDataSet?: RowLevelPermissionDataSet;
-
-  /**
-   * <p>The configuration of tags on a dataset to set row-level security. Row-level security tags are currently supported for anonymous embedding only.</p>
-   */
-  RowLevelPermissionTagConfiguration?: RowLevelPermissionTagConfiguration;
-
-  /**
-   * <p>A set of one or more definitions of a <code>
-   *                <a href="https://docs.aws.amazon.com/quicksight/latest/APIReference/API_ColumnLevelPermissionRule.html">ColumnLevelPermissionRule</a>
-   *             </code>.</p>
-   */
-  ColumnLevelPermissionRules?: ColumnLevelPermissionRule[];
-
-  /**
-   * <p>The usage configuration to apply to child datasets that reference this dataset as a source.</p>
-   */
-  DataSetUsageConfiguration?: DataSetUsageConfiguration;
-
-  /**
-   * <p>The parameter declarations of the dataset.</p>
-   */
-  DatasetParameters?: DatasetParameter[];
-}
-
-/**
- * @public
- */
-export interface UpdateDataSetResponse {
-  /**
-   * <p>The Amazon Resource Name (ARN) of the dataset.</p>
-   */
-  Arn?: string;
-
-  /**
-   * <p>The ID for the dataset that you want to create. This ID is unique per Amazon Web Services Region for each Amazon Web Services account.</p>
-   */
-  DataSetId?: string;
-
-  /**
-   * <p>The ARN for the ingestion, which is triggered as a result of dataset creation if the import
-   * 			mode is SPICE.</p>
-   */
-  IngestionArn?: string;
-
-  /**
-   * <p>The ID of the ingestion, which is triggered as a result of dataset creation if the import
-   * 			mode is SPICE.</p>
-   */
-  IngestionId?: string;
-
-  /**
-   * <p>The Amazon Web Services request ID for this operation.</p>
-   */
-  RequestId?: string;
-
-  /**
-   * <p>The HTTP status of the request.</p>
-   */
-  Status?: number;
-}
-
-/**
- * @public
- */
-export interface UpdateDataSetPermissionsRequest {
-  /**
-   * <p>The Amazon Web Services account ID.</p>
-   */
-  AwsAccountId: string | undefined;
-
-  /**
-   * <p>The ID for the dataset whose permissions you want to update. This ID is unique per
-   * 			Amazon Web Services Region for each Amazon Web Services account.</p>
-   */
-  DataSetId: string | undefined;
-
-  /**
-   * <p>The resource permissions that you want to grant to the dataset.</p>
-   */
-  GrantPermissions?: ResourcePermission[];
-
-  /**
-   * <p>The resource permissions that you want to revoke from the dataset.</p>
-   */
-  RevokePermissions?: ResourcePermission[];
-}
-
-/**
- * @public
- */
-export interface UpdateDataSetPermissionsResponse {
-  /**
-   * <p>The Amazon Resource Name (ARN) of the dataset.</p>
-   */
-  DataSetArn?: string;
-
-  /**
-   * <p>The ID for the dataset whose permissions you want to update. This ID is unique per
-   * 			Amazon Web Services Region for each Amazon Web Services account.</p>
-   */
-  DataSetId?: string;
-
-  /**
-   * <p>The Amazon Web Services request ID for this operation.</p>
-   */
-  RequestId?: string;
-
-  /**
-   * <p>The HTTP status of the request.</p>
-   */
-  Status?: number;
-}
-
-/**
- * @public
- */
-export interface UpdateDataSourceRequest {
-  /**
-   * <p>The Amazon Web Services account ID.</p>
-   */
-  AwsAccountId: string | undefined;
-
-  /**
-   * <p>The ID of the data source. This ID is unique per Amazon Web Services Region for each Amazon Web Services account. </p>
-   */
-  DataSourceId: string | undefined;
-
-  /**
-   * <p>A display name for the data source.</p>
-   */
-  Name: string | undefined;
-
-  /**
-   * <p>The parameters that Amazon QuickSight uses to connect to your underlying source.</p>
-   */
-  DataSourceParameters?: DataSourceParameters;
-
-  /**
-   * <p>The credentials that Amazon QuickSight that uses to connect to your underlying source. Currently,
-   * 			only credentials based on user name and password are supported.</p>
-   */
-  Credentials?: DataSourceCredentials;
-
-  /**
-   * <p>Use this parameter only when you want Amazon QuickSight to use a VPC connection when connecting to
-   * 			your underlying source.</p>
-   */
-  VpcConnectionProperties?: VpcConnectionProperties;
-
-  /**
-   * <p>Secure Socket Layer (SSL) properties that apply when Amazon QuickSight connects to your underlying
-   * 			source.</p>
-   */
-  SslProperties?: SslProperties;
-}
-
-/**
- * @public
- */
-export interface UpdateDataSourceResponse {
-  /**
-   * <p>The Amazon Resource Name (ARN) of the data source.</p>
-   */
-  Arn?: string;
-
-  /**
-   * <p>The ID of the data source. This ID is unique per Amazon Web Services Region for each Amazon Web Services account.</p>
-   */
-  DataSourceId?: string;
-
-  /**
-   * <p>The update status of the data source's last update.</p>
-   */
-  UpdateStatus?: ResourceStatus | string;
-
-  /**
-   * <p>The Amazon Web Services request ID for this operation.</p>
-   */
-  RequestId?: string;
-
-  /**
-   * <p>The HTTP status of the request.</p>
-   */
-  Status?: number;
-}
-
-/**
- * @public
- */
-export interface UpdateDataSourcePermissionsRequest {
-  /**
-   * <p>The Amazon Web Services account ID.</p>
-   */
-  AwsAccountId: string | undefined;
-
-  /**
-   * <p>The ID of the data source. This ID is unique per Amazon Web Services Region for each Amazon Web Services account. </p>
-   */
-  DataSourceId: string | undefined;
-
-  /**
-   * <p>A list of resource permissions that you want to grant on the data source.</p>
-   */
-  GrantPermissions?: ResourcePermission[];
-
-  /**
-   * <p>A list of resource permissions that you want to revoke on the data source.</p>
-   */
-  RevokePermissions?: ResourcePermission[];
-}
-
-/**
- * @public
- */
-export interface UpdateDataSourcePermissionsResponse {
-  /**
-   * <p>The Amazon Resource Name (ARN) of the data source.</p>
-   */
-  DataSourceArn?: string;
-
-  /**
-   * <p>The ID of the data source. This ID is unique per Amazon Web Services Region for each Amazon Web Services account.</p>
-   */
-  DataSourceId?: string;
-
-  /**
-   * <p>The Amazon Web Services request ID for this operation.</p>
-   */
-  RequestId?: string;
-
-  /**
-   * <p>The HTTP status of the request.</p>
-   */
-  Status?: number;
-}
-
-/**
- * @public
- */
-export interface UpdateFolderRequest {
-  /**
-   * <p>The ID for the Amazon Web Services account that contains the folder to update.</p>
-   */
-  AwsAccountId: string | undefined;
-
-  /**
-   * <p>The ID of the folder.</p>
-   */
-  FolderId: string | undefined;
-
-  /**
-   * <p>The name of the folder.</p>
-   */
-  Name: string | undefined;
-}
-
-/**
- * @public
- */
-export interface UpdateFolderResponse {
-  /**
-   * <p>The HTTP status of the request.</p>
-   */
-  Status?: number;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) of the folder.</p>
-   */
-  Arn?: string;
-
-  /**
-   * <p>The ID of the folder.</p>
-   */
-  FolderId?: string;
-
-  /**
-   * <p>The Amazon Web Services request ID for this operation.</p>
-   */
-  RequestId?: string;
-}
-
-/**
- * @public
- */
-export interface UpdateFolderPermissionsRequest {
-  /**
-   * <p>The ID for the Amazon Web Services account that contains the folder to update.</p>
-   */
-  AwsAccountId: string | undefined;
-
-  /**
-   * <p>The ID of the folder.</p>
-   */
-  FolderId: string | undefined;
-
-  /**
-   * <p>The permissions that you want to grant on a resource.</p>
-   */
-  GrantPermissions?: ResourcePermission[];
-
-  /**
-   * <p>The permissions that you want to revoke from a resource.</p>
-   */
-  RevokePermissions?: ResourcePermission[];
-}
-
-/**
- * @public
- */
-export interface UpdateFolderPermissionsResponse {
-  /**
-   * <p>The HTTP status of the request.</p>
-   */
-  Status?: number;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) of the folder.</p>
-   */
-  Arn?: string;
-
-  /**
-   * <p>The ID of the folder.</p>
-   */
-  FolderId?: string;
-
-  /**
-   * <p>Information about the permissions for the folder.</p>
-   */
-  Permissions?: ResourcePermission[];
-
-  /**
-   * <p>The Amazon Web Services request ID for this operation.</p>
-   */
-  RequestId?: string;
-}
-
-/**
- * @public
- */
-export interface UpdateGroupRequest {
-  /**
-   * <p>The name of the group that you want to update.</p>
-   */
-  GroupName: string | undefined;
-
-  /**
-   * <p>The description for the group that you want to update.</p>
-   */
-  Description?: string;
-
-  /**
-   * <p>The ID for the Amazon Web Services account that the group is in. Currently, you use the ID for the
-   * 			Amazon Web Services account that contains your Amazon QuickSight account.</p>
-   */
-  AwsAccountId: string | undefined;
-
-  /**
-   * <p>The namespace of the group that you want to update.</p>
-   */
-  Namespace: string | undefined;
-}
-
-/**
- * @public
- */
-export interface UpdateGroupResponse {
-  /**
-   * <p>The name of the group.</p>
-   */
-  Group?: Group;
-
-  /**
-   * <p>The Amazon Web Services request ID for this operation.</p>
-   */
-  RequestId?: string;
-
-  /**
-   * <p>The HTTP status of the request.</p>
-   */
-  Status?: number;
-}
-
-/**
- * @public
- */
-export interface UpdateIAMPolicyAssignmentRequest {
-  /**
-   * <p>The ID of the Amazon Web Services account that contains the IAM policy
-   * 			assignment. </p>
-   */
-  AwsAccountId: string | undefined;
-
-  /**
-   * <p>The name of the assignment, also called a rule.
-   * 			The
-   * 			name must be unique within the
-   * 			Amazon Web Services account.</p>
-   */
-  AssignmentName: string | undefined;
-
-  /**
-   * <p>The namespace of the assignment.</p>
-   */
-  Namespace: string | undefined;
-
-  /**
-   * <p>The status of the assignment. Possible values are as follows:</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>ENABLED</code> - Anything specified in this assignment is used when
-   * 					creating the data source.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>DISABLED</code> - This assignment isn't used when creating the data
-   * 					source.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>DRAFT</code> - This assignment is an unfinished draft and isn't used
-   * 					when creating the data source.</p>
-   *             </li>
-   *          </ul>
-   */
-  AssignmentStatus?: AssignmentStatus | string;
-
-  /**
-   * <p>The ARN for the IAM policy to apply to the Amazon QuickSight users and
-   * 			groups specified in this assignment.</p>
-   */
-  PolicyArn?: string;
-
-  /**
-   * <p>The Amazon QuickSight users, groups, or both that you want to assign the policy
-   * 			to.</p>
-   */
-  Identities?: Record<string, string[]>;
-}
-
-/**
- * @public
- */
-export interface UpdateIAMPolicyAssignmentResponse {
-  /**
-   * <p>The name of the assignment or rule.</p>
-   */
-  AssignmentName?: string;
-
-  /**
-   * <p>The ID of the assignment.</p>
-   */
-  AssignmentId?: string;
-
-  /**
-   * <p>The ARN for the IAM policy applied to the Amazon QuickSight users and
-   * 			groups specified in this assignment.</p>
-   */
-  PolicyArn?: string;
-
-  /**
-   * <p>The Amazon QuickSight users, groups, or both that the IAM policy is
-   * 			assigned to.</p>
-   */
-  Identities?: Record<string, string[]>;
-
-  /**
-   * <p>The status of the assignment. Possible values are as follows:</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>ENABLED</code> - Anything specified in this assignment is used when
-   * 					creating the data source.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>DISABLED</code> - This assignment isn't used when creating the data
-   * 					source.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>DRAFT</code> - This assignment is an unfinished draft and isn't used
-   * 					when creating the data source.</p>
-   *             </li>
-   *          </ul>
-   */
-  AssignmentStatus?: AssignmentStatus | string;
-
-  /**
-   * <p>The Amazon Web Services request ID for this operation.</p>
-   */
-  RequestId?: string;
-
-  /**
-   * <p>The HTTP status of the request.</p>
-   */
-  Status?: number;
-}
-
-/**
- * @public
- */
-export interface UpdateIpRestrictionRequest {
-  /**
-   * <p>The ID of the Amazon Web Services account that contains the IP rules.</p>
-   */
-  AwsAccountId: string | undefined;
-
-  /**
-   * <p>A map that describes the updated IP rules with CIDR ranges and descriptions.</p>
-   */
-  IpRestrictionRuleMap?: Record<string, string>;
-
-  /**
-   * <p>A value that specifies whether IP rules are turned on.</p>
-   */
-  Enabled?: boolean;
-}
-
-/**
- * @public
- */
-export interface UpdateIpRestrictionResponse {
-  /**
-   * <p>The ID of the Amazon Web Services account that contains the IP rules.</p>
-   */
-  AwsAccountId?: string;
-
-  /**
-   * <p>The Amazon Web Services request ID for this operation.</p>
-   */
-  RequestId?: string;
-
-  /**
-   * <p>The HTTP status of the request. </p>
-   */
-  Status?: number;
-}
-
-/**
- * @public
- */
-export interface UpdatePublicSharingSettingsRequest {
-  /**
-   * <p>The Amazon Web Services account ID associated with your Amazon QuickSight subscription.</p>
-   */
-  AwsAccountId: string | undefined;
-
-  /**
-   * <p>A Boolean value that indicates whether public sharing is turned on for an Amazon QuickSight account.</p>
-   */
-  PublicSharingEnabled?: boolean;
-}
-
-/**
- * @public
- */
-export interface UpdatePublicSharingSettingsResponse {
-  /**
-   * <p>The Amazon Web Services request ID for this operation.</p>
-   */
-  RequestId?: string;
-
-  /**
-   * <p>The HTTP status of the request.</p>
-   */
-  Status?: number;
-}
-
-/**
- * @public
- */
-export interface UpdateRefreshScheduleRequest {
-  /**
-   * <p>The ID of the dataset.</p>
-   */
-  DataSetId: string | undefined;
-
-  /**
-   * <p>The Amazon Web Services account ID.</p>
-   */
-  AwsAccountId: string | undefined;
-
-  /**
-   * <p>The refresh schedule.</p>
-   */
-  Schedule: RefreshSchedule | undefined;
-}
-
-/**
- * @public
- */
-export interface UpdateRefreshScheduleResponse {
-  /**
-   * <p>The HTTP status of the request.</p>
-   */
-  Status?: number;
-
-  /**
-   * <p>The Amazon Web Services request ID for this operation.</p>
-   */
-  RequestId?: string;
-
-  /**
-   * <p>The ID of the refresh schedule.</p>
-   */
-  ScheduleId?: string;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) for the refresh schedule.</p>
-   */
-  Arn?: string;
-}
-
-/**
- * @public
- */
-export interface UpdateTemplateRequest {
-  /**
-   * <p>The ID of the Amazon Web Services account that contains the template that you're updating.</p>
-   */
-  AwsAccountId: string | undefined;
-
-  /**
-   * <p>The ID for the template.</p>
-   */
-  TemplateId: string | undefined;
-
-  /**
-   * <p>The entity that you are using as a source when you update the template. In
-   * 			<code>SourceEntity</code>, you specify the type of object you're using as source:
-   * 			<code>SourceTemplate</code> for a template or <code>SourceAnalysis</code> for an
-   * 			analysis. Both of these require an Amazon Resource Name (ARN). For
-   * 			<code>SourceTemplate</code>, specify the ARN of the source template. For
-   * 			<code>SourceAnalysis</code>, specify the ARN of the source analysis. The <code>SourceTemplate</code>
-   * 			ARN can contain any Amazon Web Services account and any Amazon QuickSight-supported Amazon Web Services Region;. </p>
-   *          <p>Use the <code>DataSetReferences</code> entity within <code>SourceTemplate</code> or
-   * 			<code>SourceAnalysis</code> to list the replacement datasets for the placeholders listed
-   * 			in the original. The schema in each dataset must match its placeholder. </p>
-   */
-  SourceEntity?: TemplateSourceEntity;
-
-  /**
-   * <p>A description of the current template version that is being updated. Every time you call
-   * 				<code>UpdateTemplate</code>, you create a new version of the template. Each version
-   * 			of the template maintains a description of the version in the
-   * 				<code>VersionDescription</code> field.</p>
-   */
-  VersionDescription?: string;
-
-  /**
-   * <p>The name for the template.</p>
-   */
-  Name?: string;
-
-  /**
-   * <p>The definition of a template.</p>
-   *          <p>A definition is the data model of all features in a Dashboard, Template, or Analysis.</p>
-   */
-  Definition?: TemplateVersionDefinition;
-}
-
-/**
- * @public
- */
-export interface UpdateTemplateResponse {
-  /**
-   * <p>The ID for the template.</p>
-   */
-  TemplateId?: string;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) for the template.</p>
-   */
-  Arn?: string;
-
-  /**
-   * <p>The ARN for the template, including the version information of the first version.</p>
-   */
-  VersionArn?: string;
-
-  /**
-   * <p>The creation status of the template.</p>
-   */
-  CreationStatus?: ResourceStatus | string;
-
-  /**
-   * <p>The HTTP status of the request.</p>
-   */
-  Status?: number;
-
-  /**
-   * <p>The Amazon Web Services request ID for this operation.</p>
-   */
-  RequestId?: string;
-}
-
-/**
- * @public
- */
-export interface UpdateTemplateAliasRequest {
-  /**
-   * <p>The ID of the Amazon Web Services account that contains the template alias that you're updating.</p>
-   */
-  AwsAccountId: string | undefined;
-
-  /**
-   * <p>The ID for the template.</p>
-   */
-  TemplateId: string | undefined;
-
-  /**
-   * <p>The alias of the template that you want to update. If you name a specific alias, you update
-   * 			the version that the alias points to. You can specify the latest version of the template
-   * 			by providing the keyword <code>$LATEST</code> in the <code>AliasName</code> parameter.
-   * 			The keyword <code>$PUBLISHED</code> doesn't apply to templates.</p>
-   */
-  AliasName: string | undefined;
-
-  /**
-   * <p>The version number of the template.</p>
-   */
-  TemplateVersionNumber: number | undefined;
-}
-
-/**
  * @internal
  */
 export const DescribeAnalysisDefinitionResponseFilterSensitiveLog = (obj: DescribeAnalysisDefinitionResponse): any => ({
@@ -8383,6 +8100,39 @@ export const DescribeAssetBundleImportJobResponseFilterSensitiveLog = (
  */
 export const DescribeDashboardDefinitionResponseFilterSensitiveLog = (
   obj: DescribeDashboardDefinitionResponse
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const SnapshotConfigurationFilterSensitiveLog = (obj: SnapshotConfiguration): any => ({
+  ...obj,
+  ...(obj.Parameters && { Parameters: _ParametersFilterSensitiveLog(obj.Parameters) }),
+});
+
+/**
+ * @internal
+ */
+export const DescribeDashboardSnapshotJobResponseFilterSensitiveLog = (
+  obj: DescribeDashboardSnapshotJobResponse
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const SnapshotJobResultFilterSensitiveLog = (obj: SnapshotJobResult): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeDashboardSnapshotJobResultResponseFilterSensitiveLog = (
+  obj: DescribeDashboardSnapshotJobResultResponse
 ): any => ({
   ...obj,
 });
@@ -8476,6 +8226,30 @@ export const StartAssetBundleImportJobRequestFilterSensitiveLog = (obj: StartAss
 /**
  * @internal
  */
+export const SnapshotAnonymousUserFilterSensitiveLog = (obj: SnapshotAnonymousUser): any => ({
+  ...obj,
+  ...(obj.RowLevelPermissionTags && {
+    RowLevelPermissionTags: obj.RowLevelPermissionTags.map((item) => SessionTagFilterSensitiveLog(item)),
+  }),
+});
+
+/**
+ * @internal
+ */
+export const SnapshotUserConfigurationFilterSensitiveLog = (obj: SnapshotUserConfiguration): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const StartDashboardSnapshotJobRequestFilterSensitiveLog = (obj: StartDashboardSnapshotJobRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
 export const UpdateAnalysisRequestFilterSensitiveLog = (obj: UpdateAnalysisRequest): any => ({
   ...obj,
   ...(obj.Parameters && { Parameters: _ParametersFilterSensitiveLog(obj.Parameters) }),
@@ -8487,44 +8261,4 @@ export const UpdateAnalysisRequestFilterSensitiveLog = (obj: UpdateAnalysisReque
 export const UpdateDashboardRequestFilterSensitiveLog = (obj: UpdateDashboardRequest): any => ({
   ...obj,
   ...(obj.Parameters && { Parameters: _ParametersFilterSensitiveLog(obj.Parameters) }),
-});
-
-/**
- * @internal
- */
-export const UpdateDataSetRequestFilterSensitiveLog = (obj: UpdateDataSetRequest): any => ({
-  ...obj,
-  ...(obj.PhysicalTableMap && {
-    PhysicalTableMap: Object.entries(obj.PhysicalTableMap).reduce(
-      (acc: any, [key, value]: [string, PhysicalTable]) => ((acc[key] = value), acc),
-      {}
-    ),
-  }),
-  ...(obj.LogicalTableMap && {
-    LogicalTableMap: Object.entries(obj.LogicalTableMap).reduce(
-      (acc: any, [key, value]: [string, LogicalTable]) => ((acc[key] = LogicalTableFilterSensitiveLog(value)), acc),
-      {}
-    ),
-  }),
-  ...(obj.RowLevelPermissionTagConfiguration && {
-    RowLevelPermissionTagConfiguration: RowLevelPermissionTagConfigurationFilterSensitiveLog(
-      obj.RowLevelPermissionTagConfiguration
-    ),
-  }),
-});
-
-/**
- * @internal
- */
-export const UpdateDataSourceRequestFilterSensitiveLog = (obj: UpdateDataSourceRequest): any => ({
-  ...obj,
-  ...(obj.DataSourceParameters && { DataSourceParameters: obj.DataSourceParameters }),
-  ...(obj.Credentials && { Credentials: SENSITIVE_STRING }),
-});
-
-/**
- * @internal
- */
-export const UpdateTemplateRequestFilterSensitiveLog = (obj: UpdateTemplateRequest): any => ({
-  ...obj,
 });

@@ -13,7 +13,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@smithy/types";
 
-import { UpdateDataSetPermissionsRequest, UpdateDataSetPermissionsResponse } from "../models/models_3";
+import { UpdateDataSetPermissionsRequest, UpdateDataSetPermissionsResponse } from "../models/models_4";
 import { de_UpdateDataSetPermissionsCommand, se_UpdateDataSetPermissionsCommand } from "../protocols/Aws_restJson1";
 import { QuickSightClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../QuickSightClient";
 

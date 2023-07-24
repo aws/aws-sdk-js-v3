@@ -26,15 +26,275 @@ import {
 import {
   AnalysisDefinition,
   AnalysisSourceEntity,
-  AssetBundleImportFailureAction,
-  AssetBundleImportJobAnalysisOverrideParameters,
-  AssetBundleImportJobDashboardOverrideParameters,
-  AssetBundleImportJobDataSetOverrideParameters,
+  AssetBundleExportJobAnalysisOverrideProperties,
+  AssetBundleExportJobDashboardOverrideProperties,
+  AssetBundleExportJobDataSetOverrideProperties,
+  AssetBundleExportJobDataSourceOverrideProperties,
+  AssetBundleExportJobRefreshScheduleOverrideProperties,
+  AssetBundleExportJobResourceIdOverrideConfiguration,
   DataSetReference,
   FilterOperator,
   SheetDefinition,
 } from "./models_1";
 import { QuickSightServiceException as __BaseException } from "./QuickSightServiceException";
+
+/**
+ * @public
+ * @enum
+ */
+export const AssetBundleExportJobThemePropertyToOverride = {
+  NAME: "Name",
+} as const;
+
+/**
+ * @public
+ */
+export type AssetBundleExportJobThemePropertyToOverride =
+  (typeof AssetBundleExportJobThemePropertyToOverride)[keyof typeof AssetBundleExportJobThemePropertyToOverride];
+
+/**
+ * @public
+ * <p>Controls how a specific <code>Theme</code> resource is parameterized in the returned CloudFormation template.</p>
+ */
+export interface AssetBundleExportJobThemeOverrideProperties {
+  /**
+   * <p>The ARN of the specific <code>Theme</code> resource whose override properties are configured in this structure.</p>
+   */
+  Arn?: string;
+
+  /**
+   * <p>A list of <code>Theme</code> resource properties to generate variables for in the returned CloudFormation template.</p>
+   */
+  Properties: (AssetBundleExportJobThemePropertyToOverride | string)[] | undefined;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const AssetBundleExportJobVPCConnectionPropertyToOverride = {
+  DNS_RESOLVERS: "DnsResolvers",
+  NAME: "Name",
+  ROLE_ARN: "RoleArn",
+} as const;
+
+/**
+ * @public
+ */
+export type AssetBundleExportJobVPCConnectionPropertyToOverride =
+  (typeof AssetBundleExportJobVPCConnectionPropertyToOverride)[keyof typeof AssetBundleExportJobVPCConnectionPropertyToOverride];
+
+/**
+ * @public
+ * <p>Controls how a specific <code>VPCConnection</code> resource is parameterized in the outputted CloudFormation template.</p>
+ */
+export interface AssetBundleExportJobVPCConnectionOverrideProperties {
+  /**
+   * <p>The ARN of the specific <code>VPCConnection</code> resource whose override properties are configured in this structure.</p>
+   */
+  Arn?: string;
+
+  /**
+   * <p>A list of <code>VPCConnection</code> resource properties to generate variables for in the returned CloudFormation template.</p>
+   */
+  Properties: (AssetBundleExportJobVPCConnectionPropertyToOverride | string)[] | undefined;
+}
+
+/**
+ * @public
+ * <p>An optional collection of CloudFormation property configurations that control how the export job is generated.</p>
+ */
+export interface AssetBundleCloudFormationOverridePropertyConfiguration {
+  /**
+   * <p>An optional list of structures that control how resource IDs are parameterized in the returned CloudFormation template.</p>
+   */
+  ResourceIdOverrideConfiguration?: AssetBundleExportJobResourceIdOverrideConfiguration;
+
+  /**
+   * <p>An optional list of structures that control how <code>VPCConnection</code> resources are parameterized in the returned CloudFormation template.</p>
+   */
+  VPCConnections?: AssetBundleExportJobVPCConnectionOverrideProperties[];
+
+  /**
+   * <p>An optional list of structures that control how <code>RefreshSchedule</code> resources are parameterized in the returned CloudFormation template.</p>
+   */
+  RefreshSchedules?: AssetBundleExportJobRefreshScheduleOverrideProperties[];
+
+  /**
+   * <p>An optional list of structures that control how <code>DataSource</code> resources are parameterized in the returned CloudFormation template.</p>
+   */
+  DataSources?: AssetBundleExportJobDataSourceOverrideProperties[];
+
+  /**
+   * <p>An optional list of structures that control how <code>DataSet</code> resources are parameterized in the returned CloudFormation template.</p>
+   */
+  DataSets?: AssetBundleExportJobDataSetOverrideProperties[];
+
+  /**
+   * <p>An optional list of structures that control how <code>Theme</code> resources are parameterized in the returned CloudFormation template.</p>
+   */
+  Themes?: AssetBundleExportJobThemeOverrideProperties[];
+
+  /**
+   * <p>An optional list of structures that control how <code>Analysis</code> resources are parameterized in the returned CloudFormation template.</p>
+   */
+  Analyses?: AssetBundleExportJobAnalysisOverrideProperties[];
+
+  /**
+   * <p>An optional list of structures that control how <code>Dashboard</code> resources are parameterized in the returned CloudFormation template.</p>
+   */
+  Dashboards?: AssetBundleExportJobDashboardOverrideProperties[];
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const AssetBundleExportFormat = {
+  CLOUDFORMATION_JSON: "CLOUDFORMATION_JSON",
+  QUICKSIGHT_JSON: "QUICKSIGHT_JSON",
+} as const;
+
+/**
+ * @public
+ */
+export type AssetBundleExportFormat = (typeof AssetBundleExportFormat)[keyof typeof AssetBundleExportFormat];
+
+/**
+ * @public
+ * <p>Describes an error that occurred during an Asset Bundle export job.</p>
+ */
+export interface AssetBundleExportJobError {
+  /**
+   * <p>The ARN of the resource whose processing caused an error.</p>
+   */
+  Arn?: string;
+
+  /**
+   * <p>The specific error type of the error that occurred.</p>
+   */
+  Type?: string;
+
+  /**
+   * <p>A description of the error.</p>
+   */
+  Message?: string;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const AssetBundleExportJobStatus = {
+  FAILED: "FAILED",
+  IN_PROGRESS: "IN_PROGRESS",
+  QUEUED_FOR_IMMEDIATE_EXECUTION: "QUEUED_FOR_IMMEDIATE_EXECUTION",
+  SUCCESSFUL: "SUCCESSFUL",
+} as const;
+
+/**
+ * @public
+ */
+export type AssetBundleExportJobStatus = (typeof AssetBundleExportJobStatus)[keyof typeof AssetBundleExportJobStatus];
+
+/**
+ * @public
+ * <p>A summary of the export job that includes details of the job's configuration and its current status.</p>
+ */
+export interface AssetBundleExportJobSummary {
+  /**
+   * <p>The current status of the export job.</p>
+   */
+  JobStatus?: AssetBundleExportJobStatus | string;
+
+  /**
+   * <p>The ARN of the export job.</p>
+   */
+  Arn?: string;
+
+  /**
+   * <p>The time that the export job was created.</p>
+   */
+  CreatedTime?: Date;
+
+  /**
+   * <p>The ID of the export job.</p>
+   */
+  AssetBundleExportJobId?: string;
+
+  /**
+   * <p>The flag that determines the inclusion of resource dependencies in the returned asset bundle.</p>
+   */
+  IncludeAllDependencies?: boolean;
+
+  /**
+   * <p>The format for the export job.</p>
+   */
+  ExportFormat?: AssetBundleExportFormat | string;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const AssetBundleImportFailureAction = {
+  DO_NOTHING: "DO_NOTHING",
+  ROLLBACK: "ROLLBACK",
+} as const;
+
+/**
+ * @public
+ */
+export type AssetBundleImportFailureAction =
+  (typeof AssetBundleImportFailureAction)[keyof typeof AssetBundleImportFailureAction];
+
+/**
+ * @public
+ * <p>The override parameters for a single analysis that is being imported.</p>
+ */
+export interface AssetBundleImportJobAnalysisOverrideParameters {
+  /**
+   * <p>The ID of the analysis that you ant to apply overrides to.</p>
+   */
+  AnalysisId: string | undefined;
+
+  /**
+   * <p>A new name for the analysis.</p>
+   */
+  Name?: string;
+}
+
+/**
+ * @public
+ * <p>The override parameters for a single dashboard that is being imported.</p>
+ */
+export interface AssetBundleImportJobDashboardOverrideParameters {
+  /**
+   * <p>The ID of the dashboard that you want to apply overrides to.</p>
+   */
+  DashboardId: string | undefined;
+
+  /**
+   * <p>A new name for the dashboard.</p>
+   */
+  Name?: string;
+}
+
+/**
+ * @public
+ * <p>The override parameters for a single dataset that is being imported.</p>
+ */
+export interface AssetBundleImportJobDataSetOverrideParameters {
+  /**
+   * <p>The ID of the dataset to apply overrides to.</p>
+   */
+  DataSetId: string | undefined;
+
+  /**
+   * <p>A new name for the dataset.</p>
+   */
+  Name?: string;
+}
 
 /**
  * @public
@@ -8284,262 +8544,6 @@ export interface DeleteAccountCustomizationResponse {
    * <p>The HTTP status of the request.</p>
    */
   Status?: number;
-}
-
-/**
- * @public
- */
-export interface DeleteAccountSubscriptionRequest {
-  /**
-   * <p>The Amazon Web Services account ID of the account that you want to delete.</p>
-   */
-  AwsAccountId: string | undefined;
-}
-
-/**
- * @public
- */
-export interface DeleteAccountSubscriptionResponse {
-  /**
-   * <p>The Amazon Web Services request ID for this operation.</p>
-   */
-  RequestId?: string;
-
-  /**
-   * <p>The HTTP status of the request.</p>
-   */
-  Status?: number;
-}
-
-/**
- * @public
- */
-export interface DeleteAnalysisRequest {
-  /**
-   * <p>The ID of the Amazon Web Services account where you want to delete an analysis.</p>
-   */
-  AwsAccountId: string | undefined;
-
-  /**
-   * <p>The ID of the analysis that you're deleting.</p>
-   */
-  AnalysisId: string | undefined;
-
-  /**
-   * <p>A value that specifies the number of days that Amazon QuickSight waits before it deletes the
-   *             analysis. You can't use this parameter with the <code>ForceDeleteWithoutRecovery</code>
-   *             option in the same API call. The default value is 30.</p>
-   */
-  RecoveryWindowInDays?: number;
-
-  /**
-   * <p>This option defaults to the value <code>NoForceDeleteWithoutRecovery</code>. To
-   *             immediately delete the analysis, add the <code>ForceDeleteWithoutRecovery</code> option.
-   *             You can't restore an analysis after it's deleted. </p>
-   */
-  ForceDeleteWithoutRecovery?: boolean;
-}
-
-/**
- * @public
- */
-export interface DeleteAnalysisResponse {
-  /**
-   * <p>The HTTP status of the request.</p>
-   */
-  Status?: number;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) of the deleted analysis.</p>
-   */
-  Arn?: string;
-
-  /**
-   * <p>The ID of the deleted analysis.</p>
-   */
-  AnalysisId?: string;
-
-  /**
-   * <p>The date and time that the analysis is scheduled to be deleted.</p>
-   */
-  DeletionTime?: Date;
-
-  /**
-   * <p>The Amazon Web Services request ID for this operation.</p>
-   */
-  RequestId?: string;
-}
-
-/**
- * @public
- */
-export interface DeleteDashboardRequest {
-  /**
-   * <p>The ID of the Amazon Web Services account that contains the dashboard that you're
-   *             deleting.</p>
-   */
-  AwsAccountId: string | undefined;
-
-  /**
-   * <p>The ID for the dashboard.</p>
-   */
-  DashboardId: string | undefined;
-
-  /**
-   * <p>The version number of the dashboard. If the version number property is provided, only
-   *             the specified version of the dashboard is deleted.</p>
-   */
-  VersionNumber?: number;
-}
-
-/**
- * @public
- */
-export interface DeleteDashboardResponse {
-  /**
-   * <p>The HTTP status of the request.</p>
-   */
-  Status?: number;
-
-  /**
-   * <p>The Secure Socket Layer (SSL) properties that apply for the resource.</p>
-   */
-  Arn?: string;
-
-  /**
-   * <p>The ID of the dashboard.</p>
-   */
-  DashboardId?: string;
-
-  /**
-   * <p>The Amazon Web Services request ID for this operation.</p>
-   */
-  RequestId?: string;
-}
-
-/**
- * @public
- */
-export interface DeleteDataSetRequest {
-  /**
-   * <p>The Amazon Web Services account ID.</p>
-   */
-  AwsAccountId: string | undefined;
-
-  /**
-   * <p>The ID for the dataset that you want to create. This ID is unique per Amazon Web Services Region for each Amazon Web Services account.</p>
-   */
-  DataSetId: string | undefined;
-}
-
-/**
- * @public
- */
-export interface DeleteDataSetResponse {
-  /**
-   * <p>The Amazon Resource Name (ARN) of the dataset.</p>
-   */
-  Arn?: string;
-
-  /**
-   * <p>The ID for the dataset that you want to create. This ID is unique per Amazon Web Services Region for each Amazon Web Services account.</p>
-   */
-  DataSetId?: string;
-
-  /**
-   * <p>The Amazon Web Services request ID for this operation.</p>
-   */
-  RequestId?: string;
-
-  /**
-   * <p>The HTTP status of the request.</p>
-   */
-  Status?: number;
-}
-
-/**
- * @public
- */
-export interface DeleteDataSetRefreshPropertiesRequest {
-  /**
-   * <p>The Amazon Web Services account ID.</p>
-   */
-  AwsAccountId: string | undefined;
-
-  /**
-   * <p>The ID of the dataset.</p>
-   */
-  DataSetId: string | undefined;
-}
-
-/**
- * @public
- */
-export interface DeleteDataSetRefreshPropertiesResponse {
-  /**
-   * <p>The Amazon Web Services request ID for this operation.</p>
-   */
-  RequestId?: string;
-
-  /**
-   * <p>The HTTP status of the request.</p>
-   */
-  Status?: number;
-}
-
-/**
- * @public
- */
-export interface DeleteDataSourceRequest {
-  /**
-   * <p>The Amazon Web Services account ID.</p>
-   */
-  AwsAccountId: string | undefined;
-
-  /**
-   * <p>The ID of the data source. This ID is unique per Amazon Web Services Region for each Amazon Web Services account.</p>
-   */
-  DataSourceId: string | undefined;
-}
-
-/**
- * @public
- */
-export interface DeleteDataSourceResponse {
-  /**
-   * <p>The Amazon Resource Name (ARN) of the data source that you deleted.</p>
-   */
-  Arn?: string;
-
-  /**
-   * <p>The ID of the data source. This ID is unique per Amazon Web Services Region for each Amazon Web Services account.</p>
-   */
-  DataSourceId?: string;
-
-  /**
-   * <p>The Amazon Web Services request ID for this operation.</p>
-   */
-  RequestId?: string;
-
-  /**
-   * <p>The HTTP status of the request.</p>
-   */
-  Status?: number;
-}
-
-/**
- * @public
- */
-export interface DeleteFolderRequest {
-  /**
-   * <p>The ID for the Amazon Web Services account that contains the folder.</p>
-   */
-  AwsAccountId: string | undefined;
-
-  /**
-   * <p>The ID of the folder.</p>
-   */
-  FolderId: string | undefined;
 }
 
 /**

@@ -13,7 +13,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@smithy/types";
 
-import { UpdateFolderPermissionsRequest, UpdateFolderPermissionsResponse } from "../models/models_3";
+import { UpdateFolderPermissionsRequest, UpdateFolderPermissionsResponse } from "../models/models_4";
 import { de_UpdateFolderPermissionsCommand, se_UpdateFolderPermissionsCommand } from "../protocols/Aws_restJson1";
 import { QuickSightClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../QuickSightClient";
 

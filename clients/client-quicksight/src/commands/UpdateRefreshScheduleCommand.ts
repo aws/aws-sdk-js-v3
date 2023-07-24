@@ -13,7 +13,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@smithy/types";
 
-import { UpdateRefreshScheduleRequest, UpdateRefreshScheduleResponse } from "../models/models_3";
+import { UpdateRefreshScheduleRequest, UpdateRefreshScheduleResponse } from "../models/models_4";
 import { de_UpdateRefreshScheduleCommand, se_UpdateRefreshScheduleCommand } from "../protocols/Aws_restJson1";
 import { QuickSightClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../QuickSightClient";
 

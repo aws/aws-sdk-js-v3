@@ -13,7 +13,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@smithy/types";
 
-import { UpdateGroupRequest, UpdateGroupResponse } from "../models/models_3";
+import { UpdateGroupRequest, UpdateGroupResponse } from "../models/models_4";
 import { de_UpdateGroupCommand, se_UpdateGroupCommand } from "../protocols/Aws_restJson1";
 import { QuickSightClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../QuickSightClient";
 

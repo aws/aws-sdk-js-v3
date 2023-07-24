@@ -13,7 +13,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@smithy/types";
 
-import { DeleteDataSetRefreshPropertiesRequest, DeleteDataSetRefreshPropertiesResponse } from "../models/models_2";
+import { DeleteDataSetRefreshPropertiesRequest, DeleteDataSetRefreshPropertiesResponse } from "../models/models_3";
 import {
   de_DeleteDataSetRefreshPropertiesCommand,
   se_DeleteDataSetRefreshPropertiesCommand,

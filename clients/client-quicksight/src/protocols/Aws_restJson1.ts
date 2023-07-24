@@ -170,6 +170,14 @@ import {
   DescribeDashboardPermissionsCommandInput,
   DescribeDashboardPermissionsCommandOutput,
 } from "../commands/DescribeDashboardPermissionsCommand";
+import {
+  DescribeDashboardSnapshotJobCommandInput,
+  DescribeDashboardSnapshotJobCommandOutput,
+} from "../commands/DescribeDashboardSnapshotJobCommand";
+import {
+  DescribeDashboardSnapshotJobResultCommandInput,
+  DescribeDashboardSnapshotJobResultCommandOutput,
+} from "../commands/DescribeDashboardSnapshotJobResultCommand";
 import { DescribeDataSetCommandInput, DescribeDataSetCommandOutput } from "../commands/DescribeDataSetCommand";
 import {
   DescribeDataSetPermissionsCommandInput,
@@ -343,6 +351,10 @@ import {
   StartAssetBundleImportJobCommandInput,
   StartAssetBundleImportJobCommandOutput,
 } from "../commands/StartAssetBundleImportJobCommand";
+import {
+  StartDashboardSnapshotJobCommandInput,
+  StartDashboardSnapshotJobCommandOutput,
+} from "../commands/StartDashboardSnapshotJobCommand";
 import { TagResourceCommandInput, TagResourceCommandOutput } from "../commands/TagResourceCommand";
 import { UntagResourceCommandInput, UntagResourceCommandOutput } from "../commands/UntagResourceCommand";
 import {
@@ -439,6 +451,7 @@ import {
   Analysis,
   AnalysisDefaults,
   AnchorDateConfiguration,
+  AttributeAggregationFunction,
   AxisDataOptions,
   AxisDisplayDataDrivenRange,
   AxisDisplayMinMaxRange,
@@ -457,8 +470,6 @@ import {
   BarChartVisual,
   BodySectionConfiguration,
   BodySectionContent,
-  BoxPlotAggregatedFieldWells,
-  BoxPlotFieldWells,
   BoxPlotOptions,
   BoxPlotStyleOptions,
   CalculatedField,
@@ -588,7 +599,6 @@ import {
   NumericRangeFilter,
   NumericRangeFilterValue,
   NumericSeparatorConfiguration,
-  PaginationConfiguration,
   PanelConfiguration,
   PanelTitleOptions,
   ParameterControl,
@@ -627,6 +637,7 @@ import {
   SectionStyle,
   SelectedSheetsFilterScopeConfiguration,
   SetParameterValueConfiguration,
+  SheetControlInfoIconLabelOptions,
   SheetControlLayout,
   SheetControlLayoutConfiguration,
   SheetElementConfigurationOverrides,
@@ -674,7 +685,6 @@ import {
   ArcAxisDisplayRange,
   ArcConfiguration,
   ArcOptions,
-  AssetBundleCloudFormationOverridePropertyConfiguration,
   AssetBundleExportJobAnalysisOverrideProperties,
   AssetBundleExportJobAnalysisPropertyToOverride,
   AssetBundleExportJobDashboardOverrideProperties,
@@ -686,17 +696,11 @@ import {
   AssetBundleExportJobRefreshScheduleOverrideProperties,
   AssetBundleExportJobRefreshSchedulePropertyToOverride,
   AssetBundleExportJobResourceIdOverrideConfiguration,
-  AssetBundleExportJobSummary,
-  AssetBundleExportJobThemeOverrideProperties,
-  AssetBundleExportJobThemePropertyToOverride,
-  AssetBundleExportJobVPCConnectionOverrideProperties,
-  AssetBundleExportJobVPCConnectionPropertyToOverride,
-  AssetBundleImportJobAnalysisOverrideParameters,
-  AssetBundleImportJobDashboardOverrideParameters,
-  AssetBundleImportJobDataSetOverrideParameters,
   BinCountOptions,
   BinWidthOptions,
+  BoxPlotAggregatedFieldWells,
   BoxPlotChartConfiguration,
+  BoxPlotFieldWells,
   BoxPlotSortConfiguration,
   BoxPlotVisual,
   ClusterMarker,
@@ -805,6 +809,7 @@ import {
   MaximumMinimumComputation,
   MetricComparisonComputation,
   MissingDataConfiguration,
+  PaginationConfiguration,
   PeriodOverPeriodComputation,
   PeriodToDateComputation,
   PieChartAggregatedFieldWells,
@@ -842,6 +847,7 @@ import {
   RadarChartSortConfiguration,
   RadarChartVisual,
   RowAlternateColorOptions,
+  S3BucketConfiguration,
   SankeyDiagramAggregatedFieldWells,
   SankeyDiagramChartConfiguration,
   SankeyDiagramFieldWells,
@@ -857,6 +863,9 @@ import {
   ShapeConditionalFormat,
   SheetDefinition,
   SimpleClusterMarker,
+  SnapshotFile,
+  SnapshotFileSheetSelection,
+  SnapshotS3DestinationConfiguration,
   SubtotalOptions,
   TableAggregatedFieldWells,
   TableBorderOptions,
@@ -915,6 +924,15 @@ import {
 } from "../models/models_1";
 import {
   _Parameters,
+  AssetBundleCloudFormationOverridePropertyConfiguration,
+  AssetBundleExportJobSummary,
+  AssetBundleExportJobThemeOverrideProperties,
+  AssetBundleExportJobThemePropertyToOverride,
+  AssetBundleExportJobVPCConnectionOverrideProperties,
+  AssetBundleExportJobVPCConnectionPropertyToOverride,
+  AssetBundleImportJobAnalysisOverrideParameters,
+  AssetBundleImportJobDashboardOverrideParameters,
+  AssetBundleImportJobDataSetOverrideParameters,
   AssetBundleImportJobDataSourceCredentialPair,
   AssetBundleImportJobDataSourceCredentials,
   AssetBundleImportJobDataSourceOverrideParameters,
@@ -1113,6 +1131,11 @@ import {
   RegisteredUserQuickSightConsoleEmbeddingConfiguration,
   SessionLifetimeInMinutesInvalidException,
   SessionTag,
+  SnapshotAnonymousUser,
+  SnapshotConfiguration,
+  SnapshotDestinationConfiguration,
+  SnapshotFileGroup,
+  SnapshotUserConfiguration,
   StatePersistenceConfigurations,
   Template,
   TemplateSummary,
@@ -3247,6 +3270,88 @@ export const se_DescribeDashboardPermissionsCommand = async (
     false
   );
   resolvedPath = __resolvedPath(resolvedPath, input, "DashboardId", () => input.DashboardId!, "{DashboardId}", false);
+  let body: any;
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "GET",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
+/**
+ * serializeAws_restJson1DescribeDashboardSnapshotJobCommand
+ */
+export const se_DescribeDashboardSnapshotJobCommand = async (
+  input: DescribeDashboardSnapshotJobCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {};
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
+    "/accounts/{AwsAccountId}/dashboards/{DashboardId}/snapshot-jobs/{SnapshotJobId}";
+  resolvedPath = __resolvedPath(
+    resolvedPath,
+    input,
+    "AwsAccountId",
+    () => input.AwsAccountId!,
+    "{AwsAccountId}",
+    false
+  );
+  resolvedPath = __resolvedPath(resolvedPath, input, "DashboardId", () => input.DashboardId!, "{DashboardId}", false);
+  resolvedPath = __resolvedPath(
+    resolvedPath,
+    input,
+    "SnapshotJobId",
+    () => input.SnapshotJobId!,
+    "{SnapshotJobId}",
+    false
+  );
+  let body: any;
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "GET",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
+/**
+ * serializeAws_restJson1DescribeDashboardSnapshotJobResultCommand
+ */
+export const se_DescribeDashboardSnapshotJobResultCommand = async (
+  input: DescribeDashboardSnapshotJobResultCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {};
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
+    "/accounts/{AwsAccountId}/dashboards/{DashboardId}/snapshot-jobs/{SnapshotJobId}/result";
+  resolvedPath = __resolvedPath(
+    resolvedPath,
+    input,
+    "AwsAccountId",
+    () => input.AwsAccountId!,
+    "{AwsAccountId}",
+    false
+  );
+  resolvedPath = __resolvedPath(resolvedPath, input, "DashboardId", () => input.DashboardId!, "{DashboardId}", false);
+  resolvedPath = __resolvedPath(
+    resolvedPath,
+    input,
+    "SnapshotJobId",
+    () => input.SnapshotJobId!,
+    "{SnapshotJobId}",
+    false
+  );
   let body: any;
   return new __HttpRequest({
     protocol,
@@ -5877,6 +5982,48 @@ export const se_StartAssetBundleImportJobCommand = async (
       AssetBundleImportSource: (_) => se_AssetBundleImportSource(_, context),
       FailureAction: [],
       OverrideParameters: (_) => se_AssetBundleImportJobOverrideParameters(_, context),
+    })
+  );
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "POST",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
+/**
+ * serializeAws_restJson1StartDashboardSnapshotJobCommand
+ */
+export const se_StartDashboardSnapshotJobCommand = async (
+  input: StartDashboardSnapshotJobCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
+    "/accounts/{AwsAccountId}/dashboards/{DashboardId}/snapshot-jobs";
+  resolvedPath = __resolvedPath(
+    resolvedPath,
+    input,
+    "AwsAccountId",
+    () => input.AwsAccountId!,
+    "{AwsAccountId}",
+    false
+  );
+  resolvedPath = __resolvedPath(resolvedPath, input, "DashboardId", () => input.DashboardId!, "{DashboardId}", false);
+  let body: any;
+  body = JSON.stringify(
+    take(input, {
+      SnapshotConfiguration: (_) => se_SnapshotConfiguration(_, context),
+      SnapshotJobId: [],
+      UserConfiguration: (_) => _json(_),
     })
   );
   return new __HttpRequest({
@@ -8870,6 +9017,12 @@ const de_DeleteAccountCustomizationCommandError = async (
     case "InvalidParameterValueException":
     case "com.amazonaws.quicksight#InvalidParameterValueException":
       throw await de_InvalidParameterValueExceptionRes(parsedOutput, context);
+    case "LimitExceededException":
+    case "com.amazonaws.quicksight#LimitExceededException":
+      throw await de_LimitExceededExceptionRes(parsedOutput, context);
+    case "PreconditionNotMetException":
+    case "com.amazonaws.quicksight#PreconditionNotMetException":
+      throw await de_PreconditionNotMetExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.quicksight#ResourceNotFoundException":
       throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
@@ -11119,6 +11272,149 @@ const de_DescribeDashboardPermissionsCommandError = async (
     case "InvalidParameterValueException":
     case "com.amazonaws.quicksight#InvalidParameterValueException":
       throw await de_InvalidParameterValueExceptionRes(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.quicksight#ResourceNotFoundException":
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
+    case "ThrottlingException":
+    case "com.amazonaws.quicksight#ThrottlingException":
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
+    case "UnsupportedUserEditionException":
+    case "com.amazonaws.quicksight#UnsupportedUserEditionException":
+      throw await de_UnsupportedUserEditionExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
+ * deserializeAws_restJson1DescribeDashboardSnapshotJobCommand
+ */
+export const de_DescribeDashboardSnapshotJobCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeDashboardSnapshotJobCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_DescribeDashboardSnapshotJobCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    Arn: __expectString,
+    AwsAccountId: __expectString,
+    CreatedTime: (_) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    DashboardId: __expectString,
+    JobStatus: __expectString,
+    LastUpdatedTime: (_) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    RequestId: __expectString,
+    SnapshotConfiguration: (_) => de_SnapshotConfiguration(_, context),
+    SnapshotJobId: __expectString,
+    Status: __expectInt32,
+    UserConfiguration: _json,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1DescribeDashboardSnapshotJobCommandError
+ */
+const de_DescribeDashboardSnapshotJobCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeDashboardSnapshotJobCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.quicksight#AccessDeniedException":
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
+    case "InternalFailureException":
+    case "com.amazonaws.quicksight#InternalFailureException":
+      throw await de_InternalFailureExceptionRes(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.quicksight#ResourceNotFoundException":
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
+    case "ThrottlingException":
+    case "com.amazonaws.quicksight#ThrottlingException":
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
+    case "UnsupportedUserEditionException":
+    case "com.amazonaws.quicksight#UnsupportedUserEditionException":
+      throw await de_UnsupportedUserEditionExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
+ * deserializeAws_restJson1DescribeDashboardSnapshotJobResultCommand
+ */
+export const de_DescribeDashboardSnapshotJobResultCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeDashboardSnapshotJobResultCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_DescribeDashboardSnapshotJobResultCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    Arn: __expectString,
+    CreatedTime: (_) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    ErrorInfo: _json,
+    JobStatus: __expectString,
+    LastUpdatedTime: (_) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    RequestId: __expectString,
+    Result: _json,
+  });
+  Object.assign(contents, doc);
+  map(contents, {
+    Status: [, output.statusCode],
+  });
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1DescribeDashboardSnapshotJobResultCommandError
+ */
+const de_DescribeDashboardSnapshotJobResultCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeDashboardSnapshotJobResultCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.quicksight#AccessDeniedException":
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
+    case "InternalFailureException":
+    case "com.amazonaws.quicksight#InternalFailureException":
+      throw await de_InternalFailureExceptionRes(parsedOutput, context);
+    case "InvalidParameterValueException":
+    case "com.amazonaws.quicksight#InvalidParameterValueException":
+      throw await de_InvalidParameterValueExceptionRes(parsedOutput, context);
+    case "PreconditionNotMetException":
+    case "com.amazonaws.quicksight#PreconditionNotMetException":
+      throw await de_PreconditionNotMetExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.quicksight#ResourceNotFoundException":
       throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
@@ -15986,6 +16282,82 @@ const de_StartAssetBundleImportJobCommandError = async (
 };
 
 /**
+ * deserializeAws_restJson1StartDashboardSnapshotJobCommand
+ */
+export const de_StartDashboardSnapshotJobCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<StartDashboardSnapshotJobCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_StartDashboardSnapshotJobCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    Arn: __expectString,
+    RequestId: __expectString,
+    SnapshotJobId: __expectString,
+  });
+  Object.assign(contents, doc);
+  map(contents, {
+    Status: [, output.statusCode],
+  });
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1StartDashboardSnapshotJobCommandError
+ */
+const de_StartDashboardSnapshotJobCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<StartDashboardSnapshotJobCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.quicksight#AccessDeniedException":
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
+    case "InternalFailureException":
+    case "com.amazonaws.quicksight#InternalFailureException":
+      throw await de_InternalFailureExceptionRes(parsedOutput, context);
+    case "InvalidParameterValueException":
+    case "com.amazonaws.quicksight#InvalidParameterValueException":
+      throw await de_InvalidParameterValueExceptionRes(parsedOutput, context);
+    case "LimitExceededException":
+    case "com.amazonaws.quicksight#LimitExceededException":
+      throw await de_LimitExceededExceptionRes(parsedOutput, context);
+    case "ResourceExistsException":
+    case "com.amazonaws.quicksight#ResourceExistsException":
+      throw await de_ResourceExistsExceptionRes(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.quicksight#ResourceNotFoundException":
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
+    case "ThrottlingException":
+    case "com.amazonaws.quicksight#ThrottlingException":
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
+    case "UnsupportedPricingPlanException":
+    case "com.amazonaws.quicksight#UnsupportedPricingPlanException":
+      throw await de_UnsupportedPricingPlanExceptionRes(parsedOutput, context);
+    case "UnsupportedUserEditionException":
+    case "com.amazonaws.quicksight#UnsupportedUserEditionException":
+      throw await de_UnsupportedUserEditionExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
  * deserializeAws_restJson1TagResourceCommand
  */
 export const de_TagResourceCommand = async (
@@ -18561,6 +18933,7 @@ const de_UnsupportedUserEditionExceptionRes = async (
  */
 const se_AggregationFunction = (input: AggregationFunction, context: __SerdeContext): any => {
   return take(input, {
+    AttributeAggregationFunction: _json,
     CategoricalAggregationFunction: [],
     DateAggregationFunction: [],
     NumericalAggregationFunction: (_) => se_NumericalAggregationFunction(_, context),
@@ -18800,6 +19173,8 @@ const se_AssetBundleImportSource = (input: AssetBundleImportSource, context: __S
 // se_AssetBundleResourceArns omitted.
 
 // se_AthenaParameters omitted.
+
+// se_AttributeAggregationFunction omitted.
 
 // se_AuroraParameters omitted.
 
@@ -21958,6 +22333,8 @@ const se_RowSortList = (input: FieldSortOptions[], context: __SerdeContext): any
     });
 };
 
+// se_S3BucketConfiguration omitted.
+
 // se_S3Parameters omitted.
 
 // se_S3Source omitted.
@@ -22212,6 +22589,8 @@ const se_ShapeConditionalFormat = (input: ShapeConditionalFormat, context: __Ser
   });
 };
 
+// se_SheetControlInfoIconLabelOptions omitted.
+
 // se_SheetControlLayout omitted.
 
 // se_SheetControlLayoutConfiguration omitted.
@@ -22279,6 +22658,43 @@ const se_SheetDefinitionList = (input: SheetDefinition[], context: __SerdeContex
 // se_SmallMultiplesDimensionFieldList omitted.
 
 // se_SmallMultiplesOptions omitted.
+
+// se_SnapshotAnonymousUser omitted.
+
+// se_SnapshotAnonymousUserList omitted.
+
+/**
+ * serializeAws_restJson1SnapshotConfiguration
+ */
+const se_SnapshotConfiguration = (input: SnapshotConfiguration, context: __SerdeContext): any => {
+  return take(input, {
+    DestinationConfiguration: _json,
+    FileGroups: _json,
+    Parameters: (_) => se__Parameters(_, context),
+  });
+};
+
+// se_SnapshotDestinationConfiguration omitted.
+
+// se_SnapshotFile omitted.
+
+// se_SnapshotFileGroup omitted.
+
+// se_SnapshotFileGroupList omitted.
+
+// se_SnapshotFileList omitted.
+
+// se_SnapshotFileSheetSelection omitted.
+
+// se_SnapshotFileSheetSelectionList omitted.
+
+// se_SnapshotFileSheetSelectionVisualIdList omitted.
+
+// se_SnapshotS3DestinationConfiguration omitted.
+
+// se_SnapshotS3DestinationConfigurationList omitted.
+
+// se_SnapshotUserConfiguration omitted.
 
 // se_SnowflakeParameters omitted.
 
@@ -23143,6 +23559,7 @@ const se_WordCloudVisual = (input: WordCloudVisual, context: __SerdeContext): an
  */
 const de_AggregationFunction = (output: any, context: __SerdeContext): AggregationFunction => {
   return take(output, {
+    AttributeAggregationFunction: _json,
     CategoricalAggregationFunction: __expectString,
     DateAggregationFunction: __expectString,
     NumericalAggregationFunction: (_: any) => de_NumericalAggregationFunction(_, context),
@@ -23244,6 +23661,10 @@ const de_AnalysisSummaryList = (output: any, context: __SerdeContext): AnalysisS
 };
 
 // de_AnchorDateConfiguration omitted.
+
+// de_AnonymousUserSnapshotJobResult omitted.
+
+// de_AnonymousUserSnapshotJobResultList omitted.
 
 /**
  * deserializeAws_restJson1ArcAxisConfiguration
@@ -23465,6 +23886,8 @@ const de_AssetBundleImportJobSummaryList = (output: any, context: __SerdeContext
 // de_AssetBundleResourceArns omitted.
 
 // de_AthenaParameters omitted.
+
+// de_AttributeAggregationFunction omitted.
 
 // de_AuroraParameters omitted.
 
@@ -24508,6 +24931,16 @@ const de_DateTimeHierarchy = (output: any, context: __SerdeContext): DateTimeHie
 };
 
 /**
+ * deserializeAws_restJson1DateTimeParameter
+ */
+const de_DateTimeParameter = (output: any, context: __SerdeContext): DateTimeParameter => {
+  return take(output, {
+    Name: __expectString,
+    Values: (_: any) => de_SensitiveTimestampList(_, context),
+  }) as any;
+};
+
+/**
  * deserializeAws_restJson1DateTimeParameterDeclaration
  */
 const de_DateTimeParameterDeclaration = (output: any, context: __SerdeContext): DateTimeParameterDeclaration => {
@@ -24518,6 +24951,18 @@ const de_DateTimeParameterDeclaration = (output: any, context: __SerdeContext): 
     TimeGranularity: __expectString,
     ValueWhenUnset: (_: any) => de_DateTimeValueWhenUnsetConfiguration(_, context),
   }) as any;
+};
+
+/**
+ * deserializeAws_restJson1DateTimeParameterList
+ */
+const de_DateTimeParameterList = (output: any, context: __SerdeContext): DateTimeParameter[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      return de_DateTimeParameter(entry, context);
+    });
+  return retVal;
 };
 
 // de_DateTimePickerControlDisplayOptions omitted.
@@ -24594,6 +25039,16 @@ const de_DecimalDefaultValues = (output: any, context: __SerdeContext): DecimalD
 };
 
 /**
+ * deserializeAws_restJson1DecimalParameter
+ */
+const de_DecimalParameter = (output: any, context: __SerdeContext): DecimalParameter => {
+  return take(output, {
+    Name: __expectString,
+    Values: (_: any) => de_SensitiveDoubleList(_, context),
+  }) as any;
+};
+
+/**
  * deserializeAws_restJson1DecimalParameterDeclaration
  */
 const de_DecimalParameterDeclaration = (output: any, context: __SerdeContext): DecimalParameterDeclaration => {
@@ -24604,6 +25059,18 @@ const de_DecimalParameterDeclaration = (output: any, context: __SerdeContext): D
     ParameterValueType: __expectString,
     ValueWhenUnset: (_: any) => de_DecimalValueWhenUnsetConfiguration(_, context),
   }) as any;
+};
+
+/**
+ * deserializeAws_restJson1DecimalParameterList
+ */
+const de_DecimalParameterList = (output: any, context: __SerdeContext): DecimalParameter[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      return de_DecimalParameter(entry, context);
+    });
+  return retVal;
 };
 
 // de_DecimalPlacesConfiguration omitted.
@@ -25717,7 +26184,11 @@ const de_InsightVisual = (output: any, context: __SerdeContext): InsightVisual =
 
 // de_IntegerDefaultValues omitted.
 
+// de_IntegerParameter omitted.
+
 // de_IntegerParameterDeclaration omitted.
+
+// de_IntegerParameterList omitted.
 
 // de_IntegerValueWhenUnsetConfiguration omitted.
 
@@ -26291,6 +26762,18 @@ const de_ParameterDeclarationList = (output: any, context: __SerdeContext): Para
 // de_ParameterDropDownControl omitted.
 
 // de_ParameterListControl omitted.
+
+/**
+ * deserializeAws_restJson1_Parameters
+ */
+const de__Parameters = (output: any, context: __SerdeContext): _Parameters => {
+  return take(output, {
+    DateTimeParameters: (_: any) => de_DateTimeParameterList(_, context),
+    DecimalParameters: (_: any) => de_DecimalParameterList(_, context),
+    IntegerParameters: _json,
+    StringParameters: _json,
+  }) as any;
+};
 
 // de_ParameterSelectableValueList omitted.
 
@@ -26885,6 +27368,8 @@ const de_RowSortList = (output: any, context: __SerdeContext): FieldSortOptions[
   return retVal;
 };
 
+// de_S3BucketConfiguration omitted.
+
 // de_S3Parameters omitted.
 
 // de_S3Source omitted.
@@ -27071,13 +27556,41 @@ const de_SectionBasedLayoutConfiguration = (output: any, context: __SerdeContext
 
 // de_SemanticType omitted.
 
+/**
+ * deserializeAws_restJson1SensitiveDoubleList
+ */
+const de_SensitiveDoubleList = (output: any, context: __SerdeContext): number[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      return __limitedParseDouble(entry) as any;
+    });
+  return retVal;
+};
+
+// de_SensitiveLongList omitted.
+
 // de_SensitiveStringList omitted.
+
+/**
+ * deserializeAws_restJson1SensitiveTimestampList
+ */
+const de_SensitiveTimestampList = (output: any, context: __SerdeContext): Date[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      return __expectNonNull(__parseEpochTimestamp(__expectNumber(entry)));
+    });
+  return retVal;
+};
 
 // de_SeriesItem omitted.
 
 // de_SeriesItemList omitted.
 
 // de_ServiceNowParameters omitted.
+
+// de_SessionTagKeyList omitted.
 
 /**
  * deserializeAws_restJson1SetParameterValueConfiguration
@@ -27114,6 +27627,8 @@ const de_ShapeConditionalFormat = (output: any, context: __SerdeContext): ShapeC
 };
 
 // de_Sheet omitted.
+
+// de_SheetControlInfoIconLabelOptions omitted.
 
 // de_SheetControlLayout omitted.
 
@@ -27188,6 +27703,59 @@ const de_SheetDefinitionList = (output: any, context: __SerdeContext): SheetDefi
 
 // de_SmallMultiplesOptions omitted.
 
+// de_SnapshotAnonymousUserRedacted omitted.
+
+// de_SnapshotAnonymousUserRedactedList omitted.
+
+/**
+ * deserializeAws_restJson1SnapshotConfiguration
+ */
+const de_SnapshotConfiguration = (output: any, context: __SerdeContext): SnapshotConfiguration => {
+  return take(output, {
+    DestinationConfiguration: _json,
+    FileGroups: _json,
+    Parameters: (_: any) => de__Parameters(_, context),
+  }) as any;
+};
+
+// de_SnapshotDestinationConfiguration omitted.
+
+// de_SnapshotFile omitted.
+
+// de_SnapshotFileGroup omitted.
+
+// de_SnapshotFileGroupList omitted.
+
+// de_SnapshotFileList omitted.
+
+// de_SnapshotFileSheetSelection omitted.
+
+// de_SnapshotFileSheetSelectionList omitted.
+
+// de_SnapshotFileSheetSelectionVisualIdList omitted.
+
+// de_SnapshotJobErrorInfo omitted.
+
+// de_SnapshotJobResult omitted.
+
+// de_SnapshotJobResultErrorInfo omitted.
+
+// de_SnapshotJobResultErrorInfoList omitted.
+
+// de_SnapshotJobResultFileGroup omitted.
+
+// de_SnapshotJobResultFileGroupList omitted.
+
+// de_SnapshotJobS3Result omitted.
+
+// de_SnapshotJobS3ResultList omitted.
+
+// de_SnapshotS3DestinationConfiguration omitted.
+
+// de_SnapshotS3DestinationConfigurationList omitted.
+
+// de_SnapshotUserConfigurationRedacted omitted.
+
 // de_SnowflakeParameters omitted.
 
 // de_Spacing omitted.
@@ -27212,7 +27780,11 @@ const de_SheetDefinitionList = (output: any, context: __SerdeContext): SheetDefi
 
 // de_StringList omitted.
 
+// de_StringParameter omitted.
+
 // de_StringParameterDeclaration omitted.
+
+// de_StringParameterList omitted.
 
 // de_StringValueWhenUnsetConfiguration omitted.
 

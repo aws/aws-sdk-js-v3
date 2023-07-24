@@ -13,7 +13,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@smithy/types";
 
-import { DeleteAccountSubscriptionRequest, DeleteAccountSubscriptionResponse } from "../models/models_2";
+import { DeleteAccountSubscriptionRequest, DeleteAccountSubscriptionResponse } from "../models/models_3";
 import { de_DeleteAccountSubscriptionCommand, se_DeleteAccountSubscriptionCommand } from "../protocols/Aws_restJson1";
 import { QuickSightClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../QuickSightClient";
 

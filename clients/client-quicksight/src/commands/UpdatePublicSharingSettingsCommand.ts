@@ -13,7 +13,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@smithy/types";
 
-import { UpdatePublicSharingSettingsRequest, UpdatePublicSharingSettingsResponse } from "../models/models_3";
+import { UpdatePublicSharingSettingsRequest, UpdatePublicSharingSettingsResponse } from "../models/models_4";
 import {
   de_UpdatePublicSharingSettingsCommand,
   se_UpdatePublicSharingSettingsCommand,
