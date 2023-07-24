@@ -55,7 +55,7 @@ export interface GetRouteCommandOutput extends GetRouteResult, __MetadataBearer 
  * //   AuthorizationScopes: [ // AuthorizationScopes
  * //     "STRING_VALUE",
  * //   ],
- * //   AuthorizationType: "STRING_VALUE",
+ * //   AuthorizationType: "NONE" || "AWS_IAM" || "CUSTOM" || "JWT",
  * //   AuthorizerId: "STRING_VALUE",
  * //   ModelSelectionExpression: "STRING_VALUE",
  * //   OperationName: "STRING_VALUE",

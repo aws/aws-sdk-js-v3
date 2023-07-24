@@ -48,7 +48,7 @@ export interface CreateAuthorizerCommandOutput extends CreateAuthorizerResponse,
  *   AuthorizerCredentialsArn: "STRING_VALUE",
  *   AuthorizerPayloadFormatVersion: "STRING_VALUE",
  *   AuthorizerResultTtlInSeconds: Number("int"),
- *   AuthorizerType: "STRING_VALUE", // required
+ *   AuthorizerType: "REQUEST" || "JWT", // required
  *   AuthorizerUri: "STRING_VALUE",
  *   EnableSimpleResponses: true || false,
  *   IdentitySource: [ // IdentitySourceList // required
@@ -70,7 +70,7 @@ export interface CreateAuthorizerCommandOutput extends CreateAuthorizerResponse,
  * //   AuthorizerId: "STRING_VALUE",
  * //   AuthorizerPayloadFormatVersion: "STRING_VALUE",
  * //   AuthorizerResultTtlInSeconds: Number("int"),
- * //   AuthorizerType: "STRING_VALUE",
+ * //   AuthorizerType: "REQUEST" || "JWT",
  * //   AuthorizerUri: "STRING_VALUE",
  * //   EnableSimpleResponses: true || false,
  * //   IdentitySource: [ // IdentitySourceList

@@ -61,9 +61,9 @@ export interface GetVpcLinkCommandOutput extends GetVpcLinkResponse, __MetadataB
  * //     "<keys>": "STRING_VALUE",
  * //   },
  * //   VpcLinkId: "STRING_VALUE",
- * //   VpcLinkStatus: "STRING_VALUE",
+ * //   VpcLinkStatus: "PENDING" || "AVAILABLE" || "DELETING" || "FAILED" || "INACTIVE",
  * //   VpcLinkStatusMessage: "STRING_VALUE",
- * //   VpcLinkVersion: "STRING_VALUE",
+ * //   VpcLinkVersion: "V2",
  * // };
  *
  * ```

@@ -54,7 +54,7 @@ export interface GetIntegrationResponsesCommandOutput extends GetIntegrationResp
  * // { // GetIntegrationResponsesResponse
  * //   Items: [ // __listOfIntegrationResponse
  * //     { // IntegrationResponse
- * //       ContentHandlingStrategy: "STRING_VALUE",
+ * //       ContentHandlingStrategy: "CONVERT_TO_BINARY" || "CONVERT_TO_TEXT",
  * //       IntegrationResponseId: "STRING_VALUE",
  * //       IntegrationResponseKey: "STRING_VALUE", // required
  * //       ResponseParameters: { // IntegrationParameters

@@ -49,7 +49,7 @@ export interface UpdateRouteCommandOutput extends UpdateRouteResult, __MetadataB
  *   AuthorizationScopes: [ // AuthorizationScopes
  *     "STRING_VALUE",
  *   ],
- *   AuthorizationType: "STRING_VALUE",
+ *   AuthorizationType: "NONE" || "AWS_IAM" || "CUSTOM" || "JWT",
  *   AuthorizerId: "STRING_VALUE",
  *   ModelSelectionExpression: "STRING_VALUE",
  *   OperationName: "STRING_VALUE",
@@ -74,7 +74,7 @@ export interface UpdateRouteCommandOutput extends UpdateRouteResult, __MetadataB
  * //   AuthorizationScopes: [ // AuthorizationScopes
  * //     "STRING_VALUE",
  * //   ],
- * //   AuthorizationType: "STRING_VALUE",
+ * //   AuthorizationType: "NONE" || "AWS_IAM" || "CUSTOM" || "JWT",
  * //   AuthorizerId: "STRING_VALUE",
  * //   ModelSelectionExpression: "STRING_VALUE",
  * //   OperationName: "STRING_VALUE",

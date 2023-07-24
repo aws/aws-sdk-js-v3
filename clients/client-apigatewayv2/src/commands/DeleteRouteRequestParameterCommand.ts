@@ -39,7 +39,7 @@ export interface DeleteRouteRequestParameterCommandOutput extends __MetadataBear
 
 /**
  * @public
- * <p>Deletes a route request parameter.</p>
+ * <p>Deletes a route request parameter. Supported only for WebSocket APIs.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

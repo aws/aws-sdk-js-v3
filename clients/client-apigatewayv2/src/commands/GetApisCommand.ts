@@ -80,7 +80,7 @@ export interface GetApisCommandOutput extends GetApisResponse, __MetadataBearer 
  * //         "STRING_VALUE",
  * //       ],
  * //       Name: "STRING_VALUE", // required
- * //       ProtocolType: "STRING_VALUE", // required
+ * //       ProtocolType: "WEBSOCKET" || "HTTP", // required
  * //       RouteSelectionExpression: "STRING_VALUE", // required
  * //       Tags: { // Tags
  * //         "<keys>": "STRING_VALUE",

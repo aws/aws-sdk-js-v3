@@ -66,7 +66,7 @@ export interface CreateApiCommandOutput extends CreateApiResponse, __MetadataBea
  *   DisableSchemaValidation: true || false,
  *   DisableExecuteApiEndpoint: true || false,
  *   Name: "STRING_VALUE", // required
- *   ProtocolType: "STRING_VALUE", // required
+ *   ProtocolType: "WEBSOCKET" || "HTTP", // required
  *   RouteKey: "STRING_VALUE",
  *   RouteSelectionExpression: "STRING_VALUE",
  *   Tags: { // Tags
@@ -106,7 +106,7 @@ export interface CreateApiCommandOutput extends CreateApiResponse, __MetadataBea
  * //     "STRING_VALUE",
  * //   ],
  * //   Name: "STRING_VALUE",
- * //   ProtocolType: "STRING_VALUE",
+ * //   ProtocolType: "WEBSOCKET" || "HTTP",
  * //   RouteSelectionExpression: "STRING_VALUE",
  * //   Tags: { // Tags
  * //     "<keys>": "STRING_VALUE",

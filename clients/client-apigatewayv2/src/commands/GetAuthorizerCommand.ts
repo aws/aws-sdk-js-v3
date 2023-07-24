@@ -54,7 +54,7 @@ export interface GetAuthorizerCommandOutput extends GetAuthorizerResponse, __Met
  * //   AuthorizerId: "STRING_VALUE",
  * //   AuthorizerPayloadFormatVersion: "STRING_VALUE",
  * //   AuthorizerResultTtlInSeconds: Number("int"),
- * //   AuthorizerType: "STRING_VALUE",
+ * //   AuthorizerType: "REQUEST" || "JWT",
  * //   AuthorizerUri: "STRING_VALUE",
  * //   EnableSimpleResponses: true || false,
  * //   IdentitySource: [ // IdentitySourceList

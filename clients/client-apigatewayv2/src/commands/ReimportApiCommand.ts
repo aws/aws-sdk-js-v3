@@ -80,7 +80,7 @@ export interface ReimportApiCommandOutput extends ReimportApiResponse, __Metadat
  * //     "STRING_VALUE",
  * //   ],
  * //   Name: "STRING_VALUE",
- * //   ProtocolType: "STRING_VALUE",
+ * //   ProtocolType: "WEBSOCKET" || "HTTP",
  * //   RouteSelectionExpression: "STRING_VALUE",
  * //   Tags: { // Tags
  * //     "<keys>": "STRING_VALUE",

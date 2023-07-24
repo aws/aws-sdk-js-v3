@@ -56,7 +56,7 @@ export interface GetDeploymentsCommandOutput extends GetDeploymentsResponse, __M
  * //       AutoDeployed: true || false,
  * //       CreatedDate: new Date("TIMESTAMP"),
  * //       DeploymentId: "STRING_VALUE",
- * //       DeploymentStatus: "STRING_VALUE",
+ * //       DeploymentStatus: "PENDING" || "FAILED" || "DEPLOYED",
  * //       DeploymentStatusMessage: "STRING_VALUE",
  * //       Description: "STRING_VALUE",
  * //     },

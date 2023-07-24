@@ -51,7 +51,7 @@ export interface GetIntegrationResponseCommandOutput extends GetIntegrationRespo
  * const command = new GetIntegrationResponseCommand(input);
  * const response = await client.send(command);
  * // { // GetIntegrationResponseResponse
- * //   ContentHandlingStrategy: "STRING_VALUE",
+ * //   ContentHandlingStrategy: "CONVERT_TO_BINARY" || "CONVERT_TO_TEXT",
  * //   IntegrationResponseId: "STRING_VALUE",
  * //   IntegrationResponseKey: "STRING_VALUE",
  * //   ResponseParameters: { // IntegrationParameters

@@ -54,7 +54,7 @@ export interface UpdateStageCommandOutput extends UpdateStageResponse, __Metadat
  *   DefaultRouteSettings: { // RouteSettings
  *     DataTraceEnabled: true || false,
  *     DetailedMetricsEnabled: true || false,
- *     LoggingLevel: "STRING_VALUE",
+ *     LoggingLevel: "ERROR" || "INFO" || "OFF",
  *     ThrottlingBurstLimit: Number("int"),
  *     ThrottlingRateLimit: Number("double"),
  *   },
@@ -64,7 +64,7 @@ export interface UpdateStageCommandOutput extends UpdateStageResponse, __Metadat
  *     "<keys>": {
  *       DataTraceEnabled: true || false,
  *       DetailedMetricsEnabled: true || false,
- *       LoggingLevel: "STRING_VALUE",
+ *       LoggingLevel: "ERROR" || "INFO" || "OFF",
  *       ThrottlingBurstLimit: Number("int"),
  *       ThrottlingRateLimit: Number("double"),
  *     },
@@ -88,7 +88,7 @@ export interface UpdateStageCommandOutput extends UpdateStageResponse, __Metadat
  * //   DefaultRouteSettings: { // RouteSettings
  * //     DataTraceEnabled: true || false,
  * //     DetailedMetricsEnabled: true || false,
- * //     LoggingLevel: "STRING_VALUE",
+ * //     LoggingLevel: "ERROR" || "INFO" || "OFF",
  * //     ThrottlingBurstLimit: Number("int"),
  * //     ThrottlingRateLimit: Number("double"),
  * //   },
@@ -100,7 +100,7 @@ export interface UpdateStageCommandOutput extends UpdateStageResponse, __Metadat
  * //     "<keys>": {
  * //       DataTraceEnabled: true || false,
  * //       DetailedMetricsEnabled: true || false,
- * //       LoggingLevel: "STRING_VALUE",
+ * //       LoggingLevel: "ERROR" || "INFO" || "OFF",
  * //       ThrottlingBurstLimit: Number("int"),
  * //       ThrottlingRateLimit: Number("double"),
  * //     },

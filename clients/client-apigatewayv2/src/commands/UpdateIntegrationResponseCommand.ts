@@ -45,7 +45,7 @@ export interface UpdateIntegrationResponseCommandOutput extends UpdateIntegratio
  * const client = new ApiGatewayV2Client(config);
  * const input = { // UpdateIntegrationResponseRequest
  *   ApiId: "STRING_VALUE", // required
- *   ContentHandlingStrategy: "STRING_VALUE",
+ *   ContentHandlingStrategy: "CONVERT_TO_BINARY" || "CONVERT_TO_TEXT",
  *   IntegrationId: "STRING_VALUE", // required
  *   IntegrationResponseId: "STRING_VALUE", // required
  *   IntegrationResponseKey: "STRING_VALUE",
@@ -60,7 +60,7 @@ export interface UpdateIntegrationResponseCommandOutput extends UpdateIntegratio
  * const command = new UpdateIntegrationResponseCommand(input);
  * const response = await client.send(command);
  * // { // UpdateIntegrationResponseResponse
- * //   ContentHandlingStrategy: "STRING_VALUE",
+ * //   ContentHandlingStrategy: "CONVERT_TO_BINARY" || "CONVERT_TO_TEXT",
  * //   IntegrationResponseId: "STRING_VALUE",
  * //   IntegrationResponseKey: "STRING_VALUE",
  * //   ResponseParameters: { // IntegrationParameters

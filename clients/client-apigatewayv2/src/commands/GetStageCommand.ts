@@ -61,7 +61,7 @@ export interface GetStageCommandOutput extends GetStageResponse, __MetadataBeare
  * //   DefaultRouteSettings: { // RouteSettings
  * //     DataTraceEnabled: true || false,
  * //     DetailedMetricsEnabled: true || false,
- * //     LoggingLevel: "STRING_VALUE",
+ * //     LoggingLevel: "ERROR" || "INFO" || "OFF",
  * //     ThrottlingBurstLimit: Number("int"),
  * //     ThrottlingRateLimit: Number("double"),
  * //   },
@@ -73,7 +73,7 @@ export interface GetStageCommandOutput extends GetStageResponse, __MetadataBeare
  * //     "<keys>": {
  * //       DataTraceEnabled: true || false,
  * //       DetailedMetricsEnabled: true || false,
- * //       LoggingLevel: "STRING_VALUE",
+ * //       LoggingLevel: "ERROR" || "INFO" || "OFF",
  * //       ThrottlingBurstLimit: Number("int"),
  * //       ThrottlingRateLimit: Number("double"),
  * //     },

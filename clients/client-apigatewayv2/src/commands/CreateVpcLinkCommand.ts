@@ -70,9 +70,9 @@ export interface CreateVpcLinkCommandOutput extends CreateVpcLinkResponse, __Met
  * //     "<keys>": "STRING_VALUE",
  * //   },
  * //   VpcLinkId: "STRING_VALUE",
- * //   VpcLinkStatus: "STRING_VALUE",
+ * //   VpcLinkStatus: "PENDING" || "AVAILABLE" || "DELETING" || "FAILED" || "INACTIVE",
  * //   VpcLinkStatusMessage: "STRING_VALUE",
- * //   VpcLinkVersion: "STRING_VALUE",
+ * //   VpcLinkVersion: "V2",
  * // };
  *
  * ```
