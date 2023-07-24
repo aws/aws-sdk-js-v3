@@ -3047,6 +3047,248 @@ export interface GetRightsizingRecommendationResponse {
 
 /**
  * @public
+ */
+export interface GetSavingsPlanPurchaseRecommendationDetailsRequest {
+  /**
+   * <p>The ID that is associated with the Savings Plan recommendation.</p>
+   */
+  RecommendationDetailId: string | undefined;
+}
+
+/**
+ * @public
+ * <p>Contains the hourly metrics for the given recommendation over the lookback period.
+ *         </p>
+ */
+export interface RecommendationDetailHourlyMetrics {
+  /**
+   * <p>The period of time that you want the usage and costs for.</p>
+   */
+  StartTime?: string;
+
+  /**
+   * <p>The remaining On-Demand cost estimated to not be covered by the recommended Savings
+   *             Plan, over the length of the lookback period.</p>
+   */
+  EstimatedOnDemandCost?: string;
+
+  /**
+   * <p>The current amount of Savings Plans eligible usage that the Savings Plan
+   *             covered.</p>
+   */
+  CurrentCoverage?: string;
+
+  /**
+   * <p>The estimated coverage amount based on the recommended Savings Plan.</p>
+   */
+  EstimatedCoverage?: string;
+
+  /**
+   * <p>The estimated utilization for the recommended Savings Plan.</p>
+   */
+  EstimatedNewCommitmentUtilization?: string;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const SupportedSavingsPlansType = {
+  COMPUTE_SP: "COMPUTE_SP",
+  EC2_INSTANCE_SP: "EC2_INSTANCE_SP",
+  SAGEMAKER_SP: "SAGEMAKER_SP",
+} as const;
+
+/**
+ * @public
+ */
+export type SupportedSavingsPlansType = (typeof SupportedSavingsPlansType)[keyof typeof SupportedSavingsPlansType];
+
+/**
+ * @public
+ * <p>The details and metrics for the given recommendation.</p>
+ */
+export interface RecommendationDetailData {
+  /**
+   * <p>The account scope that you want your recommendations for. Amazon Web Services
+   *             calculates recommendations including the management account and member accounts if the
+   *             value is set to PAYER. If the value is LINKED, recommendations are calculated for
+   *             individual member accounts only.</p>
+   */
+  AccountScope?: AccountScope | string;
+
+  /**
+   * <p>How many days of previous usage that Amazon Web Services considers when making this
+   *             recommendation.</p>
+   */
+  LookbackPeriodInDays?: LookbackPeriodInDays | string;
+
+  /**
+   * <p>The requested Savings Plan recommendation type.</p>
+   */
+  SavingsPlansType?: SupportedSavingsPlansType | string;
+
+  /**
+   * <p>The term of the commitment in years.</p>
+   */
+  TermInYears?: TermInYears | string;
+
+  /**
+   * <p>The payment option for the commitment (for example, All Upfront or No Upfront).</p>
+   */
+  PaymentOption?: PaymentOption | string;
+
+  /**
+   * <p>The AccountID that the recommendation is generated for.</p>
+   */
+  AccountId?: string;
+
+  /**
+   * <p>The currency code that Amazon Web Services used to generate the recommendation and
+   *             present potential savings.</p>
+   */
+  CurrencyCode?: string;
+
+  /**
+   * <p>The instance family of the recommended Savings Plan.</p>
+   */
+  InstanceFamily?: string;
+
+  /**
+   * <p>The region the recommendation is generated for.</p>
+   */
+  Region?: string;
+
+  /**
+   * <p>The unique ID that's used to distinguish Savings Plans from one another.</p>
+   */
+  OfferingId?: string;
+
+  /**
+   * <p>The period of time that you want the usage and costs for.</p>
+   */
+  GenerationTimestamp?: string;
+
+  /**
+   * <p>The period of time that you want the usage and costs for.</p>
+   */
+  LatestUsageTimestamp?: string;
+
+  /**
+   * <p>The average value of hourly On-Demand spend over the lookback period of the applicable
+   *             usage type.</p>
+   */
+  CurrentAverageHourlyOnDemandSpend?: string;
+
+  /**
+   * <p>The highest value of hourly On-Demand spend over the lookback period of the applicable
+   *             usage type.</p>
+   */
+  CurrentMaximumHourlyOnDemandSpend?: string;
+
+  /**
+   * <p>The lowest value of hourly On-Demand spend over the lookback period of the applicable
+   *             usage type.</p>
+   */
+  CurrentMinimumHourlyOnDemandSpend?: string;
+
+  /**
+   * <p>The estimated utilization of the recommended Savings Plan.</p>
+   */
+  EstimatedAverageUtilization?: string;
+
+  /**
+   * <p>The estimated monthly savings amount based on the recommended Savings Plan.</p>
+   */
+  EstimatedMonthlySavingsAmount?: string;
+
+  /**
+   * <p>The remaining On-Demand cost estimated to not be covered by the recommended Savings
+   *             Plan, over the length of the lookback period.</p>
+   */
+  EstimatedOnDemandCost?: string;
+
+  /**
+   * <p>The estimated On-Demand costs you expect with no additional commitment, based on your
+   *             usage of the selected time period and the Savings Plan you own.</p>
+   */
+  EstimatedOnDemandCostWithCurrentCommitment?: string;
+
+  /**
+   * <p>The estimated return on investment that's based on the recommended Savings Plan that
+   *             you purchased. This is calculated as estimatedSavingsAmount/estimatedSPCost*100.</p>
+   */
+  EstimatedROI?: string;
+
+  /**
+   * <p>The cost of the recommended Savings Plan over the length of the lookback
+   *             period.</p>
+   */
+  EstimatedSPCost?: string;
+
+  /**
+   * <p>The estimated savings amount that's based on the recommended Savings Plan over the
+   *             length of the lookback period.</p>
+   */
+  EstimatedSavingsAmount?: string;
+
+  /**
+   * <p>The estimated savings percentage relative to the total cost of applicable On-Demand
+   *             usage over the lookback period.</p>
+   */
+  EstimatedSavingsPercentage?: string;
+
+  /**
+   * <p>The existing hourly commitment for the Savings Plan type.</p>
+   */
+  ExistingHourlyCommitment?: string;
+
+  /**
+   * <p>The recommended hourly commitment level for the Savings Plan type and the
+   *             configuration that's based on the usage during the lookback period.</p>
+   */
+  HourlyCommitmentToPurchase?: string;
+
+  /**
+   * <p>The upfront cost of the recommended Savings Plan, based on the selected payment
+   *             option.</p>
+   */
+  UpfrontCost?: string;
+
+  /**
+   * <p>The average value of hourly coverage over the lookback period.</p>
+   */
+  CurrentAverageCoverage?: string;
+
+  /**
+   * <p>The estimated coverage of the recommended Savings Plan.</p>
+   */
+  EstimatedAverageCoverage?: string;
+
+  /**
+   * <p>The related hourly cost, coverage, and utilization metrics over the lookback
+   *             period.</p>
+   */
+  MetricsOverLookbackPeriod?: RecommendationDetailHourlyMetrics[];
+}
+
+/**
+ * @public
+ */
+export interface GetSavingsPlanPurchaseRecommendationDetailsResponse {
+  /**
+   * <p>The ID that is associated with the Savings Plan recommendation.</p>
+   */
+  RecommendationDetailId?: string;
+
+  /**
+   * <p>Contains detailed information about a specific Savings Plan recommendation.</p>
+   */
+  RecommendationDetailData?: RecommendationDetailData;
+}
+
+/**
+ * @public
  * <p>Specific coverage percentage, On-Demand costs, and spend covered by Savings Plans, and
  *             total Savings Plans costs for an account.</p>
  */
@@ -3111,21 +3353,6 @@ export interface GetSavingsPlansCoverageResponse {
    */
   NextToken?: string;
 }
-
-/**
- * @public
- * @enum
- */
-export const SupportedSavingsPlansType = {
-  COMPUTE_SP: "COMPUTE_SP",
-  EC2_INSTANCE_SP: "EC2_INSTANCE_SP",
-  SAGEMAKER_SP: "SAGEMAKER_SP",
-} as const;
-
-/**
- * @public
- */
-export type SupportedSavingsPlansType = (typeof SupportedSavingsPlansType)[keyof typeof SupportedSavingsPlansType];
 
 /**
  * @public
@@ -3266,6 +3493,11 @@ export interface SavingsPlansPurchaseRecommendationDetail {
    *             usage type.</p>
    */
   CurrentAverageHourlyOnDemandSpend?: string;
+
+  /**
+   * <p>Contains detailed information about a specific Savings Plan recommendation.</p>
+   */
+  RecommendationDetailId?: string;
 }
 
 /**
@@ -4337,7 +4569,7 @@ export interface UpdateCostCategoryDefinitionResponse {
  *                         <li>
  *                            <p>The corresponding <code>Expression</code> for this example is
  *                                     as follows: <code>\{ "Dimensions": \{ "Key": "REGION", "Values": [
- *                                         "us-east-1", “us-west-1” ] \} \}</code>
+ *                                         "us-east-1", "us-west-1" ] \} \}</code>
  *                            </p>
  *                         </li>
  *                         <li>
@@ -4354,7 +4586,7 @@ export interface UpdateCostCategoryDefinitionResponse {
  *                      <ul>
  *                         <li>
  *                            <p>For example, you can filter for linked account names that
- *                                     start with “a”.</p>
+ *                                     start with "a".</p>
  *                         </li>
  *                         <li>
  *                            <p>The corresponding <code>Expression</code> for this example is
@@ -4535,7 +4767,7 @@ export interface AnomalyMonitor {
    *                         <li>
    *                            <p>The corresponding <code>Expression</code> for this example is
    *                                     as follows: <code>\{ "Dimensions": \{ "Key": "REGION", "Values": [
-   *                                         "us-east-1", “us-west-1” ] \} \}</code>
+   *                                         "us-east-1", "us-west-1" ] \} \}</code>
    *                            </p>
    *                         </li>
    *                         <li>
@@ -4552,7 +4784,7 @@ export interface AnomalyMonitor {
    *                      <ul>
    *                         <li>
    *                            <p>For example, you can filter for linked account names that
-   *                                     start with “a”.</p>
+   *                                     start with "a".</p>
    *                         </li>
    *                         <li>
    *                            <p>The corresponding <code>Expression</code> for this example is
@@ -4625,10 +4857,21 @@ export interface AnomalyMonitor {
 
 /**
  * @public
- * <p>The association between a monitor, threshold, and list of subscribers used to deliver
- *             notifications about anomalies detected by a monitor that exceeds a threshold. The
- *             content consists of the detailed metadata and the current status of the
- *                 <code>AnomalySubscription</code> object. </p>
+ * <p>An <code>AnomalySubscription</code> resource (also referred to as an alert
+ *             subscription) sends notifications about specific anomalies that meet an alerting
+ *             criteria defined by you.</p>
+ *          <p>You can specify the frequency of the alerts and the subscribers to notify.</p>
+ *          <p>Anomaly subscriptions can be associated with one or more <a href="https://docs.aws.amazon.com/aws-cost-management/latest/APIReference/API_AnomalyMonitor.html">
+ *                <code>AnomalyMonitor</code>
+ *             </a>  resources, and they only send
+ *             notifications about anomalies detected by those associated monitors. You can also
+ *             configure a threshold to further control which anomalies are included in the
+ *             notifications.</p>
+ *          <p>Anomalies that don’t exceed the chosen threshold and therefore don’t trigger
+ *             notifications from an anomaly subscription will still be available on the console and
+ *             from the <a href="https://docs.aws.amazon.com/aws-cost-management/latest/APIReference/API_GetAnomalies.html">
+ *                <code>GetAnomalies</code>
+ *             </a> API.</p>
  */
 export interface AnomalySubscription {
   /**
@@ -4655,16 +4898,22 @@ export interface AnomalySubscription {
    * @deprecated
    *
    * <p>(deprecated)</p>
-   *          <p>The dollar value that triggers a notification if the threshold is exceeded. </p>
+   *          <p>An absolute dollar value that must be exceeded by the anomaly's total impact (see
+   *                 <a href="https://docs.aws.amazon.com/aws-cost-management/latest/APIReference/API_Impact.html">Impact</a> for
+   *             more details) for an anomaly notification to be generated.</p>
    *          <p>This field has been deprecated. To specify a threshold, use ThresholdExpression.
    *             Continued use of Threshold will be treated as shorthand syntax for a
    *             ThresholdExpression.</p>
-   *          <p>One of Threshold or ThresholdExpression is required for this resource.</p>
+   *          <p>One of Threshold or ThresholdExpression is required for this resource. You cannot
+   *             specify both.</p>
    */
   Threshold?: number;
 
   /**
-   * <p>The frequency that anomaly reports are sent over email. </p>
+   * <p>The frequency that anomaly notifications are sent. Notifications are sent either over
+   *             email (for DAILY and WEEKLY frequencies) or SNS (for IMMEDIATE frequency). For more
+   *             information, see <a href="https://docs.aws.amazon.com/cost-management/latest/userguide/ad-SNS.html">Creating an Amazon SNS topic for
+   *                 anomaly notifications</a>.</p>
    */
   Frequency: AnomalySubscriptionFrequency | string | undefined;
 
@@ -4678,11 +4927,13 @@ export interface AnomalySubscription {
    *             object used to specify the anomalies that you want to generate alerts for. This supports
    *             dimensions and nested expressions. The supported dimensions are
    *                 <code>ANOMALY_TOTAL_IMPACT_ABSOLUTE</code> and
-   *                 <code>ANOMALY_TOTAL_IMPACT_PERCENTAGE</code>. The supported nested expression types
-   *             are <code>AND</code> and <code>OR</code>. The match option
-   *                 <code>GREATER_THAN_OR_EQUAL</code> is required. Values must be numbers between 0 and
-   *             10,000,000,000.</p>
-   *          <p>One of Threshold or ThresholdExpression is required for this resource.</p>
+   *                 <code>ANOMALY_TOTAL_IMPACT_PERCENTAGE</code>, corresponding to an anomaly’s
+   *             TotalImpact and TotalImpactPercentage, respectively (see <a href="https://docs.aws.amazon.com/aws-cost-management/latest/APIReference/API_Impact.html">Impact</a> for
+   *             more details). The supported nested expression types are <code>AND</code> and
+   *                 <code>OR</code>. The match option <code>GREATER_THAN_OR_EQUAL</code> is required.
+   *             Values must be numbers between 0 and 10,000,000,000 in string format.</p>
+   *          <p>One of Threshold or ThresholdExpression is required for this resource. You cannot
+   *             specify both.</p>
    *          <p>The following are examples of valid ThresholdExpressions:</p>
    *          <ul>
    *             <li>
@@ -4736,10 +4987,8 @@ export interface CostCategoryRule {
    * <p>An <a href="https://docs.aws.amazon.com/aws-cost-management/latest/APIReference/API_Expression.html">Expression</a>
    *             object used to categorize costs. This supports dimensions, tags, and nested expressions.
    *             Currently the only dimensions supported are <code>LINKED_ACCOUNT</code>,
-   *                 <code>SERVICE_CODE</code>, <code>RECORD_TYPE</code>, and
-   *                 <code>LINKED_ACCOUNT_NAME</code>.</p>
-   *          <p>Root level <code>OR</code> isn't supported. We recommend that you create a separate
-   *             rule instead.</p>
+   *
+   *             <code>SERVICE_CODE</code>, <code>RECORD_TYPE</code>, <code>LINKED_ACCOUNT_NAME</code>, <code>REGION</code>, and <code>USAGE_TYPE</code>.</p>
    *          <p>
    *             <code>RECORD_TYPE</code> is a dimension used for Cost Explorer APIs, and is also
    *             supported for Cost Category expressions. This dimension uses different terms, depending
@@ -4985,7 +5234,7 @@ export interface GetCostCategoriesRequest {
    *                         <li>
    *                            <p>The corresponding <code>Expression</code> for this example is
    *                                     as follows: <code>\{ "Dimensions": \{ "Key": "REGION", "Values": [
-   *                                         "us-east-1", “us-west-1” ] \} \}</code>
+   *                                         "us-east-1", "us-west-1" ] \} \}</code>
    *                            </p>
    *                         </li>
    *                         <li>
@@ -5002,7 +5251,7 @@ export interface GetCostCategoriesRequest {
    *                      <ul>
    *                         <li>
    *                            <p>For example, you can filter for linked account names that
-   *                                     start with “a”.</p>
+   *                                     start with "a".</p>
    *                         </li>
    *                         <li>
    *                            <p>The corresponding <code>Expression</code> for this example is
@@ -5556,7 +5805,7 @@ export interface GetDimensionValuesRequest {
    *                         <li>
    *                            <p>The corresponding <code>Expression</code> for this example is
    *                                     as follows: <code>\{ "Dimensions": \{ "Key": "REGION", "Values": [
-   *                                         "us-east-1", “us-west-1” ] \} \}</code>
+   *                                         "us-east-1", "us-west-1" ] \} \}</code>
    *                            </p>
    *                         </li>
    *                         <li>
@@ -5573,7 +5822,7 @@ export interface GetDimensionValuesRequest {
    *                      <ul>
    *                         <li>
    *                            <p>For example, you can filter for linked account names that
-   *                                     start with “a”.</p>
+   *                                     start with "a".</p>
    *                         </li>
    *                         <li>
    *                            <p>The corresponding <code>Expression</code> for this example is
@@ -5960,7 +6209,7 @@ export interface GetReservationPurchaseRecommendationRequest {
    *                         <li>
    *                            <p>The corresponding <code>Expression</code> for this example is
    *                                     as follows: <code>\{ "Dimensions": \{ "Key": "REGION", "Values": [
-   *                                         "us-east-1", “us-west-1” ] \} \}</code>
+   *                                         "us-east-1", "us-west-1" ] \} \}</code>
    *                            </p>
    *                         </li>
    *                         <li>
@@ -5977,7 +6226,7 @@ export interface GetReservationPurchaseRecommendationRequest {
    *                      <ul>
    *                         <li>
    *                            <p>For example, you can filter for linked account names that
-   *                                     start with “a”.</p>
+   *                                     start with "a".</p>
    *                         </li>
    *                         <li>
    *                            <p>The corresponding <code>Expression</code> for this example is
@@ -6317,7 +6566,7 @@ export interface GetRightsizingRecommendationRequest {
    *                         <li>
    *                            <p>The corresponding <code>Expression</code> for this example is
    *                                     as follows: <code>\{ "Dimensions": \{ "Key": "REGION", "Values": [
-   *                                         "us-east-1", “us-west-1” ] \} \}</code>
+   *                                         "us-east-1", "us-west-1" ] \} \}</code>
    *                            </p>
    *                         </li>
    *                         <li>
@@ -6334,7 +6583,7 @@ export interface GetRightsizingRecommendationRequest {
    *                      <ul>
    *                         <li>
    *                            <p>For example, you can filter for linked account names that
-   *                                     start with “a”.</p>
+   *                                     start with "a".</p>
    *                         </li>
    *                         <li>
    *                            <p>The corresponding <code>Expression</code> for this example is
@@ -6879,7 +7128,7 @@ export interface GetTagsRequest {
    *                         <li>
    *                            <p>The corresponding <code>Expression</code> for this example is
    *                                     as follows: <code>\{ "Dimensions": \{ "Key": "REGION", "Values": [
-   *                                         "us-east-1", “us-west-1” ] \} \}</code>
+   *                                         "us-east-1", "us-west-1" ] \} \}</code>
    *                            </p>
    *                         </li>
    *                         <li>
@@ -6896,7 +7145,7 @@ export interface GetTagsRequest {
    *                      <ul>
    *                         <li>
    *                            <p>For example, you can filter for linked account names that
-   *                                     start with “a”.</p>
+   *                                     start with "a".</p>
    *                         </li>
    *                         <li>
    *                            <p>The corresponding <code>Expression</code> for this example is
@@ -7209,6 +7458,7 @@ export interface UpdateAnomalySubscriptionRequest {
    *          <p>The update to the threshold value for receiving notifications. </p>
    *          <p>This field has been deprecated. To update a threshold, use ThresholdExpression. Continued
    *       use of Threshold will be treated as shorthand syntax for a ThresholdExpression.</p>
+   *          <p>You can specify either Threshold or ThresholdExpression, but not both.</p>
    */
   Threshold?: number;
 
@@ -7236,10 +7486,11 @@ export interface UpdateAnomalySubscriptionRequest {
    * <p>The update to the <a href="https://docs.aws.amazon.com/aws-cost-management/latest/APIReference/API_Expression.html">Expression</a> object
    *       used to specify the anomalies that you want to generate alerts for. This supports dimensions
    *       and nested expressions. The supported dimensions are
-   *         <code>ANOMALY_TOTAL_IMPACT_ABSOLUTE</code> and <code>ANOMALY_TOTAL_IMPACT_PERCENTAGE</code>.
-   *       The supported nested expression types are <code>AND</code> and <code>OR</code>. The match
-   *       option <code>GREATER_THAN_OR_EQUAL</code> is required. Values must be numbers between 0 and
-   *       10,000,000,000.</p>
+   *         <code>ANOMALY_TOTAL_IMPACT_ABSOLUTE</code> and <code>ANOMALY_TOTAL_IMPACT_PERCENTAGE</code>,
+   *       corresponding to an anomaly’s TotalImpact and TotalImpactPercentage, respectively (see <a href="https://docs.aws.amazon.com/aws-cost-management/latest/APIReference/API_Impact.html">Impact</a> for more details). The supported nested expression types are
+   *         <code>AND</code> and <code>OR</code>. The match option <code>GREATER_THAN_OR_EQUAL</code> is
+   *       required. Values must be numbers between 0 and 10,000,000,000 in string format.</p>
+   *          <p>You can specify either Threshold or ThresholdExpression, but not both.</p>
    *          <p>The following are examples of valid ThresholdExpressions:</p>
    *          <ul>
    *             <li>

@@ -84,6 +84,9 @@ export interface ListSavingsPlansPurchaseRecommendationGenerationCommandOutput
  * @see {@link ListSavingsPlansPurchaseRecommendationGenerationCommandOutput} for command's `response` shape.
  * @see {@link CostExplorerClientResolvedConfig | config} for CostExplorerClient's `config` shape.
  *
+ * @throws {@link DataUnavailableException} (client fault)
+ *  <p>The requested data is unavailable.</p>
+ *
  * @throws {@link InvalidNextTokenException} (client fault)
  *  <p>The pagination token is invalid. Try again without a pagination token.</p>
  *

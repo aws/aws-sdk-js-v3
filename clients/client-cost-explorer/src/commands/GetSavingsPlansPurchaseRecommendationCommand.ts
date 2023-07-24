@@ -167,6 +167,7 @@ export interface GetSavingsPlansPurchaseRecommendationCommandOutput
  * //         CurrentMinimumHourlyOnDemandSpend: "STRING_VALUE",
  * //         CurrentMaximumHourlyOnDemandSpend: "STRING_VALUE",
  * //         CurrentAverageHourlyOnDemandSpend: "STRING_VALUE",
+ * //         RecommendationDetailId: "STRING_VALUE",
  * //       },
  * //     ],
  * //     SavingsPlansPurchaseRecommendationSummary: { // SavingsPlansPurchaseRecommendationSummary

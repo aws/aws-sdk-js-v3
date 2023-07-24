@@ -108,6 +108,10 @@ import {
   GetRightsizingRecommendationCommandOutput,
 } from "./commands/GetRightsizingRecommendationCommand";
 import {
+  GetSavingsPlanPurchaseRecommendationDetailsCommandInput,
+  GetSavingsPlanPurchaseRecommendationDetailsCommandOutput,
+} from "./commands/GetSavingsPlanPurchaseRecommendationDetailsCommand";
+import {
   GetSavingsPlansCoverageCommandInput,
   GetSavingsPlansCoverageCommandOutput,
 } from "./commands/GetSavingsPlansCoverageCommand";
@@ -200,6 +204,7 @@ export type ServiceInputTypes =
   | GetReservationPurchaseRecommendationCommandInput
   | GetReservationUtilizationCommandInput
   | GetRightsizingRecommendationCommandInput
+  | GetSavingsPlanPurchaseRecommendationDetailsCommandInput
   | GetSavingsPlansCoverageCommandInput
   | GetSavingsPlansPurchaseRecommendationCommandInput
   | GetSavingsPlansUtilizationCommandInput
@@ -242,6 +247,7 @@ export type ServiceOutputTypes =
   | GetReservationPurchaseRecommendationCommandOutput
   | GetReservationUtilizationCommandOutput
   | GetRightsizingRecommendationCommandOutput
+  | GetSavingsPlanPurchaseRecommendationDetailsCommandOutput
   | GetSavingsPlansCoverageCommandOutput
   | GetSavingsPlansPurchaseRecommendationCommandOutput
   | GetSavingsPlansUtilizationCommandOutput

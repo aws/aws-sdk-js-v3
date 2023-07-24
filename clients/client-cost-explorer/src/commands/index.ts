@@ -18,6 +18,7 @@ export * from "./GetReservationCoverageCommand";
 export * from "./GetReservationPurchaseRecommendationCommand";
 export * from "./GetReservationUtilizationCommand";
 export * from "./GetRightsizingRecommendationCommand";
+export * from "./GetSavingsPlanPurchaseRecommendationDetailsCommand";
 export * from "./GetSavingsPlansCoverageCommand";
 export * from "./GetSavingsPlansPurchaseRecommendationCommand";
 export * from "./GetSavingsPlansUtilizationCommand";

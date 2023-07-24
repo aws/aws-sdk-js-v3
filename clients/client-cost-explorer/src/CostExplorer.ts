@@ -98,6 +98,11 @@ import {
   GetRightsizingRecommendationCommandOutput,
 } from "./commands/GetRightsizingRecommendationCommand";
 import {
+  GetSavingsPlanPurchaseRecommendationDetailsCommand,
+  GetSavingsPlanPurchaseRecommendationDetailsCommandInput,
+  GetSavingsPlanPurchaseRecommendationDetailsCommandOutput,
+} from "./commands/GetSavingsPlanPurchaseRecommendationDetailsCommand";
+import {
   GetSavingsPlansCoverageCommand,
   GetSavingsPlansCoverageCommandInput,
   GetSavingsPlansCoverageCommandOutput,
@@ -201,6 +206,7 @@ const commands = {
   GetReservationPurchaseRecommendationCommand,
   GetReservationUtilizationCommand,
   GetRightsizingRecommendationCommand,
+  GetSavingsPlanPurchaseRecommendationDetailsCommand,
   GetSavingsPlansCoverageCommand,
   GetSavingsPlansPurchaseRecommendationCommand,
   GetSavingsPlansUtilizationCommand,
@@ -531,6 +537,23 @@ export interface CostExplorer {
     args: GetRightsizingRecommendationCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: GetRightsizingRecommendationCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link GetSavingsPlanPurchaseRecommendationDetailsCommand}
+   */
+  getSavingsPlanPurchaseRecommendationDetails(
+    args: GetSavingsPlanPurchaseRecommendationDetailsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetSavingsPlanPurchaseRecommendationDetailsCommandOutput>;
+  getSavingsPlanPurchaseRecommendationDetails(
+    args: GetSavingsPlanPurchaseRecommendationDetailsCommandInput,
+    cb: (err: any, data?: GetSavingsPlanPurchaseRecommendationDetailsCommandOutput) => void
+  ): void;
+  getSavingsPlanPurchaseRecommendationDetails(
+    args: GetSavingsPlanPurchaseRecommendationDetailsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetSavingsPlanPurchaseRecommendationDetailsCommandOutput) => void
   ): void;
 
   /**

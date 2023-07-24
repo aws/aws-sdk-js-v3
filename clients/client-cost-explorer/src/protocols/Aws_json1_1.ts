@@ -77,6 +77,10 @@ import {
   GetRightsizingRecommendationCommandOutput,
 } from "../commands/GetRightsizingRecommendationCommand";
 import {
+  GetSavingsPlanPurchaseRecommendationDetailsCommandInput,
+  GetSavingsPlanPurchaseRecommendationDetailsCommandOutput,
+} from "../commands/GetSavingsPlanPurchaseRecommendationDetailsCommand";
+import {
   GetSavingsPlansCoverageCommandInput,
   GetSavingsPlansCoverageCommandOutput,
 } from "../commands/GetSavingsPlansCoverageCommand";
@@ -180,6 +184,7 @@ import {
   GetReservationPurchaseRecommendationRequest,
   GetReservationUtilizationRequest,
   GetRightsizingRecommendationRequest,
+  GetSavingsPlanPurchaseRecommendationDetailsRequest,
   GetSavingsPlansCoverageRequest,
   GetSavingsPlansPurchaseRecommendationRequest,
   GetSavingsPlansUtilizationDetailsRequest,
@@ -464,6 +469,19 @@ export const se_GetRightsizingRecommendationCommand = async (
   const headers: __HeaderBag = sharedHeaders("GetRightsizingRecommendation");
   let body: any;
   body = JSON.stringify(se_GetRightsizingRecommendationRequest(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+/**
+ * serializeAws_json1_1GetSavingsPlanPurchaseRecommendationDetailsCommand
+ */
+export const se_GetSavingsPlanPurchaseRecommendationDetailsCommand = async (
+  input: GetSavingsPlanPurchaseRecommendationDetailsCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = sharedHeaders("GetSavingsPlanPurchaseRecommendationDetails");
+  let body: any;
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -1681,6 +1699,55 @@ const de_GetRightsizingRecommendationCommandError = async (
 };
 
 /**
+ * deserializeAws_json1_1GetSavingsPlanPurchaseRecommendationDetailsCommand
+ */
+export const de_GetSavingsPlanPurchaseRecommendationDetailsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetSavingsPlanPurchaseRecommendationDetailsCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_GetSavingsPlanPurchaseRecommendationDetailsCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = _json(data);
+  const response: GetSavingsPlanPurchaseRecommendationDetailsCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1GetSavingsPlanPurchaseRecommendationDetailsCommandError
+ */
+const de_GetSavingsPlanPurchaseRecommendationDetailsCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetSavingsPlanPurchaseRecommendationDetailsCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "DataUnavailableException":
+    case "com.amazonaws.costexplorer#DataUnavailableException":
+      throw await de_DataUnavailableExceptionRes(parsedOutput, context);
+    case "LimitExceededException":
+    case "com.amazonaws.costexplorer#LimitExceededException":
+      throw await de_LimitExceededExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
  * deserializeAws_json1_1GetSavingsPlansCoverageCommand
  */
 export const de_GetSavingsPlansCoverageCommand = async (
@@ -2120,6 +2187,9 @@ const de_ListSavingsPlansPurchaseRecommendationGenerationCommandError = async (
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
+    case "DataUnavailableException":
+    case "com.amazonaws.costexplorer#DataUnavailableException":
+      throw await de_DataUnavailableExceptionRes(parsedOutput, context);
     case "InvalidNextTokenException":
     case "com.amazonaws.costexplorer#InvalidNextTokenException":
       throw await de_InvalidNextTokenExceptionRes(parsedOutput, context);
@@ -2264,6 +2334,9 @@ const de_StartSavingsPlansPurchaseRecommendationGenerationCommandError = async (
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
+    case "DataUnavailableException":
+    case "com.amazonaws.costexplorer#DataUnavailableException":
+      throw await de_DataUnavailableExceptionRes(parsedOutput, context);
     case "GenerationExistsException":
     case "com.amazonaws.costexplorer#GenerationExistsException":
       throw await de_GenerationExistsExceptionRes(parsedOutput, context);
@@ -3093,6 +3166,8 @@ const se_GetRightsizingRecommendationRequest = (
   });
 };
 
+// se_GetSavingsPlanPurchaseRecommendationDetailsRequest omitted.
+
 /**
  * serializeAws_json1_1GetSavingsPlansCoverageRequest
  */
@@ -3610,6 +3685,8 @@ const de_GetAnomalySubscriptionsResponse = (output: any, context: __SerdeContext
 
 // de_GetRightsizingRecommendationResponse omitted.
 
+// de_GetSavingsPlanPurchaseRecommendationDetailsResponse omitted.
+
 // de_GetSavingsPlansCoverageResponse omitted.
 
 // de_GetSavingsPlansPurchaseRecommendationResponse omitted.
@@ -3663,6 +3740,8 @@ const de_Impact = (output: any, context: __SerdeContext): Impact => {
 
 // de_Metrics omitted.
 
+// de_MetricsOverLookbackPeriod omitted.
+
 // de_MetricValue omitted.
 
 // de_ModifyRecommendationDetail omitted.
@@ -3676,6 +3755,10 @@ const de_Impact = (output: any, context: __SerdeContext): Impact => {
 // de_ProvideAnomalyFeedbackResponse omitted.
 
 // de_RDSInstanceDetails omitted.
+
+// de_RecommendationDetailData omitted.
+
+// de_RecommendationDetailHourlyMetrics omitted.
 
 // de_RedshiftInstanceDetails omitted.
 

@@ -36,7 +36,12 @@ export interface UpdateAnomalySubscriptionCommandOutput extends UpdateAnomalySub
 
 /**
  * @public
- * <p>Updates an existing cost anomaly monitor subscription. </p>
+ * <p>Updates an existing cost anomaly subscription. Specify the fields that you want to update.
+ *       Omitted fields are unchanged.</p>
+ *          <note>
+ *             <p>The JSON below describes the generic construct for each type. See <a href="https://docs.aws.amazon.com/aws-cost-management/latest/APIReference/API_UpdateAnomalySubscription.html#API_UpdateAnomalySubscription_RequestParameters">Request Parameters</a> for possible values as they apply to
+ *           <code>AnomalySubscription</code>.</p>
+ *          </note>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

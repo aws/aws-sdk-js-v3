@@ -372,6 +372,14 @@ GetRightsizingRecommendation
 </details>
 <details>
 <summary>
+GetSavingsPlanPurchaseRecommendationDetails
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-cost-explorer/classes/getsavingsplanpurchaserecommendationdetailscommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-cost-explorer/interfaces/getsavingsplanpurchaserecommendationdetailscommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-cost-explorer/interfaces/getsavingsplanpurchaserecommendationdetailscommandoutput.html)
+
+</details>
+<details>
+<summary>
 GetSavingsPlansCoverage
 </summary>
 

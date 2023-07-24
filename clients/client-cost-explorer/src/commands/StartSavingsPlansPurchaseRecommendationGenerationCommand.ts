@@ -77,6 +77,9 @@ export interface StartSavingsPlansPurchaseRecommendationGenerationCommandOutput
  * @see {@link StartSavingsPlansPurchaseRecommendationGenerationCommandOutput} for command's `response` shape.
  * @see {@link CostExplorerClientResolvedConfig | config} for CostExplorerClient's `config` shape.
  *
+ * @throws {@link DataUnavailableException} (client fault)
+ *  <p>The requested data is unavailable.</p>
+ *
  * @throws {@link GenerationExistsException} (client fault)
  *  <p>A request to generate a recommendation is already in progress.</p>
  *
