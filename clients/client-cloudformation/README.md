@@ -567,6 +567,14 @@ ListImports
 </details>
 <details>
 <summary>
+ListStackInstanceResourceDrifts
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-cloudformation/classes/liststackinstanceresourcedriftscommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-cloudformation/interfaces/liststackinstanceresourcedriftscommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-cloudformation/interfaces/liststackinstanceresourcedriftscommandoutput.html)
+
+</details>
+<details>
+<summary>
 ListStackInstances
 </summary>
 

@@ -1495,8 +1495,8 @@ export interface RollbackTrigger {
  *    and for the specified monitoring period afterwards.</p>
  *          <p>Rollback triggers enable you to have CloudFormation monitor the state of your application during stack creation and
  *    updating, and to roll back that operation if the application breaches the threshold of any of the alarms you've
- *    specified. For more information, see <a href="http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-rollback-triggers.html">Monitor and Roll
- *     Back Stack Operations</a>.</p>
+ *    specified. For more information, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-rollback-triggers.html">Monitor and Roll Back Stack
+ *    Operations</a>.</p>
  */
 export interface RollbackConfiguration {
   /**
@@ -1665,8 +1665,8 @@ export interface CreateChangeSetInput {
    *                      </p>
    *                   </li>
    *                </ul>
-   *                <p>For more information, see <a href="http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-iam-template.html#capabilities">Acknowledging
-   *        IAM resources in CloudFormation templates</a>.</p>
+   *                <p>For more information, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-iam-template.html#capabilities">Acknowledging IAM
+   *      resources in CloudFormation templates</a>.</p>
    *             </li>
    *             <li>
    *                <p>
@@ -1677,8 +1677,8 @@ export interface CreateChangeSetInput {
    *      users typically create a change set from the processed template, so that they can review the changes resulting from
    *      the macros before actually creating the stack. If your stack template contains one or more macros, and you choose
    *      to create a stack directly from the processed template, without first reviewing the resulting changes in a change
-   *      set, you must acknowledge this capability. This includes the <a href="http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/create-reusable-transform-function-snippets-and-add-to-your-template-with-aws-include-transform.html">AWS::Include</a> and <a href="http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/transform-aws-serverless.html">AWS::Serverless</a>
-   *      transforms, which are macros hosted by CloudFormation.</p>
+   *      set, you must acknowledge this capability. This includes the <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/create-reusable-transform-function-snippets-and-add-to-your-template-with-aws-include-transform.html">AWS::Include</a> and <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/transform-aws-serverless.html">AWS::Serverless</a> transforms, which
+   *      are macros hosted by CloudFormation.</p>
    *                <note>
    *                   <p>This capacity doesn't apply to creating change sets, and specifying it when creating change sets has no
    *       effect.</p>
@@ -1686,7 +1686,8 @@ export interface CreateChangeSetInput {
    *       stacks, you must create or update the stack directly from the template using the <a>CreateStack</a> or
    *        <a>UpdateStack</a> action, and specifying this capability.</p>
    *                </note>
-   *                <p>For more information about macros, see <a href="http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/template-macros.html">Using CloudFormation macros to perform custom processing on templates</a>.</p>
+   *                <p>For more information about macros, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/template-macros.html">Using CloudFormation macros to perform custom
+   *      processing on templates</a>.</p>
    *             </li>
    *          </ul>
    */
@@ -2021,8 +2022,8 @@ export interface CreateStackInput {
    *                      </p>
    *                   </li>
    *                </ul>
-   *                <p>For more information, see <a href="http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-iam-template.html#capabilities">Acknowledging
-   *        IAM Resources in CloudFormation Templates</a>.</p>
+   *                <p>For more information, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-iam-template.html#capabilities">Acknowledging IAM
+   *      Resources in CloudFormation Templates</a>.</p>
    *             </li>
    *             <li>
    *                <p>
@@ -2033,8 +2034,8 @@ export interface CreateStackInput {
    *      users typically create a change set from the processed template, so that they can review the changes resulting from
    *      the macros before actually creating the stack. If your stack template contains one or more macros, and you choose
    *      to create a stack directly from the processed template, without first reviewing the resulting changes in a change
-   *      set, you must acknowledge this capability. This includes the <a href="http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/create-reusable-transform-function-snippets-and-add-to-your-template-with-aws-include-transform.html">AWS::Include</a> and <a href="http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/transform-aws-serverless.html">AWS::Serverless</a>
-   *      transforms, which are macros hosted by CloudFormation.</p>
+   *      set, you must acknowledge this capability. This includes the <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/create-reusable-transform-function-snippets-and-add-to-your-template-with-aws-include-transform.html">AWS::Include</a> and <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/transform-aws-serverless.html">AWS::Serverless</a> transforms, which
+   *      are macros hosted by CloudFormation.</p>
    *                <p>If you want to create a stack from a stack template that contains macros <i>and</i> nested
    *      stacks, you must create the stack directly from the template using this capability.</p>
    *                <important>
@@ -2044,8 +2045,8 @@ export interface CreateStackInput {
    *       aware that the Lambda function owner can update the function operation without CloudFormation being
    *       notified.</p>
    *                </important>
-   *                <p>For more information, see <a href="http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/template-macros.html">Using CloudFormation macros
-   *       to perform custom processing on templates</a>.</p>
+   *                <p>For more information, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/template-macros.html">Using CloudFormation macros to perform custom
+   *      processing on templates</a>.</p>
    *             </li>
    *          </ul>
    */
@@ -2125,10 +2126,12 @@ export interface CreateStackInput {
 
   /**
    * <p>Whether to enable termination protection on the specified stack. If a user attempts to delete a stack with
-   *    termination protection enabled, the operation fails and the stack remains unchanged. For more information, see <a href="http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-protect-stacks.html">Protecting a Stack From Being Deleted</a> in the
-   *     <i>CloudFormation User Guide</i>. Termination protection is deactivated on stacks by default.</p>
-   *          <p>For <a href="http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-nested-stacks.html">nested stacks</a>, termination protection is set
-   *    on the root stack and can't be changed directly on the nested stack.</p>
+   *    termination protection enabled, the operation fails and the stack remains unchanged. For more information, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-protect-stacks.html">Protecting a Stack From
+   *    Being Deleted</a> in the <i>CloudFormation User Guide</i>. Termination protection is deactivated on stacks
+   *    by default.</p>
+   *          <p>For <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-nested-stacks.html">nested
+   *    stacks</a>, termination protection is set on the root stack and can't be changed directly on the nested
+   *    stack.</p>
    */
   EnableTerminationProtection?: boolean;
 }
@@ -2643,8 +2646,7 @@ export interface CreateStackSetInput {
    *                      </p>
    *                   </li>
    *                </ul>
-   *                <p>For more information, see <a href="http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-iam-template.html#capabilities">Acknowledging
-   *        IAM Resources in CloudFormation Templates</a>.</p>
+   *                <p>For more information, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/using-iam-template.html#capabilities">Acknowledging IAM Resources in CloudFormation Templates</a>.</p>
    *             </li>
    *             <li>
    *                <p>
@@ -2652,13 +2654,13 @@ export interface CreateStackSetInput {
    *                </p>
    *                <p>Some templates reference macros. If your stack set template references one or more macros, you must create the
    *      stack set directly from the processed template, without first reviewing the resulting changes in a change set. To
-   *      create the stack set directly, you must acknowledge this capability. For more information, see <a href="http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/template-macros.html">Using CloudFormation Macros to Perform Custom Processing on
-   *       Templates</a>.</p>
+   *      create the stack set directly, you must acknowledge this capability. For more information, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/template-macros.html">Using CloudFormation Macros to Perform
+   *      Custom Processing on Templates</a>.</p>
    *                <important>
    *                   <p>Stack sets with service-managed permissions don't currently support the use of macros in templates. (This
-   *       includes the <a href="http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/create-reusable-transform-function-snippets-and-add-to-your-template-with-aws-include-transform.html">AWS::Include</a> and <a href="http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/transform-aws-serverless.html">AWS::Serverless</a>
-   *       transforms, which are macros hosted by CloudFormation.) Even if you specify this capability for a stack set with
-   *       service-managed permissions, if you reference a macro in your template the stack set operation will fail.</p>
+   *       includes the <a href="https://docs.aws.amazon.com/AWSCloudFormation/create-reusable-transform-function-snippets-and-add-to-your-template-with-aws-include-transform.html">AWS::Include</a> and <a href="https://docs.aws.amazon.com/AWSCloudFormation/transform-aws-serverless.html">AWS::Serverless</a> transforms, which are macros hosted by CloudFormation.) Even if you specify this capability for a
+   *       stack set with service-managed permissions, if you reference a macro in your template the stack set operation will
+   *       fail.</p>
    *                </important>
    *             </li>
    *          </ul>
@@ -2679,8 +2681,8 @@ export interface CreateStackSetInput {
   /**
    * <p>The Amazon Resource Name (ARN) of the IAM role to use to create this stack set.</p>
    *          <p>Specify an IAM role only if you are using customized administrator roles to control which users
-   *    or groups can manage specific stack sets within the same administrator account. For more information, see <a href="http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/stacksets-prereqs.html">Prerequisites: Granting Permissions for Stack Set Operations</a> in
-   *    the <i>CloudFormation User Guide</i>.</p>
+   *    or groups can manage specific stack sets within the same administrator account. For more information, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/stacksets-prereqs.html">Prerequisites: Granting Permissions for Stack Set
+   *    Operations</a> in the <i>CloudFormation User Guide</i>.</p>
    */
   AdministrationRoleARN?: string;
 
@@ -4220,8 +4222,7 @@ export interface StackResourceDetail {
   /**
    * <p>Information about whether the resource's actual configuration differs, or has <i>drifted</i>, from
    *    its expected configuration, as defined in the stack template and any values specified as template parameters. For
-   *    more information, see <a href="http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-stack-drift.html">Detecting Unregulated Configuration
-   *     Changes to Stacks and Resources</a>.</p>
+   *    more information, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-stack-drift.html">Detecting Unregulated Configuration Changes to Stacks and Resources</a>.</p>
    */
   DriftInformation?: StackResourceDriftInformation;
 
@@ -4375,8 +4376,8 @@ export interface PropertyDifference {
  *    stack template are checked for drift. For more information, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-stack-drift.html">Detecting Unregulated Configuration Changes to
  *     Stacks and Resources</a>.</p>
  *          <p>Resources that don't currently support drift detection can't be checked. For a list of resources that support
- *    drift detection, see <a href="http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-stack-drift-resource-list.html">Resources that Support Drift
- *     Detection</a>.</p>
+ *    drift detection, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-stack-drift-resource-list.html">Resources that Support Drift
+ *    Detection</a>.</p>
  *          <p>Use <a>DetectStackResourceDrift</a> to detect drift on individual resources, or <a>DetectStackDrift</a> to detect drift on all resources in a given stack that support drift detection.</p>
  */
 export interface StackResourceDrift {
@@ -4583,8 +4584,7 @@ export interface StackResource {
   /**
    * <p>Information about whether the resource's actual configuration differs, or has <i>drifted</i>, from
    *    its expected configuration, as defined in the stack template and any values specified as template parameters. For
-   *    more information, see <a href="http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-stack-drift.html">Detecting Unregulated Configuration
-   *     Changes to Stacks and Resources</a>.</p>
+   *    more information, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-stack-drift.html">Detecting Unregulated Configuration Changes to Stacks and Resources</a>.</p>
    */
   DriftInformation?: StackResourceDriftInformation;
 
@@ -4850,33 +4850,33 @@ export interface Stack {
 
   /**
    * <p>Whether termination protection is enabled for the stack.</p>
-   *          <p>For <a href="http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-nested-stacks.html">nested stacks</a>, termination protection is set
-   *    on the root stack and can't be changed directly on the nested stack. For more information, see <a href="http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-protect-stacks.html">Protecting a Stack From Being Deleted</a> in the
-   *     <i>CloudFormation User Guide</i>.</p>
+   *          <p>For <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-nested-stacks.html">nested
+   *    stacks</a>, termination protection is set on the root stack and can't be changed directly on the nested stack.
+   *    For more information, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-protect-stacks.html">Protecting a Stack From Being Deleted</a>
+   *    in the <i>CloudFormation User Guide</i>.</p>
    */
   EnableTerminationProtection?: boolean;
 
   /**
    * <p>For nested stacks--stacks created as resources for another stack--the stack ID of the direct parent of this
    *    stack. For the first level of nested stacks, the root stack is also the parent stack.</p>
-   *          <p>For more information, see <a href="http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-nested-stacks.html">Working with Nested
-   *     Stacks</a> in the <i>CloudFormation User Guide</i>.</p>
+   *          <p>For more information, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-nested-stacks.html">Working with Nested Stacks</a> in the
+   *    <i>CloudFormation User Guide</i>.</p>
    */
   ParentId?: string;
 
   /**
    * <p>For nested stacks--stacks created as resources for another stack--the stack ID of the top-level stack to which
    *    the nested stack ultimately belongs.</p>
-   *          <p>For more information, see <a href="http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-nested-stacks.html">Working with Nested
-   *     Stacks</a> in the <i>CloudFormation User Guide</i>.</p>
+   *          <p>For more information, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-nested-stacks.html">Working with Nested Stacks</a> in the
+   *    <i>CloudFormation User Guide</i>.</p>
    */
   RootId?: string;
 
   /**
    * <p>Information about whether a stack's actual configuration differs, or has <i>drifted</i>, from its
    *    expected configuration, as defined in the stack template and any values specified as template parameters. For more
-   *    information, see <a href="http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-stack-drift.html">Detecting Unregulated Configuration Changes to
-   *     Stacks and Resources</a>.</p>
+   *    information, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-stack-drift.html">Detecting Unregulated Configuration Changes to Stacks and Resources</a>.</p>
    */
   DriftInformation?: StackDriftInformation;
 }
@@ -5145,8 +5145,8 @@ export interface StackSet {
   /**
    * <p>The Amazon Resource Name (ARN) of the IAM role used to create or update the stack set.</p>
    *          <p>Use customized administrator roles to control which users or groups can manage specific stack sets within the
-   *    same administrator account. For more information, see <a href="http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/stacksets-prereqs.html">Prerequisites: Granting Permissions for Stack Set Operations</a> in the
-   *    <i>CloudFormation User Guide</i>.</p>
+   *    same administrator account. For more information, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/stacksets-prereqs.html">Prerequisites: Granting Permissions for Stack Set Operations</a>
+   *    in the <i>CloudFormation User Guide</i>.</p>
    */
   AdministrationRoleARN?: string;
 
@@ -5368,8 +5368,8 @@ export interface StackSetOperation {
   /**
    * <p>The Amazon Resource Name (ARN) of the IAM role used to perform this stack set operation.</p>
    *          <p>Use customized administrator roles to control which users or groups can manage specific stack sets within the
-   *    same administrator account. For more information, see <a href="http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/stacksets-prereqs.html">Define
-   *     Permissions for Multiple Administrators</a> in the <i>CloudFormation User Guide</i>.</p>
+   *    same administrator account. For more information, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/stacksets-prereqs.html">Define Permissions for Multiple Administrators</a> in the
+   *    <i>CloudFormation User Guide</i>.</p>
    */
   AdministrationRoleARN?: string;
 
@@ -6623,10 +6623,196 @@ export interface ListImportsOutput {
 
 /**
  * @public
+ */
+export interface ListStackInstanceResourceDriftsInput {
+  /**
+   * <p>The name or unique ID of the stack set that you want to list drifted resources
+   *       for.</p>
+   */
+  StackSetName: string | undefined;
+
+  /**
+   * <p>If the previous paginated request didn't return all of the remaining results, the
+   *       response object's <code>NextToken</code> parameter value is set to a token. To retrieve the
+   *       next set of results, call this action again and assign that token to the request object's
+   *       <code>NextToken</code> parameter. If there are no remaining results, the previous
+   *       response object's <code>NextToken</code> parameter is set to <code>null</code>.</p>
+   */
+  NextToken?: string;
+
+  /**
+   * <p>The maximum number of results to be returned with a single call. If the number of
+   *       available results exceeds this maximum, the response includes a <code>NextToken</code>
+   *       value that you can assign to the <code>NextToken</code> request parameter to get the next
+   *       set of results.</p>
+   */
+  MaxResults?: number;
+
+  /**
+   * <p>The resource drift status of the stack instance. </p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>DELETED</code>: The resource differs from its expected template
+   *           configuration in that the resource has been deleted.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>MODIFIED</code>: One or more resource properties differ from their expected
+   *           template values.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>IN_SYNC</code>: The resource's actual configuration matches its expected
+   *           template configuration.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>NOT_CHECKED</code>: CloudFormation doesn't currently return this value.</p>
+   *             </li>
+   *          </ul>
+   */
+  StackInstanceResourceDriftStatuses?: (StackResourceDriftStatus | string)[];
+
+  /**
+   * <p>The name of the Amazon Web Services account that you want to list resource drifts for.</p>
+   */
+  StackInstanceAccount: string | undefined;
+
+  /**
+   * <p>The name of the Region where you want to list resource drifts.</p>
+   */
+  StackInstanceRegion: string | undefined;
+
+  /**
+   * <p>The unique ID of the drift operation.</p>
+   */
+  OperationId: string | undefined;
+
+  /**
+   * <p>[Service-managed permissions] Specifies whether you are acting as an account
+   *       administrator in the organization's management account or as a delegated
+   *       administrator in a member account.</p>
+   *          <p>By default, <code>SELF</code> is specified. Use <code>SELF</code> for stack sets with
+   *       self-managed permissions.</p>
+   *          <ul>
+   *             <li>
+   *                <p>If you are signed in to the management account, specify
+   *           <code>SELF</code>.</p>
+   *             </li>
+   *             <li>
+   *                <p>If you are signed in to a delegated administrator account, specify
+   *           <code>DELEGATED_ADMIN</code>.</p>
+   *                <p>Your Amazon Web Services account must be registered as a delegated administrator in
+   *           the management account. For more information, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/stacksets-orgs-delegated-admin.html">Register a delegated administrator</a> in the <i>CloudFormation User Guide</i>.</p>
+   *             </li>
+   *          </ul>
+   */
+  CallAs?: CallAs | string;
+}
+
+/**
+ * @public
+ * <p>The structure containing summary information about resource drifts for a stack
+ *    instance.</p>
+ */
+export interface StackInstanceResourceDriftsSummary {
+  /**
+   * <p>The ID of the stack instance.</p>
+   */
+  StackId: string | undefined;
+
+  /**
+   * <p>The logical name of the resource specified in the template.</p>
+   */
+  LogicalResourceId: string | undefined;
+
+  /**
+   * <p>The name or unique identifier that corresponds to a physical instance ID of a resource
+   *    supported by CloudFormation.</p>
+   */
+  PhysicalResourceId?: string;
+
+  /**
+   * <p>Context information that enables CloudFormation to uniquely identify a resource. CloudFormation uses
+   *    context key-value pairs in cases where a resource's logical and physical IDs aren't enough
+   *    to uniquely identify that resource. Each context key-value pair specifies a unique resource
+   *    that contains the targeted resource.</p>
+   */
+  PhysicalResourceIdContext?: PhysicalResourceIdContextKeyValuePair[];
+
+  /**
+   * <p>Type of resource. For more information, go to <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-template-resource-type-ref.html">Amazon Web Services Resource Types Reference</a> in the CloudFormation User
+   *    Guide.</p>
+   */
+  ResourceType: string | undefined;
+
+  /**
+   * <p>Status of the actual configuration of the resource compared to its expected
+   *    configuration. These will be present only for resources whose
+   *    <code>StackInstanceResourceDriftStatus</code> is <code>MODIFIED</code>. </p>
+   */
+  PropertyDifferences?: PropertyDifference[];
+
+  /**
+   * <p>The drift status of the resource in a stack instance.</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>DELETED</code>: The resource differs from its expected template
+   *      configuration in that the resource has been deleted.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>MODIFIED</code>: One or more resource properties differ from their expected
+   *      template values.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>IN_SYNC</code>: The resource's actual configuration matches its expected
+   *      template configuration.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>NOT_CHECKED</code>: CloudFormation doesn't currently return this value.</p>
+   *             </li>
+   *          </ul>
+   */
+  StackResourceDriftStatus: StackResourceDriftStatus | string | undefined;
+
+  /**
+   * <p>Time at which the stack instance drift detection operation was initiated.</p>
+   */
+  Timestamp: Date | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListStackInstanceResourceDriftsOutput {
+  /**
+   * <p>A list of <code>StackInstanceResourceDriftSummary</code> structures that contain
+   *       information about the specified stack instances.</p>
+   */
+  Summaries?: StackInstanceResourceDriftsSummary[];
+
+  /**
+   * <p>If the previous paginated request didn't return all of the remaining results, the
+   *       response object's <code>NextToken</code> parameter value is set to a token. To retrieve the
+   *       next set of results, call this action again and assign that token to the request object's
+   *       <code>NextToken</code> parameter. If there are no remaining results, the previous
+   *       response object's <code>NextToken</code> parameter is set to <code>null</code>.</p>
+   */
+  NextToken?: string;
+}
+
+/**
+ * @public
  * @enum
  */
 export const StackInstanceFilterName = {
   DETAILED_STATUS: "DETAILED_STATUS",
+  DRIFT_STATUS: "DRIFT_STATUS",
   LAST_OPERATION_ID: "LAST_OPERATION_ID",
 } as const;
 
@@ -6947,8 +7133,7 @@ export interface StackResourceSummary {
   /**
    * <p>Information about whether the resource's actual configuration differs, or has <i>drifted</i>, from
    *    its expected configuration, as defined in the stack template and any values specified as template parameters. For
-   *    more information, see <a href="http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-stack-drift.html">Detecting Unregulated Configuration
-   *     Changes to Stacks and Resources</a>.</p>
+   *    more information, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-stack-drift.html">Detecting Unregulated Configuration Changes to Stacks and Resources</a>.</p>
    */
   DriftInformation?: StackResourceDriftInformationSummary;
 
@@ -7082,23 +7267,24 @@ export interface StackSummary {
   /**
    * <p>For nested stacks--stacks created as resources for another stack--the stack ID of the direct parent of this
    *    stack. For the first level of nested stacks, the root stack is also the parent stack.</p>
-   *          <p>For more information, see <a href="http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-nested-stacks.html">Working with Nested
-   *     Stacks</a> in the <i>CloudFormation User Guide</i>.</p>
+   *          <p>For more information, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-nested-stacks.html">Working with Nested Stacks</a> in the
+   *    <i>CloudFormation User Guide</i>.</p>
    */
   ParentId?: string;
 
   /**
    * <p>For nested stacks--stacks created as resources for another stack--the stack ID of the top-level stack to which
    *    the nested stack ultimately belongs.</p>
-   *          <p>For more information, see <a href="http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-nested-stacks.html">Working with Nested
-   *     Stacks</a> in the <i>CloudFormation User Guide</i>.</p>
+   *          <p>For more information, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-nested-stacks.html">Working with Nested Stacks</a> in the
+   *    <i>CloudFormation User Guide</i>.</p>
    */
   RootId?: string;
 
   /**
    * <p>Summarizes information about whether a stack's actual configuration differs, or has
    *    <i>drifted</i>, from its expected configuration, as defined in the stack template and any values
-   *    specified as template parameters. For more information, see <a href="http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-stack-drift.html">Detecting Unregulated Configuration Changes to Stacks and Resources</a>.</p>
+   *    specified as template parameters. For more information, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-stack-drift.html">Detecting Unregulated Configuration Changes to
+   *    Stacks and Resources</a>.</p>
    */
   DriftInformation?: StackDriftInformationSummary;
 }
@@ -8850,8 +9036,8 @@ export interface UpdateStackInput {
    *                      </p>
    *                   </li>
    *                </ul>
-   *                <p>For more information, see <a href="http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-iam-template.html#capabilities">Acknowledging
-   *        IAM Resources in CloudFormation Templates</a>.</p>
+   *                <p>For more information, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-iam-template.html#capabilities">Acknowledging IAM
+   *      Resources in CloudFormation Templates</a>.</p>
    *             </li>
    *             <li>
    *                <p>
@@ -8862,8 +9048,8 @@ export interface UpdateStackInput {
    *      users typically create a change set from the processed template, so that they can review the changes resulting from
    *      the macros before actually updating the stack. If your stack template contains one or more macros, and you choose
    *      to update a stack directly from the processed template, without first reviewing the resulting changes in a change
-   *      set, you must acknowledge this capability. This includes the <a href="http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/create-reusable-transform-function-snippets-and-add-to-your-template-with-aws-include-transform.html">AWS::Include</a> and <a href="http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/transform-aws-serverless.html">AWS::Serverless</a>
-   *      transforms, which are macros hosted by CloudFormation.</p>
+   *      set, you must acknowledge this capability. This includes the <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/create-reusable-transform-function-snippets-and-add-to-your-template-with-aws-include-transform.html">AWS::Include</a> and <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/transform-aws-serverless.html">AWS::Serverless</a> transforms, which
+   *      are macros hosted by CloudFormation.</p>
    *                <p>If you want to update a stack from a stack template that contains macros <i>and</i> nested
    *      stacks, you must update the stack directly from the template using this capability.</p>
    *                <important>
@@ -8873,8 +9059,8 @@ export interface UpdateStackInput {
    *       aware that the Lambda function owner can update the function operation without CloudFormation being
    *       notified.</p>
    *                </important>
-   *                <p>For more information, see <a href="http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/template-macros.html">Using CloudFormation Macros
-   *       to Perform Custom Processing on Templates</a>.</p>
+   *                <p>For more information, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/template-macros.html">Using CloudFormation Macros to Perform Custom
+   *      Processing on Templates</a>.</p>
    *             </li>
    *          </ul>
    */
@@ -9200,8 +9386,7 @@ export interface UpdateStackSetInput {
    *                      </p>
    *                   </li>
    *                </ul>
-   *                <p>For more information, see <a href="http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-iam-template.html#capabilities">Acknowledging
-   *        IAM Resources in CloudFormation Templates</a>.</p>
+   *                <p>For more information, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/using-iam-template.html#capabilities">Acknowledging IAM Resources in CloudFormation Templates</a>.</p>
    *             </li>
    *             <li>
    *                <p>
@@ -9209,13 +9394,13 @@ export interface UpdateStackSetInput {
    *                </p>
    *                <p>Some templates reference macros. If your stack set template references one or more macros, you must update the
    *      stack set directly from the processed template, without first reviewing the resulting changes in a change set. To
-   *      update the stack set directly, you must acknowledge this capability. For more information, see <a href="http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/template-macros.html">Using CloudFormation Macros to Perform Custom Processing on
-   *       Templates</a>.</p>
+   *      update the stack set directly, you must acknowledge this capability. For more information, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/template-macros.html">Using CloudFormation Macros to Perform
+   *      Custom Processing on Templates</a>.</p>
    *                <important>
    *                   <p>Stack sets with service-managed permissions do not currently support the use of macros in templates. (This
-   *       includes the <a href="http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/create-reusable-transform-function-snippets-and-add-to-your-template-with-aws-include-transform.html">AWS::Include</a> and <a href="http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/transform-aws-serverless.html">AWS::Serverless</a>
-   *       transforms, which are macros hosted by CloudFormation.) Even if you specify this capability for a stack set with
-   *       service-managed permissions, if you reference a macro in your template the stack set operation will fail.</p>
+   *       includes the <a href="https://docs.aws.amazon.com/AWSCloudFormation/create-reusable-transform-function-snippets-and-add-to-your-template-with-aws-include-transform.html">AWS::Include</a> and <a href="https://docs.aws.amazon.com/AWSCloudFormation/transform-aws-serverless.html">AWS::Serverless</a> transforms, which are macros hosted by CloudFormation.) Even if you specify this capability for a
+   *       stack set with service-managed permissions, if you reference a macro in your template the stack set operation will
+   *       fail.</p>
    *                </important>
    *             </li>
    *          </ul>
@@ -9259,8 +9444,8 @@ export interface UpdateStackSetInput {
   /**
    * <p>The Amazon Resource Name (ARN) of the IAM role to use to update this stack set.</p>
    *          <p>Specify an IAM role only if you are using customized administrator roles to control which users
-   *    or groups can manage specific stack sets within the same administrator account. For more information, see <a href="http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/stacksets-prereqs.html">Granting Permissions for Stack Set Operations</a> in the
-   *     <i>CloudFormation User Guide</i>.</p>
+   *    or groups can manage specific stack sets within the same administrator account. For more information, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/stacksets-prereqs.html">Granting Permissions for Stack Set
+   *    Operations</a> in the <i>CloudFormation User Guide</i>.</p>
    *          <p>If you specified a customized administrator role when you created the stack set, you must specify a customized
    *    administrator role, even if it is the same customized administrator role used with this stack set previously.</p>
    */

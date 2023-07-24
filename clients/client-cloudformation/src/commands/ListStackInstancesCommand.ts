@@ -51,7 +51,7 @@ export interface ListStackInstancesCommandOutput extends ListStackInstancesOutpu
  *   MaxResults: Number("int"),
  *   Filters: [ // StackInstanceFilters
  *     { // StackInstanceFilter
- *       Name: "DETAILED_STATUS" || "LAST_OPERATION_ID",
+ *       Name: "DETAILED_STATUS" || "LAST_OPERATION_ID" || "DRIFT_STATUS",
  *       Values: "STRING_VALUE",
  *     },
  *   ],

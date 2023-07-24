@@ -156,6 +156,10 @@ import {
 import { ListChangeSetsCommandInput, ListChangeSetsCommandOutput } from "./commands/ListChangeSetsCommand";
 import { ListExportsCommandInput, ListExportsCommandOutput } from "./commands/ListExportsCommand";
 import { ListImportsCommandInput, ListImportsCommandOutput } from "./commands/ListImportsCommand";
+import {
+  ListStackInstanceResourceDriftsCommandInput,
+  ListStackInstanceResourceDriftsCommandOutput,
+} from "./commands/ListStackInstanceResourceDriftsCommand";
 import { ListStackInstancesCommandInput, ListStackInstancesCommandOutput } from "./commands/ListStackInstancesCommand";
 import { ListStackResourcesCommandInput, ListStackResourcesCommandOutput } from "./commands/ListStackResourcesCommand";
 import { ListStacksCommandInput, ListStacksCommandOutput } from "./commands/ListStacksCommand";
@@ -266,6 +270,7 @@ export type ServiceInputTypes =
   | ListChangeSetsCommandInput
   | ListExportsCommandInput
   | ListImportsCommandInput
+  | ListStackInstanceResourceDriftsCommandInput
   | ListStackInstancesCommandInput
   | ListStackResourcesCommandInput
   | ListStackSetOperationResultsCommandInput
@@ -340,6 +345,7 @@ export type ServiceOutputTypes =
   | ListChangeSetsCommandOutput
   | ListExportsCommandOutput
   | ListImportsCommandOutput
+  | ListStackInstanceResourceDriftsCommandOutput
   | ListStackInstancesCommandOutput
   | ListStackResourcesCommandOutput
   | ListStackSetOperationResultsCommandOutput

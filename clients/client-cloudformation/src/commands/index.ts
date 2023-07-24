@@ -43,6 +43,7 @@ export * from "./ImportStacksToStackSetCommand";
 export * from "./ListChangeSetsCommand";
 export * from "./ListExportsCommand";
 export * from "./ListImportsCommand";
+export * from "./ListStackInstanceResourceDriftsCommand";
 export * from "./ListStackInstancesCommand";
 export * from "./ListStackResourcesCommand";
 export * from "./ListStackSetOperationResultsCommand";

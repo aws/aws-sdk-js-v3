@@ -204,6 +204,11 @@ import {
 import { ListExportsCommand, ListExportsCommandInput, ListExportsCommandOutput } from "./commands/ListExportsCommand";
 import { ListImportsCommand, ListImportsCommandInput, ListImportsCommandOutput } from "./commands/ListImportsCommand";
 import {
+  ListStackInstanceResourceDriftsCommand,
+  ListStackInstanceResourceDriftsCommandInput,
+  ListStackInstanceResourceDriftsCommandOutput,
+} from "./commands/ListStackInstanceResourceDriftsCommand";
+import {
   ListStackInstancesCommand,
   ListStackInstancesCommandInput,
   ListStackInstancesCommandOutput,
@@ -354,6 +359,7 @@ const commands = {
   ListChangeSetsCommand,
   ListExportsCommand,
   ListImportsCommand,
+  ListStackInstanceResourceDriftsCommand,
   ListStackInstancesCommand,
   ListStackResourcesCommand,
   ListStacksCommand,
@@ -1059,6 +1065,23 @@ export interface CloudFormation {
     args: ListImportsCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: ListImportsCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ListStackInstanceResourceDriftsCommand}
+   */
+  listStackInstanceResourceDrifts(
+    args: ListStackInstanceResourceDriftsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListStackInstanceResourceDriftsCommandOutput>;
+  listStackInstanceResourceDrifts(
+    args: ListStackInstanceResourceDriftsCommandInput,
+    cb: (err: any, data?: ListStackInstanceResourceDriftsCommandOutput) => void
+  ): void;
+  listStackInstanceResourceDrifts(
+    args: ListStackInstanceResourceDriftsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListStackInstanceResourceDriftsCommandOutput) => void
   ): void;
 
   /**
