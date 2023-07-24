@@ -9081,6 +9081,7 @@ export const SpotInstanceState = {
   active: "active",
   cancelled: "cancelled",
   closed: "closed",
+  disabled: "disabled",
   failed: "failed",
   open: "open",
 } as const;

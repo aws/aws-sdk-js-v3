@@ -188,7 +188,7 @@ export interface DescribeSpotInstanceRequestsCommandOutput
  * //       ProductDescription: "Linux/UNIX" || "Linux/UNIX (Amazon VPC)" || "Windows" || "Windows (Amazon VPC)",
  * //       SpotInstanceRequestId: "STRING_VALUE",
  * //       SpotPrice: "STRING_VALUE",
- * //       State: "open" || "active" || "closed" || "cancelled" || "failed",
+ * //       State: "open" || "active" || "closed" || "cancelled" || "failed" || "disabled",
  * //       Status: { // SpotInstanceStatus
  * //         Code: "STRING_VALUE",
  * //         Message: "STRING_VALUE",
