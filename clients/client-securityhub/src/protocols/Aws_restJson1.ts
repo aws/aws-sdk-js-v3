@@ -251,6 +251,10 @@ import {
   AwsAppSyncGraphQlApiLogConfigDetails,
   AwsAppSyncGraphQlApiOpenIdConnectConfigDetails,
   AwsAppSyncGraphQlApiUserPoolConfigDetails,
+  AwsAthenaWorkGroupConfigurationDetails,
+  AwsAthenaWorkGroupConfigurationResultConfigurationDetails,
+  AwsAthenaWorkGroupConfigurationResultConfigurationEncryptionConfigurationDetails,
+  AwsAthenaWorkGroupDetails,
   AwsAutoScalingAutoScalingGroupAvailabilityZonesListDetails,
   AwsAutoScalingAutoScalingGroupDetails,
   AwsAutoScalingAutoScalingGroupLaunchTemplateLaunchTemplateSpecification,
@@ -455,12 +459,8 @@ import {
   AwsEcsTaskDetails,
   AwsEcsTaskVolumeDetails,
   AwsEcsTaskVolumeHostDetails,
-  AwsEfsAccessPointDetails,
   AwsEfsAccessPointPosixUserDetails,
   AwsEfsAccessPointRootDirectoryCreationInfoDetails,
-  AwsEfsAccessPointRootDirectoryDetails,
-  AwsEksClusterLoggingClusterLoggingDetails,
-  AwsEksClusterLoggingDetails,
   AwsMountPoint,
   CidrBlockAssociation,
   City,
@@ -496,7 +496,11 @@ import {
 } from "../models/models_0";
 import {
   _Record,
+  AwsEfsAccessPointDetails,
+  AwsEfsAccessPointRootDirectoryDetails,
   AwsEksClusterDetails,
+  AwsEksClusterLoggingClusterLoggingDetails,
+  AwsEksClusterLoggingDetails,
   AwsEksClusterResourcesVpcConfigDetails,
   AwsElasticBeanstalkEnvironmentDetails,
   AwsElasticBeanstalkEnvironmentEnvironmentLink,
@@ -591,6 +595,7 @@ import {
   AwsRdsDbClusterDetails,
   AwsRdsDbClusterMember,
   AwsRdsDbClusterOptionGroupMembership,
+  AwsRdsDbClusterSnapshotDbClusterSnapshotAttribute,
   AwsRdsDbClusterSnapshotDetails,
   AwsRdsDbDomainMembership,
   AwsRdsDbInstanceAssociatedRole,
@@ -662,8 +667,6 @@ import {
   AwsSageMakerNotebookInstanceMetadataServiceConfigurationDetails,
   AwsSecretsManagerSecretDetails,
   AwsSecretsManagerSecretRotationRules,
-  AwsSecurityFinding,
-  AwsSecurityFindingFilters,
   AwsSnsTopicDetails,
   AwsSnsTopicSubscription,
   AwsSqsQueueDetails,
@@ -711,7 +714,6 @@ import {
   AwsWafWebAclDetails,
   AwsWafWebAclRule,
   AwsXrayEncryptionConfigDetails,
-  BooleanFilter,
   Cell,
   ClassificationResult,
   ClassificationStatus,
@@ -728,8 +730,6 @@ import {
   FirewallPolicyStatefulRuleGroupReferencesDetails,
   FirewallPolicyStatelessCustomActionsDetails,
   FirewallPolicyStatelessRuleGroupReferencesDetails,
-  IpFilter,
-  KeywordFilter,
   LoadBalancerState,
   Malware,
   Network,
@@ -785,10 +785,15 @@ import {
   Workflow,
 } from "../models/models_1";
 import {
+  AwsSecurityFinding,
+  AwsSecurityFindingFilters,
   AwsSecurityFindingIdentifier,
+  BooleanFilter,
   FindingHistoryRecord,
   Insight,
   Invitation,
+  IpFilter,
+  KeywordFilter,
   Member,
   ResourceConflictException,
   SortCriterion,
@@ -7042,6 +7047,14 @@ const se_AwsApiGatewayV2StageDetails = (input: AwsApiGatewayV2StageDetails, cont
 
 // se_AwsAppSyncGraphQlApiUserPoolConfigDetails omitted.
 
+// se_AwsAthenaWorkGroupConfigurationDetails omitted.
+
+// se_AwsAthenaWorkGroupConfigurationResultConfigurationDetails omitted.
+
+// se_AwsAthenaWorkGroupConfigurationResultConfigurationEncryptionConfigurationDetails omitted.
+
+// se_AwsAthenaWorkGroupDetails omitted.
+
 // se_AwsAutoScalingAutoScalingGroupAvailabilityZonesList omitted.
 
 // se_AwsAutoScalingAutoScalingGroupAvailabilityZonesListDetails omitted.
@@ -8011,6 +8024,10 @@ const se_AwsNetworkFirewallRuleGroupDetails = (
 
 // se_AwsRdsDbClusterOptionGroupMemberships omitted.
 
+// se_AwsRdsDbClusterSnapshotDbClusterSnapshotAttribute omitted.
+
+// se_AwsRdsDbClusterSnapshotDbClusterSnapshotAttributes omitted.
+
 // se_AwsRdsDbClusterSnapshotDetails omitted.
 
 // se_AwsRdsDbDomainMembership omitted.
@@ -8829,6 +8846,7 @@ const se_ResourceDetails = (input: ResourceDetails, context: __SerdeContext): an
     AwsApiGatewayV2Api: _json,
     AwsApiGatewayV2Stage: (_) => se_AwsApiGatewayV2StageDetails(_, context),
     AwsAppSyncGraphQlApi: _json,
+    AwsAthenaWorkGroup: _json,
     AwsAutoScalingAutoScalingGroup: _json,
     AwsAutoScalingLaunchConfiguration: _json,
     AwsBackupBackupPlan: _json,
@@ -9523,6 +9541,14 @@ const de_AwsApiGatewayV2StageDetails = (output: any, context: __SerdeContext): A
 // de_AwsAppSyncGraphQlApiOpenIdConnectConfigDetails omitted.
 
 // de_AwsAppSyncGraphQlApiUserPoolConfigDetails omitted.
+
+// de_AwsAthenaWorkGroupConfigurationDetails omitted.
+
+// de_AwsAthenaWorkGroupConfigurationResultConfigurationDetails omitted.
+
+// de_AwsAthenaWorkGroupConfigurationResultConfigurationEncryptionConfigurationDetails omitted.
+
+// de_AwsAthenaWorkGroupDetails omitted.
 
 // de_AwsAutoScalingAutoScalingGroupAvailabilityZonesList omitted.
 
@@ -10494,6 +10520,10 @@ const de_AwsNetworkFirewallRuleGroupDetails = (
 
 // de_AwsRdsDbClusterOptionGroupMemberships omitted.
 
+// de_AwsRdsDbClusterSnapshotDbClusterSnapshotAttribute omitted.
+
+// de_AwsRdsDbClusterSnapshotDbClusterSnapshotAttributes omitted.
+
 // de_AwsRdsDbClusterSnapshotDetails omitted.
 
 // de_AwsRdsDbDomainMembership omitted.
@@ -11451,6 +11481,7 @@ const de_ResourceDetails = (output: any, context: __SerdeContext): ResourceDetai
     AwsApiGatewayV2Api: _json,
     AwsApiGatewayV2Stage: (_: any) => de_AwsApiGatewayV2StageDetails(_, context),
     AwsAppSyncGraphQlApi: _json,
+    AwsAthenaWorkGroup: _json,
     AwsAutoScalingAutoScalingGroup: _json,
     AwsAutoScalingLaunchConfiguration: _json,
     AwsBackupBackupPlan: _json,

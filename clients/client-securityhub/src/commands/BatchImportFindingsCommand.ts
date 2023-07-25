@@ -2064,6 +2064,12 @@ export interface BatchImportFindingsCommandOutput extends BatchImportFindingsRes
  *               DbClusterIdentifier: "STRING_VALUE",
  *               DbClusterSnapshotIdentifier: "STRING_VALUE",
  *               IamDatabaseAuthenticationEnabled: true || false,
+ *               DbClusterSnapshotAttributes: [ // AwsRdsDbClusterSnapshotDbClusterSnapshotAttributes
+ *                 { // AwsRdsDbClusterSnapshotDbClusterSnapshotAttribute
+ *                   AttributeName: "STRING_VALUE",
+ *                   AttributeValues: "<NonEmptyStringList>",
+ *                 },
+ *               ],
  *             },
  *             AwsRdsDbCluster: { // AwsRdsDbClusterDetails
  *               AllocatedStorage: Number("int"),
@@ -3821,6 +3827,19 @@ export interface BatchImportFindingsCommandOutput extends BatchImportFindingsRes
  *                 Enabled: true || false,
  *               },
  *               Type: "STRING_VALUE",
+ *             },
+ *             AwsAthenaWorkGroup: { // AwsAthenaWorkGroupDetails
+ *               Name: "STRING_VALUE",
+ *               Description: "STRING_VALUE",
+ *               State: "STRING_VALUE",
+ *               Configuration: { // AwsAthenaWorkGroupConfigurationDetails
+ *                 ResultConfiguration: { // AwsAthenaWorkGroupConfigurationResultConfigurationDetails
+ *                   EncryptionConfiguration: { // AwsAthenaWorkGroupConfigurationResultConfigurationEncryptionConfigurationDetails
+ *                     EncryptionOption: "STRING_VALUE",
+ *                     KmsKey: "STRING_VALUE",
+ *                   },
+ *                 },
+ *               },
  *             },
  *           },
  *         },

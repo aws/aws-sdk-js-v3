@@ -1082,7 +1082,9 @@ export type AutoEnableStandards = (typeof AutoEnableStandards)[keyof typeof Auto
  * @enum
  */
 export const StringFilterComparison = {
+  CONTAINS: "CONTAINS",
   EQUALS: "EQUALS",
+  NOT_CONTAINS: "NOT_CONTAINS",
   NOT_EQUALS: "NOT_EQUALS",
   PREFIX: "PREFIX",
   PREFIX_NOT_EQUALS: "PREFIX_NOT_EQUALS",
@@ -1095,74 +1097,75 @@ export type StringFilterComparison = (typeof StringFilterComparison)[keyof typeo
 
 /**
  * @public
- * <p>A string filter for querying findings.</p>
+ * <p>A string filter for filtering Security Hub findings.</p>
  */
 export interface StringFilter {
   /**
    * <p>The string filter value. Filter values are case sensitive. For example, the product name
    *          for control-based findings is <code>Security Hub</code>. If you provide <code>security hub</code>
-   *          as the filter text, then there is no match.</p>
+   *          as the filter value, there's no match.</p>
    */
   Value?: string;
 
   /**
-   * <p>The condition to apply to a string value when querying for findings. To search for
-   *          values that contain the filter criteria value, use one of the following comparison
-   *          operators:</p>
+   * <p>The condition to apply to a string value when filtering Security Hub findings.</p>
+   *          <p>To search for values that have the filter value, use one of the following comparison operators:</p>
    *          <ul>
    *             <li>
-   *                <p>To search for values that exactly match the filter value, use
-   *                <code>EQUALS</code>.</p>
-   *                <p>For example, the filter <code>ResourceType EQUALS AwsEc2SecurityGroup</code> only
-   *                matches findings that have a resource type of
-   *                <code>AwsEc2SecurityGroup</code>.</p>
+   *                <p>To search for values that include the filter value, use <code>CONTAINS</code>. For example, the
+   *                filter <code>Title CONTAINS CloudFront</code> matches findings that have a <code>Title</code> that
+   *                includes the string CloudFront.</p>
    *             </li>
    *             <li>
-   *                <p>To search for values that start with the filter value, use
-   *                <code>PREFIX</code>.</p>
-   *                <p>For example, the filter <code>ResourceType PREFIX AwsIam</code> matches findings
-   *                that have a resource type that starts with <code>AwsIam</code>. Findings with a
-   *                resource type of <code>AwsIamPolicy</code>, <code>AwsIamRole</code>, or
-   *                   <code>AwsIamUser</code> would all match.</p>
+   *                <p>To search for values that exactly match the filter value, use <code>EQUALS</code>. For example,
+   *                the filter <code>AwsAccountId EQUALS 123456789012</code> only matches findings that have an account ID of
+   *                <code>123456789012</code>.</p>
+   *             </li>
+   *             <li>
+   *                <p>To search for values that start with the filter value, use <code>PREFIX</code>. For example, the
+   *                filter <code>ResourceRegion PREFIX us</code> matches findings that have a <code>ResourceRegion</code> that starts
+   *                with <code>us</code>. A <code>ResourceRegion</code> that starts with a different value, such as <code>af</code>,
+   *                <code>ap</code>, or <code>ca</code>, doesn't match.</p>
    *             </li>
    *          </ul>
    *          <p>
-   *             <code>EQUALS</code> and <code>PREFIX</code> filters on the same field are joined by
-   *             <code>OR</code>. A finding matches if it matches any one of those filters.</p>
-   *          <p>To search for values that do not contain the filter criteria value, use one of the
-   *          following comparison operators:</p>
+   *             <code>CONTAINS</code>, <code>EQUALS</code>, and <code>PREFIX</code> filters on the same field are joined by
+   *            <code>OR</code>. A finding matches if it matches any one of those filters. For example, the filters <code>Title CONTAINS CloudFront OR
+   *                Title CONTAINS CloudWatch</code> match a finding that includes either <code>CloudFront</code>,
+   *            <code>CloudWatch</code>, or both strings in the title.</p>
+   *          <p>To search for values that don’t have the filter value, use one of the following comparison operators:</p>
    *          <ul>
    *             <li>
-   *                <p>To search for values that do not exactly match the filter value, use
-   *                   <code>NOT_EQUALS</code>.</p>
-   *                <p>For example, the filter <code>ResourceType NOT_EQUALS AwsIamPolicy</code> matches
-   *                findings that have a resource type other than <code>AwsIamPolicy</code>.</p>
+   *                <p>To search for values that exclude the filter value, use <code>NOT_CONTAINS</code>. For example, the
+   *                filter <code>Title NOT_CONTAINS CloudFront</code> matches findings that have a <code>Title</code> that
+   *                excludes the string CloudFront.</p>
    *             </li>
    *             <li>
-   *                <p>To search for values that do not start with the filter value, use
-   *                   <code>PREFIX_NOT_EQUALS</code>.</p>
-   *                <p>For example, the filter <code>ResourceType PREFIX_NOT_EQUALS AwsIam</code> matches
-   *                findings that have a resource type that does not start with <code>AwsIam</code>.
-   *                Findings with a resource type of <code>AwsIamPolicy</code>, <code>AwsIamRole</code>,
-   *                or <code>AwsIamUser</code> would all be excluded from the results.</p>
+   *                <p>To search for values other than the filter value, use <code>NOT_EQUALS</code>. For
+   *                example, the filter <code>AwsAccountId NOT_EQUALS 123456789012</code> only matches findings that have an account
+   *                ID other than <code>123456789012</code>.</p>
+   *             </li>
+   *             <li>
+   *                <p>To search for values that don't start with the filter value, use <code>PREFIX_NOT_EQUALS</code>. For
+   *                example, the filter <code>ResourceRegion PREFIX_NOT_EQUALS us</code> matches findings with a
+   *                <code>ResourceRegion</code> that starts with a value other than <code>us</code>.</p>
    *             </li>
    *          </ul>
    *          <p>
-   *             <code>NOT_EQUALS</code> and <code>PREFIX_NOT_EQUALS</code> filters on the same field are
-   *          joined by <code>AND</code>. A finding matches only if it matches all of those
-   *          filters.</p>
-   *          <p>For filters on the same field, you cannot provide both an <code>EQUALS</code> filter and
-   *          a <code>NOT_EQUALS</code> or <code>PREFIX_NOT_EQUALS</code> filter. Combining filters in
-   *          this way always returns an error, even if the provided filter values would return valid
-   *          results.</p>
-   *          <p>You can combine <code>PREFIX</code> filters with <code>NOT_EQUALS</code> or
-   *          <code>PREFIX_NOT_EQUALS</code> filters for the same field. Security Hub first processes the
-   *             <code>PREFIX</code> filters, then the <code>NOT_EQUALS</code> or
-   *             <code>PREFIX_NOT_EQUALS</code> filters.</p>
-   *          <p> For example, for the following filter, Security Hub first identifies findings that have
-   *          resource types that start with either <code>AwsIAM</code> or <code>AwsEc2</code>. It then
-   *          excludes findings that have a resource type of <code>AwsIamPolicy</code> and findings that
-   *          have a resource type of <code>AwsEc2NetworkInterface</code>.</p>
+   *             <code>NOT_CONTAINS</code>, <code>NOT_EQUALS</code>, and <code>PREFIX_NOT_EQUALS</code> filters on the same field
+   *            are joined by <code>AND</code>. A finding matches only if it matches all of those filters. For example, the filters <code>Title NOT_CONTAINS CloudFront AND
+   *                Title NOT_CONTAINS CloudWatch</code> match a finding that excludes both <code>CloudFront</code> and
+   *            <code>CloudWatch</code> in the title.</p>
+   *          <p>You can’t have both a <code>CONTAINS</code> filter and a <code>NOT_CONTAINS</code> filter on the same field. Similarly,
+   *             you can't provide both an <code>EQUALS</code> filter and a <code>NOT_EQUALS</code> or
+   *            <code>PREFIX_NOT_EQUALS</code> filter on the same field. Combining filters in this way returns an error. <code>CONTAINS</code> filters
+   *            can only be used with other <code>CONTAINS</code> filters. <code>NOT_CONTAINS</code> filters can only be used with
+   *            other <code>NOT_CONTAINS</code> filters. </p>
+   *          <p>You can combine <code>PREFIX</code> filters with <code>NOT_EQUALS</code> or <code>PREFIX_NOT_EQUALS</code> filters for the same field.
+   *            Security Hub first processes the <code>PREFIX</code> filters, and then the <code>NOT_EQUALS</code> or <code>PREFIX_NOT_EQUALS</code> filters.</p>
+   *          <p>For example, for the following filters, Security Hub first identifies findings that have resource types
+   *            that start with either <code>AwsIam</code> or <code>AwsEc2</code>. It then excludes findings that have a resource
+   *            type of <code>AwsIamPolicy</code> and findings that have a resource type of <code>AwsEc2NetworkInterface</code>.</p>
    *          <ul>
    *             <li>
    *                <p>
@@ -1185,6 +1188,9 @@ export interface StringFilter {
    *                </p>
    *             </li>
    *          </ul>
+   *          <p>
+   *             <code>CONTAINS</code> and <code>NOT_CONTAINS</code> operators can be used only with automation rules. For more information,
+   *            see <a href="https://docs.aws.amazon.com/securityhub/latest/userguide/automation-rules.html">Automation rules</a> in the <i>Security Hub User Guide</i>.</p>
    */
   Comparison?: StringFilterComparison | string;
 }
@@ -1272,7 +1278,9 @@ export interface DateFilter {
  * @enum
  */
 export const MapFilterComparison = {
+  CONTAINS: "CONTAINS",
   EQUALS: "EQUALS",
+  NOT_CONTAINS: "NOT_CONTAINS",
   NOT_EQUALS: "NOT_EQUALS",
 } as const;
 
@@ -1283,8 +1291,8 @@ export type MapFilterComparison = (typeof MapFilterComparison)[keyof typeof MapF
 
 /**
  * @public
- * <p>A map filter for querying findings. Each map filter provides the field to check, the
- *          value to look for, and the comparison operator.</p>
+ * <p>A map filter for filtering Security Hub findings. Each map filter provides the field to check for, the
+ *          value to check for, and the comparison operator.</p>
  */
 export interface MapFilter {
   /**
@@ -1297,29 +1305,60 @@ export interface MapFilter {
   /**
    * <p>The value for the key in the map filter. Filter values are case sensitive. For example,
    *          one of the values for a tag called <code>Department</code> might be <code>Security</code>.
-   *          If you provide <code>security</code> as the filter value, then there is no match.</p>
+   *          If you provide <code>security</code> as the filter value, then there's no match.</p>
    */
   Value?: string;
 
   /**
-   * <p>The condition to apply to the key value when querying for findings with a map
+   * <p>The condition to apply to the key value when filtering Security Hub findings with a map
    *          filter.</p>
-   *          <p>To search for values that exactly match the filter value, use <code>EQUALS</code>. For
-   *          example, for the <code>ResourceTags</code> field, the filter <code>Department EQUALS
-   *             Security</code> matches findings that have the value <code>Security</code> for the tag
-   *             <code>Department</code>.</p>
-   *          <p>To search for values other than the filter value, use <code>NOT_EQUALS</code>. For
-   *          example, for the <code>ResourceTags</code> field, the filter <code>Department NOT_EQUALS
-   *             Finance</code> matches findings that do not have the value <code>Finance</code> for the
-   *          tag <code>Department</code>.</p>
+   *          <p>To search for values that have the filter value, use one of the following comparison operators:</p>
+   *          <ul>
+   *             <li>
+   *                <p>To search for values that include the filter value, use <code>CONTAINS</code>. For example, for the
+   *                <code>ResourceTags</code> field, the filter <code>Department CONTAINS Security</code> matches findings that
+   *                include the value <code>Security</code> for the <code>Department</code> tag. In the same example, a finding with a value of
+   *                <code>Security team</code> for the <code>Department</code> tag is a match.</p>
+   *             </li>
+   *             <li>
+   *                <p>To search for values that exactly match the filter value, use <code>EQUALS</code>. For example, for
+   *                the <code>ResourceTags</code> field, the filter <code>Department EQUALS Security</code> matches findings that
+   *                have the value <code>Security</code> for the <code>Department</code> tag.</p>
+   *             </li>
+   *          </ul>
    *          <p>
-   *             <code>EQUALS</code> filters on the same field are joined by <code>OR</code>. A finding
-   *          matches if it matches any one of those filters.</p>
+   *             <code>CONTAINS</code> and <code>EQUALS</code> filters on the same field are joined by <code>OR</code>. A
+   *            finding matches if it matches any one of those filters. For example, the filters <code>Department CONTAINS Security OR
+   *                Department CONTAINS Finance</code> match a finding that includes either <code>Security</code>,
+   *            <code>Finance</code>, or both values.</p>
+   *          <p>To search for values that don't have the filter value, use one of the following comparison operators:</p>
+   *          <ul>
+   *             <li>
+   *                <p>To search for values that exclude the filter value, use <code>NOT_CONTAINS</code>. For example, for
+   *                the <code>ResourceTags</code> field, the filter <code>Department NOT_CONTAINS Finance</code> matches findings
+   *                that exclude the value <code>Finance</code> for the <code>Department</code> tag.</p>
+   *             </li>
+   *             <li>
+   *                <p>To search for values other than the filter value, use <code>NOT_EQUALS</code>. For example, for the
+   *                <code>ResourceTags</code> field, the filter <code>Department NOT_EQUALS Finance</code> matches findings that
+   *                don’t have the value <code>Finance</code> for the <code>Department</code> tag.</p>
+   *             </li>
+   *          </ul>
    *          <p>
-   *             <code>NOT_EQUALS</code> filters on the same field are joined by <code>AND</code>. A
-   *          finding matches only if it matches all of those filters.</p>
-   *          <p>You cannot have both an <code>EQUALS</code> filter and a <code>NOT_EQUALS</code> filter
-   *          on the same field.</p>
+   *             <code>NOT_CONTAINS</code> and <code>NOT_EQUALS</code> filters on the same field are joined by <code>AND</code>.
+   *            A finding matches only if it matches all of those filters. For example, the filters <code>Department NOT_CONTAINS Security AND
+   *                Department NOT_CONTAINS Finance</code> match a finding that excludes both the <code>Security</code> and
+   *            <code>Finance</code> values.</p>
+   *          <p>
+   *             <code>CONTAINS</code> filters can only be used with other <code>CONTAINS</code> filters. <code>NOT_CONTAINS</code>
+   *            filters can only be used with other <code>NOT_CONTAINS</code> filters.</p>
+   *          <p>You can’t have both a <code>CONTAINS</code> filter and a <code>NOT_CONTAINS</code> filter on the same field.
+   *            Similarly, you can’t have both an <code>EQUALS</code> filter and a <code>NOT_EQUALS</code> filter on the same field.
+   *             Combining filters in this way returns an error.
+   *        </p>
+   *          <p>
+   *             <code>CONTAINS</code> and <code>NOT_CONTAINS</code> operators can be used only with automation rules. For more information,
+   *            see <a href="https://docs.aws.amazon.com/securityhub/latest/userguide/automation-rules.html">Automation rules</a> in the <i>Security Hub User Guide</i>.</p>
    */
   Comparison?: MapFilterComparison | string;
 }
@@ -1663,10 +1702,9 @@ export interface AutomationRulesConfig {
   Description?: string;
 
   /**
-   * <p>Specifies whether a rule is the last to be applied with respect to a finding that matches the rule criteria. This is useful
-   *             when a finding matches the criteria for multiple rules, and each rule has different actions. If the value of this
-   *             field is set to <code>true</code> for a rule, Security Hub applies the rule action to a finding that matches
-   *             the rule criteria and doesn't evaluate other rules for the finding.  The default value of this field is <code>false</code>.
+   * <p>Specifies whether a rule is the last to be applied with respect to a finding that matches the rule criteria. This is useful when a finding
+   *             matches the criteria for multiple rules, and each rule has different actions. If a rule is terminal, Security Hub applies the rule action to a finding that matches
+   *             the rule criteria and doesn't evaluate other rules for the finding. By default, a rule isn't terminal.
    *         </p>
    */
   IsTerminal?: boolean;
@@ -1766,11 +1804,9 @@ export interface AutomationRulesMetadata {
   Description?: string;
 
   /**
-   * <p>
-   *             Specifies whether a rule is the last to be applied with respect to a finding that matches the rule criteria. This is useful
-   *             when a finding matches the criteria for multiple rules, and each rule has different actions. If the value of this
-   *             field is set to <code>true</code> for a rule, Security Hub applies the rule action to a finding that matches
-   *             the rule criteria and doesn't evaluate other rules for the finding.  The default value of this field is <code>false</code>.
+   * <p>Specifies whether a rule is the last to be applied with respect to a finding that matches the rule criteria. This is useful when a finding
+   *             matches the criteria for multiple rules, and each rule has different actions. If a rule is terminal, Security Hub applies the rule action to a finding that matches
+   *             the rule criteria and doesn't evaluate other rules for the finding. By default, a rule isn't terminal.
    *         </p>
    */
   IsTerminal?: boolean;
@@ -2991,6 +3027,105 @@ export interface AwsAppSyncGraphQlApiDetails {
    *         </p>
    */
   WafWebAclArn?: string;
+}
+
+/**
+ * @public
+ * <p>
+ *             Specifies the method used to encrypt the user’s data stores in the Athena workgroup.
+ *         </p>
+ */
+export interface AwsAthenaWorkGroupConfigurationResultConfigurationEncryptionConfigurationDetails {
+  /**
+   * <p>
+   *             Indicates whether Amazon Simple Storage Service (Amazon S3) server-side encryption with Amazon S3 managed
+   *             keys (SSE_S3), server-side encryption with KMS keys (SSE_KMS), or client-side encryption with
+   *             KMS customer managed keys (CSE_KMS) is used.
+   *         </p>
+   */
+  EncryptionOption?: string;
+
+  /**
+   * <p>
+   *             For <code>SSE_KMS</code> and <code>CSE_KMS</code>, this is the KMS key Amazon Resource Name (ARN) or ID.
+   *         </p>
+   */
+  KmsKey?: string;
+}
+
+/**
+ * @public
+ * <p>
+ *             The location in Amazon Simple Storage Service (Amazon S3) where query and calculation results are stored and the encryption option, if any,
+ *             used for query and calculation results. These are known as client-side settings. If workgroup settings override
+ *             client-side settings, then the query uses the workgroup settings.
+ *         </p>
+ */
+export interface AwsAthenaWorkGroupConfigurationResultConfigurationDetails {
+  /**
+   * <p>
+   *             Specifies the method used to encrypt the user’s data stores in the Athena workgroup.
+   *         </p>
+   */
+  EncryptionConfiguration?: AwsAthenaWorkGroupConfigurationResultConfigurationEncryptionConfigurationDetails;
+}
+
+/**
+ * @public
+ * <p>
+ *             The configuration of the workgroup, which includes the location in Amazon Simple Storage Service (Amazon S3) where
+ *             query results are stored, the encryption option, if any, used for query results, whether Amazon CloudWatch
+ *             metrics are enabled for the workgroup, and the limit for the amount of bytes scanned (cutoff) per query, if it is
+ *             specified.
+ *         </p>
+ */
+export interface AwsAthenaWorkGroupConfigurationDetails {
+  /**
+   * <p>
+   *             The location in Amazon S3 where query and calculation results are stored and the
+   *             encryption option, if any, used for query and calculation results. These are known as client-side settings. If
+   *             workgroup settings override client-side settings, then the query uses the workgroup settings.</p>
+   */
+  ResultConfiguration?: AwsAthenaWorkGroupConfigurationResultConfigurationDetails;
+}
+
+/**
+ * @public
+ * <p>
+ *             Provides information about an Amazon Athena workgroup.
+ *         </p>
+ */
+export interface AwsAthenaWorkGroupDetails {
+  /**
+   * <p>
+   *             The workgroup name.
+   *         </p>
+   */
+  Name?: string;
+
+  /**
+   * <p>
+   *             The workgroup description.
+   *         </p>
+   */
+  Description?: string;
+
+  /**
+   * <p>
+   *             Whether the workgroup is enabled or disabled.
+   *         </p>
+   */
+  State?: string;
+
+  /**
+   * <p>
+   *             The configuration of the workgroup, which includes the location in Amazon Simple Storage Service (Amazon S3)
+   *             where query results are stored, the encryption option, if any, used for query results, whether
+   *             Amazon CloudWatch metrics are enabled for the workgroup, and the limit for the amount of bytes scanned
+   *             (cutoff) per query, if it is specified.
+   *         </p>
+   */
+  Configuration?: AwsAthenaWorkGroupConfigurationDetails;
 }
 
 /**
@@ -11137,124 +11272,4 @@ export interface AwsEfsAccessPointRootDirectoryCreationInfoDetails {
    *       </p>
    */
   Permissions?: string;
-}
-
-/**
- * @public
- * <p>Provides information about the directory on the Amazon EFS file system that the access point exposes
- * as the root directory to NFS clients using the access point.
- *       </p>
- */
-export interface AwsEfsAccessPointRootDirectoryDetails {
-  /**
-   * <p>Specifies the POSIX IDs and permissions to apply to the access point's root directory.
-   *       </p>
-   */
-  CreationInfo?: AwsEfsAccessPointRootDirectoryCreationInfoDetails;
-
-  /**
-   * <p>Specifies the path on the Amazon EFS file system to expose as the root directory to NFS clients
-   * using the access point to access the EFS file system. A path can have up to four subdirectories. If the specified
-   * path does not exist, you are required to provide <code>CreationInfo</code>.
-   *       </p>
-   */
-  Path?: string;
-}
-
-/**
- * @public
- * <p>Provides information about an Amazon EFS access point.
- *       </p>
- */
-export interface AwsEfsAccessPointDetails {
-  /**
-   * <p>The ID of the Amazon EFS access point.
-   *       </p>
-   */
-  AccessPointId?: string;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) of the Amazon EFS access point. </p>
-   */
-  Arn?: string;
-
-  /**
-   * <p>The opaque string specified in the request to ensure idempotent creation.
-   *       </p>
-   */
-  ClientToken?: string;
-
-  /**
-   * <p>The ID of the Amazon EFS file system that the access point applies to.
-   *       </p>
-   */
-  FileSystemId?: string;
-
-  /**
-   * <p>The full POSIX identity, including the user ID, group ID, and secondary group IDs on the access point,
-   * that is used for all file operations by NFS clients using the access point.
-   *       </p>
-   */
-  PosixUser?: AwsEfsAccessPointPosixUserDetails;
-
-  /**
-   * <p>The directory on the Amazon EFS file system that the access point exposes as the root
-   * directory to NFS clients using the access point.
-   *       </p>
-   */
-  RootDirectory?: AwsEfsAccessPointRootDirectoryDetails;
-}
-
-/**
- * @public
- * <p>Details for a cluster logging configuration.</p>
- */
-export interface AwsEksClusterLoggingClusterLoggingDetails {
-  /**
-   * <p>Whether the logging types that are listed in <code>Types</code> are enabled.</p>
-   */
-  Enabled?: boolean;
-
-  /**
-   * <p>A list of logging types. Valid values are as follows:</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>api</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>audit</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>authenticator</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>controllerManager</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>scheduler</code>
-   *                </p>
-   *             </li>
-   *          </ul>
-   */
-  Types?: string[];
-}
-
-/**
- * @public
- * <p>The logging configuration for an Amazon EKS cluster.</p>
- */
-export interface AwsEksClusterLoggingDetails {
-  /**
-   * <p>Cluster logging configurations.</p>
-   */
-  ClusterLogging?: AwsEksClusterLoggingClusterLoggingDetails[];
 }

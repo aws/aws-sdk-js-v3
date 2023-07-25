@@ -59,31 +59,31 @@ export interface BatchUpdateAutomationRulesCommandOutput extends BatchUpdateAuto
  *         ProductArn: [ // StringFilterList
  *           { // StringFilter
  *             Value: "STRING_VALUE",
- *             Comparison: "EQUALS" || "PREFIX" || "NOT_EQUALS" || "PREFIX_NOT_EQUALS",
+ *             Comparison: "EQUALS" || "PREFIX" || "NOT_EQUALS" || "PREFIX_NOT_EQUALS" || "CONTAINS" || "NOT_CONTAINS",
  *           },
  *         ],
  *         AwsAccountId: [
  *           {
  *             Value: "STRING_VALUE",
- *             Comparison: "EQUALS" || "PREFIX" || "NOT_EQUALS" || "PREFIX_NOT_EQUALS",
+ *             Comparison: "EQUALS" || "PREFIX" || "NOT_EQUALS" || "PREFIX_NOT_EQUALS" || "CONTAINS" || "NOT_CONTAINS",
  *           },
  *         ],
  *         Id: [
  *           {
  *             Value: "STRING_VALUE",
- *             Comparison: "EQUALS" || "PREFIX" || "NOT_EQUALS" || "PREFIX_NOT_EQUALS",
+ *             Comparison: "EQUALS" || "PREFIX" || "NOT_EQUALS" || "PREFIX_NOT_EQUALS" || "CONTAINS" || "NOT_CONTAINS",
  *           },
  *         ],
  *         GeneratorId: [
  *           {
  *             Value: "STRING_VALUE",
- *             Comparison: "EQUALS" || "PREFIX" || "NOT_EQUALS" || "PREFIX_NOT_EQUALS",
+ *             Comparison: "EQUALS" || "PREFIX" || "NOT_EQUALS" || "PREFIX_NOT_EQUALS" || "CONTAINS" || "NOT_CONTAINS",
  *           },
  *         ],
  *         Type: [
  *           {
  *             Value: "STRING_VALUE",
- *             Comparison: "EQUALS" || "PREFIX" || "NOT_EQUALS" || "PREFIX_NOT_EQUALS",
+ *             Comparison: "EQUALS" || "PREFIX" || "NOT_EQUALS" || "PREFIX_NOT_EQUALS" || "CONTAINS" || "NOT_CONTAINS",
  *           },
  *         ],
  *         FirstObservedAt: [ // DateFilterList
@@ -154,14 +154,14 @@ export interface BatchUpdateAutomationRulesCommandOutput extends BatchUpdateAuto
  *           { // MapFilter
  *             Key: "STRING_VALUE",
  *             Value: "STRING_VALUE",
- *             Comparison: "EQUALS" || "NOT_EQUALS",
+ *             Comparison: "EQUALS" || "NOT_EQUALS" || "CONTAINS" || "NOT_CONTAINS",
  *           },
  *         ],
  *         ResourceDetailsOther: [
  *           {
  *             Key: "STRING_VALUE",
  *             Value: "STRING_VALUE",
- *             Comparison: "EQUALS" || "NOT_EQUALS",
+ *             Comparison: "EQUALS" || "NOT_EQUALS" || "CONTAINS" || "NOT_CONTAINS",
  *           },
  *         ],
  *         ComplianceStatus: "<StringFilterList>",
@@ -188,7 +188,7 @@ export interface BatchUpdateAutomationRulesCommandOutput extends BatchUpdateAuto
  *           {
  *             Key: "STRING_VALUE",
  *             Value: "STRING_VALUE",
- *             Comparison: "EQUALS" || "NOT_EQUALS",
+ *             Comparison: "EQUALS" || "NOT_EQUALS" || "CONTAINS" || "NOT_CONTAINS",
  *           },
  *         ],
  *       },

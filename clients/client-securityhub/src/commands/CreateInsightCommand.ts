@@ -52,31 +52,31 @@ export interface CreateInsightCommandOutput extends CreateInsightResponse, __Met
  *     ProductArn: [ // StringFilterList
  *       { // StringFilter
  *         Value: "STRING_VALUE",
- *         Comparison: "EQUALS" || "PREFIX" || "NOT_EQUALS" || "PREFIX_NOT_EQUALS",
+ *         Comparison: "EQUALS" || "PREFIX" || "NOT_EQUALS" || "PREFIX_NOT_EQUALS" || "CONTAINS" || "NOT_CONTAINS",
  *       },
  *     ],
  *     AwsAccountId: [
  *       {
  *         Value: "STRING_VALUE",
- *         Comparison: "EQUALS" || "PREFIX" || "NOT_EQUALS" || "PREFIX_NOT_EQUALS",
+ *         Comparison: "EQUALS" || "PREFIX" || "NOT_EQUALS" || "PREFIX_NOT_EQUALS" || "CONTAINS" || "NOT_CONTAINS",
  *       },
  *     ],
  *     Id: [
  *       {
  *         Value: "STRING_VALUE",
- *         Comparison: "EQUALS" || "PREFIX" || "NOT_EQUALS" || "PREFIX_NOT_EQUALS",
+ *         Comparison: "EQUALS" || "PREFIX" || "NOT_EQUALS" || "PREFIX_NOT_EQUALS" || "CONTAINS" || "NOT_CONTAINS",
  *       },
  *     ],
  *     GeneratorId: [
  *       {
  *         Value: "STRING_VALUE",
- *         Comparison: "EQUALS" || "PREFIX" || "NOT_EQUALS" || "PREFIX_NOT_EQUALS",
+ *         Comparison: "EQUALS" || "PREFIX" || "NOT_EQUALS" || "PREFIX_NOT_EQUALS" || "CONTAINS" || "NOT_CONTAINS",
  *       },
  *     ],
  *     Region: [
  *       {
  *         Value: "STRING_VALUE",
- *         Comparison: "EQUALS" || "PREFIX" || "NOT_EQUALS" || "PREFIX_NOT_EQUALS",
+ *         Comparison: "EQUALS" || "PREFIX" || "NOT_EQUALS" || "PREFIX_NOT_EQUALS" || "CONTAINS" || "NOT_CONTAINS",
  *       },
  *     ],
  *     Type: "<StringFilterList>",
@@ -157,7 +157,7 @@ export interface CreateInsightCommandOutput extends CreateInsightResponse, __Met
  *       { // MapFilter
  *         Key: "STRING_VALUE",
  *         Value: "STRING_VALUE",
- *         Comparison: "EQUALS" || "NOT_EQUALS",
+ *         Comparison: "EQUALS" || "NOT_EQUALS" || "CONTAINS" || "NOT_CONTAINS",
  *       },
  *     ],
  *     ProductName: "<StringFilterList>",
@@ -166,7 +166,7 @@ export interface CreateInsightCommandOutput extends CreateInsightResponse, __Met
  *       {
  *         Key: "STRING_VALUE",
  *         Value: "STRING_VALUE",
- *         Comparison: "EQUALS" || "NOT_EQUALS",
+ *         Comparison: "EQUALS" || "NOT_EQUALS" || "CONTAINS" || "NOT_CONTAINS",
  *       },
  *     ],
  *     MalwareName: "<StringFilterList>",
@@ -235,7 +235,7 @@ export interface CreateInsightCommandOutput extends CreateInsightResponse, __Met
  *       {
  *         Key: "STRING_VALUE",
  *         Value: "STRING_VALUE",
- *         Comparison: "EQUALS" || "NOT_EQUALS",
+ *         Comparison: "EQUALS" || "NOT_EQUALS" || "CONTAINS" || "NOT_CONTAINS",
  *       },
  *     ],
  *     ResourceAwsEc2InstanceType: "<StringFilterList>",
@@ -266,7 +266,7 @@ export interface CreateInsightCommandOutput extends CreateInsightResponse, __Met
  *       {
  *         Key: "STRING_VALUE",
  *         Value: "STRING_VALUE",
- *         Comparison: "EQUALS" || "NOT_EQUALS",
+ *         Comparison: "EQUALS" || "NOT_EQUALS" || "CONTAINS" || "NOT_CONTAINS",
  *       },
  *     ],
  *     ComplianceStatus: "<StringFilterList>",
