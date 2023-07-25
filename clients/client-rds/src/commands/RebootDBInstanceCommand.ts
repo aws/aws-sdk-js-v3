@@ -275,6 +275,7 @@ export interface RebootDBInstanceCommandOutput extends RebootDBInstanceResult, _
  * //       ValidTill: new Date("TIMESTAMP"),
  * //     },
  * //     ReadReplicaSourceDBClusterIdentifier: "STRING_VALUE",
+ * //     PercentProgress: "STRING_VALUE",
  * //   },
  * // };
  *

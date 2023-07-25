@@ -337,6 +337,7 @@ export interface RestoreDBInstanceToPointInTimeCommandOutput
  * //       ValidTill: new Date("TIMESTAMP"),
  * //     },
  * //     ReadReplicaSourceDBClusterIdentifier: "STRING_VALUE",
+ * //     PercentProgress: "STRING_VALUE",
  * //   },
  * // };
  *

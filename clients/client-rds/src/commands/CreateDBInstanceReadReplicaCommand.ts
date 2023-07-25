@@ -335,6 +335,7 @@ export interface CreateDBInstanceReadReplicaCommandOutput extends CreateDBInstan
  * //       ValidTill: new Date("TIMESTAMP"),
  * //     },
  * //     ReadReplicaSourceDBClusterIdentifier: "STRING_VALUE",
+ * //     PercentProgress: "STRING_VALUE",
  * //   },
  * // };
  *

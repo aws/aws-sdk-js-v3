@@ -21223,6 +21223,9 @@ const de_DBInstance = (output: any, context: __SerdeContext): DBInstance => {
   if (output["ReadReplicaSourceDBClusterIdentifier"] !== undefined) {
     contents.ReadReplicaSourceDBClusterIdentifier = __expectString(output["ReadReplicaSourceDBClusterIdentifier"]);
   }
+  if (output["PercentProgress"] !== undefined) {
+    contents.PercentProgress = __expectString(output["PercentProgress"]);
+  }
   return contents;
 };
 

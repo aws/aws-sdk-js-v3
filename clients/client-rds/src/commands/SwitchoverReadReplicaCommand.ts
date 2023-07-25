@@ -266,6 +266,7 @@ export interface SwitchoverReadReplicaCommandOutput extends SwitchoverReadReplic
  * //       ValidTill: new Date("TIMESTAMP"),
  * //     },
  * //     ReadReplicaSourceDBClusterIdentifier: "STRING_VALUE",
+ * //     PercentProgress: "STRING_VALUE",
  * //   },
  * // };
  *

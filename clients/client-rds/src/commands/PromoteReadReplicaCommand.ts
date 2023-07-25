@@ -284,6 +284,7 @@ export interface PromoteReadReplicaCommandOutput extends PromoteReadReplicaResul
  * //       ValidTill: new Date("TIMESTAMP"),
  * //     },
  * //     ReadReplicaSourceDBClusterIdentifier: "STRING_VALUE",
+ * //     PercentProgress: "STRING_VALUE",
  * //   },
  * // };
  *

@@ -8290,6 +8290,11 @@ export interface DBInstance {
    *             replica.</p>
    */
   ReadReplicaSourceDBClusterIdentifier?: string;
+
+  /**
+   * <p>The progress of the storage optimization operation as a percentage.</p>
+   */
+  PercentProgress?: string;
 }
 
 /**

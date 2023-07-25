@@ -350,6 +350,7 @@ export interface CreateDBInstanceCommandOutput extends CreateDBInstanceResult, _
  * //       ValidTill: new Date("TIMESTAMP"),
  * //     },
  * //     ReadReplicaSourceDBClusterIdentifier: "STRING_VALUE",
+ * //     PercentProgress: "STRING_VALUE",
  * //   },
  * // };
  *

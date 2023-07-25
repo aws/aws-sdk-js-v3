@@ -4929,7 +4929,7 @@ export interface ModifyDBInstanceMessage {
   TdeCredentialPassword?: string;
 
   /**
-   * <p>The CA certificate identifier to use for the DB instance6's server certificate.</p>
+   * <p>The CA certificate identifier to use for the DB instance's server certificate.</p>
    *          <p>This setting doesn't apply to RDS Custom DB instances.</p>
    *          <p>For more information, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/UsingWithRDS.SSL.html">Using SSL/TLS to encrypt a connection to a DB
    *             instance</a> in the <i>Amazon RDS User Guide</i> and
@@ -5920,7 +5920,7 @@ export interface ModifyEventSubscriptionResult {
  */
 export interface ModifyGlobalClusterMessage {
   /**
-   * <p>The DB cluster identifier for the global cluster being modified. This parameter isn't case-sensitive.</p>
+   * <p>The cluster identifier for the global cluster to modify. This parameter isn't case-sensitive.</p>
    *          <p>Constraints:</p>
    *          <ul>
    *             <li>
@@ -5931,18 +5931,18 @@ export interface ModifyGlobalClusterMessage {
   GlobalClusterIdentifier?: string;
 
   /**
-   * <p>The new cluster identifier for the global database cluster when modifying a global database cluster.
+   * <p>The new cluster identifier for the global database cluster.
    *         This value is stored as a lowercase string.</p>
    *          <p>Constraints:</p>
    *          <ul>
    *             <li>
-   *                <p>Must contain from 1 to 63 letters, numbers, or hyphens</p>
+   *                <p>Must contain from 1 to 63 letters, numbers, or hyphens.</p>
    *             </li>
    *             <li>
-   *                <p>The first character must be a letter</p>
+   *                <p>The first character must be a letter.</p>
    *             </li>
    *             <li>
-   *                <p>Can't end with a hyphen or contain two consecutive hyphens</p>
+   *                <p>Can't end with a hyphen or contain two consecutive hyphens.</p>
    *             </li>
    *          </ul>
    *          <p>Example: <code>my-cluster2</code>
@@ -5951,15 +5951,14 @@ export interface ModifyGlobalClusterMessage {
   NewGlobalClusterIdentifier?: string;
 
   /**
-   * <p>Indicates if the global database cluster has deletion protection enabled. The global database cluster
+   * <p>Specifies whether to enable deletion protection for the global database cluster. The global database cluster
    *         can't be deleted when deletion protection is enabled.</p>
    */
   DeletionProtection?: boolean;
 
   /**
    * <p>The version number of the database engine to which you want to upgrade.
-   *           Changing this parameter results in an outage. The change is applied during
-   *           the next maintenance window unless <code>ApplyImmediately</code> is enabled.</p>
+   *           </p>
    *          <p>To list all of the available engine versions for <code>aurora-mysql</code> (for MySQL-based Aurora global databases), use the following command:</p>
    *          <p>
    *             <code>aws rds describe-db-engine-versions --engine aurora-mysql --query '*[]|[?SupportsGlobalDatabases == `true`].[EngineVersion]'</code>
@@ -5972,9 +5971,9 @@ export interface ModifyGlobalClusterMessage {
   EngineVersion?: string;
 
   /**
-   * <p>A value that indicates whether major version upgrades are allowed.</p>
-   *          <p>Constraints: You must allow major version upgrades when specifying a value for the
-   *                 <code>EngineVersion</code> parameter that is a different major version than the DB
+   * <p>Specifies whether to allow major version upgrades.</p>
+   *          <p>Constraints: Must be enabled if you specify a value for the
+   *                 <code>EngineVersion</code> parameter that's a different major version than the global
    *             cluster's current version.</p>
    *          <p>If you upgrade the major version of a global database, the cluster and DB instance parameter
    *         groups are set to the default parameter groups for the new version. Apply any custom parameter
