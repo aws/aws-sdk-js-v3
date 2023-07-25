@@ -135,6 +135,7 @@ import {
   ResourceNotFoundException,
   ServiceLimitExceededException,
   ThrottlingException,
+  UpdateBillingGroupAccountGrouping,
   UpdateCustomLineItemChargeDetails,
   UpdateCustomLineItemFlatChargeDetails,
   UpdateCustomLineItemPercentageChargeDetails,
@@ -1021,6 +1022,7 @@ export const se_UpdateBillingGroupCommand = async (
   let body: any;
   body = JSON.stringify(
     take(input, {
+      AccountGrouping: (_) => _json(_),
       Arn: [],
       ComputationPreference: (_) => _json(_),
       Description: [],
@@ -2787,6 +2789,7 @@ export const de_UpdateBillingGroupCommand = async (
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   const doc = take(data, {
+    AccountGrouping: _json,
     Arn: __expectString,
     Description: __expectString,
     LastModifiedTime: __expectLong,
@@ -3289,6 +3292,8 @@ const se_CustomLineItemPercentageChargeDetails = (
 
 // se_TagMap omitted.
 
+// se_UpdateBillingGroupAccountGrouping omitted.
+
 /**
  * serializeAws_restJson1UpdateCustomLineItemChargeDetails
  */
@@ -3422,6 +3427,8 @@ const de_CustomLineItemVersionListElement = (
 
 // de_FreeTierConfig omitted.
 
+// de_ListBillingGroupAccountGrouping omitted.
+
 /**
  * deserializeAws_restJson1ListCustomLineItemChargeDetails
  */
@@ -3506,6 +3513,8 @@ const de_PricingRuleListElement = (output: any, context: __SerdeContext): Pricin
 // de_TagMap omitted.
 
 // de_Tiering omitted.
+
+// de_UpdateBillingGroupAccountGrouping omitted.
 
 // de_UpdateFreeTierConfig omitted.
 

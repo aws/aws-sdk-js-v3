@@ -57,6 +57,9 @@ export interface UpdateBillingGroupCommandOutput extends UpdateBillingGroupOutpu
  *     PricingPlanArn: "STRING_VALUE", // required
  *   },
  *   Description: "STRING_VALUE",
+ *   AccountGrouping: { // UpdateBillingGroupAccountGrouping
+ *     AutoAssociate: true || false,
+ *   },
  * };
  * const command = new UpdateBillingGroupCommand(input);
  * const response = await client.send(command);
@@ -70,6 +73,9 @@ export interface UpdateBillingGroupCommandOutput extends UpdateBillingGroupOutpu
  * //   LastModifiedTime: Number("long"),
  * //   Status: "STRING_VALUE",
  * //   StatusReason: "STRING_VALUE",
+ * //   AccountGrouping: { // UpdateBillingGroupAccountGrouping
+ * //     AutoAssociate: true || false,
+ * //   },
  * // };
  *
  * ```
@@ -101,7 +107,7 @@ export interface UpdateBillingGroupCommandOutput extends UpdateBillingGroupOutpu
  *     </p>
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>The input doesn't match with the constraints specified by Amazon Web Services services.</p>
+ *  <p>The input doesn't match with the constraints specified by Amazon Web Services.</p>
  *
  * @throws {@link BillingconductorServiceException}
  * <p>Base exception class for all service exceptions from Billingconductor service.</p>

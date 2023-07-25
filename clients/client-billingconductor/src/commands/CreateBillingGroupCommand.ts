@@ -56,6 +56,7 @@ export interface CreateBillingGroupCommandOutput extends CreateBillingGroupOutpu
  *     LinkedAccountIds: [ // AccountIdList // required
  *       "STRING_VALUE",
  *     ],
+ *     AutoAssociate: true || false,
  *   },
  *   ComputationPreference: { // ComputationPreference
  *     PricingPlanArn: "STRING_VALUE", // required
@@ -101,7 +102,7 @@ export interface CreateBillingGroupCommandOutput extends CreateBillingGroupOutpu
  *     </p>
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>The input doesn't match with the constraints specified by Amazon Web Services services.</p>
+ *  <p>The input doesn't match with the constraints specified by Amazon Web Services.</p>
  *
  * @throws {@link BillingconductorServiceException}
  * <p>Base exception class for all service exceptions from Billingconductor service.</p>
