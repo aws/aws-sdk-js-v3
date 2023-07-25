@@ -983,6 +983,111 @@ export interface AttributeDetails {
  * @public
  * @enum
  */
+export const AttributeMatchingModel = {
+  MANY_TO_MANY: "MANY_TO_MANY",
+  ONE_TO_ONE: "ONE_TO_ONE",
+} as const;
+
+/**
+ * @public
+ */
+export type AttributeMatchingModel = (typeof AttributeMatchingModel)[keyof typeof AttributeMatchingModel];
+
+/**
+ * @public
+ * <p>Configuration information about the <code>AttributeTypesSelector </code>where the
+ *          rule-based identity resolution uses to match profiles. You can choose how profiles are
+ *          compared across attribute types and which attribute to use for matching from each type.
+ *          There are three attribute types you can configure:</p>
+ *          <ul>
+ *             <li>
+ *                <p>Email type</p>
+ *                <ul>
+ *                   <li>
+ *                      <p>You can choose from <code>Email</code>, <code>BusinessEmail</code>, and
+ *                         <code>PersonalEmail</code>
+ *                      </p>
+ *                   </li>
+ *                </ul>
+ *             </li>
+ *             <li>
+ *                <p>Phone number type</p>
+ *                <ul>
+ *                   <li>
+ *                      <p>You can choose from <code>Phone</code>, <code>HomePhone</code>, and
+ *                         <code>MobilePhone</code>
+ *                      </p>
+ *                   </li>
+ *                </ul>
+ *             </li>
+ *             <li>
+ *                <p>Address type</p>
+ *                <ul>
+ *                   <li>
+ *                      <p>You can choose from <code>Address</code>, <code>BusinessAddress</code>,
+ *                         <code>MaillingAddress</code>, and <code>ShippingAddress</code>
+ *                      </p>
+ *                   </li>
+ *                </ul>
+ *             </li>
+ *          </ul>
+ *          <p>You can either choose <code>ONE_TO_ONE</code> or <code>MANY_TO_MANY</code> as the
+ *             <code>AttributeMatchingModel</code>. When choosing <code>MANY_TO_MANY</code>, the system
+ *          can match attribute across the sub-types of an attribute type. For example, if the value of
+ *          the <code>Email</code> field of Profile A and the value of <code>BusinessEmail</code> field
+ *          of Profile B matches, the two profiles are matched on the Email type. When choosing
+ *             <code>ONE_TO_ONE</code> the system can only match if the sub-types are exact matches.
+ *          For example, only when the value of the <code>Email</code> field of Profile A and the value
+ *          of the <code>Email</code> field of Profile B matches, the two profiles are matched on the
+ *          Email type.</p>
+ */
+export interface AttributeTypesSelector {
+  /**
+   * <p>Configures the <code>AttributeMatchingModel</code>, you can either choose <code>ONE_TO_ONE</code> or
+   *          <code>MANY_TO_MANY</code>.</p>
+   */
+  AttributeMatchingModel: AttributeMatchingModel | string | undefined;
+
+  /**
+   * <p>The <code>Address</code> type. You can choose from <code>Address</code>,
+   *             <code>BusinessAddress</code>, <code>MaillingAddress</code>, and
+   *             <code>ShippingAddress</code>.</p>
+   *          <p>You only can use the Address type in the <code>MatchingRule</code>. For example, if you
+   *          want to match profile based on <code>BusinessAddress.City</code> or
+   *             <code>MaillingAddress.City</code>, you need to choose the <code>BusinessAddress</code>
+   *          and the <code>MaillingAddress</code> to represent the Address type and specify the
+   *             <code>Address.City</code> on the matching rule.</p>
+   */
+  Address?: string[];
+
+  /**
+   * <p>The <code>PhoneNumber</code> type. You can choose from <code>PhoneNumber</code>,
+   *             <code>HomePhoneNumber</code>, and <code>MobilePhoneNumber</code>.</p>
+   *          <p>You only can use the <code>PhoneNumber</code> type in the <code>MatchingRule</code>. For
+   *          example, if you want to match a profile based on <code>Phone</code> or
+   *             <code>HomePhone</code>, you need to choose the <code>Phone</code> and the
+   *             <code>HomePhone</code> to represent the <code>PhoneNumber</code> type and only specify
+   *          the <code>PhoneNumber</code> on the matching rule.</p>
+   */
+  PhoneNumber?: string[];
+
+  /**
+   * <p>The <code>Email</code> type. You can choose from <code>EmailAddress</code>,
+   *             <code>BusinessEmailAddress</code> and <code>PersonalEmailAddress</code>.</p>
+   *          <p>You only can use the <code>EmailAddress</code> type in the <code>MatchingRule</code>.
+   *          For example, if you want to match profile based on <code>PersonalEmailAddress</code> or
+   *             <code>BusinessEmailAddress</code>, you need to choose the
+   *             <code>PersonalEmailAddress</code> and the <code>BusinessEmailAddress</code> to represent
+   *          the <code>EmailAddress</code> type and only specify the <code>EmailAddress</code> on the
+   *          matching rule.</p>
+   */
+  EmailAddress?: string[];
+}
+
+/**
+ * @public
+ * @enum
+ */
 export const ConflictResolvingModel = {
   RECENCY: "RECENCY",
   SOURCE: "SOURCE",
@@ -1421,6 +1526,123 @@ export interface MatchingRequest {
 
 /**
  * @public
+ * <p>Specifies how does the rule-based matching process should match profiles. You can choose
+ *          from the following attributes to build the matching Rule:</p>
+ *          <ul>
+ *             <li>
+ *                <p>AccountNumber</p>
+ *             </li>
+ *             <li>
+ *                <p>Address.Address</p>
+ *             </li>
+ *             <li>
+ *                <p>Address.City</p>
+ *             </li>
+ *             <li>
+ *                <p>Address.Country</p>
+ *             </li>
+ *             <li>
+ *                <p>Address.County</p>
+ *             </li>
+ *             <li>
+ *                <p>Address.PostalCode</p>
+ *             </li>
+ *             <li>
+ *                <p>Address.State</p>
+ *             </li>
+ *             <li>
+ *                <p>Address.Province</p>
+ *             </li>
+ *             <li>
+ *                <p>BirthDate</p>
+ *             </li>
+ *             <li>
+ *                <p>BusinessName</p>
+ *             </li>
+ *             <li>
+ *                <p>EmailAddress</p>
+ *             </li>
+ *             <li>
+ *                <p>FirstName</p>
+ *             </li>
+ *             <li>
+ *                <p>Gender</p>
+ *             </li>
+ *             <li>
+ *                <p>LastName</p>
+ *             </li>
+ *             <li>
+ *                <p>MiddleName</p>
+ *             </li>
+ *             <li>
+ *                <p>PhoneNumber</p>
+ *             </li>
+ *             <li>
+ *                <p>Any customized profile attributes that start with the <code>Attributes</code>
+ *                </p>
+ *             </li>
+ *          </ul>
+ */
+export interface MatchingRule {
+  /**
+   * <p>A single rule level of the <code>MatchRules</code>. Configures how the rule-based
+   *          matching process should match profiles.</p>
+   */
+  Rule: string[] | undefined;
+}
+
+/**
+ * @public
+ * <p>The request to enable the rule-based matching.</p>
+ */
+export interface RuleBasedMatchingRequest {
+  /**
+   * <p>The flag that enables the rule-based matching process of duplicate profiles.</p>
+   */
+  Enabled: boolean | undefined;
+
+  /**
+   * <p>Configures how the rule-based matching process should match profiles. You can have up to 15
+   *          <code>MatchingRule</code> in the <code>MatchingRules</code>.</p>
+   */
+  MatchingRules?: MatchingRule[];
+
+  /**
+   * <p>
+   *             <a href="https://docs.aws.amazon.com/customerprofiles/latest/APIReference/API_MatchingRule.html">MatchingRule</a>
+   *          </p>
+   */
+  MaxAllowedRuleLevelForMerging?: number;
+
+  /**
+   * <p>Indicates the maximum allowed rule level.</p>
+   */
+  MaxAllowedRuleLevelForMatching?: number;
+
+  /**
+   * <p>Configures information about the <code>AttributeTypesSelector</code> where the
+   *          rule-based identity resolution uses to match profiles.</p>
+   */
+  AttributeTypesSelector?: AttributeTypesSelector;
+
+  /**
+   * <p>How the auto-merging process should resolve conflicts between different profiles.</p>
+   */
+  ConflictResolution?: ConflictResolution;
+
+  /**
+   * <p>Configuration information about the S3 bucket where Identity Resolution Jobs writes result files. </p>
+   *          <note>
+   *             <p>You need to give Customer Profiles service principal write permission to your S3 bucket.
+   *             Otherwise, you'll get an exception in the API response. For an example policy, see
+   *                <a href="https://docs.aws.amazon.com/connect/latest/adminguide/cross-service-confused-deputy-prevention.html#customer-profiles-cross-service">Amazon Connect Customer Profiles cross-service confused deputy prevention</a>. </p>
+   *          </note>
+   */
+  ExportingConfig?: ExportingConfig;
+}
+
+/**
+ * @public
  */
 export interface CreateDomainRequest {
   /**
@@ -1460,6 +1682,15 @@ export interface CreateDomainRequest {
   Matching?: MatchingRequest;
 
   /**
+   * <p>The process of matching duplicate profiles using the Rule-Based matching. If <code>RuleBasedMatching</code> = true,
+   *          Amazon Connect Customer Profiles will start to match and merge your profiles according to your configuration
+   *          in the <code>RuleBasedMatchingRequest</code>. You can use the <code>ListRuleBasedMatches</code> and <code>GetSimilarProfiles</code> API to return and
+   *          review the results. Also, if you have configured <code>ExportingConfig</code> in the <code>RuleBasedMatchingRequest</code>, you can
+   *          download the results from S3.</p>
+   */
+  RuleBasedMatching?: RuleBasedMatchingRequest;
+
+  /**
    * <p>The tags used to organize, track, or control access for this resource.</p>
    */
   Tags?: Record<string, string>;
@@ -1488,6 +1719,99 @@ export interface MatchingResponse {
   /**
    * <p>Configuration information for exporting Identity Resolution results, for example, to an S3
    *          bucket.</p>
+   */
+  ExportingConfig?: ExportingConfig;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const RuleBasedMatchingStatus = {
+  ACTIVE: "ACTIVE",
+  IN_PROGRESS: "IN_PROGRESS",
+  PENDING: "PENDING",
+} as const;
+
+/**
+ * @public
+ */
+export type RuleBasedMatchingStatus = (typeof RuleBasedMatchingStatus)[keyof typeof RuleBasedMatchingStatus];
+
+/**
+ * @public
+ * <p>The response of the Rule-based matching request.</p>
+ */
+export interface RuleBasedMatchingResponse {
+  /**
+   * <p>The flag that enables the rule-based matching process of duplicate profiles.</p>
+   */
+  Enabled?: boolean;
+
+  /**
+   * <p>Configures how the rule-based matching process should match profiles. You can have up to 15
+   *          <code>MatchingRule</code> in the <code>MatchingRules</code>.</p>
+   */
+  MatchingRules?: MatchingRule[];
+
+  /**
+   * <p>PENDING</p>
+   *          <ul>
+   *             <li>
+   *                <p>The first status after configuration a rule-based matching rule. If it is an
+   *                existing domain, the rule-based Identity Resolution waits one hour before creating the matching
+   *                rule. If it is a new domain, the system will skip the <code>PENDING</code>
+   *                stage.</p>
+   *             </li>
+   *          </ul>
+   *          <p>IN_PROGRESS</p>
+   *          <ul>
+   *             <li>
+   *                <p>The system is creating the rule-based matching rule. Under this status, the system
+   *                is evaluating the existing data and you can no longer change the Rule-based matching
+   *                configuration.</p>
+   *             </li>
+   *          </ul>
+   *          <p>ACTIVE</p>
+   *          <ul>
+   *             <li>
+   *                <p>The rule is ready to use. You can change the rule a day after the status is in
+   *                   <code>ACTIVE</code>.</p>
+   *             </li>
+   *          </ul>
+   */
+  Status?: RuleBasedMatchingStatus | string;
+
+  /**
+   * <p>
+   *             <a href="https://docs.aws.amazon.com/customerprofiles/latest/APIReference/API_MatchingRule.html">MatchingRule</a>
+   *          </p>
+   */
+  MaxAllowedRuleLevelForMerging?: number;
+
+  /**
+   * <p>Indicates the maximum allowed rule level.</p>
+   */
+  MaxAllowedRuleLevelForMatching?: number;
+
+  /**
+   * <p>Configures information about the <code>AttributeTypesSelector</code> where the
+   *          rule-based identity resolution uses to match profiles.</p>
+   */
+  AttributeTypesSelector?: AttributeTypesSelector;
+
+  /**
+   * <p>How the auto-merging process should resolve conflicts between different profiles.</p>
+   */
+  ConflictResolution?: ConflictResolution;
+
+  /**
+   * <p>Configuration information about the S3 bucket where Identity Resolution Jobs writes result files. </p>
+   *          <note>
+   *             <p>You need to give Customer Profiles service principal write permission to your S3 bucket.
+   *             Otherwise, you'll get an exception in the API response. For an example policy, see
+   *                <a href="https://docs.aws.amazon.com/connect/latest/adminguide/cross-service-confused-deputy-prevention.html#customer-profiles-cross-service">Amazon Connect Customer Profiles cross-service confused deputy prevention</a>. </p>
+   *          </note>
    */
   ExportingConfig?: ExportingConfig;
 }
@@ -1529,6 +1853,15 @@ export interface CreateDomainResponse {
    * S3.</p>
    */
   Matching?: MatchingResponse;
+
+  /**
+   * <p>The process of matching duplicate profiles using the Rule-Based matching. If <code>RuleBasedMatching</code> = true,
+   *          Amazon Connect Customer Profiles will start to match and merge your profiles according to your configuration
+   *          in the <code>RuleBasedMatchingRequest</code>. You can use the <code>ListRuleBasedMatches</code> and <code>GetSimilarProfiles</code> API to return and
+   *          review the results. Also, if you have configured <code>ExportingConfig</code> in the <code>RuleBasedMatchingRequest</code>, you can
+   *          download the results from S3.</p>
+   */
+  RuleBasedMatching?: RuleBasedMatchingResponse;
 
   /**
    * <p>The timestamp of when the domain was created.</p>
@@ -2301,6 +2634,15 @@ export interface GetDomainResponse {
   Matching?: MatchingResponse;
 
   /**
+   * <p>The process of matching duplicate profiles using the Rule-Based matching. If <code>RuleBasedMatching</code> = true,
+   *          Amazon Connect Customer Profiles will start to match and merge your profiles according to your configuration
+   *          in the <code>RuleBasedMatchingRequest</code>. You can use the <code>ListRuleBasedMatches</code> and <code>GetSimilarProfiles</code> API to return and
+   *          review the results. Also, if you have configured <code>ExportingConfig</code> in the <code>RuleBasedMatchingRequest</code>, you can
+   *          download the results from S3.</p>
+   */
+  RuleBasedMatching?: RuleBasedMatchingResponse;
+
+  /**
    * <p>The timestamp of when the domain was created.</p>
    */
   CreatedAt: Date | undefined;
@@ -2969,6 +3311,97 @@ export interface GetProfileObjectTypeTemplateResponse {
    * <p>A list of unique keys that can be used to map data to the profile.</p>
    */
   Keys?: Record<string, ObjectTypeKey[]>;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const MatchType = {
+  ML_BASED_MATCHING: "ML_BASED_MATCHING",
+  RULE_BASED_MATCHING: "RULE_BASED_MATCHING",
+} as const;
+
+/**
+ * @public
+ */
+export type MatchType = (typeof MatchType)[keyof typeof MatchType];
+
+/**
+ * @public
+ */
+export interface GetSimilarProfilesRequest {
+  /**
+   * <p>The pagination token from the previous <code>GetSimilarProfiles</code> API call.</p>
+   */
+  NextToken?: string;
+
+  /**
+   * <p>The maximum number of objects returned per page.</p>
+   */
+  MaxResults?: number;
+
+  /**
+   * <p>The unique name of the domain.</p>
+   */
+  DomainName: string | undefined;
+
+  /**
+   * <p>Specify the type of matching to get similar profiles for.</p>
+   */
+  MatchType: MatchType | string | undefined;
+
+  /**
+   * <p>The string indicating the search key to be used.</p>
+   */
+  SearchKey: string | undefined;
+
+  /**
+   * <p>The string based on <code>SearchKey</code> to be searched for similar profiles.</p>
+   */
+  SearchValue: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetSimilarProfilesResponse {
+  /**
+   * <p>Set of <code>profileId</code>s that belong to the same matching group.</p>
+   */
+  ProfileIds?: string[];
+
+  /**
+   * <p>The string <code>matchId</code> that the similar profiles belong to.</p>
+   */
+  MatchId?: string;
+
+  /**
+   * <p>Specify the type of matching to get similar profiles for.</p>
+   */
+  MatchType?: MatchType | string;
+
+  /**
+   * <p>The integer rule level that the profiles matched on.</p>
+   */
+  RuleLevel?: number;
+
+  /**
+   * <p>It only has value when the <code>MatchType</code> is <code>ML_BASED_MATCHING</code>.A
+   *          number between 0 and 1, where a higher score means higher similarity. Examining match
+   *          confidence scores lets you distinguish between groups of similar records in which the
+   *          system is highly confident (which you may decide to merge), groups of similar records about
+   *          which the system is uncertain (which you may decide to have reviewed by a human), and
+   *          groups of similar records that the system deems to be unlikely (which you may decide to
+   *          reject). Given confidence scores vary as per the data input, it should not be used as an
+   *          absolute measure of matching quality.</p>
+   */
+  ConfidenceScore?: number;
+
+  /**
+   * <p>The pagination token from the previous <code>GetSimilarProfiles</code> API call.</p>
+   */
+  NextToken?: string;
 }
 
 /**
@@ -3802,6 +4235,43 @@ export interface ListProfileObjectTypeTemplatesResponse {
 
   /**
    * <p>The pagination token from the previous ListObjectTypeTemplates API call. </p>
+   */
+  NextToken?: string;
+}
+
+/**
+ * @public
+ */
+export interface ListRuleBasedMatchesRequest {
+  /**
+   * <p>The pagination token from the previous <code>ListRuleBasedMatches</code> API
+   *          call.</p>
+   */
+  NextToken?: string;
+
+  /**
+   * <p>The maximum number of <code>MatchIds</code> returned per page.</p>
+   */
+  MaxResults?: number;
+
+  /**
+   * <p>The unique name of the domain.</p>
+   */
+  DomainName: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListRuleBasedMatchesResponse {
+  /**
+   * <p>The list of <code>MatchIds</code> for the given domain.</p>
+   */
+  MatchIds?: string[];
+
+  /**
+   * <p>The pagination token from the previous <code>ListRuleBasedMatches</code> API
+   *          call.</p>
    */
   NextToken?: string;
 }
@@ -4762,6 +5232,17 @@ export interface UpdateDomainRequest {
   Matching?: MatchingRequest;
 
   /**
+   * <p>The process of matching duplicate profiles using the rule-Based matching. If
+   *             <code>RuleBasedMatching</code> = true, Amazon Connect Customer Profiles will start
+   *          to match and merge your profiles according to your configuration in the
+   *             <code>RuleBasedMatchingRequest</code>. You can use the <code>ListRuleBasedMatches</code>
+   *          and <code>GetSimilarProfiles</code> API to return and review the results. Also, if you have
+   *          configured <code>ExportingConfig</code> in the <code>RuleBasedMatchingRequest</code>, you
+   *          can download the results from S3.</p>
+   */
+  RuleBasedMatching?: RuleBasedMatchingRequest;
+
+  /**
    * <p>The tags used to organize, track, or control access for this resource.</p>
    */
   Tags?: Record<string, string>;
@@ -4804,6 +5285,17 @@ export interface UpdateDomainResponse {
    * S3.</p>
    */
   Matching?: MatchingResponse;
+
+  /**
+   * <p>The process of matching duplicate profiles using the rule-Based matching. If
+   *             <code>RuleBasedMatching</code> = true, Amazon Connect Customer Profiles will start
+   *          to match and merge your profiles according to your configuration in the
+   *             <code>RuleBasedMatchingRequest</code>. You can use the <code>ListRuleBasedMatches</code>
+   *          and <code>GetSimilarProfiles</code> API to return and review the results. Also, if you have
+   *          configured <code>ExportingConfig</code> in the <code>RuleBasedMatchingRequest</code>, you
+   *          can download the results from S3.</p>
+   */
+  RuleBasedMatching?: RuleBasedMatchingResponse;
 
   /**
    * <p>The timestamp of when the domain was created.</p>

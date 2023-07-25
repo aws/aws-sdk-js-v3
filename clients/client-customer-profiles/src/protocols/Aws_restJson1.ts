@@ -84,6 +84,7 @@ import {
   GetProfileObjectTypeTemplateCommandInput,
   GetProfileObjectTypeTemplateCommandOutput,
 } from "../commands/GetProfileObjectTypeTemplateCommand";
+import { GetSimilarProfilesCommandInput, GetSimilarProfilesCommandOutput } from "../commands/GetSimilarProfilesCommand";
 import { GetWorkflowCommandInput, GetWorkflowCommandOutput } from "../commands/GetWorkflowCommand";
 import { GetWorkflowStepsCommandInput, GetWorkflowStepsCommandOutput } from "../commands/GetWorkflowStepsCommand";
 import {
@@ -115,6 +116,10 @@ import {
   ListProfileObjectTypeTemplatesCommandOutput,
 } from "../commands/ListProfileObjectTypeTemplatesCommand";
 import {
+  ListRuleBasedMatchesCommandInput,
+  ListRuleBasedMatchesCommandOutput,
+} from "../commands/ListRuleBasedMatchesCommand";
+import {
   ListTagsForResourceCommandInput,
   ListTagsForResourceCommandOutput,
 } from "../commands/ListTagsForResourceCommand";
@@ -144,6 +149,7 @@ import {
   AppflowIntegrationWorkflowStep,
   AttributeDetails,
   AttributeItem,
+  AttributeTypesSelector,
   AutoMerging,
   BadRequestException,
   Batch,
@@ -170,12 +176,14 @@ import {
   MarketoSourceProperties,
   MatchingRequest,
   MatchingResponse,
+  MatchingRule,
   MatchItem,
   ObjectFilter,
   ObjectTypeField,
   ObjectTypeKey,
   Range,
   ResourceNotFoundException,
+  RuleBasedMatchingRequest,
   S3ExportingConfig,
   S3SourceProperties,
   SalesforceSourceProperties,
@@ -292,6 +300,7 @@ export const se_CreateDomainCommand = async (
       DefaultEncryptionKey: [],
       DefaultExpirationDays: [],
       Matching: (_) => se_MatchingRequest(_, context),
+      RuleBasedMatching: (_) => _json(_),
       Tags: (_) => _json(_),
     })
   );
@@ -1014,6 +1023,44 @@ export const se_GetProfileObjectTypeTemplateCommand = async (
 };
 
 /**
+ * serializeAws_restJson1GetSimilarProfilesCommand
+ */
+export const se_GetSimilarProfilesCommand = async (
+  input: GetSimilarProfilesCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/domains/{DomainName}/matches";
+  resolvedPath = __resolvedPath(resolvedPath, input, "DomainName", () => input.DomainName!, "{DomainName}", false);
+  const query: any = map({
+    "next-token": [, input.NextToken!],
+    "max-results": [() => input.MaxResults !== void 0, () => input.MaxResults!.toString()],
+  });
+  let body: any;
+  body = JSON.stringify(
+    take(input, {
+      MatchType: [],
+      SearchKey: [],
+      SearchValue: [],
+    })
+  );
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "POST",
+    headers,
+    path: resolvedPath,
+    query,
+    body,
+  });
+};
+
+/**
  * serializeAws_restJson1GetWorkflowCommand
  */
 export const se_GetWorkflowCommand = async (
@@ -1359,6 +1406,36 @@ export const se_ListProfileObjectTypeTemplatesCommand = async (
   const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/templates";
+  const query: any = map({
+    "next-token": [, input.NextToken!],
+    "max-results": [() => input.MaxResults !== void 0, () => input.MaxResults!.toString()],
+  });
+  let body: any;
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "GET",
+    headers,
+    path: resolvedPath,
+    query,
+    body,
+  });
+};
+
+/**
+ * serializeAws_restJson1ListRuleBasedMatchesCommand
+ */
+export const se_ListRuleBasedMatchesCommand = async (
+  input: ListRuleBasedMatchesCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {};
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
+    "/domains/{DomainName}/profiles/ruleBasedMatches";
+  resolvedPath = __resolvedPath(resolvedPath, input, "DomainName", () => input.DomainName!, "{DomainName}", false);
   const query: any = map({
     "next-token": [, input.NextToken!],
     "max-results": [() => input.MaxResults !== void 0, () => input.MaxResults!.toString()],
@@ -1748,6 +1825,7 @@ export const se_UpdateDomainCommand = async (
       DefaultEncryptionKey: [],
       DefaultExpirationDays: [],
       Matching: (_) => se_MatchingRequest(_, context),
+      RuleBasedMatching: (_) => _json(_),
       Tags: (_) => _json(_),
     })
   );
@@ -1965,6 +2043,7 @@ export const de_CreateDomainCommand = async (
     DomainName: __expectString,
     LastUpdatedAt: (_) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
     Matching: (_) => de_MatchingResponse(_, context),
+    RuleBasedMatching: _json,
     Tags: _json,
   });
   Object.assign(contents, doc);
@@ -2920,6 +2999,7 @@ export const de_GetDomainCommand = async (
     DomainName: __expectString,
     LastUpdatedAt: (_) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
     Matching: (_) => de_MatchingResponse(_, context),
+    RuleBasedMatching: _json,
     Stats: _json,
     Tags: _json,
   });
@@ -3332,6 +3412,70 @@ const de_GetProfileObjectTypeTemplateCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetProfileObjectTypeTemplateCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.customerprofiles#AccessDeniedException":
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
+    case "BadRequestException":
+    case "com.amazonaws.customerprofiles#BadRequestException":
+      throw await de_BadRequestExceptionRes(parsedOutput, context);
+    case "InternalServerException":
+    case "com.amazonaws.customerprofiles#InternalServerException":
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.customerprofiles#ResourceNotFoundException":
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
+    case "ThrottlingException":
+    case "com.amazonaws.customerprofiles#ThrottlingException":
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
+ * deserializeAws_restJson1GetSimilarProfilesCommand
+ */
+export const de_GetSimilarProfilesCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetSimilarProfilesCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_GetSimilarProfilesCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    ConfidenceScore: __limitedParseDouble,
+    MatchId: __expectString,
+    MatchType: __expectString,
+    NextToken: __expectString,
+    ProfileIds: _json,
+    RuleLevel: __expectInt32,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1GetSimilarProfilesCommandError
+ */
+const de_GetSimilarProfilesCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetSimilarProfilesCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseErrorBody(output.body, context),
@@ -4092,6 +4236,66 @@ const de_ListProfileObjectTypeTemplatesCommandError = async (
 };
 
 /**
+ * deserializeAws_restJson1ListRuleBasedMatchesCommand
+ */
+export const de_ListRuleBasedMatchesCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListRuleBasedMatchesCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_ListRuleBasedMatchesCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    MatchIds: _json,
+    NextToken: __expectString,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1ListRuleBasedMatchesCommandError
+ */
+const de_ListRuleBasedMatchesCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListRuleBasedMatchesCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.customerprofiles#AccessDeniedException":
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
+    case "BadRequestException":
+    case "com.amazonaws.customerprofiles#BadRequestException":
+      throw await de_BadRequestExceptionRes(parsedOutput, context);
+    case "InternalServerException":
+    case "com.amazonaws.customerprofiles#InternalServerException":
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.customerprofiles#ResourceNotFoundException":
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
+    case "ThrottlingException":
+    case "com.amazonaws.customerprofiles#ThrottlingException":
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
  * deserializeAws_restJson1ListTagsForResourceCommand
  */
 export const de_ListTagsForResourceCommand = async (
@@ -4703,6 +4907,7 @@ export const de_UpdateDomainCommand = async (
     DomainName: __expectString,
     LastUpdatedAt: (_) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
     Matching: (_) => de_MatchingResponse(_, context),
+    RuleBasedMatching: _json,
     Tags: _json,
   });
   Object.assign(contents, doc);
@@ -4907,6 +5112,8 @@ const de_ThrottlingExceptionRes = async (parsedOutput: any, context: __SerdeCont
 
 // se_Address omitted.
 
+// se_AddressList omitted.
+
 /**
  * serializeAws_restJson1AppflowIntegration
  */
@@ -4926,6 +5133,8 @@ const se_AppflowIntegration = (input: AppflowIntegration, context: __SerdeContex
 // se_Attributes omitted.
 
 // se_AttributeSourceIdMap omitted.
+
+// se_AttributeTypesSelector omitted.
 
 /**
  * serializeAws_restJson1AutoMerging
@@ -4967,6 +5176,8 @@ const se_Batches = (input: Batch[], context: __SerdeContext): any => {
 // se_ConnectorOperator omitted.
 
 // se_Consolidation omitted.
+
+// se_EmailList omitted.
 
 // se_ExportingConfig omitted.
 
@@ -5023,6 +5234,12 @@ const se_MatchingRequest = (input: MatchingRequest, context: __SerdeContext): an
   });
 };
 
+// se_MatchingRule omitted.
+
+// se_MatchingRuleAttributeList omitted.
+
+// se_MatchingRules omitted.
+
 // se_ObjectFilter omitted.
 
 // se_ObjectTypeField omitted.
@@ -5033,11 +5250,15 @@ const se_MatchingRequest = (input: MatchingRequest, context: __SerdeContext): an
 
 // se_ObjectTypeNames omitted.
 
+// se_PhoneNumberList omitted.
+
 // se_ProfileIdToBeMergedList omitted.
 
 // se_Range omitted.
 
 // se_requestValueList omitted.
+
+// se_RuleBasedMatchingRequest omitted.
 
 // se_S3ExportingConfig omitted.
 
@@ -5107,6 +5328,8 @@ const se_TriggerProperties = (input: TriggerProperties, context: __SerdeContext)
 
 // de_Address omitted.
 
+// de_AddressList omitted.
+
 // de_AppflowIntegrationWorkflowAttributes omitted.
 
 // de_AppflowIntegrationWorkflowMetrics omitted.
@@ -5134,6 +5357,8 @@ const de_AppflowIntegrationWorkflowStep = (output: any, context: __SerdeContext)
 // de_AttributeList omitted.
 
 // de_Attributes omitted.
+
+// de_AttributeTypesSelector omitted.
 
 /**
  * deserializeAws_restJson1AutoMerging
@@ -5194,6 +5419,8 @@ const de_DomainList = (output: any, context: __SerdeContext): ListDomainItem[] =
 };
 
 // de_DomainStats omitted.
+
+// de_EmailList omitted.
 
 /**
  * deserializeAws_restJson1EventStreamDestinationDetails
@@ -5383,6 +5610,8 @@ const de_MatchesList = (output: any, context: __SerdeContext): MatchItem[] => {
   return retVal;
 };
 
+// de_MatchIdList omitted.
+
 // de_MatchingAttributes omitted.
 
 // de_MatchingAttributesList omitted.
@@ -5398,6 +5627,12 @@ const de_MatchingResponse = (output: any, context: __SerdeContext): MatchingResp
     JobSchedule: _json,
   }) as any;
 };
+
+// de_MatchingRule omitted.
+
+// de_MatchingRuleAttributeList omitted.
+
+// de_MatchingRules omitted.
 
 /**
  * deserializeAws_restJson1MatchItem
@@ -5417,6 +5652,8 @@ const de_MatchItem = (output: any, context: __SerdeContext): MatchItem => {
 // de_ObjectTypeKeyList omitted.
 
 // de_ObjectTypeNames omitted.
+
+// de_PhoneNumberList omitted.
 
 // de_Profile omitted.
 
@@ -5443,6 +5680,8 @@ const de_ProfileObjectTypeList = (output: any, context: __SerdeContext): ListPro
 // de_Range omitted.
 
 // de_requestValueList omitted.
+
+// de_RuleBasedMatchingResponse omitted.
 
 // de_S3ExportingConfig omitted.
 

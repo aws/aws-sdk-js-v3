@@ -119,6 +119,11 @@ import {
   GetProfileObjectTypeTemplateCommandInput,
   GetProfileObjectTypeTemplateCommandOutput,
 } from "./commands/GetProfileObjectTypeTemplateCommand";
+import {
+  GetSimilarProfilesCommand,
+  GetSimilarProfilesCommandInput,
+  GetSimilarProfilesCommandOutput,
+} from "./commands/GetSimilarProfilesCommand";
 import { GetWorkflowCommand, GetWorkflowCommandInput, GetWorkflowCommandOutput } from "./commands/GetWorkflowCommand";
 import {
   GetWorkflowStepsCommand,
@@ -171,6 +176,11 @@ import {
   ListProfileObjectTypeTemplatesCommandInput,
   ListProfileObjectTypeTemplatesCommandOutput,
 } from "./commands/ListProfileObjectTypeTemplatesCommand";
+import {
+  ListRuleBasedMatchesCommand,
+  ListRuleBasedMatchesCommandInput,
+  ListRuleBasedMatchesCommandOutput,
+} from "./commands/ListRuleBasedMatchesCommand";
 import {
   ListTagsForResourceCommand,
   ListTagsForResourceCommandInput,
@@ -255,6 +265,7 @@ const commands = {
   GetMatchesCommand,
   GetProfileObjectTypeCommand,
   GetProfileObjectTypeTemplateCommand,
+  GetSimilarProfilesCommand,
   GetWorkflowCommand,
   GetWorkflowStepsCommand,
   ListAccountIntegrationsCommand,
@@ -267,6 +278,7 @@ const commands = {
   ListProfileObjectsCommand,
   ListProfileObjectTypesCommand,
   ListProfileObjectTypeTemplatesCommand,
+  ListRuleBasedMatchesCommand,
   ListTagsForResourceCommand,
   ListWorkflowsCommand,
   MergeProfilesCommand,
@@ -657,6 +669,23 @@ export interface CustomerProfiles {
   ): void;
 
   /**
+   * @see {@link GetSimilarProfilesCommand}
+   */
+  getSimilarProfiles(
+    args: GetSimilarProfilesCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetSimilarProfilesCommandOutput>;
+  getSimilarProfiles(
+    args: GetSimilarProfilesCommandInput,
+    cb: (err: any, data?: GetSimilarProfilesCommandOutput) => void
+  ): void;
+  getSimilarProfiles(
+    args: GetSimilarProfilesCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetSimilarProfilesCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link GetWorkflowCommand}
    */
   getWorkflow(args: GetWorkflowCommandInput, options?: __HttpHandlerOptions): Promise<GetWorkflowCommandOutput>;
@@ -846,6 +875,23 @@ export interface CustomerProfiles {
     args: ListProfileObjectTypeTemplatesCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: ListProfileObjectTypeTemplatesCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ListRuleBasedMatchesCommand}
+   */
+  listRuleBasedMatches(
+    args: ListRuleBasedMatchesCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListRuleBasedMatchesCommandOutput>;
+  listRuleBasedMatches(
+    args: ListRuleBasedMatchesCommandInput,
+    cb: (err: any, data?: ListRuleBasedMatchesCommandOutput) => void
+  ): void;
+  listRuleBasedMatches(
+    args: ListRuleBasedMatchesCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListRuleBasedMatchesCommandOutput) => void
   ): void;
 
   /**

@@ -41,7 +41,7 @@ export interface UpdateDomainCommandOutput extends UpdateDomainResponse, __Metad
  *          <p>After a domain is created, the name can’t be changed.</p>
  *          <p>Use this API or <a href="https://docs.aws.amazon.com/customerprofiles/latest/APIReference/API_CreateDomain.html">CreateDomain</a> to
  *          enable <a href="https://docs.aws.amazon.com/customerprofiles/latest/APIReference/API_GetMatches.html">identity
- *             resolution</a>: set <code>Matching</code> to true. </p>
+ *             resolution</a>: set <code>Matching</code> to true.</p>
  *          <p>To prevent cross-service impersonation when you call this API, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/cross-service-confused-deputy-prevention.html">Cross-service confused deputy prevention</a> for sample policies that you should
  *          apply. </p>
  *          <p>To add or remove tags on an existing Domain, see <a href="https://docs.aws.amazon.com/customerprofiles/latest/APIReference/API_TagResource.html">TagResource</a>/<a href="https://docs.aws.amazon.com/customerprofiles/latest/APIReference/API_UntagResource.html">UntagResource</a>.</p>
@@ -84,6 +84,40 @@ export interface UpdateDomainCommandOutput extends UpdateDomainResponse, __Metad
  *       },
  *     },
  *   },
+ *   RuleBasedMatching: { // RuleBasedMatchingRequest
+ *     Enabled: true || false, // required
+ *     MatchingRules: [ // MatchingRules
+ *       { // MatchingRule
+ *         Rule: [ // MatchingRuleAttributeList // required
+ *           "STRING_VALUE",
+ *         ],
+ *       },
+ *     ],
+ *     MaxAllowedRuleLevelForMerging: Number("int"),
+ *     MaxAllowedRuleLevelForMatching: Number("int"),
+ *     AttributeTypesSelector: { // AttributeTypesSelector
+ *       AttributeMatchingModel: "ONE_TO_ONE" || "MANY_TO_MANY", // required
+ *       Address: [ // AddressList
+ *         "STRING_VALUE",
+ *       ],
+ *       PhoneNumber: [ // PhoneNumberList
+ *         "STRING_VALUE",
+ *       ],
+ *       EmailAddress: [ // EmailList
+ *         "STRING_VALUE",
+ *       ],
+ *     },
+ *     ConflictResolution: {
+ *       ConflictResolvingModel: "RECENCY" || "SOURCE", // required
+ *       SourceName: "STRING_VALUE",
+ *     },
+ *     ExportingConfig: {
+ *       S3Exporting: {
+ *         S3BucketName: "STRING_VALUE", // required
+ *         S3KeyName: "STRING_VALUE",
+ *       },
+ *     },
+ *   },
  *   Tags: { // TagMap
  *     "<keys>": "STRING_VALUE",
  *   },
@@ -118,6 +152,41 @@ export interface UpdateDomainCommandOutput extends UpdateDomainResponse, __Metad
  * //     },
  * //     ExportingConfig: { // ExportingConfig
  * //       S3Exporting: { // S3ExportingConfig
+ * //         S3BucketName: "STRING_VALUE", // required
+ * //         S3KeyName: "STRING_VALUE",
+ * //       },
+ * //     },
+ * //   },
+ * //   RuleBasedMatching: { // RuleBasedMatchingResponse
+ * //     Enabled: true || false,
+ * //     MatchingRules: [ // MatchingRules
+ * //       { // MatchingRule
+ * //         Rule: [ // MatchingRuleAttributeList // required
+ * //           "STRING_VALUE",
+ * //         ],
+ * //       },
+ * //     ],
+ * //     Status: "PENDING" || "IN_PROGRESS" || "ACTIVE",
+ * //     MaxAllowedRuleLevelForMerging: Number("int"),
+ * //     MaxAllowedRuleLevelForMatching: Number("int"),
+ * //     AttributeTypesSelector: { // AttributeTypesSelector
+ * //       AttributeMatchingModel: "ONE_TO_ONE" || "MANY_TO_MANY", // required
+ * //       Address: [ // AddressList
+ * //         "STRING_VALUE",
+ * //       ],
+ * //       PhoneNumber: [ // PhoneNumberList
+ * //         "STRING_VALUE",
+ * //       ],
+ * //       EmailAddress: [ // EmailList
+ * //         "STRING_VALUE",
+ * //       ],
+ * //     },
+ * //     ConflictResolution: {
+ * //       ConflictResolvingModel: "RECENCY" || "SOURCE", // required
+ * //       SourceName: "STRING_VALUE",
+ * //     },
+ * //     ExportingConfig: {
+ * //       S3Exporting: {
  * //         S3BucketName: "STRING_VALUE", // required
  * //         S3KeyName: "STRING_VALUE",
  * //       },

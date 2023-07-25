@@ -87,6 +87,41 @@ export interface GetDomainCommandOutput extends GetDomainResponse, __MetadataBea
  * //       },
  * //     },
  * //   },
+ * //   RuleBasedMatching: { // RuleBasedMatchingResponse
+ * //     Enabled: true || false,
+ * //     MatchingRules: [ // MatchingRules
+ * //       { // MatchingRule
+ * //         Rule: [ // MatchingRuleAttributeList // required
+ * //           "STRING_VALUE",
+ * //         ],
+ * //       },
+ * //     ],
+ * //     Status: "PENDING" || "IN_PROGRESS" || "ACTIVE",
+ * //     MaxAllowedRuleLevelForMerging: Number("int"),
+ * //     MaxAllowedRuleLevelForMatching: Number("int"),
+ * //     AttributeTypesSelector: { // AttributeTypesSelector
+ * //       AttributeMatchingModel: "ONE_TO_ONE" || "MANY_TO_MANY", // required
+ * //       Address: [ // AddressList
+ * //         "STRING_VALUE",
+ * //       ],
+ * //       PhoneNumber: [ // PhoneNumberList
+ * //         "STRING_VALUE",
+ * //       ],
+ * //       EmailAddress: [ // EmailList
+ * //         "STRING_VALUE",
+ * //       ],
+ * //     },
+ * //     ConflictResolution: {
+ * //       ConflictResolvingModel: "RECENCY" || "SOURCE", // required
+ * //       SourceName: "STRING_VALUE",
+ * //     },
+ * //     ExportingConfig: {
+ * //       S3Exporting: {
+ * //         S3BucketName: "STRING_VALUE", // required
+ * //         S3KeyName: "STRING_VALUE",
+ * //       },
+ * //     },
+ * //   },
  * //   CreatedAt: new Date("TIMESTAMP"), // required
  * //   LastUpdatedAt: new Date("TIMESTAMP"), // required
  * //   Tags: { // TagMap

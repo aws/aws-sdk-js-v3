@@ -107,6 +107,7 @@ import {
   GetProfileObjectTypeTemplateCommandInput,
   GetProfileObjectTypeTemplateCommandOutput,
 } from "./commands/GetProfileObjectTypeTemplateCommand";
+import { GetSimilarProfilesCommandInput, GetSimilarProfilesCommandOutput } from "./commands/GetSimilarProfilesCommand";
 import { GetWorkflowCommandInput, GetWorkflowCommandOutput } from "./commands/GetWorkflowCommand";
 import { GetWorkflowStepsCommandInput, GetWorkflowStepsCommandOutput } from "./commands/GetWorkflowStepsCommand";
 import {
@@ -137,6 +138,10 @@ import {
   ListProfileObjectTypeTemplatesCommandInput,
   ListProfileObjectTypeTemplatesCommandOutput,
 } from "./commands/ListProfileObjectTypeTemplatesCommand";
+import {
+  ListRuleBasedMatchesCommandInput,
+  ListRuleBasedMatchesCommandOutput,
+} from "./commands/ListRuleBasedMatchesCommand";
 import {
   ListTagsForResourceCommandInput,
   ListTagsForResourceCommandOutput,
@@ -197,6 +202,7 @@ export type ServiceInputTypes =
   | GetMatchesCommandInput
   | GetProfileObjectTypeCommandInput
   | GetProfileObjectTypeTemplateCommandInput
+  | GetSimilarProfilesCommandInput
   | GetWorkflowCommandInput
   | GetWorkflowStepsCommandInput
   | ListAccountIntegrationsCommandInput
@@ -209,6 +215,7 @@ export type ServiceInputTypes =
   | ListProfileObjectTypeTemplatesCommandInput
   | ListProfileObjectTypesCommandInput
   | ListProfileObjectsCommandInput
+  | ListRuleBasedMatchesCommandInput
   | ListTagsForResourceCommandInput
   | ListWorkflowsCommandInput
   | MergeProfilesCommandInput
@@ -251,6 +258,7 @@ export type ServiceOutputTypes =
   | GetMatchesCommandOutput
   | GetProfileObjectTypeCommandOutput
   | GetProfileObjectTypeTemplateCommandOutput
+  | GetSimilarProfilesCommandOutput
   | GetWorkflowCommandOutput
   | GetWorkflowStepsCommandOutput
   | ListAccountIntegrationsCommandOutput
@@ -263,6 +271,7 @@ export type ServiceOutputTypes =
   | ListProfileObjectTypeTemplatesCommandOutput
   | ListProfileObjectTypesCommandOutput
   | ListProfileObjectsCommandOutput
+  | ListRuleBasedMatchesCommandOutput
   | ListTagsForResourceCommandOutput
   | ListWorkflowsCommandOutput
   | MergeProfilesCommandOutput
