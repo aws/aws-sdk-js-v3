@@ -173,7 +173,8 @@ export interface WorkerTypeSpecification {
 
 /**
  * @public
- * <p>Information about an application. Amazon EMR Serverless uses applications to run jobs.</p>
+ * <p>Information about an application. Amazon EMR Serverless uses applications to run
+ *          jobs.</p>
  */
 export interface Application {
   /**
@@ -354,8 +355,8 @@ export class ConflictException extends __BaseException {
 export interface ImageConfigurationInput {
   /**
    * <p>The URI of an image in the Amazon ECR registry. This field is required when you create a
-   *          new application. If you leave this field blank in an update, Amazon EMR  will remove the
-   *          image configuration.</p>
+   *          new application. If you leave this field blank in an update, Amazon EMR will remove
+   *          the image configuration.</p>
    */
   imageUri?: string;
 }
@@ -723,7 +724,8 @@ export interface UpdateApplicationRequest {
   workerTypeSpecifications?: Record<string, WorkerTypeSpecificationInput>;
 
   /**
-   * <p>The Amazon EMR release label for the application. You can change the release label to use a different release of Amazon EMR.</p>
+   * <p>The Amazon EMR release label for the application. You can change the release
+   *          label to use a different release of Amazon EMR.</p>
    */
   releaseLabel?: string;
 }
@@ -834,6 +836,59 @@ export interface ResourceUtilization {
 
 /**
  * @public
+ * <p>The Amazon CloudWatch configuration for monitoring logs. You can configure your jobs
+ *          to send log information to CloudWatch.</p>
+ */
+export interface CloudWatchLoggingConfiguration {
+  /**
+   * <p>Enables CloudWatch logging.</p>
+   */
+  enabled: boolean | undefined;
+
+  /**
+   * <p>The name of the log group in Amazon CloudWatch Logs where you want to publish your
+   *          logs.</p>
+   */
+  logGroupName?: string;
+
+  /**
+   * <p>Prefix for the CloudWatch log stream name.</p>
+   */
+  logStreamNamePrefix?: string;
+
+  /**
+   * <p>The Key Management Service (KMS) key ARN to encrypt the logs that you store in CloudWatch Logs.</p>
+   */
+  encryptionKeyArn?: string;
+
+  /**
+   * <p>The types of logs that you want to publish to CloudWatch. If you don't specify
+   *          any log types, driver STDOUT and STDERR logs will be published to CloudWatch Logs by
+   *          default. For more information including the supported worker types for Hive and Spark, see
+   *             <a href="https://docs.aws.amazon.com/emr/latest/EMR-Serverless-UserGuide/logging.html#jobs-log-storage-cw">Logging for
+   *             EMR Serverless with CloudWatch</a>.</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <b>Key Valid Values</b>: <code>SPARK_DRIVER</code>,
+   *                   <code>SPARK_EXECUTOR</code>, <code>HIVE_DRIVER</code>,
+   *                <code>TEZ_TASK</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <b>Array Members Valid Values</b>: <code>STDOUT</code>,
+   *                   <code>STDERR</code>, <code>HIVE_LOG</code>, <code>TEZ_AM</code>,
+   *                   <code>SYSTEM_LOGS</code>
+   *                </p>
+   *             </li>
+   *          </ul>
+   */
+  logTypes?: Record<string, string[]>;
+}
+
+/**
+ * @public
  * <p>The managed log persistence configuration for a job run.</p>
  */
 export interface ManagedPersistenceMonitoringConfiguration {
@@ -880,6 +935,12 @@ export interface MonitoringConfiguration {
    * <p>The managed log persistence configuration for a job run.</p>
    */
   managedPersistenceMonitoringConfiguration?: ManagedPersistenceMonitoringConfiguration;
+
+  /**
+   * <p>The Amazon CloudWatch configuration for monitoring logs. You can configure your jobs
+   *          to send log information to CloudWatch.</p>
+   */
+  cloudWatchLoggingConfiguration?: CloudWatchLoggingConfiguration;
 }
 
 /**
@@ -1108,7 +1169,8 @@ export interface JobRunSummary {
   stateDetails: string | undefined;
 
   /**
-   * <p>The Amazon EMR release associated with the application your job is running on.</p>
+   * <p>The Amazon EMR release associated with the application your job is running
+   *          on.</p>
    */
   releaseLabel: string | undefined;
 
@@ -1160,7 +1222,7 @@ export interface StartJobRunResponse {
 export interface ListTagsForResourceRequest {
   /**
    * <p>The Amazon Resource Name (ARN) that identifies the resource to list the tags for.
-   *          Currently, the supported resources are Amazon EMR  Serverless applications and job
+   *          Currently, the supported resources are Amazon EMR Serverless applications and job
    *          runs.</p>
    */
   resourceArn: string | undefined;
@@ -1182,7 +1244,7 @@ export interface ListTagsForResourceResponse {
 export interface TagResourceRequest {
   /**
    * <p>The Amazon Resource Name (ARN) that identifies the resource to list the tags for.
-   *          Currently, the supported resources are Amazon EMR  Serverless applications and job
+   *          Currently, the supported resources are Amazon EMR Serverless applications and job
    *          runs.</p>
    */
   resourceArn: string | undefined;
@@ -1204,7 +1266,7 @@ export interface TagResourceResponse {}
 export interface UntagResourceRequest {
   /**
    * <p>The Amazon Resource Name (ARN) that identifies the resource to list the tags for.
-   *          Currently, the supported resources are Amazon EMR  Serverless applications and job
+   *          Currently, the supported resources are Amazon EMR Serverless applications and job
    *          runs.</p>
    */
   resourceArn: string | undefined;
@@ -1263,7 +1325,8 @@ export interface ConfigurationOverrides {
 /**
  * @public
  * <p>Information about a job run. A job run is a unit of work, such as a Spark JAR, Hive
- *          query, or SparkSQL query, that you submit to an Amazon EMR Serverless application.</p>
+ *          query, or SparkSQL query, that you submit to an Amazon EMR Serverless
+ *          application.</p>
  */
 export interface JobRun {
   /**
@@ -1317,7 +1380,8 @@ export interface JobRun {
   stateDetails: string | undefined;
 
   /**
-   * <p>The Amazon EMR release associated with the application your job is running on.</p>
+   * <p>The Amazon EMR release associated with the application your job is running
+   *          on.</p>
    */
   releaseLabel: string | undefined;
 
@@ -1361,10 +1425,10 @@ export interface JobRun {
   executionTimeoutMinutes?: number;
 
   /**
-   * <p>The aggregate vCPU, memory, and storage that Amazon Web Services has billed for the job run. The billed
-   *          resources include a 1-minute minimum usage for workers, plus additional storage over 20 GB
-   *          per worker. Note that billed resources do not include usage for idle pre-initialized
-   *          workers.</p>
+   * <p>The aggregate vCPU, memory, and storage that Amazon Web Services has billed for the job
+   *          run. The billed resources include a 1-minute minimum usage for workers, plus additional
+   *          storage over 20 GB per worker. Note that billed resources do not include usage for idle
+   *          pre-initialized workers.</p>
    */
   billedResourceUtilization?: ResourceUtilization;
 }

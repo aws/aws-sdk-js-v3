@@ -88,6 +88,17 @@ export interface StartJobRunCommandOutput extends StartJobRunResponse, __Metadat
  *         enabled: true || false,
  *         encryptionKeyArn: "STRING_VALUE",
  *       },
+ *       cloudWatchLoggingConfiguration: { // CloudWatchLoggingConfiguration
+ *         enabled: true || false, // required
+ *         logGroupName: "STRING_VALUE",
+ *         logStreamNamePrefix: "STRING_VALUE",
+ *         encryptionKeyArn: "STRING_VALUE",
+ *         logTypes: { // LogTypeMap
+ *           "<keys>": [ // LogTypeList
+ *             "STRING_VALUE",
+ *           ],
+ *         },
+ *       },
  *     },
  *   },
  *   tags: { // TagMap

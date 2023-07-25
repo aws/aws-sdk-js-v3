@@ -53,6 +53,7 @@ import {
   ApplicationSummary,
   AutoStartConfig,
   AutoStopConfig,
+  CloudWatchLoggingConfiguration,
   Configuration,
   ConfigurationOverrides,
   ConflictException,
@@ -1473,6 +1474,8 @@ const de_ValidationExceptionRes = async (parsedOutput: any, context: __SerdeCont
 
 // se_AutoStopConfig omitted.
 
+// se_CloudWatchLoggingConfiguration omitted.
+
 /**
  * serializeAws_restJson1Configuration
  */
@@ -1516,6 +1519,10 @@ const se_ConfigurationOverrides = (input: ConfigurationOverrides, context: __Ser
 // se_InitialCapacityConfigMap omitted.
 
 // se_JobDriver omitted.
+
+// se_LogTypeList omitted.
+
+// se_LogTypeMap omitted.
 
 // se_ManagedPersistenceMonitoringConfiguration omitted.
 
@@ -1602,6 +1609,8 @@ const de_ApplicationSummary = (output: any, context: __SerdeContext): Applicatio
 // de_AutoStartConfig omitted.
 
 // de_AutoStopConfig omitted.
+
+// de_CloudWatchLoggingConfiguration omitted.
 
 /**
  * deserializeAws_restJson1Configuration
@@ -1706,6 +1715,10 @@ const de_JobRunSummary = (output: any, context: __SerdeContext): JobRunSummary =
     updatedAt: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
   }) as any;
 };
+
+// de_LogTypeList omitted.
+
+// de_LogTypeMap omitted.
 
 // de_ManagedPersistenceMonitoringConfiguration omitted.
 

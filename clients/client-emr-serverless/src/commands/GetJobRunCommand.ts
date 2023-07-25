@@ -89,6 +89,17 @@ export interface GetJobRunCommandOutput extends GetJobRunResponse, __MetadataBea
  * //           enabled: true || false,
  * //           encryptionKeyArn: "STRING_VALUE",
  * //         },
+ * //         cloudWatchLoggingConfiguration: { // CloudWatchLoggingConfiguration
+ * //           enabled: true || false, // required
+ * //           logGroupName: "STRING_VALUE",
+ * //           logStreamNamePrefix: "STRING_VALUE",
+ * //           encryptionKeyArn: "STRING_VALUE",
+ * //           logTypes: { // LogTypeMap
+ * //             "<keys>": [ // LogTypeList
+ * //               "STRING_VALUE",
+ * //             ],
+ * //           },
+ * //         },
  * //       },
  * //     },
  * //     jobDriver: { // JobDriver Union: only one key present
