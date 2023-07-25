@@ -39,6 +39,22 @@ export interface PolicyDescriptorType {
 
 /**
  * @public
+ * <p>Reserved for future use.</p>
+ */
+export interface ProvidedContext {
+  /**
+   * <p>Reserved for future use.</p>
+   */
+  ProviderArn?: string;
+
+  /**
+   * <p>Reserved for future use.</p>
+   */
+  ContextAssertion?: string;
+}
+
+/**
+ * @public
  * <p>You can pass custom key-value pair attributes when you assume a role or federate a user.
  *          These are called session tags. You can then use the session tags to control access to
  *          resources. For more information, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_session-tags.html">Tagging Amazon Web Services STS Sessions</a> in the
@@ -264,6 +280,11 @@ export interface AssumeRoleRequest {
    *             <code>aws:</code>. This prefix is reserved for Amazon Web Services internal use.</p>
    */
   SourceIdentity?: string;
+
+  /**
+   * <p>Reserved for future use.</p>
+   */
+  ProvidedContexts?: ProvidedContext[];
 }
 
 /**
@@ -704,7 +725,8 @@ export interface AssumeRoleWithWebIdentityRequest {
    * <p>The OAuth 2.0 access token or OpenID Connect ID token that is provided by the identity
    *          provider. Your application must get this token by authenticating the user who is using your
    *          application with a web identity provider before the application makes an
-   *             <code>AssumeRoleWithWebIdentity</code> call. </p>
+   *             <code>AssumeRoleWithWebIdentity</code> call. Only tokens with RSA algorithms (RS256) are
+   *          supported.</p>
    */
   WebIdentityToken: string | undefined;
 
@@ -1014,10 +1036,10 @@ export interface GetFederationTokenRequest {
    *          <p>This parameter is optional. However, if you do not pass any session policies, then the
    *          resulting federated user session has no permissions.</p>
    *          <p>When you pass session policies, the session permissions are the intersection of the
-   *          IAM user policies and the session policies that you pass. This gives you a way to further
-   *          restrict the permissions for a federated user. You cannot use session policies to grant
-   *          more permissions than those that are defined in the permissions policy of the IAM user.
-   *          For more information, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies.html#policies_session">Session Policies</a> in
+   *             IAM user policies and the session policies that you pass. This gives you
+   *          a way to further restrict the permissions for a federated user. You cannot use session
+   *          policies to grant more permissions than those that are defined in the permissions policy of
+   *          the IAM user. For more information, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies.html#policies_session">Session Policies</a> in
    *          the <i>IAM User Guide</i>.</p>
    *          <p>The resulting credentials can be used to access a resource that has a resource-based
    *          policy. If that policy specifically references the federated user session in the
@@ -1041,8 +1063,7 @@ export interface GetFederationTokenRequest {
 
   /**
    * <p>The Amazon Resource Names (ARNs) of the IAM managed policies that you want to use as a
-   *          managed session policy. The policies must exist in the same account as the IAM user that
-   *          is requesting federated access.</p>
+   *          managed session policy. The policies must exist in the same account as the IAM user that is requesting federated access.</p>
    *          <p>You must pass an inline or managed <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies.html#policies_session">session policy</a> to
    *          this operation. You can pass a single JSON policy document to use as an inline session
    *          policy. You can also specify up to 10 managed policy Amazon Resource Names (ARNs) to use as
@@ -1053,10 +1074,10 @@ export interface GetFederationTokenRequest {
    *          <p>This parameter is optional. However, if you do not pass any session policies, then the
    *          resulting federated user session has no permissions.</p>
    *          <p>When you pass session policies, the session permissions are the intersection of the
-   *          IAM user policies and the session policies that you pass. This gives you a way to further
-   *          restrict the permissions for a federated user. You cannot use session policies to grant
-   *          more permissions than those that are defined in the permissions policy of the IAM user.
-   *          For more information, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies.html#policies_session">Session Policies</a> in
+   *             IAM user policies and the session policies that you pass. This gives you
+   *          a way to further restrict the permissions for a federated user. You cannot use session
+   *          policies to grant more permissions than those that are defined in the permissions policy of
+   *          the IAM user. For more information, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies.html#policies_session">Session Policies</a> in
    *          the <i>IAM User Guide</i>.</p>
    *          <p>The resulting credentials can be used to access a resource that has a resource-based
    *          policy. If that policy specifically references the federated user session in the
@@ -1078,8 +1099,8 @@ export interface GetFederationTokenRequest {
    *          federation sessions range from 900 seconds (15 minutes) to 129,600 seconds (36 hours), with
    *          43,200 seconds (12 hours) as the default. Sessions obtained using root user
    *          credentials are restricted to a maximum of 3,600 seconds (one hour). If the specified
-   *          duration is longer than one hour, the session obtained by using root user credentials
-   *          defaults to one hour.</p>
+   *          duration is longer than one hour, the session obtained by using root user
+   *          credentials defaults to one hour.</p>
    */
   DurationSeconds?: number;
 
@@ -1167,21 +1188,19 @@ export interface GetFederationTokenResponse {
 export interface GetSessionTokenRequest {
   /**
    * <p>The duration, in seconds, that the credentials should remain valid. Acceptable durations
-   *          for IAM user sessions range from 900 seconds (15 minutes) to 129,600 seconds (36 hours),
-   *          with 43,200 seconds (12 hours) as the default. Sessions for Amazon Web Services account owners are
-   *          restricted to a maximum of 3,600 seconds (one hour). If the duration is longer than one
-   *          hour, the session for Amazon Web Services account owners defaults to one hour.</p>
+   *          for IAM user sessions range from 900 seconds (15 minutes) to 129,600 seconds
+   *          (36 hours), with 43,200 seconds (12 hours) as the default. Sessions for Amazon Web Services account
+   *          owners are restricted to a maximum of 3,600 seconds (one hour). If the duration is longer
+   *          than one hour, the session for Amazon Web Services account owners defaults to one hour.</p>
    */
   DurationSeconds?: number;
 
   /**
-   * <p>The identification number of the MFA device that is associated with the IAM user who
-   *          is making the <code>GetSessionToken</code> call. Specify this value if the IAM user has a
-   *          policy that requires MFA authentication. The value is either the serial number for a
-   *          hardware device (such as <code>GAHT12345678</code>) or an Amazon Resource Name (ARN) for a
-   *          virtual device (such as <code>arn:aws:iam::123456789012:mfa/user</code>). You can find the
-   *          device for an IAM user by going to the Amazon Web Services Management Console and viewing the user's security
-   *          credentials. </p>
+   * <p>The identification number of the MFA device that is associated with the IAM user who is making the <code>GetSessionToken</code> call. Specify this value
+   *          if the IAM user has a policy that requires MFA authentication. The value is
+   *          either the serial number for a hardware device (such as <code>GAHT12345678</code>) or an
+   *          Amazon Resource Name (ARN) for a virtual device (such as
+   *             <code>arn:aws:iam::123456789012:mfa/user</code>). You can find the device for an IAM user by going to the Amazon Web Services Management Console and viewing the user's security credentials. </p>
    *          <p>The regex used to validate this parameter is a string of
    *     characters consisting of upper- and lower-case alphanumeric characters with no spaces.
    *     You can also include underscores or any of the following characters: =,.@:/-</p>
@@ -1190,10 +1209,10 @@ export interface GetSessionTokenRequest {
 
   /**
    * <p>The value provided by the MFA device, if MFA is required. If any policy requires the
-   *          IAM user to submit an MFA code, specify this value. If MFA authentication is required,
-   *          the user must provide a code when requesting a set of temporary security credentials. A
-   *          user who fails to provide the code receives an "access denied" response when requesting
-   *          resources that require MFA authentication.</p>
+   *             IAM user to submit an MFA code, specify this value. If MFA authentication
+   *          is required, the user must provide a code when requesting a set of temporary security
+   *          credentials. A user who fails to provide the code receives an "access denied" response when
+   *          requesting resources that require MFA authentication.</p>
    *          <p>The format for this parameter, as described by its regex pattern, is a sequence of six
    *          numeric digits.</p>
    */

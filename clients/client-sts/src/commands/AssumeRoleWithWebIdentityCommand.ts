@@ -50,8 +50,8 @@ export interface AssumeRoleWithWebIdentityCommandOutput extends AssumeRoleWithWe
  *                <a href="http://aws.amazon.com/sdkforios/">Amazon Web Services SDK for iOS Developer Guide</a> and the <a href="http://aws.amazon.com/sdkforandroid/">Amazon Web Services SDK for Android Developer Guide</a> to uniquely
  *             identify a user. You can also supply the user with a consistent identity throughout the
  *             lifetime of an application.</p>
- *             <p>To learn more about Amazon Cognito, see <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-identity.html">Amazon Cognito identity pools</a> in
- *             <i>Amazon Cognito Developer Guide</i>.</p>
+ *             <p>To learn more about Amazon Cognito, see <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-identity.html">Amazon Cognito identity
+ *                pools</a> in <i>Amazon Cognito Developer Guide</i>.</p>
  *          </note>
  *          <p>Calling <code>AssumeRoleWithWebIdentity</code> does not require the use of Amazon Web Services
  *          security credentials. Therefore, you can distribute an application (for example, on mobile

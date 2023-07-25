@@ -45,16 +45,18 @@ export interface GetFederationTokenCommandOutput extends GetFederationTokenRespo
  *          secret access key, and a security token) for a user. A typical use is in a proxy
  *          application that gets temporary security credentials on behalf of distributed applications
  *          inside a corporate network.</p>
- *          <p>You must call the <code>GetFederationToken</code> operation
- *          using the long-term security credentials of an IAM user. As a result, this call is
- *          appropriate in contexts where those credentials can be safeguarded, usually in a
- *          server-based application. For a comparison of <code>GetFederationToken</code> with the
- *          other API operations that produce temporary credentials, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_temp_request.html">Requesting Temporary Security
+ *          <p>You must call the <code>GetFederationToken</code> operation using the long-term security
+ *          credentials of an IAM user. As a result, this call is appropriate in
+ *          contexts where those credentials can be safeguarded, usually in a server-based application.
+ *          For a comparison of <code>GetFederationToken</code> with the other API operations that
+ *          produce temporary credentials, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_temp_request.html">Requesting Temporary Security
  *             Credentials</a> and <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_temp_request.html#stsapi_comparison">Comparing the
  *             Amazon Web Services STS API operations</a> in the <i>IAM User Guide</i>.</p>
- *          <p>Although it is possible to call <code>GetFederationToken</code> using the security credentials of an
- *          Amazon Web Services account root user rather than an IAM user that you create for the purpose of a proxy application, we do not recommend it. For more information, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/best-practices.html#lock-away-credentials">Safeguard your root user credentials and don't use them for everyday tasks</a> in the
- *          <i>IAM User Guide</i>. </p>
+ *          <p>Although it is possible to call <code>GetFederationToken</code> using the security
+ *          credentials of an Amazon Web Services account root user rather than an IAM user that you
+ *          create for the purpose of a proxy application, we do not recommend it. For more
+ *          information, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/best-practices.html#lock-away-credentials">Safeguard your root user credentials and don't use them for everyday tasks</a> in the
+ *             <i>IAM User Guide</i>. </p>
  *          <note>
  *             <p>You can create a mobile-based or browser-based app that can authenticate users using
  *             a web identity provider like Login with Amazon, Facebook, Google, or an OpenID
@@ -67,7 +69,8 @@ export interface GetFederationTokenCommandOutput extends GetFederationTokenRespo
  *          </p>
  *          <p>The temporary credentials are valid for the specified duration, from 900 seconds (15
  *          minutes) up to a maximum of 129,600 seconds (36 hours). The default session duration is
- *          43,200 seconds (12 hours). Temporary credentials obtained by using the root user credentials have a maximum duration of 3,600 seconds (1 hour).</p>
+ *          43,200 seconds (12 hours). Temporary credentials obtained by using the root user
+ *          credentials have a maximum duration of 3,600 seconds (1 hour).</p>
  *          <p>
  *             <b>Permissions</b>
  *          </p>
@@ -75,7 +78,8 @@ export interface GetFederationTokenCommandOutput extends GetFederationTokenRespo
  *          Amazon Web Services service with the following exceptions:</p>
  *          <ul>
  *             <li>
- *                <p>You cannot call any IAM operations using the CLI or the Amazon Web Services API. This limitation does not apply to console sessions.</p>
+ *                <p>You cannot call any IAM operations using the CLI or the Amazon Web Services API. This
+ *                limitation does not apply to console sessions.</p>
  *             </li>
  *             <li>
  *                <p>You cannot call any STS operations except <code>GetCallerIdentity</code>.</p>
@@ -89,12 +93,13 @@ export interface GetFederationTokenCommandOutput extends GetFederationTokenRespo
  *          policies can't exceed 2,048 characters.</p>
  *          <p>Though the session policy parameters are optional, if you do not pass a policy, then the
  *          resulting federated user session has no permissions. When you pass session policies, the
- *          session permissions are the intersection of the IAM user policies and the session
- *          policies that you pass. This gives you a way to further restrict the permissions for a
- *          federated user. You cannot use session policies to grant more permissions than those that
- *          are defined in the permissions policy of the IAM user. For more information, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies.html#policies_session">Session
- *             Policies</a> in the <i>IAM User Guide</i>. For information about
- *          using <code>GetFederationToken</code> to create temporary security credentials, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_temp_request.html#api_getfederationtoken">GetFederationToken—Federation Through a Custom Identity Broker</a>. </p>
+ *          session permissions are the intersection of the IAM user policies and the
+ *          session policies that you pass. This gives you a way to further restrict the permissions
+ *          for a federated user. You cannot use session policies to grant more permissions than those
+ *          that are defined in the permissions policy of the IAM user. For more
+ *          information, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies.html#policies_session">Session Policies</a> in
+ *          the <i>IAM User Guide</i>. For information about using
+ *             <code>GetFederationToken</code> to create temporary security credentials, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_temp_request.html#api_getfederationtoken">GetFederationToken—Federation Through a Custom Identity Broker</a>. </p>
  *          <p>You can use the credentials to access a resource that has a resource-based policy. If
  *          that policy specifically references the federated user session in the
  *             <code>Principal</code> element of the policy, the session has the permissions allowed by

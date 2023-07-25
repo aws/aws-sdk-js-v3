@@ -72,8 +72,8 @@ export interface AssumeRoleCommandOutput extends AssumeRoleResponse, __MetadataB
  *          created. That trust policy states which accounts are allowed to delegate that access to
  *          users in the account. </p>
  *          <p>A user who wants to access a role in a different account must also have permissions that
- *          are delegated from the account administrator. The administrator must attach a policy
- *          that allows the user to call <code>AssumeRole</code> for the ARN of the role in the other
+ *          are delegated from the account administrator. The administrator must attach a policy that
+ *          allows the user to call <code>AssumeRole</code> for the ARN of the role in the other
  *          account.</p>
  *          <p>To allow a user to assume a role in the same account, you can do either of the
  *          following:</p>
@@ -154,6 +154,12 @@ export interface AssumeRoleCommandOutput extends AssumeRoleResponse, __MetadataB
  *   SerialNumber: "STRING_VALUE",
  *   TokenCode: "STRING_VALUE",
  *   SourceIdentity: "STRING_VALUE",
+ *   ProvidedContexts: [ // ProvidedContextsListType
+ *     { // ProvidedContext
+ *       ProviderArn: "STRING_VALUE",
+ *       ContextAssertion: "STRING_VALUE",
+ *     },
+ *   ],
  * };
  * const command = new AssumeRoleCommand(input);
  * const response = await client.send(command);

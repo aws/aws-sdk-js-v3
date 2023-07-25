@@ -61,6 +61,7 @@ import {
   MalformedPolicyDocumentException,
   PackedPolicyTooLargeException,
   PolicyDescriptorType,
+  ProvidedContext,
   RegionDisabledException,
   Tag,
 } from "../models/models_0";
@@ -793,6 +794,16 @@ const se_AssumeRoleRequest = (input: AssumeRoleRequest, context: __SerdeContext)
   if (input.SourceIdentity != null) {
     entries["SourceIdentity"] = input.SourceIdentity;
   }
+  if (input.ProvidedContexts != null) {
+    const memberEntries = se_ProvidedContextsListType(input.ProvidedContexts, context);
+    if (input.ProvidedContexts?.length === 0) {
+      entries.ProvidedContexts = [];
+    }
+    Object.entries(memberEntries).forEach(([key, value]) => {
+      const loc = `ProvidedContexts.${key}`;
+      entries[loc] = value;
+    });
+  }
   return entries;
 };
 
@@ -978,6 +989,39 @@ const se_PolicyDescriptorType = (input: PolicyDescriptorType, context: __SerdeCo
   const entries: any = {};
   if (input.arn != null) {
     entries["arn"] = input.arn;
+  }
+  return entries;
+};
+
+/**
+ * serializeAws_queryProvidedContext
+ */
+const se_ProvidedContext = (input: ProvidedContext, context: __SerdeContext): any => {
+  const entries: any = {};
+  if (input.ProviderArn != null) {
+    entries["ProviderArn"] = input.ProviderArn;
+  }
+  if (input.ContextAssertion != null) {
+    entries["ContextAssertion"] = input.ContextAssertion;
+  }
+  return entries;
+};
+
+/**
+ * serializeAws_queryProvidedContextsListType
+ */
+const se_ProvidedContextsListType = (input: ProvidedContext[], context: __SerdeContext): any => {
+  const entries: any = {};
+  let counter = 1;
+  for (const entry of input) {
+    if (entry === null) {
+      continue;
+    }
+    const memberEntries = se_ProvidedContext(entry, context);
+    Object.entries(memberEntries).forEach(([key, value]) => {
+      entries[`member.${counter}.${key}`] = value;
+    });
+    counter++;
   }
   return entries;
 };

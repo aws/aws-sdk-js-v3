@@ -45,13 +45,12 @@ export interface GetAccessKeyInfoCommandOutput extends GetAccessKeyInfoResponse,
  *             Users</a> in the <i>IAM User Guide</i>.</p>
  *          <p>When you pass an access key ID to this operation, it returns the ID of the Amazon Web Services account
  *          to which the keys belong. Access key IDs beginning with <code>AKIA</code> are long-term
- *          credentials for an IAM user or the Amazon Web Services account root user. Access key IDs beginning with
- *             <code>ASIA</code> are temporary credentials that are created using STS operations. If
- *          the account in the response belongs to you, you can sign in as the root user and review
- *          your root user access keys. Then, you can pull a <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_getting-report.html">credentials report</a> to
- *          learn which IAM user owns the keys. To learn who requested the temporary credentials for
- *          an <code>ASIA</code> access key, view the STS events in your <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/cloudtrail-integration.html">CloudTrail logs</a> in the
- *             <i>IAM User Guide</i>.</p>
+ *          credentials for an IAM user or the Amazon Web Services account root user. Access key IDs
+ *          beginning with <code>ASIA</code> are temporary credentials that are created using STS
+ *          operations. If the account in the response belongs to you, you can sign in as the root user and review your root user access keys. Then, you can pull a <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_getting-report.html">credentials
+ *             report</a> to learn which IAM user owns the keys. To learn who
+ *          requested the temporary credentials for an <code>ASIA</code> access key, view the STS
+ *          events in your <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/cloudtrail-integration.html">CloudTrail logs</a> in the <i>IAM User Guide</i>.</p>
  *          <p>This operation does not indicate the state of the access key. The key might be active,
  *          inactive, or deleted. Active keys might not have permissions to perform an operation.
  *          Providing a deleted access key might return an error that the key doesn't exist.</p>
