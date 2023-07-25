@@ -36,7 +36,8 @@ export interface DescribeTaskExecutionCommandOutput extends DescribeTaskExecutio
 
 /**
  * @public
- * <p>Returns detailed metadata about a task that is being executed.</p>
+ * <p>Provides information about an DataSync transfer task that's
+ *       running.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

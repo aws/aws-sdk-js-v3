@@ -238,6 +238,14 @@ CreateAgent
 </details>
 <details>
 <summary>
+CreateLocationAzureBlob
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-datasync/classes/createlocationazureblobcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-datasync/interfaces/createlocationazureblobcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-datasync/interfaces/createlocationazureblobcommandoutput.html)
+
+</details>
+<details>
+<summary>
 CreateLocationEfs
 </summary>
 
@@ -362,6 +370,14 @@ DescribeDiscoveryJob
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-datasync/classes/describediscoveryjobcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-datasync/interfaces/describediscoveryjobcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-datasync/interfaces/describediscoveryjobcommandoutput.html)
+
+</details>
+<details>
+<summary>
+DescribeLocationAzureBlob
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-datasync/classes/describelocationazureblobcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-datasync/interfaces/describelocationazureblobcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-datasync/interfaces/describelocationazureblobcommandoutput.html)
 
 </details>
 <details>
@@ -610,6 +626,14 @@ UpdateDiscoveryJob
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-datasync/classes/updatediscoveryjobcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-datasync/interfaces/updatediscoveryjobcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-datasync/interfaces/updatediscoveryjobcommandoutput.html)
+
+</details>
+<details>
+<summary>
+UpdateLocationAzureBlob
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-datasync/classes/updatelocationazureblobcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-datasync/interfaces/updatelocationazureblobcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-datasync/interfaces/updatelocationazureblobcommandoutput.html)
 
 </details>
 <details>

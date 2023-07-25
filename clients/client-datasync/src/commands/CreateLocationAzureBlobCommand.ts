@@ -15,11 +15,11 @@ import {
 
 import { DataSyncClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DataSyncClient";
 import {
-  CreateLocationSmbRequest,
-  CreateLocationSmbRequestFilterSensitiveLog,
-  CreateLocationSmbResponse,
+  CreateLocationAzureBlobRequest,
+  CreateLocationAzureBlobRequestFilterSensitiveLog,
+  CreateLocationAzureBlobResponse,
 } from "../models/models_0";
-import { de_CreateLocationSmbCommand, se_CreateLocationSmbCommand } from "../protocols/Aws_json1_1";
+import { de_CreateLocationAzureBlobCommand, se_CreateLocationAzureBlobCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -28,39 +28,39 @@ export { __MetadataBearer, $Command };
 /**
  * @public
  *
- * The input for {@link CreateLocationSmbCommand}.
+ * The input for {@link CreateLocationAzureBlobCommand}.
  */
-export interface CreateLocationSmbCommandInput extends CreateLocationSmbRequest {}
+export interface CreateLocationAzureBlobCommandInput extends CreateLocationAzureBlobRequest {}
 /**
  * @public
  *
- * The output of {@link CreateLocationSmbCommand}.
+ * The output of {@link CreateLocationAzureBlobCommand}.
  */
-export interface CreateLocationSmbCommandOutput extends CreateLocationSmbResponse, __MetadataBearer {}
+export interface CreateLocationAzureBlobCommandOutput extends CreateLocationAzureBlobResponse, __MetadataBearer {}
 
 /**
  * @public
- * <p>Creates an endpoint for a Server Message Block (SMB) file server that DataSync can use for a data transfer.</p>
- *          <p>Before you begin, make sure that you understand how DataSync
- *       <a href="https://docs.aws.amazon.com/datasync/latest/userguide/create-smb-location.html">accesses an SMB file server</a>.</p>
+ * <p>Creates an endpoint for a Microsoft Azure Blob Storage container that DataSync can use as a transfer source or destination.</p>
+ *          <p>Before you begin, make sure you know <a href="https://docs.aws.amazon.com/datasync/latest/userguide/creating-azure-blob-location.html#azure-blob-access">how DataSync accesses Azure Blob Storage</a> and works with <a href="https://docs.aws.amazon.com/datasync/latest/userguide/creating-azure-blob-location.html#azure-blob-access-tiers">access tiers</a> and <a href="https://docs.aws.amazon.com/datasync/latest/userguide/creating-azure-blob-location.html#blob-types">blob types</a>. You also need a <a href="https://docs.aws.amazon.com/datasync/latest/userguide/creating-azure-blob-location.html#azure-blob-creating-agent">DataSync agent</a> that can connect to your
+ *       container.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { DataSyncClient, CreateLocationSmbCommand } from "@aws-sdk/client-datasync"; // ES Modules import
- * // const { DataSyncClient, CreateLocationSmbCommand } = require("@aws-sdk/client-datasync"); // CommonJS import
+ * import { DataSyncClient, CreateLocationAzureBlobCommand } from "@aws-sdk/client-datasync"; // ES Modules import
+ * // const { DataSyncClient, CreateLocationAzureBlobCommand } = require("@aws-sdk/client-datasync"); // CommonJS import
  * const client = new DataSyncClient(config);
- * const input = { // CreateLocationSmbRequest
- *   Subdirectory: "STRING_VALUE", // required
- *   ServerHostname: "STRING_VALUE", // required
- *   User: "STRING_VALUE", // required
- *   Domain: "STRING_VALUE",
- *   Password: "STRING_VALUE", // required
+ * const input = { // CreateLocationAzureBlobRequest
+ *   ContainerUrl: "STRING_VALUE", // required
+ *   AuthenticationType: "SAS", // required
+ *   SasConfiguration: { // AzureBlobSasConfiguration
+ *     Token: "STRING_VALUE", // required
+ *   },
+ *   BlobType: "BLOCK",
+ *   AccessTier: "HOT" || "COOL" || "ARCHIVE",
+ *   Subdirectory: "STRING_VALUE",
  *   AgentArns: [ // AgentArnList // required
  *     "STRING_VALUE",
  *   ],
- *   MountOptions: { // SmbMountOptions
- *     Version: "AUTOMATIC" || "SMB2" || "SMB3" || "SMB1" || "SMB2_0",
- *   },
  *   Tags: [ // InputTagList
  *     { // TagListEntry
  *       Key: "STRING_VALUE", // required
@@ -68,18 +68,18 @@ export interface CreateLocationSmbCommandOutput extends CreateLocationSmbRespons
  *     },
  *   ],
  * };
- * const command = new CreateLocationSmbCommand(input);
+ * const command = new CreateLocationAzureBlobCommand(input);
  * const response = await client.send(command);
- * // { // CreateLocationSmbResponse
+ * // { // CreateLocationAzureBlobResponse
  * //   LocationArn: "STRING_VALUE",
  * // };
  *
  * ```
  *
- * @param CreateLocationSmbCommandInput - {@link CreateLocationSmbCommandInput}
- * @returns {@link CreateLocationSmbCommandOutput}
- * @see {@link CreateLocationSmbCommandInput} for command's `input` shape.
- * @see {@link CreateLocationSmbCommandOutput} for command's `response` shape.
+ * @param CreateLocationAzureBlobCommandInput - {@link CreateLocationAzureBlobCommandInput}
+ * @returns {@link CreateLocationAzureBlobCommandOutput}
+ * @see {@link CreateLocationAzureBlobCommandInput} for command's `input` shape.
+ * @see {@link CreateLocationAzureBlobCommandOutput} for command's `response` shape.
  * @see {@link DataSyncClientResolvedConfig | config} for DataSyncClient's `config` shape.
  *
  * @throws {@link InternalException} (server fault)
@@ -93,9 +93,9 @@ export interface CreateLocationSmbCommandOutput extends CreateLocationSmbRespons
  * <p>Base exception class for all service exceptions from DataSync service.</p>
  *
  */
-export class CreateLocationSmbCommand extends $Command<
-  CreateLocationSmbCommandInput,
-  CreateLocationSmbCommandOutput,
+export class CreateLocationAzureBlobCommand extends $Command<
+  CreateLocationAzureBlobCommandInput,
+  CreateLocationAzureBlobCommandOutput,
   DataSyncClientResolvedConfig
 > {
   // Start section: command_properties
@@ -113,7 +113,7 @@ export class CreateLocationSmbCommand extends $Command<
   /**
    * @public
    */
-  constructor(readonly input: CreateLocationSmbCommandInput) {
+  constructor(readonly input: CreateLocationAzureBlobCommandInput) {
     // Start section: command_constructor
     super();
     // End section: command_constructor
@@ -126,22 +126,22 @@ export class CreateLocationSmbCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: DataSyncClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<CreateLocationSmbCommandInput, CreateLocationSmbCommandOutput> {
+  ): Handler<CreateLocationAzureBlobCommandInput, CreateLocationAzureBlobCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
     this.middlewareStack.use(
-      getEndpointPlugin(configuration, CreateLocationSmbCommand.getEndpointParameterInstructions())
+      getEndpointPlugin(configuration, CreateLocationAzureBlobCommand.getEndpointParameterInstructions())
     );
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
     const clientName = "DataSyncClient";
-    const commandName = "CreateLocationSmbCommand";
+    const commandName = "CreateLocationAzureBlobCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateLocationSmbRequestFilterSensitiveLog,
+      inputFilterSensitiveLog: CreateLocationAzureBlobRequestFilterSensitiveLog,
       outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
@@ -155,15 +155,15 @@ export class CreateLocationSmbCommand extends $Command<
   /**
    * @internal
    */
-  private serialize(input: CreateLocationSmbCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return se_CreateLocationSmbCommand(input, context);
+  private serialize(input: CreateLocationAzureBlobCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
+    return se_CreateLocationAzureBlobCommand(input, context);
   }
 
   /**
    * @internal
    */
-  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateLocationSmbCommandOutput> {
-    return de_CreateLocationSmbCommand(output, context);
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateLocationAzureBlobCommandOutput> {
+    return de_CreateLocationAzureBlobCommand(output, context);
   }
 
   // Start section: command_body_extra

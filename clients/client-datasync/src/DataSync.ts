@@ -14,6 +14,11 @@ import {
 } from "./commands/CancelTaskExecutionCommand";
 import { CreateAgentCommand, CreateAgentCommandInput, CreateAgentCommandOutput } from "./commands/CreateAgentCommand";
 import {
+  CreateLocationAzureBlobCommand,
+  CreateLocationAzureBlobCommandInput,
+  CreateLocationAzureBlobCommandOutput,
+} from "./commands/CreateLocationAzureBlobCommand";
+import {
   CreateLocationEfsCommand,
   CreateLocationEfsCommandInput,
   CreateLocationEfsCommandOutput,
@@ -81,6 +86,11 @@ import {
   DescribeDiscoveryJobCommandInput,
   DescribeDiscoveryJobCommandOutput,
 } from "./commands/DescribeDiscoveryJobCommand";
+import {
+  DescribeLocationAzureBlobCommand,
+  DescribeLocationAzureBlobCommandInput,
+  DescribeLocationAzureBlobCommandOutput,
+} from "./commands/DescribeLocationAzureBlobCommand";
 import {
   DescribeLocationEfsCommand,
   DescribeLocationEfsCommandInput,
@@ -221,6 +231,11 @@ import {
   UpdateDiscoveryJobCommandOutput,
 } from "./commands/UpdateDiscoveryJobCommand";
 import {
+  UpdateLocationAzureBlobCommand,
+  UpdateLocationAzureBlobCommandInput,
+  UpdateLocationAzureBlobCommandOutput,
+} from "./commands/UpdateLocationAzureBlobCommand";
+import {
   UpdateLocationHdfsCommand,
   UpdateLocationHdfsCommandInput,
   UpdateLocationHdfsCommandOutput,
@@ -257,6 +272,7 @@ const commands = {
   AddStorageSystemCommand,
   CancelTaskExecutionCommand,
   CreateAgentCommand,
+  CreateLocationAzureBlobCommand,
   CreateLocationEfsCommand,
   CreateLocationFsxLustreCommand,
   CreateLocationFsxOntapCommand,
@@ -273,6 +289,7 @@ const commands = {
   DeleteTaskCommand,
   DescribeAgentCommand,
   DescribeDiscoveryJobCommand,
+  DescribeLocationAzureBlobCommand,
   DescribeLocationEfsCommand,
   DescribeLocationFsxLustreCommand,
   DescribeLocationFsxOntapCommand,
@@ -304,6 +321,7 @@ const commands = {
   UntagResourceCommand,
   UpdateAgentCommand,
   UpdateDiscoveryJobCommand,
+  UpdateLocationAzureBlobCommand,
   UpdateLocationHdfsCommand,
   UpdateLocationNfsCommand,
   UpdateLocationObjectStorageCommand,
@@ -357,6 +375,23 @@ export interface DataSync {
     args: CreateAgentCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: CreateAgentCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link CreateLocationAzureBlobCommand}
+   */
+  createLocationAzureBlob(
+    args: CreateLocationAzureBlobCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateLocationAzureBlobCommandOutput>;
+  createLocationAzureBlob(
+    args: CreateLocationAzureBlobCommandInput,
+    cb: (err: any, data?: CreateLocationAzureBlobCommandOutput) => void
+  ): void;
+  createLocationAzureBlob(
+    args: CreateLocationAzureBlobCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CreateLocationAzureBlobCommandOutput) => void
   ): void;
 
   /**
@@ -602,6 +637,23 @@ export interface DataSync {
     args: DescribeDiscoveryJobCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: DescribeDiscoveryJobCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DescribeLocationAzureBlobCommand}
+   */
+  describeLocationAzureBlob(
+    args: DescribeLocationAzureBlobCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DescribeLocationAzureBlobCommandOutput>;
+  describeLocationAzureBlob(
+    args: DescribeLocationAzureBlobCommandInput,
+    cb: (err: any, data?: DescribeLocationAzureBlobCommandOutput) => void
+  ): void;
+  describeLocationAzureBlob(
+    args: DescribeLocationAzureBlobCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DescribeLocationAzureBlobCommandOutput) => void
   ): void;
 
   /**
@@ -1087,6 +1139,23 @@ export interface DataSync {
     args: UpdateDiscoveryJobCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: UpdateDiscoveryJobCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link UpdateLocationAzureBlobCommand}
+   */
+  updateLocationAzureBlob(
+    args: UpdateLocationAzureBlobCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateLocationAzureBlobCommandOutput>;
+  updateLocationAzureBlob(
+    args: UpdateLocationAzureBlobCommandInput,
+    cb: (err: any, data?: UpdateLocationAzureBlobCommandOutput) => void
+  ): void;
+  updateLocationAzureBlob(
+    args: UpdateLocationAzureBlobCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UpdateLocationAzureBlobCommandOutput) => void
   ): void;
 
   /**

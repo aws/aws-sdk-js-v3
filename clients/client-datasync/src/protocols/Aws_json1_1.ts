@@ -33,6 +33,10 @@ import {
   CancelTaskExecutionCommandOutput,
 } from "../commands/CancelTaskExecutionCommand";
 import { CreateAgentCommandInput, CreateAgentCommandOutput } from "../commands/CreateAgentCommand";
+import {
+  CreateLocationAzureBlobCommandInput,
+  CreateLocationAzureBlobCommandOutput,
+} from "../commands/CreateLocationAzureBlobCommand";
 import { CreateLocationEfsCommandInput, CreateLocationEfsCommandOutput } from "../commands/CreateLocationEfsCommand";
 import {
   CreateLocationFsxLustreCommandInput,
@@ -67,6 +71,10 @@ import {
   DescribeDiscoveryJobCommandInput,
   DescribeDiscoveryJobCommandOutput,
 } from "../commands/DescribeDiscoveryJobCommand";
+import {
+  DescribeLocationAzureBlobCommandInput,
+  DescribeLocationAzureBlobCommandOutput,
+} from "../commands/DescribeLocationAzureBlobCommand";
 import {
   DescribeLocationEfsCommandInput,
   DescribeLocationEfsCommandOutput,
@@ -146,6 +154,10 @@ import { TagResourceCommandInput, TagResourceCommandOutput } from "../commands/T
 import { UntagResourceCommandInput, UntagResourceCommandOutput } from "../commands/UntagResourceCommand";
 import { UpdateAgentCommandInput, UpdateAgentCommandOutput } from "../commands/UpdateAgentCommand";
 import { UpdateDiscoveryJobCommandInput, UpdateDiscoveryJobCommandOutput } from "../commands/UpdateDiscoveryJobCommand";
+import {
+  UpdateLocationAzureBlobCommandInput,
+  UpdateLocationAzureBlobCommandOutput,
+} from "../commands/UpdateLocationAzureBlobCommand";
 import { UpdateLocationHdfsCommandInput, UpdateLocationHdfsCommandOutput } from "../commands/UpdateLocationHdfsCommand";
 import { UpdateLocationNfsCommandInput, UpdateLocationNfsCommandOutput } from "../commands/UpdateLocationNfsCommand";
 import {
@@ -165,8 +177,10 @@ import {
 import { DataSyncServiceException as __BaseException } from "../models/DataSyncServiceException";
 import {
   AddStorageSystemRequest,
+  AzureBlobSasConfiguration,
   CancelTaskExecutionRequest,
   CreateAgentRequest,
+  CreateLocationAzureBlobRequest,
   CreateLocationEfsRequest,
   CreateLocationFsxLustreRequest,
   CreateLocationFsxOntapRequest,
@@ -186,6 +200,8 @@ import {
   DescribeAgentResponse,
   DescribeDiscoveryJobRequest,
   DescribeDiscoveryJobResponse,
+  DescribeLocationAzureBlobRequest,
+  DescribeLocationAzureBlobResponse,
   DescribeLocationEfsRequest,
   DescribeLocationEfsResponse,
   DescribeLocationFsxLustreRequest,
@@ -261,6 +277,7 @@ import {
   UntagResourceRequest,
   UpdateAgentRequest,
   UpdateDiscoveryJobRequest,
+  UpdateLocationAzureBlobRequest,
   UpdateLocationHdfsRequest,
   UpdateLocationNfsRequest,
   UpdateLocationObjectStorageRequest,
@@ -311,6 +328,19 @@ export const se_CreateAgentCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("CreateAgent");
+  let body: any;
+  body = JSON.stringify(_json(input));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+/**
+ * serializeAws_json1_1CreateLocationAzureBlobCommand
+ */
+export const se_CreateLocationAzureBlobCommand = async (
+  input: CreateLocationAzureBlobCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = sharedHeaders("CreateLocationAzureBlob");
   let body: any;
   body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -529,6 +559,19 @@ export const se_DescribeDiscoveryJobCommand = async (
     }
   }
   return buildHttpRpcRequest(context, headers, "/", resolvedHostname, body);
+};
+
+/**
+ * serializeAws_json1_1DescribeLocationAzureBlobCommand
+ */
+export const se_DescribeLocationAzureBlobCommand = async (
+  input: DescribeLocationAzureBlobCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = sharedHeaders("DescribeLocationAzureBlob");
+  let body: any;
+  body = JSON.stringify(_json(input));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
 /**
@@ -1005,6 +1048,19 @@ export const se_UpdateDiscoveryJobCommand = async (
 };
 
 /**
+ * serializeAws_json1_1UpdateLocationAzureBlobCommand
+ */
+export const se_UpdateLocationAzureBlobCommand = async (
+  input: UpdateLocationAzureBlobCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = sharedHeaders("UpdateLocationAzureBlob");
+  let body: any;
+  body = JSON.stringify(_json(input));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+/**
  * serializeAws_json1_1UpdateLocationHdfsCommand
  */
 export const se_UpdateLocationHdfsCommand = async (
@@ -1227,6 +1283,55 @@ const de_CreateAgentCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateAgentCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "InternalException":
+    case "com.amazonaws.datasync#InternalException":
+      throw await de_InternalExceptionRes(parsedOutput, context);
+    case "InvalidRequestException":
+    case "com.amazonaws.datasync#InvalidRequestException":
+      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
+ * deserializeAws_json1_1CreateLocationAzureBlobCommand
+ */
+export const de_CreateLocationAzureBlobCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CreateLocationAzureBlobCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CreateLocationAzureBlobCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = _json(data);
+  const response: CreateLocationAzureBlobCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1CreateLocationAzureBlobCommandError
+ */
+const de_CreateLocationAzureBlobCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CreateLocationAzureBlobCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseErrorBody(output.body, context),
@@ -2011,6 +2116,55 @@ const de_DescribeDiscoveryJobCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeDiscoveryJobCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "InternalException":
+    case "com.amazonaws.datasync#InternalException":
+      throw await de_InternalExceptionRes(parsedOutput, context);
+    case "InvalidRequestException":
+    case "com.amazonaws.datasync#InvalidRequestException":
+      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
+ * deserializeAws_json1_1DescribeLocationAzureBlobCommand
+ */
+export const de_DescribeLocationAzureBlobCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeLocationAzureBlobCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_DescribeLocationAzureBlobCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_DescribeLocationAzureBlobResponse(data, context);
+  const response: DescribeLocationAzureBlobCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1DescribeLocationAzureBlobCommandError
+ */
+const de_DescribeLocationAzureBlobCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeLocationAzureBlobCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseErrorBody(output.body, context),
@@ -3553,6 +3707,55 @@ const de_UpdateDiscoveryJobCommandError = async (
 };
 
 /**
+ * deserializeAws_json1_1UpdateLocationAzureBlobCommand
+ */
+export const de_UpdateLocationAzureBlobCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateLocationAzureBlobCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_UpdateLocationAzureBlobCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = _json(data);
+  const response: UpdateLocationAzureBlobCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1UpdateLocationAzureBlobCommandError
+ */
+const de_UpdateLocationAzureBlobCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateLocationAzureBlobCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "InternalException":
+    case "com.amazonaws.datasync#InternalException":
+      throw await de_InternalExceptionRes(parsedOutput, context);
+    case "InvalidRequestException":
+    case "com.amazonaws.datasync#InvalidRequestException":
+      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
  * deserializeAws_json1_1UpdateLocationHdfsCommand
  */
 export const de_UpdateLocationHdfsCommand = async (
@@ -3942,9 +4145,13 @@ const se_AddStorageSystemRequest = (input: AddStorageSystemRequest, context: __S
 
 // se_AgentArnList omitted.
 
+// se_AzureBlobSasConfiguration omitted.
+
 // se_CancelTaskExecutionRequest omitted.
 
 // se_CreateAgentRequest omitted.
+
+// se_CreateLocationAzureBlobRequest omitted.
 
 // se_CreateLocationEfsRequest omitted.
 
@@ -4017,6 +4224,8 @@ const se_CreateLocationObjectStorageRequest = (
 // se_DescribeAgentRequest omitted.
 
 // se_DescribeDiscoveryJobRequest omitted.
+
+// se_DescribeLocationAzureBlobRequest omitted.
 
 // se_DescribeLocationEfsRequest omitted.
 
@@ -4168,6 +4377,8 @@ const se_StartDiscoveryJobRequest = (input: StartDiscoveryJobRequest, context: _
 
 // se_UpdateDiscoveryJobRequest omitted.
 
+// se_UpdateLocationAzureBlobRequest omitted.
+
 /**
  * serializeAws_json1_1UpdateLocationHdfsRequest
  */
@@ -4232,6 +4443,8 @@ const se_UpdateLocationObjectStorageRequest = (
 
 // de_CreateAgentResponse omitted.
 
+// de_CreateLocationAzureBlobResponse omitted.
+
 // de_CreateLocationEfsResponse omitted.
 
 // de_CreateLocationFsxLustreResponse omitted.
@@ -4286,6 +4499,24 @@ const de_DescribeDiscoveryJobResponse = (output: any, context: __SerdeContext): 
     JobStartTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
     Status: __expectString,
     StorageSystemArn: __expectString,
+  }) as any;
+};
+
+/**
+ * deserializeAws_json1_1DescribeLocationAzureBlobResponse
+ */
+const de_DescribeLocationAzureBlobResponse = (
+  output: any,
+  context: __SerdeContext
+): DescribeLocationAzureBlobResponse => {
+  return take(output, {
+    AccessTier: __expectString,
+    AgentArns: _json,
+    AuthenticationType: __expectString,
+    BlobType: __expectString,
+    CreationTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    LocationArn: __expectString,
+    LocationUri: __expectString,
   }) as any;
 };
 
@@ -4856,6 +5087,8 @@ const de_Throughput = (output: any, context: __SerdeContext): Throughput => {
 // de_UpdateAgentResponse omitted.
 
 // de_UpdateDiscoveryJobResponse omitted.
+
+// de_UpdateLocationAzureBlobResponse omitted.
 
 // de_UpdateLocationHdfsResponse omitted.
 

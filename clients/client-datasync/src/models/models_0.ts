@@ -94,7 +94,8 @@ export interface AddStorageSystemRequest {
 
   /**
    * <p>Specifies the Amazon Resource Name (ARN) of the DataSync agent that connects to
-   *       and reads from your on-premises storage system's management interface.</p>
+   *       and reads from your on-premises storage system's management interface. You can only specify
+   *       one ARN.</p>
    */
   AgentArns: string[] | undefined;
 
@@ -240,6 +241,66 @@ export type Atime = (typeof Atime)[keyof typeof Atime];
 
 /**
  * @public
+ * @enum
+ */
+export const AzureAccessTier = {
+  ARCHIVE: "ARCHIVE",
+  COOL: "COOL",
+  HOT: "HOT",
+} as const;
+
+/**
+ * @public
+ */
+export type AzureAccessTier = (typeof AzureAccessTier)[keyof typeof AzureAccessTier];
+
+/**
+ * @public
+ * @enum
+ */
+export const AzureBlobAuthenticationType = {
+  SAS: "SAS",
+} as const;
+
+/**
+ * @public
+ */
+export type AzureBlobAuthenticationType =
+  (typeof AzureBlobAuthenticationType)[keyof typeof AzureBlobAuthenticationType];
+
+/**
+ * @public
+ * <p>The shared access signature (SAS) configuration that allows DataSync to access your Microsoft Azure Blob Storage.</p>
+ *          <p>For more information, see <a href="https://docs.aws.amazon.com/datasync/latest/userguide/creating-azure-blob-location.html#azure-blob-sas-tokens">SAS
+ *         tokens</a> for accessing your Azure Blob Storage.</p>
+ */
+export interface AzureBlobSasConfiguration {
+  /**
+   * <p>Specifies a SAS token that provides permissions at the Azure storage account, container,
+   *       or folder level.</p>
+   *          <p>The token is part of the SAS URI string that comes after the storage resource URI and a question mark. A token looks something like this:</p>
+   *          <p>
+   *             <code>sp=r&st=2023-12-20T14:54:52Z&se=2023-12-20T22:54:52Z&spr=https&sv=2021-06-08&sr=c&sig=aBBKDWQvyuVcTPH9EBp%2FXTI9E%2F%2Fmq171%2BZU178wcwqU%3D</code>
+   *          </p>
+   */
+  Token: string | undefined;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const AzureBlobType = {
+  BLOCK: "BLOCK",
+} as const;
+
+/**
+ * @public
+ */
+export type AzureBlobType = (typeof AzureBlobType)[keyof typeof AzureBlobType];
+
+/**
+ * @public
  * <p>CancelTaskExecutionRequest</p>
  */
 export interface CancelTaskExecutionRequest {
@@ -314,15 +375,14 @@ export interface CreateAgentRequest {
    * <p>Specifies the ARN of the subnet where you want to run your DataSync task when
    *       using a VPC endpoint. This is the subnet where DataSync creates and manages the
    *         <a href="https://docs.aws.amazon.com/datasync/latest/userguide/datasync-network.html#required-network-interfaces">network
-   *         interfaces</a> for your transfer.</p>
+   *         interfaces</a> for your transfer. You can only specify one ARN.</p>
    */
   SubnetArns?: string[];
 
   /**
    * <p>Specifies the Amazon Resource Name (ARN) of the security group that protects your task's
    *         <a href="https://docs.aws.amazon.com/datasync/latest/userguide/datasync-network.html#required-network-interfaces">network
-   *           interfaces</a> when <a href="https://docs.aws.amazon.com/datasync/latest/userguide/choose-service-endpoint.html#choose-service-endpoint-vpc">using a virtual private cloud (VPC)
-   *       endpoint</a>.</p>
+   *         interfaces</a> when <a href="https://docs.aws.amazon.com/datasync/latest/userguide/choose-service-endpoint.html#choose-service-endpoint-vpc">using a virtual private cloud (VPC) endpoint</a>. You can only specify one ARN.</p>
    */
   SecurityGroupArns?: string[];
 }
@@ -337,6 +397,66 @@ export interface CreateAgentResponse {
    *       list of agents in your Amazon Web Services account and Amazon Web Services Region.</p>
    */
   AgentArn?: string;
+}
+
+/**
+ * @public
+ */
+export interface CreateLocationAzureBlobRequest {
+  /**
+   * <p>Specifies the URL of the Azure Blob Storage container involved in your transfer.</p>
+   */
+  ContainerUrl: string | undefined;
+
+  /**
+   * <p>Specifies the authentication method DataSync uses to access your Azure Blob Storage. DataSync can access blob storage using a shared access signature (SAS).</p>
+   */
+  AuthenticationType: AzureBlobAuthenticationType | string | undefined;
+
+  /**
+   * <p>Specifies the SAS configuration that allows DataSync to access your Azure Blob Storage.</p>
+   */
+  SasConfiguration?: AzureBlobSasConfiguration;
+
+  /**
+   * <p>Specifies the type of blob that you want your objects or files to be when transferring
+   *       them into Azure Blob Storage. Currently, DataSync only supports moving data into
+   *       Azure Blob Storage as block blobs. For more information on blob types, see the <a href="https://learn.microsoft.com/en-us/rest/api/storageservices/understanding-block-blobs--append-blobs--and-page-blobs">Azure Blob Storage documentation</a>.</p>
+   */
+  BlobType?: AzureBlobType | string;
+
+  /**
+   * <p>Specifies the access tier that you want your objects or files transferred into. This only applies when using the location as a transfer destination. For more information, see <a href="https://docs.aws.amazon.com/datasync/latest/userguide/creating-azure-blob-location.html#azure-blob-access-tiers">Access tiers</a>.</p>
+   */
+  AccessTier?: AzureAccessTier | string;
+
+  /**
+   * <p>Specifies path segments if you want to limit your transfer to a virtual directory in your
+   *       container (for example, <code>/my/images</code>).</p>
+   */
+  Subdirectory?: string;
+
+  /**
+   * <p>Specifies the Amazon Resource Name (ARN) of the DataSync agent that can connect with your Azure Blob Storage container.</p>
+   *          <p>You can specify more than one agent. For more information, see <a href="https://docs.aws.amazon.com/datasync/latest/userguide/multiple-agents.html">Using multiple
+   *         agents for your transfer</a>.</p>
+   */
+  AgentArns: string[] | undefined;
+
+  /**
+   * <p>Specifies labels that help you categorize, filter, and search for your Amazon Web Services resources. We recommend creating at least a name tag for your transfer location.</p>
+   */
+  Tags?: TagListEntry[];
+}
+
+/**
+ * @public
+ */
+export interface CreateLocationAzureBlobResponse {
+  /**
+   * <p>The ARN of the Azure Blob Storage transfer location that you created.</p>
+   */
+  LocationArn?: string;
 }
 
 /**
@@ -1100,10 +1220,10 @@ export interface OnPremConfig {
  */
 export interface CreateLocationNfsRequest {
   /**
-   * <p>The subdirectory in the NFS file system that is used to read data from the NFS source
-   *       location or write data to the NFS destination. The NFS path should be a path that's
-   *       exported by the NFS server, or a subdirectory of that path. The path should be such that it
-   *       can be mounted by other NFS clients in your network. </p>
+   * <p>Specifies the subdirectory in the NFS file server that DataSync transfers to
+   *       or from. The NFS path should be a path that's exported by the NFS server, or a
+   *       subdirectory of that path. The path should be such that it can be mounted by other NFS clients
+   *       in your network. </p>
    *          <p>To see all the paths exported by your NFS server, run "<code>showmount -e
    *         nfs-server-name</code>" from an NFS client that has access to your server. You can specify
    *       any directory that appears in the results, and any subdirectory of that directory. Ensure that
@@ -1116,40 +1236,38 @@ export interface CreateLocationNfsRequest {
    *       access.</p>
    *          <p>If you are copying data to or from your Snowcone device, see <a href="https://docs.aws.amazon.com/datasync/latest/userguide/create-nfs-location.html#nfs-on-snowcone">NFS Server on
    *           Snowcone</a> for more information.</p>
-   *          <p>For information about NFS export configuration, see 18.7. The /etc/exports
-   *       Configuration File in the Red Hat Enterprise Linux documentation.</p>
    */
   Subdirectory: string | undefined;
 
   /**
-   * <p>The name of the NFS server. This value is the IP address or Domain Name Service (DNS)
-   *       name of the NFS server. An agent that is installed on-premises uses this hostname to mount the
-   *       NFS server in a network. </p>
+   * <p>Specifies the IP address or domain name of your NFS file server. An agent that is
+   *       installed on-premises uses this hostname to mount the NFS server in a network. </p>
    *          <p>If you are copying data to or from your Snowcone device, see <a href="https://docs.aws.amazon.com/datasync/latest/userguide/create-nfs-location.html#nfs-on-snowcone">NFS Server on
    *           Snowcone</a> for more information.</p>
    *          <note>
-   *             <p>This name must either be DNS-compliant or must be an IP version 4 (IPv4)
-   *         address.</p>
+   *             <p>You must specify be an IP version 4 address or Domain Name System (DNS)-compliant
+   *         name.</p>
    *          </note>
    */
   ServerHostname: string | undefined;
 
   /**
-   * <p>Contains a list of Amazon Resource Names (ARNs) of agents that are used to connect to
-   *       an NFS server. </p>
+   * <p>Specifies the Amazon Resource Names (ARNs) of agents that DataSync uses to
+   *       connect to your NFS file server. </p>
    *          <p>If you are copying data to or from your Snowcone device, see <a href="https://docs.aws.amazon.com/datasync/latest/userguide/create-nfs-location.html#nfs-on-snowcone">NFS Server on
    *           Snowcone</a> for more information.</p>
    */
   OnPremConfig: OnPremConfig | undefined;
 
   /**
-   * <p>The NFS mount options that DataSync can use to mount your NFS share.</p>
+   * <p>Specifies the mount options that DataSync can use to mount your NFS
+   *       share.</p>
    */
   MountOptions?: NfsMountOptions;
 
   /**
-   * <p>The key-value pair that represents the tag that you want to add to the location. The
-   *       value can be an empty string. We recommend using tags to name your resources.</p>
+   * <p>Specifies labels that help you categorize, filter, and search for your Amazon Web Services resources.
+   *       We recommend creating at least a name tag for your location.</p>
    */
   Tags?: TagListEntry[];
 }
@@ -1160,8 +1278,7 @@ export interface CreateLocationNfsRequest {
  */
 export interface CreateLocationNfsResponse {
   /**
-   * <p>The Amazon Resource Name (ARN) of the source NFS file system location that is
-   *       created.</p>
+   * <p>The ARN of the transfer location that you created for your NFS file server.</p>
    */
   LocationArn?: string;
 }
@@ -2104,33 +2221,30 @@ export type EndpointType = (typeof EndpointType)[keyof typeof EndpointType];
 
 /**
  * @public
- * <p>The VPC endpoint, subnet, and security group that an agent uses to access IP addresses in
- *       a VPC (Virtual Private Cloud).</p>
+ * <p>Specifies how your DataSync agent connects to Amazon Web Services using a
+ *       virtual private cloud (VPC) service endpoint. An agent that uses a VPC endpoint isn't
+ *       accessible over the public internet.</p>
  */
 export interface PrivateLinkConfig {
   /**
-   * <p>The ID of the VPC endpoint that is configured for an agent. An agent that is configured
-   *       with a VPC endpoint will not be accessible over the public internet.</p>
+   * <p>Specifies the ID of the VPC endpoint that your agent connects to.</p>
    */
   VpcEndpointId?: string;
 
   /**
-   * <p>The private endpoint that is configured for an agent that has access to IP addresses in a
-   *         <a href="https://docs.aws.amazon.com/vpc/latest/userguide/endpoint-service.html">PrivateLink</a>. An agent that is configured with this endpoint will not be accessible
-   *       over the public internet.</p>
+   * <p>Specifies the VPC endpoint provided by <a href="https://docs.aws.amazon.com/vpc/latest/userguide/endpoint-service.html">Amazon Web Services PrivateLink</a> that
+   *       your agent connects to.</p>
    */
   PrivateLinkEndpoint?: string;
 
   /**
-   * <p>The Amazon Resource Names (ARNs) of the subnets that are configured for an agent activated
-   *       in a VPC or an agent that has access to a VPC endpoint.</p>
+   * <p>Specifies the ARN of the subnet where your VPC endpoint is located. You can only specify
+   *       one ARN.</p>
    */
   SubnetArns?: string[];
 
   /**
-   * <p>The Amazon Resource Names (ARNs) of the security groups that are configured for the EC2
-   *       resource that hosts an agent activated in a VPC or an agent that has access to a VPC
-   *       endpoint.</p>
+   * <p>Specifies the Amazon Resource Names (ARN) of the security group that provides DataSync access to your VPC endpoint. You can only specify one ARN.</p>
    */
   SecurityGroupArns?: string[];
 }
@@ -2244,6 +2358,58 @@ export interface DescribeDiscoveryJobResponse {
    * <p>The time when the discovery job ended.</p>
    */
   JobEndTime?: Date;
+}
+
+/**
+ * @public
+ */
+export interface DescribeLocationAzureBlobRequest {
+  /**
+   * <p>Specifies the Amazon Resource Name (ARN) of your Azure Blob Storage transfer location.</p>
+   */
+  LocationArn: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DescribeLocationAzureBlobResponse {
+  /**
+   * <p>The ARN of your Azure Blob Storage transfer location.</p>
+   */
+  LocationArn?: string;
+
+  /**
+   * <p>The URL of the Azure Blob Storage container involved in your transfer.</p>
+   */
+  LocationUri?: string;
+
+  /**
+   * <p>The authentication method DataSync uses to access your Azure Blob Storage. DataSync can access blob storage using a shared access signature (SAS).</p>
+   */
+  AuthenticationType?: AzureBlobAuthenticationType | string;
+
+  /**
+   * <p>The type of blob that you want your objects or files to be when transferring them into
+   *       Azure Blob Storage. Currently, DataSync only supports moving data into Azure Blob
+   *       Storage as block blobs. For more information on blob types, see the <a href="https://learn.microsoft.com/en-us/rest/api/storageservices/understanding-block-blobs--append-blobs--and-page-blobs">Azure Blob Storage documentation</a>.</p>
+   */
+  BlobType?: AzureBlobType | string;
+
+  /**
+   * <p>The access tier that you want your objects or files transferred into. This only applies when using the location as a transfer destination. For more information, see <a href="https://docs.aws.amazon.com/datasync/latest/userguide/creating-azure-blob-location.html#azure-blob-access-tiers">Access tiers</a>.</p>
+   */
+  AccessTier?: AzureAccessTier | string;
+
+  /**
+   * <p>The ARNs of the DataSync agents that can connect with your Azure Blob Storage container.</p>
+   */
+  AgentArns?: string[];
+
+  /**
+   * <p>The time that your Azure Blob Storage transfer location was created.</p>
+   */
+  CreationTime?: Date;
 }
 
 /**
@@ -2601,7 +2767,7 @@ export interface DescribeLocationNfsResponse {
   OnPremConfig?: OnPremConfig;
 
   /**
-   * <p>The NFS mount options that DataSync used to mount your NFS share.</p>
+   * <p>The mount options that DataSync uses to mount your NFS share.</p>
    */
   MountOptions?: NfsMountOptions;
 
@@ -3536,7 +3702,7 @@ export interface DescribeStorageSystemResourcesResponse {
  */
 export interface DescribeTaskRequest {
   /**
-   * <p>The Amazon Resource Name (ARN) of the task to describe.</p>
+   * <p>Specifies the Amazon Resource Name (ARN) of the transfer task.</p>
    */
   TaskArn: string | undefined;
 }
@@ -3670,7 +3836,7 @@ export interface DescribeTaskResponse {
  */
 export interface DescribeTaskExecutionRequest {
   /**
-   * <p>The Amazon Resource Name (ARN) of the task that is being executed.</p>
+   * <p>Specifies the Amazon Resource Name (ARN) of the transfer task that's running.</p>
    */
   TaskExecutionArn: string | undefined;
 }
@@ -4609,6 +4775,56 @@ export interface UpdateDiscoveryJobResponse {}
 /**
  * @public
  */
+export interface UpdateLocationAzureBlobRequest {
+  /**
+   * <p>Specifies the ARN of the Azure Blob Storage transfer location that you're updating.</p>
+   */
+  LocationArn: string | undefined;
+
+  /**
+   * <p>Specifies path segments if you want to limit your transfer to a virtual directory in your
+   *       container (for example, <code>/my/images</code>).</p>
+   */
+  Subdirectory?: string;
+
+  /**
+   * <p>Specifies the authentication method DataSync uses to access your Azure Blob Storage. DataSync can access blob storage using a shared access signature (SAS).</p>
+   */
+  AuthenticationType?: AzureBlobAuthenticationType | string;
+
+  /**
+   * <p>Specifies the SAS configuration that allows DataSync to access your Azure Blob Storage.</p>
+   */
+  SasConfiguration?: AzureBlobSasConfiguration;
+
+  /**
+   * <p>Specifies the type of blob that you want your objects or files to be when transferring
+   *       them into Azure Blob Storage. Currently, DataSync only supports moving data into
+   *       Azure Blob Storage as block blobs. For more information on blob types, see the <a href="https://learn.microsoft.com/en-us/rest/api/storageservices/understanding-block-blobs--append-blobs--and-page-blobs">Azure Blob Storage documentation</a>.</p>
+   */
+  BlobType?: AzureBlobType | string;
+
+  /**
+   * <p>Specifies the access tier that you want your objects or files transferred into. This only applies when using the location as a transfer destination. For more information, see <a href="https://docs.aws.amazon.com/datasync/latest/userguide/creating-azure-blob-location.html#azure-blob-access-tiers">Access tiers</a>.</p>
+   */
+  AccessTier?: AzureAccessTier | string;
+
+  /**
+   * <p>Specifies the Amazon Resource Name (ARN) of the DataSync agent that can connect with your Azure Blob Storage container.</p>
+   *          <p>You can specify more than one agent. For more information, see <a href="https://docs.aws.amazon.com/datasync/latest/userguide/multiple-agents.html">Using multiple
+   *       agents for your transfer</a>.</p>
+   */
+  AgentArns?: string[];
+}
+
+/**
+ * @public
+ */
+export interface UpdateLocationAzureBlobResponse {}
+
+/**
+ * @public
+ */
 export interface UpdateLocationHdfsRequest {
   /**
    * <p>The Amazon Resource Name (ARN) of the source HDFS cluster location.</p>
@@ -4697,15 +4913,16 @@ export interface UpdateLocationHdfsResponse {}
  */
 export interface UpdateLocationNfsRequest {
   /**
-   * <p>The Amazon Resource Name (ARN) of the NFS location to update.</p>
+   * <p>Specifies the Amazon Resource Name (ARN) of the NFS location that you want to
+   *       update.</p>
    */
   LocationArn: string | undefined;
 
   /**
-   * <p>The subdirectory in the NFS file system that is used to read data from the NFS source
-   *       location or write data to the NFS destination. The NFS path should be a path that's
-   *       exported by the NFS server, or a subdirectory of that path. The path should be such that it
-   *       can be mounted by other NFS clients in your network.</p>
+   * <p>Specifies the subdirectory in your NFS file system that DataSync uses to read
+   *       from or write to during a transfer. The NFS path should be exported by the NFS server, or a
+   *       subdirectory of that path. The path should be such that it can be mounted by other NFS clients
+   *       in your network.</p>
    *          <p>To see all the paths exported by your NFS server, run "<code>showmount -e
    *         nfs-server-name</code>" from an NFS client that has access to your server. You can specify
    *       any directory that appears in the results, and any subdirectory of that directory. Ensure that
@@ -4718,8 +4935,6 @@ export interface UpdateLocationNfsRequest {
    *       execute access.</p>
    *          <p>If you are copying data to or from your Snowcone device, see <a href="https://docs.aws.amazon.com/datasync/latest/userguide/create-nfs-location.html#nfs-on-snowcone">NFS Server on
    *           Snowcone</a> for more information.</p>
-   *          <p>For information about NFS export configuration, see 18.7. The /etc/exports
-   *       Configuration File in the Red Hat Enterprise Linux documentation.</p>
    */
   Subdirectory?: string;
 
@@ -4889,7 +5104,7 @@ export interface UpdateStorageSystemRequest {
 
   /**
    * <p>Specifies the Amazon Resource Name (ARN) of the DataSync agent that connects to and reads
-   *       your on-premises storage system.</p>
+   *       your on-premises storage system. You can only specify one ARN.</p>
    */
   AgentArns?: string[];
 
@@ -5017,6 +5232,22 @@ export const AddStorageSystemRequestFilterSensitiveLog = (obj: AddStorageSystemR
 /**
  * @internal
  */
+export const AzureBlobSasConfigurationFilterSensitiveLog = (obj: AzureBlobSasConfiguration): any => ({
+  ...obj,
+  ...(obj.Token && { Token: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const CreateLocationAzureBlobRequestFilterSensitiveLog = (obj: CreateLocationAzureBlobRequest): any => ({
+  ...obj,
+  ...(obj.SasConfiguration && { SasConfiguration: AzureBlobSasConfigurationFilterSensitiveLog(obj.SasConfiguration) }),
+});
+
+/**
+ * @internal
+ */
 export const FsxProtocolSmbFilterSensitiveLog = (obj: FsxProtocolSmb): any => ({
   ...obj,
   ...(obj.Password && { Password: SENSITIVE_STRING }),
@@ -5084,6 +5315,14 @@ export const DescribeLocationFsxOntapResponseFilterSensitiveLog = (obj: Describe
 export const DescribeLocationFsxOpenZfsResponseFilterSensitiveLog = (obj: DescribeLocationFsxOpenZfsResponse): any => ({
   ...obj,
   ...(obj.Protocol && { Protocol: FsxProtocolFilterSensitiveLog(obj.Protocol) }),
+});
+
+/**
+ * @internal
+ */
+export const UpdateLocationAzureBlobRequestFilterSensitiveLog = (obj: UpdateLocationAzureBlobRequest): any => ({
+  ...obj,
+  ...(obj.SasConfiguration && { SasConfiguration: AzureBlobSasConfigurationFilterSensitiveLog(obj.SasConfiguration) }),
 });
 
 /**

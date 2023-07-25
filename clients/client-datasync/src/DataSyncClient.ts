@@ -55,6 +55,10 @@ import {
   CancelTaskExecutionCommandOutput,
 } from "./commands/CancelTaskExecutionCommand";
 import { CreateAgentCommandInput, CreateAgentCommandOutput } from "./commands/CreateAgentCommand";
+import {
+  CreateLocationAzureBlobCommandInput,
+  CreateLocationAzureBlobCommandOutput,
+} from "./commands/CreateLocationAzureBlobCommand";
 import { CreateLocationEfsCommandInput, CreateLocationEfsCommandOutput } from "./commands/CreateLocationEfsCommand";
 import {
   CreateLocationFsxLustreCommandInput,
@@ -89,6 +93,10 @@ import {
   DescribeDiscoveryJobCommandInput,
   DescribeDiscoveryJobCommandOutput,
 } from "./commands/DescribeDiscoveryJobCommand";
+import {
+  DescribeLocationAzureBlobCommandInput,
+  DescribeLocationAzureBlobCommandOutput,
+} from "./commands/DescribeLocationAzureBlobCommand";
 import {
   DescribeLocationEfsCommandInput,
   DescribeLocationEfsCommandOutput,
@@ -168,6 +176,10 @@ import { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/Ta
 import { UntagResourceCommandInput, UntagResourceCommandOutput } from "./commands/UntagResourceCommand";
 import { UpdateAgentCommandInput, UpdateAgentCommandOutput } from "./commands/UpdateAgentCommand";
 import { UpdateDiscoveryJobCommandInput, UpdateDiscoveryJobCommandOutput } from "./commands/UpdateDiscoveryJobCommand";
+import {
+  UpdateLocationAzureBlobCommandInput,
+  UpdateLocationAzureBlobCommandOutput,
+} from "./commands/UpdateLocationAzureBlobCommand";
 import { UpdateLocationHdfsCommandInput, UpdateLocationHdfsCommandOutput } from "./commands/UpdateLocationHdfsCommand";
 import { UpdateLocationNfsCommandInput, UpdateLocationNfsCommandOutput } from "./commands/UpdateLocationNfsCommand";
 import {
@@ -201,6 +213,7 @@ export type ServiceInputTypes =
   | AddStorageSystemCommandInput
   | CancelTaskExecutionCommandInput
   | CreateAgentCommandInput
+  | CreateLocationAzureBlobCommandInput
   | CreateLocationEfsCommandInput
   | CreateLocationFsxLustreCommandInput
   | CreateLocationFsxOntapCommandInput
@@ -217,6 +230,7 @@ export type ServiceInputTypes =
   | DeleteTaskCommandInput
   | DescribeAgentCommandInput
   | DescribeDiscoveryJobCommandInput
+  | DescribeLocationAzureBlobCommandInput
   | DescribeLocationEfsCommandInput
   | DescribeLocationFsxLustreCommandInput
   | DescribeLocationFsxOntapCommandInput
@@ -248,6 +262,7 @@ export type ServiceInputTypes =
   | UntagResourceCommandInput
   | UpdateAgentCommandInput
   | UpdateDiscoveryJobCommandInput
+  | UpdateLocationAzureBlobCommandInput
   | UpdateLocationHdfsCommandInput
   | UpdateLocationNfsCommandInput
   | UpdateLocationObjectStorageCommandInput
@@ -263,6 +278,7 @@ export type ServiceOutputTypes =
   | AddStorageSystemCommandOutput
   | CancelTaskExecutionCommandOutput
   | CreateAgentCommandOutput
+  | CreateLocationAzureBlobCommandOutput
   | CreateLocationEfsCommandOutput
   | CreateLocationFsxLustreCommandOutput
   | CreateLocationFsxOntapCommandOutput
@@ -279,6 +295,7 @@ export type ServiceOutputTypes =
   | DeleteTaskCommandOutput
   | DescribeAgentCommandOutput
   | DescribeDiscoveryJobCommandOutput
+  | DescribeLocationAzureBlobCommandOutput
   | DescribeLocationEfsCommandOutput
   | DescribeLocationFsxLustreCommandOutput
   | DescribeLocationFsxOntapCommandOutput
@@ -310,6 +327,7 @@ export type ServiceOutputTypes =
   | UntagResourceCommandOutput
   | UpdateAgentCommandOutput
   | UpdateDiscoveryJobCommandOutput
+  | UpdateLocationAzureBlobCommandOutput
   | UpdateLocationHdfsCommandOutput
   | UpdateLocationNfsCommandOutput
   | UpdateLocationObjectStorageCommandOutput

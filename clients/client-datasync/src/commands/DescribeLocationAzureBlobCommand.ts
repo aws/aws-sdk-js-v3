@@ -14,8 +14,8 @@ import {
 } from "@smithy/types";
 
 import { DataSyncClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DataSyncClient";
-import { CreateLocationNfsRequest, CreateLocationNfsResponse } from "../models/models_0";
-import { de_CreateLocationNfsCommand, se_CreateLocationNfsCommand } from "../protocols/Aws_json1_1";
+import { DescribeLocationAzureBlobRequest, DescribeLocationAzureBlobResponse } from "../models/models_0";
+import { de_DescribeLocationAzureBlobCommand, se_DescribeLocationAzureBlobCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -24,56 +24,48 @@ export { __MetadataBearer, $Command };
 /**
  * @public
  *
- * The input for {@link CreateLocationNfsCommand}.
+ * The input for {@link DescribeLocationAzureBlobCommand}.
  */
-export interface CreateLocationNfsCommandInput extends CreateLocationNfsRequest {}
+export interface DescribeLocationAzureBlobCommandInput extends DescribeLocationAzureBlobRequest {}
 /**
  * @public
  *
- * The output of {@link CreateLocationNfsCommand}.
+ * The output of {@link DescribeLocationAzureBlobCommand}.
  */
-export interface CreateLocationNfsCommandOutput extends CreateLocationNfsResponse, __MetadataBearer {}
+export interface DescribeLocationAzureBlobCommandOutput extends DescribeLocationAzureBlobResponse, __MetadataBearer {}
 
 /**
  * @public
- * <p>Creates an endpoint for an Network File System (NFS) file server that DataSync can use for a
- *       data transfer.</p>
+ * <p>Provides details about how an DataSync transfer location for Microsoft Azure Blob Storage is configured.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { DataSyncClient, CreateLocationNfsCommand } from "@aws-sdk/client-datasync"; // ES Modules import
- * // const { DataSyncClient, CreateLocationNfsCommand } = require("@aws-sdk/client-datasync"); // CommonJS import
+ * import { DataSyncClient, DescribeLocationAzureBlobCommand } from "@aws-sdk/client-datasync"; // ES Modules import
+ * // const { DataSyncClient, DescribeLocationAzureBlobCommand } = require("@aws-sdk/client-datasync"); // CommonJS import
  * const client = new DataSyncClient(config);
- * const input = { // CreateLocationNfsRequest
- *   Subdirectory: "STRING_VALUE", // required
- *   ServerHostname: "STRING_VALUE", // required
- *   OnPremConfig: { // OnPremConfig
- *     AgentArns: [ // AgentArnList // required
- *       "STRING_VALUE",
- *     ],
- *   },
- *   MountOptions: { // NfsMountOptions
- *     Version: "AUTOMATIC" || "NFS3" || "NFS4_0" || "NFS4_1",
- *   },
- *   Tags: [ // InputTagList
- *     { // TagListEntry
- *       Key: "STRING_VALUE", // required
- *       Value: "STRING_VALUE",
- *     },
- *   ],
+ * const input = { // DescribeLocationAzureBlobRequest
+ *   LocationArn: "STRING_VALUE", // required
  * };
- * const command = new CreateLocationNfsCommand(input);
+ * const command = new DescribeLocationAzureBlobCommand(input);
  * const response = await client.send(command);
- * // { // CreateLocationNfsResponse
+ * // { // DescribeLocationAzureBlobResponse
  * //   LocationArn: "STRING_VALUE",
+ * //   LocationUri: "STRING_VALUE",
+ * //   AuthenticationType: "SAS",
+ * //   BlobType: "BLOCK",
+ * //   AccessTier: "HOT" || "COOL" || "ARCHIVE",
+ * //   AgentArns: [ // AgentArnList
+ * //     "STRING_VALUE",
+ * //   ],
+ * //   CreationTime: new Date("TIMESTAMP"),
  * // };
  *
  * ```
  *
- * @param CreateLocationNfsCommandInput - {@link CreateLocationNfsCommandInput}
- * @returns {@link CreateLocationNfsCommandOutput}
- * @see {@link CreateLocationNfsCommandInput} for command's `input` shape.
- * @see {@link CreateLocationNfsCommandOutput} for command's `response` shape.
+ * @param DescribeLocationAzureBlobCommandInput - {@link DescribeLocationAzureBlobCommandInput}
+ * @returns {@link DescribeLocationAzureBlobCommandOutput}
+ * @see {@link DescribeLocationAzureBlobCommandInput} for command's `input` shape.
+ * @see {@link DescribeLocationAzureBlobCommandOutput} for command's `response` shape.
  * @see {@link DataSyncClientResolvedConfig | config} for DataSyncClient's `config` shape.
  *
  * @throws {@link InternalException} (server fault)
@@ -87,9 +79,9 @@ export interface CreateLocationNfsCommandOutput extends CreateLocationNfsRespons
  * <p>Base exception class for all service exceptions from DataSync service.</p>
  *
  */
-export class CreateLocationNfsCommand extends $Command<
-  CreateLocationNfsCommandInput,
-  CreateLocationNfsCommandOutput,
+export class DescribeLocationAzureBlobCommand extends $Command<
+  DescribeLocationAzureBlobCommandInput,
+  DescribeLocationAzureBlobCommandOutput,
   DataSyncClientResolvedConfig
 > {
   // Start section: command_properties
@@ -107,7 +99,7 @@ export class CreateLocationNfsCommand extends $Command<
   /**
    * @public
    */
-  constructor(readonly input: CreateLocationNfsCommandInput) {
+  constructor(readonly input: DescribeLocationAzureBlobCommandInput) {
     // Start section: command_constructor
     super();
     // End section: command_constructor
@@ -120,17 +112,17 @@ export class CreateLocationNfsCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: DataSyncClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<CreateLocationNfsCommandInput, CreateLocationNfsCommandOutput> {
+  ): Handler<DescribeLocationAzureBlobCommandInput, DescribeLocationAzureBlobCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
     this.middlewareStack.use(
-      getEndpointPlugin(configuration, CreateLocationNfsCommand.getEndpointParameterInstructions())
+      getEndpointPlugin(configuration, DescribeLocationAzureBlobCommand.getEndpointParameterInstructions())
     );
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
     const clientName = "DataSyncClient";
-    const commandName = "CreateLocationNfsCommand";
+    const commandName = "DescribeLocationAzureBlobCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
       clientName,
@@ -149,15 +141,18 @@ export class CreateLocationNfsCommand extends $Command<
   /**
    * @internal
    */
-  private serialize(input: CreateLocationNfsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return se_CreateLocationNfsCommand(input, context);
+  private serialize(input: DescribeLocationAzureBlobCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
+    return se_DescribeLocationAzureBlobCommand(input, context);
   }
 
   /**
    * @internal
    */
-  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateLocationNfsCommandOutput> {
-    return de_CreateLocationNfsCommand(output, context);
+  private deserialize(
+    output: __HttpResponse,
+    context: __SerdeContext
+  ): Promise<DescribeLocationAzureBlobCommandOutput> {
+    return de_DescribeLocationAzureBlobCommand(output, context);
   }
 
   // Start section: command_body_extra
