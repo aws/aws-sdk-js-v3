@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.377.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.376.0...v3.377.0) (2023-07-25)
+
+
+### Features
+
+* **client-sagemaker:** Mark ContentColumn and TargetLabelColumn as required Targets in TextClassificationJobConfig in CreateAutoMLJobV2API ([ee7f0b1](https://github.com/aws/aws-sdk-js-v3/commit/ee7f0b1a7b7a887768c2e9b31c5b600f2556fca2))
+
+
+
+
+
 # [3.374.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.373.1...v3.374.0) (2023-07-20)
 
 

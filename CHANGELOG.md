@@ -3,6 +3,33 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.377.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.376.0...v3.377.0) (2023-07-25)
+
+
+### Bug Fixes
+
+* **e2e:** import from `[@smithy](https://github.com/smithy)` packages where needed ([#5012](https://github.com/aws/aws-sdk-js-v3/issues/5012)) ([53df336](https://github.com/aws/aws-sdk-js-v3/commit/53df336b65f8dc5a73ec4ef149edcc4e8d539b18))
+
+
+### Features
+
+* **client-billingconductor:** Added support for Auto-Assocate Billing Groups for CreateBillingGroup, UpdateBillingGroup, and ListBillingGroups. ([daf01c2](https://github.com/aws/aws-sdk-js-v3/commit/daf01c2a84235cf95910f2fb441240920b758c0a))
+* **client-customer-profiles:** Amazon Connect Customer Profiles now supports rule-based resolution to match and merge similar profiles into unified profiles, helping companies deliver faster and more personalized customer service by providing access to relevant customer information for agents and automated experiences. ([0d803e7](https://github.com/aws/aws-sdk-js-v3/commit/0d803e75fd4be8a5b36fba5f9c9402122fe07522))
+* **client-datasync:** AWS DataSync now supports Microsoft Azure Blob Storage locations. ([7f4cc75](https://github.com/aws/aws-sdk-js-v3/commit/7f4cc7543a3f58e474289046161e61e55504d8db))
+* **client-ec2:** This release adds an instance's peak and baseline network bandwidth as well as the memory sizes of an instance's inference accelerators to DescribeInstanceTypes. ([691ecdb](https://github.com/aws/aws-sdk-js-v3/commit/691ecdb836d909b7ea2a35a3bc826081c9dd1b5f))
+* **client-emr-serverless:** This release adds support for publishing application logs to CloudWatch. ([70cb5f7](https://github.com/aws/aws-sdk-js-v3/commit/70cb5f7828eb86e07e720507769b03ccaf633dae))
+* **client-lambda:** Add Python 3.11 (python3.11) support to AWS Lambda ([08e0f30](https://github.com/aws/aws-sdk-js-v3/commit/08e0f308c3c2dbaa863d6d3ebb912db5fadd90ad))
+* **client-rds:** This release adds support for monitoring storage optimization progress on the DescribeDBInstances API. ([7b0a319](https://github.com/aws/aws-sdk-js-v3/commit/7b0a319dc38e2b36e81001aeb38f709aeec3c210))
+* **client-sagemaker:** Mark ContentColumn and TargetLabelColumn as required Targets in TextClassificationJobConfig in CreateAutoMLJobV2API ([ee7f0b1](https://github.com/aws/aws-sdk-js-v3/commit/ee7f0b1a7b7a887768c2e9b31c5b600f2556fca2))
+* **client-securityhub:** Add support for CONTAINS and NOT_CONTAINS comparison operators for Automation Rules string filters and map filters ([e624fd2](https://github.com/aws/aws-sdk-js-v3/commit/e624fd2d2228325c252cd87e8a894601350ea614))
+* **client-sts:** API updates for the AWS Security Token Service ([b01ad93](https://github.com/aws/aws-sdk-js-v3/commit/b01ad93f0fc59349c159a355196835493f7787e1))
+* **client-transfer:** This release adds support for SFTP Connectors. ([e28d57d](https://github.com/aws/aws-sdk-js-v3/commit/e28d57d5482542b98c2900b444eb7e86c2419ff9))
+* **client-wisdom:** This release added two new data types: AssistantIntegrationConfiguration, and SessionIntegrationConfiguration to support Wisdom integration with Amazon Connect Chat ([8a53186](https://github.com/aws/aws-sdk-js-v3/commit/8a531864e0541fd8aad7143c61fff46e05f147ff))
+
+
+
+
+
 # [3.376.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.375.0...v3.376.0) (2023-07-24)
 
 

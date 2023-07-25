@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.377.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.376.0...v3.377.0) (2023-07-25)
+
+
+### Features
+
+* **client-securityhub:** Add support for CONTAINS and NOT_CONTAINS comparison operators for Automation Rules string filters and map filters ([e624fd2](https://github.com/aws/aws-sdk-js-v3/commit/e624fd2d2228325c252cd87e8a894601350ea614))
+
+
+
+
+
 # [3.370.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.369.0...v3.370.0) (2023-07-13)
 
 

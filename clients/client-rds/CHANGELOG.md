@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.377.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.376.0...v3.377.0) (2023-07-25)
+
+
+### Features
+
+* **client-rds:** This release adds support for monitoring storage optimization progress on the DescribeDBInstances API. ([7b0a319](https://github.com/aws/aws-sdk-js-v3/commit/7b0a319dc38e2b36e81001aeb38f709aeec3c210))
+
+
+
+
+
 # [3.375.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.374.0...v3.375.0) (2023-07-21)
 
 
