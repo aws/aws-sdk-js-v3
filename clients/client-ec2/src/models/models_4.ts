@@ -1929,6 +1929,17 @@ export type InstanceTypeHypervisor = (typeof InstanceTypeHypervisor)[keyof typeo
 
 /**
  * @public
+ * <p>Describes the memory available to the inference accelerator.</p>
+ */
+export interface InferenceDeviceMemoryInfo {
+  /**
+   * <p>The size of the memory available to the inference accelerator, in MiB.</p>
+   */
+  SizeInMiB?: number;
+}
+
+/**
+ * @public
  * <p>Describes the Inference accelerators for the instance type.</p>
  */
 export interface InferenceDeviceInfo {
@@ -1946,6 +1957,11 @@ export interface InferenceDeviceInfo {
    * <p>The manufacturer of the Inference accelerator.</p>
    */
   Manufacturer?: string;
+
+  /**
+   * <p>Describes the memory available to the inference accelerator.</p>
+   */
+  MemoryInfo?: InferenceDeviceMemoryInfo;
 }
 
 /**
@@ -1957,6 +1973,11 @@ export interface InferenceAcceleratorInfo {
    * <p>Describes the Inference accelerators for the instance type.</p>
    */
   Accelerators?: InferenceDeviceInfo[];
+
+  /**
+   * <p>The total size of the memory for the inference accelerators for the instance type, in MiB.</p>
+   */
+  TotalInferenceMemoryInMiB?: number;
 }
 
 /**
@@ -2106,6 +2127,16 @@ export interface NetworkCardInfo {
    * <p>The maximum number of network interfaces for the network card.</p>
    */
   MaximumNetworkInterfaces?: number;
+
+  /**
+   * <p>The baseline network performance of the network card, in Gbps.</p>
+   */
+  BaselineBandwidthInGbps?: number;
+
+  /**
+   * <p>The peak (burst) network performance of the network card, in Gbps.</p>
+   */
+  PeakBandwidthInGbps?: number;
 }
 
 /**
@@ -11126,27 +11157,6 @@ export interface VerifiedAccessLogDeliveryStatus {
    * <p>The status message.</p>
    */
   Message?: string;
-}
-
-/**
- * @public
- * <p>Options for CloudWatch Logs as a logging destination.</p>
- */
-export interface VerifiedAccessLogCloudWatchLogsDestination {
-  /**
-   * <p>Indicates whether logging is enabled.</p>
-   */
-  Enabled?: boolean;
-
-  /**
-   * <p>The delivery status for access logs.</p>
-   */
-  DeliveryStatus?: VerifiedAccessLogDeliveryStatus;
-
-  /**
-   * <p>The ID of the CloudWatch Logs log group.</p>
-   */
-  LogGroup?: string;
 }
 
 /**

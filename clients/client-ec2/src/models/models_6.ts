@@ -157,10 +157,25 @@ import {
   IpamResourceCidr,
   Purchase,
   UnlimitedSupportedInstanceFamily,
-  UserBucket,
   VerifiedAccessInstanceLoggingConfiguration,
   VolumeModification,
 } from "./models_5";
+
+/**
+ * @public
+ * <p>Describes the Amazon S3 bucket for the disk image.</p>
+ */
+export interface UserBucket {
+  /**
+   * <p>The name of the Amazon S3 bucket where the disk image is located.</p>
+   */
+  S3Bucket?: string;
+
+  /**
+   * <p>The file name of the disk image.</p>
+   */
+  S3Key?: string;
+}
 
 /**
  * @public
@@ -8553,22 +8568,6 @@ export interface ScheduledInstancesNetworkInterface {
    * <p>The ID of the subnet.</p>
    */
   SubnetId?: string;
-}
-
-/**
- * @public
- * <p>Describes the placement for a Scheduled Instance.</p>
- */
-export interface ScheduledInstancesPlacement {
-  /**
-   * <p>The Availability Zone.</p>
-   */
-  AvailabilityZone?: string;
-
-  /**
-   * <p>The name of the placement group.</p>
-   */
-  GroupName?: string;
 }
 
 /**

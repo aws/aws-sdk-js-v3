@@ -77,12 +77,28 @@ import {
   StatisticType,
   VirtualizationType,
 } from "./models_3";
-import {
-  AnalysisStatus,
-  ArchitectureType,
-  VerifiedAccessLogCloudWatchLogsDestination,
-  VerifiedAccessLogDeliveryStatus,
-} from "./models_4";
+import { AnalysisStatus, ArchitectureType, VerifiedAccessLogDeliveryStatus } from "./models_4";
+
+/**
+ * @public
+ * <p>Options for CloudWatch Logs as a logging destination.</p>
+ */
+export interface VerifiedAccessLogCloudWatchLogsDestination {
+  /**
+   * <p>Indicates whether logging is enabled.</p>
+   */
+  Enabled?: boolean;
+
+  /**
+   * <p>The delivery status for access logs.</p>
+   */
+  DeliveryStatus?: VerifiedAccessLogDeliveryStatus;
+
+  /**
+   * <p>The ID of the CloudWatch Logs log group.</p>
+   */
+  LogGroup?: string;
+}
 
 /**
  * @public
@@ -7635,22 +7651,6 @@ export interface ClientData {
    * <p>The time that the disk upload starts.</p>
    */
   UploadStart?: Date;
-}
-
-/**
- * @public
- * <p>Describes the Amazon S3 bucket for the disk image.</p>
- */
-export interface UserBucket {
-  /**
-   * <p>The name of the Amazon S3 bucket where the disk image is located.</p>
-   */
-  S3Bucket?: string;
-
-  /**
-   * <p>The file name of the disk image.</p>
-   */
-  S3Key?: string;
 }
 
 /**

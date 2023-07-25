@@ -3192,6 +3192,7 @@ import {
   HistoryRecord,
   InferenceAcceleratorInfo,
   InferenceDeviceInfo,
+  InferenceDeviceMemoryInfo,
   Instance,
   InstanceIpv4Prefix,
   InstanceIpv6Prefix,
@@ -3279,7 +3280,6 @@ import {
   TransitGatewayAttachmentAssociation,
   UsageClassType,
   VCpuInfo,
-  VerifiedAccessLogCloudWatchLogsDestination,
   VerifiedAccessLogDeliveryStatus,
 } from "../models/models_4";
 import {
@@ -3553,8 +3553,8 @@ import {
   TransitGatewayPropagation,
   TransitGatewayRouteTableAssociation,
   TransitGatewayRouteTablePropagation,
-  UserBucket,
   VerifiedAccessInstanceLoggingConfiguration,
+  VerifiedAccessLogCloudWatchLogsDestination,
   VerifiedAccessLogKinesisDataFirehoseDestination,
   VerifiedAccessLogs,
   VerifiedAccessLogS3Destination,
@@ -3840,7 +3840,6 @@ import {
   ScheduledInstancesIpv6Address,
   ScheduledInstancesMonitoring,
   ScheduledInstancesNetworkInterface,
-  ScheduledInstancesPlacement,
   ScheduledInstancesPrivateIpAddressConfig,
   SecurityGroupRuleRequest,
   SecurityGroupRuleUpdate,
@@ -3854,6 +3853,7 @@ import {
   TransitGatewayMulticastRegisteredGroupSources,
   UnsuccessfulInstanceCreditSpecificationItem,
   UnsuccessfulInstanceCreditSpecificationItemError,
+  UserBucket,
   UserData,
   VerifiedAccessLogCloudWatchLogsDestinationOptions,
   VerifiedAccessLogKinesisDataFirehoseDestinationOptions,
@@ -3866,6 +3866,7 @@ import {
   RunScheduledInstancesRequest,
   RunScheduledInstancesResult,
   ScheduledInstancesLaunchSpecification,
+  ScheduledInstancesPlacement,
   SearchLocalGatewayRoutesRequest,
   SearchLocalGatewayRoutesResult,
   SearchTransitGatewayMulticastGroupsRequest,
@@ -78732,6 +78733,9 @@ const de_InferenceAcceleratorInfo = (output: any, context: __SerdeContext): Infe
       context
     );
   }
+  if (output["totalInferenceMemoryInMiB"] !== undefined) {
+    contents.TotalInferenceMemoryInMiB = __strictParseInt32(output["totalInferenceMemoryInMiB"]) as number;
+  }
   return contents;
 };
 
@@ -78749,6 +78753,9 @@ const de_InferenceDeviceInfo = (output: any, context: __SerdeContext): Inference
   if (output["manufacturer"] !== undefined) {
     contents.Manufacturer = __expectString(output["manufacturer"]);
   }
+  if (output["memoryInfo"] !== undefined) {
+    contents.MemoryInfo = de_InferenceDeviceMemoryInfo(output["memoryInfo"], context);
+  }
   return contents;
 };
 
@@ -78761,6 +78768,17 @@ const de_InferenceDeviceInfoList = (output: any, context: __SerdeContext): Infer
     .map((entry: any) => {
       return de_InferenceDeviceInfo(entry, context);
     });
+};
+
+/**
+ * deserializeAws_ec2InferenceDeviceMemoryInfo
+ */
+const de_InferenceDeviceMemoryInfo = (output: any, context: __SerdeContext): InferenceDeviceMemoryInfo => {
+  const contents: any = {};
+  if (output["sizeInMiB"] !== undefined) {
+    contents.SizeInMiB = __strictParseInt32(output["sizeInMiB"]) as number;
+  }
+  return contents;
 };
 
 /**
@@ -83982,6 +84000,12 @@ const de_NetworkCardInfo = (output: any, context: __SerdeContext): NetworkCardIn
   }
   if (output["maximumNetworkInterfaces"] !== undefined) {
     contents.MaximumNetworkInterfaces = __strictParseInt32(output["maximumNetworkInterfaces"]) as number;
+  }
+  if (output["baselineBandwidthInGbps"] !== undefined) {
+    contents.BaselineBandwidthInGbps = __strictParseFloat(output["baselineBandwidthInGbps"]) as number;
+  }
+  if (output["peakBandwidthInGbps"] !== undefined) {
+    contents.PeakBandwidthInGbps = __strictParseFloat(output["peakBandwidthInGbps"]) as number;
   }
   return contents;
 };
