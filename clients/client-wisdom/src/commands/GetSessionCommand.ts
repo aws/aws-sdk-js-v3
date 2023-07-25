@@ -58,6 +58,9 @@ export interface GetSessionCommandOutput extends GetSessionResponse, __MetadataB
  * //     tags: { // Tags
  * //       "<keys>": "STRING_VALUE",
  * //     },
+ * //     integrationConfiguration: { // SessionIntegrationConfiguration
+ * //       topicIntegrationArn: "STRING_VALUE",
+ * //     },
  * //   },
  * // };
  *

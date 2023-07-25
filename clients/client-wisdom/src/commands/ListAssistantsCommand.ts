@@ -64,6 +64,9 @@ export interface ListAssistantsCommandOutput extends ListAssistantsResponse, __M
  * //       serverSideEncryptionConfiguration: { // ServerSideEncryptionConfiguration
  * //         kmsKeyId: "STRING_VALUE",
  * //       },
+ * //       integrationConfiguration: { // AssistantIntegrationConfiguration
+ * //         topicIntegrationArn: "STRING_VALUE",
+ * //       },
  * //     },
  * //   ],
  * //   nextToken: "STRING_VALUE",

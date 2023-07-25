@@ -548,6 +548,17 @@ export interface CreateAssistantRequest {
 
 /**
  * @public
+ * <p>The configuration information for the Wisdom assistant integration.</p>
+ */
+export interface AssistantIntegrationConfiguration {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the integrated Amazon SNS topic used for streaming chat messages.</p>
+   */
+  topicIntegrationArn?: string;
+}
+
+/**
+ * @public
  * @enum
  */
 export const AssistantStatus = {
@@ -608,6 +619,11 @@ export interface AssistantData {
    * <p>The KMS key used for encryption.</p>
    */
   serverSideEncryptionConfiguration?: ServerSideEncryptionConfiguration;
+
+  /**
+   * <p>The configuration information for the Wisdom assistant integration.</p>
+   */
+  integrationConfiguration?: AssistantIntegrationConfiguration;
 }
 
 /**
@@ -1015,6 +1031,11 @@ export interface AssistantSummary {
    * <p>The KMS key used for encryption.</p>
    */
   serverSideEncryptionConfiguration?: ServerSideEncryptionConfiguration;
+
+  /**
+   * <p>The configuration information for the Wisdom assistant integration.</p>
+   */
+  integrationConfiguration?: AssistantIntegrationConfiguration;
 }
 
 /**
@@ -1305,6 +1326,17 @@ export interface CreateSessionRequest {
 
 /**
  * @public
+ * <p>The configuration information for the session integration.</p>
+ */
+export interface SessionIntegrationConfiguration {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the integrated Amazon SNS topic used for streaming chat messages.</p>
+   */
+  topicIntegrationArn?: string;
+}
+
+/**
+ * @public
  * <p>Information about the session.</p>
  */
 export interface SessionData {
@@ -1332,6 +1364,11 @@ export interface SessionData {
    * <p>The tags used to organize, track, or control access for this resource.</p>
    */
   tags?: Record<string, string>;
+
+  /**
+   * <p>The configuration information for the session integration.</p>
+   */
+  integrationConfiguration?: SessionIntegrationConfiguration;
 }
 
 /**

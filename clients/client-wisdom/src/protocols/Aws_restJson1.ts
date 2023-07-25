@@ -2927,6 +2927,8 @@ const de_ValidationExceptionRes = async (parsedOutput: any, context: __SerdeCont
 
 // de_AssistantData omitted.
 
+// de_AssistantIntegrationConfiguration omitted.
+
 // de_AssistantList omitted.
 
 // de_AssistantSummary omitted.
@@ -3065,6 +3067,8 @@ const de_ResultData = (output: any, context: __SerdeContext): ResultData => {
 // de_ServerSideEncryptionConfiguration omitted.
 
 // de_SessionData omitted.
+
+// de_SessionIntegrationConfiguration omitted.
 
 // de_SessionSummaries omitted.
 

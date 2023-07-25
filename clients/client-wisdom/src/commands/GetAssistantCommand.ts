@@ -62,6 +62,9 @@ export interface GetAssistantCommandOutput extends GetAssistantResponse, __Metad
  * //     serverSideEncryptionConfiguration: { // ServerSideEncryptionConfiguration
  * //       kmsKeyId: "STRING_VALUE",
  * //     },
+ * //     integrationConfiguration: { // AssistantIntegrationConfiguration
+ * //       topicIntegrationArn: "STRING_VALUE",
+ * //     },
  * //   },
  * // };
  *

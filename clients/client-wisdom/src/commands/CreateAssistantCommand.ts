@@ -71,6 +71,9 @@ export interface CreateAssistantCommandOutput extends CreateAssistantResponse, _
  * //     serverSideEncryptionConfiguration: { // ServerSideEncryptionConfiguration
  * //       kmsKeyId: "STRING_VALUE",
  * //     },
+ * //     integrationConfiguration: { // AssistantIntegrationConfiguration
+ * //       topicIntegrationArn: "STRING_VALUE",
+ * //     },
  * //   },
  * // };
  *

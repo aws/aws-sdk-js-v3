@@ -65,6 +65,9 @@ export interface CreateSessionCommandOutput extends CreateSessionResponse, __Met
  * //     tags: { // Tags
  * //       "<keys>": "STRING_VALUE",
  * //     },
+ * //     integrationConfiguration: { // SessionIntegrationConfiguration
+ * //       topicIntegrationArn: "STRING_VALUE",
+ * //     },
  * //   },
  * // };
  *
