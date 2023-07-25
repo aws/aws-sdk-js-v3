@@ -5621,15 +5621,15 @@ export interface TextClassificationJobConfig {
 
   /**
    * <p>The name of the column used to provide the sentences to be classified. It should not be
-   *          the same as the target column (Required).</p>
+   *          the same as the target column.</p>
    */
-  ContentColumn?: string;
+  ContentColumn: string | undefined;
 
   /**
    * <p>The name of the column used to provide the class labels. It should not be same as the
-   *          content column (Required).</p>
+   *          content column.</p>
    */
-  TargetLabelColumn?: string;
+  TargetLabelColumn: string | undefined;
 }
 
 /**

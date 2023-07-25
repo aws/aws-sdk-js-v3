@@ -90,8 +90,8 @@ export interface CreateAutoMLJobV2CommandOutput extends CreateAutoMLJobV2Respons
  *         MaxRuntimePerTrainingJobInSeconds: Number("int"),
  *         MaxAutoMLJobRuntimeInSeconds: Number("int"),
  *       },
- *       ContentColumn: "STRING_VALUE",
- *       TargetLabelColumn: "STRING_VALUE",
+ *       ContentColumn: "STRING_VALUE", // required
+ *       TargetLabelColumn: "STRING_VALUE", // required
  *     },
  *     TabularJobConfig: { // TabularJobConfig
  *       CandidateGenerationConfig: { // CandidateGenerationConfig
