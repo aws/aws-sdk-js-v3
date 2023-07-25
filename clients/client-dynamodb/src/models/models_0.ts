@@ -7052,7 +7052,7 @@ export interface ExecuteStatementInput {
 
   /**
    * <p>An optional parameter that returns the item attributes for an
-   *                 <code>ExecuteStatement</code> operation that failed a condition check.</p>
+   *             <code>ExecuteStatement</code> operation that failed a condition check.</p>
    *          <p>There is no additional cost associated with requesting a return value aside from the
    *             small network and processing overhead of receiving a larger response. No read capacity
    *             units are consumed.</p>
@@ -8419,8 +8419,8 @@ export interface Update {
   /**
    * <p>Use <code>ReturnValuesOnConditionCheckFailure</code> to get the item attributes if the
    *                 <code>Update</code> condition fails. For
-   *                 <code>ReturnValuesOnConditionCheckFailure</code>, the valid values are: NONE,
-   *             ALL_OLD, UPDATED_OLD, ALL_NEW, UPDATED_NEW.</p>
+   *                 <code>ReturnValuesOnConditionCheckFailure</code>, the valid values are: NONE and
+   *             ALL_OLD.</p>
    */
   ReturnValuesOnConditionCheckFailure?: ReturnValuesOnConditionCheckFailure | string;
 }
@@ -8776,7 +8776,8 @@ export interface WriteRequest {
  */
 export interface BatchExecuteStatementOutput {
   /**
-   * <p>The response to each PartiQL statement in the batch.</p>
+   * <p>The response to each PartiQL statement in the batch. The values of the list are
+   *             ordered according to the ordering of the request statements.</p>
    */
   Responses?: BatchStatementResponse[];
 

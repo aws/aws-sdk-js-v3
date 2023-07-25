@@ -44,10 +44,10 @@ export interface BatchWriteItemCommandOutput extends BatchWriteItemOutput, __Met
  *             for the API call. For more details on this distinction, see <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/HowItWorks.NamingRulesDataTypes.html">Naming Rules and Data Types</a>.</p>
  *          <note>
  *             <p>
- *                <code>BatchWriteItem</code> cannot update items. If you perform a
- *                     <code>BatchWriteItem</code> operation on an existing item, that item's values
- *                 will be overwritten by the operation and it will appear like it was updated. To
- *                 update items, we recommend you use the <code>UpdateItem</code> action.</p>
+ *                <code>BatchWriteItem</code> cannot update items. If you perform a <code>BatchWriteItem</code>
+ *                 operation on an existing item, that item's values will be overwritten by the
+ *                 operation and it will appear like it was updated. To update items, we recommend you
+ *                 use the <code>UpdateItem</code> action.</p>
  *          </note>
  *          <p>The individual <code>PutItem</code> and <code>DeleteItem</code> operations specified
  *             in <code>BatchWriteItem</code> are atomic; however <code>BatchWriteItem</code> as a
