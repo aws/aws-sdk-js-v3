@@ -112,6 +112,7 @@ import { StartFileTransferCommandInput, StartFileTransferCommandOutput } from ".
 import { StartServerCommandInput, StartServerCommandOutput } from "./commands/StartServerCommand";
 import { StopServerCommandInput, StopServerCommandOutput } from "./commands/StopServerCommand";
 import { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
+import { TestConnectionCommandInput, TestConnectionCommandOutput } from "./commands/TestConnectionCommand";
 import {
   TestIdentityProviderCommandInput,
   TestIdentityProviderCommandOutput,
@@ -187,6 +188,7 @@ export type ServiceInputTypes =
   | StartServerCommandInput
   | StopServerCommandInput
   | TagResourceCommandInput
+  | TestConnectionCommandInput
   | TestIdentityProviderCommandInput
   | UntagResourceCommandInput
   | UpdateAccessCommandInput
@@ -250,6 +252,7 @@ export type ServiceOutputTypes =
   | StartServerCommandOutput
   | StopServerCommandOutput
   | TagResourceCommandOutput
+  | TestConnectionCommandOutput
   | TestIdentityProviderCommandOutput
   | UntagResourceCommandOutput
   | UpdateAccessCommandOutput

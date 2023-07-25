@@ -36,7 +36,7 @@ export interface DeleteConnectorCommandOutput extends __MetadataBearer {}
 
 /**
  * @public
- * <p>Deletes the agreement that's specified in the provided <code>ConnectorId</code>.</p>
+ * <p>Deletes the connector that's specified in the provided <code>ConnectorId</code>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

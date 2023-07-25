@@ -81,6 +81,7 @@ import { StartFileTransferCommandInput, StartFileTransferCommandOutput } from ".
 import { StartServerCommandInput, StartServerCommandOutput } from "../commands/StartServerCommand";
 import { StopServerCommandInput, StopServerCommandOutput } from "../commands/StopServerCommand";
 import { TagResourceCommandInput, TagResourceCommandOutput } from "../commands/TagResourceCommand";
+import { TestConnectionCommandInput, TestConnectionCommandOutput } from "../commands/TestConnectionCommand";
 import {
   TestIdentityProviderCommandInput,
   TestIdentityProviderCommandOutput,
@@ -173,6 +174,7 @@ import {
   S3Tag,
   SendWorkflowStepStateRequest,
   ServiceUnavailableException,
+  SftpConnectorConfig,
   SshPublicKey,
   StartFileTransferRequest,
   StartServerRequest,
@@ -180,6 +182,7 @@ import {
   Tag,
   TagResourceRequest,
   TagStepDetails,
+  TestConnectionRequest,
   TestIdentityProviderRequest,
   ThrottlingException,
   UntagResourceRequest,
@@ -816,6 +819,19 @@ export const se_TagResourceCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("TagResource");
+  let body: any;
+  body = JSON.stringify(_json(input));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+/**
+ * serializeAws_json1_1TestConnectionCommand
+ */
+export const se_TestConnectionCommand = async (
+  input: TestConnectionCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = sharedHeaders("TestConnection");
   let body: any;
   body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -3652,6 +3668,61 @@ const de_TagResourceCommandError = async (
 };
 
 /**
+ * deserializeAws_json1_1TestConnectionCommand
+ */
+export const de_TestConnectionCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<TestConnectionCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_TestConnectionCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = _json(data);
+  const response: TestConnectionCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1TestConnectionCommandError
+ */
+const de_TestConnectionCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<TestConnectionCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "InternalServiceError":
+    case "com.amazonaws.transfer#InternalServiceError":
+      throw await de_InternalServiceErrorRes(parsedOutput, context);
+    case "InvalidRequestException":
+    case "com.amazonaws.transfer#InvalidRequestException":
+      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.transfer#ResourceNotFoundException":
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
+    case "ServiceUnavailableException":
+    case "com.amazonaws.transfer#ServiceUnavailableException":
+      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
  * deserializeAws_json1_1TestIdentityProviderCommand
  */
 export const de_TestIdentityProviderCommand = async (
@@ -4530,6 +4601,10 @@ const se_ImportCertificateRequest = (input: ImportCertificateRequest, context: _
 
 // se_SendWorkflowStepStateRequest omitted.
 
+// se_SftpConnectorConfig omitted.
+
+// se_SftpConnectorTrustedHostKeyList omitted.
+
 // se_StartFileTransferRequest omitted.
 
 // se_StartServerRequest omitted.
@@ -4549,6 +4624,8 @@ const se_ImportCertificateRequest = (input: ImportCertificateRequest, context: _
 // se_Tags omitted.
 
 // se_TagStepDetails omitted.
+
+// se_TestConnectionRequest omitted.
 
 // se_TestIdentityProviderRequest omitted.
 
@@ -4936,6 +5013,10 @@ const de_ListHostKeysResponse = (output: any, context: __SerdeContext): ListHost
 
 // de_ServiceUnavailableException omitted.
 
+// de_SftpConnectorConfig omitted.
+
+// de_SftpConnectorTrustedHostKeyList omitted.
+
 /**
  * deserializeAws_json1_1SshPublicKey
  */
@@ -4970,6 +5051,8 @@ const de_SshPublicKeys = (output: any, context: __SerdeContext): SshPublicKey[] 
 // de_Tags omitted.
 
 // de_TagStepDetails omitted.
+
+// de_TestConnectionResponse omitted.
 
 // de_TestIdentityProviderResponse omitted.
 

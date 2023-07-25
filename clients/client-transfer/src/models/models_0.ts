@@ -120,7 +120,7 @@ export type SigningAlg = (typeof SigningAlg)[keyof typeof SigningAlg];
 
 /**
  * @public
- * <p>Contains the details for a connector object. The connector object is used for AS2 outbound
+ * <p>Contains the details for an AS2 connector object. The connector object is used for AS2 outbound
  *       processes, to connect the Transfer Family customer with the trading partner.</p>
  */
 export interface As2ConnectorConfig {
@@ -842,17 +842,48 @@ export class ThrottlingException extends __BaseException {
 
 /**
  * @public
+ * <p>Contains the details for an SFTP connector object. The connector object is used for transferring files to and from a
+ *       partner's SFTP server.</p>
+ */
+export interface SftpConnectorConfig {
+  /**
+   * <p>The identifiers for the secrets (in Amazon Web Services Secrets Manager) that contain the SFTP user's private keys or passwords.</p>
+   */
+  UserSecretId?: string;
+
+  /**
+   * <p>The public portion of the host key, or keys, that are used to authenticate the user to the external server to which you are connecting. You can use the <code>ssh-keyscan</code> command against the SFTP server to retrieve the necessary key.</p>
+   *          <p>The three standard SSH public key format elements are <code><key type></code>,
+   *       <code><body base64></code>, and  an optional <code><comment></code>, with spaces
+   *       between each element.</p>
+   *          <p>For the trusted host key, Transfer Family accepts RSA and ECDSA keys.</p>
+   *          <ul>
+   *             <li>
+   *                <p>For RSA keys, the key type  is <code>ssh-rsa</code>.</p>
+   *             </li>
+   *             <li>
+   *                <p>For ECDSA keys, the key type is either <code>ecdsa-sha2-nistp256</code>,
+   *           <code>ecdsa-sha2-nistp384</code>, or <code>ecdsa-sha2-nistp521</code>, depending on the
+   *           size of the key you generated.</p>
+   *             </li>
+   *          </ul>
+   */
+  TrustedHostKeys?: string[];
+}
+
+/**
+ * @public
  */
 export interface CreateConnectorRequest {
   /**
-   * <p>The URL of the partner's AS2 endpoint.</p>
+   * <p>The URL of the partner's AS2 or SFTP endpoint.</p>
    */
   Url: string | undefined;
 
   /**
-   * <p>A structure that contains the parameters for a connector object.</p>
+   * <p>A structure that contains the parameters for an AS2 connector object.</p>
    */
-  As2Config: As2ConnectorConfig | undefined;
+  As2Config?: As2ConnectorConfig;
 
   /**
    * <p>With AS2, you can send files by calling <code>StartFileTransfer</code> and specifying the
@@ -883,6 +914,11 @@ export interface CreateConnectorRequest {
    * <p>Key-value pairs that can be used to group and search for connectors. Tags are metadata attached to connectors for any purpose.</p>
    */
   Tags?: Tag[];
+
+  /**
+   * <p>A structure that contains the parameters for an SFTP connector object.</p>
+   */
+  SftpConfig?: SftpConnectorConfig;
 }
 
 /**
@@ -1634,10 +1670,10 @@ export interface CreateUserRequest {
    *             <code>[ \{ "Entry": "/directory1", "Target":
    *         "/bucket_name/home/mydirectory" \} ]</code>
    *          </p>
-   *          <p>In most cases, you can use this value instead of the session policy to lock your user
-   *       down to the designated home directory ("<code>chroot</code>"). To do this, you can set
-   *         <code>Entry</code> to <code>/</code> and set <code>Target</code> to the HomeDirectory
-   *       parameter value.</p>
+   *          <p>In most cases, you can use this value instead of the session policy to lock your user down
+   *       to the designated home directory ("<code>chroot</code>"). To do this, you can set
+   *         <code>Entry</code> to <code>/</code> and set <code>Target</code> to the value the user
+   *       should see for their home directory when they log in.</p>
    *          <p>The following is an <code>Entry</code> and <code>Target</code> pair example for <code>chroot</code>.</p>
    *          <p>
    *             <code>[ \{ "Entry": "/", "Target": "/bucket_name/home/mydirectory" \} ]</code>
@@ -2633,12 +2669,12 @@ export interface DescribedConnector {
   ConnectorId?: string;
 
   /**
-   * <p>The URL of the partner's AS2 endpoint.</p>
+   * <p>The URL of the partner's AS2 or SFTP endpoint.</p>
    */
   Url?: string;
 
   /**
-   * <p>A structure that contains the parameters for a connector object.</p>
+   * <p>A structure that contains the parameters for an AS2 connector object.</p>
    */
   As2Config?: As2ConnectorConfig;
 
@@ -2671,6 +2707,11 @@ export interface DescribedConnector {
    * <p>Key-value pairs that can be used to group and search for connectors.</p>
    */
   Tags?: Tag[];
+
+  /**
+   * <p>A structure that contains the parameters for an SFTP connector object.</p>
+   */
+  SftpConfig?: SftpConnectorConfig;
 }
 
 /**
@@ -4185,7 +4226,7 @@ export interface ListedConnector {
   ConnectorId?: string;
 
   /**
-   * <p>The URL of the partner's AS2 endpoint.</p>
+   * <p>The URL of the partner's AS2 or SFTP endpoint.</p>
    */
   Url?: string;
 }
@@ -4855,17 +4896,36 @@ export interface SendWorkflowStepStateResponse {}
  */
 export interface StartFileTransferRequest {
   /**
-   * <p>The unique identifier for the connector. </p>
+   * <p>The unique identifier for the connector.</p>
    */
   ConnectorId: string | undefined;
 
   /**
-   * <p>An array of strings. Each string represents the absolute path for one outbound file transfer. For example,
-   *           <code>
+   * <p>One or more source paths for the Transfer Family server. Each string represents a source file path for one outbound file transfer. For example,
+   *       <code>
    *                <i>DOC-EXAMPLE-BUCKET</i>/<i>myfile.txt</i>
-   *             </code>. </p>
+   *             </code>.</p>
    */
-  SendFilePaths: string[] | undefined;
+  SendFilePaths?: string[];
+
+  /**
+   * <p>One or more source paths for the partner's SFTP server. Each string represents a source file path for one inbound file transfer.</p>
+   */
+  RetrieveFilePaths?: string[];
+
+  /**
+   * <p>For an inbound transfer, the <code>LocaDirectoryPath</code> specifies the destination for one or more files
+   *       that are transferred from the partner's SFTP server.</p>
+   */
+  LocalDirectoryPath?: string;
+
+  /**
+   * <p>For an outbound transfer, the <code>RemoteDirectoryPath</code> specifies the destination
+   *       for one or more files that are transferred to the partner's SFTP server. If you don't specify
+   *       a <code>RemoteDirectoryPath</code>, the destination for transferred files is the SFTP user's
+   *       home directory.</p>
+   */
+  RemoteDirectoryPath?: string;
 }
 
 /**
@@ -4873,7 +4933,7 @@ export interface StartFileTransferRequest {
  */
 export interface StartFileTransferResponse {
   /**
-   * <p>Returns the unique identifier for this file transfer. </p>
+   * <p>Returns the unique identifier for the file transfer.</p>
    */
   TransferId: string | undefined;
 }
@@ -4913,6 +4973,59 @@ export interface TagResourceRequest {
    *       type. You can attach this metadata to resources (servers, users, workflows, and so on) for any purpose.</p>
    */
   Tags: Tag[] | undefined;
+}
+
+/**
+ * @public
+ */
+export interface TestConnectionRequest {
+  /**
+   * <p>The unique identifier for the connector.</p>
+   */
+  ConnectorId: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface TestConnectionResponse {
+  /**
+   * <p>Returns the identifier of the connector object that you are testing.</p>
+   */
+  ConnectorId?: string;
+
+  /**
+   * <p>Returns <code>OK</code> for successful test, or <code>ERROR</code> if the test fails.</p>
+   */
+  Status?: string;
+
+  /**
+   * <p>Returns <code>Connection succeeded</code> if the test is successful. Or, returns a descriptive error message
+   *     if the test fails. The following list provides the details for some error messages and troubleshooting steps for each.</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <b>Unable to access secrets manager</b>: Verify that your secret name aligns with the one in
+   *           Transfer Role permissions.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <b>Unknown Host/Connection failed</b>: Verify the server URL in the connector
+   *           configuration , and
+   *           verify that the login credentials work successfully outside of the connector.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <b>Private key not found</b>: Verify that the secret exists and is formatted correctly.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <b>Invalid trusted host keys</b>: Verify that the trusted host key in the connector
+   *           configuration matches the <code>ssh-keyscan</code> output.</p>
+   *             </li>
+   *          </ul>
+   */
+  StatusMessage?: string;
 }
 
 /**
@@ -5238,12 +5351,12 @@ export interface UpdateConnectorRequest {
   ConnectorId: string | undefined;
 
   /**
-   * <p>The URL of the partner's AS2 endpoint.</p>
+   * <p>The URL of the partner's AS2 or SFTP endpoint.</p>
    */
   Url?: string;
 
   /**
-   * <p>A structure that contains the parameters for a connector object.</p>
+   * <p>A structure that contains the parameters for an AS2 connector object.</p>
    */
   As2Config?: As2ConnectorConfig;
 
@@ -5271,6 +5384,11 @@ export interface UpdateConnectorRequest {
    *       activity in your CloudWatch logs.</p>
    */
   LoggingRole?: string;
+
+  /**
+   * <p>A structure that contains the parameters for an SFTP connector object.</p>
+   */
+  SftpConfig?: SftpConnectorConfig;
 }
 
 /**

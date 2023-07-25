@@ -61,6 +61,12 @@ export interface UpdateConnectorCommandOutput extends UpdateConnectorResponse, _
  *   },
  *   AccessRole: "STRING_VALUE",
  *   LoggingRole: "STRING_VALUE",
+ *   SftpConfig: { // SftpConnectorConfig
+ *     UserSecretId: "STRING_VALUE",
+ *     TrustedHostKeys: [ // SftpConnectorTrustedHostKeyList
+ *       "STRING_VALUE",
+ *     ],
+ *   },
  * };
  * const command = new UpdateConnectorCommand(input);
  * const response = await client.send(command);

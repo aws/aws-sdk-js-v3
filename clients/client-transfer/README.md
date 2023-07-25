@@ -598,6 +598,14 @@ TagResource
 </details>
 <details>
 <summary>
+TestConnection
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-transfer/classes/testconnectioncommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-transfer/interfaces/testconnectioncommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-transfer/interfaces/testconnectioncommandoutput.html)
+
+</details>
+<details>
+<summary>
 TestIdentityProvider
 </summary>
 

@@ -47,6 +47,7 @@ export * from "./StartFileTransferCommand";
 export * from "./StartServerCommand";
 export * from "./StopServerCommand";
 export * from "./TagResourceCommand";
+export * from "./TestConnectionCommand";
 export * from "./TestIdentityProviderCommand";
 export * from "./UntagResourceCommand";
 export * from "./UpdateAccessCommand";

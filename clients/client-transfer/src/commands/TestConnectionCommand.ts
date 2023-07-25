@@ -13,8 +13,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@smithy/types";
 
-import { DescribeConnectorRequest, DescribeConnectorResponse } from "../models/models_0";
-import { de_DescribeConnectorCommand, se_DescribeConnectorCommand } from "../protocols/Aws_json1_1";
+import { TestConnectionRequest, TestConnectionResponse } from "../models/models_0";
+import { de_TestConnectionCommand, se_TestConnectionCommand } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, TransferClientResolvedConfig } from "../TransferClient";
 
 /**
@@ -24,70 +24,44 @@ export { __MetadataBearer, $Command };
 /**
  * @public
  *
- * The input for {@link DescribeConnectorCommand}.
+ * The input for {@link TestConnectionCommand}.
  */
-export interface DescribeConnectorCommandInput extends DescribeConnectorRequest {}
+export interface TestConnectionCommandInput extends TestConnectionRequest {}
 /**
  * @public
  *
- * The output of {@link DescribeConnectorCommand}.
+ * The output of {@link TestConnectionCommand}.
  */
-export interface DescribeConnectorCommandOutput extends DescribeConnectorResponse, __MetadataBearer {}
+export interface TestConnectionCommandOutput extends TestConnectionResponse, __MetadataBearer {}
 
 /**
  * @public
- * <p>Describes the connector that's identified by the <code>ConnectorId.</code>
- *          </p>
+ * <p>Tests whether your SFTP connector is set up successfully. We highly recommend that you call this
+ *     operation to test your ability to transfer files between a Transfer Family server and a trading partner's
+ *     SFTP server.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { TransferClient, DescribeConnectorCommand } from "@aws-sdk/client-transfer"; // ES Modules import
- * // const { TransferClient, DescribeConnectorCommand } = require("@aws-sdk/client-transfer"); // CommonJS import
+ * import { TransferClient, TestConnectionCommand } from "@aws-sdk/client-transfer"; // ES Modules import
+ * // const { TransferClient, TestConnectionCommand } = require("@aws-sdk/client-transfer"); // CommonJS import
  * const client = new TransferClient(config);
- * const input = { // DescribeConnectorRequest
+ * const input = { // TestConnectionRequest
  *   ConnectorId: "STRING_VALUE", // required
  * };
- * const command = new DescribeConnectorCommand(input);
+ * const command = new TestConnectionCommand(input);
  * const response = await client.send(command);
- * // { // DescribeConnectorResponse
- * //   Connector: { // DescribedConnector
- * //     Arn: "STRING_VALUE", // required
- * //     ConnectorId: "STRING_VALUE",
- * //     Url: "STRING_VALUE",
- * //     As2Config: { // As2ConnectorConfig
- * //       LocalProfileId: "STRING_VALUE",
- * //       PartnerProfileId: "STRING_VALUE",
- * //       MessageSubject: "STRING_VALUE",
- * //       Compression: "ZLIB" || "DISABLED",
- * //       EncryptionAlgorithm: "AES128_CBC" || "AES192_CBC" || "AES256_CBC" || "NONE",
- * //       SigningAlgorithm: "SHA256" || "SHA384" || "SHA512" || "SHA1" || "NONE",
- * //       MdnSigningAlgorithm: "SHA256" || "SHA384" || "SHA512" || "SHA1" || "NONE" || "DEFAULT",
- * //       MdnResponse: "SYNC" || "NONE",
- * //       BasicAuthSecretId: "STRING_VALUE",
- * //     },
- * //     AccessRole: "STRING_VALUE",
- * //     LoggingRole: "STRING_VALUE",
- * //     Tags: [ // Tags
- * //       { // Tag
- * //         Key: "STRING_VALUE", // required
- * //         Value: "STRING_VALUE", // required
- * //       },
- * //     ],
- * //     SftpConfig: { // SftpConnectorConfig
- * //       UserSecretId: "STRING_VALUE",
- * //       TrustedHostKeys: [ // SftpConnectorTrustedHostKeyList
- * //         "STRING_VALUE",
- * //       ],
- * //     },
- * //   },
+ * // { // TestConnectionResponse
+ * //   ConnectorId: "STRING_VALUE",
+ * //   Status: "STRING_VALUE",
+ * //   StatusMessage: "STRING_VALUE",
  * // };
  *
  * ```
  *
- * @param DescribeConnectorCommandInput - {@link DescribeConnectorCommandInput}
- * @returns {@link DescribeConnectorCommandOutput}
- * @see {@link DescribeConnectorCommandInput} for command's `input` shape.
- * @see {@link DescribeConnectorCommandOutput} for command's `response` shape.
+ * @param TestConnectionCommandInput - {@link TestConnectionCommandInput}
+ * @returns {@link TestConnectionCommandOutput}
+ * @see {@link TestConnectionCommandInput} for command's `input` shape.
+ * @see {@link TestConnectionCommandOutput} for command's `response` shape.
  * @see {@link TransferClientResolvedConfig | config} for TransferClient's `config` shape.
  *
  * @throws {@link InternalServiceError} (server fault)
@@ -107,9 +81,9 @@ export interface DescribeConnectorCommandOutput extends DescribeConnectorRespons
  * <p>Base exception class for all service exceptions from Transfer service.</p>
  *
  */
-export class DescribeConnectorCommand extends $Command<
-  DescribeConnectorCommandInput,
-  DescribeConnectorCommandOutput,
+export class TestConnectionCommand extends $Command<
+  TestConnectionCommandInput,
+  TestConnectionCommandOutput,
   TransferClientResolvedConfig
 > {
   // Start section: command_properties
@@ -127,7 +101,7 @@ export class DescribeConnectorCommand extends $Command<
   /**
    * @public
    */
-  constructor(readonly input: DescribeConnectorCommandInput) {
+  constructor(readonly input: TestConnectionCommandInput) {
     // Start section: command_constructor
     super();
     // End section: command_constructor
@@ -140,17 +114,17 @@ export class DescribeConnectorCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: TransferClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<DescribeConnectorCommandInput, DescribeConnectorCommandOutput> {
+  ): Handler<TestConnectionCommandInput, TestConnectionCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
     this.middlewareStack.use(
-      getEndpointPlugin(configuration, DescribeConnectorCommand.getEndpointParameterInstructions())
+      getEndpointPlugin(configuration, TestConnectionCommand.getEndpointParameterInstructions())
     );
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
     const clientName = "TransferClient";
-    const commandName = "DescribeConnectorCommand";
+    const commandName = "TestConnectionCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
       clientName,
@@ -169,15 +143,15 @@ export class DescribeConnectorCommand extends $Command<
   /**
    * @internal
    */
-  private serialize(input: DescribeConnectorCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return se_DescribeConnectorCommand(input, context);
+  private serialize(input: TestConnectionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
+    return se_TestConnectionCommand(input, context);
   }
 
   /**
    * @internal
    */
-  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeConnectorCommandOutput> {
-    return de_DescribeConnectorCommand(output, context);
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<TestConnectionCommandOutput> {
+    return de_TestConnectionCommand(output, context);
   }
 
   // Start section: command_body_extra

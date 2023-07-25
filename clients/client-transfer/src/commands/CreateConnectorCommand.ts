@@ -37,8 +37,11 @@ export interface CreateConnectorCommandOutput extends CreateConnectorResponse, _
 /**
  * @public
  * <p>Creates the connector, which captures the parameters for an outbound connection for the
- *       AS2 protocol. The connector is required for sending files to an externally hosted AS2 server.
- *       For more details about connectors, see <a href="https://docs.aws.amazon.com/transfer/latest/userguide/create-b2b-server.html#configure-as2-connector">Create AS2 connectors</a>.</p>
+ *       AS2 or SFTP protocol. The connector is required for sending files to an externally hosted AS2 or SFTP server.
+ *       For more details about AS2 connectors, see <a href="https://docs.aws.amazon.com/transfer/latest/userguide/create-b2b-server.html#configure-as2-connector">Create AS2 connectors</a>.</p>
+ *          <note>
+ *             <p>You must specify exactly one configuration object: either for AS2 (<code>As2Config</code>) or SFTP (<code>SftpConfig</code>).</p>
+ *          </note>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -66,6 +69,12 @@ export interface CreateConnectorCommandOutput extends CreateConnectorResponse, _
  *       Value: "STRING_VALUE", // required
  *     },
  *   ],
+ *   SftpConfig: { // SftpConnectorConfig
+ *     UserSecretId: "STRING_VALUE",
+ *     TrustedHostKeys: [ // SftpConnectorTrustedHostKeyList
+ *       "STRING_VALUE",
+ *     ],
+ *   },
  * };
  * const command = new CreateConnectorCommand(input);
  * const response = await client.send(command);

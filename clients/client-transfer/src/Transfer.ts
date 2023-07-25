@@ -215,6 +215,11 @@ import { StartServerCommand, StartServerCommandInput, StartServerCommandOutput }
 import { StopServerCommand, StopServerCommandInput, StopServerCommandOutput } from "./commands/StopServerCommand";
 import { TagResourceCommand, TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
 import {
+  TestConnectionCommand,
+  TestConnectionCommandInput,
+  TestConnectionCommandOutput,
+} from "./commands/TestConnectionCommand";
+import {
   TestIdentityProviderCommand,
   TestIdentityProviderCommandInput,
   TestIdentityProviderCommandOutput,
@@ -311,6 +316,7 @@ const commands = {
   StartServerCommand,
   StopServerCommand,
   TagResourceCommand,
+  TestConnectionCommand,
   TestIdentityProviderCommand,
   UntagResourceCommand,
   UpdateAccessCommand,
@@ -979,6 +985,20 @@ export interface Transfer {
     args: TagResourceCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: TagResourceCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link TestConnectionCommand}
+   */
+  testConnection(
+    args: TestConnectionCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<TestConnectionCommandOutput>;
+  testConnection(args: TestConnectionCommandInput, cb: (err: any, data?: TestConnectionCommandOutput) => void): void;
+  testConnection(
+    args: TestConnectionCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: TestConnectionCommandOutput) => void
   ): void;
 
   /**
