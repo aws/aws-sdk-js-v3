@@ -508,6 +508,10 @@ export const CollectionType = {
    * Timeseries collection type
    */
   TIMESERIES: "TIMESERIES",
+  /**
+   * Vectorsearch collection type
+   */
+  VECTORSEARCH: "VECTORSEARCH",
 } as const;
 
 /**
@@ -848,7 +852,7 @@ export interface CreateCollectionResponse {
 
 /**
  * @public
- * OCU Limit Exceeded for service limits
+ * <p>Thrown when the collection you're attempting to create results in a number of search or indexing OCUs that exceeds the account limit. </p>
  */
 export class OcuLimitExceededException extends __BaseException {
   readonly name: "OcuLimitExceededException" = "OcuLimitExceededException";
