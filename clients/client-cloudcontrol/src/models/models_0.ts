@@ -303,24 +303,41 @@ export interface CreateResourceInput {
   TypeName: string | undefined;
 
   /**
-   * <p>For private resource types, the type version to use in this resource operation. If you do not specify a resource version, CloudFormation uses the default version.</p>
+   * <p>For private resource types, the type version to use in this resource
+   *                                      operation. If you do not specify a resource version, CloudFormation
+   *                                      uses the default version.</p>
    */
   TypeVersionId?: string;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the Identity and Access Management (IAM) role for Cloud Control API to use when performing this resource operation. The role specified must have the permissions required for this operation. The necessary permissions for each event handler are defined in the <code>
+   * <p>The Amazon Resource Name (ARN) of the Identity and Access Management
+   *                                     (IAM) role for Cloud Control API to use when performing this resource
+   *                                     operation. The role specified must have the permissions required for this
+   *                                     operation. The necessary permissions for each event handler are defined in the
+   *                                     <code>
    *                <a href="https://docs.aws.amazon.com/cloudformation-cli/latest/userguide/resource-type-schema.html#schema-properties-handlers">handlers</a>
-   *             </code> section of the <a href="https://docs.aws.amazon.com/cloudformation-cli/latest/userguide/resource-type-schema.html">resource type definition schema</a>.</p>
-   *          <p>If you do not specify a role, Cloud Control API uses a temporary session created using your Amazon Web Services user credentials.</p>
-   *          <p>For more information, see <a href="https://docs.aws.amazon.com/cloudcontrolapi/latest/userguide/resource-operations.html#resource-operations-permissions">Specifying credentials</a> in the <i>Amazon Web Services Cloud Control API User Guide</i>.</p>
+   *             </code>
+   *                                     section of the <a href="https://docs.aws.amazon.com/cloudformation-cli/latest/userguide/resource-type-schema.html">resource type
+   *                                     definition schema</a>.</p>
+   *          <p>If you do not specify a role, Cloud Control API uses a temporary session created using
+   *                                     your Amazon Web Services user credentials.</p>
+   *          <p>For more information, see <a href="https://docs.aws.amazon.com/cloudcontrolapi/latest/userguide/resource-operations.html#resource-operations-permissions">Specifying
+   *                                     credentials</a> in the <i>Amazon Web Services Cloud Control API User Guide</i>.</p>
    */
   RoleArn?: string;
 
   /**
-   * <p>A unique identifier to ensure the idempotency of the resource request. As a best practice, specify this token to ensure idempotency, so that Amazon Web Services Cloud Control API can accurately distinguish between request retries and new resource requests. You might retry a resource request to ensure that it was successfully received.</p>
-   *          <p>A client token is valid for 36 hours once used. After that, a resource request with the same client token is treated as a new request.</p>
-   *          <p>If you do not specify a client token, one is generated for inclusion in the request.</p>
-   *          <p>For more information, see <a href="https://docs.aws.amazon.com/cloudcontrolapi/latest/userguide/resource-operations.html#resource-operations-idempotency">Ensuring resource operation requests are unique</a> in the <i>Amazon Web Services Cloud Control API User Guide</i>.</p>
+   * <p>A unique identifier to ensure the idempotency of the resource request. As a
+   *                                      best practice, specify this token to ensure idempotency, so that Amazon Web Services Cloud Control API can
+   *                                      accurately distinguish between request retries and new resource requests. You
+   *                                      might retry a resource request to ensure that it was successfully received.</p>
+   *          <p>A client token is valid for 36 hours once used. After that, a resource
+   *                                      request with the same client token is treated as a new request.</p>
+   *          <p>If you
+   *                                      do not specify a client token, one is generated for inclusion in the request.</p>
+   *          <p>For more information, see <a href="https://docs.aws.amazon.com/cloudcontrolapi/latest/userguide/resource-operations.html#resource-operations-idempotency">Ensuring
+   *                                      resource operation requests are unique</a> in the <i>Amazon Web Services Cloud Control API User
+   *                                      Guide</i>.</p>
    */
   ClientToken?: string;
 
@@ -330,7 +347,6 @@ export interface CreateResourceInput {
    *          <note>
    *             <p>Cloud Control API currently supports JSON as a structured data format.</p>
    *          </note>
-   *
    *          <p>Specify the desired state as one of the following:</p>
    *          <ul>
    *             <li>
@@ -737,32 +753,57 @@ export interface DeleteResourceInput {
   TypeName: string | undefined;
 
   /**
-   * <p>For private resource types, the type version to use in this resource operation. If you do not specify a resource version, CloudFormation uses the default version.</p>
+   * <p>For private resource types, the type version to use in this resource
+   *                                      operation. If you do not specify a resource version, CloudFormation
+   *                                      uses the default version.</p>
    */
   TypeVersionId?: string;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the Identity and Access Management (IAM) role for Cloud Control API to use when performing this resource operation. The role specified must have the permissions required for this operation. The necessary permissions for each event handler are defined in the <code>
+   * <p>The Amazon Resource Name (ARN) of the Identity and Access Management
+   *                                     (IAM) role for Cloud Control API to use when performing this resource
+   *                                     operation. The role specified must have the permissions required for this
+   *                                     operation. The necessary permissions for each event handler are defined in the
+   *                                     <code>
    *                <a href="https://docs.aws.amazon.com/cloudformation-cli/latest/userguide/resource-type-schema.html#schema-properties-handlers">handlers</a>
-   *             </code> section of the <a href="https://docs.aws.amazon.com/cloudformation-cli/latest/userguide/resource-type-schema.html">resource type definition schema</a>.</p>
-   *          <p>If you do not specify a role, Cloud Control API uses a temporary session created using your Amazon Web Services user credentials.</p>
-   *          <p>For more information, see <a href="https://docs.aws.amazon.com/cloudcontrolapi/latest/userguide/resource-operations.html#resource-operations-permissions">Specifying credentials</a> in the <i>Amazon Web Services Cloud Control API User Guide</i>.</p>
+   *             </code>
+   *                                     section of the <a href="https://docs.aws.amazon.com/cloudformation-cli/latest/userguide/resource-type-schema.html">resource type
+   *                                     definition schema</a>.</p>
+   *          <p>If you do not specify a role, Cloud Control API uses a temporary session created using
+   *                                     your Amazon Web Services user credentials.</p>
+   *          <p>For more information, see <a href="https://docs.aws.amazon.com/cloudcontrolapi/latest/userguide/resource-operations.html#resource-operations-permissions">Specifying
+   *                                     credentials</a> in the <i>Amazon Web Services Cloud Control API User Guide</i>.</p>
    */
   RoleArn?: string;
 
   /**
-   * <p>A unique identifier to ensure the idempotency of the resource request. As a best practice, specify this token to ensure idempotency, so that Amazon Web Services Cloud Control API can accurately distinguish between request retries and new resource requests. You might retry a resource request to ensure that it was successfully received.</p>
-   *          <p>A client token is valid for 36 hours once used. After that, a resource request with the same client token is treated as a new request.</p>
-   *          <p>If you do not specify a client token, one is generated for inclusion in the request.</p>
-   *          <p>For more information, see <a href="https://docs.aws.amazon.com/cloudcontrolapi/latest/userguide/resource-operations.html#resource-operations-idempotency">Ensuring resource operation requests are unique</a> in the <i>Amazon Web Services Cloud Control API User Guide</i>.</p>
+   * <p>A unique identifier to ensure the idempotency of the resource request. As a
+   *                                      best practice, specify this token to ensure idempotency, so that Amazon Web Services Cloud Control API can
+   *                                      accurately distinguish between request retries and new resource requests. You
+   *                                      might retry a resource request to ensure that it was successfully received.</p>
+   *          <p>A client token is valid for 36 hours once used. After that, a resource
+   *                                      request with the same client token is treated as a new request.</p>
+   *          <p>If you
+   *                                      do not specify a client token, one is generated for inclusion in the request.</p>
+   *          <p>For more information, see <a href="https://docs.aws.amazon.com/cloudcontrolapi/latest/userguide/resource-operations.html#resource-operations-idempotency">Ensuring
+   *                                      resource operation requests are unique</a> in the <i>Amazon Web Services Cloud Control API User
+   *                                      Guide</i>.</p>
    */
   ClientToken?: string;
 
   /**
    * <p>The identifier for the resource.</p>
-   *          <p>You can specify the primary identifier, or any secondary identifier defined for the resource type in its resource schema. You can only specify one identifier. Primary identifiers can be specified as a string or JSON; secondary identifiers must be specified as JSON.</p>
-   *          <p>For compound primary identifiers (that is, one that consists of multiple resource properties strung together), to specify the primary identifier as a string, list the property values <i>in the order they are specified</i> in the primary identifier definition, separated by <code>|</code>.</p>
-   *          <p>For more information, see <a href="https://docs.aws.amazon.com/cloudcontrolapi/latest/userguide/resource-identifier.html">Identifying resources</a> in the <i>Amazon Web Services Cloud Control API User Guide</i>.</p>
+   *          <p>You can specify the primary identifier, or any secondary identifier
+   *                                             defined for the resource type in its resource schema. You can only specify
+   *                                             one identifier. Primary identifiers can be specified as a string or JSON;
+   *                                             secondary identifiers must be specified as JSON.</p>
+   *          <p>For compound primary identifiers (that is, one that consists of
+   *                                             multiple resource properties strung together), to specify the primary
+   *                                             identifier as a string, list the property values <i>in the order
+   *                                             they are specified</i> in the primary identifier definition,
+   *                                             separated by <code>|</code>.</p>
+   *          <p>For more information, see <a href="https://docs.aws.amazon.com/cloudcontrolapi/latest/userguide/resource-identifier.html">Identifying
+   *                                             resources</a> in the <i>Amazon Web Services Cloud Control API User Guide</i>.</p>
    */
   Identifier: string | undefined;
 }
@@ -790,24 +831,42 @@ export interface GetResourceInput {
   TypeName: string | undefined;
 
   /**
-   * <p>For private resource types, the type version to use in this resource operation. If you do not specify a resource version, CloudFormation uses the default version.</p>
+   * <p>For private resource types, the type version to use in this resource
+   *                                      operation. If you do not specify a resource version, CloudFormation
+   *                                      uses the default version.</p>
    */
   TypeVersionId?: string;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the Identity and Access Management (IAM) role for Cloud Control API to use when performing this resource operation. The role specified must have the permissions required for this operation. The necessary permissions for each event handler are defined in the <code>
+   * <p>The Amazon Resource Name (ARN) of the Identity and Access Management
+   *                                     (IAM) role for Cloud Control API to use when performing this resource
+   *                                     operation. The role specified must have the permissions required for this
+   *                                     operation. The necessary permissions for each event handler are defined in the
+   *                                     <code>
    *                <a href="https://docs.aws.amazon.com/cloudformation-cli/latest/userguide/resource-type-schema.html#schema-properties-handlers">handlers</a>
-   *             </code> section of the <a href="https://docs.aws.amazon.com/cloudformation-cli/latest/userguide/resource-type-schema.html">resource type definition schema</a>.</p>
-   *          <p>If you do not specify a role, Cloud Control API uses a temporary session created using your Amazon Web Services user credentials.</p>
-   *          <p>For more information, see <a href="https://docs.aws.amazon.com/cloudcontrolapi/latest/userguide/resource-operations.html#resource-operations-permissions">Specifying credentials</a> in the <i>Amazon Web Services Cloud Control API User Guide</i>.</p>
+   *             </code>
+   *                                     section of the <a href="https://docs.aws.amazon.com/cloudformation-cli/latest/userguide/resource-type-schema.html">resource type
+   *                                     definition schema</a>.</p>
+   *          <p>If you do not specify a role, Cloud Control API uses a temporary session created using
+   *                                     your Amazon Web Services user credentials.</p>
+   *          <p>For more information, see <a href="https://docs.aws.amazon.com/cloudcontrolapi/latest/userguide/resource-operations.html#resource-operations-permissions">Specifying
+   *                                     credentials</a> in the <i>Amazon Web Services Cloud Control API User Guide</i>.</p>
    */
   RoleArn?: string;
 
   /**
    * <p>The identifier for the resource.</p>
-   *          <p>You can specify the primary identifier, or any secondary identifier defined for the resource type in its resource schema. You can only specify one identifier. Primary identifiers can be specified as a string or JSON; secondary identifiers must be specified as JSON.</p>
-   *          <p>For compound primary identifiers (that is, one that consists of multiple resource properties strung together), to specify the primary identifier as a string, list the property values <i>in the order they are specified</i> in the primary identifier definition, separated by <code>|</code>.</p>
-   *          <p>For more information, see <a href="https://docs.aws.amazon.com/cloudcontrolapi/latest/userguide/resource-identifier.html">Identifying resources</a> in the <i>Amazon Web Services Cloud Control API User Guide</i>.</p>
+   *          <p>You can specify the primary identifier, or any secondary identifier
+   *                                             defined for the resource type in its resource schema. You can only specify
+   *                                             one identifier. Primary identifiers can be specified as a string or JSON;
+   *                                             secondary identifiers must be specified as JSON.</p>
+   *          <p>For compound primary identifiers (that is, one that consists of
+   *                                             multiple resource properties strung together), to specify the primary
+   *                                             identifier as a string, list the property values <i>in the order
+   *                                             they are specified</i> in the primary identifier definition,
+   *                                             separated by <code>|</code>.</p>
+   *          <p>For more information, see <a href="https://docs.aws.amazon.com/cloudcontrolapi/latest/userguide/resource-identifier.html">Identifying
+   *                                             resources</a> in the <i>Amazon Web Services Cloud Control API User Guide</i>.</p>
    */
   Identifier: string | undefined;
 }
@@ -924,7 +983,12 @@ export interface ListResourceRequestsInput {
   MaxResults?: number;
 
   /**
-   * <p>If the previous paginated request didn't return all of the remaining results, the response object's <code>NextToken</code> parameter value is set to a token. To retrieve the next set of results, call this action again and assign that token to the request object's <code>NextToken</code> parameter. If there are no remaining results, the previous response object's <code>NextToken</code> parameter is set to <code>null</code>.</p>
+   * <p>If the previous paginated request didn't return all of the remaining results,
+   *                                    the response object's <code>NextToken</code> parameter value is set to a token.
+   *                                    To retrieve the next set of results, call this action again and assign that token to
+   *                                    the request object's <code>NextToken</code> parameter. If there are no remaining
+   *                                    results, the previous response object's <code>NextToken</code> parameter is set to
+   *                                    <code>null</code>.</p>
    */
   NextToken?: string;
 
@@ -944,7 +1008,11 @@ export interface ListResourceRequestsOutput {
   ResourceRequestStatusSummaries?: ProgressEvent[];
 
   /**
-   * <p>If the request doesn't return all of the remaining results, <code>NextToken</code> is set to a token. To retrieve the next set of results, call <code>ListResources</code> again and assign that token to the request object's <code>NextToken</code> parameter. If the request returns all results, <code>NextToken</code> is set to null.</p>
+   * <p>If the request doesn't return all of the remaining results,
+   *                                     <code>NextToken</code> is set to a token. To retrieve the next set of results, call
+   *                                     <code>ListResources</code> again and assign that token to the request object's
+   *                                     <code>NextToken</code> parameter. If the request returns all results,
+   *                                     <code>NextToken</code> is set to null.</p>
    */
   NextToken?: string;
 }
@@ -959,21 +1027,36 @@ export interface ListResourcesInput {
   TypeName: string | undefined;
 
   /**
-   * <p>For private resource types, the type version to use in this resource operation. If you do not specify a resource version, CloudFormation uses the default version.</p>
+   * <p>For private resource types, the type version to use in this resource
+   *                                      operation. If you do not specify a resource version, CloudFormation
+   *                                      uses the default version.</p>
    */
   TypeVersionId?: string;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the Identity and Access Management (IAM) role for Cloud Control API to use when performing this resource operation. The role specified must have the permissions required for this operation. The necessary permissions for each event handler are defined in the <code>
+   * <p>The Amazon Resource Name (ARN) of the Identity and Access Management
+   *                                     (IAM) role for Cloud Control API to use when performing this resource
+   *                                     operation. The role specified must have the permissions required for this
+   *                                     operation. The necessary permissions for each event handler are defined in the
+   *                                     <code>
    *                <a href="https://docs.aws.amazon.com/cloudformation-cli/latest/userguide/resource-type-schema.html#schema-properties-handlers">handlers</a>
-   *             </code> section of the <a href="https://docs.aws.amazon.com/cloudformation-cli/latest/userguide/resource-type-schema.html">resource type definition schema</a>.</p>
-   *          <p>If you do not specify a role, Cloud Control API uses a temporary session created using your Amazon Web Services user credentials.</p>
-   *          <p>For more information, see <a href="https://docs.aws.amazon.com/cloudcontrolapi/latest/userguide/resource-operations.html#resource-operations-permissions">Specifying credentials</a> in the <i>Amazon Web Services Cloud Control API User Guide</i>.</p>
+   *             </code>
+   *                                     section of the <a href="https://docs.aws.amazon.com/cloudformation-cli/latest/userguide/resource-type-schema.html">resource type
+   *                                     definition schema</a>.</p>
+   *          <p>If you do not specify a role, Cloud Control API uses a temporary session created using
+   *                                     your Amazon Web Services user credentials.</p>
+   *          <p>For more information, see <a href="https://docs.aws.amazon.com/cloudcontrolapi/latest/userguide/resource-operations.html#resource-operations-permissions">Specifying
+   *                                     credentials</a> in the <i>Amazon Web Services Cloud Control API User Guide</i>.</p>
    */
   RoleArn?: string;
 
   /**
-   * <p>If the previous paginated request didn't return all of the remaining results, the response object's <code>NextToken</code> parameter value is set to a token. To retrieve the next set of results, call this action again and assign that token to the request object's <code>NextToken</code> parameter. If there are no remaining results, the previous response object's <code>NextToken</code> parameter is set to <code>null</code>.</p>
+   * <p>If the previous paginated request didn't return all of the remaining results,
+   *                                    the response object's <code>NextToken</code> parameter value is set to a token.
+   *                                    To retrieve the next set of results, call this action again and assign that token to
+   *                                    the request object's <code>NextToken</code> parameter. If there are no remaining
+   *                                    results, the previous response object's <code>NextToken</code> parameter is set to
+   *                                    <code>null</code>.</p>
    */
   NextToken?: string;
 
@@ -1004,7 +1087,11 @@ export interface ListResourcesOutput {
   ResourceDescriptions?: ResourceDescription[];
 
   /**
-   * <p>If the request doesn't return all of the remaining results, <code>NextToken</code> is set to a token. To retrieve the next set of results, call <code>ListResources</code> again and assign that token to the request object's <code>NextToken</code> parameter. If the request returns all results, <code>NextToken</code> is set to null.</p>
+   * <p>If the request doesn't return all of the remaining results,
+   *                                     <code>NextToken</code> is set to a token. To retrieve the next set of results, call
+   *                                     <code>ListResources</code> again and assign that token to the request object's
+   *                                     <code>NextToken</code> parameter. If the request returns all results,
+   *                                     <code>NextToken</code> is set to null.</p>
    */
   NextToken?: string;
 }
@@ -1019,32 +1106,57 @@ export interface UpdateResourceInput {
   TypeName: string | undefined;
 
   /**
-   * <p>For private resource types, the type version to use in this resource operation. If you do not specify a resource version, CloudFormation uses the default version.</p>
+   * <p>For private resource types, the type version to use in this resource
+   *                                      operation. If you do not specify a resource version, CloudFormation
+   *                                      uses the default version.</p>
    */
   TypeVersionId?: string;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the Identity and Access Management (IAM) role for Cloud Control API to use when performing this resource operation. The role specified must have the permissions required for this operation. The necessary permissions for each event handler are defined in the <code>
+   * <p>The Amazon Resource Name (ARN) of the Identity and Access Management
+   *                                     (IAM) role for Cloud Control API to use when performing this resource
+   *                                     operation. The role specified must have the permissions required for this
+   *                                     operation. The necessary permissions for each event handler are defined in the
+   *                                     <code>
    *                <a href="https://docs.aws.amazon.com/cloudformation-cli/latest/userguide/resource-type-schema.html#schema-properties-handlers">handlers</a>
-   *             </code> section of the <a href="https://docs.aws.amazon.com/cloudformation-cli/latest/userguide/resource-type-schema.html">resource type definition schema</a>.</p>
-   *          <p>If you do not specify a role, Cloud Control API uses a temporary session created using your Amazon Web Services user credentials.</p>
-   *          <p>For more information, see <a href="https://docs.aws.amazon.com/cloudcontrolapi/latest/userguide/resource-operations.html#resource-operations-permissions">Specifying credentials</a> in the <i>Amazon Web Services Cloud Control API User Guide</i>.</p>
+   *             </code>
+   *                                     section of the <a href="https://docs.aws.amazon.com/cloudformation-cli/latest/userguide/resource-type-schema.html">resource type
+   *                                     definition schema</a>.</p>
+   *          <p>If you do not specify a role, Cloud Control API uses a temporary session created using
+   *                                     your Amazon Web Services user credentials.</p>
+   *          <p>For more information, see <a href="https://docs.aws.amazon.com/cloudcontrolapi/latest/userguide/resource-operations.html#resource-operations-permissions">Specifying
+   *                                     credentials</a> in the <i>Amazon Web Services Cloud Control API User Guide</i>.</p>
    */
   RoleArn?: string;
 
   /**
-   * <p>A unique identifier to ensure the idempotency of the resource request. As a best practice, specify this token to ensure idempotency, so that Amazon Web Services Cloud Control API can accurately distinguish between request retries and new resource requests. You might retry a resource request to ensure that it was successfully received.</p>
-   *          <p>A client token is valid for 36 hours once used. After that, a resource request with the same client token is treated as a new request.</p>
-   *          <p>If you do not specify a client token, one is generated for inclusion in the request.</p>
-   *          <p>For more information, see <a href="https://docs.aws.amazon.com/cloudcontrolapi/latest/userguide/resource-operations.html#resource-operations-idempotency">Ensuring resource operation requests are unique</a> in the <i>Amazon Web Services Cloud Control API User Guide</i>.</p>
+   * <p>A unique identifier to ensure the idempotency of the resource request. As a
+   *                                      best practice, specify this token to ensure idempotency, so that Amazon Web Services Cloud Control API can
+   *                                      accurately distinguish between request retries and new resource requests. You
+   *                                      might retry a resource request to ensure that it was successfully received.</p>
+   *          <p>A client token is valid for 36 hours once used. After that, a resource
+   *                                      request with the same client token is treated as a new request.</p>
+   *          <p>If you
+   *                                      do not specify a client token, one is generated for inclusion in the request.</p>
+   *          <p>For more information, see <a href="https://docs.aws.amazon.com/cloudcontrolapi/latest/userguide/resource-operations.html#resource-operations-idempotency">Ensuring
+   *                                      resource operation requests are unique</a> in the <i>Amazon Web Services Cloud Control API User
+   *                                      Guide</i>.</p>
    */
   ClientToken?: string;
 
   /**
    * <p>The identifier for the resource.</p>
-   *          <p>You can specify the primary identifier, or any secondary identifier defined for the resource type in its resource schema. You can only specify one identifier. Primary identifiers can be specified as a string or JSON; secondary identifiers must be specified as JSON.</p>
-   *          <p>For compound primary identifiers (that is, one that consists of multiple resource properties strung together), to specify the primary identifier as a string, list the property values <i>in the order they are specified</i> in the primary identifier definition, separated by <code>|</code>.</p>
-   *          <p>For more information, see <a href="https://docs.aws.amazon.com/cloudcontrolapi/latest/userguide/resource-identifier.html">Identifying resources</a> in the <i>Amazon Web Services Cloud Control API User Guide</i>.</p>
+   *          <p>You can specify the primary identifier, or any secondary identifier
+   *                                             defined for the resource type in its resource schema. You can only specify
+   *                                             one identifier. Primary identifiers can be specified as a string or JSON;
+   *                                             secondary identifiers must be specified as JSON.</p>
+   *          <p>For compound primary identifiers (that is, one that consists of
+   *                                             multiple resource properties strung together), to specify the primary
+   *                                             identifier as a string, list the property values <i>in the order
+   *                                             they are specified</i> in the primary identifier definition,
+   *                                             separated by <code>|</code>.</p>
+   *          <p>For more information, see <a href="https://docs.aws.amazon.com/cloudcontrolapi/latest/userguide/resource-identifier.html">Identifying
+   *                                             resources</a> in the <i>Amazon Web Services Cloud Control API User Guide</i>.</p>
    */
   Identifier: string | undefined;
 
