@@ -10,10 +10,9 @@ import {
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
-  SdkStream as __SdkStream,
   SdkStreamSerdeContext as __SdkStreamSerdeContext,
   SerdeContext as __SerdeContext,
-  WithSdkStreamMixin as __WithSdkStreamMixin,
+  StreamingBlobPayloadOutputTypes,
 } from "@smithy/types";
 
 import {
@@ -39,9 +38,9 @@ export interface GetObjectTorrentCommandInput extends GetObjectTorrentRequest {}
  *
  * The output of {@link GetObjectTorrentCommand}.
  */
-export interface GetObjectTorrentCommandOutput
-  extends __WithSdkStreamMixin<GetObjectTorrentOutput, "Body">,
-    __MetadataBearer {}
+export interface GetObjectTorrentCommandOutput extends Omit<GetObjectTorrentOutput, "Body">, __MetadataBearer {
+  Body?: StreamingBlobPayloadOutputTypes;
+}
 
 /**
  * @public

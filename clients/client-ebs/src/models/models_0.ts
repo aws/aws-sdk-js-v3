@@ -1,6 +1,6 @@
 // smithy-typescript generated code
 import { ExceptionOptionType as __ExceptionOptionType, SENSITIVE_STRING } from "@smithy/smithy-client";
-import { Readable } from "stream";
+import { StreamingBlobTypes } from "@smithy/types";
 
 import { EBSServiceException as __BaseException } from "./EBSServiceException";
 
@@ -466,7 +466,7 @@ export interface GetSnapshotBlockResponse {
   /**
    * <p>The data content of the block.</p>
    */
-  BlockData?: Readable | ReadableStream | Blob;
+  BlockData?: StreamingBlobTypes;
 
   /**
    * <p>The checksum generated for the block, which is Base64 encoded.</p>
@@ -667,7 +667,7 @@ export interface PutSnapshotBlockRequest {
    *                 Using checksums with the EBS direct APIs</a> in the <i>Amazon Elastic Compute Cloud User
    *                 Guide</i>.</p>
    */
-  BlockData: Readable | ReadableStream | Blob | undefined;
+  BlockData: StreamingBlobTypes | undefined;
 
   /**
    * <p>The size of the data to write to the block, in bytes. Currently, the only supported

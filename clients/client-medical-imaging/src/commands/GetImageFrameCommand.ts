@@ -10,10 +10,9 @@ import {
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
-  SdkStream as __SdkStream,
   SdkStreamSerdeContext as __SdkStreamSerdeContext,
   SerdeContext as __SerdeContext,
-  WithSdkStreamMixin as __WithSdkStreamMixin,
+  StreamingBlobPayloadOutputTypes,
 } from "@smithy/types";
 
 import { MedicalImagingClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MedicalImagingClient";
@@ -39,9 +38,9 @@ export interface GetImageFrameCommandInput extends GetImageFrameRequest {}
  *
  * The output of {@link GetImageFrameCommand}.
  */
-export interface GetImageFrameCommandOutput
-  extends __WithSdkStreamMixin<GetImageFrameResponse, "imageFrameBlob">,
-    __MetadataBearer {}
+export interface GetImageFrameCommandOutput extends Omit<GetImageFrameResponse, "imageFrameBlob">, __MetadataBearer {
+  imageFrameBlob: StreamingBlobPayloadOutputTypes;
+}
 
 /**
  * @public

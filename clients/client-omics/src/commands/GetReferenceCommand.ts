@@ -10,10 +10,9 @@ import {
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
-  SdkStream as __SdkStream,
   SdkStreamSerdeContext as __SdkStreamSerdeContext,
   SerdeContext as __SerdeContext,
-  WithSdkStreamMixin as __WithSdkStreamMixin,
+  StreamingBlobPayloadOutputTypes,
 } from "@smithy/types";
 
 import { GetReferenceRequest, GetReferenceResponse, GetReferenceResponseFilterSensitiveLog } from "../models/models_0";
@@ -35,9 +34,9 @@ export interface GetReferenceCommandInput extends GetReferenceRequest {}
  *
  * The output of {@link GetReferenceCommand}.
  */
-export interface GetReferenceCommandOutput
-  extends __WithSdkStreamMixin<GetReferenceResponse, "payload">,
-    __MetadataBearer {}
+export interface GetReferenceCommandOutput extends Omit<GetReferenceResponse, "payload">, __MetadataBearer {
+  payload?: StreamingBlobPayloadOutputTypes;
+}
 
 /**
  * @public

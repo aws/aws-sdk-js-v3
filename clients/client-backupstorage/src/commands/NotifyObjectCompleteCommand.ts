@@ -11,6 +11,7 @@ import {
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
   SerdeContext as __SerdeContext,
+  StreamingBlobPayloadInputTypes,
 } from "@smithy/types";
 
 import { BackupStorageClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../BackupStorageClient";
@@ -25,18 +26,15 @@ import { de_NotifyObjectCompleteCommand, se_NotifyObjectCompleteCommand } from "
  * @public
  */
 export { __MetadataBearer, $Command };
-export type NotifyObjectCompleteCommandInputType = Omit<NotifyObjectCompleteInput, "MetadataBlob"> & {
-  /**
-   * For *`NotifyObjectCompleteInput["MetadataBlob"]`*, see {@link NotifyObjectCompleteInput.MetadataBlob}.
-   */
-  MetadataBlob?: NotifyObjectCompleteInput["MetadataBlob"] | string | Uint8Array | Buffer;
-};
 /**
  * @public
  *
  * The input for {@link NotifyObjectCompleteCommand}.
  */
-export interface NotifyObjectCompleteCommandInput extends NotifyObjectCompleteCommandInputType {}
+export interface NotifyObjectCompleteCommandInput extends Omit<NotifyObjectCompleteInput, "MetadataBlob"> {
+  MetadataBlob?: StreamingBlobPayloadInputTypes;
+}
+
 /**
  * @public
  *

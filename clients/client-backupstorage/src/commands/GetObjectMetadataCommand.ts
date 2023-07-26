@@ -10,10 +10,9 @@ import {
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
-  SdkStream as __SdkStream,
   SdkStreamSerdeContext as __SdkStreamSerdeContext,
   SerdeContext as __SerdeContext,
-  WithSdkStreamMixin as __WithSdkStreamMixin,
+  StreamingBlobPayloadOutputTypes,
 } from "@smithy/types";
 
 import { BackupStorageClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../BackupStorageClient";
@@ -40,8 +39,10 @@ export interface GetObjectMetadataCommandInput extends GetObjectMetadataInput {}
  * The output of {@link GetObjectMetadataCommand}.
  */
 export interface GetObjectMetadataCommandOutput
-  extends __WithSdkStreamMixin<GetObjectMetadataOutput, "MetadataBlob">,
-    __MetadataBearer {}
+  extends Omit<GetObjectMetadataOutput, "MetadataBlob">,
+    __MetadataBearer {
+  MetadataBlob?: StreamingBlobPayloadOutputTypes;
+}
 
 /**
  * @public

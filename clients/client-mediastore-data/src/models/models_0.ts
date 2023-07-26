@@ -1,6 +1,6 @@
 // smithy-typescript generated code
 import { ExceptionOptionType as __ExceptionOptionType } from "@smithy/smithy-client";
-import { Readable } from "stream";
+import { StreamingBlobTypes } from "@smithy/types";
 
 import { MediaStoreDataServiceException as __BaseException } from "./MediaStoreDataServiceException";
 
@@ -169,7 +169,7 @@ export interface GetObjectResponse {
   /**
    * <p>The bytes of the object. </p>
    */
-  Body?: Readable | ReadableStream | Blob;
+  Body?: StreamingBlobTypes;
 
   /**
    * <p>An optional <code>CacheControl</code> header that allows the caller to control the
@@ -368,7 +368,7 @@ export interface PutObjectRequest {
   /**
    * <p>The bytes to be stored. </p>
    */
-  Body: Readable | ReadableStream | Blob | undefined;
+  Body: StreamingBlobTypes | undefined;
 
   /**
    * <p>The path (including the file name) where the object is stored in the container.

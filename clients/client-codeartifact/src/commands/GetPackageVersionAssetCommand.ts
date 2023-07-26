@@ -10,10 +10,9 @@ import {
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
-  SdkStream as __SdkStream,
   SdkStreamSerdeContext as __SdkStreamSerdeContext,
   SerdeContext as __SerdeContext,
-  WithSdkStreamMixin as __WithSdkStreamMixin,
+  StreamingBlobPayloadOutputTypes,
 } from "@smithy/types";
 
 import { CodeartifactClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CodeartifactClient";
@@ -40,8 +39,10 @@ export interface GetPackageVersionAssetCommandInput extends GetPackageVersionAss
  * The output of {@link GetPackageVersionAssetCommand}.
  */
 export interface GetPackageVersionAssetCommandOutput
-  extends __WithSdkStreamMixin<GetPackageVersionAssetResult, "asset">,
-    __MetadataBearer {}
+  extends Omit<GetPackageVersionAssetResult, "asset">,
+    __MetadataBearer {
+  asset?: StreamingBlobPayloadOutputTypes;
+}
 
 /**
  * @public

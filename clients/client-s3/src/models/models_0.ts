@@ -1,6 +1,6 @@
 // smithy-typescript generated code
 import { ExceptionOptionType as __ExceptionOptionType, SENSITIVE_STRING } from "@smithy/smithy-client";
-import { Readable } from "stream";
+import { StreamingBlobTypes } from "@smithy/types";
 
 import { S3ServiceException as __BaseException } from "./S3ServiceException";
 
@@ -7013,7 +7013,7 @@ export interface GetObjectOutput {
   /**
    * <p>Object data.</p>
    */
-  Body?: Readable | ReadableStream | Blob;
+  Body?: StreamingBlobTypes;
 
   /**
    * <p>Specifies whether the object retrieved was (true) or was not (false) a Delete Marker. If
@@ -8062,7 +8062,7 @@ export interface GetObjectTorrentOutput {
   /**
    * <p>A Bencoded dictionary as defined by the BitTorrent specification</p>
    */
-  Body?: Readable | ReadableStream | Blob;
+  Body?: StreamingBlobTypes;
 
   /**
    * <p>If present, indicates that the requester was successfully charged for the
@@ -11065,7 +11065,7 @@ export interface PutObjectRequest {
   /**
    * <p>Object data.</p>
    */
-  Body?: Readable | ReadableStream | Blob;
+  Body?: StreamingBlobTypes;
 
   /**
    * <p>The bucket name to which the PUT action was initiated. </p>

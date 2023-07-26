@@ -3,8 +3,7 @@ import {
   ExceptionOptionType as __ExceptionOptionType,
   LazyJsonString as __LazyJsonString,
 } from "@smithy/smithy-client";
-import { DocumentType as __DocumentType } from "@smithy/types";
-import { Readable } from "stream";
+import { DocumentType as __DocumentType, StreamingBlobTypes } from "@smithy/types";
 
 import { RestJsonProtocolServiceException as __BaseException } from "./RestJsonProtocolServiceException";
 
@@ -1201,7 +1200,7 @@ export interface SimpleScalarPropertiesInputOutput {
  */
 export interface StreamingTraitsInputOutput {
   foo?: string;
-  blob?: Readable | ReadableStream | Blob;
+  blob?: StreamingBlobTypes;
 }
 
 /**
@@ -1216,7 +1215,7 @@ export const StreamingTraitsInputOutputFilterSensitiveLog = (obj: StreamingTrait
  */
 export interface StreamingTraitsRequireLengthInput {
   foo?: string;
-  blob?: Readable | ReadableStream | Blob;
+  blob?: StreamingBlobTypes;
 }
 
 /**
@@ -1231,7 +1230,7 @@ export const StreamingTraitsRequireLengthInputFilterSensitiveLog = (obj: Streami
  */
 export interface StreamingTraitsWithMediaTypeInputOutput {
   foo?: string;
-  blob?: Readable | ReadableStream | Blob;
+  blob?: StreamingBlobTypes;
 }
 
 /**

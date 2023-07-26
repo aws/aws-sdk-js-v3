@@ -1,6 +1,6 @@
 // smithy-typescript generated code
 import { ExceptionOptionType as __ExceptionOptionType, SENSITIVE_STRING } from "@smithy/smithy-client";
-import { Readable } from "stream";
+import { StreamingBlobTypes } from "@smithy/types";
 
 import {
   ChecksumAlgorithm,
@@ -1273,7 +1273,7 @@ export interface UploadPartRequest {
   /**
    * <p>Object data.</p>
    */
-  Body?: Readable | ReadableStream | Blob;
+  Body?: StreamingBlobTypes;
 
   /**
    * <p>The name of the bucket to which the multipart upload was initiated.</p>
@@ -1660,7 +1660,7 @@ export interface WriteGetObjectResponseRequest {
   /**
    * <p>The object data.</p>
    */
-  Body?: Readable | ReadableStream | Blob;
+  Body?: StreamingBlobTypes;
 
   /**
    * <p>The integer status code for an HTTP response of a corresponding <code>GetObject</code>

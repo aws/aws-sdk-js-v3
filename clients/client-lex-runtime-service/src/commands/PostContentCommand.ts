@@ -10,10 +10,10 @@ import {
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
-  SdkStream as __SdkStream,
   SdkStreamSerdeContext as __SdkStreamSerdeContext,
   SerdeContext as __SerdeContext,
-  WithSdkStreamMixin as __WithSdkStreamMixin,
+  StreamingBlobPayloadInputTypes,
+  StreamingBlobPayloadOutputTypes,
 } from "@smithy/types";
 
 import {
@@ -33,26 +33,23 @@ import { de_PostContentCommand, se_PostContentCommand } from "../protocols/Aws_r
  * @public
  */
 export { __MetadataBearer, $Command };
-export type PostContentCommandInputType = Omit<PostContentRequest, "inputStream"> & {
-  /**
-   * For *`PostContentRequest["inputStream"]`*, see {@link PostContentRequest.inputStream}.
-   */
-  inputStream: PostContentRequest["inputStream"] | string | Uint8Array | Buffer;
-};
 /**
  * @public
  *
  * The input for {@link PostContentCommand}.
  */
-export interface PostContentCommandInput extends PostContentCommandInputType {}
+export interface PostContentCommandInput extends Omit<PostContentRequest, "inputStream"> {
+  inputStream: StreamingBlobPayloadInputTypes;
+}
+
 /**
  * @public
  *
  * The output of {@link PostContentCommand}.
  */
-export interface PostContentCommandOutput
-  extends __WithSdkStreamMixin<PostContentResponse, "audioStream">,
-    __MetadataBearer {}
+export interface PostContentCommandOutput extends Omit<PostContentResponse, "audioStream">, __MetadataBearer {
+  audioStream?: StreamingBlobPayloadOutputTypes;
+}
 
 /**
  * @public

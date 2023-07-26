@@ -10,10 +10,9 @@ import {
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
-  SdkStream as __SdkStream,
   SdkStreamSerdeContext as __SdkStreamSerdeContext,
   SerdeContext as __SerdeContext,
-  WithSdkStreamMixin as __WithSdkStreamMixin,
+  StreamingBlobPayloadOutputTypes,
 } from "@smithy/types";
 
 import {
@@ -44,8 +43,10 @@ export interface GetMediaForFragmentListCommandInput extends GetMediaForFragment
  * The output of {@link GetMediaForFragmentListCommand}.
  */
 export interface GetMediaForFragmentListCommandOutput
-  extends __WithSdkStreamMixin<GetMediaForFragmentListOutput, "Payload">,
-    __MetadataBearer {}
+  extends Omit<GetMediaForFragmentListOutput, "Payload">,
+    __MetadataBearer {
+  Payload?: StreamingBlobPayloadOutputTypes;
+}
 
 /**
  * @public

@@ -23,11 +23,11 @@
     "@aws-sdk/chunked-stream-reader-node": "*",
     "@aws-sdk/sha256-tree-hash": "*",
     "@aws-sdk/types": "*",
-    "@smithy/is-array-buffer": "^1.0.1",
-    "@smithy/protocol-http": "^1.1.0",
-    "@smithy/types": "^1.1.0",
-    "@smithy/util-hex-encoding": "^1.0.1",
-    "@smithy/util-utf8": "^1.0.1",
+    "@smithy/is-array-buffer": "^2.0.0",
+    "@smithy/protocol-http": "^2.0.1",
+    "@smithy/types": "^2.0.2",
+    "@smithy/util-hex-encoding": "^2.0.0",
+    "@smithy/util-utf8": "^2.0.0",
     "tslib": "^2.5.0"
   },
   "devDependencies": {

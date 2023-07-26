@@ -17,7 +17,7 @@ import {
   ExceptionOptionType as __ExceptionOptionType,
   LazyJsonString as __LazyJsonString,
 } from "@smithy/smithy-client";
-import { DocumentType as __DocumentType } from "@smithy/types";
+import { DocumentType as __DocumentType, StreamingBlobTypes } from "@smithy/types";
 import { Readable } from "stream";
 
 /**
@@ -4700,7 +4700,7 @@ export namespace SimpleScalarPropertiesInputOutput {
  */
 export interface StreamingTraitsInputOutput {
   foo?: string;
-  blob?: Readable | ReadableStream | Blob;
+  blob?: StreamingBlobTypes;
 }
 
 /**
@@ -4752,7 +4752,7 @@ export namespace StreamingTraitsInputOutput {
  */
 export interface StreamingTraitsRequireLengthInput {
   foo?: string;
-  blob?: Readable | ReadableStream | Blob;
+  blob?: StreamingBlobTypes;
 }
 
 /**
@@ -4804,7 +4804,7 @@ export namespace StreamingTraitsRequireLengthInput {
  */
 export interface StreamingTraitsWithMediaTypeInputOutput {
   foo?: string;
-  blob?: Readable | ReadableStream | Blob;
+  blob?: StreamingBlobTypes;
 }
 
 /**

@@ -1,6 +1,6 @@
 // smithy-typescript generated code
 import { ExceptionOptionType as __ExceptionOptionType, SENSITIVE_STRING } from "@smithy/smithy-client";
-import { Readable } from "stream";
+import { StreamingBlobTypes } from "@smithy/types";
 
 import { LambdaServiceException as __BaseException } from "./LambdaServiceException";
 
@@ -4383,7 +4383,7 @@ export interface InvokeAsyncRequest {
   /**
    * <p>The JSON that you want to provide to your Lambda function as input.</p>
    */
-  InvokeArgs: Readable | ReadableStream | Blob | undefined;
+  InvokeArgs: StreamingBlobTypes | undefined;
 }
 
 /**

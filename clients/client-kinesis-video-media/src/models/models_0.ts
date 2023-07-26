@@ -1,6 +1,6 @@
 // smithy-typescript generated code
 import { ExceptionOptionType as __ExceptionOptionType } from "@smithy/smithy-client";
-import { Readable } from "stream";
+import { StreamingBlobTypes } from "@smithy/types";
 
 import { KinesisVideoMediaServiceException as __BaseException } from "./KinesisVideoMediaServiceException";
 
@@ -245,7 +245,7 @@ export interface GetMediaOutput {
    *             </li>
    *          </ul>
    */
-  Payload?: Readable | ReadableStream | Blob;
+  Payload?: StreamingBlobTypes;
 }
 
 /**

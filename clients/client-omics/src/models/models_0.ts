@@ -1,7 +1,6 @@
 // smithy-typescript generated code
 import { ExceptionOptionType as __ExceptionOptionType } from "@smithy/smithy-client";
-import { DocumentType as __DocumentType } from "@smithy/types";
-import { Readable } from "stream";
+import { DocumentType as __DocumentType, StreamingBlobTypes } from "@smithy/types";
 
 import { OmicsServiceException as __BaseException } from "./OmicsServiceException";
 
@@ -2442,7 +2441,7 @@ export interface GetReadSetResponse {
   /**
    * <p>The read set file payload.</p>
    */
-  payload?: Readable | ReadableStream | Blob;
+  payload?: StreamingBlobTypes;
 }
 
 /**
@@ -2962,7 +2961,7 @@ export interface GetReferenceResponse {
   /**
    * <p>The reference file payload.</p>
    */
-  payload?: Readable | ReadableStream | Blob;
+  payload?: StreamingBlobTypes;
 }
 
 /**
@@ -6047,7 +6046,7 @@ export interface UploadReadSetPartRequest {
    *       The read set data to upload for a part.
    *     </p>
    */
-  payload: Readable | ReadableStream | Blob | undefined;
+  payload: StreamingBlobTypes | undefined;
 }
 
 /**

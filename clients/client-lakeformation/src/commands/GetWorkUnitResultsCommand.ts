@@ -10,10 +10,9 @@ import {
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
-  SdkStream as __SdkStream,
   SdkStreamSerdeContext as __SdkStreamSerdeContext,
   SerdeContext as __SerdeContext,
-  WithSdkStreamMixin as __WithSdkStreamMixin,
+  StreamingBlobPayloadOutputTypes,
 } from "@smithy/types";
 
 import { LakeFormationClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LakeFormationClient";
@@ -41,8 +40,10 @@ export interface GetWorkUnitResultsCommandInput extends GetWorkUnitResultsReques
  * The output of {@link GetWorkUnitResultsCommand}.
  */
 export interface GetWorkUnitResultsCommandOutput
-  extends __WithSdkStreamMixin<GetWorkUnitResultsResponse, "ResultStream">,
-    __MetadataBearer {}
+  extends Omit<GetWorkUnitResultsResponse, "ResultStream">,
+    __MetadataBearer {
+  ResultStream?: StreamingBlobPayloadOutputTypes;
+}
 
 /**
  * @public

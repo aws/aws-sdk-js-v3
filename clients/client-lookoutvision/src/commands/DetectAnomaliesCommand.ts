@@ -11,6 +11,7 @@ import {
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
   SerdeContext as __SerdeContext,
+  StreamingBlobPayloadInputTypes,
 } from "@smithy/types";
 
 import { LookoutVisionClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LookoutVisionClient";
@@ -25,18 +26,15 @@ import { de_DetectAnomaliesCommand, se_DetectAnomaliesCommand } from "../protoco
  * @public
  */
 export { __MetadataBearer, $Command };
-export type DetectAnomaliesCommandInputType = Omit<DetectAnomaliesRequest, "Body"> & {
-  /**
-   * For *`DetectAnomaliesRequest["Body"]`*, see {@link DetectAnomaliesRequest.Body}.
-   */
-  Body: DetectAnomaliesRequest["Body"] | string | Uint8Array | Buffer;
-};
 /**
  * @public
  *
  * The input for {@link DetectAnomaliesCommand}.
  */
-export interface DetectAnomaliesCommandInput extends DetectAnomaliesCommandInputType {}
+export interface DetectAnomaliesCommandInput extends Omit<DetectAnomaliesRequest, "Body"> {
+  Body: StreamingBlobPayloadInputTypes;
+}
+
 /**
  * @public
  *

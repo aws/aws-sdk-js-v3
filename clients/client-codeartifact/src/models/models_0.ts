@@ -1,6 +1,6 @@
 // smithy-typescript generated code
 import { ExceptionOptionType as __ExceptionOptionType } from "@smithy/smithy-client";
-import { Readable } from "stream";
+import { StreamingBlobTypes } from "@smithy/types";
 
 import { CodeartifactServiceException as __BaseException } from "./CodeartifactServiceException";
 
@@ -2364,7 +2364,7 @@ export interface GetPackageVersionAssetResult {
   /**
    * <p> The binary file, or asset, that is downloaded.</p>
    */
-  asset?: Readable | ReadableStream | Blob;
+  asset?: StreamingBlobTypes;
 
   /**
    * <p>
@@ -3650,7 +3650,7 @@ export interface PublishPackageVersionRequest {
   /**
    * <p>The content of the asset to publish.</p>
    */
-  assetContent: Readable | ReadableStream | Blob | undefined;
+  assetContent: StreamingBlobTypes | undefined;
 
   /**
    * <p>The name of the asset to publish. Asset names can include Unicode letters and numbers, and

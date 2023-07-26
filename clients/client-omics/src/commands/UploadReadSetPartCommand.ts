@@ -11,6 +11,7 @@ import {
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
   SerdeContext as __SerdeContext,
+  StreamingBlobPayloadInputTypes,
 } from "@smithy/types";
 
 import {
@@ -25,18 +26,15 @@ import { de_UploadReadSetPartCommand, se_UploadReadSetPartCommand } from "../pro
  * @public
  */
 export { __MetadataBearer, $Command };
-export type UploadReadSetPartCommandInputType = Omit<UploadReadSetPartRequest, "payload"> & {
-  /**
-   * For *`UploadReadSetPartRequest["payload"]`*, see {@link UploadReadSetPartRequest.payload}.
-   */
-  payload: UploadReadSetPartRequest["payload"] | string | Uint8Array | Buffer;
-};
 /**
  * @public
  *
  * The input for {@link UploadReadSetPartCommand}.
  */
-export interface UploadReadSetPartCommandInput extends UploadReadSetPartCommandInputType {}
+export interface UploadReadSetPartCommandInput extends Omit<UploadReadSetPartRequest, "payload"> {
+  payload: StreamingBlobPayloadInputTypes;
+}
+
 /**
  * @public
  *

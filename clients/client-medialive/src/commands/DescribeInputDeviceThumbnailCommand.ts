@@ -10,10 +10,9 @@ import {
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
-  SdkStream as __SdkStream,
   SdkStreamSerdeContext as __SdkStreamSerdeContext,
   SerdeContext as __SerdeContext,
-  WithSdkStreamMixin as __WithSdkStreamMixin,
+  StreamingBlobPayloadOutputTypes,
 } from "@smithy/types";
 
 import { MediaLiveClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MediaLiveClient";
@@ -43,8 +42,10 @@ export interface DescribeInputDeviceThumbnailCommandInput extends DescribeInputD
  * The output of {@link DescribeInputDeviceThumbnailCommand}.
  */
 export interface DescribeInputDeviceThumbnailCommandOutput
-  extends __WithSdkStreamMixin<DescribeInputDeviceThumbnailResponse, "Body">,
-    __MetadataBearer {}
+  extends Omit<DescribeInputDeviceThumbnailResponse, "Body">,
+    __MetadataBearer {
+  Body?: StreamingBlobPayloadOutputTypes;
+}
 
 /**
  * @public

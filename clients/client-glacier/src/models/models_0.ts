@@ -1,6 +1,6 @@
 // smithy-typescript generated code
 import { ExceptionOptionType as __ExceptionOptionType } from "@smithy/smithy-client";
-import { Readable } from "stream";
+import { StreamingBlobTypes } from "@smithy/types";
 
 import { GlacierServiceException as __BaseException } from "./GlacierServiceException";
 
@@ -1273,7 +1273,7 @@ export interface GetJobOutputOutput {
   /**
    * <p>The job data, either archive data or inventory data.</p>
    */
-  body?: Readable | ReadableStream | Blob;
+  body?: StreamingBlobTypes;
 
   /**
    * <p>The checksum of the data in the response. This header is returned only when
@@ -2357,7 +2357,7 @@ export interface UploadArchiveInput {
   /**
    * <p>The data to upload.</p>
    */
-  body?: Readable | ReadableStream | Blob;
+  body?: StreamingBlobTypes;
 }
 
 /**
@@ -2401,7 +2401,7 @@ export interface UploadMultipartPartInput {
   /**
    * <p>The data to upload.</p>
    */
-  body?: Readable | ReadableStream | Blob;
+  body?: StreamingBlobTypes;
 }
 
 /**

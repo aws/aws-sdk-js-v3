@@ -10,10 +10,9 @@ import {
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
-  SdkStream as __SdkStream,
   SdkStreamSerdeContext as __SdkStreamSerdeContext,
   SerdeContext as __SerdeContext,
-  WithSdkStreamMixin as __WithSdkStreamMixin,
+  StreamingBlobPayloadOutputTypes,
 } from "@smithy/types";
 
 import { MedicalImagingClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MedicalImagingClient";
@@ -40,8 +39,10 @@ export interface GetImageSetMetadataCommandInput extends GetImageSetMetadataRequ
  * The output of {@link GetImageSetMetadataCommand}.
  */
 export interface GetImageSetMetadataCommandOutput
-  extends __WithSdkStreamMixin<GetImageSetMetadataResponse, "imageSetMetadataBlob">,
-    __MetadataBearer {}
+  extends Omit<GetImageSetMetadataResponse, "imageSetMetadataBlob">,
+    __MetadataBearer {
+  imageSetMetadataBlob: StreamingBlobPayloadOutputTypes;
+}
 
 /**
  * @public

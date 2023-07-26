@@ -10,10 +10,9 @@ import {
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
-  SdkStream as __SdkStream,
   SdkStreamSerdeContext as __SdkStreamSerdeContext,
   SerdeContext as __SerdeContext,
-  WithSdkStreamMixin as __WithSdkStreamMixin,
+  StreamingBlobPayloadOutputTypes,
 } from "@smithy/types";
 
 import {
@@ -44,8 +43,10 @@ export interface GetRawMessageContentCommandInput extends GetRawMessageContentRe
  * The output of {@link GetRawMessageContentCommand}.
  */
 export interface GetRawMessageContentCommandOutput
-  extends __WithSdkStreamMixin<GetRawMessageContentResponse, "messageContent">,
-    __MetadataBearer {}
+  extends Omit<GetRawMessageContentResponse, "messageContent">,
+    __MetadataBearer {
+  messageContent: StreamingBlobPayloadOutputTypes;
+}
 
 /**
  * @public

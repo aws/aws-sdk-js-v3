@@ -23,13 +23,13 @@
   "dependencies": {
     "@aws-sdk/types": "*",
     "@aws-sdk/util-arn-parser": "*",
-    "@smithy/protocol-http": "^1.1.0",
-    "@smithy/types": "^1.1.0",
-    "@smithy/util-config-provider": "^1.0.1",
+    "@smithy/protocol-http": "^2.0.1",
+    "@smithy/types": "^2.0.2",
+    "@smithy/util-config-provider": "^2.0.0",
     "tslib": "^2.5.0"
   },
   "devDependencies": {
-    "@smithy/node-config-provider": "^1.0.1",
+    "@smithy/node-config-provider": "^2.0.1",
     "@tsconfig/recommended": "1.0.1",
     "concurrently": "7.0.0",
     "downlevel-dts": "0.10.1",

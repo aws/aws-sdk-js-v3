@@ -10,6 +10,7 @@ import {
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
   SerdeContext as __SerdeContext,
+  StreamingBlobPayloadInputTypes,
 } from "@smithy/types";
 
 import {
@@ -26,18 +27,15 @@ import { RestJsonProtocolClientResolvedConfig, ServiceInputTypes, ServiceOutputT
  * @public
  */
 export { __MetadataBearer, $Command };
-export type StreamingTraitsRequireLengthCommandInputType = Omit<StreamingTraitsRequireLengthInput, "blob"> & {
-  /**
-   * For *`StreamingTraitsRequireLengthInput["blob"]`*, see {@link StreamingTraitsRequireLengthInput.blob}.
-   */
-  blob?: StreamingTraitsRequireLengthInput["blob"] | string | Uint8Array | Buffer;
-};
 /**
  * @public
  *
  * The input for {@link StreamingTraitsRequireLengthCommand}.
  */
-export interface StreamingTraitsRequireLengthCommandInput extends StreamingTraitsRequireLengthCommandInputType {}
+export interface StreamingTraitsRequireLengthCommandInput extends Omit<StreamingTraitsRequireLengthInput, "blob"> {
+  blob?: StreamingBlobPayloadInputTypes;
+}
+
 /**
  * @public
  *

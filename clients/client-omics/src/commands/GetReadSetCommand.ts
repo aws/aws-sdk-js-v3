@@ -10,10 +10,9 @@ import {
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
-  SdkStream as __SdkStream,
   SdkStreamSerdeContext as __SdkStreamSerdeContext,
   SerdeContext as __SerdeContext,
-  WithSdkStreamMixin as __WithSdkStreamMixin,
+  StreamingBlobPayloadOutputTypes,
 } from "@smithy/types";
 
 import { GetReadSetRequest, GetReadSetResponse, GetReadSetResponseFilterSensitiveLog } from "../models/models_0";
@@ -35,9 +34,9 @@ export interface GetReadSetCommandInput extends GetReadSetRequest {}
  *
  * The output of {@link GetReadSetCommand}.
  */
-export interface GetReadSetCommandOutput
-  extends __WithSdkStreamMixin<GetReadSetResponse, "payload">,
-    __MetadataBearer {}
+export interface GetReadSetCommandOutput extends Omit<GetReadSetResponse, "payload">, __MetadataBearer {
+  payload?: StreamingBlobPayloadOutputTypes;
+}
 
 /**
  * @public

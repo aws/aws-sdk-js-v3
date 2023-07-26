@@ -1,6 +1,6 @@
 // smithy-typescript generated code
 import { ExceptionOptionType as __ExceptionOptionType, SENSITIVE_STRING } from "@smithy/smithy-client";
-import { Readable } from "stream";
+import { StreamingBlobTypes } from "@smithy/types";
 
 import { MedicalImagingServiceException as __BaseException } from "./MedicalImagingServiceException";
 
@@ -735,7 +735,7 @@ export interface GetImageFrameResponse {
   /**
    * <p>The blob containing the aggregated image frame information.</p>
    */
-  imageFrameBlob: Readable | ReadableStream | Blob | undefined;
+  imageFrameBlob: StreamingBlobTypes | undefined;
 
   /**
    * <p>The format in which the image frame information is returned to the customer. Default is
@@ -846,7 +846,7 @@ export interface GetImageSetMetadataResponse {
   /**
    * <p>The blob containing the aggregated metadata information for the image set.</p>
    */
-  imageSetMetadataBlob: Readable | ReadableStream | Blob | undefined;
+  imageSetMetadataBlob: StreamingBlobTypes | undefined;
 
   /**
    * <p>The format in which the study metadata is returned to the customer. Default is <code>text/plain</code>.</p>
