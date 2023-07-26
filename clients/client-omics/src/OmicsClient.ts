@@ -564,8 +564,8 @@ export interface OmicsClientResolvedConfig extends OmicsClientResolvedConfigType
 
 /**
  * @public
- * <p>This is the <i>Amazon Omics API Reference</i>. For an introduction to the service, see <a href="https://docs.aws.amazon.com/omics/latest/dev/">What is Amazon Omics?</a> in the
- *       <i>Amazon Omics User Guide</i>.</p>
+ * <p>This is the <i>AWS HealthOmics API Reference</i>. For an introduction to the service, see <a href="https://docs.aws.amazon.com/omics/latest/dev/">What is AWS HealthOmics?</a> in the
+ *       <i>AWS HealthOmics User Guide</i>.</p>
  */
 export class OmicsClient extends __Client<
   __HttpHandlerOptions,
