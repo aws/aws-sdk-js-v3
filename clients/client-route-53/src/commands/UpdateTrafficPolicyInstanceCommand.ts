@@ -39,7 +39,13 @@ export interface UpdateTrafficPolicyInstanceCommandOutput
 
 /**
  * @public
- * <p>Updates the resource record sets in a specified hosted zone that were created based on
+ * <note>
+ *             <p>After you submit a <code>UpdateTrafficPolicyInstance</code> request, there's a brief delay while Route 53 creates the resource record sets
+ * 			that are specified in the traffic policy definition. Use <code>GetTrafficPolicyInstance</code> with the <code>id</code> of updated traffic policy instance confirm
+ * 			that the
+ * 			<code>UpdateTrafficPolicyInstance</code> request completed successfully. For more information, see the <code>State</code> response element.</p>
+ *          </note>
+ *          <p>Updates the resource record sets in a specified hosted zone that were created based on
  * 			the settings in a specified traffic policy version.</p>
  *          <p>When you update a traffic policy instance, Amazon Route 53 continues to respond to DNS
  * 			queries for the root resource record set name (such as example.com) while it replaces

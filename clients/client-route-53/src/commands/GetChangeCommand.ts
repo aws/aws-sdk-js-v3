@@ -43,13 +43,13 @@ export interface GetChangeCommandOutput extends GetChangeResponse, __MetadataBea
  *             <li>
  *                <p>
  *                   <code>PENDING</code> indicates that the changes in this request have not
- * 					propagated to all Amazon Route 53 DNS servers. This is the initial status of all
+ * 					propagated to all Amazon Route 53 DNS servers managing the hosted zone. This is the initial status of all
  * 					change batch requests.</p>
  *             </li>
  *             <li>
  *                <p>
  *                   <code>INSYNC</code> indicates that the changes have propagated to all Route 53
- * 					DNS servers. </p>
+ * 					DNS servers managing the hosted zone. </p>
  *             </li>
  *          </ul>
  * @example
