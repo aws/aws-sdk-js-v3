@@ -27,6 +27,7 @@ export class WebsocketSignatureV4 implements RequestSigner, RequestPresigner {
       const signedRequest = await this.signer.presign(
         { ...toSign, body: "" },
         {
+          ...options,
           // presigned url must be expired within 1 min.
           expiresIn: 60,
           // Not to sign headers. Transcribe-streaming WebSocket
