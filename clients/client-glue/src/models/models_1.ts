@@ -20,7 +20,6 @@ import {
   ErrorDetail,
   EventBatchingCondition,
   FederatedDatabase,
-  FindMatchesParameters,
   GlueTable,
   JobRun,
   Partition,
@@ -32,11 +31,73 @@ import {
   SchemaId,
   StorageDescriptor,
   TaskStatusType,
-  TransformType,
   Trigger,
   TriggerType,
   WorkerType,
 } from "./models_0";
+
+/**
+ * @public
+ */
+export interface CreateJobResponse {
+  /**
+   * <p>The unique name that was provided for this job definition.</p>
+   */
+  Name?: string;
+}
+
+/**
+ * @public
+ * <p>The parameters to configure the find matches transform.</p>
+ */
+export interface FindMatchesParameters {
+  /**
+   * <p>The name of a column that uniquely identifies rows in the source table. Used to help identify matching records.</p>
+   */
+  PrimaryKeyColumnName?: string;
+
+  /**
+   * <p>The value selected when tuning your transform for a balance between precision and recall.
+   *       A value of 0.5 means no preference; a value of 1.0 means a bias purely for precision, and a
+   *       value of 0.0 means a bias for recall. Because this is a tradeoff, choosing values close to 1.0
+   *       means very low recall, and choosing values close to 0.0 results in very low precision.</p>
+   *          <p>The precision metric indicates how often your model is correct when it predicts a match. </p>
+   *          <p>The recall metric indicates that for an actual match, how often your model predicts the
+   *       match.</p>
+   */
+  PrecisionRecallTradeoff?: number;
+
+  /**
+   * <p>The value that is selected when tuning your transform for a balance between accuracy and
+   *       cost. A value of 0.5 means that the system balances accuracy and cost concerns. A value of 1.0
+   *       means a bias purely for accuracy, which typically results in a higher cost, sometimes
+   *       substantially higher. A value of 0.0 means a bias purely for cost, which results in a less
+   *       accurate <code>FindMatches</code> transform, sometimes with unacceptable accuracy.</p>
+   *          <p>Accuracy measures how well the transform finds true positives and true negatives. Increasing accuracy requires more machine resources and cost. But it also results in increased recall. </p>
+   *          <p>Cost measures how many compute resources, and thus money, are consumed to run the
+   *       transform.</p>
+   */
+  AccuracyCostTradeoff?: number;
+
+  /**
+   * <p>The value to switch on or off to force the output to match the provided labels from users. If the value is <code>True</code>, the <code>find matches</code> transform forces the output to match the provided labels. The results override the normal conflation results. If the value is <code>False</code>, the <code>find matches</code> transform does not ensure all the labels provided are respected, and the results rely on the trained model.</p>
+   *          <p>Note that setting this value to true may increase the conflation execution time.</p>
+   */
+  EnforceProvidedLabels?: boolean;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const TransformType = {
+  FIND_MATCHES: "FIND_MATCHES",
+} as const;
+
+/**
+ * @public
+ */
+export type TransformType = (typeof TransformType)[keyof typeof TransformType];
 
 /**
  * @public
@@ -7010,202 +7071,4 @@ export interface GetUnfilteredPartitionMetadataRequest {
    * <p>(Required) A list of supported permission types. </p>
    */
   SupportedPermissionTypes: (PermissionType | string)[] | undefined;
-}
-
-/**
- * @public
- */
-export interface GetUnfilteredPartitionMetadataResponse {
-  /**
-   * <p>A Partition object containing the partition metadata.</p>
-   */
-  Partition?: Partition;
-
-  /**
-   * <p>A list of column names that the user has been granted access to.</p>
-   */
-  AuthorizedColumns?: string[];
-
-  /**
-   * <p>A Boolean value that indicates whether the partition location is registered
-   *           with Lake Formation.</p>
-   */
-  IsRegisteredWithLakeFormation?: boolean;
-}
-
-/**
- * @public
- * <p>The operation timed out.</p>
- */
-export class PermissionTypeMismatchException extends __BaseException {
-  readonly name: "PermissionTypeMismatchException" = "PermissionTypeMismatchException";
-  readonly $fault: "client" = "client";
-  /**
-   * <p>There is a mismatch between the SupportedPermissionType used in the query request
-   *           and the permissions defined on the target table.</p>
-   */
-  Message?: string;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<PermissionTypeMismatchException, __BaseException>) {
-    super({
-      name: "PermissionTypeMismatchException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, PermissionTypeMismatchException.prototype);
-    this.Message = opts.Message;
-  }
-}
-
-/**
- * @public
- */
-export interface GetUnfilteredPartitionsMetadataRequest {
-  /**
-   * <p>The ID of the Data Catalog where the partitions in question reside. If none is provided,
-   *           the AWS account ID is used by default. </p>
-   */
-  CatalogId: string | undefined;
-
-  /**
-   * <p>The name of the catalog database where the partitions reside.</p>
-   */
-  DatabaseName: string | undefined;
-
-  /**
-   * <p>The name of the table that contains the partition.</p>
-   */
-  TableName: string | undefined;
-
-  /**
-   * <p>An expression that filters the partitions to be returned.</p>
-   *          <p>The expression uses SQL syntax similar to the SQL <code>WHERE</code> filter clause. The
-   *       SQL statement parser <a href="http://jsqlparser.sourceforge.net/home.php">JSQLParser</a> parses the expression. </p>
-   *          <p>
-   *             <i>Operators</i>: The following are the operators that you can use in the
-   *         <code>Expression</code> API call:</p>
-   *          <dl>
-   *             <dt>=</dt>
-   *             <dd>
-   *                <p>Checks whether the values of the two operands are equal; if yes, then the condition becomes
-   *             true.</p>
-   *                <p>Example: Assume 'variable a' holds 10 and 'variable b' holds 20. </p>
-   *                <p>(a = b) is not true.</p>
-   *             </dd>
-   *             <dt>< ></dt>
-   *             <dd>
-   *                <p>Checks whether the values of two operands are equal; if the values are not equal,
-   *             then the condition becomes true.</p>
-   *                <p>Example: (a < > b) is true.</p>
-   *             </dd>
-   *             <dt>></dt>
-   *             <dd>
-   *                <p>Checks whether the value of the left operand is greater than the value of the right
-   *             operand; if yes, then the condition becomes true.</p>
-   *                <p>Example: (a > b) is not true.</p>
-   *             </dd>
-   *             <dt><</dt>
-   *             <dd>
-   *                <p>Checks whether the value of the left operand is less than the value of the right
-   *             operand; if yes, then the condition becomes true.</p>
-   *                <p>Example: (a < b) is true.</p>
-   *             </dd>
-   *             <dt>>=</dt>
-   *             <dd>
-   *                <p>Checks whether the value of the left operand is greater than or equal to the value
-   *             of the right operand; if yes, then the condition becomes true.</p>
-   *                <p>Example: (a >= b) is not true.</p>
-   *             </dd>
-   *             <dt><=</dt>
-   *             <dd>
-   *                <p>Checks whether the value of the left operand is less than or equal to the value of
-   *             the right operand; if yes, then the condition becomes true.</p>
-   *                <p>Example: (a <= b) is true.</p>
-   *             </dd>
-   *             <dt>AND, OR, IN, BETWEEN, LIKE, NOT, IS NULL</dt>
-   *             <dd>
-   *                <p>Logical operators.</p>
-   *             </dd>
-   *          </dl>
-   *          <p>
-   *             <i>Supported Partition Key Types</i>: The following are the supported
-   *       partition keys.</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>string</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>date</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>timestamp</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>int</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>bigint</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>long</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>tinyint</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>smallint</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>decimal</code>
-   *                </p>
-   *             </li>
-   *          </ul>
-   *          <p>If an type is encountered that is not valid, an exception is thrown. </p>
-   */
-  Expression?: string;
-
-  /**
-   * <p>A structure containing Lake Formation audit context information.</p>
-   */
-  AuditContext?: AuditContext;
-
-  /**
-   * <p>A list of supported permission types. </p>
-   */
-  SupportedPermissionTypes: (PermissionType | string)[] | undefined;
-
-  /**
-   * <p>A continuation token, if this is not the first call to retrieve
-   *       these partitions.</p>
-   */
-  NextToken?: string;
-
-  /**
-   * <p>The segment of the table's partitions to scan in this request.</p>
-   */
-  Segment?: Segment;
-
-  /**
-   * <p>The maximum number of partitions to return in a single response.</p>
-   */
-  MaxResults?: number;
 }

@@ -14,7 +14,7 @@ import {
 } from "@smithy/types";
 
 import { GlueClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GlueClient";
-import { CreateJobResponse } from "../models/models_0";
+import { CreateJobResponse } from "../models/models_1";
 import { CreateJobRequest, CreateJobRequestFilterSensitiveLog } from "../models/models_2";
 import { de_CreateJobCommand, se_CreateJobCommand } from "../protocols/Aws_json1_1";
 
@@ -1032,6 +1032,62 @@ export interface CreateJobCommandOutput extends CreateJobResponse, __MetadataBea
  *           RecipeArn: "STRING_VALUE", // required
  *           RecipeVersion: "STRING_VALUE", // required
  *         },
+ *       },
+ *       SnowflakeSource: { // SnowflakeSource
+ *         Name: "STRING_VALUE", // required
+ *         Data: { // SnowflakeNodeData
+ *           SourceType: "STRING_VALUE",
+ *           Connection: "<Option>",
+ *           Schema: "STRING_VALUE",
+ *           Table: "STRING_VALUE",
+ *           Database: "STRING_VALUE",
+ *           TempDir: "STRING_VALUE",
+ *           IamRole: "<Option>",
+ *           AdditionalOptions: "<AdditionalOptions>",
+ *           SampleQuery: "STRING_VALUE",
+ *           PreAction: "STRING_VALUE",
+ *           PostAction: "STRING_VALUE",
+ *           Action: "STRING_VALUE",
+ *           Upsert: true || false,
+ *           MergeAction: "STRING_VALUE",
+ *           MergeWhenMatched: "STRING_VALUE",
+ *           MergeWhenNotMatched: "STRING_VALUE",
+ *           MergeClause: "STRING_VALUE",
+ *           StagingTable: "STRING_VALUE",
+ *           SelectedColumns: [
+ *             "<Option>",
+ *           ],
+ *           AutoPushdown: true || false,
+ *           TableSchema: "<OptionList>",
+ *         },
+ *         OutputSchemas: "<GlueSchemas>",
+ *       },
+ *       SnowflakeTarget: { // SnowflakeTarget
+ *         Name: "STRING_VALUE", // required
+ *         Data: {
+ *           SourceType: "STRING_VALUE",
+ *           Connection: "<Option>",
+ *           Schema: "STRING_VALUE",
+ *           Table: "STRING_VALUE",
+ *           Database: "STRING_VALUE",
+ *           TempDir: "STRING_VALUE",
+ *           IamRole: "<Option>",
+ *           AdditionalOptions: "<AdditionalOptions>",
+ *           SampleQuery: "STRING_VALUE",
+ *           PreAction: "STRING_VALUE",
+ *           PostAction: "STRING_VALUE",
+ *           Action: "STRING_VALUE",
+ *           Upsert: true || false,
+ *           MergeAction: "STRING_VALUE",
+ *           MergeWhenMatched: "STRING_VALUE",
+ *           MergeWhenNotMatched: "STRING_VALUE",
+ *           MergeClause: "STRING_VALUE",
+ *           StagingTable: "STRING_VALUE",
+ *           SelectedColumns: "<OptionList>",
+ *           AutoPushdown: true || false,
+ *           TableSchema: "<OptionList>",
+ *         },
+ *         Inputs: "<OneInput>",
  *       },
  *     },
  *   },

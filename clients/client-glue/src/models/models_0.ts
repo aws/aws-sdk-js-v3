@@ -392,7 +392,7 @@ export interface AmazonRedshiftTarget {
   Name?: string;
 
   /**
-   * <p>Specifies the data of the Amazon Reshift target node.</p>
+   * <p>Specifies the data of the Amazon Redshift target node.</p>
    */
   Data?: AmazonRedshiftNodeData;
 
@@ -5306,6 +5306,175 @@ export interface SelectFromCollection {
 
 /**
  * @public
+ * <p>Specifies configuration for Snowflake nodes in Glue Studio.</p>
+ */
+export interface SnowflakeNodeData {
+  /**
+   * <p>Specifies how retrieved data is specified. Valid values: <code>"table"</code>, <code>
+   *       "query"</code>.</p>
+   */
+  SourceType?: string;
+
+  /**
+   * <p>Specifies a Glue Data Catalog Connection to a Snowflake endpoint.</p>
+   */
+  Connection?: Option;
+
+  /**
+   * <p>Specifies a Snowflake database schema for your node to use.</p>
+   */
+  Schema?: string;
+
+  /**
+   * <p>Specifies a Snowflake table for your node to use.</p>
+   */
+  Table?: string;
+
+  /**
+   * <p>Specifies a Snowflake database for your node to use.</p>
+   */
+  Database?: string;
+
+  /**
+   * <p>Not currently used.</p>
+   */
+  TempDir?: string;
+
+  /**
+   * <p>Not currently used.</p>
+   */
+  IamRole?: Option;
+
+  /**
+   * <p>Specifies additional options passed to the Snowflake connector. If options are specified
+   *       elsewhere in this node, this will take precedence.</p>
+   */
+  AdditionalOptions?: Record<string, string>;
+
+  /**
+   * <p>A SQL string used to retrieve data with the <code>query</code> sourcetype.</p>
+   */
+  SampleQuery?: string;
+
+  /**
+   * <p>A SQL string run before the Snowflake connector performs its standard actions.</p>
+   */
+  PreAction?: string;
+
+  /**
+   * <p>A SQL string run after the Snowflake connector performs its standard actions.</p>
+   */
+  PostAction?: string;
+
+  /**
+   * <p>Specifies what action to take when writing to a table with preexisting data. Valid values: <code>
+   *       append</code>, <code>merge</code>, <code>truncate</code>, <code>drop</code>.</p>
+   */
+  Action?: string;
+
+  /**
+   * <p>Used when Action is <code>append</code>. Specifies the resolution behavior when a row
+   *       already exists. If true, preexisting rows will be updated. If false, those rows will be inserted.</p>
+   */
+  Upsert?: boolean;
+
+  /**
+   * <p>Specifies a merge action. Valid values: <code>simple</code>, <code>custom</code>. If
+   *       simple, merge behavior is defined by <code>MergeWhenMatched</code> and <code>
+   *       MergeWhenNotMatched</code>. If custom, defined by <code>MergeClause</code>.</p>
+   */
+  MergeAction?: string;
+
+  /**
+   * <p>Specifies how to resolve records that match preexisting data when merging. Valid values: <code>
+   *       update</code>, <code>delete</code>.</p>
+   */
+  MergeWhenMatched?: string;
+
+  /**
+   * <p>Specifies how to process records that do not match preexisting data when merging. Valid
+   *       values: <code>insert</code>, <code>none</code>.</p>
+   */
+  MergeWhenNotMatched?: string;
+
+  /**
+   * <p>A SQL statement that specifies a custom merge behavior.</p>
+   */
+  MergeClause?: string;
+
+  /**
+   * <p>The name of a staging table used when performing <code>merge</code> or upsert <code>append</code>
+   *       actions. Data is written to this table, then moved to <code>table</code> by a generated
+   *       postaction.</p>
+   */
+  StagingTable?: string;
+
+  /**
+   * <p>Specifies the columns combined to identify a record when detecting matches for merges and
+   *       upserts. A list of structures with <code>value</code>, <code>label</code> and <code>
+   *       description</code> keys. Each structure describes a column.</p>
+   */
+  SelectedColumns?: Option[];
+
+  /**
+   * <p>Specifies whether automatic query pushdown is enabled. If pushdown
+   *       is enabled, then when a query is run on Spark, if part of the query can be "pushed down" to
+   *       the
+   *       Snowflake server, it is pushed down. This improves performance of some queries.</p>
+   */
+  AutoPushdown?: boolean;
+
+  /**
+   * <p>Manually defines the target schema for the node. A list of structures with <code>value</code>
+   *       , <code>label</code> and <code>description</code> keys. Each structure defines a column.</p>
+   */
+  TableSchema?: Option[];
+}
+
+/**
+ * @public
+ * <p>Specifies a Snowflake data source.</p>
+ */
+export interface SnowflakeSource {
+  /**
+   * <p>The name of the Snowflake data source.</p>
+   */
+  Name: string | undefined;
+
+  /**
+   * <p>Configuration for the Snowflake data source.</p>
+   */
+  Data: SnowflakeNodeData | undefined;
+
+  /**
+   * <p>Specifies user-defined schemas for your output data.</p>
+   */
+  OutputSchemas?: GlueSchema[];
+}
+
+/**
+ * @public
+ * <p>Specifies a Snowflake target.</p>
+ */
+export interface SnowflakeTarget {
+  /**
+   * <p>The name of the Snowflake target.</p>
+   */
+  Name: string | undefined;
+
+  /**
+   * <p>Specifies the data of the Snowflake target node.</p>
+   */
+  Data: SnowflakeNodeData | undefined;
+
+  /**
+   * <p>The nodes that are inputs to the data target.</p>
+   */
+  Inputs?: string[];
+}
+
+/**
+ * @public
  * <p>Specifies a connector to an Apache Spark data source.</p>
  */
 export interface SparkConnectorSource {
@@ -8182,66 +8351,3 @@ export class ValidationException extends __BaseException {
     this.Message = opts.Message;
   }
 }
-
-/**
- * @public
- */
-export interface CreateJobResponse {
-  /**
-   * <p>The unique name that was provided for this job definition.</p>
-   */
-  Name?: string;
-}
-
-/**
- * @public
- * <p>The parameters to configure the find matches transform.</p>
- */
-export interface FindMatchesParameters {
-  /**
-   * <p>The name of a column that uniquely identifies rows in the source table. Used to help identify matching records.</p>
-   */
-  PrimaryKeyColumnName?: string;
-
-  /**
-   * <p>The value selected when tuning your transform for a balance between precision and recall.
-   *       A value of 0.5 means no preference; a value of 1.0 means a bias purely for precision, and a
-   *       value of 0.0 means a bias for recall. Because this is a tradeoff, choosing values close to 1.0
-   *       means very low recall, and choosing values close to 0.0 results in very low precision.</p>
-   *          <p>The precision metric indicates how often your model is correct when it predicts a match. </p>
-   *          <p>The recall metric indicates that for an actual match, how often your model predicts the
-   *       match.</p>
-   */
-  PrecisionRecallTradeoff?: number;
-
-  /**
-   * <p>The value that is selected when tuning your transform for a balance between accuracy and
-   *       cost. A value of 0.5 means that the system balances accuracy and cost concerns. A value of 1.0
-   *       means a bias purely for accuracy, which typically results in a higher cost, sometimes
-   *       substantially higher. A value of 0.0 means a bias purely for cost, which results in a less
-   *       accurate <code>FindMatches</code> transform, sometimes with unacceptable accuracy.</p>
-   *          <p>Accuracy measures how well the transform finds true positives and true negatives. Increasing accuracy requires more machine resources and cost. But it also results in increased recall. </p>
-   *          <p>Cost measures how many compute resources, and thus money, are consumed to run the
-   *       transform.</p>
-   */
-  AccuracyCostTradeoff?: number;
-
-  /**
-   * <p>The value to switch on or off to force the output to match the provided labels from users. If the value is <code>True</code>, the <code>find matches</code> transform forces the output to match the provided labels. The results override the normal conflation results. If the value is <code>False</code>, the <code>find matches</code> transform does not ensure all the labels provided are respected, and the results rely on the trained model.</p>
-   *          <p>Note that setting this value to true may increase the conflation execution time.</p>
-   */
-  EnforceProvidedLabels?: boolean;
-}
-
-/**
- * @public
- * @enum
- */
-export const TransformType = {
-  FIND_MATCHES: "FIND_MATCHES",
-} as const;
-
-/**
- * @public
- */
-export type TransformType = (typeof TransformType)[keyof typeof TransformType];

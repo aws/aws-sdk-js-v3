@@ -553,7 +553,6 @@ import {
   Filter,
   FilterExpression,
   FilterValue,
-  FindMatchesParameters,
   GlueEncryptionException,
   GlueRecordType,
   GlueSchema,
@@ -643,6 +642,9 @@ import {
   SelectFromCollection,
   SerDeInfo,
   SkewedInfo,
+  SnowflakeNodeData,
+  SnowflakeSource,
+  SnowflakeTarget,
   SourceControlDetails,
   SparkConnectorSource,
   SparkConnectorTarget,
@@ -731,6 +733,7 @@ import {
   EncryptionConfiguration,
   EvaluationMetrics,
   FindMatchesMetrics,
+  FindMatchesParameters,
   GetBlueprintRequest,
   GetBlueprintResponse,
   GetBlueprintRunRequest,
@@ -828,8 +831,6 @@ import {
   GetTriggerRequest,
   GetTriggersRequest,
   GetUnfilteredPartitionMetadataRequest,
-  GetUnfilteredPartitionMetadataResponse,
-  GetUnfilteredPartitionsMetadataRequest,
   GluePolicy,
   GrokClassifier,
   IcebergInput,
@@ -843,7 +844,6 @@ import {
   OpenTableFormatInput,
   PartitionIndex,
   PermissionType,
-  PermissionTypeMismatchException,
   RegistryId,
   ResourceUri,
   S3Encryption,
@@ -892,6 +892,8 @@ import {
   DevEndpointCustomLibraries,
   GetJobResponse,
   GetJobsResponse,
+  GetUnfilteredPartitionMetadataResponse,
+  GetUnfilteredPartitionsMetadataRequest,
   GetUnfilteredPartitionsMetadataResponse,
   GetUnfilteredTableMetadataRequest,
   GetUnfilteredTableMetadataResponse,
@@ -940,6 +942,7 @@ import {
   MetadataKeyValuePair,
   MLTransformNotReadyException,
   NoScheduleException,
+  PermissionTypeMismatchException,
   PropertyPredicate,
   PutDataCatalogEncryptionSettingsRequest,
   PutResourcePolicyRequest,
@@ -15875,6 +15878,8 @@ const se_CodeGenConfigurationNode = (input: CodeGenConfigurationNode, context: _
     S3ParquetSource: _json,
     SelectFields: _json,
     SelectFromCollection: _json,
+    SnowflakeSource: _json,
+    SnowflakeTarget: _json,
     SparkConnectorSource: _json,
     SparkConnectorTarget: _json,
     SparkSQL: _json,
@@ -17161,6 +17166,12 @@ const se_PIIDetection = (input: PIIDetection, context: __SerdeContext): any => {
 
 // se_SkewedInfo omitted.
 
+// se_SnowflakeNodeData omitted.
+
+// se_SnowflakeSource omitted.
+
+// se_SnowflakeTarget omitted.
+
 // se_SortCriteria omitted.
 
 // se_SortCriterion omitted.
@@ -17907,6 +17918,8 @@ const de_CodeGenConfigurationNode = (output: any, context: __SerdeContext): Code
     S3ParquetSource: _json,
     SelectFields: _json,
     SelectFromCollection: _json,
+    SnowflakeSource: _json,
+    SnowflakeTarget: _json,
     SparkConnectorSource: _json,
     SparkConnectorTarget: _json,
     SparkSQL: _json,
@@ -20372,6 +20385,12 @@ const de_SessionList = (output: any, context: __SerdeContext): Session[] => {
 };
 
 // de_SkewedInfo omitted.
+
+// de_SnowflakeNodeData omitted.
+
+// de_SnowflakeSource omitted.
+
+// de_SnowflakeTarget omitted.
 
 // de_SourceControlDetails omitted.
 
