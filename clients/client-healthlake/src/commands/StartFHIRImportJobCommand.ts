@@ -81,7 +81,7 @@ export interface StartFHIRImportJobCommandOutput extends StartFHIRImportJobRespo
  *  <p>Unknown error occurs in the service.</p>
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p> The requested Data Store was not found.</p>
+ *  <p> The requested data store was not found.</p>
  *
  * @throws {@link ThrottlingException} (client fault)
  *  <p>The user has exceeded their maximum number of allowed calls to the given API. </p>

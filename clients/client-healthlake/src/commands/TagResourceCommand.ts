@@ -37,7 +37,7 @@ export interface TagResourceCommandOutput extends TagResourceResponse, __Metadat
 /**
  * @public
  * <p>
- *             Adds a user specified key and value tag to a Data Store.
+ *             Adds a user specified key and value tag to a data store.
  *          </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -67,7 +67,7 @@ export interface TagResourceCommandOutput extends TagResourceResponse, __Metadat
  * @see {@link HealthLakeClientResolvedConfig | config} for HealthLakeClient's `config` shape.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p> The requested Data Store was not found.</p>
+ *  <p> The requested data store was not found.</p>
  *
  * @throws {@link ValidationException} (client fault)
  *  <p>The user input parameter was invalid.</p>

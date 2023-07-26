@@ -294,7 +294,7 @@ export interface HealthLake {
 
 /**
  * @public
- * <p>Amazon HealthLake is a HIPAA eligibile service that allows customers to store,
+ * <p>AWS HealthLake is a HIPAA eligibile service that allows customers to store,
  *          transform, query, and analyze their FHIR-formatted data in a consistent fashion in the cloud.</p>
  */
 export class HealthLake extends HealthLakeClient implements HealthLake {}

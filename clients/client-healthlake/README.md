@@ -6,7 +6,7 @@
 
 AWS SDK for JavaScript HealthLake Client for Node.js, Browser and React Native.
 
-<p>Amazon HealthLake is a HIPAA eligibile service that allows customers to store,
+<p>AWS HealthLake is a HIPAA eligibile service that allows customers to store,
 transform, query, and analyze their FHIR-formatted data in a consistent fashion in the cloud.</p>
 
 ## Installing

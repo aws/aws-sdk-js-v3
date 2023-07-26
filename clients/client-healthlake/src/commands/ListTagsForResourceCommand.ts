@@ -37,7 +37,7 @@ export interface ListTagsForResourceCommandOutput extends ListTagsForResourceRes
 /**
  * @public
  * <p>
- *             Returns a list of all existing tags associated with a Data Store.
+ *             Returns a list of all existing tags associated with a data store.
  *          </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -68,7 +68,7 @@ export interface ListTagsForResourceCommandOutput extends ListTagsForResourceRes
  * @see {@link HealthLakeClientResolvedConfig | config} for HealthLakeClient's `config` shape.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p> The requested Data Store was not found.</p>
+ *  <p> The requested data store was not found.</p>
  *
  * @throws {@link ValidationException} (client fault)
  *  <p>The user input parameter was invalid.</p>

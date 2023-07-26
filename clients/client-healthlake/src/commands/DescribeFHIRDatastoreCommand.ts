@@ -36,9 +36,8 @@ export interface DescribeFHIRDatastoreCommandOutput extends DescribeFHIRDatastor
 
 /**
  * @public
- * <p>Gets the properties associated with the FHIR Data Store, including the Data Store ID,
- *          Data Store ARN, Data Store name, Data Store status, created at, Data Store type version, and
- *          Data Store endpoint.</p>
+ * <p>Gets the properties associated with the FHIR data store, including the data store ID,
+ *          data store ARN, data store name, data store status, when the data store was created, data store type version, and the data store's endpoint.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -89,7 +88,7 @@ export interface DescribeFHIRDatastoreCommandOutput extends DescribeFHIRDatastor
  *  <p>Unknown error occurs in the service.</p>
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p> The requested Data Store was not found.</p>
+ *  <p> The requested data store was not found.</p>
  *
  * @throws {@link ThrottlingException} (client fault)
  *  <p>The user has exceeded their maximum number of allowed calls to the given API. </p>

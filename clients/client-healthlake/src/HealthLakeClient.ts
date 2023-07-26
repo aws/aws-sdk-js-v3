@@ -290,7 +290,7 @@ export interface HealthLakeClientResolvedConfig extends HealthLakeClientResolved
 
 /**
  * @public
- * <p>Amazon HealthLake is a HIPAA eligibile service that allows customers to store,
+ * <p>AWS HealthLake is a HIPAA eligibile service that allows customers to store,
  *          transform, query, and analyze their FHIR-formatted data in a consistent fashion in the cloud.</p>
  */
 export class HealthLakeClient extends __Client<

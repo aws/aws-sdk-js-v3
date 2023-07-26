@@ -36,7 +36,7 @@ export interface CreateFHIRDatastoreCommandOutput extends CreateFHIRDatastoreRes
 
 /**
  * @public
- * <p>Creates a Data Store that can ingest and export FHIR formatted data.</p>
+ * <p>Creates a data store that can ingest and export FHIR formatted data.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

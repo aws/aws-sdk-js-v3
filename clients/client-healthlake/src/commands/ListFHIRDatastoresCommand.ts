@@ -36,8 +36,7 @@ export interface ListFHIRDatastoresCommandOutput extends ListFHIRDatastoresRespo
 
 /**
  * @public
- * <p>Lists all FHIR Data Stores that are in the user’s account, regardless of Data Store
- *          status.</p>
+ * <p>Lists all FHIR data stores that are in the user’s account, regardless of data store status.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
