@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.378.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.377.0...v3.378.0) (2023-07-26)
+
+
+### Features
+
+* **client-opensearchserverless:** This release adds new collection type VectorSearch. ([973689c](https://github.com/aws/aws-sdk-js-v3/commit/973689cdd2e18d7c15356ed2993ae4097702cd6d))
+
+
+
+
+
 # [3.377.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.376.0...v3.377.0) (2023-07-25)
 
 **Note:** Version bump only for package @aws-sdk/client-opensearchserverless

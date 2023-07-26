@@ -3,6 +3,27 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.378.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.377.0...v3.378.0) (2023-07-26)
+
+
+### Bug Fixes
+
+* **middleware-websocket:** pass options to presign in WebsocketSignatureV4 sign ([#5015](https://github.com/aws/aws-sdk-js-v3/issues/5015)) ([3663a9b](https://github.com/aws/aws-sdk-js-v3/commit/3663a9b8221bb4bcc1362b30dd27b5b6a478b6ad))
+
+
+### Features
+
+* **client-entityresolution:** AWS Entity Resolution can effectively match a source record from a customer relationship management (CRM) system with a source record from a marketing system containing campaign information. ([2928f54](https://github.com/aws/aws-sdk-js-v3/commit/2928f54df5daf53b7aad772e7f9c010cd3aa9d7d))
+* **client-glue:** Release Glue Studio Snowflake Connector Node for SDK/CLI ([5f9af07](https://github.com/aws/aws-sdk-js-v3/commit/5f9af076dedd64da4cb5dae9de9da6220ad2e923))
+* **client-managedblockchain-query:** Amazon Managed Blockchain (AMB) Query provides serverless access to standardized, multi-blockchain datasets with developer-friendly APIs. ([128ca01](https://github.com/aws/aws-sdk-js-v3/commit/128ca0152b1c5b5f077fd382904de1fc210a3b6d))
+* **client-opensearchserverless:** This release adds new collection type VectorSearch. ([973689c](https://github.com/aws/aws-sdk-js-v3/commit/973689cdd2e18d7c15356ed2993ae4097702cd6d))
+* **client-polly:** Amazon Polly adds 1 new voice - Lisa (nl-BE) ([264045a](https://github.com/aws/aws-sdk-js-v3/commit/264045a103449d5e34bba5257adda4af931da683))
+* **clients:** update client endpoints as of 2023-07-26 ([a5a0096](https://github.com/aws/aws-sdk-js-v3/commit/a5a0096a981080a51b88c3b3790170832b532f7e))
+
+
+
+
+
 # [3.377.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.376.0...v3.377.0) (2023-07-25)
 
 
