@@ -58,7 +58,7 @@ describe("WebsocketSignatureV4", () => {
         (isInstance as unknown as jest.Mock).mockReturnValueOnce(true);
       });
 
-      const expectSignArgs = (result: any) => {
+      const expectSignArgs = (result: any, options: RequestPresigningArguments = {}) => {
         expect(result).toStrictEqual({
           ...mockPresignedRequest,
           body: request.body,
@@ -69,6 +69,7 @@ describe("WebsocketSignatureV4", () => {
         expect(presign).toHaveBeenCalledWith(
           { ...request, body: "" },
           {
+            ...options,
             expiresIn: 60,
             unsignableHeaders: new Set(Object.keys(request.headers).filter((header) => header !== "host")),
           }
@@ -82,11 +83,10 @@ describe("WebsocketSignatureV4", () => {
       });
 
       it("with options", async () => {
-        const options = {
-          unsignableHeaders: new Set(Object.keys(headers)),
-        };
+        const signingDate = new Date();
+        const options = { signingDate };
         const result = await sigV4.sign(request as any, options);
-        expectSignArgs(result);
+        expectSignArgs(result, options);
       });
     });
 
