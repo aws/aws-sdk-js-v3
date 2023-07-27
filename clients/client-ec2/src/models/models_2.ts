@@ -821,6 +821,21 @@ export interface CreateSnapshotRequest {
  * @public
  * @enum
  */
+export const SSEType = {
+  none: "none",
+  sse_ebs: "sse-ebs",
+  sse_kms: "sse-kms",
+} as const;
+
+/**
+ * @public
+ */
+export type SSEType = (typeof SSEType)[keyof typeof SSEType];
+
+/**
+ * @public
+ * @enum
+ */
 export const SnapshotState = {
   completed: "completed",
   error: "error",
@@ -953,6 +968,11 @@ export interface Snapshot {
    *       time when a temporarily restored snapshot will be automatically re-archived.</p>
    */
   RestoreExpiryTime?: Date;
+
+  /**
+   * <p>Reserved for future use.</p>
+   */
+  SseType?: SSEType | string;
 }
 
 /**
@@ -1111,6 +1131,11 @@ export interface SnapshotInfo {
    *   		<i>Amazon Elastic Compute Cloud User Guide</i>.</p>
    */
   OutpostArn?: string;
+
+  /**
+   * <p>Reserved for future use.</p>
+   */
+  SseType?: SSEType | string;
 }
 
 /**
@@ -4432,6 +4457,11 @@ export interface Volume {
    * <p>The throughput that the volume supports, in MiB/s.</p>
    */
   Throughput?: number;
+
+  /**
+   * <p>Reserved for future use.</p>
+   */
+  SseType?: SSEType | string;
 }
 
 /**
@@ -7702,22 +7732,6 @@ export interface DeleteQueuedReservedInstancesError {
    * <p>The error message.</p>
    */
   Message?: string;
-}
-
-/**
- * @public
- * <p>Describes a Reserved Instance whose queued purchase was not deleted.</p>
- */
-export interface FailedQueuedPurchaseDeletion {
-  /**
-   * <p>The error.</p>
-   */
-  Error?: DeleteQueuedReservedInstancesError;
-
-  /**
-   * <p>The ID of the Reserved Instance.</p>
-   */
-  ReservedInstancesId?: string;
 }
 
 /**

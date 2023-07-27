@@ -2677,7 +2677,6 @@ import {
   DnsEntry,
   DnsOptions,
   DnsOptionsSpecification,
-  FailedQueuedPurchaseDeletion,
   IKEVersionsListValue,
   IKEVersionsRequestListValue,
   InstanceEventWindowStateChange,
@@ -2968,6 +2967,7 @@ import {
   EventInformation,
   ExportImageTask,
   ExportTaskS3Location,
+  FailedQueuedPurchaseDeletion,
   FastLaunchLaunchTemplateSpecificationResponse,
   FastLaunchSnapshotConfigurationResponse,
   FederatedAuthentication,
@@ -3004,7 +3004,6 @@ import {
   IpamPoolCidr,
   IpamPoolCidrFailureReason,
   LaunchPermission,
-  LicenseConfiguration,
   LoadPermission,
   OnDemandOptions,
   PciId,
@@ -3216,6 +3215,7 @@ import {
   LaunchSpecification,
   LaunchTemplateConfig,
   LaunchTemplateOverrides,
+  LicenseConfiguration,
   LoadBalancersConfig,
   LocalGateway,
   LocalGatewayVirtualInterface,
@@ -3280,7 +3280,6 @@ import {
   TransitGatewayAttachmentAssociation,
   UsageClassType,
   VCpuInfo,
-  VerifiedAccessLogDeliveryStatus,
 } from "../models/models_4";
 import {
   AssociatedRole,
@@ -3288,7 +3287,6 @@ import {
   CapacityReservationGroup,
   ClassicLinkDnsSupport,
   ClientCertificateRevocationListStatus,
-  ClientData,
   CoipAddressUsage,
   DataQuery,
   DataResponse,
@@ -3555,6 +3553,7 @@ import {
   TransitGatewayRouteTablePropagation,
   VerifiedAccessInstanceLoggingConfiguration,
   VerifiedAccessLogCloudWatchLogsDestination,
+  VerifiedAccessLogDeliveryStatus,
   VerifiedAccessLogKinesisDataFirehoseDestination,
   VerifiedAccessLogs,
   VerifiedAccessLogS3Destination,
@@ -3573,6 +3572,7 @@ import {
   BlobAttributeValue,
   CapacityReservationSpecification,
   CidrAuthorizationContext,
+  ClientData,
   CpuOptionsRequest,
   CreateVolumePermissionModifications,
   DiskImage,
@@ -3839,7 +3839,6 @@ import {
   ScheduledInstancesIamInstanceProfile,
   ScheduledInstancesIpv6Address,
   ScheduledInstancesMonitoring,
-  ScheduledInstancesNetworkInterface,
   ScheduledInstancesPrivateIpAddressConfig,
   SecurityGroupRuleRequest,
   SecurityGroupRuleUpdate,
@@ -3866,6 +3865,7 @@ import {
   RunScheduledInstancesRequest,
   RunScheduledInstancesResult,
   ScheduledInstancesLaunchSpecification,
+  ScheduledInstancesNetworkInterface,
   ScheduledInstancesPlacement,
   SearchLocalGatewayRoutesRequest,
   SearchLocalGatewayRoutesResult,
@@ -76866,6 +76866,9 @@ const de_GetEbsEncryptionByDefaultResult = (output: any, context: __SerdeContext
   if (output["ebsEncryptionByDefault"] !== undefined) {
     contents.EbsEncryptionByDefault = __parseBoolean(output["ebsEncryptionByDefault"]);
   }
+  if (output["sseType"] !== undefined) {
+    contents.SseType = __expectString(output["sseType"]);
+  }
   return contents;
 };
 
@@ -87145,6 +87148,9 @@ const de_RestoreSnapshotFromRecycleBinResult = (
   if (output["volumeSize"] !== undefined) {
     contents.VolumeSize = __strictParseInt32(output["volumeSize"]) as number;
   }
+  if (output["sseType"] !== undefined) {
+    contents.SseType = __expectString(output["sseType"]);
+  }
   return contents;
 };
 
@@ -88199,6 +88205,9 @@ const de_Snapshot = (output: any, context: __SerdeContext): Snapshot => {
   if (output["restoreExpiryTime"] !== undefined) {
     contents.RestoreExpiryTime = __expectNonNull(__parseRfc3339DateTimeWithOffset(output["restoreExpiryTime"]));
   }
+  if (output["sseType"] !== undefined) {
+    contents.SseType = __expectString(output["sseType"]);
+  }
   return contents;
 };
 
@@ -88290,6 +88299,9 @@ const de_SnapshotInfo = (output: any, context: __SerdeContext): SnapshotInfo => 
   }
   if (output["outpostArn"] !== undefined) {
     contents.OutpostArn = __expectString(output["outpostArn"]);
+  }
+  if (output["sseType"] !== undefined) {
+    contents.SseType = __expectString(output["sseType"]);
   }
   return contents;
 };
@@ -92560,6 +92572,9 @@ const de_Volume = (output: any, context: __SerdeContext): Volume => {
   }
   if (output["throughput"] !== undefined) {
     contents.Throughput = __strictParseInt32(output["throughput"]) as number;
+  }
+  if (output["sseType"] !== undefined) {
+    contents.SseType = __expectString(output["sseType"]);
   }
   return contents;
 };

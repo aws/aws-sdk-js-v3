@@ -109,6 +109,7 @@ export interface CreateSnapshotCommandOutput extends Snapshot, __MetadataBearer 
  * //   ],
  * //   StorageTier: "archive" || "standard",
  * //   RestoreExpiryTime: new Date("TIMESTAMP"),
+ * //   SseType: "sse-ebs" || "sse-kms" || "none",
  * // };
  *
  * ```

@@ -75,7 +75,7 @@ import {
   TransportProtocol,
 } from "./models_1";
 import {
-  FailedQueuedPurchaseDeletion,
+  DeleteQueuedReservedInstancesError,
   FleetStateCode,
   SubnetCidrReservation,
   TransitGateway,
@@ -90,6 +90,22 @@ import {
   VerifiedAccessEndpoint,
   VerifiedAccessGroup,
 } from "./models_2";
+
+/**
+ * @public
+ * <p>Describes a Reserved Instance whose queued purchase was not deleted.</p>
+ */
+export interface FailedQueuedPurchaseDeletion {
+  /**
+   * <p>The error.</p>
+   */
+  Error?: DeleteQueuedReservedInstancesError;
+
+  /**
+   * <p>The ID of the Reserved Instance.</p>
+   */
+  ReservedInstancesId?: string;
+}
 
 /**
  * @public
@@ -9168,17 +9184,6 @@ export const InstanceLifecycleType = {
  * @public
  */
 export type InstanceLifecycleType = (typeof InstanceLifecycleType)[keyof typeof InstanceLifecycleType];
-
-/**
- * @public
- * <p>Describes a license configuration.</p>
- */
-export interface LicenseConfiguration {
-  /**
-   * <p>The Amazon Resource Name (ARN) of the license configuration.</p>
-   */
-  LicenseConfigurationArn?: string;
-}
 
 /**
  * @internal

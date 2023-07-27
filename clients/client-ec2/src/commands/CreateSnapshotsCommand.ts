@@ -97,6 +97,7 @@ export interface CreateSnapshotsCommandOutput extends CreateSnapshotsResult, __M
  * //       OwnerId: "STRING_VALUE",
  * //       SnapshotId: "STRING_VALUE",
  * //       OutpostArn: "STRING_VALUE",
+ * //       SseType: "sse-ebs" || "sse-kms" || "none",
  * //     },
  * //   ],
  * // };

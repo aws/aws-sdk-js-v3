@@ -88,6 +88,7 @@ import {
   Phase2EncryptionAlgorithmsRequestListValue,
   Phase2IntegrityAlgorithmsRequestListValue,
   SnapshotState,
+  SSEType,
   TrafficDirection,
   TrafficMirrorFilter,
   TrafficMirrorFilterRule,
@@ -152,7 +153,6 @@ import {
   SpotPlacement,
 } from "./models_4";
 import {
-  ClientData,
   InstanceFamilyCreditSpecification,
   IpamResourceCidr,
   Purchase,
@@ -160,6 +160,32 @@ import {
   VerifiedAccessInstanceLoggingConfiguration,
   VolumeModification,
 } from "./models_5";
+
+/**
+ * @public
+ * <p>Describes the client-specific data.</p>
+ */
+export interface ClientData {
+  /**
+   * <p>A user-defined comment about the disk upload.</p>
+   */
+  Comment?: string;
+
+  /**
+   * <p>The time that the disk upload ends.</p>
+   */
+  UploadEnd?: Date;
+
+  /**
+   * <p>The size of the uploaded disk image, in GiB.</p>
+   */
+  UploadSize?: number;
+
+  /**
+   * <p>The time that the disk upload starts.</p>
+   */
+  UploadStart?: Date;
+}
 
 /**
  * @public
@@ -7447,6 +7473,11 @@ export interface RestoreSnapshotFromRecycleBinResult {
    * <p>The size of the volume, in GiB.</p>
    */
   VolumeSize?: number;
+
+  /**
+   * <p>Reserved for future use.</p>
+   */
+  SseType?: SSEType | string;
 }
 
 /**
@@ -8498,76 +8529,6 @@ export interface ScheduledInstancesPrivateIpAddressConfig {
    * <p>The IPv4 address.</p>
    */
   PrivateIpAddress?: string;
-}
-
-/**
- * @public
- * <p>Describes a network interface for a Scheduled Instance.</p>
- */
-export interface ScheduledInstancesNetworkInterface {
-  /**
-   * <p>Indicates whether to assign a public IPv4 address to instances launched in a VPC. The
-   *          public IPv4 address can only be assigned to a network interface for eth0, and can only be
-   *          assigned to a new network interface, not an existing one. You cannot specify more than one
-   *          network interface in the request. If launching into a default subnet, the default value is
-   *          <code>true</code>.</p>
-   */
-  AssociatePublicIpAddress?: boolean;
-
-  /**
-   * <p>Indicates whether to delete the interface when the instance is terminated.</p>
-   */
-  DeleteOnTermination?: boolean;
-
-  /**
-   * <p>The description.</p>
-   */
-  Description?: string;
-
-  /**
-   * <p>The index of the device for the network interface attachment.</p>
-   */
-  DeviceIndex?: number;
-
-  /**
-   * <p>The IDs of the security groups.</p>
-   */
-  Groups?: string[];
-
-  /**
-   * <p>The number of IPv6 addresses to assign to the network interface. The IPv6 addresses are automatically selected from the subnet range.</p>
-   */
-  Ipv6AddressCount?: number;
-
-  /**
-   * <p>The specific IPv6 addresses from the subnet range.</p>
-   */
-  Ipv6Addresses?: ScheduledInstancesIpv6Address[];
-
-  /**
-   * <p>The ID of the network interface.</p>
-   */
-  NetworkInterfaceId?: string;
-
-  /**
-   * <p>The IPv4 address of the network interface within the subnet.</p>
-   */
-  PrivateIpAddress?: string;
-
-  /**
-   * <p>The private IPv4 addresses.</p>
-   */
-  PrivateIpAddressConfigs?: ScheduledInstancesPrivateIpAddressConfig[];
-
-  /**
-   * <p>The number of secondary private IPv4 addresses.</p>
-   */
-  SecondaryPrivateIpAddressCount?: number;
-
-  /**
-   * <p>The ID of the subnet.</p>
-   */
-  SubnetId?: string;
 }
 
 /**

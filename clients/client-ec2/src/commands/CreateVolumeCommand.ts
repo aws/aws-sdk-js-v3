@@ -111,6 +111,7 @@ export interface CreateVolumeCommandOutput extends Volume, __MetadataBearer {}
  * //   FastRestored: true || false,
  * //   MultiAttachEnabled: true || false,
  * //   Throughput: Number("int"),
+ * //   SseType: "sse-ebs" || "sse-kms" || "none",
  * // };
  *
  * ```

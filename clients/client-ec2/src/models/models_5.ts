@@ -51,6 +51,7 @@ import {
   ServiceConfiguration,
   ServiceConnectivityType,
   ServiceTypeDetail,
+  SSEType,
   State,
   SubnetCidrReservation,
   TransitGatewayPrefixListReference,
@@ -77,7 +78,23 @@ import {
   StatisticType,
   VirtualizationType,
 } from "./models_3";
-import { AnalysisStatus, ArchitectureType, VerifiedAccessLogDeliveryStatus } from "./models_4";
+import { AnalysisStatus, ArchitectureType, VerifiedAccessLogDeliveryStatusCode } from "./models_4";
+
+/**
+ * @public
+ * <p>Describes a log delivery status.</p>
+ */
+export interface VerifiedAccessLogDeliveryStatus {
+  /**
+   * <p>The status code.</p>
+   */
+  Code?: VerifiedAccessLogDeliveryStatusCode | string;
+
+  /**
+   * <p>The status message.</p>
+   */
+  Message?: string;
+}
 
 /**
  * @public
@@ -4997,6 +5014,11 @@ export interface GetEbsEncryptionByDefaultResult {
    * <p>Indicates whether encryption by default is enabled.</p>
    */
   EbsEncryptionByDefault?: boolean;
+
+  /**
+   * <p>Reserved for future use.</p>
+   */
+  SseType?: SSEType | string;
 }
 
 /**
@@ -7625,32 +7647,6 @@ export interface ImportClientVpnClientCertificateRevocationListResult {
    * <p>Returns <code>true</code> if the request succeeds; otherwise, it returns an error.</p>
    */
   Return?: boolean;
-}
-
-/**
- * @public
- * <p>Describes the client-specific data.</p>
- */
-export interface ClientData {
-  /**
-   * <p>A user-defined comment about the disk upload.</p>
-   */
-  Comment?: string;
-
-  /**
-   * <p>The time that the disk upload ends.</p>
-   */
-  UploadEnd?: Date;
-
-  /**
-   * <p>The size of the uploaded disk image, in GiB.</p>
-   */
-  UploadSize?: number;
-
-  /**
-   * <p>The time that the disk upload starts.</p>
-   */
-  UploadStart?: Date;
 }
 
 /**

@@ -53,6 +53,7 @@ export interface GetEbsEncryptionByDefaultCommandOutput extends GetEbsEncryption
  * const response = await client.send(command);
  * // { // GetEbsEncryptionByDefaultResult
  * //   EbsEncryptionByDefault: true || false,
+ * //   SseType: "sse-ebs" || "sse-kms" || "none",
  * // };
  *
  * ```

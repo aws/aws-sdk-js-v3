@@ -111,11 +111,21 @@ import {
   InstanceBlockDeviceMapping,
   InstanceBootModeValues,
   InstanceLifecycleType,
-  LicenseConfiguration,
   PermissionGroup,
   ProductCode,
   VirtualizationType,
 } from "./models_3";
+
+/**
+ * @public
+ * <p>Describes a license configuration.</p>
+ */
+export interface LicenseConfiguration {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the license configuration.</p>
+   */
+  LicenseConfigurationArn?: string;
+}
 
 /**
  * @public
@@ -11142,22 +11152,6 @@ export const VerifiedAccessLogDeliveryStatusCode = {
  */
 export type VerifiedAccessLogDeliveryStatusCode =
   (typeof VerifiedAccessLogDeliveryStatusCode)[keyof typeof VerifiedAccessLogDeliveryStatusCode];
-
-/**
- * @public
- * <p>Describes a log delivery status.</p>
- */
-export interface VerifiedAccessLogDeliveryStatus {
-  /**
-   * <p>The status code.</p>
-   */
-  Code?: VerifiedAccessLogDeliveryStatusCode | string;
-
-  /**
-   * <p>The status message.</p>
-   */
-  Message?: string;
-}
 
 /**
  * @internal

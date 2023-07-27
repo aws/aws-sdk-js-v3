@@ -63,6 +63,7 @@ export interface RestoreSnapshotFromRecycleBinCommandOutput
  * //   State: "pending" || "completed" || "error" || "recoverable" || "recovering",
  * //   VolumeId: "STRING_VALUE",
  * //   VolumeSize: Number("int"),
+ * //   SseType: "sse-ebs" || "sse-kms" || "none",
  * // };
  *
  * ```

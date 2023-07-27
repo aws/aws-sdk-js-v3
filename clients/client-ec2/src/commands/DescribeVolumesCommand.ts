@@ -97,6 +97,7 @@ export interface DescribeVolumesCommandOutput extends DescribeVolumesResult, __M
  * //       FastRestored: true || false,
  * //       MultiAttachEnabled: true || false,
  * //       Throughput: Number("int"),
+ * //       SseType: "sse-ebs" || "sse-kms" || "none",
  * //     },
  * //   ],
  * //   NextToken: "STRING_VALUE",
