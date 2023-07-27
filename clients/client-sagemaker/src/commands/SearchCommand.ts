@@ -285,6 +285,14 @@ export interface SearchCommandOutput extends SearchResponse, __MetadataBearer {}
  * //             LastModifiedTime: new Date("TIMESTAMP"),
  * //           },
  * //         ],
+ * //         ProfilerConfig: { // ProfilerConfig
+ * //           S3OutputPath: "STRING_VALUE",
+ * //           ProfilingIntervalInMilliseconds: Number("long"),
+ * //           ProfilingParameters: { // ProfilingParameters
+ * //             "<keys>": "STRING_VALUE",
+ * //           },
+ * //           DisableProfiler: true || false,
+ * //         },
  * //         Environment: { // TrainingEnvironmentMap
  * //           "<keys>": "STRING_VALUE",
  * //         },
@@ -635,6 +643,14 @@ export interface SearchCommandOutput extends SearchResponse, __MetadataBearer {}
  * //                 LastModifiedTime: new Date("TIMESTAMP"),
  * //               },
  * //             ],
+ * //             ProfilerConfig: {
+ * //               S3OutputPath: "STRING_VALUE",
+ * //               ProfilingIntervalInMilliseconds: Number("long"),
+ * //               ProfilingParameters: {
+ * //                 "<keys>": "STRING_VALUE",
+ * //               },
+ * //               DisableProfiler: true || false,
+ * //             },
  * //             Environment: {
  * //               "<keys>": "STRING_VALUE",
  * //             },

@@ -27881,6 +27881,7 @@ const de_TrainingJob = (output: any, context: __SerdeContext): TrainingJob => {
     LastModifiedTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
     ModelArtifacts: _json,
     OutputDataConfig: _json,
+    ProfilerConfig: _json,
     ResourceConfig: _json,
     RetryStrategy: _json,
     RoleArn: __expectString,

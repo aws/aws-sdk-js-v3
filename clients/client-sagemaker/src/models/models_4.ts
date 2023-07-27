@@ -47,6 +47,7 @@ import {
   ParallelismConfiguration,
   PipelineDefinitionS3Location,
   Processor,
+  ProfilerConfig,
   ProfilerRuleConfiguration,
   ProvisioningParameter,
   RetryStrategy,
@@ -504,6 +505,12 @@ export interface TrainingJob {
    * <p>Information about the evaluation status of the rules for the training job.</p>
    */
   DebugRuleEvaluationStatuses?: DebugRuleEvaluationStatus[];
+
+  /**
+   * <p>Configuration information for Amazon SageMaker Debugger system monitoring, framework profiling, and
+   *             storage paths.</p>
+   */
+  ProfilerConfig?: ProfilerConfig;
 
   /**
    * <p>The environment variables to set in the Docker container.</p>
