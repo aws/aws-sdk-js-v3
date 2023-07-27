@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.379.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.378.0...v3.379.0) (2023-07-27)
+
+
+### Features
+
+* **client-sagemaker:** Expose ProfilerConfig attribute in SageMaker Search API response. ([d6e75cf](https://github.com/aws/aws-sdk-js-v3/commit/d6e75cfa995eb1df550701a099123e9aa03bf326))
+
+
+
+
+
 # [3.378.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.377.0...v3.378.0) (2023-07-26)
 
 **Note:** Version bump only for package @aws-sdk/client-sagemaker

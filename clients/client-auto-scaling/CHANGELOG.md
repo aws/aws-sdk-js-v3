@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.379.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.378.0...v3.379.0) (2023-07-27)
+
+
+### Features
+
+* **client-auto-scaling:** This release updates validation for instance types used in the AllowedInstanceTypes and ExcludedInstanceTypes parameters of the InstanceRequirements property of a MixedInstancesPolicy. ([4137d54](https://github.com/aws/aws-sdk-js-v3/commit/4137d54d16eace9eee4a4bd1d0f48d9b24d00383))
+
+
+
+
+
 # [3.378.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.377.0...v3.378.0) (2023-07-26)
 
 **Note:** Version bump only for package @aws-sdk/client-auto-scaling

@@ -3,6 +3,21 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.379.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.378.0...v3.379.0) (2023-07-27)
+
+
+### Features
+
+* **client-auto-scaling:** This release updates validation for instance types used in the AllowedInstanceTypes and ExcludedInstanceTypes parameters of the InstanceRequirements property of a MixedInstancesPolicy. ([4137d54](https://github.com/aws/aws-sdk-js-v3/commit/4137d54d16eace9eee4a4bd1d0f48d9b24d00383))
+* **client-ebs:** SDK and documentation updates for Amazon Elastic Block Store API ([1fb75df](https://github.com/aws/aws-sdk-js-v3/commit/1fb75dfd79f89cbaab07c905ae9b668f9f8745a8))
+* **client-ec2:** SDK and documentation updates for Amazon Elastic Block Store APIs ([340ee0b](https://github.com/aws/aws-sdk-js-v3/commit/340ee0b95903702d27a1a7fad285c0519c3fa173))
+* **client-eks:** Add multiple customer error code to handle customer caused failure when managing EKS node groups ([ab3b0dc](https://github.com/aws/aws-sdk-js-v3/commit/ab3b0dc2f901f0a18c644313bb4bf4383381a552))
+* **client-sagemaker:** Expose ProfilerConfig attribute in SageMaker Search API response. ([d6e75cf](https://github.com/aws/aws-sdk-js-v3/commit/d6e75cfa995eb1df550701a099123e9aa03bf326))
+
+
+
+
+
 # [3.378.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.377.0...v3.378.0) (2023-07-26)
 
 
