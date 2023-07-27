@@ -22,6 +22,7 @@
  */
 export * from "./SFNClient";
 export * from "./SFN";
+export { ClientInputEndpointParameters } from "./endpoint/EndpointParameters";
 export * from "./commands";
 export * from "./pagination";
 export * from "./models";

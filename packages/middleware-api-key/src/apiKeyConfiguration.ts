@@ -1,6 +1,9 @@
 import { Provider } from "@smithy/types";
 import { normalizeProvider } from "@smithy/util-middleware";
 
+/**
+ * @public
+ */
 export interface ApiKeyInputConfig {
   /**
    * The API key to use when making requests.

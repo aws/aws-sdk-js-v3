@@ -21,6 +21,9 @@ const CREDENTIAL_EXPIRE_WINDOW = 300000;
 // AwsAuth: specific to SigV4 auth for AWS services
 // SigV4Auth: SigV4 auth for non-AWS services
 
+/**
+ * @public
+ */
 export interface AwsAuthInputConfig {
   /**
    * The credentials used to sign requests.
@@ -51,11 +54,15 @@ export interface AwsAuthInputConfig {
   /**
    * The injectable SigV4-compatible signer class constructor. If not supplied,
    * regular SignatureV4 constructor will be used.
-   * @private
+   *
+   * @internal
    */
   signerConstructor?: new (options: SignatureV4Init & SignatureV4CryptoInit) => RequestSigner;
 }
 
+/**
+ * @public
+ */
 export interface SigV4AuthInputConfig {
   /**
    * The credentials used to sign requests.

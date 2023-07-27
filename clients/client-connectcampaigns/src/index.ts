@@ -7,6 +7,7 @@
  */
 export * from "./ConnectCampaignsClient";
 export * from "./ConnectCampaigns";
+export { ClientInputEndpointParameters } from "./endpoint/EndpointParameters";
 export * from "./commands";
 export * from "./pagination";
 export * from "./models";

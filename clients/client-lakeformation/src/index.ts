@@ -8,6 +8,7 @@
  */
 export * from "./LakeFormationClient";
 export * from "./LakeFormation";
+export { ClientInputEndpointParameters } from "./endpoint/EndpointParameters";
 export * from "./commands";
 export * from "./pagination";
 export * from "./models";

@@ -7,6 +7,7 @@
  */
 export * from "./AmplifyBackendClient";
 export * from "./AmplifyBackend";
+export { ClientInputEndpointParameters } from "./endpoint/EndpointParameters";
 export * from "./commands";
 export * from "./models";
 

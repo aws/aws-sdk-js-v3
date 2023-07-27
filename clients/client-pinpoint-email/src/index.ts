@@ -35,6 +35,7 @@
  */
 export * from "./PinpointEmailClient";
 export * from "./PinpointEmail";
+export { ClientInputEndpointParameters } from "./endpoint/EndpointParameters";
 export * from "./commands";
 export * from "./pagination";
 export * from "./models";

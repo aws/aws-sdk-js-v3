@@ -9,6 +9,7 @@
  */
 export * from "./TextractClient";
 export * from "./Textract";
+export { ClientInputEndpointParameters } from "./endpoint/EndpointParameters";
 export * from "./commands";
 export * from "./models";
 

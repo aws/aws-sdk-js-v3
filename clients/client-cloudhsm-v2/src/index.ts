@@ -8,6 +8,7 @@
  */
 export * from "./CloudHSMV2Client";
 export * from "./CloudHSMV2";
+export { ClientInputEndpointParameters } from "./endpoint/EndpointParameters";
 export * from "./commands";
 export * from "./pagination";
 export * from "./models";

@@ -23,6 +23,7 @@
  */
 export * from "./AppRunnerClient";
 export * from "./AppRunner";
+export { ClientInputEndpointParameters } from "./endpoint/EndpointParameters";
 export * from "./commands";
 export * from "./pagination";
 export * from "./models";

@@ -12,6 +12,7 @@
  */
 export * from "./CognitoIdentityProviderClient";
 export * from "./CognitoIdentityProvider";
+export { ClientInputEndpointParameters } from "./endpoint/EndpointParameters";
 export * from "./commands";
 export * from "./pagination";
 export * from "./models";

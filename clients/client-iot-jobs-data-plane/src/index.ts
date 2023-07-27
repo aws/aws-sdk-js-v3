@@ -17,6 +17,7 @@
  */
 export * from "./IoTJobsDataPlaneClient";
 export * from "./IoTJobsDataPlane";
+export { ClientInputEndpointParameters } from "./endpoint/EndpointParameters";
 export * from "./commands";
 export * from "./models";
 

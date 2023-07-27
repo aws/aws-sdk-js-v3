@@ -11,6 +11,7 @@
  */
 export * from "./SchedulerClient";
 export * from "./Scheduler";
+export { ClientInputEndpointParameters } from "./endpoint/EndpointParameters";
 export * from "./commands";
 export * from "./pagination";
 export * from "./models";

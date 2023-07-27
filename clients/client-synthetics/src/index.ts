@@ -22,6 +22,7 @@
  */
 export * from "./SyntheticsClient";
 export * from "./Synthetics";
+export { ClientInputEndpointParameters } from "./endpoint/EndpointParameters";
 export * from "./commands";
 export * from "./pagination";
 export * from "./models";

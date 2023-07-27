@@ -11,6 +11,7 @@
  */
 export * from "./QuickSightClient";
 export * from "./QuickSight";
+export { ClientInputEndpointParameters } from "./endpoint/EndpointParameters";
 export * from "./commands";
 export * from "./pagination";
 export * from "./models";

@@ -18,6 +18,7 @@
  */
 export * from "./ApplicationInsightsClient";
 export * from "./ApplicationInsights";
+export { ClientInputEndpointParameters } from "./endpoint/EndpointParameters";
 export * from "./commands";
 export * from "./pagination";
 export * from "./models";

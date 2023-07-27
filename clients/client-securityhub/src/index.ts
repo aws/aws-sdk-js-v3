@@ -52,6 +52,7 @@
  */
 export * from "./SecurityHubClient";
 export * from "./SecurityHub";
+export { ClientInputEndpointParameters } from "./endpoint/EndpointParameters";
 export * from "./commands";
 export * from "./pagination";
 export * from "./models";

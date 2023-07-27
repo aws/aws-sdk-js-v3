@@ -31,6 +31,7 @@
  */
 export * from "./PIClient";
 export * from "./PI";
+export { ClientInputEndpointParameters } from "./endpoint/EndpointParameters";
 export * from "./commands";
 export * from "./pagination";
 export * from "./models";

@@ -13,6 +13,7 @@
  */
 export * from "./CloudSearchClient";
 export * from "./CloudSearch";
+export { ClientInputEndpointParameters } from "./endpoint/EndpointParameters";
 export * from "./commands";
 export * from "./models";
 

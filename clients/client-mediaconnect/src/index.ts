@@ -7,6 +7,7 @@
  */
 export * from "./MediaConnectClient";
 export * from "./MediaConnect";
+export { ClientInputEndpointParameters } from "./endpoint/EndpointParameters";
 export * from "./commands";
 export * from "./pagination";
 export * from "./waiters";

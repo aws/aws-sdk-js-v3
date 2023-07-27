@@ -20,6 +20,7 @@
  */
 export * from "./LightsailClient";
 export * from "./Lightsail";
+export { ClientInputEndpointParameters } from "./endpoint/EndpointParameters";
 export * from "./commands";
 export * from "./models";
 

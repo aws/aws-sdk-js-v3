@@ -22,6 +22,7 @@
  */
 export * from "./CostExplorerClient";
 export * from "./CostExplorer";
+export { ClientInputEndpointParameters } from "./endpoint/EndpointParameters";
 export * from "./commands";
 export * from "./pagination";
 export * from "./models";

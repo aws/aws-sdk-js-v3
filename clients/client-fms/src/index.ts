@@ -13,6 +13,7 @@
  */
 export * from "./FMSClient";
 export * from "./FMS";
+export { ClientInputEndpointParameters } from "./endpoint/EndpointParameters";
 export * from "./commands";
 export * from "./pagination";
 export * from "./models";

@@ -7,6 +7,7 @@
  */
 export * from "./MediaPackageClient";
 export * from "./MediaPackage";
+export { ClientInputEndpointParameters } from "./endpoint/EndpointParameters";
 export * from "./commands";
 export * from "./pagination";
 export * from "./models";

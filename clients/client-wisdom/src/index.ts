@@ -10,6 +10,7 @@
  */
 export * from "./WisdomClient";
 export * from "./Wisdom";
+export { ClientInputEndpointParameters } from "./endpoint/EndpointParameters";
 export * from "./commands";
 export * from "./pagination";
 export * from "./models";

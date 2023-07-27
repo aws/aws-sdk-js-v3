@@ -17,6 +17,7 @@
  */
 export * from "./GreengrassV2Client";
 export * from "./GreengrassV2";
+export { ClientInputEndpointParameters } from "./endpoint/EndpointParameters";
 export * from "./commands";
 export * from "./pagination";
 export * from "./models";

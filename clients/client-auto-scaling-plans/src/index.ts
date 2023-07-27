@@ -41,6 +41,7 @@
  */
 export * from "./AutoScalingPlansClient";
 export * from "./AutoScalingPlans";
+export { ClientInputEndpointParameters } from "./endpoint/EndpointParameters";
 export * from "./commands";
 export * from "./models";
 

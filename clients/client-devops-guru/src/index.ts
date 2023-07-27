@@ -18,6 +18,7 @@
  */
 export * from "./DevOpsGuruClient";
 export * from "./DevOpsGuru";
+export { ClientInputEndpointParameters } from "./endpoint/EndpointParameters";
 export * from "./commands";
 export * from "./pagination";
 export * from "./models";

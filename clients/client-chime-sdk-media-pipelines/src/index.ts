@@ -8,6 +8,7 @@
  */
 export * from "./ChimeSDKMediaPipelinesClient";
 export * from "./ChimeSDKMediaPipelines";
+export { ClientInputEndpointParameters } from "./endpoint/EndpointParameters";
 export * from "./commands";
 export * from "./pagination";
 export * from "./models";

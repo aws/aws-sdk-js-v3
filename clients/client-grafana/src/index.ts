@@ -15,6 +15,7 @@
  */
 export * from "./GrafanaClient";
 export * from "./Grafana";
+export { ClientInputEndpointParameters } from "./endpoint/EndpointParameters";
 export * from "./commands";
 export * from "./pagination";
 export * from "./models";

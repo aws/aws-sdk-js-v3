@@ -8,6 +8,7 @@
  */
 export * from "./VoiceIDClient";
 export * from "./VoiceID";
+export { ClientInputEndpointParameters } from "./endpoint/EndpointParameters";
 export * from "./commands";
 export * from "./pagination";
 export * from "./models";

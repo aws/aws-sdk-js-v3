@@ -84,6 +84,7 @@
  */
 export * from "./NetworkFirewallClient";
 export * from "./NetworkFirewall";
+export { ClientInputEndpointParameters } from "./endpoint/EndpointParameters";
 export * from "./commands";
 export * from "./pagination";
 export * from "./models";

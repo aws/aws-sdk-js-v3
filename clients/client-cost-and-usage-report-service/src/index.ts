@@ -24,6 +24,7 @@
  */
 export * from "./CostAndUsageReportServiceClient";
 export * from "./CostAndUsageReportService";
+export { ClientInputEndpointParameters } from "./endpoint/EndpointParameters";
 export * from "./commands";
 export * from "./pagination";
 export * from "./models";

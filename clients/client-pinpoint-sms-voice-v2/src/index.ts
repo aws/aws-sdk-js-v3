@@ -22,6 +22,7 @@
  */
 export * from "./PinpointSMSVoiceV2Client";
 export * from "./PinpointSMSVoiceV2";
+export { ClientInputEndpointParameters } from "./endpoint/EndpointParameters";
 export * from "./commands";
 export * from "./pagination";
 export * from "./models";

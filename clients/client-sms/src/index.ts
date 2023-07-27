@@ -31,6 +31,7 @@
  */
 export * from "./SMSClient";
 export * from "./SMS";
+export { ClientInputEndpointParameters } from "./endpoint/EndpointParameters";
 export * from "./commands";
 export * from "./pagination";
 export * from "./models";

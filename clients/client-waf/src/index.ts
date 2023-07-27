@@ -17,6 +17,7 @@
  */
 export * from "./WAFClient";
 export * from "./WAF";
+export { ClientInputEndpointParameters } from "./endpoint/EndpointParameters";
 export * from "./commands";
 export * from "./models";
 

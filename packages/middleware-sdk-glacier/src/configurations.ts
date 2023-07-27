@@ -4,6 +4,9 @@ import { accountIdDefaultMiddleware, accountIdDefaultMiddlewareOptions } from ".
 import { addChecksumHeadersMiddleware, addChecksumHeadersMiddlewareOptions } from "./add-checksum-headers";
 import { addGlacierApiVersionMiddleware, addGlacierApiVersionMiddlewareOptions } from "./add-glacier-api-version";
 
+/**
+ * @public
+ */
 export interface GlacierMiddlewareInputConfig {}
 
 export interface PreviouslyResolved {

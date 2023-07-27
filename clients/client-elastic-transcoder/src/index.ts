@@ -8,6 +8,7 @@
  */
 export * from "./ElasticTranscoderClient";
 export * from "./ElasticTranscoder";
+export { ClientInputEndpointParameters } from "./endpoint/EndpointParameters";
 export * from "./commands";
 export * from "./pagination";
 export * from "./waiters";

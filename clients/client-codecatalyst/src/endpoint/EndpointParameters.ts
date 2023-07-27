@@ -1,6 +1,9 @@
 // smithy-typescript generated code
 import { Endpoint, EndpointParameters as __EndpointParameters, EndpointV2, Provider } from "@smithy/types";
 
+/**
+ * @public
+ */
 export interface ClientInputEndpointParameters {
   useFipsEndpoint?: boolean | Provider<boolean>;
   region?: string | Provider<string>;

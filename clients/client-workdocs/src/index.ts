@@ -65,6 +65,7 @@
  */
 export * from "./WorkDocsClient";
 export * from "./WorkDocs";
+export { ClientInputEndpointParameters } from "./endpoint/EndpointParameters";
 export * from "./commands";
 export * from "./pagination";
 export * from "./models";

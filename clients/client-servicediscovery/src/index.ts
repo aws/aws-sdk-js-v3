@@ -13,6 +13,7 @@
  */
 export * from "./ServiceDiscoveryClient";
 export * from "./ServiceDiscovery";
+export { ClientInputEndpointParameters } from "./endpoint/EndpointParameters";
 export * from "./commands";
 export * from "./pagination";
 export * from "./models";

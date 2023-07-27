@@ -12,6 +12,7 @@
  */
 export * from "./ApplicationCostProfilerClient";
 export * from "./ApplicationCostProfiler";
+export { ClientInputEndpointParameters } from "./endpoint/EndpointParameters";
 export * from "./commands";
 export * from "./pagination";
 export * from "./models";

@@ -9,6 +9,7 @@
  */
 export * from "./MediaStoreDataClient";
 export * from "./MediaStoreData";
+export { ClientInputEndpointParameters } from "./endpoint/EndpointParameters";
 export * from "./commands";
 export * from "./pagination";
 export * from "./models";

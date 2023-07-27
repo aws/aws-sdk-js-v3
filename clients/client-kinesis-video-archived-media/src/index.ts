@@ -7,6 +7,7 @@
  */
 export * from "./KinesisVideoArchivedMediaClient";
 export * from "./KinesisVideoArchivedMedia";
+export { ClientInputEndpointParameters } from "./endpoint/EndpointParameters";
 export * from "./commands";
 export * from "./models";
 

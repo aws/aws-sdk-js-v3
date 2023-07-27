@@ -18,6 +18,7 @@
  */
 export * from "./MediaPackageV2Client";
 export * from "./MediaPackageV2";
+export { ClientInputEndpointParameters } from "./endpoint/EndpointParameters";
 export * from "./commands";
 export * from "./pagination";
 export * from "./models";

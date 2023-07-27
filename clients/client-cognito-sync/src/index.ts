@@ -19,6 +19,7 @@
  */
 export * from "./CognitoSyncClient";
 export * from "./CognitoSync";
+export { ClientInputEndpointParameters } from "./endpoint/EndpointParameters";
 export * from "./commands";
 export * from "./models";
 

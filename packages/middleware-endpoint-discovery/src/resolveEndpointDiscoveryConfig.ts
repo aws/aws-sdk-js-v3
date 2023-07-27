@@ -7,6 +7,9 @@ export interface PreviouslyResolved {
   endpointDiscoveryEnabledProvider: Provider<boolean | undefined>;
 }
 
+/**
+ * @public
+ */
 export interface EndpointDiscoveryInputConfig {
   /**
    * The size of the client cache storing endpoints from endpoint discovery operations.

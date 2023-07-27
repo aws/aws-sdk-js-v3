@@ -11,6 +11,7 @@
  */
 export * from "./M2Client";
 export * from "./M2";
+export { ClientInputEndpointParameters } from "./endpoint/EndpointParameters";
 export * from "./commands";
 export * from "./pagination";
 export * from "./models";

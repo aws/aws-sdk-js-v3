@@ -7,6 +7,7 @@
  */
 export * from "./BackupStorageClient";
 export * from "./BackupStorage";
+export { ClientInputEndpointParameters } from "./endpoint/EndpointParameters";
 export * from "./commands";
 export * from "./pagination";
 export * from "./models";

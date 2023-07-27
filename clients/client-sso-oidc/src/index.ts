@@ -46,6 +46,7 @@
  */
 export * from "./SSOOIDCClient";
 export * from "./SSOOIDC";
+export { ClientInputEndpointParameters } from "./endpoint/EndpointParameters";
 export * from "./commands";
 export * from "./models";
 

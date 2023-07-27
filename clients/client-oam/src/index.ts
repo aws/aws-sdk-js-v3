@@ -18,6 +18,7 @@
  */
 export * from "./OAMClient";
 export * from "./OAM";
+export { ClientInputEndpointParameters } from "./endpoint/EndpointParameters";
 export * from "./commands";
 export * from "./pagination";
 export * from "./models";

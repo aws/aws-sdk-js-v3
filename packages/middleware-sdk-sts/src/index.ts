@@ -8,6 +8,9 @@ import {
   RegionInfoProvider,
 } from "@smithy/types";
 
+/**
+ * @public
+ */
 export interface StsAuthInputConfig extends AwsAuthInputConfig {}
 
 interface PreviouslyResolved {
