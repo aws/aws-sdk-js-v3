@@ -27,6 +27,7 @@
  */
 export * from "./QLDBSessionClient";
 export * from "./QLDBSession";
+export { ClientInputEndpointParameters } from "./endpoint/EndpointParameters";
 export * from "./commands";
 export * from "./models";
 

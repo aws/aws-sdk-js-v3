@@ -19,6 +19,7 @@
  */
 export * from "./IoTWirelessClient";
 export * from "./IoTWireless";
+export { ClientInputEndpointParameters } from "./endpoint/EndpointParameters";
 export * from "./commands";
 export * from "./pagination";
 export * from "./models";

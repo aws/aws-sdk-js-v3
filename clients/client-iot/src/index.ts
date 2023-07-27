@@ -22,6 +22,7 @@
  */
 export * from "./IoTClient";
 export * from "./IoT";
+export { ClientInputEndpointParameters } from "./endpoint/EndpointParameters";
 export * from "./commands";
 export * from "./pagination";
 export * from "./models";

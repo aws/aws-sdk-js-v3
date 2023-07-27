@@ -8,6 +8,7 @@
  */
 export * from "./AppSyncClient";
 export * from "./AppSync";
+export { ClientInputEndpointParameters } from "./endpoint/EndpointParameters";
 export * from "./commands";
 export * from "./models";
 

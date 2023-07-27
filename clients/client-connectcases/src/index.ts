@@ -11,6 +11,7 @@
  */
 export * from "./ConnectCasesClient";
 export * from "./ConnectCases";
+export { ClientInputEndpointParameters } from "./endpoint/EndpointParameters";
 export * from "./commands";
 export * from "./pagination";
 export * from "./models";

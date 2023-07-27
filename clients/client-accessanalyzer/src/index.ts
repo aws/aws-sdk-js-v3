@@ -15,6 +15,7 @@
  */
 export * from "./AccessAnalyzerClient";
 export * from "./AccessAnalyzer";
+export { ClientInputEndpointParameters } from "./endpoint/EndpointParameters";
 export * from "./commands";
 export * from "./pagination";
 export * from "./models";

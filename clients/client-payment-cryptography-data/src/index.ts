@@ -8,6 +8,7 @@
  */
 export * from "./PaymentCryptographyDataClient";
 export * from "./PaymentCryptographyData";
+export { ClientInputEndpointParameters } from "./endpoint/EndpointParameters";
 export * from "./commands";
 export * from "./models";
 

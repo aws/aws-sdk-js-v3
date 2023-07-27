@@ -60,6 +60,7 @@
  */
 export * from "./SupportAppClient";
 export * from "./SupportApp";
+export { ClientInputEndpointParameters } from "./endpoint/EndpointParameters";
 export * from "./commands";
 export * from "./pagination";
 export * from "./models";

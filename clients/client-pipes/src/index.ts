@@ -9,6 +9,7 @@
  */
 export * from "./PipesClient";
 export * from "./Pipes";
+export { ClientInputEndpointParameters } from "./endpoint/EndpointParameters";
 export * from "./commands";
 export * from "./pagination";
 export * from "./models";

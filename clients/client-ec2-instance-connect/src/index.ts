@@ -9,6 +9,7 @@
  */
 export * from "./EC2InstanceConnectClient";
 export * from "./EC2InstanceConnect";
+export { ClientInputEndpointParameters } from "./endpoint/EndpointParameters";
 export * from "./commands";
 export * from "./models";
 

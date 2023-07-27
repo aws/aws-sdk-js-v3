@@ -6,6 +6,9 @@ import {
   EventStreamPayloadHandlerProvider,
 } from "@smithy/types";
 
+/**
+ * @public
+ */
 export interface EventStreamInputConfig {}
 
 export type EventStreamResolvedConfig = {

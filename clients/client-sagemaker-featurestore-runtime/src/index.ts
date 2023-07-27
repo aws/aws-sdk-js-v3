@@ -33,6 +33,7 @@
  */
 export * from "./SageMakerFeatureStoreRuntimeClient";
 export * from "./SageMakerFeatureStoreRuntime";
+export { ClientInputEndpointParameters } from "./endpoint/EndpointParameters";
 export * from "./commands";
 export * from "./models";
 

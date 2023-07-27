@@ -8,6 +8,7 @@
  */
 export * from "./ChimeSDKVoiceClient";
 export * from "./ChimeSDKVoice";
+export { ClientInputEndpointParameters } from "./endpoint/EndpointParameters";
 export * from "./commands";
 export * from "./pagination";
 export * from "./models";

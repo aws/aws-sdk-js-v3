@@ -1,5 +1,8 @@
 import { Provider } from "@smithy/types";
 
+/**
+ * @public
+ */
 export interface LocationConstraintInputConfig {}
 
 interface PreviouslyResolved {

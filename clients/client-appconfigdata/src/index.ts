@@ -65,6 +65,7 @@
  */
 export * from "./AppConfigDataClient";
 export * from "./AppConfigData";
+export { ClientInputEndpointParameters } from "./endpoint/EndpointParameters";
 export * from "./commands";
 export * from "./models";
 

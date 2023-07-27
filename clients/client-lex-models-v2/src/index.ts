@@ -7,6 +7,7 @@
  */
 export * from "./LexModelsV2Client";
 export * from "./LexModelsV2";
+export { ClientInputEndpointParameters } from "./endpoint/EndpointParameters";
 export * from "./commands";
 export * from "./pagination";
 export * from "./waiters";

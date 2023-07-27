@@ -1,10 +1,15 @@
 import { HttpRequest } from "@smithy/protocol-http";
 import { AbsoluteLocation, BuildHandlerOptions, BuildMiddleware, Pluggable, RequestHandler } from "@smithy/types";
 
+/**
+ * @public
+ */
 export interface HostHeaderInputConfig {}
+
 interface PreviouslyResolved {
   requestHandler: RequestHandler<any, any>;
 }
+
 export interface HostHeaderResolvedConfig {
   /**
    * The HTTP handler to use. Fetch in browser and Https in Nodejs.

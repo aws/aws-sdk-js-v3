@@ -12,6 +12,7 @@
  */
 export * from "./DAXClient";
 export * from "./DAX";
+export { ClientInputEndpointParameters } from "./endpoint/EndpointParameters";
 export * from "./commands";
 export * from "./models";
 

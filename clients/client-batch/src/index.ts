@@ -17,6 +17,7 @@
  */
 export * from "./BatchClient";
 export * from "./Batch";
+export { ClientInputEndpointParameters } from "./endpoint/EndpointParameters";
 export * from "./commands";
 export * from "./pagination";
 export * from "./models";

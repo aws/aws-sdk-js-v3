@@ -7,6 +7,7 @@
  */
 export * from "./MediaLiveClient";
 export * from "./MediaLive";
+export { ClientInputEndpointParameters } from "./endpoint/EndpointParameters";
 export * from "./commands";
 export * from "./pagination";
 export * from "./waiters";

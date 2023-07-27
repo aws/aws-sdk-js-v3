@@ -10,6 +10,7 @@
  */
 export * from "./SavingsplansClient";
 export * from "./Savingsplans";
+export { ClientInputEndpointParameters } from "./endpoint/EndpointParameters";
 export * from "./commands";
 export * from "./models";
 

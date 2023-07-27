@@ -9,6 +9,7 @@
  */
 export * from "./KinesisAnalyticsV2Client";
 export * from "./KinesisAnalyticsV2";
+export { ClientInputEndpointParameters } from "./endpoint/EndpointParameters";
 export * from "./commands";
 export * from "./models";
 

@@ -27,6 +27,7 @@
  */
 export * from "./CloudWatchEventsClient";
 export * from "./CloudWatchEvents";
+export { ClientInputEndpointParameters } from "./endpoint/EndpointParameters";
 export * from "./commands";
 export * from "./models";
 

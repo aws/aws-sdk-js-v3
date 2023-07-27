@@ -7,6 +7,7 @@
  */
 export * from "./Route53RecoveryControlConfigClient";
 export * from "./Route53RecoveryControlConfig";
+export { ClientInputEndpointParameters } from "./endpoint/EndpointParameters";
 export * from "./commands";
 export * from "./pagination";
 export * from "./waiters";

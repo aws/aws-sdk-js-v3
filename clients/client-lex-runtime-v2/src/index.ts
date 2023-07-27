@@ -7,6 +7,7 @@
  */
 export * from "./LexRuntimeV2Client";
 export * from "./LexRuntimeV2";
+export { ClientInputEndpointParameters } from "./endpoint/EndpointParameters";
 export * from "./commands";
 export * from "./models";
 

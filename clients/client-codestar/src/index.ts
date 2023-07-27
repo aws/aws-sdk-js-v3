@@ -96,6 +96,7 @@
  */
 export * from "./CodeStarClient";
 export * from "./CodeStar";
+export { ClientInputEndpointParameters } from "./endpoint/EndpointParameters";
 export * from "./commands";
 export * from "./models";
 

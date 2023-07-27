@@ -101,6 +101,7 @@
  */
 export * from "./KMSClient";
 export * from "./KMS";
+export { ClientInputEndpointParameters } from "./endpoint/EndpointParameters";
 export * from "./commands";
 export * from "./pagination";
 export * from "./models";

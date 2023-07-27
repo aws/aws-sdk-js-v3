@@ -1,4 +1,6 @@
 /**
+ * @public
+ * 
  * All endpoint parameters with built-in bindings of AWS::S3::*
  */
 export interface S3InputConfig {

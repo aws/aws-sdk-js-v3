@@ -11,6 +11,7 @@
  */
 export * from "./DynamoDBStreamsClient";
 export * from "./DynamoDBStreams";
+export { ClientInputEndpointParameters } from "./endpoint/EndpointParameters";
 export * from "./commands";
 export * from "./models";
 

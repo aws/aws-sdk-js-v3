@@ -11,6 +11,7 @@
  */
 export * from "./IoTEventsDataClient";
 export * from "./IoTEventsData";
+export { ClientInputEndpointParameters } from "./endpoint/EndpointParameters";
 export * from "./commands";
 export * from "./models";
 

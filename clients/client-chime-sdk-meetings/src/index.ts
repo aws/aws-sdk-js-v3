@@ -9,6 +9,7 @@
  */
 export * from "./ChimeSDKMeetingsClient";
 export * from "./ChimeSDKMeetings";
+export { ClientInputEndpointParameters } from "./endpoint/EndpointParameters";
 export * from "./commands";
 export * from "./pagination";
 export * from "./models";

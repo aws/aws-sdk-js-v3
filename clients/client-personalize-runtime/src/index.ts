@@ -7,6 +7,7 @@
  */
 export * from "./PersonalizeRuntimeClient";
 export * from "./PersonalizeRuntime";
+export { ClientInputEndpointParameters } from "./endpoint/EndpointParameters";
 export * from "./commands";
 export * from "./models";
 

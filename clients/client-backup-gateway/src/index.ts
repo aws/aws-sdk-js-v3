@@ -15,6 +15,7 @@
  */
 export * from "./BackupGatewayClient";
 export * from "./BackupGateway";
+export { ClientInputEndpointParameters } from "./endpoint/EndpointParameters";
 export * from "./commands";
 export * from "./pagination";
 export * from "./models";

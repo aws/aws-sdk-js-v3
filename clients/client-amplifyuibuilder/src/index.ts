@@ -15,6 +15,7 @@
  */
 export * from "./AmplifyUIBuilderClient";
 export * from "./AmplifyUIBuilder";
+export { ClientInputEndpointParameters } from "./endpoint/EndpointParameters";
 export * from "./commands";
 export * from "./pagination";
 export * from "./models";

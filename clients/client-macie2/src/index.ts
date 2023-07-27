@@ -7,6 +7,7 @@
  */
 export * from "./Macie2Client";
 export * from "./Macie2";
+export { ClientInputEndpointParameters } from "./endpoint/EndpointParameters";
 export * from "./commands";
 export * from "./pagination";
 export * from "./waiters";

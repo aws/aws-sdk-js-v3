@@ -18,6 +18,7 @@
  */
 export * from "./ComputeOptimizerClient";
 export * from "./ComputeOptimizer";
+export { ClientInputEndpointParameters } from "./endpoint/EndpointParameters";
 export * from "./commands";
 export * from "./pagination";
 export * from "./models";

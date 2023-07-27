@@ -1,7 +1,7 @@
 import { TokenIdentity, TokenIdentityProvider } from "@aws-sdk/types";
 
 /**
- * @internal
+ * @public
  */
 export interface TokenInputConfig {
   /**

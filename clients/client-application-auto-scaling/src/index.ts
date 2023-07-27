@@ -80,6 +80,7 @@
  */
 export * from "./ApplicationAutoScalingClient";
 export * from "./ApplicationAutoScaling";
+export { ClientInputEndpointParameters } from "./endpoint/EndpointParameters";
 export * from "./commands";
 export * from "./pagination";
 export * from "./models";

@@ -21,6 +21,7 @@
  */
 export * from "./DeviceFarmClient";
 export * from "./DeviceFarm";
+export { ClientInputEndpointParameters } from "./endpoint/EndpointParameters";
 export * from "./commands";
 export * from "./pagination";
 export * from "./models";

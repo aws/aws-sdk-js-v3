@@ -15,6 +15,7 @@
  */
 export * from "./DataSyncClient";
 export * from "./DataSync";
+export { ClientInputEndpointParameters } from "./endpoint/EndpointParameters";
 export * from "./commands";
 export * from "./pagination";
 export * from "./models";

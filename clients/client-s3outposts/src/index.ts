@@ -7,6 +7,7 @@
  */
 export * from "./S3OutpostsClient";
 export * from "./S3Outposts";
+export { ClientInputEndpointParameters } from "./endpoint/EndpointParameters";
 export * from "./commands";
 export * from "./pagination";
 export * from "./models";

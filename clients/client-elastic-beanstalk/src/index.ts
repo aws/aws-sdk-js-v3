@@ -19,6 +19,7 @@
  */
 export * from "./ElasticBeanstalkClient";
 export * from "./ElasticBeanstalk";
+export { ClientInputEndpointParameters } from "./endpoint/EndpointParameters";
 export * from "./commands";
 export * from "./pagination";
 export * from "./waiters";

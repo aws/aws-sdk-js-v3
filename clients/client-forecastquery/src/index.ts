@@ -7,6 +7,7 @@
  */
 export * from "./ForecastqueryClient";
 export * from "./Forecastquery";
+export { ClientInputEndpointParameters } from "./endpoint/EndpointParameters";
 export * from "./commands";
 export * from "./models";
 

@@ -10,6 +10,7 @@
  */
 export * from "./GroundStationClient";
 export * from "./GroundStation";
+export { ClientInputEndpointParameters } from "./endpoint/EndpointParameters";
 export * from "./commands";
 export * from "./pagination";
 export * from "./waiters";

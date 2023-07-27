@@ -7,6 +7,7 @@
  */
 export * from "./PinpointSMSVoiceClient";
 export * from "./PinpointSMSVoice";
+export { ClientInputEndpointParameters } from "./endpoint/EndpointParameters";
 export * from "./commands";
 export * from "./models";
 

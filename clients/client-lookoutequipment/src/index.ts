@@ -8,6 +8,7 @@
  */
 export * from "./LookoutEquipmentClient";
 export * from "./LookoutEquipment";
+export { ClientInputEndpointParameters } from "./endpoint/EndpointParameters";
 export * from "./commands";
 export * from "./pagination";
 export * from "./models";

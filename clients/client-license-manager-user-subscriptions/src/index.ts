@@ -8,6 +8,7 @@
  */
 export * from "./LicenseManagerUserSubscriptionsClient";
 export * from "./LicenseManagerUserSubscriptions";
+export { ClientInputEndpointParameters } from "./endpoint/EndpointParameters";
 export * from "./commands";
 export * from "./pagination";
 export * from "./models";

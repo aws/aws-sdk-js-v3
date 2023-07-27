@@ -21,6 +21,7 @@
  */
 export * from "./RolesAnywhereClient";
 export * from "./RolesAnywhere";
+export { ClientInputEndpointParameters } from "./endpoint/EndpointParameters";
 export * from "./commands";
 export * from "./pagination";
 export * from "./models";

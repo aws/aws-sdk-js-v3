@@ -7,6 +7,7 @@
  */
 export * from "./DocDBElasticClient";
 export * from "./DocDBElastic";
+export { ClientInputEndpointParameters } from "./endpoint/EndpointParameters";
 export * from "./commands";
 export * from "./pagination";
 export * from "./models";

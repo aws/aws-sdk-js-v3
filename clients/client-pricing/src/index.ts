@@ -41,6 +41,7 @@
  */
 export * from "./PricingClient";
 export * from "./Pricing";
+export { ClientInputEndpointParameters } from "./endpoint/EndpointParameters";
 export * from "./commands";
 export * from "./pagination";
 export * from "./models";

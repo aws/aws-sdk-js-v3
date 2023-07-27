@@ -46,6 +46,7 @@
  */
 export * from "./Route53RecoveryClusterClient";
 export * from "./Route53RecoveryCluster";
+export { ClientInputEndpointParameters } from "./endpoint/EndpointParameters";
 export * from "./commands";
 export * from "./pagination";
 export * from "./models";

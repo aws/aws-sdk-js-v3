@@ -8,6 +8,7 @@
  */
 export * from "./IoTSiteWiseClient";
 export * from "./IoTSiteWise";
+export { ClientInputEndpointParameters } from "./endpoint/EndpointParameters";
 export * from "./commands";
 export * from "./pagination";
 export * from "./waiters";

@@ -50,6 +50,7 @@
  */
 export * from "./SupportClient";
 export * from "./Support";
+export { ClientInputEndpointParameters } from "./endpoint/EndpointParameters";
 export * from "./commands";
 export * from "./pagination";
 export * from "./models";

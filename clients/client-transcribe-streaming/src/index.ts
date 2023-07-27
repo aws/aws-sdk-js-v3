@@ -29,6 +29,7 @@
  */
 export * from "./TranscribeStreamingClient";
 export * from "./TranscribeStreaming";
+export { ClientInputEndpointParameters } from "./endpoint/EndpointParameters";
 export * from "./commands";
 export * from "./models";
 

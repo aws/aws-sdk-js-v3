@@ -13,6 +13,7 @@
  */
 export * from "./ManagedBlockchainQueryClient";
 export * from "./ManagedBlockchainQuery";
+export { ClientInputEndpointParameters } from "./endpoint/EndpointParameters";
 export * from "./commands";
 export * from "./pagination";
 export * from "./models";

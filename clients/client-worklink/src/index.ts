@@ -13,6 +13,7 @@
  */
 export * from "./WorkLinkClient";
 export * from "./WorkLink";
+export { ClientInputEndpointParameters } from "./endpoint/EndpointParameters";
 export * from "./commands";
 export * from "./pagination";
 export * from "./models";
