@@ -286,14 +286,16 @@ export interface DescribeAutoScalingGroupsCommandOutput extends AutoScalingGroup
  * {
  *   "AutoScalingGroups": [
  *     {
- *       "AutoScalingGroupARN": "arn:aws:autoscaling:us-west-2:123456789012:autoScalingGroup:930d940e-891e-4781-a11a-7b0acd480f03:autoScalingGroupName/my-auto-scaling-group",
+ *       "AutoScalingGroupARN": "arn:aws:autoscaling:us-west-1:123456789012:autoScalingGroup:12345678-1234-1234-1234-123456789012:autoScalingGroupName/my-auto-scaling-group",
  *       "AutoScalingGroupName": "my-auto-scaling-group",
  *       "AvailabilityZones": [
+ *         "us-west-2a",
+ *         "us-west-2b",
  *         "us-west-2c"
  *       ],
- *       "CreatedTime": "2013-08-19T20:53:25.584Z",
+ *       "CreatedTime": "2023-03-09T22:15:11.611Z",
  *       "DefaultCooldown": 300,
- *       "DesiredCapacity": 1,
+ *       "DesiredCapacity": 2,
  *       "EnabledMetrics": [],
  *       "HealthCheckGracePeriod": 300,
  *       "HealthCheckType": "EC2",
@@ -301,7 +303,17 @@ export interface DescribeAutoScalingGroupsCommandOutput extends AutoScalingGroup
  *         {
  *           "AvailabilityZone": "us-west-2c",
  *           "HealthStatus": "Healthy",
- *           "InstanceId": "i-4ba0837f",
+ *           "InstanceId": "i-05b4f7d5be44822a6",
+ *           "InstanceType": "t3.micro",
+ *           "LaunchConfigurationName": "my-launch-config",
+ *           "LifecycleState": "InService",
+ *           "ProtectedFromScaleIn": false
+ *         },
+ *         {
+ *           "AvailabilityZone": "us-west-2b",
+ *           "HealthStatus": "Healthy",
+ *           "InstanceId": "i-0c20ac468fa3049e8",
+ *           "InstanceType": "t3.micro",
  *           "LaunchConfigurationName": "my-launch-config",
  *           "LifecycleState": "InService",
  *           "ProtectedFromScaleIn": false
@@ -309,15 +321,18 @@ export interface DescribeAutoScalingGroupsCommandOutput extends AutoScalingGroup
  *       ],
  *       "LaunchConfigurationName": "my-launch-config",
  *       "LoadBalancerNames": [],
- *       "MaxSize": 1,
- *       "MinSize": 0,
+ *       "MaxSize": 5,
+ *       "MinSize": 1,
  *       "NewInstancesProtectedFromScaleIn": false,
+ *       "ServiceLinkedRoleARN": "arn:aws:iam::123456789012:role/aws-service-role/autoscaling.amazonaws.com/AWSServiceRoleForAutoScaling",
  *       "SuspendedProcesses": [],
  *       "Tags": [],
+ *       "TargetGroupARNs": [],
  *       "TerminationPolicies": [
  *         "Default"
  *       ],
- *       "VPCZoneIdentifier": "subnet-12345678"
+ *       "TrafficSources": [],
+ *       "VPCZoneIdentifier": "subnet-5ea0c127,subnet-6194ea3b,subnet-c934b782"
  *     }
  *   ]
  * }

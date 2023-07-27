@@ -15,5 +15,7 @@ export * from "./DescribeScheduledActionsPaginator";
 export * from "./DescribeTagsPaginator";
 
 export * from "./DescribeTrafficSourcesPaginator";
+
+export * from "./DescribeWarmPoolPaginator";
 // smithy-typescript generated code
 export * from "./Interfaces";

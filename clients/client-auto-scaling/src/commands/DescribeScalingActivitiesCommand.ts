@@ -113,6 +113,7 @@ export interface DescribeScalingActivitiesCommandOutput extends ActivitiesType, 
  *   "Activities": [
  *     {
  *       "ActivityId": "f9f2d65b-f1f2-43e7-b46d-d86756459699",
+ *       "AutoScalingGroupARN": "arn:aws:autoscaling:us-east-1:123456789012:autoScalingGroup:12345678-1234-1234-1234-123456789012:autoScalingGroupName/my-auto-scaling-group",
  *       "AutoScalingGroupName": "my-auto-scaling-group",
  *       "Cause": "At 2013-08-19T20:53:25Z a user request created an AutoScalingGroup changing the desired capacity from 0 to 1.  At 2013-08-19T20:53:29Z an instance was started in response to a difference between desired and actual capacity, increasing the capacity from 0 to 1.",
  *       "Description": "Launching a new EC2 instance: i-4ba0837f",

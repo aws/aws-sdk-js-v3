@@ -247,18 +247,35 @@ export interface DescribeInstanceRefreshesCommandOutput extends DescribeInstance
  *     {
  *       "AutoScalingGroupName": "my-auto-scaling-group",
  *       "InstanceRefreshId": "08b91cf7-8fa6-48af-b6a6-d227f40f1b9b",
- *       "InstancesToUpdate": 5,
- *       "PercentageComplete": 0,
- *       "StartTime": "2020-06-02T18:11:27Z",
- *       "Status": "InProgress"
+ *       "InstancesToUpdate": 0,
+ *       "PercentageComplete": 50,
+ *       "Preferences": {
+ *         "AutoRollback": true,
+ *         "InstanceWarmup": 60,
+ *         "MinHealthyPercentage": 90,
+ *         "ScaleInProtectedInstances": "Ignore",
+ *         "SkipMatching": false,
+ *         "StandbyInstances": "Ignore"
+ *       },
+ *       "StartTime": "2023-06-13T16:46:52+00:00",
+ *       "Status": "InProgress",
+ *       "StatusReason": "Waiting for instances to warm up before continuing. For example: i-0645704820a8e83ff is warming up."
  *     },
  *     {
  *       "AutoScalingGroupName": "my-auto-scaling-group",
- *       "EndTime": "2020-06-02T16:53:37Z",
- *       "InstanceRefreshId": "dd7728d0-5bc4-4575-96a3-1b2c52bf8bb1",
+ *       "EndTime": "2023-06-02T13:59:45+00:00",
+ *       "InstanceRefreshId": "0e151305-1e57-4a32-a256-1fd14157c5ec",
  *       "InstancesToUpdate": 0,
  *       "PercentageComplete": 100,
- *       "StartTime": "2020-06-02T16:43:19Z",
+ *       "Preferences": {
+ *         "AutoRollback": true,
+ *         "InstanceWarmup": 60,
+ *         "MinHealthyPercentage": 90,
+ *         "ScaleInProtectedInstances": "Ignore",
+ *         "SkipMatching": false,
+ *         "StandbyInstances": "Ignore"
+ *       },
+ *       "StartTime": "2023-06-02T13:53:37+00:00",
  *       "Status": "Successful"
  *     }
  *   ]

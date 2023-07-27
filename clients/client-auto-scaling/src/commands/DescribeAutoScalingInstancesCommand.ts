@@ -97,7 +97,7 @@ export interface DescribeAutoScalingInstancesCommandOutput extends AutoScalingIn
  * // This example describes the specified Auto Scaling instance.
  * const input = {
  *   "InstanceIds": [
- *     "i-4ba0837f"
+ *     "i-05b4f7d5be44822a6"
  *   ]
  * };
  * const command = new DescribeAutoScalingInstancesCommand(input);
@@ -109,7 +109,8 @@ export interface DescribeAutoScalingInstancesCommandOutput extends AutoScalingIn
  *       "AutoScalingGroupName": "my-auto-scaling-group",
  *       "AvailabilityZone": "us-west-2c",
  *       "HealthStatus": "HEALTHY",
- *       "InstanceId": "i-4ba0837f",
+ *       "InstanceId": "i-05b4f7d5be44822a6",
+ *       "InstanceType": "t3.micro",
  *       "LaunchConfigurationName": "my-launch-config",
  *       "LifecycleState": "InService",
  *       "ProtectedFromScaleIn": false

@@ -37,7 +37,7 @@ export interface DetachTrafficSourcesCommandOutput extends DetachTrafficSourcesR
 /**
  * @public
  * <p>Detaches one or more traffic sources from the specified Auto Scaling group.</p>
- *          <p>When you detach a taffic, it enters the <code>Removing</code> state while
+ *          <p>When you detach a traffic source, it enters the <code>Removing</code> state while
  *             deregistering the instances in the group. When all instances are deregistered, then you
  *             can no longer describe the traffic source using the <a>DescribeTrafficSources</a> API call. The instances continue to run.</p>
  * @example
