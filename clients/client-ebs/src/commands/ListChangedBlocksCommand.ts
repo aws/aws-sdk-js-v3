@@ -42,6 +42,12 @@ export interface ListChangedBlocksCommandOutput extends ListChangedBlocksRespons
  * @public
  * <p>Returns information about the blocks that are different between two
  *             Amazon Elastic Block Store snapshots of the same volume/snapshot lineage.</p>
+ *          <note>
+ *             <p>You should always retry requests that receive server (<code>5xx</code>)
+ *     error responses, and <code>ThrottlingException</code> and <code>RequestThrottledException</code>
+ *     client error responses. For more information see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/error-retries.html">Error retries</a> in the
+ *         <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
+ *          </note>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -83,11 +89,11 @@ export interface ListChangedBlocksCommandOutput extends ListChangedBlocksRespons
  *  <p>You do not have sufficient access to perform this action.</p>
  *
  * @throws {@link InternalServerException} (server fault)
- *  <p>An internal error has occurred.</p>
+ *  <p>An internal error has occurred. For more information see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/error-retries.html">Error retries</a>.</p>
  *
  * @throws {@link RequestThrottledException} (client fault)
- *  <p>The number of API requests has exceed the maximum allowed API request throttling
- *             limit.</p>
+ *  <p>The number of API requests has exceeded the maximum allowed API request
+ *             throttling limit for the snapshot. For more information see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/error-retries.html">Error retries</a>.</p>
  *
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>The specified resource does not exist.</p>

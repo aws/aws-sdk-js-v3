@@ -43,8 +43,14 @@ export interface StartSnapshotCommandOutput extends StartSnapshotResponse, __Met
  * @public
  * <p>Creates a new Amazon EBS snapshot. The new snapshot enters the <code>pending</code> state
  *             after the request completes. </p>
- *         <p>After creating the snapshot, use <a href="https://docs.aws.amazon.com/ebs/latest/APIReference/API_PutSnapshotBlock.html"> PutSnapshotBlock</a> to
+ *          <p>After creating the snapshot, use <a href="https://docs.aws.amazon.com/ebs/latest/APIReference/API_PutSnapshotBlock.html"> PutSnapshotBlock</a> to
  *             write blocks of data to the snapshot.</p>
+ *          <note>
+ *             <p>You should always retry requests that receive server (<code>5xx</code>)
+ *     error responses, and <code>ThrottlingException</code> and <code>RequestThrottledException</code>
+ *     client error responses. For more information see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/error-retries.html">Error retries</a> in the
+ *         <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
+ *          </note>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -72,7 +78,7 @@ export interface StartSnapshotCommandOutput extends StartSnapshotResponse, __Met
  * //   Description: "STRING_VALUE",
  * //   SnapshotId: "STRING_VALUE",
  * //   OwnerId: "STRING_VALUE",
- * //   Status: "STRING_VALUE",
+ * //   Status: "completed" || "pending" || "error",
  * //   StartTime: new Date("TIMESTAMP"),
  * //   VolumeSize: Number("long"),
  * //   BlockSize: Number("int"),
@@ -84,6 +90,7 @@ export interface StartSnapshotCommandOutput extends StartSnapshotResponse, __Met
  * //   ],
  * //   ParentSnapshotId: "STRING_VALUE",
  * //   KmsKeyArn: "STRING_VALUE",
+ * //   SseType: "sse-ebs" || "sse-kms" || "none",
  * // };
  *
  * ```
@@ -107,11 +114,11 @@ export interface StartSnapshotCommandOutput extends StartSnapshotResponse, __Met
  *             request.</p>
  *
  * @throws {@link InternalServerException} (server fault)
- *  <p>An internal error has occurred.</p>
+ *  <p>An internal error has occurred. For more information see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/error-retries.html">Error retries</a>.</p>
  *
  * @throws {@link RequestThrottledException} (client fault)
- *  <p>The number of API requests has exceed the maximum allowed API request throttling
- *             limit.</p>
+ *  <p>The number of API requests has exceeded the maximum allowed API request
+ *             throttling limit for the snapshot. For more information see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/error-retries.html">Error retries</a>.</p>
  *
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>The specified resource does not exist.</p>

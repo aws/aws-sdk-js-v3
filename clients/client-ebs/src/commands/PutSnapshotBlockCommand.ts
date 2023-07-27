@@ -47,7 +47,13 @@ export interface PutSnapshotBlockCommandOutput extends PutSnapshotBlockResponse,
  * <p>Writes a block of data to a snapshot. If the specified block contains
  *             data, the existing data is overwritten. The target snapshot must be in the
  *                 <code>pending</code> state.</p>
- *     	    <p>Data written to a snapshot must be aligned with 512-KiB sectors.</p>
+ *          <p>Data written to a snapshot must be aligned with 512-KiB sectors.</p>
+ *          <note>
+ *             <p>You should always retry requests that receive server (<code>5xx</code>)
+ *     error responses, and <code>ThrottlingException</code> and <code>RequestThrottledException</code>
+ *     client error responses. For more information see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/error-retries.html">Error retries</a> in the
+ *         <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
+ *          </note>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -61,13 +67,13 @@ export interface PutSnapshotBlockCommandOutput extends PutSnapshotBlockResponse,
  *   DataLength: Number("int"), // required
  *   Progress: Number("int"),
  *   Checksum: "STRING_VALUE", // required
- *   ChecksumAlgorithm: "STRING_VALUE", // required
+ *   ChecksumAlgorithm: "SHA256", // required
  * };
  * const command = new PutSnapshotBlockCommand(input);
  * const response = await client.send(command);
  * // { // PutSnapshotBlockResponse
  * //   Checksum: "STRING_VALUE",
- * //   ChecksumAlgorithm: "STRING_VALUE",
+ * //   ChecksumAlgorithm: "SHA256",
  * // };
  *
  * ```
@@ -82,11 +88,11 @@ export interface PutSnapshotBlockCommandOutput extends PutSnapshotBlockResponse,
  *  <p>You do not have sufficient access to perform this action.</p>
  *
  * @throws {@link InternalServerException} (server fault)
- *  <p>An internal error has occurred.</p>
+ *  <p>An internal error has occurred. For more information see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/error-retries.html">Error retries</a>.</p>
  *
  * @throws {@link RequestThrottledException} (client fault)
- *  <p>The number of API requests has exceed the maximum allowed API request throttling
- *             limit.</p>
+ *  <p>The number of API requests has exceeded the maximum allowed API request
+ *             throttling limit for the snapshot. For more information see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/error-retries.html">Error retries</a>.</p>
  *
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>The specified resource does not exist.</p>

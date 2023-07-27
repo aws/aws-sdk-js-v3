@@ -603,6 +603,7 @@ export const de_StartSnapshotCommand = async (
     OwnerId: __expectString,
     ParentSnapshotId: __expectString,
     SnapshotId: __expectString,
+    SseType: __expectString,
     StartTime: (_) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
     Status: __expectString,
     Tags: _json,

@@ -130,7 +130,7 @@ export interface CompleteSnapshotRequest {
   /**
    * <p>An aggregated Base-64 SHA256 checksum based on the checksums of each written
    *             block.</p>
-   *         <p>To generate the aggregated checksum using the linear aggregation method, arrange the
+   *          <p>To generate the aggregated checksum using the linear aggregation method, arrange the
    *             checksums for each written block in ascending order of their block index, concatenate
    *             them to form a single string, and then generate the checksum on the entire string using
    *             the SHA256 algorithm.</p>
@@ -177,7 +177,7 @@ export interface CompleteSnapshotResponse {
 
 /**
  * @public
- * <p>An internal error has occurred.</p>
+ * <p>An internal error has occurred. For more information see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/error-retries.html">Error retries</a>.</p>
  */
 export class InternalServerException extends __BaseException {
   readonly name: "InternalServerException" = "InternalServerException";
@@ -215,8 +215,8 @@ export type RequestThrottledExceptionReason =
 
 /**
  * @public
- * <p>The number of API requests has exceed the maximum allowed API request throttling
- *             limit.</p>
+ * <p>The number of API requests has exceeded the maximum allowed API request
+ *             throttling limit for the snapshot. For more information see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/error-retries.html">Error retries</a>.</p>
  */
 export class RequestThrottledException extends __BaseException {
   readonly name: "RequestThrottledException" = "RequestThrottledException";
@@ -247,6 +247,8 @@ export class RequestThrottledException extends __BaseException {
  */
 export const ResourceNotFoundExceptionReason = {
   DEPENDENCY_RESOURCE_NOT_FOUND: "DEPENDENCY_RESOURCE_NOT_FOUND",
+  GRANT_NOT_FOUND: "GRANT_NOT_FOUND",
+  IMAGE_NOT_FOUND: "IMAGE_NOT_FOUND",
   SNAPSHOT_NOT_FOUND: "SNAPSHOT_NOT_FOUND",
 } as const;
 
@@ -335,12 +337,15 @@ export const ValidationExceptionReason = {
   INVALID_CONTENT_ENCODING: "INVALID_CONTENT_ENCODING",
   INVALID_CUSTOMER_KEY: "INVALID_CUSTOMER_KEY",
   INVALID_DEPENDENCY_REQUEST: "INVALID_DEPENDENCY_REQUEST",
+  INVALID_GRANT_TOKEN: "INVALID_GRANT_TOKEN",
+  INVALID_IMAGE_ID: "INVALID_IMAGE_ID",
   INVALID_PAGE_TOKEN: "INVALID_PAGE_TOKEN",
   INVALID_PARAMETER_VALUE: "INVALID_PARAMETER_VALUE",
   INVALID_SNAPSHOT_ID: "INVALID_SNAPSHOT_ID",
   INVALID_TAG: "INVALID_TAG",
   INVALID_VOLUME_SIZE: "INVALID_VOLUME_SIZE",
   UNRELATED_SNAPSHOTS: "UNRELATED_SNAPSHOTS",
+  WRITE_REQUEST_TIMEOUT: "WRITE_REQUEST_TIMEOUT",
 } as const;
 
 /**
@@ -428,13 +433,13 @@ export class ConflictException extends __BaseException {
 export interface GetSnapshotBlockRequest {
   /**
    * <p>The ID of the snapshot containing the block from which to get data.</p>
-   *         <important>
+   *          <important>
    *             <p>If the specified snapshot is encrypted, you must have permission to use the
    *                 KMS key that was used to encrypt the snapshot. For more information, see
    *                 <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebsapis-using-encryption.html">
    *                     Using encryption</a> in the <i>Amazon Elastic Compute Cloud User
    *                         Guide</i>.</p>
-   *         </important>
+   *          </important>
    */
   SnapshotId: string | undefined;
 
@@ -485,35 +490,35 @@ export interface GetSnapshotBlockResponse {
 export interface ListChangedBlocksRequest {
   /**
    * <p>The ID of the first snapshot to use for the comparison.</p>
-   *         <important>
+   *          <important>
    *             <p>The <code>FirstSnapshotID</code> parameter must be specified with a
    *                     <code>SecondSnapshotId</code> parameter; otherwise, an error occurs.</p>
-   *         </important>
+   *          </important>
    */
   FirstSnapshotId?: string;
 
   /**
    * <p>The ID of the second snapshot to use for the comparison.</p>
-   *         <important>
+   *          <important>
    *             <p>The <code>SecondSnapshotId</code> parameter must be specified with a
    *                     <code>FirstSnapshotID</code> parameter; otherwise, an error occurs.</p>
-   *         </important>
+   *          </important>
    */
   SecondSnapshotId: string | undefined;
 
   /**
    * <p>The token to request the next page of results.</p>
-   *         <p>If you specify <b>NextToken</b>, then
+   *          <p>If you specify <b>NextToken</b>, then
    *             <b>StartingBlockIndex</b> is ignored.</p>
    */
   NextToken?: string;
 
   /**
    * <p>The maximum number of blocks to be returned by the request.</p>
-   *         <p>Even if additional blocks can be retrieved from the snapshot, the request can
+   *          <p>Even if additional blocks can be retrieved from the snapshot, the request can
    *             return less blocks than <b>MaxResults</b> or an empty
    *             array of blocks.</p>
-   *         <p>To retrieve the next set of blocks from the snapshot, make another request with
+   *          <p>To retrieve the next set of blocks from the snapshot, make another request with
    *             the returned <b>NextToken</b> value. The value of
    *             <b>NextToken</b> is <code>null</code> when there are no
    *             more blocks to return.</p>
@@ -522,9 +527,9 @@ export interface ListChangedBlocksRequest {
 
   /**
    * <p>The block index from which the comparison should start.</p>
-   *         <p>The list in the response will start from this block index or the next valid block
+   *          <p>The list in the response will start from this block index or the next valid block
    *             index in the snapshots.</p>
-   *         <p>If you specify <b>NextToken</b>, then
+   *          <p>If you specify <b>NextToken</b>, then
    *             <b>StartingBlockIndex</b> is ignored.</p>
    */
   StartingBlockIndex?: number;
@@ -572,17 +577,17 @@ export interface ListSnapshotBlocksRequest {
 
   /**
    * <p>The token to request the next page of results.</p>
-   *         <p>If you specify <b>NextToken</b>, then
+   *          <p>If you specify <b>NextToken</b>, then
    *             <b>StartingBlockIndex</b> is ignored.</p>
    */
   NextToken?: string;
 
   /**
    * <p>The maximum number of blocks to be returned by the request.</p>
-   *         <p>Even if additional blocks can be retrieved from the snapshot, the request can
+   *          <p>Even if additional blocks can be retrieved from the snapshot, the request can
    *             return less blocks than <b>MaxResults</b> or an empty
    *             array of blocks.</p>
-   *         <p>To retrieve the next set of blocks from the snapshot, make another request with
+   *          <p>To retrieve the next set of blocks from the snapshot, make another request with
    *             the returned <b>NextToken</b> value. The value of
    *             <b>NextToken</b> is <code>null</code> when there are no
    *             more blocks to return.</p>
@@ -592,7 +597,7 @@ export interface ListSnapshotBlocksRequest {
   /**
    * <p>The block index from which the list should start. The list in the response will start
    *             from this block index or the next valid block index in the snapshot.</p>
-   *         <p>If you specify <b>NextToken</b>, then
+   *          <p>If you specify <b>NextToken</b>, then
    *             <b>StartingBlockIndex</b> is ignored.</p>
    */
   StartingBlockIndex?: number;
@@ -635,13 +640,13 @@ export interface ListSnapshotBlocksResponse {
 export interface PutSnapshotBlockRequest {
   /**
    * <p>The ID of the snapshot.</p>
-   *         <important>
+   *          <important>
    *             <p>If the specified snapshot is encrypted, you must have permission to use
    *                 the KMS key that was used to encrypt the snapshot. For more information,
    *                 see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebsapis-using-encryption.html">
    *                     Using encryption</a> in the <i>Amazon Elastic Compute Cloud User
    *                         Guide</i>..</p>
-   *         </important>
+   *          </important>
    */
   SnapshotId: string | undefined;
 
@@ -656,7 +661,7 @@ export interface PutSnapshotBlockRequest {
 
   /**
    * <p>The data to write to the block.</p>
-   *         <p>The block data is not signed as part of the Signature Version 4 signing process. As a
+   *          <p>The block data is not signed as part of the Signature Version 4 signing process. As a
    *             result, you must generate and provide a Base64-encoded SHA256 checksum for the block
    *             data using the <b>x-amz-Checksum</b> header. Also, you
    *         	must specify the checksum algorithm using the <b>x-amz-Checksum-Algorithm</b>
@@ -672,7 +677,7 @@ export interface PutSnapshotBlockRequest {
   /**
    * <p>The size of the data to write to the block, in bytes. Currently, the only supported
    *             size is <code>524288</code> bytes.</p>
-   *         <p>Valid values: <code>524288</code>
+   *          <p>Valid values: <code>524288</code>
    *          </p>
    */
   DataLength: number | undefined;
@@ -739,26 +744,22 @@ export interface StartSnapshotRequest {
   /**
    * <p>The ID of the parent snapshot. If there is no parent snapshot, or if you are creating
    *             the first snapshot for an on-premises volume, omit this parameter.</p>
-   *         <p>You can't specify <b>ParentSnapshotId</b> and
+   *          <p>You can't specify <b>ParentSnapshotId</b> and
    *             <b>Encrypted</b> in the same request. If you specify both
    *             parameters, the request fails with <code>ValidationException</code>.</p>
-   *
-   *
-   *
-   *         <p>The encryption status of the snapshot depends on the values that you specify for
+   *          <p>The encryption status of the snapshot depends on the values that you specify for
    *             <b>Encrypted</b>, <b>KmsKeyArn</b>,
    *             and <b>ParentSnapshotId</b>, and whether your Amazon Web Services account
    *             is enabled for <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSEncryption.html#encryption-by-default">
    *                 encryption by default</a>. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebsapis-using-encryption.html">
    *                     Using encryption</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
-   *
-   *         <important>
+   *          <important>
    *             <p>If you specify an encrypted parent snapshot, you must have permission to use the
    *                 KMS key that was used to encrypt the parent snapshot. For more information, see
    *                 <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebsapi-permissions.html#ebsapi-kms-permissions">
    *                     Permissions to use Key Management Service keys</a> in the <i>Amazon Elastic Compute Cloud User
    *                         Guide</i>.</p>
-   *         </important>
+   *          </important>
    */
   ParentSnapshotId?: string;
 
@@ -778,72 +779,79 @@ export interface StartSnapshotRequest {
    *             request, if the original request completes successfully. The subsequent retries with the same
    *             client token return the result from the original successful request and they have no additional
    *             effect.</p>
-   *         <p>If you do not specify a client token, one is automatically generated by the Amazon Web Services SDK.</p>
-   *         <p>For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-direct-api-idempotency.html">
+   *          <p>If you do not specify a client token, one is automatically generated by the Amazon Web Services SDK.</p>
+   *          <p>For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-direct-api-idempotency.html">
    *     		Idempotency for StartSnapshot API</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
    */
   ClientToken?: string;
 
   /**
    * <p>Indicates whether to encrypt the snapshot.</p>
-   *
-   *         <p>You can't specify <b>Encrypted</b> and <b>
+   *          <p>You can't specify <b>Encrypted</b> and <b>
    *             ParentSnapshotId</b> in the same request. If you specify both parameters, the
    *             request fails with <code>ValidationException</code>.</p>
-   *
-   *         <p>The encryption status of the snapshot depends on the values that you specify for
+   *          <p>The encryption status of the snapshot depends on the values that you specify for
    *             <b>Encrypted</b>, <b>KmsKeyArn</b>,
    *             and <b>ParentSnapshotId</b>, and whether your Amazon Web Services account
    *             is enabled for <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSEncryption.html#encryption-by-default">
    *                 encryption by default</a>. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebsapis-using-encryption.html">
    *             Using encryption</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
-   *
-   *
-   *
-   *         <important>
+   *          <important>
    *             <p>To create an encrypted snapshot, you must have permission to use the KMS key. For
    *                 more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebsapi-permissions.html#ebsapi-kms-permissions">
    *                     Permissions to use Key Management Service keys</a> in the <i>Amazon Elastic Compute Cloud User
    *                         Guide</i>.</p>
-   *         </important>
+   *          </important>
    */
   Encrypted?: boolean;
 
   /**
    * <p>The Amazon Resource Name (ARN) of the Key Management Service (KMS) key to be used to encrypt the snapshot.</p>
-   *
-   *         <p>The encryption status of the snapshot depends on the values that you specify for
+   *          <p>The encryption status of the snapshot depends on the values that you specify for
    *             <b>Encrypted</b>, <b>KmsKeyArn</b>,
    *             and <b>ParentSnapshotId</b>, and whether your Amazon Web Services account
    *             is enabled for <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSEncryption.html#encryption-by-default">
    *                 encryption by default</a>. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebsapis-using-encryption.html">
    *                     Using encryption</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
-   *
-   *
-   *         <important>
+   *          <important>
    *             <p>To create an encrypted snapshot, you must have permission to use the KMS key. For
    *                 more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebsapi-permissions.html#ebsapi-kms-permissions">
    *                     Permissions to use Key Management Service keys</a> in the <i>Amazon Elastic Compute Cloud User
    *                         Guide</i>.</p>
-   *         </important>
+   *          </important>
    */
   KmsKeyArn?: string;
 
   /**
    * <p>The amount of time (in minutes) after which the snapshot is automatically cancelled
    *             if:</p>
-   *         <ul>
+   *          <ul>
    *             <li>
-   *                 <p>No blocks are written to the snapshot.</p>
+   *                <p>No blocks are written to the snapshot.</p>
    *             </li>
    *             <li>
-   *                 <p>The snapshot is not completed after writing the last block of data.</p>
+   *                <p>The snapshot is not completed after writing the last block of data.</p>
    *             </li>
    *          </ul>
-   *         <p>If no value is specified, the timeout defaults to <code>60</code> minutes.</p>
+   *          <p>If no value is specified, the timeout defaults to <code>60</code> minutes.</p>
    */
   Timeout?: number;
 }
+
+/**
+ * @public
+ * @enum
+ */
+export const SSEType = {
+  NONE: "none",
+  SSE_EBS: "sse-ebs",
+  SSE_KMS: "sse-kms",
+} as const;
+
+/**
+ * @public
+ */
+export type SSEType = (typeof SSEType)[keyof typeof SSEType];
 
 /**
  * @public
@@ -900,6 +908,11 @@ export interface StartSnapshotResponse {
    * <p>The Amazon Resource Name (ARN) of the Key Management Service (KMS) key used to encrypt the snapshot.</p>
    */
   KmsKeyArn?: string;
+
+  /**
+   * <p>Reserved for future use.</p>
+   */
+  SseType?: SSEType | string;
 }
 
 /**
