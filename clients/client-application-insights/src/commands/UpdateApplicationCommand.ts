@@ -59,6 +59,7 @@ export interface UpdateApplicationCommandOutput extends UpdateApplicationRespons
  * const response = await client.send(command);
  * // { // UpdateApplicationResponse
  * //   ApplicationInfo: { // ApplicationInfo
+ * //     AccountId: "STRING_VALUE",
  * //     ResourceGroupName: "STRING_VALUE",
  * //     LifeCycle: "STRING_VALUE",
  * //     OpsItemSNSTopicArn: "STRING_VALUE",
@@ -66,7 +67,7 @@ export interface UpdateApplicationCommandOutput extends UpdateApplicationRespons
  * //     CWEMonitorEnabled: true || false,
  * //     Remarks: "STRING_VALUE",
  * //     AutoConfigEnabled: true || false,
- * //     DiscoveryType: "STRING_VALUE",
+ * //     DiscoveryType: "RESOURCE_GROUP_BASED" || "ACCOUNT_BASED",
  * //   },
  * // };
  *

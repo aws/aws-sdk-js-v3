@@ -21,6 +21,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@smithy/types";
 
+import { AddWorkloadCommandInput, AddWorkloadCommandOutput } from "../commands/AddWorkloadCommand";
 import { CreateApplicationCommandInput, CreateApplicationCommandOutput } from "../commands/CreateApplicationCommand";
 import { CreateComponentCommandInput, CreateComponentCommandOutput } from "../commands/CreateComponentCommand";
 import { CreateLogPatternCommandInput, CreateLogPatternCommandOutput } from "../commands/CreateLogPatternCommand";
@@ -50,6 +51,7 @@ import {
   DescribeProblemObservationsCommandInput,
   DescribeProblemObservationsCommandOutput,
 } from "../commands/DescribeProblemObservationsCommand";
+import { DescribeWorkloadCommandInput, DescribeWorkloadCommandOutput } from "../commands/DescribeWorkloadCommand";
 import { ListApplicationsCommandInput, ListApplicationsCommandOutput } from "../commands/ListApplicationsCommand";
 import { ListComponentsCommandInput, ListComponentsCommandOutput } from "../commands/ListComponentsCommand";
 import {
@@ -63,6 +65,8 @@ import {
   ListTagsForResourceCommandInput,
   ListTagsForResourceCommandOutput,
 } from "../commands/ListTagsForResourceCommand";
+import { ListWorkloadsCommandInput, ListWorkloadsCommandOutput } from "../commands/ListWorkloadsCommand";
+import { RemoveWorkloadCommandInput, RemoveWorkloadCommandOutput } from "../commands/RemoveWorkloadCommand";
 import { TagResourceCommandInput, TagResourceCommandOutput } from "../commands/TagResourceCommand";
 import { UntagResourceCommandInput, UntagResourceCommandOutput } from "../commands/UntagResourceCommand";
 import { UpdateApplicationCommandInput, UpdateApplicationCommandOutput } from "../commands/UpdateApplicationCommand";
@@ -72,9 +76,12 @@ import {
   UpdateComponentConfigurationCommandOutput,
 } from "../commands/UpdateComponentConfigurationCommand";
 import { UpdateLogPatternCommandInput, UpdateLogPatternCommandOutput } from "../commands/UpdateLogPatternCommand";
+import { UpdateProblemCommandInput, UpdateProblemCommandOutput } from "../commands/UpdateProblemCommand";
+import { UpdateWorkloadCommandInput, UpdateWorkloadCommandOutput } from "../commands/UpdateWorkloadCommand";
 import { ApplicationInsightsServiceException as __BaseException } from "../models/ApplicationInsightsServiceException";
 import {
   AccessDeniedException,
+  AddWorkloadRequest,
   BadRequestException,
   ConfigurationEvent,
   CreateApplicationRequest,
@@ -94,6 +101,7 @@ import {
   DescribeProblemObservationsResponse,
   DescribeProblemRequest,
   DescribeProblemResponse,
+  DescribeWorkloadRequest,
   InternalServerException,
   ListApplicationsRequest,
   ListComponentsRequest,
@@ -104,9 +112,11 @@ import {
   ListProblemsRequest,
   ListProblemsResponse,
   ListTagsForResourceRequest,
+  ListWorkloadsRequest,
   Observation,
   Problem,
   RelatedObservations,
+  RemoveWorkloadRequest,
   ResourceInUseException,
   ResourceNotFoundException,
   Tag,
@@ -118,8 +128,24 @@ import {
   UpdateComponentConfigurationRequest,
   UpdateComponentRequest,
   UpdateLogPatternRequest,
+  UpdateProblemRequest,
+  UpdateWorkloadRequest,
   ValidationException,
+  WorkloadConfiguration,
 } from "../models/models_0";
+
+/**
+ * serializeAws_json1_1AddWorkloadCommand
+ */
+export const se_AddWorkloadCommand = async (
+  input: AddWorkloadCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = sharedHeaders("AddWorkload");
+  let body: any;
+  body = JSON.stringify(_json(input));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
 
 /**
  * serializeAws_json1_1CreateApplicationCommand
@@ -304,6 +330,19 @@ export const se_DescribeProblemObservationsCommand = async (
 };
 
 /**
+ * serializeAws_json1_1DescribeWorkloadCommand
+ */
+export const se_DescribeWorkloadCommand = async (
+  input: DescribeWorkloadCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = sharedHeaders("DescribeWorkload");
+  let body: any;
+  body = JSON.stringify(_json(input));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+/**
  * serializeAws_json1_1ListApplicationsCommand
  */
 export const se_ListApplicationsCommand = async (
@@ -395,6 +434,32 @@ export const se_ListTagsForResourceCommand = async (
 };
 
 /**
+ * serializeAws_json1_1ListWorkloadsCommand
+ */
+export const se_ListWorkloadsCommand = async (
+  input: ListWorkloadsCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = sharedHeaders("ListWorkloads");
+  let body: any;
+  body = JSON.stringify(_json(input));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+/**
+ * serializeAws_json1_1RemoveWorkloadCommand
+ */
+export const se_RemoveWorkloadCommand = async (
+  input: RemoveWorkloadCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = sharedHeaders("RemoveWorkload");
+  let body: any;
+  body = JSON.stringify(_json(input));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+/**
  * serializeAws_json1_1TagResourceCommand
  */
 export const se_TagResourceCommand = async (
@@ -470,6 +535,87 @@ export const se_UpdateLogPatternCommand = async (
   let body: any;
   body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+/**
+ * serializeAws_json1_1UpdateProblemCommand
+ */
+export const se_UpdateProblemCommand = async (
+  input: UpdateProblemCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = sharedHeaders("UpdateProblem");
+  let body: any;
+  body = JSON.stringify(_json(input));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+/**
+ * serializeAws_json1_1UpdateWorkloadCommand
+ */
+export const se_UpdateWorkloadCommand = async (
+  input: UpdateWorkloadCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = sharedHeaders("UpdateWorkload");
+  let body: any;
+  body = JSON.stringify(_json(input));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+/**
+ * deserializeAws_json1_1AddWorkloadCommand
+ */
+export const de_AddWorkloadCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<AddWorkloadCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_AddWorkloadCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = _json(data);
+  const response: AddWorkloadCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1AddWorkloadCommandError
+ */
+const de_AddWorkloadCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<AddWorkloadCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "InternalServerException":
+    case "com.amazonaws.applicationinsights#InternalServerException":
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
+    case "ResourceInUseException":
+    case "com.amazonaws.applicationinsights#ResourceInUseException":
+      throw await de_ResourceInUseExceptionRes(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.applicationinsights#ResourceNotFoundException":
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
+    case "ValidationException":
+    case "com.amazonaws.applicationinsights#ValidationException":
+      throw await de_ValidationExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
 };
 
 /**
@@ -1222,6 +1368,58 @@ const de_DescribeProblemObservationsCommandError = async (
 };
 
 /**
+ * deserializeAws_json1_1DescribeWorkloadCommand
+ */
+export const de_DescribeWorkloadCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeWorkloadCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_DescribeWorkloadCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = _json(data);
+  const response: DescribeWorkloadCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1DescribeWorkloadCommandError
+ */
+const de_DescribeWorkloadCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeWorkloadCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "InternalServerException":
+    case "com.amazonaws.applicationinsights#InternalServerException":
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.applicationinsights#ResourceNotFoundException":
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
+    case "ValidationException":
+    case "com.amazonaws.applicationinsights#ValidationException":
+      throw await de_ValidationExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
  * deserializeAws_json1_1ListApplicationsCommand
  */
 export const de_ListApplicationsCommand = async (
@@ -1580,6 +1778,110 @@ const de_ListTagsForResourceCommandError = async (
 };
 
 /**
+ * deserializeAws_json1_1ListWorkloadsCommand
+ */
+export const de_ListWorkloadsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListWorkloadsCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_ListWorkloadsCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = _json(data);
+  const response: ListWorkloadsCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1ListWorkloadsCommandError
+ */
+const de_ListWorkloadsCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListWorkloadsCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "InternalServerException":
+    case "com.amazonaws.applicationinsights#InternalServerException":
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.applicationinsights#ResourceNotFoundException":
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
+    case "ValidationException":
+    case "com.amazonaws.applicationinsights#ValidationException":
+      throw await de_ValidationExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
+ * deserializeAws_json1_1RemoveWorkloadCommand
+ */
+export const de_RemoveWorkloadCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<RemoveWorkloadCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_RemoveWorkloadCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = _json(data);
+  const response: RemoveWorkloadCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1RemoveWorkloadCommandError
+ */
+const de_RemoveWorkloadCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<RemoveWorkloadCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "InternalServerException":
+    case "com.amazonaws.applicationinsights#InternalServerException":
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.applicationinsights#ResourceNotFoundException":
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
+    case "ValidationException":
+    case "com.amazonaws.applicationinsights#ValidationException":
+      throw await de_ValidationExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
  * deserializeAws_json1_1TagResourceCommand
  */
 export const de_TagResourceCommand = async (
@@ -1895,6 +2197,110 @@ const de_UpdateLogPatternCommandError = async (
 };
 
 /**
+ * deserializeAws_json1_1UpdateProblemCommand
+ */
+export const de_UpdateProblemCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateProblemCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_UpdateProblemCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = _json(data);
+  const response: UpdateProblemCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1UpdateProblemCommandError
+ */
+const de_UpdateProblemCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateProblemCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "InternalServerException":
+    case "com.amazonaws.applicationinsights#InternalServerException":
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.applicationinsights#ResourceNotFoundException":
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
+    case "ValidationException":
+    case "com.amazonaws.applicationinsights#ValidationException":
+      throw await de_ValidationExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
+ * deserializeAws_json1_1UpdateWorkloadCommand
+ */
+export const de_UpdateWorkloadCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateWorkloadCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_UpdateWorkloadCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = _json(data);
+  const response: UpdateWorkloadCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1UpdateWorkloadCommandError
+ */
+const de_UpdateWorkloadCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateWorkloadCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "InternalServerException":
+    case "com.amazonaws.applicationinsights#InternalServerException":
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.applicationinsights#ResourceNotFoundException":
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
+    case "ValidationException":
+    case "com.amazonaws.applicationinsights#ValidationException":
+      throw await de_ValidationExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
  * deserializeAws_json1_1AccessDeniedExceptionRes
  */
 const de_AccessDeniedExceptionRes = async (
@@ -2016,6 +2422,8 @@ const de_ValidationExceptionRes = async (parsedOutput: any, context: __SerdeCont
   return __decorateServiceException(exception, body);
 };
 
+// se_AddWorkloadRequest omitted.
+
 // se_CreateApplicationRequest omitted.
 
 // se_CreateComponentRequest omitted.
@@ -2044,6 +2452,8 @@ const de_ValidationExceptionRes = async (parsedOutput: any, context: __SerdeCont
 
 // se_DescribeProblemRequest omitted.
 
+// se_DescribeWorkloadRequest omitted.
+
 // se_ListApplicationsRequest omitted.
 
 // se_ListComponentsRequest omitted.
@@ -2053,6 +2463,7 @@ const de_ValidationExceptionRes = async (parsedOutput: any, context: __SerdeCont
  */
 const se_ListConfigurationHistoryRequest = (input: ListConfigurationHistoryRequest, context: __SerdeContext): any => {
   return take(input, {
+    AccountId: [],
     EndTime: (_) => Math.round(_.getTime() / 1000),
     EventStatus: [],
     MaxResults: [],
@@ -2071,16 +2482,22 @@ const se_ListConfigurationHistoryRequest = (input: ListConfigurationHistoryReque
  */
 const se_ListProblemsRequest = (input: ListProblemsRequest, context: __SerdeContext): any => {
   return take(input, {
+    AccountId: [],
     ComponentName: [],
     EndTime: (_) => Math.round(_.getTime() / 1000),
     MaxResults: [],
     NextToken: [],
     ResourceGroupName: [],
     StartTime: (_) => Math.round(_.getTime() / 1000),
+    Visibility: [],
   });
 };
 
 // se_ListTagsForResourceRequest omitted.
+
+// se_ListWorkloadsRequest omitted.
+
+// se_RemoveWorkloadRequest omitted.
 
 // se_ResourceList omitted.
 
@@ -2102,7 +2519,15 @@ const se_ListProblemsRequest = (input: ListProblemsRequest, context: __SerdeCont
 
 // se_UpdateLogPatternRequest omitted.
 
+// se_UpdateProblemRequest omitted.
+
+// se_UpdateWorkloadRequest omitted.
+
+// se_WorkloadConfiguration omitted.
+
 // de_AccessDeniedException omitted.
+
+// de_AddWorkloadResponse omitted.
 
 // de_ApplicationComponent omitted.
 
@@ -2119,12 +2544,14 @@ const se_ListProblemsRequest = (input: ListProblemsRequest, context: __SerdeCont
  */
 const de_ConfigurationEvent = (output: any, context: __SerdeContext): ConfigurationEvent => {
   return take(output, {
+    AccountId: __expectString,
     EventDetail: __expectString,
     EventResourceName: __expectString,
     EventResourceType: __expectString,
     EventStatus: __expectString,
     EventTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
     MonitoredResourceARN: __expectString,
+    ResourceGroupName: __expectString,
   }) as any;
 };
 
@@ -2192,6 +2619,8 @@ const de_DescribeProblemResponse = (output: any, context: __SerdeContext): Descr
   }) as any;
 };
 
+// de_DescribeWorkloadResponse omitted.
+
 // de_DetectedWorkload omitted.
 
 // de_Feedback omitted.
@@ -2224,6 +2653,7 @@ const de_ListConfigurationHistoryResponse = (
  */
 const de_ListProblemsResponse = (output: any, context: __SerdeContext): ListProblemsResponse => {
   return take(output, {
+    AccountId: __expectString,
     NextToken: __expectString,
     ProblemList: (_: any) => de_ProblemList(_, context),
     ResourceGroupName: __expectString,
@@ -2231,6 +2661,8 @@ const de_ListProblemsResponse = (output: any, context: __SerdeContext): ListProb
 };
 
 // de_ListTagsForResourceResponse omitted.
+
+// de_ListWorkloadsResponse omitted.
 
 // de_LogPattern omitted.
 
@@ -2308,6 +2740,7 @@ const de_ObservationList = (output: any, context: __SerdeContext): Observation[]
  */
 const de_Problem = (output: any, context: __SerdeContext): Problem => {
   return take(output, {
+    AccountId: __expectString,
     AffectedResource: __expectString,
     EndTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
     Feedback: _json,
@@ -2315,11 +2748,13 @@ const de_Problem = (output: any, context: __SerdeContext): Problem => {
     Insights: __expectString,
     LastRecurrenceTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
     RecurringCount: __expectLong,
+    ResolutionMethod: __expectString,
     ResourceGroupName: __expectString,
     SeverityLevel: __expectString,
     StartTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
     Status: __expectString,
     Title: __expectString,
+    Visibility: __expectString,
   }) as any;
 };
 
@@ -2343,6 +2778,8 @@ const de_RelatedObservations = (output: any, context: __SerdeContext): RelatedOb
     ObservationList: (_: any) => de_ObservationList(_, context),
   }) as any;
 };
+
+// de_RemoveWorkloadResponse omitted.
 
 // de_ResourceInUseException omitted.
 
@@ -2370,7 +2807,17 @@ const de_RelatedObservations = (output: any, context: __SerdeContext): RelatedOb
 
 // de_UpdateLogPatternResponse omitted.
 
+// de_UpdateProblemResponse omitted.
+
+// de_UpdateWorkloadResponse omitted.
+
 // de_ValidationException omitted.
+
+// de_Workload omitted.
+
+// de_WorkloadConfiguration omitted.
+
+// de_WorkloadList omitted.
 
 // de_WorkloadMetaData omitted.
 

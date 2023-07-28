@@ -64,18 +64,21 @@ export interface ListConfigurationHistoryCommandOutput extends ListConfiguration
  *   ResourceGroupName: "STRING_VALUE",
  *   StartTime: new Date("TIMESTAMP"),
  *   EndTime: new Date("TIMESTAMP"),
- *   EventStatus: "STRING_VALUE",
+ *   EventStatus: "INFO" || "WARN" || "ERROR",
  *   MaxResults: Number("int"),
  *   NextToken: "STRING_VALUE",
+ *   AccountId: "STRING_VALUE",
  * };
  * const command = new ListConfigurationHistoryCommand(input);
  * const response = await client.send(command);
  * // { // ListConfigurationHistoryResponse
  * //   EventList: [ // ConfigurationEventList
  * //     { // ConfigurationEvent
+ * //       ResourceGroupName: "STRING_VALUE",
+ * //       AccountId: "STRING_VALUE",
  * //       MonitoredResourceARN: "STRING_VALUE",
- * //       EventStatus: "STRING_VALUE",
- * //       EventResourceType: "STRING_VALUE",
+ * //       EventStatus: "INFO" || "WARN" || "ERROR",
+ * //       EventResourceType: "CLOUDWATCH_ALARM" || "CLOUDWATCH_LOG" || "CLOUDFORMATION" || "SSM_ASSOCIATION",
  * //       EventTime: new Date("TIMESTAMP"),
  * //       EventDetail: "STRING_VALUE",
  * //       EventResourceName: "STRING_VALUE",

@@ -60,12 +60,13 @@ export interface CreateApplicationCommandOutput extends CreateApplicationRespons
  *   ],
  *   AutoConfigEnabled: true || false,
  *   AutoCreate: true || false,
- *   GroupingType: "STRING_VALUE",
+ *   GroupingType: "ACCOUNT_BASED",
  * };
  * const command = new CreateApplicationCommand(input);
  * const response = await client.send(command);
  * // { // CreateApplicationResponse
  * //   ApplicationInfo: { // ApplicationInfo
+ * //     AccountId: "STRING_VALUE",
  * //     ResourceGroupName: "STRING_VALUE",
  * //     LifeCycle: "STRING_VALUE",
  * //     OpsItemSNSTopicArn: "STRING_VALUE",
@@ -73,7 +74,7 @@ export interface CreateApplicationCommandOutput extends CreateApplicationRespons
  * //     CWEMonitorEnabled: true || false,
  * //     Remarks: "STRING_VALUE",
  * //     AutoConfigEnabled: true || false,
- * //     DiscoveryType: "STRING_VALUE",
+ * //     DiscoveryType: "RESOURCE_GROUP_BASED" || "ACCOUNT_BASED",
  * //   },
  * // };
  *

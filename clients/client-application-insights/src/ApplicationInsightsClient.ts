@@ -49,6 +49,7 @@ import {
   UserAgent as __UserAgent,
 } from "@smithy/types";
 
+import { AddWorkloadCommandInput, AddWorkloadCommandOutput } from "./commands/AddWorkloadCommand";
 import { CreateApplicationCommandInput, CreateApplicationCommandOutput } from "./commands/CreateApplicationCommand";
 import { CreateComponentCommandInput, CreateComponentCommandOutput } from "./commands/CreateComponentCommand";
 import { CreateLogPatternCommandInput, CreateLogPatternCommandOutput } from "./commands/CreateLogPatternCommand";
@@ -78,6 +79,7 @@ import {
   DescribeProblemObservationsCommandInput,
   DescribeProblemObservationsCommandOutput,
 } from "./commands/DescribeProblemObservationsCommand";
+import { DescribeWorkloadCommandInput, DescribeWorkloadCommandOutput } from "./commands/DescribeWorkloadCommand";
 import { ListApplicationsCommandInput, ListApplicationsCommandOutput } from "./commands/ListApplicationsCommand";
 import { ListComponentsCommandInput, ListComponentsCommandOutput } from "./commands/ListComponentsCommand";
 import {
@@ -91,6 +93,8 @@ import {
   ListTagsForResourceCommandInput,
   ListTagsForResourceCommandOutput,
 } from "./commands/ListTagsForResourceCommand";
+import { ListWorkloadsCommandInput, ListWorkloadsCommandOutput } from "./commands/ListWorkloadsCommand";
+import { RemoveWorkloadCommandInput, RemoveWorkloadCommandOutput } from "./commands/RemoveWorkloadCommand";
 import { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
 import { UntagResourceCommandInput, UntagResourceCommandOutput } from "./commands/UntagResourceCommand";
 import { UpdateApplicationCommandInput, UpdateApplicationCommandOutput } from "./commands/UpdateApplicationCommand";
@@ -100,6 +104,8 @@ import {
   UpdateComponentConfigurationCommandOutput,
 } from "./commands/UpdateComponentConfigurationCommand";
 import { UpdateLogPatternCommandInput, UpdateLogPatternCommandOutput } from "./commands/UpdateLogPatternCommand";
+import { UpdateProblemCommandInput, UpdateProblemCommandOutput } from "./commands/UpdateProblemCommand";
+import { UpdateWorkloadCommandInput, UpdateWorkloadCommandOutput } from "./commands/UpdateWorkloadCommand";
 import {
   ClientInputEndpointParameters,
   ClientResolvedEndpointParameters,
@@ -114,6 +120,7 @@ export { __Client };
  * @public
  */
 export type ServiceInputTypes =
+  | AddWorkloadCommandInput
   | CreateApplicationCommandInput
   | CreateComponentCommandInput
   | CreateLogPatternCommandInput
@@ -128,6 +135,7 @@ export type ServiceInputTypes =
   | DescribeObservationCommandInput
   | DescribeProblemCommandInput
   | DescribeProblemObservationsCommandInput
+  | DescribeWorkloadCommandInput
   | ListApplicationsCommandInput
   | ListComponentsCommandInput
   | ListConfigurationHistoryCommandInput
@@ -135,17 +143,22 @@ export type ServiceInputTypes =
   | ListLogPatternsCommandInput
   | ListProblemsCommandInput
   | ListTagsForResourceCommandInput
+  | ListWorkloadsCommandInput
+  | RemoveWorkloadCommandInput
   | TagResourceCommandInput
   | UntagResourceCommandInput
   | UpdateApplicationCommandInput
   | UpdateComponentCommandInput
   | UpdateComponentConfigurationCommandInput
-  | UpdateLogPatternCommandInput;
+  | UpdateLogPatternCommandInput
+  | UpdateProblemCommandInput
+  | UpdateWorkloadCommandInput;
 
 /**
  * @public
  */
 export type ServiceOutputTypes =
+  | AddWorkloadCommandOutput
   | CreateApplicationCommandOutput
   | CreateComponentCommandOutput
   | CreateLogPatternCommandOutput
@@ -160,6 +173,7 @@ export type ServiceOutputTypes =
   | DescribeObservationCommandOutput
   | DescribeProblemCommandOutput
   | DescribeProblemObservationsCommandOutput
+  | DescribeWorkloadCommandOutput
   | ListApplicationsCommandOutput
   | ListComponentsCommandOutput
   | ListConfigurationHistoryCommandOutput
@@ -167,12 +181,16 @@ export type ServiceOutputTypes =
   | ListLogPatternsCommandOutput
   | ListProblemsCommandOutput
   | ListTagsForResourceCommandOutput
+  | ListWorkloadsCommandOutput
+  | RemoveWorkloadCommandOutput
   | TagResourceCommandOutput
   | UntagResourceCommandOutput
   | UpdateApplicationCommandOutput
   | UpdateComponentCommandOutput
   | UpdateComponentConfigurationCommandOutput
-  | UpdateLogPatternCommandOutput;
+  | UpdateLogPatternCommandOutput
+  | UpdateProblemCommandOutput
+  | UpdateWorkloadCommandOutput;
 
 /**
  * @public

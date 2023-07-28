@@ -6,3 +6,4 @@ export * from "./ListConfigurationHistoryPaginator";
 export * from "./ListLogPatternSetsPaginator";
 export * from "./ListLogPatternsPaginator";
 export * from "./ListProblemsPaginator";
+export * from "./ListWorkloadsPaginator";

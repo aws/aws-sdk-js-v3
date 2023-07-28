@@ -35,16 +35,16 @@ using your favorite package manager:
 
 The AWS SDK is modulized by clients and commands.
 To send a request, you only need to import the `ApplicationInsightsClient` and
-the commands you need, for example `CreateApplicationCommand`:
+the commands you need, for example `AddWorkloadCommand`:
 
 ```js
 // ES5 example
-const { ApplicationInsightsClient, CreateApplicationCommand } = require("@aws-sdk/client-application-insights");
+const { ApplicationInsightsClient, AddWorkloadCommand } = require("@aws-sdk/client-application-insights");
 ```
 
 ```ts
 // ES6+ example
-import { ApplicationInsightsClient, CreateApplicationCommand } from "@aws-sdk/client-application-insights";
+import { ApplicationInsightsClient, AddWorkloadCommand } from "@aws-sdk/client-application-insights";
 ```
 
 ### Usage
@@ -63,7 +63,7 @@ const client = new ApplicationInsightsClient({ region: "REGION" });
 const params = {
   /** input parameters */
 };
-const command = new CreateApplicationCommand(params);
+const command = new AddWorkloadCommand(params);
 ```
 
 #### Async/await
@@ -142,7 +142,7 @@ const client = new AWS.ApplicationInsights({ region: "REGION" });
 
 // async/await.
 try {
-  const data = await client.createApplication(params);
+  const data = await client.addWorkload(params);
   // process data.
 } catch (error) {
   // error handling.
@@ -150,7 +150,7 @@ try {
 
 // Promises.
 client
-  .createApplication(params)
+  .addWorkload(params)
   .then((data) => {
     // process data.
   })
@@ -159,7 +159,7 @@ client
   });
 
 // callbacks.
-client.createApplication(params, (err, data) => {
+client.addWorkload(params, (err, data) => {
   // process err and data.
 });
 ```
@@ -215,6 +215,14 @@ see LICENSE for more information.
 
 ## Client Commands (Operations List)
 
+<details>
+<summary>
+AddWorkload
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-application-insights/classes/addworkloadcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-application-insights/interfaces/addworkloadcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-application-insights/interfaces/addworkloadcommandoutput.html)
+
+</details>
 <details>
 <summary>
 CreateApplication
@@ -329,6 +337,14 @@ DescribeProblemObservations
 </details>
 <details>
 <summary>
+DescribeWorkload
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-application-insights/classes/describeworkloadcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-application-insights/interfaces/describeworkloadcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-application-insights/interfaces/describeworkloadcommandoutput.html)
+
+</details>
+<details>
+<summary>
 ListApplications
 </summary>
 
@@ -385,6 +401,22 @@ ListTagsForResource
 </details>
 <details>
 <summary>
+ListWorkloads
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-application-insights/classes/listworkloadscommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-application-insights/interfaces/listworkloadscommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-application-insights/interfaces/listworkloadscommandoutput.html)
+
+</details>
+<details>
+<summary>
+RemoveWorkload
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-application-insights/classes/removeworkloadcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-application-insights/interfaces/removeworkloadcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-application-insights/interfaces/removeworkloadcommandoutput.html)
+
+</details>
+<details>
+<summary>
 TagResource
 </summary>
 
@@ -429,5 +461,21 @@ UpdateLogPattern
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-application-insights/classes/updatelogpatterncommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-application-insights/interfaces/updatelogpatterncommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-application-insights/interfaces/updatelogpatterncommandoutput.html)
+
+</details>
+<details>
+<summary>
+UpdateProblem
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-application-insights/classes/updateproblemcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-application-insights/interfaces/updateproblemcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-application-insights/interfaces/updateproblemcommandoutput.html)
+
+</details>
+<details>
+<summary>
+UpdateWorkload
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-application-insights/classes/updateworkloadcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-application-insights/interfaces/updateworkloadcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-application-insights/interfaces/updateworkloadcommandoutput.html)
 
 </details>

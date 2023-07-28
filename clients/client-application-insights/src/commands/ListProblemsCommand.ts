@@ -48,12 +48,14 @@ export interface ListProblemsCommandOutput extends ListProblemsResponse, __Metad
  * // const { ApplicationInsightsClient, ListProblemsCommand } = require("@aws-sdk/client-application-insights"); // CommonJS import
  * const client = new ApplicationInsightsClient(config);
  * const input = { // ListProblemsRequest
+ *   AccountId: "STRING_VALUE",
  *   ResourceGroupName: "STRING_VALUE",
  *   StartTime: new Date("TIMESTAMP"),
  *   EndTime: new Date("TIMESTAMP"),
  *   MaxResults: Number("int"),
  *   NextToken: "STRING_VALUE",
  *   ComponentName: "STRING_VALUE",
+ *   Visibility: "IGNORED" || "VISIBLE",
  * };
  * const command = new ListProblemsCommand(input);
  * const response = await client.send(command);
@@ -63,21 +65,25 @@ export interface ListProblemsCommandOutput extends ListProblemsResponse, __Metad
  * //       Id: "STRING_VALUE",
  * //       Title: "STRING_VALUE",
  * //       Insights: "STRING_VALUE",
- * //       Status: "STRING_VALUE",
+ * //       Status: "IGNORE" || "RESOLVED" || "PENDING" || "RECURRING" || "RECOVERING",
  * //       AffectedResource: "STRING_VALUE",
  * //       StartTime: new Date("TIMESTAMP"),
  * //       EndTime: new Date("TIMESTAMP"),
- * //       SeverityLevel: "STRING_VALUE",
+ * //       SeverityLevel: "Informative" || "Low" || "Medium" || "High",
+ * //       AccountId: "STRING_VALUE",
  * //       ResourceGroupName: "STRING_VALUE",
  * //       Feedback: { // Feedback
- * //         "<keys>": "STRING_VALUE",
+ * //         "<keys>": "NOT_SPECIFIED" || "USEFUL" || "NOT_USEFUL",
  * //       },
  * //       RecurringCount: Number("long"),
  * //       LastRecurrenceTime: new Date("TIMESTAMP"),
+ * //       Visibility: "IGNORED" || "VISIBLE",
+ * //       ResolutionMethod: "MANUAL" || "AUTOMATIC" || "UNRESOLVED",
  * //     },
  * //   ],
  * //   NextToken: "STRING_VALUE",
  * //   ResourceGroupName: "STRING_VALUE",
+ * //   AccountId: "STRING_VALUE",
  * // };
  *
  * ```

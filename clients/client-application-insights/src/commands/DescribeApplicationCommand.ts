@@ -49,11 +49,13 @@ export interface DescribeApplicationCommandOutput extends DescribeApplicationRes
  * const client = new ApplicationInsightsClient(config);
  * const input = { // DescribeApplicationRequest
  *   ResourceGroupName: "STRING_VALUE", // required
+ *   AccountId: "STRING_VALUE",
  * };
  * const command = new DescribeApplicationCommand(input);
  * const response = await client.send(command);
  * // { // DescribeApplicationResponse
  * //   ApplicationInfo: { // ApplicationInfo
+ * //     AccountId: "STRING_VALUE",
  * //     ResourceGroupName: "STRING_VALUE",
  * //     LifeCycle: "STRING_VALUE",
  * //     OpsItemSNSTopicArn: "STRING_VALUE",
@@ -61,7 +63,7 @@ export interface DescribeApplicationCommandOutput extends DescribeApplicationRes
  * //     CWEMonitorEnabled: true || false,
  * //     Remarks: "STRING_VALUE",
  * //     AutoConfigEnabled: true || false,
- * //     DiscoveryType: "STRING_VALUE",
+ * //     DiscoveryType: "RESOURCE_GROUP_BASED" || "ACCOUNT_BASED",
  * //   },
  * // };
  *

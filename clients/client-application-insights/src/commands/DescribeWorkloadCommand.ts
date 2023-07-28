@@ -18,8 +18,8 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../ApplicationInsightsClient";
-import { ListLogPatternsRequest, ListLogPatternsResponse } from "../models/models_0";
-import { de_ListLogPatternsCommand, se_ListLogPatternsCommand } from "../protocols/Aws_json1_1";
+import { DescribeWorkloadRequest, DescribeWorkloadResponse } from "../models/models_0";
+import { de_DescribeWorkloadCommand, se_DescribeWorkloadCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -28,54 +28,49 @@ export { __MetadataBearer, $Command };
 /**
  * @public
  *
- * The input for {@link ListLogPatternsCommand}.
+ * The input for {@link DescribeWorkloadCommand}.
  */
-export interface ListLogPatternsCommandInput extends ListLogPatternsRequest {}
+export interface DescribeWorkloadCommandInput extends DescribeWorkloadRequest {}
 /**
  * @public
  *
- * The output of {@link ListLogPatternsCommand}.
+ * The output of {@link DescribeWorkloadCommand}.
  */
-export interface ListLogPatternsCommandOutput extends ListLogPatternsResponse, __MetadataBearer {}
+export interface DescribeWorkloadCommandOutput extends DescribeWorkloadResponse, __MetadataBearer {}
 
 /**
  * @public
- * <p>Lists the log patterns in the specific log <code>LogPatternSet</code>.</p>
+ * <p>Describes a workload and its configuration.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ApplicationInsightsClient, ListLogPatternsCommand } from "@aws-sdk/client-application-insights"; // ES Modules import
- * // const { ApplicationInsightsClient, ListLogPatternsCommand } = require("@aws-sdk/client-application-insights"); // CommonJS import
+ * import { ApplicationInsightsClient, DescribeWorkloadCommand } from "@aws-sdk/client-application-insights"; // ES Modules import
+ * // const { ApplicationInsightsClient, DescribeWorkloadCommand } = require("@aws-sdk/client-application-insights"); // CommonJS import
  * const client = new ApplicationInsightsClient(config);
- * const input = { // ListLogPatternsRequest
+ * const input = { // DescribeWorkloadRequest
  *   ResourceGroupName: "STRING_VALUE", // required
- *   PatternSetName: "STRING_VALUE",
- *   MaxResults: Number("int"),
- *   NextToken: "STRING_VALUE",
+ *   ComponentName: "STRING_VALUE", // required
+ *   WorkloadId: "STRING_VALUE", // required
  *   AccountId: "STRING_VALUE",
  * };
- * const command = new ListLogPatternsCommand(input);
+ * const command = new DescribeWorkloadCommand(input);
  * const response = await client.send(command);
- * // { // ListLogPatternsResponse
- * //   ResourceGroupName: "STRING_VALUE",
- * //   AccountId: "STRING_VALUE",
- * //   LogPatterns: [ // LogPatternList
- * //     { // LogPattern
- * //       PatternSetName: "STRING_VALUE",
- * //       PatternName: "STRING_VALUE",
- * //       Pattern: "STRING_VALUE",
- * //       Rank: Number("int"),
- * //     },
- * //   ],
- * //   NextToken: "STRING_VALUE",
+ * // { // DescribeWorkloadResponse
+ * //   WorkloadId: "STRING_VALUE",
+ * //   WorkloadRemarks: "STRING_VALUE",
+ * //   WorkloadConfiguration: { // WorkloadConfiguration
+ * //     WorkloadName: "STRING_VALUE",
+ * //     Tier: "CUSTOM" || "DEFAULT" || "DOT_NET_CORE" || "DOT_NET_WORKER" || "DOT_NET_WEB_TIER" || "DOT_NET_WEB" || "SQL_SERVER" || "SQL_SERVER_ALWAYSON_AVAILABILITY_GROUP" || "MYSQL" || "POSTGRESQL" || "JAVA_JMX" || "ORACLE" || "SAP_HANA_MULTI_NODE" || "SAP_HANA_SINGLE_NODE" || "SAP_HANA_HIGH_AVAILABILITY" || "SQL_SERVER_FAILOVER_CLUSTER_INSTANCE" || "SHAREPOINT" || "ACTIVE_DIRECTORY" || "SAP_NETWEAVER_STANDARD" || "SAP_NETWEAVER_DISTRIBUTED" || "SAP_NETWEAVER_HIGH_AVAILABILITY",
+ * //     Configuration: "STRING_VALUE",
+ * //   },
  * // };
  *
  * ```
  *
- * @param ListLogPatternsCommandInput - {@link ListLogPatternsCommandInput}
- * @returns {@link ListLogPatternsCommandOutput}
- * @see {@link ListLogPatternsCommandInput} for command's `input` shape.
- * @see {@link ListLogPatternsCommandOutput} for command's `response` shape.
+ * @param DescribeWorkloadCommandInput - {@link DescribeWorkloadCommandInput}
+ * @returns {@link DescribeWorkloadCommandOutput}
+ * @see {@link DescribeWorkloadCommandInput} for command's `input` shape.
+ * @see {@link DescribeWorkloadCommandOutput} for command's `response` shape.
  * @see {@link ApplicationInsightsClientResolvedConfig | config} for ApplicationInsightsClient's `config` shape.
  *
  * @throws {@link InternalServerException} (server fault)
@@ -91,9 +86,9 @@ export interface ListLogPatternsCommandOutput extends ListLogPatternsResponse, _
  * <p>Base exception class for all service exceptions from ApplicationInsights service.</p>
  *
  */
-export class ListLogPatternsCommand extends $Command<
-  ListLogPatternsCommandInput,
-  ListLogPatternsCommandOutput,
+export class DescribeWorkloadCommand extends $Command<
+  DescribeWorkloadCommandInput,
+  DescribeWorkloadCommandOutput,
   ApplicationInsightsClientResolvedConfig
 > {
   // Start section: command_properties
@@ -111,7 +106,7 @@ export class ListLogPatternsCommand extends $Command<
   /**
    * @public
    */
-  constructor(readonly input: ListLogPatternsCommandInput) {
+  constructor(readonly input: DescribeWorkloadCommandInput) {
     // Start section: command_constructor
     super();
     // End section: command_constructor
@@ -124,17 +119,17 @@ export class ListLogPatternsCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ApplicationInsightsClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<ListLogPatternsCommandInput, ListLogPatternsCommandOutput> {
+  ): Handler<DescribeWorkloadCommandInput, DescribeWorkloadCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
     this.middlewareStack.use(
-      getEndpointPlugin(configuration, ListLogPatternsCommand.getEndpointParameterInstructions())
+      getEndpointPlugin(configuration, DescribeWorkloadCommand.getEndpointParameterInstructions())
     );
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
     const clientName = "ApplicationInsightsClient";
-    const commandName = "ListLogPatternsCommand";
+    const commandName = "DescribeWorkloadCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
       clientName,
@@ -153,15 +148,15 @@ export class ListLogPatternsCommand extends $Command<
   /**
    * @internal
    */
-  private serialize(input: ListLogPatternsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return se_ListLogPatternsCommand(input, context);
+  private serialize(input: DescribeWorkloadCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
+    return se_DescribeWorkloadCommand(input, context);
   }
 
   /**
    * @internal
    */
-  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListLogPatternsCommandOutput> {
-    return de_ListLogPatternsCommand(output, context);
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeWorkloadCommandOutput> {
+    return de_DescribeWorkloadCommand(output, context);
   }
 
   // Start section: command_body_extra

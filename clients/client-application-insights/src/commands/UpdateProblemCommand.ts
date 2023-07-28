@@ -18,8 +18,8 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../ApplicationInsightsClient";
-import { ListLogPatternsRequest, ListLogPatternsResponse } from "../models/models_0";
-import { de_ListLogPatternsCommand, se_ListLogPatternsCommand } from "../protocols/Aws_json1_1";
+import { UpdateProblemRequest, UpdateProblemResponse } from "../models/models_0";
+import { de_UpdateProblemCommand, se_UpdateProblemCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -28,54 +28,41 @@ export { __MetadataBearer, $Command };
 /**
  * @public
  *
- * The input for {@link ListLogPatternsCommand}.
+ * The input for {@link UpdateProblemCommand}.
  */
-export interface ListLogPatternsCommandInput extends ListLogPatternsRequest {}
+export interface UpdateProblemCommandInput extends UpdateProblemRequest {}
 /**
  * @public
  *
- * The output of {@link ListLogPatternsCommand}.
+ * The output of {@link UpdateProblemCommand}.
  */
-export interface ListLogPatternsCommandOutput extends ListLogPatternsResponse, __MetadataBearer {}
+export interface UpdateProblemCommandOutput extends UpdateProblemResponse, __MetadataBearer {}
 
 /**
  * @public
- * <p>Lists the log patterns in the specific log <code>LogPatternSet</code>.</p>
+ * <p>Updates the visibility of the problem or specifies the problem as
+ *          <code>RESOLVED</code>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ApplicationInsightsClient, ListLogPatternsCommand } from "@aws-sdk/client-application-insights"; // ES Modules import
- * // const { ApplicationInsightsClient, ListLogPatternsCommand } = require("@aws-sdk/client-application-insights"); // CommonJS import
+ * import { ApplicationInsightsClient, UpdateProblemCommand } from "@aws-sdk/client-application-insights"; // ES Modules import
+ * // const { ApplicationInsightsClient, UpdateProblemCommand } = require("@aws-sdk/client-application-insights"); // CommonJS import
  * const client = new ApplicationInsightsClient(config);
- * const input = { // ListLogPatternsRequest
- *   ResourceGroupName: "STRING_VALUE", // required
- *   PatternSetName: "STRING_VALUE",
- *   MaxResults: Number("int"),
- *   NextToken: "STRING_VALUE",
- *   AccountId: "STRING_VALUE",
+ * const input = { // UpdateProblemRequest
+ *   ProblemId: "STRING_VALUE", // required
+ *   UpdateStatus: "RESOLVED",
+ *   Visibility: "IGNORED" || "VISIBLE",
  * };
- * const command = new ListLogPatternsCommand(input);
+ * const command = new UpdateProblemCommand(input);
  * const response = await client.send(command);
- * // { // ListLogPatternsResponse
- * //   ResourceGroupName: "STRING_VALUE",
- * //   AccountId: "STRING_VALUE",
- * //   LogPatterns: [ // LogPatternList
- * //     { // LogPattern
- * //       PatternSetName: "STRING_VALUE",
- * //       PatternName: "STRING_VALUE",
- * //       Pattern: "STRING_VALUE",
- * //       Rank: Number("int"),
- * //     },
- * //   ],
- * //   NextToken: "STRING_VALUE",
- * // };
+ * // {};
  *
  * ```
  *
- * @param ListLogPatternsCommandInput - {@link ListLogPatternsCommandInput}
- * @returns {@link ListLogPatternsCommandOutput}
- * @see {@link ListLogPatternsCommandInput} for command's `input` shape.
- * @see {@link ListLogPatternsCommandOutput} for command's `response` shape.
+ * @param UpdateProblemCommandInput - {@link UpdateProblemCommandInput}
+ * @returns {@link UpdateProblemCommandOutput}
+ * @see {@link UpdateProblemCommandInput} for command's `input` shape.
+ * @see {@link UpdateProblemCommandOutput} for command's `response` shape.
  * @see {@link ApplicationInsightsClientResolvedConfig | config} for ApplicationInsightsClient's `config` shape.
  *
  * @throws {@link InternalServerException} (server fault)
@@ -91,9 +78,9 @@ export interface ListLogPatternsCommandOutput extends ListLogPatternsResponse, _
  * <p>Base exception class for all service exceptions from ApplicationInsights service.</p>
  *
  */
-export class ListLogPatternsCommand extends $Command<
-  ListLogPatternsCommandInput,
-  ListLogPatternsCommandOutput,
+export class UpdateProblemCommand extends $Command<
+  UpdateProblemCommandInput,
+  UpdateProblemCommandOutput,
   ApplicationInsightsClientResolvedConfig
 > {
   // Start section: command_properties
@@ -111,7 +98,7 @@ export class ListLogPatternsCommand extends $Command<
   /**
    * @public
    */
-  constructor(readonly input: ListLogPatternsCommandInput) {
+  constructor(readonly input: UpdateProblemCommandInput) {
     // Start section: command_constructor
     super();
     // End section: command_constructor
@@ -124,17 +111,15 @@ export class ListLogPatternsCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ApplicationInsightsClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<ListLogPatternsCommandInput, ListLogPatternsCommandOutput> {
+  ): Handler<UpdateProblemCommandInput, UpdateProblemCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
-    this.middlewareStack.use(
-      getEndpointPlugin(configuration, ListLogPatternsCommand.getEndpointParameterInstructions())
-    );
+    this.middlewareStack.use(getEndpointPlugin(configuration, UpdateProblemCommand.getEndpointParameterInstructions()));
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
     const clientName = "ApplicationInsightsClient";
-    const commandName = "ListLogPatternsCommand";
+    const commandName = "UpdateProblemCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
       clientName,
@@ -153,15 +138,15 @@ export class ListLogPatternsCommand extends $Command<
   /**
    * @internal
    */
-  private serialize(input: ListLogPatternsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return se_ListLogPatternsCommand(input, context);
+  private serialize(input: UpdateProblemCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
+    return se_UpdateProblemCommand(input, context);
   }
 
   /**
    * @internal
    */
-  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListLogPatternsCommandOutput> {
-    return de_ListLogPatternsCommand(output, context);
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateProblemCommandOutput> {
+    return de_UpdateProblemCommand(output, context);
   }
 
   // Start section: command_body_extra

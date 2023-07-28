@@ -18,8 +18,8 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../ApplicationInsightsClient";
-import { ListLogPatternsRequest, ListLogPatternsResponse } from "../models/models_0";
-import { de_ListLogPatternsCommand, se_ListLogPatternsCommand } from "../protocols/Aws_json1_1";
+import { RemoveWorkloadRequest, RemoveWorkloadResponse } from "../models/models_0";
+import { de_RemoveWorkloadCommand, se_RemoveWorkloadCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -28,54 +28,40 @@ export { __MetadataBearer, $Command };
 /**
  * @public
  *
- * The input for {@link ListLogPatternsCommand}.
+ * The input for {@link RemoveWorkloadCommand}.
  */
-export interface ListLogPatternsCommandInput extends ListLogPatternsRequest {}
+export interface RemoveWorkloadCommandInput extends RemoveWorkloadRequest {}
 /**
  * @public
  *
- * The output of {@link ListLogPatternsCommand}.
+ * The output of {@link RemoveWorkloadCommand}.
  */
-export interface ListLogPatternsCommandOutput extends ListLogPatternsResponse, __MetadataBearer {}
+export interface RemoveWorkloadCommandOutput extends RemoveWorkloadResponse, __MetadataBearer {}
 
 /**
  * @public
- * <p>Lists the log patterns in the specific log <code>LogPatternSet</code>.</p>
+ * <p>Remove workload from a component.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ApplicationInsightsClient, ListLogPatternsCommand } from "@aws-sdk/client-application-insights"; // ES Modules import
- * // const { ApplicationInsightsClient, ListLogPatternsCommand } = require("@aws-sdk/client-application-insights"); // CommonJS import
+ * import { ApplicationInsightsClient, RemoveWorkloadCommand } from "@aws-sdk/client-application-insights"; // ES Modules import
+ * // const { ApplicationInsightsClient, RemoveWorkloadCommand } = require("@aws-sdk/client-application-insights"); // CommonJS import
  * const client = new ApplicationInsightsClient(config);
- * const input = { // ListLogPatternsRequest
+ * const input = { // RemoveWorkloadRequest
  *   ResourceGroupName: "STRING_VALUE", // required
- *   PatternSetName: "STRING_VALUE",
- *   MaxResults: Number("int"),
- *   NextToken: "STRING_VALUE",
- *   AccountId: "STRING_VALUE",
+ *   ComponentName: "STRING_VALUE", // required
+ *   WorkloadId: "STRING_VALUE", // required
  * };
- * const command = new ListLogPatternsCommand(input);
+ * const command = new RemoveWorkloadCommand(input);
  * const response = await client.send(command);
- * // { // ListLogPatternsResponse
- * //   ResourceGroupName: "STRING_VALUE",
- * //   AccountId: "STRING_VALUE",
- * //   LogPatterns: [ // LogPatternList
- * //     { // LogPattern
- * //       PatternSetName: "STRING_VALUE",
- * //       PatternName: "STRING_VALUE",
- * //       Pattern: "STRING_VALUE",
- * //       Rank: Number("int"),
- * //     },
- * //   ],
- * //   NextToken: "STRING_VALUE",
- * // };
+ * // {};
  *
  * ```
  *
- * @param ListLogPatternsCommandInput - {@link ListLogPatternsCommandInput}
- * @returns {@link ListLogPatternsCommandOutput}
- * @see {@link ListLogPatternsCommandInput} for command's `input` shape.
- * @see {@link ListLogPatternsCommandOutput} for command's `response` shape.
+ * @param RemoveWorkloadCommandInput - {@link RemoveWorkloadCommandInput}
+ * @returns {@link RemoveWorkloadCommandOutput}
+ * @see {@link RemoveWorkloadCommandInput} for command's `input` shape.
+ * @see {@link RemoveWorkloadCommandOutput} for command's `response` shape.
  * @see {@link ApplicationInsightsClientResolvedConfig | config} for ApplicationInsightsClient's `config` shape.
  *
  * @throws {@link InternalServerException} (server fault)
@@ -91,9 +77,9 @@ export interface ListLogPatternsCommandOutput extends ListLogPatternsResponse, _
  * <p>Base exception class for all service exceptions from ApplicationInsights service.</p>
  *
  */
-export class ListLogPatternsCommand extends $Command<
-  ListLogPatternsCommandInput,
-  ListLogPatternsCommandOutput,
+export class RemoveWorkloadCommand extends $Command<
+  RemoveWorkloadCommandInput,
+  RemoveWorkloadCommandOutput,
   ApplicationInsightsClientResolvedConfig
 > {
   // Start section: command_properties
@@ -111,7 +97,7 @@ export class ListLogPatternsCommand extends $Command<
   /**
    * @public
    */
-  constructor(readonly input: ListLogPatternsCommandInput) {
+  constructor(readonly input: RemoveWorkloadCommandInput) {
     // Start section: command_constructor
     super();
     // End section: command_constructor
@@ -124,17 +110,17 @@ export class ListLogPatternsCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ApplicationInsightsClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<ListLogPatternsCommandInput, ListLogPatternsCommandOutput> {
+  ): Handler<RemoveWorkloadCommandInput, RemoveWorkloadCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
     this.middlewareStack.use(
-      getEndpointPlugin(configuration, ListLogPatternsCommand.getEndpointParameterInstructions())
+      getEndpointPlugin(configuration, RemoveWorkloadCommand.getEndpointParameterInstructions())
     );
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
     const clientName = "ApplicationInsightsClient";
-    const commandName = "ListLogPatternsCommand";
+    const commandName = "RemoveWorkloadCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
       clientName,
@@ -153,15 +139,15 @@ export class ListLogPatternsCommand extends $Command<
   /**
    * @internal
    */
-  private serialize(input: ListLogPatternsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return se_ListLogPatternsCommand(input, context);
+  private serialize(input: RemoveWorkloadCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
+    return se_RemoveWorkloadCommand(input, context);
   }
 
   /**
    * @internal
    */
-  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListLogPatternsCommandOutput> {
-    return de_ListLogPatternsCommand(output, context);
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<RemoveWorkloadCommandOutput> {
+    return de_RemoveWorkloadCommand(output, context);
   }
 
   // Start section: command_body_extra

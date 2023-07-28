@@ -50,12 +50,14 @@ export interface ListApplicationsCommandOutput extends ListApplicationsResponse,
  * const input = { // ListApplicationsRequest
  *   MaxResults: Number("int"),
  *   NextToken: "STRING_VALUE",
+ *   AccountId: "STRING_VALUE",
  * };
  * const command = new ListApplicationsCommand(input);
  * const response = await client.send(command);
  * // { // ListApplicationsResponse
  * //   ApplicationInfoList: [ // ApplicationInfoList
  * //     { // ApplicationInfo
+ * //       AccountId: "STRING_VALUE",
  * //       ResourceGroupName: "STRING_VALUE",
  * //       LifeCycle: "STRING_VALUE",
  * //       OpsItemSNSTopicArn: "STRING_VALUE",
@@ -63,7 +65,7 @@ export interface ListApplicationsCommandOutput extends ListApplicationsResponse,
  * //       CWEMonitorEnabled: true || false,
  * //       Remarks: "STRING_VALUE",
  * //       AutoConfigEnabled: true || false,
- * //       DiscoveryType: "STRING_VALUE",
+ * //       DiscoveryType: "RESOURCE_GROUP_BASED" || "ACCOUNT_BASED",
  * //     },
  * //   ],
  * //   NextToken: "STRING_VALUE",

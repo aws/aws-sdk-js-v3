@@ -49,6 +49,7 @@ export interface DescribeProblemCommandOutput extends DescribeProblemResponse, _
  * const client = new ApplicationInsightsClient(config);
  * const input = { // DescribeProblemRequest
  *   ProblemId: "STRING_VALUE", // required
+ *   AccountId: "STRING_VALUE",
  * };
  * const command = new DescribeProblemCommand(input);
  * const response = await client.send(command);
@@ -57,17 +58,20 @@ export interface DescribeProblemCommandOutput extends DescribeProblemResponse, _
  * //     Id: "STRING_VALUE",
  * //     Title: "STRING_VALUE",
  * //     Insights: "STRING_VALUE",
- * //     Status: "STRING_VALUE",
+ * //     Status: "IGNORE" || "RESOLVED" || "PENDING" || "RECURRING" || "RECOVERING",
  * //     AffectedResource: "STRING_VALUE",
  * //     StartTime: new Date("TIMESTAMP"),
  * //     EndTime: new Date("TIMESTAMP"),
- * //     SeverityLevel: "STRING_VALUE",
+ * //     SeverityLevel: "Informative" || "Low" || "Medium" || "High",
+ * //     AccountId: "STRING_VALUE",
  * //     ResourceGroupName: "STRING_VALUE",
  * //     Feedback: { // Feedback
- * //       "<keys>": "STRING_VALUE",
+ * //       "<keys>": "NOT_SPECIFIED" || "USEFUL" || "NOT_USEFUL",
  * //     },
  * //     RecurringCount: Number("long"),
  * //     LastRecurrenceTime: new Date("TIMESTAMP"),
+ * //     Visibility: "IGNORED" || "VISIBLE",
+ * //     ResolutionMethod: "MANUAL" || "AUTOMATIC" || "UNRESOLVED",
  * //   },
  * // };
  *

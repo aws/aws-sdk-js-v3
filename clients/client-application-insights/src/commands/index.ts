@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+export * from "./AddWorkloadCommand";
 export * from "./CreateApplicationCommand";
 export * from "./CreateComponentCommand";
 export * from "./CreateLogPatternCommand";
@@ -13,6 +14,7 @@ export * from "./DescribeLogPatternCommand";
 export * from "./DescribeObservationCommand";
 export * from "./DescribeProblemCommand";
 export * from "./DescribeProblemObservationsCommand";
+export * from "./DescribeWorkloadCommand";
 export * from "./ListApplicationsCommand";
 export * from "./ListComponentsCommand";
 export * from "./ListConfigurationHistoryCommand";
@@ -20,9 +22,13 @@ export * from "./ListLogPatternSetsCommand";
 export * from "./ListLogPatternsCommand";
 export * from "./ListProblemsCommand";
 export * from "./ListTagsForResourceCommand";
+export * from "./ListWorkloadsCommand";
+export * from "./RemoveWorkloadCommand";
 export * from "./TagResourceCommand";
 export * from "./UntagResourceCommand";
 export * from "./UpdateApplicationCommand";
 export * from "./UpdateComponentCommand";
 export * from "./UpdateComponentConfigurationCommand";
 export * from "./UpdateLogPatternCommand";
+export * from "./UpdateProblemCommand";
+export * from "./UpdateWorkloadCommand";

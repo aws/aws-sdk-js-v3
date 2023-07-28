@@ -27,31 +27,194 @@ export class AccessDeniedException extends __BaseException {
 
 /**
  * @public
+ * @enum
  */
-export type Tier =
-  | "ACTIVE_DIRECTORY"
-  | "CUSTOM"
-  | "DEFAULT"
-  | "DOT_NET_CORE"
-  | "DOT_NET_WEB"
-  | "DOT_NET_WEB_TIER"
-  | "DOT_NET_WORKER"
-  | "JAVA_JMX"
-  | "MYSQL"
-  | "ORACLE"
-  | "POSTGRESQL"
-  | "SAP_HANA_HIGH_AVAILABILITY"
-  | "SAP_HANA_MULTI_NODE"
-  | "SAP_HANA_SINGLE_NODE"
-  | "SHAREPOINT"
-  | "SQL_SERVER"
-  | "SQL_SERVER_ALWAYSON_AVAILABILITY_GROUP"
-  | "SQL_SERVER_FAILOVER_CLUSTER_INSTANCE";
+export const Tier = {
+  ACTIVE_DIRECTORY: "ACTIVE_DIRECTORY",
+  CUSTOM: "CUSTOM",
+  DEFAULT: "DEFAULT",
+  DOT_NET_CORE: "DOT_NET_CORE",
+  DOT_NET_WEB: "DOT_NET_WEB",
+  DOT_NET_WEB_TIER: "DOT_NET_WEB_TIER",
+  DOT_NET_WORKER: "DOT_NET_WORKER",
+  JAVA_JMX: "JAVA_JMX",
+  MYSQL: "MYSQL",
+  ORACLE: "ORACLE",
+  POSTGRESQL: "POSTGRESQL",
+  SAP_HANA_HIGH_AVAILABILITY: "SAP_HANA_HIGH_AVAILABILITY",
+  SAP_HANA_MULTI_NODE: "SAP_HANA_MULTI_NODE",
+  SAP_HANA_SINGLE_NODE: "SAP_HANA_SINGLE_NODE",
+  SAP_NETWEAVER_DISTRIBUTED: "SAP_NETWEAVER_DISTRIBUTED",
+  SAP_NETWEAVER_HIGH_AVAILABILITY: "SAP_NETWEAVER_HIGH_AVAILABILITY",
+  SAP_NETWEAVER_STANDARD: "SAP_NETWEAVER_STANDARD",
+  SHAREPOINT: "SHAREPOINT",
+  SQL_SERVER: "SQL_SERVER",
+  SQL_SERVER_ALWAYSON_AVAILABILITY_GROUP: "SQL_SERVER_ALWAYSON_AVAILABILITY_GROUP",
+  SQL_SERVER_FAILOVER_CLUSTER_INSTANCE: "SQL_SERVER_FAILOVER_CLUSTER_INSTANCE",
+} as const;
 
 /**
  * @public
  */
-export type OsType = "LINUX" | "WINDOWS";
+export type Tier = (typeof Tier)[keyof typeof Tier];
+
+/**
+ * @public
+ * <p>The configuration of the workload.</p>
+ */
+export interface WorkloadConfiguration {
+  /**
+   * <p>The name of the workload.</p>
+   */
+  WorkloadName?: string;
+
+  /**
+   * <p>The configuration of the workload tier.</p>
+   */
+  Tier?: Tier | string;
+
+  /**
+   * <p>The configuration settings of the workload.</p>
+   */
+  Configuration?: string;
+}
+
+/**
+ * @public
+ */
+export interface AddWorkloadRequest {
+  /**
+   * <p>The name of the resource group.</p>
+   */
+  ResourceGroupName: string | undefined;
+
+  /**
+   * <p>The name of the component.</p>
+   */
+  ComponentName: string | undefined;
+
+  /**
+   * <p>The configuration settings of the workload. The value is the escaped JSON of the configuration.</p>
+   */
+  WorkloadConfiguration: WorkloadConfiguration | undefined;
+}
+
+/**
+ * @public
+ */
+export interface AddWorkloadResponse {
+  /**
+   * <p>The ID of the workload.</p>
+   */
+  WorkloadId?: string;
+
+  /**
+   * <p>The configuration settings of the workload. The value is the escaped JSON of the configuration.</p>
+   */
+  WorkloadConfiguration?: WorkloadConfiguration;
+}
+
+/**
+ * @public
+ * <p>The server encountered an internal error and is unable to complete the request.</p>
+ */
+export class InternalServerException extends __BaseException {
+  readonly name: "InternalServerException" = "InternalServerException";
+  readonly $fault: "server" = "server";
+  Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<InternalServerException, __BaseException>) {
+    super({
+      name: "InternalServerException",
+      $fault: "server",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, InternalServerException.prototype);
+    this.Message = opts.Message;
+  }
+}
+
+/**
+ * @public
+ * <p>The resource is already created or in use.</p>
+ */
+export class ResourceInUseException extends __BaseException {
+  readonly name: "ResourceInUseException" = "ResourceInUseException";
+  readonly $fault: "client" = "client";
+  Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<ResourceInUseException, __BaseException>) {
+    super({
+      name: "ResourceInUseException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ResourceInUseException.prototype);
+    this.Message = opts.Message;
+  }
+}
+
+/**
+ * @public
+ * <p>The resource does not exist in the customer account.</p>
+ */
+export class ResourceNotFoundException extends __BaseException {
+  readonly name: "ResourceNotFoundException" = "ResourceNotFoundException";
+  readonly $fault: "client" = "client";
+  Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<ResourceNotFoundException, __BaseException>) {
+    super({
+      name: "ResourceNotFoundException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ResourceNotFoundException.prototype);
+    this.Message = opts.Message;
+  }
+}
+
+/**
+ * @public
+ * <p>The parameter is not valid.</p>
+ */
+export class ValidationException extends __BaseException {
+  readonly name: "ValidationException" = "ValidationException";
+  readonly $fault: "client" = "client";
+  Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<ValidationException, __BaseException>) {
+    super({
+      name: "ValidationException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ValidationException.prototype);
+    this.Message = opts.Message;
+  }
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const OsType = {
+  LINUX: "LINUX",
+  WINDOWS: "WINDOWS",
+} as const;
+
+/**
+ * @public
+ */
+export type OsType = (typeof OsType)[keyof typeof OsType];
 
 /**
  * @public
@@ -117,6 +280,11 @@ export type DiscoveryType = (typeof DiscoveryType)[keyof typeof DiscoveryType];
  */
 export interface ApplicationInfo {
   /**
+   * <p>The AWS account ID for the owner of the application.</p>
+   */
+  AccountId?: string;
+
+  /**
    * <p>The name of the resource group used for the application.</p>
    */
   ResourceGroupName?: string;
@@ -165,9 +333,7 @@ export interface ApplicationInfo {
   AutoConfigEnabled?: boolean;
 
   /**
-   * <p>
-   *          The method used by Application Insights to onboard your resources.
-   *       </p>
+   * <p> The method used by Application Insights to onboard your resources. </p>
    */
   DiscoveryType?: DiscoveryType | string;
 }
@@ -196,28 +362,67 @@ export class BadRequestException extends __BaseException {
 
 /**
  * @public
+ * @enum
  */
-export type CloudWatchEventSource = "CODE_DEPLOY" | "EC2" | "HEALTH" | "RDS";
+export const CloudWatchEventSource = {
+  CODE_DEPLOY: "CODE_DEPLOY",
+  EC2: "EC2",
+  HEALTH: "HEALTH",
+  RDS: "RDS",
+} as const;
+
+/**
+ * @public
+ */
+export type CloudWatchEventSource = (typeof CloudWatchEventSource)[keyof typeof CloudWatchEventSource];
+
+/**
+ * @public
+ * @enum
+ */
+export const ConfigurationEventResourceType = {
+  CLOUDFORMATION: "CLOUDFORMATION",
+  CLOUDWATCH_ALARM: "CLOUDWATCH_ALARM",
+  CLOUDWATCH_LOG: "CLOUDWATCH_LOG",
+  SSM_ASSOCIATION: "SSM_ASSOCIATION",
+} as const;
 
 /**
  * @public
  */
 export type ConfigurationEventResourceType =
-  | "CLOUDFORMATION"
-  | "CLOUDWATCH_ALARM"
-  | "CLOUDWATCH_LOG"
-  | "SSM_ASSOCIATION";
+  (typeof ConfigurationEventResourceType)[keyof typeof ConfigurationEventResourceType];
+
+/**
+ * @public
+ * @enum
+ */
+export const ConfigurationEventStatus = {
+  ERROR: "ERROR",
+  INFO: "INFO",
+  WARN: "WARN",
+} as const;
 
 /**
  * @public
  */
-export type ConfigurationEventStatus = "ERROR" | "INFO" | "WARN";
+export type ConfigurationEventStatus = (typeof ConfigurationEventStatus)[keyof typeof ConfigurationEventStatus];
 
 /**
  * @public
  * <p> The event information. </p>
  */
 export interface ConfigurationEvent {
+  /**
+   * <p>The name of the resource group of the application to which the configuration event belongs.</p>
+   */
+  ResourceGroupName?: string;
+
+  /**
+   * <p>The AWS account ID for the owner of the application to which the configuration event belongs.</p>
+   */
+  AccountId?: string;
+
   /**
    * <p> The resource monitored by Application Insights. </p>
    */
@@ -356,8 +561,8 @@ export interface CreateApplicationRequest {
 
   /**
    * <p>Application Insights can create applications based on a resource group or on an account.
-   *       To create an account-based application using all of the resources in the account, set this parameter to <code>ACCOUNT_BASED</code>.
-   *       </p>
+   *          To create an account-based application using all of the resources in the account, set this
+   *          parameter to <code>ACCOUNT_BASED</code>. </p>
    */
   GroupingType?: GroupingType | string;
 }
@@ -370,72 +575,6 @@ export interface CreateApplicationResponse {
    * <p>Information about the application.</p>
    */
   ApplicationInfo?: ApplicationInfo;
-}
-
-/**
- * @public
- * <p>The server encountered an internal error and is unable to complete the request.</p>
- */
-export class InternalServerException extends __BaseException {
-  readonly name: "InternalServerException" = "InternalServerException";
-  readonly $fault: "server" = "server";
-  Message?: string;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<InternalServerException, __BaseException>) {
-    super({
-      name: "InternalServerException",
-      $fault: "server",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, InternalServerException.prototype);
-    this.Message = opts.Message;
-  }
-}
-
-/**
- * @public
- * <p>The resource is already created or in use.</p>
- */
-export class ResourceInUseException extends __BaseException {
-  readonly name: "ResourceInUseException" = "ResourceInUseException";
-  readonly $fault: "client" = "client";
-  Message?: string;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ResourceInUseException, __BaseException>) {
-    super({
-      name: "ResourceInUseException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ResourceInUseException.prototype);
-    this.Message = opts.Message;
-  }
-}
-
-/**
- * @public
- * <p>The resource does not exist in the customer account.</p>
- */
-export class ResourceNotFoundException extends __BaseException {
-  readonly name: "ResourceNotFoundException" = "ResourceNotFoundException";
-  readonly $fault: "client" = "client";
-  Message?: string;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ResourceNotFoundException, __BaseException>) {
-    super({
-      name: "ResourceNotFoundException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ResourceNotFoundException.prototype);
-    this.Message = opts.Message;
-  }
 }
 
 /**
@@ -456,28 +595,6 @@ export class TagsAlreadyExistException extends __BaseException {
       ...opts,
     });
     Object.setPrototypeOf(this, TagsAlreadyExistException.prototype);
-    this.Message = opts.Message;
-  }
-}
-
-/**
- * @public
- * <p>The parameter is not valid.</p>
- */
-export class ValidationException extends __BaseException {
-  readonly name: "ValidationException" = "ValidationException";
-  readonly $fault: "client" = "client";
-  Message?: string;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ValidationException, __BaseException>) {
-    super({
-      name: "ValidationException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ValidationException.prototype);
     this.Message = opts.Message;
   }
 }
@@ -672,6 +789,11 @@ export interface DescribeApplicationRequest {
    * <p>The name of the resource group.</p>
    */
   ResourceGroupName: string | undefined;
+
+  /**
+   * <p>The AWS account ID for the resource group owner.</p>
+   */
+  AccountId?: string;
 }
 
 /**
@@ -697,6 +819,11 @@ export interface DescribeComponentRequest {
    * <p>The name of the component.</p>
    */
   ComponentName: string | undefined;
+
+  /**
+   * <p>The AWS account ID for the resource group owner.</p>
+   */
+  AccountId?: string;
 }
 
 /**
@@ -728,6 +855,11 @@ export interface DescribeComponentConfigurationRequest {
    * <p>The name of the component.</p>
    */
   ComponentName: string | undefined;
+
+  /**
+   * <p>The AWS account ID for the resource group owner.</p>
+   */
+  AccountId?: string;
 }
 
 /**
@@ -756,6 +888,21 @@ export interface DescribeComponentConfigurationResponse {
 
 /**
  * @public
+ * @enum
+ */
+export const RecommendationType = {
+  ALL: "ALL",
+  INFRA_ONLY: "INFRA_ONLY",
+  WORKLOAD_ONLY: "WORKLOAD_ONLY",
+} as const;
+
+/**
+ * @public
+ */
+export type RecommendationType = (typeof RecommendationType)[keyof typeof RecommendationType];
+
+/**
+ * @public
  */
 export interface DescribeComponentConfigurationRecommendationRequest {
   /**
@@ -772,6 +919,11 @@ export interface DescribeComponentConfigurationRecommendationRequest {
    * <p>The tier of the application component.</p>
    */
   Tier: Tier | string | undefined;
+
+  /**
+   * <p>The recommended configuration type.</p>
+   */
+  RecommendationType?: RecommendationType | string;
 }
 
 /**
@@ -803,6 +955,11 @@ export interface DescribeLogPatternRequest {
    * <p>The name of the log pattern.</p>
    */
   PatternName: string | undefined;
+
+  /**
+   * <p>The AWS account ID for the resource group owner.</p>
+   */
+  AccountId?: string;
 }
 
 /**
@@ -813,6 +970,11 @@ export interface DescribeLogPatternResponse {
    * <p>The name of the resource group.</p>
    */
   ResourceGroupName?: string;
+
+  /**
+   * <p>The AWS account ID for the resource group owner.</p>
+   */
+  AccountId?: string;
 
   /**
    * <p>The successfully created log pattern.</p>
@@ -828,12 +990,27 @@ export interface DescribeObservationRequest {
    * <p>The ID of the observation.</p>
    */
   ObservationId: string | undefined;
+
+  /**
+   * <p>The AWS account ID for the resource group owner.</p>
+   */
+  AccountId?: string;
 }
 
 /**
  * @public
+ * @enum
  */
-export type LogFilter = "ERROR" | "INFO" | "WARN";
+export const LogFilter = {
+  ERROR: "ERROR",
+  INFO: "INFO",
+  WARN: "WARN",
+} as const;
+
+/**
+ * @public
+ */
+export type LogFilter = (typeof LogFilter)[keyof typeof LogFilter];
 
 /**
  * @public
@@ -1095,27 +1272,102 @@ export interface DescribeProblemRequest {
    * <p>The ID of the problem.</p>
    */
   ProblemId: string | undefined;
+
+  /**
+   * <p>The AWS account ID for the owner of the resource group affected by the problem.</p>
+   */
+  AccountId?: string;
 }
 
 /**
  * @public
+ * @enum
  */
-export type FeedbackKey = "INSIGHTS_FEEDBACK";
+export const FeedbackKey = {
+  INSIGHTS_FEEDBACK: "INSIGHTS_FEEDBACK",
+} as const;
 
 /**
  * @public
  */
-export type FeedbackValue = "NOT_SPECIFIED" | "NOT_USEFUL" | "USEFUL";
+export type FeedbackKey = (typeof FeedbackKey)[keyof typeof FeedbackKey];
+
+/**
+ * @public
+ * @enum
+ */
+export const FeedbackValue = {
+  NOT_SPECIFIED: "NOT_SPECIFIED",
+  NOT_USEFUL: "NOT_USEFUL",
+  USEFUL: "USEFUL",
+} as const;
 
 /**
  * @public
  */
-export type SeverityLevel = "High" | "Informative" | "Low" | "Medium";
+export type FeedbackValue = (typeof FeedbackValue)[keyof typeof FeedbackValue];
+
+/**
+ * @public
+ * @enum
+ */
+export const ResolutionMethod = {
+  AUTOMATIC: "AUTOMATIC",
+  MANUAL: "MANUAL",
+  UNRESOLVED: "UNRESOLVED",
+} as const;
 
 /**
  * @public
  */
-export type Status = "IGNORE" | "PENDING" | "RECURRING" | "RESOLVED";
+export type ResolutionMethod = (typeof ResolutionMethod)[keyof typeof ResolutionMethod];
+
+/**
+ * @public
+ * @enum
+ */
+export const SeverityLevel = {
+  High: "High",
+  Informative: "Informative",
+  Low: "Low",
+  Medium: "Medium",
+} as const;
+
+/**
+ * @public
+ */
+export type SeverityLevel = (typeof SeverityLevel)[keyof typeof SeverityLevel];
+
+/**
+ * @public
+ * @enum
+ */
+export const Status = {
+  IGNORE: "IGNORE",
+  PENDING: "PENDING",
+  RECOVERING: "RECOVERING",
+  RECURRING: "RECURRING",
+  RESOLVED: "RESOLVED",
+} as const;
+
+/**
+ * @public
+ */
+export type Status = (typeof Status)[keyof typeof Status];
+
+/**
+ * @public
+ * @enum
+ */
+export const Visibility = {
+  IGNORED: "IGNORED",
+  VISIBLE: "VISIBLE",
+} as const;
+
+/**
+ * @public
+ */
+export type Visibility = (typeof Visibility)[keyof typeof Visibility];
 
 /**
  * @public
@@ -1163,6 +1415,11 @@ export interface Problem {
   SeverityLevel?: SeverityLevel | string;
 
   /**
+   * <p>The AWS account ID for the owner of the resource group affected by the problem.</p>
+   */
+  AccountId?: string;
+
+  /**
    * <p>The name of the resource group affected by the problem.</p>
    */
   ResourceGroupName?: string;
@@ -1182,6 +1439,19 @@ export interface Problem {
    * <p> The last time that the problem reoccurred after its last resolution. </p>
    */
   LastRecurrenceTime?: Date;
+
+  /**
+   * <p>Specifies whether or not you can view the problem. Updates to ignored problems do not
+   *          generate notifications.</p>
+   */
+  Visibility?: Visibility | string;
+
+  /**
+   * <p>Specifies how the problem was resolved. If the value is <code>AUTOMATIC</code>, the
+   *          system resolved the problem. If the value is <code>MANUAL</code>, the user resolved the
+   *          problem. If the value is <code>UNRESOLVED</code>, then the problem is not resolved.</p>
+   */
+  ResolutionMethod?: ResolutionMethod | string;
 }
 
 /**
@@ -1202,6 +1472,11 @@ export interface DescribeProblemObservationsRequest {
    * <p>The ID of the problem.</p>
    */
   ProblemId: string | undefined;
+
+  /**
+   * <p>The AWS account ID for the resource group owner.</p>
+   */
+  AccountId?: string;
 }
 
 /**
@@ -1228,6 +1503,51 @@ export interface DescribeProblemObservationsResponse {
 /**
  * @public
  */
+export interface DescribeWorkloadRequest {
+  /**
+   * <p>The name of the resource group.</p>
+   */
+  ResourceGroupName: string | undefined;
+
+  /**
+   * <p>The name of the component.</p>
+   */
+  ComponentName: string | undefined;
+
+  /**
+   * <p>The ID of the workload.</p>
+   */
+  WorkloadId: string | undefined;
+
+  /**
+   * <p>The AWS account ID for the workload owner.</p>
+   */
+  AccountId?: string;
+}
+
+/**
+ * @public
+ */
+export interface DescribeWorkloadResponse {
+  /**
+   * <p>The ID of the workload.</p>
+   */
+  WorkloadId?: string;
+
+  /**
+   * <p>If logging is supported for the resource type, shows whether the component has configured logs to be monitored.</p>
+   */
+  WorkloadRemarks?: string;
+
+  /**
+   * <p>The configuration settings of the workload. The value is the escaped JSON of the configuration.</p>
+   */
+  WorkloadConfiguration?: WorkloadConfiguration;
+}
+
+/**
+ * @public
+ */
 export interface ListApplicationsRequest {
   /**
    * <p>The maximum number of results to return in a single call. To retrieve the remaining
@@ -1239,6 +1559,11 @@ export interface ListApplicationsRequest {
    * <p>The token to request the next page of results.</p>
    */
   NextToken?: string;
+
+  /**
+   * <p>The AWS account ID for the resource group owner.</p>
+   */
+  AccountId?: string;
 }
 
 /**
@@ -1276,6 +1601,11 @@ export interface ListComponentsRequest {
    * <p>The token to request the next page of results.</p>
    */
   NextToken?: string;
+
+  /**
+   * <p>The AWS account ID for the resource group owner.</p>
+   */
+  AccountId?: string;
 }
 
 /**
@@ -1337,6 +1667,11 @@ export interface ListConfigurationHistoryRequest {
    *             <code>null</code> when there are no more results to return.</p>
    */
   NextToken?: string;
+
+  /**
+   * <p>The AWS account ID for the resource group owner.</p>
+   */
+  AccountId?: string;
 }
 
 /**
@@ -1382,6 +1717,11 @@ export interface ListLogPatternsRequest {
    * <p>The token to request the next page of results.</p>
    */
   NextToken?: string;
+
+  /**
+   * <p>The AWS account ID for the resource group owner.</p>
+   */
+  AccountId?: string;
 }
 
 /**
@@ -1392,6 +1732,11 @@ export interface ListLogPatternsResponse {
    * <p>The name of the resource group.</p>
    */
   ResourceGroupName?: string;
+
+  /**
+   * <p>The AWS account ID for the resource group owner.</p>
+   */
+  AccountId?: string;
 
   /**
    * <p>The list of log patterns.</p>
@@ -1424,6 +1769,11 @@ export interface ListLogPatternSetsRequest {
    * <p>The token to request the next page of results.</p>
    */
   NextToken?: string;
+
+  /**
+   * <p>The AWS account ID for the resource group owner.</p>
+   */
+  AccountId?: string;
 }
 
 /**
@@ -1434,6 +1784,11 @@ export interface ListLogPatternSetsResponse {
    * <p>The name of the resource group.</p>
    */
   ResourceGroupName?: string;
+
+  /**
+   * <p>The AWS account ID for the resource group owner.</p>
+   */
+  AccountId?: string;
 
   /**
    * <p>The list of log pattern sets.</p>
@@ -1451,6 +1806,11 @@ export interface ListLogPatternSetsResponse {
  * @public
  */
 export interface ListProblemsRequest {
+  /**
+   * <p>The AWS account ID for the resource group owner.</p>
+   */
+  AccountId?: string;
+
   /**
    * <p>The name of the resource group.</p>
    */
@@ -1483,6 +1843,12 @@ export interface ListProblemsRequest {
    * <p> The name of the component. </p>
    */
   ComponentName?: string;
+
+  /**
+   * <p>Specifies whether or not you can view the problem. If not specified, visible and
+   *          ignored problems are returned.</p>
+   */
+  Visibility?: Visibility | string;
 }
 
 /**
@@ -1504,6 +1870,11 @@ export interface ListProblemsResponse {
    * <p> The name of the resource group. </p>
    */
   ResourceGroupName?: string;
+
+  /**
+   * <p>The AWS account ID for the resource group owner.</p>
+   */
+  AccountId?: string;
 }
 
 /**
@@ -1528,6 +1899,108 @@ export interface ListTagsForResourceResponse {
    */
   Tags?: Tag[];
 }
+
+/**
+ * @public
+ */
+export interface ListWorkloadsRequest {
+  /**
+   * <p>The name of the resource group.</p>
+   */
+  ResourceGroupName: string | undefined;
+
+  /**
+   * <p>The name of the component.</p>
+   */
+  ComponentName: string | undefined;
+
+  /**
+   * <p>The maximum number of results to return in a single call. To retrieve the remaining
+   *       results, make another call with the returned <code>NextToken</code> value.</p>
+   */
+  MaxResults?: number;
+
+  /**
+   * <p>The token to request the next page of results.</p>
+   */
+  NextToken?: string;
+
+  /**
+   * <p>The AWS account ID of the owner of the workload.</p>
+   */
+  AccountId?: string;
+}
+
+/**
+ * @public
+ * <p>Describes the workloads on a component.</p>
+ */
+export interface Workload {
+  /**
+   * <p>The ID of the workload.</p>
+   */
+  WorkloadId?: string;
+
+  /**
+   * <p>The name of the component.</p>
+   */
+  ComponentName?: string;
+
+  /**
+   * <p>The name of the workload.</p>
+   */
+  WorkloadName?: string;
+
+  /**
+   * <p>The tier of the workload.</p>
+   */
+  Tier?: Tier | string;
+
+  /**
+   * <p>If logging is supported for the resource type, shows whether the component has configured logs to be monitored.</p>
+   */
+  WorkloadRemarks?: string;
+}
+
+/**
+ * @public
+ */
+export interface ListWorkloadsResponse {
+  /**
+   * <p>The list of workloads.</p>
+   */
+  WorkloadList?: Workload[];
+
+  /**
+   * <p>The token to request the next page of results.</p>
+   */
+  NextToken?: string;
+}
+
+/**
+ * @public
+ */
+export interface RemoveWorkloadRequest {
+  /**
+   * <p>The name of the resource group.</p>
+   */
+  ResourceGroupName: string | undefined;
+
+  /**
+   * <p>The name of the component.</p>
+   */
+  ComponentName: string | undefined;
+
+  /**
+   * <p>The ID of the workload.</p>
+   */
+  WorkloadId: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface RemoveWorkloadResponse {}
 
 /**
  * @public
@@ -1782,4 +2255,85 @@ export interface UpdateLogPatternResponse {
    * <p>The successfully created log pattern.</p>
    */
   LogPattern?: LogPattern;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const UpdateStatus = {
+  RESOLVED: "RESOLVED",
+} as const;
+
+/**
+ * @public
+ */
+export type UpdateStatus = (typeof UpdateStatus)[keyof typeof UpdateStatus];
+
+/**
+ * @public
+ */
+export interface UpdateProblemRequest {
+  /**
+   * <p>The ID of the problem.</p>
+   */
+  ProblemId: string | undefined;
+
+  /**
+   * <p>The status of the problem. Arguments can be passed for only problems that show a status
+   *          of <code>RECOVERING</code>.</p>
+   */
+  UpdateStatus?: UpdateStatus | string;
+
+  /**
+   * <p>The visibility of a problem. When you pass a value of <code>IGNORED</code>, the problem
+   *          is removed from the default view, and all notifications for the problem are suspended. When
+   *          <code>VISIBLE</code> is passed, the <code>IGNORED</code> action is reversed.</p>
+   */
+  Visibility?: Visibility | string;
+}
+
+/**
+ * @public
+ */
+export interface UpdateProblemResponse {}
+
+/**
+ * @public
+ */
+export interface UpdateWorkloadRequest {
+  /**
+   * <p>The name of the resource group.</p>
+   */
+  ResourceGroupName: string | undefined;
+
+  /**
+   * <p> The name of the component. </p>
+   */
+  ComponentName: string | undefined;
+
+  /**
+   * <p>The ID of the workload.</p>
+   */
+  WorkloadId?: string;
+
+  /**
+   * <p>The configuration settings of the workload. The value is the escaped JSON of the configuration.</p>
+   */
+  WorkloadConfiguration: WorkloadConfiguration | undefined;
+}
+
+/**
+ * @public
+ */
+export interface UpdateWorkloadResponse {
+  /**
+   * <p>The ID of the workload.</p>
+   */
+  WorkloadId?: string;
+
+  /**
+   * <p>The configuration settings of the workload. The value is the escaped JSON of the configuration.</p>
+   */
+  WorkloadConfiguration?: WorkloadConfiguration;
 }

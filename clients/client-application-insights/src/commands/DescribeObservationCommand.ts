@@ -49,6 +49,7 @@ export interface DescribeObservationCommandOutput extends DescribeObservationRes
  * const client = new ApplicationInsightsClient(config);
  * const input = { // DescribeObservationRequest
  *   ObservationId: "STRING_VALUE", // required
+ *   AccountId: "STRING_VALUE",
  * };
  * const command = new DescribeObservationCommand(input);
  * const response = await client.send(command);
@@ -62,13 +63,13 @@ export interface DescribeObservationCommandOutput extends DescribeObservationRes
  * //     LogGroup: "STRING_VALUE",
  * //     LineTime: new Date("TIMESTAMP"),
  * //     LogText: "STRING_VALUE",
- * //     LogFilter: "STRING_VALUE",
+ * //     LogFilter: "ERROR" || "WARN" || "INFO",
  * //     MetricNamespace: "STRING_VALUE",
  * //     MetricName: "STRING_VALUE",
  * //     Unit: "STRING_VALUE",
  * //     Value: Number("double"),
  * //     CloudWatchEventId: "STRING_VALUE",
- * //     CloudWatchEventSource: "STRING_VALUE",
+ * //     CloudWatchEventSource: "EC2" || "CODE_DEPLOY" || "HEALTH" || "RDS",
  * //     CloudWatchEventDetailType: "STRING_VALUE",
  * //     HealthEventArn: "STRING_VALUE",
  * //     HealthService: "STRING_VALUE",

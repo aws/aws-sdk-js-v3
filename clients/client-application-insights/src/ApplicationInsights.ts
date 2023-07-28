@@ -3,6 +3,7 @@ import { createAggregatedClient } from "@smithy/smithy-client";
 import { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
 
 import { ApplicationInsightsClient, ApplicationInsightsClientConfig } from "./ApplicationInsightsClient";
+import { AddWorkloadCommand, AddWorkloadCommandInput, AddWorkloadCommandOutput } from "./commands/AddWorkloadCommand";
 import {
   CreateApplicationCommand,
   CreateApplicationCommandInput,
@@ -74,6 +75,11 @@ import {
   DescribeProblemObservationsCommandOutput,
 } from "./commands/DescribeProblemObservationsCommand";
 import {
+  DescribeWorkloadCommand,
+  DescribeWorkloadCommandInput,
+  DescribeWorkloadCommandOutput,
+} from "./commands/DescribeWorkloadCommand";
+import {
   ListApplicationsCommand,
   ListApplicationsCommandInput,
   ListApplicationsCommandOutput,
@@ -108,6 +114,16 @@ import {
   ListTagsForResourceCommandInput,
   ListTagsForResourceCommandOutput,
 } from "./commands/ListTagsForResourceCommand";
+import {
+  ListWorkloadsCommand,
+  ListWorkloadsCommandInput,
+  ListWorkloadsCommandOutput,
+} from "./commands/ListWorkloadsCommand";
+import {
+  RemoveWorkloadCommand,
+  RemoveWorkloadCommandInput,
+  RemoveWorkloadCommandOutput,
+} from "./commands/RemoveWorkloadCommand";
 import { TagResourceCommand, TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
 import {
   UntagResourceCommand,
@@ -134,8 +150,19 @@ import {
   UpdateLogPatternCommandInput,
   UpdateLogPatternCommandOutput,
 } from "./commands/UpdateLogPatternCommand";
+import {
+  UpdateProblemCommand,
+  UpdateProblemCommandInput,
+  UpdateProblemCommandOutput,
+} from "./commands/UpdateProblemCommand";
+import {
+  UpdateWorkloadCommand,
+  UpdateWorkloadCommandInput,
+  UpdateWorkloadCommandOutput,
+} from "./commands/UpdateWorkloadCommand";
 
 const commands = {
+  AddWorkloadCommand,
   CreateApplicationCommand,
   CreateComponentCommand,
   CreateLogPatternCommand,
@@ -150,6 +177,7 @@ const commands = {
   DescribeObservationCommand,
   DescribeProblemCommand,
   DescribeProblemObservationsCommand,
+  DescribeWorkloadCommand,
   ListApplicationsCommand,
   ListComponentsCommand,
   ListConfigurationHistoryCommand,
@@ -157,15 +185,30 @@ const commands = {
   ListLogPatternSetsCommand,
   ListProblemsCommand,
   ListTagsForResourceCommand,
+  ListWorkloadsCommand,
+  RemoveWorkloadCommand,
   TagResourceCommand,
   UntagResourceCommand,
   UpdateApplicationCommand,
   UpdateComponentCommand,
   UpdateComponentConfigurationCommand,
   UpdateLogPatternCommand,
+  UpdateProblemCommand,
+  UpdateWorkloadCommand,
 };
 
 export interface ApplicationInsights {
+  /**
+   * @see {@link AddWorkloadCommand}
+   */
+  addWorkload(args: AddWorkloadCommandInput, options?: __HttpHandlerOptions): Promise<AddWorkloadCommandOutput>;
+  addWorkload(args: AddWorkloadCommandInput, cb: (err: any, data?: AddWorkloadCommandOutput) => void): void;
+  addWorkload(
+    args: AddWorkloadCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: AddWorkloadCommandOutput) => void
+  ): void;
+
   /**
    * @see {@link CreateApplicationCommand}
    */
@@ -396,6 +439,23 @@ export interface ApplicationInsights {
   ): void;
 
   /**
+   * @see {@link DescribeWorkloadCommand}
+   */
+  describeWorkload(
+    args: DescribeWorkloadCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DescribeWorkloadCommandOutput>;
+  describeWorkload(
+    args: DescribeWorkloadCommandInput,
+    cb: (err: any, data?: DescribeWorkloadCommandOutput) => void
+  ): void;
+  describeWorkload(
+    args: DescribeWorkloadCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DescribeWorkloadCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link ListApplicationsCommand}
    */
   listApplications(
@@ -503,6 +563,31 @@ export interface ApplicationInsights {
   ): void;
 
   /**
+   * @see {@link ListWorkloadsCommand}
+   */
+  listWorkloads(args: ListWorkloadsCommandInput, options?: __HttpHandlerOptions): Promise<ListWorkloadsCommandOutput>;
+  listWorkloads(args: ListWorkloadsCommandInput, cb: (err: any, data?: ListWorkloadsCommandOutput) => void): void;
+  listWorkloads(
+    args: ListWorkloadsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListWorkloadsCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link RemoveWorkloadCommand}
+   */
+  removeWorkload(
+    args: RemoveWorkloadCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<RemoveWorkloadCommandOutput>;
+  removeWorkload(args: RemoveWorkloadCommandInput, cb: (err: any, data?: RemoveWorkloadCommandOutput) => void): void;
+  removeWorkload(
+    args: RemoveWorkloadCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: RemoveWorkloadCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link TagResourceCommand}
    */
   tagResource(args: TagResourceCommandInput, options?: __HttpHandlerOptions): Promise<TagResourceCommandOutput>;
@@ -587,6 +672,31 @@ export interface ApplicationInsights {
     args: UpdateLogPatternCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: UpdateLogPatternCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link UpdateProblemCommand}
+   */
+  updateProblem(args: UpdateProblemCommandInput, options?: __HttpHandlerOptions): Promise<UpdateProblemCommandOutput>;
+  updateProblem(args: UpdateProblemCommandInput, cb: (err: any, data?: UpdateProblemCommandOutput) => void): void;
+  updateProblem(
+    args: UpdateProblemCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UpdateProblemCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link UpdateWorkloadCommand}
+   */
+  updateWorkload(
+    args: UpdateWorkloadCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateWorkloadCommandOutput>;
+  updateWorkload(args: UpdateWorkloadCommandInput, cb: (err: any, data?: UpdateWorkloadCommandOutput) => void): void;
+  updateWorkload(
+    args: UpdateWorkloadCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UpdateWorkloadCommandOutput) => void
   ): void;
 }
 

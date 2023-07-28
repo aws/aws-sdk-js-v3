@@ -51,11 +51,13 @@ export interface DescribeLogPatternCommandOutput extends DescribeLogPatternRespo
  *   ResourceGroupName: "STRING_VALUE", // required
  *   PatternSetName: "STRING_VALUE", // required
  *   PatternName: "STRING_VALUE", // required
+ *   AccountId: "STRING_VALUE",
  * };
  * const command = new DescribeLogPatternCommand(input);
  * const response = await client.send(command);
  * // { // DescribeLogPatternResponse
  * //   ResourceGroupName: "STRING_VALUE",
+ * //   AccountId: "STRING_VALUE",
  * //   LogPattern: { // LogPattern
  * //     PatternSetName: "STRING_VALUE",
  * //     PatternName: "STRING_VALUE",
