@@ -41,7 +41,20 @@ export interface CreateDistributionWithTagsCommandOutput extends CreateDistribut
 
 /**
  * @public
- * <p>Create a new distribution with tags.</p>
+ * <p>Create a new distribution with tags. This API operation requires the following IAM
+ * 			permissions:</p>
+ *          <ul>
+ *             <li>
+ *                <p>
+ *                   <a href="https://docs.aws.amazon.com/cloudfront/latest/APIReference/API_CreateDistribution.html">CreateDistribution</a>
+ *                </p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <a href="https://docs.aws.amazon.com/cloudfront/latest/APIReference/API_TagResource.html">TagResource</a>
+ *                </p>
+ *             </li>
+ *          </ul>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -711,6 +724,10 @@ export interface CreateDistributionWithTagsCommandOutput extends CreateDistribut
  *  <p>The specified configuration for field-level encryption can't be associated with the
  * 			specified cache behavior.</p>
  *
+ * @throws {@link IllegalOriginAccessConfiguration} (client fault)
+ *  <p>An origin cannot contain both an origin access control (OAC) and an origin access
+ * 			identity (OAI).</p>
+ *
  * @throws {@link InconsistentQuantities} (client fault)
  *  <p>The value of <code>Quantity</code> and the size of <code>Items</code> don't
  * 			match.</p>
@@ -858,6 +875,12 @@ export interface CreateDistributionWithTagsCommandOutput extends CreateDistribut
  * @throws {@link TooManyDistributionsAssociatedToKeyGroup} (client fault)
  *  <p>The number of distributions that reference this key group is more than the maximum
  * 			allowed. For more information, see <a href="https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/cloudfront-limits.html">Quotas</a> (formerly known as limits) in the
+ * 				<i>Amazon CloudFront Developer Guide</i>.</p>
+ *
+ * @throws {@link TooManyDistributionsAssociatedToOriginAccessControl} (client fault)
+ *  <p>The maximum number of distributions have been associated with the specified origin
+ * 			access control.</p>
+ *          <p>For more information, see <a href="https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/cloudfront-limits.html">Quotas</a> (formerly known as limits) in the
  * 				<i>Amazon CloudFront Developer Guide</i>.</p>
  *
  * @throws {@link TooManyDistributionsAssociatedToOriginRequestPolicy} (client fault)

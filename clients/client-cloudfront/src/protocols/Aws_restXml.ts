@@ -716,6 +716,10 @@ export const se_CopyDistributionCommand = async (
     const node = __XmlNode.of("string", input.CallerReference).withName("CallerReference");
     bodyNode.addChildNode(node);
   }
+  if (input.Enabled !== undefined) {
+    const node = __XmlNode.of("boolean", String(input.Enabled)).withName("Enabled");
+    bodyNode.addChildNode(node);
+  }
   body += bodyNode.toString();
   return new __HttpRequest({
     protocol,
@@ -4216,6 +4220,9 @@ const de_CopyDistributionCommandError = async (
     case "TooManyDistributionsAssociatedToKeyGroup":
     case "com.amazonaws.cloudfront#TooManyDistributionsAssociatedToKeyGroup":
       throw await de_TooManyDistributionsAssociatedToKeyGroupRes(parsedOutput, context);
+    case "TooManyDistributionsAssociatedToOriginAccessControl":
+    case "com.amazonaws.cloudfront#TooManyDistributionsAssociatedToOriginAccessControl":
+      throw await de_TooManyDistributionsAssociatedToOriginAccessControlRes(parsedOutput, context);
     case "TooManyDistributionsAssociatedToOriginRequestPolicy":
     case "com.amazonaws.cloudfront#TooManyDistributionsAssociatedToOriginRequestPolicy":
       throw await de_TooManyDistributionsAssociatedToOriginRequestPolicyRes(parsedOutput, context);
@@ -4746,6 +4753,9 @@ const de_CreateDistributionWithTagsCommandError = async (
     case "IllegalFieldLevelEncryptionConfigAssociationWithCacheBehavior":
     case "com.amazonaws.cloudfront#IllegalFieldLevelEncryptionConfigAssociationWithCacheBehavior":
       throw await de_IllegalFieldLevelEncryptionConfigAssociationWithCacheBehaviorRes(parsedOutput, context);
+    case "IllegalOriginAccessConfiguration":
+    case "com.amazonaws.cloudfront#IllegalOriginAccessConfiguration":
+      throw await de_IllegalOriginAccessConfigurationRes(parsedOutput, context);
     case "InconsistentQuantities":
     case "com.amazonaws.cloudfront#InconsistentQuantities":
       throw await de_InconsistentQuantitiesRes(parsedOutput, context);
@@ -4875,6 +4885,9 @@ const de_CreateDistributionWithTagsCommandError = async (
     case "TooManyDistributionsAssociatedToKeyGroup":
     case "com.amazonaws.cloudfront#TooManyDistributionsAssociatedToKeyGroup":
       throw await de_TooManyDistributionsAssociatedToKeyGroupRes(parsedOutput, context);
+    case "TooManyDistributionsAssociatedToOriginAccessControl":
+    case "com.amazonaws.cloudfront#TooManyDistributionsAssociatedToOriginAccessControl":
+      throw await de_TooManyDistributionsAssociatedToOriginAccessControlRes(parsedOutput, context);
     case "TooManyDistributionsAssociatedToOriginRequestPolicy":
     case "com.amazonaws.cloudfront#TooManyDistributionsAssociatedToOriginRequestPolicy":
       throw await de_TooManyDistributionsAssociatedToOriginRequestPolicyRes(parsedOutput, context);
@@ -9668,6 +9681,9 @@ const de_UpdateDistributionCommandError = async (
     case "TooManyDistributionsAssociatedToKeyGroup":
     case "com.amazonaws.cloudfront#TooManyDistributionsAssociatedToKeyGroup":
       throw await de_TooManyDistributionsAssociatedToKeyGroupRes(parsedOutput, context);
+    case "TooManyDistributionsAssociatedToOriginAccessControl":
+    case "com.amazonaws.cloudfront#TooManyDistributionsAssociatedToOriginAccessControl":
+      throw await de_TooManyDistributionsAssociatedToOriginAccessControlRes(parsedOutput, context);
     case "TooManyDistributionsAssociatedToOriginRequestPolicy":
     case "com.amazonaws.cloudfront#TooManyDistributionsAssociatedToOriginRequestPolicy":
       throw await de_TooManyDistributionsAssociatedToOriginRequestPolicyRes(parsedOutput, context);
@@ -9890,6 +9906,9 @@ const de_UpdateDistributionWithStagingConfigCommandError = async (
     case "TooManyDistributionsAssociatedToKeyGroup":
     case "com.amazonaws.cloudfront#TooManyDistributionsAssociatedToKeyGroup":
       throw await de_TooManyDistributionsAssociatedToKeyGroupRes(parsedOutput, context);
+    case "TooManyDistributionsAssociatedToOriginAccessControl":
+    case "com.amazonaws.cloudfront#TooManyDistributionsAssociatedToOriginAccessControl":
+      throw await de_TooManyDistributionsAssociatedToOriginAccessControlRes(parsedOutput, context);
     case "TooManyDistributionsAssociatedToOriginRequestPolicy":
     case "com.amazonaws.cloudfront#TooManyDistributionsAssociatedToOriginRequestPolicy":
       throw await de_TooManyDistributionsAssociatedToOriginRequestPolicyRes(parsedOutput, context);

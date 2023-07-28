@@ -57,7 +57,7 @@ export interface UpdateFunctionCommandOutput extends UpdateFunctionResult, __Met
  *   IfMatch: "STRING_VALUE", // required
  *   FunctionConfig: { // FunctionConfig
  *     Comment: "STRING_VALUE", // required
- *     Runtime: "cloudfront-js-1.0", // required
+ *     Runtime: "cloudfront-js-1.0" || "cloudfront-js-2.0", // required
  *   },
  *   FunctionCode: "BLOB_VALUE", // required
  * };
@@ -69,7 +69,7 @@ export interface UpdateFunctionCommandOutput extends UpdateFunctionResult, __Met
  * //     Status: "STRING_VALUE",
  * //     FunctionConfig: { // FunctionConfig
  * //       Comment: "STRING_VALUE", // required
- * //       Runtime: "cloudfront-js-1.0", // required
+ * //       Runtime: "cloudfront-js-1.0" || "cloudfront-js-2.0", // required
  * //     },
  * //     FunctionMetadata: { // FunctionMetadata
  * //       FunctionARN: "STRING_VALUE", // required

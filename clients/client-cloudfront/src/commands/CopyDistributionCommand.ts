@@ -47,6 +47,24 @@ export interface CopyDistributionCommandOutput extends CopyDistributionResult, _
  * 			to modify the staging distribution's configuration. Then you can use
  * 				<code>CreateContinuousDeploymentPolicy</code> to incrementally move traffic to the
  * 			staging distribution.</p>
+ *          <p>This API operation requires the following IAM permissions:</p>
+ *          <ul>
+ *             <li>
+ *                <p>
+ *                   <a href="https://docs.aws.amazon.com/cloudfront/latest/APIReference/API_GetDistribution.html">GetDistribution</a>
+ *                </p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <a href="https://docs.aws.amazon.com/cloudfront/latest/APIReference/API_CreateDistribution.html">CreateDistribution</a>
+ *                </p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <a href="https://docs.aws.amazon.com/cloudfront/latest/APIReference/API_CopyDistribution.html">CopyDistribution</a>
+ *                </p>
+ *             </li>
+ *          </ul>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -58,6 +76,7 @@ export interface CopyDistributionCommandOutput extends CopyDistributionResult, _
  *   Staging: true || false,
  *   IfMatch: "STRING_VALUE",
  *   CallerReference: "STRING_VALUE", // required
+ *   Enabled: true || false,
  * };
  * const command = new CopyDistributionCommand(input);
  * const response = await client.send(command);
@@ -566,6 +585,12 @@ export interface CopyDistributionCommandOutput extends CopyDistributionResult, _
  * @throws {@link TooManyDistributionsAssociatedToKeyGroup} (client fault)
  *  <p>The number of distributions that reference this key group is more than the maximum
  * 			allowed. For more information, see <a href="https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/cloudfront-limits.html">Quotas</a> (formerly known as limits) in the
+ * 				<i>Amazon CloudFront Developer Guide</i>.</p>
+ *
+ * @throws {@link TooManyDistributionsAssociatedToOriginAccessControl} (client fault)
+ *  <p>The maximum number of distributions have been associated with the specified origin
+ * 			access control.</p>
+ *          <p>For more information, see <a href="https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/cloudfront-limits.html">Quotas</a> (formerly known as limits) in the
  * 				<i>Amazon CloudFront Developer Guide</i>.</p>
  *
  * @throws {@link TooManyDistributionsAssociatedToOriginRequestPolicy} (client fault)

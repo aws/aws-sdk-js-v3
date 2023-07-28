@@ -59,7 +59,7 @@ export interface DescribeFunctionCommandOutput extends DescribeFunctionResult, _
  * //     Status: "STRING_VALUE",
  * //     FunctionConfig: { // FunctionConfig
  * //       Comment: "STRING_VALUE", // required
- * //       Runtime: "cloudfront-js-1.0", // required
+ * //       Runtime: "cloudfront-js-1.0" || "cloudfront-js-2.0", // required
  * //     },
  * //     FunctionMetadata: { // FunctionMetadata
  * //       FunctionARN: "STRING_VALUE", // required

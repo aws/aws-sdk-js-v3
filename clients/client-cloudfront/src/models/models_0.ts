@@ -131,9 +131,8 @@ export interface Signer {
  */
 export interface ActiveTrustedSigners {
   /**
-   * <p>This field is <code>true</code> if any of the Amazon Web Services accounts in the list have active
-   * 			CloudFront key pairs that CloudFront can use to verify the signatures of signed URLs and signed
-   * 			cookies. If not, this field is <code>false</code>.</p>
+   * <p>This field is <code>true</code> if any of the Amazon Web Services accounts in the list are configured as
+   * 			trusted signers. If not, this field is <code>false</code>.</p>
    */
   Enabled: boolean | undefined;
 
@@ -852,9 +851,8 @@ export interface TrustedKeyGroups {
  */
 export interface TrustedSigners {
   /**
-   * <p>This field is <code>true</code> if any of the Amazon Web Services accounts have public keys that
-   * 			CloudFront can use to verify the signatures of signed URLs and signed cookies. If not, this
-   * 			field is <code>false</code>.</p>
+   * <p>This field is <code>true</code> if any of the Amazon Web Services accounts in the list are configured as
+   * 			trusted signers. If not, this field is <code>false</code>.</p>
    */
   Enabled: boolean | undefined;
 
@@ -1785,6 +1783,15 @@ export interface CopyDistributionRequest {
    * 			request.</p>
    */
   CallerReference: string | undefined;
+
+  /**
+   * <p>A Boolean flag to specify the state of the staging distribution when it's
+   * 			created. When you set this value to <code>True</code>, the staging
+   * 			distribution is enabled. When you set this value to <code>False</code>, the
+   * 			staging distribution is disabled.</p>
+   *          <p>If you omit this field, the default value is <code>True</code>.</p>
+   */
+  Enabled?: boolean;
 }
 
 /**
@@ -4264,6 +4271,32 @@ export class TooManyDistributionsAssociatedToKeyGroup extends __BaseException {
 /**
  * @public
  * <p>The maximum number of distributions have been associated with the specified origin
+ * 			access control.</p>
+ *          <p>For more information, see <a href="https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/cloudfront-limits.html">Quotas</a> (formerly known as limits) in the
+ * 				<i>Amazon CloudFront Developer Guide</i>.</p>
+ */
+export class TooManyDistributionsAssociatedToOriginAccessControl extends __BaseException {
+  readonly name: "TooManyDistributionsAssociatedToOriginAccessControl" =
+    "TooManyDistributionsAssociatedToOriginAccessControl";
+  readonly $fault: "client" = "client";
+  Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<TooManyDistributionsAssociatedToOriginAccessControl, __BaseException>) {
+    super({
+      name: "TooManyDistributionsAssociatedToOriginAccessControl",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, TooManyDistributionsAssociatedToOriginAccessControl.prototype);
+    this.Message = opts.Message;
+  }
+}
+
+/**
+ * @public
+ * <p>The maximum number of distributions have been associated with the specified origin
  * 			request policy. For more information, see <a href="https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/cloudfront-limits.html">Quotas</a> (formerly known as limits) in the
  * 				<i>Amazon CloudFront Developer Guide</i>.</p>
  */
@@ -5280,32 +5313,6 @@ export class NoSuchContinuousDeploymentPolicy extends __BaseException {
 
 /**
  * @public
- * <p>The maximum number of distributions have been associated with the specified origin
- * 			access control.</p>
- *          <p>For more information, see <a href="https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/cloudfront-limits.html">Quotas</a> (formerly known as limits) in the
- * 				<i>Amazon CloudFront Developer Guide</i>.</p>
- */
-export class TooManyDistributionsAssociatedToOriginAccessControl extends __BaseException {
-  readonly name: "TooManyDistributionsAssociatedToOriginAccessControl" =
-    "TooManyDistributionsAssociatedToOriginAccessControl";
-  readonly $fault: "client" = "client";
-  Message?: string;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<TooManyDistributionsAssociatedToOriginAccessControl, __BaseException>) {
-    super({
-      name: "TooManyDistributionsAssociatedToOriginAccessControl",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, TooManyDistributionsAssociatedToOriginAccessControl.prototype);
-    this.Message = opts.Message;
-  }
-}
-
-/**
- * @public
  * <p>A complex type that contains <code>Tag</code> key and <code>Tag</code> value.</p>
  */
 export interface Tag {
@@ -6038,6 +6045,7 @@ export class TooManyFieldLevelEncryptionProfiles extends __BaseException {
  */
 export const FunctionRuntime = {
   cloudfront_js_1_0: "cloudfront-js-1.0",
+  cloudfront_js_2_0: "cloudfront-js-2.0",
 } as const;
 
 /**
@@ -6056,8 +6064,7 @@ export interface FunctionConfig {
   Comment: string | undefined;
 
   /**
-   * <p>The function's runtime environment. The only valid value is
-   * 				<code>cloudfront-js-1.0</code>.</p>
+   * <p>The function's runtime environment verion.</p>
    */
   Runtime: FunctionRuntime | string | undefined;
 }

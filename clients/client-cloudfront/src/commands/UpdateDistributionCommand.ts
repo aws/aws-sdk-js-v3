@@ -888,6 +888,12 @@ export interface UpdateDistributionCommandOutput extends UpdateDistributionResul
  * 			allowed. For more information, see <a href="https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/cloudfront-limits.html">Quotas</a> (formerly known as limits) in the
  * 				<i>Amazon CloudFront Developer Guide</i>.</p>
  *
+ * @throws {@link TooManyDistributionsAssociatedToOriginAccessControl} (client fault)
+ *  <p>The maximum number of distributions have been associated with the specified origin
+ * 			access control.</p>
+ *          <p>For more information, see <a href="https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/cloudfront-limits.html">Quotas</a> (formerly known as limits) in the
+ * 				<i>Amazon CloudFront Developer Guide</i>.</p>
+ *
  * @throws {@link TooManyDistributionsAssociatedToOriginRequestPolicy} (client fault)
  *  <p>The maximum number of distributions have been associated with the specified origin
  * 			request policy. For more information, see <a href="https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/cloudfront-limits.html">Quotas</a> (formerly known as limits) in the
