@@ -85,6 +85,10 @@ import {
   DescribeClusterOperationCommandInput,
   DescribeClusterOperationCommandOutput,
 } from "./commands/DescribeClusterOperationCommand";
+import {
+  DescribeClusterOperationV2CommandInput,
+  DescribeClusterOperationV2CommandOutput,
+} from "./commands/DescribeClusterOperationV2Command";
 import { DescribeClusterV2CommandInput, DescribeClusterV2CommandOutput } from "./commands/DescribeClusterV2Command";
 import {
   DescribeConfigurationCommandInput,
@@ -115,6 +119,10 @@ import {
   ListClusterOperationsCommandInput,
   ListClusterOperationsCommandOutput,
 } from "./commands/ListClusterOperationsCommand";
+import {
+  ListClusterOperationsV2CommandInput,
+  ListClusterOperationsV2CommandOutput,
+} from "./commands/ListClusterOperationsV2Command";
 import { ListClustersCommandInput, ListClustersCommandOutput } from "./commands/ListClustersCommand";
 import { ListClustersV2CommandInput, ListClustersV2CommandOutput } from "./commands/ListClustersV2Command";
 import {
@@ -186,6 +194,7 @@ export type ServiceInputTypes =
   | DeleteVpcConnectionCommandInput
   | DescribeClusterCommandInput
   | DescribeClusterOperationCommandInput
+  | DescribeClusterOperationV2CommandInput
   | DescribeClusterV2CommandInput
   | DescribeConfigurationCommandInput
   | DescribeConfigurationRevisionCommandInput
@@ -195,6 +204,7 @@ export type ServiceInputTypes =
   | GetCompatibleKafkaVersionsCommandInput
   | ListClientVpcConnectionsCommandInput
   | ListClusterOperationsCommandInput
+  | ListClusterOperationsV2CommandInput
   | ListClustersCommandInput
   | ListClustersV2CommandInput
   | ListConfigurationRevisionsCommandInput
@@ -236,6 +246,7 @@ export type ServiceOutputTypes =
   | DeleteVpcConnectionCommandOutput
   | DescribeClusterCommandOutput
   | DescribeClusterOperationCommandOutput
+  | DescribeClusterOperationV2CommandOutput
   | DescribeClusterV2CommandOutput
   | DescribeConfigurationCommandOutput
   | DescribeConfigurationRevisionCommandOutput
@@ -245,6 +256,7 @@ export type ServiceOutputTypes =
   | GetCompatibleKafkaVersionsCommandOutput
   | ListClientVpcConnectionsCommandOutput
   | ListClusterOperationsCommandOutput
+  | ListClusterOperationsV2CommandOutput
   | ListClustersCommandOutput
   | ListClustersV2CommandOutput
   | ListConfigurationRevisionsCommandOutput

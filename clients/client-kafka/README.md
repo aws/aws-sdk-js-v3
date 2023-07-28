@@ -301,6 +301,14 @@ DescribeClusterOperation
 </details>
 <details>
 <summary>
+DescribeClusterOperationV2
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-kafka/classes/describeclusteroperationv2command.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-kafka/interfaces/describeclusteroperationv2commandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-kafka/interfaces/describeclusteroperationv2commandoutput.html)
+
+</details>
+<details>
+<summary>
 DescribeClusterV2
 </summary>
 
@@ -369,6 +377,14 @@ ListClusterOperations
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-kafka/classes/listclusteroperationscommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-kafka/interfaces/listclusteroperationscommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-kafka/interfaces/listclusteroperationscommandoutput.html)
+
+</details>
+<details>
+<summary>
+ListClusterOperationsV2
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-kafka/classes/listclusteroperationsv2command.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-kafka/interfaces/listclusteroperationsv2commandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-kafka/interfaces/listclusteroperationsv2commandoutput.html)
 
 </details>
 <details>

@@ -1178,6 +1178,47 @@ export interface ClusterOperationInfo {
 
 /**
  * @public
+ * <p>Returns information about a cluster operation.</p>
+ */
+export interface ClusterOperationV2Summary {
+  /**
+   * <p>ARN of the cluster.</p>
+   */
+  ClusterArn?: string;
+
+  /**
+   * <p>Type of the backend cluster.</p>
+   */
+  ClusterType?: ClusterType | string;
+
+  /**
+   * <p>The time at which operation was started.</p>
+   */
+  StartTime?: Date;
+
+  /**
+   * <p>The time at which the operation finished.</p>
+   */
+  EndTime?: Date;
+
+  /**
+   * <p>ARN of the cluster operation.</p>
+   */
+  OperationArn?: string;
+
+  /**
+   * <p>State of the cluster operation.</p>
+   */
+  OperationState?: string;
+
+  /**
+   * <p>Type of the cluster operation.</p>
+   */
+  OperationType?: string;
+}
+
+/**
+ * @public
  * <p>Contains source Apache Kafka versions and compatible target Apache Kafka versions.</p>
  */
 export interface CompatibleKafkaVersion {
@@ -1745,6 +1786,125 @@ export interface BatchDisassociateScramSecretResponse {
 
 /**
  * @public
+ * <p>Returns information about a provisioned cluster operation.</p>
+ */
+export interface ClusterOperationV2Provisioned {
+  /**
+   * <p>Steps completed during the operation.</p>
+   */
+  OperationSteps?: ClusterOperationStep[];
+
+  /**
+   * <p>Information about cluster attributes before a cluster is updated.</p>
+   */
+  SourceClusterInfo?: MutableClusterInfo;
+
+  /**
+   * <p>Information about cluster attributes after a cluster is updated.</p>
+   */
+  TargetClusterInfo?: MutableClusterInfo;
+
+  /**
+   * <p>Description of the VPC connection for CreateVpcConnection and DeleteVpcConnection operations.</p>
+   */
+  VpcConnectionInfo?: VpcConnectionInfo;
+}
+
+/**
+ * @public
+ * Description of the VPC connection.
+ */
+export interface VpcConnectionInfoServerless {
+  /**
+   * <p>The time when Amazon MSK creates the VPC Connnection.</p>
+   */
+  CreationTime?: Date;
+
+  /**
+   * <p>The owner of the VPC Connection.</p>
+   */
+  Owner?: string;
+
+  /**
+   * <p>Description of the requester that calls the API operation.</p>
+   */
+  UserIdentity?: UserIdentity;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the VPC connection.</p>
+   */
+  VpcConnectionArn?: string;
+}
+
+/**
+ * @public
+ * <p>Returns information about a serverless cluster operation.</p>
+ */
+export interface ClusterOperationV2Serverless {
+  /**
+   * <p>Description of the VPC connection for CreateVpcConnection and DeleteVpcConnection operations.</p>
+   */
+  VpcConnectionInfo?: VpcConnectionInfoServerless;
+}
+
+/**
+ * @public
+ * <p>Returns information about a cluster operation.</p>
+ */
+export interface ClusterOperationV2 {
+  /**
+   * <p>ARN of the cluster.</p>
+   */
+  ClusterArn?: string;
+
+  /**
+   * <p>Type of the backend cluster.</p>
+   */
+  ClusterType?: ClusterType | string;
+
+  /**
+   * <p>The time at which operation was started.</p>
+   */
+  StartTime?: Date;
+
+  /**
+   * <p>The time at which the operation finished.</p>
+   */
+  EndTime?: Date;
+
+  /**
+   * <p>If cluster operation failed from an error, it describes the error.</p>
+   */
+  ErrorInfo?: ErrorInfo;
+
+  /**
+   * <p>ARN of the cluster operation.</p>
+   */
+  OperationArn?: string;
+
+  /**
+   * <p>State of the cluster operation.</p>
+   */
+  OperationState?: string;
+
+  /**
+   * <p>Type of the cluster operation.</p>
+   */
+  OperationType?: string;
+
+  /**
+   * <p>Properties of a provisioned cluster.</p>
+   */
+  Provisioned?: ClusterOperationV2Provisioned;
+
+  /**
+   * <p>Properties of a serverless cluster.</p>
+   */
+  Serverless?: ClusterOperationV2Serverless;
+}
+
+/**
+ * @public
  * <p>Returns information about an error.</p>
  */
 export class ConflictException extends __BaseException {
@@ -2251,6 +2411,26 @@ export interface DescribeClusterOperationResponse {
 /**
  * @public
  */
+export interface DescribeClusterOperationV2Request {
+  /**
+   * ARN of the cluster operation to describe.
+   */
+  ClusterOperationArn: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DescribeClusterOperationV2Response {
+  /**
+   * <p>Cluster operation information</p>
+   */
+  ClusterOperationInfo?: ClusterOperationV2;
+}
+
+/**
+ * @public
+ */
 export interface DescribeClusterV2Request {
   /**
    * <p>The Amazon Resource Name (ARN) that uniquely identifies the cluster.</p>
@@ -2603,6 +2783,41 @@ export interface ListClusterOperationsResponse {
 
   /**
    * <p>If the response of ListClusterOperations is truncated, it returns a NextToken in the response. This Nexttoken should be sent in the subsequent request to ListClusterOperations.</p>
+   */
+  NextToken?: string;
+}
+
+/**
+ * @public
+ */
+export interface ListClusterOperationsV2Request {
+  /**
+   * The arn of the cluster whose operations are being requested.
+   */
+  ClusterArn: string | undefined;
+
+  /**
+   * The maxResults of the query.
+   */
+  MaxResults?: number;
+
+  /**
+   * The nextToken of the query.
+   */
+  NextToken?: string;
+}
+
+/**
+ * @public
+ */
+export interface ListClusterOperationsV2Response {
+  /**
+   * <p>An array of cluster operation information objects.</p>
+   */
+  ClusterOperationInfoList?: ClusterOperationV2Summary[];
+
+  /**
+   * <p>If the response of ListClusterOperationsV2 is truncated, it returns a NextToken in the response. This NextToken should be sent in the subsequent request to ListClusterOperationsV2.</p>
    */
   NextToken?: string;
 }

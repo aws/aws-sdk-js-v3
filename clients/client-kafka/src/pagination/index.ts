@@ -2,6 +2,7 @@
 export * from "./Interfaces";
 export * from "./ListClientVpcConnectionsPaginator";
 export * from "./ListClusterOperationsPaginator";
+export * from "./ListClusterOperationsV2Paginator";
 export * from "./ListClustersPaginator";
 export * from "./ListClustersV2Paginator";
 export * from "./ListConfigurationRevisionsPaginator";

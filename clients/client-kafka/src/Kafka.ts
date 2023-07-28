@@ -63,6 +63,11 @@ import {
   DescribeClusterOperationCommandOutput,
 } from "./commands/DescribeClusterOperationCommand";
 import {
+  DescribeClusterOperationV2Command,
+  DescribeClusterOperationV2CommandInput,
+  DescribeClusterOperationV2CommandOutput,
+} from "./commands/DescribeClusterOperationV2Command";
+import {
   DescribeClusterV2Command,
   DescribeClusterV2CommandInput,
   DescribeClusterV2CommandOutput,
@@ -107,6 +112,11 @@ import {
   ListClusterOperationsCommandInput,
   ListClusterOperationsCommandOutput,
 } from "./commands/ListClusterOperationsCommand";
+import {
+  ListClusterOperationsV2Command,
+  ListClusterOperationsV2CommandInput,
+  ListClusterOperationsV2CommandOutput,
+} from "./commands/ListClusterOperationsV2Command";
 import {
   ListClustersCommand,
   ListClustersCommandInput,
@@ -234,6 +244,7 @@ const commands = {
   DeleteVpcConnectionCommand,
   DescribeClusterCommand,
   DescribeClusterOperationCommand,
+  DescribeClusterOperationV2Command,
   DescribeClusterV2Command,
   DescribeConfigurationCommand,
   DescribeConfigurationRevisionCommand,
@@ -243,6 +254,7 @@ const commands = {
   GetCompatibleKafkaVersionsCommand,
   ListClientVpcConnectionsCommand,
   ListClusterOperationsCommand,
+  ListClusterOperationsV2Command,
   ListClustersCommand,
   ListClustersV2Command,
   ListConfigurationRevisionsCommand,
@@ -457,6 +469,23 @@ export interface Kafka {
   ): void;
 
   /**
+   * @see {@link DescribeClusterOperationV2Command}
+   */
+  describeClusterOperationV2(
+    args: DescribeClusterOperationV2CommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DescribeClusterOperationV2CommandOutput>;
+  describeClusterOperationV2(
+    args: DescribeClusterOperationV2CommandInput,
+    cb: (err: any, data?: DescribeClusterOperationV2CommandOutput) => void
+  ): void;
+  describeClusterOperationV2(
+    args: DescribeClusterOperationV2CommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DescribeClusterOperationV2CommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link DescribeClusterV2Command}
    */
   describeClusterV2(
@@ -607,6 +636,23 @@ export interface Kafka {
     args: ListClusterOperationsCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: ListClusterOperationsCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ListClusterOperationsV2Command}
+   */
+  listClusterOperationsV2(
+    args: ListClusterOperationsV2CommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListClusterOperationsV2CommandOutput>;
+  listClusterOperationsV2(
+    args: ListClusterOperationsV2CommandInput,
+    cb: (err: any, data?: ListClusterOperationsV2CommandOutput) => void
+  ): void;
+  listClusterOperationsV2(
+    args: ListClusterOperationsV2CommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListClusterOperationsV2CommandOutput) => void
   ): void;
 
   /**

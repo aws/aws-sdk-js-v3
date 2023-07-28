@@ -60,6 +60,10 @@ import {
   DescribeClusterOperationCommandInput,
   DescribeClusterOperationCommandOutput,
 } from "../commands/DescribeClusterOperationCommand";
+import {
+  DescribeClusterOperationV2CommandInput,
+  DescribeClusterOperationV2CommandOutput,
+} from "../commands/DescribeClusterOperationV2Command";
 import { DescribeClusterV2CommandInput, DescribeClusterV2CommandOutput } from "../commands/DescribeClusterV2Command";
 import {
   DescribeConfigurationCommandInput,
@@ -90,6 +94,10 @@ import {
   ListClusterOperationsCommandInput,
   ListClusterOperationsCommandOutput,
 } from "../commands/ListClusterOperationsCommand";
+import {
+  ListClusterOperationsV2CommandInput,
+  ListClusterOperationsV2CommandOutput,
+} from "../commands/ListClusterOperationsV2Command";
 import { ListClustersCommandInput, ListClustersCommandOutput } from "../commands/ListClustersCommand";
 import { ListClustersV2CommandInput, ListClustersV2CommandOutput } from "../commands/ListClustersV2Command";
 import {
@@ -151,6 +159,10 @@ import {
   ClusterOperationInfo,
   ClusterOperationStep,
   ClusterOperationStepInfo,
+  ClusterOperationV2,
+  ClusterOperationV2Provisioned,
+  ClusterOperationV2Serverless,
+  ClusterOperationV2Summary,
   CompatibleKafkaVersion,
   Configuration,
   ConfigurationInfo,
@@ -202,6 +214,7 @@ import {
   VpcConfig,
   VpcConnection,
   VpcConnectionInfo,
+  VpcConnectionInfoServerless,
   VpcConnectivity,
   VpcConnectivityClientAuthentication,
   VpcConnectivityIam,
@@ -565,6 +578,37 @@ export const se_DescribeClusterOperationCommand = async (
 };
 
 /**
+ * serializeAws_restJson1DescribeClusterOperationV2Command
+ */
+export const se_DescribeClusterOperationV2Command = async (
+  input: DescribeClusterOperationV2CommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {};
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/api/v2/operations/{ClusterOperationArn}";
+  resolvedPath = __resolvedPath(
+    resolvedPath,
+    input,
+    "ClusterOperationArn",
+    () => input.ClusterOperationArn!,
+    "{ClusterOperationArn}",
+    false
+  );
+  let body: any;
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "GET",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
+/**
  * serializeAws_restJson1DescribeClusterV2Command
  */
 export const se_DescribeClusterV2Command = async (
@@ -777,6 +821,35 @@ export const se_ListClusterOperationsCommand = async (
   const headers: any = {};
   let resolvedPath =
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/v1/clusters/{ClusterArn}/operations";
+  resolvedPath = __resolvedPath(resolvedPath, input, "ClusterArn", () => input.ClusterArn!, "{ClusterArn}", false);
+  const query: any = map({
+    maxResults: [() => input.MaxResults !== void 0, () => input.MaxResults!.toString()],
+    nextToken: [, input.NextToken!],
+  });
+  let body: any;
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "GET",
+    headers,
+    path: resolvedPath,
+    query,
+    body,
+  });
+};
+
+/**
+ * serializeAws_restJson1ListClusterOperationsV2Command
+ */
+export const se_ListClusterOperationsV2Command = async (
+  input: ListClusterOperationsV2CommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {};
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/api/v2/clusters/{ClusterArn}/operations";
   resolvedPath = __resolvedPath(resolvedPath, input, "ClusterArn", () => input.ClusterArn!, "{ClusterArn}", false);
   const query: any = map({
     maxResults: [() => input.MaxResults !== void 0, () => input.MaxResults!.toString()],
@@ -2270,6 +2343,71 @@ const de_DescribeClusterOperationCommandError = async (
 };
 
 /**
+ * deserializeAws_restJson1DescribeClusterOperationV2Command
+ */
+export const de_DescribeClusterOperationV2Command = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeClusterOperationV2CommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_DescribeClusterOperationV2CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    ClusterOperationInfo: [, (_) => de_ClusterOperationV2(_, context), `clusterOperationInfo`],
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1DescribeClusterOperationV2CommandError
+ */
+const de_DescribeClusterOperationV2CommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeClusterOperationV2CommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "BadRequestException":
+    case "com.amazonaws.kafka#BadRequestException":
+      throw await de_BadRequestExceptionRes(parsedOutput, context);
+    case "ForbiddenException":
+    case "com.amazonaws.kafka#ForbiddenException":
+      throw await de_ForbiddenExceptionRes(parsedOutput, context);
+    case "InternalServerErrorException":
+    case "com.amazonaws.kafka#InternalServerErrorException":
+      throw await de_InternalServerErrorExceptionRes(parsedOutput, context);
+    case "NotFoundException":
+    case "com.amazonaws.kafka#NotFoundException":
+      throw await de_NotFoundExceptionRes(parsedOutput, context);
+    case "ServiceUnavailableException":
+    case "com.amazonaws.kafka#ServiceUnavailableException":
+      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
+    case "TooManyRequestsException":
+    case "com.amazonaws.kafka#TooManyRequestsException":
+      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
+    case "UnauthorizedException":
+    case "com.amazonaws.kafka#UnauthorizedException":
+      throw await de_UnauthorizedExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
  * deserializeAws_restJson1DescribeClusterV2Command
  */
 export const de_DescribeClusterV2Command = async (
@@ -2826,6 +2964,72 @@ const de_ListClusterOperationsCommandError = async (
     case "InternalServerErrorException":
     case "com.amazonaws.kafka#InternalServerErrorException":
       throw await de_InternalServerErrorExceptionRes(parsedOutput, context);
+    case "UnauthorizedException":
+    case "com.amazonaws.kafka#UnauthorizedException":
+      throw await de_UnauthorizedExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
+ * deserializeAws_restJson1ListClusterOperationsV2Command
+ */
+export const de_ListClusterOperationsV2Command = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListClusterOperationsV2CommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_ListClusterOperationsV2CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    ClusterOperationInfoList: [, (_) => de___listOfClusterOperationV2Summary(_, context), `clusterOperationInfoList`],
+    NextToken: [, __expectString, `nextToken`],
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1ListClusterOperationsV2CommandError
+ */
+const de_ListClusterOperationsV2CommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListClusterOperationsV2CommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "BadRequestException":
+    case "com.amazonaws.kafka#BadRequestException":
+      throw await de_BadRequestExceptionRes(parsedOutput, context);
+    case "ForbiddenException":
+    case "com.amazonaws.kafka#ForbiddenException":
+      throw await de_ForbiddenExceptionRes(parsedOutput, context);
+    case "InternalServerErrorException":
+    case "com.amazonaws.kafka#InternalServerErrorException":
+      throw await de_InternalServerErrorExceptionRes(parsedOutput, context);
+    case "NotFoundException":
+    case "com.amazonaws.kafka#NotFoundException":
+      throw await de_NotFoundExceptionRes(parsedOutput, context);
+    case "ServiceUnavailableException":
+    case "com.amazonaws.kafka#ServiceUnavailableException":
+      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
+    case "TooManyRequestsException":
+    case "com.amazonaws.kafka#TooManyRequestsException":
+      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
     case "UnauthorizedException":
     case "com.amazonaws.kafka#UnauthorizedException":
       throw await de_UnauthorizedExceptionRes(parsedOutput, context);
@@ -4906,6 +5110,18 @@ const de___listOfClusterOperationStep = (output: any, context: __SerdeContext): 
 };
 
 /**
+ * deserializeAws_restJson1__listOfClusterOperationV2Summary
+ */
+const de___listOfClusterOperationV2Summary = (output: any, context: __SerdeContext): ClusterOperationV2Summary[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      return de_ClusterOperationV2Summary(entry, context);
+    });
+  return retVal;
+};
+
+/**
  * deserializeAws_restJson1__listOfCompatibleKafkaVersion
  */
 const de___listOfCompatibleKafkaVersion = (output: any, context: __SerdeContext): CompatibleKafkaVersion[] => {
@@ -5181,6 +5397,60 @@ const de_ClusterOperationStep = (output: any, context: __SerdeContext): ClusterO
 const de_ClusterOperationStepInfo = (output: any, context: __SerdeContext): ClusterOperationStepInfo => {
   return take(output, {
     StepStatus: [, __expectString, `stepStatus`],
+  }) as any;
+};
+
+/**
+ * deserializeAws_restJson1ClusterOperationV2
+ */
+const de_ClusterOperationV2 = (output: any, context: __SerdeContext): ClusterOperationV2 => {
+  return take(output, {
+    ClusterArn: [, __expectString, `clusterArn`],
+    ClusterType: [, __expectString, `clusterType`],
+    EndTime: [, (_: any) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)), `endTime`],
+    ErrorInfo: [, (_: any) => de_ErrorInfo(_, context), `errorInfo`],
+    OperationArn: [, __expectString, `operationArn`],
+    OperationState: [, __expectString, `operationState`],
+    OperationType: [, __expectString, `operationType`],
+    Provisioned: [, (_: any) => de_ClusterOperationV2Provisioned(_, context), `provisioned`],
+    Serverless: [, (_: any) => de_ClusterOperationV2Serverless(_, context), `serverless`],
+    StartTime: [, (_: any) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)), `startTime`],
+  }) as any;
+};
+
+/**
+ * deserializeAws_restJson1ClusterOperationV2Provisioned
+ */
+const de_ClusterOperationV2Provisioned = (output: any, context: __SerdeContext): ClusterOperationV2Provisioned => {
+  return take(output, {
+    OperationSteps: [, (_: any) => de___listOfClusterOperationStep(_, context), `operationSteps`],
+    SourceClusterInfo: [, (_: any) => de_MutableClusterInfo(_, context), `sourceClusterInfo`],
+    TargetClusterInfo: [, (_: any) => de_MutableClusterInfo(_, context), `targetClusterInfo`],
+    VpcConnectionInfo: [, (_: any) => de_VpcConnectionInfo(_, context), `vpcConnectionInfo`],
+  }) as any;
+};
+
+/**
+ * deserializeAws_restJson1ClusterOperationV2Serverless
+ */
+const de_ClusterOperationV2Serverless = (output: any, context: __SerdeContext): ClusterOperationV2Serverless => {
+  return take(output, {
+    VpcConnectionInfo: [, (_: any) => de_VpcConnectionInfoServerless(_, context), `vpcConnectionInfo`],
+  }) as any;
+};
+
+/**
+ * deserializeAws_restJson1ClusterOperationV2Summary
+ */
+const de_ClusterOperationV2Summary = (output: any, context: __SerdeContext): ClusterOperationV2Summary => {
+  return take(output, {
+    ClusterArn: [, __expectString, `clusterArn`],
+    ClusterType: [, __expectString, `clusterType`],
+    EndTime: [, (_: any) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)), `endTime`],
+    OperationArn: [, __expectString, `operationArn`],
+    OperationState: [, __expectString, `operationState`],
+    OperationType: [, __expectString, `operationType`],
+    StartTime: [, (_: any) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)), `startTime`],
   }) as any;
 };
 
@@ -5618,6 +5888,18 @@ const de_VpcConnection = (output: any, context: __SerdeContext): VpcConnection =
  * deserializeAws_restJson1VpcConnectionInfo
  */
 const de_VpcConnectionInfo = (output: any, context: __SerdeContext): VpcConnectionInfo => {
+  return take(output, {
+    CreationTime: [, (_: any) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)), `creationTime`],
+    Owner: [, __expectString, `owner`],
+    UserIdentity: [, (_: any) => de_UserIdentity(_, context), `userIdentity`],
+    VpcConnectionArn: [, __expectString, `vpcConnectionArn`],
+  }) as any;
+};
+
+/**
+ * deserializeAws_restJson1VpcConnectionInfoServerless
+ */
+const de_VpcConnectionInfoServerless = (output: any, context: __SerdeContext): VpcConnectionInfoServerless => {
   return take(output, {
     CreationTime: [, (_: any) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)), `creationTime`],
     Owner: [, __expectString, `owner`],
