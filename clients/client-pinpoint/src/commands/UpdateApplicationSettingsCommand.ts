@@ -64,6 +64,14 @@ export interface UpdateApplicationSettingsCommandOutput extends UpdateApplicatio
  *       End: "STRING_VALUE",
  *       Start: "STRING_VALUE",
  *     },
+ *     JourneyLimits: { // ApplicationSettingsJourneyLimits
+ *       DailyCap: Number("int"),
+ *       TimeframeCap: { // JourneyTimeframeCap
+ *         Cap: Number("int"),
+ *         Days: Number("int"),
+ *       },
+ *       TotalCap: Number("int"),
+ *     },
  *   },
  * };
  * const command = new UpdateApplicationSettingsCommand(input);
@@ -87,6 +95,14 @@ export interface UpdateApplicationSettingsCommandOutput extends UpdateApplicatio
  * //     QuietTime: { // QuietTime
  * //       End: "STRING_VALUE",
  * //       Start: "STRING_VALUE",
+ * //     },
+ * //     JourneyLimits: { // ApplicationSettingsJourneyLimits
+ * //       DailyCap: Number("int"),
+ * //       TimeframeCap: { // JourneyTimeframeCap
+ * //         Cap: Number("int"),
+ * //         Days: Number("int"),
+ * //       },
+ * //       TotalCap: Number("int"),
  * //     },
  * //   },
  * // };

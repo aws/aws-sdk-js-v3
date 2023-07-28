@@ -285,6 +285,7 @@ import {
   APNSVoipSandboxChannelRequest,
   ApplicationDateRangeKpiResponse,
   ApplicationResponse,
+  ApplicationSettingsJourneyLimits,
   ApplicationsResponse,
   AttributeDimension,
   BadRequestException,
@@ -358,6 +359,7 @@ import {
   JourneyResponse,
   JourneySchedule,
   JourneySMSMessage,
+  JourneyTimeframeCap,
   Message,
   MessageConfiguration,
   MethodNotAllowedException,
@@ -12515,6 +12517,8 @@ const se_Activity = (input: Activity, context: __SerdeContext): any => {
 
 // se_APNSVoipSandboxChannelRequest omitted.
 
+// se_ApplicationSettingsJourneyLimits omitted.
+
 // se_AttributeDimension omitted.
 
 // se_BaiduChannelRequest omitted.
@@ -12867,6 +12871,8 @@ const se_JourneySchedule = (input: JourneySchedule, context: __SerdeContext): an
 // se_JourneySMSMessage omitted.
 
 // se_JourneyStateRequest omitted.
+
+// se_JourneyTimeframeCap omitted.
 
 // se_ListOf__EndpointTypesElement omitted.
 
@@ -13462,6 +13468,8 @@ const de_ApplicationResponse = (output: any, context: __SerdeContext): Applicati
   }) as any;
 };
 
+// de_ApplicationSettingsJourneyLimits omitted.
+
 // de_ApplicationSettingsResource omitted.
 
 /**
@@ -13924,6 +13932,8 @@ const de_JourneysResponse = (output: any, context: __SerdeContext): JourneysResp
     NextToken: __expectString,
   }) as any;
 };
+
+// de_JourneyTimeframeCap omitted.
 
 // de_ListOf__EndpointTypesElement omitted.
 

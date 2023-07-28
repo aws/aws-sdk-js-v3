@@ -1900,6 +1900,43 @@ export interface ApplicationResponse {
 
 /**
  * @public
+ * <p>The number of messages that can be sent to an endpoint during the specified timeframe for all journeys.</p>
+ */
+export interface JourneyTimeframeCap {
+  /**
+   * <p>The maximum number of messages that all journeys can send to an endpoint during the specified timeframe. The maximum value is 100. If set to 0, this limit will not apply.</p>
+   */
+  Cap?: number;
+
+  /**
+   * <p>The length of the timeframe in days. The maximum value is 30. If set to 0, this limit will not apply.</p>
+   */
+  Days?: number;
+}
+
+/**
+ * @public
+ * <p>The default sending limits for journeys in the application. To override these limits and define custom limits for a specific journey, use the Journey resource.</p>
+ */
+export interface ApplicationSettingsJourneyLimits {
+  /**
+   * <p>The daily number of messages that an endpoint can receive from all journeys. The maximum value is 100. If set to 0, this limit will not apply.</p>
+   */
+  DailyCap?: number;
+
+  /**
+   * <p>The default maximum number of messages that can be sent to an endpoint during the specified timeframe for all journeys.</p>
+   */
+  TimeframeCap?: JourneyTimeframeCap;
+
+  /**
+   * <p>The default maximum number of messages that a single journey can sent to a single endpoint. The maximum value is 100. If set to 0, this limit will not apply.</p>
+   */
+  TotalCap?: number;
+}
+
+/**
+ * @public
  * @enum
  */
 export const Mode = {
@@ -2009,6 +2046,11 @@ export interface ApplicationSettingsResource {
    * <p>The default quiet time for campaigns in the application. Quiet time is a specific time range when messages aren't sent to endpoints, if all the following conditions are met:</p> <ul><li><p>The EndpointDemographic.Timezone property of the endpoint is set to a valid value.</p></li> <li><p>The current time in the endpoint's time zone is later than or equal to the time specified by the QuietTime.Start property for the application (or a campaign or journey that has custom quiet time settings).</p></li> <li><p>The current time in the endpoint's time zone is earlier than or equal to the time specified by the QuietTime.End property for the application (or a campaign or journey that has custom quiet time settings).</p></li></ul> <p>If any of the preceding conditions isn't met, the endpoint will receive messages from a campaign or journey, even if quiet time is enabled.</p>
    */
   QuietTime?: QuietTime;
+
+  /**
+   * <p>The default sending limits for journeys in the application. These limits apply to each journey for the application but can be overridden, on a per journey basis, with the JourneyLimits resource.</p>
+   */
+  JourneyLimits?: ApplicationSettingsJourneyLimits;
 }
 
 /**
@@ -2862,6 +2904,11 @@ export interface TemplateConfiguration {
    * <p>The voice template to use for the message. This object isn't supported for campaigns.</p>
    */
   VoiceTemplate?: Template;
+
+  /**
+   * <p>The InApp template to use for the message. The InApp template object is not supported for SendMessages.</p>
+   */
+  InAppTemplate?: Template;
 }
 
 /**
@@ -4161,6 +4208,16 @@ export interface JourneyLimits {
    * <p>Minimum time that must pass before an endpoint can re-enter a given journey. The duration should use an ISO 8601 format, such as PT1H. </p>
    */
   EndpointReentryInterval?: string;
+
+  /**
+   * <p>The number of messages that an endpoint can receive during the specified timeframe.</p>
+   */
+  TimeframeCap?: JourneyTimeframeCap;
+
+  /**
+   * <p>The maximum number of messages a journey can sent to a single endpoint. The maximum value is 100. If set to 0, this limit will not apply.</p>
+   */
+  TotalCap?: number;
 }
 
 /**
@@ -5850,7 +5907,12 @@ export interface GCMChannelResponse {
   /**
    * <p>The Web API Key, also referred to as an <i>API_KEY</i> or <i>server key</i>, that you received from Google to communicate with Google services.</p>
    */
-  Credential: string | undefined;
+  Credential?: string;
+
+  /**
+   * <p>The default authentication method used for GCM. Values are either "TOKEN" or "KEY". Defaults to "KEY".</p>
+   */
+  DefaultAuthenticationMethod?: string;
 
   /**
    * <p>Specifies whether the GCM channel is enabled for the application.</p>
@@ -5861,6 +5923,11 @@ export interface GCMChannelResponse {
    * <p>(Not used) This property is retained only for backward compatibility.</p>
    */
   HasCredential?: boolean;
+
+  /**
+   * <p>Returns true if the JSON file provided by Google during registration process was used in the <b>ServiceJson</b> field of the request.</p>
+   */
+  HasFcmServiceCredentials?: boolean;
 
   /**
    * <p>(Deprecated) An identifier for the GCM channel. This property is retained only for backward compatibility.</p>
@@ -6430,7 +6497,12 @@ export interface GCMMessage {
   ImageUrl?: string;
 
   /**
-   * <p>para>normal - The notification might be delayed. Delivery is optimized for battery usage on the recipient's device. Use this value unless immediate delivery is required.</p>/listitem> <li><p>high - The notification is sent immediately and might wake a sleeping device.</p></li>/para> <p>Amazon Pinpoint specifies this value in the FCM priority parameter when it sends the notification message to FCM.</p> <p>The equivalent values for Apple Push Notification service (APNs) are 5, for normal, and 10, for high. If you specify an APNs value for this property, Amazon Pinpoint accepts and converts the value to the corresponding FCM value.</p>
+   * <p>The preferred authentication method, with valid values "KEY" or "TOKEN". If a value isn't provided then the <b>DefaultAuthenticationMethod</b> is used.</p>
+   */
+  PreferredAuthenticationMethod?: string;
+
+  /**
+   * <p>para>normal – The notification might be delayed. Delivery is optimized for battery usage on the recipient's device. Use this value unless immediate delivery is required.</p>/listitem> <li><p>high – The notification is sent immediately and might wake a sleeping device.</p></li>/para> <p>Amazon Pinpoint specifies this value in the FCM priority parameter when it sends the notification message to FCM.</p> <p>The equivalent values for Apple Push Notification service (APNs) are 5, for normal, and 10, for high. If you specify an APNs value for this property, Amazon Pinpoint accepts and converts the value to the corresponding FCM value.</p>
    */
   Priority?: string;
 
@@ -7190,12 +7262,22 @@ export interface GCMChannelRequest {
   /**
    * <p>The Web API Key, also referred to as an <i>API_KEY</i> or <i>server key</i>, that you received from Google to communicate with Google services.</p>
    */
-  ApiKey: string | undefined;
+  ApiKey?: string;
+
+  /**
+   * <p>The default authentication method used for GCM. Values are either "TOKEN" or "KEY". Defaults to "KEY".</p>
+   */
+  DefaultAuthenticationMethod?: string;
 
   /**
    * <p>Specifies whether to enable the GCM channel for the application.</p>
    */
   Enabled?: boolean;
+
+  /**
+   * <p>The contents of the JSON file provided by Google during registration in order to generate an access token for authentication. For more information see <a href="https://firebase.google.com/docs/cloud-messaging/migrate-v1">Migrate from legacy FCM APIs to HTTP v1</a>.</p>
+   */
+  ServiceJson?: string;
 }
 
 /**
@@ -7586,39 +7668,4 @@ export interface GetCampaignVersionRequest {
    * <p>The unique version number (Version property) for the campaign version.</p>
    */
   Version: string | undefined;
-}
-
-/**
- * @public
- */
-export interface GetCampaignVersionResponse {
-  /**
-   * <p>Provides information about the status, configuration, and other settings for a campaign.</p>
-   */
-  CampaignResponse: CampaignResponse | undefined;
-}
-
-/**
- * @public
- */
-export interface GetCampaignVersionsRequest {
-  /**
-   * <p>The unique identifier for the application. This identifier is displayed as the <b>Project ID</b> on the Amazon Pinpoint console.</p>
-   */
-  ApplicationId: string | undefined;
-
-  /**
-   * <p>The unique identifier for the campaign.</p>
-   */
-  CampaignId: string | undefined;
-
-  /**
-   * <p>The maximum number of items to include in each page of a paginated response. This parameter is not supported for application, campaign, and journey metrics.</p>
-   */
-  PageSize?: string;
-
-  /**
-   * <p>The NextToken string that specifies which page of results to return in a paginated response.</p>
-   */
-  Token?: string;
 }

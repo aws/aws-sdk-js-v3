@@ -177,6 +177,7 @@ export interface SendUsersMessagesCommandOutput extends SendUsersMessagesRespons
  *         IconReference: "STRING_VALUE",
  *         ImageIconUrl: "STRING_VALUE",
  *         ImageUrl: "STRING_VALUE",
+ *         PreferredAuthenticationMethod: "STRING_VALUE",
  *         Priority: "STRING_VALUE",
  *         RawContent: "STRING_VALUE",
  *         RestrictedPackageName: "STRING_VALUE",
@@ -221,6 +222,10 @@ export interface SendUsersMessagesCommandOutput extends SendUsersMessagesRespons
  *         Version: "STRING_VALUE",
  *       },
  *       VoiceTemplate: {
+ *         Name: "STRING_VALUE",
+ *         Version: "STRING_VALUE",
+ *       },
+ *       InAppTemplate: {
  *         Name: "STRING_VALUE",
  *         Version: "STRING_VALUE",
  *       },

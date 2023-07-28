@@ -68,6 +68,14 @@ export interface GetApplicationSettingsCommandOutput extends GetApplicationSetti
  * //       End: "STRING_VALUE",
  * //       Start: "STRING_VALUE",
  * //     },
+ * //     JourneyLimits: { // ApplicationSettingsJourneyLimits
+ * //       DailyCap: Number("int"),
+ * //       TimeframeCap: { // JourneyTimeframeCap
+ * //         Cap: Number("int"),
+ * //         Days: Number("int"),
+ * //       },
+ * //       TotalCap: Number("int"),
+ * //     },
  * //   },
  * // };
  *

@@ -52,9 +52,11 @@ export interface DeleteGcmChannelCommandOutput extends DeleteGcmChannelResponse,
  * //   GCMChannelResponse: { // GCMChannelResponse
  * //     ApplicationId: "STRING_VALUE",
  * //     CreationDate: "STRING_VALUE",
- * //     Credential: "STRING_VALUE", // required
+ * //     Credential: "STRING_VALUE",
+ * //     DefaultAuthenticationMethod: "STRING_VALUE",
  * //     Enabled: true || false,
  * //     HasCredential: true || false,
+ * //     HasFcmServiceCredentials: true || false,
  * //     Id: "STRING_VALUE",
  * //     IsArchived: true || false,
  * //     LastModifiedBy: "STRING_VALUE",

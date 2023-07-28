@@ -299,6 +299,11 @@ export interface CreateJourneyCommandOutput extends CreateJourneyResponse, __Met
  *       EndpointReentryCap: Number("int"),
  *       MessagesPerSecond: Number("int"),
  *       EndpointReentryInterval: "STRING_VALUE",
+ *       TimeframeCap: { // JourneyTimeframeCap
+ *         Cap: Number("int"),
+ *         Days: Number("int"),
+ *       },
+ *       TotalCap: Number("int"),
  *     },
  *     LocalTime: true || false,
  *     Name: "STRING_VALUE", // required
@@ -681,6 +686,11 @@ export interface CreateJourneyCommandOutput extends CreateJourneyResponse, __Met
  * //       EndpointReentryCap: Number("int"),
  * //       MessagesPerSecond: Number("int"),
  * //       EndpointReentryInterval: "STRING_VALUE",
+ * //       TimeframeCap: { // JourneyTimeframeCap
+ * //         Cap: Number("int"),
+ * //         Days: Number("int"),
+ * //       },
+ * //       TotalCap: Number("int"),
  * //     },
  * //     LocalTime: true || false,
  * //     Name: "STRING_VALUE", // required

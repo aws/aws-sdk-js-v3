@@ -270,6 +270,10 @@ export interface GetCampaignCommandOutput extends GetCampaignResponse, __Metadat
  * //             Name: "STRING_VALUE",
  * //             Version: "STRING_VALUE",
  * //           },
+ * //           InAppTemplate: {
+ * //             Name: "STRING_VALUE",
+ * //             Version: "STRING_VALUE",
+ * //           },
  * //         },
  * //         TreatmentDescription: "STRING_VALUE",
  * //         TreatmentName: "STRING_VALUE",
@@ -417,13 +421,11 @@ export interface GetCampaignCommandOutput extends GetCampaignResponse, __Metadat
  * //     },
  * //     tags: "<MapOf__string>",
  * //     TemplateConfiguration: {
- * //       EmailTemplate: {
- * //         Name: "STRING_VALUE",
- * //         Version: "STRING_VALUE",
- * //       },
+ * //       EmailTemplate: "<Template>",
  * //       PushTemplate: "<Template>",
  * //       SMSTemplate: "<Template>",
  * //       VoiceTemplate: "<Template>",
+ * //       InAppTemplate: "<Template>",
  * //     },
  * //     TreatmentDescription: "STRING_VALUE",
  * //     TreatmentName: "STRING_VALUE",

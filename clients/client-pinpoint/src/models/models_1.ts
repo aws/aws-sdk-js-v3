@@ -13,6 +13,7 @@ import {
   APNSVoipChannelResponse,
   APNSVoipSandboxChannelRequest,
   APNSVoipSandboxChannelResponse,
+  ApplicationSettingsJourneyLimits,
   ApplicationSettingsResource,
   AttributesResource,
   BaiduChannelRequest,
@@ -65,6 +66,41 @@ import {
   WriteJourneyRequest,
   WriteSegmentRequest,
 } from "./models_0";
+
+/**
+ * @public
+ */
+export interface GetCampaignVersionResponse {
+  /**
+   * <p>Provides information about the status, configuration, and other settings for a campaign.</p>
+   */
+  CampaignResponse: CampaignResponse | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetCampaignVersionsRequest {
+  /**
+   * <p>The unique identifier for the application. This identifier is displayed as the <b>Project ID</b> on the Amazon Pinpoint console.</p>
+   */
+  ApplicationId: string | undefined;
+
+  /**
+   * <p>The unique identifier for the campaign.</p>
+   */
+  CampaignId: string | undefined;
+
+  /**
+   * <p>The maximum number of items to include in each page of a paginated response. This parameter is not supported for application, campaign, and journey metrics.</p>
+   */
+  PageSize?: string;
+
+  /**
+   * <p>The NextToken string that specifies which page of results to return in a paginated response.</p>
+   */
+  Token?: string;
+}
 
 /**
  * @public
@@ -1758,7 +1794,7 @@ export interface TemplateResponse {
   TemplateName: string | undefined;
 
   /**
-   * <p>The type of channel that the message template is designed for. Possible values are: EMAIL, PUSH, SMS, and VOICE.</p>
+   * <p>The type of channel that the message template is designed for. Possible values are: EMAIL, PUSH, SMS, INAPP, and VOICE.</p>
    */
   TemplateType: TemplateType | string | undefined;
 
@@ -1799,7 +1835,7 @@ export interface TemplateVersionResponse {
   TemplateName: string | undefined;
 
   /**
-   * <p>The type of channel that the message template is designed for. Possible values are: EMAIL, PUSH, SMS, and VOICE.</p>
+   * <p>The type of channel that the message template is designed for. Possible values are: EMAIL, PUSH, SMS, INAPP, and VOICE.</p>
    */
   TemplateType: string | undefined;
 
@@ -2635,6 +2671,11 @@ export interface WriteApplicationSettingsRequest {
    * <p>The default quiet time for campaigns in the application. Quiet time is a specific time range when messages aren't sent to endpoints, if all the following conditions are met:</p> <ul><li><p>The EndpointDemographic.Timezone property of the endpoint is set to a valid value.</p></li> <li><p>The current time in the endpoint's time zone is later than or equal to the time specified by the QuietTime.Start property for the application (or a campaign or journey that has custom quiet time settings).</p></li> <li><p>The current time in the endpoint's time zone is earlier than or equal to the time specified by the QuietTime.End property for the application (or a campaign or journey that has custom quiet time settings).</p></li></ul> <p>If any of the preceding conditions isn't met, the endpoint will receive messages from a campaign or journey, even if quiet time is enabled.</p> <p>To override the default quiet time settings for a specific campaign or journey, use the <link  linkend="apps-application-id-campaigns-campaign-id">Campaign</link> resource or the <link  linkend="apps-application-id-journeys-journey-id">Journey</link> resource to define a custom quiet time for the campaign or journey.</p>
    */
   QuietTime?: QuietTime;
+
+  /**
+   * <p>The default sending limits for journeys in the application. These limits apply to each journey for the application but can be overridden, on a per journey basis, with the JourneyLimits resource.</p>
+   */
+  JourneyLimits?: ApplicationSettingsJourneyLimits;
 }
 
 /**

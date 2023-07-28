@@ -46,8 +46,10 @@ export interface UpdateGcmChannelCommandOutput extends UpdateGcmChannelResponse,
  * const input = { // UpdateGcmChannelRequest
  *   ApplicationId: "STRING_VALUE", // required
  *   GCMChannelRequest: { // GCMChannelRequest
- *     ApiKey: "STRING_VALUE", // required
+ *     ApiKey: "STRING_VALUE",
+ *     DefaultAuthenticationMethod: "STRING_VALUE",
  *     Enabled: true || false,
+ *     ServiceJson: "STRING_VALUE",
  *   },
  * };
  * const command = new UpdateGcmChannelCommand(input);
@@ -56,9 +58,11 @@ export interface UpdateGcmChannelCommandOutput extends UpdateGcmChannelResponse,
  * //   GCMChannelResponse: { // GCMChannelResponse
  * //     ApplicationId: "STRING_VALUE",
  * //     CreationDate: "STRING_VALUE",
- * //     Credential: "STRING_VALUE", // required
+ * //     Credential: "STRING_VALUE",
+ * //     DefaultAuthenticationMethod: "STRING_VALUE",
  * //     Enabled: true || false,
  * //     HasCredential: true || false,
+ * //     HasFcmServiceCredentials: true || false,
  * //     Id: "STRING_VALUE",
  * //     IsArchived: true || false,
  * //     LastModifiedBy: "STRING_VALUE",

@@ -13,8 +13,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@smithy/types";
 
-import { GetCampaignVersionsRequest } from "../models/models_0";
-import { GetCampaignVersionsResponse } from "../models/models_1";
+import { GetCampaignVersionsRequest, GetCampaignVersionsResponse } from "../models/models_1";
 import { PinpointClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../PinpointClient";
 import { de_GetCampaignVersionsCommand, se_GetCampaignVersionsCommand } from "../protocols/Aws_restJson1";
 
@@ -275,6 +274,10 @@ export interface GetCampaignVersionsCommandOutput extends GetCampaignVersionsRes
  * //                 Name: "STRING_VALUE",
  * //                 Version: "STRING_VALUE",
  * //               },
+ * //               InAppTemplate: {
+ * //                 Name: "STRING_VALUE",
+ * //                 Version: "STRING_VALUE",
+ * //               },
  * //             },
  * //             TreatmentDescription: "STRING_VALUE",
  * //             TreatmentName: "STRING_VALUE",
@@ -422,13 +425,11 @@ export interface GetCampaignVersionsCommandOutput extends GetCampaignVersionsRes
  * //         },
  * //         tags: "<MapOf__string>",
  * //         TemplateConfiguration: {
- * //           EmailTemplate: {
- * //             Name: "STRING_VALUE",
- * //             Version: "STRING_VALUE",
- * //           },
+ * //           EmailTemplate: "<Template>",
  * //           PushTemplate: "<Template>",
  * //           SMSTemplate: "<Template>",
  * //           VoiceTemplate: "<Template>",
+ * //           InAppTemplate: "<Template>",
  * //         },
  * //         TreatmentDescription: "STRING_VALUE",
  * //         TreatmentName: "STRING_VALUE",
