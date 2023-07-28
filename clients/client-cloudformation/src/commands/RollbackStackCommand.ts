@@ -79,6 +79,7 @@ export interface RollbackStackCommandOutput extends RollbackStackOutput, __Metad
  *   StackName: "STRING_VALUE", // required
  *   RoleARN: "STRING_VALUE",
  *   ClientRequestToken: "STRING_VALUE",
+ *   RetainExceptOnCreate: true || false,
  * };
  * const command = new RollbackStackCommand(input);
  * const response = await client.send(command);

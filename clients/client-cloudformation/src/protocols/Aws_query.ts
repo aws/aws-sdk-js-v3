@@ -5576,6 +5576,9 @@ const se_CreateStackInput = (input: CreateStackInput, context: __SerdeContext): 
   if (input.EnableTerminationProtection != null) {
     entries["EnableTerminationProtection"] = input.EnableTerminationProtection;
   }
+  if (input.RetainExceptOnCreate != null) {
+    entries["RetainExceptOnCreate"] = input.RetainExceptOnCreate;
+  }
   return entries;
 };
 
@@ -6282,6 +6285,9 @@ const se_ExecuteChangeSetInput = (input: ExecuteChangeSetInput, context: __Serde
   }
   if (input.DisableRollback != null) {
     entries["DisableRollback"] = input.DisableRollback;
+  }
+  if (input.RetainExceptOnCreate != null) {
+    entries["RetainExceptOnCreate"] = input.RetainExceptOnCreate;
   }
   return entries;
 };
@@ -7103,6 +7109,9 @@ const se_RollbackStackInput = (input: RollbackStackInput, context: __SerdeContex
   if (input.ClientRequestToken != null) {
     entries["ClientRequestToken"] = input.ClientRequestToken;
   }
+  if (input.RetainExceptOnCreate != null) {
+    entries["RetainExceptOnCreate"] = input.RetainExceptOnCreate;
+  }
   return entries;
 };
 
@@ -7573,6 +7582,9 @@ const se_UpdateStackInput = (input: UpdateStackInput, context: __SerdeContext): 
   }
   if (input.ClientRequestToken != null) {
     entries["ClientRequestToken"] = input.ClientRequestToken;
+  }
+  if (input.RetainExceptOnCreate != null) {
+    entries["RetainExceptOnCreate"] = input.RetainExceptOnCreate;
   }
   return entries;
 };
@@ -9927,6 +9939,9 @@ const de_Stack = (output: any, context: __SerdeContext): Stack => {
   }
   if (output["DriftInformation"] !== undefined) {
     contents.DriftInformation = de_StackDriftInformation(output["DriftInformation"], context);
+  }
+  if (output["RetainExceptOnCreate"] !== undefined) {
+    contents.RetainExceptOnCreate = __parseBoolean(output["RetainExceptOnCreate"]);
   }
   return contents;
 };

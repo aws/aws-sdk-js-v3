@@ -55,6 +55,7 @@ export interface ExecuteChangeSetCommandOutput extends ExecuteChangeSetOutput, _
  *   StackName: "STRING_VALUE",
  *   ClientRequestToken: "STRING_VALUE",
  *   DisableRollback: true || false,
+ *   RetainExceptOnCreate: true || false,
  * };
  * const command = new ExecuteChangeSetCommand(input);
  * const response = await client.send(command);

@@ -331,6 +331,9 @@ export interface ActivateTypeOutput {
 export class CFNRegistryException extends __BaseException {
   readonly name: "CFNRegistryException" = "CFNRegistryException";
   readonly $fault: "client" = "client";
+  /**
+   * <p>An message with details about the error that occurred.</p>
+   */
   Message?: string;
   /**
    * @internal
@@ -353,6 +356,9 @@ export class CFNRegistryException extends __BaseException {
 export class TypeNotFoundException extends __BaseException {
   readonly name: "TypeNotFoundException" = "TypeNotFoundException";
   readonly $fault: "client" = "client";
+  /**
+   * <p>An message with details about the error that occurred.</p>
+   */
   Message?: string;
   /**
    * @internal
@@ -556,6 +562,9 @@ export interface BatchDescribeTypeConfigurationsOutput {
 export class TypeConfigurationNotFoundException extends __BaseException {
   readonly name: "TypeConfigurationNotFoundException" = "TypeConfigurationNotFoundException";
   readonly $fault: "client" = "client";
+  /**
+   * <p>An message with details about the error that occurred.</p>
+   */
   Message?: string;
   /**
    * @internal
@@ -2134,6 +2143,15 @@ export interface CreateStackInput {
    *    stack.</p>
    */
   EnableTerminationProtection?: boolean;
+
+  /**
+   * <p>This deletion policy deletes newly created resources, but retains existing resources, when a stack operation is
+   *     rolled back. This ensures new, empty, and unused resources are deleted, while critical resources and their data are
+   *     retained. <code>RetainExceptOnCreate</code> can be specified for any resource that supports the
+   *     <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-attribute-deletionpolicy.html">
+   *     DeletionPolicy</a> attribute.</p>
+   */
+  RetainExceptOnCreate?: boolean;
 }
 
 /**
@@ -4879,6 +4897,15 @@ export interface Stack {
    *    information, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-stack-drift.html">Detecting Unregulated Configuration Changes to Stacks and Resources</a>.</p>
    */
   DriftInformation?: StackDriftInformation;
+
+  /**
+   * <p>This deletion policy deletes newly created resources, but retains existing resources, when a stack operation is
+   *    rolled back. This ensures new, empty, and unused resources are deleted, while critical resources and their data are
+   *    retained. <code>RetainExceptOnCreate</code> can be specified for any resource that supports the
+   *    <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-attribute-deletionpolicy.html">
+   *    DeletionPolicy</a> attribute.</p>
+   */
+  RetainExceptOnCreate?: boolean;
 }
 
 /**
@@ -6090,6 +6117,15 @@ export interface ExecuteChangeSetInput {
    *          </p>
    */
   DisableRollback?: boolean;
+
+  /**
+   * <p>This deletion policy deletes newly created resources, but retains existing resources, when a stack operation is
+   *     rolled back. This ensures new, empty, and unused resources are deleted, while critical resources and their data are
+   *     retained. <code>RetainExceptOnCreate</code> can be specified for any resource that supports the
+   *     <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-attribute-deletionpolicy.html">
+   *     DeletionPolicy</a> attribute.</p>
+   */
+  RetainExceptOnCreate?: boolean;
 }
 
 /**
@@ -8631,6 +8667,15 @@ export interface RollbackStackInput {
    * <p>A unique identifier for this <code>RollbackStack</code> request.</p>
    */
   ClientRequestToken?: string;
+
+  /**
+   * <p>This deletion policy deletes newly created resources, but retains existing resources, when a stack operation is
+   *     rolled back. This ensures new, empty, and unused resources are deleted, while critical resources and their data are
+   *     retained. <code>RetainExceptOnCreate</code> can be specified for any resource that supports the
+   *     <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-attribute-deletionpolicy.html">
+   *     DeletionPolicy</a> attribute.</p>
+   */
+  RetainExceptOnCreate?: boolean;
 }
 
 /**
@@ -9148,6 +9193,15 @@ export interface UpdateStackInput {
    *     <code>Console-CreateStack-7f59c3cf-00d2-40c7-b2ff-e75db0987002</code>.</p>
    */
   ClientRequestToken?: string;
+
+  /**
+   * <p>This deletion policy deletes newly created resources, but retains existing resources, when a stack operation is
+   *   rolled back. This ensures new, empty, and unused resources are deleted, while critical resources and their data are
+   *   retained. <code>RetainExceptOnCreate</code> can be specified for any resource that supports the
+   *   <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-attribute-deletionpolicy.html">
+   *   DeletionPolicy</a> attribute.</p>
+   */
+  RetainExceptOnCreate?: boolean;
 }
 
 /**

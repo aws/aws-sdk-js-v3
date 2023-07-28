@@ -112,6 +112,7 @@ export interface DescribeStacksCommandOutput extends DescribeStacksOutput, __Met
  * //         StackDriftStatus: "DRIFTED" || "IN_SYNC" || "UNKNOWN" || "NOT_CHECKED", // required
  * //         LastCheckTimestamp: new Date("TIMESTAMP"),
  * //       },
+ * //       RetainExceptOnCreate: true || false,
  * //     },
  * //   ],
  * //   NextToken: "STRING_VALUE",

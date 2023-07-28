@@ -88,6 +88,7 @@ export interface CreateStackCommandOutput extends CreateStackOutput, __MetadataB
  *   ],
  *   ClientRequestToken: "STRING_VALUE",
  *   EnableTerminationProtection: true || false,
+ *   RetainExceptOnCreate: true || false,
  * };
  * const command = new CreateStackCommand(input);
  * const response = await client.send(command);
