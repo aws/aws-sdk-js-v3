@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.380.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.379.1...v3.380.0) (2023-07-28)
+
+
+### Features
+
+* **client-cloudformation:** This SDK release is for the feature launch of AWS CloudFormation RetainExceptOnCreate. It adds a new parameter retainExceptOnCreate in the following APIs: CreateStack, UpdateStack, RollbackStack, ExecuteChangeSet. ([b65b959](https://github.com/aws/aws-sdk-js-v3/commit/b65b959f3622511c0fce5f4b8238178cbd845820))
+
+
+
+
+
 ## [3.379.1](https://github.com/aws/aws-sdk-js-v3/compare/v3.379.0...v3.379.1) (2023-07-28)
 
 **Note:** Version bump only for package @aws-sdk/client-cloudformation

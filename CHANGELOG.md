@@ -3,6 +3,23 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.380.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.379.1...v3.380.0) (2023-07-28)
+
+
+### Features
+
+* **client-application-insights:** This release enable customer to add/remove/update more than one workload for a component ([ff78dcd](https://github.com/aws/aws-sdk-js-v3/commit/ff78dcda8b33556d2a4e2dd9e05f5300dad59892))
+* **client-cloudformation:** This SDK release is for the feature launch of AWS CloudFormation RetainExceptOnCreate. It adds a new parameter retainExceptOnCreate in the following APIs: CreateStack, UpdateStack, RollbackStack, ExecuteChangeSet. ([b65b959](https://github.com/aws/aws-sdk-js-v3/commit/b65b959f3622511c0fce5f4b8238178cbd845820))
+* **client-cloudfront:** Add a new JavaScript runtime version for CloudFront Functions. ([f0fedc3](https://github.com/aws/aws-sdk-js-v3/commit/f0fedc3f88684be809062ea08b6f330d4b5a5f97))
+* **client-connect:** This release adds support for new number types. ([906b80e](https://github.com/aws/aws-sdk-js-v3/commit/906b80e8bf034f4bddfe52311945711ada4054bc))
+* **client-kafka:** Amazon MSK has introduced new versions of ListClusterOperations and DescribeClusterOperation APIs. These v2 APIs provide information and insights into the ongoing operations of both MSK Provisioned and MSK Serverless clusters. ([57e3fc5](https://github.com/aws/aws-sdk-js-v3/commit/57e3fc59a13a1983c2948c0c7f3d6dcc8fb289d1))
+* **client-pinpoint:** Added support for sending push notifications using the FCM v1 API with json credentials. Amazon Pinpoint customers can now deliver messages to Android devices using both FCM v1 API and the legacy FCM/GCM API ([8ac0a18](https://github.com/aws/aws-sdk-js-v3/commit/8ac0a181208ad5d4b1811f83c232068718e3a28b))
+* **clients:** update client endpoints as of 2023-07-28 ([30acd96](https://github.com/aws/aws-sdk-js-v3/commit/30acd96458ac848238d437db933838fdd33e5025))
+
+
+
+
+
 ## [3.379.1](https://github.com/aws/aws-sdk-js-v3/compare/v3.379.0...v3.379.1) (2023-07-28)
 
 **Note:** Version bump only for package aws-sdk-js-v3

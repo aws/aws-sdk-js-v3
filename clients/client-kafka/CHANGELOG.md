@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.380.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.379.1...v3.380.0) (2023-07-28)
+
+
+### Features
+
+* **client-kafka:** Amazon MSK has introduced new versions of ListClusterOperations and DescribeClusterOperation APIs. These v2 APIs provide information and insights into the ongoing operations of both MSK Provisioned and MSK Serverless clusters. ([57e3fc5](https://github.com/aws/aws-sdk-js-v3/commit/57e3fc59a13a1983c2948c0c7f3d6dcc8fb289d1))
+
+
+
+
+
 ## [3.379.1](https://github.com/aws/aws-sdk-js-v3/compare/v3.379.0...v3.379.1) (2023-07-28)
 
 **Note:** Version bump only for package @aws-sdk/client-kafka

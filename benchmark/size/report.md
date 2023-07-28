@@ -2,10 +2,10 @@
 | :------ | :------ | :----------- | :------ | :----- | :------- |
 |@aws-sdk/abort-controller|3.370.0|14.3 KB|✅(5.77.0)|✅(3.20.2)|✅(0.17.15)|
 |@aws-sdk/client-app-mesh|3.378.0|1.1 MB|✅(5.88.2)|✅(3.26.3)|✅(0.18.15)|
-|@aws-sdk/client-application-insights|3.378.0|544.5 KB|✅(5.88.2)|✅(3.26.3)|✅(0.18.15)|
+|@aws-sdk/client-application-insights|3.379.1|651.4 KB|✅(5.88.2)|✅(3.26.3)|✅(0.18.15)|
 |@aws-sdk/client-athena|3.378.0|1.2 MB|✅(5.88.2)|✅(3.26.3)|✅(0.18.15)|
 |@aws-sdk/client-auto-scaling|3.379.0|1.8 MB|✅(5.88.2)|✅(3.26.3)|✅(0.18.15)|
-|@aws-sdk/client-cloudformation|3.378.0|1.9 MB|✅(5.88.2)|✅(3.26.3)|✅(0.18.15)|
+|@aws-sdk/client-cloudformation|3.379.1|1.9 MB|✅(5.88.2)|✅(3.26.3)|✅(0.18.15)|
 |@aws-sdk/client-cloudhsm-v2|3.378.0|356.6 KB|✅(5.88.2)|✅(3.26.3)|✅(0.18.15)|
 |@aws-sdk/client-cloudwatch|3.378.0|1 MB|✅(5.88.2)|✅(3.26.3)|✅(0.18.15)|
 |@aws-sdk/client-cloudwatch-logs|3.378.0|958.2 KB|✅(5.88.2)|✅(3.26.3)|✅(0.18.15)|
@@ -27,7 +27,7 @@
 |@aws-sdk/client-kms|3.378.0|1.6 MB|✅(5.88.2)|✅(3.26.3)|✅(0.18.15)|
 |@aws-sdk/client-lambda|3.378.0|1.6 MB|✅(5.88.2)|✅(3.26.3)|✅(0.18.15)|
 |@aws-sdk/client-opsworks|3.378.0|1.3 MB|✅(5.88.2)|✅(3.26.3)|✅(0.18.15)|
-|@aws-sdk/client-pinpoint|3.378.0|2.9 MB|✅(5.88.2)|✅(3.26.3)|✅(0.18.15)|
+|@aws-sdk/client-pinpoint|3.379.1|2.9 MB|✅(5.88.2)|✅(3.26.3)|✅(0.18.15)|
 |@aws-sdk/client-resource-groups-tagging-api|3.378.0|264.1 KB|✅(5.88.2)|✅(3.26.3)|✅(0.18.15)|
 |@aws-sdk/client-s3|3.378.0|2.8 MB|✅(5.88.2)|✅(3.26.3)|✅(0.18.15)|
 |@aws-sdk/client-ses|3.378.0|1.5 MB|✅(5.88.2)|✅(3.26.3)|✅(0.18.15)|
