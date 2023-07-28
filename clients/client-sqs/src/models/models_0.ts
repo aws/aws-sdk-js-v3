@@ -1391,8 +1391,8 @@ export interface ListQueuesResult {
   NextToken?: string;
 
   /**
-   * <p>A list of queue URLs, up to 1,000 entries, or the value of <code>MaxResults</code> that you sent in
-   *             the request.</p>
+   * <p>A list of queue URLs, up to 1,000 entries, or the value of <code>MaxResults</code>
+   *             that you sent in the request.</p>
    */
   QueueUrls?: string[];
 }
@@ -2644,7 +2644,9 @@ export interface SetQueueAttributesRequest {
 export interface StartMessageMoveTaskRequest {
   /**
    * <p>The ARN of the queue that contains the messages to be moved to another queue.
-   *             Currently, only dead-letter queue (DLQ) ARNs are accepted.</p>
+   *             Currently, only ARNs of dead-letter queues (DLQs) whose sources are other Amazon SQS queues
+   *             are accepted. DLQs whose sources are non-SQS queues, such as Lambda or Amazon SNS topics, are
+   *             not currently supported.</p>
    */
   SourceArn: string | undefined;
 

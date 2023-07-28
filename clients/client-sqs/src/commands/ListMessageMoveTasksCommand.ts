@@ -38,6 +38,23 @@ export interface ListMessageMoveTasksCommandOutput extends ListMessageMoveTasksR
  * @public
  * <p>Gets the most recent message movement tasks (up to 10) under a specific source
  *             queue.</p>
+ *          <note>
+ *             <ul>
+ *                <li>
+ *                   <p>This action is currently limited to supporting message redrive from <a href="https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-dead-letter-queues.html">dead-letter queues (DLQs)</a> only. In this context, the source
+ *                         queue is the dead-letter queue (DLQ), while the destination queue can be the
+ *                         original source queue (from which the messages were driven to the
+ *                         dead-letter-queue), or a custom destination queue. </p>
+ *                </li>
+ *                <li>
+ *                   <p>Currently, only standard queues are supported.</p>
+ *                </li>
+ *                <li>
+ *                   <p>Only one active message movement task is supported per queue at any given
+ *                         time.</p>
+ *                </li>
+ *             </ul>
+ *          </note>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

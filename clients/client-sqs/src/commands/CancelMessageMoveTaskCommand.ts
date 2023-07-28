@@ -36,17 +36,24 @@ export interface CancelMessageMoveTaskCommandOutput extends CancelMessageMoveTas
 
 /**
  * @public
- * <p>Cancels a specified message movement task.</p>
+ * <p>Cancels a specified message movement task. A message movement can only be cancelled
+ *             when the current status is RUNNING. Cancelling a message movement task does not revert
+ *             the messages that have already been moved. It can only stop the messages that have not
+ *             been moved yet.</p>
  *          <note>
  *             <ul>
  *                <li>
- *                   <p>A message movement can only be cancelled when the current status is
- *                         RUNNING.</p>
+ *                   <p>This action is currently limited to supporting message redrive from <a href="https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-dead-letter-queues.html">dead-letter queues (DLQs)</a> only. In this context, the source
+ *                         queue is the dead-letter queue (DLQ), while the destination queue can be the
+ *                         original source queue (from which the messages were driven to the
+ *                         dead-letter-queue), or a custom destination queue. </p>
  *                </li>
  *                <li>
- *                   <p>Cancelling a message movement task does not revert the messages that have
- *                         already been moved. It can only stop the messages that have not been moved
- *                         yet.</p>
+ *                   <p>Currently, only standard queues are supported.</p>
+ *                </li>
+ *                <li>
+ *                   <p>Only one active message movement task is supported per queue at any given
+ *                         time.</p>
  *                </li>
  *             </ul>
  *          </note>

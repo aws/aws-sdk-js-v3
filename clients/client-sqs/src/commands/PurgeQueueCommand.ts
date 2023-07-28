@@ -36,8 +36,8 @@ export interface PurgeQueueCommandOutput extends __MetadataBearer {}
 
 /**
  * @public
- * <p>Deletes the messages in a queue specified by the <code>QueueURL</code>
- *             parameter.</p>
+ * <p>Deletes available messages in a queue (including in-flight messages) specified by the
+ *                 <code>QueueURL</code> parameter.</p>
  *          <important>
  *             <p>When you use the <code>PurgeQueue</code> action, you can't retrieve any messages
  *                 deleted from a queue.</p>

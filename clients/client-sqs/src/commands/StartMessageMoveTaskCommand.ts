@@ -41,14 +41,20 @@ export interface StartMessageMoveTaskCommandOutput extends StartMessageMoveTaskR
  *          <note>
  *             <ul>
  *                <li>
- *                   <p>This action is currently limited to supporting message redrive from
- *                         dead-letter queues (DLQs) only. In this context, the source queue is the
- *                         dead-letter queue (DLQ), while the destination queue can be the original
- *                         source queue (from which the messages were driven to the dead-letter-queue),
- *                         or a custom destination queue. </p>
+ *                   <p>This action is currently limited to supporting message redrive from queues
+ *                         that are configured as <a href="https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-dead-letter-queues.html">dead-letter queues (DLQs)</a> of other Amazon SQS queues only. Non-SQS
+ *                         queue sources of dead-letter queues, such as Lambda or Amazon SNS topics, are
+ *                         currently not supported.</p>
  *                </li>
  *                <li>
- *                   <p>Currently, only standard queues are supported.</p>
+ *                   <p>In dead-letter queues redrive context, the
+ *                             <code>StartMessageMoveTask</code> the source queue is the DLQ, while the
+ *                         destination queue can be the original source queue (from which the messages
+ *                         were driven to the dead-letter-queue), or a custom destination queue.</p>
+ *                </li>
+ *                <li>
+ *                   <p>Currently, only standard queues support redrive. FIFO queues don't support
+ *                         redrive.</p>
  *                </li>
  *                <li>
  *                   <p>Only one active message movement task is supported per queue at any given
