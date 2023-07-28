@@ -5293,7 +5293,11 @@ export interface PhoneNumberStatus {
  */
 export const PhoneNumberType = {
   DID: "DID",
+  SHARED: "SHARED",
+  THIRD_PARTY_DID: "THIRD_PARTY_DID",
+  THIRD_PARTY_TF: "THIRD_PARTY_TF",
   TOLL_FREE: "TOLL_FREE",
+  UIFN: "UIFN",
 } as const;
 
 /**
