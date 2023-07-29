@@ -89,7 +89,7 @@ describe("partition", () => {
   });
 
   it("should allow setting a custom partitions file", async () => {
-    const copy = JSON.parse(JSON.stringify(partitions));
+    const copy = structuredClone(partitions);
     setPartitionInfo(copy);
     const testRegion = "us-test-135";
     copy.partitions[0].regions[testRegion] = {

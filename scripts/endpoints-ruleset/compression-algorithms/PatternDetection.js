@@ -9,7 +9,7 @@ module.exports = class PatternDetection extends CompressionAlgorithm {
     /**
      * Copied object that will be modified with compression instructions.
      */
-    this.cloneData = JSON.parse(JSON.stringify(data));
+    this.cloneData = structuredClone(data);
     /**
      * Variable ID to code block string.
      * @type Record<number, string>
