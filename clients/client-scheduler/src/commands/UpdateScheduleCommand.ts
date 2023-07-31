@@ -142,6 +142,7 @@ export interface UpdateScheduleCommandOutput extends UpdateScheduleOutput, __Met
  *     MaximumWindowInMinutes: Number("int"),
  *   },
  *   ClientToken: "STRING_VALUE",
+ *   ActionAfterCompletion: "STRING_VALUE",
  * };
  * const command = new UpdateScheduleCommand(input);
  * const response = await client.send(command);

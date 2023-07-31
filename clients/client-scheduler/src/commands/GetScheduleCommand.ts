@@ -142,6 +142,7 @@ export interface GetScheduleCommandOutput extends GetScheduleOutput, __MetadataB
  * //     Mode: "STRING_VALUE", // required
  * //     MaximumWindowInMinutes: Number("int"),
  * //   },
+ * //   ActionAfterCompletion: "STRING_VALUE",
  * // };
  *
  * ```

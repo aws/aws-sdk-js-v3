@@ -87,6 +87,7 @@ export const se_CreateScheduleCommand = async (
   let body: any;
   body = JSON.stringify(
     take(input, {
+      ActionAfterCompletion: [],
       ClientToken: [true, (_) => _ ?? generateIdempotencyToken()],
       Description: [],
       EndDate: (_) => Math.round(_.getTime() / 1000),
@@ -404,6 +405,7 @@ export const se_UpdateScheduleCommand = async (
   let body: any;
   body = JSON.stringify(
     take(input, {
+      ActionAfterCompletion: [],
       ClientToken: [true, (_) => _ ?? generateIdempotencyToken()],
       Description: [],
       EndDate: (_) => Math.round(_.getTime() / 1000),
@@ -674,6 +676,7 @@ export const de_GetScheduleCommand = async (
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   const doc = take(data, {
+    ActionAfterCompletion: __expectString,
     Arn: __expectString,
     CreationDate: (_) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
     Description: __expectString,

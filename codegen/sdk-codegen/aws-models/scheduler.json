@@ -40,7 +40,7 @@
           "parameters": {
             "Region": {
               "builtIn": "AWS::Region",
-              "required": true,
+              "required": false,
               "documentation": "The AWS region used to dispatch the request.",
               "type": "String"
             },
@@ -69,15 +69,67 @@
             {
               "conditions": [
                 {
-                  "fn": "aws.partition",
+                  "fn": "isSet",
                   "argv": [
                     {
-                      "ref": "Region"
+                      "ref": "Endpoint"
                     }
-                  ],
-                  "assign": "PartitionResult"
+                  ]
                 }
               ],
+              "type": "tree",
+              "rules": [
+                {
+                  "conditions": [
+                    {
+                      "fn": "booleanEquals",
+                      "argv": [
+                        {
+                          "ref": "UseFIPS"
+                        },
+                        true
+                      ]
+                    }
+                  ],
+                  "error": "Invalid Configuration: FIPS and custom endpoint are not supported",
+                  "type": "error"
+                },
+                {
+                  "conditions": [],
+                  "type": "tree",
+                  "rules": [
+                    {
+                      "conditions": [
+                        {
+                          "fn": "booleanEquals",
+                          "argv": [
+                            {
+                              "ref": "UseDualStack"
+                            },
+                            true
+                          ]
+                        }
+                      ],
+                      "error": "Invalid Configuration: Dualstack and custom endpoint are not supported",
+                      "type": "error"
+                    },
+                    {
+                      "conditions": [],
+                      "endpoint": {
+                        "url": {
+                          "ref": "Endpoint"
+                        },
+                        "properties": {},
+                        "headers": {}
+                      },
+                      "type": "endpoint"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "conditions": [],
               "type": "tree",
               "rules": [
                 {
@@ -86,7 +138,7 @@
                       "fn": "isSet",
                       "argv": [
                         {
-                          "ref": "Endpoint"
+                          "ref": "Region"
                         }
                       ]
                     }
@@ -96,22 +148,157 @@
                     {
                       "conditions": [
                         {
-                          "fn": "booleanEquals",
+                          "fn": "aws.partition",
                           "argv": [
                             {
-                              "ref": "UseFIPS"
-                            },
-                            true
-                          ]
+                              "ref": "Region"
+                            }
+                          ],
+                          "assign": "PartitionResult"
                         }
                       ],
-                      "error": "Invalid Configuration: FIPS and custom endpoint are not supported",
-                      "type": "error"
-                    },
-                    {
-                      "conditions": [],
                       "type": "tree",
                       "rules": [
+                        {
+                          "conditions": [
+                            {
+                              "fn": "booleanEquals",
+                              "argv": [
+                                {
+                                  "ref": "UseFIPS"
+                                },
+                                true
+                              ]
+                            },
+                            {
+                              "fn": "booleanEquals",
+                              "argv": [
+                                {
+                                  "ref": "UseDualStack"
+                                },
+                                true
+                              ]
+                            }
+                          ],
+                          "type": "tree",
+                          "rules": [
+                            {
+                              "conditions": [
+                                {
+                                  "fn": "booleanEquals",
+                                  "argv": [
+                                    true,
+                                    {
+                                      "fn": "getAttr",
+                                      "argv": [
+                                        {
+                                          "ref": "PartitionResult"
+                                        },
+                                        "supportsFIPS"
+                                      ]
+                                    }
+                                  ]
+                                },
+                                {
+                                  "fn": "booleanEquals",
+                                  "argv": [
+                                    true,
+                                    {
+                                      "fn": "getAttr",
+                                      "argv": [
+                                        {
+                                          "ref": "PartitionResult"
+                                        },
+                                        "supportsDualStack"
+                                      ]
+                                    }
+                                  ]
+                                }
+                              ],
+                              "type": "tree",
+                              "rules": [
+                                {
+                                  "conditions": [],
+                                  "type": "tree",
+                                  "rules": [
+                                    {
+                                      "conditions": [],
+                                      "endpoint": {
+                                        "url": "https://scheduler-fips.{Region}.{PartitionResult#dualStackDnsSuffix}",
+                                        "properties": {},
+                                        "headers": {}
+                                      },
+                                      "type": "endpoint"
+                                    }
+                                  ]
+                                }
+                              ]
+                            },
+                            {
+                              "conditions": [],
+                              "error": "FIPS and DualStack are enabled, but this partition does not support one or both",
+                              "type": "error"
+                            }
+                          ]
+                        },
+                        {
+                          "conditions": [
+                            {
+                              "fn": "booleanEquals",
+                              "argv": [
+                                {
+                                  "ref": "UseFIPS"
+                                },
+                                true
+                              ]
+                            }
+                          ],
+                          "type": "tree",
+                          "rules": [
+                            {
+                              "conditions": [
+                                {
+                                  "fn": "booleanEquals",
+                                  "argv": [
+                                    true,
+                                    {
+                                      "fn": "getAttr",
+                                      "argv": [
+                                        {
+                                          "ref": "PartitionResult"
+                                        },
+                                        "supportsFIPS"
+                                      ]
+                                    }
+                                  ]
+                                }
+                              ],
+                              "type": "tree",
+                              "rules": [
+                                {
+                                  "conditions": [],
+                                  "type": "tree",
+                                  "rules": [
+                                    {
+                                      "conditions": [],
+                                      "endpoint": {
+                                        "url": "https://scheduler-fips.{Region}.{PartitionResult#dnsSuffix}",
+                                        "properties": {},
+                                        "headers": {}
+                                      },
+                                      "type": "endpoint"
+                                    }
+                                  ]
+                                }
+                              ]
+                            },
+                            {
+                              "conditions": [],
+                              "error": "FIPS is enabled but this partition does not support FIPS",
+                              "type": "error"
+                            }
+                          ]
+                        },
                         {
                           "conditions": [
                             {
@@ -124,212 +311,75 @@
                               ]
                             }
                           ],
-                          "error": "Invalid Configuration: Dualstack and custom endpoint are not supported",
-                          "type": "error"
-                        },
-                        {
-                          "conditions": [],
-                          "endpoint": {
-                            "url": {
-                              "ref": "Endpoint"
+                          "type": "tree",
+                          "rules": [
+                            {
+                              "conditions": [
+                                {
+                                  "fn": "booleanEquals",
+                                  "argv": [
+                                    true,
+                                    {
+                                      "fn": "getAttr",
+                                      "argv": [
+                                        {
+                                          "ref": "PartitionResult"
+                                        },
+                                        "supportsDualStack"
+                                      ]
+                                    }
+                                  ]
+                                }
+                              ],
+                              "type": "tree",
+                              "rules": [
+                                {
+                                  "conditions": [],
+                                  "type": "tree",
+                                  "rules": [
+                                    {
+                                      "conditions": [],
+                                      "endpoint": {
+                                        "url": "https://scheduler.{Region}.{PartitionResult#dualStackDnsSuffix}",
+                                        "properties": {},
+                                        "headers": {}
+                                      },
+                                      "type": "endpoint"
+                                    }
+                                  ]
+                                }
+                              ]
                             },
-                            "properties": {},
-                            "headers": {}
-                          },
-                          "type": "endpoint"
-                        }
-                      ]
-                    }
-                  ]
-                },
-                {
-                  "conditions": [
-                    {
-                      "fn": "booleanEquals",
-                      "argv": [
-                        {
-                          "ref": "UseFIPS"
-                        },
-                        true
-                      ]
-                    },
-                    {
-                      "fn": "booleanEquals",
-                      "argv": [
-                        {
-                          "ref": "UseDualStack"
-                        },
-                        true
-                      ]
-                    }
-                  ],
-                  "type": "tree",
-                  "rules": [
-                    {
-                      "conditions": [
-                        {
-                          "fn": "booleanEquals",
-                          "argv": [
-                            true,
                             {
-                              "fn": "getAttr",
-                              "argv": [
-                                {
-                                  "ref": "PartitionResult"
-                                },
-                                "supportsFIPS"
-                              ]
+                              "conditions": [],
+                              "error": "DualStack is enabled but this partition does not support DualStack",
+                              "type": "error"
                             }
                           ]
                         },
-                        {
-                          "fn": "booleanEquals",
-                          "argv": [
-                            true,
-                            {
-                              "fn": "getAttr",
-                              "argv": [
-                                {
-                                  "ref": "PartitionResult"
-                                },
-                                "supportsDualStack"
-                              ]
-                            }
-                          ]
-                        }
-                      ],
-                      "type": "tree",
-                      "rules": [
                         {
                           "conditions": [],
-                          "endpoint": {
-                            "url": "https://scheduler-fips.{Region}.{PartitionResult#dualStackDnsSuffix}",
-                            "properties": {},
-                            "headers": {}
-                          },
-                          "type": "endpoint"
-                        }
-                      ]
-                    },
-                    {
-                      "conditions": [],
-                      "error": "FIPS and DualStack are enabled, but this partition does not support one or both",
-                      "type": "error"
-                    }
-                  ]
-                },
-                {
-                  "conditions": [
-                    {
-                      "fn": "booleanEquals",
-                      "argv": [
-                        {
-                          "ref": "UseFIPS"
-                        },
-                        true
-                      ]
-                    }
-                  ],
-                  "type": "tree",
-                  "rules": [
-                    {
-                      "conditions": [
-                        {
-                          "fn": "booleanEquals",
-                          "argv": [
-                            true,
+                          "type": "tree",
+                          "rules": [
                             {
-                              "fn": "getAttr",
-                              "argv": [
-                                {
-                                  "ref": "PartitionResult"
-                                },
-                                "supportsFIPS"
-                              ]
+                              "conditions": [],
+                              "endpoint": {
+                                "url": "https://scheduler.{Region}.{PartitionResult#dnsSuffix}",
+                                "properties": {},
+                                "headers": {}
+                              },
+                              "type": "endpoint"
                             }
                           ]
                         }
-                      ],
-                      "type": "tree",
-                      "rules": [
-                        {
-                          "conditions": [],
-                          "endpoint": {
-                            "url": "https://scheduler-fips.{Region}.{PartitionResult#dnsSuffix}",
-                            "properties": {},
-                            "headers": {}
-                          },
-                          "type": "endpoint"
-                        }
                       ]
-                    },
-                    {
-                      "conditions": [],
-                      "error": "FIPS is enabled but this partition does not support FIPS",
-                      "type": "error"
-                    }
-                  ]
-                },
-                {
-                  "conditions": [
-                    {
-                      "fn": "booleanEquals",
-                      "argv": [
-                        {
-                          "ref": "UseDualStack"
-                        },
-                        true
-                      ]
-                    }
-                  ],
-                  "type": "tree",
-                  "rules": [
-                    {
-                      "conditions": [
-                        {
-                          "fn": "booleanEquals",
-                          "argv": [
-                            true,
-                            {
-                              "fn": "getAttr",
-                              "argv": [
-                                {
-                                  "ref": "PartitionResult"
-                                },
-                                "supportsDualStack"
-                              ]
-                            }
-                          ]
-                        }
-                      ],
-                      "type": "tree",
-                      "rules": [
-                        {
-                          "conditions": [],
-                          "endpoint": {
-                            "url": "https://scheduler.{Region}.{PartitionResult#dualStackDnsSuffix}",
-                            "properties": {},
-                            "headers": {}
-                          },
-                          "type": "endpoint"
-                        }
-                      ]
-                    },
-                    {
-                      "conditions": [],
-                      "error": "DualStack is enabled but this partition does not support DualStack",
-                      "type": "error"
                     }
                   ]
                 },
                 {
                   "conditions": [],
-                  "endpoint": {
-                    "url": "https://scheduler.{Region}.{PartitionResult#dnsSuffix}",
-                    "properties": {},
-                    "headers": {}
-                  },
-                  "type": "endpoint"
+                  "error": "Invalid Configuration: Missing Region",
+                  "type": "error"
                 }
               ]
             }
@@ -632,6 +682,21 @@
         }
       }
     },
+    "com.amazonaws.scheduler#ActionAfterCompletion": {
+      "type": "string",
+      "traits": {
+        "smithy.api#enum": [
+          {
+            "value": "NONE",
+            "name": "NONE"
+          },
+          {
+            "value": "DELETE",
+            "name": "DELETE"
+          }
+        ]
+      }
+    },
     "com.amazonaws.scheduler#AssignPublicIp": {
       "type": "string",
       "traits": {
@@ -900,7 +965,7 @@
         "ScheduleExpression": {
           "target": "com.amazonaws.scheduler#ScheduleExpression",
           "traits": {
-            "smithy.api#documentation": "<p>\n  The expression that defines when the schedule runs. The following formats are supported.\n</p>\n         <ul>\n            <li>\n               <p>\n                  <code>at</code> expression - <code>at(yyyy-mm-ddThh:mm:ss)</code>\n               </p>\n            </li>\n            <li>\n               <p>\n                  <code>rate</code> expression - <code>rate(unit value)</code>\n               </p>\n            </li>\n            <li>\n               <p>\n                  <code>cron</code> expression - <code>cron(fields)</code>\n               </p>\n            </li>\n         </ul>\n         <p>\n  You can use <code>at</code> expressions to create one-time schedules that invoke a target once, at the time and in the time zone, that you specify.\n  You can use <code>rate</code> and <code>cron</code> expressions to create recurring schedules. Rate-based schedules are useful when you want to invoke a target\n  at regular intervals, such as every 15 minutes or every five days. Cron-based schedules are useful when you want to invoke a target periodically at a specific time,\n  such as at 8:00 am (UTC+0) every 1st day of the month.\n</p>\n         <p>\n  A <code>cron</code> expression consists of six fields separated by white spaces: <code>(minutes hours day_of_month month day_of_week year)</code>.\n</p>\n         <p>\n  A <code>rate</code> expression consists of a <i>value</i> as a positive integer, and a <i>unit</i> with the following options:\n  <code>minute</code> | <code>minutes</code> | <code>hour</code> | <code>hours</code> | <code>day</code> | <code>days</code>\n         </p>\n         <p>\n  For more information and examples, see <a href=\"https://docs.aws.amazon.com/scheduler/latest/UserGuide/schedule-types.html\">Schedule types on EventBridge Scheduler</a> in the <i>EventBridge Scheduler User Guide</i>.\n</p>",
+            "smithy.api#documentation": "<p>\n  The expression that defines when the schedule runs. The following formats are supported.\n</p>\n         <ul>\n            <li>\n               <p>\n                  <code>at</code> expression - <code>at(yyyy-mm-ddThh:mm:ss)</code>\n               </p>\n            </li>\n            <li>\n               <p>\n                  <code>rate</code> expression - <code>rate(value unit)</code>\n               </p>\n            </li>\n            <li>\n               <p>\n                  <code>cron</code> expression - <code>cron(fields)</code>\n               </p>\n            </li>\n         </ul>\n         <p>\n  You can use <code>at</code> expressions to create one-time schedules that invoke a target once, at the time and in the time zone, that you specify.\n  You can use <code>rate</code> and <code>cron</code> expressions to create recurring schedules. Rate-based schedules are useful when you want to invoke a target\n  at regular intervals, such as every 15 minutes or every five days. Cron-based schedules are useful when you want to invoke a target periodically at a specific time,\n  such as at 8:00 am (UTC+0) every 1st day of the month.\n</p>\n         <p>\n  A <code>cron</code> expression consists of six fields separated by white spaces: <code>(minutes hours day_of_month month day_of_week year)</code>.\n</p>\n         <p>\n  A <code>rate</code> expression consists of a <i>value</i> as a positive integer, and a <i>unit</i> with the following options:\n  <code>minute</code> | <code>minutes</code> | <code>hour</code> | <code>hours</code> | <code>day</code> | <code>days</code>\n         </p>\n         <p>\n  For more information and examples, see <a href=\"https://docs.aws.amazon.com/scheduler/latest/UserGuide/schedule-types.html\">Schedule types on EventBridge Scheduler</a> in the <i>EventBridge Scheduler User Guide</i>.\n</p>",
             "smithy.api#required": {}
           }
         },
@@ -959,6 +1024,12 @@
           "traits": {
             "smithy.api#documentation": "<p>\n  Unique, case-sensitive identifier you provide to ensure the idempotency of the request. If you do not specify a client token,\n  EventBridge Scheduler uses a randomly generated token for the request to ensure idempotency.  \n</p>",
             "smithy.api#idempotencyToken": {}
+          }
+        },
+        "ActionAfterCompletion": {
+          "target": "com.amazonaws.scheduler#ActionAfterCompletion",
+          "traits": {
+            "smithy.api#documentation": "<p>Specifies the action that EventBridge Scheduler applies to the schedule after the schedule completes invoking the target.</p>"
           }
         }
       }
@@ -1455,7 +1526,7 @@
         "ScheduleExpression": {
           "target": "com.amazonaws.scheduler#ScheduleExpression",
           "traits": {
-            "smithy.api#documentation": "<p>\n  The expression that defines when the schedule runs. The following formats are supported.\n</p>\n         <ul>\n            <li>\n               <p>\n                  <code>at</code> expression - <code>at(yyyy-mm-ddThh:mm:ss)</code>\n               </p>\n            </li>\n            <li>\n               <p>\n                  <code>rate</code> expression - <code>rate(unit value)</code>\n               </p>\n            </li>\n            <li>\n               <p>\n                  <code>cron</code> expression - <code>cron(fields)</code>\n               </p>\n            </li>\n         </ul>\n         <p>\n  You can use <code>at</code> expressions to create one-time schedules that invoke a target once, at the time and in the time zone, that you specify.\n  You can use <code>rate</code> and <code>cron</code> expressions to create recurring schedules. Rate-based schedules are useful when you want to invoke a target\n  at regular intervals, such as every 15 minutes or every five days. Cron-based schedules are useful when you want to invoke a target periodically at a specific time,\n  such as at 8:00 am (UTC+0) every 1st day of the month.\n</p>\n         <p>\n  A <code>cron</code> expression consists of six fields separated by white spaces: <code>(minutes hours day_of_month month day_of_week year)</code>.\n</p>\n         <p>\n  A <code>rate</code> expression consists of a <i>value</i> as a positive integer, and a <i>unit</i> with the following options:\n  <code>minute</code> | <code>minutes</code> | <code>hour</code> | <code>hours</code> | <code>day</code> | <code>days</code>\n         </p>\n         <p>\n  For more information and examples, see <a href=\"https://docs.aws.amazon.com/scheduler/latest/UserGuide/schedule-types.html\">Schedule types on EventBridge Scheduler</a> in the <i>EventBridge Scheduler User Guide</i>.\n</p>"
+            "smithy.api#documentation": "<p>\n  The expression that defines when the schedule runs. The following formats are supported.\n</p>\n         <ul>\n            <li>\n               <p>\n                  <code>at</code> expression - <code>at(yyyy-mm-ddThh:mm:ss)</code>\n               </p>\n            </li>\n            <li>\n               <p>\n                  <code>rate</code> expression - <code>rate(value unit)</code>\n               </p>\n            </li>\n            <li>\n               <p>\n                  <code>cron</code> expression - <code>cron(fields)</code>\n               </p>\n            </li>\n         </ul>\n         <p>\n  You can use <code>at</code> expressions to create one-time schedules that invoke a target once, at the time and in the time zone, that you specify.\n  You can use <code>rate</code> and <code>cron</code> expressions to create recurring schedules. Rate-based schedules are useful when you want to invoke a target\n  at regular intervals, such as every 15 minutes or every five days. Cron-based schedules are useful when you want to invoke a target periodically at a specific time,\n  such as at 8:00 am (UTC+0) every 1st day of the month.\n</p>\n         <p>\n  A <code>cron</code> expression consists of six fields separated by white spaces: <code>(minutes hours day_of_month month day_of_week year)</code>.\n</p>\n         <p>\n  A <code>rate</code> expression consists of a <i>value</i> as a positive integer, and a <i>unit</i> with the following options:\n  <code>minute</code> | <code>minutes</code> | <code>hour</code> | <code>hours</code> | <code>day</code> | <code>days</code>\n         </p>\n         <p>\n  For more information and examples, see <a href=\"https://docs.aws.amazon.com/scheduler/latest/UserGuide/schedule-types.html\">Schedule types on EventBridge Scheduler</a> in the <i>EventBridge Scheduler User Guide</i>.\n</p>"
           }
         },
         "StartDate": {
@@ -1520,6 +1591,12 @@
           "target": "com.amazonaws.scheduler#FlexibleTimeWindow",
           "traits": {
             "smithy.api#documentation": "<p>Allows you to configure a time window during which EventBridge Scheduler invokes the schedule.</p>"
+          }
+        },
+        "ActionAfterCompletion": {
+          "target": "com.amazonaws.scheduler#ActionAfterCompletion",
+          "traits": {
+            "smithy.api#documentation": "<p>Indicates the action that EventBridge Scheduler applies to the schedule after the schedule completes invoking the target.</p>"
           }
         }
       }
@@ -2917,7 +2994,7 @@
         "ScheduleExpression": {
           "target": "com.amazonaws.scheduler#ScheduleExpression",
           "traits": {
-            "smithy.api#documentation": "<p>\n  The expression that defines when the schedule runs. The following formats are supported.\n</p>\n         <ul>\n            <li>\n               <p>\n                  <code>at</code> expression - <code>at(yyyy-mm-ddThh:mm:ss)</code>\n               </p>\n            </li>\n            <li>\n               <p>\n                  <code>rate</code> expression - <code>rate(unit value)</code>\n               </p>\n            </li>\n            <li>\n               <p>\n                  <code>cron</code> expression - <code>cron(fields)</code>\n               </p>\n            </li>\n         </ul>\n         <p>\n  You can use <code>at</code> expressions to create one-time schedules that invoke a target once, at the time and in the time zone, that you specify.\n  You can use <code>rate</code> and <code>cron</code> expressions to create recurring schedules. Rate-based schedules are useful when you want to invoke a target\n  at regular intervals, such as every 15 minutes or every five days. Cron-based schedules are useful when you want to invoke a target periodically at a specific time,\n  such as at 8:00 am (UTC+0) every 1st day of the month.\n</p>\n         <p>\n  A <code>cron</code> expression consists of six fields separated by white spaces: <code>(minutes hours day_of_month month day_of_week year)</code>.\n</p>\n         <p>\n  A <code>rate</code> expression consists of a <i>value</i> as a positive integer, and a <i>unit</i> with the following options:\n  <code>minute</code> | <code>minutes</code> | <code>hour</code> | <code>hours</code> | <code>day</code> | <code>days</code>\n         </p>\n         <p>\n  For more information and examples, see <a href=\"https://docs.aws.amazon.com/scheduler/latest/UserGuide/schedule-types.html\">Schedule types on EventBridge Scheduler</a> in the <i>EventBridge Scheduler User Guide</i>.\n</p>",
+            "smithy.api#documentation": "<p>\n  The expression that defines when the schedule runs. The following formats are supported.\n</p>\n         <ul>\n            <li>\n               <p>\n                  <code>at</code> expression - <code>at(yyyy-mm-ddThh:mm:ss)</code>\n               </p>\n            </li>\n            <li>\n               <p>\n                  <code>rate</code> expression - <code>rate(value unit)</code>\n               </p>\n            </li>\n            <li>\n               <p>\n                  <code>cron</code> expression - <code>cron(fields)</code>\n               </p>\n            </li>\n         </ul>\n         <p>\n  You can use <code>at</code> expressions to create one-time schedules that invoke a target once, at the time and in the time zone, that you specify.\n  You can use <code>rate</code> and <code>cron</code> expressions to create recurring schedules. Rate-based schedules are useful when you want to invoke a target\n  at regular intervals, such as every 15 minutes or every five days. Cron-based schedules are useful when you want to invoke a target periodically at a specific time,\n  such as at 8:00 am (UTC+0) every 1st day of the month.\n</p>\n         <p>\n  A <code>cron</code> expression consists of six fields separated by white spaces: <code>(minutes hours day_of_month month day_of_week year)</code>.\n</p>\n         <p>\n  A <code>rate</code> expression consists of a <i>value</i> as a positive integer, and a <i>unit</i> with the following options:\n  <code>minute</code> | <code>minutes</code> | <code>hour</code> | <code>hours</code> | <code>day</code> | <code>days</code>\n         </p>\n         <p>\n  For more information and examples, see <a href=\"https://docs.aws.amazon.com/scheduler/latest/UserGuide/schedule-types.html\">Schedule types on EventBridge Scheduler</a> in the <i>EventBridge Scheduler User Guide</i>.\n</p>",
             "smithy.api#required": {}
           }
         },
@@ -2976,6 +3053,12 @@
           "traits": {
             "smithy.api#documentation": "<p>\n  Unique, case-sensitive identifier you provide to ensure the idempotency of the request. If you do not specify a client token,\n  EventBridge Scheduler uses a randomly generated token for the request to ensure idempotency.  \n</p>",
             "smithy.api#idempotencyToken": {}
+          }
+        },
+        "ActionAfterCompletion": {
+          "target": "com.amazonaws.scheduler#ActionAfterCompletion",
+          "traits": {
+            "smithy.api#documentation": "<p>Specifies the action that EventBridge Scheduler applies to the schedule after the schedule completes invoking the target.</p>"
           }
         }
       }

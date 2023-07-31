@@ -134,6 +134,7 @@ export interface CreateScheduleCommandOutput extends CreateScheduleOutput, __Met
  *     MaximumWindowInMinutes: Number("int"),
  *   },
  *   ClientToken: "STRING_VALUE",
+ *   ActionAfterCompletion: "STRING_VALUE",
  * };
  * const command = new CreateScheduleCommand(input);
  * const response = await client.send(command);

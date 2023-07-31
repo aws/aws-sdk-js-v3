@@ -7,6 +7,20 @@ import { SchedulerServiceException as __BaseException } from "./SchedulerService
  * @public
  * @enum
  */
+export const ActionAfterCompletion = {
+  DELETE: "DELETE",
+  NONE: "NONE",
+} as const;
+
+/**
+ * @public
+ */
+export type ActionAfterCompletion = (typeof ActionAfterCompletion)[keyof typeof ActionAfterCompletion];
+
+/**
+ * @public
+ * @enum
+ */
 export const AssignPublicIp = {
   DISABLED: "DISABLED",
   ENABLED: "ENABLED",
@@ -650,7 +664,7 @@ export interface CreateScheduleInput {
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>rate</code> expression - <code>rate(unit value)</code>
+   *                   <code>rate</code> expression - <code>rate(value unit)</code>
    *                </p>
    *             </li>
    *             <li>
@@ -727,6 +741,11 @@ export interface CreateScheduleInput {
    * </p>
    */
   ClientToken?: string;
+
+  /**
+   * <p>Specifies the action that EventBridge Scheduler applies to the schedule after the schedule completes invoking the target.</p>
+   */
+  ActionAfterCompletion?: ActionAfterCompletion | string;
 }
 
 /**
@@ -835,7 +854,7 @@ export interface GetScheduleOutput {
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>rate</code> expression - <code>rate(unit value)</code>
+   *                   <code>rate</code> expression - <code>rate(value unit)</code>
    *                </p>
    *             </li>
    *             <li>
@@ -914,6 +933,11 @@ export interface GetScheduleOutput {
    * <p>Allows you to configure a time window during which EventBridge Scheduler invokes the schedule.</p>
    */
   FlexibleTimeWindow?: FlexibleTimeWindow;
+
+  /**
+   * <p>Indicates the action that EventBridge Scheduler applies to the schedule after the schedule completes invoking the target.</p>
+   */
+  ActionAfterCompletion?: ActionAfterCompletion | string;
 }
 
 /**
@@ -1040,7 +1064,7 @@ export interface UpdateScheduleInput {
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>rate</code> expression - <code>rate(unit value)</code>
+   *                   <code>rate</code> expression - <code>rate(value unit)</code>
    *                </p>
    *             </li>
    *             <li>
@@ -1117,6 +1141,11 @@ export interface UpdateScheduleInput {
    * </p>
    */
   ClientToken?: string;
+
+  /**
+   * <p>Specifies the action that EventBridge Scheduler applies to the schedule after the schedule completes invoking the target.</p>
+   */
+  ActionAfterCompletion?: ActionAfterCompletion | string;
 }
 
 /**
