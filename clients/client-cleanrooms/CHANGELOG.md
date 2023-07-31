@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.381.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.380.0...v3.381.0) (2023-07-31)
+
+
+### Features
+
+* **client-cleanrooms:** This release introduces custom SQL queries - an expanded set of SQL you can run. This release adds analysis templates, a new resource for storing pre-defined custom SQL queries ahead of time. This release also adds the Custom analysis rule, which lets you approve analysis templates for querying. ([d50fb3f](https://github.com/aws/aws-sdk-js-v3/commit/d50fb3f342aa0267ce8b77f16a17c672eb49a540))
+
+
+
+
+
 ## [3.379.1](https://github.com/aws/aws-sdk-js-v3/compare/v3.379.0...v3.379.1) (2023-07-28)
 
 **Note:** Version bump only for package @aws-sdk/client-cleanrooms

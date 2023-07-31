@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.381.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.380.0...v3.381.0) (2023-07-31)
+
+
+### Features
+
+* **client-amplifyuibuilder:** Amplify Studio releases GraphQL support for codegen job action. ([2c2d3db](https://github.com/aws/aws-sdk-js-v3/commit/2c2d3db135eaa79aefd89a5cf3499beef58b5b85))
+
+
+
+
+
 ## [3.379.1](https://github.com/aws/aws-sdk-js-v3/compare/v3.379.0...v3.379.1) (2023-07-28)
 
 **Note:** Version bump only for package @aws-sdk/client-amplifyuibuilder

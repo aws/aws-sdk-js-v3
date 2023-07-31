@@ -3,6 +3,28 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.381.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.380.0...v3.381.0) (2023-07-31)
+
+
+### Features
+
+* **client-amplifyuibuilder:** Amplify Studio releases GraphQL support for codegen job action. ([2c2d3db](https://github.com/aws/aws-sdk-js-v3/commit/2c2d3db135eaa79aefd89a5cf3499beef58b5b85))
+* **client-auto-scaling:** You can now configure an instance refresh to set its status to 'failed' when it detects that a specified CloudWatch alarm has gone into the ALARM state. You can also choose to roll back the instance refresh automatically when the alarm threshold is met. ([186216f](https://github.com/aws/aws-sdk-js-v3/commit/186216f7e5f2d8e06eb377884088bf7ab56819e3))
+* **client-cleanrooms:** This release introduces custom SQL queries - an expanded set of SQL you can run. This release adds analysis templates, a new resource for storing pre-defined custom SQL queries ahead of time. This release also adds the Custom analysis rule, which lets you approve analysis templates for querying. ([d50fb3f](https://github.com/aws/aws-sdk-js-v3/commit/d50fb3f342aa0267ce8b77f16a17c672eb49a540))
+* **client-codestar-connections:** New integration with the Gitlab provider type. ([49eb24c](https://github.com/aws/aws-sdk-js-v3/commit/49eb24c35be7a9e28c953fc1b61b5be889073233))
+* **client-drs:** Add support for in-aws right sizing ([721c19a](https://github.com/aws/aws-sdk-js-v3/commit/721c19abe94e906f51d1a9cc7bb1b8433bea6fe5))
+* **client-inspector2:** This release adds 1 new API: BatchGetFindingDetails to retrieve enhanced vulnerability intelligence details for findings. ([322a599](https://github.com/aws/aws-sdk-js-v3/commit/322a599107f9fd64dadfe8c881a4d83c79982165))
+* **client-lookoutequipment:** This release includes new import resource, model versioning and resource policy features. ([fc1ba06](https://github.com/aws/aws-sdk-js-v3/commit/fc1ba06e260f3dcc2bbff579e868ebc92fe050a0))
+* **client-omics:** Add CreationType filter for ListReadSets ([88877de](https://github.com/aws/aws-sdk-js-v3/commit/88877de040acc92e5e8572bd4d7e6f4c338ee7e7))
+* **client-rds:** This release adds support for Aurora MySQL local write forwarding, which allows for forwarding of write operations from reader DB instances to the writer DB instance. ([6543b57](https://github.com/aws/aws-sdk-js-v3/commit/6543b576f18cc84523a39b1f82f9abe15f8d05b1))
+* **client-route-53:** Amazon Route 53 now supports the Israel (Tel Aviv) Region (il-central-1) for latency records, geoproximity records, and private DNS for Amazon VPCs in that region. ([cc81a7c](https://github.com/aws/aws-sdk-js-v3/commit/cc81a7c687dd9e41ef83b92888f3c599f826544a))
+* **client-scheduler:** This release introduces automatic deletion of schedules in EventBridge Scheduler. If configured, EventBridge Scheduler automatically deletes a schedule after the schedule has completed its last invocation. ([a1403dd](https://github.com/aws/aws-sdk-js-v3/commit/a1403dd72102be8055c959a8ae7140acf4f81de2))
+* **clients:** update client endpoints as of 2023-07-31 ([fe35f19](https://github.com/aws/aws-sdk-js-v3/commit/fe35f19d02e1ee4fa68374437e1aa21dbca0b5f2))
+
+
+
+
+
 # [3.380.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.379.1...v3.380.0) (2023-07-28)
 
 
