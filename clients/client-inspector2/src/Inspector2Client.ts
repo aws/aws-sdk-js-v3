@@ -59,6 +59,10 @@ import {
   BatchGetCodeSnippetCommandOutput,
 } from "./commands/BatchGetCodeSnippetCommand";
 import {
+  BatchGetFindingDetailsCommandInput,
+  BatchGetFindingDetailsCommandOutput,
+} from "./commands/BatchGetFindingDetailsCommand";
+import {
   BatchGetFreeTrialInfoCommandInput,
   BatchGetFreeTrialInfoCommandOutput,
 } from "./commands/BatchGetFreeTrialInfoCommand";
@@ -183,6 +187,7 @@ export type ServiceInputTypes =
   | AssociateMemberCommandInput
   | BatchGetAccountStatusCommandInput
   | BatchGetCodeSnippetCommandInput
+  | BatchGetFindingDetailsCommandInput
   | BatchGetFreeTrialInfoCommandInput
   | BatchGetMemberEc2DeepInspectionStatusCommandInput
   | BatchUpdateMemberEc2DeepInspectionStatusCommandInput
@@ -233,6 +238,7 @@ export type ServiceOutputTypes =
   | AssociateMemberCommandOutput
   | BatchGetAccountStatusCommandOutput
   | BatchGetCodeSnippetCommandOutput
+  | BatchGetFindingDetailsCommandOutput
   | BatchGetFreeTrialInfoCommandOutput
   | BatchGetMemberEc2DeepInspectionStatusCommandOutput
   | BatchUpdateMemberEc2DeepInspectionStatusCommandOutput

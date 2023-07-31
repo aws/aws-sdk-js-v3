@@ -2363,6 +2363,182 @@ export interface BatchGetCodeSnippetResponse {
 /**
  * @public
  */
+export interface BatchGetFindingDetailsRequest {
+  /**
+   * <p>A list of finding ARNs.</p>
+   */
+  findingArns: string[] | undefined;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const FindingDetailsErrorCode = {
+  ACCESS_DENIED: "ACCESS_DENIED",
+  FINDING_DETAILS_NOT_FOUND: "FINDING_DETAILS_NOT_FOUND",
+  INTERNAL_ERROR: "INTERNAL_ERROR",
+  INVALID_INPUT: "INVALID_INPUT",
+} as const;
+
+/**
+ * @public
+ */
+export type FindingDetailsErrorCode = (typeof FindingDetailsErrorCode)[keyof typeof FindingDetailsErrorCode];
+
+/**
+ * @public
+ * <p>Details about an error encountered when trying to return vulnerability data for a finding.</p>
+ */
+export interface FindingDetailsError {
+  /**
+   * <p>The finding ARN that returned an error.</p>
+   */
+  findingArn: string | undefined;
+
+  /**
+   * <p>The error code.</p>
+   */
+  errorCode: FindingDetailsErrorCode | string | undefined;
+
+  /**
+   * <p>The error message.</p>
+   */
+  errorMessage: string | undefined;
+}
+
+/**
+ * @public
+ * <p>The Cybersecurity and Infrastructure Security Agency (CISA) details for a specific vulnerability.</p>
+ */
+export interface CisaData {
+  /**
+   * <p>The date and time CISA added this vulnerability to their catalogue.</p>
+   */
+  dateAdded?: Date;
+
+  /**
+   * <p>The date and time CISA expects a fix to have been provided vulnerability.</p>
+   */
+  dateDue?: Date;
+
+  /**
+   * <p>The remediation action recommended by CISA for this vulnerability.</p>
+   */
+  action?: string;
+}
+
+/**
+ * @public
+ * <p>Details of the evidence for a vulnerability identified in a finding.</p>
+ */
+export interface Evidence {
+  /**
+   * <p>The evidence rule.</p>
+   */
+  evidenceRule?: string;
+
+  /**
+   * <p>The evidence details.</p>
+   */
+  evidenceDetail?: string;
+
+  /**
+   * <p>The evidence severity.</p>
+   */
+  severity?: string;
+}
+
+/**
+ * @public
+ * <p>Contains information on when this exploit was observed.</p>
+ */
+export interface ExploitObserved {
+  /**
+   * <p>The date an time when the exploit was last seen.</p>
+   */
+  lastSeen?: Date;
+
+  /**
+   * <p>The date an time when the exploit was first seen.</p>
+   */
+  firstSeen?: Date;
+}
+
+/**
+ * @public
+ * <p>Details of the vulnerability identified in a finding.</p>
+ */
+export interface FindingDetail {
+  /**
+   * <p>The finding ARN that the vulnerability details are associated with.</p>
+   */
+  findingArn?: string;
+
+  /**
+   * <p>The Cybersecurity and Infrastructure Security Agency (CISA) details for a specific vulnerability.</p>
+   */
+  cisaData?: CisaData;
+
+  /**
+   * <p>The risk score of the vulnerability.</p>
+   */
+  riskScore?: number;
+
+  /**
+   * <p>Information on the evidence of the vulnerability.</p>
+   */
+  evidences?: Evidence[];
+
+  /**
+   * <p>The MITRE adversary tactics, techniques, or procedures (TTPs) associated with the vulnerability.</p>
+   */
+  ttps?: string[];
+
+  /**
+   * <p>The known malware tools or kits that can exploit the vulnerability.</p>
+   */
+  tools?: string[];
+
+  /**
+   * <p>Contains information on when this exploit was observed.</p>
+   */
+  exploitObserved?: ExploitObserved;
+
+  /**
+   * <p>The reference URLs for the vulnerability data.</p>
+   */
+  referenceUrls?: string[];
+
+  /**
+   * <p>The Common Weakness Enumerations (CWEs) associated with the vulnerability.</p>
+   */
+  cwes?: string[];
+
+  /**
+   * <p>The Exploit Prediction Scoring System (EPSS) score of the vulnerability.</p>
+   */
+  epssScore?: number;
+}
+
+/**
+ * @public
+ */
+export interface BatchGetFindingDetailsResponse {
+  /**
+   * <p>A finding's vulnerability details.</p>
+   */
+  findingDetails?: FindingDetail[];
+
+  /**
+   * <p>Error information for findings that details could not be returned for.</p>
+   */
+  errors?: FindingDetailsError[];
+}
+
+/**
+ * @public
+ */
 export interface BatchGetFreeTrialInfoRequest {
   /**
    * <p>The account IDs to get free trial status for.</p>
@@ -2663,27 +2839,6 @@ export interface CancelSbomExportResponse {
    * <p>The report ID of the canceled SBOM export.</p>
    */
   reportId?: string;
-}
-
-/**
- * @public
- * <p>The Cybersecurity and Infrastructure Security Agency (CISA) details for a specific vulnerability.</p>
- */
-export interface CisaData {
-  /**
-   * <p>The date and time CISA added this vulnerability to their catalogue.</p>
-   */
-  dateAdded?: Date;
-
-  /**
-   * <p>The date and time CISA expects a fix to have been provided vulnerability.</p>
-   */
-  dateDue?: Date;
-
-  /**
-   * <p>The remediation action recommended by CISA for this vulnerability.</p>
-   */
-  action?: string;
 }
 
 /**
@@ -3467,7 +3622,7 @@ export interface FilterCriteria {
   portRange?: PortRangeFilter[];
 
   /**
-   * <p>Details on the ingress source addresses used to filter findings.</p>
+   * <p>Details on network protocol used to filter findings.</p>
    */
   networkProtocol?: StringFilter[];
 
@@ -3663,7 +3818,7 @@ export interface Destination {
   bucketName: string | undefined;
 
   /**
-   * <p>The prefix of the Amazon S3 bucket used to export findings.</p>
+   * <p>The prefix that the findings will be written under.</p>
    */
   keyPrefix?: string;
 
@@ -4359,22 +4514,6 @@ export const ExploitAvailable = {
  * @public
  */
 export type ExploitAvailable = (typeof ExploitAvailable)[keyof typeof ExploitAvailable];
-
-/**
- * @public
- * <p>Contains information on when this exploit was observed.</p>
- */
-export interface ExploitObserved {
-  /**
-   * <p>The date an time when the exploit was last seen.</p>
-   */
-  lastSeen?: Date;
-
-  /**
-   * <p>The date an time when the exploit was first seen.</p>
-   */
-  firstSeen?: Date;
-}
 
 /**
  * @public

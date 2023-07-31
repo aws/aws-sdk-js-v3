@@ -230,6 +230,14 @@ BatchGetCodeSnippet
 </details>
 <details>
 <summary>
+BatchGetFindingDetails
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-inspector2/classes/batchgetfindingdetailscommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-inspector2/interfaces/batchgetfindingdetailscommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-inspector2/interfaces/batchgetfindingdetailscommandoutput.html)
+
+</details>
+<details>
+<summary>
 BatchGetFreeTrialInfo
 </summary>
 

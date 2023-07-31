@@ -5,6 +5,7 @@ import {
   collectBody,
   decorateServiceException as __decorateServiceException,
   expectBoolean as __expectBoolean,
+  expectInt32 as __expectInt32,
   expectLong as __expectLong,
   expectNonNull as __expectNonNull,
   expectNumber as __expectNumber,
@@ -37,6 +38,10 @@ import {
   BatchGetCodeSnippetCommandInput,
   BatchGetCodeSnippetCommandOutput,
 } from "../commands/BatchGetCodeSnippetCommand";
+import {
+  BatchGetFindingDetailsCommandInput,
+  BatchGetFindingDetailsCommandOutput,
+} from "../commands/BatchGetFindingDetailsCommand";
 import {
   BatchGetFreeTrialInfoCommandInput,
   BatchGetFreeTrialInfoCommandOutput,
@@ -183,6 +188,7 @@ import {
   Filter,
   FilterCriteria,
   Finding,
+  FindingDetail,
   FindingTypeAggregation,
   FreeTrialAccountInfo,
   FreeTrialInfo,
@@ -290,6 +296,36 @@ export const se_BatchGetCodeSnippetCommand = async (
     "content-type": "application/json",
   };
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/codesnippet/batchget";
+  let body: any;
+  body = JSON.stringify(
+    take(input, {
+      findingArns: (_) => _json(_),
+    })
+  );
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "POST",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
+/**
+ * serializeAws_restJson1BatchGetFindingDetailsCommand
+ */
+export const se_BatchGetFindingDetailsCommand = async (
+  input: BatchGetFindingDetailsCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  const resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/findings/details/batch/get";
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -1707,6 +1743,63 @@ const de_BatchGetCodeSnippetCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<BatchGetCodeSnippetCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.inspector2#AccessDeniedException":
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
+    case "InternalServerException":
+    case "com.amazonaws.inspector2#InternalServerException":
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
+    case "ThrottlingException":
+    case "com.amazonaws.inspector2#ThrottlingException":
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
+    case "ValidationException":
+    case "com.amazonaws.inspector2#ValidationException":
+      throw await de_ValidationExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
+ * deserializeAws_restJson1BatchGetFindingDetailsCommand
+ */
+export const de_BatchGetFindingDetailsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<BatchGetFindingDetailsCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_BatchGetFindingDetailsCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    errors: _json,
+    findingDetails: (_) => de_FindingDetails(_, context),
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1BatchGetFindingDetailsCommandError
+ */
+const de_BatchGetFindingDetailsCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<BatchGetFindingDetailsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseErrorBody(output.body, context),
@@ -4455,6 +4548,8 @@ const se_FilterCriteria = (input: FilterCriteria, context: __SerdeContext): any 
   });
 };
 
+// se_FindingArnList omitted.
+
 // se_FindingArns omitted.
 
 // se_FindingTypeAggregation omitted.
@@ -4918,6 +5013,10 @@ const de_EpssDetails = (output: any, context: __SerdeContext): EpssDetails => {
   }) as any;
 };
 
+// de_Evidence omitted.
+
+// de_EvidenceList omitted.
+
 /**
  * deserializeAws_restJson1ExploitabilityDetails
  */
@@ -5053,6 +5152,40 @@ const de_Finding = (output: any, context: __SerdeContext): Finding => {
     updatedAt: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
   }) as any;
 };
+
+/**
+ * deserializeAws_restJson1FindingDetail
+ */
+const de_FindingDetail = (output: any, context: __SerdeContext): FindingDetail => {
+  return take(output, {
+    cisaData: (_: any) => de_CisaData(_, context),
+    cwes: _json,
+    epssScore: __limitedParseDouble,
+    evidences: _json,
+    exploitObserved: (_: any) => de_ExploitObserved(_, context),
+    findingArn: __expectString,
+    referenceUrls: _json,
+    riskScore: __expectInt32,
+    tools: _json,
+    ttps: _json,
+  }) as any;
+};
+
+/**
+ * deserializeAws_restJson1FindingDetails
+ */
+const de_FindingDetails = (output: any, context: __SerdeContext): FindingDetail[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      return de_FindingDetail(entry, context);
+    });
+  return retVal;
+};
+
+// de_FindingDetailsError omitted.
+
+// de_FindingDetailsErrorList omitted.
 
 /**
  * deserializeAws_restJson1FindingList
@@ -5376,6 +5509,8 @@ const de_ResourceList = (output: any, context: __SerdeContext): Resource[] => {
 // de_Targets omitted.
 
 // de_TitleAggregationResponse omitted.
+
+// de_Tools omitted.
 
 // de_Ttps omitted.
 

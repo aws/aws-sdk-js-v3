@@ -2,6 +2,7 @@
 export * from "./AssociateMemberCommand";
 export * from "./BatchGetAccountStatusCommand";
 export * from "./BatchGetCodeSnippetCommand";
+export * from "./BatchGetFindingDetailsCommand";
 export * from "./BatchGetFreeTrialInfoCommand";
 export * from "./BatchGetMemberEc2DeepInspectionStatusCommand";
 export * from "./BatchUpdateMemberEc2DeepInspectionStatusCommand";

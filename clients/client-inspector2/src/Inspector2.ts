@@ -18,6 +18,11 @@ import {
   BatchGetCodeSnippetCommandOutput,
 } from "./commands/BatchGetCodeSnippetCommand";
 import {
+  BatchGetFindingDetailsCommand,
+  BatchGetFindingDetailsCommandInput,
+  BatchGetFindingDetailsCommandOutput,
+} from "./commands/BatchGetFindingDetailsCommand";
+import {
   BatchGetFreeTrialInfoCommand,
   BatchGetFreeTrialInfoCommandInput,
   BatchGetFreeTrialInfoCommandOutput,
@@ -209,6 +214,7 @@ const commands = {
   AssociateMemberCommand,
   BatchGetAccountStatusCommand,
   BatchGetCodeSnippetCommand,
+  BatchGetFindingDetailsCommand,
   BatchGetFreeTrialInfoCommand,
   BatchGetMemberEc2DeepInspectionStatusCommand,
   BatchUpdateMemberEc2DeepInspectionStatusCommand,
@@ -300,6 +306,23 @@ export interface Inspector2 {
     args: BatchGetCodeSnippetCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: BatchGetCodeSnippetCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link BatchGetFindingDetailsCommand}
+   */
+  batchGetFindingDetails(
+    args: BatchGetFindingDetailsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<BatchGetFindingDetailsCommandOutput>;
+  batchGetFindingDetails(
+    args: BatchGetFindingDetailsCommandInput,
+    cb: (err: any, data?: BatchGetFindingDetailsCommandOutput) => void
+  ): void;
+  batchGetFindingDetails(
+    args: BatchGetFindingDetailsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: BatchGetFindingDetailsCommandOutput) => void
   ): void;
 
   /**
