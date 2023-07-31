@@ -56,7 +56,7 @@ export interface GetHostCommandOutput extends GetHostOutput, __MetadataBearer {}
  * // { // GetHostOutput
  * //   Name: "STRING_VALUE",
  * //   Status: "STRING_VALUE",
- * //   ProviderType: "STRING_VALUE",
+ * //   ProviderType: "Bitbucket" || "GitHub" || "GitHubEnterpriseServer" || "GitLab",
  * //   ProviderEndpoint: "STRING_VALUE",
  * //   VpcConfiguration: { // VpcConfiguration
  * //     VpcId: "STRING_VALUE", // required

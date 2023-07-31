@@ -11,6 +11,7 @@ export const ProviderType = {
   BITBUCKET: "Bitbucket",
   GITHUB: "GitHub",
   GITHUB_ENTERPRISE_SERVER: "GitHubEnterpriseServer",
+  GITLAB: "GitLab",
 } as const;
 
 /**
@@ -21,7 +22,7 @@ export type ProviderType = (typeof ProviderType)[keyof typeof ProviderType];
 /**
  * @public
  * <p>A tag is a key-value pair that is used to manage the resource.</p>
- *          <p>This tag is available for use by AWS services that support tags.</p>
+ *          <p>This tag is available for use by Amazon Web Services services that support tags.</p>
  */
 export interface Tag {
   /**
@@ -46,8 +47,7 @@ export interface CreateConnectionInput {
   ProviderType?: ProviderType | string;
 
   /**
-   * <p>The name of the connection to be created. The name must be unique in the calling AWS
-   *       account.</p>
+   * <p>The name of the connection to be created.</p>
    */
   ConnectionName: string | undefined;
 
@@ -68,7 +68,7 @@ export interface CreateConnectionInput {
 export interface CreateConnectionOutput {
   /**
    * <p>The Amazon Resource Name (ARN) of the connection to be created. The ARN is used as the
-   *       connection reference when the connection is shared between AWS services.</p>
+   *       connection reference when the connection is shared between Amazon Web Services services.</p>
    *          <note>
    *             <p>The ARN is never reused if the connection is deleted.</p>
    *          </note>
@@ -181,8 +181,7 @@ export interface VpcConfiguration {
  */
 export interface CreateHostInput {
   /**
-   * <p>The name of the host to be created. The name must be unique in the calling AWS
-   *       account.</p>
+   * <p>The name of the host to be created.</p>
    */
   Name: string | undefined;
 
@@ -280,19 +279,19 @@ export type ConnectionStatus = (typeof ConnectionStatus)[keyof typeof Connection
 
 /**
  * @public
- * <p>A resource that is used to connect third-party source providers with services like AWS CodePipeline.</p>
+ * <p>A resource that is used to connect third-party source providers with services like CodePipeline.</p>
  *          <p>Note: A connection created through CloudFormation, the CLI, or the SDK is in `PENDING` status by default. You can make its status `AVAILABLE` by updating the
  *       connection in the console.</p>
  */
 export interface Connection {
   /**
-   * <p>The name of the connection. Connection names must be unique in an AWS user account.</p>
+   * <p>The name of the connection. Connection names must be unique in an Amazon Web Services account.</p>
    */
   ConnectionName?: string;
 
   /**
    * <p>The Amazon Resource Name (ARN) of the connection. The ARN is used as the connection
-   *       reference when the connection is shared between AWS services.</p>
+   *       reference when the connection is shared between Amazon Web Services.</p>
    *          <note>
    *             <p>The ARN is never reused if the connection is deleted.</p>
    *          </note>

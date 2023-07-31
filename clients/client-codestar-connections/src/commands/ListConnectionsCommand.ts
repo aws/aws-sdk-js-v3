@@ -48,7 +48,7 @@ export interface ListConnectionsCommandOutput extends ListConnectionsOutput, __M
  * // const { CodeStarConnectionsClient, ListConnectionsCommand } = require("@aws-sdk/client-codestar-connections"); // CommonJS import
  * const client = new CodeStarConnectionsClient(config);
  * const input = { // ListConnectionsInput
- *   ProviderTypeFilter: "STRING_VALUE",
+ *   ProviderTypeFilter: "Bitbucket" || "GitHub" || "GitHubEnterpriseServer" || "GitLab",
  *   HostArnFilter: "STRING_VALUE",
  *   MaxResults: Number("int"),
  *   NextToken: "STRING_VALUE",
@@ -60,9 +60,9 @@ export interface ListConnectionsCommandOutput extends ListConnectionsOutput, __M
  * //     { // Connection
  * //       ConnectionName: "STRING_VALUE",
  * //       ConnectionArn: "STRING_VALUE",
- * //       ProviderType: "STRING_VALUE",
+ * //       ProviderType: "Bitbucket" || "GitHub" || "GitHubEnterpriseServer" || "GitLab",
  * //       OwnerAccountId: "STRING_VALUE",
- * //       ConnectionStatus: "STRING_VALUE",
+ * //       ConnectionStatus: "PENDING" || "AVAILABLE" || "ERROR",
  * //       HostArn: "STRING_VALUE",
  * //     },
  * //   ],
@@ -76,6 +76,9 @@ export interface ListConnectionsCommandOutput extends ListConnectionsOutput, __M
  * @see {@link ListConnectionsCommandInput} for command's `input` shape.
  * @see {@link ListConnectionsCommandOutput} for command's `response` shape.
  * @see {@link CodeStarConnectionsClientResolvedConfig | config} for CodeStarConnectionsClient's `config` shape.
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>Resource not found. Verify the connection resource ARN and try again.</p>
  *
  * @throws {@link CodeStarConnectionsServiceException}
  * <p>Base exception class for all service exceptions from CodeStarConnections service.</p>

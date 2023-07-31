@@ -56,7 +56,7 @@ export interface CreateHostCommandOutput extends CreateHostOutput, __MetadataBea
  * const client = new CodeStarConnectionsClient(config);
  * const input = { // CreateHostInput
  *   Name: "STRING_VALUE", // required
- *   ProviderType: "STRING_VALUE", // required
+ *   ProviderType: "Bitbucket" || "GitHub" || "GitHubEnterpriseServer" || "GitLab", // required
  *   ProviderEndpoint: "STRING_VALUE", // required
  *   VpcConfiguration: { // VpcConfiguration
  *     VpcId: "STRING_VALUE", // required

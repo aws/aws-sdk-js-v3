@@ -56,9 +56,9 @@ export interface GetConnectionCommandOutput extends GetConnectionOutput, __Metad
  * //   Connection: { // Connection
  * //     ConnectionName: "STRING_VALUE",
  * //     ConnectionArn: "STRING_VALUE",
- * //     ProviderType: "STRING_VALUE",
+ * //     ProviderType: "Bitbucket" || "GitHub" || "GitHubEnterpriseServer" || "GitLab",
  * //     OwnerAccountId: "STRING_VALUE",
- * //     ConnectionStatus: "STRING_VALUE",
+ * //     ConnectionStatus: "PENDING" || "AVAILABLE" || "ERROR",
  * //     HostArn: "STRING_VALUE",
  * //   },
  * // };

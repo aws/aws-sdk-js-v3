@@ -40,7 +40,7 @@ export interface CreateConnectionCommandOutput extends CreateConnectionOutput, _
 
 /**
  * @public
- * <p>Creates a connection that can then be given to other AWS services like CodePipeline so
+ * <p>Creates a connection that can then be given to other Amazon Web Services services like CodePipeline so
  *       that it can access third-party code repositories. The connection is in pending status until
  *       the third-party connection handshake is completed from the console.</p>
  * @example
@@ -50,7 +50,7 @@ export interface CreateConnectionCommandOutput extends CreateConnectionOutput, _
  * // const { CodeStarConnectionsClient, CreateConnectionCommand } = require("@aws-sdk/client-codestar-connections"); // CommonJS import
  * const client = new CodeStarConnectionsClient(config);
  * const input = { // CreateConnectionInput
- *   ProviderType: "STRING_VALUE",
+ *   ProviderType: "Bitbucket" || "GitHub" || "GitHubEnterpriseServer" || "GitLab",
  *   ConnectionName: "STRING_VALUE", // required
  *   Tags: [ // TagList
  *     { // Tag

@@ -36,7 +36,7 @@
           "min": 12,
           "max": 12
         },
-        "smithy.api#pattern": "[0-9]{12}"
+        "smithy.api#pattern": "^[0-9]{12}$"
       }
     },
     "com.amazonaws.codestarconnections#AmazonResourceName": {
@@ -46,7 +46,7 @@
           "min": 1,
           "max": 1011
         },
-        "smithy.api#pattern": "arn:aws(-[\\w]+)*:.+:.+:[0-9]{12}:.+"
+        "smithy.api#pattern": "^arn:aws(-[\\w]+)*:.+:.+:[0-9]{12}:.+$"
       }
     },
     "com.amazonaws.codestarconnections#CodeStar_connections_20191201": {
@@ -102,7 +102,7 @@
           "name": "codestar-connections"
         },
         "aws.protocols#awsJson1_0": {},
-        "smithy.api#documentation": "<fullname>AWS CodeStar Connections</fullname>\n         <p>This AWS CodeStar Connections API Reference provides descriptions and usage examples of\n      the operations and data types for the AWS CodeStar Connections API. You can use the\n      connections API to work with connections and installations.</p>\n         <p>\n            <i>Connections</i> are configurations that you use to connect AWS\n      resources to external code repositories. Each connection is a resource that can be given to\n      services such as CodePipeline to connect to a third-party repository such as Bitbucket. For\n      example, you can add the connection in CodePipeline so that it triggers your pipeline when a\n      code change is made to your third-party code repository. Each connection is named and\n      associated with a unique ARN that is used to reference the connection.</p>\n         <p>When you create a connection, the console initiates a third-party connection handshake.\n        <i>Installations</i> are the apps that are used to conduct this handshake. For\n      example, the installation for the Bitbucket provider type is the Bitbucket app. When you\n      create a connection, you can choose an existing installation or create one.</p>\n         <p>When you want to create a connection to an installed provider type such as GitHub\n      Enterprise Server, you create a <i>host</i> for your connections.</p>\n         <p>You can work with connections by calling:</p>\n         <ul>\n            <li>\n               <p>\n                  <a>CreateConnection</a>, which creates a uniquely named connection that can be\n          referenced by services such as CodePipeline.</p>\n            </li>\n            <li>\n               <p>\n                  <a>DeleteConnection</a>, which deletes the specified connection.</p>\n            </li>\n            <li>\n               <p>\n                  <a>GetConnection</a>, which returns information about the connection, including\n          the connection status.</p>\n            </li>\n            <li>\n               <p>\n                  <a>ListConnections</a>, which lists the connections associated with your\n          account.</p>\n            </li>\n         </ul>\n         <p>You can work with hosts by calling:</p>\n         <ul>\n            <li>\n               <p>\n                  <a>CreateHost</a>, which creates a host that represents the infrastructure where your provider is installed.</p>\n            </li>\n            <li>\n               <p>\n                  <a>DeleteHost</a>, which deletes the specified host.</p>\n            </li>\n            <li>\n               <p>\n                  <a>GetHost</a>, which returns information about the host, including\n          the setup status.</p>\n            </li>\n            <li>\n               <p>\n                  <a>ListHosts</a>, which lists the hosts associated with your\n          account.</p>\n            </li>\n         </ul>\n         <p>You can work with tags in AWS CodeStar Connections by calling the following:</p>\n         <ul>\n            <li>\n               <p>\n                  <a>ListTagsForResource</a>, which gets information about AWS tags for a\n          specified Amazon Resource Name (ARN) in AWS CodeStar Connections.</p>\n            </li>\n            <li>\n               <p>\n                  <a>TagResource</a>, which adds or updates tags for a resource in AWS CodeStar\n          Connections.</p>\n            </li>\n            <li>\n               <p>\n                  <a>UntagResource</a>, which removes tags for a resource in AWS CodeStar\n          Connections.</p>\n            </li>\n         </ul>\n         <p>For information about how to use AWS CodeStar Connections, see the <a href=\"https://docs.aws.amazon.com/dtconsole/latest/userguide/welcome-connections.html\">Developer Tools User\n        Guide</a>.</p>",
+        "smithy.api#documentation": "<fullname>AWS CodeStar Connections</fullname>\n         <p>This Amazon Web Services CodeStar Connections API Reference provides descriptions and usage examples of\n      the operations and data types for the Amazon Web Services CodeStar Connections API. You can use the\n      connections API to work with connections and installations.</p>\n         <p>\n            <i>Connections</i> are configurations that you use to connect Amazon Web Services\n      resources to external code repositories. Each connection is a resource that can be given to\n      services such as CodePipeline to connect to a third-party repository such as Bitbucket. For\n      example, you can add the connection in CodePipeline so that it triggers your pipeline when a\n      code change is made to your third-party code repository. Each connection is named and\n      associated with a unique ARN that is used to reference the connection.</p>\n         <p>When you create a connection, the console initiates a third-party connection handshake.\n        <i>Installations</i> are the apps that are used to conduct this handshake. For\n      example, the installation for the Bitbucket provider type is the Bitbucket app. When you\n      create a connection, you can choose an existing installation or create one.</p>\n         <p>When you want to create a connection to an installed provider type such as GitHub\n      Enterprise Server, you create a <i>host</i> for your connections.</p>\n         <p>You can work with connections by calling:</p>\n         <ul>\n            <li>\n               <p>\n                  <a>CreateConnection</a>, which creates a uniquely named connection that can be\n          referenced by services such as CodePipeline.</p>\n            </li>\n            <li>\n               <p>\n                  <a>DeleteConnection</a>, which deletes the specified connection.</p>\n            </li>\n            <li>\n               <p>\n                  <a>GetConnection</a>, which returns information about the connection, including\n          the connection status.</p>\n            </li>\n            <li>\n               <p>\n                  <a>ListConnections</a>, which lists the connections associated with your\n          account.</p>\n            </li>\n         </ul>\n         <p>You can work with hosts by calling:</p>\n         <ul>\n            <li>\n               <p>\n                  <a>CreateHost</a>, which creates a host that represents the infrastructure where your provider is installed.</p>\n            </li>\n            <li>\n               <p>\n                  <a>DeleteHost</a>, which deletes the specified host.</p>\n            </li>\n            <li>\n               <p>\n                  <a>GetHost</a>, which returns information about the host, including\n          the setup status.</p>\n            </li>\n            <li>\n               <p>\n                  <a>ListHosts</a>, which lists the hosts associated with your\n          account.</p>\n            </li>\n         </ul>\n         <p>You can work with tags in Amazon Web Services CodeStar Connections by calling the following:</p>\n         <ul>\n            <li>\n               <p>\n                  <a>ListTagsForResource</a>, which gets information about Amazon Web Services tags for a\n          specified Amazon Resource Name (ARN) in Amazon Web Services CodeStar Connections.</p>\n            </li>\n            <li>\n               <p>\n                  <a>TagResource</a>, which adds or updates tags for a resource in Amazon Web Services CodeStar\n          Connections.</p>\n            </li>\n            <li>\n               <p>\n                  <a>UntagResource</a>, which removes tags for a resource in Amazon Web Services CodeStar\n          Connections.</p>\n            </li>\n         </ul>\n         <p>For information about how to use Amazon Web Services CodeStar Connections, see the <a href=\"https://docs.aws.amazon.com/dtconsole/latest/userguide/welcome-connections.html\">Developer Tools User\n        Guide</a>.</p>",
         "smithy.api#title": "AWS CodeStar connections",
         "smithy.rules#endpointRuleSet": {
           "version": "1.0",
@@ -138,13 +138,12 @@
             {
               "conditions": [
                 {
-                  "fn": "aws.partition",
+                  "fn": "isSet",
                   "argv": [
                     {
-                      "ref": "Region"
+                      "ref": "Endpoint"
                     }
-                  ],
-                  "assign": "PartitionResult"
+                  ]
                 }
               ],
               "type": "tree",
@@ -152,23 +151,20 @@
                 {
                   "conditions": [
                     {
-                      "fn": "isSet",
+                      "fn": "booleanEquals",
                       "argv": [
                         {
-                          "ref": "Endpoint"
-                        }
+                          "ref": "UseFIPS"
+                        },
+                        true
                       ]
-                    },
-                    {
-                      "fn": "parseURL",
-                      "argv": [
-                        {
-                          "ref": "Endpoint"
-                        }
-                      ],
-                      "assign": "url"
                     }
                   ],
+                  "error": "Invalid Configuration: FIPS and custom endpoint are not supported",
+                  "type": "error"
+                },
+                {
+                  "conditions": [],
                   "type": "tree",
                   "rules": [
                     {
@@ -177,19 +173,201 @@
                           "fn": "booleanEquals",
                           "argv": [
                             {
-                              "ref": "UseFIPS"
+                              "ref": "UseDualStack"
                             },
                             true
                           ]
                         }
                       ],
-                      "error": "Invalid Configuration: FIPS and custom endpoint are not supported",
+                      "error": "Invalid Configuration: Dualstack and custom endpoint are not supported",
                       "type": "error"
                     },
                     {
                       "conditions": [],
+                      "endpoint": {
+                        "url": {
+                          "ref": "Endpoint"
+                        },
+                        "properties": {},
+                        "headers": {}
+                      },
+                      "type": "endpoint"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "conditions": [],
+              "type": "tree",
+              "rules": [
+                {
+                  "conditions": [
+                    {
+                      "fn": "isSet",
+                      "argv": [
+                        {
+                          "ref": "Region"
+                        }
+                      ]
+                    }
+                  ],
+                  "type": "tree",
+                  "rules": [
+                    {
+                      "conditions": [
+                        {
+                          "fn": "aws.partition",
+                          "argv": [
+                            {
+                              "ref": "Region"
+                            }
+                          ],
+                          "assign": "PartitionResult"
+                        }
+                      ],
                       "type": "tree",
                       "rules": [
+                        {
+                          "conditions": [
+                            {
+                              "fn": "booleanEquals",
+                              "argv": [
+                                {
+                                  "ref": "UseFIPS"
+                                },
+                                true
+                              ]
+                            },
+                            {
+                              "fn": "booleanEquals",
+                              "argv": [
+                                {
+                                  "ref": "UseDualStack"
+                                },
+                                true
+                              ]
+                            }
+                          ],
+                          "type": "tree",
+                          "rules": [
+                            {
+                              "conditions": [
+                                {
+                                  "fn": "booleanEquals",
+                                  "argv": [
+                                    true,
+                                    {
+                                      "fn": "getAttr",
+                                      "argv": [
+                                        {
+                                          "ref": "PartitionResult"
+                                        },
+                                        "supportsFIPS"
+                                      ]
+                                    }
+                                  ]
+                                },
+                                {
+                                  "fn": "booleanEquals",
+                                  "argv": [
+                                    true,
+                                    {
+                                      "fn": "getAttr",
+                                      "argv": [
+                                        {
+                                          "ref": "PartitionResult"
+                                        },
+                                        "supportsDualStack"
+                                      ]
+                                    }
+                                  ]
+                                }
+                              ],
+                              "type": "tree",
+                              "rules": [
+                                {
+                                  "conditions": [],
+                                  "type": "tree",
+                                  "rules": [
+                                    {
+                                      "conditions": [],
+                                      "endpoint": {
+                                        "url": "https://codestar-connections-fips.{Region}.{PartitionResult#dualStackDnsSuffix}",
+                                        "properties": {},
+                                        "headers": {}
+                                      },
+                                      "type": "endpoint"
+                                    }
+                                  ]
+                                }
+                              ]
+                            },
+                            {
+                              "conditions": [],
+                              "error": "FIPS and DualStack are enabled, but this partition does not support one or both",
+                              "type": "error"
+                            }
+                          ]
+                        },
+                        {
+                          "conditions": [
+                            {
+                              "fn": "booleanEquals",
+                              "argv": [
+                                {
+                                  "ref": "UseFIPS"
+                                },
+                                true
+                              ]
+                            }
+                          ],
+                          "type": "tree",
+                          "rules": [
+                            {
+                              "conditions": [
+                                {
+                                  "fn": "booleanEquals",
+                                  "argv": [
+                                    true,
+                                    {
+                                      "fn": "getAttr",
+                                      "argv": [
+                                        {
+                                          "ref": "PartitionResult"
+                                        },
+                                        "supportsFIPS"
+                                      ]
+                                    }
+                                  ]
+                                }
+                              ],
+                              "type": "tree",
+                              "rules": [
+                                {
+                                  "conditions": [],
+                                  "type": "tree",
+                                  "rules": [
+                                    {
+                                      "conditions": [],
+                                      "endpoint": {
+                                        "url": "https://codestar-connections-fips.{Region}.{PartitionResult#dnsSuffix}",
+                                        "properties": {},
+                                        "headers": {}
+                                      },
+                                      "type": "endpoint"
+                                    }
+                                  ]
+                                }
+                              ]
+                            },
+                            {
+                              "conditions": [],
+                              "error": "FIPS is enabled but this partition does not support FIPS",
+                              "type": "error"
+                            }
+                          ]
+                        },
                         {
                           "conditions": [
                             {
@@ -202,134 +380,52 @@
                               ]
                             }
                           ],
-                          "error": "Invalid Configuration: Dualstack and custom endpoint are not supported",
-                          "type": "error"
-                        },
-                        {
-                          "conditions": [],
-                          "endpoint": {
-                            "url": {
-                              "ref": "Endpoint"
+                          "type": "tree",
+                          "rules": [
+                            {
+                              "conditions": [
+                                {
+                                  "fn": "booleanEquals",
+                                  "argv": [
+                                    true,
+                                    {
+                                      "fn": "getAttr",
+                                      "argv": [
+                                        {
+                                          "ref": "PartitionResult"
+                                        },
+                                        "supportsDualStack"
+                                      ]
+                                    }
+                                  ]
+                                }
+                              ],
+                              "type": "tree",
+                              "rules": [
+                                {
+                                  "conditions": [],
+                                  "type": "tree",
+                                  "rules": [
+                                    {
+                                      "conditions": [],
+                                      "endpoint": {
+                                        "url": "https://codestar-connections.{Region}.{PartitionResult#dualStackDnsSuffix}",
+                                        "properties": {},
+                                        "headers": {}
+                                      },
+                                      "type": "endpoint"
+                                    }
+                                  ]
+                                }
+                              ]
                             },
-                            "properties": {},
-                            "headers": {}
-                          },
-                          "type": "endpoint"
-                        }
-                      ]
-                    }
-                  ]
-                },
-                {
-                  "conditions": [
-                    {
-                      "fn": "booleanEquals",
-                      "argv": [
-                        {
-                          "ref": "UseFIPS"
-                        },
-                        true
-                      ]
-                    },
-                    {
-                      "fn": "booleanEquals",
-                      "argv": [
-                        {
-                          "ref": "UseDualStack"
-                        },
-                        true
-                      ]
-                    }
-                  ],
-                  "type": "tree",
-                  "rules": [
-                    {
-                      "conditions": [
-                        {
-                          "fn": "booleanEquals",
-                          "argv": [
-                            true,
                             {
-                              "fn": "getAttr",
-                              "argv": [
-                                {
-                                  "ref": "PartitionResult"
-                                },
-                                "supportsFIPS"
-                              ]
+                              "conditions": [],
+                              "error": "DualStack is enabled but this partition does not support DualStack",
+                              "type": "error"
                             }
                           ]
                         },
-                        {
-                          "fn": "booleanEquals",
-                          "argv": [
-                            true,
-                            {
-                              "fn": "getAttr",
-                              "argv": [
-                                {
-                                  "ref": "PartitionResult"
-                                },
-                                "supportsDualStack"
-                              ]
-                            }
-                          ]
-                        }
-                      ],
-                      "type": "tree",
-                      "rules": [
-                        {
-                          "conditions": [],
-                          "endpoint": {
-                            "url": "https://codestar-connections-fips.{Region}.{PartitionResult#dualStackDnsSuffix}",
-                            "properties": {},
-                            "headers": {}
-                          },
-                          "type": "endpoint"
-                        }
-                      ]
-                    },
-                    {
-                      "conditions": [],
-                      "error": "FIPS and DualStack are enabled, but this partition does not support one or both",
-                      "type": "error"
-                    }
-                  ]
-                },
-                {
-                  "conditions": [
-                    {
-                      "fn": "booleanEquals",
-                      "argv": [
-                        {
-                          "ref": "UseFIPS"
-                        },
-                        true
-                      ]
-                    }
-                  ],
-                  "type": "tree",
-                  "rules": [
-                    {
-                      "conditions": [
-                        {
-                          "fn": "booleanEquals",
-                          "argv": [
-                            true,
-                            {
-                              "fn": "getAttr",
-                              "argv": [
-                                {
-                                  "ref": "PartitionResult"
-                                },
-                                "supportsFIPS"
-                              ]
-                            }
-                          ]
-                        }
-                      ],
-                      "type": "tree",
-                      "rules": [
                         {
                           "conditions": [],
                           "type": "tree",
@@ -337,7 +433,7 @@
                             {
                               "conditions": [],
                               "endpoint": {
-                                "url": "https://codestar-connections-fips.{Region}.{PartitionResult#dnsSuffix}",
+                                "url": "https://codestar-connections.{Region}.{PartitionResult#dnsSuffix}",
                                 "properties": {},
                                 "headers": {}
                               },
@@ -346,74 +442,13 @@
                           ]
                         }
                       ]
-                    },
-                    {
-                      "conditions": [],
-                      "error": "FIPS is enabled but this partition does not support FIPS",
-                      "type": "error"
-                    }
-                  ]
-                },
-                {
-                  "conditions": [
-                    {
-                      "fn": "booleanEquals",
-                      "argv": [
-                        {
-                          "ref": "UseDualStack"
-                        },
-                        true
-                      ]
-                    }
-                  ],
-                  "type": "tree",
-                  "rules": [
-                    {
-                      "conditions": [
-                        {
-                          "fn": "booleanEquals",
-                          "argv": [
-                            true,
-                            {
-                              "fn": "getAttr",
-                              "argv": [
-                                {
-                                  "ref": "PartitionResult"
-                                },
-                                "supportsDualStack"
-                              ]
-                            }
-                          ]
-                        }
-                      ],
-                      "type": "tree",
-                      "rules": [
-                        {
-                          "conditions": [],
-                          "endpoint": {
-                            "url": "https://codestar-connections.{Region}.{PartitionResult#dualStackDnsSuffix}",
-                            "properties": {},
-                            "headers": {}
-                          },
-                          "type": "endpoint"
-                        }
-                      ]
-                    },
-                    {
-                      "conditions": [],
-                      "error": "DualStack is enabled but this partition does not support DualStack",
-                      "type": "error"
                     }
                   ]
                 },
                 {
                   "conditions": [],
-                  "endpoint": {
-                    "url": "https://codestar-connections.{Region}.{PartitionResult#dnsSuffix}",
-                    "properties": {},
-                    "headers": {}
-                  },
-                  "type": "endpoint"
+                  "error": "Invalid Configuration: Missing Region",
+                  "type": "error"
                 }
               ]
             }
@@ -422,510 +457,16 @@
         "smithy.rules#endpointTests": {
           "testCases": [
             {
-              "documentation": "For region ap-south-1 with FIPS enabled and DualStack enabled",
+              "documentation": "For region ap-northeast-1 with FIPS disabled and DualStack disabled",
               "expect": {
                 "endpoint": {
-                  "url": "https://codestar-connections-fips.ap-south-1.api.aws"
+                  "url": "https://codestar-connections.ap-northeast-1.amazonaws.com"
                 }
               },
               "params": {
-                "Region": "ap-south-1",
-                "UseDualStack": true,
-                "UseFIPS": true
-              }
-            },
-            {
-              "documentation": "For region ap-south-1 with FIPS enabled and DualStack disabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://codestar-connections-fips.ap-south-1.amazonaws.com"
-                }
-              },
-              "params": {
-                "Region": "ap-south-1",
-                "UseDualStack": false,
-                "UseFIPS": true
-              }
-            },
-            {
-              "documentation": "For region ap-south-1 with FIPS disabled and DualStack enabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://codestar-connections.ap-south-1.api.aws"
-                }
-              },
-              "params": {
-                "Region": "ap-south-1",
-                "UseDualStack": true,
-                "UseFIPS": false
-              }
-            },
-            {
-              "documentation": "For region ap-south-1 with FIPS disabled and DualStack disabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://codestar-connections.ap-south-1.amazonaws.com"
-                }
-              },
-              "params": {
-                "Region": "ap-south-1",
-                "UseDualStack": false,
-                "UseFIPS": false
-              }
-            },
-            {
-              "documentation": "For region ca-central-1 with FIPS enabled and DualStack enabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://codestar-connections-fips.ca-central-1.api.aws"
-                }
-              },
-              "params": {
-                "Region": "ca-central-1",
-                "UseDualStack": true,
-                "UseFIPS": true
-              }
-            },
-            {
-              "documentation": "For region ca-central-1 with FIPS enabled and DualStack disabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://codestar-connections-fips.ca-central-1.amazonaws.com"
-                }
-              },
-              "params": {
-                "Region": "ca-central-1",
-                "UseDualStack": false,
-                "UseFIPS": true
-              }
-            },
-            {
-              "documentation": "For region ca-central-1 with FIPS disabled and DualStack enabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://codestar-connections.ca-central-1.api.aws"
-                }
-              },
-              "params": {
-                "Region": "ca-central-1",
-                "UseDualStack": true,
-                "UseFIPS": false
-              }
-            },
-            {
-              "documentation": "For region ca-central-1 with FIPS disabled and DualStack disabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://codestar-connections.ca-central-1.amazonaws.com"
-                }
-              },
-              "params": {
-                "Region": "ca-central-1",
-                "UseDualStack": false,
-                "UseFIPS": false
-              }
-            },
-            {
-              "documentation": "For region eu-central-1 with FIPS enabled and DualStack enabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://codestar-connections-fips.eu-central-1.api.aws"
-                }
-              },
-              "params": {
-                "Region": "eu-central-1",
-                "UseDualStack": true,
-                "UseFIPS": true
-              }
-            },
-            {
-              "documentation": "For region eu-central-1 with FIPS enabled and DualStack disabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://codestar-connections-fips.eu-central-1.amazonaws.com"
-                }
-              },
-              "params": {
-                "Region": "eu-central-1",
-                "UseDualStack": false,
-                "UseFIPS": true
-              }
-            },
-            {
-              "documentation": "For region eu-central-1 with FIPS disabled and DualStack enabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://codestar-connections.eu-central-1.api.aws"
-                }
-              },
-              "params": {
-                "Region": "eu-central-1",
-                "UseDualStack": true,
-                "UseFIPS": false
-              }
-            },
-            {
-              "documentation": "For region eu-central-1 with FIPS disabled and DualStack disabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://codestar-connections.eu-central-1.amazonaws.com"
-                }
-              },
-              "params": {
-                "Region": "eu-central-1",
-                "UseDualStack": false,
-                "UseFIPS": false
-              }
-            },
-            {
-              "documentation": "For region us-west-1 with FIPS enabled and DualStack enabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://codestar-connections-fips.us-west-1.api.aws"
-                }
-              },
-              "params": {
-                "Region": "us-west-1",
-                "UseDualStack": true,
-                "UseFIPS": true
-              }
-            },
-            {
-              "documentation": "For region us-west-1 with FIPS enabled and DualStack disabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://codestar-connections-fips.us-west-1.amazonaws.com"
-                }
-              },
-              "params": {
-                "Region": "us-west-1",
-                "UseDualStack": false,
-                "UseFIPS": true
-              }
-            },
-            {
-              "documentation": "For region us-west-1 with FIPS disabled and DualStack enabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://codestar-connections.us-west-1.api.aws"
-                }
-              },
-              "params": {
-                "Region": "us-west-1",
-                "UseDualStack": true,
-                "UseFIPS": false
-              }
-            },
-            {
-              "documentation": "For region us-west-1 with FIPS disabled and DualStack disabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://codestar-connections.us-west-1.amazonaws.com"
-                }
-              },
-              "params": {
-                "Region": "us-west-1",
-                "UseDualStack": false,
-                "UseFIPS": false
-              }
-            },
-            {
-              "documentation": "For region us-west-2 with FIPS enabled and DualStack enabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://codestar-connections-fips.us-west-2.api.aws"
-                }
-              },
-              "params": {
-                "Region": "us-west-2",
-                "UseDualStack": true,
-                "UseFIPS": true
-              }
-            },
-            {
-              "documentation": "For region us-west-2 with FIPS enabled and DualStack disabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://codestar-connections-fips.us-west-2.amazonaws.com"
-                }
-              },
-              "params": {
-                "Region": "us-west-2",
-                "UseDualStack": false,
-                "UseFIPS": true
-              }
-            },
-            {
-              "documentation": "For region us-west-2 with FIPS disabled and DualStack enabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://codestar-connections.us-west-2.api.aws"
-                }
-              },
-              "params": {
-                "Region": "us-west-2",
-                "UseDualStack": true,
-                "UseFIPS": false
-              }
-            },
-            {
-              "documentation": "For region us-west-2 with FIPS disabled and DualStack disabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://codestar-connections.us-west-2.amazonaws.com"
-                }
-              },
-              "params": {
-                "Region": "us-west-2",
-                "UseDualStack": false,
-                "UseFIPS": false
-              }
-            },
-            {
-              "documentation": "For region eu-north-1 with FIPS enabled and DualStack enabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://codestar-connections-fips.eu-north-1.api.aws"
-                }
-              },
-              "params": {
-                "Region": "eu-north-1",
-                "UseDualStack": true,
-                "UseFIPS": true
-              }
-            },
-            {
-              "documentation": "For region eu-north-1 with FIPS enabled and DualStack disabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://codestar-connections-fips.eu-north-1.amazonaws.com"
-                }
-              },
-              "params": {
-                "Region": "eu-north-1",
-                "UseDualStack": false,
-                "UseFIPS": true
-              }
-            },
-            {
-              "documentation": "For region eu-north-1 with FIPS disabled and DualStack enabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://codestar-connections.eu-north-1.api.aws"
-                }
-              },
-              "params": {
-                "Region": "eu-north-1",
-                "UseDualStack": true,
-                "UseFIPS": false
-              }
-            },
-            {
-              "documentation": "For region eu-north-1 with FIPS disabled and DualStack disabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://codestar-connections.eu-north-1.amazonaws.com"
-                }
-              },
-              "params": {
-                "Region": "eu-north-1",
-                "UseDualStack": false,
-                "UseFIPS": false
-              }
-            },
-            {
-              "documentation": "For region eu-west-3 with FIPS enabled and DualStack enabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://codestar-connections-fips.eu-west-3.api.aws"
-                }
-              },
-              "params": {
-                "Region": "eu-west-3",
-                "UseDualStack": true,
-                "UseFIPS": true
-              }
-            },
-            {
-              "documentation": "For region eu-west-3 with FIPS enabled and DualStack disabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://codestar-connections-fips.eu-west-3.amazonaws.com"
-                }
-              },
-              "params": {
-                "Region": "eu-west-3",
-                "UseDualStack": false,
-                "UseFIPS": true
-              }
-            },
-            {
-              "documentation": "For region eu-west-3 with FIPS disabled and DualStack enabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://codestar-connections.eu-west-3.api.aws"
-                }
-              },
-              "params": {
-                "Region": "eu-west-3",
-                "UseDualStack": true,
-                "UseFIPS": false
-              }
-            },
-            {
-              "documentation": "For region eu-west-3 with FIPS disabled and DualStack disabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://codestar-connections.eu-west-3.amazonaws.com"
-                }
-              },
-              "params": {
-                "Region": "eu-west-3",
-                "UseDualStack": false,
-                "UseFIPS": false
-              }
-            },
-            {
-              "documentation": "For region eu-west-2 with FIPS enabled and DualStack enabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://codestar-connections-fips.eu-west-2.api.aws"
-                }
-              },
-              "params": {
-                "Region": "eu-west-2",
-                "UseDualStack": true,
-                "UseFIPS": true
-              }
-            },
-            {
-              "documentation": "For region eu-west-2 with FIPS enabled and DualStack disabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://codestar-connections-fips.eu-west-2.amazonaws.com"
-                }
-              },
-              "params": {
-                "Region": "eu-west-2",
-                "UseDualStack": false,
-                "UseFIPS": true
-              }
-            },
-            {
-              "documentation": "For region eu-west-2 with FIPS disabled and DualStack enabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://codestar-connections.eu-west-2.api.aws"
-                }
-              },
-              "params": {
-                "Region": "eu-west-2",
-                "UseDualStack": true,
-                "UseFIPS": false
-              }
-            },
-            {
-              "documentation": "For region eu-west-2 with FIPS disabled and DualStack disabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://codestar-connections.eu-west-2.amazonaws.com"
-                }
-              },
-              "params": {
-                "Region": "eu-west-2",
-                "UseDualStack": false,
-                "UseFIPS": false
-              }
-            },
-            {
-              "documentation": "For region eu-west-1 with FIPS enabled and DualStack enabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://codestar-connections-fips.eu-west-1.api.aws"
-                }
-              },
-              "params": {
-                "Region": "eu-west-1",
-                "UseDualStack": true,
-                "UseFIPS": true
-              }
-            },
-            {
-              "documentation": "For region eu-west-1 with FIPS enabled and DualStack disabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://codestar-connections-fips.eu-west-1.amazonaws.com"
-                }
-              },
-              "params": {
-                "Region": "eu-west-1",
-                "UseDualStack": false,
-                "UseFIPS": true
-              }
-            },
-            {
-              "documentation": "For region eu-west-1 with FIPS disabled and DualStack enabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://codestar-connections.eu-west-1.api.aws"
-                }
-              },
-              "params": {
-                "Region": "eu-west-1",
-                "UseDualStack": true,
-                "UseFIPS": false
-              }
-            },
-            {
-              "documentation": "For region eu-west-1 with FIPS disabled and DualStack disabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://codestar-connections.eu-west-1.amazonaws.com"
-                }
-              },
-              "params": {
-                "Region": "eu-west-1",
-                "UseDualStack": false,
-                "UseFIPS": false
-              }
-            },
-            {
-              "documentation": "For region ap-northeast-2 with FIPS enabled and DualStack enabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://codestar-connections-fips.ap-northeast-2.api.aws"
-                }
-              },
-              "params": {
-                "Region": "ap-northeast-2",
-                "UseDualStack": true,
-                "UseFIPS": true
-              }
-            },
-            {
-              "documentation": "For region ap-northeast-2 with FIPS enabled and DualStack disabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://codestar-connections-fips.ap-northeast-2.amazonaws.com"
-                }
-              },
-              "params": {
-                "Region": "ap-northeast-2",
-                "UseDualStack": false,
-                "UseFIPS": true
-              }
-            },
-            {
-              "documentation": "For region ap-northeast-2 with FIPS disabled and DualStack enabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://codestar-connections.ap-northeast-2.api.aws"
-                }
-              },
-              "params": {
-                "Region": "ap-northeast-2",
-                "UseDualStack": true,
-                "UseFIPS": false
+                "Region": "ap-northeast-1",
+                "UseFIPS": false,
+                "UseDualStack": false
               }
             },
             {
@@ -937,151 +478,21 @@
               },
               "params": {
                 "Region": "ap-northeast-2",
-                "UseDualStack": false,
-                "UseFIPS": false
+                "UseFIPS": false,
+                "UseDualStack": false
               }
             },
             {
-              "documentation": "For region ap-northeast-1 with FIPS enabled and DualStack enabled",
+              "documentation": "For region ap-south-1 with FIPS disabled and DualStack disabled",
               "expect": {
                 "endpoint": {
-                  "url": "https://codestar-connections-fips.ap-northeast-1.api.aws"
+                  "url": "https://codestar-connections.ap-south-1.amazonaws.com"
                 }
               },
               "params": {
-                "Region": "ap-northeast-1",
-                "UseDualStack": true,
-                "UseFIPS": true
-              }
-            },
-            {
-              "documentation": "For region ap-northeast-1 with FIPS enabled and DualStack disabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://codestar-connections-fips.ap-northeast-1.amazonaws.com"
-                }
-              },
-              "params": {
-                "Region": "ap-northeast-1",
-                "UseDualStack": false,
-                "UseFIPS": true
-              }
-            },
-            {
-              "documentation": "For region ap-northeast-1 with FIPS disabled and DualStack enabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://codestar-connections.ap-northeast-1.api.aws"
-                }
-              },
-              "params": {
-                "Region": "ap-northeast-1",
-                "UseDualStack": true,
-                "UseFIPS": false
-              }
-            },
-            {
-              "documentation": "For region ap-northeast-1 with FIPS disabled and DualStack disabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://codestar-connections.ap-northeast-1.amazonaws.com"
-                }
-              },
-              "params": {
-                "Region": "ap-northeast-1",
-                "UseDualStack": false,
-                "UseFIPS": false
-              }
-            },
-            {
-              "documentation": "For region sa-east-1 with FIPS enabled and DualStack enabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://codestar-connections-fips.sa-east-1.api.aws"
-                }
-              },
-              "params": {
-                "Region": "sa-east-1",
-                "UseDualStack": true,
-                "UseFIPS": true
-              }
-            },
-            {
-              "documentation": "For region sa-east-1 with FIPS enabled and DualStack disabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://codestar-connections-fips.sa-east-1.amazonaws.com"
-                }
-              },
-              "params": {
-                "Region": "sa-east-1",
-                "UseDualStack": false,
-                "UseFIPS": true
-              }
-            },
-            {
-              "documentation": "For region sa-east-1 with FIPS disabled and DualStack enabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://codestar-connections.sa-east-1.api.aws"
-                }
-              },
-              "params": {
-                "Region": "sa-east-1",
-                "UseDualStack": true,
-                "UseFIPS": false
-              }
-            },
-            {
-              "documentation": "For region sa-east-1 with FIPS disabled and DualStack disabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://codestar-connections.sa-east-1.amazonaws.com"
-                }
-              },
-              "params": {
-                "Region": "sa-east-1",
-                "UseDualStack": false,
-                "UseFIPS": false
-              }
-            },
-            {
-              "documentation": "For region ap-southeast-1 with FIPS enabled and DualStack enabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://codestar-connections-fips.ap-southeast-1.api.aws"
-                }
-              },
-              "params": {
-                "Region": "ap-southeast-1",
-                "UseDualStack": true,
-                "UseFIPS": true
-              }
-            },
-            {
-              "documentation": "For region ap-southeast-1 with FIPS enabled and DualStack disabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://codestar-connections-fips.ap-southeast-1.amazonaws.com"
-                }
-              },
-              "params": {
-                "Region": "ap-southeast-1",
-                "UseDualStack": false,
-                "UseFIPS": true
-              }
-            },
-            {
-              "documentation": "For region ap-southeast-1 with FIPS disabled and DualStack enabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://codestar-connections.ap-southeast-1.api.aws"
-                }
-              },
-              "params": {
-                "Region": "ap-southeast-1",
-                "UseDualStack": true,
-                "UseFIPS": false
+                "Region": "ap-south-1",
+                "UseFIPS": false,
+                "UseDualStack": false
               }
             },
             {
@@ -1093,47 +504,8 @@
               },
               "params": {
                 "Region": "ap-southeast-1",
-                "UseDualStack": false,
-                "UseFIPS": false
-              }
-            },
-            {
-              "documentation": "For region ap-southeast-2 with FIPS enabled and DualStack enabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://codestar-connections-fips.ap-southeast-2.api.aws"
-                }
-              },
-              "params": {
-                "Region": "ap-southeast-2",
-                "UseDualStack": true,
-                "UseFIPS": true
-              }
-            },
-            {
-              "documentation": "For region ap-southeast-2 with FIPS enabled and DualStack disabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://codestar-connections-fips.ap-southeast-2.amazonaws.com"
-                }
-              },
-              "params": {
-                "Region": "ap-southeast-2",
-                "UseDualStack": false,
-                "UseFIPS": true
-              }
-            },
-            {
-              "documentation": "For region ap-southeast-2 with FIPS disabled and DualStack enabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://codestar-connections.ap-southeast-2.api.aws"
-                }
-              },
-              "params": {
-                "Region": "ap-southeast-2",
-                "UseDualStack": true,
-                "UseFIPS": false
+                "UseFIPS": false,
+                "UseDualStack": false
               }
             },
             {
@@ -1145,47 +517,99 @@
               },
               "params": {
                 "Region": "ap-southeast-2",
-                "UseDualStack": false,
-                "UseFIPS": false
+                "UseFIPS": false,
+                "UseDualStack": false
               }
             },
             {
-              "documentation": "For region us-east-1 with FIPS enabled and DualStack enabled",
+              "documentation": "For region ca-central-1 with FIPS disabled and DualStack disabled",
               "expect": {
                 "endpoint": {
-                  "url": "https://codestar-connections-fips.us-east-1.api.aws"
+                  "url": "https://codestar-connections.ca-central-1.amazonaws.com"
                 }
               },
               "params": {
-                "Region": "us-east-1",
-                "UseDualStack": true,
-                "UseFIPS": true
+                "Region": "ca-central-1",
+                "UseFIPS": false,
+                "UseDualStack": false
               }
             },
             {
-              "documentation": "For region us-east-1 with FIPS enabled and DualStack disabled",
+              "documentation": "For region eu-central-1 with FIPS disabled and DualStack disabled",
               "expect": {
                 "endpoint": {
-                  "url": "https://codestar-connections-fips.us-east-1.amazonaws.com"
+                  "url": "https://codestar-connections.eu-central-1.amazonaws.com"
                 }
               },
               "params": {
-                "Region": "us-east-1",
-                "UseDualStack": false,
-                "UseFIPS": true
+                "Region": "eu-central-1",
+                "UseFIPS": false,
+                "UseDualStack": false
               }
             },
             {
-              "documentation": "For region us-east-1 with FIPS disabled and DualStack enabled",
+              "documentation": "For region eu-north-1 with FIPS disabled and DualStack disabled",
               "expect": {
                 "endpoint": {
-                  "url": "https://codestar-connections.us-east-1.api.aws"
+                  "url": "https://codestar-connections.eu-north-1.amazonaws.com"
                 }
               },
               "params": {
-                "Region": "us-east-1",
-                "UseDualStack": true,
-                "UseFIPS": false
+                "Region": "eu-north-1",
+                "UseFIPS": false,
+                "UseDualStack": false
+              }
+            },
+            {
+              "documentation": "For region eu-west-1 with FIPS disabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://codestar-connections.eu-west-1.amazonaws.com"
+                }
+              },
+              "params": {
+                "Region": "eu-west-1",
+                "UseFIPS": false,
+                "UseDualStack": false
+              }
+            },
+            {
+              "documentation": "For region eu-west-2 with FIPS disabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://codestar-connections.eu-west-2.amazonaws.com"
+                }
+              },
+              "params": {
+                "Region": "eu-west-2",
+                "UseFIPS": false,
+                "UseDualStack": false
+              }
+            },
+            {
+              "documentation": "For region eu-west-3 with FIPS disabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://codestar-connections.eu-west-3.amazonaws.com"
+                }
+              },
+              "params": {
+                "Region": "eu-west-3",
+                "UseFIPS": false,
+                "UseDualStack": false
+              }
+            },
+            {
+              "documentation": "For region sa-east-1 with FIPS disabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://codestar-connections.sa-east-1.amazonaws.com"
+                }
+              },
+              "params": {
+                "Region": "sa-east-1",
+                "UseFIPS": false,
+                "UseDualStack": false
               }
             },
             {
@@ -1197,47 +621,8 @@
               },
               "params": {
                 "Region": "us-east-1",
-                "UseDualStack": false,
-                "UseFIPS": false
-              }
-            },
-            {
-              "documentation": "For region us-east-2 with FIPS enabled and DualStack enabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://codestar-connections-fips.us-east-2.api.aws"
-                }
-              },
-              "params": {
-                "Region": "us-east-2",
-                "UseDualStack": true,
-                "UseFIPS": true
-              }
-            },
-            {
-              "documentation": "For region us-east-2 with FIPS enabled and DualStack disabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://codestar-connections-fips.us-east-2.amazonaws.com"
-                }
-              },
-              "params": {
-                "Region": "us-east-2",
-                "UseDualStack": false,
-                "UseFIPS": true
-              }
-            },
-            {
-              "documentation": "For region us-east-2 with FIPS disabled and DualStack enabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://codestar-connections.us-east-2.api.aws"
-                }
-              },
-              "params": {
-                "Region": "us-east-2",
-                "UseDualStack": true,
-                "UseFIPS": false
+                "UseFIPS": false,
+                "UseDualStack": false
               }
             },
             {
@@ -1249,12 +634,277 @@
               },
               "params": {
                 "Region": "us-east-2",
-                "UseDualStack": false,
-                "UseFIPS": false
+                "UseFIPS": false,
+                "UseDualStack": false
               }
             },
             {
-              "documentation": "For custom endpoint with fips disabled and dualstack disabled",
+              "documentation": "For region us-west-1 with FIPS disabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://codestar-connections.us-west-1.amazonaws.com"
+                }
+              },
+              "params": {
+                "Region": "us-west-1",
+                "UseFIPS": false,
+                "UseDualStack": false
+              }
+            },
+            {
+              "documentation": "For region us-west-2 with FIPS disabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://codestar-connections.us-west-2.amazonaws.com"
+                }
+              },
+              "params": {
+                "Region": "us-west-2",
+                "UseFIPS": false,
+                "UseDualStack": false
+              }
+            },
+            {
+              "documentation": "For region us-east-1 with FIPS enabled and DualStack enabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://codestar-connections-fips.us-east-1.api.aws"
+                }
+              },
+              "params": {
+                "Region": "us-east-1",
+                "UseFIPS": true,
+                "UseDualStack": true
+              }
+            },
+            {
+              "documentation": "For region us-east-1 with FIPS enabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://codestar-connections-fips.us-east-1.amazonaws.com"
+                }
+              },
+              "params": {
+                "Region": "us-east-1",
+                "UseFIPS": true,
+                "UseDualStack": false
+              }
+            },
+            {
+              "documentation": "For region us-east-1 with FIPS disabled and DualStack enabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://codestar-connections.us-east-1.api.aws"
+                }
+              },
+              "params": {
+                "Region": "us-east-1",
+                "UseFIPS": false,
+                "UseDualStack": true
+              }
+            },
+            {
+              "documentation": "For region cn-north-1 with FIPS enabled and DualStack enabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://codestar-connections-fips.cn-north-1.api.amazonwebservices.com.cn"
+                }
+              },
+              "params": {
+                "Region": "cn-north-1",
+                "UseFIPS": true,
+                "UseDualStack": true
+              }
+            },
+            {
+              "documentation": "For region cn-north-1 with FIPS enabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://codestar-connections-fips.cn-north-1.amazonaws.com.cn"
+                }
+              },
+              "params": {
+                "Region": "cn-north-1",
+                "UseFIPS": true,
+                "UseDualStack": false
+              }
+            },
+            {
+              "documentation": "For region cn-north-1 with FIPS disabled and DualStack enabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://codestar-connections.cn-north-1.api.amazonwebservices.com.cn"
+                }
+              },
+              "params": {
+                "Region": "cn-north-1",
+                "UseFIPS": false,
+                "UseDualStack": true
+              }
+            },
+            {
+              "documentation": "For region cn-north-1 with FIPS disabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://codestar-connections.cn-north-1.amazonaws.com.cn"
+                }
+              },
+              "params": {
+                "Region": "cn-north-1",
+                "UseFIPS": false,
+                "UseDualStack": false
+              }
+            },
+            {
+              "documentation": "For region us-gov-east-1 with FIPS enabled and DualStack enabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://codestar-connections-fips.us-gov-east-1.api.aws"
+                }
+              },
+              "params": {
+                "Region": "us-gov-east-1",
+                "UseFIPS": true,
+                "UseDualStack": true
+              }
+            },
+            {
+              "documentation": "For region us-gov-east-1 with FIPS enabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://codestar-connections-fips.us-gov-east-1.amazonaws.com"
+                }
+              },
+              "params": {
+                "Region": "us-gov-east-1",
+                "UseFIPS": true,
+                "UseDualStack": false
+              }
+            },
+            {
+              "documentation": "For region us-gov-east-1 with FIPS disabled and DualStack enabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://codestar-connections.us-gov-east-1.api.aws"
+                }
+              },
+              "params": {
+                "Region": "us-gov-east-1",
+                "UseFIPS": false,
+                "UseDualStack": true
+              }
+            },
+            {
+              "documentation": "For region us-gov-east-1 with FIPS disabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://codestar-connections.us-gov-east-1.amazonaws.com"
+                }
+              },
+              "params": {
+                "Region": "us-gov-east-1",
+                "UseFIPS": false,
+                "UseDualStack": false
+              }
+            },
+            {
+              "documentation": "For region us-iso-east-1 with FIPS enabled and DualStack enabled",
+              "expect": {
+                "error": "FIPS and DualStack are enabled, but this partition does not support one or both"
+              },
+              "params": {
+                "Region": "us-iso-east-1",
+                "UseFIPS": true,
+                "UseDualStack": true
+              }
+            },
+            {
+              "documentation": "For region us-iso-east-1 with FIPS enabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://codestar-connections-fips.us-iso-east-1.c2s.ic.gov"
+                }
+              },
+              "params": {
+                "Region": "us-iso-east-1",
+                "UseFIPS": true,
+                "UseDualStack": false
+              }
+            },
+            {
+              "documentation": "For region us-iso-east-1 with FIPS disabled and DualStack enabled",
+              "expect": {
+                "error": "DualStack is enabled but this partition does not support DualStack"
+              },
+              "params": {
+                "Region": "us-iso-east-1",
+                "UseFIPS": false,
+                "UseDualStack": true
+              }
+            },
+            {
+              "documentation": "For region us-iso-east-1 with FIPS disabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://codestar-connections.us-iso-east-1.c2s.ic.gov"
+                }
+              },
+              "params": {
+                "Region": "us-iso-east-1",
+                "UseFIPS": false,
+                "UseDualStack": false
+              }
+            },
+            {
+              "documentation": "For region us-isob-east-1 with FIPS enabled and DualStack enabled",
+              "expect": {
+                "error": "FIPS and DualStack are enabled, but this partition does not support one or both"
+              },
+              "params": {
+                "Region": "us-isob-east-1",
+                "UseFIPS": true,
+                "UseDualStack": true
+              }
+            },
+            {
+              "documentation": "For region us-isob-east-1 with FIPS enabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://codestar-connections-fips.us-isob-east-1.sc2s.sgov.gov"
+                }
+              },
+              "params": {
+                "Region": "us-isob-east-1",
+                "UseFIPS": true,
+                "UseDualStack": false
+              }
+            },
+            {
+              "documentation": "For region us-isob-east-1 with FIPS disabled and DualStack enabled",
+              "expect": {
+                "error": "DualStack is enabled but this partition does not support DualStack"
+              },
+              "params": {
+                "Region": "us-isob-east-1",
+                "UseFIPS": false,
+                "UseDualStack": true
+              }
+            },
+            {
+              "documentation": "For region us-isob-east-1 with FIPS disabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://codestar-connections.us-isob-east-1.sc2s.sgov.gov"
+                }
+              },
+              "params": {
+                "Region": "us-isob-east-1",
+                "UseFIPS": false,
+                "UseDualStack": false
+              }
+            },
+            {
+              "documentation": "For custom endpoint with region set and fips disabled and dualstack disabled",
               "expect": {
                 "endpoint": {
                   "url": "https://example.com"
@@ -1262,8 +912,21 @@
               },
               "params": {
                 "Region": "us-east-1",
-                "UseDualStack": false,
                 "UseFIPS": false,
+                "UseDualStack": false,
+                "Endpoint": "https://example.com"
+              }
+            },
+            {
+              "documentation": "For custom endpoint with region not set and fips disabled and dualstack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://example.com"
+                }
+              },
+              "params": {
+                "UseFIPS": false,
+                "UseDualStack": false,
                 "Endpoint": "https://example.com"
               }
             },
@@ -1274,8 +937,8 @@
               },
               "params": {
                 "Region": "us-east-1",
-                "UseDualStack": false,
                 "UseFIPS": true,
+                "UseDualStack": false,
                 "Endpoint": "https://example.com"
               }
             },
@@ -1286,9 +949,15 @@
               },
               "params": {
                 "Region": "us-east-1",
-                "UseDualStack": true,
                 "UseFIPS": false,
+                "UseDualStack": true,
                 "Endpoint": "https://example.com"
+              }
+            },
+            {
+              "documentation": "Missing region",
+              "expect": {
+                "error": "Invalid Configuration: Missing Region"
               }
             }
           ],
@@ -1315,13 +984,13 @@
         "ConnectionName": {
           "target": "com.amazonaws.codestarconnections#ConnectionName",
           "traits": {
-            "smithy.api#documentation": "<p>The name of the connection. Connection names must be unique in an AWS user account.</p>"
+            "smithy.api#documentation": "<p>The name of the connection. Connection names must be unique in an Amazon Web Services account.</p>"
           }
         },
         "ConnectionArn": {
           "target": "com.amazonaws.codestarconnections#ConnectionArn",
           "traits": {
-            "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the connection. The ARN is used as the connection\n      reference when the connection is shared between AWS services.</p>\n         <note>\n            <p>The ARN is never reused if the connection is deleted.</p>\n         </note>"
+            "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the connection. The ARN is used as the connection\n      reference when the connection is shared between Amazon Web Services.</p>\n         <note>\n            <p>The ARN is never reused if the connection is deleted.</p>\n         </note>"
           }
         },
         "ProviderType": {
@@ -1350,7 +1019,7 @@
         }
       },
       "traits": {
-        "smithy.api#documentation": "<p>A resource that is used to connect third-party source providers with services like AWS CodePipeline.</p>\n         <p>Note: A connection created through CloudFormation, the CLI, or the SDK is in `PENDING` status by default. You can make its status `AVAILABLE` by updating the \n      connection in the console.</p>"
+        "smithy.api#documentation": "<p>A resource that is used to connect third-party source providers with services like CodePipeline.</p>\n         <p>Note: A connection created through CloudFormation, the CLI, or the SDK is in `PENDING` status by default. You can make its status `AVAILABLE` by updating the \n      connection in the console.</p>"
       }
     },
     "com.amazonaws.codestarconnections#ConnectionArn": {
@@ -1360,7 +1029,7 @@
           "min": 0,
           "max": 256
         },
-        "smithy.api#pattern": "arn:aws(-[\\w]+)*:.+:.+:[0-9]{12}:.+"
+        "smithy.api#pattern": "^arn:aws(-[\\w]+)*:.+:.+:[0-9]{12}:.+$"
       }
     },
     "com.amazonaws.codestarconnections#ConnectionList": {
@@ -1376,26 +1045,30 @@
           "min": 1,
           "max": 32
         },
-        "smithy.api#pattern": "[\\s\\S]*"
+        "smithy.api#pattern": "^[\\s\\S]*$"
       }
     },
     "com.amazonaws.codestarconnections#ConnectionStatus": {
-      "type": "string",
-      "traits": {
-        "smithy.api#enum": [
-          {
-            "value": "PENDING",
-            "name": "PENDING"
-          },
-          {
-            "value": "AVAILABLE",
-            "name": "AVAILABLE"
-          },
-          {
-            "value": "ERROR",
-            "name": "ERROR"
+      "type": "enum",
+      "members": {
+        "PENDING": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "PENDING"
           }
-        ]
+        },
+        "AVAILABLE": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "AVAILABLE"
+          }
+        },
+        "ERROR": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "ERROR"
+          }
+        }
       }
     },
     "com.amazonaws.codestarconnections#CreateConnection": {
@@ -1418,7 +1091,7 @@
         }
       ],
       "traits": {
-        "smithy.api#documentation": "<p>Creates a connection that can then be given to other AWS services like CodePipeline so\n      that it can access third-party code repositories. The connection is in pending status until\n      the third-party connection handshake is completed from the console.</p>"
+        "smithy.api#documentation": "<p>Creates a connection that can then be given to other Amazon Web Services services like CodePipeline so\n      that it can access third-party code repositories. The connection is in pending status until\n      the third-party connection handshake is completed from the console.</p>"
       }
     },
     "com.amazonaws.codestarconnections#CreateConnectionInput": {
@@ -1433,7 +1106,7 @@
         "ConnectionName": {
           "target": "com.amazonaws.codestarconnections#ConnectionName",
           "traits": {
-            "smithy.api#documentation": "<p>The name of the connection to be created. The name must be unique in the calling AWS\n      account.</p>",
+            "smithy.api#documentation": "<p>The name of the connection to be created.</p>",
             "smithy.api#required": {}
           }
         },
@@ -1449,6 +1122,9 @@
             "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the host associated with the connection to be created.</p>"
           }
         }
+      },
+      "traits": {
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.codestarconnections#CreateConnectionOutput": {
@@ -1457,7 +1133,7 @@
         "ConnectionArn": {
           "target": "com.amazonaws.codestarconnections#ConnectionArn",
           "traits": {
-            "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the connection to be created. The ARN is used as the\n      connection reference when the connection is shared between AWS services.</p>\n         <note>\n            <p>The ARN is never reused if the connection is deleted.</p>\n         </note>",
+            "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the connection to be created. The ARN is used as the\n      connection reference when the connection is shared between Amazon Web Services services.</p>\n         <note>\n            <p>The ARN is never reused if the connection is deleted.</p>\n         </note>",
             "smithy.api#required": {}
           }
         },
@@ -1467,6 +1143,9 @@
             "smithy.api#documentation": "<p>Specifies the tags applied to the resource.</p>"
           }
         }
+      },
+      "traits": {
+        "smithy.api#output": {}
       }
     },
     "com.amazonaws.codestarconnections#CreateHost": {
@@ -1492,7 +1171,7 @@
         "Name": {
           "target": "com.amazonaws.codestarconnections#HostName",
           "traits": {
-            "smithy.api#documentation": "<p>The name of the host to be created. The name must be unique in the calling AWS\n      account.</p>",
+            "smithy.api#documentation": "<p>The name of the host to be created.</p>",
             "smithy.api#required": {}
           }
         },
@@ -1519,6 +1198,9 @@
         "Tags": {
           "target": "com.amazonaws.codestarconnections#TagList"
         }
+      },
+      "traits": {
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.codestarconnections#CreateHostOutput": {
@@ -1533,6 +1215,9 @@
         "Tags": {
           "target": "com.amazonaws.codestarconnections#TagList"
         }
+      },
+      "traits": {
+        "smithy.api#output": {}
       }
     },
     "com.amazonaws.codestarconnections#DeleteConnection": {
@@ -1562,11 +1247,17 @@
             "smithy.api#required": {}
           }
         }
+      },
+      "traits": {
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.codestarconnections#DeleteConnectionOutput": {
       "type": "structure",
-      "members": {}
+      "members": {},
+      "traits": {
+        "smithy.api#output": {}
+      }
     },
     "com.amazonaws.codestarconnections#DeleteHost": {
       "type": "operation",
@@ -1598,11 +1289,17 @@
             "smithy.api#required": {}
           }
         }
+      },
+      "traits": {
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.codestarconnections#DeleteHostOutput": {
       "type": "structure",
-      "members": {}
+      "members": {},
+      "traits": {
+        "smithy.api#output": {}
+      }
     },
     "com.amazonaws.codestarconnections#ErrorMessage": {
       "type": "string",
@@ -1643,6 +1340,9 @@
             "smithy.api#required": {}
           }
         }
+      },
+      "traits": {
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.codestarconnections#GetConnectionOutput": {
@@ -1654,6 +1354,9 @@
             "smithy.api#documentation": "<p>The connection details, such as status, owner, and provider type.</p>"
           }
         }
+      },
+      "traits": {
+        "smithy.api#output": {}
       }
     },
     "com.amazonaws.codestarconnections#GetHost": {
@@ -1686,6 +1389,9 @@
             "smithy.api#required": {}
           }
         }
+      },
+      "traits": {
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.codestarconnections#GetHostOutput": {
@@ -1721,6 +1427,9 @@
             "smithy.api#documentation": "<p>The VPC configuration of the requested host.</p>"
           }
         }
+      },
+      "traits": {
+        "smithy.api#output": {}
       }
     },
     "com.amazonaws.codestarconnections#Host": {
@@ -1780,7 +1489,7 @@
           "min": 0,
           "max": 256
         },
-        "smithy.api#pattern": "arn:aws(-[\\w]+)*:codestar-connections:.+:[0-9]{12}:host\\/.+"
+        "smithy.api#pattern": "^arn:aws(-[\\w]+)*:codestar-connections:.+:[0-9]{12}:host\\/.+$"
       }
     },
     "com.amazonaws.codestarconnections#HostList": {
@@ -1833,6 +1542,11 @@
       "output": {
         "target": "com.amazonaws.codestarconnections#ListConnectionsOutput"
       },
+      "errors": [
+        {
+          "target": "com.amazonaws.codestarconnections#ResourceNotFoundException"
+        }
+      ],
       "traits": {
         "smithy.api#documentation": "<p>Lists the connections associated with your account.</p>",
         "smithy.api#paginated": {
@@ -1870,6 +1584,9 @@
             "smithy.api#documentation": "<p>The token that was returned from the previous <code>ListConnections</code> call, which\n      can be used to return the next set of connections in the list.</p>"
           }
         }
+      },
+      "traits": {
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.codestarconnections#ListConnectionsOutput": {
@@ -1887,6 +1604,9 @@
             "smithy.api#documentation": "<p>A token that can be used in the next <code>ListConnections</code> call. To view all\n      items in the list, continue to call this operation with each subsequent token until no more\n      <code>nextToken</code> values are returned.</p>"
           }
         }
+      },
+      "traits": {
+        "smithy.api#output": {}
       }
     },
     "com.amazonaws.codestarconnections#ListHosts": {
@@ -1922,6 +1642,9 @@
             "smithy.api#documentation": "<p>The token that was returned from the previous <code>ListHosts</code> call, which can be\n      used to return the next set of hosts in the list.</p>"
           }
         }
+      },
+      "traits": {
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.codestarconnections#ListHostsOutput": {
@@ -1939,6 +1662,9 @@
             "smithy.api#documentation": "<p>A token that can be used in the next <code>ListHosts</code> call. To view all items in the\n      list, continue to call this operation with each subsequent token until no more\n      <code>nextToken</code> values are returned.</p>"
           }
         }
+      },
+      "traits": {
+        "smithy.api#output": {}
       }
     },
     "com.amazonaws.codestarconnections#ListTagsForResource": {
@@ -1968,6 +1694,9 @@
             "smithy.api#required": {}
           }
         }
+      },
+      "traits": {
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.codestarconnections#ListTagsForResourceOutput": {
@@ -1979,6 +1708,9 @@
             "smithy.api#documentation": "<p>A list of tag key and value pairs associated with the specified resource.</p>"
           }
         }
+      },
+      "traits": {
+        "smithy.api#output": {}
       }
     },
     "com.amazonaws.codestarconnections#MaxResults": {
@@ -2002,22 +1734,32 @@
       }
     },
     "com.amazonaws.codestarconnections#ProviderType": {
-      "type": "string",
-      "traits": {
-        "smithy.api#enum": [
-          {
-            "value": "Bitbucket",
-            "name": "BITBUCKET"
-          },
-          {
-            "value": "GitHub",
-            "name": "GITHUB"
-          },
-          {
-            "value": "GitHubEnterpriseServer",
-            "name": "GITHUB_ENTERPRISE_SERVER"
+      "type": "enum",
+      "members": {
+        "BITBUCKET": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "Bitbucket"
           }
-        ]
+        },
+        "GITHUB": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "GitHub"
+          }
+        },
+        "GITHUB_ENTERPRISE_SERVER": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "GitHubEnterpriseServer"
+          }
+        },
+        "GITLAB": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "GitLab"
+          }
+        }
       }
     },
     "com.amazonaws.codestarconnections#ResourceNotFoundException": {
@@ -2053,7 +1795,7 @@
           "min": 11,
           "max": 20
         },
-        "smithy.api#pattern": "sg-\\w{8}(\\w{9})?"
+        "smithy.api#pattern": "^sg-\\w{8}(\\w{9})?$"
       }
     },
     "com.amazonaws.codestarconnections#SecurityGroupIds": {
@@ -2075,7 +1817,7 @@
           "min": 15,
           "max": 24
         },
-        "smithy.api#pattern": "subnet-\\w{8}(\\w{9})?"
+        "smithy.api#pattern": "^subnet-\\w{8}(\\w{9})?$"
       }
     },
     "com.amazonaws.codestarconnections#SubnetIds": {
@@ -2109,7 +1851,7 @@
         }
       },
       "traits": {
-        "smithy.api#documentation": "<p>A tag is a key-value pair that is used to manage the resource.</p>\n         <p>This tag is available for use by AWS services that support tags.</p>"
+        "smithy.api#documentation": "<p>A tag is a key-value pair that is used to manage the resource.</p>\n         <p>This tag is available for use by Amazon Web Services services that support tags.</p>"
       }
     },
     "com.amazonaws.codestarconnections#TagKey": {
@@ -2183,11 +1925,17 @@
             "smithy.api#required": {}
           }
         }
+      },
+      "traits": {
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.codestarconnections#TagResourceOutput": {
       "type": "structure",
-      "members": {}
+      "members": {},
+      "traits": {
+        "smithy.api#output": {}
+      }
     },
     "com.amazonaws.codestarconnections#TagValue": {
       "type": "string",
@@ -2206,7 +1954,7 @@
           "min": 1,
           "max": 16384
         },
-        "smithy.api#pattern": "[\\s\\S]*"
+        "smithy.api#pattern": "^[\\s\\S]*$"
       }
     },
     "com.amazonaws.codestarconnections#UnsupportedOperationException": {
@@ -2236,7 +1984,7 @@
         }
       ],
       "traits": {
-        "smithy.api#documentation": "<p>Removes tags from an AWS resource.</p>"
+        "smithy.api#documentation": "<p>Removes tags from an Amazon Web Services resource.</p>"
       }
     },
     "com.amazonaws.codestarconnections#UntagResourceInput": {
@@ -2256,11 +2004,17 @@
             "smithy.api#required": {}
           }
         }
+      },
+      "traits": {
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.codestarconnections#UntagResourceOutput": {
       "type": "structure",
-      "members": {}
+      "members": {},
+      "traits": {
+        "smithy.api#output": {}
+      }
     },
     "com.amazonaws.codestarconnections#UpdateHost": {
       "type": "operation",
@@ -2310,11 +2064,17 @@
             "smithy.api#documentation": "<p>The VPC configuration of the host to be updated. A VPC must be configured and the\n      infrastructure to be represented by the host must already be connected to the VPC.</p>"
           }
         }
+      },
+      "traits": {
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.codestarconnections#UpdateHostOutput": {
       "type": "structure",
-      "members": {}
+      "members": {},
+      "traits": {
+        "smithy.api#output": {}
+      }
     },
     "com.amazonaws.codestarconnections#Url": {
       "type": "string",
@@ -2368,7 +2128,7 @@
           "min": 12,
           "max": 21
         },
-        "smithy.api#pattern": "vpc-\\w{8}(\\w{9})?"
+        "smithy.api#pattern": "^vpc-\\w{8}(\\w{9})?$"
       }
     }
   }
