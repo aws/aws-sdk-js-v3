@@ -38,7 +38,7 @@ export interface CreateDatasetCommandOutput extends CreateDatasetResponse, __Met
  * @public
  * <p>Creates a container for a collection of data being ingested for analysis. The dataset
  *          contains the metadata describing where the data is and what the data actually looks like.
- *          In other words, it contains the location of the data source, the data schema, and other
+ *          For example, it contains the location of the data source, the data schema, and other
  *          information. A dataset also contains any tags associated with the ingested data. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -65,7 +65,7 @@ export interface CreateDatasetCommandOutput extends CreateDatasetResponse, __Met
  * // { // CreateDatasetResponse
  * //   DatasetName: "STRING_VALUE",
  * //   DatasetArn: "STRING_VALUE",
- * //   Status: "CREATED" || "INGESTION_IN_PROGRESS" || "ACTIVE",
+ * //   Status: "CREATED" || "INGESTION_IN_PROGRESS" || "ACTIVE" || "IMPORT_IN_PROGRESS",
  * // };
  *
  * ```
@@ -96,7 +96,7 @@ export interface CreateDatasetCommandOutput extends CreateDatasetResponse, __Met
  *
  * @throws {@link ValidationException} (client fault)
  *  <p> The input fails to satisfy constraints specified by Amazon Lookout for Equipment or a
- *          related AWS service that's being utilized. </p>
+ *          related Amazon Web Services service that's being utilized. </p>
  *
  * @throws {@link LookoutEquipmentServiceException}
  * <p>Base exception class for all service exceptions from LookoutEquipment service.</p>

@@ -41,6 +41,10 @@ import { DeleteLabelCommandInput, DeleteLabelCommandOutput } from "../commands/D
 import { DeleteLabelGroupCommandInput, DeleteLabelGroupCommandOutput } from "../commands/DeleteLabelGroupCommand";
 import { DeleteModelCommandInput, DeleteModelCommandOutput } from "../commands/DeleteModelCommand";
 import {
+  DeleteResourcePolicyCommandInput,
+  DeleteResourcePolicyCommandOutput,
+} from "../commands/DeleteResourcePolicyCommand";
+import {
   DescribeDataIngestionJobCommandInput,
   DescribeDataIngestionJobCommandOutput,
 } from "../commands/DescribeDataIngestionJobCommand";
@@ -52,6 +56,16 @@ import {
 import { DescribeLabelCommandInput, DescribeLabelCommandOutput } from "../commands/DescribeLabelCommand";
 import { DescribeLabelGroupCommandInput, DescribeLabelGroupCommandOutput } from "../commands/DescribeLabelGroupCommand";
 import { DescribeModelCommandInput, DescribeModelCommandOutput } from "../commands/DescribeModelCommand";
+import {
+  DescribeModelVersionCommandInput,
+  DescribeModelVersionCommandOutput,
+} from "../commands/DescribeModelVersionCommand";
+import {
+  DescribeResourcePolicyCommandInput,
+  DescribeResourcePolicyCommandOutput,
+} from "../commands/DescribeResourcePolicyCommand";
+import { ImportDatasetCommandInput, ImportDatasetCommandOutput } from "../commands/ImportDatasetCommand";
+import { ImportModelVersionCommandInput, ImportModelVersionCommandOutput } from "../commands/ImportModelVersionCommand";
 import {
   ListDataIngestionJobsCommandInput,
   ListDataIngestionJobsCommandOutput,
@@ -72,6 +86,7 @@ import {
 import { ListLabelGroupsCommandInput, ListLabelGroupsCommandOutput } from "../commands/ListLabelGroupsCommand";
 import { ListLabelsCommandInput, ListLabelsCommandOutput } from "../commands/ListLabelsCommand";
 import { ListModelsCommandInput, ListModelsCommandOutput } from "../commands/ListModelsCommand";
+import { ListModelVersionsCommandInput, ListModelVersionsCommandOutput } from "../commands/ListModelVersionsCommand";
 import {
   ListSensorStatisticsCommandInput,
   ListSensorStatisticsCommandOutput,
@@ -80,6 +95,7 @@ import {
   ListTagsForResourceCommandInput,
   ListTagsForResourceCommandOutput,
 } from "../commands/ListTagsForResourceCommand";
+import { PutResourcePolicyCommandInput, PutResourcePolicyCommandOutput } from "../commands/PutResourcePolicyCommand";
 import {
   StartDataIngestionJobCommandInput,
   StartDataIngestionJobCommandOutput,
@@ -94,6 +110,10 @@ import {
 } from "../commands/StopInferenceSchedulerCommand";
 import { TagResourceCommandInput, TagResourceCommandOutput } from "../commands/TagResourceCommand";
 import { UntagResourceCommandInput, UntagResourceCommandOutput } from "../commands/UntagResourceCommand";
+import {
+  UpdateActiveModelVersionCommandInput,
+  UpdateActiveModelVersionCommandOutput,
+} from "../commands/UpdateActiveModelVersionCommand";
 import {
   UpdateInferenceSchedulerCommandInput,
   UpdateInferenceSchedulerCommandOutput,
@@ -117,6 +137,7 @@ import {
   DeleteLabelGroupRequest,
   DeleteLabelRequest,
   DeleteModelRequest,
+  DeleteResourcePolicyRequest,
   DescribeDataIngestionJobRequest,
   DescribeDataIngestionJobResponse,
   DescribeDatasetRequest,
@@ -129,6 +150,12 @@ import {
   DescribeLabelResponse,
   DescribeModelRequest,
   DescribeModelResponse,
+  DescribeModelVersionRequest,
+  DescribeModelVersionResponse,
+  DescribeResourcePolicyRequest,
+  DescribeResourcePolicyResponse,
+  ImportDatasetRequest,
+  ImportModelVersionRequest,
   InferenceEventSummary,
   InferenceExecutionSummary,
   InferenceInputConfiguration,
@@ -157,10 +184,14 @@ import {
   ListLabelsResponse,
   ListModelsRequest,
   ListModelsResponse,
+  ListModelVersionsRequest,
+  ListModelVersionsResponse,
   ListSensorStatisticsRequest,
   ListSensorStatisticsResponse,
   ListTagsForResourceRequest,
   ModelSummary,
+  ModelVersionSummary,
+  PutResourcePolicyRequest,
   ResourceNotFoundException,
   SensorStatisticsSummary,
   ServiceQuotaExceededException,
@@ -171,6 +202,7 @@ import {
   TagResourceRequest,
   ThrottlingException,
   UntagResourceRequest,
+  UpdateActiveModelVersionRequest,
   UpdateInferenceSchedulerRequest,
   UpdateLabelGroupRequest,
   ValidationException,
@@ -307,6 +339,19 @@ export const se_DeleteModelCommand = async (
 };
 
 /**
+ * serializeAws_json1_0DeleteResourcePolicyCommand
+ */
+export const se_DeleteResourcePolicyCommand = async (
+  input: DeleteResourcePolicyCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = sharedHeaders("DeleteResourcePolicy");
+  let body: any;
+  body = JSON.stringify(_json(input));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+/**
  * serializeAws_json1_0DescribeDataIngestionJobCommand
  */
 export const se_DescribeDataIngestionJobCommand = async (
@@ -381,6 +426,58 @@ export const se_DescribeModelCommand = async (
   const headers: __HeaderBag = sharedHeaders("DescribeModel");
   let body: any;
   body = JSON.stringify(_json(input));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+/**
+ * serializeAws_json1_0DescribeModelVersionCommand
+ */
+export const se_DescribeModelVersionCommand = async (
+  input: DescribeModelVersionCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = sharedHeaders("DescribeModelVersion");
+  let body: any;
+  body = JSON.stringify(_json(input));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+/**
+ * serializeAws_json1_0DescribeResourcePolicyCommand
+ */
+export const se_DescribeResourcePolicyCommand = async (
+  input: DescribeResourcePolicyCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = sharedHeaders("DescribeResourcePolicy");
+  let body: any;
+  body = JSON.stringify(_json(input));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+/**
+ * serializeAws_json1_0ImportDatasetCommand
+ */
+export const se_ImportDatasetCommand = async (
+  input: ImportDatasetCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = sharedHeaders("ImportDataset");
+  let body: any;
+  body = JSON.stringify(se_ImportDatasetRequest(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+/**
+ * serializeAws_json1_0ImportModelVersionCommand
+ */
+export const se_ImportModelVersionCommand = async (
+  input: ImportModelVersionCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = sharedHeaders("ImportModelVersion");
+  let body: any;
+  body = JSON.stringify(se_ImportModelVersionRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -489,6 +586,19 @@ export const se_ListModelsCommand = async (
 };
 
 /**
+ * serializeAws_json1_0ListModelVersionsCommand
+ */
+export const se_ListModelVersionsCommand = async (
+  input: ListModelVersionsCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = sharedHeaders("ListModelVersions");
+  let body: any;
+  body = JSON.stringify(se_ListModelVersionsRequest(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+/**
  * serializeAws_json1_0ListSensorStatisticsCommand
  */
 export const se_ListSensorStatisticsCommand = async (
@@ -511,6 +621,19 @@ export const se_ListTagsForResourceCommand = async (
   const headers: __HeaderBag = sharedHeaders("ListTagsForResource");
   let body: any;
   body = JSON.stringify(_json(input));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+/**
+ * serializeAws_json1_0PutResourcePolicyCommand
+ */
+export const se_PutResourcePolicyCommand = async (
+  input: PutResourcePolicyCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = sharedHeaders("PutResourcePolicy");
+  let body: any;
+  body = JSON.stringify(se_PutResourcePolicyRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -574,6 +697,19 @@ export const se_UntagResourceCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("UntagResource");
+  let body: any;
+  body = JSON.stringify(_json(input));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+/**
+ * serializeAws_json1_0UpdateActiveModelVersionCommand
+ */
+export const se_UpdateActiveModelVersionCommand = async (
+  input: UpdateActiveModelVersionCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = sharedHeaders("UpdateActiveModelVersion");
   let body: any;
   body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1210,6 +1346,64 @@ const de_DeleteModelCommandError = async (
 };
 
 /**
+ * deserializeAws_json1_0DeleteResourcePolicyCommand
+ */
+export const de_DeleteResourcePolicyCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteResourcePolicyCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_DeleteResourcePolicyCommandError(output, context);
+  }
+  await collectBody(output.body, context);
+  const response: DeleteResourcePolicyCommandOutput = {
+    $metadata: deserializeMetadata(output),
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_0DeleteResourcePolicyCommandError
+ */
+const de_DeleteResourcePolicyCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteResourcePolicyCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.lookoutequipment#AccessDeniedException":
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
+    case "ConflictException":
+    case "com.amazonaws.lookoutequipment#ConflictException":
+      throw await de_ConflictExceptionRes(parsedOutput, context);
+    case "InternalServerException":
+    case "com.amazonaws.lookoutequipment#InternalServerException":
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.lookoutequipment#ResourceNotFoundException":
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
+    case "ThrottlingException":
+    case "com.amazonaws.lookoutequipment#ThrottlingException":
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
+    case "ValidationException":
+    case "com.amazonaws.lookoutequipment#ValidationException":
+      throw await de_ValidationExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
  * deserializeAws_json1_0DescribeDataIngestionJobCommand
  */
 export const de_DescribeDataIngestionJobCommand = async (
@@ -1541,6 +1735,250 @@ const de_DescribeModelCommandError = async (
     case "ResourceNotFoundException":
     case "com.amazonaws.lookoutequipment#ResourceNotFoundException":
       throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
+    case "ThrottlingException":
+    case "com.amazonaws.lookoutequipment#ThrottlingException":
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
+    case "ValidationException":
+    case "com.amazonaws.lookoutequipment#ValidationException":
+      throw await de_ValidationExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
+ * deserializeAws_json1_0DescribeModelVersionCommand
+ */
+export const de_DescribeModelVersionCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeModelVersionCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_DescribeModelVersionCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_DescribeModelVersionResponse(data, context);
+  const response: DescribeModelVersionCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_0DescribeModelVersionCommandError
+ */
+const de_DescribeModelVersionCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeModelVersionCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.lookoutequipment#AccessDeniedException":
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
+    case "InternalServerException":
+    case "com.amazonaws.lookoutequipment#InternalServerException":
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.lookoutequipment#ResourceNotFoundException":
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
+    case "ThrottlingException":
+    case "com.amazonaws.lookoutequipment#ThrottlingException":
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
+    case "ValidationException":
+    case "com.amazonaws.lookoutequipment#ValidationException":
+      throw await de_ValidationExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
+ * deserializeAws_json1_0DescribeResourcePolicyCommand
+ */
+export const de_DescribeResourcePolicyCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeResourcePolicyCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_DescribeResourcePolicyCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_DescribeResourcePolicyResponse(data, context);
+  const response: DescribeResourcePolicyCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_0DescribeResourcePolicyCommandError
+ */
+const de_DescribeResourcePolicyCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeResourcePolicyCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.lookoutequipment#AccessDeniedException":
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
+    case "InternalServerException":
+    case "com.amazonaws.lookoutequipment#InternalServerException":
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.lookoutequipment#ResourceNotFoundException":
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
+    case "ThrottlingException":
+    case "com.amazonaws.lookoutequipment#ThrottlingException":
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
+    case "ValidationException":
+    case "com.amazonaws.lookoutequipment#ValidationException":
+      throw await de_ValidationExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
+ * deserializeAws_json1_0ImportDatasetCommand
+ */
+export const de_ImportDatasetCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ImportDatasetCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_ImportDatasetCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = _json(data);
+  const response: ImportDatasetCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_0ImportDatasetCommandError
+ */
+const de_ImportDatasetCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ImportDatasetCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.lookoutequipment#AccessDeniedException":
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
+    case "ConflictException":
+    case "com.amazonaws.lookoutequipment#ConflictException":
+      throw await de_ConflictExceptionRes(parsedOutput, context);
+    case "InternalServerException":
+    case "com.amazonaws.lookoutequipment#InternalServerException":
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.lookoutequipment#ResourceNotFoundException":
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
+    case "ServiceQuotaExceededException":
+    case "com.amazonaws.lookoutequipment#ServiceQuotaExceededException":
+      throw await de_ServiceQuotaExceededExceptionRes(parsedOutput, context);
+    case "ThrottlingException":
+    case "com.amazonaws.lookoutequipment#ThrottlingException":
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
+    case "ValidationException":
+    case "com.amazonaws.lookoutequipment#ValidationException":
+      throw await de_ValidationExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
+ * deserializeAws_json1_0ImportModelVersionCommand
+ */
+export const de_ImportModelVersionCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ImportModelVersionCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_ImportModelVersionCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = _json(data);
+  const response: ImportModelVersionCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_0ImportModelVersionCommandError
+ */
+const de_ImportModelVersionCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ImportModelVersionCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.lookoutequipment#AccessDeniedException":
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
+    case "ConflictException":
+    case "com.amazonaws.lookoutequipment#ConflictException":
+      throw await de_ConflictExceptionRes(parsedOutput, context);
+    case "InternalServerException":
+    case "com.amazonaws.lookoutequipment#InternalServerException":
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.lookoutequipment#ResourceNotFoundException":
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
+    case "ServiceQuotaExceededException":
+    case "com.amazonaws.lookoutequipment#ServiceQuotaExceededException":
+      throw await de_ServiceQuotaExceededExceptionRes(parsedOutput, context);
     case "ThrottlingException":
     case "com.amazonaws.lookoutequipment#ThrottlingException":
       throw await de_ThrottlingExceptionRes(parsedOutput, context);
@@ -2004,6 +2442,64 @@ const de_ListModelsCommandError = async (
 };
 
 /**
+ * deserializeAws_json1_0ListModelVersionsCommand
+ */
+export const de_ListModelVersionsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListModelVersionsCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_ListModelVersionsCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_ListModelVersionsResponse(data, context);
+  const response: ListModelVersionsCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_0ListModelVersionsCommandError
+ */
+const de_ListModelVersionsCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListModelVersionsCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.lookoutequipment#AccessDeniedException":
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
+    case "InternalServerException":
+    case "com.amazonaws.lookoutequipment#InternalServerException":
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.lookoutequipment#ResourceNotFoundException":
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
+    case "ThrottlingException":
+    case "com.amazonaws.lookoutequipment#ThrottlingException":
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
+    case "ValidationException":
+    case "com.amazonaws.lookoutequipment#ValidationException":
+      throw await de_ValidationExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
  * deserializeAws_json1_0ListSensorStatisticsCommand
  */
 export const de_ListSensorStatisticsCommand = async (
@@ -2103,6 +2599,70 @@ const de_ListTagsForResourceCommandError = async (
     case "ResourceNotFoundException":
     case "com.amazonaws.lookoutequipment#ResourceNotFoundException":
       throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
+    case "ThrottlingException":
+    case "com.amazonaws.lookoutequipment#ThrottlingException":
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
+    case "ValidationException":
+    case "com.amazonaws.lookoutequipment#ValidationException":
+      throw await de_ValidationExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
+ * deserializeAws_json1_0PutResourcePolicyCommand
+ */
+export const de_PutResourcePolicyCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<PutResourcePolicyCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_PutResourcePolicyCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = _json(data);
+  const response: PutResourcePolicyCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_0PutResourcePolicyCommandError
+ */
+const de_PutResourcePolicyCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<PutResourcePolicyCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.lookoutequipment#AccessDeniedException":
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
+    case "ConflictException":
+    case "com.amazonaws.lookoutequipment#ConflictException":
+      throw await de_ConflictExceptionRes(parsedOutput, context);
+    case "InternalServerException":
+    case "com.amazonaws.lookoutequipment#InternalServerException":
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.lookoutequipment#ResourceNotFoundException":
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
+    case "ServiceQuotaExceededException":
+    case "com.amazonaws.lookoutequipment#ServiceQuotaExceededException":
+      throw await de_ServiceQuotaExceededExceptionRes(parsedOutput, context);
     case "ThrottlingException":
     case "com.amazonaws.lookoutequipment#ThrottlingException":
       throw await de_ThrottlingExceptionRes(parsedOutput, context);
@@ -2402,6 +2962,67 @@ const de_UntagResourceCommandError = async (
     case "AccessDeniedException":
     case "com.amazonaws.lookoutequipment#AccessDeniedException":
       throw await de_AccessDeniedExceptionRes(parsedOutput, context);
+    case "InternalServerException":
+    case "com.amazonaws.lookoutequipment#InternalServerException":
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.lookoutequipment#ResourceNotFoundException":
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
+    case "ThrottlingException":
+    case "com.amazonaws.lookoutequipment#ThrottlingException":
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
+    case "ValidationException":
+    case "com.amazonaws.lookoutequipment#ValidationException":
+      throw await de_ValidationExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
+ * deserializeAws_json1_0UpdateActiveModelVersionCommand
+ */
+export const de_UpdateActiveModelVersionCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateActiveModelVersionCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_UpdateActiveModelVersionCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = _json(data);
+  const response: UpdateActiveModelVersionCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_0UpdateActiveModelVersionCommandError
+ */
+const de_UpdateActiveModelVersionCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateActiveModelVersionCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.lookoutequipment#AccessDeniedException":
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
+    case "ConflictException":
+    case "com.amazonaws.lookoutequipment#ConflictException":
+      throw await de_ConflictExceptionRes(parsedOutput, context);
     case "InternalServerException":
     case "com.amazonaws.lookoutequipment#InternalServerException":
       throw await de_InternalServerExceptionRes(parsedOutput, context);
@@ -2745,6 +3366,8 @@ const se_DatasetSchema = (input: DatasetSchema, context: __SerdeContext): any =>
 
 // se_DeleteModelRequest omitted.
 
+// se_DeleteResourcePolicyRequest omitted.
+
 // se_DescribeDataIngestionJobRequest omitted.
 
 // se_DescribeDatasetRequest omitted.
@@ -2757,7 +3380,40 @@ const se_DatasetSchema = (input: DatasetSchema, context: __SerdeContext): any =>
 
 // se_DescribeModelRequest omitted.
 
+// se_DescribeModelVersionRequest omitted.
+
+// se_DescribeResourcePolicyRequest omitted.
+
 // se_FaultCodes omitted.
+
+/**
+ * serializeAws_json1_0ImportDatasetRequest
+ */
+const se_ImportDatasetRequest = (input: ImportDatasetRequest, context: __SerdeContext): any => {
+  return take(input, {
+    ClientToken: [true, (_) => _ ?? generateIdempotencyToken()],
+    DatasetName: [],
+    ServerSideKmsKeyId: [],
+    SourceDatasetArn: [],
+    Tags: _json,
+  });
+};
+
+/**
+ * serializeAws_json1_0ImportModelVersionRequest
+ */
+const se_ImportModelVersionRequest = (input: ImportModelVersionRequest, context: __SerdeContext): any => {
+  return take(input, {
+    ClientToken: [true, (_) => _ ?? generateIdempotencyToken()],
+    DatasetName: [],
+    LabelsInputConfiguration: _json,
+    ModelName: [],
+    RoleArn: [],
+    ServerSideKmsKeyId: [],
+    SourceModelVersionArn: [],
+    Tags: _json,
+  });
+};
 
 // se_InferenceInputConfiguration omitted.
 
@@ -2829,9 +3485,38 @@ const se_ListLabelsRequest = (input: ListLabelsRequest, context: __SerdeContext)
 
 // se_ListModelsRequest omitted.
 
+/**
+ * serializeAws_json1_0ListModelVersionsRequest
+ */
+const se_ListModelVersionsRequest = (input: ListModelVersionsRequest, context: __SerdeContext): any => {
+  return take(input, {
+    CreatedAtEndTime: (_) => Math.round(_.getTime() / 1000),
+    CreatedAtStartTime: (_) => Math.round(_.getTime() / 1000),
+    MaxModelVersion: [],
+    MaxResults: [],
+    MinModelVersion: [],
+    ModelName: [],
+    NextToken: [],
+    SourceType: [],
+    Status: [],
+  });
+};
+
 // se_ListSensorStatisticsRequest omitted.
 
 // se_ListTagsForResourceRequest omitted.
+
+/**
+ * serializeAws_json1_0PutResourcePolicyRequest
+ */
+const se_PutResourcePolicyRequest = (input: PutResourcePolicyRequest, context: __SerdeContext): any => {
+  return take(input, {
+    ClientToken: [true, (_) => _ ?? generateIdempotencyToken()],
+    PolicyRevisionId: [],
+    ResourceArn: [],
+    ResourcePolicy: [],
+  });
+};
 
 /**
  * serializeAws_json1_0StartDataIngestionJobRequest
@@ -2858,6 +3543,8 @@ const se_StartDataIngestionJobRequest = (input: StartDataIngestionJobRequest, co
 // se_TagResourceRequest omitted.
 
 // se_UntagResourceRequest omitted.
+
+// se_UpdateActiveModelVersionRequest omitted.
 
 // se_UpdateInferenceSchedulerRequest omitted.
 
@@ -2940,6 +3627,7 @@ const de_DescribeDataIngestionJobResponse = (
     IngestionInputConfiguration: _json,
     JobId: __expectString,
     RoleArn: __expectString,
+    SourceDatasetArn: __expectString,
     Status: __expectString,
     StatusDetail: __expectString,
   }) as any;
@@ -2962,6 +3650,7 @@ const de_DescribeDatasetResponse = (output: any, context: __SerdeContext): Descr
     RoleArn: __expectString,
     Schema: (_: any) => new __LazyJsonString(_),
     ServerSideKmsKeyId: __expectString,
+    SourceDatasetArn: __expectString,
     Status: __expectString,
   }) as any;
 };
@@ -3027,6 +3716,8 @@ const de_DescribeLabelResponse = (output: any, context: __SerdeContext): Describ
  */
 const de_DescribeModelResponse = (output: any, context: __SerdeContext): DescribeModelResponse => {
   return take(output, {
+    ActiveModelVersion: __expectLong,
+    ActiveModelVersionArn: __expectString,
     CreatedAt: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
     DataPreProcessingConfiguration: _json,
     DatasetArn: __expectString,
@@ -3034,15 +3725,22 @@ const de_DescribeModelResponse = (output: any, context: __SerdeContext): Describ
     EvaluationDataEndTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
     EvaluationDataStartTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
     FailedReason: __expectString,
+    ImportJobEndTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    ImportJobStartTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
     LabelsInputConfiguration: _json,
     LastUpdatedTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
     ModelArn: __expectString,
     ModelMetrics: (_: any) => new __LazyJsonString(_),
     ModelName: __expectString,
+    ModelVersionActivatedAt: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
     OffCondition: __expectString,
+    PreviousActiveModelVersion: __expectLong,
+    PreviousActiveModelVersionArn: __expectString,
+    PreviousModelVersionActivatedAt: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
     RoleArn: __expectString,
     Schema: (_: any) => new __LazyJsonString(_),
     ServerSideKmsKeyId: __expectString,
+    SourceModelVersionArn: __expectString,
     Status: __expectString,
     TrainingDataEndTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
     TrainingDataStartTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
@@ -3051,9 +3749,61 @@ const de_DescribeModelResponse = (output: any, context: __SerdeContext): Describ
   }) as any;
 };
 
+/**
+ * deserializeAws_json1_0DescribeModelVersionResponse
+ */
+const de_DescribeModelVersionResponse = (output: any, context: __SerdeContext): DescribeModelVersionResponse => {
+  return take(output, {
+    CreatedAt: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    DataPreProcessingConfiguration: _json,
+    DatasetArn: __expectString,
+    DatasetName: __expectString,
+    EvaluationDataEndTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    EvaluationDataStartTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    FailedReason: __expectString,
+    ImportJobEndTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    ImportJobStartTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    ImportedDataSizeInBytes: __expectLong,
+    LabelsInputConfiguration: _json,
+    LastUpdatedTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    ModelArn: __expectString,
+    ModelMetrics: __expectString,
+    ModelName: __expectString,
+    ModelVersion: __expectLong,
+    ModelVersionArn: __expectString,
+    OffCondition: __expectString,
+    RoleArn: __expectString,
+    Schema: __expectString,
+    ServerSideKmsKeyId: __expectString,
+    SourceModelVersionArn: __expectString,
+    SourceType: __expectString,
+    Status: __expectString,
+    TrainingDataEndTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    TrainingDataStartTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    TrainingExecutionEndTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    TrainingExecutionStartTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+  }) as any;
+};
+
+/**
+ * deserializeAws_json1_0DescribeResourcePolicyResponse
+ */
+const de_DescribeResourcePolicyResponse = (output: any, context: __SerdeContext): DescribeResourcePolicyResponse => {
+  return take(output, {
+    CreationTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    LastModifiedTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    PolicyRevisionId: __expectString,
+    ResourcePolicy: __expectString,
+  }) as any;
+};
+
 // de_DuplicateTimestamps omitted.
 
 // de_FaultCodes omitted.
+
+// de_ImportDatasetResponse omitted.
+
+// de_ImportModelVersionResponse omitted.
 
 /**
  * deserializeAws_json1_0InferenceEventSummaries
@@ -3262,6 +4012,16 @@ const de_ListModelsResponse = (output: any, context: __SerdeContext): ListModels
   }) as any;
 };
 
+/**
+ * deserializeAws_json1_0ListModelVersionsResponse
+ */
+const de_ListModelVersionsResponse = (output: any, context: __SerdeContext): ListModelVersionsResponse => {
+  return take(output, {
+    ModelVersionSummaries: (_: any) => de_ModelVersionSummaries(_, context),
+    NextToken: __expectString,
+  }) as any;
+};
+
 // de_ListOfDiscardedFiles omitted.
 
 /**
@@ -3297,6 +4057,8 @@ const de_ModelSummaries = (output: any, context: __SerdeContext): ModelSummary[]
  */
 const de_ModelSummary = (output: any, context: __SerdeContext): ModelSummary => {
   return take(output, {
+    ActiveModelVersion: __expectLong,
+    ActiveModelVersionArn: __expectString,
     CreatedAt: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
     DatasetArn: __expectString,
     DatasetName: __expectString,
@@ -3306,9 +4068,38 @@ const de_ModelSummary = (output: any, context: __SerdeContext): ModelSummary => 
   }) as any;
 };
 
+/**
+ * deserializeAws_json1_0ModelVersionSummaries
+ */
+const de_ModelVersionSummaries = (output: any, context: __SerdeContext): ModelVersionSummary[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      return de_ModelVersionSummary(entry, context);
+    });
+  return retVal;
+};
+
+/**
+ * deserializeAws_json1_0ModelVersionSummary
+ */
+const de_ModelVersionSummary = (output: any, context: __SerdeContext): ModelVersionSummary => {
+  return take(output, {
+    CreatedAt: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    ModelArn: __expectString,
+    ModelName: __expectString,
+    ModelVersion: __expectLong,
+    ModelVersionArn: __expectString,
+    SourceType: __expectString,
+    Status: __expectString,
+  }) as any;
+};
+
 // de_MonotonicValues omitted.
 
 // de_MultipleOperatingModes omitted.
+
+// de_PutResourcePolicyResponse omitted.
 
 // de_ResourceNotFoundException omitted.
 
@@ -3368,6 +4159,8 @@ const de_SensorStatisticsSummary = (output: any, context: __SerdeContext): Senso
 // de_UnsupportedTimestamps omitted.
 
 // de_UntagResourceResponse omitted.
+
+// de_UpdateActiveModelVersionResponse omitted.
 
 // de_ValidationException omitted.
 

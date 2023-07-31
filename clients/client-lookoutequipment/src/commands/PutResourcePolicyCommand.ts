@@ -14,8 +14,8 @@ import {
 } from "@smithy/types";
 
 import { LookoutEquipmentClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LookoutEquipmentClient";
-import { StopInferenceSchedulerRequest, StopInferenceSchedulerResponse } from "../models/models_0";
-import { de_StopInferenceSchedulerCommand, se_StopInferenceSchedulerCommand } from "../protocols/Aws_json1_0";
+import { PutResourcePolicyRequest, PutResourcePolicyResponse } from "../models/models_0";
+import { de_PutResourcePolicyCommand, se_PutResourcePolicyCommand } from "../protocols/Aws_json1_0";
 
 /**
  * @public
@@ -24,44 +24,44 @@ export { __MetadataBearer, $Command };
 /**
  * @public
  *
- * The input for {@link StopInferenceSchedulerCommand}.
+ * The input for {@link PutResourcePolicyCommand}.
  */
-export interface StopInferenceSchedulerCommandInput extends StopInferenceSchedulerRequest {}
+export interface PutResourcePolicyCommandInput extends PutResourcePolicyRequest {}
 /**
  * @public
  *
- * The output of {@link StopInferenceSchedulerCommand}.
+ * The output of {@link PutResourcePolicyCommand}.
  */
-export interface StopInferenceSchedulerCommandOutput extends StopInferenceSchedulerResponse, __MetadataBearer {}
+export interface PutResourcePolicyCommandOutput extends PutResourcePolicyResponse, __MetadataBearer {}
 
 /**
  * @public
- * <p>Stops an inference scheduler. </p>
+ * <p>Creates a resource control policy for a given resource.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { LookoutEquipmentClient, StopInferenceSchedulerCommand } from "@aws-sdk/client-lookoutequipment"; // ES Modules import
- * // const { LookoutEquipmentClient, StopInferenceSchedulerCommand } = require("@aws-sdk/client-lookoutequipment"); // CommonJS import
+ * import { LookoutEquipmentClient, PutResourcePolicyCommand } from "@aws-sdk/client-lookoutequipment"; // ES Modules import
+ * // const { LookoutEquipmentClient, PutResourcePolicyCommand } = require("@aws-sdk/client-lookoutequipment"); // CommonJS import
  * const client = new LookoutEquipmentClient(config);
- * const input = { // StopInferenceSchedulerRequest
- *   InferenceSchedulerName: "STRING_VALUE", // required
+ * const input = { // PutResourcePolicyRequest
+ *   ResourceArn: "STRING_VALUE", // required
+ *   ResourcePolicy: "STRING_VALUE", // required
+ *   PolicyRevisionId: "STRING_VALUE",
+ *   ClientToken: "STRING_VALUE", // required
  * };
- * const command = new StopInferenceSchedulerCommand(input);
+ * const command = new PutResourcePolicyCommand(input);
  * const response = await client.send(command);
- * // { // StopInferenceSchedulerResponse
- * //   ModelArn: "STRING_VALUE",
- * //   ModelName: "STRING_VALUE",
- * //   InferenceSchedulerName: "STRING_VALUE",
- * //   InferenceSchedulerArn: "STRING_VALUE",
- * //   Status: "PENDING" || "RUNNING" || "STOPPING" || "STOPPED",
+ * // { // PutResourcePolicyResponse
+ * //   ResourceArn: "STRING_VALUE",
+ * //   PolicyRevisionId: "STRING_VALUE",
  * // };
  *
  * ```
  *
- * @param StopInferenceSchedulerCommandInput - {@link StopInferenceSchedulerCommandInput}
- * @returns {@link StopInferenceSchedulerCommandOutput}
- * @see {@link StopInferenceSchedulerCommandInput} for command's `input` shape.
- * @see {@link StopInferenceSchedulerCommandOutput} for command's `response` shape.
+ * @param PutResourcePolicyCommandInput - {@link PutResourcePolicyCommandInput}
+ * @returns {@link PutResourcePolicyCommandOutput}
+ * @see {@link PutResourcePolicyCommandInput} for command's `input` shape.
+ * @see {@link PutResourcePolicyCommandOutput} for command's `response` shape.
  * @see {@link LookoutEquipmentClientResolvedConfig | config} for LookoutEquipmentClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
@@ -80,6 +80,9 @@ export interface StopInferenceSchedulerCommandOutput extends StopInferenceSchedu
  *  <p> The resource requested could not be found. Verify the resource ID and retry your
  *          request. </p>
  *
+ * @throws {@link ServiceQuotaExceededException} (client fault)
+ *  <p> Resource limitations have been exceeded. </p>
+ *
  * @throws {@link ThrottlingException} (client fault)
  *  <p>The request was denied due to request throttling.</p>
  *
@@ -91,9 +94,9 @@ export interface StopInferenceSchedulerCommandOutput extends StopInferenceSchedu
  * <p>Base exception class for all service exceptions from LookoutEquipment service.</p>
  *
  */
-export class StopInferenceSchedulerCommand extends $Command<
-  StopInferenceSchedulerCommandInput,
-  StopInferenceSchedulerCommandOutput,
+export class PutResourcePolicyCommand extends $Command<
+  PutResourcePolicyCommandInput,
+  PutResourcePolicyCommandOutput,
   LookoutEquipmentClientResolvedConfig
 > {
   // Start section: command_properties
@@ -111,7 +114,7 @@ export class StopInferenceSchedulerCommand extends $Command<
   /**
    * @public
    */
-  constructor(readonly input: StopInferenceSchedulerCommandInput) {
+  constructor(readonly input: PutResourcePolicyCommandInput) {
     // Start section: command_constructor
     super();
     // End section: command_constructor
@@ -124,17 +127,17 @@ export class StopInferenceSchedulerCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: LookoutEquipmentClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<StopInferenceSchedulerCommandInput, StopInferenceSchedulerCommandOutput> {
+  ): Handler<PutResourcePolicyCommandInput, PutResourcePolicyCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
     this.middlewareStack.use(
-      getEndpointPlugin(configuration, StopInferenceSchedulerCommand.getEndpointParameterInstructions())
+      getEndpointPlugin(configuration, PutResourcePolicyCommand.getEndpointParameterInstructions())
     );
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
     const clientName = "LookoutEquipmentClient";
-    const commandName = "StopInferenceSchedulerCommand";
+    const commandName = "PutResourcePolicyCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
       clientName,
@@ -153,15 +156,15 @@ export class StopInferenceSchedulerCommand extends $Command<
   /**
    * @internal
    */
-  private serialize(input: StopInferenceSchedulerCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return se_StopInferenceSchedulerCommand(input, context);
+  private serialize(input: PutResourcePolicyCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
+    return se_PutResourcePolicyCommand(input, context);
   }
 
   /**
    * @internal
    */
-  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<StopInferenceSchedulerCommandOutput> {
-    return de_StopInferenceSchedulerCommand(output, context);
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<PutResourcePolicyCommandOutput> {
+    return de_PutResourcePolicyCommand(output, context);
   }
 
   // Start section: command_body_extra

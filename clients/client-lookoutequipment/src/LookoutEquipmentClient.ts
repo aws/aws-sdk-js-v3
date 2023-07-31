@@ -66,6 +66,10 @@ import { DeleteLabelCommandInput, DeleteLabelCommandOutput } from "./commands/De
 import { DeleteLabelGroupCommandInput, DeleteLabelGroupCommandOutput } from "./commands/DeleteLabelGroupCommand";
 import { DeleteModelCommandInput, DeleteModelCommandOutput } from "./commands/DeleteModelCommand";
 import {
+  DeleteResourcePolicyCommandInput,
+  DeleteResourcePolicyCommandOutput,
+} from "./commands/DeleteResourcePolicyCommand";
+import {
   DescribeDataIngestionJobCommandInput,
   DescribeDataIngestionJobCommandOutput,
 } from "./commands/DescribeDataIngestionJobCommand";
@@ -77,6 +81,16 @@ import {
 import { DescribeLabelCommandInput, DescribeLabelCommandOutput } from "./commands/DescribeLabelCommand";
 import { DescribeLabelGroupCommandInput, DescribeLabelGroupCommandOutput } from "./commands/DescribeLabelGroupCommand";
 import { DescribeModelCommandInput, DescribeModelCommandOutput } from "./commands/DescribeModelCommand";
+import {
+  DescribeModelVersionCommandInput,
+  DescribeModelVersionCommandOutput,
+} from "./commands/DescribeModelVersionCommand";
+import {
+  DescribeResourcePolicyCommandInput,
+  DescribeResourcePolicyCommandOutput,
+} from "./commands/DescribeResourcePolicyCommand";
+import { ImportDatasetCommandInput, ImportDatasetCommandOutput } from "./commands/ImportDatasetCommand";
+import { ImportModelVersionCommandInput, ImportModelVersionCommandOutput } from "./commands/ImportModelVersionCommand";
 import {
   ListDataIngestionJobsCommandInput,
   ListDataIngestionJobsCommandOutput,
@@ -97,6 +111,7 @@ import {
 import { ListLabelGroupsCommandInput, ListLabelGroupsCommandOutput } from "./commands/ListLabelGroupsCommand";
 import { ListLabelsCommandInput, ListLabelsCommandOutput } from "./commands/ListLabelsCommand";
 import { ListModelsCommandInput, ListModelsCommandOutput } from "./commands/ListModelsCommand";
+import { ListModelVersionsCommandInput, ListModelVersionsCommandOutput } from "./commands/ListModelVersionsCommand";
 import {
   ListSensorStatisticsCommandInput,
   ListSensorStatisticsCommandOutput,
@@ -105,6 +120,7 @@ import {
   ListTagsForResourceCommandInput,
   ListTagsForResourceCommandOutput,
 } from "./commands/ListTagsForResourceCommand";
+import { PutResourcePolicyCommandInput, PutResourcePolicyCommandOutput } from "./commands/PutResourcePolicyCommand";
 import {
   StartDataIngestionJobCommandInput,
   StartDataIngestionJobCommandOutput,
@@ -119,6 +135,10 @@ import {
 } from "./commands/StopInferenceSchedulerCommand";
 import { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
 import { UntagResourceCommandInput, UntagResourceCommandOutput } from "./commands/UntagResourceCommand";
+import {
+  UpdateActiveModelVersionCommandInput,
+  UpdateActiveModelVersionCommandOutput,
+} from "./commands/UpdateActiveModelVersionCommand";
 import {
   UpdateInferenceSchedulerCommandInput,
   UpdateInferenceSchedulerCommandOutput,
@@ -148,12 +168,17 @@ export type ServiceInputTypes =
   | DeleteLabelCommandInput
   | DeleteLabelGroupCommandInput
   | DeleteModelCommandInput
+  | DeleteResourcePolicyCommandInput
   | DescribeDataIngestionJobCommandInput
   | DescribeDatasetCommandInput
   | DescribeInferenceSchedulerCommandInput
   | DescribeLabelCommandInput
   | DescribeLabelGroupCommandInput
   | DescribeModelCommandInput
+  | DescribeModelVersionCommandInput
+  | DescribeResourcePolicyCommandInput
+  | ImportDatasetCommandInput
+  | ImportModelVersionCommandInput
   | ListDataIngestionJobsCommandInput
   | ListDatasetsCommandInput
   | ListInferenceEventsCommandInput
@@ -161,14 +186,17 @@ export type ServiceInputTypes =
   | ListInferenceSchedulersCommandInput
   | ListLabelGroupsCommandInput
   | ListLabelsCommandInput
+  | ListModelVersionsCommandInput
   | ListModelsCommandInput
   | ListSensorStatisticsCommandInput
   | ListTagsForResourceCommandInput
+  | PutResourcePolicyCommandInput
   | StartDataIngestionJobCommandInput
   | StartInferenceSchedulerCommandInput
   | StopInferenceSchedulerCommandInput
   | TagResourceCommandInput
   | UntagResourceCommandInput
+  | UpdateActiveModelVersionCommandInput
   | UpdateInferenceSchedulerCommandInput
   | UpdateLabelGroupCommandInput;
 
@@ -186,12 +214,17 @@ export type ServiceOutputTypes =
   | DeleteLabelCommandOutput
   | DeleteLabelGroupCommandOutput
   | DeleteModelCommandOutput
+  | DeleteResourcePolicyCommandOutput
   | DescribeDataIngestionJobCommandOutput
   | DescribeDatasetCommandOutput
   | DescribeInferenceSchedulerCommandOutput
   | DescribeLabelCommandOutput
   | DescribeLabelGroupCommandOutput
   | DescribeModelCommandOutput
+  | DescribeModelVersionCommandOutput
+  | DescribeResourcePolicyCommandOutput
+  | ImportDatasetCommandOutput
+  | ImportModelVersionCommandOutput
   | ListDataIngestionJobsCommandOutput
   | ListDatasetsCommandOutput
   | ListInferenceEventsCommandOutput
@@ -199,14 +232,17 @@ export type ServiceOutputTypes =
   | ListInferenceSchedulersCommandOutput
   | ListLabelGroupsCommandOutput
   | ListLabelsCommandOutput
+  | ListModelVersionsCommandOutput
   | ListModelsCommandOutput
   | ListSensorStatisticsCommandOutput
   | ListTagsForResourceCommandOutput
+  | PutResourcePolicyCommandOutput
   | StartDataIngestionJobCommandOutput
   | StartInferenceSchedulerCommandOutput
   | StopInferenceSchedulerCommandOutput
   | TagResourceCommandOutput
   | UntagResourceCommandOutput
+  | UpdateActiveModelVersionCommandOutput
   | UpdateInferenceSchedulerCommandOutput
   | UpdateLabelGroupCommandOutput;
 

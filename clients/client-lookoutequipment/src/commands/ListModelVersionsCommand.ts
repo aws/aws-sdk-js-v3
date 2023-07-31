@@ -14,8 +14,8 @@ import {
 } from "@smithy/types";
 
 import { LookoutEquipmentClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LookoutEquipmentClient";
-import { DescribeModelRequest, DescribeModelResponse } from "../models/models_0";
-import { de_DescribeModelCommand, se_DescribeModelCommand } from "../protocols/Aws_json1_0";
+import { ListModelVersionsRequest, ListModelVersionsResponse } from "../models/models_0";
+import { de_ListModelVersionsCommand, se_ListModelVersionsCommand } from "../protocols/Aws_json1_0";
 
 /**
  * @public
@@ -24,79 +24,61 @@ export { __MetadataBearer, $Command };
 /**
  * @public
  *
- * The input for {@link DescribeModelCommand}.
+ * The input for {@link ListModelVersionsCommand}.
  */
-export interface DescribeModelCommandInput extends DescribeModelRequest {}
+export interface ListModelVersionsCommandInput extends ListModelVersionsRequest {}
 /**
  * @public
  *
- * The output of {@link DescribeModelCommand}.
+ * The output of {@link ListModelVersionsCommand}.
  */
-export interface DescribeModelCommandOutput extends DescribeModelResponse, __MetadataBearer {}
+export interface ListModelVersionsCommandOutput extends ListModelVersionsResponse, __MetadataBearer {}
 
 /**
  * @public
- * <p>Provides a JSON containing the overall information about a specific ML model, including
- *          model name and ARN, dataset, training and evaluation information, status, and so on.
- *       </p>
+ * <p>Generates a list of all model versions for a given model,
+ *       including the model version, model version ARN, and status. To list a
+ *       subset of versions, use the <code>MaxModelVersion</code> and <code>MinModelVersion</code> fields.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { LookoutEquipmentClient, DescribeModelCommand } from "@aws-sdk/client-lookoutequipment"; // ES Modules import
- * // const { LookoutEquipmentClient, DescribeModelCommand } = require("@aws-sdk/client-lookoutequipment"); // CommonJS import
+ * import { LookoutEquipmentClient, ListModelVersionsCommand } from "@aws-sdk/client-lookoutequipment"; // ES Modules import
+ * // const { LookoutEquipmentClient, ListModelVersionsCommand } = require("@aws-sdk/client-lookoutequipment"); // CommonJS import
  * const client = new LookoutEquipmentClient(config);
- * const input = { // DescribeModelRequest
+ * const input = { // ListModelVersionsRequest
  *   ModelName: "STRING_VALUE", // required
+ *   NextToken: "STRING_VALUE",
+ *   MaxResults: Number("int"),
+ *   Status: "IN_PROGRESS" || "SUCCESS" || "FAILED" || "IMPORT_IN_PROGRESS" || "CANCELED",
+ *   SourceType: "TRAINING" || "RETRAINING" || "IMPORT",
+ *   CreatedAtEndTime: new Date("TIMESTAMP"),
+ *   CreatedAtStartTime: new Date("TIMESTAMP"),
+ *   MaxModelVersion: Number("long"),
+ *   MinModelVersion: Number("long"),
  * };
- * const command = new DescribeModelCommand(input);
+ * const command = new ListModelVersionsCommand(input);
  * const response = await client.send(command);
- * // { // DescribeModelResponse
- * //   ModelName: "STRING_VALUE",
- * //   ModelArn: "STRING_VALUE",
- * //   DatasetName: "STRING_VALUE",
- * //   DatasetArn: "STRING_VALUE",
- * //   Schema: "STRING_VALUE",
- * //   LabelsInputConfiguration: { // LabelsInputConfiguration
- * //     S3InputConfiguration: { // LabelsS3InputConfiguration
- * //       Bucket: "STRING_VALUE", // required
- * //       Prefix: "STRING_VALUE",
+ * // { // ListModelVersionsResponse
+ * //   NextToken: "STRING_VALUE",
+ * //   ModelVersionSummaries: [ // ModelVersionSummaries
+ * //     { // ModelVersionSummary
+ * //       ModelName: "STRING_VALUE",
+ * //       ModelArn: "STRING_VALUE",
+ * //       ModelVersion: Number("long"),
+ * //       ModelVersionArn: "STRING_VALUE",
+ * //       CreatedAt: new Date("TIMESTAMP"),
+ * //       Status: "IN_PROGRESS" || "SUCCESS" || "FAILED" || "IMPORT_IN_PROGRESS" || "CANCELED",
+ * //       SourceType: "TRAINING" || "RETRAINING" || "IMPORT",
  * //     },
- * //     LabelGroupName: "STRING_VALUE",
- * //   },
- * //   TrainingDataStartTime: new Date("TIMESTAMP"),
- * //   TrainingDataEndTime: new Date("TIMESTAMP"),
- * //   EvaluationDataStartTime: new Date("TIMESTAMP"),
- * //   EvaluationDataEndTime: new Date("TIMESTAMP"),
- * //   RoleArn: "STRING_VALUE",
- * //   DataPreProcessingConfiguration: { // DataPreProcessingConfiguration
- * //     TargetSamplingRate: "PT1S" || "PT5S" || "PT10S" || "PT15S" || "PT30S" || "PT1M" || "PT5M" || "PT10M" || "PT15M" || "PT30M" || "PT1H",
- * //   },
- * //   Status: "IN_PROGRESS" || "SUCCESS" || "FAILED" || "IMPORT_IN_PROGRESS",
- * //   TrainingExecutionStartTime: new Date("TIMESTAMP"),
- * //   TrainingExecutionEndTime: new Date("TIMESTAMP"),
- * //   FailedReason: "STRING_VALUE",
- * //   ModelMetrics: "STRING_VALUE",
- * //   LastUpdatedTime: new Date("TIMESTAMP"),
- * //   CreatedAt: new Date("TIMESTAMP"),
- * //   ServerSideKmsKeyId: "STRING_VALUE",
- * //   OffCondition: "STRING_VALUE",
- * //   SourceModelVersionArn: "STRING_VALUE",
- * //   ImportJobStartTime: new Date("TIMESTAMP"),
- * //   ImportJobEndTime: new Date("TIMESTAMP"),
- * //   ActiveModelVersion: Number("long"),
- * //   ActiveModelVersionArn: "STRING_VALUE",
- * //   ModelVersionActivatedAt: new Date("TIMESTAMP"),
- * //   PreviousActiveModelVersion: Number("long"),
- * //   PreviousActiveModelVersionArn: "STRING_VALUE",
- * //   PreviousModelVersionActivatedAt: new Date("TIMESTAMP"),
+ * //   ],
  * // };
  *
  * ```
  *
- * @param DescribeModelCommandInput - {@link DescribeModelCommandInput}
- * @returns {@link DescribeModelCommandOutput}
- * @see {@link DescribeModelCommandInput} for command's `input` shape.
- * @see {@link DescribeModelCommandOutput} for command's `response` shape.
+ * @param ListModelVersionsCommandInput - {@link ListModelVersionsCommandInput}
+ * @returns {@link ListModelVersionsCommandOutput}
+ * @see {@link ListModelVersionsCommandInput} for command's `input` shape.
+ * @see {@link ListModelVersionsCommandOutput} for command's `response` shape.
  * @see {@link LookoutEquipmentClientResolvedConfig | config} for LookoutEquipmentClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
@@ -122,9 +104,9 @@ export interface DescribeModelCommandOutput extends DescribeModelResponse, __Met
  * <p>Base exception class for all service exceptions from LookoutEquipment service.</p>
  *
  */
-export class DescribeModelCommand extends $Command<
-  DescribeModelCommandInput,
-  DescribeModelCommandOutput,
+export class ListModelVersionsCommand extends $Command<
+  ListModelVersionsCommandInput,
+  ListModelVersionsCommandOutput,
   LookoutEquipmentClientResolvedConfig
 > {
   // Start section: command_properties
@@ -142,7 +124,7 @@ export class DescribeModelCommand extends $Command<
   /**
    * @public
    */
-  constructor(readonly input: DescribeModelCommandInput) {
+  constructor(readonly input: ListModelVersionsCommandInput) {
     // Start section: command_constructor
     super();
     // End section: command_constructor
@@ -155,15 +137,17 @@ export class DescribeModelCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: LookoutEquipmentClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<DescribeModelCommandInput, DescribeModelCommandOutput> {
+  ): Handler<ListModelVersionsCommandInput, ListModelVersionsCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
-    this.middlewareStack.use(getEndpointPlugin(configuration, DescribeModelCommand.getEndpointParameterInstructions()));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, ListModelVersionsCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
     const clientName = "LookoutEquipmentClient";
-    const commandName = "DescribeModelCommand";
+    const commandName = "ListModelVersionsCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
       clientName,
@@ -182,15 +166,15 @@ export class DescribeModelCommand extends $Command<
   /**
    * @internal
    */
-  private serialize(input: DescribeModelCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return se_DescribeModelCommand(input, context);
+  private serialize(input: ListModelVersionsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
+    return se_ListModelVersionsCommand(input, context);
   }
 
   /**
    * @internal
    */
-  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeModelCommandOutput> {
-    return de_DescribeModelCommand(output, context);
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListModelVersionsCommandOutput> {
+    return de_ListModelVersionsCommand(output, context);
   }
 
   // Start section: command_body_extra

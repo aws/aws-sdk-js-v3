@@ -120,6 +120,7 @@ export interface CreateDatasetRequest {
 export const DatasetStatus = {
   ACTIVE: "ACTIVE",
   CREATED: "CREATED",
+  IMPORT_IN_PROGRESS: "IMPORT_IN_PROGRESS",
   INGESTION_IN_PROGRESS: "INGESTION_IN_PROGRESS",
 } as const;
 
@@ -218,7 +219,7 @@ export class ThrottlingException extends __BaseException {
 /**
  * @public
  * <p> The input fails to satisfy constraints specified by Amazon Lookout for Equipment or a
- *          related AWS service that's being utilized. </p>
+ *          related Amazon Web Services service that's being utilized. </p>
  */
 export class ValidationException extends __BaseException {
   readonly name: "ValidationException" = "ValidationException";
@@ -328,7 +329,7 @@ export interface InferenceOutputConfiguration {
   S3OutputConfiguration: InferenceS3OutputConfiguration | undefined;
 
   /**
-   * <p>The ID number for the AWS KMS key used to encrypt the inference output. </p>
+   * <p>The ID number for the KMS key key used to encrypt the inference output. </p>
    */
   KmsKeyId?: string;
 }
@@ -499,61 +500,61 @@ export type LabelRating = (typeof LabelRating)[keyof typeof LabelRating];
 export interface CreateLabelRequest {
   /**
    * <p>
-   * The name of a group of labels. </p>
+   *          The name of a group of labels. </p>
    *          <p>Data in this field will be retained for service usage. Follow best practices for the security of your data.
-   * </p>
+   *          </p>
    */
   LabelGroupName: string | undefined;
 
   /**
    * <p>
-   * The start time of the labeled event.
-   * </p>
+   *          The start time of the labeled event.
+   *       </p>
    */
   StartTime: Date | undefined;
 
   /**
    * <p>
-   * The end time of the labeled event.
-   * </p>
+   *          The end time of the labeled event.
+   *       </p>
    */
   EndTime: Date | undefined;
 
   /**
    * <p>
-   * Indicates whether a labeled event represents an anomaly.
-   * </p>
+   *          Indicates whether a labeled event represents an anomaly.
+   *       </p>
    */
   Rating: LabelRating | string | undefined;
 
   /**
    * <p>
-   * Provides additional information about the label. The fault code must be defined in the FaultCodes attribute of the label group.</p>
+   *          Provides additional information about the label. The fault code must be defined in the FaultCodes attribute of the label group.</p>
    *          <p>Data in this field will be retained for service usage. Follow best practices for the security of your data.
-   * </p>
+   *       </p>
    */
   FaultCode?: string;
 
   /**
    * <p>
-   * Metadata providing additional information about the label.
-   * </p>
+   *          Metadata providing additional information about the label.
+   *       </p>
    *          <p>Data in this field will be retained for service usage. Follow best practices for the security of your data.</p>
    */
   Notes?: string;
 
   /**
    * <p>
-   * Indicates that a label pertains to a particular piece of equipment.
-   * </p>
+   *          Indicates that a label pertains to a particular piece of equipment.
+   *       </p>
    *          <p>Data in this field will be retained for service usage. Follow best practices for the security of your data.</p>
    */
   Equipment?: string;
 
   /**
    * <p>
-   * A unique identifier for the request to create a label. If you do not set the client request token, Lookout for Equipment generates one.
-   * </p>
+   *          A unique identifier for the request to create a label. If you do not set the client request token, Lookout for Equipment generates one.
+   *       </p>
    */
   ClientToken?: string;
 }
@@ -564,8 +565,8 @@ export interface CreateLabelRequest {
 export interface CreateLabelResponse {
   /**
    * <p>
-   * The ID of the label that you have created.
-   * </p>
+   *          The ID of the label that you have created.
+   *       </p>
    */
   LabelId?: string;
 }
@@ -576,30 +577,30 @@ export interface CreateLabelResponse {
 export interface CreateLabelGroupRequest {
   /**
    * <p>
-   * Names a group of labels.</p>
+   *          Names a group of labels.</p>
    *          <p>Data in this field will be retained for service usage. Follow best practices for the security of your data.
-   * </p>
+   *          </p>
    */
   LabelGroupName: string | undefined;
 
   /**
    * <p>
-   * The acceptable fault codes (indicating the type of anomaly associated with the label) that can be used with this label group.</p>
+   *          The acceptable fault codes (indicating the type of anomaly associated with the label) that can be used with this label group.</p>
    *          <p>Data in this field will be retained for service usage. Follow best practices for the security of your data.</p>
    */
   FaultCodes?: string[];
 
   /**
    * <p>
-   * A unique identifier for the request to create a label group. If you do not set the client request token, Lookout for Equipment generates one.
-   * </p>
+   *          A unique identifier for the request to create a label group. If you do not set the client request token, Lookout for Equipment generates one.
+   *       </p>
    */
   ClientToken?: string;
 
   /**
    * <p>
-   * Tags that provide metadata about the label group you are creating.
-   * </p>
+   *          Tags that provide metadata about the label group you are creating.
+   *       </p>
    *          <p>Data in this field will be retained for service usage. Follow best practices for the security of your data.</p>
    */
   Tags?: Tag[];
@@ -611,15 +612,15 @@ export interface CreateLabelGroupRequest {
 export interface CreateLabelGroupResponse {
   /**
    * <p>
-   * The name of the label group that you have created. Data in this field will be retained for service usage. Follow best practices for the security of your data.
-   * </p>
+   *          The name of the label group that you have created. Data in this field will be retained for service usage. Follow best practices for the security of your data.
+   *       </p>
    */
   LabelGroupName?: string;
 
   /**
    * <p>
-   * The ARN of the label group that you have created.
-   * </p>
+   *          The Amazon Resource Name (ARN) of the label group that you have created.
+   *       </p>
    */
   LabelGroupArn?: string;
 }
@@ -705,8 +706,8 @@ export interface LabelsInputConfiguration {
 
   /**
    * <p>
-   * The name of the label group to be used for label data.
-   * </p>
+   *          The name of the label group to be used for label data.
+   *       </p>
    */
   LabelGroupName?: string;
 }
@@ -811,6 +812,7 @@ export interface CreateModelRequest {
  */
 export const ModelStatus = {
   FAILED: "FAILED",
+  IMPORT_IN_PROGRESS: "IMPORT_IN_PROGRESS",
   IN_PROGRESS: "IN_PROGRESS",
   SUCCESS: "SUCCESS",
 } as const;
@@ -861,15 +863,15 @@ export interface DeleteInferenceSchedulerRequest {
 export interface DeleteLabelRequest {
   /**
    * <p>
-   * The name of the label group that contains the label that you want to delete. Data in this field will be retained for service usage. Follow best practices for the security of your data.
-   * </p>
+   *          The name of the label group that contains the label that you want to delete. Data in this field will be retained for service usage. Follow best practices for the security of your data.
+   *       </p>
    */
   LabelGroupName: string | undefined;
 
   /**
    * <p>
-   * The ID of the label that you want to delete.
-   * </p>
+   *          The ID of the label that you want to delete.
+   *       </p>
    */
   LabelId: string | undefined;
 }
@@ -880,8 +882,8 @@ export interface DeleteLabelRequest {
 export interface DeleteLabelGroupRequest {
   /**
    * <p>
-   * The name of the label group that you want to delete. Data in this field will be retained for service usage. Follow best practices for the security of your data.
-   * </p>
+   *          The name of the label group that you want to delete. Data in this field will be retained for service usage. Follow best practices for the security of your data.
+   *       </p>
    */
   LabelGroupName: string | undefined;
 }
@@ -894,6 +896,16 @@ export interface DeleteModelRequest {
    * <p>The name of the ML model to be deleted. </p>
    */
   ModelName: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DeleteResourcePolicyRequest {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the resource for which the resource policy should be deleted.</p>
+   */
+  ResourceArn: string | undefined;
 }
 
 /**
@@ -1053,7 +1065,7 @@ export interface S3Object {
   Bucket: string | undefined;
 
   /**
-   * <p>The AWS Key Management Service (AWS KMS) key being used to encrypt the S3 object.
+   * <p>The Amazon Web Services Key Management Service (KMS key) key being used to encrypt the S3 object.
    *          Without this key, data in the bucket is not accessible. </p>
    */
   Key: string | undefined;
@@ -1100,9 +1112,9 @@ export interface IngestionS3InputConfiguration {
   Prefix?: string;
 
   /**
-   * <p> Pattern for matching the Amazon S3 files which will be used for ingestion. If
-   *          no KeyPattern is provided, we will use the default hierarchy file structure, which is same
-   *          as KeyPattern \{prefix\}/\{component_name\}/* </p>
+   * <p>
+   * 			  The pattern for matching the Amazon S3 files that will be used for ingestion. If the schema was created previously without any KeyPattern, then the default KeyPattern \{prefix\}/\{component_name\}/* is used to download files from Amazon S3 according to the schema. This field is required when ingestion is being done for the first time.</p>
+   *          <p>Valid Values: \{prefix\}/\{component_name\}_* | \{prefix\}/\{component_name\}/* | \{prefix\}/\{component_name\}[DELIMITER]* (Allowed delimiters : space, dot, underscore, hyphen)</p>
    */
   KeyPattern?: string;
 }
@@ -1126,6 +1138,7 @@ export interface IngestionInputConfiguration {
  */
 export const IngestionJobStatus = {
   FAILED: "FAILED",
+  IMPORT_IN_PROGRESS: "IMPORT_IN_PROGRESS",
   IN_PROGRESS: "IN_PROGRESS",
   SUCCESS: "SUCCESS",
 } as const;
@@ -1212,6 +1225,12 @@ export interface DescribeDataIngestionJobResponse {
    *          during this specific ingestion job. </p>
    */
   DataEndTime?: Date;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the source dataset from which the data
+   *          used for the data ingestion job was imported from.</p>
+   */
+  SourceDatasetArn?: string;
 }
 
 /**
@@ -1302,6 +1321,12 @@ export interface DescribeDatasetResponse {
    *          during the most recent ingestion of this particular dataset. </p>
    */
   DataEndTime?: Date;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the source dataset from which the
+   *          current data being described was imported from.</p>
+   */
+  SourceDatasetArn?: string;
 }
 
 /**
@@ -1425,15 +1450,15 @@ export interface DescribeInferenceSchedulerResponse {
 export interface DescribeLabelRequest {
   /**
    * <p>
-   * Returns the name of the group containing the label.
-   * </p>
+   *          Returns the name of the group containing the label.
+   *       </p>
    */
   LabelGroupName: string | undefined;
 
   /**
    * <p>
-   * Returns the ID of the label.
-   * </p>
+   *          Returns the ID of the label.
+   *       </p>
    */
   LabelId: string | undefined;
 }
@@ -1444,50 +1469,50 @@ export interface DescribeLabelRequest {
 export interface DescribeLabelResponse {
   /**
    * <p>
-   * The name of the requested label group.
-   * </p>
+   *          The name of the requested label group.
+   *       </p>
    */
   LabelGroupName?: string;
 
   /**
    * <p>
-   * The ARN of the requested label group.
-   * </p>
+   *          The Amazon Resource Name (ARN) of the requested label group.
+   *       </p>
    */
   LabelGroupArn?: string;
 
   /**
    * <p>
-   * The ID of the requested label.
-   * </p>
+   *          The ID of the requested label.
+   *       </p>
    */
   LabelId?: string;
 
   /**
    * <p>
-   * The start time of the requested label.
-   * </p>
+   *          The start time of the requested label.
+   *       </p>
    */
   StartTime?: Date;
 
   /**
    * <p>
-   * The end time of the requested label.
-   * </p>
+   *          The end time of the requested label.
+   *       </p>
    */
   EndTime?: Date;
 
   /**
    * <p>
-   * Indicates whether a labeled event represents an anomaly.
-   * </p>
+   *          Indicates whether a labeled event represents an anomaly.
+   *       </p>
    */
   Rating?: LabelRating | string;
 
   /**
    * <p>
-   * Indicates the type of anomaly associated with the label.
-   * </p>
+   *          Indicates the type of anomaly associated with the label.
+   *       </p>
    *          <p>Data in this field will be retained for service usage. Follow best practices for the security of your data.</p>
    */
   FaultCode?: string;
@@ -1500,15 +1525,15 @@ export interface DescribeLabelResponse {
 
   /**
    * <p>
-   * Indicates that a label pertains to a particular piece of equipment.
-   * </p>
+   *          Indicates that a label pertains to a particular piece of equipment.
+   *       </p>
    */
   Equipment?: string;
 
   /**
    * <p>
-   * The time at which the label was created.
-   * </p>
+   *          The time at which the label was created.
+   *       </p>
    */
   CreatedAt?: Date;
 }
@@ -1519,8 +1544,8 @@ export interface DescribeLabelResponse {
 export interface DescribeLabelGroupRequest {
   /**
    * <p>
-   * Returns the name of the label group.
-   * </p>
+   *          Returns the name of the label group.
+   *       </p>
    */
   LabelGroupName: string | undefined;
 }
@@ -1531,36 +1556,36 @@ export interface DescribeLabelGroupRequest {
 export interface DescribeLabelGroupResponse {
   /**
    * <p>
-   * The name of the label group.
-   * </p>
+   *          The name of the label group.
+   *       </p>
    */
   LabelGroupName?: string;
 
   /**
    * <p>
-   * The ARN of the label group.
-   * </p>
+   *          The Amazon Resource Name (ARN) of the label group.
+   *       </p>
    */
   LabelGroupArn?: string;
 
   /**
    * <p>
-   * Codes indicating the type of anomaly associated with the labels in the lagbel group.
-   * </p>
+   *          Codes indicating the type of anomaly associated with the labels in the lagbel group.
+   *       </p>
    */
   FaultCodes?: string[];
 
   /**
    * <p>
-   * The time at which the label group was created.
-   * </p>
+   *          The time at which the label group was created.
+   *       </p>
    */
   CreatedAt?: Date;
 
   /**
    * <p>
-   * The time at which the label group was updated.
-   * </p>
+   *          The time at which the label group was updated.
+   *       </p>
    */
   UpdatedAt?: Date;
 }
@@ -1708,6 +1733,451 @@ export interface DescribeModelResponse {
    *          evaluation, or inference.</p>
    */
   OffCondition?: string;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the source model version. This field appears if the active model version
+   *       was imported.</p>
+   */
+  SourceModelVersionArn?: string;
+
+  /**
+   * <p>The date and time when the import job was started.
+   *       This field appears if the active model version was imported.</p>
+   */
+  ImportJobStartTime?: Date;
+
+  /**
+   * <p>The date and time when the import job was completed.
+   *       This field appears if the active model version was imported.</p>
+   */
+  ImportJobEndTime?: Date;
+
+  /**
+   * <p>The name of the model version used by the inference schedular when running a
+   *       scheduled inference execution.</p>
+   */
+  ActiveModelVersion?: number;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the model version used by the
+   *       inference scheduler when running a scheduled inference execution.</p>
+   */
+  ActiveModelVersionArn?: string;
+
+  /**
+   * <p>The date the active model version was activated.</p>
+   */
+  ModelVersionActivatedAt?: Date;
+
+  /**
+   * <p>The model version that was set as the active model version prior to the
+   *          current active model version.</p>
+   */
+  PreviousActiveModelVersion?: number;
+
+  /**
+   * <p>The ARN of the model version that was set as the active model version prior to the
+   *          current active model version.</p>
+   */
+  PreviousActiveModelVersionArn?: string;
+
+  /**
+   * <p>The date and time when the previous active model version was activated.</p>
+   */
+  PreviousModelVersionActivatedAt?: Date;
+}
+
+/**
+ * @public
+ */
+export interface DescribeModelVersionRequest {
+  /**
+   * <p>The name of the machine learning model that this version belongs to.</p>
+   */
+  ModelName: string | undefined;
+
+  /**
+   * <p>The version of the machine learning model.</p>
+   */
+  ModelVersion: number | undefined;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const ModelVersionSourceType = {
+  IMPORT: "IMPORT",
+  RETRAINING: "RETRAINING",
+  TRAINING: "TRAINING",
+} as const;
+
+/**
+ * @public
+ */
+export type ModelVersionSourceType = (typeof ModelVersionSourceType)[keyof typeof ModelVersionSourceType];
+
+/**
+ * @public
+ * @enum
+ */
+export const ModelVersionStatus = {
+  CANCELED: "CANCELED",
+  FAILED: "FAILED",
+  IMPORT_IN_PROGRESS: "IMPORT_IN_PROGRESS",
+  IN_PROGRESS: "IN_PROGRESS",
+  SUCCESS: "SUCCESS",
+} as const;
+
+/**
+ * @public
+ */
+export type ModelVersionStatus = (typeof ModelVersionStatus)[keyof typeof ModelVersionStatus];
+
+/**
+ * @public
+ */
+export interface DescribeModelVersionResponse {
+  /**
+   * <p>The name of the machine learning model that this version belongs to.</p>
+   */
+  ModelName?: string;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the parent machine learning model that this version belong to.</p>
+   */
+  ModelArn?: string;
+
+  /**
+   * <p>The version of the machine learning model.</p>
+   */
+  ModelVersion?: number;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the model version.</p>
+   */
+  ModelVersionArn?: string;
+
+  /**
+   * <p>The current status of the model version.</p>
+   */
+  Status?: ModelVersionStatus | string;
+
+  /**
+   * <p>Indicates whether this model version was created by training or by importing.</p>
+   */
+  SourceType?: ModelVersionSourceType | string;
+
+  /**
+   * <p>The name of the dataset used to train the model version.</p>
+   */
+  DatasetName?: string;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the dataset used to train the model version.</p>
+   */
+  DatasetArn?: string;
+
+  /**
+   * <p>The schema of the data used to train the model version.</p>
+   */
+  Schema?: string;
+
+  /**
+   * <p>Contains the configuration information for the S3 location being used to hold label
+   *          data. </p>
+   */
+  LabelsInputConfiguration?: LabelsInputConfiguration;
+
+  /**
+   * <p>The date on which the training data began being gathered. If you imported
+   *       the version, this is the date that the training data in the source
+   *       version began being gathered.</p>
+   */
+  TrainingDataStartTime?: Date;
+
+  /**
+   * <p>The date on which the training data finished being gathered.
+   *       If you imported the version, this is the date that the training data in the
+   *       source version finished being gathered.</p>
+   */
+  TrainingDataEndTime?: Date;
+
+  /**
+   * <p>The date on which the data in the evaluation set began being gathered.
+   *       If you imported the version, this is the date that the evaluation set data in
+   *       the source version began being gathered.</p>
+   */
+  EvaluationDataStartTime?: Date;
+
+  /**
+   * <p>The date on which the data in the evaluation set began being gathered.
+   *       If you imported the version, this is the date that the evaluation set data in the
+   *       source version finished being gathered.</p>
+   */
+  EvaluationDataEndTime?: Date;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the role that was used to train the model version.</p>
+   */
+  RoleArn?: string;
+
+  /**
+   * <p>The configuration is the <code>TargetSamplingRate</code>, which is the sampling rate of
+   *          the data after post processing by Amazon Lookout for Equipment. For example, if you provide
+   *          data that has been collected at a 1 second level and you want the system to resample the
+   *          data at a 1 minute rate before training, the <code>TargetSamplingRate</code> is 1
+   *          minute.</p>
+   *          <p>When providing a value for the <code>TargetSamplingRate</code>, you must attach the
+   *          prefix "PT" to the rate you want. The value for a 1 second rate is therefore
+   *             <i>PT1S</i>, the value for a 15 minute rate is <i>PT15M</i>,
+   *          and the value for a 1 hour rate is <i>PT1H</i>
+   *          </p>
+   */
+  DataPreProcessingConfiguration?: DataPreProcessingConfiguration;
+
+  /**
+   * <p>The time when the training of the version began.</p>
+   */
+  TrainingExecutionStartTime?: Date;
+
+  /**
+   * <p>The time when the training of the version completed.</p>
+   */
+  TrainingExecutionEndTime?: Date;
+
+  /**
+   * <p>The failure message if the training of the model version failed.</p>
+   */
+  FailedReason?: string;
+
+  /**
+   * <p>Shows an aggregated summary, in JSON format, of the model's
+   *       performance within the evaluation time range. These metrics
+   *       are created when evaluating the model.</p>
+   */
+  ModelMetrics?: string;
+
+  /**
+   * <p>Indicates the last time the machine learning model version was updated.</p>
+   */
+  LastUpdatedTime?: Date;
+
+  /**
+   * <p>Indicates the time and date at which the machine learning model version was created.</p>
+   */
+  CreatedAt?: Date;
+
+  /**
+   * <p>The identifier of the KMS key key used to encrypt model version data by
+   *       Amazon Lookout for Equipment.</p>
+   */
+  ServerSideKmsKeyId?: string;
+
+  /**
+   * <p>Indicates that the asset associated with this sensor has been
+   *       shut off. As long as this condition is met, Lookout for Equipment
+   *       will not use data from this asset for training, evaluation, or inference.</p>
+   */
+  OffCondition?: string;
+
+  /**
+   * <p>If model version was imported, then this field is the arn
+   *       of the source model version.</p>
+   */
+  SourceModelVersionArn?: string;
+
+  /**
+   * <p>The date and time when the import job began.
+   *       This field appears if the model version was imported.</p>
+   */
+  ImportJobStartTime?: Date;
+
+  /**
+   * <p>The date and time when the import job completed.
+   *       This field appears if the model version was imported.</p>
+   */
+  ImportJobEndTime?: Date;
+
+  /**
+   * <p>The size in bytes of the imported data.
+   *       This field appears if the model version was imported.</p>
+   */
+  ImportedDataSizeInBytes?: number;
+}
+
+/**
+ * @public
+ */
+export interface DescribeResourcePolicyRequest {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the resource that is associated with the resource policy.</p>
+   */
+  ResourceArn: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DescribeResourcePolicyResponse {
+  /**
+   * <p>A unique identifier for a revision of the resource policy.</p>
+   */
+  PolicyRevisionId?: string;
+
+  /**
+   * <p>The resource policy in a JSON-formatted string.</p>
+   */
+  ResourcePolicy?: string;
+
+  /**
+   * <p>The time when the resource policy was created.</p>
+   */
+  CreationTime?: Date;
+
+  /**
+   * <p>The time when the resource policy was last modified.</p>
+   */
+  LastModifiedTime?: Date;
+}
+
+/**
+ * @public
+ */
+export interface ImportDatasetRequest {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the dataset to import.</p>
+   */
+  SourceDatasetArn: string | undefined;
+
+  /**
+   * <p>The name of the machine learning dataset to be created. If the dataset already exists, Amazon Lookout for Equipment overwrites the existing dataset. If you don't specify this field, it is filled with the name of the source dataset.</p>
+   */
+  DatasetName?: string;
+
+  /**
+   * <p>A unique identifier for the request.
+   *       If you do not set the client request token,
+   *       Amazon Lookout for Equipment generates one. </p>
+   */
+  ClientToken?: string;
+
+  /**
+   * <p>Provides the identifier of the KMS key key used to
+   *       encrypt model data by Amazon Lookout for Equipment. </p>
+   */
+  ServerSideKmsKeyId?: string;
+
+  /**
+   * <p>Any tags associated with the dataset to be created.</p>
+   */
+  Tags?: Tag[];
+}
+
+/**
+ * @public
+ */
+export interface ImportDatasetResponse {
+  /**
+   * <p>The name of the created machine learning dataset.</p>
+   */
+  DatasetName?: string;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the dataset that was imported.</p>
+   */
+  DatasetArn?: string;
+
+  /**
+   * <p>The status of the <code>ImportDataset</code> operation.</p>
+   */
+  Status?: DatasetStatus | string;
+
+  /**
+   * <p>A unique identifier for the job of importing the dataset.</p>
+   */
+  JobId?: string;
+}
+
+/**
+ * @public
+ */
+export interface ImportModelVersionRequest {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the model version to import.</p>
+   */
+  SourceModelVersionArn: string | undefined;
+
+  /**
+   * <p>The name for the machine learning model to be created.
+   *       If the model already exists, Amazon Lookout for Equipment creates a new version.
+   *       If you do not specify this field, it is filled with the name of the source model.</p>
+   */
+  ModelName?: string;
+
+  /**
+   * <p>The name of the dataset for the machine learning model being imported. </p>
+   */
+  DatasetName: string | undefined;
+
+  /**
+   * <p>Contains the configuration information for the S3 location being used to hold label
+   *          data. </p>
+   */
+  LabelsInputConfiguration?: LabelsInputConfiguration;
+
+  /**
+   * <p>A unique identifier for the request. If you do not set the client request
+   *       token, Amazon Lookout for Equipment generates one. </p>
+   */
+  ClientToken?: string;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of a role with permission to
+   *       access the data source being used to create the machine learning model. </p>
+   */
+  RoleArn?: string;
+
+  /**
+   * <p>Provides the identifier of the KMS key key used to encrypt
+   *       model data by Amazon Lookout for Equipment. </p>
+   */
+  ServerSideKmsKeyId?: string;
+
+  /**
+   * <p>The tags associated with the machine learning model to be created. </p>
+   */
+  Tags?: Tag[];
+}
+
+/**
+ * @public
+ */
+export interface ImportModelVersionResponse {
+  /**
+   * <p>The name for the machine learning model.</p>
+   */
+  ModelName?: string;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the model being created. </p>
+   */
+  ModelArn?: string;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the model version being created. </p>
+   */
+  ModelVersionArn?: string;
+
+  /**
+   * <p>The version of the model being created.</p>
+   */
+  ModelVersion?: number;
+
+  /**
+   * <p>The status of the <code>ImportModelVersion</code> operation. </p>
+   */
+  Status?: ModelVersionStatus | string;
 }
 
 /**
@@ -1878,7 +2348,7 @@ export interface ListInferenceEventsRequest {
   IntervalStartTime: Date | undefined;
 
   /**
-   * <p>Returns all the inference events with an end start time equal to or greater than less than the end time given</p>
+   * <p>Returns all the inference events with an end start time equal to or greater than less than the end time given.</p>
    */
   IntervalEndTime: Date | undefined;
 }
@@ -2112,7 +2582,7 @@ export interface ListInferenceSchedulersRequest {
   ModelName?: string;
 
   /**
-   * <p>Specifies the current status of the inference schedulers to list.</p>
+   * <p>Specifies the current status of the inference schedulers.</p>
    */
   Status?: InferenceSchedulerStatus | string;
 }
@@ -2198,22 +2668,22 @@ export interface ListInferenceSchedulersResponse {
 export interface ListLabelGroupsRequest {
   /**
    * <p>
-   * The beginning of the name of the label groups to be listed.
-   * </p>
+   *          The beginning of the name of the label groups to be listed.
+   *       </p>
    */
   LabelGroupNameBeginsWith?: string;
 
   /**
    * <p>
-   * An opaque pagination token indicating where to continue the listing of label groups.
-   * </p>
+   *          An opaque pagination token indicating where to continue the listing of label groups.
+   *       </p>
    */
   NextToken?: string;
 
   /**
    * <p>
-   * Specifies the maximum number of label groups to list.
-   * </p>
+   *          Specifies the maximum number of label groups to list.
+   *       </p>
    */
   MaxResults?: number;
 }
@@ -2221,35 +2691,35 @@ export interface ListLabelGroupsRequest {
 /**
  * @public
  * <p>
- * Contains information about the label group.
- * </p>
+ *          Contains information about the label group.
+ *       </p>
  */
 export interface LabelGroupSummary {
   /**
    * <p>
-   * The name of the label group.
-   * </p>
+   *          The name of the label group.
+   *       </p>
    */
   LabelGroupName?: string;
 
   /**
    * <p>
-   * The ARN of the label group.
-   * </p>
+   *          The Amazon Resource Name (ARN) of the label group.
+   *       </p>
    */
   LabelGroupArn?: string;
 
   /**
    * <p>
-   * The time at which the label group was created.
-   * </p>
+   *          The time at which the label group was created.
+   *       </p>
    */
   CreatedAt?: Date;
 
   /**
    * <p>
-   * The time at which the label group was updated.
-   * </p>
+   *          The time at which the label group was updated.
+   *       </p>
    */
   UpdatedAt?: Date;
 }
@@ -2260,15 +2730,15 @@ export interface LabelGroupSummary {
 export interface ListLabelGroupsResponse {
   /**
    * <p>
-   * An opaque pagination token indicating where to continue the listing of label groups.
-   * </p>
+   *          An opaque pagination token indicating where to continue the listing of label groups.
+   *       </p>
    */
   NextToken?: string;
 
   /**
    * <p>
-   * A summary of the label groups.
-   * </p>
+   *          A summary of the label groups.
+   *       </p>
    */
   LabelGroupSummaries?: LabelGroupSummary[];
 }
@@ -2279,50 +2749,50 @@ export interface ListLabelGroupsResponse {
 export interface ListLabelsRequest {
   /**
    * <p>
-   * Retruns the name of the label group.
-   * </p>
+   *          Retruns the name of the label group.
+   *       </p>
    */
   LabelGroupName: string | undefined;
 
   /**
    * <p>
-   * Returns all the labels with a end time equal to or later than the start time given.
-   * </p>
+   *          Returns all the labels with a end time equal to or later than the start time given.
+   *       </p>
    */
   IntervalStartTime?: Date;
 
   /**
    * <p>
-   * Returns all labels with a start time earlier than the end time given.
-   * </p>
+   *          Returns all labels with a start time earlier than the end time given.
+   *       </p>
    */
   IntervalEndTime?: Date;
 
   /**
    * <p>
-   * Returns labels with a particular fault code.
-   * </p>
+   *          Returns labels with a particular fault code.
+   *       </p>
    */
   FaultCode?: string;
 
   /**
    * <p>
-   * Lists the labels that pertain to a particular piece of equipment.
-   * </p>
+   *          Lists the labels that pertain to a particular piece of equipment.
+   *       </p>
    */
   Equipment?: string;
 
   /**
    * <p>
-   * An opaque pagination token indicating where to continue the listing of label groups.
-   * </p>
+   *          An opaque pagination token indicating where to continue the listing of label groups.
+   *       </p>
    */
   NextToken?: string;
 
   /**
    * <p>
-   * Specifies the maximum number of labels to list.
-   * </p>
+   *          Specifies the maximum number of labels to list.
+   *       </p>
    */
   MaxResults?: number;
 }
@@ -2330,71 +2800,71 @@ export interface ListLabelsRequest {
 /**
  * @public
  * <p>
- * Information about the label.
- * </p>
+ *          Information about the label.
+ *       </p>
  */
 export interface LabelSummary {
   /**
    * <p>
-   * The name of the label group.
-   * </p>
+   *          The name of the label group.
+   *       </p>
    */
   LabelGroupName?: string;
 
   /**
    * <p>
-   * The ID of the label.
-   * </p>
+   *          The ID of the label.
+   *       </p>
    */
   LabelId?: string;
 
   /**
    * <p>
-   * The ARN of the label group.
-   * </p>
+   *          The Amazon Resource Name (ARN) of the label group.
+   *       </p>
    */
   LabelGroupArn?: string;
 
   /**
    * <p>
-   * The timestamp indicating the start of the label.
-   * </p>
+   *          The timestamp indicating the start of the label.
+   *       </p>
    */
   StartTime?: Date;
 
   /**
    * <p>
-   * The timestamp indicating the end of the label.
-   * </p>
+   *          The timestamp indicating the end of the label.
+   *       </p>
    */
   EndTime?: Date;
 
   /**
    * <p>
-   * Indicates whether a labeled event represents an anomaly.
-   * </p>
+   *          Indicates whether a labeled event represents an anomaly.
+   *       </p>
    */
   Rating?: LabelRating | string;
 
   /**
    * <p>
-   * Indicates the type of anomaly associated with the label.
-   * </p>
+   *          Indicates the type of anomaly associated with the label.
+   *       </p>
    *          <p>Data in this field will be retained for service usage. Follow best practices for the security of your data.</p>
    */
   FaultCode?: string;
 
   /**
    * <p>
-   * Indicates that a label pertains to a particular piece of equipment.
-   * </p>
+   *          Indicates that a label pertains to a particular piece of equipment.
+   *       </p>
    */
   Equipment?: string;
 
   /**
    * <p>
-   * The time at which the label was created.
-   * </p>
+   *          The time at which the label was created.
+   *       </p>
    */
   CreatedAt?: Date;
 }
@@ -2405,15 +2875,15 @@ export interface LabelSummary {
 export interface ListLabelsResponse {
   /**
    * <p>
-   * An opaque pagination token indicating where to continue the listing of datasets.
-   * </p>
+   *          An opaque pagination token indicating where to continue the listing of datasets.
+   *       </p>
    */
   NextToken?: string;
 
   /**
    * <p>
-   * A summary of the items in the label group.
-   * </p>
+   *          A summary of the items in the label group.
+   *       </p>
    */
   LabelSummaries?: LabelSummary[];
 }
@@ -2484,6 +2954,19 @@ export interface ModelSummary {
    * <p>The time at which the specific model was created. </p>
    */
   CreatedAt?: Date;
+
+  /**
+   * <p>The model version that the inference scheduler uses to run an inference
+   *          execution.</p>
+   */
+  ActiveModelVersion?: number;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the model version that is set as active. The active model version
+   *          is the model version that the inference scheduler uses to run an inference
+   *          execution.</p>
+   */
+  ActiveModelVersionArn?: string;
 }
 
 /**
@@ -2501,6 +2984,120 @@ export interface ListModelsResponse {
    *          ARNs, and status. </p>
    */
   ModelSummaries?: ModelSummary[];
+}
+
+/**
+ * @public
+ */
+export interface ListModelVersionsRequest {
+  /**
+   * <p>Then name of the machine learning model for which the
+   *       model versions are to be listed.</p>
+   */
+  ModelName: string | undefined;
+
+  /**
+   * <p>If the total number of results exceeds the limit that the response can
+   *       display, the response returns an opaque pagination token indicating where to
+   *       continue the listing of machine learning model versions. Use this token in the <code>NextToken</code>
+   *       field in the request to list the next page of results.</p>
+   */
+  NextToken?: string;
+
+  /**
+   * <p>Specifies the maximum number of machine learning model versions to list.</p>
+   */
+  MaxResults?: number;
+
+  /**
+   * <p>Filter the results based on the current status of the model version.</p>
+   */
+  Status?: ModelVersionStatus | string;
+
+  /**
+   * <p>Filter the results based on the way the model version was generated.</p>
+   */
+  SourceType?: ModelVersionSourceType | string;
+
+  /**
+   * <p>Filter results to return all the model versions created before this time.</p>
+   */
+  CreatedAtEndTime?: Date;
+
+  /**
+   * <p>Filter results to return all the model versions created after this time.</p>
+   */
+  CreatedAtStartTime?: Date;
+
+  /**
+   * <p>Specifies the highest version of the model to return in the list.</p>
+   */
+  MaxModelVersion?: number;
+
+  /**
+   * <p>Specifies the lowest version of the model to return in the list.</p>
+   */
+  MinModelVersion?: number;
+}
+
+/**
+ * @public
+ * <p>Contains information about the specific model version.</p>
+ */
+export interface ModelVersionSummary {
+  /**
+   * <p>The name of the model that this model version is a version of.</p>
+   */
+  ModelName?: string;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the model that this model version is a version of.</p>
+   */
+  ModelArn?: string;
+
+  /**
+   * <p>The version of the model.</p>
+   */
+  ModelVersion?: number;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the model version.</p>
+   */
+  ModelVersionArn?: string;
+
+  /**
+   * <p>The time when this model version was created.</p>
+   */
+  CreatedAt?: Date;
+
+  /**
+   * <p>The current status of the model version.</p>
+   */
+  Status?: ModelVersionStatus | string;
+
+  /**
+   * <p>Indicates how this model version was generated.</p>
+   */
+  SourceType?: ModelVersionSourceType | string;
+}
+
+/**
+ * @public
+ */
+export interface ListModelVersionsResponse {
+  /**
+   * <p>If the total number of results exceeds the limit that the response can
+   *       display, the response returns an opaque pagination token indicating where to
+   *       continue the listing of machine learning model versions. Use this token in the <code>NextToken</code>
+   *       field in the request to list the next page of results.</p>
+   */
+  NextToken?: string;
+
+  /**
+   * <p>Provides information on the specified model version,
+   *       including the created time, model and dataset ARNs, and status.</p>
+   */
+  ModelVersionSummaries?: ModelVersionSummary[];
 }
 
 /**
@@ -2771,6 +3368,50 @@ export interface ListTagsForResourceResponse {
 /**
  * @public
  */
+export interface PutResourcePolicyRequest {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the resource for which the
+   *       policy is being created.</p>
+   */
+  ResourceArn: string | undefined;
+
+  /**
+   * <p>The JSON-formatted resource policy to create.</p>
+   */
+  ResourcePolicy: string | undefined;
+
+  /**
+   * <p>A unique identifier for a revision of the resource policy.</p>
+   */
+  PolicyRevisionId?: string;
+
+  /**
+   * <p>A unique identifier for the request.
+   *       If you do not set the client request token, Amazon Lookout for Equipment
+   *       generates one. </p>
+   */
+  ClientToken?: string;
+}
+
+/**
+ * @public
+ */
+export interface PutResourcePolicyResponse {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the resource for which the
+   *       policy was created.</p>
+   */
+  ResourceArn?: string;
+
+  /**
+   * <p>A unique identifier for a revision of the resource policy.</p>
+   */
+  PolicyRevisionId?: string;
+}
+
+/**
+ * @public
+ */
 export interface StartDataIngestionJobRequest {
   /**
    * <p>The name of the dataset being used by the data ingestion job. </p>
@@ -2939,6 +3580,63 @@ export interface UntagResourceResponse {}
 /**
  * @public
  */
+export interface UpdateActiveModelVersionRequest {
+  /**
+   * <p>The name of the machine learning model for which the active model version
+   *       is being set.</p>
+   */
+  ModelName: string | undefined;
+
+  /**
+   * <p>The version of the machine learning model for which the active model version
+   *       is being set.</p>
+   */
+  ModelVersion: number | undefined;
+}
+
+/**
+ * @public
+ */
+export interface UpdateActiveModelVersionResponse {
+  /**
+   * <p>The name of the machine learning model for which the active model version was set.</p>
+   */
+  ModelName?: string;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the machine learning model for which
+   *       the active model version was set.</p>
+   */
+  ModelArn?: string;
+
+  /**
+   * <p>The version that is currently active of the machine learning model
+   *       for which the active model version was set.</p>
+   */
+  CurrentActiveVersion?: number;
+
+  /**
+   * <p>The previous version that was active of the machine learning model
+   *       for which the active model version was set.</p>
+   */
+  PreviousActiveVersion?: number;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the machine learning model version that is the
+   *       current active model version.</p>
+   */
+  CurrentActiveVersionArn?: string;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the machine learning model version that was the
+   *       previous active model version.</p>
+   */
+  PreviousActiveVersionArn?: string;
+}
+
+/**
+ * @public
+ */
 export interface UpdateInferenceSchedulerRequest {
   /**
    * <p>The name of the inference scheduler to be updated. </p>
@@ -2990,15 +3688,15 @@ export interface UpdateInferenceSchedulerRequest {
 export interface UpdateLabelGroupRequest {
   /**
    * <p>
-   * The name of the label group to be updated.
-   * </p>
+   *          The name of the label group to be updated.
+   *       </p>
    */
   LabelGroupName: string | undefined;
 
   /**
    * <p>
-   * Updates the code indicating the type of anomaly associated with the label.
-   * </p>
+   *          Updates the code indicating the type of anomaly associated with the label.
+   *       </p>
    *          <p>Data in this field will be retained for service usage. Follow best practices for the security of your data.</p>
    */
   FaultCodes?: string[];

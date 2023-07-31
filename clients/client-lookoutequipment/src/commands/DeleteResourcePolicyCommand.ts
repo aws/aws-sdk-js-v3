@@ -14,8 +14,8 @@ import {
 } from "@smithy/types";
 
 import { LookoutEquipmentClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LookoutEquipmentClient";
-import { StopInferenceSchedulerRequest, StopInferenceSchedulerResponse } from "../models/models_0";
-import { de_StopInferenceSchedulerCommand, se_StopInferenceSchedulerCommand } from "../protocols/Aws_json1_0";
+import { DeleteResourcePolicyRequest } from "../models/models_0";
+import { de_DeleteResourcePolicyCommand, se_DeleteResourcePolicyCommand } from "../protocols/Aws_json1_0";
 
 /**
  * @public
@@ -24,44 +24,38 @@ export { __MetadataBearer, $Command };
 /**
  * @public
  *
- * The input for {@link StopInferenceSchedulerCommand}.
+ * The input for {@link DeleteResourcePolicyCommand}.
  */
-export interface StopInferenceSchedulerCommandInput extends StopInferenceSchedulerRequest {}
+export interface DeleteResourcePolicyCommandInput extends DeleteResourcePolicyRequest {}
 /**
  * @public
  *
- * The output of {@link StopInferenceSchedulerCommand}.
+ * The output of {@link DeleteResourcePolicyCommand}.
  */
-export interface StopInferenceSchedulerCommandOutput extends StopInferenceSchedulerResponse, __MetadataBearer {}
+export interface DeleteResourcePolicyCommandOutput extends __MetadataBearer {}
 
 /**
  * @public
- * <p>Stops an inference scheduler. </p>
+ * <p>Deletes the resource policy attached to the resource.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { LookoutEquipmentClient, StopInferenceSchedulerCommand } from "@aws-sdk/client-lookoutequipment"; // ES Modules import
- * // const { LookoutEquipmentClient, StopInferenceSchedulerCommand } = require("@aws-sdk/client-lookoutequipment"); // CommonJS import
+ * import { LookoutEquipmentClient, DeleteResourcePolicyCommand } from "@aws-sdk/client-lookoutequipment"; // ES Modules import
+ * // const { LookoutEquipmentClient, DeleteResourcePolicyCommand } = require("@aws-sdk/client-lookoutequipment"); // CommonJS import
  * const client = new LookoutEquipmentClient(config);
- * const input = { // StopInferenceSchedulerRequest
- *   InferenceSchedulerName: "STRING_VALUE", // required
+ * const input = { // DeleteResourcePolicyRequest
+ *   ResourceArn: "STRING_VALUE", // required
  * };
- * const command = new StopInferenceSchedulerCommand(input);
+ * const command = new DeleteResourcePolicyCommand(input);
  * const response = await client.send(command);
- * // { // StopInferenceSchedulerResponse
- * //   ModelArn: "STRING_VALUE",
- * //   ModelName: "STRING_VALUE",
- * //   InferenceSchedulerName: "STRING_VALUE",
- * //   InferenceSchedulerArn: "STRING_VALUE",
- * //   Status: "PENDING" || "RUNNING" || "STOPPING" || "STOPPED",
- * // };
+ * // {};
  *
  * ```
  *
- * @param StopInferenceSchedulerCommandInput - {@link StopInferenceSchedulerCommandInput}
- * @returns {@link StopInferenceSchedulerCommandOutput}
- * @see {@link StopInferenceSchedulerCommandInput} for command's `input` shape.
- * @see {@link StopInferenceSchedulerCommandOutput} for command's `response` shape.
+ * @param DeleteResourcePolicyCommandInput - {@link DeleteResourcePolicyCommandInput}
+ * @returns {@link DeleteResourcePolicyCommandOutput}
+ * @see {@link DeleteResourcePolicyCommandInput} for command's `input` shape.
+ * @see {@link DeleteResourcePolicyCommandOutput} for command's `response` shape.
  * @see {@link LookoutEquipmentClientResolvedConfig | config} for LookoutEquipmentClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
@@ -91,9 +85,9 @@ export interface StopInferenceSchedulerCommandOutput extends StopInferenceSchedu
  * <p>Base exception class for all service exceptions from LookoutEquipment service.</p>
  *
  */
-export class StopInferenceSchedulerCommand extends $Command<
-  StopInferenceSchedulerCommandInput,
-  StopInferenceSchedulerCommandOutput,
+export class DeleteResourcePolicyCommand extends $Command<
+  DeleteResourcePolicyCommandInput,
+  DeleteResourcePolicyCommandOutput,
   LookoutEquipmentClientResolvedConfig
 > {
   // Start section: command_properties
@@ -111,7 +105,7 @@ export class StopInferenceSchedulerCommand extends $Command<
   /**
    * @public
    */
-  constructor(readonly input: StopInferenceSchedulerCommandInput) {
+  constructor(readonly input: DeleteResourcePolicyCommandInput) {
     // Start section: command_constructor
     super();
     // End section: command_constructor
@@ -124,17 +118,17 @@ export class StopInferenceSchedulerCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: LookoutEquipmentClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<StopInferenceSchedulerCommandInput, StopInferenceSchedulerCommandOutput> {
+  ): Handler<DeleteResourcePolicyCommandInput, DeleteResourcePolicyCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
     this.middlewareStack.use(
-      getEndpointPlugin(configuration, StopInferenceSchedulerCommand.getEndpointParameterInstructions())
+      getEndpointPlugin(configuration, DeleteResourcePolicyCommand.getEndpointParameterInstructions())
     );
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
     const clientName = "LookoutEquipmentClient";
-    const commandName = "StopInferenceSchedulerCommand";
+    const commandName = "DeleteResourcePolicyCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
       clientName,
@@ -153,15 +147,15 @@ export class StopInferenceSchedulerCommand extends $Command<
   /**
    * @internal
    */
-  private serialize(input: StopInferenceSchedulerCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return se_StopInferenceSchedulerCommand(input, context);
+  private serialize(input: DeleteResourcePolicyCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
+    return se_DeleteResourcePolicyCommand(input, context);
   }
 
   /**
    * @internal
    */
-  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<StopInferenceSchedulerCommandOutput> {
-    return de_StopInferenceSchedulerCommand(output, context);
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteResourcePolicyCommandOutput> {
+    return de_DeleteResourcePolicyCommand(output, context);
   }
 
   // Start section: command_body_extra

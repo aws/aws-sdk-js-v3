@@ -14,8 +14,8 @@ import {
 } from "@smithy/types";
 
 import { LookoutEquipmentClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LookoutEquipmentClient";
-import { DescribeModelRequest, DescribeModelResponse } from "../models/models_0";
-import { de_DescribeModelCommand, se_DescribeModelCommand } from "../protocols/Aws_json1_0";
+import { ImportDatasetRequest, ImportDatasetResponse } from "../models/models_0";
+import { de_ImportDatasetCommand, se_ImportDatasetCommand } from "../protocols/Aws_json1_0";
 
 /**
  * @public
@@ -24,84 +24,61 @@ export { __MetadataBearer, $Command };
 /**
  * @public
  *
- * The input for {@link DescribeModelCommand}.
+ * The input for {@link ImportDatasetCommand}.
  */
-export interface DescribeModelCommandInput extends DescribeModelRequest {}
+export interface ImportDatasetCommandInput extends ImportDatasetRequest {}
 /**
  * @public
  *
- * The output of {@link DescribeModelCommand}.
+ * The output of {@link ImportDatasetCommand}.
  */
-export interface DescribeModelCommandOutput extends DescribeModelResponse, __MetadataBearer {}
+export interface ImportDatasetCommandOutput extends ImportDatasetResponse, __MetadataBearer {}
 
 /**
  * @public
- * <p>Provides a JSON containing the overall information about a specific ML model, including
- *          model name and ARN, dataset, training and evaluation information, status, and so on.
- *       </p>
+ * <p>Imports a dataset.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { LookoutEquipmentClient, DescribeModelCommand } from "@aws-sdk/client-lookoutequipment"; // ES Modules import
- * // const { LookoutEquipmentClient, DescribeModelCommand } = require("@aws-sdk/client-lookoutequipment"); // CommonJS import
+ * import { LookoutEquipmentClient, ImportDatasetCommand } from "@aws-sdk/client-lookoutequipment"; // ES Modules import
+ * // const { LookoutEquipmentClient, ImportDatasetCommand } = require("@aws-sdk/client-lookoutequipment"); // CommonJS import
  * const client = new LookoutEquipmentClient(config);
- * const input = { // DescribeModelRequest
- *   ModelName: "STRING_VALUE", // required
+ * const input = { // ImportDatasetRequest
+ *   SourceDatasetArn: "STRING_VALUE", // required
+ *   DatasetName: "STRING_VALUE",
+ *   ClientToken: "STRING_VALUE", // required
+ *   ServerSideKmsKeyId: "STRING_VALUE",
+ *   Tags: [ // TagList
+ *     { // Tag
+ *       Key: "STRING_VALUE", // required
+ *       Value: "STRING_VALUE", // required
+ *     },
+ *   ],
  * };
- * const command = new DescribeModelCommand(input);
+ * const command = new ImportDatasetCommand(input);
  * const response = await client.send(command);
- * // { // DescribeModelResponse
- * //   ModelName: "STRING_VALUE",
- * //   ModelArn: "STRING_VALUE",
+ * // { // ImportDatasetResponse
  * //   DatasetName: "STRING_VALUE",
  * //   DatasetArn: "STRING_VALUE",
- * //   Schema: "STRING_VALUE",
- * //   LabelsInputConfiguration: { // LabelsInputConfiguration
- * //     S3InputConfiguration: { // LabelsS3InputConfiguration
- * //       Bucket: "STRING_VALUE", // required
- * //       Prefix: "STRING_VALUE",
- * //     },
- * //     LabelGroupName: "STRING_VALUE",
- * //   },
- * //   TrainingDataStartTime: new Date("TIMESTAMP"),
- * //   TrainingDataEndTime: new Date("TIMESTAMP"),
- * //   EvaluationDataStartTime: new Date("TIMESTAMP"),
- * //   EvaluationDataEndTime: new Date("TIMESTAMP"),
- * //   RoleArn: "STRING_VALUE",
- * //   DataPreProcessingConfiguration: { // DataPreProcessingConfiguration
- * //     TargetSamplingRate: "PT1S" || "PT5S" || "PT10S" || "PT15S" || "PT30S" || "PT1M" || "PT5M" || "PT10M" || "PT15M" || "PT30M" || "PT1H",
- * //   },
- * //   Status: "IN_PROGRESS" || "SUCCESS" || "FAILED" || "IMPORT_IN_PROGRESS",
- * //   TrainingExecutionStartTime: new Date("TIMESTAMP"),
- * //   TrainingExecutionEndTime: new Date("TIMESTAMP"),
- * //   FailedReason: "STRING_VALUE",
- * //   ModelMetrics: "STRING_VALUE",
- * //   LastUpdatedTime: new Date("TIMESTAMP"),
- * //   CreatedAt: new Date("TIMESTAMP"),
- * //   ServerSideKmsKeyId: "STRING_VALUE",
- * //   OffCondition: "STRING_VALUE",
- * //   SourceModelVersionArn: "STRING_VALUE",
- * //   ImportJobStartTime: new Date("TIMESTAMP"),
- * //   ImportJobEndTime: new Date("TIMESTAMP"),
- * //   ActiveModelVersion: Number("long"),
- * //   ActiveModelVersionArn: "STRING_VALUE",
- * //   ModelVersionActivatedAt: new Date("TIMESTAMP"),
- * //   PreviousActiveModelVersion: Number("long"),
- * //   PreviousActiveModelVersionArn: "STRING_VALUE",
- * //   PreviousModelVersionActivatedAt: new Date("TIMESTAMP"),
+ * //   Status: "CREATED" || "INGESTION_IN_PROGRESS" || "ACTIVE" || "IMPORT_IN_PROGRESS",
+ * //   JobId: "STRING_VALUE",
  * // };
  *
  * ```
  *
- * @param DescribeModelCommandInput - {@link DescribeModelCommandInput}
- * @returns {@link DescribeModelCommandOutput}
- * @see {@link DescribeModelCommandInput} for command's `input` shape.
- * @see {@link DescribeModelCommandOutput} for command's `response` shape.
+ * @param ImportDatasetCommandInput - {@link ImportDatasetCommandInput}
+ * @returns {@link ImportDatasetCommandOutput}
+ * @see {@link ImportDatasetCommandInput} for command's `input` shape.
+ * @see {@link ImportDatasetCommandOutput} for command's `response` shape.
  * @see {@link LookoutEquipmentClientResolvedConfig | config} for LookoutEquipmentClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
  *  <p>The request could not be completed because you do not have access to the resource.
  *       </p>
+ *
+ * @throws {@link ConflictException} (client fault)
+ *  <p> The request could not be completed due to a conflict with the current state of the
+ *          target resource. </p>
  *
  * @throws {@link InternalServerException} (server fault)
  *  <p> Processing of the request has failed because of an unknown error, exception or failure.
@@ -110,6 +87,9 @@ export interface DescribeModelCommandOutput extends DescribeModelResponse, __Met
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p> The resource requested could not be found. Verify the resource ID and retry your
  *          request. </p>
+ *
+ * @throws {@link ServiceQuotaExceededException} (client fault)
+ *  <p> Resource limitations have been exceeded. </p>
  *
  * @throws {@link ThrottlingException} (client fault)
  *  <p>The request was denied due to request throttling.</p>
@@ -122,9 +102,9 @@ export interface DescribeModelCommandOutput extends DescribeModelResponse, __Met
  * <p>Base exception class for all service exceptions from LookoutEquipment service.</p>
  *
  */
-export class DescribeModelCommand extends $Command<
-  DescribeModelCommandInput,
-  DescribeModelCommandOutput,
+export class ImportDatasetCommand extends $Command<
+  ImportDatasetCommandInput,
+  ImportDatasetCommandOutput,
   LookoutEquipmentClientResolvedConfig
 > {
   // Start section: command_properties
@@ -142,7 +122,7 @@ export class DescribeModelCommand extends $Command<
   /**
    * @public
    */
-  constructor(readonly input: DescribeModelCommandInput) {
+  constructor(readonly input: ImportDatasetCommandInput) {
     // Start section: command_constructor
     super();
     // End section: command_constructor
@@ -155,15 +135,15 @@ export class DescribeModelCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: LookoutEquipmentClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<DescribeModelCommandInput, DescribeModelCommandOutput> {
+  ): Handler<ImportDatasetCommandInput, ImportDatasetCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
-    this.middlewareStack.use(getEndpointPlugin(configuration, DescribeModelCommand.getEndpointParameterInstructions()));
+    this.middlewareStack.use(getEndpointPlugin(configuration, ImportDatasetCommand.getEndpointParameterInstructions()));
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
     const clientName = "LookoutEquipmentClient";
-    const commandName = "DescribeModelCommand";
+    const commandName = "ImportDatasetCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
       clientName,
@@ -182,15 +162,15 @@ export class DescribeModelCommand extends $Command<
   /**
    * @internal
    */
-  private serialize(input: DescribeModelCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return se_DescribeModelCommand(input, context);
+  private serialize(input: ImportDatasetCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
+    return se_ImportDatasetCommand(input, context);
   }
 
   /**
    * @internal
    */
-  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeModelCommandOutput> {
-    return de_DescribeModelCommand(output, context);
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ImportDatasetCommandOutput> {
+    return de_ImportDatasetCommand(output, context);
   }
 
   // Start section: command_body_extra

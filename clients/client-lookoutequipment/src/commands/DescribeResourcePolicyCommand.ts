@@ -14,8 +14,8 @@ import {
 } from "@smithy/types";
 
 import { LookoutEquipmentClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LookoutEquipmentClient";
-import { StopInferenceSchedulerRequest, StopInferenceSchedulerResponse } from "../models/models_0";
-import { de_StopInferenceSchedulerCommand, se_StopInferenceSchedulerCommand } from "../protocols/Aws_json1_0";
+import { DescribeResourcePolicyRequest, DescribeResourcePolicyResponse } from "../models/models_0";
+import { de_DescribeResourcePolicyCommand, se_DescribeResourcePolicyCommand } from "../protocols/Aws_json1_0";
 
 /**
  * @public
@@ -24,53 +24,48 @@ export { __MetadataBearer, $Command };
 /**
  * @public
  *
- * The input for {@link StopInferenceSchedulerCommand}.
+ * The input for {@link DescribeResourcePolicyCommand}.
  */
-export interface StopInferenceSchedulerCommandInput extends StopInferenceSchedulerRequest {}
+export interface DescribeResourcePolicyCommandInput extends DescribeResourcePolicyRequest {}
 /**
  * @public
  *
- * The output of {@link StopInferenceSchedulerCommand}.
+ * The output of {@link DescribeResourcePolicyCommand}.
  */
-export interface StopInferenceSchedulerCommandOutput extends StopInferenceSchedulerResponse, __MetadataBearer {}
+export interface DescribeResourcePolicyCommandOutput extends DescribeResourcePolicyResponse, __MetadataBearer {}
 
 /**
  * @public
- * <p>Stops an inference scheduler. </p>
+ * <p>Provides the details of a resource policy attached to a resource.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { LookoutEquipmentClient, StopInferenceSchedulerCommand } from "@aws-sdk/client-lookoutequipment"; // ES Modules import
- * // const { LookoutEquipmentClient, StopInferenceSchedulerCommand } = require("@aws-sdk/client-lookoutequipment"); // CommonJS import
+ * import { LookoutEquipmentClient, DescribeResourcePolicyCommand } from "@aws-sdk/client-lookoutequipment"; // ES Modules import
+ * // const { LookoutEquipmentClient, DescribeResourcePolicyCommand } = require("@aws-sdk/client-lookoutequipment"); // CommonJS import
  * const client = new LookoutEquipmentClient(config);
- * const input = { // StopInferenceSchedulerRequest
- *   InferenceSchedulerName: "STRING_VALUE", // required
+ * const input = { // DescribeResourcePolicyRequest
+ *   ResourceArn: "STRING_VALUE", // required
  * };
- * const command = new StopInferenceSchedulerCommand(input);
+ * const command = new DescribeResourcePolicyCommand(input);
  * const response = await client.send(command);
- * // { // StopInferenceSchedulerResponse
- * //   ModelArn: "STRING_VALUE",
- * //   ModelName: "STRING_VALUE",
- * //   InferenceSchedulerName: "STRING_VALUE",
- * //   InferenceSchedulerArn: "STRING_VALUE",
- * //   Status: "PENDING" || "RUNNING" || "STOPPING" || "STOPPED",
+ * // { // DescribeResourcePolicyResponse
+ * //   PolicyRevisionId: "STRING_VALUE",
+ * //   ResourcePolicy: "STRING_VALUE",
+ * //   CreationTime: new Date("TIMESTAMP"),
+ * //   LastModifiedTime: new Date("TIMESTAMP"),
  * // };
  *
  * ```
  *
- * @param StopInferenceSchedulerCommandInput - {@link StopInferenceSchedulerCommandInput}
- * @returns {@link StopInferenceSchedulerCommandOutput}
- * @see {@link StopInferenceSchedulerCommandInput} for command's `input` shape.
- * @see {@link StopInferenceSchedulerCommandOutput} for command's `response` shape.
+ * @param DescribeResourcePolicyCommandInput - {@link DescribeResourcePolicyCommandInput}
+ * @returns {@link DescribeResourcePolicyCommandOutput}
+ * @see {@link DescribeResourcePolicyCommandInput} for command's `input` shape.
+ * @see {@link DescribeResourcePolicyCommandOutput} for command's `response` shape.
  * @see {@link LookoutEquipmentClientResolvedConfig | config} for LookoutEquipmentClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
  *  <p>The request could not be completed because you do not have access to the resource.
  *       </p>
- *
- * @throws {@link ConflictException} (client fault)
- *  <p> The request could not be completed due to a conflict with the current state of the
- *          target resource. </p>
  *
  * @throws {@link InternalServerException} (server fault)
  *  <p> Processing of the request has failed because of an unknown error, exception or failure.
@@ -91,9 +86,9 @@ export interface StopInferenceSchedulerCommandOutput extends StopInferenceSchedu
  * <p>Base exception class for all service exceptions from LookoutEquipment service.</p>
  *
  */
-export class StopInferenceSchedulerCommand extends $Command<
-  StopInferenceSchedulerCommandInput,
-  StopInferenceSchedulerCommandOutput,
+export class DescribeResourcePolicyCommand extends $Command<
+  DescribeResourcePolicyCommandInput,
+  DescribeResourcePolicyCommandOutput,
   LookoutEquipmentClientResolvedConfig
 > {
   // Start section: command_properties
@@ -111,7 +106,7 @@ export class StopInferenceSchedulerCommand extends $Command<
   /**
    * @public
    */
-  constructor(readonly input: StopInferenceSchedulerCommandInput) {
+  constructor(readonly input: DescribeResourcePolicyCommandInput) {
     // Start section: command_constructor
     super();
     // End section: command_constructor
@@ -124,17 +119,17 @@ export class StopInferenceSchedulerCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: LookoutEquipmentClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<StopInferenceSchedulerCommandInput, StopInferenceSchedulerCommandOutput> {
+  ): Handler<DescribeResourcePolicyCommandInput, DescribeResourcePolicyCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
     this.middlewareStack.use(
-      getEndpointPlugin(configuration, StopInferenceSchedulerCommand.getEndpointParameterInstructions())
+      getEndpointPlugin(configuration, DescribeResourcePolicyCommand.getEndpointParameterInstructions())
     );
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
     const clientName = "LookoutEquipmentClient";
-    const commandName = "StopInferenceSchedulerCommand";
+    const commandName = "DescribeResourcePolicyCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
       clientName,
@@ -153,15 +148,15 @@ export class StopInferenceSchedulerCommand extends $Command<
   /**
    * @internal
    */
-  private serialize(input: StopInferenceSchedulerCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return se_StopInferenceSchedulerCommand(input, context);
+  private serialize(input: DescribeResourcePolicyCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
+    return se_DescribeResourcePolicyCommand(input, context);
   }
 
   /**
    * @internal
    */
-  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<StopInferenceSchedulerCommandOutput> {
-    return de_StopInferenceSchedulerCommand(output, context);
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeResourcePolicyCommandOutput> {
+    return de_DescribeResourcePolicyCommand(output, context);
   }
 
   // Start section: command_body_extra

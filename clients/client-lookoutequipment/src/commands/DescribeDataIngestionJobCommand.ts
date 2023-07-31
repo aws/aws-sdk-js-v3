@@ -61,7 +61,7 @@ export interface DescribeDataIngestionJobCommandOutput extends DescribeDataInges
  * //   },
  * //   RoleArn: "STRING_VALUE",
  * //   CreatedAt: new Date("TIMESTAMP"),
- * //   Status: "IN_PROGRESS" || "SUCCESS" || "FAILED",
+ * //   Status: "IN_PROGRESS" || "SUCCESS" || "FAILED" || "IMPORT_IN_PROGRESS",
  * //   FailedReason: "STRING_VALUE",
  * //   DataQualitySummary: { // DataQualitySummary
  * //     InsufficientSensorData: { // InsufficientSensorData
@@ -101,6 +101,7 @@ export interface DescribeDataIngestionJobCommandOutput extends DescribeDataInges
  * //   IngestedDataSize: Number("long"),
  * //   DataStartTime: new Date("TIMESTAMP"),
  * //   DataEndTime: new Date("TIMESTAMP"),
+ * //   SourceDatasetArn: "STRING_VALUE",
  * // };
  *
  * ```
@@ -128,7 +129,7 @@ export interface DescribeDataIngestionJobCommandOutput extends DescribeDataInges
  *
  * @throws {@link ValidationException} (client fault)
  *  <p> The input fails to satisfy constraints specified by Amazon Lookout for Equipment or a
- *          related AWS service that's being utilized. </p>
+ *          related Amazon Web Services service that's being utilized. </p>
  *
  * @throws {@link LookoutEquipmentServiceException}
  * <p>Base exception class for all service exceptions from LookoutEquipment service.</p>

@@ -37,8 +37,8 @@ export interface CreateLabelGroupCommandOutput extends CreateLabelGroupResponse,
 /**
  * @public
  * <p>
- * Creates a group of labels.
- * </p>
+ *          Creates a group of labels.
+ *       </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -93,7 +93,7 @@ export interface CreateLabelGroupCommandOutput extends CreateLabelGroupResponse,
  *
  * @throws {@link ValidationException} (client fault)
  *  <p> The input fails to satisfy constraints specified by Amazon Lookout for Equipment or a
- *          related AWS service that's being utilized. </p>
+ *          related Amazon Web Services service that's being utilized. </p>
  *
  * @throws {@link LookoutEquipmentServiceException}
  * <p>Base exception class for all service exceptions from LookoutEquipment service.</p>

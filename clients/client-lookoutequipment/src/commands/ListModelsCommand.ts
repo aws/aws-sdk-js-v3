@@ -47,7 +47,7 @@ export interface ListModelsCommandOutput extends ListModelsResponse, __MetadataB
  * const input = { // ListModelsRequest
  *   NextToken: "STRING_VALUE",
  *   MaxResults: Number("int"),
- *   Status: "IN_PROGRESS" || "SUCCESS" || "FAILED",
+ *   Status: "IN_PROGRESS" || "SUCCESS" || "FAILED" || "IMPORT_IN_PROGRESS",
  *   ModelNameBeginsWith: "STRING_VALUE",
  *   DatasetNameBeginsWith: "STRING_VALUE",
  * };
@@ -61,8 +61,10 @@ export interface ListModelsCommandOutput extends ListModelsResponse, __MetadataB
  * //       ModelArn: "STRING_VALUE",
  * //       DatasetName: "STRING_VALUE",
  * //       DatasetArn: "STRING_VALUE",
- * //       Status: "IN_PROGRESS" || "SUCCESS" || "FAILED",
+ * //       Status: "IN_PROGRESS" || "SUCCESS" || "FAILED" || "IMPORT_IN_PROGRESS",
  * //       CreatedAt: new Date("TIMESTAMP"),
+ * //       ActiveModelVersion: Number("long"),
+ * //       ActiveModelVersionArn: "STRING_VALUE",
  * //     },
  * //   ],
  * // };
@@ -88,7 +90,7 @@ export interface ListModelsCommandOutput extends ListModelsResponse, __MetadataB
  *
  * @throws {@link ValidationException} (client fault)
  *  <p> The input fails to satisfy constraints specified by Amazon Lookout for Equipment or a
- *          related AWS service that's being utilized. </p>
+ *          related Amazon Web Services service that's being utilized. </p>
  *
  * @throws {@link LookoutEquipmentServiceException}
  * <p>Base exception class for all service exceptions from LookoutEquipment service.</p>

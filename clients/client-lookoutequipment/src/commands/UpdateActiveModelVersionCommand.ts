@@ -14,8 +14,8 @@ import {
 } from "@smithy/types";
 
 import { LookoutEquipmentClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LookoutEquipmentClient";
-import { DescribeModelRequest, DescribeModelResponse } from "../models/models_0";
-import { de_DescribeModelCommand, se_DescribeModelCommand } from "../protocols/Aws_json1_0";
+import { UpdateActiveModelVersionRequest, UpdateActiveModelVersionResponse } from "../models/models_0";
+import { de_UpdateActiveModelVersionCommand, se_UpdateActiveModelVersionCommand } from "../protocols/Aws_json1_0";
 
 /**
  * @public
@@ -24,84 +24,55 @@ export { __MetadataBearer, $Command };
 /**
  * @public
  *
- * The input for {@link DescribeModelCommand}.
+ * The input for {@link UpdateActiveModelVersionCommand}.
  */
-export interface DescribeModelCommandInput extends DescribeModelRequest {}
+export interface UpdateActiveModelVersionCommandInput extends UpdateActiveModelVersionRequest {}
 /**
  * @public
  *
- * The output of {@link DescribeModelCommand}.
+ * The output of {@link UpdateActiveModelVersionCommand}.
  */
-export interface DescribeModelCommandOutput extends DescribeModelResponse, __MetadataBearer {}
+export interface UpdateActiveModelVersionCommandOutput extends UpdateActiveModelVersionResponse, __MetadataBearer {}
 
 /**
  * @public
- * <p>Provides a JSON containing the overall information about a specific ML model, including
- *          model name and ARN, dataset, training and evaluation information, status, and so on.
- *       </p>
+ * <p>Sets the active model version for a given machine learning model.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { LookoutEquipmentClient, DescribeModelCommand } from "@aws-sdk/client-lookoutequipment"; // ES Modules import
- * // const { LookoutEquipmentClient, DescribeModelCommand } = require("@aws-sdk/client-lookoutequipment"); // CommonJS import
+ * import { LookoutEquipmentClient, UpdateActiveModelVersionCommand } from "@aws-sdk/client-lookoutequipment"; // ES Modules import
+ * // const { LookoutEquipmentClient, UpdateActiveModelVersionCommand } = require("@aws-sdk/client-lookoutequipment"); // CommonJS import
  * const client = new LookoutEquipmentClient(config);
- * const input = { // DescribeModelRequest
+ * const input = { // UpdateActiveModelVersionRequest
  *   ModelName: "STRING_VALUE", // required
+ *   ModelVersion: Number("long"), // required
  * };
- * const command = new DescribeModelCommand(input);
+ * const command = new UpdateActiveModelVersionCommand(input);
  * const response = await client.send(command);
- * // { // DescribeModelResponse
+ * // { // UpdateActiveModelVersionResponse
  * //   ModelName: "STRING_VALUE",
  * //   ModelArn: "STRING_VALUE",
- * //   DatasetName: "STRING_VALUE",
- * //   DatasetArn: "STRING_VALUE",
- * //   Schema: "STRING_VALUE",
- * //   LabelsInputConfiguration: { // LabelsInputConfiguration
- * //     S3InputConfiguration: { // LabelsS3InputConfiguration
- * //       Bucket: "STRING_VALUE", // required
- * //       Prefix: "STRING_VALUE",
- * //     },
- * //     LabelGroupName: "STRING_VALUE",
- * //   },
- * //   TrainingDataStartTime: new Date("TIMESTAMP"),
- * //   TrainingDataEndTime: new Date("TIMESTAMP"),
- * //   EvaluationDataStartTime: new Date("TIMESTAMP"),
- * //   EvaluationDataEndTime: new Date("TIMESTAMP"),
- * //   RoleArn: "STRING_VALUE",
- * //   DataPreProcessingConfiguration: { // DataPreProcessingConfiguration
- * //     TargetSamplingRate: "PT1S" || "PT5S" || "PT10S" || "PT15S" || "PT30S" || "PT1M" || "PT5M" || "PT10M" || "PT15M" || "PT30M" || "PT1H",
- * //   },
- * //   Status: "IN_PROGRESS" || "SUCCESS" || "FAILED" || "IMPORT_IN_PROGRESS",
- * //   TrainingExecutionStartTime: new Date("TIMESTAMP"),
- * //   TrainingExecutionEndTime: new Date("TIMESTAMP"),
- * //   FailedReason: "STRING_VALUE",
- * //   ModelMetrics: "STRING_VALUE",
- * //   LastUpdatedTime: new Date("TIMESTAMP"),
- * //   CreatedAt: new Date("TIMESTAMP"),
- * //   ServerSideKmsKeyId: "STRING_VALUE",
- * //   OffCondition: "STRING_VALUE",
- * //   SourceModelVersionArn: "STRING_VALUE",
- * //   ImportJobStartTime: new Date("TIMESTAMP"),
- * //   ImportJobEndTime: new Date("TIMESTAMP"),
- * //   ActiveModelVersion: Number("long"),
- * //   ActiveModelVersionArn: "STRING_VALUE",
- * //   ModelVersionActivatedAt: new Date("TIMESTAMP"),
- * //   PreviousActiveModelVersion: Number("long"),
- * //   PreviousActiveModelVersionArn: "STRING_VALUE",
- * //   PreviousModelVersionActivatedAt: new Date("TIMESTAMP"),
+ * //   CurrentActiveVersion: Number("long"),
+ * //   PreviousActiveVersion: Number("long"),
+ * //   CurrentActiveVersionArn: "STRING_VALUE",
+ * //   PreviousActiveVersionArn: "STRING_VALUE",
  * // };
  *
  * ```
  *
- * @param DescribeModelCommandInput - {@link DescribeModelCommandInput}
- * @returns {@link DescribeModelCommandOutput}
- * @see {@link DescribeModelCommandInput} for command's `input` shape.
- * @see {@link DescribeModelCommandOutput} for command's `response` shape.
+ * @param UpdateActiveModelVersionCommandInput - {@link UpdateActiveModelVersionCommandInput}
+ * @returns {@link UpdateActiveModelVersionCommandOutput}
+ * @see {@link UpdateActiveModelVersionCommandInput} for command's `input` shape.
+ * @see {@link UpdateActiveModelVersionCommandOutput} for command's `response` shape.
  * @see {@link LookoutEquipmentClientResolvedConfig | config} for LookoutEquipmentClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
  *  <p>The request could not be completed because you do not have access to the resource.
  *       </p>
+ *
+ * @throws {@link ConflictException} (client fault)
+ *  <p> The request could not be completed due to a conflict with the current state of the
+ *          target resource. </p>
  *
  * @throws {@link InternalServerException} (server fault)
  *  <p> Processing of the request has failed because of an unknown error, exception or failure.
@@ -122,9 +93,9 @@ export interface DescribeModelCommandOutput extends DescribeModelResponse, __Met
  * <p>Base exception class for all service exceptions from LookoutEquipment service.</p>
  *
  */
-export class DescribeModelCommand extends $Command<
-  DescribeModelCommandInput,
-  DescribeModelCommandOutput,
+export class UpdateActiveModelVersionCommand extends $Command<
+  UpdateActiveModelVersionCommandInput,
+  UpdateActiveModelVersionCommandOutput,
   LookoutEquipmentClientResolvedConfig
 > {
   // Start section: command_properties
@@ -142,7 +113,7 @@ export class DescribeModelCommand extends $Command<
   /**
    * @public
    */
-  constructor(readonly input: DescribeModelCommandInput) {
+  constructor(readonly input: UpdateActiveModelVersionCommandInput) {
     // Start section: command_constructor
     super();
     // End section: command_constructor
@@ -155,15 +126,17 @@ export class DescribeModelCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: LookoutEquipmentClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<DescribeModelCommandInput, DescribeModelCommandOutput> {
+  ): Handler<UpdateActiveModelVersionCommandInput, UpdateActiveModelVersionCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
-    this.middlewareStack.use(getEndpointPlugin(configuration, DescribeModelCommand.getEndpointParameterInstructions()));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, UpdateActiveModelVersionCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
     const clientName = "LookoutEquipmentClient";
-    const commandName = "DescribeModelCommand";
+    const commandName = "UpdateActiveModelVersionCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
       clientName,
@@ -182,15 +155,15 @@ export class DescribeModelCommand extends $Command<
   /**
    * @internal
    */
-  private serialize(input: DescribeModelCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return se_DescribeModelCommand(input, context);
+  private serialize(input: UpdateActiveModelVersionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
+    return se_UpdateActiveModelVersionCommand(input, context);
   }
 
   /**
    * @internal
    */
-  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeModelCommandOutput> {
-    return de_DescribeModelCommand(output, context);
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateActiveModelVersionCommandOutput> {
+    return de_UpdateActiveModelVersionCommand(output, context);
   }
 
   // Start section: command_body_extra

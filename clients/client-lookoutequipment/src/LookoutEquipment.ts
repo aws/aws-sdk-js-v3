@@ -37,6 +37,11 @@ import {
 } from "./commands/DeleteLabelGroupCommand";
 import { DeleteModelCommand, DeleteModelCommandInput, DeleteModelCommandOutput } from "./commands/DeleteModelCommand";
 import {
+  DeleteResourcePolicyCommand,
+  DeleteResourcePolicyCommandInput,
+  DeleteResourcePolicyCommandOutput,
+} from "./commands/DeleteResourcePolicyCommand";
+import {
   DescribeDataIngestionJobCommand,
   DescribeDataIngestionJobCommandInput,
   DescribeDataIngestionJobCommandOutput,
@@ -66,6 +71,26 @@ import {
   DescribeModelCommandInput,
   DescribeModelCommandOutput,
 } from "./commands/DescribeModelCommand";
+import {
+  DescribeModelVersionCommand,
+  DescribeModelVersionCommandInput,
+  DescribeModelVersionCommandOutput,
+} from "./commands/DescribeModelVersionCommand";
+import {
+  DescribeResourcePolicyCommand,
+  DescribeResourcePolicyCommandInput,
+  DescribeResourcePolicyCommandOutput,
+} from "./commands/DescribeResourcePolicyCommand";
+import {
+  ImportDatasetCommand,
+  ImportDatasetCommandInput,
+  ImportDatasetCommandOutput,
+} from "./commands/ImportDatasetCommand";
+import {
+  ImportModelVersionCommand,
+  ImportModelVersionCommandInput,
+  ImportModelVersionCommandOutput,
+} from "./commands/ImportModelVersionCommand";
 import {
   ListDataIngestionJobsCommand,
   ListDataIngestionJobsCommandInput,
@@ -99,6 +124,11 @@ import {
 import { ListLabelsCommand, ListLabelsCommandInput, ListLabelsCommandOutput } from "./commands/ListLabelsCommand";
 import { ListModelsCommand, ListModelsCommandInput, ListModelsCommandOutput } from "./commands/ListModelsCommand";
 import {
+  ListModelVersionsCommand,
+  ListModelVersionsCommandInput,
+  ListModelVersionsCommandOutput,
+} from "./commands/ListModelVersionsCommand";
+import {
   ListSensorStatisticsCommand,
   ListSensorStatisticsCommandInput,
   ListSensorStatisticsCommandOutput,
@@ -108,6 +138,11 @@ import {
   ListTagsForResourceCommandInput,
   ListTagsForResourceCommandOutput,
 } from "./commands/ListTagsForResourceCommand";
+import {
+  PutResourcePolicyCommand,
+  PutResourcePolicyCommandInput,
+  PutResourcePolicyCommandOutput,
+} from "./commands/PutResourcePolicyCommand";
 import {
   StartDataIngestionJobCommand,
   StartDataIngestionJobCommandInput,
@@ -129,6 +164,11 @@ import {
   UntagResourceCommandInput,
   UntagResourceCommandOutput,
 } from "./commands/UntagResourceCommand";
+import {
+  UpdateActiveModelVersionCommand,
+  UpdateActiveModelVersionCommandInput,
+  UpdateActiveModelVersionCommandOutput,
+} from "./commands/UpdateActiveModelVersionCommand";
 import {
   UpdateInferenceSchedulerCommand,
   UpdateInferenceSchedulerCommandInput,
@@ -152,12 +192,17 @@ const commands = {
   DeleteLabelCommand,
   DeleteLabelGroupCommand,
   DeleteModelCommand,
+  DeleteResourcePolicyCommand,
   DescribeDataIngestionJobCommand,
   DescribeDatasetCommand,
   DescribeInferenceSchedulerCommand,
   DescribeLabelCommand,
   DescribeLabelGroupCommand,
   DescribeModelCommand,
+  DescribeModelVersionCommand,
+  DescribeResourcePolicyCommand,
+  ImportDatasetCommand,
+  ImportModelVersionCommand,
   ListDataIngestionJobsCommand,
   ListDatasetsCommand,
   ListInferenceEventsCommand,
@@ -166,13 +211,16 @@ const commands = {
   ListLabelGroupsCommand,
   ListLabelsCommand,
   ListModelsCommand,
+  ListModelVersionsCommand,
   ListSensorStatisticsCommand,
   ListTagsForResourceCommand,
+  PutResourcePolicyCommand,
   StartDataIngestionJobCommand,
   StartInferenceSchedulerCommand,
   StopInferenceSchedulerCommand,
   TagResourceCommand,
   UntagResourceCommand,
+  UpdateActiveModelVersionCommand,
   UpdateInferenceSchedulerCommand,
   UpdateLabelGroupCommand,
 };
@@ -313,6 +361,23 @@ export interface LookoutEquipment {
   ): void;
 
   /**
+   * @see {@link DeleteResourcePolicyCommand}
+   */
+  deleteResourcePolicy(
+    args: DeleteResourcePolicyCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteResourcePolicyCommandOutput>;
+  deleteResourcePolicy(
+    args: DeleteResourcePolicyCommandInput,
+    cb: (err: any, data?: DeleteResourcePolicyCommandOutput) => void
+  ): void;
+  deleteResourcePolicy(
+    args: DeleteResourcePolicyCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteResourcePolicyCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link DescribeDataIngestionJobCommand}
    */
   describeDataIngestionJob(
@@ -397,6 +462,68 @@ export interface LookoutEquipment {
     args: DescribeModelCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: DescribeModelCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DescribeModelVersionCommand}
+   */
+  describeModelVersion(
+    args: DescribeModelVersionCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DescribeModelVersionCommandOutput>;
+  describeModelVersion(
+    args: DescribeModelVersionCommandInput,
+    cb: (err: any, data?: DescribeModelVersionCommandOutput) => void
+  ): void;
+  describeModelVersion(
+    args: DescribeModelVersionCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DescribeModelVersionCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DescribeResourcePolicyCommand}
+   */
+  describeResourcePolicy(
+    args: DescribeResourcePolicyCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DescribeResourcePolicyCommandOutput>;
+  describeResourcePolicy(
+    args: DescribeResourcePolicyCommandInput,
+    cb: (err: any, data?: DescribeResourcePolicyCommandOutput) => void
+  ): void;
+  describeResourcePolicy(
+    args: DescribeResourcePolicyCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DescribeResourcePolicyCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ImportDatasetCommand}
+   */
+  importDataset(args: ImportDatasetCommandInput, options?: __HttpHandlerOptions): Promise<ImportDatasetCommandOutput>;
+  importDataset(args: ImportDatasetCommandInput, cb: (err: any, data?: ImportDatasetCommandOutput) => void): void;
+  importDataset(
+    args: ImportDatasetCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ImportDatasetCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ImportModelVersionCommand}
+   */
+  importModelVersion(
+    args: ImportModelVersionCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ImportModelVersionCommandOutput>;
+  importModelVersion(
+    args: ImportModelVersionCommandInput,
+    cb: (err: any, data?: ImportModelVersionCommandOutput) => void
+  ): void;
+  importModelVersion(
+    args: ImportModelVersionCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ImportModelVersionCommandOutput) => void
   ): void;
 
   /**
@@ -515,6 +642,23 @@ export interface LookoutEquipment {
   ): void;
 
   /**
+   * @see {@link ListModelVersionsCommand}
+   */
+  listModelVersions(
+    args: ListModelVersionsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListModelVersionsCommandOutput>;
+  listModelVersions(
+    args: ListModelVersionsCommandInput,
+    cb: (err: any, data?: ListModelVersionsCommandOutput) => void
+  ): void;
+  listModelVersions(
+    args: ListModelVersionsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListModelVersionsCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link ListSensorStatisticsCommand}
    */
   listSensorStatistics(
@@ -546,6 +690,23 @@ export interface LookoutEquipment {
     args: ListTagsForResourceCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: ListTagsForResourceCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link PutResourcePolicyCommand}
+   */
+  putResourcePolicy(
+    args: PutResourcePolicyCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<PutResourcePolicyCommandOutput>;
+  putResourcePolicy(
+    args: PutResourcePolicyCommandInput,
+    cb: (err: any, data?: PutResourcePolicyCommandOutput) => void
+  ): void;
+  putResourcePolicy(
+    args: PutResourcePolicyCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: PutResourcePolicyCommandOutput) => void
   ): void;
 
   /**
@@ -619,6 +780,23 @@ export interface LookoutEquipment {
     args: UntagResourceCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: UntagResourceCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link UpdateActiveModelVersionCommand}
+   */
+  updateActiveModelVersion(
+    args: UpdateActiveModelVersionCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateActiveModelVersionCommandOutput>;
+  updateActiveModelVersion(
+    args: UpdateActiveModelVersionCommandInput,
+    cb: (err: any, data?: UpdateActiveModelVersionCommandOutput) => void
+  ): void;
+  updateActiveModelVersion(
+    args: UpdateActiveModelVersionCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UpdateActiveModelVersionCommandOutput) => void
   ): void;
 
   /**

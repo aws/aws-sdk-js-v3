@@ -86,7 +86,7 @@ export interface CreateModelCommandOutput extends CreateModelResponse, __Metadat
  * const response = await client.send(command);
  * // { // CreateModelResponse
  * //   ModelArn: "STRING_VALUE",
- * //   Status: "IN_PROGRESS" || "SUCCESS" || "FAILED",
+ * //   Status: "IN_PROGRESS" || "SUCCESS" || "FAILED" || "IMPORT_IN_PROGRESS",
  * // };
  *
  * ```
@@ -121,7 +121,7 @@ export interface CreateModelCommandOutput extends CreateModelResponse, __Metadat
  *
  * @throws {@link ValidationException} (client fault)
  *  <p> The input fails to satisfy constraints specified by Amazon Lookout for Equipment or a
- *          related AWS service that's being utilized. </p>
+ *          related Amazon Web Services service that's being utilized. </p>
  *
  * @throws {@link LookoutEquipmentServiceException}
  * <p>Base exception class for all service exceptions from LookoutEquipment service.</p>
