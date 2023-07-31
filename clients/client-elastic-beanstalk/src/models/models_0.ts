@@ -496,11 +496,11 @@ export interface S3Location {
  * @enum
  */
 export const ApplicationVersionStatus = {
-  Building: "Building",
-  Failed: "Failed",
-  Processed: "Processed",
-  Processing: "Processing",
-  Unprocessed: "Unprocessed",
+  BUILDING: "BUILDING",
+  FAILED: "FAILED",
+  PROCESSED: "PROCESSED",
+  PROCESSING: "PROCESSING",
+  UNPROCESSED: "UNPROCESSED",
 } as const;
 
 /**
