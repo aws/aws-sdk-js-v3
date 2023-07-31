@@ -58,7 +58,7 @@ export interface ListConfiguredTablesCommandOutput extends ListConfiguredTablesO
  * //       createTime: new Date("TIMESTAMP"), // required
  * //       updateTime: new Date("TIMESTAMP"), // required
  * //       analysisRuleTypes: [ // ConfiguredTableAnalysisRuleTypeList // required
- * //         "AGGREGATION" || "LIST",
+ * //         "AGGREGATION" || "LIST" || "CUSTOM",
  * //       ],
  * //       analysisMethod: "STRING_VALUE", // required
  * //     },

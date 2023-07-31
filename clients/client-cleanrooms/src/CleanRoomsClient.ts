@@ -49,7 +49,15 @@ import {
   UserAgent as __UserAgent,
 } from "@smithy/types";
 
+import {
+  BatchGetCollaborationAnalysisTemplateCommandInput,
+  BatchGetCollaborationAnalysisTemplateCommandOutput,
+} from "./commands/BatchGetCollaborationAnalysisTemplateCommand";
 import { BatchGetSchemaCommandInput, BatchGetSchemaCommandOutput } from "./commands/BatchGetSchemaCommand";
+import {
+  CreateAnalysisTemplateCommandInput,
+  CreateAnalysisTemplateCommandOutput,
+} from "./commands/CreateAnalysisTemplateCommand";
 import {
   CreateCollaborationCommandInput,
   CreateCollaborationCommandOutput,
@@ -68,6 +76,10 @@ import {
 } from "./commands/CreateConfiguredTableCommand";
 import { CreateMembershipCommandInput, CreateMembershipCommandOutput } from "./commands/CreateMembershipCommand";
 import {
+  DeleteAnalysisTemplateCommandInput,
+  DeleteAnalysisTemplateCommandOutput,
+} from "./commands/DeleteAnalysisTemplateCommand";
+import {
   DeleteCollaborationCommandInput,
   DeleteCollaborationCommandOutput,
 } from "./commands/DeleteCollaborationCommand";
@@ -85,6 +97,14 @@ import {
 } from "./commands/DeleteConfiguredTableCommand";
 import { DeleteMemberCommandInput, DeleteMemberCommandOutput } from "./commands/DeleteMemberCommand";
 import { DeleteMembershipCommandInput, DeleteMembershipCommandOutput } from "./commands/DeleteMembershipCommand";
+import {
+  GetAnalysisTemplateCommandInput,
+  GetAnalysisTemplateCommandOutput,
+} from "./commands/GetAnalysisTemplateCommand";
+import {
+  GetCollaborationAnalysisTemplateCommandInput,
+  GetCollaborationAnalysisTemplateCommandOutput,
+} from "./commands/GetCollaborationAnalysisTemplateCommand";
 import { GetCollaborationCommandInput, GetCollaborationCommandOutput } from "./commands/GetCollaborationCommand";
 import {
   GetConfiguredTableAnalysisRuleCommandInput,
@@ -102,6 +122,14 @@ import {
   GetSchemaAnalysisRuleCommandOutput,
 } from "./commands/GetSchemaAnalysisRuleCommand";
 import { GetSchemaCommandInput, GetSchemaCommandOutput } from "./commands/GetSchemaCommand";
+import {
+  ListAnalysisTemplatesCommandInput,
+  ListAnalysisTemplatesCommandOutput,
+} from "./commands/ListAnalysisTemplatesCommand";
+import {
+  ListCollaborationAnalysisTemplatesCommandInput,
+  ListCollaborationAnalysisTemplatesCommandOutput,
+} from "./commands/ListCollaborationAnalysisTemplatesCommand";
 import { ListCollaborationsCommandInput, ListCollaborationsCommandOutput } from "./commands/ListCollaborationsCommand";
 import {
   ListConfiguredTableAssociationsCommandInput,
@@ -128,6 +156,10 @@ import {
 } from "./commands/StartProtectedQueryCommand";
 import { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
 import { UntagResourceCommandInput, UntagResourceCommandOutput } from "./commands/UntagResourceCommand";
+import {
+  UpdateAnalysisTemplateCommandInput,
+  UpdateAnalysisTemplateCommandOutput,
+} from "./commands/UpdateAnalysisTemplateCommand";
 import {
   UpdateCollaborationCommandInput,
   UpdateCollaborationCommandOutput,
@@ -163,18 +195,23 @@ export { __Client };
  * @public
  */
 export type ServiceInputTypes =
+  | BatchGetCollaborationAnalysisTemplateCommandInput
   | BatchGetSchemaCommandInput
+  | CreateAnalysisTemplateCommandInput
   | CreateCollaborationCommandInput
   | CreateConfiguredTableAnalysisRuleCommandInput
   | CreateConfiguredTableAssociationCommandInput
   | CreateConfiguredTableCommandInput
   | CreateMembershipCommandInput
+  | DeleteAnalysisTemplateCommandInput
   | DeleteCollaborationCommandInput
   | DeleteConfiguredTableAnalysisRuleCommandInput
   | DeleteConfiguredTableAssociationCommandInput
   | DeleteConfiguredTableCommandInput
   | DeleteMemberCommandInput
   | DeleteMembershipCommandInput
+  | GetAnalysisTemplateCommandInput
+  | GetCollaborationAnalysisTemplateCommandInput
   | GetCollaborationCommandInput
   | GetConfiguredTableAnalysisRuleCommandInput
   | GetConfiguredTableAssociationCommandInput
@@ -183,6 +220,8 @@ export type ServiceInputTypes =
   | GetProtectedQueryCommandInput
   | GetSchemaAnalysisRuleCommandInput
   | GetSchemaCommandInput
+  | ListAnalysisTemplatesCommandInput
+  | ListCollaborationAnalysisTemplatesCommandInput
   | ListCollaborationsCommandInput
   | ListConfiguredTableAssociationsCommandInput
   | ListConfiguredTablesCommandInput
@@ -194,6 +233,7 @@ export type ServiceInputTypes =
   | StartProtectedQueryCommandInput
   | TagResourceCommandInput
   | UntagResourceCommandInput
+  | UpdateAnalysisTemplateCommandInput
   | UpdateCollaborationCommandInput
   | UpdateConfiguredTableAnalysisRuleCommandInput
   | UpdateConfiguredTableAssociationCommandInput
@@ -205,18 +245,23 @@ export type ServiceInputTypes =
  * @public
  */
 export type ServiceOutputTypes =
+  | BatchGetCollaborationAnalysisTemplateCommandOutput
   | BatchGetSchemaCommandOutput
+  | CreateAnalysisTemplateCommandOutput
   | CreateCollaborationCommandOutput
   | CreateConfiguredTableAnalysisRuleCommandOutput
   | CreateConfiguredTableAssociationCommandOutput
   | CreateConfiguredTableCommandOutput
   | CreateMembershipCommandOutput
+  | DeleteAnalysisTemplateCommandOutput
   | DeleteCollaborationCommandOutput
   | DeleteConfiguredTableAnalysisRuleCommandOutput
   | DeleteConfiguredTableAssociationCommandOutput
   | DeleteConfiguredTableCommandOutput
   | DeleteMemberCommandOutput
   | DeleteMembershipCommandOutput
+  | GetAnalysisTemplateCommandOutput
+  | GetCollaborationAnalysisTemplateCommandOutput
   | GetCollaborationCommandOutput
   | GetConfiguredTableAnalysisRuleCommandOutput
   | GetConfiguredTableAssociationCommandOutput
@@ -225,6 +270,8 @@ export type ServiceOutputTypes =
   | GetProtectedQueryCommandOutput
   | GetSchemaAnalysisRuleCommandOutput
   | GetSchemaCommandOutput
+  | ListAnalysisTemplatesCommandOutput
+  | ListCollaborationAnalysisTemplatesCommandOutput
   | ListCollaborationsCommandOutput
   | ListConfiguredTableAssociationsCommandOutput
   | ListConfiguredTablesCommandOutput
@@ -236,6 +283,7 @@ export type ServiceOutputTypes =
   | StartProtectedQueryCommandOutput
   | TagResourceCommandOutput
   | UntagResourceCommandOutput
+  | UpdateAnalysisTemplateCommandOutput
   | UpdateCollaborationCommandOutput
   | UpdateConfiguredTableAnalysisRuleCommandOutput
   | UpdateConfiguredTableAssociationCommandOutput

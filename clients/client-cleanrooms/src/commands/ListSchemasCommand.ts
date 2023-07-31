@@ -62,7 +62,7 @@ export interface ListSchemasCommandOutput extends ListSchemasOutput, __MetadataB
  * //       collaborationId: "STRING_VALUE", // required
  * //       collaborationArn: "STRING_VALUE", // required
  * //       analysisRuleTypes: [ // AnalysisRuleTypeList // required
- * //         "AGGREGATION" || "LIST",
+ * //         "AGGREGATION" || "LIST" || "CUSTOM",
  * //       ],
  * //       analysisMethod: "STRING_VALUE",
  * //     },

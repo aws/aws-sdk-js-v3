@@ -62,6 +62,10 @@ export interface UpdateProtectedQueryCommandOutput extends UpdateProtectedQueryO
  * //     createTime: new Date("TIMESTAMP"), // required
  * //     sqlParameters: { // ProtectedQuerySQLParameters
  * //       queryString: "STRING_VALUE",
+ * //       analysisTemplateArn: "STRING_VALUE",
+ * //       parameters: { // ParameterMap
+ * //         "<keys>": "STRING_VALUE",
+ * //       },
  * //     },
  * //     status: "STRING_VALUE", // required
  * //     resultConfiguration: { // ProtectedQueryResultConfiguration

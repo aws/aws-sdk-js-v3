@@ -64,7 +64,7 @@ export interface GetSchemaCommandOutput extends GetSchemaOutput, __MetadataBeare
  * //       },
  * //     ],
  * //     analysisRuleTypes: [ // AnalysisRuleTypeList // required
- * //       "AGGREGATION" || "LIST",
+ * //       "AGGREGATION" || "LIST" || "CUSTOM",
  * //     ],
  * //     analysisMethod: "STRING_VALUE",
  * //     creatorAccountId: "STRING_VALUE", // required

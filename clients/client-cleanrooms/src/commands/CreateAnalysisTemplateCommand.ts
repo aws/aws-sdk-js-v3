@@ -14,8 +14,13 @@ import {
 } from "@smithy/types";
 
 import { CleanRoomsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CleanRoomsClient";
-import { CreateConfiguredTableInput, CreateConfiguredTableOutput } from "../models/models_0";
-import { de_CreateConfiguredTableCommand, se_CreateConfiguredTableCommand } from "../protocols/Aws_restJson1";
+import {
+  CreateAnalysisTemplateInput,
+  CreateAnalysisTemplateInputFilterSensitiveLog,
+  CreateAnalysisTemplateOutput,
+  CreateAnalysisTemplateOutputFilterSensitiveLog,
+} from "../models/models_0";
+import { de_CreateAnalysisTemplateCommand, se_CreateAnalysisTemplateCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -24,74 +29,83 @@ export { __MetadataBearer, $Command };
 /**
  * @public
  *
- * The input for {@link CreateConfiguredTableCommand}.
+ * The input for {@link CreateAnalysisTemplateCommand}.
  */
-export interface CreateConfiguredTableCommandInput extends CreateConfiguredTableInput {}
+export interface CreateAnalysisTemplateCommandInput extends CreateAnalysisTemplateInput {}
 /**
  * @public
  *
- * The output of {@link CreateConfiguredTableCommand}.
+ * The output of {@link CreateAnalysisTemplateCommand}.
  */
-export interface CreateConfiguredTableCommandOutput extends CreateConfiguredTableOutput, __MetadataBearer {}
+export interface CreateAnalysisTemplateCommandOutput extends CreateAnalysisTemplateOutput, __MetadataBearer {}
 
 /**
  * @public
- * <p>Creates a new configured table resource.</p>
+ * <p>Creates a new analysis template.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { CleanRoomsClient, CreateConfiguredTableCommand } from "@aws-sdk/client-cleanrooms"; // ES Modules import
- * // const { CleanRoomsClient, CreateConfiguredTableCommand } = require("@aws-sdk/client-cleanrooms"); // CommonJS import
+ * import { CleanRoomsClient, CreateAnalysisTemplateCommand } from "@aws-sdk/client-cleanrooms"; // ES Modules import
+ * // const { CleanRoomsClient, CreateAnalysisTemplateCommand } = require("@aws-sdk/client-cleanrooms"); // CommonJS import
  * const client = new CleanRoomsClient(config);
- * const input = { // CreateConfiguredTableInput
- *   name: "STRING_VALUE", // required
+ * const input = { // CreateAnalysisTemplateInput
  *   description: "STRING_VALUE",
- *   tableReference: { // TableReference Union: only one key present
- *     glue: { // GlueTableReference
- *       tableName: "STRING_VALUE", // required
- *       databaseName: "STRING_VALUE", // required
- *     },
+ *   membershipIdentifier: "STRING_VALUE", // required
+ *   name: "STRING_VALUE", // required
+ *   format: "STRING_VALUE", // required
+ *   source: { // AnalysisSource Union: only one key present
+ *     text: "STRING_VALUE",
  *   },
- *   allowedColumns: [ // AllowedColumnList // required
- *     "STRING_VALUE",
- *   ],
- *   analysisMethod: "STRING_VALUE", // required
  *   tags: { // TagMap
  *     "<keys>": "STRING_VALUE",
  *   },
+ *   analysisParameters: [ // AnalysisParameterList
+ *     { // AnalysisParameter
+ *       name: "STRING_VALUE", // required
+ *       type: "SMALLINT" || "INTEGER" || "BIGINT" || "DECIMAL" || "REAL" || "DOUBLE_PRECISION" || "BOOLEAN" || "CHAR" || "VARCHAR" || "DATE" || "TIMESTAMP" || "TIMESTAMPTZ" || "TIME" || "TIMETZ" || "VARBYTE", // required
+ *       defaultValue: "STRING_VALUE",
+ *     },
+ *   ],
  * };
- * const command = new CreateConfiguredTableCommand(input);
+ * const command = new CreateAnalysisTemplateCommand(input);
  * const response = await client.send(command);
- * // { // CreateConfiguredTableOutput
- * //   configuredTable: { // ConfiguredTable
+ * // { // CreateAnalysisTemplateOutput
+ * //   analysisTemplate: { // AnalysisTemplate
  * //     id: "STRING_VALUE", // required
  * //     arn: "STRING_VALUE", // required
- * //     name: "STRING_VALUE", // required
+ * //     collaborationId: "STRING_VALUE", // required
+ * //     collaborationArn: "STRING_VALUE", // required
+ * //     membershipId: "STRING_VALUE", // required
+ * //     membershipArn: "STRING_VALUE", // required
  * //     description: "STRING_VALUE",
- * //     tableReference: { // TableReference Union: only one key present
- * //       glue: { // GlueTableReference
- * //         tableName: "STRING_VALUE", // required
- * //         databaseName: "STRING_VALUE", // required
- * //       },
- * //     },
+ * //     name: "STRING_VALUE", // required
  * //     createTime: new Date("TIMESTAMP"), // required
  * //     updateTime: new Date("TIMESTAMP"), // required
- * //     analysisRuleTypes: [ // ConfiguredTableAnalysisRuleTypeList // required
- * //       "AGGREGATION" || "LIST" || "CUSTOM",
- * //     ],
- * //     analysisMethod: "STRING_VALUE", // required
- * //     allowedColumns: [ // AllowedColumnList // required
- * //       "STRING_VALUE",
+ * //     schema: { // AnalysisSchema
+ * //       referencedTables: [ // QueryTables
+ * //         "STRING_VALUE",
+ * //       ],
+ * //     },
+ * //     format: "STRING_VALUE", // required
+ * //     source: { // AnalysisSource Union: only one key present
+ * //       text: "STRING_VALUE",
+ * //     },
+ * //     analysisParameters: [ // AnalysisParameterList
+ * //       { // AnalysisParameter
+ * //         name: "STRING_VALUE", // required
+ * //         type: "SMALLINT" || "INTEGER" || "BIGINT" || "DECIMAL" || "REAL" || "DOUBLE_PRECISION" || "BOOLEAN" || "CHAR" || "VARCHAR" || "DATE" || "TIMESTAMP" || "TIMESTAMPTZ" || "TIME" || "TIMETZ" || "VARBYTE", // required
+ * //         defaultValue: "STRING_VALUE",
+ * //       },
  * //     ],
  * //   },
  * // };
  *
  * ```
  *
- * @param CreateConfiguredTableCommandInput - {@link CreateConfiguredTableCommandInput}
- * @returns {@link CreateConfiguredTableCommandOutput}
- * @see {@link CreateConfiguredTableCommandInput} for command's `input` shape.
- * @see {@link CreateConfiguredTableCommandOutput} for command's `response` shape.
+ * @param CreateAnalysisTemplateCommandInput - {@link CreateAnalysisTemplateCommandInput}
+ * @returns {@link CreateAnalysisTemplateCommandOutput}
+ * @see {@link CreateAnalysisTemplateCommandInput} for command's `input` shape.
+ * @see {@link CreateAnalysisTemplateCommandOutput} for command's `response` shape.
  * @see {@link CleanRoomsClientResolvedConfig | config} for CleanRoomsClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
@@ -119,9 +133,9 @@ export interface CreateConfiguredTableCommandOutput extends CreateConfiguredTabl
  * <p>Base exception class for all service exceptions from CleanRooms service.</p>
  *
  */
-export class CreateConfiguredTableCommand extends $Command<
-  CreateConfiguredTableCommandInput,
-  CreateConfiguredTableCommandOutput,
+export class CreateAnalysisTemplateCommand extends $Command<
+  CreateAnalysisTemplateCommandInput,
+  CreateAnalysisTemplateCommandOutput,
   CleanRoomsClientResolvedConfig
 > {
   // Start section: command_properties
@@ -139,7 +153,7 @@ export class CreateConfiguredTableCommand extends $Command<
   /**
    * @public
    */
-  constructor(readonly input: CreateConfiguredTableCommandInput) {
+  constructor(readonly input: CreateAnalysisTemplateCommandInput) {
     // Start section: command_constructor
     super();
     // End section: command_constructor
@@ -152,23 +166,23 @@ export class CreateConfiguredTableCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: CleanRoomsClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<CreateConfiguredTableCommandInput, CreateConfiguredTableCommandOutput> {
+  ): Handler<CreateAnalysisTemplateCommandInput, CreateAnalysisTemplateCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
     this.middlewareStack.use(
-      getEndpointPlugin(configuration, CreateConfiguredTableCommand.getEndpointParameterInstructions())
+      getEndpointPlugin(configuration, CreateAnalysisTemplateCommand.getEndpointParameterInstructions())
     );
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
     const clientName = "CleanRoomsClient";
-    const commandName = "CreateConfiguredTableCommand";
+    const commandName = "CreateAnalysisTemplateCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: (_: any) => _,
-      outputFilterSensitiveLog: (_: any) => _,
+      inputFilterSensitiveLog: CreateAnalysisTemplateInputFilterSensitiveLog,
+      outputFilterSensitiveLog: CreateAnalysisTemplateOutputFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -181,15 +195,15 @@ export class CreateConfiguredTableCommand extends $Command<
   /**
    * @internal
    */
-  private serialize(input: CreateConfiguredTableCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return se_CreateConfiguredTableCommand(input, context);
+  private serialize(input: CreateAnalysisTemplateCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
+    return se_CreateAnalysisTemplateCommand(input, context);
   }
 
   /**
    * @internal
    */
-  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateConfiguredTableCommandOutput> {
-    return de_CreateConfiguredTableCommand(output, context);
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateAnalysisTemplateCommandOutput> {
+    return de_CreateAnalysisTemplateCommand(output, context);
   }
 
   // Start section: command_body_extra

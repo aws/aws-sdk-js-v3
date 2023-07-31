@@ -46,14 +46,14 @@ export interface GetSchemaAnalysisRuleCommandOutput extends GetSchemaAnalysisRul
  * const input = { // GetSchemaAnalysisRuleInput
  *   collaborationIdentifier: "STRING_VALUE", // required
  *   name: "STRING_VALUE", // required
- *   type: "AGGREGATION" || "LIST", // required
+ *   type: "AGGREGATION" || "LIST" || "CUSTOM", // required
  * };
  * const command = new GetSchemaAnalysisRuleCommand(input);
  * const response = await client.send(command);
  * // { // GetSchemaAnalysisRuleOutput
  * //   analysisRule: { // AnalysisRule
  * //     collaborationId: "STRING_VALUE", // required
- * //     type: "AGGREGATION" || "LIST", // required
+ * //     type: "AGGREGATION" || "LIST" || "CUSTOM", // required
  * //     name: "STRING_VALUE", // required
  * //     createTime: new Date("TIMESTAMP"), // required
  * //     updateTime: new Date("TIMESTAMP"), // required
@@ -98,6 +98,14 @@ export interface GetSchemaAnalysisRuleCommandOutput extends GetSchemaAnalysisRul
  * //               minimum: Number("int"), // required
  * //               type: "STRING_VALUE", // required
  * //             },
+ * //           ],
+ * //         },
+ * //         custom: { // AnalysisRuleCustom
+ * //           allowedAnalyses: [ // AllowedAnalysesList // required
+ * //             "STRING_VALUE",
+ * //           ],
+ * //           allowedAnalysisProviders: [ // AllowedAnalysisProviderList
+ * //             "STRING_VALUE",
  * //           ],
  * //         },
  * //       },

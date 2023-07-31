@@ -117,6 +117,19 @@ export interface AggregationConstraint {
  * @public
  * @enum
  */
+export const AnalysisFormat = {
+  SQL: "SQL",
+} as const;
+
+/**
+ * @public
+ */
+export type AnalysisFormat = (typeof AnalysisFormat)[keyof typeof AnalysisFormat];
+
+/**
+ * @public
+ * @enum
+ */
 export const AnalysisMethod = {
   DIRECT_QUERY: "DIRECT_QUERY",
 } as const;
@@ -125,6 +138,57 @@ export const AnalysisMethod = {
  * @public
  */
 export type AnalysisMethod = (typeof AnalysisMethod)[keyof typeof AnalysisMethod];
+
+/**
+ * @public
+ * @enum
+ */
+export const ParameterType = {
+  BIGINT: "BIGINT",
+  BOOLEAN: "BOOLEAN",
+  CHAR: "CHAR",
+  DATE: "DATE",
+  DECIMAL: "DECIMAL",
+  DOUBLE_PRECISION: "DOUBLE_PRECISION",
+  INTEGER: "INTEGER",
+  REAL: "REAL",
+  SMALLINT: "SMALLINT",
+  TIME: "TIME",
+  TIMESTAMP: "TIMESTAMP",
+  TIMESTAMPTZ: "TIMESTAMPTZ",
+  TIMETZ: "TIMETZ",
+  VARBYTE: "VARBYTE",
+  VARCHAR: "VARCHAR",
+} as const;
+
+/**
+ * @public
+ */
+export type ParameterType = (typeof ParameterType)[keyof typeof ParameterType];
+
+/**
+ * @public
+ * <p>Optional. The member who can query can provide this placeholder for a literal data value
+ *          in an analysis template.</p>
+ */
+export interface AnalysisParameter {
+  /**
+   * <p>The name of the parameter. The name must use only alphanumeric, underscore (_), or hyphen (-)
+   *          characters but cannot start or end with a hyphen.</p>
+   */
+  name: string | undefined;
+
+  /**
+   * <p>The type of parameter.</p>
+   */
+  type: ParameterType | string | undefined;
+
+  /**
+   * <p>Optional. The default value that is applied in the analysis template. The member who can
+   *          query can override this value in the query editor.</p>
+   */
+  defaultValue?: string;
+}
 
 /**
  * @public
@@ -180,7 +244,7 @@ export type ScalarFunctions = (typeof ScalarFunctions)[keyof typeof ScalarFuncti
 
 /**
  * @public
- * <p>Enables query structure and specified queries that produce aggregate statistics.</p>
+ * <p>A type of analysis rule that enables query structure and specified queries that produce aggregate statistics.</p>
  */
 export interface AnalysisRuleAggregation {
   /**
@@ -224,6 +288,23 @@ export interface AnalysisRuleAggregation {
 
 /**
  * @public
+ * <p>A type of analysis rule that enables the table owner to approve custom SQL queries on their configured tables.</p>
+ */
+export interface AnalysisRuleCustom {
+  /**
+   * <p>The analysis templates that are allowed by the custom analysis rule.</p>
+   */
+  allowedAnalyses: string[] | undefined;
+
+  /**
+   * <p>The Amazon Web Services accounts that are allowed to query by the custom analysis rule. Required when
+   *             <code>allowedAnalyses</code> is <code>ANY_QUERY</code>.</p>
+   */
+  allowedAnalysisProviders?: string[];
+}
+
+/**
+ * @public
  * <p>A type of analysis rule that enables row-level analysis.</p>
  */
 export interface AnalysisRuleList {
@@ -233,7 +314,7 @@ export interface AnalysisRuleList {
   joinColumns: string[] | undefined;
 
   /**
-   * <p>Which logical operators (if any) are to be used in an INNER JOIN match condition.
+   * <p>The logical operators (if any) that are to be used in an INNER JOIN match condition.
    *          Default is <code>AND</code>.</p>
    */
   allowedJoinOperators?: (JoinOperator | string)[];
@@ -246,10 +327,11 @@ export interface AnalysisRuleList {
 
 /**
  * @public
- * <p>Controls on the query specifications that can be run on configured table..</p>
+ * <p>Controls on the query specifications that can be run on configured table.</p>
  */
 export type AnalysisRulePolicyV1 =
   | AnalysisRulePolicyV1.AggregationMember
+  | AnalysisRulePolicyV1.CustomMember
   | AnalysisRulePolicyV1.ListMember
   | AnalysisRulePolicyV1.$UnknownMember;
 
@@ -263,6 +345,7 @@ export namespace AnalysisRulePolicyV1 {
   export interface ListMember {
     list: AnalysisRuleList;
     aggregation?: never;
+    custom?: never;
     $unknown?: never;
   }
 
@@ -272,31 +355,45 @@ export namespace AnalysisRulePolicyV1 {
   export interface AggregationMember {
     list?: never;
     aggregation: AnalysisRuleAggregation;
+    custom?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>Analysis rule type that enables custom SQL queries on a configured table.</p>
+   */
+  export interface CustomMember {
+    list?: never;
+    aggregation?: never;
+    custom: AnalysisRuleCustom;
     $unknown?: never;
   }
 
   export interface $UnknownMember {
     list?: never;
     aggregation?: never;
+    custom?: never;
     $unknown: [string, any];
   }
 
   export interface Visitor<T> {
     list: (value: AnalysisRuleList) => T;
     aggregation: (value: AnalysisRuleAggregation) => T;
+    custom: (value: AnalysisRuleCustom) => T;
     _: (name: string, value: any) => T;
   }
 
   export const visit = <T>(value: AnalysisRulePolicyV1, visitor: Visitor<T>): T => {
     if (value.list !== undefined) return visitor.list(value.list);
     if (value.aggregation !== undefined) return visitor.aggregation(value.aggregation);
+    if (value.custom !== undefined) return visitor.custom(value.custom);
     return visitor._(value.$unknown[0], value.$unknown[1]);
   };
 }
 
 /**
  * @public
- * <p>Controls on the query specifications that can be run on configured table..</p>
+ * <p>Controls on the query specifications that can be run on configured table.</p>
  */
 export type AnalysisRulePolicy = AnalysisRulePolicy.V1Member | AnalysisRulePolicy.$UnknownMember;
 
@@ -305,7 +402,7 @@ export type AnalysisRulePolicy = AnalysisRulePolicy.V1Member | AnalysisRulePolic
  */
 export namespace AnalysisRulePolicy {
   /**
-   * <p>Controls on the query specifications that can be run on configured table..</p>
+   * <p>Controls on the query specifications that can be run on configured table.</p>
    */
   export interface V1Member {
     v1: AnalysisRulePolicyV1;
@@ -334,6 +431,7 @@ export namespace AnalysisRulePolicy {
  */
 export const AnalysisRuleType = {
   AGGREGATION: "AGGREGATION",
+  CUSTOM: "CUSTOM",
   LIST: "LIST",
 } as const;
 
@@ -353,7 +451,7 @@ export interface AnalysisRule {
   collaborationId: string | undefined;
 
   /**
-   * <p>The type of analysis rule. Valid values are `AGGREGATION` and `LIST`.</p>
+   * <p>The type of analysis rule.</p>
    */
   type: AnalysisRuleType | string | undefined;
 
@@ -376,6 +474,703 @@ export interface AnalysisRule {
    * <p>A policy that describes the associated data usage limitations.</p>
    */
   policy: AnalysisRulePolicy | undefined;
+}
+
+/**
+ * @public
+ * <p>A relation within an analysis.</p>
+ */
+export interface AnalysisSchema {
+  /**
+   * <p>The tables referenced in the analysis schema.</p>
+   */
+  referencedTables?: string[];
+}
+
+/**
+ * @public
+ * <p>The structure that defines the body of the analysis template.</p>
+ */
+export type AnalysisSource = AnalysisSource.TextMember | AnalysisSource.$UnknownMember;
+
+/**
+ * @public
+ */
+export namespace AnalysisSource {
+  /**
+   * <p>The query text.</p>
+   */
+  export interface TextMember {
+    text: string;
+    $unknown?: never;
+  }
+
+  export interface $UnknownMember {
+    text?: never;
+    $unknown: [string, any];
+  }
+
+  export interface Visitor<T> {
+    text: (value: string) => T;
+    _: (name: string, value: any) => T;
+  }
+
+  export const visit = <T>(value: AnalysisSource, visitor: Visitor<T>): T => {
+    if (value.text !== undefined) return visitor.text(value.text);
+    return visitor._(value.$unknown[0], value.$unknown[1]);
+  };
+}
+
+/**
+ * @public
+ * <p>The analysis template.</p>
+ */
+export interface AnalysisTemplate {
+  /**
+   * <p>The identifier for the analysis template.</p>
+   */
+  id: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the analysis template.</p>
+   */
+  arn: string | undefined;
+
+  /**
+   * <p>The unique ID for the associated collaboration of the analysis template.</p>
+   */
+  collaborationId: string | undefined;
+
+  /**
+   * <p>The unique ARN for the analysis template’s associated collaboration.</p>
+   */
+  collaborationArn: string | undefined;
+
+  /**
+   * <p>The identifier of a member who created the analysis template.</p>
+   */
+  membershipId: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the member who created the analysis template.</p>
+   */
+  membershipArn: string | undefined;
+
+  /**
+   * <p>The description of the analysis template.</p>
+   */
+  description?: string;
+
+  /**
+   * <p>The name of the analysis template.</p>
+   */
+  name: string | undefined;
+
+  /**
+   * <p>The time that the analysis template was created.</p>
+   */
+  createTime: Date | undefined;
+
+  /**
+   * <p>The time that the analysis template was last updated.</p>
+   */
+  updateTime: Date | undefined;
+
+  /**
+   * <p>The entire schema object.</p>
+   */
+  schema: AnalysisSchema | undefined;
+
+  /**
+   * <p>The format of the analysis template.</p>
+   */
+  format: AnalysisFormat | string | undefined;
+
+  /**
+   * <p>The source of the analysis template.</p>
+   */
+  source: AnalysisSource | undefined;
+
+  /**
+   * <p>The parameters of the analysis template.</p>
+   */
+  analysisParameters?: AnalysisParameter[];
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const ConflictExceptionReason = {
+  ALREADY_EXISTS: "ALREADY_EXISTS",
+  INVALID_STATE: "INVALID_STATE",
+  SUBRESOURCES_EXIST: "SUBRESOURCES_EXIST",
+} as const;
+
+/**
+ * @public
+ */
+export type ConflictExceptionReason = (typeof ConflictExceptionReason)[keyof typeof ConflictExceptionReason];
+
+/**
+ * @public
+ * @enum
+ */
+export const ResourceType = {
+  COLLABORATION: "COLLABORATION",
+  CONFIGURED_TABLE: "CONFIGURED_TABLE",
+  CONFIGURED_TABLE_ASSOCIATION: "CONFIGURED_TABLE_ASSOCIATION",
+  MEMBERSHIP: "MEMBERSHIP",
+} as const;
+
+/**
+ * @public
+ */
+export type ResourceType = (typeof ResourceType)[keyof typeof ResourceType];
+
+/**
+ * @public
+ * <p>Updating or deleting a resource can cause an inconsistent state.</p>
+ */
+export class ConflictException extends __BaseException {
+  readonly name: "ConflictException" = "ConflictException";
+  readonly $fault: "client" = "client";
+  /**
+   * <p>The ID of the conflicting resource.</p>
+   */
+  resourceId?: string;
+
+  /**
+   * <p>The type of the conflicting resource.</p>
+   */
+  resourceType?: ResourceType | string;
+
+  /**
+   * <p>A reason code for the exception.</p>
+   */
+  reason?: ConflictExceptionReason | string;
+
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<ConflictException, __BaseException>) {
+    super({
+      name: "ConflictException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ConflictException.prototype);
+    this.resourceId = opts.resourceId;
+    this.resourceType = opts.resourceType;
+    this.reason = opts.reason;
+  }
+}
+
+/**
+ * @public
+ */
+export interface CreateAnalysisTemplateInput {
+  /**
+   * <p>The description of the analysis template.</p>
+   */
+  description?: string;
+
+  /**
+   * <p>The identifier for a membership resource.</p>
+   */
+  membershipIdentifier: string | undefined;
+
+  /**
+   * <p>The name of the analysis template.</p>
+   */
+  name: string | undefined;
+
+  /**
+   * <p>The format of the analysis template.</p>
+   */
+  format: AnalysisFormat | string | undefined;
+
+  /**
+   * <p>The information in the analysis template. Currently supports <code>text</code>, the
+   *          query text for the analysis template.</p>
+   */
+  source: AnalysisSource | undefined;
+
+  /**
+   * <p>An optional label that you can assign to a resource when you create it. Each tag consists of a key and an optional value, both of which you define. When you use tagging, you can also use tag-based access control in IAM policies to control access to this resource.</p>
+   */
+  tags?: Record<string, string>;
+
+  /**
+   * <p>The parameters of the analysis template.</p>
+   */
+  analysisParameters?: AnalysisParameter[];
+}
+
+/**
+ * @public
+ */
+export interface CreateAnalysisTemplateOutput {
+  /**
+   * <p>The analysis template.</p>
+   */
+  analysisTemplate: AnalysisTemplate | undefined;
+}
+
+/**
+ * @public
+ * <p>Unexpected error during processing of request.</p>
+ */
+export class InternalServerException extends __BaseException {
+  readonly name: "InternalServerException" = "InternalServerException";
+  readonly $fault: "server" = "server";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<InternalServerException, __BaseException>) {
+    super({
+      name: "InternalServerException",
+      $fault: "server",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, InternalServerException.prototype);
+  }
+}
+
+/**
+ * @public
+ * <p>Request references a resource which does not exist.</p>
+ */
+export class ResourceNotFoundException extends __BaseException {
+  readonly name: "ResourceNotFoundException" = "ResourceNotFoundException";
+  readonly $fault: "client" = "client";
+  /**
+   * <p>The Id of the missing resource.</p>
+   */
+  resourceId: string | undefined;
+
+  /**
+   * <p>The type of the missing resource.</p>
+   */
+  resourceType: ResourceType | string | undefined;
+
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<ResourceNotFoundException, __BaseException>) {
+    super({
+      name: "ResourceNotFoundException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ResourceNotFoundException.prototype);
+    this.resourceId = opts.resourceId;
+    this.resourceType = opts.resourceType;
+  }
+}
+
+/**
+ * @public
+ * <p>Request denied because service quota has been exceeded.</p>
+ */
+export class ServiceQuotaExceededException extends __BaseException {
+  readonly name: "ServiceQuotaExceededException" = "ServiceQuotaExceededException";
+  readonly $fault: "client" = "client";
+  /**
+   * <p>The name of the quota.</p>
+   */
+  quotaName: string | undefined;
+
+  /**
+   * <p>The value of the quota.</p>
+   */
+  quotaValue: number | undefined;
+
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<ServiceQuotaExceededException, __BaseException>) {
+    super({
+      name: "ServiceQuotaExceededException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ServiceQuotaExceededException.prototype);
+    this.quotaName = opts.quotaName;
+    this.quotaValue = opts.quotaValue;
+  }
+}
+
+/**
+ * @public
+ * <p>Request was denied due to request throttling.</p>
+ */
+export class ThrottlingException extends __BaseException {
+  readonly name: "ThrottlingException" = "ThrottlingException";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<ThrottlingException, __BaseException>) {
+    super({
+      name: "ThrottlingException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ThrottlingException.prototype);
+  }
+}
+
+/**
+ * @public
+ * <p>Describes validation errors for specific input parameters.</p>
+ */
+export interface ValidationExceptionField {
+  /**
+   * <p>The name of the input parameter.</p>
+   */
+  name: string | undefined;
+
+  /**
+   * <p>A message for the input validation error.</p>
+   */
+  message: string | undefined;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const ValidationExceptionReason = {
+  FIELD_VALIDATION_FAILED: "FIELD_VALIDATION_FAILED",
+  IAM_SYNCHRONIZATION_DELAY: "IAM_SYNCHRONIZATION_DELAY",
+  INVALID_CONFIGURATION: "INVALID_CONFIGURATION",
+  INVALID_QUERY: "INVALID_QUERY",
+} as const;
+
+/**
+ * @public
+ */
+export type ValidationExceptionReason = (typeof ValidationExceptionReason)[keyof typeof ValidationExceptionReason];
+
+/**
+ * @public
+ * <p>The input fails to satisfy the specified constraints.</p>
+ */
+export class ValidationException extends __BaseException {
+  readonly name: "ValidationException" = "ValidationException";
+  readonly $fault: "client" = "client";
+  /**
+   * <p>A reason code for the exception.</p>
+   */
+  reason?: ValidationExceptionReason | string;
+
+  /**
+   * <p>Validation errors for specific input parameters.</p>
+   */
+  fieldList?: ValidationExceptionField[];
+
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<ValidationException, __BaseException>) {
+    super({
+      name: "ValidationException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ValidationException.prototype);
+    this.reason = opts.reason;
+    this.fieldList = opts.fieldList;
+  }
+}
+
+/**
+ * @public
+ */
+export interface DeleteAnalysisTemplateInput {
+  /**
+   * <p>The identifier for a membership resource.</p>
+   */
+  membershipIdentifier: string | undefined;
+
+  /**
+   * <p>The identifier for the analysis template resource.</p>
+   */
+  analysisTemplateIdentifier: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DeleteAnalysisTemplateOutput {}
+
+/**
+ * @public
+ */
+export interface GetAnalysisTemplateInput {
+  /**
+   * <p>The identifier for a membership resource.</p>
+   */
+  membershipIdentifier: string | undefined;
+
+  /**
+   * <p>The identifier for the analysis template resource.</p>
+   */
+  analysisTemplateIdentifier: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetAnalysisTemplateOutput {
+  /**
+   * <p>The analysis template.</p>
+   */
+  analysisTemplate: AnalysisTemplate | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListAnalysisTemplatesInput {
+  /**
+   * <p>The identifier for a membership resource.</p>
+   */
+  membershipIdentifier: string | undefined;
+
+  /**
+   * <p>The token value retrieved from a previous call to access the next page of results.</p>
+   */
+  nextToken?: string;
+
+  /**
+   * <p>The maximum size of the results that is returned per call.</p>
+   */
+  maxResults?: number;
+}
+
+/**
+ * @public
+ * <p>The metadata of the analysis template.</p>
+ */
+export interface AnalysisTemplateSummary {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the analysis template.</p>
+   */
+  arn: string | undefined;
+
+  /**
+   * <p>The time that the analysis template summary was created.</p>
+   */
+  createTime: Date | undefined;
+
+  /**
+   * <p>The identifier of the analysis template.</p>
+   */
+  id: string | undefined;
+
+  /**
+   * <p>The name of the analysis template. </p>
+   */
+  name: string | undefined;
+
+  /**
+   * <p>The time that the analysis template summary was last updated.</p>
+   */
+  updateTime: Date | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the member who created the analysis template.</p>
+   */
+  membershipArn: string | undefined;
+
+  /**
+   * <p>The identifier for a membership resource.</p>
+   */
+  membershipId: string | undefined;
+
+  /**
+   * <p>The unique ARN for the analysis template summary’s associated collaboration.</p>
+   */
+  collaborationArn: string | undefined;
+
+  /**
+   * <p>A unique identifier for the collaboration that the analysis template summary belongs to. Currently accepts collaboration ID.</p>
+   */
+  collaborationId: string | undefined;
+
+  /**
+   * <p>The description of the analysis template.</p>
+   */
+  description?: string;
+}
+
+/**
+ * @public
+ */
+export interface ListAnalysisTemplatesOutput {
+  /**
+   * <p>The token value retrieved from a previous call to access the next page of results.</p>
+   */
+  nextToken?: string;
+
+  /**
+   * <p>Lists analysis template metadata.</p>
+   */
+  analysisTemplateSummaries: AnalysisTemplateSummary[] | undefined;
+}
+
+/**
+ * @public
+ */
+export interface UpdateAnalysisTemplateInput {
+  /**
+   * <p>The identifier for a membership resource.</p>
+   */
+  membershipIdentifier: string | undefined;
+
+  /**
+   * <p>The identifier for the analysis template resource.</p>
+   */
+  analysisTemplateIdentifier: string | undefined;
+
+  /**
+   * <p>A new description for the analysis template.</p>
+   */
+  description?: string;
+}
+
+/**
+ * @public
+ */
+export interface UpdateAnalysisTemplateOutput {
+  /**
+   * <p>The analysis template.</p>
+   */
+  analysisTemplate: AnalysisTemplate | undefined;
+}
+
+/**
+ * @public
+ */
+export interface BatchGetCollaborationAnalysisTemplateInput {
+  /**
+   * <p>A unique identifier for the collaboration that the analysis templates belong to. Currently accepts collaboration ID.</p>
+   */
+  collaborationIdentifier: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) associated with the analysis template within a collaboration.</p>
+   */
+  analysisTemplateArns: string[] | undefined;
+}
+
+/**
+ * @public
+ * <p>The analysis template within a collaboration.</p>
+ */
+export interface CollaborationAnalysisTemplate {
+  /**
+   * <p>The identifier of the analysis template.</p>
+   */
+  id: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the analysis template.</p>
+   */
+  arn: string | undefined;
+
+  /**
+   * <p>A unique identifier for the collaboration that the analysis templates belong to. Currently accepts collaboration ID.</p>
+   */
+  collaborationId: string | undefined;
+
+  /**
+   * <p>The unique ARN for the analysis template’s associated collaboration.</p>
+   */
+  collaborationArn: string | undefined;
+
+  /**
+   * <p>The description of the analysis template.</p>
+   */
+  description?: string;
+
+  /**
+   * <p>The identifier used to reference members of the collaboration. Currently only supports Amazon Web Services account ID.</p>
+   */
+  creatorAccountId: string | undefined;
+
+  /**
+   * <p>The name of the analysis template.</p>
+   */
+  name: string | undefined;
+
+  /**
+   * <p>The time that the analysis template within a collaboration was created.</p>
+   */
+  createTime: Date | undefined;
+
+  /**
+   * <p>The time that the analysis template in the collaboration was last updated.</p>
+   */
+  updateTime: Date | undefined;
+
+  /**
+   * <p>The entire schema object.</p>
+   */
+  schema: AnalysisSchema | undefined;
+
+  /**
+   * <p>The format of the analysis template in the collaboration.</p>
+   */
+  format: AnalysisFormat | string | undefined;
+
+  /**
+   * <p>The source of the analysis template within a collaboration.</p>
+   */
+  source: AnalysisSource | undefined;
+
+  /**
+   * <p>The analysis parameters that have been specified in the analysis template.</p>
+   */
+  analysisParameters?: AnalysisParameter[];
+}
+
+/**
+ * @public
+ * <p>Details of errors thrown by the call to retrieve multiple analysis templates within a collaboration by their identifiers.</p>
+ */
+export interface BatchGetCollaborationAnalysisTemplateError {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the analysis template.</p>
+   */
+  arn: string | undefined;
+
+  /**
+   * <p>An error code for the error.</p>
+   */
+  code: string | undefined;
+
+  /**
+   * <p>A description of why the call failed.</p>
+   */
+  message: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface BatchGetCollaborationAnalysisTemplateOutput {
+  /**
+   * <p>The retrieved list of analysis templates within a collaboration.</p>
+   */
+  collaborationAnalysisTemplates: CollaborationAnalysisTemplate[] | undefined;
+
+  /**
+   * <p>Error reasons for collaboration analysis templates that could not be retrieved. One error is returned for every collaboration analysis template that could not be retrieved.</p>
+   */
+  errors: BatchGetCollaborationAnalysisTemplateError[] | undefined;
 }
 
 /**
@@ -460,8 +1255,7 @@ export interface Schema {
   partitionKeys: Column[] | undefined;
 
   /**
-   * <p>The analysis rule types associated with the schema. Valued values are LIST and
-   *          AGGREGATION. Currently, only one entry is present.</p>
+   * <p>The analysis rule types associated with the schema. Currently, only one entry is present.</p>
    */
   analysisRuleTypes: (AnalysisRuleType | string)[] | undefined;
 
@@ -526,157 +1320,6 @@ export interface BatchGetSchemaOutput {
    *          schema that could not be retrieved.</p>
    */
   errors: BatchGetSchemaError[] | undefined;
-}
-
-/**
- * @public
- * <p>Unexpected error during processing of request.</p>
- */
-export class InternalServerException extends __BaseException {
-  readonly name: "InternalServerException" = "InternalServerException";
-  readonly $fault: "server" = "server";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<InternalServerException, __BaseException>) {
-    super({
-      name: "InternalServerException",
-      $fault: "server",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, InternalServerException.prototype);
-  }
-}
-
-/**
- * @public
- * @enum
- */
-export const ResourceType = {
-  COLLABORATION: "COLLABORATION",
-  CONFIGURED_TABLE: "CONFIGURED_TABLE",
-  CONFIGURED_TABLE_ASSOCIATION: "CONFIGURED_TABLE_ASSOCIATION",
-  MEMBERSHIP: "MEMBERSHIP",
-} as const;
-
-/**
- * @public
- */
-export type ResourceType = (typeof ResourceType)[keyof typeof ResourceType];
-
-/**
- * @public
- * <p>Request references a resource which does not exist.</p>
- */
-export class ResourceNotFoundException extends __BaseException {
-  readonly name: "ResourceNotFoundException" = "ResourceNotFoundException";
-  readonly $fault: "client" = "client";
-  /**
-   * <p>The Id of the missing resource.</p>
-   */
-  resourceId: string | undefined;
-
-  /**
-   * <p>The type of the missing resource.</p>
-   */
-  resourceType: ResourceType | string | undefined;
-
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ResourceNotFoundException, __BaseException>) {
-    super({
-      name: "ResourceNotFoundException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ResourceNotFoundException.prototype);
-    this.resourceId = opts.resourceId;
-    this.resourceType = opts.resourceType;
-  }
-}
-
-/**
- * @public
- * <p>Request was denied due to request throttling.</p>
- */
-export class ThrottlingException extends __BaseException {
-  readonly name: "ThrottlingException" = "ThrottlingException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ThrottlingException, __BaseException>) {
-    super({
-      name: "ThrottlingException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ThrottlingException.prototype);
-  }
-}
-
-/**
- * @public
- * <p>Describes validation errors for specific input parameters.</p>
- */
-export interface ValidationExceptionField {
-  /**
-   * <p>The name of the input parameter.</p>
-   */
-  name: string | undefined;
-
-  /**
-   * <p>A message for the input validation error.</p>
-   */
-  message: string | undefined;
-}
-
-/**
- * @public
- * @enum
- */
-export const ValidationExceptionReason = {
-  FIELD_VALIDATION_FAILED: "FIELD_VALIDATION_FAILED",
-  INVALID_CONFIGURATION: "INVALID_CONFIGURATION",
-  INVALID_QUERY: "INVALID_QUERY",
-} as const;
-
-/**
- * @public
- */
-export type ValidationExceptionReason = (typeof ValidationExceptionReason)[keyof typeof ValidationExceptionReason];
-
-/**
- * @public
- * <p>The input fails to satisfy the specified constraints.</p>
- */
-export class ValidationException extends __BaseException {
-  readonly name: "ValidationException" = "ValidationException";
-  readonly $fault: "client" = "client";
-  /**
-   * <p>A reason code for the exception.</p>
-   */
-  reason?: ValidationExceptionReason | string;
-
-  /**
-   * <p>Validation errors for specific input parameters.</p>
-   */
-  fieldList?: ValidationExceptionField[];
-
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ValidationException, __BaseException>) {
-    super({
-      name: "ValidationException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ValidationException.prototype);
-    this.reason = opts.reason;
-    this.fieldList = opts.fieldList;
-  }
 }
 
 /**
@@ -904,38 +1547,6 @@ export interface CreateCollaborationOutput {
 
 /**
  * @public
- * <p>Request denied because service quota has been exceeded.</p>
- */
-export class ServiceQuotaExceededException extends __BaseException {
-  readonly name: "ServiceQuotaExceededException" = "ServiceQuotaExceededException";
-  readonly $fault: "client" = "client";
-  /**
-   * <p>The name of the quota.</p>
-   */
-  quotaName: string | undefined;
-
-  /**
-   * <p>The value of the quota.</p>
-   */
-  quotaValue: number | undefined;
-
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ServiceQuotaExceededException, __BaseException>) {
-    super({
-      name: "ServiceQuotaExceededException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ServiceQuotaExceededException.prototype);
-    this.quotaName = opts.quotaName;
-    this.quotaValue = opts.quotaValue;
-  }
-}
-
-/**
- * @public
  */
 export interface DeleteCollaborationInput {
   /**
@@ -948,59 +1559,6 @@ export interface DeleteCollaborationInput {
  * @public
  */
 export interface DeleteCollaborationOutput {}
-
-/**
- * @public
- * @enum
- */
-export const ConflictExceptionReason = {
-  ALREADY_EXISTS: "ALREADY_EXISTS",
-  INVALID_STATE: "INVALID_STATE",
-  SUBRESOURCES_EXIST: "SUBRESOURCES_EXIST",
-} as const;
-
-/**
- * @public
- */
-export type ConflictExceptionReason = (typeof ConflictExceptionReason)[keyof typeof ConflictExceptionReason];
-
-/**
- * @public
- * <p>Updating or deleting a resource can cause an inconsistent state.</p>
- */
-export class ConflictException extends __BaseException {
-  readonly name: "ConflictException" = "ConflictException";
-  readonly $fault: "client" = "client";
-  /**
-   * <p>The ID of the conflicting resource.</p>
-   */
-  resourceId?: string;
-
-  /**
-   * <p>The type of the conflicting resource.</p>
-   */
-  resourceType?: ResourceType | string;
-
-  /**
-   * <p>A reason code for the exception.</p>
-   */
-  reason?: ConflictExceptionReason | string;
-
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ConflictException, __BaseException>) {
-    super({
-      name: "ConflictException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ConflictException.prototype);
-    this.resourceId = opts.resourceId;
-    this.resourceType = opts.resourceType;
-    this.reason = opts.reason;
-  }
-}
 
 /**
  * @public
@@ -1040,6 +1598,31 @@ export interface GetCollaborationOutput {
    * <p>The entire collaboration for this identifier.</p>
    */
   collaboration: Collaboration | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetCollaborationAnalysisTemplateInput {
+  /**
+   * <p>A unique identifier for the collaboration that the analysis templates belong to. Currently accepts collaboration ID.</p>
+   */
+  collaborationIdentifier: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) associated with the analysis template within a collaboration.</p>
+   */
+  analysisTemplateArn: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetCollaborationAnalysisTemplateOutput {
+  /**
+   * <p>The analysis template within a collaboration.</p>
+   */
+  collaborationAnalysisTemplate: CollaborationAnalysisTemplate | undefined;
 }
 
 /**
@@ -1097,6 +1680,92 @@ export interface GetSchemaAnalysisRuleOutput {
    * <p>A specification about how data from the configured table can be used.</p>
    */
   analysisRule: AnalysisRule | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListCollaborationAnalysisTemplatesInput {
+  /**
+   * <p>A unique identifier for the collaboration that the analysis templates belong to. Currently accepts collaboration ID.</p>
+   */
+  collaborationIdentifier: string | undefined;
+
+  /**
+   * <p>The token value retrieved from a previous call to access the next page of results.</p>
+   */
+  nextToken?: string;
+
+  /**
+   * <p>The maximum size of the results that is returned per call.</p>
+   */
+  maxResults?: number;
+}
+
+/**
+ * @public
+ * <p>The metadata of the analysis template within a collaboration.</p>
+ */
+export interface CollaborationAnalysisTemplateSummary {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the analysis template.</p>
+   */
+  arn: string | undefined;
+
+  /**
+   * <p>The time that the summary of the analysis template in a collaboration was created.</p>
+   */
+  createTime: Date | undefined;
+
+  /**
+   * <p>The identifier of the analysis template.</p>
+   */
+  id: string | undefined;
+
+  /**
+   * <p>The name of the analysis template.</p>
+   */
+  name: string | undefined;
+
+  /**
+   * <p>The time that the summary of the analysis template in the collaboration was last updated.</p>
+   */
+  updateTime: Date | undefined;
+
+  /**
+   * <p>The unique ARN for the analysis template’s associated collaboration.</p>
+   */
+  collaborationArn: string | undefined;
+
+  /**
+   * <p>A unique identifier for the collaboration that the analysis templates belong to. Currently accepts collaboration ID.</p>
+   */
+  collaborationId: string | undefined;
+
+  /**
+   * <p>The identifier used to reference members of the collaboration. Currently only supports Amazon Web Services account ID.</p>
+   */
+  creatorAccountId: string | undefined;
+
+  /**
+   * <p>The description of the analysis template.</p>
+   */
+  description?: string;
+}
+
+/**
+ * @public
+ */
+export interface ListCollaborationAnalysisTemplatesOutput {
+  /**
+   * <p>The token value retrieved from a previous call to access the next page of results.</p>
+   */
+  nextToken?: string;
+
+  /**
+   * <p>The metadata of the analysis template within a collaboration.</p>
+   */
+  collaborationAnalysisTemplateSummaries: CollaborationAnalysisTemplateSummary[] | undefined;
 }
 
 /**
@@ -1783,6 +2452,7 @@ export interface CreateConfiguredTableInput {
  */
 export const ConfiguredTableAnalysisRuleType = {
   AGGREGATION: "AGGREGATION",
+  CUSTOM: "CUSTOM",
   LIST: "LIST",
 } as const;
 
@@ -1833,7 +2503,7 @@ export interface ConfiguredTable {
   updateTime: Date | undefined;
 
   /**
-   * <p>The types of analysis rules associated with this configured table. Valid values are `AGGREGATION` and `LIST`. Currently, only one analysis rule may be associated with a configured table.</p>
+   * <p>The types of analysis rules associated with this configured table. Currently, only one analysis rule may be associated with a configured table.</p>
    */
   analysisRuleTypes: (ConfiguredTableAnalysisRuleType | string)[] | undefined;
 
@@ -1865,6 +2535,7 @@ export interface CreateConfiguredTableOutput {
  */
 export type ConfiguredTableAnalysisRulePolicyV1 =
   | ConfiguredTableAnalysisRulePolicyV1.AggregationMember
+  | ConfiguredTableAnalysisRulePolicyV1.CustomMember
   | ConfiguredTableAnalysisRulePolicyV1.ListMember
   | ConfiguredTableAnalysisRulePolicyV1.$UnknownMember;
 
@@ -1878,6 +2549,7 @@ export namespace ConfiguredTableAnalysisRulePolicyV1 {
   export interface ListMember {
     list: AnalysisRuleList;
     aggregation?: never;
+    custom?: never;
     $unknown?: never;
   }
 
@@ -1887,24 +2559,38 @@ export namespace ConfiguredTableAnalysisRulePolicyV1 {
   export interface AggregationMember {
     list?: never;
     aggregation: AnalysisRuleAggregation;
+    custom?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>A type of analysis rule that enables the table owner to approve custom SQL queries on their configured tables.</p>
+   */
+  export interface CustomMember {
+    list?: never;
+    aggregation?: never;
+    custom: AnalysisRuleCustom;
     $unknown?: never;
   }
 
   export interface $UnknownMember {
     list?: never;
     aggregation?: never;
+    custom?: never;
     $unknown: [string, any];
   }
 
   export interface Visitor<T> {
     list: (value: AnalysisRuleList) => T;
     aggregation: (value: AnalysisRuleAggregation) => T;
+    custom: (value: AnalysisRuleCustom) => T;
     _: (name: string, value: any) => T;
   }
 
   export const visit = <T>(value: ConfiguredTableAnalysisRulePolicyV1, visitor: Visitor<T>): T => {
     if (value.list !== undefined) return visitor.list(value.list);
     if (value.aggregation !== undefined) return visitor.aggregation(value.aggregation);
+    if (value.custom !== undefined) return visitor.custom(value.custom);
     return visitor._(value.$unknown[0], value.$unknown[1]);
   };
 }
@@ -1955,7 +2641,7 @@ export interface CreateConfiguredTableAnalysisRuleInput {
   configuredTableIdentifier: string | undefined;
 
   /**
-   * <p>The type of analysis rule. Valid values are AGGREGATION and LIST.</p>
+   * <p>The type of analysis rule.</p>
    */
   analysisRuleType: ConfiguredTableAnalysisRuleType | string | undefined;
 
@@ -1986,7 +2672,7 @@ export interface ConfiguredTableAnalysisRule {
   policy: ConfiguredTableAnalysisRulePolicy | undefined;
 
   /**
-   * <p>The type of configured table analysis rule. Valid values are `AGGREGATION` and `LIST`.</p>
+   * <p>The type of configured table analysis rule.</p>
    */
   type: ConfiguredTableAnalysisRuleType | string | undefined;
 
@@ -2589,6 +3275,16 @@ export interface ProtectedQuerySQLParameters {
    * <p>The query string to be submitted.</p>
    */
   queryString?: string;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) associated with the analysis template within a collaboration.</p>
+   */
+  analysisTemplateArn?: string;
+
+  /**
+   * <p>The protected query SQL parameters.</p>
+   */
+  parameters?: Record<string, string>;
 }
 
 /**
@@ -3012,6 +3708,98 @@ export interface UntagResourceInput {
  * @public
  */
 export interface UntagResourceOutput {}
+
+/**
+ * @internal
+ */
+export const AnalysisParameterFilterSensitiveLog = (obj: AnalysisParameter): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AnalysisSourceFilterSensitiveLog = (obj: AnalysisSource): any => {
+  if (obj.text !== undefined) return { text: obj.text };
+  if (obj.$unknown !== undefined) return { [obj.$unknown[0]]: "UNKNOWN" };
+};
+
+/**
+ * @internal
+ */
+export const AnalysisTemplateFilterSensitiveLog = (obj: AnalysisTemplate): any => ({
+  ...obj,
+  ...(obj.source && { source: SENSITIVE_STRING }),
+  ...(obj.analysisParameters && { analysisParameters: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const CreateAnalysisTemplateInputFilterSensitiveLog = (obj: CreateAnalysisTemplateInput): any => ({
+  ...obj,
+  ...(obj.source && { source: SENSITIVE_STRING }),
+  ...(obj.analysisParameters && { analysisParameters: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const CreateAnalysisTemplateOutputFilterSensitiveLog = (obj: CreateAnalysisTemplateOutput): any => ({
+  ...obj,
+  ...(obj.analysisTemplate && { analysisTemplate: AnalysisTemplateFilterSensitiveLog(obj.analysisTemplate) }),
+});
+
+/**
+ * @internal
+ */
+export const GetAnalysisTemplateOutputFilterSensitiveLog = (obj: GetAnalysisTemplateOutput): any => ({
+  ...obj,
+  ...(obj.analysisTemplate && { analysisTemplate: AnalysisTemplateFilterSensitiveLog(obj.analysisTemplate) }),
+});
+
+/**
+ * @internal
+ */
+export const UpdateAnalysisTemplateOutputFilterSensitiveLog = (obj: UpdateAnalysisTemplateOutput): any => ({
+  ...obj,
+  ...(obj.analysisTemplate && { analysisTemplate: AnalysisTemplateFilterSensitiveLog(obj.analysisTemplate) }),
+});
+
+/**
+ * @internal
+ */
+export const CollaborationAnalysisTemplateFilterSensitiveLog = (obj: CollaborationAnalysisTemplate): any => ({
+  ...obj,
+  ...(obj.source && { source: SENSITIVE_STRING }),
+  ...(obj.analysisParameters && { analysisParameters: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const BatchGetCollaborationAnalysisTemplateOutputFilterSensitiveLog = (
+  obj: BatchGetCollaborationAnalysisTemplateOutput
+): any => ({
+  ...obj,
+  ...(obj.collaborationAnalysisTemplates && {
+    collaborationAnalysisTemplates: obj.collaborationAnalysisTemplates.map((item) =>
+      CollaborationAnalysisTemplateFilterSensitiveLog(item)
+    ),
+  }),
+});
+
+/**
+ * @internal
+ */
+export const GetCollaborationAnalysisTemplateOutputFilterSensitiveLog = (
+  obj: GetCollaborationAnalysisTemplateOutput
+): any => ({
+  ...obj,
+  ...(obj.collaborationAnalysisTemplate && {
+    collaborationAnalysisTemplate: CollaborationAnalysisTemplateFilterSensitiveLog(obj.collaborationAnalysisTemplate),
+  }),
+});
 
 /**
  * @internal

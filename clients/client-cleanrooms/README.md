@@ -29,16 +29,16 @@ using your favorite package manager:
 
 The AWS SDK is modulized by clients and commands.
 To send a request, you only need to import the `CleanRoomsClient` and
-the commands you need, for example `BatchGetSchemaCommand`:
+the commands you need, for example `BatchGetCollaborationAnalysisTemplateCommand`:
 
 ```js
 // ES5 example
-const { CleanRoomsClient, BatchGetSchemaCommand } = require("@aws-sdk/client-cleanrooms");
+const { CleanRoomsClient, BatchGetCollaborationAnalysisTemplateCommand } = require("@aws-sdk/client-cleanrooms");
 ```
 
 ```ts
 // ES6+ example
-import { CleanRoomsClient, BatchGetSchemaCommand } from "@aws-sdk/client-cleanrooms";
+import { CleanRoomsClient, BatchGetCollaborationAnalysisTemplateCommand } from "@aws-sdk/client-cleanrooms";
 ```
 
 ### Usage
@@ -57,7 +57,7 @@ const client = new CleanRoomsClient({ region: "REGION" });
 const params = {
   /** input parameters */
 };
-const command = new BatchGetSchemaCommand(params);
+const command = new BatchGetCollaborationAnalysisTemplateCommand(params);
 ```
 
 #### Async/await
@@ -136,7 +136,7 @@ const client = new AWS.CleanRooms({ region: "REGION" });
 
 // async/await.
 try {
-  const data = await client.batchGetSchema(params);
+  const data = await client.batchGetCollaborationAnalysisTemplate(params);
   // process data.
 } catch (error) {
   // error handling.
@@ -144,7 +144,7 @@ try {
 
 // Promises.
 client
-  .batchGetSchema(params)
+  .batchGetCollaborationAnalysisTemplate(params)
   .then((data) => {
     // process data.
   })
@@ -153,7 +153,7 @@ client
   });
 
 // callbacks.
-client.batchGetSchema(params, (err, data) => {
+client.batchGetCollaborationAnalysisTemplate(params, (err, data) => {
   // process err and data.
 });
 ```
@@ -211,10 +211,26 @@ see LICENSE for more information.
 
 <details>
 <summary>
+BatchGetCollaborationAnalysisTemplate
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-cleanrooms/classes/batchgetcollaborationanalysistemplatecommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-cleanrooms/interfaces/batchgetcollaborationanalysistemplatecommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-cleanrooms/interfaces/batchgetcollaborationanalysistemplatecommandoutput.html)
+
+</details>
+<details>
+<summary>
 BatchGetSchema
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-cleanrooms/classes/batchgetschemacommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-cleanrooms/interfaces/batchgetschemacommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-cleanrooms/interfaces/batchgetschemacommandoutput.html)
+
+</details>
+<details>
+<summary>
+CreateAnalysisTemplate
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-cleanrooms/classes/createanalysistemplatecommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-cleanrooms/interfaces/createanalysistemplatecommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-cleanrooms/interfaces/createanalysistemplatecommandoutput.html)
 
 </details>
 <details>
@@ -255,6 +271,14 @@ CreateMembership
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-cleanrooms/classes/createmembershipcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-cleanrooms/interfaces/createmembershipcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-cleanrooms/interfaces/createmembershipcommandoutput.html)
+
+</details>
+<details>
+<summary>
+DeleteAnalysisTemplate
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-cleanrooms/classes/deleteanalysistemplatecommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-cleanrooms/interfaces/deleteanalysistemplatecommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-cleanrooms/interfaces/deleteanalysistemplatecommandoutput.html)
 
 </details>
 <details>
@@ -307,10 +331,26 @@ DeleteMembership
 </details>
 <details>
 <summary>
+GetAnalysisTemplate
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-cleanrooms/classes/getanalysistemplatecommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-cleanrooms/interfaces/getanalysistemplatecommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-cleanrooms/interfaces/getanalysistemplatecommandoutput.html)
+
+</details>
+<details>
+<summary>
 GetCollaboration
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-cleanrooms/classes/getcollaborationcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-cleanrooms/interfaces/getcollaborationcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-cleanrooms/interfaces/getcollaborationcommandoutput.html)
+
+</details>
+<details>
+<summary>
+GetCollaborationAnalysisTemplate
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-cleanrooms/classes/getcollaborationanalysistemplatecommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-cleanrooms/interfaces/getcollaborationanalysistemplatecommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-cleanrooms/interfaces/getcollaborationanalysistemplatecommandoutput.html)
 
 </details>
 <details>
@@ -367,6 +407,22 @@ GetSchemaAnalysisRule
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-cleanrooms/classes/getschemaanalysisrulecommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-cleanrooms/interfaces/getschemaanalysisrulecommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-cleanrooms/interfaces/getschemaanalysisrulecommandoutput.html)
+
+</details>
+<details>
+<summary>
+ListAnalysisTemplates
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-cleanrooms/classes/listanalysistemplatescommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-cleanrooms/interfaces/listanalysistemplatescommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-cleanrooms/interfaces/listanalysistemplatescommandoutput.html)
+
+</details>
+<details>
+<summary>
+ListCollaborationAnalysisTemplates
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-cleanrooms/classes/listcollaborationanalysistemplatescommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-cleanrooms/interfaces/listcollaborationanalysistemplatescommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-cleanrooms/interfaces/listcollaborationanalysistemplatescommandoutput.html)
 
 </details>
 <details>
@@ -455,6 +511,14 @@ UntagResource
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-cleanrooms/classes/untagresourcecommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-cleanrooms/interfaces/untagresourcecommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-cleanrooms/interfaces/untagresourcecommandoutput.html)
+
+</details>
+<details>
+<summary>
+UpdateAnalysisTemplate
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-cleanrooms/classes/updateanalysistemplatecommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-cleanrooms/interfaces/updateanalysistemplatecommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-cleanrooms/interfaces/updateanalysistemplatecommandoutput.html)
 
 </details>
 <details>

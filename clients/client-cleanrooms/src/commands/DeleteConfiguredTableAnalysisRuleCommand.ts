@@ -50,7 +50,7 @@ export interface DeleteConfiguredTableAnalysisRuleCommandOutput
  * const client = new CleanRoomsClient(config);
  * const input = { // DeleteConfiguredTableAnalysisRuleInput
  *   configuredTableIdentifier: "STRING_VALUE", // required
- *   analysisRuleType: "AGGREGATION" || "LIST", // required
+ *   analysisRuleType: "AGGREGATION" || "LIST" || "CUSTOM", // required
  * };
  * const command = new DeleteConfiguredTableAnalysisRuleCommand(input);
  * const response = await client.send(command);

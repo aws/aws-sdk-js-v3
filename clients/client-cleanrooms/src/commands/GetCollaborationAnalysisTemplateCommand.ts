@@ -14,8 +14,15 @@ import {
 } from "@smithy/types";
 
 import { CleanRoomsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CleanRoomsClient";
-import { UpdateConfiguredTableInput, UpdateConfiguredTableOutput } from "../models/models_0";
-import { de_UpdateConfiguredTableCommand, se_UpdateConfiguredTableCommand } from "../protocols/Aws_restJson1";
+import {
+  GetCollaborationAnalysisTemplateInput,
+  GetCollaborationAnalysisTemplateOutput,
+  GetCollaborationAnalysisTemplateOutputFilterSensitiveLog,
+} from "../models/models_0";
+import {
+  de_GetCollaborationAnalysisTemplateCommand,
+  se_GetCollaborationAnalysisTemplateCommand,
+} from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -24,69 +31,73 @@ export { __MetadataBearer, $Command };
 /**
  * @public
  *
- * The input for {@link UpdateConfiguredTableCommand}.
+ * The input for {@link GetCollaborationAnalysisTemplateCommand}.
  */
-export interface UpdateConfiguredTableCommandInput extends UpdateConfiguredTableInput {}
+export interface GetCollaborationAnalysisTemplateCommandInput extends GetCollaborationAnalysisTemplateInput {}
 /**
  * @public
  *
- * The output of {@link UpdateConfiguredTableCommand}.
+ * The output of {@link GetCollaborationAnalysisTemplateCommand}.
  */
-export interface UpdateConfiguredTableCommandOutput extends UpdateConfiguredTableOutput, __MetadataBearer {}
+export interface GetCollaborationAnalysisTemplateCommandOutput
+  extends GetCollaborationAnalysisTemplateOutput,
+    __MetadataBearer {}
 
 /**
  * @public
- * <p>Updates a configured table.</p>
+ * <p>Retrieves an analysis template within a collaboration.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { CleanRoomsClient, UpdateConfiguredTableCommand } from "@aws-sdk/client-cleanrooms"; // ES Modules import
- * // const { CleanRoomsClient, UpdateConfiguredTableCommand } = require("@aws-sdk/client-cleanrooms"); // CommonJS import
+ * import { CleanRoomsClient, GetCollaborationAnalysisTemplateCommand } from "@aws-sdk/client-cleanrooms"; // ES Modules import
+ * // const { CleanRoomsClient, GetCollaborationAnalysisTemplateCommand } = require("@aws-sdk/client-cleanrooms"); // CommonJS import
  * const client = new CleanRoomsClient(config);
- * const input = { // UpdateConfiguredTableInput
- *   configuredTableIdentifier: "STRING_VALUE", // required
- *   name: "STRING_VALUE",
- *   description: "STRING_VALUE",
+ * const input = { // GetCollaborationAnalysisTemplateInput
+ *   collaborationIdentifier: "STRING_VALUE", // required
+ *   analysisTemplateArn: "STRING_VALUE", // required
  * };
- * const command = new UpdateConfiguredTableCommand(input);
+ * const command = new GetCollaborationAnalysisTemplateCommand(input);
  * const response = await client.send(command);
- * // { // UpdateConfiguredTableOutput
- * //   configuredTable: { // ConfiguredTable
+ * // { // GetCollaborationAnalysisTemplateOutput
+ * //   collaborationAnalysisTemplate: { // CollaborationAnalysisTemplate
  * //     id: "STRING_VALUE", // required
  * //     arn: "STRING_VALUE", // required
- * //     name: "STRING_VALUE", // required
+ * //     collaborationId: "STRING_VALUE", // required
+ * //     collaborationArn: "STRING_VALUE", // required
  * //     description: "STRING_VALUE",
- * //     tableReference: { // TableReference Union: only one key present
- * //       glue: { // GlueTableReference
- * //         tableName: "STRING_VALUE", // required
- * //         databaseName: "STRING_VALUE", // required
- * //       },
- * //     },
+ * //     creatorAccountId: "STRING_VALUE", // required
+ * //     name: "STRING_VALUE", // required
  * //     createTime: new Date("TIMESTAMP"), // required
  * //     updateTime: new Date("TIMESTAMP"), // required
- * //     analysisRuleTypes: [ // ConfiguredTableAnalysisRuleTypeList // required
- * //       "AGGREGATION" || "LIST" || "CUSTOM",
- * //     ],
- * //     analysisMethod: "STRING_VALUE", // required
- * //     allowedColumns: [ // AllowedColumnList // required
- * //       "STRING_VALUE",
+ * //     schema: { // AnalysisSchema
+ * //       referencedTables: [ // QueryTables
+ * //         "STRING_VALUE",
+ * //       ],
+ * //     },
+ * //     format: "STRING_VALUE", // required
+ * //     source: { // AnalysisSource Union: only one key present
+ * //       text: "STRING_VALUE",
+ * //     },
+ * //     analysisParameters: [ // AnalysisParameterList
+ * //       { // AnalysisParameter
+ * //         name: "STRING_VALUE", // required
+ * //         type: "SMALLINT" || "INTEGER" || "BIGINT" || "DECIMAL" || "REAL" || "DOUBLE_PRECISION" || "BOOLEAN" || "CHAR" || "VARCHAR" || "DATE" || "TIMESTAMP" || "TIMESTAMPTZ" || "TIME" || "TIMETZ" || "VARBYTE", // required
+ * //         defaultValue: "STRING_VALUE",
+ * //       },
  * //     ],
  * //   },
  * // };
  *
  * ```
  *
- * @param UpdateConfiguredTableCommandInput - {@link UpdateConfiguredTableCommandInput}
- * @returns {@link UpdateConfiguredTableCommandOutput}
- * @see {@link UpdateConfiguredTableCommandInput} for command's `input` shape.
- * @see {@link UpdateConfiguredTableCommandOutput} for command's `response` shape.
+ * @param GetCollaborationAnalysisTemplateCommandInput - {@link GetCollaborationAnalysisTemplateCommandInput}
+ * @returns {@link GetCollaborationAnalysisTemplateCommandOutput}
+ * @see {@link GetCollaborationAnalysisTemplateCommandInput} for command's `input` shape.
+ * @see {@link GetCollaborationAnalysisTemplateCommandOutput} for command's `response` shape.
  * @see {@link CleanRoomsClientResolvedConfig | config} for CleanRoomsClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
  *  <p>Caller does not have sufficient access to perform this action.</p>
- *
- * @throws {@link ConflictException} (client fault)
- *  <p>Updating or deleting a resource can cause an inconsistent state.</p>
  *
  * @throws {@link InternalServerException} (server fault)
  *  <p>Unexpected error during processing of request.</p>
@@ -104,9 +115,9 @@ export interface UpdateConfiguredTableCommandOutput extends UpdateConfiguredTabl
  * <p>Base exception class for all service exceptions from CleanRooms service.</p>
  *
  */
-export class UpdateConfiguredTableCommand extends $Command<
-  UpdateConfiguredTableCommandInput,
-  UpdateConfiguredTableCommandOutput,
+export class GetCollaborationAnalysisTemplateCommand extends $Command<
+  GetCollaborationAnalysisTemplateCommandInput,
+  GetCollaborationAnalysisTemplateCommandOutput,
   CleanRoomsClientResolvedConfig
 > {
   // Start section: command_properties
@@ -124,7 +135,7 @@ export class UpdateConfiguredTableCommand extends $Command<
   /**
    * @public
    */
-  constructor(readonly input: UpdateConfiguredTableCommandInput) {
+  constructor(readonly input: GetCollaborationAnalysisTemplateCommandInput) {
     // Start section: command_constructor
     super();
     // End section: command_constructor
@@ -137,23 +148,23 @@ export class UpdateConfiguredTableCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: CleanRoomsClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<UpdateConfiguredTableCommandInput, UpdateConfiguredTableCommandOutput> {
+  ): Handler<GetCollaborationAnalysisTemplateCommandInput, GetCollaborationAnalysisTemplateCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
     this.middlewareStack.use(
-      getEndpointPlugin(configuration, UpdateConfiguredTableCommand.getEndpointParameterInstructions())
+      getEndpointPlugin(configuration, GetCollaborationAnalysisTemplateCommand.getEndpointParameterInstructions())
     );
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
     const clientName = "CleanRoomsClient";
-    const commandName = "UpdateConfiguredTableCommand";
+    const commandName = "GetCollaborationAnalysisTemplateCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
       clientName,
       commandName,
       inputFilterSensitiveLog: (_: any) => _,
-      outputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: GetCollaborationAnalysisTemplateOutputFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -166,15 +177,21 @@ export class UpdateConfiguredTableCommand extends $Command<
   /**
    * @internal
    */
-  private serialize(input: UpdateConfiguredTableCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return se_UpdateConfiguredTableCommand(input, context);
+  private serialize(
+    input: GetCollaborationAnalysisTemplateCommandInput,
+    context: __SerdeContext
+  ): Promise<__HttpRequest> {
+    return se_GetCollaborationAnalysisTemplateCommand(input, context);
   }
 
   /**
    * @internal
    */
-  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateConfiguredTableCommandOutput> {
-    return de_UpdateConfiguredTableCommand(output, context);
+  private deserialize(
+    output: __HttpResponse,
+    context: __SerdeContext
+  ): Promise<GetCollaborationAnalysisTemplateCommandOutput> {
+    return de_GetCollaborationAnalysisTemplateCommand(output, context);
   }
 
   // Start section: command_body_extra

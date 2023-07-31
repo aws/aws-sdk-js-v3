@@ -23,7 +23,15 @@ import {
   SerdeContext as __SerdeContext,
 } from "@smithy/types";
 
+import {
+  BatchGetCollaborationAnalysisTemplateCommandInput,
+  BatchGetCollaborationAnalysisTemplateCommandOutput,
+} from "../commands/BatchGetCollaborationAnalysisTemplateCommand";
 import { BatchGetSchemaCommandInput, BatchGetSchemaCommandOutput } from "../commands/BatchGetSchemaCommand";
+import {
+  CreateAnalysisTemplateCommandInput,
+  CreateAnalysisTemplateCommandOutput,
+} from "../commands/CreateAnalysisTemplateCommand";
 import {
   CreateCollaborationCommandInput,
   CreateCollaborationCommandOutput,
@@ -42,6 +50,10 @@ import {
 } from "../commands/CreateConfiguredTableCommand";
 import { CreateMembershipCommandInput, CreateMembershipCommandOutput } from "../commands/CreateMembershipCommand";
 import {
+  DeleteAnalysisTemplateCommandInput,
+  DeleteAnalysisTemplateCommandOutput,
+} from "../commands/DeleteAnalysisTemplateCommand";
+import {
   DeleteCollaborationCommandInput,
   DeleteCollaborationCommandOutput,
 } from "../commands/DeleteCollaborationCommand";
@@ -59,6 +71,14 @@ import {
 } from "../commands/DeleteConfiguredTableCommand";
 import { DeleteMemberCommandInput, DeleteMemberCommandOutput } from "../commands/DeleteMemberCommand";
 import { DeleteMembershipCommandInput, DeleteMembershipCommandOutput } from "../commands/DeleteMembershipCommand";
+import {
+  GetAnalysisTemplateCommandInput,
+  GetAnalysisTemplateCommandOutput,
+} from "../commands/GetAnalysisTemplateCommand";
+import {
+  GetCollaborationAnalysisTemplateCommandInput,
+  GetCollaborationAnalysisTemplateCommandOutput,
+} from "../commands/GetCollaborationAnalysisTemplateCommand";
 import { GetCollaborationCommandInput, GetCollaborationCommandOutput } from "../commands/GetCollaborationCommand";
 import {
   GetConfiguredTableAnalysisRuleCommandInput,
@@ -76,6 +96,14 @@ import {
   GetSchemaAnalysisRuleCommandOutput,
 } from "../commands/GetSchemaAnalysisRuleCommand";
 import { GetSchemaCommandInput, GetSchemaCommandOutput } from "../commands/GetSchemaCommand";
+import {
+  ListAnalysisTemplatesCommandInput,
+  ListAnalysisTemplatesCommandOutput,
+} from "../commands/ListAnalysisTemplatesCommand";
+import {
+  ListCollaborationAnalysisTemplatesCommandInput,
+  ListCollaborationAnalysisTemplatesCommandOutput,
+} from "../commands/ListCollaborationAnalysisTemplatesCommand";
 import { ListCollaborationsCommandInput, ListCollaborationsCommandOutput } from "../commands/ListCollaborationsCommand";
 import {
   ListConfiguredTableAssociationsCommandInput,
@@ -103,6 +131,10 @@ import {
 import { TagResourceCommandInput, TagResourceCommandOutput } from "../commands/TagResourceCommand";
 import { UntagResourceCommandInput, UntagResourceCommandOutput } from "../commands/UntagResourceCommand";
 import {
+  UpdateAnalysisTemplateCommandInput,
+  UpdateAnalysisTemplateCommandOutput,
+} from "../commands/UpdateAnalysisTemplateCommand";
+import {
   UpdateCollaborationCommandInput,
   UpdateCollaborationCommandOutput,
 } from "../commands/UpdateCollaborationCommand";
@@ -128,10 +160,17 @@ import {
   AccessDeniedException,
   AggregateColumn,
   AggregationConstraint,
+  AnalysisParameter,
   AnalysisRule,
   AnalysisRuleAggregation,
+  AnalysisRuleCustom,
   AnalysisRuleList,
+  AnalysisSource,
+  AnalysisTemplate,
+  AnalysisTemplateSummary,
   Collaboration,
+  CollaborationAnalysisTemplate,
+  CollaborationAnalysisTemplateSummary,
   CollaborationSummary,
   ConfiguredTable,
   ConfiguredTableAnalysisRule,
@@ -167,6 +206,45 @@ import {
 } from "../models/models_0";
 
 /**
+ * serializeAws_restJson1BatchGetCollaborationAnalysisTemplateCommand
+ */
+export const se_BatchGetCollaborationAnalysisTemplateCommand = async (
+  input: BatchGetCollaborationAnalysisTemplateCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
+    "/collaborations/{collaborationIdentifier}/batch-analysistemplates";
+  resolvedPath = __resolvedPath(
+    resolvedPath,
+    input,
+    "collaborationIdentifier",
+    () => input.collaborationIdentifier!,
+    "{collaborationIdentifier}",
+    false
+  );
+  let body: any;
+  body = JSON.stringify(
+    take(input, {
+      analysisTemplateArns: (_) => _json(_),
+    })
+  );
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "POST",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
+/**
  * serializeAws_restJson1BatchGetSchemaCommand
  */
 export const se_BatchGetSchemaCommand = async (
@@ -192,6 +270,50 @@ export const se_BatchGetSchemaCommand = async (
   body = JSON.stringify(
     take(input, {
       names: (_) => _json(_),
+    })
+  );
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "POST",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
+/**
+ * serializeAws_restJson1CreateAnalysisTemplateCommand
+ */
+export const se_CreateAnalysisTemplateCommand = async (
+  input: CreateAnalysisTemplateCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
+    "/memberships/{membershipIdentifier}/analysistemplates";
+  resolvedPath = __resolvedPath(
+    resolvedPath,
+    input,
+    "membershipIdentifier",
+    () => input.membershipIdentifier!,
+    "{membershipIdentifier}",
+    false
+  );
+  let body: any;
+  body = JSON.stringify(
+    take(input, {
+      analysisParameters: (_) => _json(_),
+      description: [],
+      format: [],
+      name: [],
+      source: (_) => _json(_),
+      tags: (_) => _json(_),
     })
   );
   return new __HttpRequest({
@@ -383,6 +505,46 @@ export const se_CreateMembershipCommand = async (
     hostname,
     port,
     method: "POST",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
+/**
+ * serializeAws_restJson1DeleteAnalysisTemplateCommand
+ */
+export const se_DeleteAnalysisTemplateCommand = async (
+  input: DeleteAnalysisTemplateCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {};
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
+    "/memberships/{membershipIdentifier}/analysistemplates/{analysisTemplateIdentifier}";
+  resolvedPath = __resolvedPath(
+    resolvedPath,
+    input,
+    "membershipIdentifier",
+    () => input.membershipIdentifier!,
+    "{membershipIdentifier}",
+    false
+  );
+  resolvedPath = __resolvedPath(
+    resolvedPath,
+    input,
+    "analysisTemplateIdentifier",
+    () => input.analysisTemplateIdentifier!,
+    "{analysisTemplateIdentifier}",
+    false
+  );
+  let body: any;
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "DELETE",
     headers,
     path: resolvedPath,
     body,
@@ -597,6 +759,46 @@ export const se_DeleteMembershipCommand = async (
 };
 
 /**
+ * serializeAws_restJson1GetAnalysisTemplateCommand
+ */
+export const se_GetAnalysisTemplateCommand = async (
+  input: GetAnalysisTemplateCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {};
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
+    "/memberships/{membershipIdentifier}/analysistemplates/{analysisTemplateIdentifier}";
+  resolvedPath = __resolvedPath(
+    resolvedPath,
+    input,
+    "membershipIdentifier",
+    () => input.membershipIdentifier!,
+    "{membershipIdentifier}",
+    false
+  );
+  resolvedPath = __resolvedPath(
+    resolvedPath,
+    input,
+    "analysisTemplateIdentifier",
+    () => input.analysisTemplateIdentifier!,
+    "{analysisTemplateIdentifier}",
+    false
+  );
+  let body: any;
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "GET",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
+/**
  * serializeAws_restJson1GetCollaborationCommand
  */
 export const se_GetCollaborationCommand = async (
@@ -613,6 +815,46 @@ export const se_GetCollaborationCommand = async (
     "collaborationIdentifier",
     () => input.collaborationIdentifier!,
     "{collaborationIdentifier}",
+    false
+  );
+  let body: any;
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "GET",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
+/**
+ * serializeAws_restJson1GetCollaborationAnalysisTemplateCommand
+ */
+export const se_GetCollaborationAnalysisTemplateCommand = async (
+  input: GetCollaborationAnalysisTemplateCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {};
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
+    "/collaborations/{collaborationIdentifier}/analysistemplates/{analysisTemplateArn}";
+  resolvedPath = __resolvedPath(
+    resolvedPath,
+    input,
+    "collaborationIdentifier",
+    () => input.collaborationIdentifier!,
+    "{collaborationIdentifier}",
+    false
+  );
+  resolvedPath = __resolvedPath(
+    resolvedPath,
+    input,
+    "analysisTemplateArn",
+    () => input.analysisTemplateArn!,
+    "{analysisTemplateArn}",
     false
   );
   let body: any;
@@ -873,6 +1115,80 @@ export const se_GetSchemaAnalysisRuleCommand = async (
     method: "GET",
     headers,
     path: resolvedPath,
+    body,
+  });
+};
+
+/**
+ * serializeAws_restJson1ListAnalysisTemplatesCommand
+ */
+export const se_ListAnalysisTemplatesCommand = async (
+  input: ListAnalysisTemplatesCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {};
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
+    "/memberships/{membershipIdentifier}/analysistemplates";
+  resolvedPath = __resolvedPath(
+    resolvedPath,
+    input,
+    "membershipIdentifier",
+    () => input.membershipIdentifier!,
+    "{membershipIdentifier}",
+    false
+  );
+  const query: any = map({
+    nextToken: [, input.nextToken!],
+    maxResults: [() => input.maxResults !== void 0, () => input.maxResults!.toString()],
+  });
+  let body: any;
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "GET",
+    headers,
+    path: resolvedPath,
+    query,
+    body,
+  });
+};
+
+/**
+ * serializeAws_restJson1ListCollaborationAnalysisTemplatesCommand
+ */
+export const se_ListCollaborationAnalysisTemplatesCommand = async (
+  input: ListCollaborationAnalysisTemplatesCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {};
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
+    "/collaborations/{collaborationIdentifier}/analysistemplates";
+  resolvedPath = __resolvedPath(
+    resolvedPath,
+    input,
+    "collaborationIdentifier",
+    () => input.collaborationIdentifier!,
+    "{collaborationIdentifier}",
+    false
+  );
+  const query: any = map({
+    nextToken: [, input.nextToken!],
+    maxResults: [() => input.maxResults !== void 0, () => input.maxResults!.toString()],
+  });
+  let body: any;
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "GET",
+    headers,
+    path: resolvedPath,
+    query,
     body,
   });
 };
@@ -1235,6 +1551,53 @@ export const se_UntagResourceCommand = async (
 };
 
 /**
+ * serializeAws_restJson1UpdateAnalysisTemplateCommand
+ */
+export const se_UpdateAnalysisTemplateCommand = async (
+  input: UpdateAnalysisTemplateCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
+    "/memberships/{membershipIdentifier}/analysistemplates/{analysisTemplateIdentifier}";
+  resolvedPath = __resolvedPath(
+    resolvedPath,
+    input,
+    "membershipIdentifier",
+    () => input.membershipIdentifier!,
+    "{membershipIdentifier}",
+    false
+  );
+  resolvedPath = __resolvedPath(
+    resolvedPath,
+    input,
+    "analysisTemplateIdentifier",
+    () => input.analysisTemplateIdentifier!,
+    "{analysisTemplateIdentifier}",
+    false
+  );
+  let body: any;
+  body = JSON.stringify(
+    take(input, {
+      description: [],
+    })
+  );
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "PATCH",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
+/**
  * serializeAws_restJson1UpdateCollaborationCommand
  */
 export const se_UpdateCollaborationCommand = async (
@@ -1494,6 +1857,66 @@ export const se_UpdateProtectedQueryCommand = async (
 };
 
 /**
+ * deserializeAws_restJson1BatchGetCollaborationAnalysisTemplateCommand
+ */
+export const de_BatchGetCollaborationAnalysisTemplateCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<BatchGetCollaborationAnalysisTemplateCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_BatchGetCollaborationAnalysisTemplateCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    collaborationAnalysisTemplates: (_) => de_CollaborationAnalysisTemplateList(_, context),
+    errors: _json,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1BatchGetCollaborationAnalysisTemplateCommandError
+ */
+const de_BatchGetCollaborationAnalysisTemplateCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<BatchGetCollaborationAnalysisTemplateCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.cleanrooms#AccessDeniedException":
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
+    case "InternalServerException":
+    case "com.amazonaws.cleanrooms#InternalServerException":
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.cleanrooms#ResourceNotFoundException":
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
+    case "ThrottlingException":
+    case "com.amazonaws.cleanrooms#ThrottlingException":
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
+    case "ValidationException":
+    case "com.amazonaws.cleanrooms#ValidationException":
+      throw await de_ValidationExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
  * deserializeAws_restJson1BatchGetSchemaCommand
  */
 export const de_BatchGetSchemaCommand = async (
@@ -1537,6 +1960,71 @@ const de_BatchGetSchemaCommandError = async (
     case "ResourceNotFoundException":
     case "com.amazonaws.cleanrooms#ResourceNotFoundException":
       throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
+    case "ThrottlingException":
+    case "com.amazonaws.cleanrooms#ThrottlingException":
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
+    case "ValidationException":
+    case "com.amazonaws.cleanrooms#ValidationException":
+      throw await de_ValidationExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
+ * deserializeAws_restJson1CreateAnalysisTemplateCommand
+ */
+export const de_CreateAnalysisTemplateCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CreateAnalysisTemplateCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CreateAnalysisTemplateCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    analysisTemplate: (_) => de_AnalysisTemplate(_, context),
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1CreateAnalysisTemplateCommandError
+ */
+const de_CreateAnalysisTemplateCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CreateAnalysisTemplateCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.cleanrooms#AccessDeniedException":
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
+    case "ConflictException":
+    case "com.amazonaws.cleanrooms#ConflictException":
+      throw await de_ConflictExceptionRes(parsedOutput, context);
+    case "InternalServerException":
+    case "com.amazonaws.cleanrooms#InternalServerException":
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.cleanrooms#ResourceNotFoundException":
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
+    case "ServiceQuotaExceededException":
+    case "com.amazonaws.cleanrooms#ServiceQuotaExceededException":
+      throw await de_ServiceQuotaExceededExceptionRes(parsedOutput, context);
     case "ThrottlingException":
     case "com.amazonaws.cleanrooms#ThrottlingException":
       throw await de_ThrottlingExceptionRes(parsedOutput, context);
@@ -1853,6 +2341,61 @@ const de_CreateMembershipCommandError = async (
     case "ServiceQuotaExceededException":
     case "com.amazonaws.cleanrooms#ServiceQuotaExceededException":
       throw await de_ServiceQuotaExceededExceptionRes(parsedOutput, context);
+    case "ThrottlingException":
+    case "com.amazonaws.cleanrooms#ThrottlingException":
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
+    case "ValidationException":
+    case "com.amazonaws.cleanrooms#ValidationException":
+      throw await de_ValidationExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
+ * deserializeAws_restJson1DeleteAnalysisTemplateCommand
+ */
+export const de_DeleteAnalysisTemplateCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteAnalysisTemplateCommandOutput> => {
+  if (output.statusCode !== 204 && output.statusCode >= 300) {
+    return de_DeleteAnalysisTemplateCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  await collectBody(output.body, context);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1DeleteAnalysisTemplateCommandError
+ */
+const de_DeleteAnalysisTemplateCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteAnalysisTemplateCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.cleanrooms#AccessDeniedException":
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
+    case "InternalServerException":
+    case "com.amazonaws.cleanrooms#InternalServerException":
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.cleanrooms#ResourceNotFoundException":
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "ThrottlingException":
     case "com.amazonaws.cleanrooms#ThrottlingException":
       throw await de_ThrottlingExceptionRes(parsedOutput, context);
@@ -2212,6 +2755,65 @@ const de_DeleteMembershipCommandError = async (
 };
 
 /**
+ * deserializeAws_restJson1GetAnalysisTemplateCommand
+ */
+export const de_GetAnalysisTemplateCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetAnalysisTemplateCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_GetAnalysisTemplateCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    analysisTemplate: (_) => de_AnalysisTemplate(_, context),
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1GetAnalysisTemplateCommandError
+ */
+const de_GetAnalysisTemplateCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetAnalysisTemplateCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.cleanrooms#AccessDeniedException":
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
+    case "InternalServerException":
+    case "com.amazonaws.cleanrooms#InternalServerException":
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.cleanrooms#ResourceNotFoundException":
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
+    case "ThrottlingException":
+    case "com.amazonaws.cleanrooms#ThrottlingException":
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
+    case "ValidationException":
+    case "com.amazonaws.cleanrooms#ValidationException":
+      throw await de_ValidationExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
  * deserializeAws_restJson1GetCollaborationCommand
  */
 export const de_GetCollaborationCommand = async (
@@ -2251,6 +2853,65 @@ const de_GetCollaborationCommandError = async (
     case "InternalServerException":
     case "com.amazonaws.cleanrooms#InternalServerException":
       throw await de_InternalServerExceptionRes(parsedOutput, context);
+    case "ThrottlingException":
+    case "com.amazonaws.cleanrooms#ThrottlingException":
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
+    case "ValidationException":
+    case "com.amazonaws.cleanrooms#ValidationException":
+      throw await de_ValidationExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
+ * deserializeAws_restJson1GetCollaborationAnalysisTemplateCommand
+ */
+export const de_GetCollaborationAnalysisTemplateCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetCollaborationAnalysisTemplateCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_GetCollaborationAnalysisTemplateCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    collaborationAnalysisTemplate: (_) => de_CollaborationAnalysisTemplate(_, context),
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1GetCollaborationAnalysisTemplateCommandError
+ */
+const de_GetCollaborationAnalysisTemplateCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetCollaborationAnalysisTemplateCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.cleanrooms#AccessDeniedException":
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
+    case "InternalServerException":
+    case "com.amazonaws.cleanrooms#InternalServerException":
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.cleanrooms#ResourceNotFoundException":
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "ThrottlingException":
     case "com.amazonaws.cleanrooms#ThrottlingException":
       throw await de_ThrottlingExceptionRes(parsedOutput, context);
@@ -2649,6 +3310,126 @@ const de_GetSchemaAnalysisRuleCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetSchemaAnalysisRuleCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.cleanrooms#AccessDeniedException":
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
+    case "InternalServerException":
+    case "com.amazonaws.cleanrooms#InternalServerException":
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.cleanrooms#ResourceNotFoundException":
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
+    case "ThrottlingException":
+    case "com.amazonaws.cleanrooms#ThrottlingException":
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
+    case "ValidationException":
+    case "com.amazonaws.cleanrooms#ValidationException":
+      throw await de_ValidationExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
+ * deserializeAws_restJson1ListAnalysisTemplatesCommand
+ */
+export const de_ListAnalysisTemplatesCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListAnalysisTemplatesCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_ListAnalysisTemplatesCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    analysisTemplateSummaries: (_) => de_AnalysisTemplateSummaryList(_, context),
+    nextToken: __expectString,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1ListAnalysisTemplatesCommandError
+ */
+const de_ListAnalysisTemplatesCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListAnalysisTemplatesCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.cleanrooms#AccessDeniedException":
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
+    case "InternalServerException":
+    case "com.amazonaws.cleanrooms#InternalServerException":
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.cleanrooms#ResourceNotFoundException":
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
+    case "ThrottlingException":
+    case "com.amazonaws.cleanrooms#ThrottlingException":
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
+    case "ValidationException":
+    case "com.amazonaws.cleanrooms#ValidationException":
+      throw await de_ValidationExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
+ * deserializeAws_restJson1ListCollaborationAnalysisTemplatesCommand
+ */
+export const de_ListCollaborationAnalysisTemplatesCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListCollaborationAnalysisTemplatesCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_ListCollaborationAnalysisTemplatesCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    collaborationAnalysisTemplateSummaries: (_) => de_CollaborationAnalysisTemplateSummaryList(_, context),
+    nextToken: __expectString,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1ListCollaborationAnalysisTemplatesCommandError
+ */
+const de_ListCollaborationAnalysisTemplatesCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListCollaborationAnalysisTemplatesCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseErrorBody(output.body, context),
@@ -3296,6 +4077,65 @@ const de_UntagResourceCommandError = async (
 };
 
 /**
+ * deserializeAws_restJson1UpdateAnalysisTemplateCommand
+ */
+export const de_UpdateAnalysisTemplateCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateAnalysisTemplateCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_UpdateAnalysisTemplateCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    analysisTemplate: (_) => de_AnalysisTemplate(_, context),
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1UpdateAnalysisTemplateCommandError
+ */
+const de_UpdateAnalysisTemplateCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateAnalysisTemplateCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.cleanrooms#AccessDeniedException":
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
+    case "InternalServerException":
+    case "com.amazonaws.cleanrooms#InternalServerException":
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.cleanrooms#ResourceNotFoundException":
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
+    case "ThrottlingException":
+    case "com.amazonaws.cleanrooms#ThrottlingException":
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
+    case "ValidationException":
+    case "com.amazonaws.cleanrooms#ValidationException":
+      throw await de_ValidationExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
  * deserializeAws_restJson1UpdateCollaborationCommand
  */
 export const de_UpdateCollaborationCommand = async (
@@ -3811,7 +4651,15 @@ const de_ValidationExceptionRes = async (parsedOutput: any, context: __SerdeCont
 
 // se_AggregationConstraints omitted.
 
+// se_AllowedAnalysesList omitted.
+
+// se_AllowedAnalysisProviderList omitted.
+
 // se_AllowedColumnList omitted.
+
+// se_AnalysisParameter omitted.
+
+// se_AnalysisParameterList omitted.
 
 // se_AnalysisRuleAggregation omitted.
 
@@ -3819,7 +4667,13 @@ const de_ValidationExceptionRes = async (parsedOutput: any, context: __SerdeCont
 
 // se_AnalysisRuleColumnNameList omitted.
 
+// se_AnalysisRuleCustom omitted.
+
 // se_AnalysisRuleList omitted.
+
+// se_AnalysisSource omitted.
+
+// se_AnalysisTemplateArnList omitted.
 
 // se_ConfiguredTableAnalysisRulePolicy omitted.
 
@@ -3836,6 +4690,8 @@ const de_ValidationExceptionRes = async (parsedOutput: any, context: __SerdeCont
 // se_MemberList omitted.
 
 // se_MemberSpecification omitted.
+
+// se_ParameterMap omitted.
 
 // se_ProtectedQueryOutputConfiguration omitted.
 
@@ -3861,7 +4717,15 @@ const de_ValidationExceptionRes = async (parsedOutput: any, context: __SerdeCont
 
 // de_AggregationConstraints omitted.
 
+// de_AllowedAnalysesList omitted.
+
+// de_AllowedAnalysisProviderList omitted.
+
 // de_AllowedColumnList omitted.
+
+// de_AnalysisParameter omitted.
+
+// de_AnalysisParameterList omitted.
 
 /**
  * deserializeAws_restJson1AnalysisRule
@@ -3883,6 +4747,8 @@ const de_AnalysisRule = (output: any, context: __SerdeContext): AnalysisRule => 
 
 // de_AnalysisRuleColumnNameList omitted.
 
+// de_AnalysisRuleCustom omitted.
+
 // de_AnalysisRuleList omitted.
 
 // de_AnalysisRulePolicy omitted.
@@ -3890,6 +4756,66 @@ const de_AnalysisRule = (output: any, context: __SerdeContext): AnalysisRule => 
 // de_AnalysisRulePolicyV1 omitted.
 
 // de_AnalysisRuleTypeList omitted.
+
+// de_AnalysisSchema omitted.
+
+// de_AnalysisSource omitted.
+
+/**
+ * deserializeAws_restJson1AnalysisTemplate
+ */
+const de_AnalysisTemplate = (output: any, context: __SerdeContext): AnalysisTemplate => {
+  return take(output, {
+    analysisParameters: _json,
+    arn: __expectString,
+    collaborationArn: __expectString,
+    collaborationId: __expectString,
+    createTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    description: __expectString,
+    format: __expectString,
+    id: __expectString,
+    membershipArn: __expectString,
+    membershipId: __expectString,
+    name: __expectString,
+    schema: _json,
+    source: (_: any) => _json(__expectUnion(_)),
+    updateTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+  }) as any;
+};
+
+/**
+ * deserializeAws_restJson1AnalysisTemplateSummary
+ */
+const de_AnalysisTemplateSummary = (output: any, context: __SerdeContext): AnalysisTemplateSummary => {
+  return take(output, {
+    arn: __expectString,
+    collaborationArn: __expectString,
+    collaborationId: __expectString,
+    createTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    description: __expectString,
+    id: __expectString,
+    membershipArn: __expectString,
+    membershipId: __expectString,
+    name: __expectString,
+    updateTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+  }) as any;
+};
+
+/**
+ * deserializeAws_restJson1AnalysisTemplateSummaryList
+ */
+const de_AnalysisTemplateSummaryList = (output: any, context: __SerdeContext): AnalysisTemplateSummary[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      return de_AnalysisTemplateSummary(entry, context);
+    });
+  return retVal;
+};
+
+// de_BatchGetCollaborationAnalysisTemplateError omitted.
+
+// de_BatchGetCollaborationAnalysisTemplateErrorList omitted.
 
 // de_BatchGetSchemaError omitted.
 
@@ -3914,6 +4840,77 @@ const de_Collaboration = (output: any, context: __SerdeContext): Collaboration =
     queryLogStatus: __expectString,
     updateTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
   }) as any;
+};
+
+/**
+ * deserializeAws_restJson1CollaborationAnalysisTemplate
+ */
+const de_CollaborationAnalysisTemplate = (output: any, context: __SerdeContext): CollaborationAnalysisTemplate => {
+  return take(output, {
+    analysisParameters: _json,
+    arn: __expectString,
+    collaborationArn: __expectString,
+    collaborationId: __expectString,
+    createTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    creatorAccountId: __expectString,
+    description: __expectString,
+    format: __expectString,
+    id: __expectString,
+    name: __expectString,
+    schema: _json,
+    source: (_: any) => _json(__expectUnion(_)),
+    updateTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+  }) as any;
+};
+
+/**
+ * deserializeAws_restJson1CollaborationAnalysisTemplateList
+ */
+const de_CollaborationAnalysisTemplateList = (
+  output: any,
+  context: __SerdeContext
+): CollaborationAnalysisTemplate[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      return de_CollaborationAnalysisTemplate(entry, context);
+    });
+  return retVal;
+};
+
+/**
+ * deserializeAws_restJson1CollaborationAnalysisTemplateSummary
+ */
+const de_CollaborationAnalysisTemplateSummary = (
+  output: any,
+  context: __SerdeContext
+): CollaborationAnalysisTemplateSummary => {
+  return take(output, {
+    arn: __expectString,
+    collaborationArn: __expectString,
+    collaborationId: __expectString,
+    createTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    creatorAccountId: __expectString,
+    description: __expectString,
+    id: __expectString,
+    name: __expectString,
+    updateTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+  }) as any;
+};
+
+/**
+ * deserializeAws_restJson1CollaborationAnalysisTemplateSummaryList
+ */
+const de_CollaborationAnalysisTemplateSummaryList = (
+  output: any,
+  context: __SerdeContext
+): CollaborationAnalysisTemplateSummary[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      return de_CollaborationAnalysisTemplateSummary(entry, context);
+    });
+  return retVal;
 };
 
 /**
@@ -4155,6 +5152,8 @@ const de_MemberSummaryList = (output: any, context: __SerdeContext): MemberSumma
   return retVal;
 };
 
+// de_ParameterMap omitted.
+
 /**
  * deserializeAws_restJson1ProtectedQuery
  */
@@ -4215,6 +5214,8 @@ const de_ProtectedQuerySummaryList = (output: any, context: __SerdeContext): Pro
     });
   return retVal;
 };
+
+// de_QueryTables omitted.
 
 // de_ScalarFunctionsList omitted.
 

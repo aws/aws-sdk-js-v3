@@ -67,7 +67,7 @@ export interface BatchGetSchemaCommandOutput extends BatchGetSchemaOutput, __Met
  * //         },
  * //       ],
  * //       analysisRuleTypes: [ // AnalysisRuleTypeList // required
- * //         "AGGREGATION" || "LIST",
+ * //         "AGGREGATION" || "LIST" || "CUSTOM",
  * //       ],
  * //       analysisMethod: "STRING_VALUE",
  * //       creatorAccountId: "STRING_VALUE", // required

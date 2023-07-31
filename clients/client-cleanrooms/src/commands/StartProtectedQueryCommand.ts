@@ -53,6 +53,10 @@ export interface StartProtectedQueryCommandOutput extends StartProtectedQueryOut
  *   membershipIdentifier: "STRING_VALUE", // required
  *   sqlParameters: { // ProtectedQuerySQLParameters
  *     queryString: "STRING_VALUE",
+ *     analysisTemplateArn: "STRING_VALUE",
+ *     parameters: { // ParameterMap
+ *       "<keys>": "STRING_VALUE",
+ *     },
  *   },
  *   resultConfiguration: { // ProtectedQueryResultConfiguration
  *     outputConfiguration: { // ProtectedQueryOutputConfiguration Union: only one key present
@@ -74,6 +78,10 @@ export interface StartProtectedQueryCommandOutput extends StartProtectedQueryOut
  * //     createTime: new Date("TIMESTAMP"), // required
  * //     sqlParameters: { // ProtectedQuerySQLParameters
  * //       queryString: "STRING_VALUE",
+ * //       analysisTemplateArn: "STRING_VALUE",
+ * //       parameters: { // ParameterMap
+ * //         "<keys>": "STRING_VALUE",
+ * //       },
  * //     },
  * //     status: "STRING_VALUE", // required
  * //     resultConfiguration: { // ProtectedQueryResultConfiguration

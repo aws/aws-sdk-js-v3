@@ -50,7 +50,7 @@ export interface UpdateConfiguredTableAnalysisRuleCommandOutput
  * const client = new CleanRoomsClient(config);
  * const input = { // UpdateConfiguredTableAnalysisRuleInput
  *   configuredTableIdentifier: "STRING_VALUE", // required
- *   analysisRuleType: "AGGREGATION" || "LIST", // required
+ *   analysisRuleType: "AGGREGATION" || "LIST" || "CUSTOM", // required
  *   analysisRulePolicy: { // ConfiguredTableAnalysisRulePolicy Union: only one key present
  *     v1: { // ConfiguredTableAnalysisRulePolicyV1 Union: only one key present
  *       list: { // AnalysisRuleList
@@ -92,6 +92,14 @@ export interface UpdateConfiguredTableAnalysisRuleCommandOutput
  *             minimum: Number("int"), // required
  *             type: "STRING_VALUE", // required
  *           },
+ *         ],
+ *       },
+ *       custom: { // AnalysisRuleCustom
+ *         allowedAnalyses: [ // AllowedAnalysesList // required
+ *           "STRING_VALUE",
+ *         ],
+ *         allowedAnalysisProviders: [ // AllowedAnalysisProviderList
+ *           "STRING_VALUE",
  *         ],
  *       },
  *     },
@@ -146,9 +154,17 @@ export interface UpdateConfiguredTableAnalysisRuleCommandOutput
  * //             },
  * //           ],
  * //         },
+ * //         custom: { // AnalysisRuleCustom
+ * //           allowedAnalyses: [ // AllowedAnalysesList // required
+ * //             "STRING_VALUE",
+ * //           ],
+ * //           allowedAnalysisProviders: [ // AllowedAnalysisProviderList
+ * //             "STRING_VALUE",
+ * //           ],
+ * //         },
  * //       },
  * //     },
- * //     type: "AGGREGATION" || "LIST", // required
+ * //     type: "AGGREGATION" || "LIST" || "CUSTOM", // required
  * //     createTime: new Date("TIMESTAMP"), // required
  * //     updateTime: new Date("TIMESTAMP"), // required
  * //   },

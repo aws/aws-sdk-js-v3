@@ -4,10 +4,20 @@ import { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
 
 import { CleanRoomsClient, CleanRoomsClientConfig } from "./CleanRoomsClient";
 import {
+  BatchGetCollaborationAnalysisTemplateCommand,
+  BatchGetCollaborationAnalysisTemplateCommandInput,
+  BatchGetCollaborationAnalysisTemplateCommandOutput,
+} from "./commands/BatchGetCollaborationAnalysisTemplateCommand";
+import {
   BatchGetSchemaCommand,
   BatchGetSchemaCommandInput,
   BatchGetSchemaCommandOutput,
 } from "./commands/BatchGetSchemaCommand";
+import {
+  CreateAnalysisTemplateCommand,
+  CreateAnalysisTemplateCommandInput,
+  CreateAnalysisTemplateCommandOutput,
+} from "./commands/CreateAnalysisTemplateCommand";
 import {
   CreateCollaborationCommand,
   CreateCollaborationCommandInput,
@@ -33,6 +43,11 @@ import {
   CreateMembershipCommandInput,
   CreateMembershipCommandOutput,
 } from "./commands/CreateMembershipCommand";
+import {
+  DeleteAnalysisTemplateCommand,
+  DeleteAnalysisTemplateCommandInput,
+  DeleteAnalysisTemplateCommandOutput,
+} from "./commands/DeleteAnalysisTemplateCommand";
 import {
   DeleteCollaborationCommand,
   DeleteCollaborationCommandInput,
@@ -63,6 +78,16 @@ import {
   DeleteMembershipCommandInput,
   DeleteMembershipCommandOutput,
 } from "./commands/DeleteMembershipCommand";
+import {
+  GetAnalysisTemplateCommand,
+  GetAnalysisTemplateCommandInput,
+  GetAnalysisTemplateCommandOutput,
+} from "./commands/GetAnalysisTemplateCommand";
+import {
+  GetCollaborationAnalysisTemplateCommand,
+  GetCollaborationAnalysisTemplateCommandInput,
+  GetCollaborationAnalysisTemplateCommandOutput,
+} from "./commands/GetCollaborationAnalysisTemplateCommand";
 import {
   GetCollaborationCommand,
   GetCollaborationCommandInput,
@@ -99,6 +124,16 @@ import {
   GetSchemaAnalysisRuleCommandOutput,
 } from "./commands/GetSchemaAnalysisRuleCommand";
 import { GetSchemaCommand, GetSchemaCommandInput, GetSchemaCommandOutput } from "./commands/GetSchemaCommand";
+import {
+  ListAnalysisTemplatesCommand,
+  ListAnalysisTemplatesCommandInput,
+  ListAnalysisTemplatesCommandOutput,
+} from "./commands/ListAnalysisTemplatesCommand";
+import {
+  ListCollaborationAnalysisTemplatesCommand,
+  ListCollaborationAnalysisTemplatesCommandInput,
+  ListCollaborationAnalysisTemplatesCommandOutput,
+} from "./commands/ListCollaborationAnalysisTemplatesCommand";
 import {
   ListCollaborationsCommand,
   ListCollaborationsCommandInput,
@@ -143,6 +178,11 @@ import {
   UntagResourceCommandOutput,
 } from "./commands/UntagResourceCommand";
 import {
+  UpdateAnalysisTemplateCommand,
+  UpdateAnalysisTemplateCommandInput,
+  UpdateAnalysisTemplateCommandOutput,
+} from "./commands/UpdateAnalysisTemplateCommand";
+import {
   UpdateCollaborationCommand,
   UpdateCollaborationCommandInput,
   UpdateCollaborationCommandOutput,
@@ -174,19 +214,24 @@ import {
 } from "./commands/UpdateProtectedQueryCommand";
 
 const commands = {
+  BatchGetCollaborationAnalysisTemplateCommand,
   BatchGetSchemaCommand,
+  CreateAnalysisTemplateCommand,
   CreateCollaborationCommand,
   CreateConfiguredTableCommand,
   CreateConfiguredTableAnalysisRuleCommand,
   CreateConfiguredTableAssociationCommand,
   CreateMembershipCommand,
+  DeleteAnalysisTemplateCommand,
   DeleteCollaborationCommand,
   DeleteConfiguredTableCommand,
   DeleteConfiguredTableAnalysisRuleCommand,
   DeleteConfiguredTableAssociationCommand,
   DeleteMemberCommand,
   DeleteMembershipCommand,
+  GetAnalysisTemplateCommand,
   GetCollaborationCommand,
+  GetCollaborationAnalysisTemplateCommand,
   GetConfiguredTableCommand,
   GetConfiguredTableAnalysisRuleCommand,
   GetConfiguredTableAssociationCommand,
@@ -194,6 +239,8 @@ const commands = {
   GetProtectedQueryCommand,
   GetSchemaCommand,
   GetSchemaAnalysisRuleCommand,
+  ListAnalysisTemplatesCommand,
+  ListCollaborationAnalysisTemplatesCommand,
   ListCollaborationsCommand,
   ListConfiguredTableAssociationsCommand,
   ListConfiguredTablesCommand,
@@ -205,6 +252,7 @@ const commands = {
   StartProtectedQueryCommand,
   TagResourceCommand,
   UntagResourceCommand,
+  UpdateAnalysisTemplateCommand,
   UpdateCollaborationCommand,
   UpdateConfiguredTableCommand,
   UpdateConfiguredTableAnalysisRuleCommand,
@@ -214,6 +262,23 @@ const commands = {
 };
 
 export interface CleanRooms {
+  /**
+   * @see {@link BatchGetCollaborationAnalysisTemplateCommand}
+   */
+  batchGetCollaborationAnalysisTemplate(
+    args: BatchGetCollaborationAnalysisTemplateCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<BatchGetCollaborationAnalysisTemplateCommandOutput>;
+  batchGetCollaborationAnalysisTemplate(
+    args: BatchGetCollaborationAnalysisTemplateCommandInput,
+    cb: (err: any, data?: BatchGetCollaborationAnalysisTemplateCommandOutput) => void
+  ): void;
+  batchGetCollaborationAnalysisTemplate(
+    args: BatchGetCollaborationAnalysisTemplateCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: BatchGetCollaborationAnalysisTemplateCommandOutput) => void
+  ): void;
+
   /**
    * @see {@link BatchGetSchemaCommand}
    */
@@ -226,6 +291,23 @@ export interface CleanRooms {
     args: BatchGetSchemaCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: BatchGetSchemaCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link CreateAnalysisTemplateCommand}
+   */
+  createAnalysisTemplate(
+    args: CreateAnalysisTemplateCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateAnalysisTemplateCommandOutput>;
+  createAnalysisTemplate(
+    args: CreateAnalysisTemplateCommandInput,
+    cb: (err: any, data?: CreateAnalysisTemplateCommandOutput) => void
+  ): void;
+  createAnalysisTemplate(
+    args: CreateAnalysisTemplateCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CreateAnalysisTemplateCommandOutput) => void
   ): void;
 
   /**
@@ -311,6 +393,23 @@ export interface CleanRooms {
     args: CreateMembershipCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: CreateMembershipCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DeleteAnalysisTemplateCommand}
+   */
+  deleteAnalysisTemplate(
+    args: DeleteAnalysisTemplateCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteAnalysisTemplateCommandOutput>;
+  deleteAnalysisTemplate(
+    args: DeleteAnalysisTemplateCommandInput,
+    cb: (err: any, data?: DeleteAnalysisTemplateCommandOutput) => void
+  ): void;
+  deleteAnalysisTemplate(
+    args: DeleteAnalysisTemplateCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteAnalysisTemplateCommandOutput) => void
   ): void;
 
   /**
@@ -410,6 +509,23 @@ export interface CleanRooms {
   ): void;
 
   /**
+   * @see {@link GetAnalysisTemplateCommand}
+   */
+  getAnalysisTemplate(
+    args: GetAnalysisTemplateCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetAnalysisTemplateCommandOutput>;
+  getAnalysisTemplate(
+    args: GetAnalysisTemplateCommandInput,
+    cb: (err: any, data?: GetAnalysisTemplateCommandOutput) => void
+  ): void;
+  getAnalysisTemplate(
+    args: GetAnalysisTemplateCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetAnalysisTemplateCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link GetCollaborationCommand}
    */
   getCollaboration(
@@ -424,6 +540,23 @@ export interface CleanRooms {
     args: GetCollaborationCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: GetCollaborationCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link GetCollaborationAnalysisTemplateCommand}
+   */
+  getCollaborationAnalysisTemplate(
+    args: GetCollaborationAnalysisTemplateCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetCollaborationAnalysisTemplateCommandOutput>;
+  getCollaborationAnalysisTemplate(
+    args: GetCollaborationAnalysisTemplateCommandInput,
+    cb: (err: any, data?: GetCollaborationAnalysisTemplateCommandOutput) => void
+  ): void;
+  getCollaborationAnalysisTemplate(
+    args: GetCollaborationAnalysisTemplateCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetCollaborationAnalysisTemplateCommandOutput) => void
   ): void;
 
   /**
@@ -531,6 +664,40 @@ export interface CleanRooms {
     args: GetSchemaAnalysisRuleCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: GetSchemaAnalysisRuleCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ListAnalysisTemplatesCommand}
+   */
+  listAnalysisTemplates(
+    args: ListAnalysisTemplatesCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListAnalysisTemplatesCommandOutput>;
+  listAnalysisTemplates(
+    args: ListAnalysisTemplatesCommandInput,
+    cb: (err: any, data?: ListAnalysisTemplatesCommandOutput) => void
+  ): void;
+  listAnalysisTemplates(
+    args: ListAnalysisTemplatesCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListAnalysisTemplatesCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ListCollaborationAnalysisTemplatesCommand}
+   */
+  listCollaborationAnalysisTemplates(
+    args: ListCollaborationAnalysisTemplatesCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListCollaborationAnalysisTemplatesCommandOutput>;
+  listCollaborationAnalysisTemplates(
+    args: ListCollaborationAnalysisTemplatesCommandInput,
+    cb: (err: any, data?: ListCollaborationAnalysisTemplatesCommandOutput) => void
+  ): void;
+  listCollaborationAnalysisTemplates(
+    args: ListCollaborationAnalysisTemplatesCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListCollaborationAnalysisTemplatesCommandOutput) => void
   ): void;
 
   /**
@@ -691,6 +858,23 @@ export interface CleanRooms {
     args: UntagResourceCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: UntagResourceCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link UpdateAnalysisTemplateCommand}
+   */
+  updateAnalysisTemplate(
+    args: UpdateAnalysisTemplateCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateAnalysisTemplateCommandOutput>;
+  updateAnalysisTemplate(
+    args: UpdateAnalysisTemplateCommandInput,
+    cb: (err: any, data?: UpdateAnalysisTemplateCommandOutput) => void
+  ): void;
+  updateAnalysisTemplate(
+    args: UpdateAnalysisTemplateCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UpdateAnalysisTemplateCommandOutput) => void
   ): void;
 
   /**
