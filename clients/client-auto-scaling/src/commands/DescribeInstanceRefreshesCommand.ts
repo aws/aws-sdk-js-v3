@@ -94,6 +94,11 @@ export interface DescribeInstanceRefreshesCommandOutput extends DescribeInstance
  * //         AutoRollback: true || false,
  * //         ScaleInProtectedInstances: "Refresh" || "Ignore" || "Wait",
  * //         StandbyInstances: "Terminate" || "Ignore" || "Wait",
+ * //         AlarmSpecification: { // AlarmSpecification
+ * //           Alarms: [ // AlarmList
+ * //             "STRING_VALUE",
+ * //           ],
+ * //         },
  * //       },
  * //       DesiredConfiguration: { // DesiredConfiguration
  * //         LaunchTemplate: { // LaunchTemplateSpecification

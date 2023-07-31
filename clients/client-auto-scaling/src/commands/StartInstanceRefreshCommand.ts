@@ -179,6 +179,11 @@ export interface StartInstanceRefreshCommandOutput extends StartInstanceRefreshA
  *     AutoRollback: true || false,
  *     ScaleInProtectedInstances: "Refresh" || "Ignore" || "Wait",
  *     StandbyInstances: "Terminate" || "Ignore" || "Wait",
+ *     AlarmSpecification: { // AlarmSpecification
+ *       Alarms: [ // AlarmList
+ *         "STRING_VALUE",
+ *       ],
+ *     },
  *   },
  * };
  * const command = new StartInstanceRefreshCommand(input);

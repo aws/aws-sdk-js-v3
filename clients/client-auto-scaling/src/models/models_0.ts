@@ -260,6 +260,17 @@ export interface Alarm {
 
 /**
  * @public
+ * <p>Specifies the CloudWatch alarm specification to use in an instance refresh.</p>
+ */
+export interface AlarmSpecification {
+  /**
+   * <p>The names of one or more CloudWatch alarms to monitor for the instance refresh.</p>
+   */
+  Alarms?: string[];
+}
+
+/**
+ * @public
  * <p>You already have an Auto Scaling group or launch configuration with this name.</p>
  */
 export class AlreadyExistsFault extends __BaseException {
@@ -3406,7 +3417,8 @@ export interface RefreshPreferences {
 
   /**
    * <p>(Optional) Indicates whether to roll back the Auto Scaling group to its previous configuration
-   *             if the instance refresh fails. The default is <code>false</code>.</p>
+   *             if the instance refresh fails or a CloudWatch alarm threshold is met. The default is
+   *                 <code>false</code>.</p>
    *          <p>A rollback is not supported in the following situations: </p>
    *          <ul>
    *             <li>
@@ -3421,6 +3433,8 @@ export interface RefreshPreferences {
    *                         <code>$Default</code> version.</p>
    *             </li>
    *          </ul>
+   *          <p>For more information, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/instance-refresh-rollback.html">Undo changes with a
+   *                 rollback</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>.</p>
    */
   AutoRollback?: boolean;
 
@@ -3469,6 +3483,12 @@ export interface RefreshPreferences {
    *          </dl>
    */
   StandbyInstances?: StandbyInstances | string;
+
+  /**
+   * <p>(Optional) The CloudWatch alarm specification. CloudWatch alarms can be used to identify any
+   *             issues and fail the operation if an alarm threshold is met.</p>
+   */
+  AlarmSpecification?: AlarmSpecification;
 }
 
 /**
@@ -5063,8 +5083,8 @@ export interface StepAdjustment {
 
   /**
    * <p>The amount by which to scale, based on the specified adjustment type. A positive value
-   *             adds to the current capacity while a negative number removes from the current
-   *             capacity. For exact capacity, you must specify a non-negative value.</p>
+   *             adds to the current capacity while a negative number removes from the current capacity.
+   *             For exact capacity, you must specify a non-negative value.</p>
    */
   ScalingAdjustment: number | undefined;
 }
@@ -7227,6 +7247,9 @@ export interface StartInstanceRefreshType {
    *             </li>
    *             <li>
    *                <p>Checkpoints</p>
+   *             </li>
+   *             <li>
+   *                <p>CloudWatch alarms</p>
    *             </li>
    *             <li>
    *                <p>Skip matching</p>

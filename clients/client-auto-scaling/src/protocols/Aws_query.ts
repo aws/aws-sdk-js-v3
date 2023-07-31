@@ -239,6 +239,7 @@ import {
   ActivityType,
   AdjustmentType,
   Alarm,
+  AlarmSpecification,
   AlreadyExistsFault,
   AttachInstancesQuery,
   AttachLoadBalancersResultType,
@@ -4864,6 +4865,40 @@ const se_ActivityIds = (input: string[], context: __SerdeContext): any => {
 };
 
 /**
+ * serializeAws_queryAlarmList
+ */
+const se_AlarmList = (input: string[], context: __SerdeContext): any => {
+  const entries: any = {};
+  let counter = 1;
+  for (const entry of input) {
+    if (entry === null) {
+      continue;
+    }
+    entries[`member.${counter}`] = entry;
+    counter++;
+  }
+  return entries;
+};
+
+/**
+ * serializeAws_queryAlarmSpecification
+ */
+const se_AlarmSpecification = (input: AlarmSpecification, context: __SerdeContext): any => {
+  const entries: any = {};
+  if (input.Alarms != null) {
+    const memberEntries = se_AlarmList(input.Alarms, context);
+    if (input.Alarms?.length === 0) {
+      entries.Alarms = [];
+    }
+    Object.entries(memberEntries).forEach(([key, value]) => {
+      const loc = `Alarms.${key}`;
+      entries[loc] = value;
+    });
+  }
+  return entries;
+};
+
+/**
  * serializeAws_queryAllowedInstanceTypes
  */
 const se_AllowedInstanceTypes = (input: string[], context: __SerdeContext): any => {
@@ -7539,6 +7574,13 @@ const se_RefreshPreferences = (input: RefreshPreferences, context: __SerdeContex
   if (input.StandbyInstances != null) {
     entries["StandbyInstances"] = input.StandbyInstances;
   }
+  if (input.AlarmSpecification != null) {
+    const memberEntries = se_AlarmSpecification(input.AlarmSpecification, context);
+    Object.entries(memberEntries).forEach(([key, value]) => {
+      const loc = `AlarmSpecification.${key}`;
+      entries[loc] = value;
+    });
+  }
   return entries;
 };
 
@@ -8338,6 +8380,17 @@ const de_Alarm = (output: any, context: __SerdeContext): Alarm => {
 };
 
 /**
+ * deserializeAws_queryAlarmList
+ */
+const de_AlarmList = (output: any, context: __SerdeContext): string[] => {
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      return __expectString(entry) as any;
+    });
+};
+
+/**
  * deserializeAws_queryAlarms
  */
 const de_Alarms = (output: any, context: __SerdeContext): Alarm[] => {
@@ -8346,6 +8399,19 @@ const de_Alarms = (output: any, context: __SerdeContext): Alarm[] => {
     .map((entry: any) => {
       return de_Alarm(entry, context);
     });
+};
+
+/**
+ * deserializeAws_queryAlarmSpecification
+ */
+const de_AlarmSpecification = (output: any, context: __SerdeContext): AlarmSpecification => {
+  const contents: any = {};
+  if (output.Alarms === "") {
+    contents.Alarms = [];
+  } else if (output["Alarms"] !== undefined && output["Alarms"]["member"] !== undefined) {
+    contents.Alarms = de_AlarmList(__getArrayIfSingleItem(output["Alarms"]["member"]), context);
+  }
+  return contents;
 };
 
 /**
@@ -10653,6 +10719,9 @@ const de_RefreshPreferences = (output: any, context: __SerdeContext): RefreshPre
   }
   if (output["StandbyInstances"] !== undefined) {
     contents.StandbyInstances = __expectString(output["StandbyInstances"]);
+  }
+  if (output["AlarmSpecification"] !== undefined) {
+    contents.AlarmSpecification = de_AlarmSpecification(output["AlarmSpecification"], context);
   }
   return contents;
 };
