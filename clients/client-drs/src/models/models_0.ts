@@ -1214,6 +1214,7 @@ export interface Licensing {
  */
 export const TargetInstanceTypeRightSizingMethod = {
   BASIC: "BASIC",
+  IN_AWS: "IN_AWS",
   NONE: "NONE",
 } as const;
 
