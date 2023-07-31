@@ -36,7 +36,7 @@ export interface CreateFormCommandOutput extends CreateFormResponse, __MetadataB
 
 /**
  * @public
- * <p>Creates a new form for an Amplify.</p>
+ * <p>Creates a new form for an Amplify app.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

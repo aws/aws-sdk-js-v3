@@ -62,6 +62,17 @@ export interface GetCodegenJobCommandOutput extends GetCodegenJobResponse, __Met
  * //         script: "jsx" || "tsx" || "js",
  * //         renderTypeDeclarations: true || false,
  * //         inlineSourceMap: true || false,
+ * //         apiConfiguration: { // ApiConfiguration Union: only one key present
+ * //           graphQLConfig: { // GraphQLRenderConfig
+ * //             typesFilePath: "STRING_VALUE", // required
+ * //             queriesFilePath: "STRING_VALUE", // required
+ * //             mutationsFilePath: "STRING_VALUE", // required
+ * //             subscriptionsFilePath: "STRING_VALUE", // required
+ * //             fragmentsFilePath: "STRING_VALUE", // required
+ * //           },
+ * //           dataStoreConfig: {},
+ * //           noApiConfig: {},
+ * //         },
  * //       },
  * //     },
  * //     genericDataSchema: { // CodegenJobGenericDataSchema

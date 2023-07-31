@@ -301,6 +301,115 @@ export interface CodegenJobGenericDataSchema {
 
 /**
  * @public
+ * <p>Describes the DataStore configuration for an API for a code generation job.</p>
+ */
+export interface DataStoreRenderConfig {}
+
+/**
+ * @public
+ * <p>Describes the GraphQL configuration for an API for a code generation job.</p>
+ */
+export interface GraphQLRenderConfig {
+  /**
+   * <p>The path to the GraphQL types file, relative to the component output directory.</p>
+   */
+  typesFilePath: string | undefined;
+
+  /**
+   * <p>The path to the GraphQL queries file, relative to the component output directory.</p>
+   */
+  queriesFilePath: string | undefined;
+
+  /**
+   * <p>The path to the GraphQL mutations file, relative to the component output directory.</p>
+   */
+  mutationsFilePath: string | undefined;
+
+  /**
+   * <p>The path to the GraphQL subscriptions file, relative to the component output directory.</p>
+   */
+  subscriptionsFilePath: string | undefined;
+
+  /**
+   * <p>The path to the GraphQL fragments file, relative to the component output directory.</p>
+   */
+  fragmentsFilePath: string | undefined;
+}
+
+/**
+ * @public
+ * <p>Describes the configuration for an application with no API being used.</p>
+ */
+export interface NoApiRenderConfig {}
+
+/**
+ * @public
+ * <p>Describes the API configuration for a code generation job.</p>
+ */
+export type ApiConfiguration =
+  | ApiConfiguration.DataStoreConfigMember
+  | ApiConfiguration.GraphQLConfigMember
+  | ApiConfiguration.NoApiConfigMember
+  | ApiConfiguration.$UnknownMember;
+
+/**
+ * @public
+ */
+export namespace ApiConfiguration {
+  /**
+   * <p>The configuration for an application using GraphQL APIs.</p>
+   */
+  export interface GraphQLConfigMember {
+    graphQLConfig: GraphQLRenderConfig;
+    dataStoreConfig?: never;
+    noApiConfig?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>The configuration for an application using DataStore APIs.</p>
+   */
+  export interface DataStoreConfigMember {
+    graphQLConfig?: never;
+    dataStoreConfig: DataStoreRenderConfig;
+    noApiConfig?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>The configuration for an application with no API being used.</p>
+   */
+  export interface NoApiConfigMember {
+    graphQLConfig?: never;
+    dataStoreConfig?: never;
+    noApiConfig: NoApiRenderConfig;
+    $unknown?: never;
+  }
+
+  export interface $UnknownMember {
+    graphQLConfig?: never;
+    dataStoreConfig?: never;
+    noApiConfig?: never;
+    $unknown: [string, any];
+  }
+
+  export interface Visitor<T> {
+    graphQLConfig: (value: GraphQLRenderConfig) => T;
+    dataStoreConfig: (value: DataStoreRenderConfig) => T;
+    noApiConfig: (value: NoApiRenderConfig) => T;
+    _: (name: string, value: any) => T;
+  }
+
+  export const visit = <T>(value: ApiConfiguration, visitor: Visitor<T>): T => {
+    if (value.graphQLConfig !== undefined) return visitor.graphQLConfig(value.graphQLConfig);
+    if (value.dataStoreConfig !== undefined) return visitor.dataStoreConfig(value.dataStoreConfig);
+    if (value.noApiConfig !== undefined) return visitor.noApiConfig(value.noApiConfig);
+    return visitor._(value.$unknown[0], value.$unknown[1]);
+  };
+}
+
+/**
+ * @public
  * @enum
  */
 export const JSModule = {
@@ -371,11 +480,16 @@ export interface ReactStartCodegenJobData {
    * <p>Specifies whether the code generation job should render inline source maps.</p>
    */
   inlineSourceMap?: boolean;
+
+  /**
+   * <p>The API configuration for the code generation job.</p>
+   */
+  apiConfiguration?: ApiConfiguration;
 }
 
 /**
  * @public
- * <p>Describes the configuration information for rendering the UI component associated the code generation job.</p>
+ * <p>Describes the configuration information for rendering the UI component associated with the code generation job.</p>
  */
 export type CodegenJobRenderConfig = CodegenJobRenderConfig.ReactMember | CodegenJobRenderConfig.$UnknownMember;
 
@@ -443,7 +557,7 @@ export interface CodegenJob {
   environmentName: string | undefined;
 
   /**
-   * <p>Describes the configuration information for rendering the UI component associated the code generation job.</p>
+   * <p>Describes the configuration information for rendering the UI component associated with the code generation job.</p>
    */
   renderConfig?: CodegenJobRenderConfig;
 

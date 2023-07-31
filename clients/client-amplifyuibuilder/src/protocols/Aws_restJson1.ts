@@ -57,6 +57,7 @@ import { UpdateThemeCommandInput, UpdateThemeCommandOutput } from "../commands/U
 import { AmplifyUIBuilderServiceException as __BaseException } from "../models/AmplifyUIBuilderServiceException";
 import {
   ActionParameters,
+  ApiConfiguration,
   CodegenFeatureFlags,
   CodegenGenericDataEnum,
   CodegenGenericDataField,
@@ -80,6 +81,7 @@ import {
   CreateComponentData,
   CreateFormData,
   CreateThemeData,
+  DataStoreRenderConfig,
   ExchangeCodeForTokenRequestBody,
   FieldConfig,
   FieldInputConfig,
@@ -97,9 +99,11 @@ import {
   FormInputValuePropertyBindingProperties,
   FormStyle,
   FormStyleConfig,
+  GraphQLRenderConfig,
   InternalServerException,
   InvalidParameterException,
   MutationActionSetStateParameter,
+  NoApiRenderConfig,
   Predicate,
   PutMetadataFlagBody,
   ReactStartCodegenJobData,
@@ -2506,6 +2510,8 @@ const se_ActionParameters = (input: ActionParameters, context: __SerdeContext): 
   });
 };
 
+// se_ApiConfiguration omitted.
+
 // se_AssociatedFieldsList omitted.
 
 // se_CodegenFeatureFlags omitted.
@@ -2785,6 +2791,8 @@ const se_CreateThemeData = (input: CreateThemeData, context: __SerdeContext): an
   });
 };
 
+// se_DataStoreRenderConfig omitted.
+
 // se_ExchangeCodeForTokenRequestBody omitted.
 
 /**
@@ -2887,6 +2895,8 @@ const se_FormInputValuePropertyList = (input: FormInputValueProperty[], context:
 
 // se_FormStyleConfig omitted.
 
+// se_GraphQLRenderConfig omitted.
+
 // se_IdentifierList omitted.
 
 /**
@@ -2899,6 +2909,8 @@ const se_MutationActionSetStateParameter = (input: MutationActionSetStateParamet
     set: (_) => se_ComponentProperty(_, context),
   });
 };
+
+// se_NoApiRenderConfig omitted.
 
 // se_NumValues omitted.
 
@@ -3078,6 +3090,8 @@ const de_ActionParameters = (output: any, context: __SerdeContext): ActionParame
     url: (_: any) => de_ComponentProperty(_, context),
   }) as any;
 };
+
+// de_ApiConfiguration omitted.
 
 // de_AssociatedFieldsList omitted.
 
@@ -3405,6 +3419,8 @@ const de_ComponentPropertyList = (output: any, context: __SerdeContext): Compone
 
 // de_ComponentVariantValues omitted.
 
+// de_DataStoreRenderConfig omitted.
+
 // de_FeaturesMap omitted.
 
 /**
@@ -3545,6 +3561,8 @@ const de_FormList = (output: any, context: __SerdeContext): Form[] => {
 
 // de_FormSummaryList omitted.
 
+// de_GraphQLRenderConfig omitted.
+
 // de_IdentifierList omitted.
 
 /**
@@ -3557,6 +3575,8 @@ const de_MutationActionSetStateParameter = (output: any, context: __SerdeContext
     set: (_: any) => de_ComponentProperty(_, context),
   }) as any;
 };
+
+// de_NoApiRenderConfig omitted.
 
 // de_NumValues omitted.
 

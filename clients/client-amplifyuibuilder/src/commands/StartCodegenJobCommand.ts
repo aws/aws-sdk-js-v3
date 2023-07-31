@@ -36,7 +36,7 @@ export interface StartCodegenJobCommandOutput extends StartCodegenJobResponse, _
 
 /**
  * @public
- * <p>Starts a code generation job for for a specified Amplify app and backend environment.</p>
+ * <p>Starts a code generation job for a specified Amplify app and backend environment.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -55,6 +55,17 @@ export interface StartCodegenJobCommandOutput extends StartCodegenJobResponse, _
  *         script: "jsx" || "tsx" || "js",
  *         renderTypeDeclarations: true || false,
  *         inlineSourceMap: true || false,
+ *         apiConfiguration: { // ApiConfiguration Union: only one key present
+ *           graphQLConfig: { // GraphQLRenderConfig
+ *             typesFilePath: "STRING_VALUE", // required
+ *             queriesFilePath: "STRING_VALUE", // required
+ *             mutationsFilePath: "STRING_VALUE", // required
+ *             subscriptionsFilePath: "STRING_VALUE", // required
+ *             fragmentsFilePath: "STRING_VALUE", // required
+ *           },
+ *           dataStoreConfig: {},
+ *           noApiConfig: {},
+ *         },
  *       },
  *     },
  *     genericDataSchema: { // CodegenJobGenericDataSchema
@@ -151,6 +162,17 @@ export interface StartCodegenJobCommandOutput extends StartCodegenJobResponse, _
  * //         script: "jsx" || "tsx" || "js",
  * //         renderTypeDeclarations: true || false,
  * //         inlineSourceMap: true || false,
+ * //         apiConfiguration: { // ApiConfiguration Union: only one key present
+ * //           graphQLConfig: { // GraphQLRenderConfig
+ * //             typesFilePath: "STRING_VALUE", // required
+ * //             queriesFilePath: "STRING_VALUE", // required
+ * //             mutationsFilePath: "STRING_VALUE", // required
+ * //             subscriptionsFilePath: "STRING_VALUE", // required
+ * //             fragmentsFilePath: "STRING_VALUE", // required
+ * //           },
+ * //           dataStoreConfig: {},
+ * //           noApiConfig: {},
+ * //         },
  * //       },
  * //     },
  * //     genericDataSchema: { // CodegenJobGenericDataSchema
