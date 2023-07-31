@@ -107,6 +107,7 @@ export interface DescribeDBEngineVersionsCommandOutput extends DBEngineVersionMe
  * //           SupportsParallelQuery: true || false,
  * //           SupportsGlobalDatabases: true || false,
  * //           SupportsBabelfish: true || false,
+ * //           SupportsLocalWriteForwarding: true || false,
  * //         },
  * //       ],
  * //       SupportedTimezones: [ // SupportedTimezonesList
@@ -146,6 +147,7 @@ export interface DescribeDBEngineVersionsCommandOutput extends DBEngineVersionMe
  * //       SupportedCACertificateIdentifiers: [ // CACertificateIdentifiersList
  * //         "STRING_VALUE",
  * //       ],
+ * //       SupportsLocalWriteForwarding: true || false,
  * //     },
  * //   ],
  * // };

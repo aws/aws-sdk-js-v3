@@ -270,6 +270,7 @@ export interface RestoreDBClusterToPointInTimeCommandOutput
  * //       KmsKeyId: "STRING_VALUE",
  * //     },
  * //     IOOptimizedNextAllowedModificationTime: new Date("TIMESTAMP"),
+ * //     LocalWriteForwardingStatus: "enabled" || "disabled" || "enabling" || "disabling" || "requested",
  * //   },
  * // };
  *

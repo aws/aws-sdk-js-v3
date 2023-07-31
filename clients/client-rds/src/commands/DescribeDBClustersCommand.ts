@@ -221,6 +221,7 @@ export interface DescribeDBClustersCommandOutput extends DBClusterMessage, __Met
  * //         KmsKeyId: "STRING_VALUE",
  * //       },
  * //       IOOptimizedNextAllowedModificationTime: new Date("TIMESTAMP"),
+ * //       LocalWriteForwardingStatus: "enabled" || "disabled" || "enabling" || "disabling" || "requested",
  * //     },
  * //   ],
  * // };

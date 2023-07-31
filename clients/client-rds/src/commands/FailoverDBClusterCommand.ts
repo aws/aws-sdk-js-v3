@@ -218,6 +218,7 @@ export interface FailoverDBClusterCommandOutput extends FailoverDBClusterResult,
  * //       KmsKeyId: "STRING_VALUE",
  * //     },
  * //     IOOptimizedNextAllowedModificationTime: new Date("TIMESTAMP"),
+ * //     LocalWriteForwardingStatus: "enabled" || "disabled" || "enabling" || "disabling" || "requested",
  * //   },
  * // };
  *

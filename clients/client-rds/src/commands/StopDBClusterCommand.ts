@@ -209,6 +209,7 @@ export interface StopDBClusterCommandOutput extends StopDBClusterResult, __Metad
  * //       KmsKeyId: "STRING_VALUE",
  * //     },
  * //     IOOptimizedNextAllowedModificationTime: new Date("TIMESTAMP"),
+ * //     LocalWriteForwardingStatus: "enabled" || "disabled" || "enabling" || "disabling" || "requested",
  * //   },
  * // };
  *

@@ -112,6 +112,7 @@ export interface ModifyDBClusterCommandOutput extends ModifyDBClusterResult, __M
  *   MasterUserSecretKmsKeyId: "STRING_VALUE",
  *   EngineMode: "STRING_VALUE",
  *   AllowEngineModeChange: true || false,
+ *   EnableLocalWriteForwarding: true || false,
  * };
  * const command = new ModifyDBClusterCommand(input);
  * const response = await client.send(command);
@@ -268,6 +269,7 @@ export interface ModifyDBClusterCommandOutput extends ModifyDBClusterResult, __M
  * //       KmsKeyId: "STRING_VALUE",
  * //     },
  * //     IOOptimizedNextAllowedModificationTime: new Date("TIMESTAMP"),
+ * //     LocalWriteForwardingStatus: "enabled" || "disabled" || "enabling" || "disabling" || "requested",
  * //   },
  * // };
  *

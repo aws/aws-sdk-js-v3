@@ -128,6 +128,7 @@ export interface CreateDBClusterCommandOutput extends CreateDBClusterResult, __M
  *   DBSystemId: "STRING_VALUE",
  *   ManageMasterUserPassword: true || false,
  *   MasterUserSecretKmsKeyId: "STRING_VALUE",
+ *   EnableLocalWriteForwarding: true || false,
  * };
  * const command = new CreateDBClusterCommand(input);
  * const response = await client.send(command);
@@ -284,6 +285,7 @@ export interface CreateDBClusterCommandOutput extends CreateDBClusterResult, __M
  * //       KmsKeyId: "STRING_VALUE",
  * //     },
  * //     IOOptimizedNextAllowedModificationTime: new Date("TIMESTAMP"),
+ * //     LocalWriteForwardingStatus: "enabled" || "disabled" || "enabling" || "disabling" || "requested",
  * //   },
  * // };
  *

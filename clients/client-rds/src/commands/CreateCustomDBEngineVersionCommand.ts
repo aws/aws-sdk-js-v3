@@ -101,6 +101,7 @@ export interface CreateCustomDBEngineVersionCommandOutput extends DBEngineVersio
  * //       SupportsParallelQuery: true || false,
  * //       SupportsGlobalDatabases: true || false,
  * //       SupportsBabelfish: true || false,
+ * //       SupportsLocalWriteForwarding: true || false,
  * //     },
  * //   ],
  * //   SupportedTimezones: [ // SupportedTimezonesList
@@ -140,6 +141,7 @@ export interface CreateCustomDBEngineVersionCommandOutput extends DBEngineVersio
  * //   SupportedCACertificateIdentifiers: [ // CACertificateIdentifiersList
  * //     "STRING_VALUE",
  * //   ],
+ * //   SupportsLocalWriteForwarding: true || false,
  * // };
  *
  * ```

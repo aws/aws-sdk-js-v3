@@ -38,6 +38,47 @@ import { RDSServiceException as __BaseException } from "./RDSServiceException";
 
 /**
  * @public
+ * <p></p>
+ */
+export interface DescribeDBParameterGroupsMessage {
+  /**
+   * <p>The name of a specific DB parameter group to return details for.</p>
+   *          <p>Constraints:</p>
+   *          <ul>
+   *             <li>
+   *                <p>If supplied, must match the name of an existing DBClusterParameterGroup.</p>
+   *             </li>
+   *          </ul>
+   */
+  DBParameterGroupName?: string;
+
+  /**
+   * <p>This parameter isn't currently supported.</p>
+   */
+  Filters?: Filter[];
+
+  /**
+   * <p>The maximum number of records to include in the response.
+   *         If more records exist than the specified <code>MaxRecords</code> value,
+   *             a pagination token called a marker is included in the response so that
+   *         you can retrieve the remaining results.</p>
+   *          <p>Default: 100</p>
+   *          <p>Constraints: Minimum 20, maximum 100.</p>
+   */
+  MaxRecords?: number;
+
+  /**
+   * <p>An optional pagination token provided by a previous
+   *         <code>DescribeDBParameterGroups</code> request.
+   *             If this parameter is specified, the response includes
+   *         only records beyond the marker,
+   *         up to the value specified by <code>MaxRecords</code>.</p>
+   */
+  Marker?: string;
+}
+
+/**
+ * @public
  * <p>Contains the result of a successful invocation of the <code>DescribeDBParameters</code> action.</p>
  */
 export interface DBParameterGroupDetails {
@@ -4241,6 +4282,13 @@ export interface ModifyDBClusterMessage {
    *          </ul>
    */
   AllowEngineModeChange?: boolean;
+
+  /**
+   * <p>Specifies whether read replicas can forward write operations to the writer DB instance in the DB cluster. By
+   *             default, write operations aren't allowed on reader DB instances.</p>
+   *          <p>Valid for: Aurora DB clusters only</p>
+   */
+  EnableLocalWriteForwarding?: boolean;
 }
 
 /**

@@ -679,7 +679,6 @@ import {
   DescribeDBLogFilesDetails,
   DescribeDBLogFilesMessage,
   DescribeDBLogFilesResponse,
-  DescribeDBParameterGroupsMessage,
   DomainMembership,
   DomainNotFoundFault,
   Ec2ImagePropertiesNotSupportedFault,
@@ -787,6 +786,7 @@ import {
   DBSnapshotMessage,
   DBSubnetGroupMessage,
   DBUpgradeDependencyFailureFault,
+  DescribeDBParameterGroupsMessage,
   DescribeDBParametersMessage,
   DescribeDBProxiesRequest,
   DescribeDBProxiesResponse,
@@ -13810,6 +13810,9 @@ const se_CreateDBClusterMessage = (input: CreateDBClusterMessage, context: __Ser
   if (input.MasterUserSecretKmsKeyId != null) {
     entries["MasterUserSecretKmsKeyId"] = input.MasterUserSecretKmsKeyId;
   }
+  if (input.EnableLocalWriteForwarding != null) {
+    entries["EnableLocalWriteForwarding"] = input.EnableLocalWriteForwarding;
+  }
   return entries;
 };
 
@@ -16522,6 +16525,9 @@ const se_ModifyDBClusterMessage = (input: ModifyDBClusterMessage, context: __Ser
   }
   if (input.AllowEngineModeChange != null) {
     entries["AllowEngineModeChange"] = input.AllowEngineModeChange;
+  }
+  if (input.EnableLocalWriteForwarding != null) {
+    entries["EnableLocalWriteForwarding"] = input.EnableLocalWriteForwarding;
   }
   return entries;
 };
@@ -20004,6 +20010,9 @@ const de_DBCluster = (output: any, context: __SerdeContext): DBCluster => {
       __parseRfc3339DateTimeWithOffset(output["IOOptimizedNextAllowedModificationTime"])
     );
   }
+  if (output["LocalWriteForwardingStatus"] !== undefined) {
+    contents.LocalWriteForwardingStatus = __expectString(output["LocalWriteForwardingStatus"]);
+  }
   return contents;
 };
 
@@ -20846,6 +20855,9 @@ const de_DBEngineVersion = (output: any, context: __SerdeContext): DBEngineVersi
       __getArrayIfSingleItem(output["SupportedCACertificateIdentifiers"]["member"]),
       context
     );
+  }
+  if (output["SupportsLocalWriteForwarding"] !== undefined) {
+    contents.SupportsLocalWriteForwarding = __parseBoolean(output["SupportsLocalWriteForwarding"]);
   }
   return contents;
 };
@@ -26419,6 +26431,9 @@ const de_UpgradeTarget = (output: any, context: __SerdeContext): UpgradeTarget =
   }
   if (output["SupportsBabelfish"] !== undefined) {
     contents.SupportsBabelfish = __parseBoolean(output["SupportsBabelfish"]);
+  }
+  if (output["SupportsLocalWriteForwarding"] !== undefined) {
+    contents.SupportsLocalWriteForwarding = __parseBoolean(output["SupportsLocalWriteForwarding"]);
   }
   return contents;
 };

@@ -3525,6 +3525,13 @@ export interface UpgradeTarget {
    * <p>A value that indicates whether you can use Babelfish for Aurora PostgreSQL with the target engine version.</p>
    */
   SupportsBabelfish?: boolean;
+
+  /**
+   * <p>A value that indicates whether the target engine version supports forwarding write operations from reader DB instances
+   *             to the writer DB instance in the DB cluster. By default, write operations aren't allowed on reader DB instances.</p>
+   *          <p>Valid for: Aurora DB clusters only</p>
+   */
+  SupportsLocalWriteForwarding?: boolean;
 }
 
 /**
@@ -3715,6 +3722,13 @@ export interface DBEngineVersion {
    *             User Guide</i>.</p>
    */
   SupportedCACertificateIdentifiers?: string[];
+
+  /**
+   * <p>A value that indicates whether the DB engine version supports forwarding write operations from reader DB instances
+   *             to the writer DB instance in the DB cluster. By default, write operations aren't allowed on reader DB instances.</p>
+   *          <p>Valid for: Aurora DB clusters only</p>
+   */
+  SupportsLocalWriteForwarding?: boolean;
 }
 
 /**
@@ -4552,6 +4566,13 @@ export interface CreateDBClusterMessage {
    *          <p>Valid for Cluster Type: Aurora DB clusters and Multi-AZ DB clusters</p>
    */
   MasterUserSecretKmsKeyId?: string;
+
+  /**
+   * <p>Specifies whether read replicas can forward write operations to the writer DB instance in the DB cluster. By
+   *             default, write operations aren't allowed on reader DB instances.</p>
+   *          <p>Valid for: Aurora DB clusters only</p>
+   */
+  EnableLocalWriteForwarding?: boolean;
 }
 
 /**
@@ -4695,6 +4716,23 @@ export const WriteForwardingStatus = {
  * @public
  */
 export type WriteForwardingStatus = (typeof WriteForwardingStatus)[keyof typeof WriteForwardingStatus];
+
+/**
+ * @public
+ * @enum
+ */
+export const LocalWriteForwardingStatus = {
+  DISABLED: "disabled",
+  DISABLING: "disabling",
+  ENABLED: "enabled",
+  ENABLING: "enabling",
+  REQUESTED: "requested",
+} as const;
+
+/**
+ * @public
+ */
+export type LocalWriteForwardingStatus = (typeof LocalWriteForwardingStatus)[keyof typeof LocalWriteForwardingStatus];
 
 /**
  * @public
@@ -5366,6 +5404,12 @@ export interface DBCluster {
    *          <p>This setting is only for Aurora DB clusters.</p>
    */
   IOOptimizedNextAllowedModificationTime?: Date;
+
+  /**
+   * <p>Specifies whether an Aurora DB cluster has in-cluster write forwarding enabled, not enabled, requested, or is in the process
+   *             of enabling it.</p>
+   */
+  LocalWriteForwardingStatus?: LocalWriteForwardingStatus | string;
 }
 
 /**
@@ -13223,45 +13267,4 @@ export interface DBParameterGroupsMessage {
    * <p>A list of <code>DBParameterGroup</code> instances.</p>
    */
   DBParameterGroups?: DBParameterGroup[];
-}
-
-/**
- * @public
- * <p></p>
- */
-export interface DescribeDBParameterGroupsMessage {
-  /**
-   * <p>The name of a specific DB parameter group to return details for.</p>
-   *          <p>Constraints:</p>
-   *          <ul>
-   *             <li>
-   *                <p>If supplied, must match the name of an existing DBClusterParameterGroup.</p>
-   *             </li>
-   *          </ul>
-   */
-  DBParameterGroupName?: string;
-
-  /**
-   * <p>This parameter isn't currently supported.</p>
-   */
-  Filters?: Filter[];
-
-  /**
-   * <p>The maximum number of records to include in the response.
-   *         If more records exist than the specified <code>MaxRecords</code> value,
-   *             a pagination token called a marker is included in the response so that
-   *         you can retrieve the remaining results.</p>
-   *          <p>Default: 100</p>
-   *          <p>Constraints: Minimum 20, maximum 100.</p>
-   */
-  MaxRecords?: number;
-
-  /**
-   * <p>An optional pagination token provided by a previous
-   *         <code>DescribeDBParameterGroups</code> request.
-   *             If this parameter is specified, the response includes
-   *         only records beyond the marker,
-   *         up to the value specified by <code>MaxRecords</code>.</p>
-   */
-  Marker?: string;
 }
