@@ -85,6 +85,7 @@ export interface GetReadSetMetadataCommandOutput extends GetReadSetMetadataRespo
  * //     },
  * //   },
  * //   statusMessage: "STRING_VALUE",
+ * //   creationType: "STRING_VALUE",
  * // };
  *
  * ```

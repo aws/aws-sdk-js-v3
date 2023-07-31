@@ -2146,6 +2146,20 @@ export interface CreateWorkflowResponse {
 
 /**
  * @public
+ * @enum
+ */
+export const CreationType = {
+  IMPORT: "IMPORT",
+  UPLOAD: "UPLOAD",
+} as const;
+
+/**
+ * @public
+ */
+export type CreationType = (typeof CreationType)[keyof typeof CreationType];
+
+/**
+ * @public
  */
 export interface DeleteReferenceRequest {
   /**
@@ -2908,6 +2922,13 @@ export interface GetReadSetMetadataResponse {
    *     </p>
    */
   statusMessage?: string;
+
+  /**
+   * <p>
+   *       The creation type of the read set.
+   *     </p>
+   */
+  creationType?: CreationType | string;
 }
 
 /**
@@ -4365,6 +4386,13 @@ export interface ReadSetFilter {
    *     </p>
    */
   generatedFrom?: string;
+
+  /**
+   * <p>
+   *       The creation type of the read set.
+   *     </p>
+   */
+  creationType?: CreationType | string;
 }
 
 /**
@@ -4463,6 +4491,13 @@ export interface ReadSetListItem {
    *     </p>
    */
   statusMessage?: string;
+
+  /**
+   * <p>
+   *       The creation type of the read set.
+   *     </p>
+   */
+  creationType?: CreationType | string;
 }
 
 /**

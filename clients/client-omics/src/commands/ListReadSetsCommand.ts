@@ -56,6 +56,7 @@ export interface ListReadSetsCommandOutput extends ListReadSetsResponse, __Metad
  *     sampleId: "STRING_VALUE",
  *     subjectId: "STRING_VALUE",
  *     generatedFrom: "STRING_VALUE",
+ *     creationType: "STRING_VALUE",
  *   },
  * };
  * const command = new ListReadSetsCommand(input);
@@ -82,6 +83,7 @@ export interface ListReadSetsCommandOutput extends ListReadSetsResponse, __Metad
  * //       },
  * //       creationTime: new Date("TIMESTAMP"), // required
  * //       statusMessage: "STRING_VALUE",
+ * //       creationType: "STRING_VALUE",
  * //     },
  * //   ],
  * // };

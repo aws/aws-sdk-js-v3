@@ -4916,6 +4916,7 @@ export const de_GetReadSetMetadataCommand = async (
   const doc = take(data, {
     arn: __expectString,
     creationTime: (_) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
+    creationType: __expectString,
     description: __expectString,
     fileType: __expectString,
     files: _json,
@@ -8196,6 +8197,7 @@ const se_ReadSetFilter = (input: ReadSetFilter, context: __SerdeContext): any =>
   return take(input, {
     createdAfter: (_) => _.toISOString().split(".")[0] + "Z",
     createdBefore: (_) => _.toISOString().split(".")[0] + "Z",
+    creationType: [],
     generatedFrom: [],
     name: [],
     referenceArn: [],
@@ -8548,6 +8550,7 @@ const de_ReadSetListItem = (output: any, context: __SerdeContext): ReadSetListIt
   return take(output, {
     arn: __expectString,
     creationTime: (_: any) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
+    creationType: __expectString,
     description: __expectString,
     fileType: __expectString,
     id: __expectString,
