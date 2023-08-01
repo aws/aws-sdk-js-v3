@@ -46,6 +46,7 @@ export type DataSetType = (typeof DataSetType)[keyof typeof DataSetType];
  */
 export interface GenerateDataSetRequest {
   /**
+   * @public
    * <p>The desired data set type.</p>
    *         <p>
    *             <ul>
@@ -155,6 +156,7 @@ export interface GenerateDataSetRequest {
   dataSetType: DataSetType | string | undefined;
 
   /**
+   * @public
    * The date a data set was published.
    *         For daily data sets, provide a date with day-level granularity for the desired day.
    *         For monthly data sets except those with prefix disbursed_amount, provide a date with month-level granularity for the desired month (the day value will be ignored).
@@ -163,17 +165,20 @@ export interface GenerateDataSetRequest {
   dataSetPublicationDate: Date | undefined;
 
   /**
+   * @public
    * The Amazon Resource Name (ARN) of the Role with an attached permissions policy to interact with the provided
    *         AWS services.
    */
   roleNameArn: string | undefined;
 
   /**
+   * @public
    * The name (friendly name, not ARN) of the destination S3 bucket.
    */
   destinationS3BucketName: string | undefined;
 
   /**
+   * @public
    * (Optional) The desired S3 prefix for the published data set, similar to a directory path in standard file systems.
    *         For example, if given the bucket name "mybucket" and the prefix "myprefix/mydatasets", the output file
    *         "outputfile" would be published to "s3://mybucket/myprefix/mydatasets/outputfile".
@@ -183,12 +188,14 @@ export interface GenerateDataSetRequest {
   destinationS3Prefix?: string;
 
   /**
+   * @public
    * Amazon Resource Name (ARN) for the SNS Topic that will be notified when the data set has been published or if an
    *         error has occurred.
    */
   snsTopicArn: string | undefined;
 
   /**
+   * @public
    * (Optional) Key-value pairs which will be returned, unmodified, in the
    *         Amazon SNS notification message and the data set metadata file. These
    *         key-value pairs can be used to correlated responses with tracking
@@ -203,6 +210,7 @@ export interface GenerateDataSetRequest {
  */
 export interface GenerateDataSetResult {
   /**
+   * @public
    * A unique identifier representing a specific request to the GenerateDataSet operation. This identifier can be
    *         used to correlate a request with notifications from the SNS topic.
    */
@@ -240,6 +248,7 @@ export type SupportDataSetType = "customer_support_contacts_data" | "test_custom
  */
 export interface StartSupportDataExportRequest {
   /**
+   * @public
    * <p>
    *            Specifies the data set type to be written to the output csv file. The data set types customer_support_contacts_data and
    *            test_customer_support_contacts_data both result in a csv file containing the following fields: Product Id, Product Code, Customer Guid,
@@ -256,22 +265,26 @@ export interface StartSupportDataExportRequest {
   dataSetType: SupportDataSetType | string | undefined;
 
   /**
+   * @public
    * The start date from which to retrieve the data set in UTC.  This parameter only affects the customer_support_contacts_data data set type.
    */
   fromDate: Date | undefined;
 
   /**
+   * @public
    * The Amazon Resource Name (ARN) of the Role with an attached permissions policy to interact with the provided
    *         AWS services.
    */
   roleNameArn: string | undefined;
 
   /**
+   * @public
    * The name (friendly name, not ARN) of the destination S3 bucket.
    */
   destinationS3BucketName: string | undefined;
 
   /**
+   * @public
    * (Optional) The desired S3 prefix for the published data set, similar to a directory path in standard file systems.
    *         For example, if given the bucket name "mybucket" and the prefix "myprefix/mydatasets", the output file
    *         "outputfile" would be published to "s3://mybucket/myprefix/mydatasets/outputfile".
@@ -281,12 +294,14 @@ export interface StartSupportDataExportRequest {
   destinationS3Prefix?: string;
 
   /**
+   * @public
    * Amazon Resource Name (ARN) for the SNS Topic that will be notified when the data set has been published or if an
    *         error has occurred.
    */
   snsTopicArn: string | undefined;
 
   /**
+   * @public
    * (Optional) Key-value pairs which will be returned, unmodified, in the
    *         Amazon SNS notification message and the data set metadata file.
    */
@@ -299,6 +314,7 @@ export interface StartSupportDataExportRequest {
  */
 export interface StartSupportDataExportResult {
   /**
+   * @public
    * A unique identifier representing a specific request to the StartSupportDataExport operation. This identifier can be
    *         used to correlate a request with notifications from the SNS topic.
    */

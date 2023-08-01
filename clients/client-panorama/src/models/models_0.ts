@@ -31,6 +31,7 @@ export class AccessDeniedException extends __BaseException {
  */
 export interface AlternateSoftwareMetadata {
   /**
+   * @public
    * <p>The appliance software version.</p>
    */
   Version?: string;
@@ -96,21 +97,25 @@ export type DeviceReportedStatus = (typeof DeviceReportedStatus)[keyof typeof De
  */
 export interface ReportedRuntimeContextState {
   /**
+   * @public
    * <p>The application's desired state.</p>
    */
   DesiredState: DesiredState | string | undefined;
 
   /**
+   * @public
    * <p>The device's name.</p>
    */
   RuntimeContextName: string | undefined;
 
   /**
+   * @public
    * <p>The application's reported status.</p>
    */
   DeviceReportedStatus: DeviceReportedStatus | string | undefined;
 
   /**
+   * @public
    * <p>When the device reported the application's state.</p>
    */
   DeviceReportedTime: Date | undefined;
@@ -145,61 +150,73 @@ export type ApplicationInstanceStatus = (typeof ApplicationInstanceStatus)[keyof
  */
 export interface ApplicationInstance {
   /**
+   * @public
    * <p>The application instance's name.</p>
    */
   Name?: string;
 
   /**
+   * @public
    * <p>The application instance's ID.</p>
    */
   ApplicationInstanceId?: string;
 
   /**
+   * @public
    * <p>The device's ID.</p>
    */
   DefaultRuntimeContextDevice?: string;
 
   /**
+   * @public
    * <p>The device's name.</p>
    */
   DefaultRuntimeContextDeviceName?: string;
 
   /**
+   * @public
    * <p>The application instance's description.</p>
    */
   Description?: string;
 
   /**
+   * @public
    * <p>The application instance's status.</p>
    */
   Status?: ApplicationInstanceStatus | string;
 
   /**
+   * @public
    * <p>The application instance's health status.</p>
    */
   HealthStatus?: ApplicationInstanceHealthStatus | string;
 
   /**
+   * @public
    * <p>The application instance's status description.</p>
    */
   StatusDescription?: string;
 
   /**
+   * @public
    * <p>When the application instance was created.</p>
    */
   CreatedTime?: Date;
 
   /**
+   * @public
    * <p>The application instance's ARN.</p>
    */
   Arn?: string;
 
   /**
+   * @public
    * <p>The application instance's tags.</p>
    */
   Tags?: Record<string, string>;
 
   /**
+   * @public
    * <p>The application's state.</p>
    */
   RuntimeContextStates?: ReportedRuntimeContextState[];
@@ -211,11 +228,13 @@ export interface ApplicationInstance {
  */
 export interface ConflictExceptionErrorArgument {
   /**
+   * @public
    * <p>The error argument's name.</p>
    */
   Name: string | undefined;
 
   /**
+   * @public
    * <p>The error argument's value.</p>
    */
   Value: string | undefined;
@@ -230,21 +249,25 @@ export class ConflictException extends __BaseException {
   readonly $fault: "client" = "client";
   Message: string | undefined;
   /**
+   * @public
    * <p>The resource's ID.</p>
    */
   ResourceId: string | undefined;
 
   /**
+   * @public
    * <p>The resource's type.</p>
    */
   ResourceType: string | undefined;
 
   /**
+   * @public
    * <p>A unique ID for the error.</p>
    */
   ErrorId?: string;
 
   /**
+   * @public
    * <p>A list of attributes that led to the exception and their values.</p>
    */
   ErrorArguments?: ConflictExceptionErrorArgument[];
@@ -294,6 +317,7 @@ export type ManifestOverridesPayload =
  */
 export namespace ManifestOverridesPayload {
   /**
+   * @public
    * <p>The overrides document.</p>
    */
   export interface PayloadDataMember {
@@ -301,6 +325,9 @@ export namespace ManifestOverridesPayload {
     $unknown?: never;
   }
 
+  /**
+   * @public
+   */
   export interface $UnknownMember {
     PayloadData?: never;
     $unknown: [string, any];
@@ -330,6 +357,7 @@ export type ManifestPayload = ManifestPayload.PayloadDataMember | ManifestPayloa
  */
 export namespace ManifestPayload {
   /**
+   * @public
    * <p>The application manifest.</p>
    */
   export interface PayloadDataMember {
@@ -337,6 +365,9 @@ export namespace ManifestPayload {
     $unknown?: never;
   }
 
+  /**
+   * @public
+   */
   export interface $UnknownMember {
     PayloadData?: never;
     $unknown: [string, any];
@@ -358,41 +389,49 @@ export namespace ManifestPayload {
  */
 export interface CreateApplicationInstanceRequest {
   /**
+   * @public
    * <p>A name for the application instance.</p>
    */
   Name?: string;
 
   /**
+   * @public
    * <p>A description for the application instance.</p>
    */
   Description?: string;
 
   /**
+   * @public
    * <p>The application's manifest document.</p>
    */
   ManifestPayload: ManifestPayload | undefined;
 
   /**
+   * @public
    * <p>Setting overrides for the application manifest.</p>
    */
   ManifestOverridesPayload?: ManifestOverridesPayload;
 
   /**
+   * @public
    * <p>The ID of an application instance to replace with the new instance.</p>
    */
   ApplicationInstanceIdToReplace?: string;
 
   /**
+   * @public
    * <p>The ARN of a runtime role for the application instance.</p>
    */
   RuntimeRoleArn?: string;
 
   /**
+   * @public
    * <p>A device's ID.</p>
    */
   DefaultRuntimeContextDevice: string | undefined;
 
   /**
+   * @public
    * <p>Tags for the application instance.</p>
    */
   Tags?: Record<string, string>;
@@ -403,6 +442,7 @@ export interface CreateApplicationInstanceRequest {
  */
 export interface CreateApplicationInstanceResponse {
   /**
+   * @public
    * <p>The application instance's ID.</p>
    */
   ApplicationInstanceId: string | undefined;
@@ -417,6 +457,7 @@ export class InternalServerException extends __BaseException {
   readonly $fault: "server" = "server";
   Message: string | undefined;
   /**
+   * @public
    * <p>The number of seconds a client should wait before retrying the call.</p>
    */
   RetryAfterSeconds?: number;
@@ -444,21 +485,25 @@ export class ServiceQuotaExceededException extends __BaseException {
   readonly $fault: "client" = "client";
   Message: string | undefined;
   /**
+   * @public
    * <p>The target resource's ID.</p>
    */
   ResourceId?: string;
 
   /**
+   * @public
    * <p>The target resource's type.</p>
    */
   ResourceType?: string;
 
   /**
+   * @public
    * <p>The name of the limit.</p>
    */
   QuotaCode: string | undefined;
 
   /**
+   * @public
    * <p>The name of the service.</p>
    */
   ServiceCode: string | undefined;
@@ -486,11 +531,13 @@ export class ServiceQuotaExceededException extends __BaseException {
  */
 export interface ValidationExceptionErrorArgument {
   /**
+   * @public
    * <p>The argument's name.</p>
    */
   Name: string | undefined;
 
   /**
+   * @public
    * <p>The argument's value.</p>
    */
   Value: string | undefined;
@@ -502,11 +549,13 @@ export interface ValidationExceptionErrorArgument {
  */
 export interface ValidationExceptionField {
   /**
+   * @public
    * <p>The field's name.</p>
    */
   Name: string | undefined;
 
   /**
+   * @public
    * <p>The field's message.</p>
    */
   Message: string | undefined;
@@ -537,21 +586,25 @@ export class ValidationException extends __BaseException {
   readonly $fault: "client" = "client";
   Message: string | undefined;
   /**
+   * @public
    * <p>The reason that validation failed.</p>
    */
   Reason?: ValidationExceptionReason | string;
 
   /**
+   * @public
    * <p>A unique ID for the error.</p>
    */
   ErrorId?: string;
 
   /**
+   * @public
    * <p>A list of attributes that led to the exception and their values.</p>
    */
   ErrorArguments?: ValidationExceptionErrorArgument[];
 
   /**
+   * @public
    * <p>A list of request parameters that failed validation.</p>
    */
   Fields?: ValidationExceptionField[];
@@ -579,11 +632,13 @@ export class ValidationException extends __BaseException {
  */
 export interface OTAJobConfig {
   /**
+   * @public
    * <p>The target version of the device software.</p>
    */
   ImageVersion: string | undefined;
 
   /**
+   * @public
    * <p>Whether to apply the update if it is a major version change.</p>
    */
   AllowMajorVersionUpdate?: boolean;
@@ -595,6 +650,7 @@ export interface OTAJobConfig {
  */
 export interface DeviceJobConfig {
   /**
+   * @public
    * <p>A configuration for an over-the-air (OTA) upgrade. Required for OTA jobs.</p>
    */
   OTAJobConfig?: OTAJobConfig;
@@ -619,16 +675,19 @@ export type JobType = (typeof JobType)[keyof typeof JobType];
  */
 export interface CreateJobForDevicesRequest {
   /**
+   * @public
    * <p>ID of target device.</p>
    */
   DeviceIds: string[] | undefined;
 
   /**
+   * @public
    * <p>Configuration settings for a software update job.</p>
    */
   DeviceJobConfig?: DeviceJobConfig;
 
   /**
+   * @public
    * <p>The type of job to run.</p>
    */
   JobType: JobType | string | undefined;
@@ -640,11 +699,13 @@ export interface CreateJobForDevicesRequest {
  */
 export interface Job {
   /**
+   * @public
    * <p>The job's ID.</p>
    */
   JobId?: string;
 
   /**
+   * @public
    * <p>The target device's ID.</p>
    */
   DeviceId?: string;
@@ -655,6 +716,7 @@ export interface Job {
  */
 export interface CreateJobForDevicesResponse {
   /**
+   * @public
    * <p>A list of jobs.</p>
    */
   Jobs: Job[] | undefined;
@@ -669,11 +731,13 @@ export class ResourceNotFoundException extends __BaseException {
   readonly $fault: "client" = "client";
   Message: string | undefined;
   /**
+   * @public
    * <p>The resource's ID.</p>
    */
   ResourceId: string | undefined;
 
   /**
+   * @public
    * <p>The resource's type.</p>
    */
   ResourceType: string | undefined;
@@ -712,11 +776,13 @@ export type JobResourceType = (typeof JobResourceType)[keyof typeof JobResourceT
  */
 export interface JobResourceTags {
   /**
+   * @public
    * <p>The job's type.</p>
    */
   ResourceType: JobResourceType | string | undefined;
 
   /**
+   * @public
    * <p>The job's tags.</p>
    */
   Tags: Record<string, string> | undefined;
@@ -740,36 +806,43 @@ export type TemplateType = (typeof TemplateType)[keyof typeof TemplateType];
  */
 export interface CreateNodeFromTemplateJobRequest {
   /**
+   * @public
    * <p>The type of node.</p>
    */
   TemplateType: TemplateType | string | undefined;
 
   /**
+   * @public
    * <p>An output package name for the node.</p>
    */
   OutputPackageName: string | undefined;
 
   /**
+   * @public
    * <p>An output package version for the node.</p>
    */
   OutputPackageVersion: string | undefined;
 
   /**
+   * @public
    * <p>A name for the node.</p>
    */
   NodeName: string | undefined;
 
   /**
+   * @public
    * <p>A description for the node.</p>
    */
   NodeDescription?: string;
 
   /**
+   * @public
    * <p>Template parameters for the node.</p>
    */
   TemplateParameters: Record<string, string> | undefined;
 
   /**
+   * @public
    * <p>Tags for the job.</p>
    */
   JobTags?: JobResourceTags[];
@@ -780,6 +853,7 @@ export interface CreateNodeFromTemplateJobRequest {
  */
 export interface CreateNodeFromTemplateJobResponse {
   /**
+   * @public
    * <p>The job's ID.</p>
    */
   JobId: string | undefined;
@@ -790,11 +864,13 @@ export interface CreateNodeFromTemplateJobResponse {
  */
 export interface CreatePackageRequest {
   /**
+   * @public
    * <p>A name for the package.</p>
    */
   PackageName: string | undefined;
 
   /**
+   * @public
    * <p>Tags for the package.</p>
    */
   Tags?: Record<string, string>;
@@ -806,26 +882,31 @@ export interface CreatePackageRequest {
  */
 export interface StorageLocation {
   /**
+   * @public
    * <p>The location's bucket.</p>
    */
   Bucket: string | undefined;
 
   /**
+   * @public
    * <p>The location's repo prefix.</p>
    */
   RepoPrefixLocation: string | undefined;
 
   /**
+   * @public
    * <p>The location's generated prefix.</p>
    */
   GeneratedPrefixLocation: string | undefined;
 
   /**
+   * @public
    * <p>The location's binary prefix.</p>
    */
   BinaryPrefixLocation: string | undefined;
 
   /**
+   * @public
    * <p>The location's manifest prefix.</p>
    */
   ManifestPrefixLocation: string | undefined;
@@ -836,16 +917,19 @@ export interface StorageLocation {
  */
 export interface CreatePackageResponse {
   /**
+   * @public
    * <p>The package's ID.</p>
    */
   PackageId?: string;
 
   /**
+   * @public
    * <p>The package's ARN.</p>
    */
   Arn?: string;
 
   /**
+   * @public
    * <p>The package's storage location.</p>
    */
   StorageLocation: StorageLocation | undefined;
@@ -857,16 +941,19 @@ export interface CreatePackageResponse {
  */
 export interface S3Location {
   /**
+   * @public
    * <p>The bucket's Region.</p>
    */
   Region?: string;
 
   /**
+   * @public
    * <p>A bucket name.</p>
    */
   BucketName: string | undefined;
 
   /**
+   * @public
    * <p>An object key.</p>
    */
   ObjectKey: string | undefined;
@@ -878,6 +965,7 @@ export interface S3Location {
  */
 export interface PackageVersionInputConfig {
   /**
+   * @public
    * <p>A location in Amazon S3.</p>
    */
   S3Location: S3Location | undefined;
@@ -889,6 +977,7 @@ export interface PackageVersionInputConfig {
  */
 export interface PackageImportJobInputConfig {
   /**
+   * @public
    * <p>The package version's input configuration.</p>
    */
   PackageVersionInputConfig?: PackageVersionInputConfig;
@@ -914,16 +1003,19 @@ export type PackageImportJobType = (typeof PackageImportJobType)[keyof typeof Pa
  */
 export interface PackageVersionOutputConfig {
   /**
+   * @public
    * <p>The output's package name.</p>
    */
   PackageName: string | undefined;
 
   /**
+   * @public
    * <p>The output's package version.</p>
    */
   PackageVersion: string | undefined;
 
   /**
+   * @public
    * <p>Indicates that the version is recommended for all users.</p>
    */
   MarkLatest?: boolean;
@@ -935,6 +1027,7 @@ export interface PackageVersionOutputConfig {
  */
 export interface PackageImportJobOutputConfig {
   /**
+   * @public
    * <p>The package version's output configuration.</p>
    */
   PackageVersionOutputConfig?: PackageVersionOutputConfig;
@@ -945,26 +1038,31 @@ export interface PackageImportJobOutputConfig {
  */
 export interface CreatePackageImportJobRequest {
   /**
+   * @public
    * <p>A job type for the package import job.</p>
    */
   JobType: PackageImportJobType | string | undefined;
 
   /**
+   * @public
    * <p>An input config for the package import job.</p>
    */
   InputConfig: PackageImportJobInputConfig | undefined;
 
   /**
+   * @public
    * <p>An output config for the package import job.</p>
    */
   OutputConfig: PackageImportJobOutputConfig | undefined;
 
   /**
+   * @public
    * <p>A client token for the package import job.</p>
    */
   ClientToken: string | undefined;
 
   /**
+   * @public
    * <p>Tags for the package import job.</p>
    */
   JobTags?: JobResourceTags[];
@@ -975,6 +1073,7 @@ export interface CreatePackageImportJobRequest {
  */
 export interface CreatePackageImportJobResponse {
   /**
+   * @public
    * <p>The job's ID.</p>
    */
   JobId: string | undefined;
@@ -985,6 +1084,7 @@ export interface CreatePackageImportJobResponse {
  */
 export interface DeleteDeviceRequest {
   /**
+   * @public
    * <p>The device's ID.</p>
    */
   DeviceId: string | undefined;
@@ -995,6 +1095,7 @@ export interface DeleteDeviceRequest {
  */
 export interface DeleteDeviceResponse {
   /**
+   * @public
    * <p>The device's ID.</p>
    */
   DeviceId?: string;
@@ -1005,11 +1106,13 @@ export interface DeleteDeviceResponse {
  */
 export interface DeletePackageRequest {
   /**
+   * @public
    * <p>The package's ID.</p>
    */
   PackageId: string | undefined;
 
   /**
+   * @public
    * <p>Delete the package even if it has artifacts stored in its access point. Deletes the package's artifacts from
    *       Amazon S3.</p>
    */
@@ -1026,26 +1129,31 @@ export interface DeletePackageResponse {}
  */
 export interface DeregisterPackageVersionRequest {
   /**
+   * @public
    * <p>An owner account.</p>
    */
   OwnerAccount?: string;
 
   /**
+   * @public
    * <p>A package ID.</p>
    */
   PackageId: string | undefined;
 
   /**
+   * @public
    * <p>A package version.</p>
    */
   PackageVersion: string | undefined;
 
   /**
+   * @public
    * <p>A patch version.</p>
    */
   PatchVersion: string | undefined;
 
   /**
+   * @public
    * <p>If the version was marked latest, the new version to maker as latest.</p>
    */
   UpdatedLatestPatchVersion?: string;
@@ -1061,6 +1169,7 @@ export interface DeregisterPackageVersionResponse {}
  */
 export interface DescribeApplicationInstanceRequest {
   /**
+   * @public
    * <p>The application instance's ID.</p>
    */
   ApplicationInstanceId: string | undefined;
@@ -1071,76 +1180,91 @@ export interface DescribeApplicationInstanceRequest {
  */
 export interface DescribeApplicationInstanceResponse {
   /**
+   * @public
    * <p>The application instance's name.</p>
    */
   Name?: string;
 
   /**
+   * @public
    * <p>The application instance's description.</p>
    */
   Description?: string;
 
   /**
+   * @public
    * <p>The device's ID.</p>
    */
   DefaultRuntimeContextDevice?: string;
 
   /**
+   * @public
    * <p>The device's bane.</p>
    */
   DefaultRuntimeContextDeviceName?: string;
 
   /**
+   * @public
    * <p>The ID of the application instance that this instance replaced.</p>
    */
   ApplicationInstanceIdToReplace?: string;
 
   /**
+   * @public
    * <p>The application instance's runtime role ARN.</p>
    */
   RuntimeRoleArn?: string;
 
   /**
+   * @public
    * <p>The application instance's status.</p>
    */
   Status?: ApplicationInstanceStatus | string;
 
   /**
+   * @public
    * <p>The application instance's health status.</p>
    */
   HealthStatus?: ApplicationInstanceHealthStatus | string;
 
   /**
+   * @public
    * <p>The application instance's status description.</p>
    */
   StatusDescription?: string;
 
   /**
+   * @public
    * <p>When the application instance was created.</p>
    */
   CreatedTime?: Date;
 
   /**
+   * @public
    * <p>The application instance was updated.</p>
    */
   LastUpdatedTime?: Date;
 
   /**
+   * @public
    * <p>The application instance's ID.</p>
    */
   ApplicationInstanceId?: string;
 
   /**
+   * @public
    * <p>The application instance's ARN.</p>
    */
   Arn?: string;
 
   /**
+   * @public
    * <p>The application instance's tags.</p>
    */
   Tags?: Record<string, string>;
 
   /**
+   * @public
    * <p>The application instance's state.</p>
    */
   RuntimeContextStates?: ReportedRuntimeContextState[];
@@ -1151,6 +1275,7 @@ export interface DescribeApplicationInstanceResponse {
  */
 export interface DescribeApplicationInstanceDetailsRequest {
   /**
+   * @public
    * <p>The application instance's ID.</p>
    */
   ApplicationInstanceId: string | undefined;
@@ -1161,41 +1286,49 @@ export interface DescribeApplicationInstanceDetailsRequest {
  */
 export interface DescribeApplicationInstanceDetailsResponse {
   /**
+   * @public
    * <p>The application instance's name.</p>
    */
   Name?: string;
 
   /**
+   * @public
    * <p>The application instance's description.</p>
    */
   Description?: string;
 
   /**
+   * @public
    * <p>The application instance's default runtime context device.</p>
    */
   DefaultRuntimeContextDevice?: string;
 
   /**
+   * @public
    * <p>The application instance's configuration manifest.</p>
    */
   ManifestPayload?: ManifestPayload;
 
   /**
+   * @public
    * <p>Parameter overrides for the configuration manifest.</p>
    */
   ManifestOverridesPayload?: ManifestOverridesPayload;
 
   /**
+   * @public
    * <p>The ID of the application instance that this instance replaced.</p>
    */
   ApplicationInstanceIdToReplace?: string;
 
   /**
+   * @public
    * <p>When the application instance was created.</p>
    */
   CreatedTime?: Date;
 
   /**
+   * @public
    * <p>The application instance's ID.</p>
    */
   ApplicationInstanceId?: string;
@@ -1206,6 +1339,7 @@ export interface DescribeApplicationInstanceDetailsResponse {
  */
 export interface DescribeDeviceRequest {
   /**
+   * @public
    * <p>The device's ID.</p>
    */
   DeviceId: string | undefined;
@@ -1246,16 +1380,19 @@ export type NetworkConnectionStatus = (typeof NetworkConnectionStatus)[keyof typ
  */
 export interface EthernetStatus {
   /**
+   * @public
    * <p>The device's IP address.</p>
    */
   IpAddress?: string;
 
   /**
+   * @public
    * <p>The device's connection status.</p>
    */
   ConnectionStatus?: NetworkConnectionStatus | string;
 
   /**
+   * @public
    * <p>The device's physical address.</p>
    */
   HwAddress?: string;
@@ -1267,16 +1404,19 @@ export interface EthernetStatus {
  */
 export interface NtpStatus {
   /**
+   * @public
    * <p>The connection's status.</p>
    */
   ConnectionStatus?: NetworkConnectionStatus | string;
 
   /**
+   * @public
    * <p>The IP address of the server.</p>
    */
   IpAddress?: string;
 
   /**
+   * @public
    * <p>The domain name of the server.</p>
    */
   NtpServerName?: string;
@@ -1288,21 +1428,25 @@ export interface NtpStatus {
  */
 export interface NetworkStatus {
   /**
+   * @public
    * <p>The status of Ethernet port 0.</p>
    */
   Ethernet0Status?: EthernetStatus;
 
   /**
+   * @public
    * <p>The status of Ethernet port 1.</p>
    */
   Ethernet1Status?: EthernetStatus;
 
   /**
+   * @public
    * <p>Details about a network time protocol (NTP) server connection.</p>
    */
   NtpStatus?: NtpStatus;
 
   /**
+   * @public
    * <p>When the network status changed.</p>
    */
   LastUpdatedTime?: Date;
@@ -1372,16 +1516,19 @@ export type UpdateProgress = (typeof UpdateProgress)[keyof typeof UpdateProgress
  */
 export interface LatestDeviceJob {
   /**
+   * @public
    * <p>The target version of the device software.</p>
    */
   ImageVersion?: string;
 
   /**
+   * @public
    * <p>Status of the latest device job.</p>
    */
   Status?: UpdateProgress | string;
 
   /**
+   * @public
    * <p>The job's type.</p>
    */
   JobType?: JobType | string;
@@ -1393,21 +1540,25 @@ export interface LatestDeviceJob {
  */
 export interface StaticIpConnectionInfo {
   /**
+   * @public
    * <p>The connection's IP address.</p>
    */
   IpAddress: string | undefined;
 
   /**
+   * @public
    * <p>The connection's DNS mask.</p>
    */
   Mask: string | undefined;
 
   /**
+   * @public
    * <p>The connection's DNS address.</p>
    */
   Dns: string[] | undefined;
 
   /**
+   * @public
    * <p>The connection's default gateway.</p>
    */
   DefaultGateway: string | undefined;
@@ -1419,11 +1570,13 @@ export interface StaticIpConnectionInfo {
  */
 export interface EthernetPayload {
   /**
+   * @public
    * <p>How the device gets an IP address.</p>
    */
   ConnectionType: ConnectionType | string | undefined;
 
   /**
+   * @public
    * <p>Network configuration for a static IP connection.</p>
    */
   StaticIpConnectionInfo?: StaticIpConnectionInfo;
@@ -1436,6 +1589,7 @@ export interface EthernetPayload {
  */
 export interface NtpPayload {
   /**
+   * @public
    * <p>NTP servers to use, in order of preference.</p>
    */
   NtpServers: string[] | undefined;
@@ -1447,16 +1601,19 @@ export interface NtpPayload {
  */
 export interface NetworkPayload {
   /**
+   * @public
    * <p>Settings for Ethernet port 0.</p>
    */
   Ethernet0?: EthernetPayload;
 
   /**
+   * @public
    * <p>Settings for Ethernet port 1.</p>
    */
   Ethernet1?: EthernetPayload;
 
   /**
+   * @public
    * <p>Network time protocol (NTP) server settings.</p>
    */
   Ntp?: NtpPayload;
@@ -1499,101 +1656,121 @@ export type DeviceType = (typeof DeviceType)[keyof typeof DeviceType];
  */
 export interface DescribeDeviceResponse {
   /**
+   * @public
    * <p>The device's ID.</p>
    */
   DeviceId?: string;
 
   /**
+   * @public
    * <p>The device's name.</p>
    */
   Name?: string;
 
   /**
+   * @public
    * <p>The device's ARN.</p>
    */
   Arn?: string;
 
   /**
+   * @public
    * <p>The device's description.</p>
    */
   Description?: string;
 
   /**
+   * @public
    * <p>The device's type.</p>
    */
   Type?: DeviceType | string;
 
   /**
+   * @public
    * <p>The device's connection status.</p>
    */
   DeviceConnectionStatus?: DeviceConnectionStatus | string;
 
   /**
+   * @public
    * <p>When the device was created.</p>
    */
   CreatedTime?: Date;
 
   /**
+   * @public
    * <p>The device's provisioning status.</p>
    */
   ProvisioningStatus?: DeviceStatus | string;
 
   /**
+   * @public
    * <p>The latest software version available for the device.</p>
    */
   LatestSoftware?: string;
 
   /**
+   * @public
    * <p>The device's current software version.</p>
    */
   CurrentSoftware?: string;
 
   /**
+   * @public
    * <p>The device's serial number.</p>
    */
   SerialNumber?: string;
 
   /**
+   * @public
    * <p>The device's tags.</p>
    */
   Tags?: Record<string, string>;
 
   /**
+   * @public
    * <p>The device's networking configuration.</p>
    */
   NetworkingConfiguration?: NetworkPayload;
 
   /**
+   * @public
    * <p>The device's networking status.</p>
    */
   CurrentNetworkingStatus?: NetworkStatus;
 
   /**
+   * @public
    * <p>The device's lease expiration time.</p>
    */
   LeaseExpirationTime?: Date;
 
   /**
+   * @public
    * <p>Beta software releases available for the device.</p>
    */
   AlternateSoftwares?: AlternateSoftwareMetadata[];
 
   /**
+   * @public
    * <p>The most recent beta software release.</p>
    */
   LatestAlternateSoftware?: string;
 
   /**
+   * @public
    * <p>The device's maker.</p>
    */
   Brand?: DeviceBrand | string;
 
   /**
+   * @public
    * <p>A device's latest job. Includes the target image version, and the job status.</p>
    */
   LatestDeviceJob?: LatestDeviceJob;
 
   /**
+   * @public
    * <p>A device's aggregated status. Including the device's connection status, provisioning status, and lease status.</p>
    */
   DeviceAggregatedStatus?: DeviceAggregatedStatus | string;
@@ -1604,6 +1781,7 @@ export interface DescribeDeviceResponse {
  */
 export interface DescribeDeviceJobRequest {
   /**
+   * @public
    * <p>The job's ID.</p>
    */
   JobId: string | undefined;
@@ -1614,46 +1792,55 @@ export interface DescribeDeviceJobRequest {
  */
 export interface DescribeDeviceJobResponse {
   /**
+   * @public
    * <p>The job's ID.</p>
    */
   JobId?: string;
 
   /**
+   * @public
    * <p>The device's ID.</p>
    */
   DeviceId?: string;
 
   /**
+   * @public
    * <p>The device's ARN.</p>
    */
   DeviceArn?: string;
 
   /**
+   * @public
    * <p>The device's name.</p>
    */
   DeviceName?: string;
 
   /**
+   * @public
    * <p>The device's type.</p>
    */
   DeviceType?: DeviceType | string;
 
   /**
+   * @public
    * <p>For an OTA job, the target version of the device software.</p>
    */
   ImageVersion?: string;
 
   /**
+   * @public
    * <p>The job's status.</p>
    */
   Status?: UpdateProgress | string;
 
   /**
+   * @public
    * <p>When the job was created.</p>
    */
   CreatedTime?: Date;
 
   /**
+   * @public
    * <p>The job's type.</p>
    */
   JobType?: JobType | string;
@@ -1664,11 +1851,13 @@ export interface DescribeDeviceJobResponse {
  */
 export interface DescribeNodeRequest {
   /**
+   * @public
    * <p>The node's ID.</p>
    */
   NodeId: string | undefined;
 
   /**
+   * @public
    * <p>The account ID of the node's owner.</p>
    */
   OwnerAccount?: string;
@@ -1713,26 +1902,31 @@ export type PortType = (typeof PortType)[keyof typeof PortType];
  */
 export interface NodeInputPort {
   /**
+   * @public
    * <p>The input port's name.</p>
    */
   Name?: string;
 
   /**
+   * @public
    * <p>The input port's description.</p>
    */
   Description?: string;
 
   /**
+   * @public
    * <p>The input port's type.</p>
    */
   Type?: PortType | string;
 
   /**
+   * @public
    * <p>The input port's default value.</p>
    */
   DefaultValue?: string;
 
   /**
+   * @public
    * <p>The input port's max connections.</p>
    */
   MaxConnections?: number;
@@ -1744,16 +1938,19 @@ export interface NodeInputPort {
  */
 export interface NodeOutputPort {
   /**
+   * @public
    * <p>The output port's name.</p>
    */
   Name?: string;
 
   /**
+   * @public
    * <p>The output port's description.</p>
    */
   Description?: string;
 
   /**
+   * @public
    * <p>The output port's type.</p>
    */
   Type?: PortType | string;
@@ -1765,11 +1962,13 @@ export interface NodeOutputPort {
  */
 export interface NodeInterface {
   /**
+   * @public
    * <p>The node interface's inputs.</p>
    */
   Inputs: NodeInputPort[] | undefined;
 
   /**
+   * @public
    * <p>The node interface's outputs.</p>
    */
   Outputs: NodeOutputPort[] | undefined;
@@ -1780,71 +1979,85 @@ export interface NodeInterface {
  */
 export interface DescribeNodeResponse {
   /**
+   * @public
    * <p>The node's ID.</p>
    */
   NodeId: string | undefined;
 
   /**
+   * @public
    * <p>The node's name.</p>
    */
   Name: string | undefined;
 
   /**
+   * @public
    * <p>The node's category.</p>
    */
   Category: NodeCategory | string | undefined;
 
   /**
+   * @public
    * <p>The account ID of the node's owner.</p>
    */
   OwnerAccount: string | undefined;
 
   /**
+   * @public
    * <p>The node's package name.</p>
    */
   PackageName: string | undefined;
 
   /**
+   * @public
    * <p>The node's package ID.</p>
    */
   PackageId: string | undefined;
 
   /**
+   * @public
    * <p>The node's ARN.</p>
    */
   PackageArn?: string;
 
   /**
+   * @public
    * <p>The node's package version.</p>
    */
   PackageVersion: string | undefined;
 
   /**
+   * @public
    * <p>The node's patch version.</p>
    */
   PatchVersion: string | undefined;
 
   /**
+   * @public
    * <p>The node's interface.</p>
    */
   NodeInterface: NodeInterface | undefined;
 
   /**
+   * @public
    * <p>The node's asset name.</p>
    */
   AssetName?: string;
 
   /**
+   * @public
    * <p>The node's description.</p>
    */
   Description: string | undefined;
 
   /**
+   * @public
    * <p>When the node was created.</p>
    */
   CreatedTime: Date | undefined;
 
   /**
+   * @public
    * <p>When the node was updated.</p>
    */
   LastUpdatedTime: Date | undefined;
@@ -1855,6 +2068,7 @@ export interface DescribeNodeResponse {
  */
 export interface DescribeNodeFromTemplateJobRequest {
   /**
+   * @public
    * <p>The job's ID.</p>
    */
   JobId: string | undefined;
@@ -1880,61 +2094,73 @@ export type NodeFromTemplateJobStatus = (typeof NodeFromTemplateJobStatus)[keyof
  */
 export interface DescribeNodeFromTemplateJobResponse {
   /**
+   * @public
    * <p>The job's ID.</p>
    */
   JobId: string | undefined;
 
   /**
+   * @public
    * <p>The job's status.</p>
    */
   Status: NodeFromTemplateJobStatus | string | undefined;
 
   /**
+   * @public
    * <p>The job's status message.</p>
    */
   StatusMessage: string | undefined;
 
   /**
+   * @public
    * <p>When the job was created.</p>
    */
   CreatedTime: Date | undefined;
 
   /**
+   * @public
    * <p>When the job was updated.</p>
    */
   LastUpdatedTime: Date | undefined;
 
   /**
+   * @public
    * <p>The job's output package name.</p>
    */
   OutputPackageName: string | undefined;
 
   /**
+   * @public
    * <p>The job's output package version.</p>
    */
   OutputPackageVersion: string | undefined;
 
   /**
+   * @public
    * <p>The node's name.</p>
    */
   NodeName: string | undefined;
 
   /**
+   * @public
    * <p>The node's description.</p>
    */
   NodeDescription?: string;
 
   /**
+   * @public
    * <p>The job's template type.</p>
    */
   TemplateType: TemplateType | string | undefined;
 
   /**
+   * @public
    * <p>The job's template parameters.</p>
    */
   TemplateParameters: Record<string, string> | undefined;
 
   /**
+   * @public
    * <p>The job's tags.</p>
    */
   JobTags?: JobResourceTags[];
@@ -1945,6 +2171,7 @@ export interface DescribeNodeFromTemplateJobResponse {
  */
 export interface DescribePackageRequest {
   /**
+   * @public
    * <p>The package's ID.</p>
    */
   PackageId: string | undefined;
@@ -1955,41 +2182,49 @@ export interface DescribePackageRequest {
  */
 export interface DescribePackageResponse {
   /**
+   * @public
    * <p>The package's ID.</p>
    */
   PackageId: string | undefined;
 
   /**
+   * @public
    * <p>The package's name.</p>
    */
   PackageName: string | undefined;
 
   /**
+   * @public
    * <p>The package's ARN.</p>
    */
   Arn: string | undefined;
 
   /**
+   * @public
    * <p>The package's storage location.</p>
    */
   StorageLocation: StorageLocation | undefined;
 
   /**
+   * @public
    * <p>ARNs of accounts that have read access to the package.</p>
    */
   ReadAccessPrincipalArns?: string[];
 
   /**
+   * @public
    * <p>ARNs of accounts that have write access to the package.</p>
    */
   WriteAccessPrincipalArns?: string[];
 
   /**
+   * @public
    * <p>When the package was created.</p>
    */
   CreatedTime: Date | undefined;
 
   /**
+   * @public
    * <p>The package's tags.</p>
    */
   Tags: Record<string, string> | undefined;
@@ -2000,6 +2235,7 @@ export interface DescribePackageResponse {
  */
 export interface DescribePackageImportJobRequest {
   /**
+   * @public
    * <p>The job's ID.</p>
    */
   JobId: string | undefined;
@@ -2011,11 +2247,13 @@ export interface DescribePackageImportJobRequest {
  */
 export interface OutPutS3Location {
   /**
+   * @public
    * <p>The object's bucket.</p>
    */
   BucketName: string | undefined;
 
   /**
+   * @public
    * <p>The object's key.</p>
    */
   ObjectKey: string | undefined;
@@ -2027,21 +2265,25 @@ export interface OutPutS3Location {
  */
 export interface PackageImportJobOutput {
   /**
+   * @public
    * <p>The package's ID.</p>
    */
   PackageId: string | undefined;
 
   /**
+   * @public
    * <p>The package's version.</p>
    */
   PackageVersion: string | undefined;
 
   /**
+   * @public
    * <p>The package's patch version.</p>
    */
   PatchVersion: string | undefined;
 
   /**
+   * @public
    * <p>The package's output location.</p>
    */
   OutputS3Location: OutPutS3Location | undefined;
@@ -2067,56 +2309,67 @@ export type PackageImportJobStatus = (typeof PackageImportJobStatus)[keyof typeo
  */
 export interface DescribePackageImportJobResponse {
   /**
+   * @public
    * <p>The job's ID.</p>
    */
   JobId: string | undefined;
 
   /**
+   * @public
    * <p>The job's client token.</p>
    */
   ClientToken?: string;
 
   /**
+   * @public
    * <p>The job's type.</p>
    */
   JobType: PackageImportJobType | string | undefined;
 
   /**
+   * @public
    * <p>The job's input config.</p>
    */
   InputConfig: PackageImportJobInputConfig | undefined;
 
   /**
+   * @public
    * <p>The job's output config.</p>
    */
   OutputConfig: PackageImportJobOutputConfig | undefined;
 
   /**
+   * @public
    * <p>The job's output.</p>
    */
   Output: PackageImportJobOutput | undefined;
 
   /**
+   * @public
    * <p>When the job was created.</p>
    */
   CreatedTime: Date | undefined;
 
   /**
+   * @public
    * <p>When the job was updated.</p>
    */
   LastUpdatedTime: Date | undefined;
 
   /**
+   * @public
    * <p>The job's status.</p>
    */
   Status: PackageImportJobStatus | string | undefined;
 
   /**
+   * @public
    * <p>The job's status message.</p>
    */
   StatusMessage: string | undefined;
 
   /**
+   * @public
    * <p>The job's tags.</p>
    */
   JobTags?: JobResourceTags[];
@@ -2127,21 +2380,25 @@ export interface DescribePackageImportJobResponse {
  */
 export interface DescribePackageVersionRequest {
   /**
+   * @public
    * <p>The version's owner account.</p>
    */
   OwnerAccount?: string;
 
   /**
+   * @public
    * <p>The version's ID.</p>
    */
   PackageId: string | undefined;
 
   /**
+   * @public
    * <p>The version's version.</p>
    */
   PackageVersion: string | undefined;
 
   /**
+   * @public
    * <p>The version's patch version.</p>
    */
   PatchVersion?: string;
@@ -2168,51 +2425,61 @@ export type PackageVersionStatus = (typeof PackageVersionStatus)[keyof typeof Pa
  */
 export interface DescribePackageVersionResponse {
   /**
+   * @public
    * <p>The account ID of the version's owner.</p>
    */
   OwnerAccount?: string;
 
   /**
+   * @public
    * <p>The version's ID.</p>
    */
   PackageId: string | undefined;
 
   /**
+   * @public
    * <p>The ARN of the package.</p>
    */
   PackageArn?: string;
 
   /**
+   * @public
    * <p>The version's name.</p>
    */
   PackageName: string | undefined;
 
   /**
+   * @public
    * <p>The version's version.</p>
    */
   PackageVersion: string | undefined;
 
   /**
+   * @public
    * <p>The version's patch version.</p>
    */
   PatchVersion: string | undefined;
 
   /**
+   * @public
    * <p>Whether the version is the latest available.</p>
    */
   IsLatestPatch: boolean | undefined;
 
   /**
+   * @public
    * <p>The version's status.</p>
    */
   Status: PackageVersionStatus | string | undefined;
 
   /**
+   * @public
    * <p>The version's status description.</p>
    */
   StatusDescription?: string;
 
   /**
+   * @public
    * <p>The version's registered time.</p>
    */
   RegisteredTime?: Date;
@@ -2224,66 +2491,79 @@ export interface DescribePackageVersionResponse {
  */
 export interface Device {
   /**
+   * @public
    * <p>The device's ID.</p>
    */
   DeviceId?: string;
 
   /**
+   * @public
    * <p>The device's name.</p>
    */
   Name?: string;
 
   /**
+   * @public
    * <p>When the device was created.</p>
    */
   CreatedTime?: Date;
 
   /**
+   * @public
    * <p>The device's provisioning status.</p>
    */
   ProvisioningStatus?: DeviceStatus | string;
 
   /**
+   * @public
    * <p>When the device was updated.</p>
    */
   LastUpdatedTime?: Date;
 
   /**
+   * @public
    * <p>The device's lease expiration time.</p>
    */
   LeaseExpirationTime?: Date;
 
   /**
+   * @public
    * <p>The device's maker.</p>
    */
   Brand?: DeviceBrand | string;
 
   /**
+   * @public
    * <p>A device's current software.</p>
    */
   CurrentSoftware?: string;
 
   /**
+   * @public
    * <p>A description for the device.</p>
    */
   Description?: string;
 
   /**
+   * @public
    * <p>The device's tags.</p>
    */
   Tags?: Record<string, string>;
 
   /**
+   * @public
    * <p>The device's type.</p>
    */
   Type?: DeviceType | string;
 
   /**
+   * @public
    * <p>A device's latest job. Includes the target image version, and the update job status.</p>
    */
   LatestDeviceJob?: LatestDeviceJob;
 
   /**
+   * @public
    * <p>A device's aggregated status. Including the device's connection status, provisioning status, and lease status.</p>
    */
   DeviceAggregatedStatus?: DeviceAggregatedStatus | string;
@@ -2295,26 +2575,31 @@ export interface Device {
  */
 export interface DeviceJob {
   /**
+   * @public
    * <p>The name of the target device</p>
    */
   DeviceName?: string;
 
   /**
+   * @public
    * <p>The ID of the target device.</p>
    */
   DeviceId?: string;
 
   /**
+   * @public
    * <p>The job's ID.</p>
    */
   JobId?: string;
 
   /**
+   * @public
    * <p>When the job was created.</p>
    */
   CreatedTime?: Date;
 
   /**
+   * @public
    * <p>The job's type.</p>
    */
   JobType?: JobType | string;
@@ -2325,16 +2610,19 @@ export interface DeviceJob {
  */
 export interface ListApplicationInstanceDependenciesRequest {
   /**
+   * @public
    * <p>The application instance's ID.</p>
    */
   ApplicationInstanceId: string | undefined;
 
   /**
+   * @public
    * <p>The maximum number of application instance dependencies to return in one page of results.</p>
    */
   MaxResults?: number;
 
   /**
+   * @public
    * <p>Specify the pagination token from a previous request to retrieve the next page of results.</p>
    */
   NextToken?: string;
@@ -2346,16 +2634,19 @@ export interface ListApplicationInstanceDependenciesRequest {
  */
 export interface PackageObject {
   /**
+   * @public
    * <p>The object's name.</p>
    */
   Name: string | undefined;
 
   /**
+   * @public
    * <p>The object's package version.</p>
    */
   PackageVersion: string | undefined;
 
   /**
+   * @public
    * <p>The object's patch version.</p>
    */
   PatchVersion: string | undefined;
@@ -2366,11 +2657,13 @@ export interface PackageObject {
  */
 export interface ListApplicationInstanceDependenciesResponse {
   /**
+   * @public
    * <p>A list of package objects.</p>
    */
   PackageObjects?: PackageObject[];
 
   /**
+   * @public
    * <p>A pagination token that's included if more results are available.</p>
    */
   NextToken?: string;
@@ -2381,16 +2674,19 @@ export interface ListApplicationInstanceDependenciesResponse {
  */
 export interface ListApplicationInstanceNodeInstancesRequest {
   /**
+   * @public
    * <p>The node instances' application instance ID.</p>
    */
   ApplicationInstanceId: string | undefined;
 
   /**
+   * @public
    * <p>The maximum number of node instances to return in one page of results.</p>
    */
   MaxResults?: number;
 
   /**
+   * @public
    * <p>Specify the pagination token from a previous request to retrieve the next page of results.</p>
    */
   NextToken?: string;
@@ -2418,36 +2714,43 @@ export type NodeInstanceStatus = (typeof NodeInstanceStatus)[keyof typeof NodeIn
  */
 export interface NodeInstance {
   /**
+   * @public
    * <p>The instance's ID.</p>
    */
   NodeInstanceId: string | undefined;
 
   /**
+   * @public
    * <p>The node's ID.</p>
    */
   NodeId?: string;
 
   /**
+   * @public
    * <p>The instance's package name.</p>
    */
   PackageName?: string;
 
   /**
+   * @public
    * <p>The instance's package version.</p>
    */
   PackageVersion?: string;
 
   /**
+   * @public
    * <p>The instance's package patch version.</p>
    */
   PackagePatchVersion?: string;
 
   /**
+   * @public
    * <p>The instance's name.</p>
    */
   NodeName?: string;
 
   /**
+   * @public
    * <p>The instance's current status.</p>
    */
   CurrentStatus: NodeInstanceStatus | string | undefined;
@@ -2458,11 +2761,13 @@ export interface NodeInstance {
  */
 export interface ListApplicationInstanceNodeInstancesResponse {
   /**
+   * @public
    * <p>A list of node instances.</p>
    */
   NodeInstances?: NodeInstance[];
 
   /**
+   * @public
    * <p>A pagination token that's included if more results are available.</p>
    */
   NextToken?: string;
@@ -2492,21 +2797,25 @@ export type StatusFilter = (typeof StatusFilter)[keyof typeof StatusFilter];
  */
 export interface ListApplicationInstancesRequest {
   /**
+   * @public
    * <p>The application instances' device ID.</p>
    */
   DeviceId?: string;
 
   /**
+   * @public
    * <p>Only include instances with a specific status.</p>
    */
   StatusFilter?: StatusFilter | string;
 
   /**
+   * @public
    * <p>The maximum number of application instances to return in one page of results.</p>
    */
   MaxResults?: number;
 
   /**
+   * @public
    * <p>Specify the pagination token from a previous request to retrieve the next page of results.</p>
    */
   NextToken?: string;
@@ -2517,11 +2826,13 @@ export interface ListApplicationInstancesRequest {
  */
 export interface ListApplicationInstancesResponse {
   /**
+   * @public
    * <p>A list of application instances.</p>
    */
   ApplicationInstances?: ApplicationInstance[];
 
   /**
+   * @public
    * <p>A pagination token that's included if more results are available.</p>
    */
   NextToken?: string;
@@ -2562,31 +2873,37 @@ export type SortOrder = (typeof SortOrder)[keyof typeof SortOrder];
  */
 export interface ListDevicesRequest {
   /**
+   * @public
    * <p>Specify the pagination token from a previous request to retrieve the next page of results.</p>
    */
   NextToken?: string;
 
   /**
+   * @public
    * <p>The maximum number of devices to return in one page of results.</p>
    */
   MaxResults?: number;
 
   /**
+   * @public
    * <p>The target column to be sorted on. Default column sort is CREATED_TIME.</p>
    */
   SortBy?: ListDevicesSortBy | string;
 
   /**
+   * @public
    * <p>The sorting order for the returned list. SortOrder is DESCENDING by default based on CREATED_TIME. Otherwise, SortOrder is ASCENDING.</p>
    */
   SortOrder?: SortOrder | string;
 
   /**
+   * @public
    * <p>Filter based on device's name. Prefixes supported.</p>
    */
   NameFilter?: string;
 
   /**
+   * @public
    * <p>Filter based on a device's status.</p>
    */
   DeviceAggregatedStatusFilter?: DeviceAggregatedStatus | string;
@@ -2597,11 +2914,13 @@ export interface ListDevicesRequest {
  */
 export interface ListDevicesResponse {
   /**
+   * @public
    * <p>A list of devices.</p>
    */
   Devices: Device[] | undefined;
 
   /**
+   * @public
    * <p>A pagination token that's included if more results are available.</p>
    */
   NextToken?: string;
@@ -2612,16 +2931,19 @@ export interface ListDevicesResponse {
  */
 export interface ListDevicesJobsRequest {
   /**
+   * @public
    * <p>Filter results by the job's target device ID.</p>
    */
   DeviceId?: string;
 
   /**
+   * @public
    * <p>Specify the pagination token from a previous request to retrieve the next page of results.</p>
    */
   NextToken?: string;
 
   /**
+   * @public
    * <p>The maximum number of device jobs to return in one page of results.</p>
    */
   MaxResults?: number;
@@ -2632,11 +2954,13 @@ export interface ListDevicesJobsRequest {
  */
 export interface ListDevicesJobsResponse {
   /**
+   * @public
    * <p>A list of jobs.</p>
    */
   DeviceJobs?: DeviceJob[];
 
   /**
+   * @public
    * <p>A pagination token that's included if more results are available.</p>
    */
   NextToken?: string;
@@ -2647,11 +2971,13 @@ export interface ListDevicesJobsResponse {
  */
 export interface ListNodeFromTemplateJobsRequest {
   /**
+   * @public
    * <p>Specify the pagination token from a previous request to retrieve the next page of results.</p>
    */
   NextToken?: string;
 
   /**
+   * @public
    * <p>The maximum number of node from template jobs to return in one page of results.</p>
    */
   MaxResults?: number;
@@ -2663,31 +2989,37 @@ export interface ListNodeFromTemplateJobsRequest {
  */
 export interface NodeFromTemplateJob {
   /**
+   * @public
    * <p>The job's ID.</p>
    */
   JobId?: string;
 
   /**
+   * @public
    * <p>The job's template type.</p>
    */
   TemplateType?: TemplateType | string;
 
   /**
+   * @public
    * <p>The job's status.</p>
    */
   Status?: NodeFromTemplateJobStatus | string;
 
   /**
+   * @public
    * <p>The job's status message.</p>
    */
   StatusMessage?: string;
 
   /**
+   * @public
    * <p>When the job was created.</p>
    */
   CreatedTime?: Date;
 
   /**
+   * @public
    * <p>The node's name.</p>
    */
   NodeName?: string;
@@ -2698,11 +3030,13 @@ export interface NodeFromTemplateJob {
  */
 export interface ListNodeFromTemplateJobsResponse {
   /**
+   * @public
    * <p>A list of jobs.</p>
    */
   NodeFromTemplateJobs: NodeFromTemplateJob[] | undefined;
 
   /**
+   * @public
    * <p>A pagination token that's included if more results are available.</p>
    */
   NextToken?: string;
@@ -2713,36 +3047,43 @@ export interface ListNodeFromTemplateJobsResponse {
  */
 export interface ListNodesRequest {
   /**
+   * @public
    * <p>Search for nodes by category.</p>
    */
   Category?: NodeCategory | string;
 
   /**
+   * @public
    * <p>Search for nodes by the account ID of the nodes' owner.</p>
    */
   OwnerAccount?: string;
 
   /**
+   * @public
    * <p>Search for nodes by name.</p>
    */
   PackageName?: string;
 
   /**
+   * @public
    * <p>Search for nodes by version.</p>
    */
   PackageVersion?: string;
 
   /**
+   * @public
    * <p>Search for nodes by patch version.</p>
    */
   PatchVersion?: string;
 
   /**
+   * @public
    * <p>Specify the pagination token from a previous request to retrieve the next page of results.</p>
    */
   NextToken?: string;
 
   /**
+   * @public
    * <p>The maximum number of nodes to return in one page of results.</p>
    */
   MaxResults?: number;
@@ -2754,56 +3095,67 @@ export interface ListNodesRequest {
  */
 export interface Node {
   /**
+   * @public
    * <p>The node's ID.</p>
    */
   NodeId: string | undefined;
 
   /**
+   * @public
    * <p>The node's name.</p>
    */
   Name: string | undefined;
 
   /**
+   * @public
    * <p>The node's category.</p>
    */
   Category: NodeCategory | string | undefined;
 
   /**
+   * @public
    * <p>The account ID of the node's owner.</p>
    */
   OwnerAccount?: string;
 
   /**
+   * @public
    * <p>The node's package name.</p>
    */
   PackageName: string | undefined;
 
   /**
+   * @public
    * <p>The node's package ID.</p>
    */
   PackageId: string | undefined;
 
   /**
+   * @public
    * <p>The node's ARN.</p>
    */
   PackageArn?: string;
 
   /**
+   * @public
    * <p>The node's package version.</p>
    */
   PackageVersion: string | undefined;
 
   /**
+   * @public
    * <p>The node's patch version.</p>
    */
   PatchVersion: string | undefined;
 
   /**
+   * @public
    * <p>The node's description.</p>
    */
   Description?: string;
 
   /**
+   * @public
    * <p>When the node was created.</p>
    */
   CreatedTime: Date | undefined;
@@ -2814,11 +3166,13 @@ export interface Node {
  */
 export interface ListNodesResponse {
   /**
+   * @public
    * <p>A list of nodes.</p>
    */
   Nodes?: Node[];
 
   /**
+   * @public
    * <p>A pagination token that's included if more results are available.</p>
    */
   NextToken?: string;
@@ -2829,11 +3183,13 @@ export interface ListNodesResponse {
  */
 export interface ListPackageImportJobsRequest {
   /**
+   * @public
    * <p>Specify the pagination token from a previous request to retrieve the next page of results.</p>
    */
   NextToken?: string;
 
   /**
+   * @public
    * <p>The maximum number of package import jobs to return in one page of results.</p>
    */
   MaxResults?: number;
@@ -2845,31 +3201,37 @@ export interface ListPackageImportJobsRequest {
  */
 export interface PackageImportJob {
   /**
+   * @public
    * <p>The job's ID.</p>
    */
   JobId?: string;
 
   /**
+   * @public
    * <p>The job's type.</p>
    */
   JobType?: PackageImportJobType | string;
 
   /**
+   * @public
    * <p>The job's status.</p>
    */
   Status?: PackageImportJobStatus | string;
 
   /**
+   * @public
    * <p>The job's status message.</p>
    */
   StatusMessage?: string;
 
   /**
+   * @public
    * <p>When the job was created.</p>
    */
   CreatedTime?: Date;
 
   /**
+   * @public
    * <p>When the job was updated.</p>
    */
   LastUpdatedTime?: Date;
@@ -2880,11 +3242,13 @@ export interface PackageImportJob {
  */
 export interface ListPackageImportJobsResponse {
   /**
+   * @public
    * <p>A list of package import jobs.</p>
    */
   PackageImportJobs: PackageImportJob[] | undefined;
 
   /**
+   * @public
    * <p>A pagination token that's included if more results are available.</p>
    */
   NextToken?: string;
@@ -2895,11 +3259,13 @@ export interface ListPackageImportJobsResponse {
  */
 export interface ListPackagesRequest {
   /**
+   * @public
    * <p>The maximum number of packages to return in one page of results.</p>
    */
   MaxResults?: number;
 
   /**
+   * @public
    * <p>Specify the pagination token from a previous request to retrieve the next page of results.</p>
    */
   NextToken?: string;
@@ -2911,26 +3277,31 @@ export interface ListPackagesRequest {
  */
 export interface PackageListItem {
   /**
+   * @public
    * <p>The package's ID.</p>
    */
   PackageId?: string;
 
   /**
+   * @public
    * <p>The package's name.</p>
    */
   PackageName?: string;
 
   /**
+   * @public
    * <p>The package's ARN.</p>
    */
   Arn?: string;
 
   /**
+   * @public
    * <p>When the package was created.</p>
    */
   CreatedTime?: Date;
 
   /**
+   * @public
    * <p>The package's tags.</p>
    */
   Tags?: Record<string, string>;
@@ -2941,11 +3312,13 @@ export interface PackageListItem {
  */
 export interface ListPackagesResponse {
   /**
+   * @public
    * <p>A list of packages.</p>
    */
   Packages?: PackageListItem[];
 
   /**
+   * @public
    * <p>A pagination token that's included if more results are available.</p>
    */
   NextToken?: string;
@@ -2956,6 +3329,7 @@ export interface ListPackagesResponse {
  */
 export interface ListTagsForResourceRequest {
   /**
+   * @public
    * <p>The resource's ARN.</p>
    */
   ResourceArn: string | undefined;
@@ -2966,6 +3340,7 @@ export interface ListTagsForResourceRequest {
  */
 export interface ListTagsForResourceResponse {
   /**
+   * @public
    * <p>A list of tags.</p>
    */
   Tags?: Record<string, string>;
@@ -2991,11 +3366,13 @@ export type NodeSignalValue = (typeof NodeSignalValue)[keyof typeof NodeSignalVa
  */
 export interface NodeSignal {
   /**
+   * @public
    * <p>The camera node's name, from the application manifest.</p>
    */
   NodeInstanceId: string | undefined;
 
   /**
+   * @public
    * <p>The signal value.</p>
    */
   Signal: NodeSignalValue | string | undefined;
@@ -3006,21 +3383,25 @@ export interface NodeSignal {
  */
 export interface ProvisionDeviceRequest {
   /**
+   * @public
    * <p>A name for the device.</p>
    */
   Name: string | undefined;
 
   /**
+   * @public
    * <p>A description for the device.</p>
    */
   Description?: string;
 
   /**
+   * @public
    * <p>Tags for the device.</p>
    */
   Tags?: Record<string, string>;
 
   /**
+   * @public
    * <p>A networking configuration for the device.</p>
    */
   NetworkingConfiguration?: NetworkPayload;
@@ -3031,26 +3412,31 @@ export interface ProvisionDeviceRequest {
  */
 export interface ProvisionDeviceResponse {
   /**
+   * @public
    * <p>The device's ID.</p>
    */
   DeviceId?: string;
 
   /**
+   * @public
    * <p>The device's ARN.</p>
    */
   Arn: string | undefined;
 
   /**
+   * @public
    * <p>The device's status.</p>
    */
   Status: DeviceStatus | string | undefined;
 
   /**
+   * @public
    * <p>The device's configuration bundle.</p>
    */
   Certificates?: Uint8Array;
 
   /**
+   * @public
    * <p>The device's IoT thing name.</p>
    */
   IotThingName?: string;
@@ -3061,26 +3447,31 @@ export interface ProvisionDeviceResponse {
  */
 export interface RegisterPackageVersionRequest {
   /**
+   * @public
    * <p>An owner account.</p>
    */
   OwnerAccount?: string;
 
   /**
+   * @public
    * <p>A package ID.</p>
    */
   PackageId: string | undefined;
 
   /**
+   * @public
    * <p>A package version.</p>
    */
   PackageVersion: string | undefined;
 
   /**
+   * @public
    * <p>A patch version.</p>
    */
   PatchVersion: string | undefined;
 
   /**
+   * @public
    * <p>Whether to mark the new version as the latest version.</p>
    */
   MarkLatest?: boolean;
@@ -3096,6 +3487,7 @@ export interface RegisterPackageVersionResponse {}
  */
 export interface RemoveApplicationInstanceRequest {
   /**
+   * @public
    * <p>An application instance ID.</p>
    */
   ApplicationInstanceId: string | undefined;
@@ -3111,11 +3503,13 @@ export interface RemoveApplicationInstanceResponse {}
  */
 export interface SignalApplicationInstanceNodeInstancesRequest {
   /**
+   * @public
    * <p>An application instance ID.</p>
    */
   ApplicationInstanceId: string | undefined;
 
   /**
+   * @public
    * <p>A list of signals.</p>
    */
   NodeSignals: NodeSignal[] | undefined;
@@ -3126,6 +3520,7 @@ export interface SignalApplicationInstanceNodeInstancesRequest {
  */
 export interface SignalApplicationInstanceNodeInstancesResponse {
   /**
+   * @public
    * <p>An application instance ID.</p>
    */
   ApplicationInstanceId: string | undefined;
@@ -3136,11 +3531,13 @@ export interface SignalApplicationInstanceNodeInstancesResponse {
  */
 export interface TagResourceRequest {
   /**
+   * @public
    * <p>The resource's ARN.</p>
    */
   ResourceArn: string | undefined;
 
   /**
+   * @public
    * <p>Tags for the resource.</p>
    */
   Tags: Record<string, string> | undefined;
@@ -3156,11 +3553,13 @@ export interface TagResourceResponse {}
  */
 export interface UntagResourceRequest {
   /**
+   * @public
    * <p>The resource's ARN.</p>
    */
   ResourceArn: string | undefined;
 
   /**
+   * @public
    * <p>Tag keys to remove.</p>
    */
   TagKeys: string[] | undefined;
@@ -3176,11 +3575,13 @@ export interface UntagResourceResponse {}
  */
 export interface UpdateDeviceMetadataRequest {
   /**
+   * @public
    * <p>The device's ID.</p>
    */
   DeviceId: string | undefined;
 
   /**
+   * @public
    * <p>A description for the device.</p>
    */
   Description?: string;
@@ -3191,6 +3592,7 @@ export interface UpdateDeviceMetadataRequest {
  */
 export interface UpdateDeviceMetadataResponse {
   /**
+   * @public
    * <p>The device's ID.</p>
    */
   DeviceId?: string;

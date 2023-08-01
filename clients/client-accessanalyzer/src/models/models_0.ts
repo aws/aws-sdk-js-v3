@@ -31,11 +31,13 @@ export class ConflictException extends __BaseException {
   readonly name: "ConflictException" = "ConflictException";
   readonly $fault: "client" = "client";
   /**
+   * @public
    * <p>The ID of the resource.</p>
    */
   resourceId: string | undefined;
 
   /**
+   * @public
    * <p>The resource type.</p>
    */
   resourceType: string | undefined;
@@ -63,21 +65,25 @@ export class ConflictException extends __BaseException {
  */
 export interface Criterion {
   /**
+   * @public
    * <p>An "equals" operator to match for the filter used to create the rule.</p>
    */
   eq?: string[];
 
   /**
+   * @public
    * <p>A "not equals" operator to match for the filter used to create the rule.</p>
    */
   neq?: string[];
 
   /**
+   * @public
    * <p>A "contains" operator to match for the filter used to create the rule.</p>
    */
   contains?: string[];
 
   /**
+   * @public
    * <p>An "exists" operator to match for the filter used to create the rule. </p>
    */
   exists?: boolean;
@@ -89,21 +95,25 @@ export interface Criterion {
  */
 export interface CreateArchiveRuleRequest {
   /**
+   * @public
    * <p>The name of the created analyzer.</p>
    */
   analyzerName: string | undefined;
 
   /**
+   * @public
    * <p>The name of the rule to create.</p>
    */
   ruleName: string | undefined;
 
   /**
+   * @public
    * <p>The criteria for the rule.</p>
    */
   filter: Record<string, Criterion> | undefined;
 
   /**
+   * @public
    * <p>A client token.</p>
    */
   clientToken?: string;
@@ -118,6 +128,7 @@ export class InternalServerException extends __BaseException {
   readonly $fault: "server" = "server";
   $retryable = {};
   /**
+   * @public
    * <p>The seconds to wait to retry.</p>
    */
   retryAfterSeconds?: number;
@@ -144,11 +155,13 @@ export class ResourceNotFoundException extends __BaseException {
   readonly name: "ResourceNotFoundException" = "ResourceNotFoundException";
   readonly $fault: "client" = "client";
   /**
+   * @public
    * <p>The ID of the resource.</p>
    */
   resourceId: string | undefined;
 
   /**
+   * @public
    * <p>The type of the resource.</p>
    */
   resourceType: string | undefined;
@@ -176,11 +189,13 @@ export class ServiceQuotaExceededException extends __BaseException {
   readonly name: "ServiceQuotaExceededException" = "ServiceQuotaExceededException";
   readonly $fault: "client" = "client";
   /**
+   * @public
    * <p>The resource ID.</p>
    */
   resourceId: string | undefined;
 
   /**
+   * @public
    * <p>The resource type.</p>
    */
   resourceType: string | undefined;
@@ -211,6 +226,7 @@ export class ThrottlingException extends __BaseException {
     throttling: true,
   };
   /**
+   * @public
    * <p>The seconds to wait to retry.</p>
    */
   retryAfterSeconds?: number;
@@ -235,11 +251,13 @@ export class ThrottlingException extends __BaseException {
  */
 export interface ValidationExceptionField {
   /**
+   * @public
    * <p>The name of the validation exception.</p>
    */
   name: string | undefined;
 
   /**
+   * @public
    * <p>A message about the validation exception.</p>
    */
   message: string | undefined;
@@ -269,11 +287,13 @@ export class ValidationException extends __BaseException {
   readonly name: "ValidationException" = "ValidationException";
   readonly $fault: "client" = "client";
   /**
+   * @public
    * <p>The reason for the exception.</p>
    */
   reason: ValidationExceptionReason | string | undefined;
 
   /**
+   * @public
    * <p>A list of fields that didn't validate.</p>
    */
   fieldList?: ValidationExceptionField[];
@@ -299,16 +319,19 @@ export class ValidationException extends __BaseException {
  */
 export interface DeleteArchiveRuleRequest {
   /**
+   * @public
    * <p>The name of the analyzer that associated with the archive rule to delete.</p>
    */
   analyzerName: string | undefined;
 
   /**
+   * @public
    * <p>The name of the rule to delete.</p>
    */
   ruleName: string | undefined;
 
   /**
+   * @public
    * <p>A client token.</p>
    */
   clientToken?: string;
@@ -320,11 +343,13 @@ export interface DeleteArchiveRuleRequest {
  */
 export interface GetArchiveRuleRequest {
   /**
+   * @public
    * <p>The name of the analyzer to retrieve rules from.</p>
    */
   analyzerName: string | undefined;
 
   /**
+   * @public
    * <p>The name of the rule to retrieve.</p>
    */
   ruleName: string | undefined;
@@ -336,21 +361,25 @@ export interface GetArchiveRuleRequest {
  */
 export interface ArchiveRuleSummary {
   /**
+   * @public
    * <p>The name of the archive rule.</p>
    */
   ruleName: string | undefined;
 
   /**
+   * @public
    * <p>A filter used to define the archive rule.</p>
    */
   filter: Record<string, Criterion> | undefined;
 
   /**
+   * @public
    * <p>The time at which the archive rule was created.</p>
    */
   createdAt: Date | undefined;
 
   /**
+   * @public
    * <p>The time at which the archive rule was last updated.</p>
    */
   updatedAt: Date | undefined;
@@ -362,6 +391,7 @@ export interface ArchiveRuleSummary {
  */
 export interface GetArchiveRuleResponse {
   /**
+   * @public
    * <p>Contains information about an archive rule.</p>
    */
   archiveRule: ArchiveRuleSummary | undefined;
@@ -373,16 +403,19 @@ export interface GetArchiveRuleResponse {
  */
 export interface ListArchiveRulesRequest {
   /**
+   * @public
    * <p>The name of the analyzer to retrieve rules from.</p>
    */
   analyzerName: string | undefined;
 
   /**
+   * @public
    * <p>A token used for pagination of results returned.</p>
    */
   nextToken?: string;
 
   /**
+   * @public
    * <p>The maximum number of results to return in the request.</p>
    */
   maxResults?: number;
@@ -394,11 +427,13 @@ export interface ListArchiveRulesRequest {
  */
 export interface ListArchiveRulesResponse {
   /**
+   * @public
    * <p>A list of archive rules created for the specified analyzer.</p>
    */
   archiveRules: ArchiveRuleSummary[] | undefined;
 
   /**
+   * @public
    * <p>A token used for pagination of results returned.</p>
    */
   nextToken?: string;
@@ -410,22 +445,26 @@ export interface ListArchiveRulesResponse {
  */
 export interface UpdateArchiveRuleRequest {
   /**
+   * @public
    * <p>The name of the analyzer to update the archive rules for.</p>
    */
   analyzerName: string | undefined;
 
   /**
+   * @public
    * <p>The name of the rule to update.</p>
    */
   ruleName: string | undefined;
 
   /**
+   * @public
    * <p>A filter to match for the rules to update. Only rules that match the filter are
    *          updated.</p>
    */
   filter: Record<string, Criterion> | undefined;
 
   /**
+   * @public
    * <p>A client token.</p>
    */
   clientToken?: string;
@@ -438,11 +477,13 @@ export interface UpdateArchiveRuleRequest {
  */
 export interface InlineArchiveRule {
   /**
+   * @public
    * <p>The name of the rule.</p>
    */
   ruleName: string | undefined;
 
   /**
+   * @public
    * <p>The condition and values for a criterion.</p>
    */
   filter: Record<string, Criterion> | undefined;
@@ -459,11 +500,13 @@ export type Type = "ACCOUNT" | "ORGANIZATION";
  */
 export interface CreateAnalyzerRequest {
   /**
+   * @public
    * <p>The name of the analyzer to create.</p>
    */
   analyzerName: string | undefined;
 
   /**
+   * @public
    * <p>The type of analyzer to create. Only ACCOUNT and ORGANIZATION analyzers are supported.
    *          You can create only one analyzer per account per Region. You can create up to 5 analyzers
    *          per organization per Region.</p>
@@ -471,17 +514,20 @@ export interface CreateAnalyzerRequest {
   type: Type | string | undefined;
 
   /**
+   * @public
    * <p>Specifies the archive rules to add for the analyzer. Archive rules automatically archive
    *          findings that meet the criteria you define for the rule.</p>
    */
   archiveRules?: InlineArchiveRule[];
 
   /**
+   * @public
    * <p>The tags to apply to the analyzer.</p>
    */
   tags?: Record<string, string>;
 
   /**
+   * @public
    * <p>A client token.</p>
    */
   clientToken?: string;
@@ -493,6 +539,7 @@ export interface CreateAnalyzerRequest {
  */
 export interface CreateAnalyzerResponse {
   /**
+   * @public
    * <p>The ARN of the analyzer that was created by the request.</p>
    */
   arn?: string;
@@ -504,11 +551,13 @@ export interface CreateAnalyzerResponse {
  */
 export interface DeleteAnalyzerRequest {
   /**
+   * @public
    * <p>The name of the analyzer to delete.</p>
    */
   analyzerName: string | undefined;
 
   /**
+   * @public
    * <p>A client token.</p>
    */
   clientToken?: string;
@@ -520,6 +569,7 @@ export interface DeleteAnalyzerRequest {
  */
 export interface GetAnalyzerRequest {
   /**
+   * @public
    * <p>The name of the analyzer retrieved.</p>
    */
   analyzerName: string | undefined;
@@ -548,6 +598,7 @@ export type ReasonCode =
  */
 export interface StatusReason {
   /**
+   * @public
    * <p>The reason code for the current status of the analyzer.</p>
    */
   code: ReasonCode | string | undefined;
@@ -559,42 +610,50 @@ export interface StatusReason {
  */
 export interface AnalyzerSummary {
   /**
+   * @public
    * <p>The ARN of the analyzer.</p>
    */
   arn: string | undefined;
 
   /**
+   * @public
    * <p>The name of the analyzer.</p>
    */
   name: string | undefined;
 
   /**
+   * @public
    * <p>The type of analyzer, which corresponds to the zone of trust chosen for the
    *          analyzer.</p>
    */
   type: Type | string | undefined;
 
   /**
+   * @public
    * <p>A timestamp for the time at which the analyzer was created.</p>
    */
   createdAt: Date | undefined;
 
   /**
+   * @public
    * <p>The resource that was most recently analyzed by the analyzer.</p>
    */
   lastResourceAnalyzed?: string;
 
   /**
+   * @public
    * <p>The time at which the most recently analyzed resource was analyzed.</p>
    */
   lastResourceAnalyzedAt?: Date;
 
   /**
+   * @public
    * <p>The tags added to the analyzer.</p>
    */
   tags?: Record<string, string>;
 
   /**
+   * @public
    * <p>The status of the analyzer. An <code>Active</code> analyzer successfully monitors
    *          supported resources and generates new findings. The analyzer is <code>Disabled</code> when
    *          a user action, such as removing trusted access for Identity and Access Management Access Analyzer from Organizations, causes
@@ -605,6 +664,7 @@ export interface AnalyzerSummary {
   status: AnalyzerStatus | string | undefined;
 
   /**
+   * @public
    * <p>The <code>statusReason</code> provides more details about the current status of the
    *          analyzer. For example, if the creation for the analyzer fails, a <code>Failed</code> status
    *          is returned. For an analyzer with organization as the type, this failure can be due to an
@@ -620,6 +680,7 @@ export interface AnalyzerSummary {
  */
 export interface GetAnalyzerResponse {
   /**
+   * @public
    * <p>An <code>AnalyzerSummary</code> object that contains information about the
    *          analyzer.</p>
    */
@@ -632,16 +693,19 @@ export interface GetAnalyzerResponse {
  */
 export interface ListAnalyzersRequest {
   /**
+   * @public
    * <p>A token used for pagination of results returned.</p>
    */
   nextToken?: string;
 
   /**
+   * @public
    * <p>The maximum number of results to return in the response.</p>
    */
   maxResults?: number;
 
   /**
+   * @public
    * <p>The type of analyzer.</p>
    */
   type?: Type | string;
@@ -653,11 +717,13 @@ export interface ListAnalyzersRequest {
  */
 export interface ListAnalyzersResponse {
   /**
+   * @public
    * <p>The analyzers retrieved.</p>
    */
   analyzers: AnalyzerSummary[] | undefined;
 
   /**
+   * @public
    * <p>A token used for pagination of results returned.</p>
    */
   nextToken?: string;
@@ -669,16 +735,19 @@ export interface ListAnalyzersResponse {
  */
 export interface ApplyArchiveRuleRequest {
   /**
+   * @public
    * <p>The Amazon resource name (ARN) of the analyzer.</p>
    */
   analyzerArn: string | undefined;
 
   /**
+   * @public
    * <p>The name of the rule to apply.</p>
    */
   ruleName: string | undefined;
 
   /**
+   * @public
    * <p>A client token.</p>
    */
   clientToken?: string;
@@ -689,6 +758,7 @@ export interface ApplyArchiveRuleRequest {
  */
 export interface CancelPolicyGenerationRequest {
   /**
+   * @public
    * <p>The <code>JobId</code> that is returned by the <code>StartPolicyGeneration</code>
    *          operation. The <code>JobId</code> can be used with <code>GetGeneratedPolicy</code> to
    *          retrieve the generated policies or used with <code>CancelPolicyGeneration</code> to cancel
@@ -711,6 +781,7 @@ export interface CancelPolicyGenerationResponse {}
  */
 export interface EbsSnapshotConfiguration {
   /**
+   * @public
    * <p>The IDs of the Amazon Web Services accounts that have access to the Amazon EBS volume snapshot.</p>
    *          <ul>
    *             <li>
@@ -732,6 +803,7 @@ export interface EbsSnapshotConfiguration {
   userIds?: string[];
 
   /**
+   * @public
    * <p>The groups that have access to the Amazon EBS volume snapshot. If the value <code>all</code>
    *          is specified, then the Amazon EBS volume snapshot is public.</p>
    *          <ul>
@@ -754,6 +826,7 @@ export interface EbsSnapshotConfiguration {
   groups?: string[];
 
   /**
+   * @public
    * <p>The KMS key identifier for an encrypted Amazon EBS volume snapshot. The KMS key
    *          identifier is the key ARN, key ID, alias ARN, or alias name for the KMS key.</p>
    *          <ul>
@@ -795,6 +868,7 @@ export interface EbsSnapshotConfiguration {
  */
 export interface EcrRepositoryConfiguration {
   /**
+   * @public
    * <p>The JSON repository policy text to apply to the Amazon ECR repository. For more information,
    *          see <a href="https://docs.aws.amazon.com/AmazonECR/latest/userguide/repository-policy-examples.html">Private repository
    *             policy examples</a> in the <i>Amazon ECR User Guide</i>.</p>
@@ -825,6 +899,7 @@ export interface EcrRepositoryConfiguration {
  */
 export interface EfsFileSystemConfiguration {
   /**
+   * @public
    * <p>The JSON policy definition to apply to the Amazon EFS file system. For more information on
    *          the elements that make up a file system policy, see <a href="https://docs.aws.amazon.com/efs/latest/ug/access-control-overview.html#access-control-manage-access-intro-resource-policies">Amazon EFS Resource-based policies</a>.</p>
    */
@@ -844,6 +919,7 @@ export interface EfsFileSystemConfiguration {
  */
 export interface IamRoleConfiguration {
   /**
+   * @public
    * <p>The proposed trust policy for the IAM role.</p>
    */
   trustPolicy?: string;
@@ -859,6 +935,7 @@ export interface IamRoleConfiguration {
  */
 export interface KmsGrantConstraints {
   /**
+   * @public
    * <p>A list of key-value pairs that must match the encryption context in the <a href="https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#cryptographic-operations">cryptographic
    *             operation</a> request. The grant allows the operation only when the encryption
    *          context in the request is the same as the encryption context specified in this
@@ -867,6 +944,7 @@ export interface KmsGrantConstraints {
   encryptionContextEquals?: Record<string, string>;
 
   /**
+   * @public
    * <p>A list of key-value pairs that must be included in the encryption context of the <a href="https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#cryptographic-operations">cryptographic
    *             operation</a> request. The grant allows the cryptographic operation only when the
    *          encryption context in the request includes the key-value pairs specified in this
@@ -907,22 +985,26 @@ export type KmsGrantOperation = (typeof KmsGrantOperation)[keyof typeof KmsGrant
  */
 export interface KmsGrantConfiguration {
   /**
+   * @public
    * <p>A list of operations that the grant permits.</p>
    */
   operations: (KmsGrantOperation | string)[] | undefined;
 
   /**
+   * @public
    * <p>The principal that is given permission to perform the operations that the grant
    *          permits.</p>
    */
   granteePrincipal: string | undefined;
 
   /**
+   * @public
    * <p>The principal that is given permission to retire the grant by using <a href="https://docs.aws.amazon.com/kms/latest/APIReference/API_RetireGrant.html">RetireGrant</a> operation.</p>
    */
   retiringPrincipal?: string;
 
   /**
+   * @public
    * <p>Use this structure to propose allowing <a href="https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#cryptographic-operations">cryptographic
    *             operations</a> in the grant only when the operation request includes the specified
    *             <a href="https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#encrypt_context">encryption
@@ -931,6 +1013,7 @@ export interface KmsGrantConfiguration {
   constraints?: KmsGrantConstraints;
 
   /**
+   * @public
    * <p> The Amazon Web Services account under which the grant was issued. The account is used to propose
    *          KMS grants issued by accounts other than the owner of the key.</p>
    */
@@ -952,6 +1035,7 @@ export interface KmsGrantConfiguration {
  */
 export interface KmsKeyConfiguration {
   /**
+   * @public
    * <p>Resource policy configuration for the KMS key. The only valid value for the name of
    *          the key policy is <code>default</code>. For more information, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/key-policies.html#key-policy-default">Default key
    *             policy</a>.</p>
@@ -959,6 +1043,7 @@ export interface KmsKeyConfiguration {
   keyPolicies?: Record<string, string>;
 
   /**
+   * @public
    * <p>A list of proposed grant configurations for the KMS key. If the proposed grant
    *          configuration is for an existing key, the access preview uses the proposed list of grant
    *          configurations in place of the existing grants. Otherwise, the access preview uses the
@@ -980,6 +1065,7 @@ export type RdsDbClusterSnapshotAttributeValue =
  */
 export namespace RdsDbClusterSnapshotAttributeValue {
   /**
+   * @public
    * <p>The Amazon Web Services account IDs that have access to the manual Amazon RDS DB cluster snapshot. If the
    *          value <code>all</code> is specified, then the Amazon RDS DB cluster snapshot is public and can
    *          be copied or restored by all Amazon Web Services accounts.</p>
@@ -1007,6 +1093,9 @@ export namespace RdsDbClusterSnapshotAttributeValue {
     $unknown?: never;
   }
 
+  /**
+   * @public
+   */
   export interface $UnknownMember {
     accountIds?: never;
     $unknown: [string, any];
@@ -1032,6 +1121,7 @@ export namespace RdsDbClusterSnapshotAttributeValue {
  */
 export interface RdsDbClusterSnapshotConfiguration {
   /**
+   * @public
    * <p>The names and values of manual DB cluster snapshot attributes. Manual DB cluster
    *          snapshot attributes are used to authorize other Amazon Web Services accounts to restore a manual DB
    *          cluster snapshot. The only valid value for <code>AttributeName</code> for the attribute map
@@ -1041,6 +1131,7 @@ export interface RdsDbClusterSnapshotConfiguration {
   attributes?: Record<string, RdsDbClusterSnapshotAttributeValue>;
 
   /**
+   * @public
    * <p>The KMS key identifier for an encrypted Amazon RDS DB cluster snapshot. The KMS key
    *          identifier is the key ARN, key ID, alias ARN, or alias name for the KMS key.</p>
    *          <ul>
@@ -1074,6 +1165,7 @@ export type RdsDbSnapshotAttributeValue =
  */
 export namespace RdsDbSnapshotAttributeValue {
   /**
+   * @public
    * <p>The Amazon Web Services account IDs that have access to the manual Amazon RDS DB snapshot. If the value
    *             <code>all</code> is specified, then the Amazon RDS DB snapshot is public and can be copied or
    *          restored by all Amazon Web Services accounts.</p>
@@ -1101,6 +1193,9 @@ export namespace RdsDbSnapshotAttributeValue {
     $unknown?: never;
   }
 
+  /**
+   * @public
+   */
   export interface $UnknownMember {
     accountIds?: never;
     $unknown: [string, any];
@@ -1126,6 +1221,7 @@ export namespace RdsDbSnapshotAttributeValue {
  */
 export interface RdsDbSnapshotConfiguration {
   /**
+   * @public
    * <p>The names and values of manual DB snapshot attributes. Manual DB snapshot attributes are
    *          used to authorize other Amazon Web Services accounts to restore a manual DB snapshot. The only valid
    *          value for <code>attributeName</code> for the attribute map is restore.</p>
@@ -1133,6 +1229,7 @@ export interface RdsDbSnapshotConfiguration {
   attributes?: Record<string, RdsDbSnapshotAttributeValue>;
 
   /**
+   * @public
    * <p>The KMS key identifier for an encrypted Amazon RDS DB snapshot. The KMS key identifier is
    *          the key ARN, key ID, alias ARN, or alias name for the KMS key.</p>
    *          <ul>
@@ -1166,6 +1263,7 @@ export interface InternetConfiguration {}
  */
 export interface VpcConfiguration {
   /**
+   * @public
    * <p> If this field is specified, this access point will only allow connections from the
    *          specified VPC ID. </p>
    */
@@ -1192,6 +1290,7 @@ export type NetworkOriginConfiguration =
  */
 export namespace NetworkOriginConfiguration {
   /**
+   * @public
    * <p>The proposed virtual private cloud (VPC) configuration for the Amazon S3 access point. VPC
    *          configuration does not apply to multi-region access points. For more information, see
    *             <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_control_VpcConfiguration.html">VpcConfiguration</a>. </p>
@@ -1203,6 +1302,7 @@ export namespace NetworkOriginConfiguration {
   }
 
   /**
+   * @public
    * <p>The configuration for the Amazon S3 access point or multi-region access point with an
    *             <code>Internet</code> origin.</p>
    */
@@ -1212,6 +1312,9 @@ export namespace NetworkOriginConfiguration {
     $unknown?: never;
   }
 
+  /**
+   * @public
+   */
   export interface $UnknownMember {
     vpcConfiguration?: never;
     internetConfiguration?: never;
@@ -1243,12 +1346,14 @@ export namespace NetworkOriginConfiguration {
  */
 export interface S3PublicAccessBlockConfiguration {
   /**
+   * @public
    * <p> Specifies whether Amazon S3 should ignore public ACLs for this bucket and objects in this
    *          bucket. </p>
    */
   ignorePublicAcls: boolean | undefined;
 
   /**
+   * @public
    * <p> Specifies whether Amazon S3 should restrict public bucket policies for this bucket. </p>
    */
   restrictPublicBuckets: boolean | undefined;
@@ -1267,17 +1372,20 @@ export interface S3PublicAccessBlockConfiguration {
  */
 export interface S3AccessPointConfiguration {
   /**
+   * @public
    * <p>The access point or multi-region access point policy.</p>
    */
   accessPointPolicy?: string;
 
   /**
+   * @public
    * <p>The proposed <code>S3PublicAccessBlock</code> configuration to apply to this Amazon S3 access
    *          point or multi-region access point.</p>
    */
   publicAccessBlock?: S3PublicAccessBlockConfiguration;
 
   /**
+   * @public
    * <p>The proposed <code>Internet</code> and <code>VpcConfiguration</code> to apply to this
    *          Amazon S3 access point. <code>VpcConfiguration</code> does not apply to multi-region access
    *          points. If the access preview is for a new resource and neither is specified, the access
@@ -1300,6 +1408,7 @@ export type AclGrantee = AclGrantee.IdMember | AclGrantee.UriMember | AclGrantee
  */
 export namespace AclGrantee {
   /**
+   * @public
    * <p>The value specified is the canonical user ID of an Amazon Web Services account.</p>
    */
   export interface IdMember {
@@ -1309,6 +1418,7 @@ export namespace AclGrantee {
   }
 
   /**
+   * @public
    * <p>Used for granting permissions to a predefined group.</p>
    */
   export interface UriMember {
@@ -1317,6 +1427,9 @@ export namespace AclGrantee {
     $unknown?: never;
   }
 
+  /**
+   * @public
+   */
   export interface $UnknownMember {
     id?: never;
     uri?: never;
@@ -1361,11 +1474,13 @@ export type AclPermission = (typeof AclPermission)[keyof typeof AclPermission];
  */
 export interface S3BucketAclGrantConfiguration {
   /**
+   * @public
    * <p>The permissions being granted.</p>
    */
   permission: AclPermission | string | undefined;
 
   /**
+   * @public
    * <p>The grantee to whom you’re assigning access rights.</p>
    */
   grantee: AclGrantee | undefined;
@@ -1386,11 +1501,13 @@ export interface S3BucketAclGrantConfiguration {
  */
 export interface S3BucketConfiguration {
   /**
+   * @public
    * <p>The proposed bucket policy for the Amazon S3 bucket.</p>
    */
   bucketPolicy?: string;
 
   /**
+   * @public
    * <p>The proposed list of ACL grants for the Amazon S3 bucket. You can propose up to 100 ACL
    *          grants per bucket. If the proposed grant configuration is for an existing bucket, the
    *          access preview uses the proposed list of grant configurations in place of the existing
@@ -1399,11 +1516,13 @@ export interface S3BucketConfiguration {
   bucketAclGrants?: S3BucketAclGrantConfiguration[];
 
   /**
+   * @public
    * <p>The proposed block public access configuration for the Amazon S3 bucket.</p>
    */
   bucketPublicAccessBlock?: S3PublicAccessBlockConfiguration;
 
   /**
+   * @public
    * <p>The configuration of Amazon S3 access points or multi-region access points for the bucket.
    *          You can propose up to 10 new access points per bucket.</p>
    */
@@ -1427,11 +1546,13 @@ export interface S3BucketConfiguration {
  */
 export interface SecretsManagerSecretConfiguration {
   /**
+   * @public
    * <p>The proposed ARN, key ID, or alias of the KMS key.</p>
    */
   kmsKeyId?: string;
 
   /**
+   * @public
    * <p>The proposed resource policy defining who can access or manage the secret.</p>
    */
   secretPolicy?: string;
@@ -1450,6 +1571,7 @@ export interface SecretsManagerSecretConfiguration {
  */
 export interface SnsTopicConfiguration {
   /**
+   * @public
    * <p>The JSON policy text that defines who can access an Amazon SNS topic. For more information,
    *          see <a href="https://docs.aws.amazon.com/sns/latest/dg/sns-access-policy-use-cases.html">Example cases for Amazon SNS access control</a> in the <i>Amazon SNS Developer
    *             Guide</i>.</p>
@@ -1471,6 +1593,7 @@ export interface SnsTopicConfiguration {
  */
 export interface SqsQueueConfiguration {
   /**
+   * @public
    * <p> The proposed resource policy for the Amazon SQS queue. </p>
    */
   queuePolicy?: string;
@@ -1500,6 +1623,7 @@ export type Configuration =
  */
 export namespace Configuration {
   /**
+   * @public
    * <p>The access control configuration is for an Amazon EBS volume snapshot.</p>
    */
   export interface EbsSnapshotMember {
@@ -1518,6 +1642,7 @@ export namespace Configuration {
   }
 
   /**
+   * @public
    * <p>The access control configuration is for an Amazon ECR repository.</p>
    */
   export interface EcrRepositoryMember {
@@ -1536,6 +1661,7 @@ export namespace Configuration {
   }
 
   /**
+   * @public
    * <p>The access control configuration is for an IAM role. </p>
    */
   export interface IamRoleMember {
@@ -1554,6 +1680,7 @@ export namespace Configuration {
   }
 
   /**
+   * @public
    * <p>The access control configuration is for an Amazon EFS file system.</p>
    */
   export interface EfsFileSystemMember {
@@ -1572,6 +1699,7 @@ export namespace Configuration {
   }
 
   /**
+   * @public
    * <p>The access control configuration is for a KMS key. </p>
    */
   export interface KmsKeyMember {
@@ -1590,6 +1718,7 @@ export namespace Configuration {
   }
 
   /**
+   * @public
    * <p>The access control configuration is for an Amazon RDS DB cluster snapshot.</p>
    */
   export interface RdsDbClusterSnapshotMember {
@@ -1608,6 +1737,7 @@ export namespace Configuration {
   }
 
   /**
+   * @public
    * <p>The access control configuration is for an Amazon RDS DB snapshot.</p>
    */
   export interface RdsDbSnapshotMember {
@@ -1626,6 +1756,7 @@ export namespace Configuration {
   }
 
   /**
+   * @public
    * <p>The access control configuration is for a Secrets Manager secret.</p>
    */
   export interface SecretsManagerSecretMember {
@@ -1644,6 +1775,7 @@ export namespace Configuration {
   }
 
   /**
+   * @public
    * <p>The access control configuration is for an Amazon S3 Bucket. </p>
    */
   export interface S3BucketMember {
@@ -1662,6 +1794,7 @@ export namespace Configuration {
   }
 
   /**
+   * @public
    * <p>The access control configuration is for an Amazon SNS topic</p>
    */
   export interface SnsTopicMember {
@@ -1680,6 +1813,7 @@ export namespace Configuration {
   }
 
   /**
+   * @public
    * <p>The access control configuration is for an Amazon SQS queue. </p>
    */
   export interface SqsQueueMember {
@@ -1697,6 +1831,9 @@ export namespace Configuration {
     $unknown?: never;
   }
 
+  /**
+   * @public
+   */
   export interface $UnknownMember {
     ebsSnapshot?: never;
     ecrRepository?: never;
@@ -1748,6 +1885,7 @@ export namespace Configuration {
  */
 export interface CreateAccessPreviewRequest {
   /**
+   * @public
    * <p>The <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/access-analyzer-getting-started.html#permission-resources">ARN of
    *             the account analyzer</a> used to generate the access preview. You can only create an
    *          access preview for analyzers with an <code>Account</code> type and <code>Active</code>
@@ -1756,6 +1894,7 @@ export interface CreateAccessPreviewRequest {
   analyzerArn: string | undefined;
 
   /**
+   * @public
    * <p>Access control configuration for your resource that is used to generate the access
    *          preview. The access preview includes findings for external access allowed to the resource
    *          with the proposed access control configuration. The configuration must contain exactly one
@@ -1764,6 +1903,7 @@ export interface CreateAccessPreviewRequest {
   configurations: Record<string, Configuration> | undefined;
 
   /**
+   * @public
    * <p>A client token.</p>
    */
   clientToken?: string;
@@ -1774,6 +1914,7 @@ export interface CreateAccessPreviewRequest {
  */
 export interface CreateAccessPreviewResponse {
   /**
+   * @public
    * <p>The unique ID for the access preview.</p>
    */
   id: string | undefined;
@@ -1784,11 +1925,13 @@ export interface CreateAccessPreviewResponse {
  */
 export interface GetAccessPreviewRequest {
   /**
+   * @public
    * <p>The unique ID for the access preview.</p>
    */
   accessPreviewId: string | undefined;
 
   /**
+   * @public
    * <p>The <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/access-analyzer-getting-started.html#permission-resources">ARN of
    *             the analyzer</a> used to generate the access preview.</p>
    */
@@ -1834,6 +1977,7 @@ export type AccessPreviewStatusReasonCode =
  */
 export interface AccessPreviewStatusReason {
   /**
+   * @public
    * <p>The reason code for the current status of the access preview.</p>
    */
   code: AccessPreviewStatusReasonCode | string | undefined;
@@ -1845,26 +1989,31 @@ export interface AccessPreviewStatusReason {
  */
 export interface AccessPreview {
   /**
+   * @public
    * <p>The unique ID for the access preview.</p>
    */
   id: string | undefined;
 
   /**
+   * @public
    * <p>The ARN of the analyzer used to generate the access preview.</p>
    */
   analyzerArn: string | undefined;
 
   /**
+   * @public
    * <p>A map of resource ARNs for the proposed resource configuration.</p>
    */
   configurations: Record<string, Configuration> | undefined;
 
   /**
+   * @public
    * <p>The time at which the access preview was created.</p>
    */
   createdAt: Date | undefined;
 
   /**
+   * @public
    * <p>The status of the access preview.</p>
    *          <ul>
    *             <li>
@@ -1885,6 +2034,7 @@ export interface AccessPreview {
   status: AccessPreviewStatus | string | undefined;
 
   /**
+   * @public
    * <p>Provides more details about the current status of the access preview.</p>
    *          <p>For example, if the creation of the access preview fails, a <code>Failed</code> status
    *          is returned. This failure can be due to an internal issue with the analysis or due to an
@@ -1898,6 +2048,7 @@ export interface AccessPreview {
  */
 export interface GetAccessPreviewResponse {
   /**
+   * @public
    * <p>An object that contains information about the access preview.</p>
    */
   accessPreview: AccessPreview | undefined;
@@ -1909,12 +2060,14 @@ export interface GetAccessPreviewResponse {
  */
 export interface GetAnalyzedResourceRequest {
   /**
+   * @public
    * <p>The <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/access-analyzer-getting-started.html#permission-resources">ARN of
    *             the analyzer</a> to retrieve information from.</p>
    */
   analyzerArn: string | undefined;
 
   /**
+   * @public
    * <p>The ARN of the resource to retrieve information about.</p>
    */
   resourceArn: string | undefined;
@@ -1949,59 +2102,70 @@ export type FindingStatus = "ACTIVE" | "ARCHIVED" | "RESOLVED";
  */
 export interface AnalyzedResource {
   /**
+   * @public
    * <p>The ARN of the resource that was analyzed.</p>
    */
   resourceArn: string | undefined;
 
   /**
+   * @public
    * <p>The type of the resource that was analyzed.</p>
    */
   resourceType: ResourceType | string | undefined;
 
   /**
+   * @public
    * <p>The time at which the finding was created.</p>
    */
   createdAt: Date | undefined;
 
   /**
+   * @public
    * <p>The time at which the resource was analyzed.</p>
    */
   analyzedAt: Date | undefined;
 
   /**
+   * @public
    * <p>The time at which the finding was updated.</p>
    */
   updatedAt: Date | undefined;
 
   /**
+   * @public
    * <p>Indicates whether the policy that generated the finding grants public access to the
    *          resource.</p>
    */
   isPublic: boolean | undefined;
 
   /**
+   * @public
    * <p>The actions that an external principal is granted permission to use by the policy that
    *          generated the finding.</p>
    */
   actions?: string[];
 
   /**
+   * @public
    * <p>Indicates how the access that generated the finding is granted. This is populated for
    *          Amazon S3 bucket findings.</p>
    */
   sharedVia?: string[];
 
   /**
+   * @public
    * <p>The current status of the finding generated from the analyzed resource.</p>
    */
   status?: FindingStatus | string;
 
   /**
+   * @public
    * <p>The Amazon Web Services account ID that owns the resource.</p>
    */
   resourceOwnerAccount: string | undefined;
 
   /**
+   * @public
    * <p>An error message.</p>
    */
   error?: string;
@@ -2013,6 +2177,7 @@ export interface AnalyzedResource {
  */
 export interface GetAnalyzedResourceResponse {
   /**
+   * @public
    * <p>An <code>AnalyzedResource</code> object that contains information that IAM Access Analyzer
    *          found when it analyzed the resource.</p>
    */
@@ -2025,12 +2190,14 @@ export interface GetAnalyzedResourceResponse {
  */
 export interface GetFindingRequest {
   /**
+   * @public
    * <p>The <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/access-analyzer-getting-started.html#permission-resources">ARN of
    *             the analyzer</a> that generated the finding.</p>
    */
   analyzerArn: string | undefined;
 
   /**
+   * @public
    * <p>The ID of the finding to retrieve.</p>
    */
   id: string | undefined;
@@ -2043,12 +2210,14 @@ export interface GetFindingRequest {
  */
 export interface FindingSourceDetail {
   /**
+   * @public
    * <p>The ARN of the access point that generated the finding. The ARN format depends on
    *          whether the ARN represents an access point or a multi-region access point.</p>
    */
   accessPointArn?: string;
 
   /**
+   * @public
    * <p>The account of the cross-account access point that generated the finding.</p>
    */
   accessPointAccount?: string;
@@ -2066,11 +2235,13 @@ export type FindingSourceType = "BUCKET_ACL" | "POLICY" | "S3_ACCESS_POINT" | "S
  */
 export interface FindingSource {
   /**
+   * @public
    * <p>Indicates the type of access that generated the finding.</p>
    */
   type: FindingSourceType | string | undefined;
 
   /**
+   * @public
    * <p>Includes details about how the access that generated the finding is granted. This is
    *          populated for Amazon S3 bucket findings.</p>
    */
@@ -2083,73 +2254,87 @@ export interface FindingSource {
  */
 export interface Finding {
   /**
+   * @public
    * <p>The ID of the finding.</p>
    */
   id: string | undefined;
 
   /**
+   * @public
    * <p>The external principal that access to a resource within the zone of trust.</p>
    */
   principal?: Record<string, string>;
 
   /**
+   * @public
    * <p>The action in the analyzed policy statement that an external principal has permission to
    *          use.</p>
    */
   action?: string[];
 
   /**
+   * @public
    * <p>The resource that an external principal has access to.</p>
    */
   resource?: string;
 
   /**
+   * @public
    * <p>Indicates whether the policy that generated the finding allows public access to the
    *          resource.</p>
    */
   isPublic?: boolean;
 
   /**
+   * @public
    * <p>The type of the resource identified in the finding.</p>
    */
   resourceType: ResourceType | string | undefined;
 
   /**
+   * @public
    * <p>The condition in the analyzed policy statement that resulted in a finding.</p>
    */
   condition: Record<string, string> | undefined;
 
   /**
+   * @public
    * <p>The time at which the finding was generated.</p>
    */
   createdAt: Date | undefined;
 
   /**
+   * @public
    * <p>The time at which the resource was analyzed.</p>
    */
   analyzedAt: Date | undefined;
 
   /**
+   * @public
    * <p>The time at which the finding was updated.</p>
    */
   updatedAt: Date | undefined;
 
   /**
+   * @public
    * <p>The current status of the finding.</p>
    */
   status: FindingStatus | string | undefined;
 
   /**
+   * @public
    * <p>The Amazon Web Services account ID that owns the resource.</p>
    */
   resourceOwnerAccount: string | undefined;
 
   /**
+   * @public
    * <p>An error.</p>
    */
   error?: string;
 
   /**
+   * @public
    * <p>The sources of the finding. This indicates how the access that generated the finding is
    *          granted. It is populated for Amazon S3 bucket findings.</p>
    */
@@ -2162,6 +2347,7 @@ export interface Finding {
  */
 export interface GetFindingResponse {
   /**
+   * @public
    * <p>A <code>finding</code> object that contains finding details.</p>
    */
   finding?: Finding;
@@ -2172,6 +2358,7 @@ export interface GetFindingResponse {
  */
 export interface GetGeneratedPolicyRequest {
   /**
+   * @public
    * <p>The <code>JobId</code> that is returned by the <code>StartPolicyGeneration</code>
    *          operation. The <code>JobId</code> can be used with <code>GetGeneratedPolicy</code> to
    *          retrieve the generated policies or used with <code>CancelPolicyGeneration</code> to cancel
@@ -2180,6 +2367,7 @@ export interface GetGeneratedPolicyRequest {
   jobId: string | undefined;
 
   /**
+   * @public
    * <p>The level of detail that you want to generate. You can specify whether to generate
    *          policies with placeholders for resource ARNs for actions that support resource level
    *          granularity in policies.</p>
@@ -2189,6 +2377,7 @@ export interface GetGeneratedPolicyRequest {
   includeResourcePlaceholders?: boolean;
 
   /**
+   * @public
    * <p>The level of detail that you want to generate. You can specify whether to generate
    *          service-level policies. </p>
    *          <p>IAM Access Analyzer uses <code>iam:servicelastaccessed</code> to identify services that have
@@ -2203,6 +2392,7 @@ export interface GetGeneratedPolicyRequest {
  */
 export interface GeneratedPolicy {
   /**
+   * @public
    * <p>The text to use as the content for the new policy. The policy is created using the
    *             <a href="https://docs.aws.amazon.com/IAM/latest/APIReference/API_CreatePolicy.html">CreatePolicy</a> action.</p>
    */
@@ -2215,17 +2405,20 @@ export interface GeneratedPolicy {
  */
 export interface TrailProperties {
   /**
+   * @public
    * <p>Specifies the ARN of the trail. The format of a trail ARN is
    *             <code>arn:aws:cloudtrail:us-east-2:123456789012:trail/MyTrail</code>.</p>
    */
   cloudTrailArn: string | undefined;
 
   /**
+   * @public
    * <p>A list of regions to get CloudTrail data from and analyze to generate a policy.</p>
    */
   regions?: string[];
 
   /**
+   * @public
    * <p>Possible values are <code>true</code> or <code>false</code>. If set to
    *          <code>true</code>, IAM Access Analyzer retrieves CloudTrail data from all regions to analyze and
    *          generate a policy.</p>
@@ -2239,18 +2432,21 @@ export interface TrailProperties {
  */
 export interface CloudTrailProperties {
   /**
+   * @public
    * <p>A <code>TrailProperties</code> object that contains settings for trail
    *          properties.</p>
    */
   trailProperties: TrailProperties[] | undefined;
 
   /**
+   * @public
    * <p>The start of the time range for which IAM Access Analyzer reviews your CloudTrail events. Events
    *          with a timestamp before this time are not considered to generate a policy.</p>
    */
   startTime: Date | undefined;
 
   /**
+   * @public
    * <p>The end of the time range for which IAM Access Analyzer reviews your CloudTrail events. Events with
    *          a timestamp after this time are not considered to generate a policy. If this is not
    *          included in the request, the default value is the current time.</p>
@@ -2264,6 +2460,7 @@ export interface CloudTrailProperties {
  */
 export interface GeneratedPolicyProperties {
   /**
+   * @public
    * <p>This value is set to <code>true</code> if the generated policy contains all possible
    *          actions for a service that IAM Access Analyzer identified from the CloudTrail trail that you specified,
    *          and <code>false</code> otherwise.</p>
@@ -2271,11 +2468,13 @@ export interface GeneratedPolicyProperties {
   isComplete?: boolean;
 
   /**
+   * @public
    * <p>The ARN of the IAM entity (user or role) for which you are generating a policy.</p>
    */
   principalArn: string | undefined;
 
   /**
+   * @public
    * <p>Lists details about the <code>Trail</code> used to generated policy.</p>
    */
   cloudTrailProperties?: CloudTrailProperties;
@@ -2287,12 +2486,14 @@ export interface GeneratedPolicyProperties {
  */
 export interface GeneratedPolicyResult {
   /**
+   * @public
    * <p>A <code>GeneratedPolicyProperties</code> object that contains properties of the
    *          generated policy.</p>
    */
   properties: GeneratedPolicyProperties | undefined;
 
   /**
+   * @public
    * <p>The text to use as the content for the new policy. The policy is created using the
    *             <a href="https://docs.aws.amazon.com/IAM/latest/APIReference/API_CreatePolicy.html">CreatePolicy</a> action.</p>
    */
@@ -2321,11 +2522,13 @@ export type JobErrorCode = (typeof JobErrorCode)[keyof typeof JobErrorCode];
  */
 export interface JobError {
   /**
+   * @public
    * <p>The job error code.</p>
    */
   code: JobErrorCode | string | undefined;
 
   /**
+   * @public
    * <p>Specific information about the error. For example, which service quota was exceeded or
    *          which resource was not found.</p>
    */
@@ -2354,6 +2557,7 @@ export type JobStatus = (typeof JobStatus)[keyof typeof JobStatus];
  */
 export interface JobDetails {
   /**
+   * @public
    * <p>The <code>JobId</code> that is returned by the <code>StartPolicyGeneration</code>
    *          operation. The <code>JobId</code> can be used with <code>GetGeneratedPolicy</code> to
    *          retrieve the generated policies or used with <code>CancelPolicyGeneration</code> to cancel
@@ -2362,21 +2566,25 @@ export interface JobDetails {
   jobId: string | undefined;
 
   /**
+   * @public
    * <p>The status of the job request.</p>
    */
   status: JobStatus | string | undefined;
 
   /**
+   * @public
    * <p>A timestamp of when the job was started.</p>
    */
   startedOn: Date | undefined;
 
   /**
+   * @public
    * <p>A timestamp of when the job was completed.</p>
    */
   completedOn?: Date;
 
   /**
+   * @public
    * <p>The job error for the policy generation request.</p>
    */
   jobError?: JobError;
@@ -2387,12 +2595,14 @@ export interface JobDetails {
  */
 export interface GetGeneratedPolicyResponse {
   /**
+   * @public
    * <p>A <code>GeneratedPolicyDetails</code> object that contains details about the generated
    *          policy.</p>
    */
   jobDetails: JobDetails | undefined;
 
   /**
+   * @public
    * <p>A <code>GeneratedPolicyResult</code> object that contains the generated policies and
    *          associated details.</p>
    */
@@ -2404,27 +2614,32 @@ export interface GetGeneratedPolicyResponse {
  */
 export interface ListAccessPreviewFindingsRequest {
   /**
+   * @public
    * <p>The unique ID for the access preview.</p>
    */
   accessPreviewId: string | undefined;
 
   /**
+   * @public
    * <p>The <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/access-analyzer-getting-started.html#permission-resources">ARN of
    *             the analyzer</a> used to generate the access.</p>
    */
   analyzerArn: string | undefined;
 
   /**
+   * @public
    * <p>Criteria to filter the returned findings.</p>
    */
   filter?: Record<string, Criterion>;
 
   /**
+   * @public
    * <p>A token used for pagination of results returned.</p>
    */
   nextToken?: string;
 
   /**
+   * @public
    * <p>The maximum number of results to return in the response.</p>
    */
   maxResults?: number;
@@ -2451,6 +2666,7 @@ export type FindingChangeType = (typeof FindingChangeType)[keyof typeof FindingC
  */
 export interface AccessPreviewFinding {
   /**
+   * @public
    * <p>The ID of the access preview finding. This ID uniquely identifies the element in the
    *          list of access preview findings and is not related to the finding ID in Access
    *          Analyzer.</p>
@@ -2458,55 +2674,65 @@ export interface AccessPreviewFinding {
   id: string | undefined;
 
   /**
+   * @public
    * <p>The existing ID of the finding in IAM Access Analyzer, provided only for existing
    *          findings.</p>
    */
   existingFindingId?: string;
 
   /**
+   * @public
    * <p>The existing status of the finding, provided only for existing findings.</p>
    */
   existingFindingStatus?: FindingStatus | string;
 
   /**
+   * @public
    * <p>The external principal that has access to a resource within the zone of trust.</p>
    */
   principal?: Record<string, string>;
 
   /**
+   * @public
    * <p>The action in the analyzed policy statement that an external principal has permission to
    *          perform.</p>
    */
   action?: string[];
 
   /**
+   * @public
    * <p>The condition in the analyzed policy statement that resulted in a finding.</p>
    */
   condition?: Record<string, string>;
 
   /**
+   * @public
    * <p>The resource that an external principal has access to. This is the resource associated
    *          with the access preview.</p>
    */
   resource?: string;
 
   /**
+   * @public
    * <p>Indicates whether the policy that generated the finding allows public access to the
    *          resource.</p>
    */
   isPublic?: boolean;
 
   /**
+   * @public
    * <p>The type of the resource that can be accessed in the finding.</p>
    */
   resourceType: ResourceType | string | undefined;
 
   /**
+   * @public
    * <p>The time at which the access preview finding was created.</p>
    */
   createdAt: Date | undefined;
 
   /**
+   * @public
    * <p>Provides context on how the access preview finding compares to existing access
    *          identified in IAM Access Analyzer.</p>
    *          <ul>
@@ -2532,6 +2758,7 @@ export interface AccessPreviewFinding {
   changeType: FindingChangeType | string | undefined;
 
   /**
+   * @public
    * <p>The preview status of the finding. This is what the status of the finding would be after
    *          permissions deployment. For example, a <code>Changed</code> finding with preview status
    *             <code>Resolved</code> and existing status <code>Active</code> indicates the existing
@@ -2541,17 +2768,20 @@ export interface AccessPreviewFinding {
   status: FindingStatus | string | undefined;
 
   /**
+   * @public
    * <p>The Amazon Web Services account ID that owns the resource. For most Amazon Web Services resources, the owning
    *          account is the account in which the resource was created.</p>
    */
   resourceOwnerAccount: string | undefined;
 
   /**
+   * @public
    * <p>An error.</p>
    */
   error?: string;
 
   /**
+   * @public
    * <p>The sources of the finding. This indicates how the access that generated the finding is
    *          granted. It is populated for Amazon S3 bucket findings.</p>
    */
@@ -2563,11 +2793,13 @@ export interface AccessPreviewFinding {
  */
 export interface ListAccessPreviewFindingsResponse {
   /**
+   * @public
    * <p>A list of access preview findings that match the specified filter criteria.</p>
    */
   findings: AccessPreviewFinding[] | undefined;
 
   /**
+   * @public
    * <p>A token used for pagination of results returned.</p>
    */
   nextToken?: string;
@@ -2578,17 +2810,20 @@ export interface ListAccessPreviewFindingsResponse {
  */
 export interface ListAccessPreviewsRequest {
   /**
+   * @public
    * <p>The <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/access-analyzer-getting-started.html#permission-resources">ARN of
    *             the analyzer</a> used to generate the access preview.</p>
    */
   analyzerArn: string | undefined;
 
   /**
+   * @public
    * <p>A token used for pagination of results returned.</p>
    */
   nextToken?: string;
 
   /**
+   * @public
    * <p>The maximum number of results to return in the response.</p>
    */
   maxResults?: number;
@@ -2600,21 +2835,25 @@ export interface ListAccessPreviewsRequest {
  */
 export interface AccessPreviewSummary {
   /**
+   * @public
    * <p>The unique ID for the access preview.</p>
    */
   id: string | undefined;
 
   /**
+   * @public
    * <p>The ARN of the analyzer used to generate the access preview.</p>
    */
   analyzerArn: string | undefined;
 
   /**
+   * @public
    * <p>The time at which the access preview was created.</p>
    */
   createdAt: Date | undefined;
 
   /**
+   * @public
    * <p>The status of the access preview.</p>
    *          <ul>
    *             <li>
@@ -2635,6 +2874,7 @@ export interface AccessPreviewSummary {
   status: AccessPreviewStatus | string | undefined;
 
   /**
+   * @public
    * <p>Provides more details about the current status of the access preview. For example, if
    *          the creation of the access preview fails, a <code>Failed</code> status is returned. This
    *          failure can be due to an internal issue with the analysis or due to an invalid proposed
@@ -2648,11 +2888,13 @@ export interface AccessPreviewSummary {
  */
 export interface ListAccessPreviewsResponse {
   /**
+   * @public
    * <p>A list of access previews retrieved for the analyzer.</p>
    */
   accessPreviews: AccessPreviewSummary[] | undefined;
 
   /**
+   * @public
    * <p>A token used for pagination of results returned.</p>
    */
   nextToken?: string;
@@ -2664,22 +2906,26 @@ export interface ListAccessPreviewsResponse {
  */
 export interface ListAnalyzedResourcesRequest {
   /**
+   * @public
    * <p>The <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/access-analyzer-getting-started.html#permission-resources">ARN of
    *             the analyzer</a> to retrieve a list of analyzed resources from.</p>
    */
   analyzerArn: string | undefined;
 
   /**
+   * @public
    * <p>The type of resource.</p>
    */
   resourceType?: ResourceType | string;
 
   /**
+   * @public
    * <p>A token used for pagination of results returned.</p>
    */
   nextToken?: string;
 
   /**
+   * @public
    * <p>The maximum number of results to return in the response.</p>
    */
   maxResults?: number;
@@ -2691,16 +2937,19 @@ export interface ListAnalyzedResourcesRequest {
  */
 export interface AnalyzedResourceSummary {
   /**
+   * @public
    * <p>The ARN of the analyzed resource.</p>
    */
   resourceArn: string | undefined;
 
   /**
+   * @public
    * <p>The Amazon Web Services account ID that owns the resource.</p>
    */
   resourceOwnerAccount: string | undefined;
 
   /**
+   * @public
    * <p>The type of resource that was analyzed.</p>
    */
   resourceType: ResourceType | string | undefined;
@@ -2712,11 +2961,13 @@ export interface AnalyzedResourceSummary {
  */
 export interface ListAnalyzedResourcesResponse {
   /**
+   * @public
    * <p>A list of resources that were analyzed.</p>
    */
   analyzedResources: AnalyzedResourceSummary[] | undefined;
 
   /**
+   * @public
    * <p>A token used for pagination of results returned.</p>
    */
   nextToken?: string;
@@ -2733,11 +2984,13 @@ export type OrderBy = "ASC" | "DESC";
  */
 export interface SortCriteria {
   /**
+   * @public
    * <p>The name of the attribute to sort on.</p>
    */
   attributeName?: string;
 
   /**
+   * @public
    * <p>The sort order, ascending or descending.</p>
    */
   orderBy?: OrderBy | string;
@@ -2749,27 +3002,32 @@ export interface SortCriteria {
  */
 export interface ListFindingsRequest {
   /**
+   * @public
    * <p>The <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/access-analyzer-getting-started.html#permission-resources">ARN of
    *             the analyzer</a> to retrieve findings from.</p>
    */
   analyzerArn: string | undefined;
 
   /**
+   * @public
    * <p>A filter to match for the findings to return.</p>
    */
   filter?: Record<string, Criterion>;
 
   /**
+   * @public
    * <p>The sort order for the findings returned.</p>
    */
   sort?: SortCriteria;
 
   /**
+   * @public
    * <p>A token used for pagination of results returned.</p>
    */
   nextToken?: string;
 
   /**
+   * @public
    * <p>The maximum number of results to return in the response.</p>
    */
   maxResults?: number;
@@ -2781,74 +3039,88 @@ export interface ListFindingsRequest {
  */
 export interface FindingSummary {
   /**
+   * @public
    * <p>The ID of the finding.</p>
    */
   id: string | undefined;
 
   /**
+   * @public
    * <p>The external principal that has access to a resource within the zone of trust.</p>
    */
   principal?: Record<string, string>;
 
   /**
+   * @public
    * <p>The action in the analyzed policy statement that an external principal has permission to
    *          use.</p>
    */
   action?: string[];
 
   /**
+   * @public
    * <p>The resource that the external principal has access to.</p>
    */
   resource?: string;
 
   /**
+   * @public
    * <p>Indicates whether the finding reports a resource that has a policy that allows public
    *          access.</p>
    */
   isPublic?: boolean;
 
   /**
+   * @public
    * <p>The type of the resource that the external principal has access to.</p>
    */
   resourceType: ResourceType | string | undefined;
 
   /**
+   * @public
    * <p>The condition in the analyzed policy statement that resulted in a finding.</p>
    */
   condition: Record<string, string> | undefined;
 
   /**
+   * @public
    * <p>The time at which the finding was created.</p>
    */
   createdAt: Date | undefined;
 
   /**
+   * @public
    * <p>The time at which the resource-based policy that generated the finding was
    *          analyzed.</p>
    */
   analyzedAt: Date | undefined;
 
   /**
+   * @public
    * <p>The time at which the finding was most recently updated.</p>
    */
   updatedAt: Date | undefined;
 
   /**
+   * @public
    * <p>The status of the finding.</p>
    */
   status: FindingStatus | string | undefined;
 
   /**
+   * @public
    * <p>The Amazon Web Services account ID that owns the resource.</p>
    */
   resourceOwnerAccount: string | undefined;
 
   /**
+   * @public
    * <p>The error that resulted in an Error finding.</p>
    */
   error?: string;
 
   /**
+   * @public
    * <p>The sources of the finding. This indicates how the access that generated the finding is
    *          granted. It is populated for Amazon S3 bucket findings.</p>
    */
@@ -2861,12 +3133,14 @@ export interface FindingSummary {
  */
 export interface ListFindingsResponse {
   /**
+   * @public
    * <p>A list of findings retrieved from the analyzer that match the filter criteria specified,
    *          if any.</p>
    */
   findings: FindingSummary[] | undefined;
 
   /**
+   * @public
    * <p>A token used for pagination of results returned.</p>
    */
   nextToken?: string;
@@ -2877,6 +3151,7 @@ export interface ListFindingsResponse {
  */
 export interface ListPolicyGenerationsRequest {
   /**
+   * @public
    * <p>The ARN of the IAM entity (user or role) for which you are generating a policy. Use
    *          this with <code>ListGeneratedPolicies</code> to filter the results to only include results
    *          for a specific principal.</p>
@@ -2884,11 +3159,13 @@ export interface ListPolicyGenerationsRequest {
   principalArn?: string;
 
   /**
+   * @public
    * <p>The maximum number of results to return in the response.</p>
    */
   maxResults?: number;
 
   /**
+   * @public
    * <p>A token used for pagination of results returned.</p>
    */
   nextToken?: string;
@@ -2900,6 +3177,7 @@ export interface ListPolicyGenerationsRequest {
  */
 export interface PolicyGeneration {
   /**
+   * @public
    * <p>The <code>JobId</code> that is returned by the <code>StartPolicyGeneration</code>
    *          operation. The <code>JobId</code> can be used with <code>GetGeneratedPolicy</code> to
    *          retrieve the generated policies or used with <code>CancelPolicyGeneration</code> to cancel
@@ -2908,21 +3186,25 @@ export interface PolicyGeneration {
   jobId: string | undefined;
 
   /**
+   * @public
    * <p>The ARN of the IAM entity (user or role) for which you are generating a policy.</p>
    */
   principalArn: string | undefined;
 
   /**
+   * @public
    * <p>The status of the policy generation request.</p>
    */
   status: JobStatus | string | undefined;
 
   /**
+   * @public
    * <p>A timestamp of when the policy generation started.</p>
    */
   startedOn: Date | undefined;
 
   /**
+   * @public
    * <p>A timestamp of when the policy generation was completed.</p>
    */
   completedOn?: Date;
@@ -2933,12 +3215,14 @@ export interface PolicyGeneration {
  */
 export interface ListPolicyGenerationsResponse {
   /**
+   * @public
    * <p>A <code>PolicyGeneration</code> object that contains details about the generated
    *          policy.</p>
    */
   policyGenerations: PolicyGeneration[] | undefined;
 
   /**
+   * @public
    * <p>A token used for pagination of results returned.</p>
    */
   nextToken?: string;
@@ -2950,6 +3234,7 @@ export interface ListPolicyGenerationsResponse {
  */
 export interface ListTagsForResourceRequest {
   /**
+   * @public
    * <p>The ARN of the resource to retrieve tags from.</p>
    */
   resourceArn: string | undefined;
@@ -2961,6 +3246,7 @@ export interface ListTagsForResourceRequest {
  */
 export interface ListTagsForResourceResponse {
   /**
+   * @public
    * <p>The tags that are applied to the specified resource.</p>
    */
   tags?: Record<string, string>;
@@ -2972,17 +3258,20 @@ export interface ListTagsForResourceResponse {
  */
 export interface Trail {
   /**
+   * @public
    * <p>Specifies the ARN of the trail. The format of a trail ARN is
    *             <code>arn:aws:cloudtrail:us-east-2:123456789012:trail/MyTrail</code>.</p>
    */
   cloudTrailArn: string | undefined;
 
   /**
+   * @public
    * <p>A list of regions to get CloudTrail data from and analyze to generate a policy.</p>
    */
   regions?: string[];
 
   /**
+   * @public
    * <p>Possible values are <code>true</code> or <code>false</code>. If set to
    *          <code>true</code>, IAM Access Analyzer retrieves CloudTrail data from all regions to analyze and
    *          generate a policy.</p>
@@ -2996,23 +3285,27 @@ export interface Trail {
  */
 export interface CloudTrailDetails {
   /**
+   * @public
    * <p>A <code>Trail</code> object that contains settings for a trail.</p>
    */
   trails: Trail[] | undefined;
 
   /**
+   * @public
    * <p>The ARN of the service role that IAM Access Analyzer uses to access your CloudTrail trail and
    *          service last accessed information.</p>
    */
   accessRole: string | undefined;
 
   /**
+   * @public
    * <p>The start of the time range for which IAM Access Analyzer reviews your CloudTrail events. Events
    *          with a timestamp before this time are not considered to generate a policy.</p>
    */
   startTime: Date | undefined;
 
   /**
+   * @public
    * <p>The end of the time range for which IAM Access Analyzer reviews your CloudTrail events. Events with
    *          a timestamp after this time are not considered to generate a policy. If this is not
    *          included in the request, the default value is the current time.</p>
@@ -3027,6 +3320,7 @@ export interface CloudTrailDetails {
  */
 export interface PolicyGenerationDetails {
   /**
+   * @public
    * <p>The ARN of the IAM entity (user or role) for which you are generating a policy.</p>
    */
   principalArn: string | undefined;
@@ -3037,18 +3331,21 @@ export interface PolicyGenerationDetails {
  */
 export interface StartPolicyGenerationRequest {
   /**
+   * @public
    * <p>Contains the ARN of the IAM entity (user or role) for which you are generating a
    *          policy.</p>
    */
   policyGenerationDetails: PolicyGenerationDetails | undefined;
 
   /**
+   * @public
    * <p>A <code>CloudTrailDetails</code> object that contains details about a <code>Trail</code>
    *          that you want to analyze to generate policies.</p>
    */
   cloudTrailDetails?: CloudTrailDetails;
 
   /**
+   * @public
    * <p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the
    *          request. Idempotency ensures that an API request completes only once. With an idempotent
    *          request, if the original request completes successfully, the subsequent retries with the
@@ -3065,6 +3362,7 @@ export interface StartPolicyGenerationRequest {
  */
 export interface StartPolicyGenerationResponse {
   /**
+   * @public
    * <p>The <code>JobId</code> that is returned by the <code>StartPolicyGeneration</code>
    *          operation. The <code>JobId</code> can be used with <code>GetGeneratedPolicy</code> to
    *          retrieve the generated policies or used with <code>CancelPolicyGeneration</code> to cancel
@@ -3079,6 +3377,7 @@ export interface StartPolicyGenerationResponse {
  */
 export interface StartResourceScanRequest {
   /**
+   * @public
    * <p>The <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/access-analyzer-getting-started.html#permission-resources">ARN of
    *             the analyzer</a> to use to scan the policies applied to the specified
    *          resource.</p>
@@ -3086,11 +3385,13 @@ export interface StartResourceScanRequest {
   analyzerArn: string | undefined;
 
   /**
+   * @public
    * <p>The ARN of the resource to scan.</p>
    */
   resourceArn: string | undefined;
 
   /**
+   * @public
    * <p>The Amazon Web Services account ID that owns the resource. For most Amazon Web Services resources, the owning
    *          account is the account in which the resource was created.</p>
    */
@@ -3103,11 +3404,13 @@ export interface StartResourceScanRequest {
  */
 export interface TagResourceRequest {
   /**
+   * @public
    * <p>The ARN of the resource to add the tag to.</p>
    */
   resourceArn: string | undefined;
 
   /**
+   * @public
    * <p>The tags to add to the resource.</p>
    */
   tags: Record<string, string> | undefined;
@@ -3125,11 +3428,13 @@ export interface TagResourceResponse {}
  */
 export interface UntagResourceRequest {
   /**
+   * @public
    * <p>The ARN of the resource to remove the tag from.</p>
    */
   resourceArn: string | undefined;
 
   /**
+   * @public
    * <p>The key for the tag to add.</p>
    */
   tagKeys: string[] | undefined;
@@ -3152,12 +3457,14 @@ export type FindingStatusUpdate = "ACTIVE" | "ARCHIVED";
  */
 export interface UpdateFindingsRequest {
   /**
+   * @public
    * <p>The <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/access-analyzer-getting-started.html#permission-resources">ARN of
    *             the analyzer</a> that generated the findings to update.</p>
    */
   analyzerArn: string | undefined;
 
   /**
+   * @public
    * <p>The state represents the action to take to update the finding Status. Use
    *             <code>ARCHIVE</code> to change an Active finding to an Archived finding. Use
    *             <code>ACTIVE</code> to change an Archived finding to an Active finding.</p>
@@ -3165,16 +3472,19 @@ export interface UpdateFindingsRequest {
   status: FindingStatusUpdate | string | undefined;
 
   /**
+   * @public
    * <p>The IDs of the findings to update.</p>
    */
   ids?: string[];
 
   /**
+   * @public
    * <p>The ARN of the resource identified in the finding.</p>
    */
   resourceArn?: string;
 
   /**
+   * @public
    * <p>A client token.</p>
    */
   clientToken?: string;
@@ -3239,26 +3549,31 @@ export type ValidatePolicyResourceType = (typeof ValidatePolicyResourceType)[key
  */
 export interface ValidatePolicyRequest {
   /**
+   * @public
    * <p>The locale to use for localizing the findings.</p>
    */
   locale?: Locale | string;
 
   /**
+   * @public
    * <p>The maximum number of results to return in the response.</p>
    */
   maxResults?: number;
 
   /**
+   * @public
    * <p>A token used for pagination of results returned.</p>
    */
   nextToken?: string;
 
   /**
+   * @public
    * <p>The JSON policy document to use as the content for the policy.</p>
    */
   policyDocument: string | undefined;
 
   /**
+   * @public
    * <p>The type of policy to validate. Identity policies grant permissions to IAM principals.
    *          Identity policies include managed and inline policies for IAM roles, users, and groups.
    *          They also include service-control policies (SCPs) that are attached to an Amazon Web Services
@@ -3271,6 +3586,7 @@ export interface ValidatePolicyRequest {
   policyType: PolicyType | string | undefined;
 
   /**
+   * @public
    * <p>The type of resource to attach to your resource policy. Specify a value for the policy
    *          validation resource type only if the policy type is <code>RESOURCE_POLICY</code>. For
    *          example, to validate a resource policy to attach to an Amazon S3 bucket, you can choose
@@ -3305,11 +3621,13 @@ export type ValidatePolicyFindingType = (typeof ValidatePolicyFindingType)[keyof
  */
 export interface Substring {
   /**
+   * @public
    * <p>The start index of the substring, starting from 0.</p>
    */
   start: number | undefined;
 
   /**
+   * @public
    * <p>The length of the substring.</p>
    */
   length: number | undefined;
@@ -3331,6 +3649,7 @@ export type PathElement =
  */
 export namespace PathElement {
   /**
+   * @public
    * <p>Refers to an index in a JSON array.</p>
    */
   export interface IndexMember {
@@ -3342,6 +3661,7 @@ export namespace PathElement {
   }
 
   /**
+   * @public
    * <p>Refers to a key in a JSON object.</p>
    */
   export interface KeyMember {
@@ -3353,6 +3673,7 @@ export namespace PathElement {
   }
 
   /**
+   * @public
    * <p>Refers to a substring of a literal string in a JSON object.</p>
    */
   export interface SubstringMember {
@@ -3364,6 +3685,7 @@ export namespace PathElement {
   }
 
   /**
+   * @public
    * <p>Refers to the value associated with a given key in a JSON object.</p>
    */
   export interface ValueMember {
@@ -3374,6 +3696,9 @@ export namespace PathElement {
     $unknown?: never;
   }
 
+  /**
+   * @public
+   */
   export interface $UnknownMember {
     index?: never;
     key?: never;
@@ -3405,16 +3730,19 @@ export namespace PathElement {
  */
 export interface Position {
   /**
+   * @public
    * <p>The line of the position, starting from 1.</p>
    */
   line: number | undefined;
 
   /**
+   * @public
    * <p>The column of the position, starting from 0.</p>
    */
   column: number | undefined;
 
   /**
+   * @public
    * <p>The offset within the policy that corresponds to the position, starting from 0.</p>
    */
   offset: number | undefined;
@@ -3427,11 +3755,13 @@ export interface Position {
  */
 export interface Span {
   /**
+   * @public
    * <p>The start position of the span (inclusive).</p>
    */
   start: Position | undefined;
 
   /**
+   * @public
    * <p>The end position of the span (exclusive).</p>
    */
   end: Position | undefined;
@@ -3444,11 +3774,13 @@ export interface Span {
  */
 export interface Location {
   /**
+   * @public
    * <p>A path in a policy, represented as a sequence of path elements.</p>
    */
   path: PathElement[] | undefined;
 
   /**
+   * @public
    * <p>A span in a policy.</p>
    */
   span: Span | undefined;
@@ -3461,12 +3793,14 @@ export interface Location {
  */
 export interface ValidatePolicyFinding {
   /**
+   * @public
    * <p>A localized message that explains the finding and provides guidance on how to address
    *          it.</p>
    */
   findingDetails: string | undefined;
 
   /**
+   * @public
    * <p>The impact of the finding.</p>
    *          <p>Security warnings report when the policy allows access that we consider overly
    *          permissive.</p>
@@ -3479,16 +3813,19 @@ export interface ValidatePolicyFinding {
   findingType: ValidatePolicyFindingType | string | undefined;
 
   /**
+   * @public
    * <p>The issue code provides an identifier of the issue associated with this finding.</p>
    */
   issueCode: string | undefined;
 
   /**
+   * @public
    * <p>A link to additional documentation about the type of finding.</p>
    */
   learnMoreLink: string | undefined;
 
   /**
+   * @public
    * <p>The list of locations in the policy document that are related to the finding. The issue
    *          code provides a summary of an issue identified by the finding.</p>
    */
@@ -3500,12 +3837,14 @@ export interface ValidatePolicyFinding {
  */
 export interface ValidatePolicyResponse {
   /**
+   * @public
    * <p>The list of findings in a policy returned by IAM Access Analyzer based on its suite of policy
    *          checks.</p>
    */
   findings: ValidatePolicyFinding[] | undefined;
 
   /**
+   * @public
    * <p>A token used for pagination of results returned.</p>
    */
   nextToken?: string;

@@ -46,6 +46,7 @@ export type ClipFragmentSelectorType = (typeof ClipFragmentSelectorType)[keyof t
  */
 export interface ClipTimestampRange {
   /**
+   * @public
    * <p>The starting timestamp in the range of timestamps for which to return fragments. </p>
    *         <p>Only fragments that start exactly at or after <code>StartTimestamp</code> are included
    *             in the session. Fragments that start before <code>StartTimestamp</code> and continue
@@ -56,6 +57,7 @@ export interface ClipTimestampRange {
   StartTimestamp: Date | undefined;
 
   /**
+   * @public
    * <p>The end of the timestamp range for the requested media.</p>
    *         <p>This value must be within 24 hours of the specified <code>StartTimestamp</code>, and
    *             it must be later than the <code>StartTimestamp</code> value. If
@@ -80,11 +82,13 @@ export interface ClipTimestampRange {
  */
 export interface ClipFragmentSelector {
   /**
+   * @public
    * <p>The origin of the timestamps to use (Server or Producer).</p>
    */
   FragmentSelectorType: ClipFragmentSelectorType | string | undefined;
 
   /**
+   * @public
    * <p>The range of timestamps to return.</p>
    */
   TimestampRange: ClipTimestampRange | undefined;
@@ -95,18 +99,21 @@ export interface ClipFragmentSelector {
  */
 export interface GetClipInput {
   /**
+   * @public
    * <p>The name of the stream for which to retrieve the media clip. </p>
    *         <p>You must specify either the StreamName or the StreamARN. </p>
    */
   StreamName?: string;
 
   /**
+   * @public
    * <p>The Amazon Resource Name (ARN) of the stream for which to retrieve the media clip. </p>
    *         <p>You must specify either the StreamName or the StreamARN. </p>
    */
   StreamARN?: string;
 
   /**
+   * @public
    * <p>The time range of the requested clip and the source of the timestamps.</p>
    */
   ClipFragmentSelector: ClipFragmentSelector | undefined;
@@ -117,11 +124,13 @@ export interface GetClipInput {
  */
 export interface GetClipOutput {
   /**
+   * @public
    * <p>The content type of the media in the requested clip.</p>
    */
   ContentType?: string;
 
   /**
+   * @public
    * <p>Traditional MP4 file that contains the media clip from the specified video stream. The
    *             output will contain the first 100 MB or the first 200 fragments from the specified start
    *             timestamp. For more information, see <a href="https://docs.aws.amazon.com/kinesisvideostreams/latest/dg/limits.html">Kinesis
@@ -348,6 +357,7 @@ export type DASHFragmentSelectorType = (typeof DASHFragmentSelectorType)[keyof t
  */
 export interface DASHTimestampRange {
   /**
+   * @public
    * <p>The start of the timestamp range for the requested media.</p>
    *         <p>If the <code>DASHTimestampRange</code> value is specified, the
    *                 <code>StartTimestamp</code> value is required.</p>
@@ -360,6 +370,7 @@ export interface DASHTimestampRange {
   StartTimestamp?: Date;
 
   /**
+   * @public
    * <p>The end of the timestamp range for the requested media. This value must be within 24
    *             hours of the specified <code>StartTimestamp</code>, and it must be later than the
    *                 <code>StartTimestamp</code> value.</p>
@@ -387,6 +398,7 @@ export interface DASHTimestampRange {
  */
 export interface DASHFragmentSelector {
   /**
+   * @public
    * <p>The source of the timestamps for the requested media.</p>
    *         <p>When <code>FragmentSelectorType</code> is set to <code>PRODUCER_TIMESTAMP</code> and
    *                 <a>GetDASHStreamingSessionURLInput$PlaybackMode</a> is
@@ -412,6 +424,7 @@ export interface DASHFragmentSelector {
   FragmentSelectorType?: DASHFragmentSelectorType | string;
 
   /**
+   * @public
    * <p>The start and end of the timestamp range for the requested media.</p>
    *         <p>This value should not be present if <code>PlaybackType</code> is
    *             <code>LIVE</code>.</p>
@@ -468,6 +481,7 @@ export type DASHPlaybackMode = (typeof DASHPlaybackMode)[keyof typeof DASHPlayba
  */
 export interface GetDASHStreamingSessionURLInput {
   /**
+   * @public
    * <p>The name of the stream for which to retrieve the MPEG-DASH manifest URL.</p>
    *         <p>You must specify either the <code>StreamName</code> or the
    *             <code>StreamARN</code>.</p>
@@ -475,6 +489,7 @@ export interface GetDASHStreamingSessionURLInput {
   StreamName?: string;
 
   /**
+   * @public
    * <p>The Amazon Resource Name (ARN) of the stream for which to retrieve the MPEG-DASH
    *             manifest URL.</p>
    *         <p>You must specify either the <code>StreamName</code> or the
@@ -483,6 +498,7 @@ export interface GetDASHStreamingSessionURLInput {
   StreamARN?: string;
 
   /**
+   * @public
    * <p>Whether to retrieve live, live replay, or archived, on-demand data.</p>
    *         <p>Features of the three types of sessions include the following:</p>
    *         <ul>
@@ -547,6 +563,7 @@ export interface GetDASHStreamingSessionURLInput {
   PlaybackMode?: DASHPlaybackMode | string;
 
   /**
+   * @public
    * <p>Per the MPEG-DASH specification, the wall-clock time of fragments in the manifest file
    *             can be derived using attributes in the manifest itself. However, typically, MPEG-DASH
    *             compatible media players do not properly handle gaps in the media timeline. Kinesis
@@ -565,6 +582,7 @@ export interface GetDASHStreamingSessionURLInput {
   DisplayFragmentTimestamp?: DASHDisplayFragmentTimestamp | string;
 
   /**
+   * @public
    * <p>Fragments are identified in the manifest file based on their sequence number in the
    *             session. If DisplayFragmentNumber is set to <code>ALWAYS</code>, the Kinesis Video
    *             Streams fragment number is added to each S element in the manifest file with the
@@ -577,6 +595,7 @@ export interface GetDASHStreamingSessionURLInput {
   DisplayFragmentNumber?: DASHDisplayFragmentNumber | string;
 
   /**
+   * @public
    * <p>The time range of the requested fragment and the source of the timestamps.</p>
    *         <p>This parameter is required if <code>PlaybackMode</code> is <code>ON_DEMAND</code> or
    *                 <code>LIVE_REPLAY</code>. This parameter is optional if PlaybackMode is<code></code>
@@ -589,6 +608,7 @@ export interface GetDASHStreamingSessionURLInput {
   DASHFragmentSelector?: DASHFragmentSelector;
 
   /**
+   * @public
    * <p>The time in seconds until the requested session expires. This value can be between 300
    *             (5 minutes) and 43200 (12 hours).</p>
    *         <p>When a session expires, no new calls to <code>GetDashManifest</code>,
@@ -599,6 +619,7 @@ export interface GetDASHStreamingSessionURLInput {
   Expires?: number;
 
   /**
+   * @public
    * <p>The maximum number of fragments that are returned in the MPEG-DASH manifest.</p>
    *         <p>When the <code>PlaybackMode</code> is <code>LIVE</code>, the most recent fragments are
    *             returned up to this value. When the <code>PlaybackMode</code> is <code>ON_DEMAND</code>,
@@ -623,6 +644,7 @@ export interface GetDASHStreamingSessionURLInput {
  */
 export interface GetDASHStreamingSessionURLOutput {
   /**
+   * @public
    * <p>The URL (containing the session token) that a media player can use to retrieve the
    *             MPEG-DASH manifest.</p>
    */
@@ -695,6 +717,7 @@ export type HLSFragmentSelectorType = (typeof HLSFragmentSelectorType)[keyof typ
  */
 export interface HLSTimestampRange {
   /**
+   * @public
    * <p>The start of the timestamp range for the requested media.</p>
    *         <p>If the <code>HLSTimestampRange</code> value is specified, the
    *                 <code>StartTimestamp</code> value is required. </p>
@@ -707,6 +730,7 @@ export interface HLSTimestampRange {
   StartTimestamp?: Date;
 
   /**
+   * @public
    * <p>The end of the timestamp range for the requested media. This value must be within 24
    *             hours of the specified <code>StartTimestamp</code>, and it must be later than the
    *                 <code>StartTimestamp</code> value.</p>
@@ -733,6 +757,7 @@ export interface HLSTimestampRange {
  */
 export interface HLSFragmentSelector {
   /**
+   * @public
    * <p>The source of the timestamps for the requested media.</p>
    *         <p>When <code>FragmentSelectorType</code> is set to <code>PRODUCER_TIMESTAMP</code> and
    *                 <a>GetHLSStreamingSessionURLInput$PlaybackMode</a> is
@@ -758,6 +783,7 @@ export interface HLSFragmentSelector {
   FragmentSelectorType?: HLSFragmentSelectorType | string;
 
   /**
+   * @public
    * <p>The start and end of the timestamp range for the requested media.</p>
    *         <p>This value should not be present if <code>PlaybackType</code> is
    *             <code>LIVE</code>.</p>
@@ -785,6 +811,7 @@ export type HLSPlaybackMode = (typeof HLSPlaybackMode)[keyof typeof HLSPlaybackM
  */
 export interface GetHLSStreamingSessionURLInput {
   /**
+   * @public
    * <p>The name of the stream for which to retrieve the HLS master playlist URL.</p>
    *         <p>You must specify either the <code>StreamName</code> or the
    *             <code>StreamARN</code>.</p>
@@ -792,6 +819,7 @@ export interface GetHLSStreamingSessionURLInput {
   StreamName?: string;
 
   /**
+   * @public
    * <p>The Amazon Resource Name (ARN) of the stream for which to retrieve the HLS master
    *             playlist URL.</p>
    *         <p>You must specify either the <code>StreamName</code> or the
@@ -800,6 +828,7 @@ export interface GetHLSStreamingSessionURLInput {
   StreamARN?: string;
 
   /**
+   * @public
    * <p>Whether to retrieve live, live replay, or archived, on-demand data.</p>
    *         <p>Features of the three types of sessions include the following:</p>
    *         <ul>
@@ -864,6 +893,7 @@ export interface GetHLSStreamingSessionURLInput {
   PlaybackMode?: HLSPlaybackMode | string;
 
   /**
+   * @public
    * <p>The time range of the requested fragment and the source of the timestamps.</p>
    *         <p>This parameter is required if <code>PlaybackMode</code> is <code>ON_DEMAND</code> or
    *                 <code>LIVE_REPLAY</code>. This parameter is optional if PlaybackMode is<code></code>
@@ -876,6 +906,7 @@ export interface GetHLSStreamingSessionURLInput {
   HLSFragmentSelector?: HLSFragmentSelector;
 
   /**
+   * @public
    * <p>Specifies which format should be used for packaging the media. Specifying the
    *                 <code>FRAGMENTED_MP4</code> container format packages the media into MP4 fragments
    *             (fMP4 or CMAF). This is the recommended packaging because there is minimal packaging
@@ -888,6 +919,7 @@ export interface GetHLSStreamingSessionURLInput {
   ContainerFormat?: ContainerFormat | string;
 
   /**
+   * @public
    * <p>Specifies when flags marking discontinuities between fragments are added to the media
    *             playlists.</p>
    *         <p>Media players typically build a timeline of media content to play, based on the
@@ -930,6 +962,7 @@ export interface GetHLSStreamingSessionURLInput {
   DiscontinuityMode?: HLSDiscontinuityMode | string;
 
   /**
+   * @public
    * <p>Specifies when the fragment start timestamps should be included in the HLS media
    *             playlist. Typically, media players report the playhead position as a time relative to
    *             the start of the first fragment in the playback session. However, when the start
@@ -946,6 +979,7 @@ export interface GetHLSStreamingSessionURLInput {
   DisplayFragmentTimestamp?: HLSDisplayFragmentTimestamp | string;
 
   /**
+   * @public
    * <p>The time in seconds until the requested session expires. This value can be between 300
    *             (5 minutes) and 43200 (12 hours).</p>
    *         <p>When a session expires, no new calls to <code>GetHLSMasterPlaylist</code>,
@@ -957,6 +991,7 @@ export interface GetHLSStreamingSessionURLInput {
   Expires?: number;
 
   /**
+   * @public
    * <p>The maximum number of fragments that are returned in the HLS media playlists.</p>
    *         <p>When the <code>PlaybackMode</code> is <code>LIVE</code>, the most recent fragments are
    *             returned up to this value. When the <code>PlaybackMode</code> is <code>ON_DEMAND</code>,
@@ -981,6 +1016,7 @@ export interface GetHLSStreamingSessionURLInput {
  */
 export interface GetHLSStreamingSessionURLOutput {
   /**
+   * @public
    * <p>The URL (containing the session token) that a media player can use to retrieve the HLS
    *             master playlist.</p>
    */
@@ -1033,31 +1069,37 @@ export type ImageSelectorType = (typeof ImageSelectorType)[keyof typeof ImageSel
  */
 export interface GetImagesInput {
   /**
+   * @public
    * <p>The name of the stream from which to retrieve the images. You must specify either the <code>StreamName</code> or the <code>StreamARN</code>.</p>
    */
   StreamName?: string;
 
   /**
+   * @public
    * <p>The Amazon Resource Name (ARN) of the stream from which to retrieve the images. You must specify either the <code>StreamName</code> or the <code>StreamARN</code>.</p>
    */
   StreamARN?: string;
 
   /**
+   * @public
    * <p>The origin of the Server or Producer timestamps to use to generate the images.</p>
    */
   ImageSelectorType: ImageSelectorType | string | undefined;
 
   /**
+   * @public
    * <p>The starting point from which the images should be generated. This <code>StartTimestamp</code> must be within an inclusive range of timestamps for an image to be returned.</p>
    */
   StartTimestamp: Date | undefined;
 
   /**
+   * @public
    * <p>The end timestamp for the range of images to be generated.</p>
    */
   EndTimestamp: Date | undefined;
 
   /**
+   * @public
    * <p>The time interval in milliseconds (ms) at which the images need to be generated from the stream. The minimum value that can be provided is 3000 ms. If the timestamp range is less than the sampling interval, the Image from the <code>startTimestamp</code> will be returned if available.
    *         </p>
    *         <note>
@@ -1067,11 +1109,13 @@ export interface GetImagesInput {
   SamplingInterval: number | undefined;
 
   /**
+   * @public
    * <p>The format that will be used to encode the image.</p>
    */
   Format: Format | string | undefined;
 
   /**
+   * @public
    * <p>The list of a key-value pair structure that contains extra parameters that can be applied when the image is generated. The <code>FormatConfig</code> key is the <code>JPEGQuality</code>, which indicates the JPEG quality key to be used to generate the image.
    *             The <code>FormatConfig</code> value accepts ints from 1 to 100. If the value is 1, the image will be generated with less quality and the best compression.
    *             If the value is 100, the image will be generated with the best quality and less compression. If no value is provided, the default value of the <code>JPEGQuality</code> key will be set to 80.</p>
@@ -1079,6 +1123,7 @@ export interface GetImagesInput {
   FormatConfig?: Record<string, string>;
 
   /**
+   * @public
    * <p>The width of the output image that is used in conjunction with the <code>HeightPixels</code> parameter. When both <code>WidthPixels</code> and <code>HeightPixels</code> parameters are provided,
    *             the image will be stretched to fit the specified aspect ratio. If only the <code>WidthPixels</code> parameter is provided or if only the <code>HeightPixels</code> is provided, a <code>ValidationException</code> will be thrown.
    *             If neither parameter is provided, the original image size from the stream will be returned.</p>
@@ -1086,6 +1131,7 @@ export interface GetImagesInput {
   WidthPixels?: number;
 
   /**
+   * @public
    * <p>The height of the output image that is used in conjunction with the <code>WidthPixels</code> parameter. When both <code>HeightPixels</code> and <code>WidthPixels</code> parameters are provided, the image will be stretched to fit the
    *             specified aspect ratio. If only the <code>HeightPixels</code> parameter is provided, its original aspect ratio will be used to calculate the <code>WidthPixels</code> ratio. If neither parameter is provided,
    *             the original image size will be returned.</p>
@@ -1093,6 +1139,7 @@ export interface GetImagesInput {
   HeightPixels?: number;
 
   /**
+   * @public
    * <p>The maximum number of images to be returned by the API. </p>
    *         <note>
    *             <p>The default limit is 100 images per API response. The additional results will be paginated. </p>
@@ -1101,6 +1148,7 @@ export interface GetImagesInput {
   MaxResults?: number;
 
   /**
+   * @public
    * <p>A token that specifies where to start paginating the next set of Images. This is the <code>GetImages:NextToken</code> from a previously truncated response.</p>
    */
   NextToken?: string;
@@ -1126,12 +1174,14 @@ export type ImageError = (typeof ImageError)[keyof typeof ImageError];
  */
 export interface Image {
   /**
+   * @public
    * <p>An attribute of the <code>Image</code> object that is used to extract an image from the video stream. This field is used to manage gaps on images or to better understand the pagination
    *         window.</p>
    */
   TimeStamp?: Date;
 
   /**
+   * @public
    * <p>The error message shown when the image for the provided timestamp was not extracted due to a non-tryable error. An error will be returned if: </p>
    *         <ul>
    *             <li>
@@ -1148,6 +1198,7 @@ export interface Image {
   Error?: ImageError | string;
 
   /**
+   * @public
    * <p>An attribute of the <code>Image</code> object that is Base64 encoded.</p>
    */
   ImageContent?: string;
@@ -1158,12 +1209,14 @@ export interface Image {
  */
 export interface GetImagesOutput {
   /**
+   * @public
    * <p>The list of images generated from the video stream. If there is no media available for the given timestamp, the <code>NO_MEDIA</code> error will be listed in the output.
    *             If an error occurs while the image is being generated, the <code>MEDIA_ERROR</code> will be listed in the output as the cause of the missing image. </p>
    */
   Images?: Image[];
 
   /**
+   * @public
    * <p>The encrypted token that was  used in the request to get more images.</p>
    */
   NextToken?: string;
@@ -1174,16 +1227,19 @@ export interface GetImagesOutput {
  */
 export interface GetMediaForFragmentListInput {
   /**
+   * @public
    * <p>The name of the stream from which to retrieve fragment media. Specify either this parameter or the <code>StreamARN</code> parameter.</p>
    */
   StreamName?: string;
 
   /**
+   * @public
    * <p>The Amazon Resource Name (ARN) of the stream from which to retrieve fragment media. Specify either this parameter or the <code>StreamName</code> parameter.</p>
    */
   StreamARN?: string;
 
   /**
+   * @public
    * <p>A list of the numbers of fragments for which to retrieve media. You retrieve these
    *             values with <a>ListFragments</a>.</p>
    */
@@ -1195,11 +1251,13 @@ export interface GetMediaForFragmentListInput {
  */
 export interface GetMediaForFragmentListOutput {
   /**
+   * @public
    * <p>The content type of the requested media.</p>
    */
   ContentType?: string;
 
   /**
+   * @public
    * <p>The payload that Kinesis Video Streams returns is a sequence of chunks from the
    *             specified stream. For information about the chunks, see <a href="http://docs.aws.amazon.com/kinesisvideostreams/latest/dg/API_dataplane_PutMedia.html">PutMedia</a>. The chunks that Kinesis Video Streams returns in the
    *                 <code>GetMediaForFragmentList</code> call also include the following additional
@@ -1257,12 +1315,14 @@ export type FragmentSelectorType = (typeof FragmentSelectorType)[keyof typeof Fr
  */
 export interface TimestampRange {
   /**
+   * @public
    * <p>The starting timestamp in the range of timestamps for which to return
    *             fragments.</p>
    */
   StartTimestamp: Date | undefined;
 
   /**
+   * @public
    * <p>The ending timestamp in the range of timestamps for which to return fragments.</p>
    */
   EndTimestamp: Date | undefined;
@@ -1293,11 +1353,13 @@ export interface TimestampRange {
  */
 export interface FragmentSelector {
   /**
+   * @public
    * <p>The origin of the timestamps to use (Server or Producer).</p>
    */
   FragmentSelectorType: FragmentSelectorType | string | undefined;
 
   /**
+   * @public
    * <p>The range of timestamps to return.</p>
    */
   TimestampRange: TimestampRange | undefined;
@@ -1308,16 +1370,19 @@ export interface FragmentSelector {
  */
 export interface ListFragmentsInput {
   /**
+   * @public
    * <p>The name of the stream from which to retrieve a fragment list. Specify either this parameter or the <code>StreamARN</code> parameter.</p>
    */
   StreamName?: string;
 
   /**
+   * @public
    * <p>The Amazon Resource Name (ARN) of the stream from which to retrieve a fragment list. Specify either this parameter or the <code>StreamName</code> parameter.</p>
    */
   StreamARN?: string;
 
   /**
+   * @public
    * <p>The total number of fragments to return. If the total number of fragments available is
    *             more than the value specified in <code>max-results</code>, then a <a>ListFragmentsOutput$NextToken</a> is provided in the output that you can use
    *             to resume pagination.</p>
@@ -1325,12 +1390,14 @@ export interface ListFragmentsInput {
   MaxResults?: number;
 
   /**
+   * @public
    * <p>A token to specify where to start paginating. This is the <a>ListFragmentsOutput$NextToken</a> from a previously truncated
    *             response.</p>
    */
   NextToken?: string;
 
   /**
+   * @public
    * <p>Describes the timestamp range and timestamp origin for the range of fragments to
    *             return.</p>
    */
@@ -1343,28 +1410,33 @@ export interface ListFragmentsInput {
  */
 export interface Fragment {
   /**
+   * @public
    * <p>The unique identifier of the fragment. This value monotonically increases based on the
    *             ingestion order.</p>
    */
   FragmentNumber?: string;
 
   /**
+   * @public
    * <p>The total fragment size, including information about the fragment and contained media
    *             data.</p>
    */
   FragmentSizeInBytes?: number;
 
   /**
+   * @public
    * <p>The timestamp from the producer corresponding to the fragment.</p>
    */
   ProducerTimestamp?: Date;
 
   /**
+   * @public
    * <p>The timestamp from the AWS server corresponding to the fragment.</p>
    */
   ServerTimestamp?: Date;
 
   /**
+   * @public
    * <p>The playback duration or other time value associated with the fragment.</p>
    */
   FragmentLengthInMilliseconds?: number;
@@ -1375,12 +1447,14 @@ export interface Fragment {
  */
 export interface ListFragmentsOutput {
   /**
+   * @public
    * <p>A list of archived <a>Fragment</a> objects from the stream that meet the
    *             selector criteria. Results are in no specific order, even across pages.</p>
    */
   Fragments?: Fragment[];
 
   /**
+   * @public
    * <p>If the returned list is truncated, the operation returns this token to use to retrieve
    *             the next page of results. This value is <code>null</code> when there are no more results
    *             to return.</p>

@@ -17,6 +17,7 @@ export interface AbortTransactionRequest {}
  */
 export interface TimingInformation {
   /**
+   * @public
    * <p>The amount of time that QLDB spent on processing the command, measured in
    *          milliseconds.</p>
    */
@@ -29,6 +30,7 @@ export interface TimingInformation {
  */
 export interface AbortTransactionResult {
   /**
+   * @public
    * <p>Contains server-side performance information for the command.</p>
    */
   TimingInformation?: TimingInformation;
@@ -87,11 +89,13 @@ export class CapacityExceededException extends __BaseException {
  */
 export interface CommitTransactionRequest {
   /**
+   * @public
    * <p>Specifies the transaction ID of the transaction to commit.</p>
    */
   TransactionId: string | undefined;
 
   /**
+   * @public
    * <p>Specifies the commit digest for the transaction to commit. For every active transaction,
    *          the commit digest must be passed. QLDB validates <code>CommitDigest</code> and rejects
    *          the commit with an error if the digest computed on the client does not match the digest
@@ -109,11 +113,13 @@ export interface CommitTransactionRequest {
  */
 export interface IOUsage {
   /**
+   * @public
    * <p>The number of read I/O requests that the command made.</p>
    */
   ReadIOs?: number;
 
   /**
+   * @public
    * <p>The number of write I/O requests that the command made.</p>
    */
   WriteIOs?: number;
@@ -125,21 +131,25 @@ export interface IOUsage {
  */
 export interface CommitTransactionResult {
   /**
+   * @public
    * <p>The transaction ID of the committed transaction.</p>
    */
   TransactionId?: string;
 
   /**
+   * @public
    * <p>The commit digest of the committed transaction.</p>
    */
   CommitDigest?: Uint8Array;
 
   /**
+   * @public
    * <p>Contains server-side performance information for the command.</p>
    */
   TimingInformation?: TimingInformation;
 
   /**
+   * @public
    * <p>Contains metrics about the number of I/O requests that were consumed.</p>
    */
   ConsumedIOs?: IOUsage;
@@ -157,6 +167,7 @@ export interface EndSessionRequest {}
  */
 export interface EndSessionResult {
   /**
+   * @public
    * <p>Contains server-side performance information for the command.</p>
    */
   TimingInformation?: TimingInformation;
@@ -168,11 +179,13 @@ export interface EndSessionResult {
  */
 export interface ValueHolder {
   /**
+   * @public
    * <p>An Amazon Ion binary value contained in a <code>ValueHolder</code> structure.</p>
    */
   IonBinary?: Uint8Array;
 
   /**
+   * @public
    * <p>An Amazon Ion plaintext value contained in a <code>ValueHolder</code> structure.</p>
    */
   IonText?: string;
@@ -184,16 +197,19 @@ export interface ValueHolder {
  */
 export interface ExecuteStatementRequest {
   /**
+   * @public
    * <p>Specifies the transaction ID of the request.</p>
    */
   TransactionId: string | undefined;
 
   /**
+   * @public
    * <p>Specifies the statement of the request.</p>
    */
   Statement: string | undefined;
 
   /**
+   * @public
    * <p>Specifies the parameters for the parameterized statement in the request.</p>
    */
   Parameters?: ValueHolder[];
@@ -205,11 +221,13 @@ export interface ExecuteStatementRequest {
  */
 export interface Page {
   /**
+   * @public
    * <p>A structure that contains values in multiple encoding formats.</p>
    */
   Values?: ValueHolder[];
 
   /**
+   * @public
    * <p>The token of the next page.</p>
    */
   NextPageToken?: string;
@@ -221,16 +239,19 @@ export interface Page {
  */
 export interface ExecuteStatementResult {
   /**
+   * @public
    * <p>Contains the details of the first fetched page.</p>
    */
   FirstPage?: Page;
 
   /**
+   * @public
    * <p>Contains server-side performance information for the command.</p>
    */
   TimingInformation?: TimingInformation;
 
   /**
+   * @public
    * <p>Contains metrics about the number of I/O requests that were consumed.</p>
    */
   ConsumedIOs?: IOUsage;
@@ -242,11 +263,13 @@ export interface ExecuteStatementResult {
  */
 export interface FetchPageRequest {
   /**
+   * @public
    * <p>Specifies the transaction ID of the page to be fetched.</p>
    */
   TransactionId: string | undefined;
 
   /**
+   * @public
    * <p>Specifies the next page token of the page to be fetched.</p>
    */
   NextPageToken: string | undefined;
@@ -258,16 +281,19 @@ export interface FetchPageRequest {
  */
 export interface FetchPageResult {
   /**
+   * @public
    * <p>Contains details of the fetched page.</p>
    */
   Page?: Page;
 
   /**
+   * @public
    * <p>Contains server-side performance information for the command.</p>
    */
   TimingInformation?: TimingInformation;
 
   /**
+   * @public
    * <p>Contains metrics about the number of I/O requests that were consumed.</p>
    */
   ConsumedIOs?: IOUsage;
@@ -370,6 +396,7 @@ export class RateExceededException extends __BaseException {
  */
 export interface StartSessionRequest {
   /**
+   * @public
    * <p>The name of the ledger to start a new session against.</p>
    */
   LedgerName: string | undefined;
@@ -386,6 +413,7 @@ export interface StartTransactionRequest {}
  */
 export interface SendCommandRequest {
   /**
+   * @public
    * <p>Specifies the session token for the current command. A session token is constant
    *          throughout the life of the session.</p>
    *          <p>To obtain a session token, run the <code>StartSession</code> command. This
@@ -395,37 +423,44 @@ export interface SendCommandRequest {
   SessionToken?: string;
 
   /**
+   * @public
    * <p>Command to start a new session. A session token is obtained as part of the
    *          response.</p>
    */
   StartSession?: StartSessionRequest;
 
   /**
+   * @public
    * <p>Command to start a new transaction.</p>
    */
   StartTransaction?: StartTransactionRequest;
 
   /**
+   * @public
    * <p>Command to end the current session.</p>
    */
   EndSession?: EndSessionRequest;
 
   /**
+   * @public
    * <p>Command to commit the specified transaction.</p>
    */
   CommitTransaction?: CommitTransactionRequest;
 
   /**
+   * @public
    * <p>Command to abort the current transaction.</p>
    */
   AbortTransaction?: AbortTransactionRequest;
 
   /**
+   * @public
    * <p>Command to execute a statement in the specified transaction.</p>
    */
   ExecuteStatement?: ExecuteStatementRequest;
 
   /**
+   * @public
    * <p>Command to fetch a page.</p>
    */
   FetchPage?: FetchPageRequest;
@@ -437,12 +472,14 @@ export interface SendCommandRequest {
  */
 export interface StartSessionResult {
   /**
+   * @public
    * <p>Session token of the started session. This <code>SessionToken</code> is required for
    *          every subsequent command that is issued during the current session.</p>
    */
   SessionToken?: string;
 
   /**
+   * @public
    * <p>Contains server-side performance information for the command.</p>
    */
   TimingInformation?: TimingInformation;
@@ -454,11 +491,13 @@ export interface StartSessionResult {
  */
 export interface StartTransactionResult {
   /**
+   * @public
    * <p>The transaction ID of the started transaction.</p>
    */
   TransactionId?: string;
 
   /**
+   * @public
    * <p>Contains server-side performance information for the command.</p>
    */
   TimingInformation?: TimingInformation;
@@ -469,6 +508,7 @@ export interface StartTransactionResult {
  */
 export interface SendCommandResult {
   /**
+   * @public
    * <p>Contains the details of the started session that includes a session token. This
    *             <code>SessionToken</code> is required for every subsequent command that is issued during
    *          the current session.</p>
@@ -476,31 +516,37 @@ export interface SendCommandResult {
   StartSession?: StartSessionResult;
 
   /**
+   * @public
    * <p>Contains the details of the started transaction.</p>
    */
   StartTransaction?: StartTransactionResult;
 
   /**
+   * @public
    * <p>Contains the details of the ended session.</p>
    */
   EndSession?: EndSessionResult;
 
   /**
+   * @public
    * <p>Contains the details of the committed transaction.</p>
    */
   CommitTransaction?: CommitTransactionResult;
 
   /**
+   * @public
    * <p>Contains the details of the aborted transaction.</p>
    */
   AbortTransaction?: AbortTransactionResult;
 
   /**
+   * @public
    * <p>Contains the details of the executed statement.</p>
    */
   ExecuteStatement?: ExecuteStatementResult;
 
   /**
+   * @public
    * <p>Contains the details of the fetched page.</p>
    */
   FetchPage?: FetchPageResult;

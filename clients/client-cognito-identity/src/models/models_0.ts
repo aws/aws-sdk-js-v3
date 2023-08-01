@@ -24,17 +24,20 @@ export type AmbiguousRoleResolutionType =
  */
 export interface CognitoIdentityProvider {
   /**
+   * @public
    * <p>The provider name for an Amazon Cognito user pool. For example,
    *             <code>cognito-idp.us-east-1.amazonaws.com/us-east-1_123456789</code>.</p>
    */
   ProviderName?: string;
 
   /**
+   * @public
    * <p>The client ID for the Amazon Cognito user pool.</p>
    */
   ClientId?: string;
 
   /**
+   * @public
    * <p>TRUE if server-side token validation is enabled for the identity provider’s
    *          token.</p>
    *          <p>Once you set <code>ServerSideTokenCheck</code> to TRUE for an identity pool, that
@@ -53,27 +56,32 @@ export interface CognitoIdentityProvider {
  */
 export interface CreateIdentityPoolInput {
   /**
+   * @public
    * <p>A string that you provide.</p>
    */
   IdentityPoolName: string | undefined;
 
   /**
+   * @public
    * <p>TRUE if the identity pool supports unauthenticated logins.</p>
    */
   AllowUnauthenticatedIdentities: boolean | undefined;
 
   /**
+   * @public
    * <p>Enables or disables the Basic (Classic) authentication flow. For more information, see
    *       <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/authentication-flow.html">Identity Pools (Federated Identities) Authentication Flow</a> in the <i>Amazon Cognito Developer Guide</i>.</p>
    */
   AllowClassicFlow?: boolean;
 
   /**
+   * @public
    * <p>Optional key:value pairs mapping provider names to provider app IDs.</p>
    */
   SupportedLoginProviders?: Record<string, string>;
 
   /**
+   * @public
    * <p>The "domain" by which Cognito will refer to your users. This name acts as a
    *          placeholder that allows your backend and the Cognito service to communicate about the
    *          developer provider. For the <code>DeveloperProviderName</code>, you can use letters as well
@@ -85,22 +93,26 @@ export interface CreateIdentityPoolInput {
   DeveloperProviderName?: string;
 
   /**
+   * @public
    * <p>The Amazon Resource Names (ARN) of the OpenID Connect providers.</p>
    */
   OpenIdConnectProviderARNs?: string[];
 
   /**
+   * @public
    * <p>An array of Amazon Cognito user pools and their client IDs.</p>
    */
   CognitoIdentityProviders?: CognitoIdentityProvider[];
 
   /**
+   * @public
    * <p>An array of Amazon Resource Names (ARNs) of the SAML provider for your identity
    *          pool.</p>
    */
   SamlProviderARNs?: string[];
 
   /**
+   * @public
    * <p>Tags to assign to the identity pool. A tag is a label that you can apply to identity
    *          pools to categorize and manage them in different ways, such as by purpose, owner,
    *          environment, or other criteria.</p>
@@ -114,53 +126,63 @@ export interface CreateIdentityPoolInput {
  */
 export interface IdentityPool {
   /**
+   * @public
    * <p>An identity pool ID in the format REGION:GUID.</p>
    */
   IdentityPoolId: string | undefined;
 
   /**
+   * @public
    * <p>A string that you provide.</p>
    */
   IdentityPoolName: string | undefined;
 
   /**
+   * @public
    * <p>TRUE if the identity pool supports unauthenticated logins.</p>
    */
   AllowUnauthenticatedIdentities: boolean | undefined;
 
   /**
+   * @public
    * <p>Enables or disables the Basic (Classic) authentication flow. For more information, see
    *       <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/authentication-flow.html">Identity Pools (Federated Identities) Authentication Flow</a> in the <i>Amazon Cognito Developer Guide</i>.</p>
    */
   AllowClassicFlow?: boolean;
 
   /**
+   * @public
    * <p>Optional key:value pairs mapping provider names to provider app IDs.</p>
    */
   SupportedLoginProviders?: Record<string, string>;
 
   /**
+   * @public
    * <p>The "domain" by which Cognito will refer to your users.</p>
    */
   DeveloperProviderName?: string;
 
   /**
+   * @public
    * <p>The ARNs of the OpenID Connect providers.</p>
    */
   OpenIdConnectProviderARNs?: string[];
 
   /**
+   * @public
    * <p>A list representing an Amazon Cognito user pool and its client ID.</p>
    */
   CognitoIdentityProviders?: CognitoIdentityProvider[];
 
   /**
+   * @public
    * <p>An array of Amazon Resource Names (ARNs) of the SAML provider for your identity
    *          pool.</p>
    */
   SamlProviderARNs?: string[];
 
   /**
+   * @public
    * <p>The tags that are assigned to the identity pool. A tag is a label that you can apply to
    *          identity pools to categorize and manage them in different ways, such as by purpose, owner,
    *          environment, or other criteria.</p>
@@ -295,6 +317,7 @@ export class TooManyRequestsException extends __BaseException {
  */
 export interface DeleteIdentitiesInput {
   /**
+   * @public
    * <p>A list of 1-60 identities that you want to delete.</p>
    */
   IdentityIdsToDelete: string[] | undefined;
@@ -321,11 +344,13 @@ export type ErrorCode = (typeof ErrorCode)[keyof typeof ErrorCode];
  */
 export interface UnprocessedIdentityId {
   /**
+   * @public
    * <p>A unique identifier in the format REGION:GUID.</p>
    */
   IdentityId?: string;
 
   /**
+   * @public
    * <p>The error code indicating the type of error that occurred.</p>
    */
   ErrorCode?: ErrorCode | string;
@@ -338,6 +363,7 @@ export interface UnprocessedIdentityId {
  */
 export interface DeleteIdentitiesResponse {
   /**
+   * @public
    * <p>An array of UnprocessedIdentityId objects, each of which contains an ErrorCode and
    *          IdentityId.</p>
    */
@@ -350,6 +376,7 @@ export interface DeleteIdentitiesResponse {
  */
 export interface DeleteIdentityPoolInput {
   /**
+   * @public
    * <p>An identity pool ID in the format REGION:GUID.</p>
    */
   IdentityPoolId: string | undefined;
@@ -382,6 +409,7 @@ export class ResourceNotFoundException extends __BaseException {
  */
 export interface DescribeIdentityInput {
   /**
+   * @public
    * <p>A unique identifier in the format REGION:GUID.</p>
    */
   IdentityId: string | undefined;
@@ -393,21 +421,25 @@ export interface DescribeIdentityInput {
  */
 export interface IdentityDescription {
   /**
+   * @public
    * <p>A unique identifier in the format REGION:GUID.</p>
    */
   IdentityId?: string;
 
   /**
+   * @public
    * <p>The provider names.</p>
    */
   Logins?: string[];
 
   /**
+   * @public
    * <p>Date on which the identity was created.</p>
    */
   CreationDate?: Date;
 
   /**
+   * @public
    * <p>Date on which the identity was last modified.</p>
    */
   LastModifiedDate?: Date;
@@ -419,6 +451,7 @@ export interface IdentityDescription {
  */
 export interface DescribeIdentityPoolInput {
   /**
+   * @public
    * <p>An identity pool ID in the format REGION:GUID.</p>
    */
   IdentityPoolId: string | undefined;
@@ -451,11 +484,13 @@ export class ExternalServiceException extends __BaseException {
  */
 export interface GetCredentialsForIdentityInput {
   /**
+   * @public
    * <p>A unique identifier in the format REGION:GUID.</p>
    */
   IdentityId: string | undefined;
 
   /**
+   * @public
    * <p>A set of optional name-value pairs that map provider names to provider tokens. The
    *          name-value pair will follow the syntax "provider_name":
    *          "provider_user_identifier".</p>
@@ -469,6 +504,7 @@ export interface GetCredentialsForIdentityInput {
   Logins?: Record<string, string>;
 
   /**
+   * @public
    * <p>The Amazon Resource Name (ARN) of the role to be assumed when multiple roles were
    *          received in the token from the identity provider. For example, a SAML-based identity
    *          provider. This parameter is optional for identity providers that do not support role
@@ -483,21 +519,25 @@ export interface GetCredentialsForIdentityInput {
  */
 export interface Credentials {
   /**
+   * @public
    * <p>The Access Key portion of the credentials.</p>
    */
   AccessKeyId?: string;
 
   /**
+   * @public
    * <p>The Secret Access Key portion of the credentials</p>
    */
   SecretKey?: string;
 
   /**
+   * @public
    * <p>The Session Token portion of the credentials</p>
    */
   SessionToken?: string;
 
   /**
+   * @public
    * <p>The date at which these credentials will expire.</p>
    */
   Expiration?: Date;
@@ -510,11 +550,13 @@ export interface Credentials {
  */
 export interface GetCredentialsForIdentityResponse {
   /**
+   * @public
    * <p>A unique identifier in the format REGION:GUID.</p>
    */
   IdentityId?: string;
 
   /**
+   * @public
    * <p>Credentials for the provided identity ID.</p>
    */
   Credentials?: Credentials;
@@ -547,16 +589,19 @@ export class InvalidIdentityPoolConfigurationException extends __BaseException {
  */
 export interface GetIdInput {
   /**
+   * @public
    * <p>A standard AWS account ID (9+ digits).</p>
    */
   AccountId?: string;
 
   /**
+   * @public
    * <p>An identity pool ID in the format REGION:GUID.</p>
    */
   IdentityPoolId: string | undefined;
 
   /**
+   * @public
    * <p>A set of optional name-value pairs that map provider names to provider tokens. The
    *          available provider names for <code>Logins</code> are as follows:</p>
    *          <ul>
@@ -597,6 +642,7 @@ export interface GetIdInput {
  */
 export interface GetIdResponse {
   /**
+   * @public
    * <p>A unique identifier in the format REGION:GUID.</p>
    */
   IdentityId?: string;
@@ -608,6 +654,7 @@ export interface GetIdResponse {
  */
 export interface GetIdentityPoolRolesInput {
   /**
+   * @public
    * <p>An identity pool ID in the format REGION:GUID.</p>
    */
   IdentityPoolId: string | undefined;
@@ -636,23 +683,27 @@ export type MappingRuleMatchType = (typeof MappingRuleMatchType)[keyof typeof Ma
  */
 export interface MappingRule {
   /**
+   * @public
    * <p>The claim name that must be present in the token, for example, "isAdmin" or
    *          "paid".</p>
    */
   Claim: string | undefined;
 
   /**
+   * @public
    * <p>The match condition that specifies how closely the claim value in the IdP token must
    *          match <code>Value</code>.</p>
    */
   MatchType: MappingRuleMatchType | string | undefined;
 
   /**
+   * @public
    * <p>A brief string that the claim must match, for example, "paid" or "yes".</p>
    */
   Value: string | undefined;
 
   /**
+   * @public
    * <p>The role ARN.</p>
    */
   RoleARN: string | undefined;
@@ -664,6 +715,7 @@ export interface MappingRule {
  */
 export interface RulesConfigurationType {
   /**
+   * @public
    * <p>An array of rules. You can specify up to 25 rules per identity provider.</p>
    *          <p>Rules are evaluated in order. The first one to match specifies the role.</p>
    */
@@ -690,6 +742,7 @@ export type RoleMappingType = (typeof RoleMappingType)[keyof typeof RoleMappingT
  */
 export interface RoleMapping {
   /**
+   * @public
    * <p>The role mapping type. Token will use <code>cognito:roles</code> and
    *             <code>cognito:preferred_role</code> claims from the Cognito identity provider token to
    *          map groups to roles. Rules will attempt to match claims from the token to map to a
@@ -698,6 +751,7 @@ export interface RoleMapping {
   Type: RoleMappingType | string | undefined;
 
   /**
+   * @public
    * <p>If you specify Token or Rules as the <code>Type</code>,
    *             <code>AmbiguousRoleResolution</code> is required.</p>
    *          <p>Specifies the action to be taken if either no rules match the claim value for the
@@ -708,6 +762,7 @@ export interface RoleMapping {
   AmbiguousRoleResolution?: AmbiguousRoleResolutionType | string;
 
   /**
+   * @public
    * <p>The rules to be used for mapping users to roles.</p>
    *          <p>If you specify Rules as the role mapping type, <code>RulesConfiguration</code> is
    *          required.</p>
@@ -722,17 +777,20 @@ export interface RoleMapping {
  */
 export interface GetIdentityPoolRolesResponse {
   /**
+   * @public
    * <p>An identity pool ID in the format REGION:GUID.</p>
    */
   IdentityPoolId?: string;
 
   /**
+   * @public
    * <p>The map of roles associated with this pool. Currently only authenticated and
    *          unauthenticated roles are supported.</p>
    */
   Roles?: Record<string, string>;
 
   /**
+   * @public
    * <p>How users for a specific identity provider are to mapped to roles. This is a
    *             String-to-<a>RoleMapping</a> object map. The string identifies the identity
    *          provider, for example, "graph.facebook.com" or
@@ -747,11 +805,13 @@ export interface GetIdentityPoolRolesResponse {
  */
 export interface GetOpenIdTokenInput {
   /**
+   * @public
    * <p>A unique identifier in the format REGION:GUID.</p>
    */
   IdentityId: string | undefined;
 
   /**
+   * @public
    * <p>A set of optional name-value pairs that map provider names to provider tokens. When
    *          using graph.facebook.com and www.amazon.com, supply the access_token returned from the
    *          provider's authflow. For accounts.google.com, an Amazon Cognito user pool provider, or any
@@ -766,12 +826,14 @@ export interface GetOpenIdTokenInput {
  */
 export interface GetOpenIdTokenResponse {
   /**
+   * @public
    * <p>A unique identifier in the format REGION:GUID. Note that the IdentityId returned may
    *          not match the one passed on input.</p>
    */
   IdentityId?: string;
 
   /**
+   * @public
    * <p>An OpenID token, valid for 10 minutes.</p>
    */
   Token?: string;
@@ -804,16 +866,19 @@ export class DeveloperUserAlreadyRegisteredException extends __BaseException {
  */
 export interface GetOpenIdTokenForDeveloperIdentityInput {
   /**
+   * @public
    * <p>An identity pool ID in the format REGION:GUID.</p>
    */
   IdentityPoolId: string | undefined;
 
   /**
+   * @public
    * <p>A unique identifier in the format REGION:GUID.</p>
    */
   IdentityId?: string;
 
   /**
+   * @public
    * <p>A set of optional name-value pairs that map provider names to provider tokens. Each
    *          name-value pair represents a user from a public provider or developer provider. If the user
    *          is from a developer provider, the name-value pair will follow the syntax
@@ -826,11 +891,13 @@ export interface GetOpenIdTokenForDeveloperIdentityInput {
   Logins: Record<string, string> | undefined;
 
   /**
+   * @public
    * <p>Use this operation to configure attribute mappings for custom providers. </p>
    */
   PrincipalTags?: Record<string, string>;
 
   /**
+   * @public
    * <p>The expiration time of the token, in seconds. You can specify a custom expiration
    *          time for the token so that you can cache it. If you don't provide an expiration time, the
    *          token is valid for 15 minutes. You can exchange the token with Amazon STS for temporary AWS
@@ -852,11 +919,13 @@ export interface GetOpenIdTokenForDeveloperIdentityInput {
  */
 export interface GetOpenIdTokenForDeveloperIdentityResponse {
   /**
+   * @public
    * <p>A unique identifier in the format REGION:GUID.</p>
    */
   IdentityId?: string;
 
   /**
+   * @public
    * <p>An OpenID token.</p>
    */
   Token?: string;
@@ -867,11 +936,13 @@ export interface GetOpenIdTokenForDeveloperIdentityResponse {
  */
 export interface GetPrincipalTagAttributeMapInput {
   /**
+   * @public
    * <p>You can use this operation to get the ID of the Identity Pool you setup attribute mappings for.</p>
    */
   IdentityPoolId: string | undefined;
 
   /**
+   * @public
    * <p>You can use this operation to get the provider name.</p>
    */
   IdentityProviderName: string | undefined;
@@ -882,21 +953,25 @@ export interface GetPrincipalTagAttributeMapInput {
  */
 export interface GetPrincipalTagAttributeMapResponse {
   /**
+   * @public
    * <p>You can use this operation to get the ID of the Identity Pool you setup attribute mappings for.</p>
    */
   IdentityPoolId?: string;
 
   /**
+   * @public
    * <p>You can use this operation to get the provider name.</p>
    */
   IdentityProviderName?: string;
 
   /**
+   * @public
    * <p>You can use this operation to list </p>
    */
   UseDefaults?: boolean;
 
   /**
+   * @public
    * <p>You can use this operation to add principal tags. The <code>PrincipalTags</code>operation enables you to reference user attributes in your IAM permissions policy.</p>
    */
   PrincipalTags?: Record<string, string>;
@@ -908,21 +983,25 @@ export interface GetPrincipalTagAttributeMapResponse {
  */
 export interface ListIdentitiesInput {
   /**
+   * @public
    * <p>An identity pool ID in the format REGION:GUID.</p>
    */
   IdentityPoolId: string | undefined;
 
   /**
+   * @public
    * <p>The maximum number of identities to return.</p>
    */
   MaxResults: number | undefined;
 
   /**
+   * @public
    * <p>A pagination token.</p>
    */
   NextToken?: string;
 
   /**
+   * @public
    * <p>An optional boolean parameter that allows you to hide disabled identities. If
    *          omitted, the ListIdentities API will include disabled identities in the response.</p>
    */
@@ -935,16 +1014,19 @@ export interface ListIdentitiesInput {
  */
 export interface ListIdentitiesResponse {
   /**
+   * @public
    * <p>An identity pool ID in the format REGION:GUID.</p>
    */
   IdentityPoolId?: string;
 
   /**
+   * @public
    * <p>An object containing a set of identities and associated mappings.</p>
    */
   Identities?: IdentityDescription[];
 
   /**
+   * @public
    * <p>A pagination token.</p>
    */
   NextToken?: string;
@@ -956,11 +1038,13 @@ export interface ListIdentitiesResponse {
  */
 export interface ListIdentityPoolsInput {
   /**
+   * @public
    * <p>The maximum number of identities to return.</p>
    */
   MaxResults: number | undefined;
 
   /**
+   * @public
    * <p>A pagination token.</p>
    */
   NextToken?: string;
@@ -972,11 +1056,13 @@ export interface ListIdentityPoolsInput {
  */
 export interface IdentityPoolShortDescription {
   /**
+   * @public
    * <p>An identity pool ID in the format REGION:GUID.</p>
    */
   IdentityPoolId?: string;
 
   /**
+   * @public
    * <p>A string that you provide.</p>
    */
   IdentityPoolName?: string;
@@ -988,11 +1074,13 @@ export interface IdentityPoolShortDescription {
  */
 export interface ListIdentityPoolsResponse {
   /**
+   * @public
    * <p>The identity pools returned by the ListIdentityPools action.</p>
    */
   IdentityPools?: IdentityPoolShortDescription[];
 
   /**
+   * @public
    * <p>A pagination token.</p>
    */
   NextToken?: string;
@@ -1003,6 +1091,7 @@ export interface ListIdentityPoolsResponse {
  */
 export interface ListTagsForResourceInput {
   /**
+   * @public
    * <p>The Amazon Resource Name (ARN) of the identity pool that the tags are assigned
    *          to.</p>
    */
@@ -1014,6 +1103,7 @@ export interface ListTagsForResourceInput {
  */
 export interface ListTagsForResourceResponse {
   /**
+   * @public
    * <p>The tags that are assigned to the identity pool.</p>
    */
   Tags?: Record<string, string>;
@@ -1025,16 +1115,19 @@ export interface ListTagsForResourceResponse {
  */
 export interface LookupDeveloperIdentityInput {
   /**
+   * @public
    * <p>An identity pool ID in the format REGION:GUID.</p>
    */
   IdentityPoolId: string | undefined;
 
   /**
+   * @public
    * <p>A unique identifier in the format REGION:GUID.</p>
    */
   IdentityId?: string;
 
   /**
+   * @public
    * <p>A unique ID used by your backend authentication process to identify a user.
    *          Typically, a developer identity provider would issue many developer user identifiers, in
    *          keeping with the number of users.</p>
@@ -1042,11 +1135,13 @@ export interface LookupDeveloperIdentityInput {
   DeveloperUserIdentifier?: string;
 
   /**
+   * @public
    * <p>The maximum number of identities to return.</p>
    */
   MaxResults?: number;
 
   /**
+   * @public
    * <p>A pagination token. The first call you make will have <code>NextToken</code> set to
    *          null. After that the service will return <code>NextToken</code> values as needed. For
    *          example, let's say you make a request with <code>MaxResults</code> set to 10, and there are
@@ -1064,11 +1159,13 @@ export interface LookupDeveloperIdentityInput {
  */
 export interface LookupDeveloperIdentityResponse {
   /**
+   * @public
    * <p>A unique identifier in the format REGION:GUID.</p>
    */
   IdentityId?: string;
 
   /**
+   * @public
    * <p>This is the list of developer user identifiers associated with an identity ID.
    *          Cognito supports the association of multiple developer user identifiers with an identity
    *          ID.</p>
@@ -1076,6 +1173,7 @@ export interface LookupDeveloperIdentityResponse {
   DeveloperUserIdentifierList?: string[];
 
   /**
+   * @public
    * <p>A pagination token. The first call you make will have <code>NextToken</code> set to
    *          null. After that the service will return <code>NextToken</code> values as needed. For
    *          example, let's say you make a request with <code>MaxResults</code> set to 10, and there are
@@ -1092,18 +1190,21 @@ export interface LookupDeveloperIdentityResponse {
  */
 export interface MergeDeveloperIdentitiesInput {
   /**
+   * @public
    * <p>User identifier for the source user. The value should be a
    *             <code>DeveloperUserIdentifier</code>.</p>
    */
   SourceUserIdentifier: string | undefined;
 
   /**
+   * @public
    * <p>User identifier for the destination user. The value should be a
    *             <code>DeveloperUserIdentifier</code>.</p>
    */
   DestinationUserIdentifier: string | undefined;
 
   /**
+   * @public
    * <p>The "domain" by which Cognito will refer to your users. This is a (pseudo) domain
    *          name that you provide while creating an identity pool. This name acts as a placeholder that
    *          allows your backend and the Cognito service to communicate about the developer provider.
@@ -1113,6 +1214,7 @@ export interface MergeDeveloperIdentitiesInput {
   DeveloperProviderName: string | undefined;
 
   /**
+   * @public
    * <p>An identity pool ID in the format REGION:GUID.</p>
    */
   IdentityPoolId: string | undefined;
@@ -1125,6 +1227,7 @@ export interface MergeDeveloperIdentitiesInput {
  */
 export interface MergeDeveloperIdentitiesResponse {
   /**
+   * @public
    * <p>A unique identifier in the format REGION:GUID.</p>
    */
   IdentityId?: string;
@@ -1156,17 +1259,20 @@ export class ConcurrentModificationException extends __BaseException {
  */
 export interface SetIdentityPoolRolesInput {
   /**
+   * @public
    * <p>An identity pool ID in the format REGION:GUID.</p>
    */
   IdentityPoolId: string | undefined;
 
   /**
+   * @public
    * <p>The map of roles associated with this pool. For a given role, the key will be either
    *          "authenticated" or "unauthenticated" and the value will be the Role ARN.</p>
    */
   Roles: Record<string, string> | undefined;
 
   /**
+   * @public
    * <p>How users for a specific identity provider are to mapped to roles. This is a string
    *          to <a>RoleMapping</a> object map. The string identifies the identity provider,
    *          for example, "graph.facebook.com" or
@@ -1181,21 +1287,25 @@ export interface SetIdentityPoolRolesInput {
  */
 export interface SetPrincipalTagAttributeMapInput {
   /**
+   * @public
    * <p>The ID of the Identity Pool you want to set attribute mappings for.</p>
    */
   IdentityPoolId: string | undefined;
 
   /**
+   * @public
    * <p>The provider name you want to use for attribute mappings.</p>
    */
   IdentityProviderName: string | undefined;
 
   /**
+   * @public
    * <p>You can use this operation to use default (username and clientID) attribute mappings.</p>
    */
   UseDefaults?: boolean;
 
   /**
+   * @public
    * <p>You can use this operation to add principal tags.</p>
    */
   PrincipalTags?: Record<string, string>;
@@ -1206,21 +1316,25 @@ export interface SetPrincipalTagAttributeMapInput {
  */
 export interface SetPrincipalTagAttributeMapResponse {
   /**
+   * @public
    * <p>The ID of the Identity Pool you want to set attribute mappings for.</p>
    */
   IdentityPoolId?: string;
 
   /**
+   * @public
    * <p>The provider name you want to use for attribute mappings.</p>
    */
   IdentityProviderName?: string;
 
   /**
+   * @public
    * <p>You can use this operation to select default (username and clientID) attribute mappings.</p>
    */
   UseDefaults?: boolean;
 
   /**
+   * @public
    * <p>You can use this operation to add principal tags. The <code>PrincipalTags</code>operation enables you to reference user attributes in your IAM permissions policy.</p>
    */
   PrincipalTags?: Record<string, string>;
@@ -1231,11 +1345,13 @@ export interface SetPrincipalTagAttributeMapResponse {
  */
 export interface TagResourceInput {
   /**
+   * @public
    * <p>The Amazon Resource Name (ARN) of the identity pool.</p>
    */
   ResourceArn: string | undefined;
 
   /**
+   * @public
    * <p>The tags to assign to the identity pool.</p>
    */
   Tags: Record<string, string> | undefined;
@@ -1252,21 +1368,25 @@ export interface TagResourceResponse {}
  */
 export interface UnlinkDeveloperIdentityInput {
   /**
+   * @public
    * <p>A unique identifier in the format REGION:GUID.</p>
    */
   IdentityId: string | undefined;
 
   /**
+   * @public
    * <p>An identity pool ID in the format REGION:GUID.</p>
    */
   IdentityPoolId: string | undefined;
 
   /**
+   * @public
    * <p>The "domain" by which Cognito will refer to your users.</p>
    */
   DeveloperProviderName: string | undefined;
 
   /**
+   * @public
    * <p>A unique ID used by your backend authentication process to identify a user.</p>
    */
   DeveloperUserIdentifier: string | undefined;
@@ -1278,17 +1398,20 @@ export interface UnlinkDeveloperIdentityInput {
  */
 export interface UnlinkIdentityInput {
   /**
+   * @public
    * <p>A unique identifier in the format REGION:GUID.</p>
    */
   IdentityId: string | undefined;
 
   /**
+   * @public
    * <p>A set of optional name-value pairs that map provider names to provider
    *          tokens.</p>
    */
   Logins: Record<string, string> | undefined;
 
   /**
+   * @public
    * <p>Provider names to unlink from this identity.</p>
    */
   LoginsToRemove: string[] | undefined;
@@ -1299,11 +1422,13 @@ export interface UnlinkIdentityInput {
  */
 export interface UntagResourceInput {
   /**
+   * @public
    * <p>The Amazon Resource Name (ARN) of the identity pool.</p>
    */
   ResourceArn: string | undefined;
 
   /**
+   * @public
    * <p>The keys of the tags to remove from the user pool.</p>
    */
   TagKeys: string[] | undefined;

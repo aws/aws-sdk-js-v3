@@ -8,6 +8,7 @@ import { SageMakerA2IRuntimeServiceException as __BaseException } from "./SageMa
  */
 export interface DeleteHumanLoopRequest {
   /**
+   * @public
    * <p>The name of the human loop that you want to delete.</p>
    */
   HumanLoopName: string | undefined;
@@ -116,6 +117,7 @@ export class ValidationException extends __BaseException {
  */
 export interface DescribeHumanLoopRequest {
   /**
+   * @public
    * <p>The name of the human loop that you want information about.</p>
    */
   HumanLoopName: string | undefined;
@@ -127,6 +129,7 @@ export interface DescribeHumanLoopRequest {
  */
 export interface HumanLoopOutput {
   /**
+   * @public
    * <p>The location of the Amazon S3 object where Amazon Augmented AI stores your human loop output.</p>
    */
   OutputS3Uri: string | undefined;
@@ -154,17 +157,20 @@ export type HumanLoopStatus = (typeof HumanLoopStatus)[keyof typeof HumanLoopSta
  */
 export interface DescribeHumanLoopResponse {
   /**
+   * @public
    * <p>The creation time when Amazon Augmented AI created the human loop.</p>
    */
   CreationTime: Date | undefined;
 
   /**
+   * @public
    * <p>The reason why a human loop failed. The failure reason is returned when the status of the
    *       human loop is <code>Failed</code>.</p>
    */
   FailureReason?: string;
 
   /**
+   * @public
    * <p>A failure code that identifies the type of failure.</p>
    *          <p>Possible values: <code>ValidationError</code>, <code>Expired</code>,
    *         <code>InternalError</code>
@@ -173,27 +179,32 @@ export interface DescribeHumanLoopResponse {
   FailureCode?: string;
 
   /**
+   * @public
    * <p>The status of the human loop. </p>
    */
   HumanLoopStatus: HumanLoopStatus | string | undefined;
 
   /**
+   * @public
    * <p>The name of the human loop. The name must be lowercase, unique within the Region in your
    *       account, and can have up to 63 characters. Valid characters: a-z, 0-9, and - (hyphen).</p>
    */
   HumanLoopName: string | undefined;
 
   /**
+   * @public
    * <p>The Amazon Resource Name (ARN) of the human loop.</p>
    */
   HumanLoopArn: string | undefined;
 
   /**
+   * @public
    * <p>The Amazon Resource Name (ARN) of the flow definition.</p>
    */
   FlowDefinitionArn: string | undefined;
 
   /**
+   * @public
    * <p>An object that contains information about the output of the human loop.</p>
    */
   HumanLoopOutput?: HumanLoopOutput;
@@ -218,32 +229,38 @@ export type SortOrder = (typeof SortOrder)[keyof typeof SortOrder];
  */
 export interface ListHumanLoopsRequest {
   /**
+   * @public
    * <p>(Optional) The timestamp of the date when you want the human loops to begin in ISO 8601 format. For example, <code>2020-02-24</code>.</p>
    */
   CreationTimeAfter?: Date;
 
   /**
+   * @public
    * <p>(Optional) The timestamp of the date before which you want the human loops to begin in ISO 8601 format. For example, <code>2020-02-24</code>.</p>
    */
   CreationTimeBefore?: Date;
 
   /**
+   * @public
    * <p>The Amazon Resource Name (ARN) of a flow definition.</p>
    */
   FlowDefinitionArn: string | undefined;
 
   /**
+   * @public
    * <p>Optional. The order for displaying results. Valid values: <code>Ascending</code> and
    *         <code>Descending</code>.</p>
    */
   SortOrder?: SortOrder | string;
 
   /**
+   * @public
    * <p>A token to display the next page of results.</p>
    */
   NextToken?: string;
 
   /**
+   * @public
    * <p>The total number of items to return. If the total number of available items is more than
    *       the value specified in <code>MaxResults</code>, then a <code>NextToken</code> is returned in
    *       the output. You can use this token to display the next page of results. </p>
@@ -257,27 +274,32 @@ export interface ListHumanLoopsRequest {
  */
 export interface HumanLoopSummary {
   /**
+   * @public
    * <p>The name of the human loop.</p>
    */
   HumanLoopName?: string;
 
   /**
+   * @public
    * <p>The status of the human loop. </p>
    */
   HumanLoopStatus?: HumanLoopStatus | string;
 
   /**
+   * @public
    * <p>When Amazon Augmented AI created the human loop.</p>
    */
   CreationTime?: Date;
 
   /**
+   * @public
    * <p>The reason why the human loop failed. A failure reason is returned when the status of the
    *       human loop is <code>Failed</code>.</p>
    */
   FailureReason?: string;
 
   /**
+   * @public
    * <p>The Amazon Resource Name (ARN) of the flow definition used to configure the human
    *       loop.</p>
    */
@@ -289,11 +311,13 @@ export interface HumanLoopSummary {
  */
 export interface ListHumanLoopsResponse {
   /**
+   * @public
    * <p>An array of objects that contain information about the human loops.</p>
    */
   HumanLoopSummaries: HumanLoopSummary[] | undefined;
 
   /**
+   * @public
    * <p>A token to display the next page of results.</p>
    */
   NextToken?: string;
@@ -369,6 +393,7 @@ export type ContentClassifier = (typeof ContentClassifier)[keyof typeof ContentC
  */
 export interface HumanLoopDataAttributes {
   /**
+   * @public
    * <p>Declares that your content is free of personally identifiable information or adult content.</p>
    *          <p>Amazon SageMaker can restrict the Amazon Mechanical Turk workers who can view your task based on this information.</p>
    */
@@ -381,6 +406,7 @@ export interface HumanLoopDataAttributes {
  */
 export interface HumanLoopInput {
   /**
+   * @public
    * <p>Serialized input from the human loop. The input must be a string representation of a file in JSON format.</p>
    */
   InputContent: string | undefined;
@@ -391,22 +417,26 @@ export interface HumanLoopInput {
  */
 export interface StartHumanLoopRequest {
   /**
+   * @public
    * <p>The name of the human loop.</p>
    */
   HumanLoopName: string | undefined;
 
   /**
+   * @public
    * <p>The Amazon Resource Name (ARN) of the flow definition associated with this human
    *       loop.</p>
    */
   FlowDefinitionArn: string | undefined;
 
   /**
+   * @public
    * <p>An object that contains information about the human loop.</p>
    */
   HumanLoopInput: HumanLoopInput | undefined;
 
   /**
+   * @public
    * <p>Attributes of the specified data. Use <code>DataAttributes</code> to specify if your data
    *       is free of personally identifiable information and/or free of adult content.</p>
    */
@@ -418,6 +448,7 @@ export interface StartHumanLoopRequest {
  */
 export interface StartHumanLoopResponse {
   /**
+   * @public
    * <p>The Amazon Resource Name (ARN) of the human loop.</p>
    */
   HumanLoopArn?: string;
@@ -428,6 +459,7 @@ export interface StartHumanLoopResponse {
  */
 export interface StopHumanLoopRequest {
   /**
+   * @public
    * <p>The name of the human loop that you want to stop.</p>
    */
   HumanLoopName: string | undefined;

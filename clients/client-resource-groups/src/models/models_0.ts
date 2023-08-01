@@ -40,16 +40,19 @@ export type GroupLifecycleEventsStatus = (typeof GroupLifecycleEventsStatus)[key
  */
 export interface AccountSettings {
   /**
+   * @public
    * <p>The desired target status of the group lifecycle events feature. If</p>
    */
   GroupLifecycleEventsDesiredStatus?: GroupLifecycleEventsDesiredStatus | string;
 
   /**
+   * @public
    * <p>The current status of the group lifecycle events feature.</p>
    */
   GroupLifecycleEventsStatus?: GroupLifecycleEventsStatus | string;
 
   /**
+   * @public
    * <p>The text of any error message occurs during an attempt to turn group lifecycle events on or off.</p>
    */
   GroupLifecycleEventsStatusMessage?: string;
@@ -85,6 +88,7 @@ export class BadRequestException extends __BaseException {
  */
 export interface GroupConfigurationParameter {
   /**
+   * @public
    * <p>The name of the group configuration parameter. For the list of parameters that you can
    *             use with each configuration item type, see <a href="https://docs.aws.amazon.com/ARG/latest/APIReference/about-slg.html#about-slg-types">Supported resource types and
    *                 parameters</a>.</p>
@@ -92,6 +96,7 @@ export interface GroupConfigurationParameter {
   Name: string | undefined;
 
   /**
+   * @public
    * <p>The value or values to be used for the specified parameter. For the list of values you
    *             can use with each parameter, see <a href="https://docs.aws.amazon.com/ARG/latest/APIReference/about-slg.html#about-slg-types">Supported resource types and
    *                 parameters</a>.</p>
@@ -107,6 +112,7 @@ export interface GroupConfigurationParameter {
  */
 export interface GroupConfigurationItem {
   /**
+   * @public
    * <p>Specifies the type of group configuration item. Each item must have a unique value for
    *                 <code>type</code>. For the list of types that you can specify for a configuration
    *             item, see <a href="https://docs.aws.amazon.com/ARG/latest/APIReference/about-slg.html#about-slg-types">Supported resource types and
@@ -115,6 +121,7 @@ export interface GroupConfigurationItem {
   Type: string | undefined;
 
   /**
+   * @public
    * <p>A collection of parameters for this group configuration item. For the list of
    *             parameters that you can use with each configuration item type, see <a href="https://docs.aws.amazon.com/ARG/latest/APIReference/about-slg.html#about-slg-types">Supported
    *                 resource types and parameters</a>.</p>
@@ -168,6 +175,7 @@ export type QueryType = (typeof QueryType)[keyof typeof QueryType];
  */
 export interface ResourceQuery {
   /**
+   * @public
    * <p>The type of the query to perform. This can have one of two values:</p>
    *          <ul>
    *             <li>
@@ -191,6 +199,7 @@ export interface ResourceQuery {
   Type: QueryType | string | undefined;
 
   /**
+   * @public
    * <p>The query that defines a group or a search. The contents depends on the value of the
    *                 <code>Type</code> element.</p>
    *          <ul>
@@ -295,6 +304,7 @@ export interface ResourceQuery {
  */
 export interface CreateGroupInput {
   /**
+   * @public
    * <p>The name of the group, which is the identifier of the group in other operations. You
    *             can't change the name of a resource group after you create it. A resource group name can
    *             consist of letters, numbers, hyphens, periods, and underscores. The name cannot start
@@ -304,12 +314,14 @@ export interface CreateGroupInput {
   Name: string | undefined;
 
   /**
+   * @public
    * <p>The description of the resource group. Descriptions can consist of letters, numbers,
    *             hyphens, underscores, periods, and spaces.</p>
    */
   Description?: string;
 
   /**
+   * @public
    * <p>The resource query that determines which Amazon Web Services resources are members of this group.
    *             For more information about resource queries, see <a href="https://docs.aws.amazon.com/ARG/latest/userguide/gettingstarted-query.html#gettingstarted-query-cli-tag">Create
    *                 a tag-based group in Resource Groups</a>. </p>
@@ -321,11 +333,13 @@ export interface CreateGroupInput {
   ResourceQuery?: ResourceQuery;
 
   /**
+   * @public
    * <p>The tags to add to the group. A tag is key-value pair string.</p>
    */
   Tags?: Record<string, string>;
 
   /**
+   * @public
    * <p>A configuration associates the resource group with an Amazon Web Services service and specifies how
    *             the service can interact with the resources in the group. A configuration is an array of
    *                 <a>GroupConfigurationItem</a> elements. For details about the syntax of
@@ -360,16 +374,19 @@ export interface CreateGroupInput {
  */
 export interface Group {
   /**
+   * @public
    * <p>The ARN of the resource group.</p>
    */
   GroupArn: string | undefined;
 
   /**
+   * @public
    * <p>The name of the resource group.</p>
    */
   Name: string | undefined;
 
   /**
+   * @public
    * <p>The description of the resource group.</p>
    */
   Description?: string;
@@ -401,22 +418,26 @@ export type GroupConfigurationStatus = (typeof GroupConfigurationStatus)[keyof t
  */
 export interface GroupConfiguration {
   /**
+   * @public
    * <p>The configuration currently associated with the group and in effect.</p>
    */
   Configuration?: GroupConfigurationItem[];
 
   /**
+   * @public
    * <p>If present, the new configuration that is in the process of being applied to the
    *             group.</p>
    */
   ProposedConfiguration?: GroupConfigurationItem[];
 
   /**
+   * @public
    * <p>The current status of an attempt to update the group configuration.</p>
    */
   Status?: GroupConfigurationStatus | string;
 
   /**
+   * @public
    * <p>If present, the reason why a request to update the group configuration failed.</p>
    */
   FailureReason?: string;
@@ -427,11 +448,13 @@ export interface GroupConfiguration {
  */
 export interface CreateGroupOutput {
   /**
+   * @public
    * <p>The description of the resource group.</p>
    */
   Group?: Group;
 
   /**
+   * @public
    * <p>The resource query associated with the group. For more information about resource
    *             queries, see <a href="https://docs.aws.amazon.com/ARG/latest/userguide/gettingstarted-query.html#gettingstarted-query-cli-tag">Create
    *                 a tag-based group in Resource Groups</a>. </p>
@@ -439,11 +462,13 @@ export interface CreateGroupOutput {
   ResourceQuery?: ResourceQuery;
 
   /**
+   * @public
    * <p>The tags associated with the group.</p>
    */
   Tags?: Record<string, string>;
 
   /**
+   * @public
    * <p>The service configuration associated with the resource group. For details about the
    *             syntax of a service configuration, see <a href="https://docs.aws.amazon.com/ARG/latest/APIReference/about-slg.html">Service configurations for Resource Groups</a>.</p>
    */
@@ -544,6 +569,7 @@ export class TooManyRequestsException extends __BaseException {
  */
 export interface DeleteGroupInput {
   /**
+   * @public
    * @deprecated
    *
    * <p>Deprecated - don't use this parameter. Use <code>Group</code> instead.</p>
@@ -551,6 +577,7 @@ export interface DeleteGroupInput {
   GroupName?: string;
 
   /**
+   * @public
    * <p>The name or the ARN of the resource group to delete.</p>
    */
   Group?: string;
@@ -561,6 +588,7 @@ export interface DeleteGroupInput {
  */
 export interface DeleteGroupOutput {
   /**
+   * @public
    * <p>A full description of the deleted resource group.</p>
    */
   Group?: Group;
@@ -593,6 +621,7 @@ export class NotFoundException extends __BaseException {
  */
 export interface GetAccountSettingsOutput {
   /**
+   * @public
    * <p>The current settings for the optional features in Resource Groups.</p>
    */
   AccountSettings?: AccountSettings;
@@ -603,6 +632,7 @@ export interface GetAccountSettingsOutput {
  */
 export interface GetGroupInput {
   /**
+   * @public
    * @deprecated
    *
    * <p>Deprecated - don't use this parameter. Use <code>Group</code> instead.</p>
@@ -610,6 +640,7 @@ export interface GetGroupInput {
   GroupName?: string;
 
   /**
+   * @public
    * <p>The name or the ARN of the resource group to retrieve.</p>
    */
   Group?: string;
@@ -620,6 +651,7 @@ export interface GetGroupInput {
  */
 export interface GetGroupOutput {
   /**
+   * @public
    * <p>A structure that contains the metadata details for the specified resource group. Use
    *                 <a>GetGroupQuery</a> and <a>GetGroupConfiguration</a> to get
    *             those additional details of the resource group.</p>
@@ -632,6 +664,7 @@ export interface GetGroupOutput {
  */
 export interface GetGroupConfigurationInput {
   /**
+   * @public
    * <p>The name or the ARN of the resource group for which you want to retrive the service
    *             configuration.</p>
    */
@@ -643,6 +676,7 @@ export interface GetGroupConfigurationInput {
  */
 export interface GetGroupConfigurationOutput {
   /**
+   * @public
    * <p>A structure that describes the service configuration attached with the specified
    *             group. For details about the service configuration syntax, see <a href="https://docs.aws.amazon.com/ARG/latest/APIReference/about-slg.html">Service configurations for
    *                 Resource Groups</a>.</p>
@@ -655,6 +689,7 @@ export interface GetGroupConfigurationOutput {
  */
 export interface GetGroupQueryInput {
   /**
+   * @public
    * @deprecated
    *
    * <p>Don't use this parameter. Use <code>Group</code> instead.</p>
@@ -662,6 +697,7 @@ export interface GetGroupQueryInput {
   GroupName?: string;
 
   /**
+   * @public
    * <p>The name or the ARN of the resource group to query.</p>
    */
   Group?: string;
@@ -674,12 +710,14 @@ export interface GetGroupQueryInput {
  */
 export interface GroupQuery {
   /**
+   * @public
    * <p>The name of the resource group that is associated with the specified resource
    *             query.</p>
    */
   GroupName: string | undefined;
 
   /**
+   * @public
    * <p>The resource query that determines which Amazon Web Services resources are members of the associated
    *             resource group.</p>
    */
@@ -691,6 +729,7 @@ export interface GroupQuery {
  */
 export interface GetGroupQueryOutput {
   /**
+   * @public
    * <p>The resource query associated with the specified group. For more information about
    *             resource queries, see <a href="https://docs.aws.amazon.com/ARG/latest/userguide/gettingstarted-query.html#gettingstarted-query-cli-tag">Create
    *                 a tag-based group in Resource Groups</a>.</p>
@@ -703,6 +742,7 @@ export interface GetGroupQueryOutput {
  */
 export interface GetTagsInput {
   /**
+   * @public
    * <p>The ARN of the resource group whose tags you want to retrieve.</p>
    */
   Arn: string | undefined;
@@ -713,11 +753,13 @@ export interface GetTagsInput {
  */
 export interface GetTagsOutput {
   /**
+   * @public
    * <p>The ARN of the tagged resource group.</p>
    */
   Arn?: string;
 
   /**
+   * @public
    * <p>The tags associated with the specified resource group.</p>
    */
   Tags?: Record<string, string>;
@@ -728,11 +770,13 @@ export interface GetTagsOutput {
  */
 export interface GroupResourcesInput {
   /**
+   * @public
    * <p>The name or the ARN of the resource group to add resources to.</p>
    */
   Group: string | undefined;
 
   /**
+   * @public
    * <p>The list of ARNs of the resources to be added to the group. </p>
    */
   ResourceArns: string[] | undefined;
@@ -744,16 +788,19 @@ export interface GroupResourcesInput {
  */
 export interface FailedResource {
   /**
+   * @public
    * <p>The ARN of the resource that failed to be added or removed.</p>
    */
   ResourceArn?: string;
 
   /**
+   * @public
    * <p>The error message text associated with the failure.</p>
    */
   ErrorMessage?: string;
 
   /**
+   * @public
    * <p>The error code associated with the failure.</p>
    */
   ErrorCode?: string;
@@ -767,6 +814,7 @@ export interface FailedResource {
  */
 export interface PendingResource {
   /**
+   * @public
    * <p>The Amazon resource name (ARN) of the resource that's in a pending state.</p>
    */
   ResourceArn?: string;
@@ -777,17 +825,20 @@ export interface PendingResource {
  */
 export interface GroupResourcesOutput {
   /**
+   * @public
    * <p>A list of ARNs of the resources that this operation successfully added to the
    *             group.</p>
    */
   Succeeded?: string[];
 
   /**
+   * @public
    * <p>A list of ARNs of any resources that this operation failed to add to the group.</p>
    */
   Failed?: FailedResource[];
 
   /**
+   * @public
    * <p>A list of ARNs of any resources that this operation is still in the process adding to
    *             the group. These pending additions continue asynchronously. You can check the status of
    *             pending additions by using the <code>
@@ -819,11 +870,13 @@ export type ResourceFilterName = (typeof ResourceFilterName)[keyof typeof Resour
  */
 export interface ResourceFilter {
   /**
+   * @public
    * <p>The name of the filter. Filter names are case-sensitive.</p>
    */
   Name: ResourceFilterName | string | undefined;
 
   /**
+   * @public
    * <p>One or more filter values. Allowed filter values vary by resource filter name, and are
    *             case-sensitive.</p>
    */
@@ -835,6 +888,7 @@ export interface ResourceFilter {
  */
 export interface ListGroupResourcesInput {
   /**
+   * @public
    * @deprecated
    *
    * <important>
@@ -849,11 +903,13 @@ export interface ListGroupResourcesInput {
   GroupName?: string;
 
   /**
+   * @public
    * <p>The name or the ARN of the resource group</p>
    */
   Group?: string;
 
   /**
+   * @public
    * <p>Filters, formatted as <a>ResourceFilter</a> objects, that you want to apply
    *             to a <code>ListGroupResources</code> operation. Filters the results to include only
    *             those of the specified resource types.</p>
@@ -887,6 +943,7 @@ export interface ListGroupResourcesInput {
   Filters?: ResourceFilter[];
 
   /**
+   * @public
    * <p>The total number of results that you want included on each page of the
    * response. If you do not include this parameter, it defaults to a value that is specific to the
    * operation. If additional items exist beyond the maximum you specify, the <code>NextToken</code>
@@ -899,6 +956,7 @@ export interface ListGroupResourcesInput {
   MaxResults?: number;
 
   /**
+   * @public
    * <p>The parameter for receiving additional results if you receive a
    * <code>NextToken</code> response in a previous request. A <code>NextToken</code> response
    * indicates that more output is available. Set this parameter to the value provided by a previous
@@ -933,11 +991,13 @@ export type QueryErrorCode = (typeof QueryErrorCode)[keyof typeof QueryErrorCode
  */
 export interface QueryError {
   /**
+   * @public
    * <p>Specifies the error code that was raised.</p>
    */
   ErrorCode?: QueryErrorCode | string;
 
   /**
+   * @public
    * <p>A message that explains the <code>ErrorCode</code> value. Messages might state that
    *             the specified CloudFront stack does not exist (or no longer exists). For
    *                 <code>CLOUDFORMATION_STACK_INACTIVE</code>, the message typically states that the
@@ -953,11 +1013,13 @@ export interface QueryError {
  */
 export interface ResourceIdentifier {
   /**
+   * @public
    * <p>The ARN of a resource.</p>
    */
   ResourceArn?: string;
 
   /**
+   * @public
    * <p>The resource type of a resource, such as <code>AWS::EC2::Instance</code>.</p>
    */
   ResourceType?: string;
@@ -985,6 +1047,7 @@ export type ResourceStatusValue = (typeof ResourceStatusValue)[keyof typeof Reso
  */
 export interface ResourceStatus {
   /**
+   * @public
    * <p>The current status.</p>
    */
   Name?: ResourceStatusValue | string;
@@ -998,11 +1061,13 @@ export interface ResourceStatus {
  */
 export interface ListGroupResourcesItem {
   /**
+   * @public
    * <p>A structure that contains the ARN of a resource and its resource type.</p>
    */
   Identifier?: ResourceIdentifier;
 
   /**
+   * @public
    * <p>A structure that contains the status of this resource's membership in the
    *             group.</p>
    *          <note>
@@ -1018,12 +1083,14 @@ export interface ListGroupResourcesItem {
  */
 export interface ListGroupResourcesOutput {
   /**
+   * @public
    * <p>An array of resources from which you can determine each resource's identity, type, and
    *             group membership status.</p>
    */
   Resources?: ListGroupResourcesItem[];
 
   /**
+   * @public
    * @deprecated
    *
    * <important>
@@ -1039,6 +1106,7 @@ export interface ListGroupResourcesOutput {
   ResourceIdentifiers?: ResourceIdentifier[];
 
   /**
+   * @public
    * <p>If present, indicates that more output is available than is
    * included in the current response. Use this value in the <code>NextToken</code> request parameter
    * in a subsequent call to the operation to get the next part of the output. You should repeat this
@@ -1047,6 +1115,7 @@ export interface ListGroupResourcesOutput {
   NextToken?: string;
 
   /**
+   * @public
    * <p>A list of <code>QueryError</code> objects. Each error is an object that contains
    *                 <code>ErrorCode</code> and <code>Message</code> structures. Possible values for
    *                 <code>ErrorCode</code> are <code>CLOUDFORMATION_STACK_INACTIVE</code> and
@@ -1099,11 +1168,13 @@ export type GroupFilterName = (typeof GroupFilterName)[keyof typeof GroupFilterN
  */
 export interface GroupFilter {
   /**
+   * @public
    * <p>The name of the filter. Filter names are case-sensitive.</p>
    */
   Name: GroupFilterName | string | undefined;
 
   /**
+   * @public
    * <p>One or more filter values. Allowed filter values vary by group filter name, and are
    *             case-sensitive.</p>
    */
@@ -1115,6 +1186,7 @@ export interface GroupFilter {
  */
 export interface ListGroupsInput {
   /**
+   * @public
    * <p>Filters, formatted as <a>GroupFilter</a> objects, that you want to apply to
    *             a <code>ListGroups</code> operation.</p>
    *          <ul>
@@ -1150,6 +1222,7 @@ export interface ListGroupsInput {
   Filters?: GroupFilter[];
 
   /**
+   * @public
    * <p>The total number of results that you want included on each page of the
    * response. If you do not include this parameter, it defaults to a value that is specific to the
    * operation. If additional items exist beyond the maximum you specify, the <code>NextToken</code>
@@ -1162,6 +1235,7 @@ export interface ListGroupsInput {
   MaxResults?: number;
 
   /**
+   * @public
    * <p>The parameter for receiving additional results if you receive a
    * <code>NextToken</code> response in a previous request. A <code>NextToken</code> response
    * indicates that more output is available. Set this parameter to the value provided by a previous
@@ -1176,11 +1250,13 @@ export interface ListGroupsInput {
  */
 export interface GroupIdentifier {
   /**
+   * @public
    * <p>The name of the resource group.</p>
    */
   GroupName?: string;
 
   /**
+   * @public
    * <p>The ARN of the resource group.</p>
    */
   GroupArn?: string;
@@ -1191,12 +1267,14 @@ export interface GroupIdentifier {
  */
 export interface ListGroupsOutput {
   /**
+   * @public
    * <p>A list of <a>GroupIdentifier</a> objects. Each identifier is an object that
    *             contains both the <code>Name</code> and the <code>GroupArn</code>.</p>
    */
   GroupIdentifiers?: GroupIdentifier[];
 
   /**
+   * @public
    * @deprecated
    *
    * <important>
@@ -1212,6 +1290,7 @@ export interface ListGroupsOutput {
   Groups?: Group[];
 
   /**
+   * @public
    * <p>If present, indicates that more output is available than is
    * included in the current response. Use this value in the <code>NextToken</code> request parameter
    * in a subsequent call to the operation to get the next part of the output. You should repeat this
@@ -1225,12 +1304,14 @@ export interface ListGroupsOutput {
  */
 export interface PutGroupConfigurationInput {
   /**
+   * @public
    * <p>The name or ARN of the resource group with the configuration that you want to
    *             update.</p>
    */
   Group?: string;
 
   /**
+   * @public
    * <p>The new configuration to associate with the specified group. A configuration
    *             associates the resource group with an Amazon Web Services service and specifies how the service can
    *             interact with the resources in the group. A configuration is an array of <a>GroupConfigurationItem</a> elements.</p>
@@ -1254,12 +1335,14 @@ export interface PutGroupConfigurationOutput {}
  */
 export interface SearchResourcesInput {
   /**
+   * @public
    * <p>The search query, using the same formats that are supported for resource group
    *             definition. For more information, see <a>CreateGroup</a>.</p>
    */
   ResourceQuery: ResourceQuery | undefined;
 
   /**
+   * @public
    * <p>The total number of results that you want included on each page of the
    * response. If you do not include this parameter, it defaults to a value that is specific to the
    * operation. If additional items exist beyond the maximum you specify, the <code>NextToken</code>
@@ -1272,6 +1355,7 @@ export interface SearchResourcesInput {
   MaxResults?: number;
 
   /**
+   * @public
    * <p>The parameter for receiving additional results if you receive a
    * <code>NextToken</code> response in a previous request. A <code>NextToken</code> response
    * indicates that more output is available. Set this parameter to the value provided by a previous
@@ -1285,12 +1369,14 @@ export interface SearchResourcesInput {
  */
 export interface SearchResourcesOutput {
   /**
+   * @public
    * <p>The ARNs and resource types of resources that are members of the group that you
    *             specified.</p>
    */
   ResourceIdentifiers?: ResourceIdentifier[];
 
   /**
+   * @public
    * <p>If present, indicates that more output is available than is
    * included in the current response. Use this value in the <code>NextToken</code> request parameter
    * in a subsequent call to the operation to get the next part of the output. You should repeat this
@@ -1299,6 +1385,7 @@ export interface SearchResourcesOutput {
   NextToken?: string;
 
   /**
+   * @public
    * <p>A list of <code>QueryError</code> objects. Each error is an object that contains
    *                 <code>ErrorCode</code> and <code>Message</code> structures.</p>
    *          <p>Possible values for <code>ErrorCode</code>:</p>
@@ -1323,11 +1410,13 @@ export interface SearchResourcesOutput {
  */
 export interface TagInput {
   /**
+   * @public
    * <p>The ARN of the resource group to which to add tags.</p>
    */
   Arn: string | undefined;
 
   /**
+   * @public
    * <p>The tags to add to the specified resource group. A tag is a string-to-string map of
    *             key-value pairs.</p>
    */
@@ -1339,11 +1428,13 @@ export interface TagInput {
  */
 export interface TagOutput {
   /**
+   * @public
    * <p>The ARN of the tagged resource.</p>
    */
   Arn?: string;
 
   /**
+   * @public
    * <p>The tags that have been added to the specified resource group.</p>
    */
   Tags?: Record<string, string>;
@@ -1354,11 +1445,13 @@ export interface TagOutput {
  */
 export interface UngroupResourcesInput {
   /**
+   * @public
    * <p>The name or the ARN of the resource group from which to remove the resources.</p>
    */
   Group: string | undefined;
 
   /**
+   * @public
    * <p>The ARNs of the resources to be removed from the group.</p>
    */
   ResourceArns: string[] | undefined;
@@ -1369,18 +1462,21 @@ export interface UngroupResourcesInput {
  */
 export interface UngroupResourcesOutput {
   /**
+   * @public
    * <p>A list of resources that were successfully removed from the group by this
    *             operation.</p>
    */
   Succeeded?: string[];
 
   /**
+   * @public
    * <p>A list of any resources that failed to be removed from the group by this
    *             operation.</p>
    */
   Failed?: FailedResource[];
 
   /**
+   * @public
    * <p>A list of any resources that are still in the process of being removed from the group
    *             by this operation. These pending removals continue asynchronously. You can check the
    *             status of pending removals by using the <code>
@@ -1396,12 +1492,14 @@ export interface UngroupResourcesOutput {
  */
 export interface UntagInput {
   /**
+   * @public
    * <p>The ARN of the resource group from which to remove tags. The command removed both the
    *             specified keys and any values associated with those keys.</p>
    */
   Arn: string | undefined;
 
   /**
+   * @public
    * <p>The keys of the tags to be removed.</p>
    */
   Keys: string[] | undefined;
@@ -1412,11 +1510,13 @@ export interface UntagInput {
  */
 export interface UntagOutput {
   /**
+   * @public
    * <p>The ARN of the resource group from which tags have been removed.</p>
    */
   Arn?: string;
 
   /**
+   * @public
    * <p>The keys of the tags that were removed.</p>
    */
   Keys?: string[];
@@ -1427,6 +1527,7 @@ export interface UntagOutput {
  */
 export interface UpdateAccountSettingsInput {
   /**
+   * @public
    * <p>Specifies whether you want to turn <a href="https://docs.aws.amazon.com/ARG/latest/userguide/monitor-groups.html">group lifecycle events</a> on or off.</p>
    */
   GroupLifecycleEventsDesiredStatus?: GroupLifecycleEventsDesiredStatus | string;
@@ -1437,6 +1538,7 @@ export interface UpdateAccountSettingsInput {
  */
 export interface UpdateAccountSettingsOutput {
   /**
+   * @public
    * <p>A structure that displays the status of the optional features in the account.</p>
    */
   AccountSettings?: AccountSettings;
@@ -1447,6 +1549,7 @@ export interface UpdateAccountSettingsOutput {
  */
 export interface UpdateGroupInput {
   /**
+   * @public
    * @deprecated
    *
    * <p>Don't use this parameter. Use <code>Group</code> instead.</p>
@@ -1454,11 +1557,13 @@ export interface UpdateGroupInput {
   GroupName?: string;
 
   /**
+   * @public
    * <p>The name or the ARN of the resource group to modify.</p>
    */
   Group?: string;
 
   /**
+   * @public
    * <p>The new description that you want to update the resource group with. Descriptions can
    *             contain letters, numbers, hyphens, underscores, periods, and spaces.</p>
    */
@@ -1470,6 +1575,7 @@ export interface UpdateGroupInput {
  */
 export interface UpdateGroupOutput {
   /**
+   * @public
    * <p>The update description of the resource group.</p>
    */
   Group?: Group;
@@ -1480,6 +1586,7 @@ export interface UpdateGroupOutput {
  */
 export interface UpdateGroupQueryInput {
   /**
+   * @public
    * @deprecated
    *
    * <p>Don't use this parameter. Use <code>Group</code> instead.</p>
@@ -1487,11 +1594,13 @@ export interface UpdateGroupQueryInput {
   GroupName?: string;
 
   /**
+   * @public
    * <p>The name or the ARN of the resource group to query.</p>
    */
   Group?: string;
 
   /**
+   * @public
    * <p>The resource query to determine which Amazon Web Services resources are members of this resource
    *             group.</p>
    *          <note>
@@ -1507,6 +1616,7 @@ export interface UpdateGroupQueryInput {
  */
 export interface UpdateGroupQueryOutput {
   /**
+   * @public
    * <p>The updated resource query associated with the resource group after the update.</p>
    */
   GroupQuery?: GroupQuery;

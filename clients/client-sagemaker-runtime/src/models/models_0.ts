@@ -53,12 +53,14 @@ export class InternalFailure extends __BaseException {
  */
 export interface InvokeEndpointInput {
   /**
+   * @public
    * <p>The name of the endpoint that you specified when you created the endpoint using the
    *                 <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/API_CreateEndpoint.html">CreateEndpoint</a> API. </p>
    */
   EndpointName: string | undefined;
 
   /**
+   * @public
    * <p>Provides input data, in the format specified in the <code>ContentType</code>
    *             request header. Amazon SageMaker passes all of the data in the body to the model. </p>
    *          <p>For information about the format of the request body, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/cdf-inference.html">Common Data
@@ -67,16 +69,19 @@ export interface InvokeEndpointInput {
   Body: Uint8Array | undefined;
 
   /**
+   * @public
    * <p>The MIME type of the input data in the request body.</p>
    */
   ContentType?: string;
 
   /**
+   * @public
    * <p>The desired MIME type of the inference in the response.</p>
    */
   Accept?: string;
 
   /**
+   * @public
    * <p>Provides additional information about a request for an inference submitted to a model
    *             hosted at an Amazon SageMaker endpoint. The information is an opaque value that is
    *             forwarded verbatim. You could use this value, for example, to provide an ID that you can
@@ -95,11 +100,13 @@ export interface InvokeEndpointInput {
   CustomAttributes?: string;
 
   /**
+   * @public
    * <p>The model to request for inference when invoking a multi-model endpoint.</p>
    */
   TargetModel?: string;
 
   /**
+   * @public
    * <p>Specify the production variant to send the inference request to when invoking an
    *             endpoint that is running two or more variants. Note that this parameter overrides the
    *             default behavior for the endpoint, which is to distribute the invocation traffic based
@@ -111,12 +118,14 @@ export interface InvokeEndpointInput {
   TargetVariant?: string;
 
   /**
+   * @public
    * <p>If the endpoint hosts multiple containers and is configured to use direct invocation,
    *             this parameter specifies the host name of the container to invoke.</p>
    */
   TargetContainerHostname?: string;
 
   /**
+   * @public
    * <p>If you provide a value, it is added to the captured data when you enable data capture
    *             on the endpoint. For information about data capture, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/model-monitor-data-capture.html">Capture
    *             Data</a>.</p>
@@ -124,6 +133,7 @@ export interface InvokeEndpointInput {
   InferenceId?: string;
 
   /**
+   * @public
    * <p>An optional JMESPath expression used to override the <code>EnableExplanations</code>
    *             parameter of the <code>ClarifyExplainerConfig</code> API. See the <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/clarify-online-explainability-create-endpoint.html#clarify-online-explainability-create-endpoint-enable">EnableExplanations</a> section in the developer guide for more information.
    *         </p>
@@ -136,6 +146,7 @@ export interface InvokeEndpointInput {
  */
 export interface InvokeEndpointOutput {
   /**
+   * @public
    * <p>Includes the inference provided by the model. </p>
    *          <p>For information about the format of the response body, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/cdf-inference.html">Common Data
    *                 Formats-Inference</a>.</p>
@@ -146,16 +157,19 @@ export interface InvokeEndpointOutput {
   Body: Uint8Array | undefined;
 
   /**
+   * @public
    * <p>The MIME type of the inference returned in the response body.</p>
    */
   ContentType?: string;
 
   /**
+   * @public
    * <p>Identifies the production variant that was invoked.</p>
    */
   InvokedProductionVariant?: string;
 
   /**
+   * @public
    * <p>Provides additional information in the response about the inference returned by a
    *             model hosted at an Amazon SageMaker endpoint. The information is an opaque value that is
    *             forwarded verbatim. You could use this value, for example, to return an ID received in
@@ -186,16 +200,19 @@ export class ModelError extends __BaseException {
   readonly $fault: "client" = "client";
   Message?: string;
   /**
+   * @public
    * <p> Original status code. </p>
    */
   OriginalStatusCode?: number;
 
   /**
+   * @public
    * <p> Original message. </p>
    */
   OriginalMessage?: string;
 
   /**
+   * @public
    * <p> The Amazon Resource Name (ARN) of the log stream. </p>
    */
   LogStreamArn?: string;
@@ -289,6 +306,7 @@ export class ValidationError extends __BaseException {
  */
 export interface InvokeEndpointAsyncInput {
   /**
+   * @public
    * <p>The name of the endpoint that you specified when you created the endpoint using the
    *                 <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_CreateEndpoint.html">
    *                <code>CreateEndpoint</code>
@@ -297,16 +315,19 @@ export interface InvokeEndpointAsyncInput {
   EndpointName: string | undefined;
 
   /**
+   * @public
    * <p>The MIME type of the input data in the request body.</p>
    */
   ContentType?: string;
 
   /**
+   * @public
    * <p>The desired MIME type of the inference in the response.</p>
    */
   Accept?: string;
 
   /**
+   * @public
    * <p>Provides additional information about a request for an inference submitted to a model
    *             hosted at an Amazon SageMaker endpoint. The information is an opaque value that is forwarded
    *             verbatim. You could use this value, for example, to provide an ID that you can use to
@@ -325,23 +346,27 @@ export interface InvokeEndpointAsyncInput {
   CustomAttributes?: string;
 
   /**
+   * @public
    * <p>The identifier for the inference request. Amazon SageMaker will generate an identifier for you if
    *             none is specified. </p>
    */
   InferenceId?: string;
 
   /**
+   * @public
    * <p>The Amazon S3 URI where the inference request payload is stored.</p>
    */
   InputLocation: string | undefined;
 
   /**
+   * @public
    * <p>Maximum age in seconds a request can be in the queue before it is marked as
    *             expired. The default is 6 hours, or 21,600 seconds.</p>
    */
   RequestTTLSeconds?: number;
 
   /**
+   * @public
    * <p>Maximum amount of time in seconds a request can be processed before it is marked as expired. The default is 15 minutes, or 900 seconds.</p>
    */
   InvocationTimeoutSeconds?: number;
@@ -352,6 +377,7 @@ export interface InvokeEndpointAsyncInput {
  */
 export interface InvokeEndpointAsyncOutput {
   /**
+   * @public
    * <p>Identifier for an inference request. This will be the same as the
    *                 <code>InferenceId</code> specified in the input. Amazon SageMaker will generate an identifier
    *             for you if you do not specify one.</p>
@@ -359,11 +385,13 @@ export interface InvokeEndpointAsyncOutput {
   InferenceId?: string;
 
   /**
+   * @public
    * <p>The Amazon S3 URI where the inference response payload is stored.</p>
    */
   OutputLocation?: string;
 
   /**
+   * @public
    * <p>The Amazon S3 URI where the inference failure response payload is stored.</p>
    */
   FailureLocation?: string;

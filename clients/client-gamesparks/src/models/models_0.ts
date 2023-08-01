@@ -54,11 +54,13 @@ export class ConflictException extends __BaseException {
  */
 export interface Connection {
   /**
+   * @public
    * <p>The identifier used to indicate a specific WebSocket connection.</p>
    */
   Id?: string;
 
   /**
+   * @public
    * <p>The date and time when the connection was created.</p>
    */
   Created?: Date;
@@ -69,16 +71,19 @@ export interface Connection {
  */
 export interface CreateGameRequest {
   /**
+   * @public
    * <p>The name of the game.</p>
    */
   GameName: string | undefined;
 
   /**
+   * @public
    * <p>The description of the game.</p>
    */
   Description?: string;
 
   /**
+   * @public
    * <p>
    *       A client-defined token.
    *       With an active client token in the request, this action is idempotent.
@@ -87,6 +92,7 @@ export interface CreateGameRequest {
   ClientToken?: string;
 
   /**
+   * @public
    * <p>The list of tags to apply to the game.</p>
    */
   Tags?: Record<string, string>;
@@ -112,41 +118,49 @@ export type GameState = (typeof GameState)[keyof typeof GameState];
  */
 export interface GameDetails {
   /**
+   * @public
    * <p>The name of the game.</p>
    */
   Name?: string;
 
   /**
+   * @public
    * <p>The Amazon Resource Name (ARN) of this game.</p>
    */
   Arn?: string;
 
   /**
+   * @public
    * <p>The description of the game.</p>
    */
   Description?: string;
 
   /**
+   * @public
    * <p>The date when the game was created.</p>
    */
   Created?: Date;
 
   /**
+   * @public
    * <p>The date when the game was last modified.</p>
    */
   LastUpdated?: Date;
 
   /**
+   * @public
    * <p>The state of the game.</p>
    */
   State?: GameState | string;
 
   /**
+   * @public
    * <p>Determines if the game can be deleted.</p>
    */
   EnableTerminationProtection?: boolean;
 
   /**
+   * @public
    * <p>The tags associated with the game.</p>
    */
   Tags?: Record<string, string>;
@@ -157,6 +171,7 @@ export interface GameDetails {
  */
 export interface CreateGameResult {
   /**
+   * @public
    * <p>Details about the game that was created.</p>
    */
   Game?: GameDetails;
@@ -255,11 +270,13 @@ export class ValidationException extends __BaseException {
  */
 export interface CreateSnapshotRequest {
   /**
+   * @public
    * <p>The name of the game.</p>
    */
   GameName: string | undefined;
 
   /**
+   * @public
    * <p>The description of the snapshot.</p>
    */
   Description?: string;
@@ -271,16 +288,19 @@ export interface CreateSnapshotRequest {
  */
 export interface Section {
   /**
+   * @public
    * <p>The name of the section.</p>
    */
   Name?: string;
 
   /**
+   * @public
    * <p>The size, in bytes, of the section contents.</p>
    */
   Size?: number;
 
   /**
+   * @public
    * <p>The content of a configuration section.</p>
    */
   Attributes?: __DocumentType;
@@ -292,26 +312,31 @@ export interface Section {
  */
 export interface SnapshotDetails {
   /**
+   * @public
    * <p>The identifier of the snapshot.</p>
    */
   Id?: string;
 
   /**
+   * @public
    * <p>The description of the snapshot.</p>
    */
   Description?: string;
 
   /**
+   * @public
    * <p>The sections in the snapshot.</p>
    */
   Sections?: Record<string, Section>;
 
   /**
+   * @public
    * <p>The timestamp of when the snapshot was created.</p>
    */
   Created?: Date;
 
   /**
+   * @public
    * <p>The timestamp of when the snapshot was last updated.</p>
    */
   LastUpdated?: Date;
@@ -322,6 +347,7 @@ export interface SnapshotDetails {
  */
 export interface CreateSnapshotResult {
   /**
+   * @public
    * <p>Properties that provide details of the created snapshot.</p>
    */
   Snapshot?: SnapshotDetails;
@@ -354,16 +380,19 @@ export class ResourceNotFoundException extends __BaseException {
  */
 export interface CreateStageRequest {
   /**
+   * @public
    * <p>The name of the game.</p>
    */
   GameName: string | undefined;
 
   /**
+   * @public
    * <p>The name of the stage.</p>
    */
   StageName: string | undefined;
 
   /**
+   * @public
    * <p>
    *       The Amazon Resource Name (ARN) of the role to run the game with.
    *       This role can be a game-defined role or the default role that GameSparks created.
@@ -372,11 +401,13 @@ export interface CreateStageRequest {
   Role: string | undefined;
 
   /**
+   * @public
    * <p>The description of the stage.</p>
    */
   Description?: string;
 
   /**
+   * @public
    * <p>
    *       A client-defined token.
    *       With an active client token in the request, this action is idempotent.
@@ -385,6 +416,7 @@ export interface CreateStageRequest {
   ClientToken?: string;
 
   /**
+   * @public
    * <p>The list of tags to apply to the stage.</p>
    */
   Tags?: Record<string, string>;
@@ -410,11 +442,13 @@ export type StageState = (typeof StageState)[keyof typeof StageState];
  */
 export interface StageDetails {
   /**
+   * @public
    * <p>The name of the stage.</p>
    */
   Name?: string;
 
   /**
+   * @public
    * <p>The game key associated with the stage.</p>
    *          <p>
    *       The game key is a unique identifier that the game client uses to connect to the GameSparks backend.
@@ -423,41 +457,49 @@ export interface StageDetails {
   GameKey?: string;
 
   /**
+   * @public
    * <p>The Amazon Resource Name (ARN) of the stage.</p>
    */
   Arn?: string;
 
   /**
+   * @public
    * <p>The Amazon Resource Name (ARN) of the role used to run the game runtimes deployed to the stage.</p>
    */
   Role?: string;
 
   /**
+   * @public
    * <p>The description of the stage.</p>
    */
   Description?: string;
 
   /**
+   * @public
    * <p>The timestamp of when the stage was created.</p>
    */
   Created?: Date;
 
   /**
+   * @public
    * <p>The timestamp of when the stage was last updated.</p>
    */
   LastUpdated?: Date;
 
   /**
+   * @public
    * <p>The state of the stage.</p>
    */
   State?: StageState | string;
 
   /**
+   * @public
    * <p>The tags associated with the stage.</p>
    */
   Tags?: Record<string, string>;
 
   /**
+   * @public
    * <p>The Amazon CloudWatch log group for game runtimes deployed to the stage.</p>
    */
   LogGroup?: string;
@@ -468,6 +510,7 @@ export interface StageDetails {
  */
 export interface CreateStageResult {
   /**
+   * @public
    * <p>Properties that describe the stage.</p>
    */
   Stage?: StageDetails;
@@ -478,6 +521,7 @@ export interface CreateStageResult {
  */
 export interface DeleteGameRequest {
   /**
+   * @public
    * <p>The name of the game to delete.</p>
    */
   GameName: string | undefined;
@@ -493,11 +537,13 @@ export interface DeleteGameResult {}
  */
 export interface DeleteStageRequest {
   /**
+   * @public
    * <p>The name of the game.</p>
    */
   GameName: string | undefined;
 
   /**
+   * @public
    * <p>The name of the stage to delete.</p>
    */
   StageName: string | undefined;
@@ -543,11 +589,13 @@ export type ResultCode = (typeof ResultCode)[keyof typeof ResultCode];
  */
 export interface DeploymentResult {
   /**
+   * @public
    * <p>The type of deployment result.</p>
    */
   ResultCode?: ResultCode | string;
 
   /**
+   * @public
    * <p>Details about the deployment result.</p>
    */
   Message?: string;
@@ -574,16 +622,19 @@ export type DeploymentState = (typeof DeploymentState)[keyof typeof DeploymentSt
  */
 export interface DisconnectPlayerRequest {
   /**
+   * @public
    * <p>The unique identifier representing a player.</p>
    */
   PlayerId: string | undefined;
 
   /**
+   * @public
    * <p>The name of the game.</p>
    */
   GameName: string | undefined;
 
   /**
+   * @public
    * <p>The name of the stage.</p>
    */
   StageName: string | undefined;
@@ -594,11 +645,13 @@ export interface DisconnectPlayerRequest {
  */
 export interface DisconnectPlayerResult {
   /**
+   * @public
    * <p>The list of the connection ids that were disconnected.</p>
    */
   DisconnectSuccesses?: string[];
 
   /**
+   * @public
    * <p>The list of the connection ids that could not be disconnected.</p>
    */
   DisconnectFailures?: string[];
@@ -609,11 +662,13 @@ export interface DisconnectPlayerResult {
  */
 export interface ExportSnapshotRequest {
   /**
+   * @public
    * <p>The name of the game.</p>
    */
   GameName: string | undefined;
 
   /**
+   * @public
    * <p>The identifier of the snapshot to export.</p>
    */
   SnapshotId: string | undefined;
@@ -624,6 +679,7 @@ export interface ExportSnapshotRequest {
  */
 export interface ExportSnapshotResult {
   /**
+   * @public
    * <p>The presigned URL for the snapshot data.</p>
    *          <p>
    *       This URL will be available for 10 minutes, and can be used to download the snapshot content.
@@ -639,16 +695,19 @@ export interface ExportSnapshotResult {
  */
 export interface ExtensionDetails {
   /**
+   * @public
    * <p>The namespace (qualifier) of the extension.</p>
    */
   Namespace?: string;
 
   /**
+   * @public
    * <p>The name of the extension.</p>
    */
   Name?: string;
 
   /**
+   * @public
    * <p>The description of the extension.</p>
    */
   Description?: string;
@@ -660,21 +719,25 @@ export interface ExtensionDetails {
  */
 export interface ExtensionVersionDetails {
   /**
+   * @public
    * <p>The namespace (qualifier) of the extension.</p>
    */
   Namespace?: string;
 
   /**
+   * @public
    * <p>The name of the extension.</p>
    */
   Name?: string;
 
   /**
+   * @public
    * <p>The model that defines the interface for this extension version.</p>
    */
   Schema?: string;
 
   /**
+   * @public
    * <p>The version of the extension.</p>
    */
   Version?: string;
@@ -691,16 +754,19 @@ export interface ExtensionVersionDetails {
  */
 export interface GameConfigurationDetails {
   /**
+   * @public
    * <p>Configuration data, organized by section name.</p>
    */
   Sections?: Record<string, Section>;
 
   /**
+   * @public
    * <p>The date when the game was created.</p>
    */
   Created?: Date;
 
   /**
+   * @public
    * <p>The date when the game was last modified.</p>
    */
   LastUpdated?: Date;
@@ -711,11 +777,13 @@ export interface GameConfigurationDetails {
  */
 export interface GetExtensionRequest {
   /**
+   * @public
    * <p>The namespace (qualifier) of the extension.</p>
    */
   Namespace: string | undefined;
 
   /**
+   * @public
    * <p>The name of the extension.</p>
    */
   Name: string | undefined;
@@ -726,6 +794,7 @@ export interface GetExtensionRequest {
  */
 export interface GetExtensionResult {
   /**
+   * @public
    * <p>Details about the extension.</p>
    */
   Extension?: ExtensionDetails;
@@ -736,16 +805,19 @@ export interface GetExtensionResult {
  */
 export interface GetExtensionVersionRequest {
   /**
+   * @public
    * <p>The namespace (qualifier) of the extension.</p>
    */
   Namespace: string | undefined;
 
   /**
+   * @public
    * <p>The name of the extension.</p>
    */
   Name: string | undefined;
 
   /**
+   * @public
    * <p>The version of the extension.</p>
    */
   ExtensionVersion: string | undefined;
@@ -756,6 +828,7 @@ export interface GetExtensionVersionRequest {
  */
 export interface GetExtensionVersionResult {
   /**
+   * @public
    * <p>The version of the extension.</p>
    */
   ExtensionVersion?: ExtensionVersionDetails;
@@ -766,6 +839,7 @@ export interface GetExtensionVersionResult {
  */
 export interface GetGameRequest {
   /**
+   * @public
    * <p>The name of the game.</p>
    */
   GameName: string | undefined;
@@ -776,6 +850,7 @@ export interface GetGameRequest {
  */
 export interface GetGameResult {
   /**
+   * @public
    * <p>The details of the game.</p>
    */
   Game?: GameDetails;
@@ -786,11 +861,13 @@ export interface GetGameResult {
  */
 export interface GetGameConfigurationRequest {
   /**
+   * @public
    * <p>The name of the game.</p>
    */
   GameName: string | undefined;
 
   /**
+   * @public
    * <p>The list of sections to return.</p>
    */
   Sections?: string[];
@@ -801,6 +878,7 @@ export interface GetGameConfigurationRequest {
  */
 export interface GetGameConfigurationResult {
   /**
+   * @public
    * <p>Details about the game configuration.</p>
    */
   GameConfiguration?: GameConfigurationDetails;
@@ -811,16 +889,19 @@ export interface GetGameConfigurationResult {
  */
 export interface GetGeneratedCodeJobRequest {
   /**
+   * @public
    * <p>The name of the game.</p>
    */
   GameName: string | undefined;
 
   /**
+   * @public
    * <p>The identifier of the snapshot for the code generation job.</p>
    */
   SnapshotId: string | undefined;
 
   /**
+   * @public
    * <p>The identifier of the code generation job.</p>
    */
   JobId: string | undefined;
@@ -848,21 +929,25 @@ export type GeneratedCodeJobState = (typeof GeneratedCodeJobState)[keyof typeof 
  */
 export interface GeneratedCodeJobDetails {
   /**
+   * @public
    * <p>A presigned URL that can be used to download the generated code.</p>
    */
   S3Url?: string;
 
   /**
+   * @public
    * <p>The status of the generated code job</p>
    */
   Status?: GeneratedCodeJobState | string;
 
   /**
+   * @public
    * <p>The description of the generated code job.</p>
    */
   Description?: string;
 
   /**
+   * @public
    * <p>The expiration date and time for the download URL.</p>
    *          <p>
    *       The download URL us guaranteed to be available until at least this time.
@@ -871,6 +956,7 @@ export interface GeneratedCodeJobDetails {
   ExpirationTime?: Date;
 
   /**
+   * @public
    * <p>The identifier for the generated code job.</p>
    */
   GeneratedCodeJobId?: string;
@@ -881,6 +967,7 @@ export interface GeneratedCodeJobDetails {
  */
 export interface GetGeneratedCodeJobResult {
   /**
+   * @public
    * <p>Details about the generated code job.</p>
    */
   GeneratedCodeJob?: GeneratedCodeJobDetails;
@@ -891,16 +978,19 @@ export interface GetGeneratedCodeJobResult {
  */
 export interface GetPlayerConnectionStatusRequest {
   /**
+   * @public
    * <p>The unique identifier representing a player.</p>
    */
   PlayerId: string | undefined;
 
   /**
+   * @public
    * <p>The name of the game.</p>
    */
   GameName: string | undefined;
 
   /**
+   * @public
    * <p>The name of the stage.</p>
    */
   StageName: string | undefined;
@@ -911,6 +1001,7 @@ export interface GetPlayerConnectionStatusRequest {
  */
 export interface GetPlayerConnectionStatusResult {
   /**
+   * @public
    * <p>The list of connection ids, one for each connection in use by the player.</p>
    */
   Connections?: Connection[];
@@ -921,16 +1012,19 @@ export interface GetPlayerConnectionStatusResult {
  */
 export interface GetSnapshotRequest {
   /**
+   * @public
    * <p>The name of the game.</p>
    */
   GameName: string | undefined;
 
   /**
+   * @public
    * <p>The identifier of the snapshot.</p>
    */
   SnapshotId: string | undefined;
 
   /**
+   * @public
    * <p>The list of game configuration sections to be described.</p>
    */
   Sections?: string[];
@@ -941,6 +1035,7 @@ export interface GetSnapshotRequest {
  */
 export interface GetSnapshotResult {
   /**
+   * @public
    * <p>Properties that provide details of the snapshot.</p>
    */
   Snapshot?: SnapshotDetails;
@@ -951,11 +1046,13 @@ export interface GetSnapshotResult {
  */
 export interface GetStageRequest {
   /**
+   * @public
    * <p>The name of the game.</p>
    */
   GameName: string | undefined;
 
   /**
+   * @public
    * <p>The name of the stage.</p>
    */
   StageName: string | undefined;
@@ -966,6 +1063,7 @@ export interface GetStageRequest {
  */
 export interface GetStageResult {
   /**
+   * @public
    * <p>Properties that provide details of the stage.</p>
    */
   Stage?: StageDetails;
@@ -976,16 +1074,19 @@ export interface GetStageResult {
  */
 export interface GetStageDeploymentRequest {
   /**
+   * @public
    * <p>The name of the game.</p>
    */
   GameName: string | undefined;
 
   /**
+   * @public
    * <p>The name of the stage.</p>
    */
   StageName: string | undefined;
 
   /**
+   * @public
    * <p>
    *       The identifier of the stage deployment.
    *       <code>StartStageDeployment</code> returns the identifier that you use here.
@@ -1000,36 +1101,43 @@ export interface GetStageDeploymentRequest {
  */
 export interface StageDeploymentDetails {
   /**
+   * @public
    * <p>The identifier of the deployment.</p>
    */
   DeploymentId?: string;
 
   /**
+   * @public
    * <p>The identifier of the snapshot associated with the stage deployment.</p>
    */
   SnapshotId?: string;
 
   /**
+   * @public
    * <p>The type of action of the stage deployment.</p>
    */
   DeploymentAction?: DeploymentAction | string;
 
   /**
+   * @public
    * <p>The state of the deployment.</p>
    */
   DeploymentState?: DeploymentState | string;
 
   /**
+   * @public
    * <p>The timestamp of when the stage deployment was created.</p>
    */
   Created?: Date;
 
   /**
+   * @public
    * <p>The timestamp of when the deployment was last updated.</p>
    */
   LastUpdated?: Date;
 
   /**
+   * @public
    * <p>The result of the deployment.</p>
    */
   DeploymentResult?: DeploymentResult;
@@ -1040,6 +1148,7 @@ export interface StageDeploymentDetails {
  */
 export interface GetStageDeploymentResult {
   /**
+   * @public
    * <p>Properties that provide details of the stage deployment.</p>
    */
   StageDeployment?: StageDeploymentDetails;
@@ -1051,6 +1160,7 @@ export interface GetStageDeploymentResult {
  */
 export interface ImportGameConfigurationSource {
   /**
+   * @public
    * <p>The JSON string containing the configuration sections.</p>
    */
   File: Uint8Array | undefined;
@@ -1061,11 +1171,13 @@ export interface ImportGameConfigurationSource {
  */
 export interface ImportGameConfigurationRequest {
   /**
+   * @public
    * <p>The name of the game.</p>
    */
   GameName: string | undefined;
 
   /**
+   * @public
    * <p>The source used to import configuration sections.</p>
    */
   ImportSource: ImportGameConfigurationSource | undefined;
@@ -1076,6 +1188,7 @@ export interface ImportGameConfigurationRequest {
  */
 export interface ImportGameConfigurationResult {
   /**
+   * @public
    * <p>Details about the game configuration.</p>
    */
   GameConfiguration?: GameConfigurationDetails;
@@ -1086,6 +1199,7 @@ export interface ImportGameConfigurationResult {
  */
 export interface ListExtensionsRequest {
   /**
+   * @public
    * <p>The maximum number of results to return.</p>
    *          <p>
    *       Use this parameter with NextToken to get results as a set of sequential pages.
@@ -1094,6 +1208,7 @@ export interface ListExtensionsRequest {
   MaxResults?: number;
 
   /**
+   * @public
    * <p>The token that indicates the start of the next sequential page of results.</p>
    *          <p>
    *       Use the token that is returned with a previous call to this operation.
@@ -1108,11 +1223,13 @@ export interface ListExtensionsRequest {
  */
 export interface ListExtensionsResult {
   /**
+   * @public
    * <p>The list of extensions.</p>
    */
   Extensions?: ExtensionDetails[];
 
   /**
+   * @public
    * <p>The token that indicates the start of the next sequential page of results.</p>
    *          <p>
    *       Use this value when making the next call to this operation to continue where the last one finished.
@@ -1126,16 +1243,19 @@ export interface ListExtensionsResult {
  */
 export interface ListExtensionVersionsRequest {
   /**
+   * @public
    * <p>The namespace (qualifier) of the extension.</p>
    */
   Namespace: string | undefined;
 
   /**
+   * @public
    * <p>The name of the extension.</p>
    */
   Name: string | undefined;
 
   /**
+   * @public
    * <p>The token that indicates the start of the next sequential page of results.</p>
    *          <p>
    *       Use the token that is returned with a previous call to this operation.
@@ -1145,6 +1265,7 @@ export interface ListExtensionVersionsRequest {
   NextToken?: string;
 
   /**
+   * @public
    * <p>The maximum number of results to return.</p>
    *          <p>
    *       Use this parameter with NextToken to get results as a set of sequential pages.
@@ -1158,11 +1279,13 @@ export interface ListExtensionVersionsRequest {
  */
 export interface ListExtensionVersionsResult {
   /**
+   * @public
    * <p>The list of extension versions.</p>
    */
   ExtensionVersions?: ExtensionVersionDetails[];
 
   /**
+   * @public
    * <p>The token that indicates the start of the next sequential page of results.</p>
    *          <p>
    *       Use this value when making the next call to this operation to continue where the last one finished.
@@ -1176,6 +1299,7 @@ export interface ListExtensionVersionsResult {
  */
 export interface ListGamesRequest {
   /**
+   * @public
    * <p>The maximum number of results to return.</p>
    *          <p>
    *       Use this parameter with NextToken to get results as a set of sequential pages.
@@ -1184,6 +1308,7 @@ export interface ListGamesRequest {
   MaxResults?: number;
 
   /**
+   * @public
    * <p>The token that indicates the start of the next sequential page of results.</p>
    *          <p>
    *       Use the token that is returned with a previous call to this operation.
@@ -1199,21 +1324,25 @@ export interface ListGamesRequest {
  */
 export interface GameSummary {
   /**
+   * @public
    * <p>The name of the game.</p>
    */
   Name?: string;
 
   /**
+   * @public
    * <p>The description of the game.</p>
    */
   Description?: string;
 
   /**
+   * @public
    * <p>The state of the game.</p>
    */
   State?: GameState | string;
 
   /**
+   * @public
    * <p>The tags associated with the game.</p>
    */
   Tags?: Record<string, string>;
@@ -1224,11 +1353,13 @@ export interface GameSummary {
  */
 export interface ListGamesResult {
   /**
+   * @public
    * <p>The list of games.</p>
    */
   Games?: GameSummary[];
 
   /**
+   * @public
    * <p>The token that indicates the start of the next sequential page of results.</p>
    *          <p>
    *       Use this value when making the next call to this operation to continue where the last one finished.
@@ -1242,16 +1373,19 @@ export interface ListGamesResult {
  */
 export interface ListGeneratedCodeJobsRequest {
   /**
+   * @public
    * <p>The name of the game.</p>
    */
   GameName: string | undefined;
 
   /**
+   * @public
    * <p>The identifier of the snapshot.</p>
    */
   SnapshotId: string | undefined;
 
   /**
+   * @public
    * <p>The maximum number of results to return.</p>
    *          <p>
    *       Use this parameter with NextToken to get results as a set of sequential pages.
@@ -1260,6 +1394,7 @@ export interface ListGeneratedCodeJobsRequest {
   MaxResults?: number;
 
   /**
+   * @public
    * <p>The token that indicates the start of the next sequential page of results.</p>
    *          <p>
    *       Use the token that is returned with a previous call to this operation.
@@ -1274,11 +1409,13 @@ export interface ListGeneratedCodeJobsRequest {
  */
 export interface ListGeneratedCodeJobsResult {
   /**
+   * @public
    * <p>The list of generated code jobs.</p>
    */
   GeneratedCodeJobs?: GeneratedCodeJobDetails[];
 
   /**
+   * @public
    * <p>The token that indicates the start of the next sequential page of results.</p>
    *          <p>
    *       Use this value when making the next call to this operation to continue where the last one finished.
@@ -1292,11 +1429,13 @@ export interface ListGeneratedCodeJobsResult {
  */
 export interface ListSnapshotsRequest {
   /**
+   * @public
    * <p>The name of the game.</p>
    */
   GameName: string | undefined;
 
   /**
+   * @public
    * <p>The maximum number of results to return.</p>
    *          <p>
    *       Use this parameter with NextToken to get results as a set of sequential pages.
@@ -1305,6 +1444,7 @@ export interface ListSnapshotsRequest {
   MaxResults?: number;
 
   /**
+   * @public
    * <p>The token that indicates the start of the next sequential page of results.</p>
    *          <p>
    *       Use the token that is returned with a previous call to this operation.
@@ -1320,21 +1460,25 @@ export interface ListSnapshotsRequest {
  */
 export interface SnapshotSummary {
   /**
+   * @public
    * <p>The identifier of the snapshot.</p>
    */
   Id?: string;
 
   /**
+   * @public
    * <p>The description of the snapshot.</p>
    */
   Description?: string;
 
   /**
+   * @public
    * <p>The timestamp of when the snapshot was created.</p>
    */
   Created?: Date;
 
   /**
+   * @public
    * <p>Then timestamp of when the snapshot was last updated.</p>
    */
   LastUpdated?: Date;
@@ -1345,6 +1489,7 @@ export interface SnapshotSummary {
  */
 export interface ListSnapshotsResult {
   /**
+   * @public
    * <p>
    *       A list of snapshot summaries.
    *       You can use the returned snapshot IDs in the <code>UpdateSnapshot</code> and <code>GetSnapshot</code> operations.
@@ -1353,6 +1498,7 @@ export interface ListSnapshotsResult {
   Snapshots?: SnapshotSummary[];
 
   /**
+   * @public
    * <p>The token that indicates the start of the next sequential page of results.</p>
    *          <p>
    *       Use this value when making the next call to this operation to continue where the last one finished.
@@ -1366,16 +1512,19 @@ export interface ListSnapshotsResult {
  */
 export interface ListStageDeploymentsRequest {
   /**
+   * @public
    * <p>The name of the game.</p>
    */
   GameName: string | undefined;
 
   /**
+   * @public
    * <p>The name of the stage.</p>
    */
   StageName: string | undefined;
 
   /**
+   * @public
    * <p>The token that indicates the start of the next sequential page of results.</p>
    *          <p>
    *       Use the token that is returned with a previous call to this operation.
@@ -1385,6 +1534,7 @@ export interface ListStageDeploymentsRequest {
   NextToken?: string;
 
   /**
+   * @public
    * <p>The maximum number of results to return.</p>
    *          <p>
    *       Use this parameter with NextToken to get results as a set of sequential pages.
@@ -1399,31 +1549,37 @@ export interface ListStageDeploymentsRequest {
  */
 export interface StageDeploymentSummary {
   /**
+   * @public
    * <p>The identifier of the deployment.</p>
    */
   DeploymentId?: string;
 
   /**
+   * @public
    * <p>The identifier of the snapshot associated with the stage deployment.</p>
    */
   SnapshotId?: string;
 
   /**
+   * @public
    * <p>The type of action of the deployment.</p>
    */
   DeploymentAction?: DeploymentAction | string;
 
   /**
+   * @public
    * <p>The state of the deployment.</p>
    */
   DeploymentState?: DeploymentState | string;
 
   /**
+   * @public
    * <p>The timestamp of when the deployment was last updated.</p>
    */
   LastUpdated?: Date;
 
   /**
+   * @public
    * <p>The result of the deployment.</p>
    */
   DeploymentResult?: DeploymentResult;
@@ -1434,6 +1590,7 @@ export interface StageDeploymentSummary {
  */
 export interface ListStageDeploymentsResult {
   /**
+   * @public
    * <p>
    *       A list of stage deployment summaries.
    *       You can use the deployment IDs in the <code>UpdateStageDeployment</code> and <code>GetStageDeployment</code> actions.
@@ -1442,6 +1599,7 @@ export interface ListStageDeploymentsResult {
   StageDeployments?: StageDeploymentSummary[];
 
   /**
+   * @public
    * <p>The token that indicates the start of the next sequential page of results.</p>
    *          <p>
    *       Use this value when making the next call to this operation to continue where the last one finished.
@@ -1455,11 +1613,13 @@ export interface ListStageDeploymentsResult {
  */
 export interface ListStagesRequest {
   /**
+   * @public
    * <p>The name of the game.</p>
    */
   GameName: string | undefined;
 
   /**
+   * @public
    * <p>The maximum number of results to return.</p>
    *          <p>
    *       Use this parameter with NextToken to get results as a set of sequential pages.
@@ -1468,6 +1628,7 @@ export interface ListStagesRequest {
   MaxResults?: number;
 
   /**
+   * @public
    * <p>The token that indicates the start of the next sequential page of results.</p>
    *          <p>
    *       Use the token that is returned with a previous call to this operation.
@@ -1483,11 +1644,13 @@ export interface ListStagesRequest {
  */
 export interface StageSummary {
   /**
+   * @public
    * <p>The name of the stage.</p>
    */
   Name?: string;
 
   /**
+   * @public
    * <p>The game key associated with the stage.</p>
    *          <p>
    *       The game key is a unique identifier that the game client uses to connect to the GameSparks backend.
@@ -1496,16 +1659,19 @@ export interface StageSummary {
   GameKey?: string;
 
   /**
+   * @public
    * <p>The description of the stage.</p>
    */
   Description?: string;
 
   /**
+   * @public
    * <p>The state of the stage.</p>
    */
   State?: StageState | string;
 
   /**
+   * @public
    * <p>The tags associated with the stage.</p>
    */
   Tags?: Record<string, string>;
@@ -1516,6 +1682,7 @@ export interface StageSummary {
  */
 export interface ListStagesResult {
   /**
+   * @public
    * <p>
    *       A list of stage summaries.
    *       You can use the stage names in the <code>UpdateStage</code> and <code>GetStage</code> actions.
@@ -1524,6 +1691,7 @@ export interface ListStagesResult {
   Stages?: StageSummary[];
 
   /**
+   * @public
    * <p>The token that indicates the start of the next sequential page of results.</p>
    *          <p>
    *       Use this value when making the next call to this operation to continue where the last one finished.
@@ -1537,6 +1705,7 @@ export interface ListStagesResult {
  */
 export interface ListTagsForResourceRequest {
   /**
+   * @public
    * <p>The Amazon Resource Name (ARN) of the GameSparks resource.</p>
    */
   ResourceArn: string | undefined;
@@ -1547,6 +1716,7 @@ export interface ListTagsForResourceRequest {
  */
 export interface ListTagsForResourceResult {
   /**
+   * @public
    * <p>The tags associated with the resource.</p>
    */
   tags?: Record<string, string>;
@@ -1558,11 +1728,13 @@ export interface ListTagsForResourceResult {
  */
 export interface Generator {
   /**
+   * @public
    * <p>The platform that will be used to run the generated code.</p>
    */
   TargetPlatform?: string;
 
   /**
+   * @public
    * <p>The programming language for the generated code.</p>
    *          <p>
    *       Not all languages are supported for each platform. For cases where multiple languages are supported,
@@ -1573,6 +1745,7 @@ export interface Generator {
   Language?: string;
 
   /**
+   * @public
    * <p>The target version of the GameSparks Game SDK.</p>
    */
   GameSdkVersion?: string;
@@ -1583,16 +1756,19 @@ export interface Generator {
  */
 export interface StartGeneratedCodeJobRequest {
   /**
+   * @public
    * <p>The name of the game.</p>
    */
   GameName: string | undefined;
 
   /**
+   * @public
    * <p>The identifier of the snapshot for which to generate code.</p>
    */
   SnapshotId: string | undefined;
 
   /**
+   * @public
    * <p>Properties of the generator to use for the job.</p>
    */
   Generator: Generator | undefined;
@@ -1603,6 +1779,7 @@ export interface StartGeneratedCodeJobRequest {
  */
 export interface StartGeneratedCodeJobResult {
   /**
+   * @public
    * <p>
    *       The identifier of the code generation job.
    *       You can use this identifier in the <code>GetGeneratedCodeJob</code> operation.
@@ -1616,21 +1793,25 @@ export interface StartGeneratedCodeJobResult {
  */
 export interface StartStageDeploymentRequest {
   /**
+   * @public
    * <p>The name of the game.</p>
    */
   GameName: string | undefined;
 
   /**
+   * @public
    * <p>The name of the stage to deploy the snapshot onto.</p>
    */
   StageName: string | undefined;
 
   /**
+   * @public
    * <p>The identifier of the snapshot to deploy.</p>
    */
   SnapshotId: string | undefined;
 
   /**
+   * @public
    * <p>
    *       A client-defined token.
    *       With an active client token in the request, this action is idempotent.
@@ -1644,6 +1825,7 @@ export interface StartStageDeploymentRequest {
  */
 export interface StartStageDeploymentResult {
   /**
+   * @public
    * <p>Properties that describe the stage deployment.</p>
    */
   StageDeployment?: StageDeploymentDetails;
@@ -1654,11 +1836,13 @@ export interface StartStageDeploymentResult {
  */
 export interface TagResourceRequest {
   /**
+   * @public
    * <p>The Amazon Resource Name (ARN) of the resource to add the tags to.</p>
    */
   ResourceArn: string | undefined;
 
   /**
+   * @public
    * <p>The tags to add to the resource.</p>
    */
   tags: Record<string, string> | undefined;
@@ -1674,11 +1858,13 @@ export interface TagResourceResult {}
  */
 export interface UntagResourceRequest {
   /**
+   * @public
    * <p>The Amazon Resource Name (ARN) of the resource to remove the tags from.</p>
    */
   ResourceArn: string | undefined;
 
   /**
+   * @public
    * <p>The keys of the tags to remove.</p>
    */
   tagKeys: string[] | undefined;
@@ -1694,11 +1880,13 @@ export interface UntagResourceResult {}
  */
 export interface UpdateGameRequest {
   /**
+   * @public
    * <p>The name of the game.</p>
    */
   GameName: string | undefined;
 
   /**
+   * @public
    * <p>The description of the game.</p>
    */
   Description?: string;
@@ -1709,6 +1897,7 @@ export interface UpdateGameRequest {
  */
 export interface UpdateGameResult {
   /**
+   * @public
    * <p>The details of the game.</p>
    */
   Game?: GameDetails;
@@ -1735,16 +1924,19 @@ export type Operation = (typeof Operation)[keyof typeof Operation];
  */
 export interface SectionModification {
   /**
+   * @public
    * <p>The name of the section to be modified.</p>
    */
   Section: string | undefined;
 
   /**
+   * @public
    * <p>The path within the section content to be modified.</p>
    */
   Path: string | undefined;
 
   /**
+   * @public
    * <p>The operation to be performed on a configuration section.</p>
    *          <p>
    *       Content can be added, deleted, or replaced within a section.
@@ -1753,6 +1945,7 @@ export interface SectionModification {
   Operation: Operation | string | undefined;
 
   /**
+   * @public
    * <p>For add and replace operations, this is the value that will be used.</p>
    *          <p>
    *       This field should be omitted for delete operations.
@@ -1766,11 +1959,13 @@ export interface SectionModification {
  */
 export interface UpdateGameConfigurationRequest {
   /**
+   * @public
    * <p>The name of the game.</p>
    */
   GameName: string | undefined;
 
   /**
+   * @public
    * <p>The list of modifications to make.</p>
    */
   Modifications: SectionModification[] | undefined;
@@ -1781,6 +1976,7 @@ export interface UpdateGameConfigurationRequest {
  */
 export interface UpdateGameConfigurationResult {
   /**
+   * @public
    * <p>Details about the game configuration.</p>
    */
   GameConfiguration?: GameConfigurationDetails;
@@ -1791,16 +1987,19 @@ export interface UpdateGameConfigurationResult {
  */
 export interface UpdateSnapshotRequest {
   /**
+   * @public
    * <p>The name of the game.</p>
    */
   GameName: string | undefined;
 
   /**
+   * @public
    * <p>The identifier of the snapshot.</p>
    */
   SnapshotId: string | undefined;
 
   /**
+   * @public
    * <p>The description of the snapshot.</p>
    */
   Description?: string;
@@ -1811,6 +2010,7 @@ export interface UpdateSnapshotRequest {
  */
 export interface UpdateSnapshotResult {
   /**
+   * @public
    * <p>Properties that provide details of the updated snapshot.</p>
    */
   Snapshot?: SnapshotDetails;
@@ -1821,21 +2021,25 @@ export interface UpdateSnapshotResult {
  */
 export interface UpdateStageRequest {
   /**
+   * @public
    * <p>The name of the game.</p>
    */
   GameName: string | undefined;
 
   /**
+   * @public
    * <p>The name of the stage.</p>
    */
   StageName: string | undefined;
 
   /**
+   * @public
    * <p>The Amazon Resource Name (ARN) of the role to use for the game snapshots deployed to this stage.</p>
    */
   Role?: string;
 
   /**
+   * @public
    * <p>The description of the stage.</p>
    */
   Description?: string;
@@ -1846,6 +2050,7 @@ export interface UpdateStageRequest {
  */
 export interface UpdateStageResult {
   /**
+   * @public
    * <p>Properties that provide details of the updated stage.</p>
    */
   Stage?: StageDetails;

@@ -23,16 +23,19 @@ import {
  */
 export interface PromptSearchCriteria {
   /**
+   * @public
    * <p>A list of conditions which would be applied together with an OR condition.</p>
    */
   OrConditions?: PromptSearchCriteria[];
 
   /**
+   * @public
    * <p>A list of conditions which would be applied together with an AND condition.</p>
    */
   AndConditions?: PromptSearchCriteria[];
 
   /**
+   * @public
    * <p>A leaf node condition which can be used to specify a string condition.</p>
    *          <note>
    *             <p>The currently supported values for <code>FieldName</code> are <code>name</code>,
@@ -53,16 +56,19 @@ export interface PromptSearchCriteria {
  */
 export interface QueueSearchCriteria {
   /**
+   * @public
    * <p>A list of conditions which would be applied together with an OR condition.</p>
    */
   OrConditions?: QueueSearchCriteria[];
 
   /**
+   * @public
    * <p>A list of conditions which would be applied together with an AND condition.</p>
    */
   AndConditions?: QueueSearchCriteria[];
 
   /**
+   * @public
    * <p>A leaf node condition which can be used to specify a string condition.</p>
    *          <note>
    *             <p>The currently supported values for <code>FieldName</code> are <code>name</code>,
@@ -72,6 +78,7 @@ export interface QueueSearchCriteria {
   StringCondition?: StringCondition;
 
   /**
+   * @public
    * <p>The type of queue.</p>
    */
   QueueTypeCondition?: SearchableQueueType | string;
@@ -83,16 +90,19 @@ export interface QueueSearchCriteria {
  */
 export interface QuickConnectSearchCriteria {
   /**
+   * @public
    * <p>A list of conditions which would be applied together with an OR condition.</p>
    */
   OrConditions?: QuickConnectSearchCriteria[];
 
   /**
+   * @public
    * <p>A list of conditions which would be applied together with an AND condition.</p>
    */
   AndConditions?: QuickConnectSearchCriteria[];
 
   /**
+   * @public
    * <p>A leaf node condition which can be used to specify a string condition.</p>
    *          <note>
    *             <p>The currently supported values for <code>FieldName</code> are <code>name</code>,
@@ -113,16 +123,19 @@ export interface QuickConnectSearchCriteria {
  */
 export interface RoutingProfileSearchCriteria {
   /**
+   * @public
    * <p>A list of conditions which would be applied together with an OR condition.</p>
    */
   OrConditions?: RoutingProfileSearchCriteria[];
 
   /**
+   * @public
    * <p>A list of conditions which would be applied together with an AND condition.</p>
    */
   AndConditions?: RoutingProfileSearchCriteria[];
 
   /**
+   * @public
    * <p>A leaf node condition which can be used to specify a string condition.</p>
    *          <note>
    *             <p>The currently supported values for <code>FieldName</code> are <code>name</code>,
@@ -143,16 +156,19 @@ export interface RoutingProfileSearchCriteria {
  */
 export interface SecurityProfileSearchCriteria {
   /**
+   * @public
    * <p>A list of conditions which would be applied together with an OR condition.</p>
    */
   OrConditions?: SecurityProfileSearchCriteria[];
 
   /**
+   * @public
    * <p>A list of conditions which would be applied together with an AND condition.</p>
    */
   AndConditions?: SecurityProfileSearchCriteria[];
 
   /**
+   * @public
    * <p>A leaf node condition which can be used to specify a string condition. </p>
    */
   StringCondition?: StringCondition;
@@ -163,46 +179,55 @@ export interface SecurityProfileSearchCriteria {
  */
 export interface UpdateEvaluationFormRequest {
   /**
+   * @public
    * <p>The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
    */
   InstanceId: string | undefined;
 
   /**
+   * @public
    * <p>The unique identifier for the evaluation form.</p>
    */
   EvaluationFormId: string | undefined;
 
   /**
+   * @public
    * <p>A version of the evaluation form to update.</p>
    */
   EvaluationFormVersion: number | undefined;
 
   /**
+   * @public
    * <p>A flag indicating whether the operation must create a new version.</p>
    */
   CreateNewVersion?: boolean;
 
   /**
+   * @public
    * <p>A title of the evaluation form.</p>
    */
   Title: string | undefined;
 
   /**
+   * @public
    * <p>The description of the evaluation form.</p>
    */
   Description?: string;
 
   /**
+   * @public
    * <p>Items that are part of the evaluation form.  The total number of sections and questions must not exceed 100 each.  Questions must be contained in a section.</p>
    */
   Items: EvaluationFormItem[] | undefined;
 
   /**
+   * @public
    * <p>A scoring strategy of the evaluation form.</p>
    */
   ScoringStrategy?: EvaluationFormScoringStrategy;
 
   /**
+   * @public
    * <p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the
    *             request. If not provided, the Amazon Web Services
    *             SDK populates this field. For more information about idempotency, see
@@ -222,18 +247,21 @@ export interface UpdateEvaluationFormRequest {
  */
 export interface UserSearchCriteria {
   /**
+   * @public
    * <p>A list of conditions which would be applied together with an <code>OR</code>
    *    condition.</p>
    */
   OrConditions?: UserSearchCriteria[];
 
   /**
+   * @public
    * <p>A list of conditions which would be applied together with an <code>AND</code> condition.
    *   </p>
    */
   AndConditions?: UserSearchCriteria[];
 
   /**
+   * @public
    * <p>A leaf node condition which can be used to specify a string condition.</p>
    *          <note>
    *             <p>The currently supported values for <code>FieldName</code> are <code>name</code>,
@@ -243,6 +271,7 @@ export interface UserSearchCriteria {
   StringCondition?: StringCondition;
 
   /**
+   * @public
    * <p>A leaf node condition which can be used to specify a hierarchy group condition.</p>
    */
   HierarchyGroupCondition?: HierarchyGroupCondition;
@@ -253,11 +282,13 @@ export interface UserSearchCriteria {
  */
 export interface DescribeContactEvaluationResponse {
   /**
+   * @public
    * <p>Information about the evaluation form completed for a specific contact.</p>
    */
   Evaluation: Evaluation | undefined;
 
   /**
+   * @public
    * <p>Information about the evaluation form.</p>
    */
   EvaluationForm: EvaluationFormContent | undefined;
@@ -268,6 +299,7 @@ export interface DescribeContactEvaluationResponse {
  */
 export interface DescribeEvaluationFormResponse {
   /**
+   * @public
    * <p>Information about the evaluation form.</p>
    */
   EvaluationForm: EvaluationForm | undefined;
@@ -278,27 +310,32 @@ export interface DescribeEvaluationFormResponse {
  */
 export interface SearchHoursOfOperationsRequest {
   /**
+   * @public
    * <p>The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
    */
   InstanceId: string | undefined;
 
   /**
+   * @public
    * <p>The token for the next set of results. Use the value returned in the previous
    * response in the next request to retrieve the next set of results.</p>
    */
   NextToken?: string;
 
   /**
+   * @public
    * <p>The maximum number of results to return per page.</p>
    */
   MaxResults?: number;
 
   /**
+   * @public
    * <p>Filters to be applied to search results.</p>
    */
   SearchFilter?: HoursOfOperationSearchFilter;
 
   /**
+   * @public
    * <p>The search criteria to be used to return hours of operations.</p>
    */
   SearchCriteria?: HoursOfOperationSearchCriteria;
@@ -309,27 +346,32 @@ export interface SearchHoursOfOperationsRequest {
  */
 export interface SearchPromptsRequest {
   /**
+   * @public
    * <p>The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
    */
   InstanceId: string | undefined;
 
   /**
+   * @public
    * <p>The token for the next set of results. Use the value returned in the previous
    * response in the next request to retrieve the next set of results.</p>
    */
   NextToken?: string;
 
   /**
+   * @public
    * <p>The maximum number of results to return per page.</p>
    */
   MaxResults?: number;
 
   /**
+   * @public
    * <p>Filters to be applied to search results.</p>
    */
   SearchFilter?: PromptSearchFilter;
 
   /**
+   * @public
    * <p>The search criteria to be used to return prompts.</p>
    */
   SearchCriteria?: PromptSearchCriteria;
@@ -340,27 +382,32 @@ export interface SearchPromptsRequest {
  */
 export interface SearchQueuesRequest {
   /**
+   * @public
    * <p>The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
    */
   InstanceId: string | undefined;
 
   /**
+   * @public
    * <p>The token for the next set of results. Use the value returned in the previous
    * response in the next request to retrieve the next set of results.</p>
    */
   NextToken?: string;
 
   /**
+   * @public
    * <p>The maximum number of results to return per page.</p>
    */
   MaxResults?: number;
 
   /**
+   * @public
    * <p>Filters to be applied to search results.</p>
    */
   SearchFilter?: QueueSearchFilter;
 
   /**
+   * @public
    * <p>The search criteria to be used to return queues.</p>
    *          <note>
    *             <p>The <code>name</code> and <code>description</code> fields support "contains" queries with
@@ -376,27 +423,32 @@ export interface SearchQueuesRequest {
  */
 export interface SearchQuickConnectsRequest {
   /**
+   * @public
    * <p>The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
    */
   InstanceId: string | undefined;
 
   /**
+   * @public
    * <p>The token for the next set of results. Use the value returned in the previous
    * response in the next request to retrieve the next set of results.</p>
    */
   NextToken?: string;
 
   /**
+   * @public
    * <p>The maximum number of results to return per page.</p>
    */
   MaxResults?: number;
 
   /**
+   * @public
    * <p>Filters to be applied to search results.</p>
    */
   SearchFilter?: QuickConnectSearchFilter;
 
   /**
+   * @public
    * <p>The search criteria to be used to return quick connects.</p>
    */
   SearchCriteria?: QuickConnectSearchCriteria;
@@ -407,27 +459,32 @@ export interface SearchQuickConnectsRequest {
  */
 export interface SearchRoutingProfilesRequest {
   /**
+   * @public
    * <p>The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
    */
   InstanceId: string | undefined;
 
   /**
+   * @public
    * <p>The token for the next set of results. Use the value returned in the previous
    * response in the next request to retrieve the next set of results.</p>
    */
   NextToken?: string;
 
   /**
+   * @public
    * <p>The maximum number of results to return per page.</p>
    */
   MaxResults?: number;
 
   /**
+   * @public
    * <p>Filters to be applied to search results.</p>
    */
   SearchFilter?: RoutingProfileSearchFilter;
 
   /**
+   * @public
    * <p>The search criteria to be used to return routing profiles.</p>
    *          <note>
    *             <p>The <code>name</code> and <code>description</code> fields support "contains" queries with
@@ -443,22 +500,26 @@ export interface SearchRoutingProfilesRequest {
  */
 export interface SearchSecurityProfilesRequest {
   /**
+   * @public
    * <p>The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
    */
   InstanceId: string | undefined;
 
   /**
+   * @public
    * <p>The token for the next set of results. Use the value returned in the previous
    * response in the next request to retrieve the next set of results.</p>
    */
   NextToken?: string;
 
   /**
+   * @public
    * <p>The maximum number of results to return per page.</p>
    */
   MaxResults?: number;
 
   /**
+   * @public
    * <p>The search criteria to be used to return security profiles. </p>
    *          <note>
    *             <p>The <code>name</code> field support "contains" queries with a minimum of 2 characters and
@@ -473,6 +534,7 @@ export interface SearchSecurityProfilesRequest {
   SearchCriteria?: SecurityProfileSearchCriteria;
 
   /**
+   * @public
    * <p>Filters to be applied to search results.</p>
    */
   SearchFilter?: SecurityProfilesSearchFilter;
@@ -483,27 +545,32 @@ export interface SearchSecurityProfilesRequest {
  */
 export interface SearchUsersRequest {
   /**
+   * @public
    * <p>The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
    */
   InstanceId?: string;
 
   /**
+   * @public
    * <p>The token for the next set of results. Use the value returned in the previous
    * response in the next request to retrieve the next set of results.</p>
    */
   NextToken?: string;
 
   /**
+   * @public
    * <p>The maximum number of results to return per page.</p>
    */
   MaxResults?: number;
 
   /**
+   * @public
    * <p>Filters to be applied to search results.</p>
    */
   SearchFilter?: UserSearchFilter;
 
   /**
+   * @public
    * <p>The search criteria to be used to return users.</p>
    *          <note>
    *             <p>The <code>name</code> and <code>description</code> fields support "contains" queries with

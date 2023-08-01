@@ -55,6 +55,7 @@ export type ThroughputMode = (typeof ThroughputMode)[keyof typeof ThroughputMode
  */
 export interface CapacitySpecification {
   /**
+   * @public
    * <p>The read/write throughput capacity mode for a table. The options are:</p>
    *          <ul>
    *             <li>
@@ -74,12 +75,14 @@ export interface CapacitySpecification {
   throughputMode: ThroughputMode | string | undefined;
 
   /**
+   * @public
    * <p>The throughput capacity specified for <code>read</code> operations defined in <code>read capacity units</code>
    *             <code>(RCUs)</code>.</p>
    */
   readCapacityUnits?: number;
 
   /**
+   * @public
    * <p>The throughput capacity specified for <code>write</code> operations defined in <code>write capacity units</code>
    *             <code>(WCUs)</code>.</p>
    */
@@ -104,6 +107,7 @@ export interface CapacitySpecification {
  */
 export interface CapacitySpecificationSummary {
   /**
+   * @public
    * <p>The read/write throughput capacity mode for a table. The options are:</p>
    *          <ul>
    *             <li>
@@ -123,18 +127,21 @@ export interface CapacitySpecificationSummary {
   throughputMode: ThroughputMode | string | undefined;
 
   /**
+   * @public
    * <p>The throughput capacity specified for <code>read</code> operations defined in <code>read capacity units</code>
    *             <code>(RCUs)</code>.</p>
    */
   readCapacityUnits?: number;
 
   /**
+   * @public
    * <p>The throughput capacity specified for <code>write</code> operations defined in <code>write capacity units</code>
    *             <code>(WCUs)</code>.</p>
    */
   writeCapacityUnits?: number;
 
   /**
+   * @public
    * <p>The timestamp of the last operation that changed the provisioned throughput capacity of a table.</p>
    */
   lastUpdateToPayPerRequestTimestamp?: Date;
@@ -161,6 +168,7 @@ export type ClientSideTimestampsStatus = (typeof ClientSideTimestampsStatus)[key
  */
 export interface ClientSideTimestamps {
   /**
+   * @public
    * <p>Shows how to enable client-side timestamps settings for the specified table.</p>
    */
   status: ClientSideTimestampsStatus | string | undefined;
@@ -186,11 +194,13 @@ export type SortOrder = (typeof SortOrder)[keyof typeof SortOrder];
  */
 export interface ClusteringKey {
   /**
+   * @public
    * <p>The name(s) of the clustering column(s).</p>
    */
   name: string | undefined;
 
   /**
+   * @public
    * <p>Sets the ascendant (<code>ASC</code>) or descendant (<code>DESC</code>) order modifier.</p>
    */
   orderBy: SortOrder | string | undefined;
@@ -202,11 +212,13 @@ export interface ClusteringKey {
  */
 export interface ColumnDefinition {
   /**
+   * @public
    * <p>The name of the column.</p>
    */
   name: string | undefined;
 
   /**
+   * @public
    * <p>The data type of the column. For a list of available data types, see <a href="https://docs.aws.amazon.com/keyspaces/latest/devguide/cql.elements.html#cql.data-types">Data types</a> in the <i>Amazon Keyspaces Developer
    *             Guide</i>.</p>
    */
@@ -219,6 +231,7 @@ export interface ColumnDefinition {
  */
 export interface Comment {
   /**
+   * @public
    * <p>An optional description of the table.</p>
    */
   message: string | undefined;
@@ -278,6 +291,7 @@ export type Rs = (typeof Rs)[keyof typeof Rs];
  */
 export interface ReplicationSpecification {
   /**
+   * @public
    * <p>
    *          The <code>replicationStrategy</code> of a keyspace, the required value is <code>SINGLE_REGION</code> or
    *             <code>MULTI_REGION</code>.
@@ -286,6 +300,7 @@ export interface ReplicationSpecification {
   replicationStrategy: Rs | string | undefined;
 
   /**
+   * @public
    * <p>
    *          The <code>regionList</code> can contain up to six Amazon Web Services Regions where the keyspace is replicated in.
    *       </p>
@@ -304,12 +319,14 @@ export interface ReplicationSpecification {
  */
 export interface Tag {
   /**
+   * @public
    * <p>The key of the tag. Tag keys are case sensitive. Each Amazon Keyspaces resource can only have up to one tag with the same key. If you try to add an
    *          existing tag (same key), the existing tag value will be updated to the new value.</p>
    */
   key: string | undefined;
 
   /**
+   * @public
    * <p>The value of the tag. Tag values are case-sensitive and can be null.</p>
    */
   value: string | undefined;
@@ -320,11 +337,13 @@ export interface Tag {
  */
 export interface CreateKeyspaceRequest {
   /**
+   * @public
    * <p>The name of the keyspace to be created.</p>
    */
   keyspaceName: string | undefined;
 
   /**
+   * @public
    * <p>A list of key-value pair tags to be attached to the keyspace.</p>
    *          <p>For more information, see <a href="https://docs.aws.amazon.com/keyspaces/latest/devguide/tagging-keyspaces.html">Adding tags and labels to Amazon Keyspaces resources</a> in the <i>Amazon Keyspaces Developer
    *             Guide</i>.</p>
@@ -332,6 +351,7 @@ export interface CreateKeyspaceRequest {
   tags?: Tag[];
 
   /**
+   * @public
    * <p>
    *          The replication specification of the keyspace includes:</p>
    *          <ul>
@@ -357,6 +377,7 @@ export interface CreateKeyspaceRequest {
  */
 export interface CreateKeyspaceResponse {
   /**
+   * @public
    * <p>The unique identifier of the keyspace in the format of an Amazon Resource Name (ARN).</p>
    */
   resourceArn: string | undefined;
@@ -456,6 +477,7 @@ export type EncryptionType = (typeof EncryptionType)[keyof typeof EncryptionType
  */
 export interface EncryptionSpecification {
   /**
+   * @public
    * <p>The encryption option specified for the table. You can choose one of the following KMS keys (KMS keys):</p>
    *          <ul>
    *             <li>
@@ -476,6 +498,7 @@ export interface EncryptionSpecification {
   type: EncryptionType | string | undefined;
 
   /**
+   * @public
    * <p>The Amazon Resource Name (ARN) of the customer managed KMS key, for example <code>kms_key_identifier:ARN</code>.</p>
    */
   kmsKeyIdentifier?: string;
@@ -503,6 +526,7 @@ export type PointInTimeRecoveryStatus = (typeof PointInTimeRecoveryStatus)[keyof
  */
 export interface PointInTimeRecovery {
   /**
+   * @public
    * <p>The options are:</p>
    *          <ul>
    *             <li>
@@ -528,6 +552,7 @@ export interface PointInTimeRecovery {
  */
 export interface PartitionKey {
   /**
+   * @public
    * <p>The name(s) of the partition key column(s).</p>
    */
   name: string | undefined;
@@ -539,6 +564,7 @@ export interface PartitionKey {
  */
 export interface StaticColumn {
   /**
+   * @public
    * <p>The name of the static column.</p>
    */
   name: string | undefined;
@@ -550,21 +576,25 @@ export interface StaticColumn {
  */
 export interface SchemaDefinition {
   /**
+   * @public
    * <p>The regular columns of the table.</p>
    */
   allColumns: ColumnDefinition[] | undefined;
 
   /**
+   * @public
    * <p>The columns that are part of the partition key of the table .</p>
    */
   partitionKeys: PartitionKey[] | undefined;
 
   /**
+   * @public
    * <p>The columns that are part of the clustering key of the table.</p>
    */
   clusteringKeys?: ClusteringKey[];
 
   /**
+   * @public
    * <p>The columns that have been defined as <code>STATIC</code>. Static columns store values that are shared by all rows in the same partition.</p>
    */
   staticColumns?: StaticColumn[];
@@ -591,6 +621,7 @@ export type TimeToLiveStatus = (typeof TimeToLiveStatus)[keyof typeof TimeToLive
  */
 export interface TimeToLive {
   /**
+   * @public
    * <p>Shows how to enable custom Time to Live (TTL) settings for the specified table.</p>
    */
   status: TimeToLiveStatus | string | undefined;
@@ -601,16 +632,19 @@ export interface TimeToLive {
  */
 export interface CreateTableRequest {
   /**
+   * @public
    * <p>The name of the keyspace that the table is going to be created in.</p>
    */
   keyspaceName: string | undefined;
 
   /**
+   * @public
    * <p>The name of the table.</p>
    */
   tableName: string | undefined;
 
   /**
+   * @public
    * <p>The <code>schemaDefinition</code> consists of the
    *          following parameters.</p>
    *          <p>For each column to be created:</p>
@@ -673,11 +707,13 @@ export interface CreateTableRequest {
   schemaDefinition: SchemaDefinition | undefined;
 
   /**
+   * @public
    * <p>This parameter allows to enter a description of the table.</p>
    */
   comment?: Comment;
 
   /**
+   * @public
    * <p>Specifies the read/write throughput capacity mode for the table. The options are:</p>
    *          <ul>
    *             <li>
@@ -698,6 +734,7 @@ export interface CreateTableRequest {
   capacitySpecification?: CapacitySpecification;
 
   /**
+   * @public
    * <p>Specifies how the encryption key for encryption at rest is managed for the table.
    *          You can choose one of the following KMS key (KMS key):</p>
    *          <ul>
@@ -719,6 +756,7 @@ export interface CreateTableRequest {
   encryptionSpecification?: EncryptionSpecification;
 
   /**
+   * @public
    * <p>Specifies if <code>pointInTimeRecovery</code> is enabled or disabled for the
    *             table. The options are:</p>
    *          <ul>
@@ -741,6 +779,7 @@ export interface CreateTableRequest {
   pointInTimeRecovery?: PointInTimeRecovery;
 
   /**
+   * @public
    * <p>Enables Time to Live custom settings for the
    *             table. The options are:</p>
    *          <ul>
@@ -764,6 +803,7 @@ export interface CreateTableRequest {
   ttl?: TimeToLive;
 
   /**
+   * @public
    * <p>The default Time to Live setting in seconds for the
    *          table.</p>
    *          <p>For more information, see <a href="https://docs.aws.amazon.com/keyspaces/latest/devguide/TTL-how-it-works.html#ttl-howitworks_default_ttl">Setting the default TTL value for a table</a> in the <i>Amazon Keyspaces Developer
@@ -772,6 +812,7 @@ export interface CreateTableRequest {
   defaultTimeToLive?: number;
 
   /**
+   * @public
    * <p>A list of key-value pair tags to be
    *          attached to the resource. </p>
    *          <p>For more information, see <a href="https://docs.aws.amazon.com/keyspaces/latest/devguide/tagging-keyspaces.html">Adding tags and labels to Amazon Keyspaces resources</a> in the <i>Amazon Keyspaces Developer
@@ -780,6 +821,7 @@ export interface CreateTableRequest {
   tags?: Tag[];
 
   /**
+   * @public
    * <p>
    *          Enables client-side timestamps for the table. By default, the setting is disabled. You can enable
    *             client-side timestamps with the following option:</p>
@@ -800,6 +842,7 @@ export interface CreateTableRequest {
  */
 export interface CreateTableResponse {
   /**
+   * @public
    * <p>The unique identifier of the table in the format of an Amazon Resource Name (ARN).</p>
    */
   resourceArn: string | undefined;
@@ -813,6 +856,7 @@ export class ResourceNotFoundException extends __BaseException {
   readonly name: "ResourceNotFoundException" = "ResourceNotFoundException";
   readonly $fault: "client" = "client";
   /**
+   * @public
    * <p>The unique identifier in the format of Amazon Resource Name (ARN), for the resource not found.</p>
    */
   resourceArn?: string;
@@ -836,6 +880,7 @@ export class ResourceNotFoundException extends __BaseException {
  */
 export interface DeleteKeyspaceRequest {
   /**
+   * @public
    * <p>The name of the keyspace to be deleted.</p>
    */
   keyspaceName: string | undefined;
@@ -851,11 +896,13 @@ export interface DeleteKeyspaceResponse {}
  */
 export interface DeleteTableRequest {
   /**
+   * @public
    * <p>The name of the keyspace of the to be deleted table.</p>
    */
   keyspaceName: string | undefined;
 
   /**
+   * @public
    * <p>The name of the table to be deleted.</p>
    */
   tableName: string | undefined;
@@ -871,6 +918,7 @@ export interface DeleteTableResponse {}
  */
 export interface GetKeyspaceRequest {
   /**
+   * @public
    * <p>The name of the keyspace.</p>
    */
   keyspaceName: string | undefined;
@@ -881,16 +929,19 @@ export interface GetKeyspaceRequest {
  */
 export interface GetKeyspaceResponse {
   /**
+   * @public
    * <p>The name of the keyspace.</p>
    */
   keyspaceName: string | undefined;
 
   /**
+   * @public
    * <p>Returns the ARN of the keyspace.</p>
    */
   resourceArn: string | undefined;
 
   /**
+   * @public
    * <p>
    *          Returns the replication strategy of the keyspace. The options are <code>SINGLE_REGION</code> or <code>MULTI_REGION</code>.
    *       </p>
@@ -898,6 +949,7 @@ export interface GetKeyspaceResponse {
   replicationStrategy: Rs | string | undefined;
 
   /**
+   * @public
    * <p>
    *          If the <code>replicationStrategy</code> of the keyspace is <code>MULTI_REGION</code>, a list of replication Regions is returned.
    *       </p>
@@ -910,11 +962,13 @@ export interface GetKeyspaceResponse {
  */
 export interface GetTableRequest {
   /**
+   * @public
    * <p>The name of the keyspace that the table is stored in.</p>
    */
   keyspaceName: string | undefined;
 
   /**
+   * @public
    * <p>The name of the table.</p>
    */
   tableName: string | undefined;
@@ -926,11 +980,13 @@ export interface GetTableRequest {
  */
 export interface PointInTimeRecoverySummary {
   /**
+   * @public
    * <p>Shows if point-in-time recovery is enabled or disabled for the specified table.</p>
    */
   status: PointInTimeRecoveryStatus | string | undefined;
 
   /**
+   * @public
    * <p>Specifies the earliest possible restore point of the table in ISO 8601 format.</p>
    */
   earliestRestorableTimestamp?: Date;
@@ -960,36 +1016,43 @@ export type TableStatus = (typeof TableStatus)[keyof typeof TableStatus];
  */
 export interface GetTableResponse {
   /**
+   * @public
    * <p>The name of the keyspace that the specified table is stored in.</p>
    */
   keyspaceName: string | undefined;
 
   /**
+   * @public
    * <p>The name of the specified table.</p>
    */
   tableName: string | undefined;
 
   /**
+   * @public
    * <p>The Amazon Resource Name (ARN) of the specified table.</p>
    */
   resourceArn: string | undefined;
 
   /**
+   * @public
    * <p>The creation timestamp of the specified table.</p>
    */
   creationTimestamp?: Date;
 
   /**
+   * @public
    * <p>The current status of the specified table.</p>
    */
   status?: TableStatus | string;
 
   /**
+   * @public
    * <p>The schema definition of the specified table.</p>
    */
   schemaDefinition?: SchemaDefinition;
 
   /**
+   * @public
    * <p>The read/write throughput capacity mode for a table. The options are:</p>
    *          <ul>
    *             <li>
@@ -1007,31 +1070,37 @@ export interface GetTableResponse {
   capacitySpecification?: CapacitySpecificationSummary;
 
   /**
+   * @public
    * <p>The encryption settings of the specified table.</p>
    */
   encryptionSpecification?: EncryptionSpecification;
 
   /**
+   * @public
    * <p>The point-in-time recovery status of the specified table.</p>
    */
   pointInTimeRecovery?: PointInTimeRecoverySummary;
 
   /**
+   * @public
    * <p>The custom Time to Live settings of the specified table.</p>
    */
   ttl?: TimeToLive;
 
   /**
+   * @public
    * <p>The default Time to Live settings in seconds of the specified table.</p>
    */
   defaultTimeToLive?: number;
 
   /**
+   * @public
    * <p>The the description of the specified table.</p>
    */
   comment?: Comment;
 
   /**
+   * @public
    * <p>
    *          The client-side timestamps setting of the table.</p>
    */
@@ -1043,11 +1112,13 @@ export interface GetTableResponse {
  */
 export interface ListKeyspacesRequest {
   /**
+   * @public
    * <p>The pagination token. To resume pagination, provide the <code>NextToken</code> value as argument of a subsequent API invocation.</p>
    */
   nextToken?: string;
 
   /**
+   * @public
    * <p>The total number of keyspaces to return in the output. If the total number of keyspaces available
    *          is more than the value specified, a <code>NextToken</code> is provided in the output. To resume pagination,
    *          provide the <code>NextToken</code> value as an argument of a subsequent API invocation.</p>
@@ -1061,16 +1132,19 @@ export interface ListKeyspacesRequest {
  */
 export interface KeyspaceSummary {
   /**
+   * @public
    * <p>The name of the keyspace.</p>
    */
   keyspaceName: string | undefined;
 
   /**
+   * @public
    * <p>The unique identifier of the keyspace in the format of an Amazon Resource Name (ARN).</p>
    */
   resourceArn: string | undefined;
 
   /**
+   * @public
    * <p>
    *       This property specifies if a keyspace is a single Region keyspace or a multi-Region keyspace.  The available
    *       values are <code>SINGLE_REGION</code> or <code>MULTI_REGION</code>.
@@ -1079,6 +1153,7 @@ export interface KeyspaceSummary {
   replicationStrategy: Rs | string | undefined;
 
   /**
+   * @public
    * <p>
    *          If the <code>replicationStrategy</code> of the keyspace is <code>MULTI_REGION</code>, a list of replication Regions is returned.
    *       </p>
@@ -1091,11 +1166,13 @@ export interface KeyspaceSummary {
  */
 export interface ListKeyspacesResponse {
   /**
+   * @public
    * <p>A token to specify where to start paginating. This is the <code>NextToken</code> from a previously truncated response.</p>
    */
   nextToken?: string;
 
   /**
+   * @public
    * <p>A list of keyspaces.</p>
    */
   keyspaces: KeyspaceSummary[] | undefined;
@@ -1106,11 +1183,13 @@ export interface ListKeyspacesResponse {
  */
 export interface ListTablesRequest {
   /**
+   * @public
    * <p>The pagination token. To resume pagination, provide the <code>NextToken</code> value as an argument of a subsequent API invocation.</p>
    */
   nextToken?: string;
 
   /**
+   * @public
    * <p>The total number of tables to return in the output. If the total number of tables available
    *          is more than the value specified, a <code>NextToken</code> is provided in the output. To resume pagination,
    *          provide the <code>NextToken</code> value as an argument of a subsequent API invocation.</p>
@@ -1118,6 +1197,7 @@ export interface ListTablesRequest {
   maxResults?: number;
 
   /**
+   * @public
    * <p>The name of the keyspace.</p>
    */
   keyspaceName: string | undefined;
@@ -1129,16 +1209,19 @@ export interface ListTablesRequest {
  */
 export interface TableSummary {
   /**
+   * @public
    * <p>The name of the keyspace that the table is stored in.</p>
    */
   keyspaceName: string | undefined;
 
   /**
+   * @public
    * <p>The name of the table.</p>
    */
   tableName: string | undefined;
 
   /**
+   * @public
    * <p>The unique identifier of the table in the format of an Amazon Resource Name (ARN).</p>
    */
   resourceArn: string | undefined;
@@ -1149,11 +1232,13 @@ export interface TableSummary {
  */
 export interface ListTablesResponse {
   /**
+   * @public
    * <p>A token to specify where to start paginating. This is the <code>NextToken</code> from a previously truncated response.</p>
    */
   nextToken?: string;
 
   /**
+   * @public
    * <p>A list of tables.</p>
    */
   tables?: TableSummary[];
@@ -1164,16 +1249,19 @@ export interface ListTablesResponse {
  */
 export interface ListTagsForResourceRequest {
   /**
+   * @public
    * <p>The Amazon Resource Name (ARN) of the Amazon Keyspaces resource.</p>
    */
   resourceArn: string | undefined;
 
   /**
+   * @public
    * <p>The pagination token. To resume pagination, provide the <code>NextToken</code> value as argument of a subsequent API invocation.</p>
    */
   nextToken?: string;
 
   /**
+   * @public
    * <p>The total number of tags to return in the output. If the total number of tags available
    *          is more than the value specified, a <code>NextToken</code> is provided in the output. To resume pagination,
    *          provide the <code>NextToken</code> value as an argument of a subsequent API invocation.</p>
@@ -1186,11 +1274,13 @@ export interface ListTagsForResourceRequest {
  */
 export interface ListTagsForResourceResponse {
   /**
+   * @public
    * <p>A token to specify where to start paginating. This is the <code>NextToken</code> from a previously truncated response.</p>
    */
   nextToken?: string;
 
   /**
+   * @public
    * <p>A list of tags.</p>
    */
   tags?: Tag[];
@@ -1201,31 +1291,37 @@ export interface ListTagsForResourceResponse {
  */
 export interface RestoreTableRequest {
   /**
+   * @public
    * <p>The keyspace name of the source table.</p>
    */
   sourceKeyspaceName: string | undefined;
 
   /**
+   * @public
    * <p>The name of the source table.</p>
    */
   sourceTableName: string | undefined;
 
   /**
+   * @public
    * <p>The name of the target keyspace.</p>
    */
   targetKeyspaceName: string | undefined;
 
   /**
+   * @public
    * <p>The name of the target table.</p>
    */
   targetTableName: string | undefined;
 
   /**
+   * @public
    * <p>The restore timestamp in ISO 8601 format.</p>
    */
   restoreTimestamp?: Date;
 
   /**
+   * @public
    * <p>Specifies the read/write throughput capacity mode for the target table. The options are:</p>
    *          <ul>
    *             <li>
@@ -1246,6 +1342,7 @@ export interface RestoreTableRequest {
   capacitySpecificationOverride?: CapacitySpecification;
 
   /**
+   * @public
    * <p>Specifies the encryption settings for the target table. You can choose one of the following KMS key (KMS key):</p>
    *          <ul>
    *             <li>
@@ -1266,6 +1363,7 @@ export interface RestoreTableRequest {
   encryptionSpecificationOverride?: EncryptionSpecification;
 
   /**
+   * @public
    * <p>Specifies the <code>pointInTimeRecovery</code> settings for the target
    *             table. The options are:</p>
    *          <ul>
@@ -1287,6 +1385,7 @@ export interface RestoreTableRequest {
   pointInTimeRecoveryOverride?: PointInTimeRecovery;
 
   /**
+   * @public
    * <p>A list of key-value pair tags to be
    *          attached to the restored table. </p>
    *          <p>For more information, see <a href="https://docs.aws.amazon.com/keyspaces/latest/devguide/tagging-keyspaces.html">Adding tags and labels to Amazon Keyspaces resources</a> in the <i>Amazon Keyspaces Developer
@@ -1300,6 +1399,7 @@ export interface RestoreTableRequest {
  */
 export interface RestoreTableResponse {
   /**
+   * @public
    * <p>The Amazon Resource Name (ARN) of the restored table.</p>
    */
   restoredTableARN: string | undefined;
@@ -1310,11 +1410,13 @@ export interface RestoreTableResponse {
  */
 export interface TagResourceRequest {
   /**
+   * @public
    * <p>The Amazon Resource Name (ARN) of the Amazon Keyspaces resource to which to add tags.</p>
    */
   resourceArn: string | undefined;
 
   /**
+   * @public
    * <p>The tags to be assigned to the Amazon Keyspaces resource.</p>
    */
   tags: Tag[] | undefined;
@@ -1330,11 +1432,13 @@ export interface TagResourceResponse {}
  */
 export interface UntagResourceRequest {
   /**
+   * @public
    * <p>The Amazon Keyspaces resource that the tags will be removed from. This value is an Amazon Resource Name (ARN).</p>
    */
   resourceArn: string | undefined;
 
   /**
+   * @public
    * <p>A list of existing tags to be removed from the Amazon Keyspaces resource.</p>
    */
   tags: Tag[] | undefined;
@@ -1350,16 +1454,19 @@ export interface UntagResourceResponse {}
  */
 export interface UpdateTableRequest {
   /**
+   * @public
    * <p>The name of the keyspace the specified table is stored in.</p>
    */
   keyspaceName: string | undefined;
 
   /**
+   * @public
    * <p>The name of the table.</p>
    */
   tableName: string | undefined;
 
   /**
+   * @public
    * <p>For each column to be added to the specified table:</p>
    *          <ul>
    *             <li>
@@ -1378,6 +1485,7 @@ export interface UpdateTableRequest {
   addColumns?: ColumnDefinition[];
 
   /**
+   * @public
    * <p>Modifies the read/write throughput capacity mode for the table. The options are:</p>
    *          <ul>
    *             <li>
@@ -1397,6 +1505,7 @@ export interface UpdateTableRequest {
   capacitySpecification?: CapacitySpecification;
 
   /**
+   * @public
    * <p>Modifies the encryption settings of the table. You can choose one of the following KMS key (KMS key):</p>
    *          <ul>
    *             <li>
@@ -1417,6 +1526,7 @@ export interface UpdateTableRequest {
   encryptionSpecification?: EncryptionSpecification;
 
   /**
+   * @public
    * <p>Modifies the <code>pointInTimeRecovery</code> settings of the table. The options are:</p>
    *          <ul>
    *             <li>
@@ -1437,6 +1547,7 @@ export interface UpdateTableRequest {
   pointInTimeRecovery?: PointInTimeRecovery;
 
   /**
+   * @public
    * <p>Modifies Time to Live custom settings for the table. The options are:</p>
    *          <ul>
    *             <li>
@@ -1459,6 +1570,7 @@ export interface UpdateTableRequest {
   ttl?: TimeToLive;
 
   /**
+   * @public
    * <p>The default Time to Live setting in seconds for the table.</p>
    *          <p>For more information, see <a href="https://docs.aws.amazon.com/keyspaces/latest/devguide/TTL-how-it-works.html#ttl-howitworks_default_ttl">Setting the default TTL value for a table</a> in the <i>Amazon Keyspaces Developer
    *             Guide</i>.</p>
@@ -1466,6 +1578,7 @@ export interface UpdateTableRequest {
   defaultTimeToLive?: number;
 
   /**
+   * @public
    * <p>Enables client-side timestamps for the table. By default, the setting is disabled. You can enable
    *             client-side timestamps with the following option:</p>
    *          <ul>
@@ -1485,6 +1598,7 @@ export interface UpdateTableRequest {
  */
 export interface UpdateTableResponse {
   /**
+   * @public
    * <p>The Amazon Resource Name (ARN) of the modified table.</p>
    */
   resourceArn: string | undefined;

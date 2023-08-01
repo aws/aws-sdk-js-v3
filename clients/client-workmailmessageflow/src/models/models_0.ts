@@ -9,6 +9,7 @@ import { WorkMailMessageFlowServiceException as __BaseException } from "./WorkMa
  */
 export interface GetRawMessageContentRequest {
   /**
+   * @public
    * <p>The identifier of the email message to retrieve.</p>
    */
   messageId: string | undefined;
@@ -19,6 +20,7 @@ export interface GetRawMessageContentRequest {
  */
 export interface GetRawMessageContentResponse {
   /**
+   * @public
    * <p>The raw content of the email message, in MIME format.</p>
    */
   messageContent: StreamingBlobTypes | undefined;
@@ -133,16 +135,19 @@ export class MessageRejected extends __BaseException {
  */
 export interface S3Reference {
   /**
+   * @public
    * <p>The S3 bucket name.</p>
    */
   bucket: string | undefined;
 
   /**
+   * @public
    * <p>The S3 key object name.</p>
    */
   key: string | undefined;
 
   /**
+   * @public
    * <p>If you enable versioning for the bucket, you can specify the object version.</p>
    */
   objectVersion?: string;
@@ -180,6 +185,7 @@ export interface S3Reference {
  */
 export interface RawMessageContent {
   /**
+   * @public
    * <p>The S3 reference of an email message.</p>
    */
   s3Reference: S3Reference | undefined;
@@ -190,11 +196,13 @@ export interface RawMessageContent {
  */
 export interface PutRawMessageContentRequest {
   /**
+   * @public
    * <p>The identifier of the email message being updated.</p>
    */
   messageId: string | undefined;
 
   /**
+   * @public
    * <p>Describes the raw message content of the updated email message.</p>
    */
   content: RawMessageContent | undefined;

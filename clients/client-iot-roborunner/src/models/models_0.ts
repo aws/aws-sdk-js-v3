@@ -30,16 +30,19 @@ export class AccessDeniedException extends __BaseException {
  */
 export interface CartesianCoordinates {
   /**
+   * @public
    * X coordinate.
    */
   x: number | undefined;
 
   /**
+   * @public
    * Y coordinate.
    */
   y: number | undefined;
 
   /**
+   * @public
    * Z coordinate.
    */
   z?: number;
@@ -85,26 +88,31 @@ export type DestinationState = (typeof DestinationState)[keyof typeof Destinatio
  */
 export interface CreateDestinationRequest {
   /**
+   * @public
    * Token used for detecting replayed requests. Replayed requests will not be performed multiple times.
    */
   clientToken?: string;
 
   /**
+   * @public
    * Human friendly name of the resource.
    */
   name: string | undefined;
 
   /**
+   * @public
    * Site ARN.
    */
   site: string | undefined;
 
   /**
+   * @public
    * The state of the destination. Default used if not specified.
    */
   state?: DestinationState | string;
 
   /**
+   * @public
    * JSON document containing additional fixed properties regarding the destination
    */
   additionalFixedProperties?: string;
@@ -115,26 +123,31 @@ export interface CreateDestinationRequest {
  */
 export interface CreateDestinationResponse {
   /**
+   * @public
    * Destination ARN.
    */
   arn: string | undefined;
 
   /**
+   * @public
    * Filters access by the destination's identifier
    */
   id: string | undefined;
 
   /**
+   * @public
    * Timestamp at which the resource was created.
    */
   createdAt: Date | undefined;
 
   /**
+   * @public
    * Timestamp at which the resource was last updated.
    */
   updatedAt: Date | undefined;
 
   /**
+   * @public
    * State of the destination.
    */
   state: DestinationState | string | undefined;
@@ -249,21 +262,25 @@ export class ValidationException extends __BaseException {
  */
 export interface CreateSiteRequest {
   /**
+   * @public
    * Token used for detecting replayed requests. Replayed requests will not be performed multiple times.
    */
   clientToken?: string;
 
   /**
+   * @public
    * Human friendly name of the resource.
    */
   name: string | undefined;
 
   /**
+   * @public
    * A valid ISO 3166-1 alpha-2 code for the country in which the site resides. e.g., US.
    */
   countryCode: string | undefined;
 
   /**
+   * @public
    * A high-level description of the site.
    */
   description?: string;
@@ -274,21 +291,25 @@ export interface CreateSiteRequest {
  */
 export interface CreateSiteResponse {
   /**
+   * @public
    * Site ARN.
    */
   arn: string | undefined;
 
   /**
+   * @public
    * Filters access by the site's identifier
    */
   id: string | undefined;
 
   /**
+   * @public
    * Timestamp at which the resource was created.
    */
   createdAt: Date | undefined;
 
   /**
+   * @public
    * Timestamp at which the resource was last updated.
    */
   updatedAt: Date | undefined;
@@ -305,6 +326,7 @@ export type Orientation = Orientation.DegreesMember | Orientation.$UnknownMember
  */
 export namespace Orientation {
   /**
+   * @public
    * Degrees, limited on [0, 360)
    */
   export interface DegreesMember {
@@ -312,6 +334,9 @@ export namespace Orientation {
     $unknown?: never;
   }
 
+  /**
+   * @public
+   */
   export interface $UnknownMember {
     degrees?: never;
     $unknown: [string, any];
@@ -339,6 +364,7 @@ export type PositionCoordinates = PositionCoordinates.CartesianCoordinatesMember
  */
 export namespace PositionCoordinates {
   /**
+   * @public
    * Cartesian coordinates.
    */
   export interface CartesianCoordinatesMember {
@@ -346,6 +372,9 @@ export namespace PositionCoordinates {
     $unknown?: never;
   }
 
+  /**
+   * @public
+   */
   export interface $UnknownMember {
     cartesianCoordinates?: never;
     $unknown: [string, any];
@@ -368,21 +397,25 @@ export namespace PositionCoordinates {
  */
 export interface VendorProperties {
   /**
+   * @public
    * The worker ID defined by the vendor FMS.
    */
   vendorWorkerId: string | undefined;
 
   /**
+   * @public
    * The worker IP address defined by the vendor FMS.
    */
   vendorWorkerIpAddress?: string;
 
   /**
+   * @public
    * JSON blob containing unstructured vendor properties that are transient and may change during regular operation.
    */
   vendorAdditionalTransientProperties?: string;
 
   /**
+   * @public
    * JSON blob containing unstructured vendor properties that are fixed and won't change during regular operation.
    */
   vendorAdditionalFixedProperties?: string;
@@ -393,41 +426,49 @@ export interface VendorProperties {
  */
 export interface CreateWorkerRequest {
   /**
+   * @public
    * Token used for detecting replayed requests. Replayed requests will not be performed multiple times.
    */
   clientToken?: string;
 
   /**
+   * @public
    * Human friendly name of the resource.
    */
   name: string | undefined;
 
   /**
+   * @public
    * Full ARN of the worker fleet.
    */
   fleet: string | undefined;
 
   /**
+   * @public
    * JSON blob containing unstructured worker properties that are transient and may change during regular operation.
    */
   additionalTransientProperties?: string;
 
   /**
+   * @public
    * JSON blob containing unstructured worker properties that are fixed and won't change during regular operation.
    */
   additionalFixedProperties?: string;
 
   /**
+   * @public
    * Properties of the worker that are provided by the vendor FMS.
    */
   vendorProperties?: VendorProperties;
 
   /**
+   * @public
    * Supported coordinates for worker position.
    */
   position?: PositionCoordinates;
 
   /**
+   * @public
    * Worker orientation measured in units clockwise from north.
    */
   orientation?: Orientation;
@@ -438,26 +479,31 @@ export interface CreateWorkerRequest {
  */
 export interface CreateWorkerResponse {
   /**
+   * @public
    * Full ARN of the worker.
    */
   arn: string | undefined;
 
   /**
+   * @public
    * Filters access by the workers identifier
    */
   id: string | undefined;
 
   /**
+   * @public
    * Timestamp at which the resource was created.
    */
   createdAt: Date | undefined;
 
   /**
+   * @public
    * Timestamp at which the resource was last updated.
    */
   updatedAt: Date | undefined;
 
   /**
+   * @public
    * Site ARN.
    */
   site: string | undefined;
@@ -468,21 +514,25 @@ export interface CreateWorkerResponse {
  */
 export interface CreateWorkerFleetRequest {
   /**
+   * @public
    * Token used for detecting replayed requests. Replayed requests will not be performed multiple times.
    */
   clientToken?: string;
 
   /**
+   * @public
    * Human friendly name of the resource.
    */
   name: string | undefined;
 
   /**
+   * @public
    * Site ARN.
    */
   site: string | undefined;
 
   /**
+   * @public
    * JSON blob containing additional fixed properties regarding the worker fleet
    */
   additionalFixedProperties?: string;
@@ -493,21 +543,25 @@ export interface CreateWorkerFleetRequest {
  */
 export interface CreateWorkerFleetResponse {
   /**
+   * @public
    * Full ARN of the worker fleet.
    */
   arn: string | undefined;
 
   /**
+   * @public
    * Filters access by the worker fleet's identifier
    */
   id: string | undefined;
 
   /**
+   * @public
    * Timestamp at which the resource was created.
    */
   createdAt: Date | undefined;
 
   /**
+   * @public
    * Timestamp at which the resource was last updated.
    */
   updatedAt: Date | undefined;
@@ -518,6 +572,7 @@ export interface CreateWorkerFleetResponse {
  */
 export interface DeleteDestinationRequest {
   /**
+   * @public
    * Destination ARN.
    */
   id: string | undefined;
@@ -533,6 +588,7 @@ export interface DeleteDestinationResponse {}
  */
 export interface DeleteSiteRequest {
   /**
+   * @public
    * Site ARN.
    */
   id: string | undefined;
@@ -548,6 +604,7 @@ export interface DeleteSiteResponse {}
  */
 export interface DeleteWorkerRequest {
   /**
+   * @public
    * Full ARN of the worker.
    */
   id: string | undefined;
@@ -563,6 +620,7 @@ export interface DeleteWorkerResponse {}
  */
 export interface DeleteWorkerFleetRequest {
   /**
+   * @public
    * Full ARN of the worker fleet.
    */
   id: string | undefined;
@@ -579,41 +637,49 @@ export interface DeleteWorkerFleetResponse {}
  */
 export interface Destination {
   /**
+   * @public
    * Destination ARN.
    */
   arn: string | undefined;
 
   /**
+   * @public
    * Filters access by the destination's identifier
    */
   id: string | undefined;
 
   /**
+   * @public
    * Human friendly name of the resource.
    */
   name: string | undefined;
 
   /**
+   * @public
    * Site ARN.
    */
   site: string | undefined;
 
   /**
+   * @public
    * Timestamp at which the resource was created.
    */
   createdAt: Date | undefined;
 
   /**
+   * @public
    * Timestamp at which the resource was last updated.
    */
   updatedAt: Date | undefined;
 
   /**
+   * @public
    * State of the destination.
    */
   state: DestinationState | string | undefined;
 
   /**
+   * @public
    * JSON document containing additional fixed properties regarding the destination
    */
   additionalFixedProperties?: string;
@@ -624,6 +690,7 @@ export interface Destination {
  */
 export interface GetDestinationRequest {
   /**
+   * @public
    * Destination ARN.
    */
   id: string | undefined;
@@ -634,41 +701,49 @@ export interface GetDestinationRequest {
  */
 export interface GetDestinationResponse {
   /**
+   * @public
    * Destination ARN.
    */
   arn: string | undefined;
 
   /**
+   * @public
    * Filters access by the destination's identifier
    */
   id: string | undefined;
 
   /**
+   * @public
    * Human friendly name of the resource.
    */
   name: string | undefined;
 
   /**
+   * @public
    * Site ARN.
    */
   site: string | undefined;
 
   /**
+   * @public
    * Timestamp at which the resource was created.
    */
   createdAt: Date | undefined;
 
   /**
+   * @public
    * Timestamp at which the resource was last updated.
    */
   updatedAt: Date | undefined;
 
   /**
+   * @public
    * State of the destination.
    */
   state: DestinationState | string | undefined;
 
   /**
+   * @public
    * JSON document containing additional fixed properties regarding the destination
    */
   additionalFixedProperties?: string;
@@ -679,22 +754,26 @@ export interface GetDestinationResponse {
  */
 export interface ListDestinationsRequest {
   /**
+   * @public
    * Site ARN.
    */
   site: string | undefined;
 
   /**
+   * @public
    * Maximum number of results to retrieve in a single call.
    */
   maxResults?: number;
 
   /**
+   * @public
    * Pagination token returned when another page of data exists. Provide it in your next call to the API to receive
    * the next page.
    */
   nextToken?: string;
 
   /**
+   * @public
    * State of the destination.
    */
   state?: DestinationState | string;
@@ -705,12 +784,14 @@ export interface ListDestinationsRequest {
  */
 export interface ListDestinationsResponse {
   /**
+   * @public
    * Pagination token returned when another page of data exists. Provide it in your next call to the API to receive
    * the next page.
    */
   nextToken?: string;
 
   /**
+   * @public
    * List of destinations.
    */
   destinations?: Destination[];
@@ -721,21 +802,25 @@ export interface ListDestinationsResponse {
  */
 export interface UpdateDestinationRequest {
   /**
+   * @public
    * Destination ARN.
    */
   id: string | undefined;
 
   /**
+   * @public
    * Human friendly name of the resource.
    */
   name?: string;
 
   /**
+   * @public
    * State of the destination.
    */
   state?: DestinationState | string;
 
   /**
+   * @public
    * JSON document containing additional fixed properties regarding the destination
    */
   additionalFixedProperties?: string;
@@ -746,31 +831,37 @@ export interface UpdateDestinationRequest {
  */
 export interface UpdateDestinationResponse {
   /**
+   * @public
    * Destination ARN.
    */
   arn: string | undefined;
 
   /**
+   * @public
    * Filters access by the destination's identifier
    */
   id: string | undefined;
 
   /**
+   * @public
    * Human friendly name of the resource.
    */
   name: string | undefined;
 
   /**
+   * @public
    * Timestamp at which the resource was last updated.
    */
   updatedAt: Date | undefined;
 
   /**
+   * @public
    * State of the destination.
    */
   state: DestinationState | string | undefined;
 
   /**
+   * @public
    * JSON document containing additional fixed properties regarding the destination
    */
   additionalFixedProperties?: string;
@@ -781,6 +872,7 @@ export interface UpdateDestinationResponse {
  */
 export interface GetSiteRequest {
   /**
+   * @public
    * Site ARN.
    */
   id: string | undefined;
@@ -791,36 +883,43 @@ export interface GetSiteRequest {
  */
 export interface GetSiteResponse {
   /**
+   * @public
    * Site ARN.
    */
   arn: string | undefined;
 
   /**
+   * @public
    * Filters access by the site's identifier
    */
   id: string | undefined;
 
   /**
+   * @public
    * Human friendly name of the resource.
    */
   name: string | undefined;
 
   /**
+   * @public
    * A valid ISO 3166-1 alpha-2 code for the country in which the site resides. e.g., US.
    */
   countryCode: string | undefined;
 
   /**
+   * @public
    * A high-level description of the site.
    */
   description?: string;
 
   /**
+   * @public
    * Timestamp at which the resource was created.
    */
   createdAt: Date | undefined;
 
   /**
+   * @public
    * Timestamp at which the resource was last updated.
    */
   updatedAt: Date | undefined;
@@ -831,6 +930,7 @@ export interface GetSiteResponse {
  */
 export interface GetWorkerRequest {
   /**
+   * @public
    * Full ARN of the worker.
    */
   id: string | undefined;
@@ -841,61 +941,73 @@ export interface GetWorkerRequest {
  */
 export interface GetWorkerResponse {
   /**
+   * @public
    * Full ARN of the worker.
    */
   arn: string | undefined;
 
   /**
+   * @public
    * Filters access by the workers identifier
    */
   id: string | undefined;
 
   /**
+   * @public
    * Full ARN of the worker fleet.
    */
   fleet: string | undefined;
 
   /**
+   * @public
    * Site ARN.
    */
   site: string | undefined;
 
   /**
+   * @public
    * Timestamp at which the resource was created.
    */
   createdAt: Date | undefined;
 
   /**
+   * @public
    * Timestamp at which the resource was last updated.
    */
   updatedAt: Date | undefined;
 
   /**
+   * @public
    * Human friendly name of the resource.
    */
   name: string | undefined;
 
   /**
+   * @public
    * JSON blob containing unstructured worker properties that are transient and may change during regular operation.
    */
   additionalTransientProperties?: string;
 
   /**
+   * @public
    * JSON blob containing unstructured worker properties that are fixed and won't change during regular operation.
    */
   additionalFixedProperties?: string;
 
   /**
+   * @public
    * Properties of the worker that are provided by the vendor FMS.
    */
   vendorProperties?: VendorProperties;
 
   /**
+   * @public
    * Supported coordinates for worker position.
    */
   position?: PositionCoordinates;
 
   /**
+   * @public
    * Worker orientation measured in units clockwise from north.
    */
   orientation?: Orientation;
@@ -906,6 +1018,7 @@ export interface GetWorkerResponse {
  */
 export interface GetWorkerFleetRequest {
   /**
+   * @public
    * Full ARN of the worker fleet.
    */
   id: string | undefined;
@@ -916,36 +1029,43 @@ export interface GetWorkerFleetRequest {
  */
 export interface GetWorkerFleetResponse {
   /**
+   * @public
    * Filters access by the worker fleet's identifier
    */
   id: string | undefined;
 
   /**
+   * @public
    * Full ARN of the worker fleet.
    */
   arn: string | undefined;
 
   /**
+   * @public
    * Human friendly name of the resource.
    */
   name: string | undefined;
 
   /**
+   * @public
    * Site ARN.
    */
   site: string | undefined;
 
   /**
+   * @public
    * Timestamp at which the resource was created.
    */
   createdAt: Date | undefined;
 
   /**
+   * @public
    * Timestamp at which the resource was last updated.
    */
   updatedAt: Date | undefined;
 
   /**
+   * @public
    * JSON blob containing additional fixed properties regarding the worker fleet
    */
   additionalFixedProperties?: string;
@@ -956,22 +1076,26 @@ export interface GetWorkerFleetResponse {
  */
 export interface ListWorkersRequest {
   /**
+   * @public
    * Site ARN.
    */
   site: string | undefined;
 
   /**
+   * @public
    * Maximum number of results to retrieve in a single ListWorkers call.
    */
   maxResults?: number;
 
   /**
+   * @public
    * Pagination token returned when another page of data exists. Provide it in your next call to the API to receive
    * the next page.
    */
   nextToken?: string;
 
   /**
+   * @public
    * Full ARN of the worker fleet.
    */
   fleet?: string;
@@ -983,61 +1107,73 @@ export interface ListWorkersRequest {
  */
 export interface Worker {
   /**
+   * @public
    * Full ARN of the worker.
    */
   arn: string | undefined;
 
   /**
+   * @public
    * Filters access by the workers identifier
    */
   id: string | undefined;
 
   /**
+   * @public
    * Full ARN of the worker fleet.
    */
   fleet: string | undefined;
 
   /**
+   * @public
    * Timestamp at which the resource was created.
    */
   createdAt: Date | undefined;
 
   /**
+   * @public
    * Timestamp at which the resource was last updated.
    */
   updatedAt: Date | undefined;
 
   /**
+   * @public
    * Human friendly name of the resource.
    */
   name: string | undefined;
 
   /**
+   * @public
    * Site ARN.
    */
   site: string | undefined;
 
   /**
+   * @public
    * JSON blob containing unstructured worker properties that are transient and may change during regular operation.
    */
   additionalTransientProperties?: string;
 
   /**
+   * @public
    * JSON blob containing unstructured worker properties that are fixed and won't change during regular operation.
    */
   additionalFixedProperties?: string;
 
   /**
+   * @public
    * Properties of the worker that are provided by the vendor FMS.
    */
   vendorProperties?: VendorProperties;
 
   /**
+   * @public
    * Supported coordinates for worker position.
    */
   position?: PositionCoordinates;
 
   /**
+   * @public
    * Worker orientation measured in units clockwise from north.
    */
   orientation?: Orientation;
@@ -1048,12 +1184,14 @@ export interface Worker {
  */
 export interface ListWorkersResponse {
   /**
+   * @public
    * Pagination token returned when another page of data exists. Provide it in your next call to the API to receive
    * the next page.
    */
   nextToken?: string;
 
   /**
+   * @public
    * List of workers.
    */
   workers?: Worker[];
@@ -1064,11 +1202,13 @@ export interface ListWorkersResponse {
  */
 export interface ListSitesRequest {
   /**
+   * @public
    * Maximum number of results to retrieve in a single ListSites call.
    */
   maxResults?: number;
 
   /**
+   * @public
    * Pagination token returned when another page of data exists. Provide it in your next call to the API to receive
    * the next page.
    */
@@ -1081,21 +1221,25 @@ export interface ListSitesRequest {
  */
 export interface Site {
   /**
+   * @public
    * Site ARN.
    */
   arn: string | undefined;
 
   /**
+   * @public
    * The name of the site. Mutable after creation and unique within a given account.
    */
   name: string | undefined;
 
   /**
+   * @public
    * A valid ISO 3166-1 alpha-2 code for the country in which the site resides. e.g., US.
    */
   countryCode: string | undefined;
 
   /**
+   * @public
    * Timestamp at which the resource was created.
    */
   createdAt: Date | undefined;
@@ -1106,12 +1250,14 @@ export interface Site {
  */
 export interface ListSitesResponse {
   /**
+   * @public
    * Pagination token returned when another page of data exists. Provide it in your next call to the API to receive
    * the next page.
    */
   nextToken?: string;
 
   /**
+   * @public
    * List of facilities.
    */
   sites?: Site[];
@@ -1122,21 +1268,25 @@ export interface ListSitesResponse {
  */
 export interface UpdateSiteRequest {
   /**
+   * @public
    * Site ARN.
    */
   id: string | undefined;
 
   /**
+   * @public
    * Human friendly name of the resource.
    */
   name?: string;
 
   /**
+   * @public
    * A valid ISO 3166-1 alpha-2 code for the country in which the site resides. e.g., US.
    */
   countryCode?: string;
 
   /**
+   * @public
    * A high-level description of the site.
    */
   description?: string;
@@ -1147,31 +1297,37 @@ export interface UpdateSiteRequest {
  */
 export interface UpdateSiteResponse {
   /**
+   * @public
    * Site ARN.
    */
   arn: string | undefined;
 
   /**
+   * @public
    * Filters access by the site's identifier
    */
   id: string | undefined;
 
   /**
+   * @public
    * Human friendly name of the resource.
    */
   name: string | undefined;
 
   /**
+   * @public
    * A valid ISO 3166-1 alpha-2 code for the country in which the site resides. e.g., US.
    */
   countryCode?: string;
 
   /**
+   * @public
    * A high-level description of the site.
    */
   description?: string;
 
   /**
+   * @public
    * Timestamp at which the resource was last updated.
    */
   updatedAt: Date | undefined;
@@ -1182,16 +1338,19 @@ export interface UpdateSiteResponse {
  */
 export interface ListWorkerFleetsRequest {
   /**
+   * @public
    * Site ARN.
    */
   site: string | undefined;
 
   /**
+   * @public
    * Maximum number of results to retrieve in a single ListWorkerFleets call.
    */
   maxResults?: number;
 
   /**
+   * @public
    * Pagination token returned when another page of data exists. Provide it in your next call to the API to receive
    * the next page.
    */
@@ -1204,36 +1363,43 @@ export interface ListWorkerFleetsRequest {
  */
 export interface WorkerFleet {
   /**
+   * @public
    * Full ARN of the worker fleet.
    */
   arn: string | undefined;
 
   /**
+   * @public
    * Filters access by the worker fleet's identifier
    */
   id: string | undefined;
 
   /**
+   * @public
    * Human friendly name of the resource.
    */
   name: string | undefined;
 
   /**
+   * @public
    * Site ARN.
    */
   site: string | undefined;
 
   /**
+   * @public
    * Timestamp at which the resource was created.
    */
   createdAt: Date | undefined;
 
   /**
+   * @public
    * Timestamp at which the resource was last updated.
    */
   updatedAt: Date | undefined;
 
   /**
+   * @public
    * JSON blob containing additional fixed properties regarding the worker fleet
    */
   additionalFixedProperties?: string;
@@ -1244,12 +1410,14 @@ export interface WorkerFleet {
  */
 export interface ListWorkerFleetsResponse {
   /**
+   * @public
    * Pagination token returned when another page of data exists. Provide it in your next call to the API to receive
    * the next page.
    */
   nextToken?: string;
 
   /**
+   * @public
    * List of worker fleets.
    */
   workerFleets?: WorkerFleet[];
@@ -1260,36 +1428,43 @@ export interface ListWorkerFleetsResponse {
  */
 export interface UpdateWorkerRequest {
   /**
+   * @public
    * Full ARN of the worker.
    */
   id: string | undefined;
 
   /**
+   * @public
    * Human friendly name of the resource.
    */
   name?: string;
 
   /**
+   * @public
    * JSON blob containing unstructured worker properties that are transient and may change during regular operation.
    */
   additionalTransientProperties?: string;
 
   /**
+   * @public
    * JSON blob containing unstructured worker properties that are fixed and won't change during regular operation.
    */
   additionalFixedProperties?: string;
 
   /**
+   * @public
    * Properties of the worker that are provided by the vendor FMS.
    */
   vendorProperties?: VendorProperties;
 
   /**
+   * @public
    * Supported coordinates for worker position.
    */
   position?: PositionCoordinates;
 
   /**
+   * @public
    * Worker orientation measured in units clockwise from north.
    */
   orientation?: Orientation;
@@ -1300,51 +1475,61 @@ export interface UpdateWorkerRequest {
  */
 export interface UpdateWorkerResponse {
   /**
+   * @public
    * Full ARN of the worker.
    */
   arn: string | undefined;
 
   /**
+   * @public
    * Filters access by the workers identifier
    */
   id: string | undefined;
 
   /**
+   * @public
    * Full ARN of the worker fleet.
    */
   fleet: string | undefined;
 
   /**
+   * @public
    * Timestamp at which the resource was last updated.
    */
   updatedAt: Date | undefined;
 
   /**
+   * @public
    * Human friendly name of the resource.
    */
   name: string | undefined;
 
   /**
+   * @public
    * JSON blob containing unstructured worker properties that are transient and may change during regular operation.
    */
   additionalTransientProperties?: string;
 
   /**
+   * @public
    * JSON blob containing unstructured worker properties that are fixed and won't change during regular operation.
    */
   additionalFixedProperties?: string;
 
   /**
+   * @public
    * Worker orientation measured in units clockwise from north.
    */
   orientation?: Orientation;
 
   /**
+   * @public
    * Properties of the worker that are provided by the vendor FMS.
    */
   vendorProperties?: VendorProperties;
 
   /**
+   * @public
    * Supported coordinates for worker position.
    */
   position?: PositionCoordinates;
@@ -1355,16 +1540,19 @@ export interface UpdateWorkerResponse {
  */
 export interface UpdateWorkerFleetRequest {
   /**
+   * @public
    * Full ARN of the worker fleet.
    */
   id: string | undefined;
 
   /**
+   * @public
    * Human friendly name of the resource.
    */
   name?: string;
 
   /**
+   * @public
    * JSON blob containing additional fixed properties regarding the worker fleet
    */
   additionalFixedProperties?: string;
@@ -1375,26 +1563,31 @@ export interface UpdateWorkerFleetRequest {
  */
 export interface UpdateWorkerFleetResponse {
   /**
+   * @public
    * Full ARN of the worker fleet.
    */
   arn: string | undefined;
 
   /**
+   * @public
    * Filters access by the worker fleet's identifier
    */
   id: string | undefined;
 
   /**
+   * @public
    * Human friendly name of the resource.
    */
   name: string | undefined;
 
   /**
+   * @public
    * Timestamp at which the resource was last updated.
    */
   updatedAt: Date | undefined;
 
   /**
+   * @public
    * JSON blob containing additional fixed properties regarding the worker fleet
    */
   additionalFixedProperties?: string;

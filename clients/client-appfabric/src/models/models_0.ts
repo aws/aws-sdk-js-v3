@@ -29,6 +29,7 @@ export class AccessDeniedException extends __BaseException {
  */
 export interface ApiKeyCredential {
   /**
+   * @public
    * <p>An API key for an application.</p>
    */
   apiKey: string | undefined;
@@ -84,11 +85,13 @@ export type AppAuthorizationStatus = (typeof AppAuthorizationStatus)[keyof typeo
  */
 export interface Tenant {
   /**
+   * @public
    * <p>The ID of the application tenant.</p>
    */
   tenantIdentifier: string | undefined;
 
   /**
+   * @public
    * <p>The display name of the tenant.</p>
    */
   tenantDisplayName: string | undefined;
@@ -100,32 +103,38 @@ export interface Tenant {
  */
 export interface AppAuthorization {
   /**
+   * @public
    * <p>The Amazon Resource Name (ARN) of the app authorization.</p>
    */
   appAuthorizationArn: string | undefined;
 
   /**
+   * @public
    * <p>The Amazon Resource Name (ARN) of the app bundle for the app authorization.</p>
    */
   appBundleArn: string | undefined;
 
   /**
+   * @public
    * <p>The name of the application.</p>
    */
   app: string | undefined;
 
   /**
+   * @public
    * <p>Contains information about an application tenant, such as the application display name
    *          and identifier.</p>
    */
   tenant: Tenant | undefined;
 
   /**
+   * @public
    * <p>The authorization type.</p>
    */
   authType: AuthType | string | undefined;
 
   /**
+   * @public
    * <p>The state of the app authorization.</p>
    *          <p>The following states are possible:</p>
    *          <ul>
@@ -157,22 +166,26 @@ export interface AppAuthorization {
   status: AppAuthorizationStatus | string | undefined;
 
   /**
+   * @public
    * <p>The timestamp of when the app authorization was created.</p>
    */
   createdAt: Date | undefined;
 
   /**
+   * @public
    * <p>The timestamp of when the app authorization was last updated.</p>
    */
   updatedAt: Date | undefined;
 
   /**
+   * @public
    * <p>The user persona of the app authorization.</p>
    *          <p>This field should always be <code>admin</code>.</p>
    */
   persona?: Persona | string;
 
   /**
+   * @public
    * <p>The application URL for the OAuth flow.</p>
    */
   authUrl?: string;
@@ -184,27 +197,32 @@ export interface AppAuthorization {
  */
 export interface AppAuthorizationSummary {
   /**
+   * @public
    * <p>The Amazon Resource Name (ARN) of the app authorization.</p>
    */
   appAuthorizationArn: string | undefined;
 
   /**
+   * @public
    * <p>The Amazon Resource Name (ARN) of the app bundle for the app authorization.</p>
    */
   appBundleArn: string | undefined;
 
   /**
+   * @public
    * <p>The name of the application.</p>
    */
   app: string | undefined;
 
   /**
+   * @public
    * <p>Contains information about an application tenant, such as the application display name
    *          and identifier.</p>
    */
   tenant: Tenant | undefined;
 
   /**
+   * @public
    * <p>The state of the app authorization.</p>
    *          <p>The following states are possible:</p>
    *          <ul>
@@ -236,6 +254,7 @@ export interface AppAuthorizationSummary {
   status: AppAuthorizationStatus | string | undefined;
 
   /**
+   * @public
    * <p>Timestamp for when the app authorization was last updated.</p>
    */
   updatedAt: Date | undefined;
@@ -247,11 +266,13 @@ export interface AppAuthorizationSummary {
  */
 export interface AppBundle {
   /**
+   * @public
    * <p>The Amazon Resource Name (ARN) of the app bundle.</p>
    */
   arn: string | undefined;
 
   /**
+   * @public
    * <p>The Amazon Resource Name (ARN) of the Key Management Service (KMS) key
    *          used to encrypt the application data.</p>
    */
@@ -264,6 +285,7 @@ export interface AppBundle {
  */
 export interface AppBundleSummary {
   /**
+   * @public
    * <p>The Amazon Resource Name (ARN) of the app bundle.</p>
    */
   arn: string | undefined;
@@ -275,6 +297,7 @@ export interface AppBundleSummary {
  */
 export interface FirehoseStream {
   /**
+   * @public
    * <p>The name of the Amazon Kinesis Data Firehose delivery stream.</p>
    */
   streamName: string | undefined;
@@ -286,11 +309,13 @@ export interface FirehoseStream {
  */
 export interface S3Bucket {
   /**
+   * @public
    * <p>The name of the Amazon S3 bucket.</p>
    */
   bucketName: string | undefined;
 
   /**
+   * @public
    * <p>The object key to use.</p>
    */
   prefix?: string;
@@ -307,6 +332,7 @@ export type Destination = Destination.FirehoseStreamMember | Destination.S3Bucke
  */
 export namespace Destination {
   /**
+   * @public
    * <p>Contains information about an Amazon S3 bucket.</p>
    */
   export interface S3BucketMember {
@@ -316,6 +342,7 @@ export namespace Destination {
   }
 
   /**
+   * @public
    * <p>Contains information about an Amazon Kinesis Data Firehose delivery stream.</p>
    */
   export interface FirehoseStreamMember {
@@ -324,6 +351,9 @@ export namespace Destination {
     $unknown?: never;
   }
 
+  /**
+   * @public
+   */
   export interface $UnknownMember {
     s3Bucket?: never;
     firehoseStream?: never;
@@ -349,6 +379,7 @@ export namespace Destination {
  */
 export interface AuditLogDestinationConfiguration {
   /**
+   * @public
    * <p>Contains information about an audit log destination.</p>
    */
   destination: Destination | undefined;
@@ -388,11 +419,13 @@ export type Schema = (typeof Schema)[keyof typeof Schema];
  */
 export interface AuditLogProcessingConfiguration {
   /**
+   * @public
    * <p>The event schema in which the audit logs need to be formatted.</p>
    */
   schema: Schema | string | undefined;
 
   /**
+   * @public
    * <p>The format in which the audit logs need to be formatted.</p>
    */
   format: Format | string | undefined;
@@ -405,11 +438,13 @@ export interface AuditLogProcessingConfiguration {
  */
 export interface AuthRequest {
   /**
+   * @public
    * <p>The redirect URL that is specified in the AuthURL and the application client.</p>
    */
   redirectUri: string | undefined;
 
   /**
+   * @public
    * <p>The authorization code returned by the application after permission is granted in the
    *          application OAuth page (after clicking on the AuthURL).</p>
    */
@@ -421,12 +456,14 @@ export interface AuthRequest {
  */
 export interface BatchGetUserAccessTasksRequest {
   /**
+   * @public
    * <p>The Amazon Resource Name (ARN) or Universal Unique Identifier (UUID) of the app bundle
    *          to use for the request.</p>
    */
   appBundleIdentifier: string | undefined;
 
   /**
+   * @public
    * <p>The tasks IDs to use for the request.</p>
    */
   taskIdList: string[] | undefined;
@@ -454,11 +491,13 @@ export type ResultStatus = (typeof ResultStatus)[keyof typeof ResultStatus];
  */
 export interface TaskError {
   /**
+   * @public
    * <p>The code of the error.</p>
    */
   errorCode?: string;
 
   /**
+   * @public
    * <p>The message of the error.</p>
    */
   errorMessage?: string;
@@ -470,26 +509,31 @@ export interface TaskError {
  */
 export interface UserAccessResultItem {
   /**
+   * @public
    * <p>The name of the application.</p>
    */
   app?: string;
 
   /**
+   * @public
    * <p>The ID of the application tenant.</p>
    */
   tenantId?: string;
 
   /**
+   * @public
    * <p>The display name of the tenant.</p>
    */
   tenantDisplayName?: string;
 
   /**
+   * @public
    * <p>The unique ID of the task.</p>
    */
   taskId?: string;
 
   /**
+   * @public
    * <p>The status of the user access result item.</p>
    *          <p>The following states are possible:</p>
    *          <ul>
@@ -514,36 +558,43 @@ export interface UserAccessResultItem {
   resultStatus?: ResultStatus | string;
 
   /**
+   * @public
    * <p>The email address of the target user.</p>
    */
   email?: string;
 
   /**
+   * @public
    * <p>The unique ID of user.</p>
    */
   userId?: string;
 
   /**
+   * @public
    * <p>The full name of the user.</p>
    */
   userFullName?: string;
 
   /**
+   * @public
    * <p>The first name of the user.</p>
    */
   userFirstName?: string;
 
   /**
+   * @public
    * <p>The last name of the user.</p>
    */
   userLastName?: string;
 
   /**
+   * @public
    * <p>The status of the user returned by the application.</p>
    */
   userStatus?: string;
 
   /**
+   * @public
    * <p>Contains information about an error returned from a user access task.</p>
    */
   taskError?: TaskError;
@@ -554,6 +605,7 @@ export interface UserAccessResultItem {
  */
 export interface BatchGetUserAccessTasksResponse {
   /**
+   * @public
    * <p>Contains a list of user access results.</p>
    */
   userAccessResultsList?: UserAccessResultItem[];
@@ -569,6 +621,7 @@ export class InternalServerException extends __BaseException {
   readonly $fault: "server" = "server";
   $retryable = {};
   /**
+   * @public
    * <p>The period of time after which you should retry your request.</p>
    */
   retryAfterSeconds?: number;
@@ -595,11 +648,13 @@ export class ResourceNotFoundException extends __BaseException {
   readonly name: "ResourceNotFoundException" = "ResourceNotFoundException";
   readonly $fault: "client" = "client";
   /**
+   * @public
    * <p>The resource ID.</p>
    */
   resourceId: string | undefined;
 
   /**
+   * @public
    * <p>The resource type.</p>
    */
   resourceType: string | undefined;
@@ -630,16 +685,19 @@ export class ThrottlingException extends __BaseException {
     throttling: true,
   };
   /**
+   * @public
    * <p>The code of the service.</p>
    */
   serviceCode?: string;
 
   /**
+   * @public
    * <p>The code for the quota exceeded.</p>
    */
   quotaCode?: string;
 
   /**
+   * @public
    * <p>The period of time after which you should retry your request.</p>
    */
   retryAfterSeconds?: number;
@@ -667,11 +725,13 @@ export class ThrottlingException extends __BaseException {
  */
 export interface ValidationExceptionField {
   /**
+   * @public
    * <p>The field name where the invalid entry was detected.</p>
    */
   name: string | undefined;
 
   /**
+   * @public
    * <p>A message about the validation exception.</p>
    */
   message: string | undefined;
@@ -701,11 +761,13 @@ export class ValidationException extends __BaseException {
   readonly name: "ValidationException" = "ValidationException";
   readonly $fault: "client" = "client";
   /**
+   * @public
    * <p>The reason for the exception.</p>
    */
   reason: ValidationExceptionReason | string | undefined;
 
   /**
+   * @public
    * <p>The field list.</p>
    */
   fieldList?: ValidationExceptionField[];
@@ -733,11 +795,13 @@ export class ConflictException extends __BaseException {
   readonly name: "ConflictException" = "ConflictException";
   readonly $fault: "client" = "client";
   /**
+   * @public
    * <p>The resource ID.</p>
    */
   resourceId: string | undefined;
 
   /**
+   * @public
    * <p>The resource type.</p>
    */
   resourceType: string | undefined;
@@ -762,18 +826,21 @@ export class ConflictException extends __BaseException {
  */
 export interface ConnectAppAuthorizationRequest {
   /**
+   * @public
    * <p>The Amazon Resource Name (ARN) or Universal Unique Identifier (UUID) of the app bundle
    *          that contains the app authorization to use for the request.</p>
    */
   appBundleIdentifier: string | undefined;
 
   /**
+   * @public
    * <p>The Amazon Resource Name (ARN) or Universal Unique Identifier (UUID) of the app
    *          authorization to use for the request.</p>
    */
   appAuthorizationIdentifier: string | undefined;
 
   /**
+   * @public
    * <p>Contains OAuth2 authorization information.</p>
    *          <p>This is required if the app authorization for the request is configured with an OAuth2
    *             (<code>oauth2</code>) authorization type.</p>
@@ -786,6 +853,7 @@ export interface ConnectAppAuthorizationRequest {
  */
 export interface ConnectAppAuthorizationResponse {
   /**
+   * @public
    * <p>Contains a summary of the app authorization.</p>
    */
   appAuthorizationSummary: AppAuthorizationSummary | undefined;
@@ -797,11 +865,13 @@ export interface ConnectAppAuthorizationResponse {
  */
 export interface Oauth2Credential {
   /**
+   * @public
    * <p>The client ID of the client application.</p>
    */
   clientId: string | undefined;
 
   /**
+   * @public
    * <p>The client secret of the client application.</p>
    */
   clientSecret: string | undefined;
@@ -821,6 +891,7 @@ export type Credential =
  */
 export namespace Credential {
   /**
+   * @public
    * <p>Contains OAuth2 client credential information.</p>
    */
   export interface Oauth2CredentialMember {
@@ -830,6 +901,7 @@ export namespace Credential {
   }
 
   /**
+   * @public
    * <p>Contains API key credential information.</p>
    */
   export interface ApiKeyCredentialMember {
@@ -838,6 +910,9 @@ export namespace Credential {
     $unknown?: never;
   }
 
+  /**
+   * @public
+   */
   export interface $UnknownMember {
     oauth2Credential?: never;
     apiKeyCredential?: never;
@@ -864,11 +939,13 @@ export namespace Credential {
  */
 export interface Tag {
   /**
+   * @public
    * <p>Tag key.</p>
    */
   key: string | undefined;
 
   /**
+   * @public
    * <p>Tag value.</p>
    */
   value: string | undefined;
@@ -879,12 +956,14 @@ export interface Tag {
  */
 export interface CreateAppAuthorizationRequest {
   /**
+   * @public
    * <p>The Amazon Resource Name (ARN) or Universal Unique Identifier (UUID) of the app bundle
    *          to use for the request.</p>
    */
   appBundleIdentifier: string | undefined;
 
   /**
+   * @public
    * <p>The name of the application.</p>
    *          <p>Valid values are:</p>
    *          <ul>
@@ -953,6 +1032,7 @@ export interface CreateAppAuthorizationRequest {
   app: string | undefined;
 
   /**
+   * @public
    * <p>Contains credentials for the application, such as an API key or OAuth2 client ID and
    *          secret.</p>
    *          <p>Specify credentials that match the authorization type for your request. For example, if
@@ -962,17 +1042,20 @@ export interface CreateAppAuthorizationRequest {
   credential: Credential | undefined;
 
   /**
+   * @public
    * <p>Contains information about an application tenant, such as the application display name
    *          and identifier.</p>
    */
   tenant: Tenant | undefined;
 
   /**
+   * @public
    * <p>The authorization type for the app authorization.</p>
    */
   authType: AuthType | string | undefined;
 
   /**
+   * @public
    * <p>Specifies a unique, case-sensitive identifier that you provide to ensure the idempotency
    *          of the request. This lets you safely retry the request without accidentally performing the
    *          same operation a second time. Passing the same value to a later call to an operation
@@ -987,6 +1070,7 @@ export interface CreateAppAuthorizationRequest {
   clientToken?: string;
 
   /**
+   * @public
    * <p>A map of the key-value pairs of the tag or tags to assign to the resource.</p>
    */
   tags?: Tag[];
@@ -997,6 +1081,7 @@ export interface CreateAppAuthorizationRequest {
  */
 export interface CreateAppAuthorizationResponse {
   /**
+   * @public
    * <p>Contains information about an app authorization.</p>
    */
   appAuthorization: AppAuthorization | undefined;
@@ -1010,21 +1095,25 @@ export class ServiceQuotaExceededException extends __BaseException {
   readonly name: "ServiceQuotaExceededException" = "ServiceQuotaExceededException";
   readonly $fault: "client" = "client";
   /**
+   * @public
    * <p>The resource ID.</p>
    */
   resourceId: string | undefined;
 
   /**
+   * @public
    * <p>The resource type.</p>
    */
   resourceType: string | undefined;
 
   /**
+   * @public
    * <p>The code of the service.</p>
    */
   serviceCode: string | undefined;
 
   /**
+   * @public
    * <p>The code for the quota exceeded.</p>
    */
   quotaCode: string | undefined;
@@ -1051,6 +1140,7 @@ export class ServiceQuotaExceededException extends __BaseException {
  */
 export interface CreateAppBundleRequest {
   /**
+   * @public
    * <p>Specifies a unique, case-sensitive identifier that you provide to ensure the idempotency
    *          of the request. This lets you safely retry the request without accidentally performing the
    *          same operation a second time. Passing the same value to a later call to an operation
@@ -1065,12 +1155,14 @@ export interface CreateAppBundleRequest {
   clientToken?: string;
 
   /**
+   * @public
    * <p>The Amazon Resource Name (ARN) of the Key Management Service (KMS) key to
    *          use to encrypt the application data. If this is not specified, an Amazon Web Services owned key is used for encryption.</p>
    */
   customerManagedKeyIdentifier?: string;
 
   /**
+   * @public
    * <p>A map of the key-value pairs of the tag or tags to assign to the resource.</p>
    */
   tags?: Tag[];
@@ -1081,6 +1173,7 @@ export interface CreateAppBundleRequest {
  */
 export interface CreateAppBundleResponse {
   /**
+   * @public
    * <p>Contains information about an app bundle.</p>
    */
   appBundle: AppBundle | undefined;
@@ -1104,12 +1197,14 @@ export type IngestionType = (typeof IngestionType)[keyof typeof IngestionType];
  */
 export interface CreateIngestionRequest {
   /**
+   * @public
    * <p>The Amazon Resource Name (ARN) or Universal Unique Identifier (UUID) of the app bundle
    *          to use for the request.</p>
    */
   appBundleIdentifier: string | undefined;
 
   /**
+   * @public
    * <p>The name of the application.</p>
    *          <p>Valid values are:</p>
    *          <ul>
@@ -1178,16 +1273,19 @@ export interface CreateIngestionRequest {
   app: string | undefined;
 
   /**
+   * @public
    * <p>The ID of the application tenant.</p>
    */
   tenantId: string | undefined;
 
   /**
+   * @public
    * <p>The ingestion type.</p>
    */
   ingestionType: IngestionType | string | undefined;
 
   /**
+   * @public
    * <p>Specifies a unique, case-sensitive identifier that you provide to ensure the idempotency
    *          of the request. This lets you safely retry the request without accidentally performing the
    *          same operation a second time. Passing the same value to a later call to an operation
@@ -1202,6 +1300,7 @@ export interface CreateIngestionRequest {
   clientToken?: string;
 
   /**
+   * @public
    * <p>A map of the key-value pairs of the tag or tags to assign to the resource.</p>
    */
   tags?: Tag[];
@@ -1227,41 +1326,49 @@ export type IngestionState = (typeof IngestionState)[keyof typeof IngestionState
  */
 export interface Ingestion {
   /**
+   * @public
    * <p>The Amazon Resource Name (ARN) of the ingestion.</p>
    */
   arn: string | undefined;
 
   /**
+   * @public
    * <p>The Amazon Resource Name (ARN) of the app bundle for the ingestion.</p>
    */
   appBundleArn: string | undefined;
 
   /**
+   * @public
    * <p>The name of the application.</p>
    */
   app: string | undefined;
 
   /**
+   * @public
    * <p>The ID of the application tenant.</p>
    */
   tenantId: string | undefined;
 
   /**
+   * @public
    * <p>The timestamp of when the ingestion was created.</p>
    */
   createdAt: Date | undefined;
 
   /**
+   * @public
    * <p>The timestamp of when the ingestion was last updated.</p>
    */
   updatedAt: Date | undefined;
 
   /**
+   * @public
    * <p>The status of the ingestion.</p>
    */
   state: IngestionState | string | undefined;
 
   /**
+   * @public
    * <p>The type of the ingestion.</p>
    */
   ingestionType: IngestionType | string | undefined;
@@ -1272,6 +1379,7 @@ export interface Ingestion {
  */
 export interface CreateIngestionResponse {
   /**
+   * @public
    * <p>Contains information about an ingestion.</p>
    */
   ingestion: Ingestion | undefined;
@@ -1290,6 +1398,7 @@ export type DestinationConfiguration =
  */
 export namespace DestinationConfiguration {
   /**
+   * @public
    * <p>Contains information about an audit log destination configuration.</p>
    */
   export interface AuditLogMember {
@@ -1297,6 +1406,9 @@ export namespace DestinationConfiguration {
     $unknown?: never;
   }
 
+  /**
+   * @public
+   */
   export interface $UnknownMember {
     auditLog?: never;
     $unknown: [string, any];
@@ -1324,6 +1436,7 @@ export type ProcessingConfiguration = ProcessingConfiguration.AuditLogMember | P
  */
 export namespace ProcessingConfiguration {
   /**
+   * @public
    * <p>Contains information about an audit log processing configuration.</p>
    */
   export interface AuditLogMember {
@@ -1331,6 +1444,9 @@ export namespace ProcessingConfiguration {
     $unknown?: never;
   }
 
+  /**
+   * @public
+   */
   export interface $UnknownMember {
     auditLog?: never;
     $unknown: [string, any];
@@ -1352,28 +1468,33 @@ export namespace ProcessingConfiguration {
  */
 export interface CreateIngestionDestinationRequest {
   /**
+   * @public
    * <p>The Amazon Resource Name (ARN) or Universal Unique Identifier (UUID) of the app bundle
    *          to use for the request.</p>
    */
   appBundleIdentifier: string | undefined;
 
   /**
+   * @public
    * <p>The Amazon Resource Name (ARN) or Universal Unique Identifier (UUID) of the ingestion to
    *          use for the request.</p>
    */
   ingestionIdentifier: string | undefined;
 
   /**
+   * @public
    * <p>Contains information about how ingested data is processed.</p>
    */
   processingConfiguration: ProcessingConfiguration | undefined;
 
   /**
+   * @public
    * <p>Contains information about the destination of ingested data.</p>
    */
   destinationConfiguration: DestinationConfiguration | undefined;
 
   /**
+   * @public
    * <p>Specifies a unique, case-sensitive identifier that you provide to ensure the idempotency
    *          of the request. This lets you safely retry the request without accidentally performing the
    *          same operation a second time. Passing the same value to a later call to an operation
@@ -1388,6 +1509,7 @@ export interface CreateIngestionDestinationRequest {
   clientToken?: string;
 
   /**
+   * @public
    * <p>A map of the key-value pairs of the tag or tags to assign to the resource.</p>
    */
   tags?: Tag[];
@@ -1413,26 +1535,31 @@ export type IngestionDestinationStatus = (typeof IngestionDestinationStatus)[key
  */
 export interface IngestionDestination {
   /**
+   * @public
    * <p>The Amazon Resource Name (ARN) of the ingestion destination.</p>
    */
   arn: string | undefined;
 
   /**
+   * @public
    * <p>The Amazon Resource Name (ARN) of the ingestion.</p>
    */
   ingestionArn: string | undefined;
 
   /**
+   * @public
    * <p>Contains information about how ingested data is processed.</p>
    */
   processingConfiguration: ProcessingConfiguration | undefined;
 
   /**
+   * @public
    * <p>Contains information about the destination of ingested data.</p>
    */
   destinationConfiguration: DestinationConfiguration | undefined;
 
   /**
+   * @public
    * <p>The state of the ingestion destination.</p>
    *          <p>The following states are possible:</p>
    *          <ul>
@@ -1452,6 +1579,7 @@ export interface IngestionDestination {
   status?: IngestionDestinationStatus | string;
 
   /**
+   * @public
    * <p>The reason for the current status of the ingestion destination.</p>
    *          <p>Only present when the <code>status</code> of ingestion destination is
    *             <code>Failed</code>.</p>
@@ -1459,11 +1587,13 @@ export interface IngestionDestination {
   statusReason?: string;
 
   /**
+   * @public
    * <p>The timestamp of when the ingestion destination was created.</p>
    */
   createdAt?: Date;
 
   /**
+   * @public
    * <p>The timestamp of when the ingestion destination was last updated.</p>
    */
   updatedAt?: Date;
@@ -1474,6 +1604,7 @@ export interface IngestionDestination {
  */
 export interface CreateIngestionDestinationResponse {
   /**
+   * @public
    * <p>Contains information about an ingestion destination.</p>
    */
   ingestionDestination: IngestionDestination | undefined;
@@ -1484,12 +1615,14 @@ export interface CreateIngestionDestinationResponse {
  */
 export interface DeleteAppAuthorizationRequest {
   /**
+   * @public
    * <p>The Amazon Resource Name (ARN) or Universal Unique Identifier (UUID) of the app bundle
    *          to use for the request.</p>
    */
   appBundleIdentifier: string | undefined;
 
   /**
+   * @public
    * <p>The Amazon Resource Name (ARN) or Universal Unique Identifier (UUID) of the app
    *          authorization to use for the request.</p>
    */
@@ -1506,6 +1639,7 @@ export interface DeleteAppAuthorizationResponse {}
  */
 export interface DeleteAppBundleRequest {
   /**
+   * @public
    * <p>The ID or Amazon Resource Name (ARN) of the app bundle that needs to be deleted.</p>
    */
   appBundleIdentifier: string | undefined;
@@ -1521,12 +1655,14 @@ export interface DeleteAppBundleResponse {}
  */
 export interface DeleteIngestionRequest {
   /**
+   * @public
    * <p>The Amazon Resource Name (ARN) or Universal Unique Identifier (UUID) of the app bundle
    *          to use for the request.</p>
    */
   appBundleIdentifier: string | undefined;
 
   /**
+   * @public
    * <p>The Amazon Resource Name (ARN) or Universal Unique Identifier (UUID) of the ingestion to
    *          use for the request.</p>
    */
@@ -1543,18 +1679,21 @@ export interface DeleteIngestionResponse {}
  */
 export interface DeleteIngestionDestinationRequest {
   /**
+   * @public
    * <p>The Amazon Resource Name (ARN) or Universal Unique Identifier (UUID) of the app bundle
    *          to use for the request.</p>
    */
   appBundleIdentifier: string | undefined;
 
   /**
+   * @public
    * <p>The Amazon Resource Name (ARN) or Universal Unique Identifier (UUID) of the ingestion to
    *          use for the request.</p>
    */
   ingestionIdentifier: string | undefined;
 
   /**
+   * @public
    * <p>The Amazon Resource Name (ARN) or Universal Unique Identifier (UUID) of the ingestion
    *          destination to use for the request.</p>
    */
@@ -1571,12 +1710,14 @@ export interface DeleteIngestionDestinationResponse {}
  */
 export interface GetAppAuthorizationRequest {
   /**
+   * @public
    * <p>The Amazon Resource Name (ARN) or Universal Unique Identifier (UUID) of the app bundle
    *          to use for the request.</p>
    */
   appBundleIdentifier: string | undefined;
 
   /**
+   * @public
    * <p>The Amazon Resource Name (ARN) or Universal Unique Identifier (UUID) of the app
    *          authorization to use for the request.</p>
    */
@@ -1588,6 +1729,7 @@ export interface GetAppAuthorizationRequest {
  */
 export interface GetAppAuthorizationResponse {
   /**
+   * @public
    * <p>Contains information about an app authorization.</p>
    */
   appAuthorization: AppAuthorization | undefined;
@@ -1598,6 +1740,7 @@ export interface GetAppAuthorizationResponse {
  */
 export interface GetAppBundleRequest {
   /**
+   * @public
    * <p>The Amazon Resource Name (ARN) or Universal Unique Identifier (UUID) of the app bundle
    *          to use for the request.</p>
    */
@@ -1609,6 +1752,7 @@ export interface GetAppBundleRequest {
  */
 export interface GetAppBundleResponse {
   /**
+   * @public
    * <p>Contains information about an app bundle.</p>
    */
   appBundle: AppBundle | undefined;
@@ -1619,12 +1763,14 @@ export interface GetAppBundleResponse {
  */
 export interface GetIngestionRequest {
   /**
+   * @public
    * <p>The Amazon Resource Name (ARN) or Universal Unique Identifier (UUID) of the app bundle
    *          to use for the request.</p>
    */
   appBundleIdentifier: string | undefined;
 
   /**
+   * @public
    * <p>The Amazon Resource Name (ARN) or Universal Unique Identifier (UUID) of the ingestion to
    *          use for the request.</p>
    */
@@ -1636,6 +1782,7 @@ export interface GetIngestionRequest {
  */
 export interface GetIngestionResponse {
   /**
+   * @public
    * <p>Contains information about an ingestion.</p>
    */
   ingestion: Ingestion | undefined;
@@ -1646,18 +1793,21 @@ export interface GetIngestionResponse {
  */
 export interface GetIngestionDestinationRequest {
   /**
+   * @public
    * <p>The Amazon Resource Name (ARN) or Universal Unique Identifier (UUID) of the app bundle
    *          to use for the request.</p>
    */
   appBundleIdentifier: string | undefined;
 
   /**
+   * @public
    * <p>The Amazon Resource Name (ARN) or Universal Unique Identifier (UUID) of the ingestion to
    *          use for the request.</p>
    */
   ingestionIdentifier: string | undefined;
 
   /**
+   * @public
    * <p>The Amazon Resource Name (ARN) or Universal Unique Identifier (UUID) of the ingestion
    *          destination to use for the request.</p>
    */
@@ -1669,6 +1819,7 @@ export interface GetIngestionDestinationRequest {
  */
 export interface GetIngestionDestinationResponse {
   /**
+   * @public
    * <p>Contains information about an ingestion destination.</p>
    */
   ingestionDestination: IngestionDestination | undefined;
@@ -1679,12 +1830,14 @@ export interface GetIngestionDestinationResponse {
  */
 export interface ListAppAuthorizationsRequest {
   /**
+   * @public
    * <p>The Amazon Resource Name (ARN) or Universal Unique Identifier (UUID) of the app bundle
    *          to use for the request.</p>
    */
   appBundleIdentifier: string | undefined;
 
   /**
+   * @public
    * <p>The maximum number of results that are returned per call. You can use
    *             <code>nextToken</code> to obtain further pages of results.</p>
    *          <p>This is only an upper limit. The actual number of results returned per call might be
@@ -1693,6 +1846,7 @@ export interface ListAppAuthorizationsRequest {
   maxResults?: number;
 
   /**
+   * @public
    * <p>If <code>nextToken</code> is returned, there are more results available. The value of
    *             <code>nextToken</code> is a unique pagination token for each page. Make the call again
    *          using the returned token to retrieve the next page. Keep all other arguments unchanged.
@@ -1707,11 +1861,13 @@ export interface ListAppAuthorizationsRequest {
  */
 export interface ListAppAuthorizationsResponse {
   /**
+   * @public
    * <p>Contains a list of app authorization summaries.</p>
    */
   appAuthorizationSummaryList: AppAuthorizationSummary[] | undefined;
 
   /**
+   * @public
    * <p>If <code>nextToken</code> is returned, there are more results available. The value of
    *             <code>nextToken</code> is a unique pagination token for each page. Make the call again
    *          using the returned token to retrieve the next page. Keep all other arguments unchanged.
@@ -1726,6 +1882,7 @@ export interface ListAppAuthorizationsResponse {
  */
 export interface ListAppBundlesRequest {
   /**
+   * @public
    * <p>The maximum number of results that are returned per call. You can use
    *             <code>nextToken</code> to obtain further pages of results.</p>
    *          <p>This is only an upper limit. The actual number of results returned per call might be
@@ -1734,6 +1891,7 @@ export interface ListAppBundlesRequest {
   maxResults?: number;
 
   /**
+   * @public
    * <p>If <code>nextToken</code> is returned, there are more results available. The value of
    *             <code>nextToken</code> is a unique pagination token for each page. Make the call again
    *          using the returned token to retrieve the next page. Keep all other arguments unchanged.
@@ -1748,11 +1906,13 @@ export interface ListAppBundlesRequest {
  */
 export interface ListAppBundlesResponse {
   /**
+   * @public
    * <p>Contains a list of app bundle summaries.</p>
    */
   appBundleSummaryList: AppBundleSummary[] | undefined;
 
   /**
+   * @public
    * <p>If <code>nextToken</code> is returned, there are more results available. The value of
    *             <code>nextToken</code> is a unique pagination token for each page. Make the call again
    *          using the returned token to retrieve the next page. Keep all other arguments unchanged.
@@ -1767,18 +1927,21 @@ export interface ListAppBundlesResponse {
  */
 export interface ListIngestionDestinationsRequest {
   /**
+   * @public
    * <p>The Amazon Resource Name (ARN) or Universal Unique Identifier (UUID) of the app bundle
    *          to use for the request.</p>
    */
   appBundleIdentifier: string | undefined;
 
   /**
+   * @public
    * <p>The Amazon Resource Name (ARN) or Universal Unique Identifier (UUID) of the ingestion to
    *          use for the request.</p>
    */
   ingestionIdentifier: string | undefined;
 
   /**
+   * @public
    * <p>The maximum number of results that are returned per call. You can use
    *             <code>nextToken</code> to obtain further pages of results.</p>
    *          <p>This is only an upper limit. The actual number of results returned per call might be
@@ -1787,6 +1950,7 @@ export interface ListIngestionDestinationsRequest {
   maxResults?: number;
 
   /**
+   * @public
    * <p>If <code>nextToken</code> is returned, there are more results available. The value of
    *             <code>nextToken</code> is a unique pagination token for each page. Make the call again
    *          using the returned token to retrieve the next page. Keep all other arguments unchanged.
@@ -1802,6 +1966,7 @@ export interface ListIngestionDestinationsRequest {
  */
 export interface IngestionDestinationSummary {
   /**
+   * @public
    * <p>The Amazon Resource Name (ARN) of the ingestion destination.</p>
    */
   arn: string | undefined;
@@ -1812,11 +1977,13 @@ export interface IngestionDestinationSummary {
  */
 export interface ListIngestionDestinationsResponse {
   /**
+   * @public
    * <p>Contains a list of ingestion destination summaries.</p>
    */
   ingestionDestinations: IngestionDestinationSummary[] | undefined;
 
   /**
+   * @public
    * <p>If <code>nextToken</code> is returned, there are more results available. The value of
    *             <code>nextToken</code> is a unique pagination token for each page. Make the call again
    *          using the returned token to retrieve the next page. Keep all other arguments unchanged.
@@ -1831,12 +1998,14 @@ export interface ListIngestionDestinationsResponse {
  */
 export interface ListIngestionsRequest {
   /**
+   * @public
    * <p>The Amazon Resource Name (ARN) or Universal Unique Identifier (UUID) of the app bundle
    *          to use for the request.</p>
    */
   appBundleIdentifier: string | undefined;
 
   /**
+   * @public
    * <p>The maximum number of results that are returned per call. You can use
    *             <code>nextToken</code> to obtain further pages of results.</p>
    *          <p>This is only an upper limit. The actual number of results returned per call might be
@@ -1845,6 +2014,7 @@ export interface ListIngestionsRequest {
   maxResults?: number;
 
   /**
+   * @public
    * <p>If <code>nextToken</code> is returned, there are more results available. The value of
    *             <code>nextToken</code> is a unique pagination token for each page. Make the call again
    *          using the returned token to retrieve the next page. Keep all other arguments unchanged.
@@ -1860,21 +2030,25 @@ export interface ListIngestionsRequest {
  */
 export interface IngestionSummary {
   /**
+   * @public
    * <p>The Amazon Resource Name (ARN) of the ingestion.</p>
    */
   arn: string | undefined;
 
   /**
+   * @public
    * <p>The name of the application.</p>
    */
   app: string | undefined;
 
   /**
+   * @public
    * <p>The ID of the application tenant.</p>
    */
   tenantId: string | undefined;
 
   /**
+   * @public
    * <p>The status of the ingestion.</p>
    */
   state: IngestionState | string | undefined;
@@ -1885,11 +2059,13 @@ export interface IngestionSummary {
  */
 export interface ListIngestionsResponse {
   /**
+   * @public
    * <p>Contains a list of ingestion summaries.</p>
    */
   ingestions: IngestionSummary[] | undefined;
 
   /**
+   * @public
    * <p>If <code>nextToken</code> is returned, there are more results available. The value of
    *             <code>nextToken</code> is a unique pagination token for each page. Make the call again
    *          using the returned token to retrieve the next page. Keep all other arguments unchanged.
@@ -1904,6 +2080,7 @@ export interface ListIngestionsResponse {
  */
 export interface ListTagsForResourceRequest {
   /**
+   * @public
    * <p>The Amazon Resource Name (ARN) of the resource for which you want to retrieve
    *          tags.</p>
    */
@@ -1915,6 +2092,7 @@ export interface ListTagsForResourceRequest {
  */
 export interface ListTagsForResourceResponse {
   /**
+   * @public
    * <p>A map of the key-value pairs for the tag or tags assigned to the specified resource.</p>
    */
   tags?: Tag[];
@@ -1925,12 +2103,14 @@ export interface ListTagsForResourceResponse {
  */
 export interface StartIngestionRequest {
   /**
+   * @public
    * <p>The Amazon Resource Name (ARN) or Universal Unique Identifier (UUID) of the ingestion to
    *          use for the request.</p>
    */
   ingestionIdentifier: string | undefined;
 
   /**
+   * @public
    * <p>The Amazon Resource Name (ARN) or Universal Unique Identifier (UUID) of the app bundle
    *          to use for the request.</p>
    */
@@ -1947,12 +2127,14 @@ export interface StartIngestionResponse {}
  */
 export interface StartUserAccessTasksRequest {
   /**
+   * @public
    * <p>The Amazon Resource Name (ARN) or Universal Unique Identifier (UUID) of the app bundle
    *          to use for the request.</p>
    */
   appBundleIdentifier: string | undefined;
 
   /**
+   * @public
    * <p>The email address of the target user.</p>
    */
   email: string | undefined;
@@ -1964,21 +2146,25 @@ export interface StartUserAccessTasksRequest {
  */
 export interface UserAccessTaskItem {
   /**
+   * @public
    * <p>The name of the application.</p>
    */
   app: string | undefined;
 
   /**
+   * @public
    * <p>The ID of the application tenant.</p>
    */
   tenantId: string | undefined;
 
   /**
+   * @public
    * <p>The unique ID of the task.</p>
    */
   taskId?: string;
 
   /**
+   * @public
    * <p>Error from the task, if any.</p>
    */
   error?: TaskError;
@@ -1989,6 +2175,7 @@ export interface UserAccessTaskItem {
  */
 export interface StartUserAccessTasksResponse {
   /**
+   * @public
    * <p>Contains a list of user access task information.</p>
    */
   userAccessTasksList?: UserAccessTaskItem[];
@@ -1999,12 +2186,14 @@ export interface StartUserAccessTasksResponse {
  */
 export interface StopIngestionRequest {
   /**
+   * @public
    * <p>The Amazon Resource Name (ARN) or Universal Unique Identifier (UUID) of the ingestion to
    *          use for the request.</p>
    */
   ingestionIdentifier: string | undefined;
 
   /**
+   * @public
    * <p>The Amazon Resource Name (ARN) or Universal Unique Identifier (UUID) of the app bundle
    *          to use for the request.</p>
    */
@@ -2021,11 +2210,13 @@ export interface StopIngestionResponse {}
  */
 export interface TagResourceRequest {
   /**
+   * @public
    * <p>The Amazon Resource Name (ARN) of the resource that you want to tag.</p>
    */
   resourceArn: string | undefined;
 
   /**
+   * @public
    * <p>A map of the key-value pairs of the tag or tags to assign to the resource.</p>
    */
   tags: Tag[] | undefined;
@@ -2041,11 +2232,13 @@ export interface TagResourceResponse {}
  */
 export interface UntagResourceRequest {
   /**
+   * @public
    * <p>The Amazon Resource Name (ARN) of the resource that you want to untag.</p>
    */
   resourceArn: string | undefined;
 
   /**
+   * @public
    * <p>The keys of the key-value pairs for the tag or tags you want to remove from the
    *          specified resource.</p>
    */
@@ -2062,18 +2255,21 @@ export interface UntagResourceResponse {}
  */
 export interface UpdateAppAuthorizationRequest {
   /**
+   * @public
    * <p>The Amazon Resource Name (ARN) or Universal Unique Identifier (UUID) of the app bundle
    *          to use for the request.</p>
    */
   appBundleIdentifier: string | undefined;
 
   /**
+   * @public
    * <p>The Amazon Resource Name (ARN) or Universal Unique Identifier (UUID) of the app
    *          authorization to use for the request.</p>
    */
   appAuthorizationIdentifier: string | undefined;
 
   /**
+   * @public
    * <p>Contains credentials for the application, such as an API key or OAuth2 client ID and
    *          secret.</p>
    *          <p>Specify credentials that match the authorization type of the app authorization to
@@ -2083,6 +2279,7 @@ export interface UpdateAppAuthorizationRequest {
   credential?: Credential;
 
   /**
+   * @public
    * <p>Contains information about an application tenant, such as the application display name
    *          and identifier.</p>
    */
@@ -2094,6 +2291,7 @@ export interface UpdateAppAuthorizationRequest {
  */
 export interface UpdateAppAuthorizationResponse {
   /**
+   * @public
    * <p>Contains information about an app authorization.</p>
    */
   appAuthorization: AppAuthorization | undefined;
@@ -2104,24 +2302,28 @@ export interface UpdateAppAuthorizationResponse {
  */
 export interface UpdateIngestionDestinationRequest {
   /**
+   * @public
    * <p>The Amazon Resource Name (ARN) or Universal Unique Identifier (UUID) of the app bundle
    *          to use for the request.</p>
    */
   appBundleIdentifier: string | undefined;
 
   /**
+   * @public
    * <p>The Amazon Resource Name (ARN) or Universal Unique Identifier (UUID) of the ingestion to
    *          use for the request.</p>
    */
   ingestionIdentifier: string | undefined;
 
   /**
+   * @public
    * <p>The Amazon Resource Name (ARN) or Universal Unique Identifier (UUID) of the ingestion
    *          destination to use for the request.</p>
    */
   ingestionDestinationIdentifier: string | undefined;
 
   /**
+   * @public
    * <p>Contains information about the destination of ingested data.</p>
    */
   destinationConfiguration: DestinationConfiguration | undefined;
@@ -2132,6 +2334,7 @@ export interface UpdateIngestionDestinationRequest {
  */
 export interface UpdateIngestionDestinationResponse {
   /**
+   * @public
    * <p>Contains information about an ingestion destination.</p>
    */
   ingestionDestination: IngestionDestination | undefined;

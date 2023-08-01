@@ -92,6 +92,7 @@ export type StartSelectorType = (typeof StartSelectorType)[keyof typeof StartSel
  */
 export interface StartSelector {
   /**
+   * @public
    * <p>Identifies the fragment on the Kinesis video stream where you want to start getting the
    *       data from.</p>
    *          <ul>
@@ -123,12 +124,14 @@ export interface StartSelector {
   StartSelectorType: StartSelectorType | string | undefined;
 
   /**
+   * @public
    * <p>Specifies the fragment number from where you want the <code>GetMedia</code> API to
    *       start returning the fragments. </p>
    */
   AfterFragmentNumber?: string;
 
   /**
+   * @public
    * <p>A timestamp value. This value is required if you choose the PRODUCER_TIMESTAMP or the
    *       SERVER_TIMESTAMP as the <code>startSelectorType</code>. The <code>GetMedia</code> API then
    *       starts with the chunk containing the fragment that has the specified timestamp.</p>
@@ -136,6 +139,7 @@ export interface StartSelector {
   StartTimestamp?: Date;
 
   /**
+   * @public
    * <p>Continuation token that Kinesis Video Streams returned in the previous
    *         <code>GetMedia</code> response. The <code>GetMedia</code> API then starts with the chunk
    *       identified by the continuation token.</p>
@@ -148,6 +152,7 @@ export interface StartSelector {
  */
 export interface GetMediaInput {
   /**
+   * @public
    * <p>The Kinesis video stream name from where you want to get the media content. If you
    *       don't specify the <code>streamName</code>, you must specify the
    *       <code>streamARN</code>.</p>
@@ -155,12 +160,14 @@ export interface GetMediaInput {
   StreamName?: string;
 
   /**
+   * @public
    * <p>The ARN of the stream from where you want to get the media content. If you don't
    *       specify the <code>streamARN</code>, you must specify the <code>streamName</code>.</p>
    */
   StreamARN?: string;
 
   /**
+   * @public
    * <p>Identifies the starting chunk to get from the specified stream. </p>
    */
   StartSelector: StartSelector | undefined;
@@ -171,11 +178,13 @@ export interface GetMediaInput {
  */
 export interface GetMediaOutput {
   /**
+   * @public
    * <p>The content type of the requested media.</p>
    */
   ContentType?: string;
 
   /**
+   * @public
    * <p> The payload Kinesis Video Streams returns is a sequence of chunks from the specified
    *       stream. For information about the chunks, see . The
    *       chunks that Kinesis Video Streams returns in the <code>GetMedia</code> call also include the

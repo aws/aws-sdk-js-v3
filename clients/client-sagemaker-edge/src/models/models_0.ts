@@ -8,11 +8,13 @@ import { SagemakerEdgeServiceException as __BaseException } from "./SagemakerEdg
  */
 export interface GetDeploymentsRequest {
   /**
+   * @public
    * <p>The unique name of the device you want to get the configuration of active deployments from.</p>
    */
   DeviceName: string | undefined;
 
   /**
+   * @public
    * <p>The name of the fleet that the device belongs to.</p>
    */
   DeviceFleetName: string | undefined;
@@ -37,11 +39,13 @@ export type ChecksumType = (typeof ChecksumType)[keyof typeof ChecksumType];
  */
 export interface Checksum {
   /**
+   * @public
    * <p>The type of the checksum.</p>
    */
   Type?: ChecksumType | string;
 
   /**
+   * @public
    * <p>The checksum of the model.</p>
    */
   Sum?: string;
@@ -67,21 +71,25 @@ export type ModelState = (typeof ModelState)[keyof typeof ModelState];
  */
 export interface Definition {
   /**
+   * @public
    * <p>The unique model handle.</p>
    */
   ModelHandle?: string;
 
   /**
+   * @public
    * <p>The absolute S3 location of the model.</p>
    */
   S3Url?: string;
 
   /**
+   * @public
    * <p>The checksum information of the model.</p>
    */
   Checksum?: Checksum;
 
   /**
+   * @public
    * <p>The desired state of the model.</p>
    */
   State?: ModelState | string;
@@ -120,21 +128,25 @@ export type DeploymentType = (typeof DeploymentType)[keyof typeof DeploymentType
  */
 export interface EdgeDeployment {
   /**
+   * @public
    * <p>The name and unique ID of the deployment.</p>
    */
   DeploymentName?: string;
 
   /**
+   * @public
    * <p>The type of the deployment.</p>
    */
   Type?: DeploymentType | string;
 
   /**
+   * @public
    * <p>Determines whether to rollback to previous configuration if deployment fails.</p>
    */
   FailureHandlingPolicy?: FailureHandlingPolicy | string;
 
   /**
+   * @public
    * <p>Returns a list of Definition objects.</p>
    */
   Definitions?: Definition[];
@@ -145,6 +157,7 @@ export interface EdgeDeployment {
  */
 export interface GetDeploymentsResult {
   /**
+   * @public
    * <p>Returns a list of the configurations of the active deployments on the device.</p>
    */
   Deployments?: EdgeDeployment[];
@@ -178,11 +191,13 @@ export class InternalServiceException extends __BaseException {
  */
 export interface GetDeviceRegistrationRequest {
   /**
+   * @public
    * <p>The unique name of the device you want to get the registration status from.</p>
    */
   DeviceName: string | undefined;
 
   /**
+   * @public
    * <p>The name of the fleet that the device belongs to.</p>
    */
   DeviceFleetName: string | undefined;
@@ -193,11 +208,13 @@ export interface GetDeviceRegistrationRequest {
  */
 export interface GetDeviceRegistrationResult {
   /**
+   * @public
    * <p>Describes if the device is currently registered with SageMaker Edge Manager.</p>
    */
   DeviceRegistration?: string;
 
   /**
+   * @public
    * <p>The amount of time, in seconds, that the registration status is stored on the device’s cache before it is refreshed.</p>
    */
   CacheTTL?: string;
@@ -209,21 +226,25 @@ export interface GetDeviceRegistrationResult {
  */
 export interface EdgeMetric {
   /**
+   * @public
    * <p>The dimension of metrics published.</p>
    */
   Dimension?: string;
 
   /**
+   * @public
    * <p>Returns the name of the metric.</p>
    */
   MetricName?: string;
 
   /**
+   * @public
    * <p>Returns the value of the metric.</p>
    */
   Value?: number;
 
   /**
+   * @public
    * <p>Timestamp of when the metric was requested.</p>
    */
   Timestamp?: Date;
@@ -249,41 +270,49 @@ export type DeploymentStatus = (typeof DeploymentStatus)[keyof typeof Deployment
  */
 export interface DeploymentModel {
   /**
+   * @public
    * <p>The unique handle of the model.</p>
    */
   ModelHandle?: string;
 
   /**
+   * @public
    * <p>The name of the model.</p>
    */
   ModelName?: string;
 
   /**
+   * @public
    * <p>The version of the model.</p>
    */
   ModelVersion?: string;
 
   /**
+   * @public
    * <p>The desired state of the model.</p>
    */
   DesiredState?: ModelState | string;
 
   /**
+   * @public
    * <p>Returns the current state of the model.</p>
    */
   State?: ModelState | string;
 
   /**
+   * @public
    * <p>Returns the deployment status of the model.</p>
    */
   Status?: DeploymentStatus | string;
 
   /**
+   * @public
    * <p>Returns the error message for the deployment status result.</p>
    */
   StatusReason?: string;
 
   /**
+   * @public
    * <p>Returns the error message if there is a rollback.</p>
    */
   RollbackFailureReason?: string;
@@ -295,31 +324,37 @@ export interface DeploymentModel {
  */
 export interface DeploymentResult {
   /**
+   * @public
    * <p>The name and unique ID of the deployment.</p>
    */
   DeploymentName?: string;
 
   /**
+   * @public
    * <p>Returns the bucket error code.</p>
    */
   DeploymentStatus?: string;
 
   /**
+   * @public
    * <p>Returns the detailed error message.</p>
    */
   DeploymentStatusMessage?: string;
 
   /**
+   * @public
    * <p>The timestamp of when the deployment was started on the agent.</p>
    */
   DeploymentStartTime?: Date;
 
   /**
+   * @public
    * <p>The timestamp of when the deployment was ended, and the agent got the deployment results.</p>
    */
   DeploymentEndTime?: Date;
 
   /**
+   * @public
    * <p>Returns a list of models deployed on the agent.</p>
    */
   DeploymentModels?: DeploymentModel[];
@@ -331,26 +366,31 @@ export interface DeploymentResult {
  */
 export interface Model {
   /**
+   * @public
    * <p>The name of the model.</p>
    */
   ModelName?: string;
 
   /**
+   * @public
    * <p>The version of the model.</p>
    */
   ModelVersion?: string;
 
   /**
+   * @public
    * <p>The timestamp of the last data sample taken.</p>
    */
   LatestSampleTime?: Date;
 
   /**
+   * @public
    * <p>The timestamp of the last inference that was made.</p>
    */
   LatestInference?: Date;
 
   /**
+   * @public
    * <p>Information required for model metrics.</p>
    */
   ModelMetrics?: EdgeMetric[];
@@ -361,31 +401,37 @@ export interface Model {
  */
 export interface SendHeartbeatRequest {
   /**
+   * @public
    * <p>For internal use. Returns a list of SageMaker Edge Manager agent operating metrics.</p>
    */
   AgentMetrics?: EdgeMetric[];
 
   /**
+   * @public
    * <p>Returns a list of models deployed on the the device.</p>
    */
   Models?: Model[];
 
   /**
+   * @public
    * <p>Returns the version of the agent.</p>
    */
   AgentVersion: string | undefined;
 
   /**
+   * @public
    * <p>The unique name of the device.</p>
    */
   DeviceName: string | undefined;
 
   /**
+   * @public
    * <p>The name of the fleet that the device belongs to.</p>
    */
   DeviceFleetName: string | undefined;
 
   /**
+   * @public
    * <p>Returns the result of a deployment on the device.</p>
    */
   DeploymentResult?: DeploymentResult;

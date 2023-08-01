@@ -33,6 +33,7 @@ export type InvalidParameterProblem = (typeof InvalidParameterProblem)[keyof typ
  */
 export interface InvalidParameterDetail {
   /**
+   * @public
    * <p>The reason the parameter is invalid.</p>
    */
   Problem?: InvalidParameterProblem | string;
@@ -50,6 +51,7 @@ export type BadRequestDetails = BadRequestDetails.InvalidParametersMember | BadR
  */
 export namespace BadRequestDetails {
   /**
+   * @public
    * <p>One or more specified parameters are not valid for the call.</p>
    */
   export interface InvalidParametersMember {
@@ -57,6 +59,9 @@ export namespace BadRequestDetails {
     $unknown?: never;
   }
 
+  /**
+   * @public
+   */
   export interface $UnknownMember {
     InvalidParameters?: never;
     $unknown: [string, any];
@@ -99,11 +104,13 @@ export class BadRequestException extends __BaseException {
   readonly $fault: "client" = "client";
   Message?: string;
   /**
+   * @public
    * <p>Code indicating the reason the request was invalid.</p>
    */
   Reason?: BadRequestReason | string;
 
   /**
+   * @public
    * <p>Details describing why the request was invalid.</p>
    */
   Details?: BadRequestDetails;
@@ -186,11 +193,13 @@ export class ResourceNotFoundException extends __BaseException {
   readonly $fault: "client" = "client";
   Message?: string;
   /**
+   * @public
    * <p>The type of resource that was not found.</p>
    */
   ResourceType?: ResourceType | string;
 
   /**
+   * @public
    * <p>A map indicating which parameters in the request reference the resource that was not
    *          found.</p>
    */
@@ -216,21 +225,25 @@ export class ResourceNotFoundException extends __BaseException {
  */
 export interface StartConfigurationSessionRequest {
   /**
+   * @public
    * <p>The application ID or the application name.</p>
    */
   ApplicationIdentifier: string | undefined;
 
   /**
+   * @public
    * <p>The environment ID or the environment name.</p>
    */
   EnvironmentIdentifier: string | undefined;
 
   /**
+   * @public
    * <p>The configuration profile ID or the configuration profile name.</p>
    */
   ConfigurationProfileIdentifier: string | undefined;
 
   /**
+   * @public
    * <p>Sets a constraint on a session. If you specify a value of, for example, 60 seconds, then
    *          the client that established the session can't call <a>GetLatestConfiguration</a>
    *          more frequently than every 60 seconds.</p>
@@ -243,6 +256,7 @@ export interface StartConfigurationSessionRequest {
  */
 export interface StartConfigurationSessionResponse {
   /**
+   * @public
    * <p>Token encapsulating state about the configuration session. Provide this token to the
    *             <code>GetLatestConfiguration</code> API to retrieve configuration data.</p>
    *          <important>
@@ -288,6 +302,7 @@ export class ThrottlingException extends __BaseException {
  */
 export interface GetLatestConfigurationRequest {
   /**
+   * @public
    * <p>Token describing the current state of the configuration session. To obtain a token,
    *          first call the <a>StartConfigurationSession</a> API. Note that every call to
    *             <code>GetLatestConfiguration</code> will return a new <code>ConfigurationToken</code>
@@ -308,6 +323,7 @@ export interface GetLatestConfigurationRequest {
  */
 export interface GetLatestConfigurationResponse {
   /**
+   * @public
    * <p>The latest token describing the current state of the configuration session. This
    *             <i>must</i> be provided to the next call to
    *             <code>GetLatestConfiguration.</code>
@@ -322,6 +338,7 @@ export interface GetLatestConfigurationResponse {
   NextPollConfigurationToken?: string;
 
   /**
+   * @public
    * <p>The amount of time the client should wait before polling for configuration updates
    *          again. Use <code>RequiredMinimumPollIntervalInSeconds</code> to set the desired poll
    *          interval.</p>
@@ -329,17 +346,20 @@ export interface GetLatestConfigurationResponse {
   NextPollIntervalInSeconds?: number;
 
   /**
+   * @public
    * <p>A standard MIME type describing the format of the configuration content.</p>
    */
   ContentType?: string;
 
   /**
+   * @public
    * <p>The data of the configuration. This may be empty if the client already has the latest
    *          version of configuration.</p>
    */
   Configuration?: Uint8Array;
 
   /**
+   * @public
    * <p>The user-defined label for the AppConfig hosted configuration version. This attribute doesn't apply if the configuration is not from an AppConfig hosted configuration version. If the client already has the latest version of the configuration data, this value is empty.</p>
    */
   VersionLabel?: string;

@@ -23,6 +23,7 @@ export type Architecture = (typeof Architecture)[keyof typeof Architecture];
  */
 export interface AutoStartConfig {
   /**
+   * @public
    * <p>Enables the application to automatically start on job submission. Defaults to
    *          true.</p>
    */
@@ -36,12 +37,14 @@ export interface AutoStartConfig {
  */
 export interface AutoStopConfig {
   /**
+   * @public
    * <p>Enables the application to automatically stop after a certain amount of time being idle.
    *          Defaults to true.</p>
    */
   enabled?: boolean;
 
   /**
+   * @public
    * <p>The amount of idle time in minutes after which your application will automatically stop.
    *          Defaults to 15 minutes.</p>
    */
@@ -54,11 +57,13 @@ export interface AutoStopConfig {
  */
 export interface ImageConfiguration {
   /**
+   * @public
    * <p>The image URI.</p>
    */
   imageUri: string | undefined;
 
   /**
+   * @public
    * <p>The SHA256 digest of the image URI. This indicates which specific image the application
    *          is configured for. The image digest doesn't exist until an application has started.</p>
    */
@@ -72,16 +77,19 @@ export interface ImageConfiguration {
  */
 export interface WorkerResourceConfig {
   /**
+   * @public
    * <p>The CPU requirements for every worker instance of the worker type.</p>
    */
   cpu: string | undefined;
 
   /**
+   * @public
    * <p>The memory requirements for every worker instance of the worker type.</p>
    */
   memory: string | undefined;
 
   /**
+   * @public
    * <p>The disk requirements for every worker instance of the worker type.</p>
    */
   disk?: string;
@@ -93,11 +101,13 @@ export interface WorkerResourceConfig {
  */
 export interface InitialCapacityConfig {
   /**
+   * @public
    * <p>The number of workers in the initial capacity configuration.</p>
    */
   workerCount: number | undefined;
 
   /**
+   * @public
    * <p>The resource configuration of the initial capacity configuration.</p>
    */
   workerConfiguration?: WorkerResourceConfig;
@@ -110,16 +120,19 @@ export interface InitialCapacityConfig {
  */
 export interface MaximumAllowedResources {
   /**
+   * @public
    * <p>The maximum allowed CPU for an application.</p>
    */
   cpu: string | undefined;
 
   /**
+   * @public
    * <p>The maximum allowed resources for an application.</p>
    */
   memory: string | undefined;
 
   /**
+   * @public
    * <p>The maximum allowed disk for an application.</p>
    */
   disk?: string;
@@ -131,11 +144,13 @@ export interface MaximumAllowedResources {
  */
 export interface NetworkConfiguration {
   /**
+   * @public
    * <p>The array of subnet Ids for customer VPC connectivity.</p>
    */
   subnetIds?: string[];
 
   /**
+   * @public
    * <p>The array of security group Ids for customer VPC connectivity.</p>
    */
   securityGroupIds?: string[];
@@ -166,6 +181,7 @@ export type ApplicationState = (typeof ApplicationState)[keyof typeof Applicatio
  */
 export interface WorkerTypeSpecification {
   /**
+   * @public
    * <p>The image configuration for a worker type.</p>
    */
   imageConfiguration?: ImageConfiguration;
@@ -178,46 +194,55 @@ export interface WorkerTypeSpecification {
  */
 export interface Application {
   /**
+   * @public
    * <p>The ID of the application.</p>
    */
   applicationId: string | undefined;
 
   /**
+   * @public
    * <p>The name of the application.</p>
    */
   name?: string;
 
   /**
+   * @public
    * <p>The ARN of the application.</p>
    */
   arn: string | undefined;
 
   /**
+   * @public
    * <p>The Amazon EMR release associated with the application.</p>
    */
   releaseLabel: string | undefined;
 
   /**
+   * @public
    * <p>The type of application, such as Spark or Hive.</p>
    */
   type: string | undefined;
 
   /**
+   * @public
    * <p>The state of the application.</p>
    */
   state: ApplicationState | string | undefined;
 
   /**
+   * @public
    * <p>The state details of the application.</p>
    */
   stateDetails?: string;
 
   /**
+   * @public
    * <p>The initial capacity of the application.</p>
    */
   initialCapacity?: Record<string, InitialCapacityConfig>;
 
   /**
+   * @public
    * <p>The maximum capacity of the application. This is cumulative across all workers at any
    *          given point in time during the lifespan of the application is created. No new resources
    *          will be created once any one of the defined limits is hit.</p>
@@ -225,47 +250,56 @@ export interface Application {
   maximumCapacity?: MaximumAllowedResources;
 
   /**
+   * @public
    * <p>The date and time when the application run was created.</p>
    */
   createdAt: Date | undefined;
 
   /**
+   * @public
    * <p>The date and time when the application run was last updated.</p>
    */
   updatedAt: Date | undefined;
 
   /**
+   * @public
    * <p>The tags assigned to the application.</p>
    */
   tags?: Record<string, string>;
 
   /**
+   * @public
    * <p>The configuration for an application to automatically start on job submission.</p>
    */
   autoStartConfiguration?: AutoStartConfig;
 
   /**
+   * @public
    * <p>The configuration for an application to automatically stop after a certain amount of
    *          time being idle.</p>
    */
   autoStopConfiguration?: AutoStopConfig;
 
   /**
+   * @public
    * <p>The network configuration for customer VPC connectivity for the application.</p>
    */
   networkConfiguration?: NetworkConfiguration;
 
   /**
+   * @public
    * <p>The CPU architecture of an application.</p>
    */
   architecture?: Architecture | string;
 
   /**
+   * @public
    * <p>The image configuration applied to all worker types.</p>
    */
   imageConfiguration?: ImageConfiguration;
 
   /**
+   * @public
    * <p>The specification applied to each worker type.</p>
    */
   workerTypeSpecifications?: Record<string, WorkerTypeSpecification>;
@@ -277,51 +311,61 @@ export interface Application {
  */
 export interface ApplicationSummary {
   /**
+   * @public
    * <p>The ID of the application.</p>
    */
   id: string | undefined;
 
   /**
+   * @public
    * <p>The name of the application.</p>
    */
   name?: string;
 
   /**
+   * @public
    * <p>The ARN of the application.</p>
    */
   arn: string | undefined;
 
   /**
+   * @public
    * <p>The Amazon EMR release associated with the application.</p>
    */
   releaseLabel: string | undefined;
 
   /**
+   * @public
    * <p>The type of application, such as Spark or Hive.</p>
    */
   type: string | undefined;
 
   /**
+   * @public
    * <p>The state of the application.</p>
    */
   state: ApplicationState | string | undefined;
 
   /**
+   * @public
    * <p>The state details of the application.</p>
    */
   stateDetails?: string;
 
   /**
+   * @public
    * <p>The date and time when the application was created.</p>
    */
   createdAt: Date | undefined;
 
   /**
+   * @public
    * <p>The date and time when the application was last updated.</p>
    */
   updatedAt: Date | undefined;
 
   /**
+   * @public
    * <p>The CPU architecture of an application.</p>
    */
   architecture?: Architecture | string;
@@ -354,6 +398,7 @@ export class ConflictException extends __BaseException {
  */
 export interface ImageConfigurationInput {
   /**
+   * @public
    * <p>The URI of an image in the Amazon ECR registry. This field is required when you create a
    *          new application. If you leave this field blank in an update, Amazon EMR will remove
    *          the image configuration.</p>
@@ -367,6 +412,7 @@ export interface ImageConfigurationInput {
  */
 export interface WorkerTypeSpecificationInput {
   /**
+   * @public
    * <p>The image configuration for a worker type.</p>
    */
   imageConfiguration?: ImageConfigurationInput;
@@ -377,32 +423,38 @@ export interface WorkerTypeSpecificationInput {
  */
 export interface CreateApplicationRequest {
   /**
+   * @public
    * <p>The name of the application.</p>
    */
   name?: string;
 
   /**
+   * @public
    * <p>The Amazon EMR release associated with the application.</p>
    */
   releaseLabel: string | undefined;
 
   /**
+   * @public
    * <p>The type of application you want to start, such as Spark or Hive.</p>
    */
   type: string | undefined;
 
   /**
+   * @public
    * <p>The client idempotency token of the application to create. Its value must be unique for
    *          each request.</p>
    */
   clientToken?: string;
 
   /**
+   * @public
    * <p>The capacity to initialize when the application is created.</p>
    */
   initialCapacity?: Record<string, InitialCapacityConfig>;
 
   /**
+   * @public
    * <p>The maximum capacity to allocate when the application is created. This is cumulative
    *          across all workers at any given point in time, not just when an application is created. No
    *          new resources will be created once any one of the defined limits is hit.</p>
@@ -410,32 +462,38 @@ export interface CreateApplicationRequest {
   maximumCapacity?: MaximumAllowedResources;
 
   /**
+   * @public
    * <p>The tags assigned to the application.</p>
    */
   tags?: Record<string, string>;
 
   /**
+   * @public
    * <p>The configuration for an application to automatically start on job submission.</p>
    */
   autoStartConfiguration?: AutoStartConfig;
 
   /**
+   * @public
    * <p>The configuration for an application to automatically stop after a certain amount of
    *          time being idle.</p>
    */
   autoStopConfiguration?: AutoStopConfig;
 
   /**
+   * @public
    * <p>The network configuration for customer VPC connectivity.</p>
    */
   networkConfiguration?: NetworkConfiguration;
 
   /**
+   * @public
    * <p>The CPU architecture of an application.</p>
    */
   architecture?: Architecture | string;
 
   /**
+   * @public
    * <p>The image configuration for all worker types. You can either set this parameter or
    *             <code>imageConfiguration</code> for each worker type in
    *             <code>workerTypeSpecifications</code>.</p>
@@ -443,6 +501,7 @@ export interface CreateApplicationRequest {
   imageConfiguration?: ImageConfigurationInput;
 
   /**
+   * @public
    * <p>The key-value pairs that specify worker type to
    *             <code>WorkerTypeSpecificationInput</code>. This parameter must contain all valid worker
    *          types for a Spark or Hive application. Valid worker types include <code>Driver</code> and
@@ -459,16 +518,19 @@ export interface CreateApplicationRequest {
  */
 export interface CreateApplicationResponse {
   /**
+   * @public
    * <p>The output contains the application ID.</p>
    */
   applicationId: string | undefined;
 
   /**
+   * @public
    * <p>The output contains the name of the application.</p>
    */
   name?: string;
 
   /**
+   * @public
    * <p>The output contains the ARN of the application.</p>
    */
   arn: string | undefined;
@@ -540,6 +602,7 @@ export class ValidationException extends __BaseException {
  */
 export interface DeleteApplicationRequest {
   /**
+   * @public
    * <p>The ID of the application that will be deleted.</p>
    */
   applicationId: string | undefined;
@@ -555,6 +618,7 @@ export interface DeleteApplicationResponse {}
  */
 export interface GetApplicationRequest {
   /**
+   * @public
    * <p>The ID of the application that will be described.</p>
    */
   applicationId: string | undefined;
@@ -565,6 +629,7 @@ export interface GetApplicationRequest {
  */
 export interface GetApplicationResponse {
   /**
+   * @public
    * <p>The output displays information about the specified application.</p>
    */
   application: Application | undefined;
@@ -575,16 +640,19 @@ export interface GetApplicationResponse {
  */
 export interface ListApplicationsRequest {
   /**
+   * @public
    * <p>The token for the next set of application results.</p>
    */
   nextToken?: string;
 
   /**
+   * @public
    * <p>The maximum number of applications that can be listed.</p>
    */
   maxResults?: number;
 
   /**
+   * @public
    * <p>An optional filter for application states. Note that if this filter contains multiple
    *          states, the resulting list will be grouped by the state.</p>
    */
@@ -596,11 +664,13 @@ export interface ListApplicationsRequest {
  */
 export interface ListApplicationsResponse {
   /**
+   * @public
    * <p>The output lists the specified applications.</p>
    */
   applications: ApplicationSummary[] | undefined;
 
   /**
+   * @public
    * <p>The output displays the token for the next set of application results. This is required
    *          for pagination and is available as a response of the previous request.</p>
    */
@@ -632,6 +702,7 @@ export class ServiceQuotaExceededException extends __BaseException {
  */
 export interface StartApplicationRequest {
   /**
+   * @public
    * <p>The ID of the application to start.</p>
    */
   applicationId: string | undefined;
@@ -647,6 +718,7 @@ export interface StartApplicationResponse {}
  */
 export interface StopApplicationRequest {
   /**
+   * @public
    * <p>The ID of the application to stop.</p>
    */
   applicationId: string | undefined;
@@ -662,22 +734,26 @@ export interface StopApplicationResponse {}
  */
 export interface UpdateApplicationRequest {
   /**
+   * @public
    * <p>The ID of the application to update.</p>
    */
   applicationId: string | undefined;
 
   /**
+   * @public
    * <p>The client idempotency token of the application to update. Its value must be unique for
    *          each request.</p>
    */
   clientToken?: string;
 
   /**
+   * @public
    * <p>The capacity to initialize when the application is updated.</p>
    */
   initialCapacity?: Record<string, InitialCapacityConfig>;
 
   /**
+   * @public
    * <p>The maximum capacity to allocate when the application is updated. This is cumulative
    *          across all workers at any given point in time during the lifespan of the application. No
    *          new resources will be created once any one of the defined limits is hit.</p>
@@ -685,27 +761,32 @@ export interface UpdateApplicationRequest {
   maximumCapacity?: MaximumAllowedResources;
 
   /**
+   * @public
    * <p>The configuration for an application to automatically start on job submission.</p>
    */
   autoStartConfiguration?: AutoStartConfig;
 
   /**
+   * @public
    * <p>The configuration for an application to automatically stop after a certain amount of
    *          time being idle.</p>
    */
   autoStopConfiguration?: AutoStopConfig;
 
   /**
+   * @public
    * <p>The network configuration for customer VPC connectivity.</p>
    */
   networkConfiguration?: NetworkConfiguration;
 
   /**
+   * @public
    * <p>The CPU architecture of an application.</p>
    */
   architecture?: Architecture | string;
 
   /**
+   * @public
    * <p>The image configuration to be used for all worker types. You can either set this
    *          parameter or <code>imageConfiguration</code> for each worker type in
    *             <code>WorkerTypeSpecificationInput</code>.</p>
@@ -713,6 +794,7 @@ export interface UpdateApplicationRequest {
   imageConfiguration?: ImageConfigurationInput;
 
   /**
+   * @public
    * <p>The key-value pairs that specify worker type to
    *             <code>WorkerTypeSpecificationInput</code>. This parameter must contain all valid worker
    *          types for a Spark or Hive application. Valid worker types include <code>Driver</code> and
@@ -724,6 +806,7 @@ export interface UpdateApplicationRequest {
   workerTypeSpecifications?: Record<string, WorkerTypeSpecificationInput>;
 
   /**
+   * @public
    * <p>The Amazon EMR release label for the application. You can change the release
    *          label to use a different release of Amazon EMR.</p>
    */
@@ -735,6 +818,7 @@ export interface UpdateApplicationRequest {
  */
 export interface UpdateApplicationResponse {
   /**
+   * @public
    * <p>Information about the updated application.</p>
    */
   application: Application | undefined;
@@ -745,11 +829,13 @@ export interface UpdateApplicationResponse {
  */
 export interface CancelJobRunRequest {
   /**
+   * @public
    * <p>The ID of the application on which the job run will be canceled.</p>
    */
   applicationId: string | undefined;
 
   /**
+   * @public
    * <p>The ID of the job run to cancel.</p>
    */
   jobRunId: string | undefined;
@@ -760,11 +846,13 @@ export interface CancelJobRunRequest {
  */
 export interface CancelJobRunResponse {
   /**
+   * @public
    * <p>The output contains the application ID on which the job run is cancelled.</p>
    */
   applicationId: string | undefined;
 
   /**
+   * @public
    * <p>The output contains the ID of the cancelled job run.</p>
    */
   jobRunId: string | undefined;
@@ -775,11 +863,13 @@ export interface CancelJobRunResponse {
  */
 export interface GetDashboardForJobRunRequest {
   /**
+   * @public
    * <p>The ID of the application.</p>
    */
   applicationId: string | undefined;
 
   /**
+   * @public
    * <p>The ID of the job run.</p>
    */
   jobRunId: string | undefined;
@@ -790,6 +880,7 @@ export interface GetDashboardForJobRunRequest {
  */
 export interface GetDashboardForJobRunResponse {
   /**
+   * @public
    * <p>The URL to view job run's dashboard.</p>
    */
   url?: string;
@@ -800,11 +891,13 @@ export interface GetDashboardForJobRunResponse {
  */
 export interface GetJobRunRequest {
   /**
+   * @public
    * <p>The ID of the application on which the job run is submitted.</p>
    */
   applicationId: string | undefined;
 
   /**
+   * @public
    * <p>The ID of the job run.</p>
    */
   jobRunId: string | undefined;
@@ -816,18 +909,21 @@ export interface GetJobRunRequest {
  */
 export interface ResourceUtilization {
   /**
+   * @public
    * <p>The aggregated vCPU used per hour from the time the job starts executing until the job
    *          is terminated.</p>
    */
   vCPUHour?: number;
 
   /**
+   * @public
    * <p>The aggregated memory used per hour from the time the job starts executing until the job
    *          is terminated.</p>
    */
   memoryGBHour?: number;
 
   /**
+   * @public
    * <p>The aggregated storage used per hour from the time the job starts executing until the
    *          job is terminated.</p>
    */
@@ -841,27 +937,32 @@ export interface ResourceUtilization {
  */
 export interface CloudWatchLoggingConfiguration {
   /**
+   * @public
    * <p>Enables CloudWatch logging.</p>
    */
   enabled: boolean | undefined;
 
   /**
+   * @public
    * <p>The name of the log group in Amazon CloudWatch Logs where you want to publish your
    *          logs.</p>
    */
   logGroupName?: string;
 
   /**
+   * @public
    * <p>Prefix for the CloudWatch log stream name.</p>
    */
   logStreamNamePrefix?: string;
 
   /**
+   * @public
    * <p>The Key Management Service (KMS) key ARN to encrypt the logs that you store in CloudWatch Logs.</p>
    */
   encryptionKeyArn?: string;
 
   /**
+   * @public
    * <p>The types of logs that you want to publish to CloudWatch. If you don't specify
    *          any log types, driver STDOUT and STDERR logs will be published to CloudWatch Logs by
    *          default. For more information including the supported worker types for Hive and Spark, see
@@ -893,12 +994,14 @@ export interface CloudWatchLoggingConfiguration {
  */
 export interface ManagedPersistenceMonitoringConfiguration {
   /**
+   * @public
    * <p>Enables managed logging and defaults to true. If set to false, managed logging will be
    *          turned off.</p>
    */
   enabled?: boolean;
 
   /**
+   * @public
    * <p>The KMS key ARN to encrypt the logs stored in managed log persistence.</p>
    */
   encryptionKeyArn?: string;
@@ -911,11 +1014,13 @@ export interface ManagedPersistenceMonitoringConfiguration {
  */
 export interface S3MonitoringConfiguration {
   /**
+   * @public
    * <p>The Amazon S3 destination URI for log publishing.</p>
    */
   logUri?: string;
 
   /**
+   * @public
    * <p>The KMS key ARN to encrypt the logs published to the given Amazon S3 destination.</p>
    */
   encryptionKeyArn?: string;
@@ -927,16 +1032,19 @@ export interface S3MonitoringConfiguration {
  */
 export interface MonitoringConfiguration {
   /**
+   * @public
    * <p>The Amazon S3 configuration for monitoring log publishing.</p>
    */
   s3MonitoringConfiguration?: S3MonitoringConfiguration;
 
   /**
+   * @public
    * <p>The managed log persistence configuration for a job run.</p>
    */
   managedPersistenceMonitoringConfiguration?: ManagedPersistenceMonitoringConfiguration;
 
   /**
+   * @public
    * <p>The Amazon CloudWatch configuration for monitoring logs. You can configure your jobs
    *          to send log information to CloudWatch.</p>
    */
@@ -949,16 +1057,19 @@ export interface MonitoringConfiguration {
  */
 export interface Hive {
   /**
+   * @public
    * <p>The query for the Hive job run.</p>
    */
   query: string | undefined;
 
   /**
+   * @public
    * <p>The query file for the Hive job run.</p>
    */
   initQueryFile?: string;
 
   /**
+   * @public
    * <p>The parameters for the Hive job run.</p>
    */
   parameters?: string;
@@ -970,16 +1081,19 @@ export interface Hive {
  */
 export interface SparkSubmit {
   /**
+   * @public
    * <p>The entry point for the Spark submit job run.</p>
    */
   entryPoint: string | undefined;
 
   /**
+   * @public
    * <p>The arguments for the Spark submit job run.</p>
    */
   entryPointArguments?: string[];
 
   /**
+   * @public
    * <p>The parameters for the Spark submit job run.</p>
    */
   sparkSubmitParameters?: string;
@@ -996,6 +1110,7 @@ export type JobDriver = JobDriver.HiveMember | JobDriver.SparkSubmitMember | Job
  */
 export namespace JobDriver {
   /**
+   * @public
    * <p>The job driver parameters specified for Spark.</p>
    */
   export interface SparkSubmitMember {
@@ -1005,6 +1120,7 @@ export namespace JobDriver {
   }
 
   /**
+   * @public
    * <p>The job driver parameters specified for Hive.</p>
    */
   export interface HiveMember {
@@ -1013,6 +1129,9 @@ export namespace JobDriver {
     $unknown?: never;
   }
 
+  /**
+   * @public
+   */
   export interface $UnknownMember {
     sparkSubmit?: never;
     hive?: never;
@@ -1059,18 +1178,21 @@ export type JobRunState = (typeof JobRunState)[keyof typeof JobRunState];
  */
 export interface TotalResourceUtilization {
   /**
+   * @public
    * <p>The aggregated vCPU used per hour from the time job start executing till the time job is
    *          terminated.</p>
    */
   vCPUHour?: number;
 
   /**
+   * @public
    * <p>The aggregated memory used per hour from the time job start executing till the time job
    *          is terminated.</p>
    */
   memoryGBHour?: number;
 
   /**
+   * @public
    * <p>The aggregated storage used per hour from the time job start executing till the time job
    *          is terminated.</p>
    */
@@ -1082,31 +1204,37 @@ export interface TotalResourceUtilization {
  */
 export interface ListJobRunsRequest {
   /**
+   * @public
    * <p>The ID of the application for which to list the job run.</p>
    */
   applicationId: string | undefined;
 
   /**
+   * @public
    * <p>The token for the next set of job run results.</p>
    */
   nextToken?: string;
 
   /**
+   * @public
    * <p>The maximum number of job runs that can be listed.</p>
    */
   maxResults?: number;
 
   /**
+   * @public
    * <p>The lower bound of the option to filter by creation date and time.</p>
    */
   createdAtAfter?: Date;
 
   /**
+   * @public
    * <p>The upper bound of the option to filter by creation date and time.</p>
    */
   createdAtBefore?: Date;
 
   /**
+   * @public
    * <p>An optional filter for job run states. Note that if this filter contains multiple
    *          states, the resulting list will be grouped by the state.</p>
    */
@@ -1119,62 +1247,74 @@ export interface ListJobRunsRequest {
  */
 export interface JobRunSummary {
   /**
+   * @public
    * <p>The ID of the application the job is running on.</p>
    */
   applicationId: string | undefined;
 
   /**
+   * @public
    * <p>The ID of the job run.</p>
    */
   id: string | undefined;
 
   /**
+   * @public
    * <p>The optional job run name. This doesn't have to be unique.</p>
    */
   name?: string;
 
   /**
+   * @public
    * <p>The ARN of the job run.</p>
    */
   arn: string | undefined;
 
   /**
+   * @public
    * <p>The user who created the job run.</p>
    */
   createdBy: string | undefined;
 
   /**
+   * @public
    * <p>The date and time when the job run was created.</p>
    */
   createdAt: Date | undefined;
 
   /**
+   * @public
    * <p>The date and time when the job run was last updated.</p>
    */
   updatedAt: Date | undefined;
 
   /**
+   * @public
    * <p>The execution role ARN of the job run.</p>
    */
   executionRole: string | undefined;
 
   /**
+   * @public
    * <p>The state of the job run.</p>
    */
   state: JobRunState | string | undefined;
 
   /**
+   * @public
    * <p>The state details of the job run.</p>
    */
   stateDetails: string | undefined;
 
   /**
+   * @public
    * <p>The Amazon EMR release associated with the application your job is running
    *          on.</p>
    */
   releaseLabel: string | undefined;
 
   /**
+   * @public
    * <p>The type of job run, such as Spark or Hive.</p>
    */
   type?: string;
@@ -1185,11 +1325,13 @@ export interface JobRunSummary {
  */
 export interface ListJobRunsResponse {
   /**
+   * @public
    * <p>The output lists information about the specified job runs.</p>
    */
   jobRuns: JobRunSummary[] | undefined;
 
   /**
+   * @public
    * <p>The output displays the token for the next set of job run results. This is required for
    *          pagination and is available as a response of the previous request.</p>
    */
@@ -1201,16 +1343,19 @@ export interface ListJobRunsResponse {
  */
 export interface StartJobRunResponse {
   /**
+   * @public
    * <p>This output displays the application ID on which the job run was submitted.</p>
    */
   applicationId: string | undefined;
 
   /**
+   * @public
    * <p>The output contains the ID of the started job run.</p>
    */
   jobRunId: string | undefined;
 
   /**
+   * @public
    * <p>This output displays the ARN of the job run..</p>
    */
   arn: string | undefined;
@@ -1221,6 +1366,7 @@ export interface StartJobRunResponse {
  */
 export interface ListTagsForResourceRequest {
   /**
+   * @public
    * <p>The Amazon Resource Name (ARN) that identifies the resource to list the tags for.
    *          Currently, the supported resources are Amazon EMR Serverless applications and job
    *          runs.</p>
@@ -1233,6 +1379,7 @@ export interface ListTagsForResourceRequest {
  */
 export interface ListTagsForResourceResponse {
   /**
+   * @public
    * <p>The tags for the resource.</p>
    */
   tags?: Record<string, string>;
@@ -1243,6 +1390,7 @@ export interface ListTagsForResourceResponse {
  */
 export interface TagResourceRequest {
   /**
+   * @public
    * <p>The Amazon Resource Name (ARN) that identifies the resource to list the tags for.
    *          Currently, the supported resources are Amazon EMR Serverless applications and job
    *          runs.</p>
@@ -1250,6 +1398,7 @@ export interface TagResourceRequest {
   resourceArn: string | undefined;
 
   /**
+   * @public
    * <p>The tags to add to the resource. A tag is an array of key-value pairs.</p>
    */
   tags: Record<string, string> | undefined;
@@ -1265,6 +1414,7 @@ export interface TagResourceResponse {}
  */
 export interface UntagResourceRequest {
   /**
+   * @public
    * <p>The Amazon Resource Name (ARN) that identifies the resource to list the tags for.
    *          Currently, the supported resources are Amazon EMR Serverless applications and job
    *          runs.</p>
@@ -1272,6 +1422,7 @@ export interface UntagResourceRequest {
   resourceArn: string | undefined;
 
   /**
+   * @public
    * <p>The keys of the tags to be removed.</p>
    */
   tagKeys: string[] | undefined;
@@ -1291,16 +1442,19 @@ export interface UntagResourceResponse {}
  */
 export interface Configuration {
   /**
+   * @public
    * <p>The classification within a configuration.</p>
    */
   classification: string | undefined;
 
   /**
+   * @public
    * <p>A set of properties specified within a configuration classification.</p>
    */
   properties?: Record<string, string>;
 
   /**
+   * @public
    * <p>A list of additional configurations to apply within a configuration object.</p>
    */
   configurations?: Configuration[];
@@ -1312,11 +1466,13 @@ export interface Configuration {
  */
 export interface ConfigurationOverrides {
   /**
+   * @public
    * <p>The override configurations for the application.</p>
    */
   applicationConfiguration?: Configuration[];
 
   /**
+   * @public
    * <p>The override configurations for monitoring.</p>
    */
   monitoringConfiguration?: MonitoringConfiguration;
@@ -1330,88 +1486,105 @@ export interface ConfigurationOverrides {
  */
 export interface JobRun {
   /**
+   * @public
    * <p>The ID of the application the job is running on.</p>
    */
   applicationId: string | undefined;
 
   /**
+   * @public
    * <p>The ID of the job run.</p>
    */
   jobRunId: string | undefined;
 
   /**
+   * @public
    * <p>The optional job run name. This doesn't have to be unique.</p>
    */
   name?: string;
 
   /**
+   * @public
    * <p>The execution role ARN of the job run.</p>
    */
   arn: string | undefined;
 
   /**
+   * @public
    * <p>The user who created the job run.</p>
    */
   createdBy: string | undefined;
 
   /**
+   * @public
    * <p>The date and time when the job run was created.</p>
    */
   createdAt: Date | undefined;
 
   /**
+   * @public
    * <p>The date and time when the job run was updated.</p>
    */
   updatedAt: Date | undefined;
 
   /**
+   * @public
    * <p>The execution role ARN of the job run.</p>
    */
   executionRole: string | undefined;
 
   /**
+   * @public
    * <p>The state of the job run.</p>
    */
   state: JobRunState | string | undefined;
 
   /**
+   * @public
    * <p>The state details of the job run.</p>
    */
   stateDetails: string | undefined;
 
   /**
+   * @public
    * <p>The Amazon EMR release associated with the application your job is running
    *          on.</p>
    */
   releaseLabel: string | undefined;
 
   /**
+   * @public
    * <p>The configuration settings that are used to override default configuration.</p>
    */
   configurationOverrides?: ConfigurationOverrides;
 
   /**
+   * @public
    * <p>The job driver for the job run.</p>
    */
   jobDriver: JobDriver | undefined;
 
   /**
+   * @public
    * <p>The tags assigned to the job run.</p>
    */
   tags?: Record<string, string>;
 
   /**
+   * @public
    * <p>The aggregate vCPU, memory, and storage resources used from the time the job starts to
    *          execute, until the time the job terminates, rounded up to the nearest second.</p>
    */
   totalResourceUtilization?: TotalResourceUtilization;
 
   /**
+   * @public
    * <p>The network configuration for customer VPC connectivity.</p>
    */
   networkConfiguration?: NetworkConfiguration;
 
   /**
+   * @public
    * <p>The job run total execution duration in seconds. This field is only available for job
    *          runs in a <code>COMPLETED</code>, <code>FAILED</code>, or <code>CANCELLED</code>
    *          state.</p>
@@ -1419,12 +1592,14 @@ export interface JobRun {
   totalExecutionDurationSeconds?: number;
 
   /**
+   * @public
    * <p>Returns the job run timeout value from the <code>StartJobRun</code> call. If no timeout
    *          was specified, then it returns the default timeout of 720 minutes.</p>
    */
   executionTimeoutMinutes?: number;
 
   /**
+   * @public
    * <p>The aggregate vCPU, memory, and storage that Amazon Web Services has billed for the job
    *          run. The billed resources include a 1-minute minimum usage for workers, plus additional
    *          storage over 20 GB per worker. Note that billed resources do not include usage for idle
@@ -1438,43 +1613,51 @@ export interface JobRun {
  */
 export interface StartJobRunRequest {
   /**
+   * @public
    * <p>The ID of the application on which to run the job.</p>
    */
   applicationId: string | undefined;
 
   /**
+   * @public
    * <p>The client idempotency token of the job run to start. Its value must be unique for each
    *          request.</p>
    */
   clientToken?: string;
 
   /**
+   * @public
    * <p>The execution role ARN for the job run.</p>
    */
   executionRoleArn: string | undefined;
 
   /**
+   * @public
    * <p>The job driver for the job run.</p>
    */
   jobDriver?: JobDriver;
 
   /**
+   * @public
    * <p>The configuration overrides for the job run.</p>
    */
   configurationOverrides?: ConfigurationOverrides;
 
   /**
+   * @public
    * <p>The tags assigned to the job run.</p>
    */
   tags?: Record<string, string>;
 
   /**
+   * @public
    * <p>The maximum duration for the job run to run. If the job run runs beyond this duration,
    *          it will be automatically cancelled.</p>
    */
   executionTimeoutMinutes?: number;
 
   /**
+   * @public
    * <p>The optional job run name. This doesn't have to be unique.</p>
    */
   name?: string;
@@ -1485,6 +1668,7 @@ export interface StartJobRunRequest {
  */
 export interface GetJobRunResponse {
   /**
+   * @public
    * <p>The output displays information about the job run.</p>
    */
   jobRun: JobRun | undefined;

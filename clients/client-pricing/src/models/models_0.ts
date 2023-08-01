@@ -36,6 +36,7 @@ export class AccessDeniedException extends __BaseException {
  */
 export interface AttributeValue {
   /**
+   * @public
    * <p>The specific value of an <code>attributeName</code>.</p>
    */
   Value?: string;
@@ -46,6 +47,7 @@ export interface AttributeValue {
  */
 export interface DescribeServicesRequest {
   /**
+   * @public
    * <p>The code for the service whose information you want to retrieve, such as <code>AmazonEC2</code>.
    *           You can use
    *          the <code>ServiceCode</code> to filter the results in a <code>GetProducts</code> call.
@@ -54,6 +56,7 @@ export interface DescribeServicesRequest {
   ServiceCode?: string;
 
   /**
+   * @public
    * <p>The format version that you want the response to be in.</p>
    *          <p>Valid values are: <code>aws_v1</code>
    *          </p>
@@ -61,11 +64,13 @@ export interface DescribeServicesRequest {
   FormatVersion?: string;
 
   /**
+   * @public
    * <p>The pagination token that indicates the next set of results that you want to retrieve.</p>
    */
   NextToken?: string;
 
   /**
+   * @public
    * <p>The maximum number of results that you want returned in the response.</p>
    */
   MaxResults?: number;
@@ -77,11 +82,13 @@ export interface DescribeServicesRequest {
  */
 export interface Service {
   /**
+   * @public
    * <p>The code for the Amazon Web Services service.</p>
    */
   ServiceCode: string | undefined;
 
   /**
+   * @public
    * <p>The attributes that are available for this service.</p>
    */
   AttributeNames?: string[];
@@ -92,16 +99,19 @@ export interface Service {
  */
 export interface DescribeServicesResponse {
   /**
+   * @public
    * <p>The service metadata for the service or services in the response.</p>
    */
   Services?: Service[];
 
   /**
+   * @public
    * <p>The format version of the response. For example, <code>aws_v1</code>.</p>
    */
   FormatVersion?: string;
 
   /**
+   * @public
    * <p>The pagination token for the next set of retrievable results.</p>
    */
   NextToken?: string;
@@ -222,22 +232,26 @@ export class NotFoundException extends __BaseException {
  */
 export interface GetAttributeValuesRequest {
   /**
+   * @public
    * <p>The service code for the service whose attributes you want to retrieve. For example, if you want
    *           the retrieve an EC2 attribute, use <code>AmazonEC2</code>.</p>
    */
   ServiceCode: string | undefined;
 
   /**
+   * @public
    * <p>The name of the attribute that you want to retrieve the values for, such as <code>volumeType</code>.</p>
    */
   AttributeName: string | undefined;
 
   /**
+   * @public
    * <p>The pagination token that indicates the next set of results that you want to retrieve.</p>
    */
   NextToken?: string;
 
   /**
+   * @public
    * <p>The maximum number of results to return in response.</p>
    */
   MaxResults?: number;
@@ -248,6 +262,7 @@ export interface GetAttributeValuesRequest {
  */
 export interface GetAttributeValuesResponse {
   /**
+   * @public
    * <p>The list of values for an attribute. For example, <code>Throughput Optimized HDD</code> and
    *       <code>Provisioned IOPS</code> are two available values for the <code>AmazonEC2</code>
    *             <code>volumeType</code>.</p>
@@ -255,6 +270,7 @@ export interface GetAttributeValuesResponse {
   AttributeValues?: AttributeValue[];
 
   /**
+   * @public
    * <p>The pagination token that indicates the next set of results to retrieve.</p>
    */
   NextToken?: string;
@@ -265,6 +281,7 @@ export interface GetAttributeValuesResponse {
  */
 export interface GetPriceListFileUrlRequest {
   /**
+   * @public
    * <p>The unique identifier that maps to where your Price List files are located.
    *             <code>PriceListArn</code> can be obtained from the <a href="https://docs.aws.amazon.com/aws-cost-management/latest/APIReference/API_pricing_ListPriceLists.html">
    *                <code>ListPriceLists</code>
@@ -273,6 +290,7 @@ export interface GetPriceListFileUrlRequest {
   PriceListArn: string | undefined;
 
   /**
+   * @public
    * <p>The format that you want to retrieve your Price List files in. The
    *             <code>FileFormat</code> can be obtained from the <a href="https://docs.aws.amazon.com/aws-cost-management/latest/APIReference/API_pricing_ListPriceLists.html">
    *                <code>ListPriceLists</code>
@@ -286,6 +304,7 @@ export interface GetPriceListFileUrlRequest {
  */
 export interface GetPriceListFileUrlResponse {
   /**
+   * @public
    * <p>The URL to download your Price List file from. </p>
    */
   Url?: string;
@@ -310,6 +329,7 @@ export type FilterType = (typeof FilterType)[keyof typeof FilterType];
  */
 export interface Filter {
   /**
+   * @public
    * <p>The type of filter that you want to use.</p>
    *          <p>Valid values are: <code>TERM_MATCH</code>. <code>TERM_MATCH</code> returns only
    *          products that match both the given filter field and the given value.</p>
@@ -317,6 +337,7 @@ export interface Filter {
   Type: FilterType | string | undefined;
 
   /**
+   * @public
    * <p>The product metadata field that you want to filter on. You can filter by just the
    *          service code to see all products for a specific service, filter
    *          by just the attribute name to see a specific attribute for multiple services, or use both a service code
@@ -328,6 +349,7 @@ export interface Filter {
   Field: string | undefined;
 
   /**
+   * @public
    * <p>The service code or attribute value that you want to filter by. If you're filtering
    *          by service code this is the actual service code, such as <code>AmazonEC2</code>. If you're
    *          filtering by attribute name, this is the attribute value that you want the returned
@@ -341,17 +363,20 @@ export interface Filter {
  */
 export interface GetProductsRequest {
   /**
+   * @public
    * <p>The code for the service whose products you want to retrieve. </p>
    */
   ServiceCode: string | undefined;
 
   /**
+   * @public
    * <p>The list of filters that limit the returned products. only products that match all filters
    *          are returned.</p>
    */
   Filters?: Filter[];
 
   /**
+   * @public
    * <p>The format version that you want the response to be in.</p>
    *          <p>Valid values are: <code>aws_v1</code>
    *          </p>
@@ -359,11 +384,13 @@ export interface GetProductsRequest {
   FormatVersion?: string;
 
   /**
+   * @public
    * <p>The pagination token that indicates the next set of results that you want to retrieve.</p>
    */
   NextToken?: string;
 
   /**
+   * @public
    * <p>The maximum number of results to return in the response.</p>
    */
   MaxResults?: number;
@@ -374,17 +401,20 @@ export interface GetProductsRequest {
  */
 export interface GetProductsResponse {
   /**
+   * @public
    * <p>The format version of the response. For example, aws_v1.</p>
    */
   FormatVersion?: string;
 
   /**
+   * @public
    * <p>The list of products that match your filters. The list contains both the product metadata and
    *          the price information.</p>
    */
   PriceList?: (__LazyJsonString | string)[];
 
   /**
+   * @public
    * <p>The pagination token that indicates the next set of results to retrieve.</p>
    */
   NextToken?: string;
@@ -395,6 +425,7 @@ export interface GetProductsResponse {
  */
 export interface ListPriceListsRequest {
   /**
+   * @public
    * <p>The service code or the Savings Plan service code for the attributes that
    *          you want to retrieve. For example, to get the list of applicable Amazon EC2 price lists, use
    *             <code>AmazonEC2</code>. For a full list of service codes containing On-Demand and
@@ -407,11 +438,13 @@ export interface ListPriceListsRequest {
   ServiceCode: string | undefined;
 
   /**
+   * @public
    * <p>The date that the Price List file prices are effective from. </p>
    */
   EffectiveDate: Date | undefined;
 
   /**
+   * @public
    * <p>This is used to filter the Price List by Amazon Web Services Region. For example, to get
    *          the price list only for the <code>US East (N. Virginia)</code> Region, use
    *             <code>us-east-1</code>. If nothing is specified, you retrieve price lists for all
@@ -422,17 +455,20 @@ export interface ListPriceListsRequest {
   RegionCode?: string;
 
   /**
+   * @public
    * <p>The three alphabetical character ISO-4217 currency code that the Price List files are
    *          denominated in. </p>
    */
   CurrencyCode: string | undefined;
 
   /**
+   * @public
    * <p>The pagination token that indicates the next set of results that you want to retrieve. </p>
    */
   NextToken?: string;
 
   /**
+   * @public
    * <p>The maximum number of results to return in the response.
    *       </p>
    */
@@ -450,6 +486,7 @@ export interface ListPriceListsRequest {
  */
 export interface PriceList {
   /**
+   * @public
    * <p>The unique identifier that maps to where your Price List files are located.
    *             <code>PriceListArn</code> can be obtained from the <a href="https://docs.aws.amazon.com/aws-cost-management/latest/APIReference/API_pricing_ListPriceLists.html">
    *                <code>ListPriceList</code>
@@ -458,6 +495,7 @@ export interface PriceList {
   PriceListArn?: string;
 
   /**
+   * @public
    * <p>This is used to filter the Price List by Amazon Web Services Region. For example, to get
    *          the price list only for the <code>US East (N. Virginia)</code> Region, use
    *             <code>us-east-1</code>. If nothing is specified, you retrieve price lists for all
@@ -468,12 +506,14 @@ export interface PriceList {
   RegionCode?: string;
 
   /**
+   * @public
    * <p>The three alphabetical character ISO-4217 currency code the Price List files are
    *          denominated in. </p>
    */
   CurrencyCode?: string;
 
   /**
+   * @public
    * <p>The format you want to retrieve your Price List files. The <code>FileFormat</code> can
    *          be obtained from the <a href="https://docs.aws.amazon.com/aws-cost-management/latest/APIReference/API_pricing_ListPriceLists.html">
    *                <code>ListPriceList</code>
@@ -487,11 +527,13 @@ export interface PriceList {
  */
 export interface ListPriceListsResponse {
   /**
+   * @public
    * <p>The type of price list references that match your request. </p>
    */
   PriceLists?: PriceList[];
 
   /**
+   * @public
    * <p>The pagination token that indicates the next set of results to retrieve. </p>
    */
   NextToken?: string;

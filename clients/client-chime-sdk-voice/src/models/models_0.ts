@@ -61,53 +61,63 @@ export class AccessDeniedException extends __BaseException {
  */
 export interface Address {
   /**
+   * @public
    * <p>The address street, such as <code>8th Avenue</code>.</p>
    */
   streetName?: string;
 
   /**
+   * @public
    * <p>The address suffix, such as the <code>N</code> in <code>8th Avenue N</code>.</p>
    */
   streetSuffix?: string;
 
   /**
+   * @public
    * <p>An address suffix location, such as the <code>S. Unit A</code> in
    *          <code>Central Park S. Unit A</code>.</p>
    */
   postDirectional?: string;
 
   /**
+   * @public
    * <p>An address prefix location, such as the <code>N</code> in <code>N. Third St.</code>
    *          </p>
    */
   preDirectional?: string;
 
   /**
+   * @public
    * <p>The numeric portion of an address.</p>
    */
   streetNumber?: string;
 
   /**
+   * @public
    * <p>The city of an address.</p>
    */
   city?: string;
 
   /**
+   * @public
    * <p>The state of an address.</p>
    */
   state?: string;
 
   /**
+   * @public
    * <p>The postal code of an address.</p>
    */
   postalCode?: string;
 
   /**
+   * @public
    * <p>The zip + 4 or postal code + 4 of an address.</p>
    */
   postalCodePlus4?: string;
 
   /**
+   * @public
    * <p>The country of an address.</p>
    */
   country?: string;
@@ -132,16 +142,19 @@ export type AlexaSkillStatus = (typeof AlexaSkillStatus)[keyof typeof AlexaSkill
  */
 export interface AssociatePhoneNumbersWithVoiceConnectorRequest {
   /**
+   * @public
    * <p>The Voice Connector ID.</p>
    */
   VoiceConnectorId: string | undefined;
 
   /**
+   * @public
    * <p>List of phone numbers, in E.164 format.</p>
    */
   E164PhoneNumbers: string[] | undefined;
 
   /**
+   * @public
    * <p>If true, associates the provided phone numbers with the provided Amazon Chime SDK Voice Connector and removes any previously existing associations. If false, does not associate any phone numbers that have previously existing associations.</p>
    */
   ForceAssociate?: boolean;
@@ -154,16 +167,19 @@ export interface AssociatePhoneNumbersWithVoiceConnectorRequest {
  */
 export interface PhoneNumberError {
   /**
+   * @public
    * <p>The phone number ID for which the action failed.</p>
    */
   PhoneNumberId?: string;
 
   /**
+   * @public
    * <p>The error code.</p>
    */
   ErrorCode?: ErrorCode | string;
 
   /**
+   * @public
    * <p>The error message.</p>
    */
   ErrorMessage?: string;
@@ -174,6 +190,7 @@ export interface PhoneNumberError {
  */
 export interface AssociatePhoneNumbersWithVoiceConnectorResponse {
   /**
+   * @public
    * <p>If the action fails for one or more of the phone numbers in the request, a list of the phone numbers is returned, along with error codes and
    *          error messages.</p>
    */
@@ -353,16 +370,19 @@ export class UnauthorizedClientException extends __BaseException {
  */
 export interface AssociatePhoneNumbersWithVoiceConnectorGroupRequest {
   /**
+   * @public
    * <p>The Amazon Chime SDK Voice Connector group ID.</p>
    */
   VoiceConnectorGroupId: string | undefined;
 
   /**
+   * @public
    * <p>List of phone numbers, in E.164 format.</p>
    */
   E164PhoneNumbers: string[] | undefined;
 
   /**
+   * @public
    * <p>If true, associates the provided phone numbers with the provided Amazon Chime SDK Voice Connector Group and removes any previously existing associations.
    *          If false, does not associate any phone numbers that have previously existing associations.</p>
    */
@@ -374,6 +394,7 @@ export interface AssociatePhoneNumbersWithVoiceConnectorGroupRequest {
  */
 export interface AssociatePhoneNumbersWithVoiceConnectorGroupResponse {
   /**
+   * @public
    * <p>If the action fails for one or more of the phone numbers in the request, a list of the phone numbers is returned, along with error codes and error messages.</p>
    */
   PhoneNumberErrors?: PhoneNumberError[];
@@ -384,6 +405,7 @@ export interface AssociatePhoneNumbersWithVoiceConnectorGroupResponse {
  */
 export interface BatchDeletePhoneNumberRequest {
   /**
+   * @public
    * <p>List of phone number IDs.</p>
    */
   PhoneNumberIds: string[] | undefined;
@@ -394,6 +416,7 @@ export interface BatchDeletePhoneNumberRequest {
  */
 export interface BatchDeletePhoneNumberResponse {
   /**
+   * @public
    * <p>If the action fails for one or more of the phone numbers in the request, a list of the phone numbers is returned, along with error codes and error messages.</p>
    */
   PhoneNumberErrors?: PhoneNumberError[];
@@ -420,16 +443,19 @@ export type PhoneNumberProductType = (typeof PhoneNumberProductType)[keyof typeo
  */
 export interface UpdatePhoneNumberRequestItem {
   /**
+   * @public
    * <p>The phone number ID to update.</p>
    */
   PhoneNumberId: string | undefined;
 
   /**
+   * @public
    * <p>The product type to update.</p>
    */
   ProductType?: PhoneNumberProductType | string;
 
   /**
+   * @public
    * <p>The outbound calling name to update.</p>
    */
   CallingName?: string;
@@ -440,6 +466,7 @@ export interface UpdatePhoneNumberRequestItem {
  */
 export interface BatchUpdatePhoneNumberRequest {
   /**
+   * @public
    * <p>Lists the phone numbers in the update request.</p>
    */
   UpdatePhoneNumberRequestItems: UpdatePhoneNumberRequestItem[] | undefined;
@@ -450,6 +477,7 @@ export interface BatchUpdatePhoneNumberRequest {
  */
 export interface BatchUpdatePhoneNumberResponse {
   /**
+   * @public
    * <p>A list of failed phone numbers and their error messages.</p>
    */
   PhoneNumberErrors?: PhoneNumberError[];
@@ -461,16 +489,19 @@ export interface BatchUpdatePhoneNumberResponse {
  */
 export interface CallDetails {
   /**
+   * @public
    * <p>The Voice Connector ID.</p>
    */
   VoiceConnectorId?: string;
 
   /**
+   * @public
    * <p>The transaction ID of a Voice Connector call.</p>
    */
   TransactionId?: string;
 
   /**
+   * @public
    * <p>Identifies a person as the caller or the callee.</p>
    */
   IsCaller?: boolean;
@@ -512,36 +543,43 @@ export type CallLegType = (typeof CallLegType)[keyof typeof CallLegType];
  */
 export interface CandidateAddress {
   /**
+   * @public
    * <p>The street information of the candidate address.</p>
    */
   streetInfo?: string;
 
   /**
+   * @public
    * <p>The numeric portion of the candidate address.</p>
    */
   streetNumber?: string;
 
   /**
+   * @public
    * <p>The city of the candidate address.</p>
    */
   city?: string;
 
   /**
+   * @public
    * <p>The state of the candidate address.</p>
    */
   state?: string;
 
   /**
+   * @public
    * <p>The postal code of the candidate address.</p>
    */
   postalCode?: string;
 
   /**
+   * @public
    * <p>The zip + 4 or postal code +4 of the candidate address.</p>
    */
   postalCodePlus4?: string;
 
   /**
+   * @public
    * <p>The country of the candidate address.</p>
    */
   country?: string;
@@ -566,11 +604,13 @@ export type Capability = (typeof Capability)[keyof typeof Capability];
  */
 export interface CreatePhoneNumberOrderRequest {
   /**
+   * @public
    * <p>The phone number product type.</p>
    */
   ProductType: PhoneNumberProductType | string | undefined;
 
   /**
+   * @public
    * <p>List of phone numbers, in E.164 format.</p>
    */
   E164PhoneNumbers: string[] | undefined;
@@ -597,11 +637,13 @@ export type OrderedPhoneNumberStatus = (typeof OrderedPhoneNumberStatus)[keyof t
  */
 export interface OrderedPhoneNumber {
   /**
+   * @public
    * <p>The phone number, in E.164 format.</p>
    */
   E164PhoneNumber?: string;
 
   /**
+   * @public
    * <p>The phone number status.</p>
    */
   Status?: OrderedPhoneNumberStatus | string;
@@ -650,37 +692,44 @@ export type PhoneNumberOrderStatus = (typeof PhoneNumberOrderStatus)[keyof typeo
  */
 export interface PhoneNumberOrder {
   /**
+   * @public
    * <p>The ID of the phone order.</p>
    */
   PhoneNumberOrderId?: string;
 
   /**
+   * @public
    * <p>The phone number order product type.</p>
    */
   ProductType?: PhoneNumberProductType | string;
 
   /**
+   * @public
    * <p>The status of the phone number order.</p>
    */
   Status?: PhoneNumberOrderStatus | string;
 
   /**
+   * @public
    * <p>The type of phone number being ordered, local or toll-free.</p>
    */
   OrderType?: PhoneNumberOrderType | string;
 
   /**
+   * @public
    * <p>The ordered phone number details, such as the phone number in E.164 format
    *          and the phone number status.</p>
    */
   OrderedPhoneNumbers?: OrderedPhoneNumber[];
 
   /**
+   * @public
    * <p>The phone number order creation time stamp, in ISO 8601 format.</p>
    */
   CreatedTimestamp?: Date;
 
   /**
+   * @public
    * <p>The updated phone number order time stamp, in ISO 8601 format.</p>
    */
   UpdatedTimestamp?: Date;
@@ -691,6 +740,7 @@ export interface PhoneNumberOrder {
  */
 export interface CreatePhoneNumberOrderResponse {
   /**
+   * @public
    * <p>The phone number order details.</p>
    */
   PhoneNumberOrder?: PhoneNumberOrder;
@@ -740,11 +790,13 @@ export type GeoMatchLevel = (typeof GeoMatchLevel)[keyof typeof GeoMatchLevel];
  */
 export interface GeoMatchParams {
   /**
+   * @public
    * <p>The country.</p>
    */
   Country: string | undefined;
 
   /**
+   * @public
    * <p>The area code.</p>
    */
   AreaCode: string | undefined;
@@ -769,42 +821,50 @@ export type NumberSelectionBehavior = (typeof NumberSelectionBehavior)[keyof typ
  */
 export interface CreateProxySessionRequest {
   /**
+   * @public
    * <p>The Voice Connector ID.</p>
    */
   VoiceConnectorId: string | undefined;
 
   /**
+   * @public
    * <p>The participant phone numbers.</p>
    */
   ParticipantPhoneNumbers: string[] | undefined;
 
   /**
+   * @public
    * <p>The name of the proxy session.</p>
    */
   Name?: string;
 
   /**
+   * @public
    * <p>The number of minutes allowed for the proxy session.</p>
    */
   ExpiryMinutes?: number;
 
   /**
+   * @public
    * <p>The proxy session's capabilities.</p>
    */
   Capabilities: (Capability | string)[] | undefined;
 
   /**
+   * @public
    * <p>The preference for proxy phone number reuse, or stickiness, between the same
    *             participants across sessions.</p>
    */
   NumberSelectionBehavior?: NumberSelectionBehavior | string;
 
   /**
+   * @public
    * <p>The preference for matching the country or area code of the proxy phone number with that of the first participant.</p>
    */
   GeoMatchLevel?: GeoMatchLevel | string;
 
   /**
+   * @public
    * <p>The country and area code for the proxy phone number.</p>
    */
   GeoMatchParams?: GeoMatchParams;
@@ -816,11 +876,13 @@ export interface CreateProxySessionRequest {
  */
 export interface Participant {
   /**
+   * @public
    * <p>The participant's phone number.</p>
    */
   PhoneNumber?: string;
 
   /**
+   * @public
    * <p>The participant's proxy phone number.</p>
    */
   ProxyPhoneNumber?: string;
@@ -847,66 +909,79 @@ export type ProxySessionStatus = (typeof ProxySessionStatus)[keyof typeof ProxyS
  */
 export interface ProxySession {
   /**
+   * @public
    * <p>The Voice Connector ID.</p>
    */
   VoiceConnectorId?: string;
 
   /**
+   * @public
    * <p>The proxy session ID.</p>
    */
   ProxySessionId?: string;
 
   /**
+   * @public
    * <p>The proxy session name.</p>
    */
   Name?: string;
 
   /**
+   * @public
    * <p>The proxy session status.</p>
    */
   Status?: ProxySessionStatus | string;
 
   /**
+   * @public
    * <p>The number of minutes allowed for the proxy session.</p>
    */
   ExpiryMinutes?: number;
 
   /**
+   * @public
    * <p>The proxy session capabilities.</p>
    */
   Capabilities?: (Capability | string)[];
 
   /**
+   * @public
    * <p>The created time stamp, in ISO 8601 format.</p>
    */
   CreatedTimestamp?: Date;
 
   /**
+   * @public
    * <p>The updated time stamp, in ISO 8601 format.</p>
    */
   UpdatedTimestamp?: Date;
 
   /**
+   * @public
    * <p>The ended time stamp, in ISO 8601 format.</p>
    */
   EndedTimestamp?: Date;
 
   /**
+   * @public
    * <p>The proxy session participants.</p>
    */
   Participants?: Participant[];
 
   /**
+   * @public
    * <p>The preference for proxy phone number reuse, or stickiness, between the same participants across sessions.</p>
    */
   NumberSelectionBehavior?: NumberSelectionBehavior | string;
 
   /**
+   * @public
    * <p>The preference for matching the country or area code of the proxy phone number with that of the first participant.</p>
    */
   GeoMatchLevel?: GeoMatchLevel | string;
 
   /**
+   * @public
    * <p>The country and area code for the proxy phone number.</p>
    */
   GeoMatchParams?: GeoMatchParams;
@@ -917,6 +992,7 @@ export interface ProxySession {
  */
 export interface CreateProxySessionResponse {
   /**
+   * @public
    * <p>The proxy session details.</p>
    */
   ProxySession?: ProxySession;
@@ -952,6 +1028,7 @@ export class ConflictException extends __BaseException {
  */
 export interface SipMediaApplicationEndpoint {
   /**
+   * @public
    * <p>Valid Amazon Resource Name (ARN) of the Lambda function, version, or alias.
    *          The function must be created in the same AWS Region as the SIP media application.</p>
    */
@@ -964,11 +1041,13 @@ export interface SipMediaApplicationEndpoint {
  */
 export interface Tag {
   /**
+   * @public
    * <p>The tag's key.</p>
    */
   Key: string | undefined;
 
   /**
+   * @public
    * <p>The tag's value.</p>
    */
   Value: string | undefined;
@@ -979,21 +1058,25 @@ export interface Tag {
  */
 export interface CreateSipMediaApplicationRequest {
   /**
+   * @public
    * <p>The AWS Region assigned to the SIP media application.</p>
    */
   AwsRegion: string | undefined;
 
   /**
+   * @public
    * <p>The SIP media application's name.</p>
    */
   Name: string | undefined;
 
   /**
+   * @public
    * <p>List of endpoints (Lambda ARNs) specified for the SIP media application.</p>
    */
   Endpoints: SipMediaApplicationEndpoint[] | undefined;
 
   /**
+   * @public
    * <p>The tags assigned to the SIP media application.</p>
    */
   Tags?: Tag[];
@@ -1006,37 +1089,44 @@ export interface CreateSipMediaApplicationRequest {
  */
 export interface SipMediaApplication {
   /**
+   * @public
    * <p>A SIP media application's ID.</p>
    */
   SipMediaApplicationId?: string;
 
   /**
+   * @public
    * <p>The AWS Region in which the SIP media application is created.</p>
    */
   AwsRegion?: string;
 
   /**
+   * @public
    * <p>The SIP media application's name.</p>
    */
   Name?: string;
 
   /**
+   * @public
    * <p>List of endpoints for a SIP media application. Currently, only one endpoint per
    *          SIP media application is permitted.</p>
    */
   Endpoints?: SipMediaApplicationEndpoint[];
 
   /**
+   * @public
    * <p>The SIP media application creation timestamp, in ISO 8601 format.</p>
    */
   CreatedTimestamp?: Date;
 
   /**
+   * @public
    * <p>The time at which the SIP media application was updated.</p>
    */
   UpdatedTimestamp?: Date;
 
   /**
+   * @public
    * <p>The ARN of the SIP media application.</p>
    */
   SipMediaApplicationArn?: string;
@@ -1047,6 +1137,7 @@ export interface SipMediaApplication {
  */
 export interface CreateSipMediaApplicationResponse {
   /**
+   * @public
    * <p>The SIP media application details.</p>
    */
   SipMediaApplication?: SipMediaApplication;
@@ -1057,27 +1148,32 @@ export interface CreateSipMediaApplicationResponse {
  */
 export interface CreateSipMediaApplicationCallRequest {
   /**
+   * @public
    * <p>The phone number that a user calls from. This is a phone number in your
    *          Amazon Chime SDK phone number inventory.</p>
    */
   FromPhoneNumber: string | undefined;
 
   /**
+   * @public
    * <p>The phone number that the service should call.</p>
    */
   ToPhoneNumber: string | undefined;
 
   /**
+   * @public
    * <p>The ID of the SIP media application.</p>
    */
   SipMediaApplicationId: string | undefined;
 
   /**
+   * @public
    * <p>The SIP headers added to an outbound call leg.</p>
    */
   SipHeaders?: Record<string, string>;
 
   /**
+   * @public
    * <p>Context passed to a CreateSipMediaApplication API call. For example, you could pass
    *             key-value pairs such as: <code>"FirstName": "John", "LastName": "Doe"</code>
    *          </p>
@@ -1091,6 +1187,7 @@ export interface CreateSipMediaApplicationCallRequest {
  */
 export interface SipMediaApplicationCall {
   /**
+   * @public
    * <p>The call's transaction ID.</p>
    */
   TransactionId?: string;
@@ -1101,6 +1198,7 @@ export interface SipMediaApplicationCall {
  */
 export interface CreateSipMediaApplicationCallResponse {
   /**
+   * @public
    * <p>The actual call.</p>
    */
   SipMediaApplicationCall?: SipMediaApplicationCall;
@@ -1113,16 +1211,19 @@ export interface CreateSipMediaApplicationCallResponse {
  */
 export interface SipRuleTargetApplication {
   /**
+   * @public
    * <p>The ID of a rule's target SIP media application.</p>
    */
   SipMediaApplicationId?: string;
 
   /**
+   * @public
    * <p>The priority setting of a rule's target SIP media application.</p>
    */
   Priority?: number;
 
   /**
+   * @public
    * <p>The AWS Region of a rule's target SIP media application.</p>
    */
   AwsRegion?: string;
@@ -1147,17 +1248,20 @@ export type SipRuleTriggerType = (typeof SipRuleTriggerType)[keyof typeof SipRul
  */
 export interface CreateSipRuleRequest {
   /**
+   * @public
    * <p>The name of the SIP rule.</p>
    */
   Name: string | undefined;
 
   /**
+   * @public
    * <p>The type of trigger assigned to the SIP rule in <code>TriggerValue</code>,
    *          currently <code>RequestUriHostname</code> or <code>ToPhoneNumber</code>.</p>
    */
   TriggerType: SipRuleTriggerType | string | undefined;
 
   /**
+   * @public
    * <p>If <code>TriggerType</code> is <code>RequestUriHostname</code>, the
    *          value can be the outbound host name of a Voice Connector. If
    *          <code>TriggerType</code> is <code>ToPhoneNumber</code>, the value can
@@ -1170,12 +1274,14 @@ export interface CreateSipRuleRequest {
   TriggerValue: string | undefined;
 
   /**
+   * @public
    * <p>Disables or enables a SIP rule. You must disable SIP rules
    *          before you can delete them.</p>
    */
   Disabled?: boolean;
 
   /**
+   * @public
    * <p>List of SIP media applications, with priority and AWS Region. Only one SIP
    *          application per AWS Region can be used.</p>
    */
@@ -1189,42 +1295,50 @@ export interface CreateSipRuleRequest {
  */
 export interface SipRule {
   /**
+   * @public
    * <p>A SIP rule's ID.</p>
    */
   SipRuleId?: string;
 
   /**
+   * @public
    * <p>A SIP rule's name.</p>
    */
   Name?: string;
 
   /**
+   * @public
    * <p>Indicates whether the SIP rule is enabled or disabled. You must disable a rule before you can delete it.</p>
    */
   Disabled?: boolean;
 
   /**
+   * @public
    * <p>The type of trigger set for a SIP rule, either a phone number or a URI request host name.</p>
    */
   TriggerType?: SipRuleTriggerType | string;
 
   /**
+   * @public
    * <p>The value set for a SIP rule's trigger type. Either a phone number or a URI hostname.</p>
    */
   TriggerValue?: string;
 
   /**
+   * @public
    * <p>The target SIP media application and other details, such as priority and AWS Region,
    *          to be specified in the SIP rule. Only one SIP rule per AWS Region can be provided.</p>
    */
   TargetApplications?: SipRuleTargetApplication[];
 
   /**
+   * @public
    * <p>The time at which the SIP rule was created, in ISO 8601 format.</p>
    */
   CreatedTimestamp?: Date;
 
   /**
+   * @public
    * <p>The time at which the SIP rule was updated, in ISO 8601 format.</p>
    */
   UpdatedTimestamp?: Date;
@@ -1235,6 +1349,7 @@ export interface SipRule {
  */
 export interface CreateSipRuleResponse {
   /**
+   * @public
    * <p>The SIP rule information, including the rule ID, triggers, and target applications.</p>
    */
   SipRule?: SipRule;
@@ -1267,22 +1382,26 @@ export type VoiceConnectorAwsRegion = (typeof VoiceConnectorAwsRegion)[keyof typ
  */
 export interface CreateVoiceConnectorRequest {
   /**
+   * @public
    * <p>The name of the Voice Connector.</p>
    */
   Name: string | undefined;
 
   /**
+   * @public
    * <p>The AWS Region in which the Amazon Chime SDK Voice Connector is created. Default value:
    *          <code>us-east-1</code> .</p>
    */
   AwsRegion?: VoiceConnectorAwsRegion | string;
 
   /**
+   * @public
    * <p>Enables or disables encryption for the Voice Connector.</p>
    */
   RequireEncryption: boolean | undefined;
 
   /**
+   * @public
    * <p>The tags assigned to the Voice Connector.</p>
    */
   Tags?: Tag[];
@@ -1295,42 +1414,50 @@ export interface CreateVoiceConnectorRequest {
  */
 export interface VoiceConnector {
   /**
+   * @public
    * <p>The Voice Connector's ID.</p>
    */
   VoiceConnectorId?: string;
 
   /**
+   * @public
    * <p>The AWS Region in which the Voice Connector is created.
    *          Default: us-east-1.</p>
    */
   AwsRegion?: VoiceConnectorAwsRegion | string;
 
   /**
+   * @public
    * <p>The Voice Connector's name.</p>
    */
   Name?: string;
 
   /**
+   * @public
    * <p>The outbound host name for the Voice Connector.</p>
    */
   OutboundHostName?: string;
 
   /**
+   * @public
    * <p>Enables or disables encryption for the Voice Connector.</p>
    */
   RequireEncryption?: boolean;
 
   /**
+   * @public
    * <p>The Voice Connector's creation timestamp, in ISO 8601 format.</p>
    */
   CreatedTimestamp?: Date;
 
   /**
+   * @public
    * <p>The Voice Connector's updated timestamp, in ISO 8601 format.</p>
    */
   UpdatedTimestamp?: Date;
 
   /**
+   * @public
    * <p>The ARN of the Voice Connector.</p>
    */
   VoiceConnectorArn?: string;
@@ -1341,6 +1468,7 @@ export interface VoiceConnector {
  */
 export interface CreateVoiceConnectorResponse {
   /**
+   * @public
    * <p>The details of the Voice Connector.</p>
    */
   VoiceConnector?: VoiceConnector;
@@ -1354,11 +1482,13 @@ export interface CreateVoiceConnectorResponse {
  */
 export interface VoiceConnectorItem {
   /**
+   * @public
    * <p>The Voice Connector ID.</p>
    */
   VoiceConnectorId: string | undefined;
 
   /**
+   * @public
    * <p>The priority setting of a Voice Connector item. Calls are routed to hosts
    *            in priority order, with 1 as the highest priority. When hosts have equal priority,
    *            the system distributes calls among them based on their relative weight.</p>
@@ -1371,11 +1501,13 @@ export interface VoiceConnectorItem {
  */
 export interface CreateVoiceConnectorGroupRequest {
   /**
+   * @public
    * <p>The name of the Voice Connector group.</p>
    */
   Name: string | undefined;
 
   /**
+   * @public
    * <p>Lists the Voice Connectors that inbound calls are routed to.</p>
    */
   VoiceConnectorItems?: VoiceConnectorItem[];
@@ -1390,31 +1522,37 @@ export interface CreateVoiceConnectorGroupRequest {
  */
 export interface VoiceConnectorGroup {
   /**
+   * @public
    * <p>The ID of a Voice Connector group.</p>
    */
   VoiceConnectorGroupId?: string;
 
   /**
+   * @public
    * <p>The name of a Voice Connector group.</p>
    */
   Name?: string;
 
   /**
+   * @public
    * <p>The Voice Connectors to which you route inbound calls.</p>
    */
   VoiceConnectorItems?: VoiceConnectorItem[];
 
   /**
+   * @public
    * <p>The Voice Connector group's creation time stamp, in ISO 8601 format.</p>
    */
   CreatedTimestamp?: Date;
 
   /**
+   * @public
    * <p>The Voice Connector group's creation time stamp, in ISO 8601 format.</p>
    */
   UpdatedTimestamp?: Date;
 
   /**
+   * @public
    * <p>The ARN of the Voice Connector group.</p>
    */
   VoiceConnectorGroupArn?: string;
@@ -1425,6 +1563,7 @@ export interface VoiceConnectorGroup {
  */
 export interface CreateVoiceConnectorGroupResponse {
   /**
+   * @public
    * <p>The details of the Voice Connector group.</p>
    */
   VoiceConnectorGroup?: VoiceConnectorGroup;
@@ -1435,6 +1574,7 @@ export interface CreateVoiceConnectorGroupResponse {
  */
 export interface CreateVoiceProfileRequest {
   /**
+   * @public
    * <p>The ID of the speaker search task.</p>
    */
   SpeakerSearchTaskId: string | undefined;
@@ -1446,31 +1586,37 @@ export interface CreateVoiceProfileRequest {
  */
 export interface VoiceProfile {
   /**
+   * @public
    * <p>The ID of the voice profile.</p>
    */
   VoiceProfileId?: string;
 
   /**
+   * @public
    * <p>The ARN of the voice profile.</p>
    */
   VoiceProfileArn?: string;
 
   /**
+   * @public
    * <p>The ID of the domain that contains the voice profile.</p>
    */
   VoiceProfileDomainId?: string;
 
   /**
+   * @public
    * <p>The time at which the voice profile was created and enrolled.</p>
    */
   CreatedTimestamp?: Date;
 
   /**
+   * @public
    * <p>The time at which the voice profile was last updated.</p>
    */
   UpdatedTimestamp?: Date;
 
   /**
+   * @public
    * <p>The time at which a voice profile expires unless you re-enroll the caller via the
    *          <code>UpdateVoiceProfile</code> API.</p>
    */
@@ -1482,6 +1628,7 @@ export interface VoiceProfile {
  */
 export interface CreateVoiceProfileResponse {
   /**
+   * @public
    * <p>The requested voice profile.</p>
    */
   VoiceProfile?: VoiceProfile;
@@ -1520,6 +1667,7 @@ export class GoneException extends __BaseException {
  */
 export interface ServerSideEncryptionConfiguration {
   /**
+   * @public
    * <p>The ARN of the KMS key used to encrypt the enrollment data in a voice profile domain.
    *          Asymmetric customer managed keys are not supported.</p>
    */
@@ -1531,26 +1679,31 @@ export interface ServerSideEncryptionConfiguration {
  */
 export interface CreateVoiceProfileDomainRequest {
   /**
+   * @public
    * <p>The name of the voice profile domain.</p>
    */
   Name: string | undefined;
 
   /**
+   * @public
    * <p>A description of the voice profile domain.</p>
    */
   Description?: string;
 
   /**
+   * @public
    * <p>The server-side encryption configuration for the request.</p>
    */
   ServerSideEncryptionConfiguration: ServerSideEncryptionConfiguration | undefined;
 
   /**
+   * @public
    * <p>The unique identifier for the client request. Use a different token for different domain creation requests.</p>
    */
   ClientRequestToken?: string;
 
   /**
+   * @public
    * <p>The tags assigned to the domain.</p>
    */
   Tags?: Tag[];
@@ -1562,36 +1715,43 @@ export interface CreateVoiceProfileDomainRequest {
  */
 export interface VoiceProfileDomain {
   /**
+   * @public
    * <p>The ID of the voice profile domain.</p>
    */
   VoiceProfileDomainId?: string;
 
   /**
+   * @public
    * <p>The voice profile domain's Amazon Resource Number (ARN).</p>
    */
   VoiceProfileDomainArn?: string;
 
   /**
+   * @public
    * <p>The name of the voice profile domain.</p>
    */
   Name?: string;
 
   /**
+   * @public
    * <p>The description of the voice profile domain.</p>
    */
   Description?: string;
 
   /**
+   * @public
    * <p>A structure that contains the configuration settings for server-side encryption.</p>
    */
   ServerSideEncryptionConfiguration?: ServerSideEncryptionConfiguration;
 
   /**
+   * @public
    * <p>The time at which the voice profile domain was created.</p>
    */
   CreatedTimestamp?: Date;
 
   /**
+   * @public
    * <p>The time at which the voice profile was last updated.</p>
    */
   UpdatedTimestamp?: Date;
@@ -1602,6 +1762,7 @@ export interface VoiceProfileDomain {
  */
 export interface CreateVoiceProfileDomainResponse {
   /**
+   * @public
    * <p>The requested voice profile domain.</p>
    */
   VoiceProfileDomain?: VoiceProfileDomain;
@@ -1612,6 +1773,7 @@ export interface CreateVoiceProfileDomainResponse {
  */
 export interface DeletePhoneNumberRequest {
   /**
+   * @public
    * <p>The phone number ID.</p>
    */
   PhoneNumberId: string | undefined;
@@ -1622,11 +1784,13 @@ export interface DeletePhoneNumberRequest {
  */
 export interface DeleteProxySessionRequest {
   /**
+   * @public
    * <p>The Voice Connector ID.</p>
    */
   VoiceConnectorId: string | undefined;
 
   /**
+   * @public
    * <p>The proxy session ID.</p>
    */
   ProxySessionId: string | undefined;
@@ -1637,6 +1801,7 @@ export interface DeleteProxySessionRequest {
  */
 export interface DeleteSipMediaApplicationRequest {
   /**
+   * @public
    * <p>The SIP media application ID.</p>
    */
   SipMediaApplicationId: string | undefined;
@@ -1647,6 +1812,7 @@ export interface DeleteSipMediaApplicationRequest {
  */
 export interface DeleteSipRuleRequest {
   /**
+   * @public
    * <p>The SIP rule ID.</p>
    */
   SipRuleId: string | undefined;
@@ -1657,6 +1823,7 @@ export interface DeleteSipRuleRequest {
  */
 export interface DeleteVoiceConnectorRequest {
   /**
+   * @public
    * <p>The Voice Connector ID.</p>
    */
   VoiceConnectorId: string | undefined;
@@ -1667,6 +1834,7 @@ export interface DeleteVoiceConnectorRequest {
  */
 export interface DeleteVoiceConnectorEmergencyCallingConfigurationRequest {
   /**
+   * @public
    * <p>The Voice Connector ID.</p>
    */
   VoiceConnectorId: string | undefined;
@@ -1677,6 +1845,7 @@ export interface DeleteVoiceConnectorEmergencyCallingConfigurationRequest {
  */
 export interface DeleteVoiceConnectorGroupRequest {
   /**
+   * @public
    * <p>The Voice Connector Group ID.</p>
    */
   VoiceConnectorGroupId: string | undefined;
@@ -1687,6 +1856,7 @@ export interface DeleteVoiceConnectorGroupRequest {
  */
 export interface DeleteVoiceConnectorOriginationRequest {
   /**
+   * @public
    * <p>The Voice Connector ID.</p>
    */
   VoiceConnectorId: string | undefined;
@@ -1697,6 +1867,7 @@ export interface DeleteVoiceConnectorOriginationRequest {
  */
 export interface DeleteVoiceConnectorProxyRequest {
   /**
+   * @public
    * <p>The Voice Connector ID.</p>
    */
   VoiceConnectorId: string | undefined;
@@ -1707,6 +1878,7 @@ export interface DeleteVoiceConnectorProxyRequest {
  */
 export interface DeleteVoiceConnectorStreamingConfigurationRequest {
   /**
+   * @public
    * <p>The Voice Connector ID.</p>
    */
   VoiceConnectorId: string | undefined;
@@ -1717,6 +1889,7 @@ export interface DeleteVoiceConnectorStreamingConfigurationRequest {
  */
 export interface DeleteVoiceConnectorTerminationRequest {
   /**
+   * @public
    * <p>The Voice Connector ID.</p>
    */
   VoiceConnectorId: string | undefined;
@@ -1727,11 +1900,13 @@ export interface DeleteVoiceConnectorTerminationRequest {
  */
 export interface DeleteVoiceConnectorTerminationCredentialsRequest {
   /**
+   * @public
    * <p>The Voice Connector ID.</p>
    */
   VoiceConnectorId: string | undefined;
 
   /**
+   * @public
    * <p>The RFC2617 compliant username associated with the SIP credentials,
    *          in US-ASCII format.</p>
    */
@@ -1743,6 +1918,7 @@ export interface DeleteVoiceConnectorTerminationCredentialsRequest {
  */
 export interface DeleteVoiceProfileRequest {
   /**
+   * @public
    * <p>The voice profile ID.</p>
    */
   VoiceProfileId: string | undefined;
@@ -1753,6 +1929,7 @@ export interface DeleteVoiceProfileRequest {
  */
 export interface DeleteVoiceProfileDomainRequest {
   /**
+   * @public
    * <p>The voice profile domain ID.</p>
    */
   VoiceProfileDomainId: string | undefined;
@@ -1763,11 +1940,13 @@ export interface DeleteVoiceProfileDomainRequest {
  */
 export interface DisassociatePhoneNumbersFromVoiceConnectorRequest {
   /**
+   * @public
    * <p>The Voice Connector ID.</p>
    */
   VoiceConnectorId: string | undefined;
 
   /**
+   * @public
    * <p>List of phone numbers, in E.164 format.</p>
    */
   E164PhoneNumbers: string[] | undefined;
@@ -1778,6 +1957,7 @@ export interface DisassociatePhoneNumbersFromVoiceConnectorRequest {
  */
 export interface DisassociatePhoneNumbersFromVoiceConnectorResponse {
   /**
+   * @public
    * <p>If the action fails for one or more of the phone numbers in the request, a
    *          list of the phone numbers is returned, along with error codes and error messages.</p>
    */
@@ -1789,11 +1969,13 @@ export interface DisassociatePhoneNumbersFromVoiceConnectorResponse {
  */
 export interface DisassociatePhoneNumbersFromVoiceConnectorGroupRequest {
   /**
+   * @public
    * <p>The Voice Connector group ID.</p>
    */
   VoiceConnectorGroupId: string | undefined;
 
   /**
+   * @public
    * <p>The list of phone numbers, in E.164 format.</p>
    */
   E164PhoneNumbers: string[] | undefined;
@@ -1804,6 +1986,7 @@ export interface DisassociatePhoneNumbersFromVoiceConnectorGroupRequest {
  */
 export interface DisassociatePhoneNumbersFromVoiceConnectorGroupResponse {
   /**
+   * @public
    * <p>If the action fails for one or more of the phone numbers in the request,
    *          a list of the phone numbers is returned, along with error codes and error messages.</p>
    */
@@ -1817,6 +2000,7 @@ export interface DisassociatePhoneNumbersFromVoiceConnectorGroupResponse {
  */
 export interface VoiceConnectorSettings {
   /**
+   * @public
    * <p>The S3 bucket that stores the Voice Connector's call detail records.</p>
    */
   CdrBucket?: string;
@@ -1827,6 +2011,7 @@ export interface VoiceConnectorSettings {
  */
 export interface GetGlobalSettingsResponse {
   /**
+   * @public
    * <p>The Voice Connector settings.</p>
    */
   VoiceConnector?: VoiceConnectorSettings;
@@ -1837,6 +2022,7 @@ export interface GetGlobalSettingsResponse {
  */
 export interface GetPhoneNumberRequest {
   /**
+   * @public
    * <p>The phone number ID.</p>
    */
   PhoneNumberId: string | undefined;
@@ -1864,16 +2050,19 @@ export type PhoneNumberAssociationName = (typeof PhoneNumberAssociationName)[key
  */
 export interface PhoneNumberAssociation {
   /**
+   * @public
    * <p>Contains the ID for the entity specified in Name.</p>
    */
   Value?: string;
 
   /**
+   * @public
    * <p>Defines the association with an Amazon Chime SDK account ID, user ID, Voice Connector ID, or Voice Connector group ID.</p>
    */
   Name?: PhoneNumberAssociationName | string;
 
   /**
+   * @public
    * <p>The timestamp of the phone number association, in ISO 8601 format.</p>
    */
   AssociatedTimestamp?: Date;
@@ -1886,31 +2075,37 @@ export interface PhoneNumberAssociation {
  */
 export interface PhoneNumberCapabilities {
   /**
+   * @public
    * <p>Allows or denies inbound calling for the specified phone number.</p>
    */
   InboundCall?: boolean;
 
   /**
+   * @public
    * <p>Allows or denies outbound calling for the specified phone number.</p>
    */
   OutboundCall?: boolean;
 
   /**
+   * @public
    * <p>Allows or denies inbound SMS messaging for the specified phone number.</p>
    */
   InboundSMS?: boolean;
 
   /**
+   * @public
    * <p>Allows or denies outbound SMS messaging for the specified phone number.</p>
    */
   OutboundSMS?: boolean;
 
   /**
+   * @public
    * <p>Allows or denies inbound MMS messaging for the specified phone number.</p>
    */
   InboundMMS?: boolean;
 
   /**
+   * @public
    * <p>Allows or denies inbound MMS messaging for the specified phone number.</p>
    */
   OutboundMMS?: boolean;
@@ -1960,71 +2155,85 @@ export type PhoneNumberType = (typeof PhoneNumberType)[keyof typeof PhoneNumberT
  */
 export interface PhoneNumber {
   /**
+   * @public
    * <p>The phone number's ID.</p>
    */
   PhoneNumberId?: string;
 
   /**
+   * @public
    * <p>The phone number, in E.164 format.</p>
    */
   E164PhoneNumber?: string;
 
   /**
+   * @public
    * <p>The phone number's country. Format: ISO 3166-1 alpha-2.</p>
    */
   Country?: string;
 
   /**
+   * @public
    * <p>The phone number's type.</p>
    */
   Type?: PhoneNumberType | string;
 
   /**
+   * @public
    * <p>The phone number's product type.</p>
    */
   ProductType?: PhoneNumberProductType | string;
 
   /**
+   * @public
    * <p>The phone number's status.</p>
    */
   Status?: PhoneNumberStatus | string;
 
   /**
+   * @public
    * <p>The phone number's capabilities.</p>
    */
   Capabilities?: PhoneNumberCapabilities;
 
   /**
+   * @public
    * <p>The phone number's associations.</p>
    */
   Associations?: PhoneNumberAssociation[];
 
   /**
+   * @public
    * <p>The outbound calling name associated with the phone number.</p>
    */
   CallingName?: string;
 
   /**
+   * @public
    * <p>The outbound calling name status.</p>
    */
   CallingNameStatus?: CallingNameStatus | string;
 
   /**
+   * @public
    * <p>The phone number creation timestamp, in ISO 8601 format.</p>
    */
   CreatedTimestamp?: Date;
 
   /**
+   * @public
    * <p>The updated phone number timestamp, in ISO 8601 format.</p>
    */
   UpdatedTimestamp?: Date;
 
   /**
+   * @public
    * <p>The deleted phone number timestamp, in ISO 8601 format.</p>
    */
   DeletionTimestamp?: Date;
 
   /**
+   * @public
    * <p>The phone number's order ID.</p>
    */
   OrderId?: string;
@@ -2035,6 +2244,7 @@ export interface PhoneNumber {
  */
 export interface GetPhoneNumberResponse {
   /**
+   * @public
    * <p>The phone number details.</p>
    */
   PhoneNumber?: PhoneNumber;
@@ -2045,6 +2255,7 @@ export interface GetPhoneNumberResponse {
  */
 export interface GetPhoneNumberOrderRequest {
   /**
+   * @public
    * <p>The ID of the phone number order .</p>
    */
   PhoneNumberOrderId: string | undefined;
@@ -2055,6 +2266,7 @@ export interface GetPhoneNumberOrderRequest {
  */
 export interface GetPhoneNumberOrderResponse {
   /**
+   * @public
    * <p>The phone number order details.</p>
    */
   PhoneNumberOrder?: PhoneNumberOrder;
@@ -2065,11 +2277,13 @@ export interface GetPhoneNumberOrderResponse {
  */
 export interface GetPhoneNumberSettingsResponse {
   /**
+   * @public
    * <p>The default outbound calling name for the account.</p>
    */
   CallingName?: string;
 
   /**
+   * @public
    * <p>The updated outbound calling name timestamp, in ISO 8601 format.</p>
    */
   CallingNameUpdatedTimestamp?: Date;
@@ -2080,11 +2294,13 @@ export interface GetPhoneNumberSettingsResponse {
  */
 export interface GetProxySessionRequest {
   /**
+   * @public
    * <p>The Voice Connector ID.</p>
    */
   VoiceConnectorId: string | undefined;
 
   /**
+   * @public
    * <p>The proxy session ID.</p>
    */
   ProxySessionId: string | undefined;
@@ -2095,6 +2311,7 @@ export interface GetProxySessionRequest {
  */
 export interface GetProxySessionResponse {
   /**
+   * @public
    * <p>The proxy session details.</p>
    */
   ProxySession?: ProxySession;
@@ -2105,6 +2322,7 @@ export interface GetProxySessionResponse {
  */
 export interface GetSipMediaApplicationRequest {
   /**
+   * @public
    * <p>The SIP media application ID .</p>
    */
   SipMediaApplicationId: string | undefined;
@@ -2115,6 +2333,7 @@ export interface GetSipMediaApplicationRequest {
  */
 export interface GetSipMediaApplicationResponse {
   /**
+   * @public
    * <p>The details of the SIP media application.</p>
    */
   SipMediaApplication?: SipMediaApplication;
@@ -2125,6 +2344,7 @@ export interface GetSipMediaApplicationResponse {
  */
 export interface GetSipMediaApplicationAlexaSkillConfigurationRequest {
   /**
+   * @public
    * <p>The SIP media application ID.</p>
    */
   SipMediaApplicationId: string | undefined;
@@ -2136,11 +2356,13 @@ export interface GetSipMediaApplicationAlexaSkillConfigurationRequest {
  */
 export interface SipMediaApplicationAlexaSkillConfiguration {
   /**
+   * @public
    * <p>The status of the Alexa Skill configuration.</p>
    */
   AlexaSkillStatus: AlexaSkillStatus | string | undefined;
 
   /**
+   * @public
    * <p>The ID of the Alexa Skill configuration.</p>
    */
   AlexaSkillIds: string[] | undefined;
@@ -2151,6 +2373,7 @@ export interface SipMediaApplicationAlexaSkillConfiguration {
  */
 export interface GetSipMediaApplicationAlexaSkillConfigurationResponse {
   /**
+   * @public
    * <p>Returns the Alexa Skill configuration.</p>
    */
   SipMediaApplicationAlexaSkillConfiguration?: SipMediaApplicationAlexaSkillConfiguration;
@@ -2161,6 +2384,7 @@ export interface GetSipMediaApplicationAlexaSkillConfigurationResponse {
  */
 export interface GetSipMediaApplicationLoggingConfigurationRequest {
   /**
+   * @public
    * <p>The SIP media application ID.</p>
    */
   SipMediaApplicationId: string | undefined;
@@ -2172,6 +2396,7 @@ export interface GetSipMediaApplicationLoggingConfigurationRequest {
  */
 export interface SipMediaApplicationLoggingConfiguration {
   /**
+   * @public
    * <p>Enables message logging for the specified SIP media application.</p>
    */
   EnableSipMediaApplicationMessageLogs?: boolean;
@@ -2182,6 +2407,7 @@ export interface SipMediaApplicationLoggingConfiguration {
  */
 export interface GetSipMediaApplicationLoggingConfigurationResponse {
   /**
+   * @public
    * <p>The actual logging configuration.</p>
    */
   SipMediaApplicationLoggingConfiguration?: SipMediaApplicationLoggingConfiguration;
@@ -2192,6 +2418,7 @@ export interface GetSipMediaApplicationLoggingConfigurationResponse {
  */
 export interface GetSipRuleRequest {
   /**
+   * @public
    * <p>The SIP rule ID.</p>
    */
   SipRuleId: string | undefined;
@@ -2202,6 +2429,7 @@ export interface GetSipRuleRequest {
  */
 export interface GetSipRuleResponse {
   /**
+   * @public
    * <p>The SIP rule details.</p>
    */
   SipRule?: SipRule;
@@ -2212,11 +2440,13 @@ export interface GetSipRuleResponse {
  */
 export interface GetSpeakerSearchTaskRequest {
   /**
+   * @public
    * <p>The Voice Connector ID.</p>
    */
   VoiceConnectorId: string | undefined;
 
   /**
+   * @public
    * <p>The ID of the speaker search task.</p>
    */
   SpeakerSearchTaskId: string | undefined;
@@ -2228,11 +2458,13 @@ export interface GetSpeakerSearchTaskRequest {
  */
 export interface SpeakerSearchResult {
   /**
+   * @public
    * <p>The confidence score in the speaker search analysis.</p>
    */
   ConfidenceScore?: number;
 
   /**
+   * @public
    * <p>The voice profile ID.</p>
    */
   VoiceProfileId?: string;
@@ -2244,11 +2476,13 @@ export interface SpeakerSearchResult {
  */
 export interface SpeakerSearchDetails {
   /**
+   * @public
    * <p>The result value in the speaker search details.</p>
    */
   Results?: SpeakerSearchResult[];
 
   /**
+   * @public
    * <p>The status of a voice print generation operation, <code>VoiceprintGenerationSuccess</code> or <code>VoiceprintGenerationFailure</code>..</p>
    */
   VoiceprintGenerationStatus?: string;
@@ -2261,42 +2495,50 @@ export interface SpeakerSearchDetails {
  */
 export interface SpeakerSearchTask {
   /**
+   * @public
    * <p>The speaker search task ID.</p>
    */
   SpeakerSearchTaskId?: string;
 
   /**
+   * @public
    * <p>The status of the speaker search task, <code>IN_QUEUE</code>, <code>IN_PROGRESS</code>, <code>PARTIAL_SUCCESS</code>, <code>SUCCEEDED</code>,
    *          <code>FAILED</code>, or <code>STOPPED</code>.</p>
    */
   SpeakerSearchTaskStatus?: string;
 
   /**
+   * @public
    * <p>The call details of a speaker search task.</p>
    */
   CallDetails?: CallDetails;
 
   /**
+   * @public
    * <p>The details of a speaker search task.</p>
    */
   SpeakerSearchDetails?: SpeakerSearchDetails;
 
   /**
+   * @public
    * <p>The time at which a speaker search task was created.</p>
    */
   CreatedTimestamp?: Date;
 
   /**
+   * @public
    * <p>The time at which a speaker search task was updated.</p>
    */
   UpdatedTimestamp?: Date;
 
   /**
+   * @public
    * <p>The time at which the speaker search task began.</p>
    */
   StartedTimestamp?: Date;
 
   /**
+   * @public
    * <p>A detailed message about the status of a speaker search.</p>
    */
   StatusMessage?: string;
@@ -2307,6 +2549,7 @@ export interface SpeakerSearchTask {
  */
 export interface GetSpeakerSearchTaskResponse {
   /**
+   * @public
    * <p>The details of the speaker search task.</p>
    */
   SpeakerSearchTask?: SpeakerSearchTask;
@@ -2317,6 +2560,7 @@ export interface GetSpeakerSearchTaskResponse {
  */
 export interface GetVoiceConnectorRequest {
   /**
+   * @public
    * <p>The Voice Connector ID.</p>
    */
   VoiceConnectorId: string | undefined;
@@ -2327,6 +2571,7 @@ export interface GetVoiceConnectorRequest {
  */
 export interface GetVoiceConnectorResponse {
   /**
+   * @public
    * <p>The Voice Connector details.</p>
    */
   VoiceConnector?: VoiceConnector;
@@ -2337,6 +2582,7 @@ export interface GetVoiceConnectorResponse {
  */
 export interface GetVoiceConnectorEmergencyCallingConfigurationRequest {
   /**
+   * @public
    * <p>The Voice Connector ID.</p>
    */
   VoiceConnectorId: string | undefined;
@@ -2350,16 +2596,19 @@ export interface GetVoiceConnectorEmergencyCallingConfigurationRequest {
  */
 export interface DNISEmergencyCallingConfiguration {
   /**
+   * @public
    * <p>The DNIS phone number that you route emergency calls to, in E.164 format.</p>
    */
   EmergencyPhoneNumber: string | undefined;
 
   /**
+   * @public
    * <p>The DNIS phone number for routing test emergency calls to, in E.164 format.</p>
    */
   TestPhoneNumber?: string;
 
   /**
+   * @public
    * <p>The country from which emergency calls are allowed, in ISO 3166-1 alpha-2 format.</p>
    */
   CallingCountry: string | undefined;
@@ -2372,6 +2621,7 @@ export interface DNISEmergencyCallingConfiguration {
  */
 export interface EmergencyCallingConfiguration {
   /**
+   * @public
    * <p>The Dialed Number Identification Service (DNIS) emergency calling configuration
    *          details.</p>
    */
@@ -2383,6 +2633,7 @@ export interface EmergencyCallingConfiguration {
  */
 export interface GetVoiceConnectorEmergencyCallingConfigurationResponse {
   /**
+   * @public
    * <p>The details of the emergency calling configuration.</p>
    */
   EmergencyCallingConfiguration?: EmergencyCallingConfiguration;
@@ -2393,6 +2644,7 @@ export interface GetVoiceConnectorEmergencyCallingConfigurationResponse {
  */
 export interface GetVoiceConnectorGroupRequest {
   /**
+   * @public
    * <p>The Voice Connector group ID.</p>
    */
   VoiceConnectorGroupId: string | undefined;
@@ -2403,6 +2655,7 @@ export interface GetVoiceConnectorGroupRequest {
  */
 export interface GetVoiceConnectorGroupResponse {
   /**
+   * @public
    * <p>The details of the Voice Connector group.</p>
    */
   VoiceConnectorGroup?: VoiceConnectorGroup;
@@ -2413,6 +2666,7 @@ export interface GetVoiceConnectorGroupResponse {
  */
 export interface GetVoiceConnectorLoggingConfigurationRequest {
   /**
+   * @public
    * <p>The Voice Connector ID.</p>
    */
   VoiceConnectorId: string | undefined;
@@ -2425,11 +2679,13 @@ export interface GetVoiceConnectorLoggingConfigurationRequest {
  */
 export interface LoggingConfiguration {
   /**
+   * @public
    * <p>Boolean that enables sending SIP message logs to Amazon CloudWatch.</p>
    */
   EnableSIPLogs?: boolean;
 
   /**
+   * @public
    * <p>Enables or disables media metrics logging.</p>
    */
   EnableMediaMetricLogs?: boolean;
@@ -2440,6 +2696,7 @@ export interface LoggingConfiguration {
  */
 export interface GetVoiceConnectorLoggingConfigurationResponse {
   /**
+   * @public
    * <p>The logging configuration details .</p>
    */
   LoggingConfiguration?: LoggingConfiguration;
@@ -2450,6 +2707,7 @@ export interface GetVoiceConnectorLoggingConfigurationResponse {
  */
 export interface GetVoiceConnectorOriginationRequest {
   /**
+   * @public
    * <p>The Voice Connector ID.</p>
    */
   VoiceConnectorId: string | undefined;
@@ -2480,28 +2738,33 @@ export type OriginationRouteProtocol = (typeof OriginationRouteProtocol)[keyof t
  */
 export interface OriginationRoute {
   /**
+   * @public
    * <p>The FQDN or IP address to contact for origination traffic.</p>
    */
   Host?: string;
 
   /**
+   * @public
    * <p>The designated origination route port. Defaults to 5060.</p>
    */
   Port?: number;
 
   /**
+   * @public
    * <p>The protocol to use for the origination route. Encryption-enabled Amazon Chime SDK Voice Connectors use
    *          TCP protocol by default.</p>
    */
   Protocol?: OriginationRouteProtocol | string;
 
   /**
+   * @public
    * <p>The priority associated with the host, with 1 being the highest priority. Higher
    *          priority hosts are attempted first.</p>
    */
   Priority?: number;
 
   /**
+   * @public
    * <p>The weight assigned to an origination route. When hosts have equal priority,
    *          calls are distributed between them based on their relative weights.</p>
    */
@@ -2519,6 +2782,7 @@ export interface OriginationRoute {
  */
 export interface Origination {
   /**
+   * @public
    * <p>The call distribution properties defined for your SIP hosts. Valid range: Minimum
    *          value of 1. Maximum value of 20. This parameter is not required, but you must specify
    *          this parameter or <code>Disabled</code>.</p>
@@ -2526,6 +2790,7 @@ export interface Origination {
   Routes?: OriginationRoute[];
 
   /**
+   * @public
    * <p>When origination settings are disabled, inbound calls are not enabled for your
    *          Amazon Chime SDK Voice Connector.
    *          This parameter is not required, but you must specify this parameter or
@@ -2539,6 +2804,7 @@ export interface Origination {
  */
 export interface GetVoiceConnectorOriginationResponse {
   /**
+   * @public
    * <p>The origination setting details.</p>
    */
   Origination?: Origination;
@@ -2549,6 +2815,7 @@ export interface GetVoiceConnectorOriginationResponse {
  */
 export interface GetVoiceConnectorProxyRequest {
   /**
+   * @public
    * <p>The Voice Connector ID.</p>
    */
   VoiceConnectorId: string | undefined;
@@ -2560,21 +2827,25 @@ export interface GetVoiceConnectorProxyRequest {
  */
 export interface Proxy {
   /**
+   * @public
    * <p>The default number of minutes allowed for proxy sessions.</p>
    */
   DefaultSessionExpiryMinutes?: number;
 
   /**
+   * @public
    * <p>When true, stops proxy sessions from being created on the specified Amazon Chime SDK Voice Connector.</p>
    */
   Disabled?: boolean;
 
   /**
+   * @public
    * <p>The phone number to route calls to after a proxy session expires.</p>
    */
   FallBackPhoneNumber?: string;
 
   /**
+   * @public
    * <p>The countries for proxy phone numbers to be selected from.</p>
    */
   PhoneNumberCountries?: string[];
@@ -2585,6 +2856,7 @@ export interface Proxy {
  */
 export interface GetVoiceConnectorProxyResponse {
   /**
+   * @public
    * <p>The proxy configuration details.</p>
    */
   Proxy?: Proxy;
@@ -2595,6 +2867,7 @@ export interface GetVoiceConnectorProxyResponse {
  */
 export interface GetVoiceConnectorStreamingConfigurationRequest {
   /**
+   * @public
    * <p>The Voice Connector ID.</p>
    */
   VoiceConnectorId: string | undefined;
@@ -2606,11 +2879,13 @@ export interface GetVoiceConnectorStreamingConfigurationRequest {
  */
 export interface MediaInsightsConfiguration {
   /**
+   * @public
    * <p>Denotes the configration as enabled or disabled.</p>
    */
   Disabled?: boolean;
 
   /**
+   * @public
    * <p>The configuration's ARN.</p>
    */
   ConfigurationArn?: string;
@@ -2637,6 +2912,7 @@ export type NotificationTarget = (typeof NotificationTarget)[keyof typeof Notifi
  */
 export interface StreamingNotificationTarget {
   /**
+   * @public
    * <p>The streaming notification target.</p>
    */
   NotificationTarget?: NotificationTarget | string;
@@ -2650,21 +2926,25 @@ export interface StreamingNotificationTarget {
  */
 export interface StreamingConfiguration {
   /**
+   * @public
    * <p>The amount of time, in hours, to the Kinesis data.</p>
    */
   DataRetentionInHours: number | undefined;
 
   /**
+   * @public
    * <p>When true, streaming to Kinesis is off.</p>
    */
   Disabled: boolean | undefined;
 
   /**
+   * @public
    * <p>The streaming notification targets.</p>
    */
   StreamingNotificationTargets?: StreamingNotificationTarget[];
 
   /**
+   * @public
    * <p>The call analytics configuration.</p>
    */
   MediaInsightsConfiguration?: MediaInsightsConfiguration;
@@ -2675,6 +2955,7 @@ export interface StreamingConfiguration {
  */
 export interface GetVoiceConnectorStreamingConfigurationResponse {
   /**
+   * @public
    * <p>The details of the streaming configuration.</p>
    */
   StreamingConfiguration?: StreamingConfiguration;
@@ -2685,6 +2966,7 @@ export interface GetVoiceConnectorStreamingConfigurationResponse {
  */
 export interface GetVoiceConnectorTerminationRequest {
   /**
+   * @public
    * <p>The Voice Connector ID.</p>
    */
   VoiceConnectorId: string | undefined;
@@ -2696,26 +2978,31 @@ export interface GetVoiceConnectorTerminationRequest {
  */
 export interface Termination {
   /**
+   * @public
    * <p>The limit on calls per second. Max value based on account service quota. Default value of 1.</p>
    */
   CpsLimit?: number;
 
   /**
+   * @public
    * <p>The default outbound calling number.</p>
    */
   DefaultPhoneNumber?: string;
 
   /**
+   * @public
    * <p>The countries to which calls are allowed, in ISO 3166-1 alpha-2 format. Required.</p>
    */
   CallingRegions?: string[];
 
   /**
+   * @public
    * <p>The IP addresses allowed to make calls, in CIDR format.</p>
    */
   CidrAllowedList?: string[];
 
   /**
+   * @public
    * <p>When termination is disabled, outbound calls cannot be made.</p>
    */
   Disabled?: boolean;
@@ -2726,6 +3013,7 @@ export interface Termination {
  */
 export interface GetVoiceConnectorTerminationResponse {
   /**
+   * @public
    * <p>The termination setting details.</p>
    */
   Termination?: Termination;
@@ -2736,6 +3024,7 @@ export interface GetVoiceConnectorTerminationResponse {
  */
 export interface GetVoiceConnectorTerminationHealthRequest {
   /**
+   * @public
    * <p>The Voice Connector ID.</p>
    */
   VoiceConnectorId: string | undefined;
@@ -2747,11 +3036,13 @@ export interface GetVoiceConnectorTerminationHealthRequest {
  */
 export interface TerminationHealth {
   /**
+   * @public
    * <p>The timestamp, in ISO 8601 format.</p>
    */
   Timestamp?: Date;
 
   /**
+   * @public
    * <p>The source IP address.</p>
    */
   Source?: string;
@@ -2762,6 +3053,7 @@ export interface TerminationHealth {
  */
 export interface GetVoiceConnectorTerminationHealthResponse {
   /**
+   * @public
    * <p>The termination health details.</p>
    */
   TerminationHealth?: TerminationHealth;
@@ -2772,6 +3064,7 @@ export interface GetVoiceConnectorTerminationHealthResponse {
  */
 export interface GetVoiceProfileRequest {
   /**
+   * @public
    * <p>The voice profile ID.</p>
    */
   VoiceProfileId: string | undefined;
@@ -2782,6 +3075,7 @@ export interface GetVoiceProfileRequest {
  */
 export interface GetVoiceProfileResponse {
   /**
+   * @public
    * <p>The voice profile details.</p>
    */
   VoiceProfile?: VoiceProfile;
@@ -2792,6 +3086,7 @@ export interface GetVoiceProfileResponse {
  */
 export interface GetVoiceProfileDomainRequest {
   /**
+   * @public
    * <p>The voice profile domain ID.</p>
    */
   VoiceProfileDomainId: string | undefined;
@@ -2802,6 +3097,7 @@ export interface GetVoiceProfileDomainRequest {
  */
 export interface GetVoiceProfileDomainResponse {
   /**
+   * @public
    * <p>The details of the voice profile domain.</p>
    */
   VoiceProfileDomain?: VoiceProfileDomain;
@@ -2812,16 +3108,19 @@ export interface GetVoiceProfileDomainResponse {
  */
 export interface GetVoiceToneAnalysisTaskRequest {
   /**
+   * @public
    * <p>The Voice Connector ID.</p>
    */
   VoiceConnectorId: string | undefined;
 
   /**
+   * @public
    * <p>The ID of the voice tone anlysis task.</p>
    */
   VoiceToneAnalysisTaskId: string | undefined;
 
   /**
+   * @public
    * <p>Specifies whether the voice being analyzed is the caller (originator) or the callee (responder).</p>
    */
   IsCaller: boolean | undefined;
@@ -2833,37 +3132,44 @@ export interface GetVoiceToneAnalysisTaskRequest {
  */
 export interface VoiceToneAnalysisTask {
   /**
+   * @public
    * <p>The ID of the voice tone analysis task.</p>
    */
   VoiceToneAnalysisTaskId?: string;
 
   /**
+   * @public
    * <p>The status of a voice tone analysis task, <code>IN_QUEUE</code>, <code>IN_PROGRESS</code>, <code>PARTIAL_SUCCESS</code>, <code>SUCCEEDED</code>,
    *          <code>FAILED</code>, or <code>STOPPED</code>.</p>
    */
   VoiceToneAnalysisTaskStatus?: string;
 
   /**
+   * @public
    * <p>The call details of a voice tone analysis task.</p>
    */
   CallDetails?: CallDetails;
 
   /**
+   * @public
    * <p>The time at which a voice tone analysis task was created.</p>
    */
   CreatedTimestamp?: Date;
 
   /**
+   * @public
    * <p>The time at which a voice tone analysis task was updated.</p>
    */
   UpdatedTimestamp?: Date;
 
   /**
+   * @public
    * <p>The time at which a voice tone analysis task started.</p>
    */
   StartedTimestamp?: Date;
 
   /**
+   * @public
    * <p>The status of a voice tone analysis task.</p>
    */
   StatusMessage?: string;
@@ -2874,6 +3180,7 @@ export interface VoiceToneAnalysisTask {
  */
 export interface GetVoiceToneAnalysisTaskResponse {
   /**
+   * @public
    * <p>The details of the voice tone analysis task.</p>
    */
   VoiceToneAnalysisTask?: VoiceToneAnalysisTask;
@@ -2884,6 +3191,7 @@ export interface GetVoiceToneAnalysisTaskResponse {
  */
 export interface ListAvailableVoiceConnectorRegionsResponse {
   /**
+   * @public
    * <p>The list of AWS Regions.</p>
    */
   VoiceConnectorRegions?: (VoiceConnectorAwsRegion | string)[];
@@ -2894,11 +3202,13 @@ export interface ListAvailableVoiceConnectorRegionsResponse {
  */
 export interface ListPhoneNumberOrdersRequest {
   /**
+   * @public
    * <p>The token used to retrieve the next page of results.</p>
    */
   NextToken?: string;
 
   /**
+   * @public
    * <p>The maximum number of results to return in a single call.</p>
    */
   MaxResults?: number;
@@ -2909,11 +3219,13 @@ export interface ListPhoneNumberOrdersRequest {
  */
 export interface ListPhoneNumberOrdersResponse {
   /**
+   * @public
    * <p>The phone number order details.</p>
    */
   PhoneNumberOrders?: PhoneNumberOrder[];
 
   /**
+   * @public
    * <p>The token used to retrieve the next page of results.</p>
    */
   NextToken?: string;
@@ -2924,31 +3236,37 @@ export interface ListPhoneNumberOrdersResponse {
  */
 export interface ListPhoneNumbersRequest {
   /**
+   * @public
    * <p>The status of your organization's phone numbers.</p>
    */
   Status?: string;
 
   /**
+   * @public
    * <p>The phone number product types.</p>
    */
   ProductType?: PhoneNumberProductType | string;
 
   /**
+   * @public
    * <p>The filter to limit the number of results.</p>
    */
   FilterName?: PhoneNumberAssociationName | string;
 
   /**
+   * @public
    * <p>The filter value.</p>
    */
   FilterValue?: string;
 
   /**
+   * @public
    * <p>The maximum number of results to return in a single call.</p>
    */
   MaxResults?: number;
 
   /**
+   * @public
    * <p>The token used to return the next page of results.</p>
    */
   NextToken?: string;
@@ -2959,11 +3277,13 @@ export interface ListPhoneNumbersRequest {
  */
 export interface ListPhoneNumbersResponse {
   /**
+   * @public
    * <p>The phone number details.</p>
    */
   PhoneNumbers?: PhoneNumber[];
 
   /**
+   * @public
    * <p>The token used to return the next page of results.</p>
    */
   NextToken?: string;
@@ -2974,21 +3294,25 @@ export interface ListPhoneNumbersResponse {
  */
 export interface ListProxySessionsRequest {
   /**
+   * @public
    * <p>The Voice Connector ID.</p>
    */
   VoiceConnectorId: string | undefined;
 
   /**
+   * @public
    * <p>The proxy session status.</p>
    */
   Status?: ProxySessionStatus | string;
 
   /**
+   * @public
    * <p>The token used to retrieve the next page of results.</p>
    */
   NextToken?: string;
 
   /**
+   * @public
    * <p>The maximum number of results to return in a single call.</p>
    */
   MaxResults?: number;
@@ -2999,11 +3323,13 @@ export interface ListProxySessionsRequest {
  */
 export interface ListProxySessionsResponse {
   /**
+   * @public
    * <p>The proxy sessions' details.</p>
    */
   ProxySessions?: ProxySession[];
 
   /**
+   * @public
    * <p>The token used to retrieve the next page of results.</p>
    */
   NextToken?: string;
@@ -3014,11 +3340,13 @@ export interface ListProxySessionsResponse {
  */
 export interface ListSipMediaApplicationsRequest {
   /**
+   * @public
    * <p>The maximum number of results to return in a single call. Defaults to 100.</p>
    */
   MaxResults?: number;
 
   /**
+   * @public
    * <p>The token used to return the next page of results.</p>
    */
   NextToken?: string;
@@ -3029,11 +3357,13 @@ export interface ListSipMediaApplicationsRequest {
  */
 export interface ListSipMediaApplicationsResponse {
   /**
+   * @public
    * <p>The list of SIP media applications and application details.</p>
    */
   SipMediaApplications?: SipMediaApplication[];
 
   /**
+   * @public
    * <p>The token used to return the next page of results.</p>
    */
   NextToken?: string;
@@ -3044,16 +3374,19 @@ export interface ListSipMediaApplicationsResponse {
  */
 export interface ListSipRulesRequest {
   /**
+   * @public
    * <p>The SIP media application ID.</p>
    */
   SipMediaApplicationId?: string;
 
   /**
+   * @public
    * <p>The maximum number of results to return in a single call. Defaults to 100.</p>
    */
   MaxResults?: number;
 
   /**
+   * @public
    * <p>The token used to return the next page of results.</p>
    */
   NextToken?: string;
@@ -3064,11 +3397,13 @@ export interface ListSipRulesRequest {
  */
 export interface ListSipRulesResponse {
   /**
+   * @public
    * <p>The list of SIP rules and details.</p>
    */
   SipRules?: SipRule[];
 
   /**
+   * @public
    * <p>The token used to return the next page of results.</p>
    */
   NextToken?: string;
@@ -3079,6 +3414,7 @@ export interface ListSipRulesResponse {
  */
 export interface ListSupportedPhoneNumberCountriesRequest {
   /**
+   * @public
    * <p>The phone number product type.</p>
    */
   ProductType: PhoneNumberProductType | string | undefined;
@@ -3090,11 +3426,13 @@ export interface ListSupportedPhoneNumberCountriesRequest {
  */
 export interface PhoneNumberCountry {
   /**
+   * @public
    * <p>The phone number country code. Format: ISO 3166-1 alpha-2.</p>
    */
   CountryCode?: string;
 
   /**
+   * @public
    * <p>The supported phone number types.</p>
    */
   SupportedPhoneNumberTypes?: (PhoneNumberType | string)[];
@@ -3105,6 +3443,7 @@ export interface PhoneNumberCountry {
  */
 export interface ListSupportedPhoneNumberCountriesResponse {
   /**
+   * @public
    * <p>The supported phone number countries.</p>
    */
   PhoneNumberCountries?: PhoneNumberCountry[];
@@ -3115,6 +3454,7 @@ export interface ListSupportedPhoneNumberCountriesResponse {
  */
 export interface ListTagsForResourceRequest {
   /**
+   * @public
    * <p>The resource ARN.</p>
    */
   ResourceARN: string | undefined;
@@ -3125,6 +3465,7 @@ export interface ListTagsForResourceRequest {
  */
 export interface ListTagsForResourceResponse {
   /**
+   * @public
    * <p>The tags in the list.</p>
    */
   Tags?: Tag[];
@@ -3135,11 +3476,13 @@ export interface ListTagsForResourceResponse {
  */
 export interface ListVoiceConnectorGroupsRequest {
   /**
+   * @public
    * <p>The token used to return the next page of results.</p>
    */
   NextToken?: string;
 
   /**
+   * @public
    * <p>The maximum number of results to return in a single call.  </p>
    */
   MaxResults?: number;
@@ -3150,11 +3493,13 @@ export interface ListVoiceConnectorGroupsRequest {
  */
 export interface ListVoiceConnectorGroupsResponse {
   /**
+   * @public
    * <p>The details of the Voice Connector groups.</p>
    */
   VoiceConnectorGroups?: VoiceConnectorGroup[];
 
   /**
+   * @public
    * <p>The token used to return the next page of results.</p>
    */
   NextToken?: string;
@@ -3165,11 +3510,13 @@ export interface ListVoiceConnectorGroupsResponse {
  */
 export interface ListVoiceConnectorsRequest {
   /**
+   * @public
    * <p>The token used to return the next page of results.</p>
    */
   NextToken?: string;
 
   /**
+   * @public
    * <p>The maximum number of results to return in a single call.</p>
    */
   MaxResults?: number;
@@ -3180,11 +3527,13 @@ export interface ListVoiceConnectorsRequest {
  */
 export interface ListVoiceConnectorsResponse {
   /**
+   * @public
    * <p>The details of the Voice Connectors.</p>
    */
   VoiceConnectors?: VoiceConnector[];
 
   /**
+   * @public
    * <p>The token used to return the next page of results.</p>
    */
   NextToken?: string;
@@ -3195,6 +3544,7 @@ export interface ListVoiceConnectorsResponse {
  */
 export interface ListVoiceConnectorTerminationCredentialsRequest {
   /**
+   * @public
    * <p>The Voice Connector ID.</p>
    */
   VoiceConnectorId: string | undefined;
@@ -3205,6 +3555,7 @@ export interface ListVoiceConnectorTerminationCredentialsRequest {
  */
 export interface ListVoiceConnectorTerminationCredentialsResponse {
   /**
+   * @public
    * <p>A list of user names.</p>
    */
   Usernames?: string[];
@@ -3215,11 +3566,13 @@ export interface ListVoiceConnectorTerminationCredentialsResponse {
  */
 export interface ListVoiceProfileDomainsRequest {
   /**
+   * @public
    * <p>The token used to return the next page of results.</p>
    */
   NextToken?: string;
 
   /**
+   * @public
    * <p>The maximum number of results to return in a single call.</p>
    */
   MaxResults?: number;
@@ -3231,31 +3584,37 @@ export interface ListVoiceProfileDomainsRequest {
  */
 export interface VoiceProfileDomainSummary {
   /**
+   * @public
    * <p>The ID of the voice profile domain summary.</p>
    */
   VoiceProfileDomainId?: string;
 
   /**
+   * @public
    * <p>The ARN of a voice profile in a voice profile domain summary.</p>
    */
   VoiceProfileDomainArn?: string;
 
   /**
+   * @public
    * <p>The name of the voice profile domain summary.</p>
    */
   Name?: string;
 
   /**
+   * @public
    * <p>Describes the voice profile domain summary.</p>
    */
   Description?: string;
 
   /**
+   * @public
    * <p>The time at which the voice profile domain summary was created.</p>
    */
   CreatedTimestamp?: Date;
 
   /**
+   * @public
    * <p>The time at which the voice profile domain summary was last updated.</p>
    */
   UpdatedTimestamp?: Date;
@@ -3266,11 +3625,13 @@ export interface VoiceProfileDomainSummary {
  */
 export interface ListVoiceProfileDomainsResponse {
   /**
+   * @public
    * <p>The list of voice profile domains.</p>
    */
   VoiceProfileDomains?: VoiceProfileDomainSummary[];
 
   /**
+   * @public
    * <p>The token used to return the next page of results.</p>
    */
   NextToken?: string;
@@ -3281,16 +3642,19 @@ export interface ListVoiceProfileDomainsResponse {
  */
 export interface ListVoiceProfilesRequest {
   /**
+   * @public
    * <p>The ID of the voice profile domain.</p>
    */
   VoiceProfileDomainId: string | undefined;
 
   /**
+   * @public
    * <p>The token used to retrieve the next page of results.</p>
    */
   NextToken?: string;
 
   /**
+   * @public
    * <p>The maximum number of results in the request.</p>
    */
   MaxResults?: number;
@@ -3302,31 +3666,37 @@ export interface ListVoiceProfilesRequest {
  */
 export interface VoiceProfileSummary {
   /**
+   * @public
    * <p>The ID of the voice profile in a voice profile summary.</p>
    */
   VoiceProfileId?: string;
 
   /**
+   * @public
    * <p>The ARN of the voice profile in a voice profile summary.</p>
    */
   VoiceProfileArn?: string;
 
   /**
+   * @public
    * <p>The ID of the voice profile domain in a voice profile summary.</p>
    */
   VoiceProfileDomainId?: string;
 
   /**
+   * @public
    * <p>The time at which a voice profile summary was created.</p>
    */
   CreatedTimestamp?: Date;
 
   /**
+   * @public
    * <p>The time at which a voice profile summary was last updated.</p>
    */
   UpdatedTimestamp?: Date;
 
   /**
+   * @public
    * <p>Extends the life of the voice profile. You can use <code>UpdateVoiceProfile</code> to refresh an existing voice profile's voice print and extend the life of the summary.</p>
    */
   ExpirationTimestamp?: Date;
@@ -3337,11 +3707,13 @@ export interface VoiceProfileSummary {
  */
 export interface ListVoiceProfilesResponse {
   /**
+   * @public
    * <p>The list of voice profiles.</p>
    */
   VoiceProfiles?: VoiceProfileSummary[];
 
   /**
+   * @public
    * <p>The token used to retrieve the next page of results.</p>
    */
   NextToken?: string;
@@ -3352,11 +3724,13 @@ export interface ListVoiceProfilesResponse {
  */
 export interface PutSipMediaApplicationAlexaSkillConfigurationRequest {
   /**
+   * @public
    * <p>The SIP media application ID.</p>
    */
   SipMediaApplicationId: string | undefined;
 
   /**
+   * @public
    * <p>The Alexa Skill configuration.</p>
    */
   SipMediaApplicationAlexaSkillConfiguration?: SipMediaApplicationAlexaSkillConfiguration;
@@ -3367,6 +3741,7 @@ export interface PutSipMediaApplicationAlexaSkillConfigurationRequest {
  */
 export interface PutSipMediaApplicationAlexaSkillConfigurationResponse {
   /**
+   * @public
    * <p>Returns the Alexa Skill configuration.</p>
    */
   SipMediaApplicationAlexaSkillConfiguration?: SipMediaApplicationAlexaSkillConfiguration;
@@ -3377,11 +3752,13 @@ export interface PutSipMediaApplicationAlexaSkillConfigurationResponse {
  */
 export interface PutSipMediaApplicationLoggingConfigurationRequest {
   /**
+   * @public
    * <p>The SIP media application ID.</p>
    */
   SipMediaApplicationId: string | undefined;
 
   /**
+   * @public
    * <p>The logging configuration for the specified SIP media application.</p>
    */
   SipMediaApplicationLoggingConfiguration?: SipMediaApplicationLoggingConfiguration;
@@ -3392,6 +3769,7 @@ export interface PutSipMediaApplicationLoggingConfigurationRequest {
  */
 export interface PutSipMediaApplicationLoggingConfigurationResponse {
   /**
+   * @public
    * <p>The updated logging configuration for the specified SIP media application.</p>
    */
   SipMediaApplicationLoggingConfiguration?: SipMediaApplicationLoggingConfiguration;
@@ -3402,11 +3780,13 @@ export interface PutSipMediaApplicationLoggingConfigurationResponse {
  */
 export interface PutVoiceConnectorEmergencyCallingConfigurationRequest {
   /**
+   * @public
    * <p>The Voice Connector ID.</p>
    */
   VoiceConnectorId: string | undefined;
 
   /**
+   * @public
    * <p>The configuration being updated.</p>
    */
   EmergencyCallingConfiguration: EmergencyCallingConfiguration | undefined;
@@ -3417,6 +3797,7 @@ export interface PutVoiceConnectorEmergencyCallingConfigurationRequest {
  */
 export interface PutVoiceConnectorEmergencyCallingConfigurationResponse {
   /**
+   * @public
    * <p>The updated configuration.</p>
    */
   EmergencyCallingConfiguration?: EmergencyCallingConfiguration;
@@ -3427,11 +3808,13 @@ export interface PutVoiceConnectorEmergencyCallingConfigurationResponse {
  */
 export interface PutVoiceConnectorLoggingConfigurationRequest {
   /**
+   * @public
    * <p>The Voice Connector ID.</p>
    */
   VoiceConnectorId: string | undefined;
 
   /**
+   * @public
    * <p>The logging configuration being updated.</p>
    */
   LoggingConfiguration: LoggingConfiguration | undefined;
@@ -3442,6 +3825,7 @@ export interface PutVoiceConnectorLoggingConfigurationRequest {
  */
 export interface PutVoiceConnectorLoggingConfigurationResponse {
   /**
+   * @public
    * <p>The updated logging configuration.</p>
    */
   LoggingConfiguration?: LoggingConfiguration;
@@ -3452,11 +3836,13 @@ export interface PutVoiceConnectorLoggingConfigurationResponse {
  */
 export interface PutVoiceConnectorOriginationRequest {
   /**
+   * @public
    * <p>The Voice Connector ID.</p>
    */
   VoiceConnectorId: string | undefined;
 
   /**
+   * @public
    * <p>The origination settings being updated.</p>
    */
   Origination: Origination | undefined;
@@ -3467,6 +3853,7 @@ export interface PutVoiceConnectorOriginationRequest {
  */
 export interface PutVoiceConnectorOriginationResponse {
   /**
+   * @public
    * <p>The updated origination settings.</p>
    */
   Origination?: Origination;
@@ -3477,26 +3864,31 @@ export interface PutVoiceConnectorOriginationResponse {
  */
 export interface PutVoiceConnectorProxyRequest {
   /**
+   * @public
    * <p>The Voice Connector ID.</p>
    */
   VoiceConnectorId: string | undefined;
 
   /**
+   * @public
    * <p>The default number of minutes allowed for proxy session.</p>
    */
   DefaultSessionExpiryMinutes: number | undefined;
 
   /**
+   * @public
    * <p>The countries for proxy phone numbers to be selected from.</p>
    */
   PhoneNumberPoolCountries: string[] | undefined;
 
   /**
+   * @public
    * <p>The phone number to route calls to after a proxy session expires.</p>
    */
   FallBackPhoneNumber?: string;
 
   /**
+   * @public
    * <p>When true, stops proxy sessions from being created on the specified Amazon Chime SDK Voice Connector.</p>
    */
   Disabled?: boolean;
@@ -3507,6 +3899,7 @@ export interface PutVoiceConnectorProxyRequest {
  */
 export interface PutVoiceConnectorProxyResponse {
   /**
+   * @public
    * <p>The proxy configuration details.</p>
    */
   Proxy?: Proxy;
@@ -3517,11 +3910,13 @@ export interface PutVoiceConnectorProxyResponse {
  */
 export interface PutVoiceConnectorStreamingConfigurationRequest {
   /**
+   * @public
    * <p>The Voice Connector ID.</p>
    */
   VoiceConnectorId: string | undefined;
 
   /**
+   * @public
    * <p>The streaming settings being updated.</p>
    */
   StreamingConfiguration: StreamingConfiguration | undefined;
@@ -3532,6 +3927,7 @@ export interface PutVoiceConnectorStreamingConfigurationRequest {
  */
 export interface PutVoiceConnectorStreamingConfigurationResponse {
   /**
+   * @public
    * <p>The updated streaming settings.</p>
    */
   StreamingConfiguration?: StreamingConfiguration;
@@ -3542,11 +3938,13 @@ export interface PutVoiceConnectorStreamingConfigurationResponse {
  */
 export interface PutVoiceConnectorTerminationRequest {
   /**
+   * @public
    * <p>The Voice Connector ID.</p>
    */
   VoiceConnectorId: string | undefined;
 
   /**
+   * @public
    * <p>The termination settings to be updated.</p>
    */
   Termination: Termination | undefined;
@@ -3557,6 +3955,7 @@ export interface PutVoiceConnectorTerminationRequest {
  */
 export interface PutVoiceConnectorTerminationResponse {
   /**
+   * @public
    * <p>The updated termination settings.</p>
    */
   Termination?: Termination;
@@ -3568,12 +3967,14 @@ export interface PutVoiceConnectorTerminationResponse {
  */
 export interface Credential {
   /**
+   * @public
    * <p>The RFC2617 compliant user name associated with the SIP credentials, in
    *          US-ASCII format.</p>
    */
   Username?: string;
 
   /**
+   * @public
    * <p>The RFC2617 compliant password associated with the SIP credentials, in US-ASCII format.</p>
    */
   Password?: string;
@@ -3584,11 +3985,13 @@ export interface Credential {
  */
 export interface PutVoiceConnectorTerminationCredentialsRequest {
   /**
+   * @public
    * <p>The Voice Connector ID.</p>
    */
   VoiceConnectorId: string | undefined;
 
   /**
+   * @public
    * <p>The termination credentials being updated.</p>
    */
   Credentials?: Credential[];
@@ -3599,6 +4002,7 @@ export interface PutVoiceConnectorTerminationCredentialsRequest {
  */
 export interface RestorePhoneNumberRequest {
   /**
+   * @public
    * <p>The ID of the phone number being restored.</p>
    */
   PhoneNumberId: string | undefined;
@@ -3609,6 +4013,7 @@ export interface RestorePhoneNumberRequest {
  */
 export interface RestorePhoneNumberResponse {
   /**
+   * @public
    * <p>The restored phone number.</p>
    */
   PhoneNumber?: PhoneNumber;
@@ -3619,41 +4024,49 @@ export interface RestorePhoneNumberResponse {
  */
 export interface SearchAvailablePhoneNumbersRequest {
   /**
+   * @public
    * <p>Confines a search to just the phone numbers associated with the specified area code.</p>
    */
   AreaCode?: string;
 
   /**
+   * @public
    * <p>Confines a search to just the phone numbers associated with the specified city.</p>
    */
   City?: string;
 
   /**
+   * @public
    * <p>Confines a search to just the phone numbers associated with the specified country.</p>
    */
   Country?: string;
 
   /**
+   * @public
    * <p>Confines a search to just the phone numbers associated with the specified state.</p>
    */
   State?: string;
 
   /**
+   * @public
    * <p>Confines a search to just the phone numbers associated with the specified toll-free prefix.</p>
    */
   TollFreePrefix?: string;
 
   /**
+   * @public
    * <p>Confines a search to just the phone numbers associated with the specified phone number type, either <b>local</b> or <b>toll-free</b>.</p>
    */
   PhoneNumberType?: PhoneNumberType | string;
 
   /**
+   * @public
    * <p>The maximum number of results to return.</p>
    */
   MaxResults?: number;
 
   /**
+   * @public
    * <p>The token used to return the next page of results.</p>
    */
   NextToken?: string;
@@ -3664,11 +4077,13 @@ export interface SearchAvailablePhoneNumbersRequest {
  */
 export interface SearchAvailablePhoneNumbersResponse {
   /**
+   * @public
    * <p>Confines a search to just the phone numbers in the E.164 format.</p>
    */
   E164PhoneNumbers?: string[];
 
   /**
+   * @public
    * <p>The token used to return the next page of results.</p>
    */
   NextToken?: string;
@@ -3679,26 +4094,31 @@ export interface SearchAvailablePhoneNumbersResponse {
  */
 export interface StartSpeakerSearchTaskRequest {
   /**
+   * @public
    * <p>The Voice Connector ID.</p>
    */
   VoiceConnectorId: string | undefined;
 
   /**
+   * @public
    * <p>The transaction ID of the call being analyzed.</p>
    */
   TransactionId: string | undefined;
 
   /**
+   * @public
    * <p>The ID of the voice profile domain that will store the voice profile.</p>
    */
   VoiceProfileDomainId: string | undefined;
 
   /**
+   * @public
    * <p>The unique identifier for the client request. Use a different token for different speaker search tasks.</p>
    */
   ClientRequestToken?: string;
 
   /**
+   * @public
    * <p>Specifies which call leg to stream for speaker search.</p>
    */
   CallLeg?: CallLegType | string;
@@ -3709,6 +4129,7 @@ export interface StartSpeakerSearchTaskRequest {
  */
 export interface StartSpeakerSearchTaskResponse {
   /**
+   * @public
    * <p>The details of the speaker search task.</p>
    */
   SpeakerSearchTask?: SpeakerSearchTask;
@@ -3756,21 +4177,25 @@ export type LanguageCode = (typeof LanguageCode)[keyof typeof LanguageCode];
  */
 export interface StartVoiceToneAnalysisTaskRequest {
   /**
+   * @public
    * <p>The Voice Connector ID.</p>
    */
   VoiceConnectorId: string | undefined;
 
   /**
+   * @public
    * <p>The transaction ID.</p>
    */
   TransactionId: string | undefined;
 
   /**
+   * @public
    * <p>The language code.</p>
    */
   LanguageCode: LanguageCode | string | undefined;
 
   /**
+   * @public
    * <p>The unique identifier for the client request. Use a different token for different voice tone analysis
    *          tasks.</p>
    */
@@ -3782,6 +4207,7 @@ export interface StartVoiceToneAnalysisTaskRequest {
  */
 export interface StartVoiceToneAnalysisTaskResponse {
   /**
+   * @public
    * <p>The details of the voice tone analysis task.</p>
    */
   VoiceToneAnalysisTask?: VoiceToneAnalysisTask;
@@ -3792,11 +4218,13 @@ export interface StartVoiceToneAnalysisTaskResponse {
  */
 export interface StopSpeakerSearchTaskRequest {
   /**
+   * @public
    * <p>The Voice Connector ID.</p>
    */
   VoiceConnectorId: string | undefined;
 
   /**
+   * @public
    * <p>The speaker search task ID.</p>
    */
   SpeakerSearchTaskId: string | undefined;
@@ -3807,11 +4235,13 @@ export interface StopSpeakerSearchTaskRequest {
  */
 export interface StopVoiceToneAnalysisTaskRequest {
   /**
+   * @public
    * <p>The Voice Connector ID.</p>
    */
   VoiceConnectorId: string | undefined;
 
   /**
+   * @public
    * <p>The ID of the voice tone analysis task.</p>
    */
   VoiceToneAnalysisTaskId: string | undefined;
@@ -3822,11 +4252,13 @@ export interface StopVoiceToneAnalysisTaskRequest {
  */
 export interface TagResourceRequest {
   /**
+   * @public
    * <p>The ARN of the resource being tagged. </p>
    */
   ResourceARN: string | undefined;
 
   /**
+   * @public
    * <p>A list of the tags being added to the resource.</p>
    */
   Tags: Tag[] | undefined;
@@ -3837,11 +4269,13 @@ export interface TagResourceRequest {
  */
 export interface UntagResourceRequest {
   /**
+   * @public
    * <p>The ARN of the resource having its tags removed.</p>
    */
   ResourceARN: string | undefined;
 
   /**
+   * @public
    * <p>The keys of the tags being removed from the resource.</p>
    */
   TagKeys: string[] | undefined;
@@ -3852,6 +4286,7 @@ export interface UntagResourceRequest {
  */
 export interface UpdateGlobalSettingsRequest {
   /**
+   * @public
    * <p>The Voice Connector settings.</p>
    */
   VoiceConnector?: VoiceConnectorSettings;
@@ -3862,16 +4297,19 @@ export interface UpdateGlobalSettingsRequest {
  */
 export interface UpdatePhoneNumberRequest {
   /**
+   * @public
    * <p>The phone number ID.</p>
    */
   PhoneNumberId: string | undefined;
 
   /**
+   * @public
    * <p>The product type.</p>
    */
   ProductType?: PhoneNumberProductType | string;
 
   /**
+   * @public
    * <p>The outbound calling name associated with the phone number.</p>
    */
   CallingName?: string;
@@ -3882,6 +4320,7 @@ export interface UpdatePhoneNumberRequest {
  */
 export interface UpdatePhoneNumberResponse {
   /**
+   * @public
    * <p>The updated phone number details.</p>
    */
   PhoneNumber?: PhoneNumber;
@@ -3892,6 +4331,7 @@ export interface UpdatePhoneNumberResponse {
  */
 export interface UpdatePhoneNumberSettingsRequest {
   /**
+   * @public
    * <p>The default outbound calling name for the account.</p>
    */
   CallingName: string | undefined;
@@ -3902,21 +4342,25 @@ export interface UpdatePhoneNumberSettingsRequest {
  */
 export interface UpdateProxySessionRequest {
   /**
+   * @public
    * <p>The Voice Connector ID.</p>
    */
   VoiceConnectorId: string | undefined;
 
   /**
+   * @public
    * <p>The proxy session ID.</p>
    */
   ProxySessionId: string | undefined;
 
   /**
+   * @public
    * <p>The proxy session capabilities.</p>
    */
   Capabilities: (Capability | string)[] | undefined;
 
   /**
+   * @public
    * <p>The number of minutes allowed for the proxy session.</p>
    */
   ExpiryMinutes?: number;
@@ -3927,6 +4371,7 @@ export interface UpdateProxySessionRequest {
  */
 export interface UpdateProxySessionResponse {
   /**
+   * @public
    * <p>The updated proxy session details.</p>
    */
   ProxySession?: ProxySession;
@@ -3937,16 +4382,19 @@ export interface UpdateProxySessionResponse {
  */
 export interface UpdateSipMediaApplicationRequest {
   /**
+   * @public
    * <p>The SIP media application ID.</p>
    */
   SipMediaApplicationId: string | undefined;
 
   /**
+   * @public
    * <p>The new name for the specified SIP media application.</p>
    */
   Name?: string;
 
   /**
+   * @public
    * <p>The new set of endpoints for the specified SIP media application.</p>
    */
   Endpoints?: SipMediaApplicationEndpoint[];
@@ -3957,6 +4405,7 @@ export interface UpdateSipMediaApplicationRequest {
  */
 export interface UpdateSipMediaApplicationResponse {
   /**
+   * @public
    * <p>The updated SIP media application’s details.</p>
    */
   SipMediaApplication?: SipMediaApplication;
@@ -3967,16 +4416,19 @@ export interface UpdateSipMediaApplicationResponse {
  */
 export interface UpdateSipMediaApplicationCallRequest {
   /**
+   * @public
    * <p>The ID of the SIP media application handling the call.</p>
    */
   SipMediaApplicationId: string | undefined;
 
   /**
+   * @public
    * <p>The ID of the call transaction.</p>
    */
   TransactionId: string | undefined;
 
   /**
+   * @public
    * <p>Arguments made available to the Lambda function as part of the
    *          <code>CALL_UPDATE_REQUESTED</code> event. Can contain 0-20 key-value pairs.</p>
    */
@@ -3988,6 +4440,7 @@ export interface UpdateSipMediaApplicationCallRequest {
  */
 export interface UpdateSipMediaApplicationCallResponse {
   /**
+   * @public
    * <p>A <code>Call</code> instance for a SIP media application.</p>
    */
   SipMediaApplicationCall?: SipMediaApplicationCall;
@@ -3998,21 +4451,25 @@ export interface UpdateSipMediaApplicationCallResponse {
  */
 export interface UpdateSipRuleRequest {
   /**
+   * @public
    * <p>The SIP rule ID.</p>
    */
   SipRuleId: string | undefined;
 
   /**
+   * @public
    * <p>The new name for the specified SIP rule.</p>
    */
   Name: string | undefined;
 
   /**
+   * @public
    * <p>The new value that indicates whether the rule is disabled.</p>
    */
   Disabled?: boolean;
 
   /**
+   * @public
    * <p>The new list of target applications.</p>
    */
   TargetApplications?: SipRuleTargetApplication[];
@@ -4023,6 +4480,7 @@ export interface UpdateSipRuleRequest {
  */
 export interface UpdateSipRuleResponse {
   /**
+   * @public
    * <p>The updated SIP rule details.</p>
    */
   SipRule?: SipRule;
@@ -4033,16 +4491,19 @@ export interface UpdateSipRuleResponse {
  */
 export interface UpdateVoiceConnectorRequest {
   /**
+   * @public
    * <p>The Voice Connector ID.</p>
    */
   VoiceConnectorId: string | undefined;
 
   /**
+   * @public
    * <p>The name of the Voice Connector.</p>
    */
   Name: string | undefined;
 
   /**
+   * @public
    * <p>When enabled, requires encryption for the Voice Connector.</p>
    */
   RequireEncryption: boolean | undefined;
@@ -4053,6 +4514,7 @@ export interface UpdateVoiceConnectorRequest {
  */
 export interface UpdateVoiceConnectorResponse {
   /**
+   * @public
    * <p>The updated Voice Connector details.</p>
    */
   VoiceConnector?: VoiceConnector;
@@ -4063,16 +4525,19 @@ export interface UpdateVoiceConnectorResponse {
  */
 export interface UpdateVoiceConnectorGroupRequest {
   /**
+   * @public
    * <p>The Voice Connector ID.</p>
    */
   VoiceConnectorGroupId: string | undefined;
 
   /**
+   * @public
    * <p>The name of the Voice Connector group.</p>
    */
   Name: string | undefined;
 
   /**
+   * @public
    * <p>The <code>VoiceConnectorItems</code> to associate with the Voice Connector
    *          group.</p>
    */
@@ -4084,6 +4549,7 @@ export interface UpdateVoiceConnectorGroupRequest {
  */
 export interface UpdateVoiceConnectorGroupResponse {
   /**
+   * @public
    * <p>The updated Voice Connector group.</p>
    */
   VoiceConnectorGroup?: VoiceConnectorGroup;
@@ -4094,11 +4560,13 @@ export interface UpdateVoiceConnectorGroupResponse {
  */
 export interface UpdateVoiceProfileRequest {
   /**
+   * @public
    * <p>The profile ID.</p>
    */
   VoiceProfileId: string | undefined;
 
   /**
+   * @public
    * <p>The ID of the speaker search task.</p>
    */
   SpeakerSearchTaskId: string | undefined;
@@ -4109,6 +4577,7 @@ export interface UpdateVoiceProfileRequest {
  */
 export interface UpdateVoiceProfileResponse {
   /**
+   * @public
    * <p>The updated voice profile settings.</p>
    */
   VoiceProfile?: VoiceProfile;
@@ -4119,16 +4588,19 @@ export interface UpdateVoiceProfileResponse {
  */
 export interface UpdateVoiceProfileDomainRequest {
   /**
+   * @public
    * <p>The domain ID.</p>
    */
   VoiceProfileDomainId: string | undefined;
 
   /**
+   * @public
    * <p>The name of the voice profile domain.</p>
    */
   Name?: string;
 
   /**
+   * @public
    * <p>The description of the voice profile domain.</p>
    */
   Description?: string;
@@ -4139,6 +4611,7 @@ export interface UpdateVoiceProfileDomainRequest {
  */
 export interface UpdateVoiceProfileDomainResponse {
   /**
+   * @public
    * <p>The updated details of the voice profile domain.</p>
    */
   VoiceProfileDomain?: VoiceProfileDomain;
@@ -4149,36 +4622,43 @@ export interface UpdateVoiceProfileDomainResponse {
  */
 export interface ValidateE911AddressRequest {
   /**
+   * @public
    * <p>The AWS account ID.</p>
    */
   AwsAccountId: string | undefined;
 
   /**
+   * @public
    * <p>The address street number, such as <code>200</code> or <code>2121</code>.</p>
    */
   StreetNumber: string | undefined;
 
   /**
+   * @public
    * <p>The address street information, such as <code>8th Avenue</code>.</p>
    */
   StreetInfo: string | undefined;
 
   /**
+   * @public
    * <p>The address city, such as <code>Portland</code>.</p>
    */
   City: string | undefined;
 
   /**
+   * @public
    * <p>The address state, such as <code>ME</code>.</p>
    */
   State: string | undefined;
 
   /**
+   * @public
    * <p>The country in the address being validated.</p>
    */
   Country: string | undefined;
 
   /**
+   * @public
    * <p>The dress postal code, such <code>04352</code>.</p>
    */
   PostalCode: string | undefined;
@@ -4189,6 +4669,7 @@ export interface ValidateE911AddressRequest {
  */
 export interface ValidateE911AddressResponse {
   /**
+   * @public
    * <p>Number indicating the result of address validation. <code>0</code> means the
    *          address was perfect as-is and successfully validated. <code>1</code> means the
    *          address was corrected. <code>2</code> means the address sent was not close
@@ -4197,16 +4678,19 @@ export interface ValidateE911AddressResponse {
   ValidationResult?: number;
 
   /**
+   * @public
    * <p>The ID that represents the address.</p>
    */
   AddressExternalId?: string;
 
   /**
+   * @public
    * <p>The validated address.</p>
    */
   Address?: Address;
 
   /**
+   * @public
    * <p>The list of address suggestions..</p>
    */
   CandidateAddressList?: CandidateAddress[];

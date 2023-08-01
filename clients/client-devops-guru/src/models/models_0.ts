@@ -35,12 +35,14 @@ export class AccessDeniedException extends __BaseException {
  */
 export interface AccountInsightHealth {
   /**
+   * @public
    * <p>An integer that specifies the number of open proactive insights in your Amazon Web Services
    * 			account.</p>
    */
   OpenProactiveInsights?: number;
 
   /**
+   * @public
    * <p>An integer that specifies the number of open reactive insights in your Amazon Web Services
    * 			account.</p>
    */
@@ -55,11 +57,13 @@ export interface AccountInsightHealth {
  */
 export interface AccountHealth {
   /**
+   * @public
    * <p>The ID of the Amazon Web Services account. </p>
    */
   AccountId?: string;
 
   /**
+   * @public
    * <p> Information about the health of the Amazon Web Services resources in your account, including the
    * 			number of open proactive, open reactive insights, and the Mean Time to Recover (MTTR) of closed insights.
    * 		</p>
@@ -108,6 +112,7 @@ export type InsightSeverity = (typeof InsightSeverity)[keyof typeof InsightSever
  */
 export interface NotificationFilterConfig {
   /**
+   * @public
    * <p>
    * 			The severity levels that you want to receive notifications for. For example, you can choose to receive notifications only for insights with <code>HIGH</code> and <code>MEDIUM</code> severity levels.
    * 			For more information, see <a href="https://docs.aws.amazon.com/devops-guru/latest/userguide/working-with-insights.html#understanding-insights-severities">Understanding insight severities</a>.
@@ -116,6 +121,7 @@ export interface NotificationFilterConfig {
   Severities?: (InsightSeverity | string)[];
 
   /**
+   * @public
    * <p>
    * 			The events that you want to receive notifications for. For example, you can choose to receive notifications only when the severity level is upgraded or a new insight is created.
    * 		</p>
@@ -136,6 +142,7 @@ export interface NotificationFilterConfig {
  */
 export interface SnsChannelConfig {
   /**
+   * @public
    * <p> The Amazon Resource Name (ARN) of an Amazon Simple Notification Service topic. </p>
    */
   TopicArn?: string;
@@ -149,6 +156,7 @@ export interface SnsChannelConfig {
  */
 export interface NotificationChannelConfig {
   /**
+   * @public
    * <p> Information about a notification channel configured in DevOps Guru to send notifications
    * 			when insights are created. </p>
    *          <p>If you use an Amazon SNS topic in another account, you must attach a policy to it that grants DevOps Guru permission
@@ -162,6 +170,7 @@ export interface NotificationChannelConfig {
   Sns: SnsChannelConfig | undefined;
 
   /**
+   * @public
    * <p>
    * 			The filter configurations for the Amazon SNS notification topic you use with DevOps Guru.
    * 			If you do not provide filter configurations, the default configurations are to receive notifications for all message types of <code>High</code> or <code>Medium</code> severity.
@@ -175,6 +184,7 @@ export interface NotificationChannelConfig {
  */
 export interface AddNotificationChannelRequest {
   /**
+   * @public
    * <p> A <code>NotificationChannelConfig</code> object that specifies what type of
    * 			notification channel to add. The one
    *       	supported notification channel is Amazon Simple Notification Service (Amazon SNS). </p>
@@ -187,6 +197,7 @@ export interface AddNotificationChannelRequest {
  */
 export interface AddNotificationChannelResponse {
   /**
+   * @public
    * <p> The ID of the added notification channel. </p>
    */
   Id: string | undefined;
@@ -201,11 +212,13 @@ export class ConflictException extends __BaseException {
   readonly $fault: "client" = "client";
   Message: string | undefined;
   /**
+   * @public
    * <p> The ID of the Amazon Web Services resource in which a conflict occurred. </p>
    */
   ResourceId: string | undefined;
 
   /**
+   * @public
    * <p> The type of the Amazon Web Services resource in which a conflict occurred. </p>
    */
   ResourceType: string | undefined;
@@ -234,6 +247,7 @@ export class InternalServerException extends __BaseException {
   readonly $fault: "server" = "server";
   Message: string | undefined;
   /**
+   * @public
    * <p> The number of seconds after which the action that caused the internal server
    * 			exception can be retried. </p>
    */
@@ -262,11 +276,13 @@ export class ResourceNotFoundException extends __BaseException {
   readonly $fault: "client" = "client";
   Message: string | undefined;
   /**
+   * @public
    * <p> The ID of the Amazon Web Services resource that could not be found. </p>
    */
   ResourceId: string | undefined;
 
   /**
+   * @public
    * <p> The type of the Amazon Web Services resource that could not be found. </p>
    */
   ResourceType: string | undefined;
@@ -317,16 +333,19 @@ export class ThrottlingException extends __BaseException {
   readonly $fault: "client" = "client";
   Message: string | undefined;
   /**
+   * @public
    * <p> The code of the quota that was exceeded, causing the throttling exception. </p>
    */
   QuotaCode?: string;
 
   /**
+   * @public
    * <p> The code of the service that caused the throttling exception. </p>
    */
   ServiceCode?: string;
 
   /**
+   * @public
    * <p> The number of seconds after which the action that caused the throttling exception can
    * 			be retried. </p>
    */
@@ -354,11 +373,13 @@ export class ThrottlingException extends __BaseException {
  */
 export interface ValidationExceptionField {
   /**
+   * @public
    * <p> The name of the field. </p>
    */
   Name: string | undefined;
 
   /**
+   * @public
    * <p> The message associated with the validation exception with information to help
    * 			determine its cause. </p>
    */
@@ -392,16 +413,19 @@ export class ValidationException extends __BaseException {
   readonly name: "ValidationException" = "ValidationException";
   readonly $fault: "client" = "client";
   /**
+   * @public
    * <p> A message that describes the validation exception. </p>
    */
   Message: string | undefined;
 
   /**
+   * @public
    * <p> The reason the validation exception was thrown. </p>
    */
   Reason?: ValidationExceptionReason | string;
 
   /**
+   * @public
    * <p> An array of fields that are associated with the validation exception. </p>
    */
   Fields?: ValidationExceptionField[];
@@ -443,6 +467,7 @@ export type EventSourceOptInStatus = (typeof EventSourceOptInStatus)[keyof typeo
  */
 export interface AmazonCodeGuruProfilerIntegration {
   /**
+   * @public
    * <p>The status of the CodeGuru Profiler integration. Specifies if DevOps Guru is enabled to
    * 			consume recommendations that are generated from Amazon CodeGuru Profiler.</p>
    */
@@ -477,6 +502,7 @@ export type LogAnomalyType = (typeof LogAnomalyType)[keyof typeof LogAnomalyType
  */
 export interface LogAnomalyClass {
   /**
+   * @public
    * <p>
    * 			The name of the Amazon CloudWatch log stream that the anomalous log event belongs to. A log stream is a sequence of log events that share the same source.
    * 		</p>
@@ -484,6 +510,7 @@ export interface LogAnomalyClass {
   LogStreamName?: string;
 
   /**
+   * @public
    * <p>
    * 			The type of log anomaly that has been detected.
    * 		</p>
@@ -491,6 +518,7 @@ export interface LogAnomalyClass {
   LogAnomalyType?: LogAnomalyType | string;
 
   /**
+   * @public
    * <p>
    * 			The token where the anomaly was detected. This may refer to an exception or another location, or it may be blank for log anomalies such as format anomalies.
    * 		</p>
@@ -498,6 +526,7 @@ export interface LogAnomalyClass {
   LogAnomalyToken?: string;
 
   /**
+   * @public
    * <p>
    * 			The ID of the log event.
    * 		</p>
@@ -505,6 +534,7 @@ export interface LogAnomalyClass {
   LogEventId?: string;
 
   /**
+   * @public
    * <p>
    * 			The explanation for why the log event is considered an anomaly.
    * 		</p>
@@ -512,6 +542,7 @@ export interface LogAnomalyClass {
   Explanation?: string;
 
   /**
+   * @public
    * <p>
    * 			The number of log lines where this anomalous log event occurs.
    * 		</p>
@@ -519,6 +550,7 @@ export interface LogAnomalyClass {
   NumberOfLogLinesOccurrences?: number;
 
   /**
+   * @public
    * <p>
    * 			The time of the first occurrence of the anomalous log event.
    * 		</p>
@@ -534,6 +566,7 @@ export interface LogAnomalyClass {
  */
 export interface LogAnomalyShowcase {
   /**
+   * @public
    * <p>
    * 			A list of anomalous log events that may be related.
    * 		</p>
@@ -549,6 +582,7 @@ export interface LogAnomalyShowcase {
  */
 export interface AnomalousLogGroup {
   /**
+   * @public
    * <p>
    * 			The name of the CloudWatch log group.
    * 		</p>
@@ -556,6 +590,7 @@ export interface AnomalousLogGroup {
   LogGroupName?: string;
 
   /**
+   * @public
    * <p>
    * 			The time the anomalous log events began. The impact start time indicates the time of the first log anomaly event that occurs.
    * 		</p>
@@ -563,6 +598,7 @@ export interface AnomalousLogGroup {
   ImpactStartTime?: Date;
 
   /**
+   * @public
    * <p>
    * 			The time the anomalous log events stopped.
    * 		</p>
@@ -570,6 +606,7 @@ export interface AnomalousLogGroup {
   ImpactEndTime?: Date;
 
   /**
+   * @public
    * <p>
    * 			The number of log lines that were scanned for anomalous log events.
    * 		</p>
@@ -577,6 +614,7 @@ export interface AnomalousLogGroup {
   NumberOfLogLinesScanned?: number;
 
   /**
+   * @public
    * <p>
    * 			The log anomalies in the log group. Each log anomaly displayed represents a cluster of similar anomalous log events.
    * 		</p>
@@ -592,11 +630,13 @@ export interface AnomalousLogGroup {
  */
 export interface AnomalyReportedTimeRange {
   /**
+   * @public
    * <p> The time when an anomaly is opened. </p>
    */
   OpenTime: Date | undefined;
 
   /**
+   * @public
    * <p> The time when an anomaly is closed. </p>
    */
   CloseTime?: Date;
@@ -611,11 +651,13 @@ export interface AnomalyReportedTimeRange {
  */
 export interface AnomalyResource {
   /**
+   * @public
    * <p>The name of the Amazon Web Services resource.</p>
    */
   Name?: string;
 
   /**
+   * @public
    * <p>The type of the Amazon Web Services resource.</p>
    */
   Type?: string;
@@ -645,11 +687,13 @@ export type AnomalySeverity = (typeof AnomalySeverity)[keyof typeof AnomalySever
  */
 export interface CloudWatchMetricsDimension {
   /**
+   * @public
    * <p> The name of the CloudWatch dimension. </p>
    */
   Name?: string;
 
   /**
+   * @public
    * <p> The value of the CloudWatch dimension. </p>
    */
   Value?: string;
@@ -677,11 +721,13 @@ export type CloudWatchMetricDataStatusCode =
  */
 export interface TimestampMetricValuePair {
   /**
+   * @public
    * <p>A <code>Timestamp</code> that specifies the time the event occurred. </p>
    */
   Timestamp?: Date;
 
   /**
+   * @public
    * <p>Value of the anomalous metric data point at respective Timestamp.</p>
    */
   MetricValue?: number;
@@ -694,11 +740,13 @@ export interface TimestampMetricValuePair {
  */
 export interface CloudWatchMetricsDataSummary {
   /**
+   * @public
    * <p>This is a list of Amazon CloudWatch metric values at given timestamp.</p>
    */
   TimestampMetricValuePairList?: TimestampMetricValuePair[];
 
   /**
+   * @public
    * <p>This is an enum of the status showing whether the metric value pair list has partial
    * 			or complete data, or if there was an error.</p>
    */
@@ -731,39 +779,46 @@ export type CloudWatchMetricsStat = (typeof CloudWatchMetricsStat)[keyof typeof 
  */
 export interface CloudWatchMetricsDetail {
   /**
+   * @public
    * <p> The name of the CloudWatch metric. </p>
    */
   MetricName?: string;
 
   /**
+   * @public
    * <p> The namespace of the CloudWatch metric. A namespace is a container for CloudWatch metrics.
    * 		</p>
    */
   Namespace?: string;
 
   /**
+   * @public
    * <p> An array of CloudWatch dimensions associated with </p>
    */
   Dimensions?: CloudWatchMetricsDimension[];
 
   /**
+   * @public
    * <p> The type of statistic associated with the CloudWatch metric. For more information, see
    * 				<a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/cloudwatch_concepts.html#Statistic">Statistics</a> in the <i>Amazon CloudWatch User Guide</i>. </p>
    */
   Stat?: CloudWatchMetricsStat | string;
 
   /**
+   * @public
    * <p> The unit of measure used for the CloudWatch metric. For example, <code>Bytes</code>,
    * 				<code>Seconds</code>, <code>Count</code>, and <code>Percent</code>. </p>
    */
   Unit?: string;
 
   /**
+   * @public
    * <p> The length of time associated with the CloudWatch metric in number of seconds. </p>
    */
   Period?: number;
 
   /**
+   * @public
    * <p>This object returns anomaly metric data.</p>
    */
   MetricDataSummary?: CloudWatchMetricsDataSummary;
@@ -799,6 +854,7 @@ export interface CloudWatchMetricsDetail {
  */
 export interface PerformanceInsightsMetricDimensionGroup {
   /**
+   * @public
    * <p>The name of the dimension group. Its valid values are:</p>
    *          <ul>
    *             <li>
@@ -848,6 +904,7 @@ export interface PerformanceInsightsMetricDimensionGroup {
   Group?: string;
 
   /**
+   * @public
    * <p>A list of specific dimensions from a dimension group. If this parameter is not
    * 			present, then it signifies that all of the dimensions in the group were requested or are
    * 			present in the response.</p>
@@ -942,6 +999,7 @@ export interface PerformanceInsightsMetricDimensionGroup {
   Dimensions?: string[];
 
   /**
+   * @public
    * <p>The maximum number of items to fetch for this dimension group.</p>
    */
   Limit?: number;
@@ -975,6 +1033,7 @@ export interface PerformanceInsightsMetricDimensionGroup {
  */
 export interface PerformanceInsightsMetricQuery {
   /**
+   * @public
    * <p>The name of the meteric used used when querying an Performance Insights
    * 				<code>GetResourceMetrics</code> API for anomaly metrics.</p>
    *          <p>Valid values for <code>Metric</code> are:</p>
@@ -1001,6 +1060,7 @@ export interface PerformanceInsightsMetricQuery {
   Metric?: string;
 
   /**
+   * @public
    * <p>The specification for how to aggregate the data points from a Performance Insights
    * 				<code>GetResourceMetrics</code> API query. The Performance Insights query returns all of the
    * 			dimensions within that group, unless you provide the names of specific dimensions within
@@ -1010,6 +1070,7 @@ export interface PerformanceInsightsMetricQuery {
   GroupBy?: PerformanceInsightsMetricDimensionGroup;
 
   /**
+   * @public
    * <p>One or more filters to apply to a Performance Insights <code>GetResourceMetrics</code> API query.
    * 			Restrictions:</p>
    *          <ul>
@@ -1031,6 +1092,7 @@ export interface PerformanceInsightsMetricQuery {
  */
 export interface PerformanceInsightsReferenceMetric {
   /**
+   * @public
    * <p>A query to be processed on the metric.</p>
    */
   MetricQuery?: PerformanceInsightsMetricQuery;
@@ -1043,6 +1105,7 @@ export interface PerformanceInsightsReferenceMetric {
  */
 export interface PerformanceInsightsReferenceScalar {
   /**
+   * @public
    * <p>The reference value.</p>
    */
   Value?: number;
@@ -1057,6 +1120,7 @@ export interface PerformanceInsightsReferenceScalar {
  */
 export interface PerformanceInsightsReferenceComparisonValues {
   /**
+   * @public
    * <p>A scalar value DevOps Guru for a metric that DevOps Guru compares to actual metric values. This
    * 			reference value is used to determine if an actual metric value should be considered
    * 			anomalous.</p>
@@ -1064,6 +1128,7 @@ export interface PerformanceInsightsReferenceComparisonValues {
   ReferenceScalar?: PerformanceInsightsReferenceScalar;
 
   /**
+   * @public
    * <p>A metric that DevOps Guru compares to actual metric values. This reference metric is used to
    * 			determine if an actual metric should be considered anomalous.</p>
    */
@@ -1077,11 +1142,13 @@ export interface PerformanceInsightsReferenceComparisonValues {
  */
 export interface PerformanceInsightsReferenceData {
   /**
+   * @public
    * <p>The name of the reference data.</p>
    */
   Name?: string;
 
   /**
+   * @public
    * <p>The specific reference values used to evaluate the Performance Insights. For more information, see
    * 					<code>
    *                <a href="https://docs.aws.amazon.com/devops-guru/latest/APIReference/API_PerformanceInsightsReferenceComparisonValues.html">PerformanceInsightsReferenceComparisonValues</a>
@@ -1096,11 +1163,13 @@ export interface PerformanceInsightsReferenceData {
  */
 export interface PerformanceInsightsStat {
   /**
+   * @public
    * <p>The statistic type.</p>
    */
   Type?: string;
 
   /**
+   * @public
    * <p>The value of the statistic.</p>
    */
   Value?: number;
@@ -1129,16 +1198,19 @@ export interface PerformanceInsightsStat {
  */
 export interface PerformanceInsightsMetricsDetail {
   /**
+   * @public
    * <p>The name used for a specific Performance Insights metric.</p>
    */
   MetricDisplayName?: string;
 
   /**
+   * @public
    * <p>The unit of measure for a metric. For example, a session or a process.</p>
    */
   Unit?: string;
 
   /**
+   * @public
    * <p>A single query to be processed for the metric. For more information, see <code>
    *                <a href="https://docs.aws.amazon.com/devops-guru/latest/APIReference/API_PerformanceInsightsMetricQuery.html">PerformanceInsightsMetricQuery</a>
    *             </code>.</p>
@@ -1146,6 +1218,7 @@ export interface PerformanceInsightsMetricsDetail {
   MetricQuery?: PerformanceInsightsMetricQuery;
 
   /**
+   * @public
    * <p> For more information, see <code>
    *                <a href="https://docs.aws.amazon.com/devops-guru/latest/APIReference/API_PerformanceInsightsReferenceData.html">PerformanceInsightsReferenceData</a>
    *             </code>. </p>
@@ -1153,11 +1226,13 @@ export interface PerformanceInsightsMetricsDetail {
   ReferenceData?: PerformanceInsightsReferenceData[];
 
   /**
+   * @public
    * <p>The metric statistics during the anomalous period detected by DevOps Guru;</p>
    */
   StatsAtAnomaly?: PerformanceInsightsStat[];
 
   /**
+   * @public
    * <p>Typical metric statistics that are not considered anomalous. When DevOps Guru analyzes
    * 			metrics, it compares them to <code>StatsAtBaseline</code> to help determine if they are
    * 			anomalous.</p>
@@ -1172,12 +1247,14 @@ export interface PerformanceInsightsMetricsDetail {
  */
 export interface AnomalySourceDetails {
   /**
+   * @public
    * <p>An array of <code>CloudWatchMetricsDetail</code> objects that contain information
    * 			about analyzed CloudWatch metrics that show anomalous behavior. </p>
    */
   CloudWatchMetrics?: CloudWatchMetricsDetail[];
 
   /**
+   * @public
    * <p>An array of <code>PerformanceInsightsMetricsDetail</code> objects that contain
    * 			information about analyzed Performance Insights metrics that show anomalous behavior.</p>
    */
@@ -1191,16 +1268,19 @@ export interface AnomalySourceDetails {
  */
 export interface AnomalySourceMetadata {
   /**
+   * @public
    * <p>The source of the anomaly.</p>
    */
   Source?: string;
 
   /**
+   * @public
    * <p>The name of the anomaly's resource.</p>
    */
   SourceResourceName?: string;
 
   /**
+   * @public
    * <p>The anomaly's resource type.</p>
    */
   SourceResourceType?: string;
@@ -1228,11 +1308,13 @@ export type AnomalyStatus = (typeof AnomalyStatus)[keyof typeof AnomalyStatus];
  */
 export interface AnomalyTimeRange {
   /**
+   * @public
    * <p> The time when the anomalous behavior started. </p>
    */
   StartTime: Date | undefined;
 
   /**
+   * @public
    * <p> The time when the anomalous behavior ended. </p>
    */
   EndTime?: Date;
@@ -1257,6 +1339,7 @@ export type AnomalyType = (typeof AnomalyType)[keyof typeof AnomalyType];
  */
 export interface DeleteInsightRequest {
   /**
+   * @public
    * <p>The ID of the insight.</p>
    */
   Id: string | undefined;
@@ -1277,30 +1360,35 @@ export interface DescribeAccountHealthRequest {}
  */
 export interface DescribeAccountHealthResponse {
   /**
+   * @public
    * <p> An integer that specifies the number of open reactive insights in your Amazon Web Services account.
    * 		</p>
    */
   OpenReactiveInsights: number | undefined;
 
   /**
+   * @public
    * <p> An integer that specifies the number of open proactive insights in your Amazon Web Services
    * 			account. </p>
    */
   OpenProactiveInsights: number | undefined;
 
   /**
+   * @public
    * <p> An integer that specifies the number of metrics that have been analyzed in your Amazon Web Services
    * 			account. </p>
    */
   MetricsAnalyzed: number | undefined;
 
   /**
+   * @public
    * <p>The number of Amazon DevOps Guru resource analysis hours billed to the current Amazon Web Services account in
    * 			the last hour. </p>
    */
   ResourceHours: number | undefined;
 
   /**
+   * @public
    * <p>
    * 			Number of resources that DevOps Guru is monitoring in your Amazon Web Services account.
    * 		</p>
@@ -1313,6 +1401,7 @@ export interface DescribeAccountHealthResponse {
  */
 export interface DescribeAccountOverviewRequest {
   /**
+   * @public
    * <p> The start of the time range passed in. The start time granularity is at the day
    * 			level. The floor of the start time is used. Returned information occurred after this
    * 			day. </p>
@@ -1320,6 +1409,7 @@ export interface DescribeAccountOverviewRequest {
   FromTime: Date | undefined;
 
   /**
+   * @public
    * <p> The end of the time range passed in. The start time granularity is at the day level.
    * 			The floor of the start time is used. Returned information occurred before this day. If
    * 			this is not specified, then the current day is used. </p>
@@ -1332,18 +1422,21 @@ export interface DescribeAccountOverviewRequest {
  */
 export interface DescribeAccountOverviewResponse {
   /**
+   * @public
    * <p> An integer that specifies the number of open reactive insights in your Amazon Web Services account
    * 			that were created during the time range passed in. </p>
    */
   ReactiveInsights: number | undefined;
 
   /**
+   * @public
    * <p> An integer that specifies the number of open proactive insights in your Amazon Web Services account
    * 			that were created during the time range passed in. </p>
    */
   ProactiveInsights: number | undefined;
 
   /**
+   * @public
    * <p> The Mean Time to Recover (MTTR) for all closed insights that were created during the time range passed in.
    * 		</p>
    */
@@ -1355,11 +1448,13 @@ export interface DescribeAccountOverviewResponse {
  */
 export interface DescribeAnomalyRequest {
   /**
+   * @public
    * <p> The ID of the anomaly. </p>
    */
   Id: string | undefined;
 
   /**
+   * @public
    * <p>The ID of the member account.</p>
    */
   AccountId?: string;
@@ -1372,12 +1467,14 @@ export interface DescribeAnomalyRequest {
  */
 export interface PredictionTimeRange {
   /**
+   * @public
    * <p> The time range during which a metric limit is expected to be exceeded. This applies
    * 			to proactive insights only. </p>
    */
   StartTime: Date | undefined;
 
   /**
+   * @public
    * <p> The time when the behavior in a proactive insight is expected to end. </p>
    */
   EndTime?: Date;
@@ -1392,6 +1489,7 @@ export interface PredictionTimeRange {
  */
 export interface CloudFormationCollection {
   /**
+   * @public
    * <p> An array of CloudFormation stack names. </p>
    */
   StackNames?: string[];
@@ -1436,6 +1534,7 @@ export interface CloudFormationCollection {
  */
 export interface TagCollection {
   /**
+   * @public
    * <p>An Amazon Web Services tag <i>key</i> that is used to identify the Amazon Web Services resources that
    *       	DevOps Guru analyzes. All Amazon Web Services resources in your account and Region tagged with this <i>key</i> make
    *       up your DevOps Guru application and analysis boundary.</p>
@@ -1454,6 +1553,7 @@ export interface TagCollection {
   AppBoundaryKey: string | undefined;
 
   /**
+   * @public
    * <p>The values in an Amazon Web Services tag collection.</p>
    *          <p>The tag's <i>value</i> is an optional field used to associate a string with
    * 					the tag <i>key</i> (for example, <code>111122223333</code>, <code>Production</code>, or a team
@@ -1474,12 +1574,14 @@ export interface TagCollection {
  */
 export interface ResourceCollection {
   /**
+   * @public
    * <p> An array of the names of Amazon Web Services CloudFormation stacks. The stacks define Amazon Web Services resources that
    * 			DevOps Guru analyzes. You can specify up to 500 Amazon Web Services CloudFormation stacks. </p>
    */
   CloudFormation?: CloudFormationCollection;
 
   /**
+   * @public
    * <p>The Amazon Web Services tags that are used by resources in the resource collection.</p>
    *          <p>Tags help you identify and organize your Amazon Web Services resources. Many Amazon Web Services services support
    *    		tagging, so you can assign the same tag to resources from different services to indicate
@@ -1525,11 +1627,13 @@ export interface ResourceCollection {
  */
 export interface ProactiveAnomaly {
   /**
+   * @public
    * <p> The ID of a proactive anomaly. </p>
    */
   Id?: string;
 
   /**
+   * @public
    * <p>The severity of the anomaly. The severity of anomalies that generate
    * 	an insight determine that insight's severity. For more information, see
    * 	<a href="https://docs.aws.amazon.com/devops-guru/latest/userguide/working-with-insights.html#understanding-insights-severities">Understanding
@@ -1538,16 +1642,19 @@ export interface ProactiveAnomaly {
   Severity?: AnomalySeverity | string;
 
   /**
+   * @public
    * <p> The status of a proactive anomaly. </p>
    */
   Status?: AnomalyStatus | string;
 
   /**
+   * @public
    * <p> The time of the anomaly's most recent update. </p>
    */
   UpdateTime?: Date;
 
   /**
+   * @public
    * <p> A time range that specifies when the observed unusual behavior in an anomaly started
    * 			and ended. This is different from <code>AnomalyReportedTimeRange</code>, which specifies
    * 			the time range when DevOps Guru opens and then closes an anomaly. </p>
@@ -1555,6 +1662,7 @@ export interface ProactiveAnomaly {
   AnomalyTimeRange?: AnomalyTimeRange;
 
   /**
+   * @public
    * <p>
    * 			An <code>AnomalyReportedTimeRange</code> object that specifies the time range between when the anomaly is opened and the time when it is closed.
    * 		</p>
@@ -1562,24 +1670,28 @@ export interface ProactiveAnomaly {
   AnomalyReportedTimeRange?: AnomalyReportedTimeRange;
 
   /**
+   * @public
    * <p> The time range during which anomalous behavior in a proactive anomaly or an insight
    * 			is expected to occur. </p>
    */
   PredictionTimeRange?: PredictionTimeRange;
 
   /**
+   * @public
    * <p> Details about the source of the analyzed operational data that triggered the anomaly.
    * 			The one supported source is Amazon CloudWatch metrics. </p>
    */
   SourceDetails?: AnomalySourceDetails;
 
   /**
+   * @public
    * <p> The ID of the insight that contains this anomaly. An insight is composed of related
    * 			anomalies. </p>
    */
   AssociatedInsightId?: string;
 
   /**
+   * @public
    * <p> A collection of Amazon Web Services resources supported by DevOps Guru.
    * 			The two types of Amazon Web Services resource collections supported are Amazon Web Services CloudFormation stacks and
    *           Amazon Web Services resources that contain the same Amazon Web Services tag. DevOps Guru can be configured to analyze
@@ -1588,22 +1700,26 @@ export interface ProactiveAnomaly {
   ResourceCollection?: ResourceCollection;
 
   /**
+   * @public
    * <p> A threshold that was exceeded by behavior in analyzed resources. Exceeding this
    * 			threshold is related to the anomalous behavior that generated this anomaly. </p>
    */
   Limit?: number;
 
   /**
+   * @public
    * <p>The metadata for the anomaly.</p>
    */
   SourceMetadata?: AnomalySourceMetadata;
 
   /**
+   * @public
    * <p>Information about a resource in which DevOps Guru detected anomalous behavior.</p>
    */
   AnomalyResources?: AnomalyResource[];
 
   /**
+   * @public
    * <p>
    * 			A description of the proactive anomaly.
    * 		</p>
@@ -1618,11 +1734,13 @@ export interface ProactiveAnomaly {
  */
 export interface ReactiveAnomaly {
   /**
+   * @public
    * <p>The ID of the reactive anomaly. </p>
    */
   Id?: string;
 
   /**
+   * @public
    * <p>The severity of the anomaly. The severity of anomalies that generate
    * 	an insight determine that insight's severity. For more information, see
    * 	<a href="https://docs.aws.amazon.com/devops-guru/latest/userguide/working-with-insights.html#understanding-insights-severities">Understanding
@@ -1631,11 +1749,13 @@ export interface ReactiveAnomaly {
   Severity?: AnomalySeverity | string;
 
   /**
+   * @public
    * <p> The status of the anomaly. </p>
    */
   Status?: AnomalyStatus | string;
 
   /**
+   * @public
    * <p> A time range that specifies when the observed unusual behavior in an anomaly started
    * 			and ended. This is different from <code>AnomalyReportedTimeRange</code>, which specifies
    * 			the time range when DevOps Guru opens and then closes an anomaly. </p>
@@ -1643,6 +1763,7 @@ export interface ReactiveAnomaly {
   AnomalyTimeRange?: AnomalyTimeRange;
 
   /**
+   * @public
    * <p>
    * 			An <code>AnomalyReportedTimeRange</code> object that specifies the time range between when the anomaly is opened and the time when it is closed.
    * 		</p>
@@ -1650,18 +1771,21 @@ export interface ReactiveAnomaly {
   AnomalyReportedTimeRange?: AnomalyReportedTimeRange;
 
   /**
+   * @public
    * <p> Details about the source of the analyzed operational data that triggered the anomaly.
    * 			The one supported source is Amazon CloudWatch metrics. </p>
    */
   SourceDetails?: AnomalySourceDetails;
 
   /**
+   * @public
    * <p> The ID of the insight that contains this anomaly. An insight is composed of related
    * 			anomalies. </p>
    */
   AssociatedInsightId?: string;
 
   /**
+   * @public
    * <p> A collection of Amazon Web Services resources supported by DevOps Guru.
    * 			The two types of Amazon Web Services resource collections supported are Amazon Web Services CloudFormation stacks and
    *           Amazon Web Services resources that contain the same Amazon Web Services tag. DevOps Guru can be configured to analyze
@@ -1670,6 +1794,7 @@ export interface ReactiveAnomaly {
   ResourceCollection?: ResourceCollection;
 
   /**
+   * @public
    * <p>The type of the reactive anomaly. It can be one of the following types.</p>
    *          <ul>
    *             <li>
@@ -1685,22 +1810,26 @@ export interface ReactiveAnomaly {
   Type?: AnomalyType | string;
 
   /**
+   * @public
    * <p>The name of the reactive anomaly.</p>
    */
   Name?: string;
 
   /**
+   * @public
    * <p>A description of the reactive anomaly.</p>
    */
   Description?: string;
 
   /**
+   * @public
    * <p>The ID of the causal anomaly that is associated with this
    *       reactive anomaly. The ID of a `CAUSAL` anomaly is always `NULL`.</p>
    */
   CausalAnomalyId?: string;
 
   /**
+   * @public
    * <p>The Amazon Web Services resources in which anomalous behavior was detected by DevOps Guru.</p>
    */
   AnomalyResources?: AnomalyResource[];
@@ -1711,11 +1840,13 @@ export interface ReactiveAnomaly {
  */
 export interface DescribeAnomalyResponse {
   /**
+   * @public
    * <p> A <code>ProactiveAnomaly</code> object that represents the requested anomaly. </p>
    */
   ProactiveAnomaly?: ProactiveAnomaly;
 
   /**
+   * @public
    * <p> A <code>ReactiveAnomaly</code> object that represents the requested anomaly. </p>
    */
   ReactiveAnomaly?: ReactiveAnomaly;
@@ -1733,6 +1864,7 @@ export interface DescribeEventSourcesConfigRequest {}
  */
 export interface EventSourcesConfig {
   /**
+   * @public
    * <p>Information about whether DevOps Guru is configured to consume recommendations which
    * 			are generated from AWS CodeGuru Profiler.</p>
    */
@@ -1744,6 +1876,7 @@ export interface EventSourcesConfig {
  */
 export interface DescribeEventSourcesConfigResponse {
   /**
+   * @public
    * <p>Lists the event sources in the configuration.</p>
    */
   EventSources?: EventSourcesConfig;
@@ -1754,6 +1887,7 @@ export interface DescribeEventSourcesConfigResponse {
  */
 export interface DescribeFeedbackRequest {
   /**
+   * @public
    * <p> The ID of the insight for which the feedback was provided. </p>
    */
   InsightId?: string;
@@ -1782,11 +1916,13 @@ export type InsightFeedbackOption = (typeof InsightFeedbackOption)[keyof typeof 
  */
 export interface InsightFeedback {
   /**
+   * @public
    * <p> The insight feedback ID. </p>
    */
   Id?: string;
 
   /**
+   * @public
    * <p> The feedback provided by the customer. </p>
    */
   Feedback?: InsightFeedbackOption | string;
@@ -1797,6 +1933,7 @@ export interface InsightFeedback {
  */
 export interface DescribeFeedbackResponse {
   /**
+   * @public
    * <p> Information about insight feedback received from a customer. </p>
    */
   InsightFeedback?: InsightFeedback;
@@ -1807,11 +1944,13 @@ export interface DescribeFeedbackResponse {
  */
 export interface DescribeInsightRequest {
   /**
+   * @public
    * <p> The ID of the insight. </p>
    */
   Id: string | undefined;
 
   /**
+   * @public
    * <p>The ID of the member account in the organization.</p>
    */
   AccountId?: string;
@@ -1824,11 +1963,13 @@ export interface DescribeInsightRequest {
  */
 export interface InsightTimeRange {
   /**
+   * @public
    * <p> The time when the behavior described in an insight started. </p>
    */
   StartTime: Date | undefined;
 
   /**
+   * @public
    * <p> The time when the behavior described in an insight ended. </p>
    */
   EndTime?: Date;
@@ -1855,16 +1996,19 @@ export type InsightStatus = (typeof InsightStatus)[keyof typeof InsightStatus];
  */
 export interface ProactiveInsight {
   /**
+   * @public
    * <p>The ID of the proactive insight. </p>
    */
   Id?: string;
 
   /**
+   * @public
    * <p>The name of the proactive insight. </p>
    */
   Name?: string;
 
   /**
+   * @public
    * <p>The severity of the insight. For more information, see
    * 	<a href="https://docs.aws.amazon.com/devops-guru/latest/userguide/working-with-insights.html#understanding-insights-severities">Understanding
    * 	insight severities</a> in the <i>Amazon DevOps Guru User Guide</i>.</p>
@@ -1872,23 +2016,27 @@ export interface ProactiveInsight {
   Severity?: InsightSeverity | string;
 
   /**
+   * @public
    * <p>The status of the proactive insight. </p>
    */
   Status?: InsightStatus | string;
 
   /**
+   * @public
    * <p> A time ranged that specifies when the observed behavior in an insight started and
    * 			ended. </p>
    */
   InsightTimeRange?: InsightTimeRange;
 
   /**
+   * @public
    * <p> The time range during which anomalous behavior in a proactive anomaly or an insight
    * 			is expected to occur. </p>
    */
   PredictionTimeRange?: PredictionTimeRange;
 
   /**
+   * @public
    * <p> A collection of Amazon Web Services resources supported by DevOps Guru.
    * 			The two types of Amazon Web Services resource collections supported are Amazon Web Services CloudFormation stacks and
    *           Amazon Web Services resources that contain the same Amazon Web Services tag. DevOps Guru can be configured to analyze
@@ -1897,12 +2045,14 @@ export interface ProactiveInsight {
   ResourceCollection?: ResourceCollection;
 
   /**
+   * @public
    * <p> The ID of the Amazon Web Services System Manager OpsItem created for this insight. You must enable
    * 			the creation of OpstItems insights before they are created for each insight. </p>
    */
   SsmOpsItemId?: string;
 
   /**
+   * @public
    * <p>Describes the proactive insight.</p>
    */
   Description?: string;
@@ -1915,16 +2065,19 @@ export interface ProactiveInsight {
  */
 export interface ReactiveInsight {
   /**
+   * @public
    * <p> The ID of a reactive insight. </p>
    */
   Id?: string;
 
   /**
+   * @public
    * <p> The name of a reactive insight. </p>
    */
   Name?: string;
 
   /**
+   * @public
    * <p>The severity of the insight. For more information, see
    * 	<a href="https://docs.aws.amazon.com/devops-guru/latest/userguide/working-with-insights.html#understanding-insights-severities">Understanding
    * 	insight severities</a> in the <i>Amazon DevOps Guru User Guide</i>.</p>
@@ -1932,17 +2085,20 @@ export interface ReactiveInsight {
   Severity?: InsightSeverity | string;
 
   /**
+   * @public
    * <p> The status of a reactive insight. </p>
    */
   Status?: InsightStatus | string;
 
   /**
+   * @public
    * <p> A time ranged that specifies when the observed behavior in an insight started and
    * 			ended. </p>
    */
   InsightTimeRange?: InsightTimeRange;
 
   /**
+   * @public
    * <p> A collection of Amazon Web Services resources supported by DevOps Guru.
    * 			The two types of Amazon Web Services resource collections supported are Amazon Web Services CloudFormation stacks and
    *           Amazon Web Services resources that contain the same Amazon Web Services tag. DevOps Guru can be configured to analyze
@@ -1951,12 +2107,14 @@ export interface ReactiveInsight {
   ResourceCollection?: ResourceCollection;
 
   /**
+   * @public
    * <p> The ID of the Amazon Web Services System Manager OpsItem created for this insight. You must enable
    * 			the creation of OpstItems insights before they are created for each insight. </p>
    */
   SsmOpsItemId?: string;
 
   /**
+   * @public
    * <p>Describes the reactive insight.</p>
    */
   Description?: string;
@@ -1967,11 +2125,13 @@ export interface ReactiveInsight {
  */
 export interface DescribeInsightResponse {
   /**
+   * @public
    * <p> A <code>ProactiveInsight</code> object that represents the requested insight. </p>
    */
   ProactiveInsight?: ProactiveInsight;
 
   /**
+   * @public
    * <p> A <code>ReactiveInsight</code> object that represents the requested insight. </p>
    */
   ReactiveInsight?: ReactiveInsight;
@@ -1982,11 +2142,13 @@ export interface DescribeInsightResponse {
  */
 export interface DescribeOrganizationHealthRequest {
   /**
+   * @public
    * <p>The ID of the Amazon Web Services account.</p>
    */
   AccountIds?: string[];
 
   /**
+   * @public
    * <p>The ID of the organizational unit.</p>
    */
   OrganizationalUnitIds?: string[];
@@ -1997,24 +2159,28 @@ export interface DescribeOrganizationHealthRequest {
  */
 export interface DescribeOrganizationHealthResponse {
   /**
+   * @public
    * <p>An integer that specifies the number of open reactive insights in your Amazon Web Services
    * 			account.</p>
    */
   OpenReactiveInsights: number | undefined;
 
   /**
+   * @public
    * <p>An integer that specifies the number of open proactive insights in your Amazon Web Services
    * 			account.</p>
    */
   OpenProactiveInsights: number | undefined;
 
   /**
+   * @public
    * <p>An integer that specifies the number of metrics that have been analyzed in your
    * 			organization.</p>
    */
   MetricsAnalyzed: number | undefined;
 
   /**
+   * @public
    * <p>The number of Amazon DevOps Guru resource analysis hours billed to the current Amazon Web Services account in
    * 			the last hour. </p>
    */
@@ -2026,6 +2192,7 @@ export interface DescribeOrganizationHealthResponse {
  */
 export interface DescribeOrganizationOverviewRequest {
   /**
+   * @public
    * <p> The start of the time range passed in. The start time granularity is at the day
    * 			level. The floor of the start time is used. Returned information occurred after this
    * 			day. </p>
@@ -2033,6 +2200,7 @@ export interface DescribeOrganizationOverviewRequest {
   FromTime: Date | undefined;
 
   /**
+   * @public
    * <p> The end of the time range passed in. The start time granularity is at the day level.
    * 			The floor of the start time is used. Returned information occurred before this day. If
    * 			this is not specified, then the current day is used. </p>
@@ -2040,11 +2208,13 @@ export interface DescribeOrganizationOverviewRequest {
   ToTime?: Date;
 
   /**
+   * @public
    * <p>The ID of the Amazon Web Services account.</p>
    */
   AccountIds?: string[];
 
   /**
+   * @public
    * <p>The ID of the organizational unit.</p>
    */
   OrganizationalUnitIds?: string[];
@@ -2055,12 +2225,14 @@ export interface DescribeOrganizationOverviewRequest {
  */
 export interface DescribeOrganizationOverviewResponse {
   /**
+   * @public
    * <p>An integer that specifies the number of open reactive insights in your Amazon Web Services
    * 			account.</p>
    */
   ReactiveInsights: number | undefined;
 
   /**
+   * @public
    * <p>An integer that specifies the number of open proactive insights in your Amazon Web Services
    * 			account.</p>
    */
@@ -2089,6 +2261,7 @@ export type OrganizationResourceCollectionType =
  */
 export interface DescribeOrganizationResourceCollectionHealthRequest {
   /**
+   * @public
    * <p> An Amazon Web Services resource collection type. This type specifies how analyzed Amazon Web Services resources
    * 			are defined. The two types of Amazon Web Services resource collections supported are Amazon Web Services CloudFormation stacks and
    *           Amazon Web Services resources that contain the same Amazon Web Services tag. DevOps Guru can be configured to analyze
@@ -2097,22 +2270,26 @@ export interface DescribeOrganizationResourceCollectionHealthRequest {
   OrganizationResourceCollectionType: OrganizationResourceCollectionType | string | undefined;
 
   /**
+   * @public
    * <p>The ID of the Amazon Web Services account.</p>
    */
   AccountIds?: string[];
 
   /**
+   * @public
    * <p>The ID of the organizational unit.</p>
    */
   OrganizationalUnitIds?: string[];
 
   /**
+   * @public
    * <p>The pagination token to use to retrieve
    *    the next page of results for this operation. If this value is null, it retrieves the first page.</p>
    */
   NextToken?: string;
 
   /**
+   * @public
    * <p>The maximum number of results to return with a single call.
    * 	To retrieve the remaining results, make another call with the returned <code>nextToken</code> value.</p>
    */
@@ -2126,16 +2303,19 @@ export interface DescribeOrganizationResourceCollectionHealthRequest {
  */
 export interface InsightHealth {
   /**
+   * @public
    * <p> The number of open proactive insights. </p>
    */
   OpenProactiveInsights?: number;
 
   /**
+   * @public
    * <p> The number of open reactive insights. </p>
    */
   OpenReactiveInsights?: number;
 
   /**
+   * @public
    * <p> The Meant Time to Recover (MTTR) for the insight. </p>
    */
   MeanTimeToRecoverInMilliseconds?: number;
@@ -2148,11 +2328,13 @@ export interface InsightHealth {
  */
 export interface CloudFormationHealth {
   /**
+   * @public
    * <p> The name of the CloudFormation stack. </p>
    */
   StackName?: string;
 
   /**
+   * @public
    * <p> Information about the health of the Amazon Web Services resources in your account that are
    * 			specified by an Amazon Web Services CloudFormation stack, including the number of open proactive, open reactive
    * 			insights, and the Mean Time to Recover (MTTR) of closed insights. </p>
@@ -2160,6 +2342,7 @@ export interface CloudFormationHealth {
   Insight?: InsightHealth;
 
   /**
+   * @public
    * <p>
    * 			Number of resources that DevOps Guru is monitoring in your account that are specified by an Amazon Web Services CloudFormation stack.
    * 		</p>
@@ -2174,11 +2357,13 @@ export interface CloudFormationHealth {
  */
 export interface ServiceInsightHealth {
   /**
+   * @public
    * <p>The number of open proactive insights in the Amazon Web Services service</p>
    */
   OpenProactiveInsights?: number;
 
   /**
+   * @public
    * <p>The number of open reactive insights in the Amazon Web Services service</p>
    */
   OpenReactiveInsights?: number;
@@ -2227,11 +2412,13 @@ export type ServiceName = (typeof ServiceName)[keyof typeof ServiceName];
  */
 export interface ServiceHealth {
   /**
+   * @public
    * <p>The name of the Amazon Web Services service.</p>
    */
   ServiceName?: ServiceName | string;
 
   /**
+   * @public
    * <p>Represents the health of an Amazon Web Services service. This is a <code>ServiceInsightHealth</code>
    * 			that contains the number of open proactive and reactive insights for this
    * 			service.</p>
@@ -2239,6 +2426,7 @@ export interface ServiceHealth {
   Insight?: ServiceInsightHealth;
 
   /**
+   * @public
    * <p>
    * 			Number of resources that DevOps Guru is monitoring in an analyzed Amazon Web Services service.
    * 		</p>
@@ -2253,6 +2441,7 @@ export interface ServiceHealth {
  */
 export interface TagHealth {
   /**
+   * @public
    * <p>An Amazon Web Services tag <i>key</i> that is used to identify the Amazon Web Services resources that
    *       	DevOps Guru analyzes. All Amazon Web Services resources in your account and Region tagged with this <i>key</i> make
    *       up your DevOps Guru application and analysis boundary.</p>
@@ -2271,6 +2460,7 @@ export interface TagHealth {
   AppBoundaryKey?: string;
 
   /**
+   * @public
    * <p>The value in an Amazon Web Services tag.</p>
    *          <p>The tag's <i>value</i> is an optional field used to associate a string with
    * 					the tag <i>key</i> (for example, <code>111122223333</code>, <code>Production</code>, or a team
@@ -2282,6 +2472,7 @@ export interface TagHealth {
   TagValue?: string;
 
   /**
+   * @public
    * <p>Information about the health of the Amazon Web Services resources in your account that are specified
    * 			by an Amazon Web Services tag, including the number of open proactive, open reactive insights, and the
    * 			Mean Time to Recover (MTTR) of closed insights. </p>
@@ -2289,6 +2480,7 @@ export interface TagHealth {
   Insight?: InsightHealth;
 
   /**
+   * @public
    * <p>
    * 			Number of resources that DevOps Guru is monitoring in your account that are specified by an Amazon Web Services tag.
    * 		</p>
@@ -2301,6 +2493,7 @@ export interface TagHealth {
  */
 export interface DescribeOrganizationResourceCollectionHealthResponse {
   /**
+   * @public
    * <p>The returned <code>CloudFormationHealthOverview</code> object that contains an
    * 				<code>InsightHealthOverview</code> object with the requested system health
    * 			information.</p>
@@ -2308,23 +2501,27 @@ export interface DescribeOrganizationResourceCollectionHealthResponse {
   CloudFormation?: CloudFormationHealth[];
 
   /**
+   * @public
    * <p>An array of <code>ServiceHealth</code> objects that describes the health of the Amazon Web Services
    * 			services associated with the resources in the collection.</p>
    */
   Service?: ServiceHealth[];
 
   /**
+   * @public
    * <p>The name of the organization's account.</p>
    */
   Account?: AccountHealth[];
 
   /**
+   * @public
    * <p>The pagination token to use to retrieve
    *    the next page of results for this operation. If there are no more pages, this value is null.</p>
    */
   NextToken?: string;
 
   /**
+   * @public
    * <p>Tags help you identify and organize your Amazon Web Services resources. Many Amazon Web Services services support
    *    		tagging, so you can assign the same tag to resources from different services to indicate
    *    		that the resources are related. For example, you can assign the same tag to an Amazon DynamoDB
@@ -2382,6 +2579,7 @@ export type ResourceCollectionType = (typeof ResourceCollectionType)[keyof typeo
  */
 export interface DescribeResourceCollectionHealthRequest {
   /**
+   * @public
    * <p> An Amazon Web Services resource collection type. This type specifies how analyzed Amazon Web Services resources
    * 			are defined. The two types of Amazon Web Services resource collections supported are Amazon Web Services CloudFormation stacks and
    *           Amazon Web Services resources that contain the same Amazon Web Services tag. DevOps Guru can be configured to analyze
@@ -2390,6 +2588,7 @@ export interface DescribeResourceCollectionHealthRequest {
   ResourceCollectionType: ResourceCollectionType | string | undefined;
 
   /**
+   * @public
    * <p>The pagination token to use to retrieve
    *    the next page of results for this operation. If this value is null, it retrieves the first page.</p>
    */
@@ -2401,6 +2600,7 @@ export interface DescribeResourceCollectionHealthRequest {
  */
 export interface DescribeResourceCollectionHealthResponse {
   /**
+   * @public
    * <p> The returned <code>CloudFormationHealthOverview</code> object that contains an
    * 				<code>InsightHealthOverview</code> object with the requested system health
    * 			information. </p>
@@ -2408,18 +2608,21 @@ export interface DescribeResourceCollectionHealthResponse {
   CloudFormation?: CloudFormationHealth[];
 
   /**
+   * @public
    * <p>An array of <code>ServiceHealth</code> objects that describes the health of the Amazon Web Services
    * 			services associated with the resources in the collection.</p>
    */
   Service?: ServiceHealth[];
 
   /**
+   * @public
    * <p>The pagination token to use to retrieve
    *    the next page of results for this operation. If there are no more pages, this value is null.</p>
    */
   NextToken?: string;
 
   /**
+   * @public
    * <p>The Amazon Web Services tags that are used by resources in the resource collection.</p>
    *          <p>Tags help you identify and organize your Amazon Web Services resources. Many Amazon Web Services services support
    *    		tagging, so you can assign the same tag to resources from different services to indicate
@@ -2499,6 +2702,7 @@ export type ServerSideEncryptionType = (typeof ServerSideEncryptionType)[keyof t
  */
 export interface KMSServerSideEncryptionIntegration {
   /**
+   * @public
    * <p>
    * 			Describes the specified KMS key.
    * 		</p>
@@ -2517,6 +2721,7 @@ export interface KMSServerSideEncryptionIntegration {
   KMSKeyId?: string;
 
   /**
+   * @public
    * <p>
    * 			Specifies if DevOps Guru is enabled for customer managed keys.
    * 		</p>
@@ -2524,6 +2729,7 @@ export interface KMSServerSideEncryptionIntegration {
   OptInStatus?: OptInStatus | string;
 
   /**
+   * @public
    * <p>
    * 			The type of KMS key used. Customer managed keys are the KMS keys that you create. Amazon Web Services owned keys are keys that are owned and managed by DevOps Guru.
    * 		</p>
@@ -2539,6 +2745,7 @@ export interface KMSServerSideEncryptionIntegration {
  */
 export interface LogsAnomalyDetectionIntegration {
   /**
+   * @public
    * <p>Specifies if DevOps Guru is configured to perform log anomaly detection on CloudWatch log groups.</p>
    */
   OptInStatus?: OptInStatus | string;
@@ -2551,6 +2758,7 @@ export interface LogsAnomalyDetectionIntegration {
  */
 export interface OpsCenterIntegration {
   /**
+   * @public
    * <p> Specifies if DevOps Guru is enabled to create an Amazon Web Services Systems Manager OpsItem for each created
    * 			insight. </p>
    */
@@ -2564,12 +2772,14 @@ export interface OpsCenterIntegration {
  */
 export interface ServiceIntegrationConfig {
   /**
+   * @public
    * <p> Information about whether DevOps Guru is configured to create an OpsItem in Amazon Web Services Systems Manager
    * 			OpsCenter for each created insight. </p>
    */
   OpsCenter?: OpsCenterIntegration;
 
   /**
+   * @public
    * <p>
    * 			Information about whether DevOps Guru is configured to perform log anomaly detection on Amazon CloudWatch log groups.
    * 		</p>
@@ -2577,6 +2787,7 @@ export interface ServiceIntegrationConfig {
   LogsAnomalyDetection?: LogsAnomalyDetectionIntegration;
 
   /**
+   * @public
    * <p>
    * 			Information about whether DevOps Guru is configured to encrypt server-side data using KMS.
    * 		</p>
@@ -2589,6 +2800,7 @@ export interface ServiceIntegrationConfig {
  */
 export interface DescribeServiceIntegrationResponse {
   /**
+   * @public
    * <p> Information about the integration of DevOps Guru with another Amazon Web Services service, such as
    * 			Amazon Web Services Systems Manager. </p>
    */
@@ -2600,6 +2812,7 @@ export interface DescribeServiceIntegrationResponse {
  */
 export interface GetCostEstimationRequest {
   /**
+   * @public
    * <p>The pagination token to use to retrieve
    *    the next page of results for this operation. If this value is null, it retrieves the first page.</p>
    */
@@ -2631,11 +2844,13 @@ export type CostEstimationServiceResourceState =
  */
 export interface ServiceResourceCost {
   /**
+   * @public
    * <p>The type of the Amazon Web Services resource.</p>
    */
   Type?: string;
 
   /**
+   * @public
    * <p>The state of the resource. The resource is <code>ACTIVE</code> if it produces metrics,
    * 			events, or logs within an hour, otherwise it is <code>INACTIVE</code>. You pay for the
    * 			number of active Amazon Web Services resource hours analyzed for each resource. Inactive resources are
@@ -2644,12 +2859,14 @@ export interface ServiceResourceCost {
   State?: CostEstimationServiceResourceState | string;
 
   /**
+   * @public
    * <p>The number of active resources analyzed for this service to create a monthly cost
    * 			estimate.</p>
    */
   Count?: number;
 
   /**
+   * @public
    * <p>The price per hour to analyze the resources in the service.
    * 			For more information,
    * 			see <a href="https://docs.aws.amazon.com/devops-guru/latest/userguide/cost-estimate.html">Estimate your
@@ -2659,6 +2876,7 @@ export interface ServiceResourceCost {
   UnitCost?: number;
 
   /**
+   * @public
    * <p>The total estimated monthly cost to analyze the active resources for this
    * 			resource.</p>
    */
@@ -2675,6 +2893,7 @@ export interface ServiceResourceCost {
  */
 export interface CloudFormationCostEstimationResourceCollectionFilter {
   /**
+   * @public
    * <p>An array of CloudFormation stack names. Its size is fixed at 1 item.</p>
    */
   StackNames?: string[];
@@ -2691,6 +2910,7 @@ export interface CloudFormationCostEstimationResourceCollectionFilter {
  */
 export interface TagCostEstimationResourceCollectionFilter {
   /**
+   * @public
    * <p>An Amazon Web Services tag <i>key</i> that is used to identify the Amazon Web Services resources that
    *       	DevOps Guru analyzes. All Amazon Web Services resources in your account and Region tagged with this <i>key</i> make
    *       up your DevOps Guru application and analysis boundary.</p>
@@ -2709,6 +2929,7 @@ export interface TagCostEstimationResourceCollectionFilter {
   AppBoundaryKey: string | undefined;
 
   /**
+   * @public
    * <p>The values in an Amazon Web Services tag collection.</p>
    *          <p>The tag's <i>value</i> is an optional field used to associate a string with
    * 					the tag <i>key</i> (for example, <code>111122223333</code>, <code>Production</code>, or a team
@@ -2730,12 +2951,14 @@ export interface TagCostEstimationResourceCollectionFilter {
  */
 export interface CostEstimationResourceCollectionFilter {
   /**
+   * @public
    * <p>An object that specifies the CloudFormation stack that defines the Amazon Web Services resources
    * 			used to create a monthly estimate for DevOps Guru.</p>
    */
   CloudFormation?: CloudFormationCostEstimationResourceCollectionFilter;
 
   /**
+   * @public
    * <p>The Amazon Web Services tags used to filter the resource collection that is used for a cost
    * 			estimate.</p>
    *          <p>Tags help you identify and organize your Amazon Web Services resources. Many Amazon Web Services services support
@@ -2795,11 +3018,13 @@ export type CostEstimationStatus = (typeof CostEstimationStatus)[keyof typeof Co
  */
 export interface CostEstimationTimeRange {
   /**
+   * @public
    * <p>The start time of the cost estimation.</p>
    */
   StartTime?: Date;
 
   /**
+   * @public
    * <p>The end time of the cost estimation.</p>
    */
   EndTime?: Date;
@@ -2810,12 +3035,14 @@ export interface CostEstimationTimeRange {
  */
 export interface GetCostEstimationResponse {
   /**
+   * @public
    * <p>The collection of the Amazon Web Services resources used to create your monthly DevOps Guru cost
    * 			estimate.</p>
    */
   ResourceCollection?: CostEstimationResourceCollectionFilter;
 
   /**
+   * @public
    * <p>The status of creating this cost estimate. If it's still in progress, the status
    * 				<code>ONGOING</code> is returned. If it is finished, the status
    * 				<code>COMPLETED</code> is returned.</p>
@@ -2823,17 +3050,20 @@ export interface GetCostEstimationResponse {
   Status?: CostEstimationStatus | string;
 
   /**
+   * @public
    * <p>An array of <code>ResourceCost</code> objects that each contains details about the
    * 			monthly cost estimate to analyze one of your Amazon Web Services resources.</p>
    */
   Costs?: ServiceResourceCost[];
 
   /**
+   * @public
    * <p>The start and end time of the cost estimation.</p>
    */
   TimeRange?: CostEstimationTimeRange;
 
   /**
+   * @public
    * <p>The estimated monthly cost to analyze the Amazon Web Services resources. This value is the sum of
    * 			the estimated costs to analyze each resource in the <code>Costs</code> object in this
    * 			response.</p>
@@ -2841,6 +3071,7 @@ export interface GetCostEstimationResponse {
   TotalCost?: number;
 
   /**
+   * @public
    * <p>The pagination token to use to retrieve
    *    the next page of results for this operation. If there are no more pages, this value is null.</p>
    */
@@ -2852,12 +3083,14 @@ export interface GetCostEstimationResponse {
  */
 export interface GetResourceCollectionRequest {
   /**
+   * @public
    * <p> The type of Amazon Web Services resource collections to return. The one valid value is
    * 				<code>CLOUD_FORMATION</code> for Amazon Web Services CloudFormation stacks. </p>
    */
   ResourceCollectionType: ResourceCollectionType | string | undefined;
 
   /**
+   * @public
    * <p>The pagination token to use to retrieve
    *    the next page of results for this operation. If this value is null, it retrieves the first page.</p>
    */
@@ -2873,6 +3106,7 @@ export interface GetResourceCollectionRequest {
  */
 export interface CloudFormationCollectionFilter {
   /**
+   * @public
    * <p> An array of CloudFormation stack names. </p>
    */
   StackNames?: string[];
@@ -2885,6 +3119,7 @@ export interface CloudFormationCollectionFilter {
  */
 export interface TagCollectionFilter {
   /**
+   * @public
    * <p>An Amazon Web Services tag <i>key</i> that is used to identify the Amazon Web Services resources that
    *       	DevOps Guru analyzes. All Amazon Web Services resources in your account and Region tagged with this <i>key</i> make
    *       up your DevOps Guru application and analysis boundary.</p>
@@ -2903,6 +3138,7 @@ export interface TagCollectionFilter {
   AppBoundaryKey: string | undefined;
 
   /**
+   * @public
    * <p>The values in an Amazon Web Services tag collection.</p>
    *          <p>The tag's <i>value</i> is an optional field used to associate a string with
    * 					the tag <i>key</i> (for example, <code>111122223333</code>, <code>Production</code>, or a team
@@ -2921,6 +3157,7 @@ export interface TagCollectionFilter {
  */
 export interface ResourceCollectionFilter {
   /**
+   * @public
    * <p> Information about Amazon Web Services CloudFormation stacks. You can use up to 500
    * 			stacks to specify which Amazon Web Services resources in your account to analyze. For more
    * 			information, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/stacks.html">Stacks</a> in the
@@ -2929,6 +3166,7 @@ export interface ResourceCollectionFilter {
   CloudFormation?: CloudFormationCollectionFilter;
 
   /**
+   * @public
    * <p>The Amazon Web Services tags used to filter the resources in the resource collection.</p>
    *          <p>Tags help you identify and organize your Amazon Web Services resources. Many Amazon Web Services services support
    *    		tagging, so you can assign the same tag to resources from different services to indicate
@@ -2972,6 +3210,7 @@ export interface ResourceCollectionFilter {
  */
 export interface GetResourceCollectionResponse {
   /**
+   * @public
    * <p> The requested list of Amazon Web Services resource collections.
    * 			The two types of Amazon Web Services resource collections supported are Amazon Web Services CloudFormation stacks and
    *           Amazon Web Services resources that contain the same Amazon Web Services tag. DevOps Guru can be configured to analyze
@@ -2980,6 +3219,7 @@ export interface GetResourceCollectionResponse {
   ResourceCollection?: ResourceCollectionFilter;
 
   /**
+   * @public
    * <p>The pagination token to use to retrieve
    *    the next page of results for this operation. If there are no more pages, this value is null.</p>
    */
@@ -2992,6 +3232,7 @@ export interface GetResourceCollectionResponse {
  */
 export interface ServiceCollection {
   /**
+   * @public
    * <p>An array of strings that each specifies the name of an Amazon Web Services service.</p>
    */
   ServiceNames?: (ServiceName | string)[];
@@ -3005,6 +3246,7 @@ export interface ServiceCollection {
  */
 export interface ListAnomaliesForInsightFilters {
   /**
+   * @public
    * <p>A collection of the names of Amazon Web Services services.</p>
    */
   ServiceCollection?: ServiceCollection;
@@ -3017,11 +3259,13 @@ export interface ListAnomaliesForInsightFilters {
  */
 export interface StartTimeRange {
   /**
+   * @public
    * <p> The start time of the time range. </p>
    */
   FromTime?: Date;
 
   /**
+   * @public
    * <p> The end time of the time range. </p>
    */
   ToTime?: Date;
@@ -3032,34 +3276,40 @@ export interface StartTimeRange {
  */
 export interface ListAnomaliesForInsightRequest {
   /**
+   * @public
    * <p> The ID of the insight. The returned anomalies belong to this insight. </p>
    */
   InsightId: string | undefined;
 
   /**
+   * @public
    * <p> A time range used to specify when the requested anomalies started. All returned
    * 			anomalies started during this time range. </p>
    */
   StartTimeRange?: StartTimeRange;
 
   /**
+   * @public
    * <p>The maximum number of results to return with a single call.
    * 	To retrieve the remaining results, make another call with the returned <code>nextToken</code> value.</p>
    */
   MaxResults?: number;
 
   /**
+   * @public
    * <p>The pagination token to use to retrieve
    *    the next page of results for this operation. If this value is null, it retrieves the first page.</p>
    */
   NextToken?: string;
 
   /**
+   * @public
    * <p>The ID of the Amazon Web Services account. </p>
    */
   AccountId?: string;
 
   /**
+   * @public
    * <p>
    * 			Specifies one or more service names that are used to list anomalies.
    * 		</p>
@@ -3075,11 +3325,13 @@ export interface ListAnomaliesForInsightRequest {
  */
 export interface ProactiveAnomalySummary {
   /**
+   * @public
    * <p>The ID of the anomaly.</p>
    */
   Id?: string;
 
   /**
+   * @public
    * <p>The severity of the anomaly. The severity of anomalies that generate
    * 	an insight determine that insight's severity. For more information, see
    * 	<a href="https://docs.aws.amazon.com/devops-guru/latest/userguide/working-with-insights.html#understanding-insights-severities">Understanding
@@ -3088,16 +3340,19 @@ export interface ProactiveAnomalySummary {
   Severity?: AnomalySeverity | string;
 
   /**
+   * @public
    * <p>The status of the anomaly.</p>
    */
   Status?: AnomalyStatus | string;
 
   /**
+   * @public
    * <p> The time of the anomaly's most recent update. </p>
    */
   UpdateTime?: Date;
 
   /**
+   * @public
    * <p> A time range that specifies when the observed unusual behavior in an anomaly started
    * 			and ended. This is different from <code>AnomalyReportedTimeRange</code>, which specifies
    * 			the time range when DevOps Guru opens and then closes an anomaly. </p>
@@ -3105,6 +3360,7 @@ export interface ProactiveAnomalySummary {
   AnomalyTimeRange?: AnomalyTimeRange;
 
   /**
+   * @public
    * <p>
    * 			An <code>AnomalyReportedTimeRange</code> object that specifies the time range between when the anomaly is opened and the time when it is closed.
    * 		</p>
@@ -3112,24 +3368,28 @@ export interface ProactiveAnomalySummary {
   AnomalyReportedTimeRange?: AnomalyReportedTimeRange;
 
   /**
+   * @public
    * <p> The time range during which anomalous behavior in a proactive anomaly or an insight
    * 			is expected to occur. </p>
    */
   PredictionTimeRange?: PredictionTimeRange;
 
   /**
+   * @public
    * <p> Details about the source of the analyzed operational data that triggered the anomaly.
    * 			The one supported source is Amazon CloudWatch metrics. </p>
    */
   SourceDetails?: AnomalySourceDetails;
 
   /**
+   * @public
    * <p> The ID of the insight that contains this anomaly. An insight is composed of related
    * 			anomalies. </p>
    */
   AssociatedInsightId?: string;
 
   /**
+   * @public
    * <p> A collection of Amazon Web Services resources supported by DevOps Guru.
    * 			The two types of Amazon Web Services resource collections supported are Amazon Web Services CloudFormation stacks and
    *           Amazon Web Services resources that contain the same Amazon Web Services tag. DevOps Guru can be configured to analyze
@@ -3138,22 +3398,26 @@ export interface ProactiveAnomalySummary {
   ResourceCollection?: ResourceCollection;
 
   /**
+   * @public
    * <p> A threshold that was exceeded by behavior in analyzed resources. Exceeding this
    * 			threshold is related to the anomalous behavior that generated this anomaly. </p>
    */
   Limit?: number;
 
   /**
+   * @public
    * <p>The metadata of the source which detects proactive anomalies.</p>
    */
   SourceMetadata?: AnomalySourceMetadata;
 
   /**
+   * @public
    * <p>Information about a resource in which DevOps Guru detected anomalous behavior.</p>
    */
   AnomalyResources?: AnomalyResource[];
 
   /**
+   * @public
    * <p>
    * 			A description of the proactive anomaly.
    * 		</p>
@@ -3169,11 +3433,13 @@ export interface ProactiveAnomalySummary {
  */
 export interface ReactiveAnomalySummary {
   /**
+   * @public
    * <p> The ID of the reactive anomaly. </p>
    */
   Id?: string;
 
   /**
+   * @public
    * <p>The severity of the anomaly. The severity of anomalies that generate
    * 	an insight determine that insight's severity. For more information, see
    * 	<a href="https://docs.aws.amazon.com/devops-guru/latest/userguide/working-with-insights.html#understanding-insights-severities">Understanding
@@ -3182,11 +3448,13 @@ export interface ReactiveAnomalySummary {
   Severity?: AnomalySeverity | string;
 
   /**
+   * @public
    * <p> The status of the reactive anomaly. </p>
    */
   Status?: AnomalyStatus | string;
 
   /**
+   * @public
    * <p> A time range that specifies when the observed unusual behavior in an anomaly started
    * 			and ended. This is different from <code>AnomalyReportedTimeRange</code>, which specifies
    * 			the time range when DevOps Guru opens and then closes an anomaly. </p>
@@ -3194,6 +3462,7 @@ export interface ReactiveAnomalySummary {
   AnomalyTimeRange?: AnomalyTimeRange;
 
   /**
+   * @public
    * <p>
    * 			An <code>AnomalyReportedTimeRange</code> object that specifies the time range between when the anomaly is opened and the time when it is closed.
    * 		</p>
@@ -3201,18 +3470,21 @@ export interface ReactiveAnomalySummary {
   AnomalyReportedTimeRange?: AnomalyReportedTimeRange;
 
   /**
+   * @public
    * <p> Details about the source of the analyzed operational data that triggered the anomaly.
    * 			The one supported source is Amazon CloudWatch metrics. </p>
    */
   SourceDetails?: AnomalySourceDetails;
 
   /**
+   * @public
    * <p> The ID of the insight that contains this anomaly. An insight is composed of related
    * 			anomalies. </p>
    */
   AssociatedInsightId?: string;
 
   /**
+   * @public
    * <p> A collection of Amazon Web Services resources supported by DevOps Guru.
    * 			The two types of Amazon Web Services resource collections supported are Amazon Web Services CloudFormation stacks and
    *           Amazon Web Services resources that contain the same Amazon Web Services tag. DevOps Guru can be configured to analyze
@@ -3221,6 +3493,7 @@ export interface ReactiveAnomalySummary {
   ResourceCollection?: ResourceCollection;
 
   /**
+   * @public
    * <p>The type of the reactive anomaly. It can be one of the following types.</p>
    *          <ul>
    *             <li>
@@ -3236,22 +3509,26 @@ export interface ReactiveAnomalySummary {
   Type?: AnomalyType | string;
 
   /**
+   * @public
    * <p>The name of the reactive anomaly.</p>
    */
   Name?: string;
 
   /**
+   * @public
    * <p>A description of the reactive anomaly.</p>
    */
   Description?: string;
 
   /**
+   * @public
    * <p>The ID of the causal anomaly that is associated with this
    *       reactive anomaly. The ID of a `CAUSAL` anomaly is always `NULL`.</p>
    */
   CausalAnomalyId?: string;
 
   /**
+   * @public
    * <p>The Amazon Web Services resources in which anomalous behavior was detected by DevOps Guru.</p>
    */
   AnomalyResources?: AnomalyResource[];
@@ -3262,18 +3539,21 @@ export interface ReactiveAnomalySummary {
  */
 export interface ListAnomaliesForInsightResponse {
   /**
+   * @public
    * <p> An array of <code>ProactiveAnomalySummary</code> objects that represent the requested
    * 			anomalies </p>
    */
   ProactiveAnomalies?: ProactiveAnomalySummary[];
 
   /**
+   * @public
    * <p> An array of <code>ReactiveAnomalySummary</code> objects that represent the requested
    * 			anomalies </p>
    */
   ReactiveAnomalies?: ReactiveAnomalySummary[];
 
   /**
+   * @public
    * <p>The pagination token to use to retrieve
    *    the next page of results for this operation. If there are no more pages, this value is null.</p>
    */
@@ -3285,6 +3565,7 @@ export interface ListAnomaliesForInsightResponse {
  */
 export interface ListAnomalousLogGroupsRequest {
   /**
+   * @public
    * <p>
    * 			The ID of the insight containing the log groups.
    * 		</p>
@@ -3292,12 +3573,14 @@ export interface ListAnomalousLogGroupsRequest {
   InsightId: string | undefined;
 
   /**
+   * @public
    * <p>The maximum number of results to return with a single call.
    * 	To retrieve the remaining results, make another call with the returned <code>nextToken</code> value.</p>
    */
   MaxResults?: number;
 
   /**
+   * @public
    * <p>The pagination token to use to retrieve
    *    the next page of results for this operation. If this value is null, it retrieves the first page.</p>
    */
@@ -3309,6 +3592,7 @@ export interface ListAnomalousLogGroupsRequest {
  */
 export interface ListAnomalousLogGroupsResponse {
   /**
+   * @public
    * <p>
    * 			The ID of the insight containing the log groups.
    * 		</p>
@@ -3316,6 +3600,7 @@ export interface ListAnomalousLogGroupsResponse {
   InsightId: string | undefined;
 
   /**
+   * @public
    * <p>
    * 			The list of Amazon CloudWatch log groups that are related to an insight.
    * 		</p>
@@ -3323,6 +3608,7 @@ export interface ListAnomalousLogGroupsResponse {
   AnomalousLogGroups: AnomalousLogGroup[] | undefined;
 
   /**
+   * @public
    * <p>The pagination token to use to retrieve
    *    the next page of results for this operation. If there are no more pages, this value is null.</p>
    */
@@ -3368,11 +3654,13 @@ export type EventClass = (typeof EventClass)[keyof typeof EventClass];
  */
 export interface EventTimeRange {
   /**
+   * @public
    * <p> The time when the event started. </p>
    */
   FromTime: Date | undefined;
 
   /**
+   * @public
    * <p> The time when the event ended. </p>
    */
   ToTime: Date | undefined;
@@ -3385,33 +3673,39 @@ export interface EventTimeRange {
  */
 export interface ListEventsFilters {
   /**
+   * @public
    * <p> An ID of an insight that is related to the events you want to filter for. </p>
    */
   InsightId?: string;
 
   /**
+   * @public
    * <p> A time range during which you want the filtered events to have occurred. </p>
    */
   EventTimeRange?: EventTimeRange;
 
   /**
+   * @public
    * <p> The class of the events you want to filter for, such as an infrastructure change, a
    * 			deployment, or a schema change. </p>
    */
   EventClass?: EventClass | string;
 
   /**
+   * @public
    * <p> The Amazon Web Services source that emitted the events you want to filter for. </p>
    */
   EventSource?: string;
 
   /**
+   * @public
    * <p> The source, <code>AWS_CLOUD_TRAIL</code> or <code>AWS_CODE_DEPLOY</code>, of the
    * 			events you want returned. </p>
    */
   DataSource?: EventDataSource | string;
 
   /**
+   * @public
    * <p> A collection of Amazon Web Services resources supported by DevOps Guru.
    * 			The two types of Amazon Web Services resource collections supported are Amazon Web Services CloudFormation stacks and
    *           Amazon Web Services resources that contain the same Amazon Web Services tag. DevOps Guru can be configured to analyze
@@ -3425,24 +3719,28 @@ export interface ListEventsFilters {
  */
 export interface ListEventsRequest {
   /**
+   * @public
    * <p> A <code>ListEventsFilters</code> object used to specify which events to return.
    * 		</p>
    */
   Filters: ListEventsFilters | undefined;
 
   /**
+   * @public
    * <p>The maximum number of results to return with a single call.
    * 	To retrieve the remaining results, make another call with the returned <code>nextToken</code> value.</p>
    */
   MaxResults?: number;
 
   /**
+   * @public
    * <p>The pagination token to use to retrieve
    *    the next page of results for this operation. If this value is null, it retrieves the first page.</p>
    */
   NextToken?: string;
 
   /**
+   * @public
    * <p>The ID of the Amazon Web Services account. </p>
    */
   AccountId?: string;
@@ -3456,16 +3754,19 @@ export interface ListEventsRequest {
  */
 export interface EventResource {
   /**
+   * @public
    * <p> The type of resource that emitted an event. </p>
    */
   Type?: string;
 
   /**
+   * @public
    * <p> The name of the resource that emitted an event. </p>
    */
   Name?: string;
 
   /**
+   * @public
    * <p> The Amazon Resource Name (ARN) of the resource that emitted an event. </p>
    */
   Arn?: string;
@@ -3479,6 +3780,7 @@ export interface EventResource {
  */
 export interface Event {
   /**
+   * @public
    * <p> A collection of Amazon Web Services resources supported by DevOps Guru.
    * 			The two types of Amazon Web Services resource collections supported are Amazon Web Services CloudFormation stacks and
    *           Amazon Web Services resources that contain the same Amazon Web Services tag. DevOps Guru can be configured to analyze
@@ -3487,38 +3789,45 @@ export interface Event {
   ResourceCollection?: ResourceCollection;
 
   /**
+   * @public
    * <p> The ID of the event. </p>
    */
   Id?: string;
 
   /**
+   * @public
    * <p> A <code>Timestamp</code> that specifies the time the event occurred. </p>
    */
   Time?: Date;
 
   /**
+   * @public
    * <p> The Amazon Web Services source that emitted the event. </p>
    */
   EventSource?: string;
 
   /**
+   * @public
    * <p> The name of the event. </p>
    */
   Name?: string;
 
   /**
+   * @public
    * <p> The source, <code>AWS_CLOUD_TRAIL</code> or <code>AWS_CODE_DEPLOY</code>, where DevOps Guru
    * 			analysis found the event. </p>
    */
   DataSource?: EventDataSource | string;
 
   /**
+   * @public
    * <p> The class of the event. The class specifies what the event is related to, such as an
    * 			infrastructure change, a deployment, or a schema change. </p>
    */
   EventClass?: EventClass | string;
 
   /**
+   * @public
    * <p> An <code>EventResource</code> object that contains information about the resource
    * 			that emitted the event. </p>
    */
@@ -3530,11 +3839,13 @@ export interface Event {
  */
 export interface ListEventsResponse {
   /**
+   * @public
    * <p> A list of the requested events. </p>
    */
   Events: Event[] | undefined;
 
   /**
+   * @public
    * <p>The pagination token to use to retrieve
    *    the next page of results for this operation. If there are no more pages, this value is null.</p>
    */
@@ -3561,12 +3872,14 @@ export type InsightType = (typeof InsightType)[keyof typeof InsightType];
  */
 export interface ListInsightsAnyStatusFilter {
   /**
+   * @public
    * <p> Use to filter for either <code>REACTIVE</code> or <code>PROACTIVE</code> insights.
    * 		</p>
    */
   Type: InsightType | string | undefined;
 
   /**
+   * @public
    * <p> A time range used to specify when the behavior of the filtered insights started.
    * 		</p>
    */
@@ -3580,11 +3893,13 @@ export interface ListInsightsAnyStatusFilter {
  */
 export interface EndTimeRange {
   /**
+   * @public
    * <p> The earliest end time in the time range. </p>
    */
   FromTime?: Date;
 
   /**
+   * @public
    * <p> The latest end time in the time range. </p>
    */
   ToTime?: Date;
@@ -3596,12 +3911,14 @@ export interface EndTimeRange {
  */
 export interface ListInsightsClosedStatusFilter {
   /**
+   * @public
    * <p> Use to filter for either <code>REACTIVE</code> or <code>PROACTIVE</code> insights.
    * 		</p>
    */
   Type: InsightType | string | undefined;
 
   /**
+   * @public
    * <p> A time range used to specify when the behavior of the filtered insights ended.
    * 		</p>
    */
@@ -3614,6 +3931,7 @@ export interface ListInsightsClosedStatusFilter {
  */
 export interface ListInsightsOngoingStatusFilter {
   /**
+   * @public
    * <p> Use to filter for either <code>REACTIVE</code> or <code>PROACTIVE</code> insights.
    * 		</p>
    */
@@ -3627,18 +3945,21 @@ export interface ListInsightsOngoingStatusFilter {
  */
 export interface ListInsightsStatusFilter {
   /**
+   * @public
    * <p> A <code>ListInsightsAnyStatusFilter</code> that specifies ongoing insights that are
    * 			either <code>REACTIVE</code> or <code>PROACTIVE</code>. </p>
    */
   Ongoing?: ListInsightsOngoingStatusFilter;
 
   /**
+   * @public
    * <p> A <code>ListInsightsClosedStatusFilter</code> that specifies closed insights that are
    * 			either <code>REACTIVE</code> or <code>PROACTIVE</code>. </p>
    */
   Closed?: ListInsightsClosedStatusFilter;
 
   /**
+   * @public
    * <p> A <code>ListInsightsAnyStatusFilter</code> that specifies insights of any status that
    * 			are either <code>REACTIVE</code> or <code>PROACTIVE</code>. </p>
    */
@@ -3650,18 +3971,21 @@ export interface ListInsightsStatusFilter {
  */
 export interface ListInsightsRequest {
   /**
+   * @public
    * <p> A filter used to filter the returned insights by their status. You can specify one
    * 			status filter. </p>
    */
   StatusFilter: ListInsightsStatusFilter | undefined;
 
   /**
+   * @public
    * <p>The maximum number of results to return with a single call.
    * 	To retrieve the remaining results, make another call with the returned <code>nextToken</code> value.</p>
    */
   MaxResults?: number;
 
   /**
+   * @public
    * <p>The pagination token to use to retrieve
    *    the next page of results for this operation. If this value is null, it retrieves the first page.</p>
    */
@@ -3676,16 +4000,19 @@ export interface ListInsightsRequest {
  */
 export interface ProactiveInsightSummary {
   /**
+   * @public
    * <p>The ID of the proactive insight. </p>
    */
   Id?: string;
 
   /**
+   * @public
    * <p>The name of the proactive insight. </p>
    */
   Name?: string;
 
   /**
+   * @public
    * <p>The severity of the insight. For more information, see
    * 	<a href="https://docs.aws.amazon.com/devops-guru/latest/userguide/working-with-insights.html#understanding-insights-severities">Understanding
    * 	insight severities</a> in the <i>Amazon DevOps Guru User Guide</i>.</p>
@@ -3693,23 +4020,27 @@ export interface ProactiveInsightSummary {
   Severity?: InsightSeverity | string;
 
   /**
+   * @public
    * <p>The status of the proactive insight. </p>
    */
   Status?: InsightStatus | string;
 
   /**
+   * @public
    * <p> A time ranged that specifies when the observed behavior in an insight started and
    * 			ended. </p>
    */
   InsightTimeRange?: InsightTimeRange;
 
   /**
+   * @public
    * <p> The time range during which anomalous behavior in a proactive anomaly or an insight
    * 			is expected to occur. </p>
    */
   PredictionTimeRange?: PredictionTimeRange;
 
   /**
+   * @public
    * <p> A collection of Amazon Web Services resources supported by DevOps Guru.
    * 			The two types of Amazon Web Services resource collections supported are Amazon Web Services CloudFormation stacks and
    *           Amazon Web Services resources that contain the same Amazon Web Services tag. DevOps Guru can be configured to analyze
@@ -3718,11 +4049,13 @@ export interface ProactiveInsightSummary {
   ResourceCollection?: ResourceCollection;
 
   /**
+   * @public
    * <p>A collection of the names of Amazon Web Services services.</p>
    */
   ServiceCollection?: ServiceCollection;
 
   /**
+   * @public
    * <p>The Amazon Resource Names (ARNs)
    * 	of the Amazon Web Services resources that generated this insight.</p>
    */
@@ -3737,16 +4070,19 @@ export interface ProactiveInsightSummary {
  */
 export interface ReactiveInsightSummary {
   /**
+   * @public
    * <p> The ID of a reactive summary. </p>
    */
   Id?: string;
 
   /**
+   * @public
    * <p> The name of a reactive insight. </p>
    */
   Name?: string;
 
   /**
+   * @public
    * <p>The severity of the insight. For more information, see
    * 	<a href="https://docs.aws.amazon.com/devops-guru/latest/userguide/working-with-insights.html#understanding-insights-severities">Understanding
    * 	insight severities</a> in the <i>Amazon DevOps Guru User Guide</i>.</p>
@@ -3754,17 +4090,20 @@ export interface ReactiveInsightSummary {
   Severity?: InsightSeverity | string;
 
   /**
+   * @public
    * <p> The status of a reactive insight. </p>
    */
   Status?: InsightStatus | string;
 
   /**
+   * @public
    * <p> A time ranged that specifies when the observed behavior in an insight started and
    * 			ended. </p>
    */
   InsightTimeRange?: InsightTimeRange;
 
   /**
+   * @public
    * <p> A collection of Amazon Web Services resources supported by DevOps Guru.
    * 			The two types of Amazon Web Services resource collections supported are Amazon Web Services CloudFormation stacks and
    *           Amazon Web Services resources that contain the same Amazon Web Services tag. DevOps Guru can be configured to analyze
@@ -3773,11 +4112,13 @@ export interface ReactiveInsightSummary {
   ResourceCollection?: ResourceCollection;
 
   /**
+   * @public
    * <p>A collection of the names of Amazon Web Services services.</p>
    */
   ServiceCollection?: ServiceCollection;
 
   /**
+   * @public
    * <p>The Amazon Resource Names (ARNs)
    * 	of the Amazon Web Services resources that generated this insight.</p>
    */
@@ -3789,16 +4130,19 @@ export interface ReactiveInsightSummary {
  */
 export interface ListInsightsResponse {
   /**
+   * @public
    * <p> The returned list of proactive insights. </p>
    */
   ProactiveInsights?: ProactiveInsightSummary[];
 
   /**
+   * @public
    * <p> The returned list of reactive insights. </p>
    */
   ReactiveInsights?: ReactiveInsightSummary[];
 
   /**
+   * @public
    * <p>The pagination token to use to retrieve
    *    the next page of results for this operation. If there are no more pages, this value is null.</p>
    */
@@ -3866,6 +4210,7 @@ export type ResourceTypeFilter = (typeof ResourceTypeFilter)[keyof typeof Resour
  */
 export interface ListMonitoredResourcesFilters {
   /**
+   * @public
    * <p>
    * 			The permission status of a resource.
    * 		</p>
@@ -3873,6 +4218,7 @@ export interface ListMonitoredResourcesFilters {
   ResourcePermission: ResourcePermission | string | undefined;
 
   /**
+   * @public
    * <p>
    * 			The type of resource that you wish to retrieve, such as log groups.
    * 		</p>
@@ -3885,6 +4231,7 @@ export interface ListMonitoredResourcesFilters {
  */
 export interface ListMonitoredResourcesRequest {
   /**
+   * @public
    * <p>
    * 			Filters to determine which monitored resources you want to retrieve. You can filter by resource type or resource permission status.
    * 		</p>
@@ -3892,12 +4239,14 @@ export interface ListMonitoredResourcesRequest {
   Filters?: ListMonitoredResourcesFilters;
 
   /**
+   * @public
    * <p>The maximum number of results to return with a single call.
    * 	To retrieve the remaining results, make another call with the returned <code>nextToken</code> value.</p>
    */
   MaxResults?: number;
 
   /**
+   * @public
    * <p>The pagination token to use to retrieve
    *    the next page of results for this operation. If this value is null, it retrieves the first page.</p>
    */
@@ -3912,6 +4261,7 @@ export interface ListMonitoredResourcesRequest {
  */
 export interface MonitoredResourceIdentifier {
   /**
+   * @public
    * <p>
    * 			The name of the resource being monitored.
    * 		</p>
@@ -3919,6 +4269,7 @@ export interface MonitoredResourceIdentifier {
   MonitoredResourceName?: string;
 
   /**
+   * @public
    * <p>
    * 			The type of resource being monitored.
    * 		</p>
@@ -3926,6 +4277,7 @@ export interface MonitoredResourceIdentifier {
   Type?: string;
 
   /**
+   * @public
    * <p>
    * 			The permission status of a resource.
    * 		</p>
@@ -3933,6 +4285,7 @@ export interface MonitoredResourceIdentifier {
   ResourcePermission?: ResourcePermission | string;
 
   /**
+   * @public
    * <p>
    * 			The time at which DevOps Guru last updated this resource.
    * 		</p>
@@ -3940,6 +4293,7 @@ export interface MonitoredResourceIdentifier {
   LastUpdated?: Date;
 
   /**
+   * @public
    * <p> A collection of Amazon Web Services resources supported by DevOps Guru.
    * 			The two types of Amazon Web Services resource collections supported are Amazon Web Services CloudFormation stacks and
    *           Amazon Web Services resources that contain the same Amazon Web Services tag. DevOps Guru can be configured to analyze
@@ -3953,6 +4307,7 @@ export interface MonitoredResourceIdentifier {
  */
 export interface ListMonitoredResourcesResponse {
   /**
+   * @public
    * <p>
    * 			Information about the resource that is being monitored, including the name of the resource, the type of resource, and whether or not permission is given to DevOps Guru to access that resource.
    * 		</p>
@@ -3960,6 +4315,7 @@ export interface ListMonitoredResourcesResponse {
   MonitoredResourceIdentifiers: MonitoredResourceIdentifier[] | undefined;
 
   /**
+   * @public
    * <p>The pagination token to use to retrieve
    *    the next page of results for this operation. If there are no more pages, this value is null.</p>
    */
@@ -3971,6 +4327,7 @@ export interface ListMonitoredResourcesResponse {
  */
 export interface ListNotificationChannelsRequest {
   /**
+   * @public
    * <p>The pagination token to use to retrieve
    *    the next page of results for this operation. If this value is null, it retrieves the first page.</p>
    */
@@ -3992,11 +4349,13 @@ export interface ListNotificationChannelsRequest {
  */
 export interface NotificationChannel {
   /**
+   * @public
    * <p> The ID of a notification channel. </p>
    */
   Id?: string;
 
   /**
+   * @public
    * <p> A <code>NotificationChannelConfig</code> object that contains information about
    * 			configured notification channels. </p>
    */
@@ -4008,11 +4367,13 @@ export interface NotificationChannel {
  */
 export interface ListNotificationChannelsResponse {
   /**
+   * @public
    * <p> An array that contains the requested notification channels. </p>
    */
   Channels?: NotificationChannel[];
 
   /**
+   * @public
    * <p>The pagination token to use to retrieve
    *    the next page of results for this operation. If there are no more pages, this value is null.</p>
    */
@@ -4024,28 +4385,33 @@ export interface ListNotificationChannelsResponse {
  */
 export interface ListOrganizationInsightsRequest {
   /**
+   * @public
    * <p> A filter used by <code>ListInsights</code> to specify which insights to return.
    * 		</p>
    */
   StatusFilter: ListInsightsStatusFilter | undefined;
 
   /**
+   * @public
    * <p>The maximum number of results to return with a single call.
    * 	To retrieve the remaining results, make another call with the returned <code>nextToken</code> value.</p>
    */
   MaxResults?: number;
 
   /**
+   * @public
    * <p>The ID of the Amazon Web Services account. </p>
    */
   AccountIds?: string[];
 
   /**
+   * @public
    * <p>The ID of the organizational unit.</p>
    */
   OrganizationalUnitIds?: string[];
 
   /**
+   * @public
    * <p>The pagination token to use to retrieve
    *    the next page of results for this operation. If this value is null, it retrieves the first page.</p>
    */
@@ -4059,26 +4425,31 @@ export interface ListOrganizationInsightsRequest {
  */
 export interface ProactiveOrganizationInsightSummary {
   /**
+   * @public
    * <p>The ID of the insight summary.</p>
    */
   Id?: string;
 
   /**
+   * @public
    * <p>The ID of the Amazon Web Services account.</p>
    */
   AccountId?: string;
 
   /**
+   * @public
    * <p>The ID of the organizational unit.</p>
    */
   OrganizationalUnitId?: string;
 
   /**
+   * @public
    * <p>The name of the insight summary.</p>
    */
   Name?: string;
 
   /**
+   * @public
    * <p> An array of severity values used to search for insights.
    * 			For more information, see
    * 	<a href="https://docs.aws.amazon.com/devops-guru/latest/userguide/working-with-insights.html#understanding-insights-severities">Understanding
@@ -4087,23 +4458,27 @@ export interface ProactiveOrganizationInsightSummary {
   Severity?: InsightSeverity | string;
 
   /**
+   * @public
    * <p> An array of status values used to search for insights. </p>
    */
   Status?: InsightStatus | string;
 
   /**
+   * @public
    * <p> A time ranged that specifies when the observed behavior in an insight started and
    * 			ended. </p>
    */
   InsightTimeRange?: InsightTimeRange;
 
   /**
+   * @public
    * <p> The time range during which anomalous behavior in a proactive anomaly or an insight
    * 			is expected to occur. </p>
    */
   PredictionTimeRange?: PredictionTimeRange;
 
   /**
+   * @public
    * <p> A collection of Amazon Web Services resources supported by DevOps Guru.
    * 			The two types of Amazon Web Services resource collections supported are Amazon Web Services CloudFormation stacks and
    *           Amazon Web Services resources that contain the same Amazon Web Services tag. DevOps Guru can be configured to analyze
@@ -4112,6 +4487,7 @@ export interface ProactiveOrganizationInsightSummary {
   ResourceCollection?: ResourceCollection;
 
   /**
+   * @public
    * <p>A collection of the names of Amazon Web Services services.</p>
    */
   ServiceCollection?: ServiceCollection;
@@ -4124,26 +4500,31 @@ export interface ProactiveOrganizationInsightSummary {
  */
 export interface ReactiveOrganizationInsightSummary {
   /**
+   * @public
    * <p>The ID of the insight summary.</p>
    */
   Id?: string;
 
   /**
+   * @public
    * <p>The ID of the Amazon Web Services account. </p>
    */
   AccountId?: string;
 
   /**
+   * @public
    * <p>The ID of the organizational unit.</p>
    */
   OrganizationalUnitId?: string;
 
   /**
+   * @public
    * <p>The name of the insight summary.</p>
    */
   Name?: string;
 
   /**
+   * @public
    * <p> An array of severity values used to search for insights.
    * 			For more information, see
    * 	<a href="https://docs.aws.amazon.com/devops-guru/latest/userguide/working-with-insights.html#understanding-insights-severities">Understanding
@@ -4152,17 +4533,20 @@ export interface ReactiveOrganizationInsightSummary {
   Severity?: InsightSeverity | string;
 
   /**
+   * @public
    * <p> An array of status values used to search for insights. </p>
    */
   Status?: InsightStatus | string;
 
   /**
+   * @public
    * <p> A time ranged that specifies when the observed behavior in an insight started and
    * 			ended. </p>
    */
   InsightTimeRange?: InsightTimeRange;
 
   /**
+   * @public
    * <p> A collection of Amazon Web Services resources supported by DevOps Guru.
    * 			The two types of Amazon Web Services resource collections supported are Amazon Web Services CloudFormation stacks and
    *           Amazon Web Services resources that contain the same Amazon Web Services tag. DevOps Guru can be configured to analyze
@@ -4171,6 +4555,7 @@ export interface ReactiveOrganizationInsightSummary {
   ResourceCollection?: ResourceCollection;
 
   /**
+   * @public
    * <p>A collection of the names of Amazon Web Services services.</p>
    */
   ServiceCollection?: ServiceCollection;
@@ -4181,18 +4566,21 @@ export interface ReactiveOrganizationInsightSummary {
  */
 export interface ListOrganizationInsightsResponse {
   /**
+   * @public
    * <p>An integer that specifies the number of open proactive insights in your Amazon Web Services
    * 			account.</p>
    */
   ProactiveInsights?: ProactiveOrganizationInsightSummary[];
 
   /**
+   * @public
    * <p>An integer that specifies the number of open reactive insights in your Amazon Web Services
    * 			account.</p>
    */
   ReactiveInsights?: ReactiveOrganizationInsightSummary[];
 
   /**
+   * @public
    * <p>The pagination token to use to retrieve
    *    the next page of results for this operation. If there are no more pages, this value is null.</p>
    */
@@ -4227,22 +4615,26 @@ export type Locale = (typeof Locale)[keyof typeof Locale];
  */
 export interface ListRecommendationsRequest {
   /**
+   * @public
    * <p> The ID of the requested insight. </p>
    */
   InsightId: string | undefined;
 
   /**
+   * @public
    * <p>The pagination token to use to retrieve
    *    the next page of results for this operation. If this value is null, it retrieves the first page.</p>
    */
   NextToken?: string;
 
   /**
+   * @public
    * <p>A locale that specifies the language to use for recommendations.</p>
    */
   Locale?: Locale | string;
 
   /**
+   * @public
    * <p>The ID of the Amazon Web Services account. </p>
    */
   AccountId?: string;
@@ -4254,11 +4646,13 @@ export interface ListRecommendationsRequest {
  */
 export interface RecommendationRelatedAnomalyResource {
   /**
+   * @public
    * <p> The name of the resource. </p>
    */
   Name?: string;
 
   /**
+   * @public
    * <p> The type of the resource. Resource types take the same form that is used by Amazon Web Services CloudFormation
    * 			resource type identifiers, <code>service-provider::service-name::data-type-name</code>.
    * 			For example, <code>AWS::RDS::DBCluster</code>. For more information, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-template-resource-type-ref.html">Amazon Web Services
@@ -4275,11 +4669,13 @@ export interface RecommendationRelatedAnomalyResource {
  */
 export interface RecommendationRelatedCloudWatchMetricsSourceDetail {
   /**
+   * @public
    * <p>The name of the CloudWatch metric.</p>
    */
   MetricName?: string;
 
   /**
+   * @public
    * <p>The namespace of the CloudWatch metric. A namespace is a container for CloudWatch metrics.</p>
    */
   Namespace?: string;
@@ -4292,6 +4688,7 @@ export interface RecommendationRelatedCloudWatchMetricsSourceDetail {
  */
 export interface RecommendationRelatedAnomalySourceDetail {
   /**
+   * @public
    * <p> An array of <code>CloudWatchMetricsDetail</code> objects that contains information
    * 			about the analyzed metrics that displayed anomalous behavior. </p>
    */
@@ -4304,18 +4701,21 @@ export interface RecommendationRelatedAnomalySourceDetail {
  */
 export interface RecommendationRelatedAnomaly {
   /**
+   * @public
    * <p> An array of objects that represent resources in which DevOps Guru detected anomalous
    * 			behavior. Each object contains the name and type of the resource. </p>
    */
   Resources?: RecommendationRelatedAnomalyResource[];
 
   /**
+   * @public
    * <p> Information about where the anomalous behavior related the recommendation was found.
    * 			For example, details in Amazon CloudWatch metrics. </p>
    */
   SourceDetails?: RecommendationRelatedAnomalySourceDetail[];
 
   /**
+   * @public
    * <p>The ID of an anomaly that generated the insight with this recommendation.</p>
    */
   AnomalyId?: string;
@@ -4328,12 +4728,14 @@ export interface RecommendationRelatedAnomaly {
  */
 export interface RecommendationRelatedEventResource {
   /**
+   * @public
    * <p> The name of the resource that emitted the event. This corresponds to the
    * 				<code>Name</code> field in an <code>EventResource</code> object. </p>
    */
   Name?: string;
 
   /**
+   * @public
    * <p> The type of the resource that emitted the event. This corresponds to the
    * 				<code>Type</code> field in an <code>EventResource</code> object. </p>
    */
@@ -4346,12 +4748,14 @@ export interface RecommendationRelatedEventResource {
  */
 export interface RecommendationRelatedEvent {
   /**
+   * @public
    * <p> The name of the event. This corresponds to the <code>Name</code> field in an
    * 				<code>Event</code> object. </p>
    */
   Name?: string;
 
   /**
+   * @public
    * <p> A <code>ResourceCollection</code> object that contains arrays of the names of Amazon Web Services
    * 			CloudFormation stacks. You can specify up to 500 Amazon Web Services CloudFormation stacks. </p>
    */
@@ -4365,38 +4769,45 @@ export interface RecommendationRelatedEvent {
  */
 export interface Recommendation {
   /**
+   * @public
    * <p> A description of the problem. </p>
    */
   Description?: string;
 
   /**
+   * @public
    * <p> A hyperlink to information to help you address the problem. </p>
    */
   Link?: string;
 
   /**
+   * @public
    * <p> The name of the recommendation. </p>
    */
   Name?: string;
 
   /**
+   * @public
    * <p> The reason DevOps Guru flagged the anomalous behavior as a problem. </p>
    */
   Reason?: string;
 
   /**
+   * @public
    * <p> Events that are related to the problem. Use these events to learn more about what's
    * 			happening and to help address the issue. </p>
    */
   RelatedEvents?: RecommendationRelatedEvent[];
 
   /**
+   * @public
    * <p> Anomalies that are related to the problem. Use these Anomalies to learn more about
    * 			what's happening and to help address the issue. </p>
    */
   RelatedAnomalies?: RecommendationRelatedAnomaly[];
 
   /**
+   * @public
    * <p>The category type of the recommendation.</p>
    */
   Category?: string;
@@ -4407,11 +4818,13 @@ export interface Recommendation {
  */
 export interface ListRecommendationsResponse {
   /**
+   * @public
    * <p> An array of the requested recommendations. </p>
    */
   Recommendations?: Recommendation[];
 
   /**
+   * @public
    * <p>The pagination token to use to retrieve
    *    the next page of results for this operation. If there are no more pages, this value is null.</p>
    */
@@ -4423,6 +4836,7 @@ export interface ListRecommendationsResponse {
  */
 export interface PutFeedbackRequest {
   /**
+   * @public
    * <p> The feedback from customers is about the recommendations in this insight. </p>
    */
   InsightFeedback?: InsightFeedback;
@@ -4438,6 +4852,7 @@ export interface PutFeedbackResponse {}
  */
 export interface RemoveNotificationChannelRequest {
   /**
+   * @public
    * <p> The ID of the notification channel to be removed. </p>
    */
   Id: string | undefined;
@@ -4457,16 +4872,19 @@ export interface RemoveNotificationChannelResponse {}
  */
 export interface SearchInsightsFilters {
   /**
+   * @public
    * <p> An array of severity values used to search for insights. </p>
    */
   Severities?: (InsightSeverity | string)[];
 
   /**
+   * @public
    * <p> An array of status values used to search for insights. </p>
    */
   Statuses?: (InsightStatus | string)[];
 
   /**
+   * @public
    * <p> A collection of Amazon Web Services resources supported by DevOps Guru.
    * 			The two types of Amazon Web Services resource collections supported are Amazon Web Services CloudFormation stacks and
    *           Amazon Web Services resources that contain the same Amazon Web Services tag. DevOps Guru can be configured to analyze
@@ -4475,6 +4893,7 @@ export interface SearchInsightsFilters {
   ResourceCollection?: ResourceCollection;
 
   /**
+   * @public
    * <p>A collection of the names of Amazon Web Services services.</p>
    */
   ServiceCollection?: ServiceCollection;
@@ -4485,30 +4904,35 @@ export interface SearchInsightsFilters {
  */
 export interface SearchInsightsRequest {
   /**
+   * @public
    * <p> The start of the time range passed in. Returned insights occurred after this time.
    * 		</p>
    */
   StartTimeRange: StartTimeRange | undefined;
 
   /**
+   * @public
    * <p> A <code>SearchInsightsFilters</code> object that is used to set the severity and
    * 			status filters on your insight search. </p>
    */
   Filters?: SearchInsightsFilters;
 
   /**
+   * @public
    * <p>The maximum number of results to return with a single call.
    * 	To retrieve the remaining results, make another call with the returned <code>nextToken</code> value.</p>
    */
   MaxResults?: number;
 
   /**
+   * @public
    * <p>The pagination token to use to retrieve
    *    the next page of results for this operation. If this value is null, it retrieves the first page.</p>
    */
   NextToken?: string;
 
   /**
+   * @public
    * <p> The type of insights you are searching for (<code>REACTIVE</code> or
    * 				<code>PROACTIVE</code>). </p>
    */
@@ -4520,16 +4944,19 @@ export interface SearchInsightsRequest {
  */
 export interface SearchInsightsResponse {
   /**
+   * @public
    * <p> The returned proactive insights. </p>
    */
   ProactiveInsights?: ProactiveInsightSummary[];
 
   /**
+   * @public
    * <p> The returned reactive insights. </p>
    */
   ReactiveInsights?: ReactiveInsightSummary[];
 
   /**
+   * @public
    * <p>The pagination token to use to retrieve
    *    the next page of results for this operation. If there are no more pages, this value is null.</p>
    */
@@ -4543,16 +4970,19 @@ export interface SearchInsightsResponse {
  */
 export interface SearchOrganizationInsightsFilters {
   /**
+   * @public
    * <p> An array of severity values used to search for insights. </p>
    */
   Severities?: (InsightSeverity | string)[];
 
   /**
+   * @public
    * <p> An array of status values used to search for insights. </p>
    */
   Statuses?: (InsightStatus | string)[];
 
   /**
+   * @public
    * <p> A collection of Amazon Web Services resources supported by DevOps Guru.
    * 			The two types of Amazon Web Services resource collections supported are Amazon Web Services CloudFormation stacks and
    *           Amazon Web Services resources that contain the same Amazon Web Services tag. DevOps Guru can be configured to analyze
@@ -4561,6 +4991,7 @@ export interface SearchOrganizationInsightsFilters {
   ResourceCollection?: ResourceCollection;
 
   /**
+   * @public
    * <p>A collection of the names of Amazon Web Services services.</p>
    */
   ServiceCollection?: ServiceCollection;
@@ -4571,35 +5002,41 @@ export interface SearchOrganizationInsightsFilters {
  */
 export interface SearchOrganizationInsightsRequest {
   /**
+   * @public
    * <p>The ID of the Amazon Web Services account. </p>
    */
   AccountIds: string[] | undefined;
 
   /**
+   * @public
    * <p> A time range used to specify when the behavior of an insight or anomaly started.
    * 		</p>
    */
   StartTimeRange: StartTimeRange | undefined;
 
   /**
+   * @public
    * <p> A <code>SearchOrganizationInsightsFilters</code> object that is used to set the
    * 			severity and status filters on your insight search. </p>
    */
   Filters?: SearchOrganizationInsightsFilters;
 
   /**
+   * @public
    * <p>The maximum number of results to return with a single call.
    * 	To retrieve the remaining results, make another call with the returned <code>nextToken</code> value.</p>
    */
   MaxResults?: number;
 
   /**
+   * @public
    * <p>The pagination token to use to retrieve
    *    the next page of results for this operation. If this value is null, it retrieves the first page.</p>
    */
   NextToken?: string;
 
   /**
+   * @public
    * <p> The type of insights you are searching for (<code>REACTIVE</code> or
    * 				<code>PROACTIVE</code>). </p>
    */
@@ -4611,18 +5048,21 @@ export interface SearchOrganizationInsightsRequest {
  */
 export interface SearchOrganizationInsightsResponse {
   /**
+   * @public
    * <p>An integer that specifies the number of open proactive insights in your Amazon Web Services
    * 			account.</p>
    */
   ProactiveInsights?: ProactiveInsightSummary[];
 
   /**
+   * @public
    * <p>An integer that specifies the number of open reactive insights in your Amazon Web Services
    * 			account.</p>
    */
   ReactiveInsights?: ReactiveInsightSummary[];
 
   /**
+   * @public
    * <p>The pagination token to use to retrieve
    *    the next page of results for this operation. If there are no more pages, this value is null.</p>
    */
@@ -4634,11 +5074,13 @@ export interface SearchOrganizationInsightsResponse {
  */
 export interface StartCostEstimationRequest {
   /**
+   * @public
    * <p>The collection of Amazon Web Services resources used to create a monthly DevOps Guru cost estimate.</p>
    */
   ResourceCollection: CostEstimationResourceCollectionFilter | undefined;
 
   /**
+   * @public
    * <p>The idempotency token used to identify each cost estimate request.</p>
    */
   ClientToken?: string;
@@ -4654,6 +5096,7 @@ export interface StartCostEstimationResponse {}
  */
 export interface UpdateEventSourcesConfigRequest {
   /**
+   * @public
    * <p>Configuration information about the integration of DevOps Guru as the Consumer via
    * 			EventBridge with another AWS Service.</p>
    */
@@ -4687,6 +5130,7 @@ export type UpdateResourceCollectionAction =
  */
 export interface UpdateCloudFormationCollectionFilter {
   /**
+   * @public
    * <p> An array of the names of the Amazon Web Services CloudFormation stacks to update. You can specify up to 500 Amazon Web Services CloudFormation stacks.
    * 		</p>
    */
@@ -4700,6 +5144,7 @@ export interface UpdateCloudFormationCollectionFilter {
  */
 export interface UpdateTagCollectionFilter {
   /**
+   * @public
    * <p>An Amazon Web Services tag <i>key</i> that is used to identify the Amazon Web Services resources that
    *       	DevOps Guru analyzes. All Amazon Web Services resources in your account and Region tagged with this <i>key</i> make
    *       up your DevOps Guru application and analysis boundary.</p>
@@ -4718,6 +5163,7 @@ export interface UpdateTagCollectionFilter {
   AppBoundaryKey: string | undefined;
 
   /**
+   * @public
    * <p>The values in an Amazon Web Services tag collection.</p>
    *          <p>The tag's <i>value</i> is an optional field used to associate a string with
    * 					the tag <i>key</i> (for example, <code>111122223333</code>, <code>Production</code>, or a team
@@ -4735,11 +5181,13 @@ export interface UpdateTagCollectionFilter {
  */
 export interface UpdateResourceCollectionFilter {
   /**
+   * @public
    * <p> A collection of Amazon Web Services CloudFormation stacks. You can specify up to 500 Amazon Web Services CloudFormation stacks. </p>
    */
   CloudFormation?: UpdateCloudFormationCollectionFilter;
 
   /**
+   * @public
    * <p>The updated Amazon Web Services tags used to filter the resources in the resource collection.</p>
    *          <p>Tags help you identify and organize your Amazon Web Services resources. Many Amazon Web Services services support
    *    		tagging, so you can assign the same tag to resources from different services to indicate
@@ -4783,12 +5231,14 @@ export interface UpdateResourceCollectionFilter {
  */
 export interface UpdateResourceCollectionRequest {
   /**
+   * @public
    * <p> Specifies if the resource collection in the request is added or deleted to the
    * 			resource collection. </p>
    */
   Action: UpdateResourceCollectionAction | string | undefined;
 
   /**
+   * @public
    * <p> Contains information used to update a collection of Amazon Web Services resources. </p>
    */
   ResourceCollection: UpdateResourceCollectionFilter | undefined;
@@ -4807,6 +5257,7 @@ export interface UpdateResourceCollectionResponse {}
  */
 export interface KMSServerSideEncryptionIntegrationConfig {
   /**
+   * @public
    * <p>
    * 				Describes the specified KMS key.</p>
    *          <p>To specify a KMS key, use its key ID, key ARN,
@@ -4824,6 +5275,7 @@ export interface KMSServerSideEncryptionIntegrationConfig {
   KMSKeyId?: string;
 
   /**
+   * @public
    * <p>
    * 			Specifies if DevOps Guru is enabled for KMS integration.
    * 		</p>
@@ -4831,6 +5283,7 @@ export interface KMSServerSideEncryptionIntegrationConfig {
   OptInStatus?: OptInStatus | string;
 
   /**
+   * @public
    * <p>
    * 			The type of KMS key used. Customer managed keys are the KMS keys that you create. Amazon Web Services owned keys are keys that are owned and managed by DevOps Guru.
    * 		</p>
@@ -4846,6 +5299,7 @@ export interface KMSServerSideEncryptionIntegrationConfig {
  */
 export interface LogsAnomalyDetectionIntegrationConfig {
   /**
+   * @public
    * <p>Specifies if DevOps Guru is configured to perform log anomaly detection on CloudWatch log groups.</p>
    */
   OptInStatus?: OptInStatus | string;
@@ -4858,6 +5312,7 @@ export interface LogsAnomalyDetectionIntegrationConfig {
  */
 export interface OpsCenterIntegrationConfig {
   /**
+   * @public
    * <p> Specifies if DevOps Guru is enabled to create an Amazon Web Services Systems Manager OpsItem for each created
    * 			insight. </p>
    */
@@ -4871,12 +5326,14 @@ export interface OpsCenterIntegrationConfig {
  */
 export interface UpdateServiceIntegrationConfig {
   /**
+   * @public
    * <p> Information about whether DevOps Guru is configured to create an OpsItem in Amazon Web Services Systems Manager
    * 			OpsCenter for each created insight. You can use this to update the configuration.</p>
    */
   OpsCenter?: OpsCenterIntegrationConfig;
 
   /**
+   * @public
    * <p>
    * 			Information about whether DevOps Guru is configured to perform log anomaly detection on Amazon CloudWatch log groups.
    * 		</p>
@@ -4884,6 +5341,7 @@ export interface UpdateServiceIntegrationConfig {
   LogsAnomalyDetection?: LogsAnomalyDetectionIntegrationConfig;
 
   /**
+   * @public
    * <p>
    * 			Information about whether DevOps Guru is configured to encrypt server-side data using KMS.
    * 		</p>
@@ -4896,6 +5354,7 @@ export interface UpdateServiceIntegrationConfig {
  */
 export interface UpdateServiceIntegrationRequest {
   /**
+   * @public
    * <p> An <code>IntegratedServiceConfig</code> object used to specify the integrated service
    * 			you want to update, and whether you want to update it to enabled or disabled. </p>
    */

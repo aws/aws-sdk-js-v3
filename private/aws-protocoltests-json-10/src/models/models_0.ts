@@ -298,6 +298,9 @@ export namespace MyUnion {
     $unknown?: never;
   }
 
+  /**
+   * @public
+   */
   export interface $UnknownMember {
     stringValue?: never;
     booleanValue?: never;
@@ -346,6 +349,7 @@ export namespace MyUnion {
  */
 export interface JsonUnionsInput {
   /**
+   * @public
    * A union with a representative set of types for members.
    */
   contents?: MyUnion;
@@ -356,6 +360,7 @@ export interface JsonUnionsInput {
  */
 export interface JsonUnionsOutput {
   /**
+   * @public
    * A union with a representative set of types for members.
    */
   contents?: MyUnion;

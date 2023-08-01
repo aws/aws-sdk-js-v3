@@ -27,6 +27,7 @@ export type AccountLimitType = (typeof AccountLimitType)[keyof typeof AccountLim
  */
 export interface AccountLimit {
   /**
+   * @public
    * <p>The limit that you requested. Valid values include the following:</p>
    *          <ul>
    *             <li>
@@ -62,6 +63,7 @@ export interface AccountLimit {
   Type: AccountLimitType | string | undefined;
 
   /**
+   * @public
    * <p>The current value for the limit that is specified by <a href="https://docs.aws.amazon.com/Route53/latest/APIReference/API_AccountLimit.html#Route53-Type-AccountLimit-Type">Type</a>.</p>
    */
   Value: number | undefined;
@@ -72,11 +74,13 @@ export interface AccountLimit {
  */
 export interface ActivateKeySigningKeyRequest {
   /**
+   * @public
    * <p>A unique string used to identify a hosted zone.</p>
    */
   HostedZoneId: string | undefined;
 
   /**
+   * @public
    * <p>A string used to identify a key-signing key (KSK). <code>Name</code> can include
    * 			numbers, letters, and underscores (_). <code>Name</code> must be unique for each
    * 			key-signing key in the same hosted zone.</p>
@@ -105,18 +109,21 @@ export type ChangeStatus = (typeof ChangeStatus)[keyof typeof ChangeStatus];
  */
 export interface ChangeInfo {
   /**
+   * @public
    * <p>This element contains an ID that you use when performing a <a href="https://docs.aws.amazon.com/Route53/latest/APIReference/API_GetChange.html">GetChange</a> action to get
    * 			detailed information about the change.</p>
    */
   Id: string | undefined;
 
   /**
+   * @public
    * <p>The current state of the request. <code>PENDING</code> indicates that this request has
    * 			not yet been applied to all Amazon Route 53 DNS servers.</p>
    */
   Status: ChangeStatus | string | undefined;
 
   /**
+   * @public
    * <p>The date and time that the change request was submitted in <a href="https://en.wikipedia.org/wiki/ISO_8601">ISO 8601 format</a> and Coordinated
    * 			Universal Time (UTC). For example, the value <code>2017-03-27T17:48:16.751Z</code>
    * 			represents March 27, 2017 at 17:48:16.751 UTC.</p>
@@ -124,6 +131,7 @@ export interface ChangeInfo {
   SubmittedAt: Date | undefined;
 
   /**
+   * @public
    * <p>A comment you can provide.</p>
    */
   Comment?: string;
@@ -134,6 +142,7 @@ export interface ChangeInfo {
  */
 export interface ActivateKeySigningKeyResponse {
   /**
+   * @public
    * <p>A complex type that describes change information about changes made to your hosted
    * 			zone.</p>
    */
@@ -319,6 +328,7 @@ export type CloudWatchRegion = (typeof CloudWatchRegion)[keyof typeof CloudWatch
  */
 export interface AlarmIdentifier {
   /**
+   * @public
    * <p>For the CloudWatch alarm that you want Route 53 health checkers to use to determine
    * 			whether this health check is healthy, the region that the alarm was created in.</p>
    *          <p>For the current list of CloudWatch regions, see <a href="https://docs.aws.amazon.com/general/latest/gr/cw_region.html">Amazon CloudWatch endpoints and
@@ -328,6 +338,7 @@ export interface AlarmIdentifier {
   Region: CloudWatchRegion | string | undefined;
 
   /**
+   * @public
    * <p>The name of the CloudWatch alarm that you want Amazon Route 53 health checkers to use
    * 			to determine whether this health check is healthy.</p>
    *          <note>
@@ -364,6 +375,7 @@ export interface AlarmIdentifier {
  */
 export interface AliasTarget {
   /**
+   * @public
    * <p>
    *             <i>Alias resource records sets only</i>: The value used depends on where
    * 			you want to route traffic:</p>
@@ -482,6 +494,7 @@ export interface AliasTarget {
   HostedZoneId: string | undefined;
 
   /**
+   * @public
    * <p>
    *             <i>Alias resource record sets only:</i> The value that you specify
    * 			depends on where you want to route queries:</p>
@@ -679,6 +692,7 @@ export interface AliasTarget {
   DNSName: string | undefined;
 
   /**
+   * @public
    * <p>
    *             <i>Applies only to alias, failover alias, geolocation alias, latency alias, and
    * 				weighted alias resource record sets:</i> When
@@ -830,12 +844,14 @@ export type VPCRegion = (typeof VPCRegion)[keyof typeof VPCRegion];
  */
 export interface VPC {
   /**
+   * @public
    * <p>(Private hosted zones only) The region that an Amazon VPC was created
    * 			in.</p>
    */
   VPCRegion?: VPCRegion | string;
 
   /**
+   * @public
    * <p>(Private hosted zones only) The ID of an Amazon VPC. </p>
    */
   VPCId?: string;
@@ -848,6 +864,7 @@ export interface VPC {
  */
 export interface AssociateVPCWithHostedZoneRequest {
   /**
+   * @public
    * <p>The ID of the private hosted zone that you want to associate an Amazon VPC
    * 			with.</p>
    *          <p>Note that you can't associate a VPC with a hosted zone that doesn't have an existing
@@ -856,12 +873,14 @@ export interface AssociateVPCWithHostedZoneRequest {
   HostedZoneId: string | undefined;
 
   /**
+   * @public
    * <p>A complex type that contains information about the VPC that you want to associate with
    * 			a private hosted zone.</p>
    */
   VPC: VPC | undefined;
 
   /**
+   * @public
    * <p>
    *             <i>Optional:</i> A comment about the association request.</p>
    */
@@ -875,6 +894,7 @@ export interface AssociateVPCWithHostedZoneRequest {
  */
 export interface AssociateVPCWithHostedZoneResponse {
   /**
+   * @public
    * <p>A complex type that describes the changes made to your hosted zone.</p>
    */
   ChangeInfo: ChangeInfo | undefined;
@@ -1073,17 +1093,20 @@ export type CidrCollectionChangeAction = (typeof CidrCollectionChangeAction)[key
  */
 export interface CidrCollectionChange {
   /**
+   * @public
    * <p>Name of the location that is associated with the CIDR
    * 			collection.</p>
    */
   LocationName: string | undefined;
 
   /**
+   * @public
    * <p>CIDR collection change action. </p>
    */
   Action: CidrCollectionChangeAction | string | undefined;
 
   /**
+   * @public
    * <p>List of CIDR blocks.</p>
    */
   CidrList: string[] | undefined;
@@ -1094,11 +1117,13 @@ export interface CidrCollectionChange {
  */
 export interface ChangeCidrCollectionRequest {
   /**
+   * @public
    * <p>The UUID of the CIDR collection to update.</p>
    */
   Id: string | undefined;
 
   /**
+   * @public
    * <p>A sequential counter that Amazon Route 53 sets to 1 when you create a
    * 			collection and increments it by 1 each time you update the collection.</p>
    *          <p>We recommend that you use <code>ListCidrCollection</code> to get the current value of
@@ -1122,6 +1147,7 @@ export interface ChangeCidrCollectionRequest {
   CollectionVersion?: number;
 
   /**
+   * @public
    * <p> Information about changes to a CIDR collection.</p>
    */
   Changes: CidrCollectionChange[] | undefined;
@@ -1132,6 +1158,7 @@ export interface ChangeCidrCollectionRequest {
  */
 export interface ChangeCidrCollectionResponse {
   /**
+   * @public
    * <p>The ID that is returned by <code>ChangeCidrCollection</code>. You can use it as input to
    * 				<code>GetChange</code> to see if a CIDR collection change has propagated or
    * 			not.</p>
@@ -1230,11 +1257,13 @@ export type ChangeAction = (typeof ChangeAction)[keyof typeof ChangeAction];
  */
 export interface CidrRoutingConfig {
   /**
+   * @public
    * <p>The CIDR collection ID.</p>
    */
   CollectionId: string | undefined;
 
   /**
+   * @public
    * <p>The CIDR collection location name.</p>
    */
   LocationName: string | undefined;
@@ -1260,6 +1289,7 @@ export type ResourceRecordSetFailover = (typeof ResourceRecordSetFailover)[keyof
  */
 export interface GeoLocation {
   /**
+   * @public
    * <p>The two-letter code for the continent.</p>
    *          <p>Amazon Route 53 supports the following continent codes:</p>
    *          <ul>
@@ -1298,6 +1328,7 @@ export interface GeoLocation {
   ContinentCode?: string;
 
   /**
+   * @public
    * <p>For geolocation resource record sets, the two-letter code for a country.</p>
    *          <p>Amazon Route 53 uses the two-letter country codes that are specified in <a href="https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2">ISO standard 3166-1
    * 				alpha-2</a>.</p>
@@ -1305,6 +1336,7 @@ export interface GeoLocation {
   CountryCode?: string;
 
   /**
+   * @public
    * <p>For geolocation resource record sets, the two-letter code for a state of the United
    * 			States. Route 53 doesn't support any other values for <code>SubdivisionCode</code>. For
    * 			a list of state abbreviations, see <a href="https://pe.usps.com/text/pub28/28apb.htm">Appendix B: Two–Letter State and Possession Abbreviations</a> on the United
@@ -1367,6 +1399,7 @@ export type ResourceRecordSetRegion = (typeof ResourceRecordSetRegion)[keyof typ
  */
 export interface ResourceRecord {
   /**
+   * @public
    * <p>The current or new DNS record value, not to exceed 4,000 characters. In the case of a
    * 				<code>DELETE</code> action, if the current value does not match the actual value, an
    * 			error is returned. For descriptions about how to format <code>Value</code> for different
@@ -1413,6 +1446,7 @@ export type RRType = (typeof RRType)[keyof typeof RRType];
  */
 export interface ResourceRecordSet {
   /**
+   * @public
    * <p>For <code>ChangeResourceRecordSets</code> requests, the name of the record that you
    * 			want to create, update, or delete. For <code>ListResourceRecordSets</code> responses,
    * 			the name of a record in the specified hosted zone.</p>
@@ -1456,6 +1490,7 @@ export interface ResourceRecordSet {
   Name: string | undefined;
 
   /**
+   * @public
    * <p>The DNS record type. For information about different record types and how data is
    * 			encoded for them, see <a href="https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/ResourceRecordTypes.html">Supported DNS Resource
    * 				Record Types</a> in the <i>Amazon Route 53 Developer
@@ -1548,6 +1583,7 @@ export interface ResourceRecordSet {
   Type: RRType | string | undefined;
 
   /**
+   * @public
    * <p>
    *             <i>Resource record sets that have a routing policy other than
    * 				simple:</i> An identifier that differentiates among multiple resource record
@@ -1561,6 +1597,7 @@ export interface ResourceRecordSet {
   SetIdentifier?: string;
 
   /**
+   * @public
    * <p>
    *             <i>Weighted resource record sets only:</i> Among resource record sets
    * 			that have the same combination of DNS name and type, a value that determines the
@@ -1604,6 +1641,7 @@ export interface ResourceRecordSet {
   Weight?: number;
 
   /**
+   * @public
    * <p>
    *             <i>Latency-based resource record sets only:</i> The Amazon EC2 Region
    * 			where you created the resource that this resource record set refers to. The resource
@@ -1640,6 +1678,7 @@ export interface ResourceRecordSet {
   Region?: ResourceRecordSetRegion | string;
 
   /**
+   * @public
    * <p>
    *             <i>Geolocation resource record sets only:</i> A complex type that lets
    * 			you control how Amazon Route 53 responds to DNS queries based on the geographic origin
@@ -1681,6 +1720,7 @@ export interface ResourceRecordSet {
   GeoLocation?: GeoLocation;
 
   /**
+   * @public
    * <p>
    *             <i>Failover resource record sets only:</i> To configure failover, you
    * 			add the <code>Failover</code> element to two resource record sets. For one resource
@@ -1738,6 +1778,7 @@ export interface ResourceRecordSet {
   Failover?: ResourceRecordSetFailover | string;
 
   /**
+   * @public
    * <p>
    *             <i>Multivalue answer resource record sets only</i>: To route traffic
    * 			approximately randomly to multiple resources, such as web servers, create one multivalue
@@ -1776,6 +1817,7 @@ export interface ResourceRecordSet {
   MultiValueAnswer?: boolean;
 
   /**
+   * @public
    * <p>The resource record cache time to live (TTL), in seconds. Note the following:</p>
    *          <ul>
    *             <li>
@@ -1806,6 +1848,7 @@ export interface ResourceRecordSet {
   TTL?: number;
 
   /**
+   * @public
    * <p>Information about the resource records to act upon.</p>
    *          <note>
    *             <p>If you're creating an alias resource record set, omit
@@ -1815,6 +1858,7 @@ export interface ResourceRecordSet {
   ResourceRecords?: ResourceRecord[];
 
   /**
+   * @public
    * <p>
    *             <i>Alias resource record sets only:</i> Information about the Amazon Web Services resource, such as a CloudFront distribution or an Amazon S3 bucket, that
    * 			you want to route traffic to. </p>
@@ -1835,6 +1879,7 @@ export interface ResourceRecordSet {
   AliasTarget?: AliasTarget;
 
   /**
+   * @public
    * <p>If you want Amazon Route 53 to return this resource record set in response to a DNS
    * 			query only when the status of a health check is healthy, include the
    * 				<code>HealthCheckId</code> element and specify the ID of the applicable health
@@ -1991,6 +2036,7 @@ export interface ResourceRecordSet {
   HealthCheckId?: string;
 
   /**
+   * @public
    * <p>When you create a traffic policy instance, Amazon Route 53 automatically creates a
    * 			resource record set. <code>TrafficPolicyInstanceId</code> is the ID of the traffic
    * 			policy instance that Route 53 created this resource record set for.</p>
@@ -2006,6 +2052,7 @@ export interface ResourceRecordSet {
   TrafficPolicyInstanceId?: string;
 
   /**
+   * @public
    * <p>The object that is specified in resource record set object when you are linking a
    * 			resource record set to a CIDR location.</p>
    *          <p>A <code>LocationName</code> with an asterisk “*” can be used to create a default CIDR
@@ -2020,6 +2067,7 @@ export interface ResourceRecordSet {
  */
 export interface Change {
   /**
+   * @public
    * <p>The action to perform:</p>
    *          <ul>
    *             <li>
@@ -2050,6 +2098,7 @@ export interface Change {
   Action: ChangeAction | string | undefined;
 
   /**
+   * @public
    * <p>Information about the resource record set to create, delete, or update.</p>
    */
   ResourceRecordSet: ResourceRecordSet | undefined;
@@ -2061,6 +2110,7 @@ export interface Change {
  */
 export interface ChangeBatch {
   /**
+   * @public
    * <p>
    *             <i>Optional:</i> Any comments you want to include about a change batch
    * 			request.</p>
@@ -2068,6 +2118,7 @@ export interface ChangeBatch {
   Comment?: string;
 
   /**
+   * @public
    * <p>Information about the changes to make to the record sets.</p>
    */
   Changes: Change[] | undefined;
@@ -2079,12 +2130,14 @@ export interface ChangeBatch {
  */
 export interface ChangeResourceRecordSetsRequest {
   /**
+   * @public
    * <p>The ID of the hosted zone that contains the resource record sets that you want to
    * 			change.</p>
    */
   HostedZoneId: string | undefined;
 
   /**
+   * @public
    * <p>A complex type that contains an optional comment and the <code>Changes</code>
    * 			element.</p>
    */
@@ -2097,6 +2150,7 @@ export interface ChangeResourceRecordSetsRequest {
  */
 export interface ChangeResourceRecordSetsResponse {
   /**
+   * @public
    * <p>A complex type that contains information about changes made to your hosted
    * 			zone.</p>
    *          <p>This element contains an ID that you use when performing a <a href="https://docs.aws.amazon.com/Route53/latest/APIReference/API_GetChange.html">GetChange</a> action to get
@@ -2114,6 +2168,7 @@ export class InvalidChangeBatch extends __BaseException {
   readonly name: "InvalidChangeBatch" = "InvalidChangeBatch";
   readonly $fault: "client" = "client";
   /**
+   * @public
    * <p></p>
    */
   messages?: string[];
@@ -2159,6 +2214,7 @@ export class NoSuchHealthCheck extends __BaseException {
  */
 export interface Tag {
   /**
+   * @public
    * <p>The value of <code>Key</code> depends on the operation that you want to
    * 			perform:</p>
    *          <ul>
@@ -2189,6 +2245,7 @@ export interface Tag {
   Key?: string;
 
   /**
+   * @public
    * <p>The value of <code>Value</code> depends on the operation that you want to
    * 			perform:</p>
    *          <ul>
@@ -2228,6 +2285,7 @@ export type TagResourceType = (typeof TagResourceType)[keyof typeof TagResourceT
  */
 export interface ChangeTagsForResourceRequest {
   /**
+   * @public
    * <p>The type of the resource.</p>
    *          <ul>
    *             <li>
@@ -2241,11 +2299,13 @@ export interface ChangeTagsForResourceRequest {
   ResourceType: TagResourceType | string | undefined;
 
   /**
+   * @public
    * <p>The ID of the resource for which you want to add, change, or delete tags.</p>
    */
   ResourceId: string | undefined;
 
   /**
+   * @public
    * <p>A complex type that contains a list of the tags that you want to add to the specified
    * 			health check or hosted zone and/or the tags that you want to edit <code>Value</code>
    * 			for.</p>
@@ -2254,6 +2314,7 @@ export interface ChangeTagsForResourceRequest {
   AddTags?: Tag[];
 
   /**
+   * @public
    * <p>A complex type that contains a list of the tags that you want to delete from the
    * 			specified health check or hosted zone. You can specify up to 10 keys.</p>
    */
@@ -2313,12 +2374,14 @@ export class CidrCollectionAlreadyExistsException extends __BaseException {
  */
 export interface CreateCidrCollectionRequest {
   /**
+   * @public
    * <p>A unique identifier for the account that can be used to reference the collection from
    * 			other API calls.</p>
    */
   Name: string | undefined;
 
   /**
+   * @public
    * <p>A client-specific token that allows requests to be securely retried so that the
    * 			intended outcome will only occur once, retries receive a similar response, and there are
    * 			no additional edge cases to handle.</p>
@@ -2334,22 +2397,26 @@ export interface CreateCidrCollectionRequest {
  */
 export interface CidrCollection {
   /**
+   * @public
    * <p>The ARN of the collection. Can be used to reference the collection in IAM policy or in
    * 			another Amazon Web Services account.</p>
    */
   Arn?: string;
 
   /**
+   * @public
    * <p>The unique ID of the CIDR collection.</p>
    */
   Id?: string;
 
   /**
+   * @public
    * <p>The name of a CIDR collection.</p>
    */
   Name?: string;
 
   /**
+   * @public
    * <p>A sequential counter that Route 53 sets to 1 when you create a CIDR
    * 			collection and increments by 1 each time you update settings for the CIDR
    * 			collection.</p>
@@ -2362,11 +2429,13 @@ export interface CidrCollection {
  */
 export interface CreateCidrCollectionResponse {
   /**
+   * @public
    * <p>A complex type that contains information about the CIDR collection.</p>
    */
   Collection?: CidrCollection;
 
   /**
+   * @public
    * <p>A unique URL that represents the location for the CIDR collection.</p>
    */
   Location?: string;
@@ -2434,6 +2503,7 @@ export type HealthCheckType = (typeof HealthCheckType)[keyof typeof HealthCheckT
  */
 export interface HealthCheckConfig {
   /**
+   * @public
    * <p>The IPv4 or IPv6 IP address of the endpoint that you want Amazon Route 53 to perform
    * 			health checks on. If you don't specify a value for <code>IPAddress</code>, Route 53
    * 			sends a DNS request to resolve the domain name that you specify in
@@ -2490,6 +2560,7 @@ export interface HealthCheckConfig {
   IPAddress?: string;
 
   /**
+   * @public
    * <p>The port on the endpoint that you want Amazon Route 53 to perform health checks
    * 			on.</p>
    *          <note>
@@ -2501,6 +2572,7 @@ export interface HealthCheckConfig {
   Port?: number;
 
   /**
+   * @public
    * <p>The type of health check that you want to create, which indicates how Amazon Route 53
    * 			determines whether an endpoint is healthy.</p>
    *          <important>
@@ -2577,6 +2649,7 @@ export interface HealthCheckConfig {
   Type: HealthCheckType | string | undefined;
 
   /**
+   * @public
    * <p>The path, if any, that you want Amazon Route 53 to request when performing health
    * 			checks. The path can be any value for which your endpoint will return an HTTP status
    * 			code of 2xx or 3xx when the endpoint is healthy, for example, the file
@@ -2586,6 +2659,7 @@ export interface HealthCheckConfig {
   ResourcePath?: string;
 
   /**
+   * @public
    * <p>Amazon Route 53 behavior depends on whether you specify a value for
    * 				<code>IPAddress</code>.</p>
    *          <p>
@@ -2657,6 +2731,7 @@ export interface HealthCheckConfig {
   FullyQualifiedDomainName?: string;
 
   /**
+   * @public
    * <p>If the value of Type is <code>HTTP_STR_MATCH</code> or <code>HTTPS_STR_MATCH</code>,
    * 			the string that you want Amazon Route 53 to search for in the response body from the
    * 			specified resource. If the string appears in the response body, Route 53 considers the
@@ -2667,6 +2742,7 @@ export interface HealthCheckConfig {
   SearchString?: string;
 
   /**
+   * @public
    * <p>The number of seconds between the time that Amazon Route 53 gets a response from your
    * 			endpoint and the time that it sends the next health check request. Each Route 53 health
    * 			checker makes requests at this interval.</p>
@@ -2680,6 +2756,7 @@ export interface HealthCheckConfig {
   RequestInterval?: number;
 
   /**
+   * @public
    * <p>The number of consecutive health checks that an endpoint must pass or fail for Amazon
    * 			Route 53 to change the current status of the endpoint from unhealthy to healthy or vice
    * 			versa. For more information, see <a href="https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/dns-failover-determining-health-of-endpoints.html">How Amazon Route 53 Determines Whether an Endpoint Is Healthy</a> in the
@@ -2690,6 +2767,7 @@ export interface HealthCheckConfig {
   FailureThreshold?: number;
 
   /**
+   * @public
    * <p>Specify whether you want Amazon Route 53 to measure the latency between health
    * 			checkers in multiple Amazon Web Services regions and your endpoint, and to display
    * 			CloudWatch latency graphs on the <b>Health Checks</b> page in
@@ -2702,6 +2780,7 @@ export interface HealthCheckConfig {
   MeasureLatency?: boolean;
 
   /**
+   * @public
    * <p>Specify whether you want Amazon Route 53 to invert the status of a health check, for
    * 			example, to consider a health check unhealthy when it otherwise would be considered
    * 			healthy.</p>
@@ -2709,6 +2788,7 @@ export interface HealthCheckConfig {
   Inverted?: boolean;
 
   /**
+   * @public
    * <p>Stops Route 53 from performing health checks. When you disable a health check, here's
    * 			what happens:</p>
    *          <ul>
@@ -2740,6 +2820,7 @@ export interface HealthCheckConfig {
   Disabled?: boolean;
 
   /**
+   * @public
    * <p>The number of child health checks that are associated with a <code>CALCULATED</code>
    * 			health check that Amazon Route 53 must consider healthy for the <code>CALCULATED</code>
    * 			health check to be considered healthy. To specify the child health checks that you want
@@ -2759,6 +2840,7 @@ export interface HealthCheckConfig {
   HealthThreshold?: number;
 
   /**
+   * @public
    * <p>(CALCULATED Health Checks Only) A complex type that contains one
    * 				<code>ChildHealthCheck</code> element for each health check that you want to
    * 			associate with a <code>CALCULATED</code> health check.</p>
@@ -2766,6 +2848,7 @@ export interface HealthCheckConfig {
   ChildHealthChecks?: string[];
 
   /**
+   * @public
    * <p>Specify whether you want Amazon Route 53 to send the value of
    * 				<code>FullyQualifiedDomainName</code> to the endpoint in the
    * 				<code>client_hello</code> message during TLS negotiation. This allows the endpoint
@@ -2790,6 +2873,7 @@ export interface HealthCheckConfig {
   EnableSNI?: boolean;
 
   /**
+   * @public
    * <p>A complex type that contains one <code>Region</code> element for each region from
    * 			which you want Amazon Route 53 health checkers to check the specified endpoint.</p>
    *          <p>If you don't specify any regions, Route 53 health checkers automatically performs
@@ -2803,6 +2887,7 @@ export interface HealthCheckConfig {
   Regions?: (HealthCheckRegion | string)[];
 
   /**
+   * @public
    * <p>A complex type that identifies the CloudWatch alarm that you want Amazon Route 53
    * 			health checkers to use to determine whether the specified health check is
    * 			healthy.</p>
@@ -2810,6 +2895,7 @@ export interface HealthCheckConfig {
   AlarmIdentifier?: AlarmIdentifier;
 
   /**
+   * @public
    * <p>When CloudWatch has insufficient data about the metric to determine the alarm state,
    * 			the status that you want Amazon Route 53 to assign to the health check:</p>
    *          <ul>
@@ -2835,6 +2921,7 @@ export interface HealthCheckConfig {
   InsufficientDataHealthStatus?: InsufficientDataHealthStatus | string;
 
   /**
+   * @public
    * <p>The Amazon Resource Name (ARN) for the Route 53 Application Recovery Controller
    * 			routing control.</p>
    *          <p>For more information about Route 53 Application Recovery Controller, see <a href="https://docs.aws.amazon.com/r53recovery/latest/dg/what-is-route-53-recovery.html">Route 53 Application Recovery Controller Developer Guide.</a>.</p>
@@ -2848,6 +2935,7 @@ export interface HealthCheckConfig {
  */
 export interface CreateHealthCheckRequest {
   /**
+   * @public
    * <p>A unique string that identifies the request and that allows you to retry a failed
    * 				<code>CreateHealthCheck</code> request without the risk of creating two identical
    * 			health checks:</p>
@@ -2879,6 +2967,7 @@ export interface CreateHealthCheckRequest {
   CallerReference: string | undefined;
 
   /**
+   * @public
    * <p>A complex type that contains settings for a new health check.</p>
    */
   HealthCheckConfig: HealthCheckConfig | undefined;
@@ -2907,12 +2996,14 @@ export type ComparisonOperator = (typeof ComparisonOperator)[keyof typeof Compar
  */
 export interface Dimension {
   /**
+   * @public
    * <p>For the metric that the CloudWatch alarm is associated with, the name of one
    * 			dimension.</p>
    */
   Name: string | undefined;
 
   /**
+   * @public
    * <p>For the metric that the CloudWatch alarm is associated with, the value of one
    * 			dimension.</p>
    */
@@ -2943,35 +3034,41 @@ export type Statistic = (typeof Statistic)[keyof typeof Statistic];
  */
 export interface CloudWatchAlarmConfiguration {
   /**
+   * @public
    * <p>For the metric that the CloudWatch alarm is associated with, the number of periods
    * 			that the metric is compared to the threshold.</p>
    */
   EvaluationPeriods: number | undefined;
 
   /**
+   * @public
    * <p>For the metric that the CloudWatch alarm is associated with, the value the metric is
    * 			compared with.</p>
    */
   Threshold: number | undefined;
 
   /**
+   * @public
    * <p>For the metric that the CloudWatch alarm is associated with, the arithmetic operation
    * 			that is used for the comparison.</p>
    */
   ComparisonOperator: ComparisonOperator | string | undefined;
 
   /**
+   * @public
    * <p>For the metric that the CloudWatch alarm is associated with, the duration of one
    * 			evaluation period in seconds.</p>
    */
   Period: number | undefined;
 
   /**
+   * @public
    * <p>The name of the CloudWatch metric that the alarm is associated with.</p>
    */
   MetricName: string | undefined;
 
   /**
+   * @public
    * <p>The namespace of the metric that the alarm is associated with. For more information,
    * 			see <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/DeveloperGuide/CW_Support_For_AWS.html">Amazon
    * 				CloudWatch Namespaces, Dimensions, and Metrics Reference</a> in the
@@ -2980,12 +3077,14 @@ export interface CloudWatchAlarmConfiguration {
   Namespace: string | undefined;
 
   /**
+   * @public
    * <p>For the metric that the CloudWatch alarm is associated with, the statistic that is
    * 			applied to the metric.</p>
    */
   Statistic: Statistic | string | undefined;
 
   /**
+   * @public
    * <p>For the metric that the CloudWatch alarm is associated with, a complex type that
    * 			contains information about the dimensions for the metric. For information, see <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/DeveloperGuide/CW_Support_For_AWS.html">Amazon
    * 				CloudWatch Namespaces, Dimensions, and Metrics Reference</a> in the
@@ -3003,6 +3102,7 @@ export interface CloudWatchAlarmConfiguration {
  */
 export interface LinkedService {
   /**
+   * @public
    * <p>If the health check or hosted zone was created by another service, the service that
    * 			created the resource. When a resource is created by another service, you can't edit or
    * 			delete it using Amazon Route 53. </p>
@@ -3010,6 +3110,7 @@ export interface LinkedService {
   ServicePrincipal?: string;
 
   /**
+   * @public
    * <p>If the health check or hosted zone was created by another service, an optional
    * 			description that can be provided by the other service. When a resource is created by
    * 			another service, you can't edit or delete it using Amazon Route 53. </p>
@@ -3024,6 +3125,7 @@ export interface LinkedService {
  */
 export interface HealthCheck {
   /**
+   * @public
    * <p>The identifier that Amazon Route 53 assigned to the health check when you created it.
    * 			When you add or update a resource record set, you use this value to specify which health
    * 			check to use. The value can be up to 64 characters long. </p>
@@ -3031,11 +3133,13 @@ export interface HealthCheck {
   Id: string | undefined;
 
   /**
+   * @public
    * <p>A unique string that you specified when you created the health check.</p>
    */
   CallerReference: string | undefined;
 
   /**
+   * @public
    * <p>If the health check was created by another service, the service that created the
    * 			health check. When a health check is created by another service, you can't edit or
    * 			delete it using Amazon Route 53. </p>
@@ -3043,11 +3147,13 @@ export interface HealthCheck {
   LinkedService?: LinkedService;
 
   /**
+   * @public
    * <p>A complex type that contains detailed information about one health check.</p>
    */
   HealthCheckConfig: HealthCheckConfig | undefined;
 
   /**
+   * @public
    * <p>The version of the health check. You can optionally pass this value in a call to
    * 				<code>UpdateHealthCheck</code> to prevent overwriting another change to the health
    * 			check.</p>
@@ -3055,6 +3161,7 @@ export interface HealthCheck {
   HealthCheckVersion: number | undefined;
 
   /**
+   * @public
    * <p>A complex type that contains information about the CloudWatch alarm that Amazon Route
    * 			53 is monitoring for this health check.</p>
    */
@@ -3067,11 +3174,13 @@ export interface HealthCheck {
  */
 export interface CreateHealthCheckResponse {
   /**
+   * @public
    * <p>A complex type that contains identifying information about the health check.</p>
    */
   HealthCheck: HealthCheck | undefined;
 
   /**
+   * @public
    * <p>The unique URL representing the new health check.</p>
    */
   Location: string | undefined;
@@ -3145,11 +3254,13 @@ export class TooManyHealthChecks extends __BaseException {
  */
 export interface HostedZoneConfig {
   /**
+   * @public
    * <p>Any comments that you want to include about the hosted zone.</p>
    */
   Comment?: string;
 
   /**
+   * @public
    * <p>A value that indicates whether this is a private hosted zone.</p>
    */
   PrivateZone?: boolean;
@@ -3162,6 +3273,7 @@ export interface HostedZoneConfig {
  */
 export interface CreateHostedZoneRequest {
   /**
+   * @public
    * <p>The name of the domain. Specify a fully qualified domain name, for example,
    * 				<i>www.example.com</i>. The trailing dot is optional; Amazon Route 53 assumes that the domain name is fully qualified. This means that
    * 				Route 53 treats <i>www.example.com</i> (without a trailing
@@ -3176,6 +3288,7 @@ export interface CreateHostedZoneRequest {
   Name: string | undefined;
 
   /**
+   * @public
    * <p>(Private hosted zones only) A complex type that contains information about the Amazon
    * 			VPC that you're associating with this hosted zone.</p>
    *          <p>You can specify only one Amazon VPC when you create a private hosted zone. If you are
@@ -3186,6 +3299,7 @@ export interface CreateHostedZoneRequest {
   VPC?: VPC;
 
   /**
+   * @public
    * <p>A unique string that identifies the request and that allows failed
    * 				<code>CreateHostedZone</code> requests to be retried without the risk of executing
    * 			the operation twice. You must use a unique <code>CallerReference</code> string every
@@ -3195,6 +3309,7 @@ export interface CreateHostedZoneRequest {
   CallerReference: string | undefined;
 
   /**
+   * @public
    * <p>(Optional) A complex type that contains the following optional values:</p>
    *          <ul>
    *             <li>
@@ -3210,6 +3325,7 @@ export interface CreateHostedZoneRequest {
   HostedZoneConfig?: HostedZoneConfig;
 
   /**
+   * @public
    * <p>If you want to associate a reusable delegation set with this hosted zone, the ID that
    * 				Amazon Route 53 assigned to the reusable delegation set when you created it.
    * 			For more information about reusable delegation sets, see <a href="https://docs.aws.amazon.com/Route53/latest/APIReference/API_CreateReusableDelegationSet.html">CreateReusableDelegationSet</a>.</p>
@@ -3228,17 +3344,20 @@ export interface CreateHostedZoneRequest {
  */
 export interface DelegationSet {
   /**
+   * @public
    * <p>The ID that Amazon Route 53 assigns to a reusable delegation set.</p>
    */
   Id?: string;
 
   /**
+   * @public
    * <p>The value that you specified for <code>CallerReference</code> when you created the
    * 			reusable delegation set.</p>
    */
   CallerReference?: string;
 
   /**
+   * @public
    * <p>A complex type that contains a list of the authoritative name servers for a hosted
    * 			zone or for a reusable delegation set.</p>
    */
@@ -3251,11 +3370,13 @@ export interface DelegationSet {
  */
 export interface HostedZone {
   /**
+   * @public
    * <p>The ID that Amazon Route 53 assigned to the hosted zone when you created it.</p>
    */
   Id: string | undefined;
 
   /**
+   * @public
    * <p>The name of the domain. For public hosted zones, this is the name that you have
    * 			registered with your DNS registrar.</p>
    *          <p>For information about how to specify characters other than <code>a-z</code>,
@@ -3265,12 +3386,14 @@ export interface HostedZone {
   Name: string | undefined;
 
   /**
+   * @public
    * <p>The value that you specified for <code>CallerReference</code> when you created the
    * 			hosted zone.</p>
    */
   CallerReference: string | undefined;
 
   /**
+   * @public
    * <p>A complex type that includes the <code>Comment</code> and <code>PrivateZone</code>
    * 			elements. If you omitted the <code>HostedZoneConfig</code> and <code>Comment</code>
    * 			elements from the request, the <code>Config</code> and <code>Comment</code> elements
@@ -3279,11 +3402,13 @@ export interface HostedZone {
   Config?: HostedZoneConfig;
 
   /**
+   * @public
    * <p>The number of resource record sets in the hosted zone.</p>
    */
   ResourceRecordSetCount?: number;
 
   /**
+   * @public
    * <p>If the hosted zone was created by another service, the service that created the hosted
    * 			zone. When a hosted zone is created by another service, you can't edit or delete it
    * 			using Route 53. </p>
@@ -3297,28 +3422,33 @@ export interface HostedZone {
  */
 export interface CreateHostedZoneResponse {
   /**
+   * @public
    * <p>A complex type that contains general information about the hosted zone.</p>
    */
   HostedZone: HostedZone | undefined;
 
   /**
+   * @public
    * <p>A complex type that contains information about the <code>CreateHostedZone</code>
    * 			request.</p>
    */
   ChangeInfo: ChangeInfo | undefined;
 
   /**
+   * @public
    * <p>A complex type that describes the name servers for this hosted zone.</p>
    */
   DelegationSet: DelegationSet | undefined;
 
   /**
+   * @public
    * <p>A complex type that contains information about an Amazon VPC that you associated with
    * 			this hosted zone.</p>
    */
   VPC?: VPC;
 
   /**
+   * @public
    * <p>The unique URL representing the new hosted zone.</p>
    */
   Location: string | undefined;
@@ -3463,16 +3593,19 @@ export class TooManyHostedZones extends __BaseException {
  */
 export interface CreateKeySigningKeyRequest {
   /**
+   * @public
    * <p>A unique string that identifies the request.</p>
    */
   CallerReference: string | undefined;
 
   /**
+   * @public
    * <p>The unique string (ID) used to identify a hosted zone.</p>
    */
   HostedZoneId: string | undefined;
 
   /**
+   * @public
    * <p>The Amazon resource name (ARN) for a customer managed key in Key Management Service
    * 				(KMS). The <code>KeyManagementServiceArn</code> must be unique for
    * 			each key-signing key (KSK) in a single hosted zone. To see an example of
@@ -3522,6 +3655,7 @@ export interface CreateKeySigningKeyRequest {
   KeyManagementServiceArn: string | undefined;
 
   /**
+   * @public
    * <p>A string used to identify a key-signing key (KSK). <code>Name</code> can include
    * 			numbers, letters, and underscores (_). <code>Name</code> must be unique for each
    * 			key-signing key in the same hosted zone.</p>
@@ -3529,6 +3663,7 @@ export interface CreateKeySigningKeyRequest {
   Name: string | undefined;
 
   /**
+   * @public
    * <p>A string specifying the initial status of the key-signing key (KSK). You can set the
    * 			value to <code>ACTIVE</code> or <code>INACTIVE</code>.</p>
    */
@@ -3544,6 +3679,7 @@ export interface CreateKeySigningKeyRequest {
  */
 export interface KeySigningKey {
   /**
+   * @public
    * <p>A string used to identify a key-signing key (KSK). <code>Name</code> can include
    * 			numbers, letters, and underscores (_). <code>Name</code> must be unique for each
    * 			key-signing key in the same hosted zone.</p>
@@ -3551,6 +3687,7 @@ export interface KeySigningKey {
   Name?: string;
 
   /**
+   * @public
    * <p>The Amazon resource name (ARN) used to identify the customer managed key in Key Management Service (KMS). The <code>KmsArn</code> must be unique for each
    * 			key-signing key (KSK) in a single hosted zone.</p>
    *          <p>You must configure the customer managed key as follows:</p>
@@ -3598,24 +3735,28 @@ export interface KeySigningKey {
   KmsArn?: string;
 
   /**
+   * @public
    * <p>An integer that specifies how the key is used. For key-signing key (KSK), this value
    * 			is always 257.</p>
    */
   Flag?: number;
 
   /**
+   * @public
    * <p>A string used to represent the signing algorithm. This value must follow the
    * 			guidelines provided by <a href="https://tools.ietf.org/html/rfc8624#section-3.1">RFC-8624 Section 3.1</a>. </p>
    */
   SigningAlgorithmMnemonic?: string;
 
   /**
+   * @public
    * <p>An integer used to represent the signing algorithm. This value must follow the
    * 			guidelines provided by <a href="https://tools.ietf.org/html/rfc8624#section-3.1">RFC-8624 Section 3.1</a>. </p>
    */
   SigningAlgorithmType?: number;
 
   /**
+   * @public
    * <p>A string used to represent the delegation signer digest algorithm. This value must
    * 			follow the guidelines provided by <a href="https://tools.ietf.org/html/rfc8624#section-3.3">RFC-8624 Section 3.3</a>.
    * 		</p>
@@ -3623,6 +3764,7 @@ export interface KeySigningKey {
   DigestAlgorithmMnemonic?: string;
 
   /**
+   * @public
    * <p>An integer used to represent the delegation signer digest algorithm. This value must
    * 			follow the guidelines provided by <a href="https://tools.ietf.org/html/rfc8624#section-3.3">RFC-8624 Section
    * 			3.3</a>.</p>
@@ -3630,12 +3772,14 @@ export interface KeySigningKey {
   DigestAlgorithmType?: number;
 
   /**
+   * @public
    * <p>An integer used to identify the DNSSEC record for the domain name. The process used to
    * 			calculate the value is described in <a href="https://tools.ietf.org/rfc/rfc4034.txt">RFC-4034 Appendix B</a>.</p>
    */
   KeyTag?: number;
 
   /**
+   * @public
    * <p>A cryptographic digest of a DNSKEY resource record (RR). DNSKEY records are used to
    * 			publish the public key that resolvers can use to verify DNSSEC signatures that are used
    * 			to secure certain kinds of information provided by the DNS system.</p>
@@ -3643,21 +3787,25 @@ export interface KeySigningKey {
   DigestValue?: string;
 
   /**
+   * @public
    * <p>The public key, represented as a Base64 encoding, as required by <a href="https://tools.ietf.org/rfc/rfc4034.txt"> RFC-4034 Page 5</a>.</p>
    */
   PublicKey?: string;
 
   /**
+   * @public
    * <p>A string that represents a delegation signer (DS) record.</p>
    */
   DSRecord?: string;
 
   /**
+   * @public
    * <p>A string that represents a DNSKEY record.</p>
    */
   DNSKEYRecord?: string;
 
   /**
+   * @public
    * <p>A string that represents the current key-signing key (KSK) status.</p>
    *          <p>Status can have one of the following values:</p>
    *          <dl>
@@ -3692,6 +3840,7 @@ export interface KeySigningKey {
   Status?: string;
 
   /**
+   * @public
    * <p>The status message provided for the following key-signing key (KSK) statuses:
    * 				<code>ACTION_NEEDED</code> or <code>INTERNAL_FAILURE</code>. The status message
    * 			includes information about what the problem might be and steps that you can take to
@@ -3700,11 +3849,13 @@ export interface KeySigningKey {
   StatusMessage?: string;
 
   /**
+   * @public
    * <p>The date when the key-signing key (KSK) was created.</p>
    */
   CreatedDate?: Date;
 
   /**
+   * @public
    * <p>The last time that the key-signing key (KSK) was changed.</p>
    */
   LastModifiedDate?: Date;
@@ -3715,17 +3866,20 @@ export interface KeySigningKey {
  */
 export interface CreateKeySigningKeyResponse {
   /**
+   * @public
    * <p>A complex type that describes change information about changes made to your hosted
    * 			zone.</p>
    */
   ChangeInfo: ChangeInfo | undefined;
 
   /**
+   * @public
    * <p>The key-signing key (KSK) that the request creates.</p>
    */
   KeySigningKey: KeySigningKey | undefined;
 
   /**
+   * @public
    * <p>The unique URL representing the new key-signing key (KSK).</p>
    */
   Location: string | undefined;
@@ -3817,12 +3971,14 @@ export class TooManyKeySigningKeys extends __BaseException {
  */
 export interface CreateQueryLoggingConfigRequest {
   /**
+   * @public
    * <p>The ID of the hosted zone that you want to log queries for. You can log queries only
    * 			for public hosted zones.</p>
    */
   HostedZoneId: string | undefined;
 
   /**
+   * @public
    * <p>The Amazon Resource Name (ARN) for the log group that you want to Amazon Route 53 to
    * 			send query logs to. This is the format of the ARN:</p>
    *          <p>arn:aws:logs:<i>region</i>:<i>account-id</i>:log-group:<i>log_group_name</i>
@@ -3840,16 +3996,19 @@ export interface CreateQueryLoggingConfigRequest {
  */
 export interface QueryLoggingConfig {
   /**
+   * @public
    * <p>The ID for a configuration for DNS query logging.</p>
    */
   Id: string | undefined;
 
   /**
+   * @public
    * <p>The ID of the hosted zone that CloudWatch Logs is logging queries for. </p>
    */
   HostedZoneId: string | undefined;
 
   /**
+   * @public
    * <p>The Amazon Resource Name (ARN) of the CloudWatch Logs log group that Amazon Route 53
    * 			is publishing logs to.</p>
    */
@@ -3861,6 +4020,7 @@ export interface QueryLoggingConfig {
  */
 export interface CreateQueryLoggingConfigResponse {
   /**
+   * @public
    * <p>A complex type that contains the ID for a query logging configuration, the ID of the
    * 			hosted zone that you want to log queries for, and the ARN for the log group that you
    * 			want Amazon Route 53 to send query logs to.</p>
@@ -3868,6 +4028,7 @@ export interface CreateQueryLoggingConfigResponse {
   QueryLoggingConfig: QueryLoggingConfig | undefined;
 
   /**
+   * @public
    * <p>The unique URL representing the new query logging configuration.</p>
    */
   Location: string | undefined;
@@ -3963,6 +4124,7 @@ export class QueryLoggingConfigAlreadyExists extends __BaseException {
  */
 export interface CreateReusableDelegationSetRequest {
   /**
+   * @public
    * <p>A unique string that identifies the request, and that allows you to retry failed
    * 				<code>CreateReusableDelegationSet</code> requests without the risk of executing the
    * 			operation twice. You must use a unique <code>CallerReference</code> string every time
@@ -3973,6 +4135,7 @@ export interface CreateReusableDelegationSetRequest {
   CallerReference: string | undefined;
 
   /**
+   * @public
    * <p>If you want to mark the delegation set for an existing hosted zone as reusable, the ID
    * 			for that hosted zone.</p>
    */
@@ -3984,11 +4147,13 @@ export interface CreateReusableDelegationSetRequest {
  */
 export interface CreateReusableDelegationSetResponse {
   /**
+   * @public
    * <p>A complex type that contains name server information.</p>
    */
   DelegationSet: DelegationSet | undefined;
 
   /**
+   * @public
    * <p>The unique URL representing the new reusable delegation set.</p>
    */
   Location: string | undefined;
@@ -4062,16 +4227,19 @@ export class HostedZoneNotFound extends __BaseException {
  */
 export interface CreateTrafficPolicyRequest {
   /**
+   * @public
    * <p>The name of the traffic policy.</p>
    */
   Name: string | undefined;
 
   /**
+   * @public
    * <p>The definition of this traffic policy in JSON format. For more information, see <a href="https://docs.aws.amazon.com/Route53/latest/APIReference/api-policies-traffic-policy-document-format.html">Traffic Policy Document Format</a>.</p>
    */
   Document: string | undefined;
 
   /**
+   * @public
    * <p>(Optional) Any comments that you want to include about the traffic policy.</p>
    */
   Comment?: string;
@@ -4083,28 +4251,33 @@ export interface CreateTrafficPolicyRequest {
  */
 export interface TrafficPolicy {
   /**
+   * @public
    * <p>The ID that Amazon Route 53 assigned to a traffic policy when you created it.</p>
    */
   Id: string | undefined;
 
   /**
+   * @public
    * <p>The version number that Amazon Route 53 assigns to a traffic policy. For a new traffic
    * 			policy, the value of <code>Version</code> is always 1.</p>
    */
   Version: number | undefined;
 
   /**
+   * @public
    * <p>The name that you specified when you created the traffic policy.</p>
    */
   Name: string | undefined;
 
   /**
+   * @public
    * <p>The DNS type of the resource record sets that Amazon Route 53 creates when you use a
    * 			traffic policy to create a traffic policy instance.</p>
    */
   Type: RRType | string | undefined;
 
   /**
+   * @public
    * <p>The definition of a traffic policy in JSON format. You specify the JSON document to
    * 			use for a new traffic policy in the <code>CreateTrafficPolicy</code> request. For more
    * 			information about the JSON format, see <a href="https://docs.aws.amazon.com/Route53/latest/APIReference/api-policies-traffic-policy-document-format.html">Traffic Policy Document Format</a>.</p>
@@ -4112,6 +4285,7 @@ export interface TrafficPolicy {
   Document: string | undefined;
 
   /**
+   * @public
    * <p>The comment that you specify in the <code>CreateTrafficPolicy</code> request, if
    * 			any.</p>
    */
@@ -4125,11 +4299,13 @@ export interface TrafficPolicy {
  */
 export interface CreateTrafficPolicyResponse {
   /**
+   * @public
    * <p>A complex type that contains settings for the new traffic policy.</p>
    */
   TrafficPolicy: TrafficPolicy | undefined;
 
   /**
+   * @public
    * <p>A unique URL that represents a new traffic policy.</p>
    */
   Location: string | undefined;
@@ -4209,12 +4385,14 @@ export class TrafficPolicyAlreadyExists extends __BaseException {
  */
 export interface CreateTrafficPolicyInstanceRequest {
   /**
+   * @public
    * <p>The ID of the hosted zone that you want Amazon Route 53 to create resource record sets
    * 			in by using the configuration in a traffic policy.</p>
    */
   HostedZoneId: string | undefined;
 
   /**
+   * @public
    * <p>The domain name (such as example.com) or subdomain name (such as www.example.com) for
    * 			which Amazon Route 53 responds to DNS queries by using the resource record sets that
    * 			Route 53 creates for this traffic policy instance.</p>
@@ -4222,18 +4400,21 @@ export interface CreateTrafficPolicyInstanceRequest {
   Name: string | undefined;
 
   /**
+   * @public
    * <p>(Optional) The TTL that you want Amazon Route 53 to assign to all of the resource
    * 			record sets that it creates in the specified hosted zone.</p>
    */
   TTL: number | undefined;
 
   /**
+   * @public
    * <p>The ID of the traffic policy that you want to use to create resource record sets in
    * 			the specified hosted zone.</p>
    */
   TrafficPolicyId: string | undefined;
 
   /**
+   * @public
    * <p>The version of the traffic policy that you want to use to create resource record sets
    * 			in the specified hosted zone.</p>
    */
@@ -4246,16 +4427,19 @@ export interface CreateTrafficPolicyInstanceRequest {
  */
 export interface TrafficPolicyInstance {
   /**
+   * @public
    * <p>The ID that Amazon Route 53 assigned to the new traffic policy instance.</p>
    */
   Id: string | undefined;
 
   /**
+   * @public
    * <p>The ID of the hosted zone that Amazon Route 53 created resource record sets in.</p>
    */
   HostedZoneId: string | undefined;
 
   /**
+   * @public
    * <p>The DNS name, such as www.example.com, for which Amazon Route 53 responds to queries
    * 			by using the resource record sets that are associated with this traffic policy instance.
    * 		</p>
@@ -4263,12 +4447,14 @@ export interface TrafficPolicyInstance {
   Name: string | undefined;
 
   /**
+   * @public
    * <p>The TTL that Amazon Route 53 assigned to all of the resource record sets that it
    * 			created in the specified hosted zone.</p>
    */
   TTL: number | undefined;
 
   /**
+   * @public
    * <p>The value of <code>State</code> is one of the following values:</p>
    *          <dl>
    *             <dt>Applied</dt>
@@ -4295,24 +4481,28 @@ export interface TrafficPolicyInstance {
   State: string | undefined;
 
   /**
+   * @public
    * <p>If <code>State</code> is <code>Failed</code>, an explanation of the reason for the
    * 			failure. If <code>State</code> is another value, <code>Message</code> is empty.</p>
    */
   Message: string | undefined;
 
   /**
+   * @public
    * <p>The ID of the traffic policy that Amazon Route 53 used to create resource record sets
    * 			in the specified hosted zone.</p>
    */
   TrafficPolicyId: string | undefined;
 
   /**
+   * @public
    * <p>The version of the traffic policy that Amazon Route 53 used to create resource record
    * 			sets in the specified hosted zone.</p>
    */
   TrafficPolicyVersion: number | undefined;
 
   /**
+   * @public
    * <p>The DNS type that Amazon Route 53 assigned to all of the resource record sets that it
    * 			created for this traffic policy instance. </p>
    */
@@ -4326,11 +4516,13 @@ export interface TrafficPolicyInstance {
  */
 export interface CreateTrafficPolicyInstanceResponse {
   /**
+   * @public
    * <p>A complex type that contains settings for the new traffic policy instance.</p>
    */
   TrafficPolicyInstance: TrafficPolicyInstance | undefined;
 
   /**
+   * @public
    * <p>A unique URL that represents a new traffic policy instance.</p>
    */
   Location: string | undefined;
@@ -4409,11 +4601,13 @@ export class TrafficPolicyInstanceAlreadyExists extends __BaseException {
  */
 export interface CreateTrafficPolicyVersionRequest {
   /**
+   * @public
    * <p>The ID of the traffic policy for which you want to create a new version.</p>
    */
   Id: string | undefined;
 
   /**
+   * @public
    * <p>The definition of this version of the traffic policy, in JSON format. You specified
    * 			the JSON in the <code>CreateTrafficPolicyVersion</code> request. For more information
    * 			about the JSON format, see <a href="https://docs.aws.amazon.com/Route53/latest/APIReference/API_CreateTrafficPolicy.html">CreateTrafficPolicy</a>.</p>
@@ -4421,6 +4615,7 @@ export interface CreateTrafficPolicyVersionRequest {
   Document: string | undefined;
 
   /**
+   * @public
    * <p>The comment that you specified in the <code>CreateTrafficPolicyVersion</code> request,
    * 			if any.</p>
    */
@@ -4434,12 +4629,14 @@ export interface CreateTrafficPolicyVersionRequest {
  */
 export interface CreateTrafficPolicyVersionResponse {
   /**
+   * @public
    * <p>A complex type that contains settings for the new version of the traffic
    * 			policy.</p>
    */
   TrafficPolicy: TrafficPolicy | undefined;
 
   /**
+   * @public
    * <p>A unique URL that represents a new traffic policy version.</p>
    */
   Location: string | undefined;
@@ -4478,12 +4675,14 @@ export class TooManyTrafficPolicyVersionsForCurrentPolicy extends __BaseExceptio
  */
 export interface CreateVPCAssociationAuthorizationRequest {
   /**
+   * @public
    * <p>The ID of the private hosted zone that you want to authorize associating a VPC
    * 			with.</p>
    */
   HostedZoneId: string | undefined;
 
   /**
+   * @public
    * <p>A complex type that contains the VPC ID and region for the VPC that you want to
    * 			authorize associating with your hosted zone.</p>
    */
@@ -4497,11 +4696,13 @@ export interface CreateVPCAssociationAuthorizationRequest {
  */
 export interface CreateVPCAssociationAuthorizationResponse {
   /**
+   * @public
    * <p>The ID of the hosted zone that you authorized associating a VPC with.</p>
    */
   HostedZoneId: string | undefined;
 
   /**
+   * @public
    * <p>The VPC that you authorized associating with a hosted zone.</p>
    */
   VPC: VPC | undefined;
@@ -4536,11 +4737,13 @@ export class TooManyVPCAssociationAuthorizations extends __BaseException {
  */
 export interface DeactivateKeySigningKeyRequest {
   /**
+   * @public
    * <p>A unique string used to identify a hosted zone.</p>
    */
   HostedZoneId: string | undefined;
 
   /**
+   * @public
    * <p>A string used to identify a key-signing key (KSK).</p>
    */
   Name: string | undefined;
@@ -4551,6 +4754,7 @@ export interface DeactivateKeySigningKeyRequest {
  */
 export interface DeactivateKeySigningKeyResponse {
   /**
+   * @public
    * <p>A complex type that describes change information about changes made to your hosted
    * 			zone.</p>
    */
@@ -4626,6 +4830,7 @@ export class CidrCollectionInUseException extends __BaseException {
  */
 export interface DeleteCidrCollectionRequest {
   /**
+   * @public
    * <p>The UUID of the collection to delete.</p>
    */
   Id: string | undefined;
@@ -4642,6 +4847,7 @@ export interface DeleteCidrCollectionResponse {}
  */
 export interface DeleteHealthCheckRequest {
   /**
+   * @public
    * <p>The ID of the health check that you want to delete.</p>
    */
   HealthCheckId: string | undefined;
@@ -4681,6 +4887,7 @@ export class HealthCheckInUse extends __BaseException {
  */
 export interface DeleteHostedZoneRequest {
   /**
+   * @public
    * <p>The ID of the hosted zone you want to delete.</p>
    */
   Id: string | undefined;
@@ -4693,6 +4900,7 @@ export interface DeleteHostedZoneRequest {
  */
 export interface DeleteHostedZoneResponse {
   /**
+   * @public
    * <p>A complex type that contains the ID, the status, and the date and time of a request to
    * 			delete a hosted zone.</p>
    */
@@ -4724,11 +4932,13 @@ export class HostedZoneNotEmpty extends __BaseException {
  */
 export interface DeleteKeySigningKeyRequest {
   /**
+   * @public
    * <p>A unique string used to identify a hosted zone.</p>
    */
   HostedZoneId: string | undefined;
 
   /**
+   * @public
    * <p>A string used to identify a key-signing key (KSK).</p>
    */
   Name: string | undefined;
@@ -4739,6 +4949,7 @@ export interface DeleteKeySigningKeyRequest {
  */
 export interface DeleteKeySigningKeyResponse {
   /**
+   * @public
    * <p>A complex type that describes change information about changes made to your hosted
    * 			zone.</p>
    */
@@ -4750,6 +4961,7 @@ export interface DeleteKeySigningKeyResponse {
  */
 export interface DeleteQueryLoggingConfigRequest {
   /**
+   * @public
    * <p>The ID of the configuration that you want to delete. </p>
    */
   Id: string | undefined;
@@ -4807,6 +5019,7 @@ export class DelegationSetInUse extends __BaseException {
  */
 export interface DeleteReusableDelegationSetRequest {
   /**
+   * @public
    * <p>The ID of the reusable delegation set that you want to delete.</p>
    */
   Id: string | undefined;
@@ -4824,11 +5037,13 @@ export interface DeleteReusableDelegationSetResponse {}
  */
 export interface DeleteTrafficPolicyRequest {
   /**
+   * @public
    * <p>The ID of the traffic policy that you want to delete.</p>
    */
   Id: string | undefined;
 
   /**
+   * @public
    * <p>The version number of the traffic policy that you want to delete.</p>
    */
   Version: number | undefined;
@@ -4867,6 +5082,7 @@ export class TrafficPolicyInUse extends __BaseException {
  */
 export interface DeleteTrafficPolicyInstanceRequest {
   /**
+   * @public
    * <p>The ID of the traffic policy instance that you want to delete. </p>
    *          <important>
    *             <p>When you delete a traffic policy instance, Amazon Route 53 also deletes all of the
@@ -4911,11 +5127,13 @@ export class NoSuchTrafficPolicyInstance extends __BaseException {
  */
 export interface DeleteVPCAssociationAuthorizationRequest {
   /**
+   * @public
    * <p>When removing authorization to associate a VPC that was created by one Amazon Web Services account with a hosted zone that was created with a different Amazon Web Services account, the ID of the hosted zone.</p>
    */
   HostedZoneId: string | undefined;
 
   /**
+   * @public
    * <p>When removing authorization to associate a VPC that was created by one Amazon Web Services account with a hosted zone that was created with a different Amazon Web Services account, a complex type that includes the ID and region of the
    * 			VPC.</p>
    */
@@ -4954,6 +5172,7 @@ export class VPCAssociationAuthorizationNotFound extends __BaseException {
  */
 export interface DisableHostedZoneDNSSECRequest {
   /**
+   * @public
    * <p>A unique string used to identify a hosted zone.</p>
    */
   HostedZoneId: string | undefined;
@@ -4964,6 +5183,7 @@ export interface DisableHostedZoneDNSSECRequest {
  */
 export interface DisableHostedZoneDNSSECResponse {
   /**
+   * @public
    * <p>A complex type that describes change information about changes made to your hosted
    * 			zone.</p>
    */
@@ -4997,17 +5217,20 @@ export class DNSSECNotFound extends __BaseException {
  */
 export interface DisassociateVPCFromHostedZoneRequest {
   /**
+   * @public
    * <p>The ID of the private hosted zone that you want to disassociate a VPC from.</p>
    */
   HostedZoneId: string | undefined;
 
   /**
+   * @public
    * <p>A complex type that contains information about the VPC that you're disassociating from
    * 			the specified hosted zone.</p>
    */
   VPC: VPC | undefined;
 
   /**
+   * @public
    * <p>
    *             <i>Optional:</i> A comment about the disassociation request.</p>
    */
@@ -5021,6 +5244,7 @@ export interface DisassociateVPCFromHostedZoneRequest {
  */
 export interface DisassociateVPCFromHostedZoneResponse {
   /**
+   * @public
    * <p>A complex type that describes the changes made to the specified private hosted
    * 			zone.</p>
    */
@@ -5074,6 +5298,7 @@ export class VPCAssociationNotFound extends __BaseException {
  */
 export interface EnableHostedZoneDNSSECRequest {
   /**
+   * @public
    * <p>A unique string used to identify a hosted zone.</p>
    */
   HostedZoneId: string | undefined;
@@ -5084,6 +5309,7 @@ export interface EnableHostedZoneDNSSECRequest {
  */
 export interface EnableHostedZoneDNSSECResponse {
   /**
+   * @public
    * <p>A complex type that describes change information about changes made to your hosted
    * 			zone.</p>
    */
@@ -5138,6 +5364,7 @@ export class KeySigningKeyWithActiveStatusNotFound extends __BaseException {
  */
 export interface GetAccountLimitRequest {
   /**
+   * @public
    * <p>The limit that you want to get. Valid values include the following:</p>
    *          <ul>
    *             <li>
@@ -5179,6 +5406,7 @@ export interface GetAccountLimitRequest {
  */
 export interface GetAccountLimitResponse {
   /**
+   * @public
    * <p>The current setting for the specified limit. For example, if you specified
    * 				<code>MAX_HEALTH_CHECKS_BY_OWNER</code> for the value of <code>Type</code> in the
    * 			request, the value of <code>Limit</code> is the maximum number of health checks that you
@@ -5187,6 +5415,7 @@ export interface GetAccountLimitResponse {
   Limit: AccountLimit | undefined;
 
   /**
+   * @public
    * <p>The current number of entities that you have created of the specified type. For
    * 			example, if you specified <code>MAX_HEALTH_CHECKS_BY_OWNER</code> for the value of
    * 				<code>Type</code> in the request, the value of <code>Count</code> is the current
@@ -5201,6 +5430,7 @@ export interface GetAccountLimitResponse {
  */
 export interface GetChangeRequest {
   /**
+   * @public
    * <p>The ID of the change batch request. The value that you specify here is the value that
    * 				<code>ChangeResourceRecordSets</code> returned in the <code>Id</code> element when
    * 			you submitted the request.</p>
@@ -5214,6 +5444,7 @@ export interface GetChangeRequest {
  */
 export interface GetChangeResponse {
   /**
+   * @public
    * <p>A complex type that contains information about the specified change batch.</p>
    */
   ChangeInfo: ChangeInfo | undefined;
@@ -5251,6 +5482,7 @@ export interface GetCheckerIpRangesRequest {}
  */
 export interface GetCheckerIpRangesResponse {
   /**
+   * @public
    * <p>A complex type that contains sorted list of IP ranges in CIDR format for Amazon Route
    * 			53 health checkers.</p>
    */
@@ -5262,6 +5494,7 @@ export interface GetCheckerIpRangesResponse {
  */
 export interface GetDNSSECRequest {
   /**
+   * @public
    * <p>A unique string used to identify a hosted zone.</p>
    */
   HostedZoneId: string | undefined;
@@ -5273,6 +5506,7 @@ export interface GetDNSSECRequest {
  */
 export interface DNSSECStatus {
   /**
+   * @public
    * <p>A string that represents the current hosted zone signing status.</p>
    *          <p>Status can have one of the following values:</p>
    *          <dl>
@@ -5307,6 +5541,7 @@ export interface DNSSECStatus {
   ServeSignature?: string;
 
   /**
+   * @public
    * <p>The status message provided for the following DNSSEC signing status:
    * 				<code>INTERNAL_FAILURE</code>. The status message includes information about what
    * 			the problem might be and steps that you can take to correct the issue.</p>
@@ -5319,11 +5554,13 @@ export interface DNSSECStatus {
  */
 export interface GetDNSSECResponse {
   /**
+   * @public
    * <p>A string repesenting the status of DNSSEC.</p>
    */
   Status: DNSSECStatus | undefined;
 
   /**
+   * @public
    * <p>The key-signing keys (KSKs) in your account.</p>
    */
   KeySigningKeys: KeySigningKey[] | undefined;
@@ -5336,6 +5573,7 @@ export interface GetDNSSECResponse {
  */
 export interface GetGeoLocationRequest {
   /**
+   * @public
    * <p>For geolocation resource record sets, a two-letter abbreviation that identifies a
    * 			continent. Amazon Route 53 supports the following continent codes:</p>
    *          <ul>
@@ -5372,12 +5610,14 @@ export interface GetGeoLocationRequest {
   ContinentCode?: string;
 
   /**
+   * @public
    * <p>Amazon Route 53 uses the two-letter country codes that are specified in <a href="https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2">ISO standard 3166-1
    * 				alpha-2</a>.</p>
    */
   CountryCode?: string;
 
   /**
+   * @public
    * <p>The code for the subdivision, such as a particular state within the United States. For
    * 			a list of US state abbreviations, see <a href="https://pe.usps.com/text/pub28/28apb.htm">Appendix B: Two–Letter State and
    * 				Possession Abbreviations</a> on the United States Postal Service website. For a
@@ -5394,26 +5634,31 @@ export interface GetGeoLocationRequest {
  */
 export interface GeoLocationDetails {
   /**
+   * @public
    * <p>The two-letter code for the continent.</p>
    */
   ContinentCode?: string;
 
   /**
+   * @public
    * <p>The full name of the continent.</p>
    */
   ContinentName?: string;
 
   /**
+   * @public
    * <p>The two-letter code for the country.</p>
    */
   CountryCode?: string;
 
   /**
+   * @public
    * <p>The name of the country.</p>
    */
   CountryName?: string;
 
   /**
+   * @public
    * <p>The code for the subdivision, such as a particular state within the United States. For
    * 			a list of US state abbreviations, see <a href="https://pe.usps.com/text/pub28/28apb.htm">Appendix B: Two–Letter State and
    * 				Possession Abbreviations</a> on the United States Postal Service website. For a
@@ -5423,6 +5668,7 @@ export interface GeoLocationDetails {
   SubdivisionCode?: string;
 
   /**
+   * @public
    * <p>The full name of the subdivision. Route 53 currently supports only states in the
    * 			United States.</p>
    */
@@ -5436,6 +5682,7 @@ export interface GeoLocationDetails {
  */
 export interface GetGeoLocationResponse {
   /**
+   * @public
    * <p>A complex type that contains the codes and full continent, country, and subdivision
    * 			names for the specified geolocation code.</p>
    */
@@ -5470,6 +5717,7 @@ export class NoSuchGeoLocation extends __BaseException {
  */
 export interface GetHealthCheckRequest {
   /**
+   * @public
    * <p>The identifier that Amazon Route 53 assigned to the health check when you created it.
    * 			When you add or update a resource record set, you use this value to specify which health
    * 			check to use. The value can be up to 64 characters long.</p>
@@ -5484,6 +5732,7 @@ export interface GetHealthCheckRequest {
  */
 export interface GetHealthCheckResponse {
   /**
+   * @public
    * <p>A complex type that contains information about one health check that is associated
    * 			with the current Amazon Web Services account.</p>
    */
@@ -5524,6 +5773,7 @@ export interface GetHealthCheckCountRequest {}
  */
 export interface GetHealthCheckCountResponse {
   /**
+   * @public
    * <p>The number of health checks associated with the current Amazon Web Services account.</p>
    */
   HealthCheckCount: number | undefined;
@@ -5535,6 +5785,7 @@ export interface GetHealthCheckCountResponse {
  */
 export interface GetHealthCheckLastFailureReasonRequest {
   /**
+   * @public
    * <p>The ID for the health check for which you want the last failure reason. When you
    * 			created the health check, <code>CreateHealthCheck</code> returned the ID in the
    * 			response, in the <code>HealthCheckId</code> element.</p>
@@ -5555,12 +5806,14 @@ export interface GetHealthCheckLastFailureReasonRequest {
  */
 export interface StatusReport {
   /**
+   * @public
    * <p>A description of the status of the health check endpoint as reported by one of the
    * 			Amazon Route 53 health checkers.</p>
    */
   Status?: string;
 
   /**
+   * @public
    * <p>The date and time that the health checker performed the health check in <a href="https://en.wikipedia.org/wiki/ISO_8601">ISO 8601 format</a> and Coordinated
    * 			Universal Time (UTC). For example, the value <code>2017-03-27T17:48:16.751Z</code>
    * 			represents March 27, 2017 at 17:48:16.751 UTC.</p>
@@ -5575,18 +5828,21 @@ export interface StatusReport {
  */
 export interface HealthCheckObservation {
   /**
+   * @public
    * <p>The region of the Amazon Route 53 health checker that provided the status in
    * 				<code>StatusReport</code>.</p>
    */
   Region?: HealthCheckRegion | string;
 
   /**
+   * @public
    * <p>The IP address of the Amazon Route 53 health checker that provided the failure reason
    * 			in <code>StatusReport</code>.</p>
    */
   IPAddress?: string;
 
   /**
+   * @public
    * <p>A complex type that contains the last failure reason as reported by one Amazon Route
    * 			53 health checker and the time of the failed health check.</p>
    */
@@ -5600,6 +5856,7 @@ export interface HealthCheckObservation {
  */
 export interface GetHealthCheckLastFailureReasonResponse {
   /**
+   * @public
    * <p>A list that contains one <code>Observation</code> element for each Amazon Route 53
    * 			health checker that is reporting a last failure reason. </p>
    */
@@ -5612,6 +5869,7 @@ export interface GetHealthCheckLastFailureReasonResponse {
  */
 export interface GetHealthCheckStatusRequest {
   /**
+   * @public
    * <p>The ID for the health check that you want the current status for. When you created the
    * 			health check, <code>CreateHealthCheck</code> returned the ID in the response, in the
    * 				<code>HealthCheckId</code> element.</p>
@@ -5632,6 +5890,7 @@ export interface GetHealthCheckStatusRequest {
  */
 export interface GetHealthCheckStatusResponse {
   /**
+   * @public
    * <p>A list that contains one <code>HealthCheckObservation</code> element for each Amazon
    * 			Route 53 health checker that is reporting a status about the health check
    * 			endpoint.</p>
@@ -5645,6 +5904,7 @@ export interface GetHealthCheckStatusResponse {
  */
 export interface GetHostedZoneRequest {
   /**
+   * @public
    * <p>The ID of the hosted zone that you want to get information about.</p>
    */
   Id: string | undefined;
@@ -5657,18 +5917,21 @@ export interface GetHostedZoneRequest {
  */
 export interface GetHostedZoneResponse {
   /**
+   * @public
    * <p>A complex type that contains general information about the specified hosted
    * 			zone.</p>
    */
   HostedZone: HostedZone | undefined;
 
   /**
+   * @public
    * <p>A complex type that lists the Amazon Route 53 name servers for the specified hosted
    * 			zone.</p>
    */
   DelegationSet?: DelegationSet;
 
   /**
+   * @public
    * <p>A complex type that contains information about the VPCs that are associated with the
    * 			specified hosted zone.</p>
    */
@@ -5689,6 +5952,7 @@ export interface GetHostedZoneCountRequest {}
  */
 export interface GetHostedZoneCountResponse {
   /**
+   * @public
    * <p>The total number of public and private hosted zones that are associated with the
    * 			current Amazon Web Services account.</p>
    */
@@ -5716,6 +5980,7 @@ export type HostedZoneLimitType = (typeof HostedZoneLimitType)[keyof typeof Host
  */
 export interface GetHostedZoneLimitRequest {
   /**
+   * @public
    * <p>The limit that you want to get. Valid values include the following:</p>
    *          <ul>
    *             <li>
@@ -5734,6 +5999,7 @@ export interface GetHostedZoneLimitRequest {
   Type: HostedZoneLimitType | string | undefined;
 
   /**
+   * @public
    * <p>The ID of the hosted zone that you want to get a limit for.</p>
    */
   HostedZoneId: string | undefined;
@@ -5746,6 +6012,7 @@ export interface GetHostedZoneLimitRequest {
  */
 export interface HostedZoneLimit {
   /**
+   * @public
    * <p>The limit that you requested. Valid values include the following:</p>
    *          <ul>
    *             <li>
@@ -5764,6 +6031,7 @@ export interface HostedZoneLimit {
   Type: HostedZoneLimitType | string | undefined;
 
   /**
+   * @public
    * <p>The current value for the limit that is specified by <code>Type</code>.</p>
    */
   Value: number | undefined;
@@ -5775,6 +6043,7 @@ export interface HostedZoneLimit {
  */
 export interface GetHostedZoneLimitResponse {
   /**
+   * @public
    * <p>The current setting for the specified limit. For example, if you specified
    * 				<code>MAX_RRSETS_BY_ZONE</code> for the value of <code>Type</code> in the request,
    * 			the value of <code>Limit</code> is the maximum number of records that you can create in
@@ -5783,6 +6052,7 @@ export interface GetHostedZoneLimitResponse {
   Limit: HostedZoneLimit | undefined;
 
   /**
+   * @public
    * <p>The current number of entities that you have created of the specified type. For
    * 			example, if you specified <code>MAX_RRSETS_BY_ZONE</code> for the value of
    * 				<code>Type</code> in the request, the value of <code>Count</code> is the current
@@ -5816,6 +6086,7 @@ export class HostedZoneNotPrivate extends __BaseException {
  */
 export interface GetQueryLoggingConfigRequest {
   /**
+   * @public
    * <p>The ID of the configuration for DNS query logging that you want to get information
    * 			about.</p>
    */
@@ -5827,6 +6098,7 @@ export interface GetQueryLoggingConfigRequest {
  */
 export interface GetQueryLoggingConfigResponse {
   /**
+   * @public
    * <p>A complex type that contains information about the query logging configuration that
    * 			you specified in a <a href="https://docs.aws.amazon.com/Route53/latest/APIReference/API_GetQueryLoggingConfig.html">GetQueryLoggingConfig</a> request.</p>
    */
@@ -5839,6 +6111,7 @@ export interface GetQueryLoggingConfigResponse {
  */
 export interface GetReusableDelegationSetRequest {
   /**
+   * @public
    * <p>The ID of the reusable delegation set that you want to get a list of name servers
    * 			for.</p>
    */
@@ -5852,6 +6125,7 @@ export interface GetReusableDelegationSetRequest {
  */
 export interface GetReusableDelegationSetResponse {
   /**
+   * @public
    * <p>A complex type that contains information about the reusable delegation set.</p>
    */
   DelegationSet: DelegationSet | undefined;
@@ -5878,12 +6152,14 @@ export type ReusableDelegationSetLimitType =
  */
 export interface GetReusableDelegationSetLimitRequest {
   /**
+   * @public
    * <p>Specify <code>MAX_ZONES_BY_REUSABLE_DELEGATION_SET</code> to get the maximum number of
    * 			hosted zones that you can associate with the specified reusable delegation set.</p>
    */
   Type: ReusableDelegationSetLimitType | string | undefined;
 
   /**
+   * @public
    * <p>The ID of the delegation set that you want to get the limit for.</p>
    */
   DelegationSetId: string | undefined;
@@ -5896,6 +6172,7 @@ export interface GetReusableDelegationSetLimitRequest {
  */
 export interface ReusableDelegationSetLimit {
   /**
+   * @public
    * <p>The limit that you requested: <code>MAX_ZONES_BY_REUSABLE_DELEGATION_SET</code>, the
    * 			maximum number of hosted zones that you can associate with the specified reusable
    * 			delegation set.</p>
@@ -5903,6 +6180,7 @@ export interface ReusableDelegationSetLimit {
   Type: ReusableDelegationSetLimitType | string | undefined;
 
   /**
+   * @public
    * <p>The current value for the <code>MAX_ZONES_BY_REUSABLE_DELEGATION_SET</code>
    * 			limit.</p>
    */
@@ -5915,12 +6193,14 @@ export interface ReusableDelegationSetLimit {
  */
 export interface GetReusableDelegationSetLimitResponse {
   /**
+   * @public
    * <p>The current setting for the limit on hosted zones that you can associate with the
    * 			specified reusable delegation set.</p>
    */
   Limit: ReusableDelegationSetLimit | undefined;
 
   /**
+   * @public
    * <p>The current number of hosted zones that you can associate with the specified reusable
    * 			delegation set.</p>
    */
@@ -5933,11 +6213,13 @@ export interface GetReusableDelegationSetLimitResponse {
  */
 export interface GetTrafficPolicyRequest {
   /**
+   * @public
    * <p>The ID of the traffic policy that you want to get information about.</p>
    */
   Id: string | undefined;
 
   /**
+   * @public
    * <p>The version number of the traffic policy that you want to get information
    * 			about.</p>
    */
@@ -5950,6 +6232,7 @@ export interface GetTrafficPolicyRequest {
  */
 export interface GetTrafficPolicyResponse {
   /**
+   * @public
    * <p>A complex type that contains settings for the specified traffic policy.</p>
    */
   TrafficPolicy: TrafficPolicy | undefined;
@@ -5961,6 +6244,7 @@ export interface GetTrafficPolicyResponse {
  */
 export interface GetTrafficPolicyInstanceRequest {
   /**
+   * @public
    * <p>The ID of the traffic policy instance that you want to get information about.</p>
    */
   Id: string | undefined;
@@ -5973,6 +6257,7 @@ export interface GetTrafficPolicyInstanceRequest {
  */
 export interface GetTrafficPolicyInstanceResponse {
   /**
+   * @public
    * <p>A complex type that contains settings for the traffic policy instance.</p>
    */
   TrafficPolicyInstance: TrafficPolicyInstance | undefined;
@@ -5992,6 +6277,7 @@ export interface GetTrafficPolicyInstanceCountRequest {}
  */
 export interface GetTrafficPolicyInstanceCountResponse {
   /**
+   * @public
    * <p>The number of traffic policy instances that are associated with the current Amazon Web Services account.</p>
    */
   TrafficPolicyInstanceCount: number | undefined;
@@ -6002,22 +6288,26 @@ export interface GetTrafficPolicyInstanceCountResponse {
  */
 export interface ListCidrBlocksRequest {
   /**
+   * @public
    * <p>The UUID of the CIDR collection.</p>
    */
   CollectionId: string | undefined;
 
   /**
+   * @public
    * <p>The name of the CIDR collection location.</p>
    */
   LocationName?: string;
 
   /**
+   * @public
    * <p>An opaque pagination token to indicate where the service is to begin enumerating
    * 			results.</p>
    */
   NextToken?: string;
 
   /**
+   * @public
    * <p>Maximum number of results you want returned.</p>
    */
   MaxResults?: number;
@@ -6029,11 +6319,13 @@ export interface ListCidrBlocksRequest {
  */
 export interface CidrBlockSummary {
   /**
+   * @public
    * <p>Value for the CIDR block.</p>
    */
   CidrBlock?: string;
 
   /**
+   * @public
    * <p>The location name of the CIDR block.</p>
    */
   LocationName?: string;
@@ -6044,6 +6336,7 @@ export interface CidrBlockSummary {
  */
 export interface ListCidrBlocksResponse {
   /**
+   * @public
    * <p>An opaque pagination token to indicate where the service is to begin enumerating
    * 			results. </p>
    *          <p>If no value is provided, the listing of results starts from the beginning.</p>
@@ -6051,6 +6344,7 @@ export interface ListCidrBlocksResponse {
   NextToken?: string;
 
   /**
+   * @public
    * <p>A complex type that contains information about the CIDR blocks.</p>
    */
   CidrBlocks?: CidrBlockSummary[];
@@ -6083,6 +6377,7 @@ export class NoSuchCidrLocationException extends __BaseException {
  */
 export interface ListCidrCollectionsRequest {
   /**
+   * @public
    * <p>An opaque pagination token to indicate where the service is to begin enumerating
    * 			results.</p>
    *          <p>If no value is provided, the listing of results starts from the beginning.</p>
@@ -6090,6 +6385,7 @@ export interface ListCidrCollectionsRequest {
   NextToken?: string;
 
   /**
+   * @public
    * <p>The maximum number of CIDR collections to return in the response.</p>
    */
   MaxResults?: number;
@@ -6102,22 +6398,26 @@ export interface ListCidrCollectionsRequest {
  */
 export interface CollectionSummary {
   /**
+   * @public
    * <p>The ARN of the collection summary. Can be used to reference the collection in IAM
    * 			policy or cross-account.</p>
    */
   Arn?: string;
 
   /**
+   * @public
    * <p>Unique ID for the CIDR collection.</p>
    */
   Id?: string;
 
   /**
+   * @public
    * <p>The name of a CIDR collection.</p>
    */
   Name?: string;
 
   /**
+   * @public
    * <p>A sequential counter that Route 53 sets to 1 when you create a CIDR
    * 			collection and increments by 1 each time you update settings for the CIDR
    * 			collection.</p>
@@ -6130,6 +6430,7 @@ export interface CollectionSummary {
  */
 export interface ListCidrCollectionsResponse {
   /**
+   * @public
    * <p>An opaque pagination token to indicate where the service is to begin enumerating
    * 			results.</p>
    *          <p>If no value is provided, the listing of results starts from the beginning.</p>
@@ -6137,6 +6438,7 @@ export interface ListCidrCollectionsResponse {
   NextToken?: string;
 
   /**
+   * @public
    * <p>A complex type with information about the CIDR collection.</p>
    */
   CidrCollections?: CollectionSummary[];
@@ -6147,11 +6449,13 @@ export interface ListCidrCollectionsResponse {
  */
 export interface ListCidrLocationsRequest {
   /**
+   * @public
    * <p>The CIDR collection ID.</p>
    */
   CollectionId: string | undefined;
 
   /**
+   * @public
    * <p>An opaque pagination token to indicate where the service is to begin enumerating
    * 			results.</p>
    *          <p>If no value is provided, the listing of results starts from the beginning.</p>
@@ -6159,6 +6463,7 @@ export interface ListCidrLocationsRequest {
   NextToken?: string;
 
   /**
+   * @public
    * <p>The maximum number of CIDR collection locations to return in the response.</p>
    */
   MaxResults?: number;
@@ -6170,6 +6475,7 @@ export interface ListCidrLocationsRequest {
  */
 export interface LocationSummary {
   /**
+   * @public
    * <p>A string that specifies a location name.</p>
    */
   LocationName?: string;
@@ -6180,6 +6486,7 @@ export interface LocationSummary {
  */
 export interface ListCidrLocationsResponse {
   /**
+   * @public
    * <p>An opaque pagination token to indicate where the service is to begin enumerating
    * 			results.</p>
    *          <p>If no value is provided, the listing of results starts from the beginning.</p>
@@ -6187,6 +6494,7 @@ export interface ListCidrLocationsResponse {
   NextToken?: string;
 
   /**
+   * @public
    * <p>A complex type that contains information about the list of CIDR locations.</p>
    */
   CidrLocations?: LocationSummary[];
@@ -6199,6 +6507,7 @@ export interface ListCidrLocationsResponse {
  */
 export interface ListGeoLocationsRequest {
   /**
+   * @public
    * <p>The code for the continent with which you want to start listing locations that Amazon
    * 			Route 53 supports for geolocation. If Route 53 has already returned a page or more of
    * 			results, if <code>IsTruncated</code> is true, and if <code>NextContinentCode</code> from
@@ -6211,6 +6520,7 @@ export interface ListGeoLocationsRequest {
   StartContinentCode?: string;
 
   /**
+   * @public
    * <p>The code for the country with which you want to start listing locations that Amazon
    * 			Route 53 supports for geolocation. If Route 53 has already returned a page or more of
    * 			results, if <code>IsTruncated</code> is <code>true</code>, and if
@@ -6220,6 +6530,7 @@ export interface ListGeoLocationsRequest {
   StartCountryCode?: string;
 
   /**
+   * @public
    * <p>The code for the state of the United States with which you want to start listing
    * 			locations that Amazon Route 53 supports for geolocation. If Route 53 has already
    * 			returned a page or more of results, if <code>IsTruncated</code> is <code>true</code>,
@@ -6232,6 +6543,7 @@ export interface ListGeoLocationsRequest {
   StartSubdivisionCode?: string;
 
   /**
+   * @public
    * <p>(Optional) The maximum number of geolocations to be included in the response body for
    * 			this request. If more than <code>maxitems</code> geolocations remain to be listed, then
    * 			the value of the <code>IsTruncated</code> element in the response is
@@ -6246,12 +6558,14 @@ export interface ListGeoLocationsRequest {
  */
 export interface ListGeoLocationsResponse {
   /**
+   * @public
    * <p>A complex type that contains one <code>GeoLocationDetails</code> element for each
    * 			location that Amazon Route 53 supports for geolocation.</p>
    */
   GeoLocationDetailsList: GeoLocationDetails[] | undefined;
 
   /**
+   * @public
    * <p>A value that indicates whether more locations remain to be listed after the last
    * 			location in this response. If so, the value of <code>IsTruncated</code> is
    * 				<code>true</code>. To get more values, submit another request and include the values
@@ -6263,6 +6577,7 @@ export interface ListGeoLocationsResponse {
   IsTruncated: boolean | undefined;
 
   /**
+   * @public
    * <p>If <code>IsTruncated</code> is <code>true</code>, you can make a follow-up request to
    * 			display more locations. Enter the value of <code>NextContinentCode</code> in the
    * 				<code>startcontinentcode</code> parameter in another <code>ListGeoLocations</code>
@@ -6271,6 +6586,7 @@ export interface ListGeoLocationsResponse {
   NextContinentCode?: string;
 
   /**
+   * @public
    * <p>If <code>IsTruncated</code> is <code>true</code>, you can make a follow-up request to
    * 			display more locations. Enter the value of <code>NextCountryCode</code> in the
    * 				<code>startcountrycode</code> parameter in another <code>ListGeoLocations</code>
@@ -6279,6 +6595,7 @@ export interface ListGeoLocationsResponse {
   NextCountryCode?: string;
 
   /**
+   * @public
    * <p>If <code>IsTruncated</code> is <code>true</code>, you can make a follow-up request to
    * 			display more locations. Enter the value of <code>NextSubdivisionCode</code> in the
    * 				<code>startsubdivisioncode</code> parameter in another <code>ListGeoLocations</code>
@@ -6287,6 +6604,7 @@ export interface ListGeoLocationsResponse {
   NextSubdivisionCode?: string;
 
   /**
+   * @public
    * <p>The value that you specified for <code>MaxItems</code> in the request.</p>
    */
   MaxItems: number | undefined;
@@ -6299,6 +6617,7 @@ export interface ListGeoLocationsResponse {
  */
 export interface ListHealthChecksRequest {
   /**
+   * @public
    * <p>If the value of <code>IsTruncated</code> in the previous response was
    * 				<code>true</code>, you have more health checks. To get another group, submit another
    * 				<code>ListHealthChecks</code> request. </p>
@@ -6311,6 +6630,7 @@ export interface ListHealthChecksRequest {
   Marker?: string;
 
   /**
+   * @public
    * <p>The maximum number of health checks that you want <code>ListHealthChecks</code> to
    * 			return in response to the current request. Amazon Route 53 returns a maximum of 100
    * 			items. If you set <code>MaxItems</code> to a value greater than 100, Route 53 returns
@@ -6326,12 +6646,14 @@ export interface ListHealthChecksRequest {
  */
 export interface ListHealthChecksResponse {
   /**
+   * @public
    * <p>A complex type that contains one <code>HealthCheck</code> element for each health
    * 			check that is associated with the current Amazon Web Services account.</p>
    */
   HealthChecks: HealthCheck[] | undefined;
 
   /**
+   * @public
    * <p>For the second and subsequent calls to <code>ListHealthChecks</code>,
    * 				<code>Marker</code> is the value that you specified for the <code>marker</code>
    * 			parameter in the previous request.</p>
@@ -6339,6 +6661,7 @@ export interface ListHealthChecksResponse {
   Marker: string | undefined;
 
   /**
+   * @public
    * <p>A flag that indicates whether there are more health checks to be listed. If the
    * 			response was truncated, you can get the next group of health checks by submitting
    * 			another <code>ListHealthChecks</code> request and specifying the value of
@@ -6347,6 +6670,7 @@ export interface ListHealthChecksResponse {
   IsTruncated: boolean | undefined;
 
   /**
+   * @public
    * <p>If <code>IsTruncated</code> is <code>true</code>, the value of <code>NextMarker</code>
    * 			identifies the first health check that Amazon Route 53 returns if you submit another
    * 				<code>ListHealthChecks</code> request and specify the value of
@@ -6355,6 +6679,7 @@ export interface ListHealthChecksResponse {
   NextMarker?: string;
 
   /**
+   * @public
    * <p>The value that you specified for the <code>maxitems</code> parameter in the call to
    * 				<code>ListHealthChecks</code> that produced the current response.</p>
    */
@@ -6368,6 +6693,7 @@ export interface ListHealthChecksResponse {
  */
 export interface ListHostedZonesRequest {
   /**
+   * @public
    * <p>If the value of <code>IsTruncated</code> in the previous response was
    * 				<code>true</code>, you have more hosted zones. To get more hosted zones, submit
    * 			another <code>ListHostedZones</code> request. </p>
@@ -6380,6 +6706,7 @@ export interface ListHostedZonesRequest {
   Marker?: string;
 
   /**
+   * @public
    * <p>(Optional) The maximum number of hosted zones that you want Amazon Route 53 to return.
    * 			If you have more than <code>maxitems</code> hosted zones, the value of
    * 				<code>IsTruncated</code> in the response is <code>true</code>, and the value of
@@ -6389,6 +6716,7 @@ export interface ListHostedZonesRequest {
   MaxItems?: number;
 
   /**
+   * @public
    * <p>If you're using reusable delegation sets and you want to list all of the hosted zones
    * 			that are associated with a reusable delegation set, specify the ID of that reusable
    * 			delegation set. </p>
@@ -6401,11 +6729,13 @@ export interface ListHostedZonesRequest {
  */
 export interface ListHostedZonesResponse {
   /**
+   * @public
    * <p>A complex type that contains general information about the hosted zone.</p>
    */
   HostedZones: HostedZone[] | undefined;
 
   /**
+   * @public
    * <p>For the second and subsequent calls to <code>ListHostedZones</code>,
    * 				<code>Marker</code> is the value that you specified for the <code>marker</code>
    * 			parameter in the request that produced the current response.</p>
@@ -6413,6 +6743,7 @@ export interface ListHostedZonesResponse {
   Marker: string | undefined;
 
   /**
+   * @public
    * <p>A flag indicating whether there are more hosted zones to be listed. If the response
    * 			was truncated, you can get more hosted zones by submitting another
    * 				<code>ListHostedZones</code> request and specifying the value of
@@ -6421,6 +6752,7 @@ export interface ListHostedZonesResponse {
   IsTruncated: boolean | undefined;
 
   /**
+   * @public
    * <p>If <code>IsTruncated</code> is <code>true</code>, the value of <code>NextMarker</code>
    * 			identifies the first hosted zone in the next group of hosted zones. Submit another
    * 				<code>ListHostedZones</code> request, and specify the value of
@@ -6431,6 +6763,7 @@ export interface ListHostedZonesResponse {
   NextMarker?: string;
 
   /**
+   * @public
    * <p>The value that you specified for the <code>maxitems</code> parameter in the call to
    * 				<code>ListHostedZones</code> that produced the current response.</p>
    */
@@ -6444,6 +6777,7 @@ export interface ListHostedZonesResponse {
  */
 export interface ListHostedZonesByNameRequest {
   /**
+   * @public
    * <p>(Optional) For your first request to <code>ListHostedZonesByName</code>, include the
    * 				<code>dnsname</code> parameter only if you want to specify the name of the first
    * 			hosted zone in the response. If you don't include the <code>dnsname</code> parameter,
@@ -6455,6 +6789,7 @@ export interface ListHostedZonesByNameRequest {
   DNSName?: string;
 
   /**
+   * @public
    * <p>(Optional) For your first request to <code>ListHostedZonesByName</code>, do not
    * 			include the <code>hostedzoneid</code> parameter.</p>
    *          <p>If you have more hosted zones than the value of <code>maxitems</code>,
@@ -6468,6 +6803,7 @@ export interface ListHostedZonesByNameRequest {
   HostedZoneId?: string;
 
   /**
+   * @public
    * <p>The maximum number of hosted zones to be included in the response body for this
    * 			request. If you have more than <code>maxitems</code> hosted zones, then the value of the
    * 				<code>IsTruncated</code> element in the response is true, and the values of
@@ -6483,11 +6819,13 @@ export interface ListHostedZonesByNameRequest {
  */
 export interface ListHostedZonesByNameResponse {
   /**
+   * @public
    * <p>A complex type that contains general information about the hosted zone.</p>
    */
   HostedZones: HostedZone[] | undefined;
 
   /**
+   * @public
    * <p>For the second and subsequent calls to <code>ListHostedZonesByName</code>,
    * 				<code>DNSName</code> is the value that you specified for the <code>dnsname</code>
    * 			parameter in the request that produced the current response.</p>
@@ -6495,11 +6833,13 @@ export interface ListHostedZonesByNameResponse {
   DNSName?: string;
 
   /**
+   * @public
    * <p>The ID that Amazon Route 53 assigned to the hosted zone when you created it.</p>
    */
   HostedZoneId?: string;
 
   /**
+   * @public
    * <p>A flag that indicates whether there are more hosted zones to be listed. If the
    * 			response was truncated, you can get the next group of <code>maxitems</code> hosted zones
    * 			by calling <code>ListHostedZonesByName</code> again and specifying the values of
@@ -6509,6 +6849,7 @@ export interface ListHostedZonesByNameResponse {
   IsTruncated: boolean | undefined;
 
   /**
+   * @public
    * <p>If <code>IsTruncated</code> is true, the value of <code>NextDNSName</code> is the name
    * 			of the first hosted zone in the next group of <code>maxitems</code> hosted zones. Call
    * 				<code>ListHostedZonesByName</code> again and specify the value of
@@ -6519,6 +6860,7 @@ export interface ListHostedZonesByNameResponse {
   NextDNSName?: string;
 
   /**
+   * @public
    * <p>If <code>IsTruncated</code> is <code>true</code>, the value of
    * 				<code>NextHostedZoneId</code> identifies the first hosted zone in the next group of
    * 				<code>maxitems</code> hosted zones. Call <code>ListHostedZonesByName</code> again
@@ -6529,6 +6871,7 @@ export interface ListHostedZonesByNameResponse {
   NextHostedZoneId?: string;
 
   /**
+   * @public
    * <p>The value that you specified for the <code>maxitems</code> parameter in the call to
    * 				<code>ListHostedZonesByName</code> that produced the current response.</p>
    */
@@ -6563,17 +6906,20 @@ export class InvalidPaginationToken extends __BaseException {
  */
 export interface ListHostedZonesByVPCRequest {
   /**
+   * @public
    * <p>The ID of the Amazon VPC that you want to list hosted zones for.</p>
    */
   VPCId: string | undefined;
 
   /**
+   * @public
    * <p>For the Amazon VPC that you specified for <code>VPCId</code>, the Amazon Web Services
    * 			Region that you created the VPC in. </p>
    */
   VPCRegion: VPCRegion | string | undefined;
 
   /**
+   * @public
    * <p>(Optional) The maximum number of hosted zones that you want Amazon Route 53 to return.
    * 			If the specified VPC is associated with more than <code>MaxItems</code> hosted zones,
    * 			the response includes a <code>NextToken</code> element. <code>NextToken</code> contains
@@ -6583,6 +6929,7 @@ export interface ListHostedZonesByVPCRequest {
   MaxItems?: number;
 
   /**
+   * @public
    * <p>If the previous response included a <code>NextToken</code> element, the specified VPC
    * 			is associated with more hosted zones. To get more hosted zones, submit another
    * 				<code>ListHostedZonesByVPC</code> request. </p>
@@ -6603,6 +6950,7 @@ export interface ListHostedZonesByVPCRequest {
  */
 export interface HostedZoneOwner {
   /**
+   * @public
    * <p>If the hosted zone was created by an Amazon Web Services account, or was created by an
    * 				Amazon Web Services service that creates hosted zones using the current account,
    * 				<code>OwningAccount</code> contains the account ID of that account. For example,
@@ -6612,6 +6960,7 @@ export interface HostedZoneOwner {
   OwningAccount?: string;
 
   /**
+   * @public
    * <p>If an Amazon Web Services service uses its own account to create a hosted zone and
    * 			associate the specified VPC with that hosted zone, <code>OwningService</code> contains
    * 			an abbreviation that identifies the service. For example, if Amazon Elastic File System
@@ -6631,17 +6980,20 @@ export interface HostedZoneOwner {
  */
 export interface HostedZoneSummary {
   /**
+   * @public
    * <p>The Route 53 hosted zone ID of a private hosted zone that the specified VPC is
    * 			associated with.</p>
    */
   HostedZoneId: string | undefined;
 
   /**
+   * @public
    * <p>The name of the private hosted zone, such as <code>example.com</code>.</p>
    */
   Name: string | undefined;
 
   /**
+   * @public
    * <p>The owner of a private hosted zone that the specified VPC is associated with. The
    * 			owner can be either an Amazon Web Services account or an Amazon Web Services
    * 			service.</p>
@@ -6654,6 +7006,7 @@ export interface HostedZoneSummary {
  */
 export interface ListHostedZonesByVPCResponse {
   /**
+   * @public
    * <p>A list that contains one <code>HostedZoneSummary</code> element for each hosted zone
    * 			that the specified Amazon VPC is associated with. Each <code>HostedZoneSummary</code>
    * 			element contains the hosted zone name and ID, and information about who owns the hosted
@@ -6662,12 +7015,14 @@ export interface ListHostedZonesByVPCResponse {
   HostedZoneSummaries: HostedZoneSummary[] | undefined;
 
   /**
+   * @public
    * <p>The value that you specified for <code>MaxItems</code> in the most recent
    * 				<code>ListHostedZonesByVPC</code> request.</p>
    */
   MaxItems: number | undefined;
 
   /**
+   * @public
    * <p>The value that you will use for <code>NextToken</code> in the next
    * 				<code>ListHostedZonesByVPC</code> request.</p>
    */
@@ -6679,6 +7034,7 @@ export interface ListHostedZonesByVPCResponse {
  */
 export interface ListQueryLoggingConfigsRequest {
   /**
+   * @public
    * <p>(Optional) If you want to list the query logging configuration that is associated with
    * 			a hosted zone, specify the ID in <code>HostedZoneId</code>. </p>
    *          <p>If you don't specify a hosted zone ID, <code>ListQueryLoggingConfigs</code> returns
@@ -6687,6 +7043,7 @@ export interface ListQueryLoggingConfigsRequest {
   HostedZoneId?: string;
 
   /**
+   * @public
    * <p>(Optional) If the current Amazon Web Services account has more than
    * 				<code>MaxResults</code> query logging configurations, use <code>NextToken</code> to
    * 			get the second and subsequent pages of results.</p>
@@ -6698,6 +7055,7 @@ export interface ListQueryLoggingConfigsRequest {
   NextToken?: string;
 
   /**
+   * @public
    * <p>(Optional) The maximum number of query logging configurations that you want Amazon
    * 			Route 53 to return in response to the current request. If the current Amazon Web Services account has more than <code>MaxResults</code> configurations, use the
    * 			value of <a href="https://docs.aws.amazon.com/Route53/latest/APIReference/API_ListQueryLoggingConfigs.html#API_ListQueryLoggingConfigs_RequestSyntax">NextToken</a> in the response to get the next page of results.</p>
@@ -6712,12 +7070,14 @@ export interface ListQueryLoggingConfigsRequest {
  */
 export interface ListQueryLoggingConfigsResponse {
   /**
+   * @public
    * <p>An array that contains one <a href="https://docs.aws.amazon.com/Route53/latest/APIReference/API_QueryLoggingConfig.html">QueryLoggingConfig</a> element for each configuration for DNS query logging
    * 			that is associated with the current Amazon Web Services account.</p>
    */
   QueryLoggingConfigs: QueryLoggingConfig[] | undefined;
 
   /**
+   * @public
    * <p>If a response includes the last of the query logging configurations that are
    * 			associated with the current Amazon Web Services account, <code>NextToken</code> doesn't
    * 			appear in the response.</p>
@@ -6736,12 +7096,14 @@ export interface ListQueryLoggingConfigsResponse {
  */
 export interface ListResourceRecordSetsRequest {
   /**
+   * @public
    * <p>The ID of the hosted zone that contains the resource record sets that you want to
    * 			list.</p>
    */
   HostedZoneId: string | undefined;
 
   /**
+   * @public
    * <p>The first name in the lexicographic ordering of resource record sets that you want to
    * 			list. If the specified record name doesn't exist, the results begin with the first
    * 			resource record set that has a name greater than the value of <code>name</code>.</p>
@@ -6749,6 +7111,7 @@ export interface ListResourceRecordSetsRequest {
   StartRecordName?: string;
 
   /**
+   * @public
    * <p>The type of resource record set to begin the record listing from.</p>
    *          <p>Valid values for basic resource record sets: <code>A</code> | <code>AAAA</code> |
    * 				<code>CAA</code> | <code>CNAME</code> | <code>MX</code> | <code>NAPTR</code> |
@@ -6802,6 +7165,7 @@ export interface ListResourceRecordSetsRequest {
   StartRecordType?: RRType | string;
 
   /**
+   * @public
    * <p>
    *             <i>Resource record sets that have a routing policy other than
    * 				simple:</i> If results were truncated for a given DNS name and type, specify
@@ -6811,6 +7175,7 @@ export interface ListResourceRecordSetsRequest {
   StartRecordIdentifier?: string;
 
   /**
+   * @public
    * <p>(Optional) The maximum number of resource records sets to include in the response body
    * 			for this request. If the response includes more than <code>maxitems</code> resource
    * 			record sets, the value of the <code>IsTruncated</code> element in the response is
@@ -6827,11 +7192,13 @@ export interface ListResourceRecordSetsRequest {
  */
 export interface ListResourceRecordSetsResponse {
   /**
+   * @public
    * <p>Information about multiple resource record sets.</p>
    */
   ResourceRecordSets: ResourceRecordSet[] | undefined;
 
   /**
+   * @public
    * <p>A flag that indicates whether more resource record sets remain to be listed. If your
    * 			results were truncated, you can make a follow-up pagination request by using the
    * 				<code>NextRecordName</code> element.</p>
@@ -6839,18 +7206,21 @@ export interface ListResourceRecordSetsResponse {
   IsTruncated: boolean | undefined;
 
   /**
+   * @public
    * <p>If the results were truncated, the name of the next record in the list.</p>
    *          <p>This element is present only if <code>IsTruncated</code> is true. </p>
    */
   NextRecordName?: string;
 
   /**
+   * @public
    * <p>If the results were truncated, the type of the next record in the list.</p>
    *          <p>This element is present only if <code>IsTruncated</code> is true. </p>
    */
   NextRecordType?: RRType | string;
 
   /**
+   * @public
    * <p>
    *             <i>Resource record sets that have a routing policy other than
    * 				simple:</i> If results were truncated for a given DNS name and type, the
@@ -6862,6 +7232,7 @@ export interface ListResourceRecordSetsResponse {
   NextRecordIdentifier?: string;
 
   /**
+   * @public
    * <p>The maximum number of records you requested.</p>
    */
   MaxItems: number | undefined;
@@ -6874,6 +7245,7 @@ export interface ListResourceRecordSetsResponse {
  */
 export interface ListReusableDelegationSetsRequest {
   /**
+   * @public
    * <p>If the value of <code>IsTruncated</code> in the previous response was
    * 				<code>true</code>, you have more reusable delegation sets. To get another group,
    * 			submit another <code>ListReusableDelegationSets</code> request. </p>
@@ -6886,6 +7258,7 @@ export interface ListReusableDelegationSetsRequest {
   Marker?: string;
 
   /**
+   * @public
    * <p>The number of reusable delegation sets that you want Amazon Route 53 to return in the
    * 			response to this request. If you specify a value greater than 100, Route 53 returns only
    * 			the first 100 reusable delegation sets.</p>
@@ -6900,12 +7273,14 @@ export interface ListReusableDelegationSetsRequest {
  */
 export interface ListReusableDelegationSetsResponse {
   /**
+   * @public
    * <p>A complex type that contains one <code>DelegationSet</code> element for each reusable
    * 			delegation set that was created by the current Amazon Web Services account.</p>
    */
   DelegationSets: DelegationSet[] | undefined;
 
   /**
+   * @public
    * <p>For the second and subsequent calls to <code>ListReusableDelegationSets</code>,
    * 				<code>Marker</code> is the value that you specified for the <code>marker</code>
    * 			parameter in the request that produced the current response.</p>
@@ -6913,12 +7288,14 @@ export interface ListReusableDelegationSetsResponse {
   Marker: string | undefined;
 
   /**
+   * @public
    * <p>A flag that indicates whether there are more reusable delegation sets to be
    * 			listed.</p>
    */
   IsTruncated: boolean | undefined;
 
   /**
+   * @public
    * <p>If <code>IsTruncated</code> is <code>true</code>, the value of <code>NextMarker</code>
    * 			identifies the next reusable delegation set that Amazon Route 53 will return if you
    * 			submit another <code>ListReusableDelegationSets</code> request and specify the value of
@@ -6927,6 +7304,7 @@ export interface ListReusableDelegationSetsResponse {
   NextMarker?: string;
 
   /**
+   * @public
    * <p>The value that you specified for the <code>maxitems</code> parameter in the call to
    * 				<code>ListReusableDelegationSets</code> that produced the current response.</p>
    */
@@ -6940,6 +7318,7 @@ export interface ListReusableDelegationSetsResponse {
  */
 export interface ListTagsForResourceRequest {
   /**
+   * @public
    * <p>The type of the resource.</p>
    *          <ul>
    *             <li>
@@ -6953,6 +7332,7 @@ export interface ListTagsForResourceRequest {
   ResourceType: TagResourceType | string | undefined;
 
   /**
+   * @public
    * <p>The ID of the resource for which you want to retrieve tags.</p>
    */
   ResourceId: string | undefined;
@@ -6964,6 +7344,7 @@ export interface ListTagsForResourceRequest {
  */
 export interface ResourceTagSet {
   /**
+   * @public
    * <p>The type of the resource.</p>
    *          <ul>
    *             <li>
@@ -6977,11 +7358,13 @@ export interface ResourceTagSet {
   ResourceType?: TagResourceType | string;
 
   /**
+   * @public
    * <p>The ID for the specified resource.</p>
    */
   ResourceId?: string;
 
   /**
+   * @public
    * <p>The tags associated with the specified resource.</p>
    */
   Tags?: Tag[];
@@ -6994,6 +7377,7 @@ export interface ResourceTagSet {
  */
 export interface ListTagsForResourceResponse {
   /**
+   * @public
    * <p>A <code>ResourceTagSet</code> containing tags associated with the specified
    * 			resource.</p>
    */
@@ -7007,6 +7391,7 @@ export interface ListTagsForResourceResponse {
  */
 export interface ListTagsForResourcesRequest {
   /**
+   * @public
    * <p>The type of the resources.</p>
    *          <ul>
    *             <li>
@@ -7020,6 +7405,7 @@ export interface ListTagsForResourcesRequest {
   ResourceType: TagResourceType | string | undefined;
 
   /**
+   * @public
    * <p>A complex type that contains the ResourceId element for each resource for which you
    * 			want to get a list of tags.</p>
    */
@@ -7032,6 +7418,7 @@ export interface ListTagsForResourcesRequest {
  */
 export interface ListTagsForResourcesResponse {
   /**
+   * @public
    * <p>A list of <code>ResourceTagSet</code>s containing tags associated with the specified
    * 			resources.</p>
    */
@@ -7045,6 +7432,7 @@ export interface ListTagsForResourcesResponse {
  */
 export interface ListTrafficPoliciesRequest {
   /**
+   * @public
    * <p>(Conditional) For your first request to <code>ListTrafficPolicies</code>, don't
    * 			include the <code>TrafficPolicyIdMarker</code> parameter.</p>
    *          <p>If you have more traffic policies than the value of <code>MaxItems</code>,
@@ -7058,6 +7446,7 @@ export interface ListTrafficPoliciesRequest {
   TrafficPolicyIdMarker?: string;
 
   /**
+   * @public
    * <p>(Optional) The maximum number of traffic policies that you want Amazon Route 53 to
    * 			return in response to this request. If you have more than <code>MaxItems</code> traffic
    * 			policies, the value of <code>IsTruncated</code> in the response is <code>true</code>,
@@ -7074,27 +7463,32 @@ export interface ListTrafficPoliciesRequest {
  */
 export interface TrafficPolicySummary {
   /**
+   * @public
    * <p>The ID that Amazon Route 53 assigned to the traffic policy when you created it.</p>
    */
   Id: string | undefined;
 
   /**
+   * @public
    * <p>The name that you specified for the traffic policy when you created it.</p>
    */
   Name: string | undefined;
 
   /**
+   * @public
    * <p>The DNS type of the resource record sets that Amazon Route 53 creates when you use a
    * 			traffic policy to create a traffic policy instance.</p>
    */
   Type: RRType | string | undefined;
 
   /**
+   * @public
    * <p>The version number of the latest version of the traffic policy.</p>
    */
   LatestVersion: number | undefined;
 
   /**
+   * @public
    * <p>The number of traffic policies that are associated with the current Amazon Web Services account.</p>
    */
   TrafficPolicyCount: number | undefined;
@@ -7106,12 +7500,14 @@ export interface TrafficPolicySummary {
  */
 export interface ListTrafficPoliciesResponse {
   /**
+   * @public
    * <p>A list that contains one <code>TrafficPolicySummary</code> element for each traffic
    * 			policy that was created by the current Amazon Web Services account.</p>
    */
   TrafficPolicySummaries: TrafficPolicySummary[] | undefined;
 
   /**
+   * @public
    * <p>A flag that indicates whether there are more traffic policies to be listed. If the
    * 			response was truncated, you can get the next group of traffic policies by submitting
    * 			another <code>ListTrafficPolicies</code> request and specifying the value of
@@ -7121,6 +7517,7 @@ export interface ListTrafficPoliciesResponse {
   IsTruncated: boolean | undefined;
 
   /**
+   * @public
    * <p>If the value of <code>IsTruncated</code> is <code>true</code>,
    * 				<code>TrafficPolicyIdMarker</code> is the ID of the first traffic policy in the next
    * 			group of <code>MaxItems</code> traffic policies.</p>
@@ -7128,6 +7525,7 @@ export interface ListTrafficPoliciesResponse {
   TrafficPolicyIdMarker: string | undefined;
 
   /**
+   * @public
    * <p>The value that you specified for the <code>MaxItems</code> parameter in the
    * 				<code>ListTrafficPolicies</code> request that produced the current response.</p>
    */
@@ -7141,6 +7539,7 @@ export interface ListTrafficPoliciesResponse {
  */
 export interface ListTrafficPolicyInstancesRequest {
   /**
+   * @public
    * <p>If the value of <code>IsTruncated</code> in the previous response was
    * 				<code>true</code>, you have more traffic policy instances. To get more traffic
    * 			policy instances, submit another <code>ListTrafficPolicyInstances</code> request. For
@@ -7154,6 +7553,7 @@ export interface ListTrafficPolicyInstancesRequest {
   HostedZoneIdMarker?: string;
 
   /**
+   * @public
    * <p>If the value of <code>IsTruncated</code> in the previous response was
    * 				<code>true</code>, you have more traffic policy instances. To get more traffic
    * 			policy instances, submit another <code>ListTrafficPolicyInstances</code> request. For
@@ -7167,6 +7567,7 @@ export interface ListTrafficPolicyInstancesRequest {
   TrafficPolicyInstanceNameMarker?: string;
 
   /**
+   * @public
    * <p>If the value of <code>IsTruncated</code> in the previous response was
    * 				<code>true</code>, you have more traffic policy instances. To get more traffic
    * 			policy instances, submit another <code>ListTrafficPolicyInstances</code> request. For
@@ -7180,6 +7581,7 @@ export interface ListTrafficPolicyInstancesRequest {
   TrafficPolicyInstanceTypeMarker?: RRType | string;
 
   /**
+   * @public
    * <p>The maximum number of traffic policy instances that you want Amazon Route 53 to return
    * 			in response to a <code>ListTrafficPolicyInstances</code> request. If you have more than
    * 				<code>MaxItems</code> traffic policy instances, the value of the
@@ -7197,12 +7599,14 @@ export interface ListTrafficPolicyInstancesRequest {
  */
 export interface ListTrafficPolicyInstancesResponse {
   /**
+   * @public
    * <p>A list that contains one <code>TrafficPolicyInstance</code> element for each traffic
    * 			policy instance that matches the elements in the request.</p>
    */
   TrafficPolicyInstances: TrafficPolicyInstance[] | undefined;
 
   /**
+   * @public
    * <p>If <code>IsTruncated</code> is <code>true</code>, <code>HostedZoneIdMarker</code> is
    * 			the ID of the hosted zone of the first traffic policy instance that Route 53 will return
    * 			if you submit another <code>ListTrafficPolicyInstances</code> request. </p>
@@ -7210,6 +7614,7 @@ export interface ListTrafficPolicyInstancesResponse {
   HostedZoneIdMarker?: string;
 
   /**
+   * @public
    * <p>If <code>IsTruncated</code> is <code>true</code>,
    * 				<code>TrafficPolicyInstanceNameMarker</code> is the name of the first traffic policy
    * 			instance that Route 53 will return if you submit another
@@ -7218,6 +7623,7 @@ export interface ListTrafficPolicyInstancesResponse {
   TrafficPolicyInstanceNameMarker?: string;
 
   /**
+   * @public
    * <p>If <code>IsTruncated</code> is <code>true</code>,
    * 				<code>TrafficPolicyInstanceTypeMarker</code> is the DNS type of the resource record
    * 			sets that are associated with the first traffic policy instance that Amazon Route 53
@@ -7227,6 +7633,7 @@ export interface ListTrafficPolicyInstancesResponse {
   TrafficPolicyInstanceTypeMarker?: RRType | string;
 
   /**
+   * @public
    * <p>A flag that indicates whether there are more traffic policy instances to be listed. If
    * 			the response was truncated, you can get more traffic policy instances by calling
    * 				<code>ListTrafficPolicyInstances</code> again and specifying the values of the
@@ -7237,6 +7644,7 @@ export interface ListTrafficPolicyInstancesResponse {
   IsTruncated: boolean | undefined;
 
   /**
+   * @public
    * <p>The value that you specified for the <code>MaxItems</code> parameter in the call to
    * 				<code>ListTrafficPolicyInstances</code> that produced the current response.</p>
    */
@@ -7250,11 +7658,13 @@ export interface ListTrafficPolicyInstancesResponse {
  */
 export interface ListTrafficPolicyInstancesByHostedZoneRequest {
   /**
+   * @public
    * <p>The ID of the hosted zone that you want to list traffic policy instances for.</p>
    */
   HostedZoneId: string | undefined;
 
   /**
+   * @public
    * <p>If the value of <code>IsTruncated</code> in the previous response is true, you have
    * 			more traffic policy instances. To get more traffic policy instances, submit another
    * 				<code>ListTrafficPolicyInstances</code> request. For the value of
@@ -7268,6 +7678,7 @@ export interface ListTrafficPolicyInstancesByHostedZoneRequest {
   TrafficPolicyInstanceNameMarker?: string;
 
   /**
+   * @public
    * <p>If the value of <code>IsTruncated</code> in the previous response is true, you have
    * 			more traffic policy instances. To get more traffic policy instances, submit another
    * 				<code>ListTrafficPolicyInstances</code> request. For the value of
@@ -7281,6 +7692,7 @@ export interface ListTrafficPolicyInstancesByHostedZoneRequest {
   TrafficPolicyInstanceTypeMarker?: RRType | string;
 
   /**
+   * @public
    * <p>The maximum number of traffic policy instances to be included in the response body for
    * 			this request. If you have more than <code>MaxItems</code> traffic policy instances, the
    * 			value of the <code>IsTruncated</code> element in the response is <code>true</code>, and
@@ -7298,12 +7710,14 @@ export interface ListTrafficPolicyInstancesByHostedZoneRequest {
  */
 export interface ListTrafficPolicyInstancesByHostedZoneResponse {
   /**
+   * @public
    * <p>A list that contains one <code>TrafficPolicyInstance</code> element for each traffic
    * 			policy instance that matches the elements in the request. </p>
    */
   TrafficPolicyInstances: TrafficPolicyInstance[] | undefined;
 
   /**
+   * @public
    * <p>If <code>IsTruncated</code> is <code>true</code>,
    * 				<code>TrafficPolicyInstanceNameMarker</code> is the name of the first traffic policy
    * 			instance in the next group of traffic policy instances.</p>
@@ -7311,6 +7725,7 @@ export interface ListTrafficPolicyInstancesByHostedZoneResponse {
   TrafficPolicyInstanceNameMarker?: string;
 
   /**
+   * @public
    * <p>If <code>IsTruncated</code> is true, <code>TrafficPolicyInstanceTypeMarker</code> is
    * 			the DNS type of the resource record sets that are associated with the first traffic
    * 			policy instance in the next group of traffic policy instances.</p>
@@ -7318,6 +7733,7 @@ export interface ListTrafficPolicyInstancesByHostedZoneResponse {
   TrafficPolicyInstanceTypeMarker?: RRType | string;
 
   /**
+   * @public
    * <p>A flag that indicates whether there are more traffic policy instances to be listed. If
    * 			the response was truncated, you can get the next group of traffic policy instances by
    * 			submitting another <code>ListTrafficPolicyInstancesByHostedZone</code> request and
@@ -7329,6 +7745,7 @@ export interface ListTrafficPolicyInstancesByHostedZoneResponse {
   IsTruncated: boolean | undefined;
 
   /**
+   * @public
    * <p>The value that you specified for the <code>MaxItems</code> parameter in the
    * 				<code>ListTrafficPolicyInstancesByHostedZone</code> request that produced the
    * 			current response.</p>
@@ -7343,12 +7760,14 @@ export interface ListTrafficPolicyInstancesByHostedZoneResponse {
  */
 export interface ListTrafficPolicyInstancesByPolicyRequest {
   /**
+   * @public
    * <p>The ID of the traffic policy for which you want to list traffic policy
    * 			instances.</p>
    */
   TrafficPolicyId: string | undefined;
 
   /**
+   * @public
    * <p>The version of the traffic policy for which you want to list traffic policy instances.
    * 			The version must be associated with the traffic policy that is specified by
    * 				<code>TrafficPolicyId</code>.</p>
@@ -7356,6 +7775,7 @@ export interface ListTrafficPolicyInstancesByPolicyRequest {
   TrafficPolicyVersion: number | undefined;
 
   /**
+   * @public
    * <p>If the value of <code>IsTruncated</code> in the previous response was
    * 				<code>true</code>, you have more traffic policy instances. To get more traffic
    * 			policy instances, submit another <code>ListTrafficPolicyInstancesByPolicy</code>
@@ -7370,6 +7790,7 @@ export interface ListTrafficPolicyInstancesByPolicyRequest {
   HostedZoneIdMarker?: string;
 
   /**
+   * @public
    * <p>If the value of <code>IsTruncated</code> in the previous response was
    * 				<code>true</code>, you have more traffic policy instances. To get more traffic
    * 			policy instances, submit another <code>ListTrafficPolicyInstancesByPolicy</code>
@@ -7384,6 +7805,7 @@ export interface ListTrafficPolicyInstancesByPolicyRequest {
   TrafficPolicyInstanceNameMarker?: string;
 
   /**
+   * @public
    * <p>If the value of <code>IsTruncated</code> in the previous response was
    * 				<code>true</code>, you have more traffic policy instances. To get more traffic
    * 			policy instances, submit another <code>ListTrafficPolicyInstancesByPolicy</code>
@@ -7398,6 +7820,7 @@ export interface ListTrafficPolicyInstancesByPolicyRequest {
   TrafficPolicyInstanceTypeMarker?: RRType | string;
 
   /**
+   * @public
    * <p>The maximum number of traffic policy instances to be included in the response body for
    * 			this request. If you have more than <code>MaxItems</code> traffic policy instances, the
    * 			value of the <code>IsTruncated</code> element in the response is <code>true</code>, and
@@ -7415,12 +7838,14 @@ export interface ListTrafficPolicyInstancesByPolicyRequest {
  */
 export interface ListTrafficPolicyInstancesByPolicyResponse {
   /**
+   * @public
    * <p>A list that contains one <code>TrafficPolicyInstance</code> element for each traffic
    * 			policy instance that matches the elements in the request.</p>
    */
   TrafficPolicyInstances: TrafficPolicyInstance[] | undefined;
 
   /**
+   * @public
    * <p>If <code>IsTruncated</code> is <code>true</code>, <code>HostedZoneIdMarker</code> is
    * 			the ID of the hosted zone of the first traffic policy instance in the next group of
    * 			traffic policy instances.</p>
@@ -7428,6 +7853,7 @@ export interface ListTrafficPolicyInstancesByPolicyResponse {
   HostedZoneIdMarker?: string;
 
   /**
+   * @public
    * <p>If <code>IsTruncated</code> is <code>true</code>,
    * 				<code>TrafficPolicyInstanceNameMarker</code> is the name of the first traffic policy
    * 			instance in the next group of <code>MaxItems</code> traffic policy instances.</p>
@@ -7435,6 +7861,7 @@ export interface ListTrafficPolicyInstancesByPolicyResponse {
   TrafficPolicyInstanceNameMarker?: string;
 
   /**
+   * @public
    * <p>If <code>IsTruncated</code> is <code>true</code>,
    * 				<code>TrafficPolicyInstanceTypeMarker</code> is the DNS type of the resource record
    * 			sets that are associated with the first traffic policy instance in the next group of
@@ -7443,6 +7870,7 @@ export interface ListTrafficPolicyInstancesByPolicyResponse {
   TrafficPolicyInstanceTypeMarker?: RRType | string;
 
   /**
+   * @public
    * <p>A flag that indicates whether there are more traffic policy instances to be listed. If
    * 			the response was truncated, you can get the next group of traffic policy instances by
    * 			calling <code>ListTrafficPolicyInstancesByPolicy</code> again and specifying the values
@@ -7453,6 +7881,7 @@ export interface ListTrafficPolicyInstancesByPolicyResponse {
   IsTruncated: boolean | undefined;
 
   /**
+   * @public
    * <p>The value that you specified for the <code>MaxItems</code> parameter in the call to
    * 				<code>ListTrafficPolicyInstancesByPolicy</code> that produced the current
    * 			response.</p>
@@ -7467,12 +7896,14 @@ export interface ListTrafficPolicyInstancesByPolicyResponse {
  */
 export interface ListTrafficPolicyVersionsRequest {
   /**
+   * @public
    * <p>Specify the value of <code>Id</code> of the traffic policy for which you want to list
    * 			all versions.</p>
    */
   Id: string | undefined;
 
   /**
+   * @public
    * <p>For your first request to <code>ListTrafficPolicyVersions</code>, don't include the
    * 				<code>TrafficPolicyVersionMarker</code> parameter.</p>
    *          <p>If you have more traffic policy versions than the value of <code>MaxItems</code>,
@@ -7485,6 +7916,7 @@ export interface ListTrafficPolicyVersionsRequest {
   TrafficPolicyVersionMarker?: string;
 
   /**
+   * @public
    * <p>The maximum number of traffic policy versions that you want Amazon Route 53 to include
    * 			in the response body for this request. If the specified traffic policy has more than
    * 				<code>MaxItems</code> versions, the value of <code>IsTruncated</code> in the
@@ -7501,12 +7933,14 @@ export interface ListTrafficPolicyVersionsRequest {
  */
 export interface ListTrafficPolicyVersionsResponse {
   /**
+   * @public
    * <p>A list that contains one <code>TrafficPolicy</code> element for each traffic policy
    * 			version that is associated with the specified traffic policy.</p>
    */
   TrafficPolicies: TrafficPolicy[] | undefined;
 
   /**
+   * @public
    * <p>A flag that indicates whether there are more traffic policies to be listed. If the
    * 			response was truncated, you can get the next group of traffic policies by submitting
    * 			another <code>ListTrafficPolicyVersions</code> request and specifying the value of
@@ -7515,6 +7949,7 @@ export interface ListTrafficPolicyVersionsResponse {
   IsTruncated: boolean | undefined;
 
   /**
+   * @public
    * <p>If <code>IsTruncated</code> is <code>true</code>, the value of
    * 				<code>TrafficPolicyVersionMarker</code> identifies the first traffic policy that
    * 			Amazon Route 53 will return if you submit another request. Call
@@ -7526,6 +7961,7 @@ export interface ListTrafficPolicyVersionsResponse {
   TrafficPolicyVersionMarker: string | undefined;
 
   /**
+   * @public
    * <p>The value that you specified for the <code>maxitems</code> parameter in the
    * 				<code>ListTrafficPolicyVersions</code> request that produced the current
    * 			response.</p>
@@ -7540,12 +7976,14 @@ export interface ListTrafficPolicyVersionsResponse {
  */
 export interface ListVPCAssociationAuthorizationsRequest {
   /**
+   * @public
    * <p>The ID of the hosted zone for which you want a list of VPCs that can be associated
    * 			with the hosted zone.</p>
    */
   HostedZoneId: string | undefined;
 
   /**
+   * @public
    * <p>
    *             <i>Optional</i>: If a response includes a <code>NextToken</code>
    * 			element, there are more VPCs that can be associated with the specified hosted zone. To
@@ -7556,6 +7994,7 @@ export interface ListVPCAssociationAuthorizationsRequest {
   NextToken?: string;
 
   /**
+   * @public
    * <p>
    *             <i>Optional</i>: An integer that specifies the maximum number of VPCs
    * 			that you want Amazon Route 53 to return. If you don't specify a value for
@@ -7570,11 +8009,13 @@ export interface ListVPCAssociationAuthorizationsRequest {
  */
 export interface ListVPCAssociationAuthorizationsResponse {
   /**
+   * @public
    * <p>The ID of the hosted zone that you can associate the listed VPCs with.</p>
    */
   HostedZoneId: string | undefined;
 
   /**
+   * @public
    * <p>When the response includes a <code>NextToken</code> element, there are more VPCs that
    * 			can be associated with the specified hosted zone. To get the next page of VPCs, submit
    * 			another <code>ListVPCAssociationAuthorizations</code> request, and include the value of
@@ -7584,6 +8025,7 @@ export interface ListVPCAssociationAuthorizationsResponse {
   NextToken?: string;
 
   /**
+   * @public
    * <p>The list of VPCs that are authorized to be associated with the specified hosted
    * 			zone.</p>
    */
@@ -7598,23 +8040,27 @@ export interface ListVPCAssociationAuthorizationsResponse {
  */
 export interface TestDNSAnswerRequest {
   /**
+   * @public
    * <p>The ID of the hosted zone that you want Amazon Route 53 to simulate a query
    * 			for.</p>
    */
   HostedZoneId: string | undefined;
 
   /**
+   * @public
    * <p>The name of the resource record set that you want Amazon Route 53 to simulate a query
    * 			for.</p>
    */
   RecordName: string | undefined;
 
   /**
+   * @public
    * <p>The type of the resource record set.</p>
    */
   RecordType: RRType | string | undefined;
 
   /**
+   * @public
    * <p>If you want to simulate a request from a specific DNS resolver, specify the IP address
    * 			for that resolver. If you omit this value, <code>TestDnsAnswer</code> uses the IP
    * 			address of a DNS resolver in the Amazon Web Services US East (N. Virginia) Region
@@ -7623,6 +8069,7 @@ export interface TestDNSAnswerRequest {
   ResolverIP?: string;
 
   /**
+   * @public
    * <p>If the resolver that you specified for resolverip supports EDNS0, specify the IPv4 or
    * 			IPv6 address of a client in the applicable location, for example,
    * 				<code>192.0.2.44</code> or <code>2001:db8:85a3::8a2e:370:7334</code>.</p>
@@ -7630,6 +8077,7 @@ export interface TestDNSAnswerRequest {
   EDNS0ClientSubnetIP?: string;
 
   /**
+   * @public
    * <p>If you specify an IP address for <code>edns0clientsubnetip</code>, you can optionally
    * 			specify the number of bits of the IP address that you want the checking tool to include
    * 			in the DNS query. For example, if you specify <code>192.0.2.44</code> for
@@ -7661,27 +8109,32 @@ export interface TestDNSAnswerRequest {
  */
 export interface TestDNSAnswerResponse {
   /**
+   * @public
    * <p>The Amazon Route 53 name server used to respond to the request.</p>
    */
   Nameserver: string | undefined;
 
   /**
+   * @public
    * <p>The name of the resource record set that you submitted a request for.</p>
    */
   RecordName: string | undefined;
 
   /**
+   * @public
    * <p>The type of the resource record set that you submitted a request for.</p>
    */
   RecordType: RRType | string | undefined;
 
   /**
+   * @public
    * <p>A list that contains values that Amazon Route 53 returned for this resource record
    * 			set.</p>
    */
   RecordData: string[] | undefined;
 
   /**
+   * @public
    * <p>A code that indicates whether the request is valid or not. The most common response
    * 			code is <code>NOERROR</code>, meaning that the request is valid. If the response is not
    * 			valid, Amazon Route 53 returns a response code that describes the error. For a list of
@@ -7690,6 +8143,7 @@ export interface TestDNSAnswerResponse {
   ResponseCode: string | undefined;
 
   /**
+   * @public
    * <p>The protocol that Amazon Route 53 used to respond to the request, either
    * 				<code>UDP</code> or <code>TCP</code>. </p>
    */
@@ -7740,6 +8194,7 @@ export type ResettableElementName = (typeof ResettableElementName)[keyof typeof 
  */
 export interface UpdateHealthCheckRequest {
   /**
+   * @public
    * <p>The ID for the health check for which you want detailed information. When you created
    * 			the health check, <code>CreateHealthCheck</code> returned the ID in the response, in the
    * 				<code>HealthCheckId</code> element.</p>
@@ -7747,6 +8202,7 @@ export interface UpdateHealthCheckRequest {
   HealthCheckId: string | undefined;
 
   /**
+   * @public
    * <p>A sequential counter that Amazon Route 53 sets to <code>1</code> when you create a
    * 			health check and increments by 1 each time you update settings for the health
    * 			check.</p>
@@ -7772,6 +8228,7 @@ export interface UpdateHealthCheckRequest {
   HealthCheckVersion?: number;
 
   /**
+   * @public
    * <p>The IPv4 or IPv6 IP address for the endpoint that you want Amazon Route 53 to perform
    * 			health checks on. If you don't specify a value for <code>IPAddress</code>, Route 53
    * 			sends a DNS request to resolve the domain name that you specify in
@@ -7845,6 +8302,7 @@ export interface UpdateHealthCheckRequest {
   IPAddress?: string;
 
   /**
+   * @public
    * <p>The port on the endpoint that you want Amazon Route 53 to perform health checks
    * 			on.</p>
    *          <note>
@@ -7856,6 +8314,7 @@ export interface UpdateHealthCheckRequest {
   Port?: number;
 
   /**
+   * @public
    * <p>The path that you want Amazon Route 53 to request when performing health checks. The
    * 			path can be any value for which your endpoint will return an HTTP status code of 2xx or
    * 			3xx when the endpoint is healthy, for example the file /docs/route53-health-check.html.
@@ -7866,6 +8325,7 @@ export interface UpdateHealthCheckRequest {
   ResourcePath?: string;
 
   /**
+   * @public
    * <p>Amazon Route 53 behavior depends on whether you specify a value for
    * 				<code>IPAddress</code>.</p>
    *          <note>
@@ -7942,6 +8402,7 @@ export interface UpdateHealthCheckRequest {
   FullyQualifiedDomainName?: string;
 
   /**
+   * @public
    * <p>If the value of <code>Type</code> is <code>HTTP_STR_MATCH</code> or
    * 				<code>HTTPS_STR_MATCH</code>, the string that you want Amazon Route 53 to search for
    * 			in the response body from the specified resource. If the string appears in the response
@@ -7951,6 +8412,7 @@ export interface UpdateHealthCheckRequest {
   SearchString?: string;
 
   /**
+   * @public
    * <p>The number of consecutive health checks that an endpoint must pass or fail for Amazon
    * 			Route 53 to change the current status of the endpoint from unhealthy to healthy or vice
    * 			versa. For more information, see <a href="https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/dns-failover-determining-health-of-endpoints.html">How Amazon Route 53 Determines Whether an Endpoint Is Healthy</a> in the
@@ -7961,6 +8423,7 @@ export interface UpdateHealthCheckRequest {
   FailureThreshold?: number;
 
   /**
+   * @public
    * <p>Specify whether you want Amazon Route 53 to invert the status of a health check, for
    * 			example, to consider a health check unhealthy when it otherwise would be considered
    * 			healthy.</p>
@@ -7968,6 +8431,7 @@ export interface UpdateHealthCheckRequest {
   Inverted?: boolean;
 
   /**
+   * @public
    * <p>Stops Route 53 from performing health checks. When you disable a health check, here's
    * 			what happens:</p>
    *          <ul>
@@ -7999,6 +8463,7 @@ export interface UpdateHealthCheckRequest {
   Disabled?: boolean;
 
   /**
+   * @public
    * <p>The number of child health checks that are associated with a <code>CALCULATED</code>
    * 			health that Amazon Route 53 must consider healthy for the <code>CALCULATED</code> health
    * 			check to be considered healthy. To specify the child health checks that you want to
@@ -8019,12 +8484,14 @@ export interface UpdateHealthCheckRequest {
   HealthThreshold?: number;
 
   /**
+   * @public
    * <p>A complex type that contains one <code>ChildHealthCheck</code> element for each health
    * 			check that you want to associate with a <code>CALCULATED</code> health check.</p>
    */
   ChildHealthChecks?: string[];
 
   /**
+   * @public
    * <p>Specify whether you want Amazon Route 53 to send the value of
    * 				<code>FullyQualifiedDomainName</code> to the endpoint in the
    * 				<code>client_hello</code> message during <code>TLS</code> negotiation. This allows
@@ -8049,12 +8516,14 @@ export interface UpdateHealthCheckRequest {
   EnableSNI?: boolean;
 
   /**
+   * @public
    * <p>A complex type that contains one <code>Region</code> element for each region that you
    * 			want Amazon Route 53 health checkers to check the specified endpoint from.</p>
    */
   Regions?: (HealthCheckRegion | string)[];
 
   /**
+   * @public
    * <p>A complex type that identifies the CloudWatch alarm that you want Amazon Route 53
    * 			health checkers to use to determine whether the specified health check is
    * 			healthy.</p>
@@ -8062,6 +8531,7 @@ export interface UpdateHealthCheckRequest {
   AlarmIdentifier?: AlarmIdentifier;
 
   /**
+   * @public
    * <p>When CloudWatch has insufficient data about the metric to determine the alarm state,
    * 			the status that you want Amazon Route 53 to assign to the health check:</p>
    *          <ul>
@@ -8087,6 +8557,7 @@ export interface UpdateHealthCheckRequest {
   InsufficientDataHealthStatus?: InsufficientDataHealthStatus | string;
 
   /**
+   * @public
    * <p>A complex type that contains one <code>ResettableElementName</code> element for each
    * 			element that you want to reset to the default value. Valid values for
    * 				<code>ResettableElementName</code> include the following:</p>
@@ -8119,6 +8590,7 @@ export interface UpdateHealthCheckRequest {
  */
 export interface UpdateHealthCheckResponse {
   /**
+   * @public
    * <p>A complex type that contains the response to an <code>UpdateHealthCheck</code>
    * 			request.</p>
    */
@@ -8131,11 +8603,13 @@ export interface UpdateHealthCheckResponse {
  */
 export interface UpdateHostedZoneCommentRequest {
   /**
+   * @public
    * <p>The ID for the hosted zone that you want to update the comment for.</p>
    */
   Id: string | undefined;
 
   /**
+   * @public
    * <p>The new comment for the hosted zone. If you don't specify a value for
    * 				<code>Comment</code>, Amazon Route 53 deletes the existing value of the
    * 				<code>Comment</code> element, if any.</p>
@@ -8150,6 +8624,7 @@ export interface UpdateHostedZoneCommentRequest {
  */
 export interface UpdateHostedZoneCommentResponse {
   /**
+   * @public
    * <p>A complex type that contains the response to the <code>UpdateHostedZoneComment</code>
    * 			request.</p>
    */
@@ -8163,18 +8638,21 @@ export interface UpdateHostedZoneCommentResponse {
  */
 export interface UpdateTrafficPolicyCommentRequest {
   /**
+   * @public
    * <p>The value of <code>Id</code> for the traffic policy that you want to update the
    * 			comment for.</p>
    */
   Id: string | undefined;
 
   /**
+   * @public
    * <p>The value of <code>Version</code> for the traffic policy that you want to update the
    * 			comment for.</p>
    */
   Version: number | undefined;
 
   /**
+   * @public
    * <p>The new comment for the specified traffic policy and version.</p>
    */
   Comment: string | undefined;
@@ -8186,6 +8664,7 @@ export interface UpdateTrafficPolicyCommentRequest {
  */
 export interface UpdateTrafficPolicyCommentResponse {
   /**
+   * @public
    * <p>A complex type that contains settings for the specified traffic policy.</p>
    */
   TrafficPolicy: TrafficPolicy | undefined;
@@ -8221,23 +8700,27 @@ export class ConflictingTypes extends __BaseException {
  */
 export interface UpdateTrafficPolicyInstanceRequest {
   /**
+   * @public
    * <p>The ID of the traffic policy instance that you want to update.</p>
    */
   Id: string | undefined;
 
   /**
+   * @public
    * <p>The TTL that you want Amazon Route 53 to assign to all of the updated resource record
    * 			sets.</p>
    */
   TTL: number | undefined;
 
   /**
+   * @public
    * <p>The ID of the traffic policy that you want Amazon Route 53 to use to update resource
    * 			record sets for the specified traffic policy instance.</p>
    */
   TrafficPolicyId: string | undefined;
 
   /**
+   * @public
    * <p>The version of the traffic policy that you want Amazon Route 53 to use to update
    * 			resource record sets for the specified traffic policy instance.</p>
    */
@@ -8251,6 +8734,7 @@ export interface UpdateTrafficPolicyInstanceRequest {
  */
 export interface UpdateTrafficPolicyInstanceResponse {
   /**
+   * @public
    * <p>A complex type that contains settings for the updated traffic policy instance.</p>
    */
   TrafficPolicyInstance: TrafficPolicyInstance | undefined;

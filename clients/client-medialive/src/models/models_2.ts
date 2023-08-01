@@ -48,36 +48,43 @@ import {
  */
 export interface PurchaseOfferingRequest {
   /**
+   * @public
    * Number of resources
    */
   Count: number | undefined;
 
   /**
+   * @public
    * Name for the new reservation
    */
   Name?: string;
 
   /**
+   * @public
    * Offering to purchase, e.g. '87654321'
    */
   OfferingId: string | undefined;
 
   /**
+   * @public
    * Renewal settings for the reservation
    */
   RenewalSettings?: RenewalSettings;
 
   /**
+   * @public
    * Unique request ID to be specified. This is needed to prevent retries from creating multiple resources.
    */
   RequestId?: string;
 
   /**
+   * @public
    * Requested reservation start time (UTC) in ISO-8601 format. The specified time must be between the first day of the current month and one year from now. If no value is given, the default is now.
    */
   Start?: string;
 
   /**
+   * @public
    * A collection of key-value pairs
    */
   Tags?: Record<string, string>;
@@ -89,6 +96,7 @@ export interface PurchaseOfferingRequest {
  */
 export interface PurchaseOfferingResponse {
   /**
+   * @public
    * Reserved resources available to use
    */
   Reservation?: Reservation;
@@ -114,11 +122,13 @@ export type RebootInputDeviceForce = (typeof RebootInputDeviceForce)[keyof typeo
  */
 export interface RebootInputDeviceRequest {
   /**
+   * @public
    * Force a reboot of an input device. If the device is streaming, it will stop streaming and begin rebooting within a few seconds of sending the command. If the device was streaming prior to the reboot, the device will resume streaming when the reboot completes.
    */
   Force?: RebootInputDeviceForce | string;
 
   /**
+   * @public
    * The unique ID of the input device to reboot. For example, hd-123456789abcdef.
    */
   InputDeviceId: string | undefined;
@@ -136,6 +146,7 @@ export interface RebootInputDeviceResponse {}
  */
 export interface RejectInputDeviceTransferRequest {
   /**
+   * @public
    * The unique ID of the input device to reject. For example, hd-123456789abcdef.
    */
   InputDeviceId: string | undefined;
@@ -153,6 +164,7 @@ export interface RejectInputDeviceTransferResponse {}
  */
 export interface StartChannelRequest {
   /**
+   * @public
    * A request to start a channel
    */
   ChannelId: string | undefined;
@@ -164,21 +176,25 @@ export interface StartChannelRequest {
  */
 export interface StartChannelResponse {
   /**
+   * @public
    * The unique arn of the channel.
    */
   Arn?: string;
 
   /**
+   * @public
    * Specification of CDI inputs for this channel
    */
   CdiInputSpecification?: CdiInputSpecification;
 
   /**
+   * @public
    * The class for this channel. STANDARD for a channel with two pipelines or SINGLE_PIPELINE for a channel with one pipeline.
    */
   ChannelClass?: ChannelClass | string;
 
   /**
+   * @public
    * A list of destinations of the channel. For UDP outputs, there is one
    * destination per output. For other types (HLS, for example), there is
    * one destination per packager.
@@ -186,71 +202,85 @@ export interface StartChannelResponse {
   Destinations?: OutputDestination[];
 
   /**
+   * @public
    * The endpoints where outgoing connections initiate from
    */
   EgressEndpoints?: ChannelEgressEndpoint[];
 
   /**
+   * @public
    * Encoder Settings
    */
   EncoderSettings?: EncoderSettings;
 
   /**
+   * @public
    * The unique id of the channel.
    */
   Id?: string;
 
   /**
+   * @public
    * List of input attachments for channel.
    */
   InputAttachments?: InputAttachment[];
 
   /**
+   * @public
    * Specification of network and file inputs for this channel
    */
   InputSpecification?: InputSpecification;
 
   /**
+   * @public
    * The log level being written to CloudWatch Logs.
    */
   LogLevel?: LogLevel | string;
 
   /**
+   * @public
    * Maintenance settings for this channel.
    */
   Maintenance?: MaintenanceStatus;
 
   /**
+   * @public
    * The name of the channel. (user-mutable)
    */
   Name?: string;
 
   /**
+   * @public
    * Runtime details for the pipelines of a running channel.
    */
   PipelineDetails?: PipelineDetail[];
 
   /**
+   * @public
    * The number of currently healthy pipelines.
    */
   PipelinesRunningCount?: number;
 
   /**
+   * @public
    * The Amazon Resource Name (ARN) of the role assumed when running the Channel.
    */
   RoleArn?: string;
 
   /**
+   * @public
    * Placeholder documentation for ChannelState
    */
   State?: ChannelState | string;
 
   /**
+   * @public
    * A collection of key-value pairs.
    */
   Tags?: Record<string, string>;
 
   /**
+   * @public
    * Settings for VPC output
    */
   Vpc?: VpcOutputSettingsDescription;
@@ -262,6 +292,7 @@ export interface StartChannelResponse {
  */
 export interface StartInputDeviceMaintenanceWindowRequest {
   /**
+   * @public
    * The unique ID of the input device to start a maintenance window for. For example, hd-123456789abcdef.
    */
   InputDeviceId: string | undefined;
@@ -279,6 +310,7 @@ export interface StartInputDeviceMaintenanceWindowResponse {}
  */
 export interface StartMultiplexRequest {
   /**
+   * @public
    * The ID of the multiplex.
    */
   MultiplexId: string | undefined;
@@ -290,51 +322,61 @@ export interface StartMultiplexRequest {
  */
 export interface StartMultiplexResponse {
   /**
+   * @public
    * The unique arn of the multiplex.
    */
   Arn?: string;
 
   /**
+   * @public
    * A list of availability zones for the multiplex.
    */
   AvailabilityZones?: string[];
 
   /**
+   * @public
    * A list of the multiplex output destinations.
    */
   Destinations?: MultiplexOutputDestination[];
 
   /**
+   * @public
    * The unique id of the multiplex.
    */
   Id?: string;
 
   /**
+   * @public
    * Configuration for a multiplex event.
    */
   MultiplexSettings?: MultiplexSettings;
 
   /**
+   * @public
    * The name of the multiplex.
    */
   Name?: string;
 
   /**
+   * @public
    * The number of currently healthy pipelines.
    */
   PipelinesRunningCount?: number;
 
   /**
+   * @public
    * The number of programs in the multiplex.
    */
   ProgramCount?: number;
 
   /**
+   * @public
    * The current state of the multiplex.
    */
   State?: MultiplexState | string;
 
   /**
+   * @public
    * A collection of key-value pairs.
    */
   Tags?: Record<string, string>;
@@ -346,6 +388,7 @@ export interface StartMultiplexResponse {
  */
 export interface StopChannelRequest {
   /**
+   * @public
    * A request to stop a running channel
    */
   ChannelId: string | undefined;
@@ -357,21 +400,25 @@ export interface StopChannelRequest {
  */
 export interface StopChannelResponse {
   /**
+   * @public
    * The unique arn of the channel.
    */
   Arn?: string;
 
   /**
+   * @public
    * Specification of CDI inputs for this channel
    */
   CdiInputSpecification?: CdiInputSpecification;
 
   /**
+   * @public
    * The class for this channel. STANDARD for a channel with two pipelines or SINGLE_PIPELINE for a channel with one pipeline.
    */
   ChannelClass?: ChannelClass | string;
 
   /**
+   * @public
    * A list of destinations of the channel. For UDP outputs, there is one
    * destination per output. For other types (HLS, for example), there is
    * one destination per packager.
@@ -379,71 +426,85 @@ export interface StopChannelResponse {
   Destinations?: OutputDestination[];
 
   /**
+   * @public
    * The endpoints where outgoing connections initiate from
    */
   EgressEndpoints?: ChannelEgressEndpoint[];
 
   /**
+   * @public
    * Encoder Settings
    */
   EncoderSettings?: EncoderSettings;
 
   /**
+   * @public
    * The unique id of the channel.
    */
   Id?: string;
 
   /**
+   * @public
    * List of input attachments for channel.
    */
   InputAttachments?: InputAttachment[];
 
   /**
+   * @public
    * Specification of network and file inputs for this channel
    */
   InputSpecification?: InputSpecification;
 
   /**
+   * @public
    * The log level being written to CloudWatch Logs.
    */
   LogLevel?: LogLevel | string;
 
   /**
+   * @public
    * Maintenance settings for this channel.
    */
   Maintenance?: MaintenanceStatus;
 
   /**
+   * @public
    * The name of the channel. (user-mutable)
    */
   Name?: string;
 
   /**
+   * @public
    * Runtime details for the pipelines of a running channel.
    */
   PipelineDetails?: PipelineDetail[];
 
   /**
+   * @public
    * The number of currently healthy pipelines.
    */
   PipelinesRunningCount?: number;
 
   /**
+   * @public
    * The Amazon Resource Name (ARN) of the role assumed when running the Channel.
    */
   RoleArn?: string;
 
   /**
+   * @public
    * Placeholder documentation for ChannelState
    */
   State?: ChannelState | string;
 
   /**
+   * @public
    * A collection of key-value pairs.
    */
   Tags?: Record<string, string>;
 
   /**
+   * @public
    * Settings for VPC output
    */
   Vpc?: VpcOutputSettingsDescription;
@@ -455,6 +516,7 @@ export interface StopChannelResponse {
  */
 export interface StopMultiplexRequest {
   /**
+   * @public
    * The ID of the multiplex.
    */
   MultiplexId: string | undefined;
@@ -466,51 +528,61 @@ export interface StopMultiplexRequest {
  */
 export interface StopMultiplexResponse {
   /**
+   * @public
    * The unique arn of the multiplex.
    */
   Arn?: string;
 
   /**
+   * @public
    * A list of availability zones for the multiplex.
    */
   AvailabilityZones?: string[];
 
   /**
+   * @public
    * A list of the multiplex output destinations.
    */
   Destinations?: MultiplexOutputDestination[];
 
   /**
+   * @public
    * The unique id of the multiplex.
    */
   Id?: string;
 
   /**
+   * @public
    * Configuration for a multiplex event.
    */
   MultiplexSettings?: MultiplexSettings;
 
   /**
+   * @public
    * The name of the multiplex.
    */
   Name?: string;
 
   /**
+   * @public
    * The number of currently healthy pipelines.
    */
   PipelinesRunningCount?: number;
 
   /**
+   * @public
    * The number of programs in the multiplex.
    */
   ProgramCount?: number;
 
   /**
+   * @public
    * The current state of the multiplex.
    */
   State?: MultiplexState | string;
 
   /**
+   * @public
    * A collection of key-value pairs.
    */
   Tags?: Record<string, string>;
@@ -522,21 +594,25 @@ export interface StopMultiplexResponse {
  */
 export interface TransferInputDeviceRequest {
   /**
+   * @public
    * The unique ID of this input device. For example, hd-123456789abcdef.
    */
   InputDeviceId: string | undefined;
 
   /**
+   * @public
    * The AWS account ID (12 digits) for the recipient of the device transfer.
    */
   TargetCustomerId?: string;
 
   /**
+   * @public
    * The target AWS region to transfer the device.
    */
   TargetRegion?: string;
 
   /**
+   * @public
    * An optional message for the recipient. Maximum 280 characters.
    */
   TransferMessage?: string;
@@ -554,6 +630,7 @@ export interface TransferInputDeviceResponse {}
  */
 export interface UpdateAccountConfigurationRequest {
   /**
+   * @public
    * Placeholder documentation for AccountConfiguration
    */
   AccountConfiguration?: AccountConfiguration;
@@ -565,6 +642,7 @@ export interface UpdateAccountConfigurationRequest {
  */
 export interface UpdateAccountConfigurationResponse {
   /**
+   * @public
    * Placeholder documentation for AccountConfiguration
    */
   AccountConfiguration?: AccountConfiguration;
@@ -576,51 +654,61 @@ export interface UpdateAccountConfigurationResponse {
  */
 export interface UpdateChannelRequest {
   /**
+   * @public
    * Specification of CDI inputs for this channel
    */
   CdiInputSpecification?: CdiInputSpecification;
 
   /**
+   * @public
    * channel ID
    */
   ChannelId: string | undefined;
 
   /**
+   * @public
    * A list of output destinations for this channel.
    */
   Destinations?: OutputDestination[];
 
   /**
+   * @public
    * The encoder settings for this channel.
    */
   EncoderSettings?: EncoderSettings;
 
   /**
+   * @public
    * Placeholder documentation for __listOfInputAttachment
    */
   InputAttachments?: InputAttachment[];
 
   /**
+   * @public
    * Specification of network and file inputs for this channel
    */
   InputSpecification?: InputSpecification;
 
   /**
+   * @public
    * The log level to write to CloudWatch Logs.
    */
   LogLevel?: LogLevel | string;
 
   /**
+   * @public
    * Maintenance settings for this channel.
    */
   Maintenance?: MaintenanceUpdateSettings;
 
   /**
+   * @public
    * The name of the channel.
    */
   Name?: string;
 
   /**
+   * @public
    * An optional Amazon Resource Name (ARN) of the role to assume when running the Channel. If you do not specify this on an update call but the role was previously set that role will be removed.
    */
   RoleArn?: string;
@@ -632,6 +720,7 @@ export interface UpdateChannelRequest {
  */
 export interface UpdateChannelResponse {
   /**
+   * @public
    * Placeholder documentation for Channel
    */
   Channel?: Channel;
@@ -643,16 +732,19 @@ export interface UpdateChannelResponse {
  */
 export interface UpdateChannelClassRequest {
   /**
+   * @public
    * The channel class that you wish to update this channel to use.
    */
   ChannelClass: ChannelClass | string | undefined;
 
   /**
+   * @public
    * Channel Id of the channel whose class should be updated.
    */
   ChannelId: string | undefined;
 
   /**
+   * @public
    * A list of output destinations for this channel.
    */
   Destinations?: OutputDestination[];
@@ -664,6 +756,7 @@ export interface UpdateChannelClassRequest {
  */
 export interface UpdateChannelClassResponse {
   /**
+   * @public
    * Placeholder documentation for Channel
    */
   Channel?: Channel;
@@ -675,26 +768,31 @@ export interface UpdateChannelClassResponse {
  */
 export interface UpdateInputRequest {
   /**
+   * @public
    * Destination settings for PUSH type inputs.
    */
   Destinations?: InputDestinationRequest[];
 
   /**
+   * @public
    * Settings for the devices.
    */
   InputDevices?: InputDeviceRequest[];
 
   /**
+   * @public
    * Unique ID of the input.
    */
   InputId: string | undefined;
 
   /**
+   * @public
    * A list of security groups referenced by IDs to attach to the input.
    */
   InputSecurityGroups?: string[];
 
   /**
+   * @public
    * A list of the MediaConnect Flow ARNs that you want to use as the source of the input. You can specify as few as one
    * Flow and presently, as many as two. The only requirement is when you have more than one is that each Flow is in a
    * separate Availability Zone as this ensures your EML input is redundant to AZ issues.
@@ -702,16 +800,19 @@ export interface UpdateInputRequest {
   MediaConnectFlows?: MediaConnectFlowRequest[];
 
   /**
+   * @public
    * Name of the input.
    */
   Name?: string;
 
   /**
+   * @public
    * The Amazon Resource Name (ARN) of the role this input assumes during and after creation.
    */
   RoleArn?: string;
 
   /**
+   * @public
    * The source URLs for a PULL-type input. Every PULL type input needs
    * exactly two source URLs for redundancy.
    * Only specify sources for PULL type Inputs. Leave Destinations empty.
@@ -725,6 +826,7 @@ export interface UpdateInputRequest {
  */
 export interface UpdateInputResponse {
   /**
+   * @public
    * Placeholder documentation for Input
    */
   Input?: Input;
@@ -736,21 +838,25 @@ export interface UpdateInputResponse {
  */
 export interface UpdateInputDeviceRequest {
   /**
+   * @public
    * The settings that you want to apply to the HD input device.
    */
   HdDeviceSettings?: InputDeviceConfigurableSettings;
 
   /**
+   * @public
    * The unique ID of the input device. For example, hd-123456789abcdef.
    */
   InputDeviceId: string | undefined;
 
   /**
+   * @public
    * The name that you assigned to this input device (not the unique ID).
    */
   Name?: string;
 
   /**
+   * @public
    * The settings that you want to apply to the UHD input device.
    */
   UhdDeviceSettings?: InputDeviceConfigurableSettings;
@@ -762,66 +868,79 @@ export interface UpdateInputDeviceRequest {
  */
 export interface UpdateInputDeviceResponse {
   /**
+   * @public
    * The unique ARN of the input device.
    */
   Arn?: string;
 
   /**
+   * @public
    * The state of the connection between the input device and AWS.
    */
   ConnectionState?: InputDeviceConnectionState | string;
 
   /**
+   * @public
    * The status of the action to synchronize the device configuration. If you change the configuration of the input device (for example, the maximum bitrate), MediaLive sends the new data to the device. The device might not update itself immediately. SYNCED means the device has updated its configuration. SYNCING means that it has not updated its configuration.
    */
   DeviceSettingsSyncState?: DeviceSettingsSyncState | string;
 
   /**
+   * @public
    * The status of software on the input device.
    */
   DeviceUpdateStatus?: DeviceUpdateStatus | string;
 
   /**
+   * @public
    * Settings that describe an input device that is type HD.
    */
   HdDeviceSettings?: InputDeviceHdSettings;
 
   /**
+   * @public
    * The unique ID of the input device.
    */
   Id?: string;
 
   /**
+   * @public
    * The network MAC address of the input device.
    */
   MacAddress?: string;
 
   /**
+   * @public
    * A name that you specify for the input device.
    */
   Name?: string;
 
   /**
+   * @public
    * The network settings for the input device.
    */
   NetworkSettings?: InputDeviceNetworkSettings;
 
   /**
+   * @public
    * The unique serial number of the input device.
    */
   SerialNumber?: string;
 
   /**
+   * @public
    * The type of the input device.
    */
   Type?: InputDeviceType | string;
 
   /**
+   * @public
    * Settings that describe an input device that is type UHD.
    */
   UhdDeviceSettings?: InputDeviceUhdSettings;
 
   /**
+   * @public
    * A collection of key-value pairs.
    */
   Tags?: Record<string, string>;
@@ -833,16 +952,19 @@ export interface UpdateInputDeviceResponse {
  */
 export interface UpdateInputSecurityGroupRequest {
   /**
+   * @public
    * The id of the Input Security Group to update.
    */
   InputSecurityGroupId: string | undefined;
 
   /**
+   * @public
    * A collection of key-value pairs.
    */
   Tags?: Record<string, string>;
 
   /**
+   * @public
    * List of IPv4 CIDR addresses to whitelist
    */
   WhitelistRules?: InputWhitelistRuleCidr[];
@@ -854,6 +976,7 @@ export interface UpdateInputSecurityGroupRequest {
  */
 export interface UpdateInputSecurityGroupResponse {
   /**
+   * @public
    * An Input Security Group
    */
   SecurityGroup?: InputSecurityGroup;
@@ -865,16 +988,19 @@ export interface UpdateInputSecurityGroupResponse {
  */
 export interface UpdateMultiplexRequest {
   /**
+   * @public
    * ID of the multiplex to update.
    */
   MultiplexId: string | undefined;
 
   /**
+   * @public
    * The new settings for a multiplex.
    */
   MultiplexSettings?: MultiplexSettings;
 
   /**
+   * @public
    * Name of the multiplex.
    */
   Name?: string;
@@ -886,6 +1012,7 @@ export interface UpdateMultiplexRequest {
  */
 export interface UpdateMultiplexResponse {
   /**
+   * @public
    * The updated multiplex.
    */
   Multiplex?: Multiplex;
@@ -897,16 +1024,19 @@ export interface UpdateMultiplexResponse {
  */
 export interface UpdateMultiplexProgramRequest {
   /**
+   * @public
    * The ID of the multiplex of the program to update.
    */
   MultiplexId: string | undefined;
 
   /**
+   * @public
    * The new settings for a multiplex program.
    */
   MultiplexProgramSettings?: MultiplexProgramSettings;
 
   /**
+   * @public
    * The name of the program to update.
    */
   ProgramName: string | undefined;
@@ -918,6 +1048,7 @@ export interface UpdateMultiplexProgramRequest {
  */
 export interface UpdateMultiplexProgramResponse {
   /**
+   * @public
    * The updated multiplex program.
    */
   MultiplexProgram?: MultiplexProgram;
@@ -929,16 +1060,19 @@ export interface UpdateMultiplexProgramResponse {
  */
 export interface UpdateReservationRequest {
   /**
+   * @public
    * Name of the reservation
    */
   Name?: string;
 
   /**
+   * @public
    * Renewal settings for the reservation
    */
   RenewalSettings?: RenewalSettings;
 
   /**
+   * @public
    * Unique reservation ID, e.g. '1234567'
    */
   ReservationId: string | undefined;
@@ -950,6 +1084,7 @@ export interface UpdateReservationRequest {
  */
 export interface UpdateReservationResponse {
   /**
+   * @public
    * Reserved resources available to use
    */
   Reservation?: Reservation;

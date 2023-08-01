@@ -41,6 +41,7 @@ export type ContainerStatus = (typeof ContainerStatus)[keyof typeof ContainerSta
  */
 export interface Container {
   /**
+   * @public
    * <p>The DNS endpoint of the container. Use the endpoint to identify the specific
    *          container when sending requests to the data plane. The service assigns this value when the
    *          container is created. Once the value has been assigned, it does not change.</p>
@@ -48,11 +49,13 @@ export interface Container {
   Endpoint?: string;
 
   /**
+   * @public
    * <p>Unix timestamp.</p>
    */
   CreationTime?: Date;
 
   /**
+   * @public
    * <p>The Amazon Resource Name (ARN) of the container. The ARN has the following
    *          format:</p>
    *          <p>arn:aws:<region>:<account that owns this container>:container/<name of
@@ -62,11 +65,13 @@ export interface Container {
   ARN?: string;
 
   /**
+   * @public
    * <p>The name of the container.</p>
    */
   Name?: string;
 
   /**
+   * @public
    * <p>The status of container creation or deletion. The status is one of the following:
    *             <code>CREATING</code>, <code>ACTIVE</code>, or <code>DELETING</code>. While the service
    *          is creating the container, the status is <code>CREATING</code>. When the endpoint is
@@ -75,6 +80,7 @@ export interface Container {
   Status?: ContainerStatus | string;
 
   /**
+   * @public
    * <p>The state of access logging on the container. This value is <code>false</code> by default, indicating that AWS Elemental MediaStore does not send access logs to Amazon CloudWatch Logs. When you enable access logging on the container, MediaStore changes this value to <code>true</code>, indicating that the service delivers access logs for objects stored in that container to CloudWatch Logs.</p>
    */
   AccessLoggingEnabled?: boolean;
@@ -146,6 +152,7 @@ export class ContainerNotFoundException extends __BaseException {
  */
 export interface CorsRule {
   /**
+   * @public
    * <p>One or more response headers that you want users to be able to access from their
    *          applications (for example, from a JavaScript <code>XMLHttpRequest</code> object).</p>
    *          <p>Each CORS rule must have at least one <code>AllowedOrigins</code> element. The string
@@ -156,6 +163,7 @@ export interface CorsRule {
   AllowedOrigins: string[] | undefined;
 
   /**
+   * @public
    * <p>Identifies an HTTP method that the origin that is specified in the rule is allowed to
    *          execute.</p>
    *          <p>Each CORS rule must contain at least one <code>AllowedMethods</code> and one
@@ -164,6 +172,7 @@ export interface CorsRule {
   AllowedMethods?: (MethodName | string)[];
 
   /**
+   * @public
    * <p>Specifies which headers are allowed in a preflight <code>OPTIONS</code> request
    *          through the <code>Access-Control-Request-Headers</code> header. Each header name that is
    *          specified in <code>Access-Control-Request-Headers</code> must have a corresponding entry in
@@ -173,6 +182,7 @@ export interface CorsRule {
   AllowedHeaders: string[] | undefined;
 
   /**
+   * @public
    * <p>The time in seconds that your browser caches the preflight response for the specified
    *          resource.</p>
    *          <p>A CORS rule can have only one <code>MaxAgeSeconds</code> element.</p>
@@ -180,6 +190,7 @@ export interface CorsRule {
   MaxAgeSeconds?: number;
 
   /**
+   * @public
    * <p>One or more headers in the response that you want users to be able to access from
    *          their applications (for example, from a JavaScript <code>XMLHttpRequest</code>
    *          object).</p>
@@ -219,12 +230,14 @@ export class CorsPolicyNotFoundException extends __BaseException {
  */
 export interface Tag {
   /**
+   * @public
    * <p>Part of the key:value pair that defines a tag. You can use a tag key to describe a category of information, such as "customer." Tag keys are
    *             case-sensitive.</p>
    */
   Key: string | undefined;
 
   /**
+   * @public
    * <p>Part of the key:value pair that defines a tag. You can use a tag value to describe a specific value within a category, such as "companyA" or
    *             "companyB." Tag values are case-sensitive.</p>
    */
@@ -236,6 +249,7 @@ export interface Tag {
  */
 export interface CreateContainerInput {
   /**
+   * @public
    * <p>The name for the container. The name must be from 1 to 255 characters. Container
    *          names must be unique to your AWS account within a specific region. As an example, you could
    *          create a container named <code>movies</code> in every region, as long as you don’t have an
@@ -244,6 +258,7 @@ export interface CreateContainerInput {
   ContainerName: string | undefined;
 
   /**
+   * @public
    * <p>An array of key:value pairs that you define. These values can be anything that you want. Typically, the tag key represents a category (such as
    *            "environment") and the tag value represents a specific value within that category (such as "test," "development," or "production"). You can add up to 50
    *            tags to each container. For more information about tagging, including naming and usage conventions, see <a href="https://docs.aws.amazon.com/mediastore/latest/ug/tagging.html">Tagging Resources in MediaStore</a>.</p>
@@ -256,6 +271,7 @@ export interface CreateContainerInput {
  */
 export interface CreateContainerOutput {
   /**
+   * @public
    * <p>ContainerARN: The Amazon Resource Name (ARN) of the newly created container. The ARN
    *          has the following format: arn:aws:<region>:<account that owns this
    *          container>:container/<name of container>. For example:
@@ -321,6 +337,7 @@ export class LimitExceededException extends __BaseException {
  */
 export interface DeleteContainerInput {
   /**
+   * @public
    * <p>The name of the container to delete. </p>
    */
   ContainerName: string | undefined;
@@ -336,6 +353,7 @@ export interface DeleteContainerOutput {}
  */
 export interface DeleteContainerPolicyInput {
   /**
+   * @public
    * <p>The name of the container that holds the policy.</p>
    */
   ContainerName: string | undefined;
@@ -373,6 +391,7 @@ export class PolicyNotFoundException extends __BaseException {
  */
 export interface DeleteCorsPolicyInput {
   /**
+   * @public
    * <p>The name of the container to remove the policy from.</p>
    */
   ContainerName: string | undefined;
@@ -388,6 +407,7 @@ export interface DeleteCorsPolicyOutput {}
  */
 export interface DeleteLifecyclePolicyInput {
   /**
+   * @public
    * <p>The name of the container that holds the object lifecycle policy.</p>
    */
   ContainerName: string | undefined;
@@ -403,6 +423,7 @@ export interface DeleteLifecyclePolicyOutput {}
  */
 export interface DeleteMetricPolicyInput {
   /**
+   * @public
    * <p>The name of the container that is associated with the metric policy that you want to delete.</p>
    */
   ContainerName: string | undefined;
@@ -418,6 +439,7 @@ export interface DeleteMetricPolicyOutput {}
  */
 export interface DescribeContainerInput {
   /**
+   * @public
    * <p>The name of the container to query.</p>
    */
   ContainerName?: string;
@@ -428,6 +450,7 @@ export interface DescribeContainerInput {
  */
 export interface DescribeContainerOutput {
   /**
+   * @public
    * <p>The name of the queried container.</p>
    */
   Container?: Container;
@@ -438,6 +461,7 @@ export interface DescribeContainerOutput {
  */
 export interface GetContainerPolicyInput {
   /**
+   * @public
    * <p>The name of the container. </p>
    */
   ContainerName: string | undefined;
@@ -448,6 +472,7 @@ export interface GetContainerPolicyInput {
  */
 export interface GetContainerPolicyOutput {
   /**
+   * @public
    * <p>The contents of the access policy.</p>
    */
   Policy: string | undefined;
@@ -458,6 +483,7 @@ export interface GetContainerPolicyOutput {
  */
 export interface GetCorsPolicyInput {
   /**
+   * @public
    * <p>The name of the container that the policy is assigned to.</p>
    */
   ContainerName: string | undefined;
@@ -468,6 +494,7 @@ export interface GetCorsPolicyInput {
  */
 export interface GetCorsPolicyOutput {
   /**
+   * @public
    * <p>The CORS policy assigned to the container.</p>
    */
   CorsPolicy: CorsRule[] | undefined;
@@ -478,6 +505,7 @@ export interface GetCorsPolicyOutput {
  */
 export interface GetLifecyclePolicyInput {
   /**
+   * @public
    * <p>The name of the container that the object lifecycle policy is assigned to.</p>
    */
   ContainerName: string | undefined;
@@ -488,6 +516,7 @@ export interface GetLifecyclePolicyInput {
  */
 export interface GetLifecyclePolicyOutput {
   /**
+   * @public
    * <p>The object lifecycle policy that is assigned to the container.</p>
    */
   LifecyclePolicy: string | undefined;
@@ -498,6 +527,7 @@ export interface GetLifecyclePolicyOutput {
  */
 export interface GetMetricPolicyInput {
   /**
+   * @public
    * <p>The name of the container that is associated with the metric policy.</p>
    */
   ContainerName: string | undefined;
@@ -509,11 +539,13 @@ export interface GetMetricPolicyInput {
  */
 export interface MetricPolicyRule {
   /**
+   * @public
    * <p>A path or file name that defines which objects to include in the group. Wildcards (*) are acceptable.</p>
    */
   ObjectGroup: string | undefined;
 
   /**
+   * @public
    * <p>A name that allows you to refer to the object group.</p>
    */
   ObjectGroupName: string | undefined;
@@ -526,11 +558,13 @@ export interface MetricPolicyRule {
  */
 export interface MetricPolicy {
   /**
+   * @public
    * <p>A setting to enable or disable metrics at the container level.</p>
    */
   ContainerLevelMetrics: ContainerLevelMetrics | string | undefined;
 
   /**
+   * @public
    * <p>A parameter that holds an array of rules that enable metrics at the object level. This parameter is optional, but if you choose to include it, you must also include at least one rule. By default, you can include up to five rules. You can also <a href="https://console.aws.amazon.com/servicequotas/home?region=us-east-1#!/services/mediastore/quotas">request a quota increase</a> to allow up to 300 rules per policy.</p>
    */
   MetricPolicyRules?: MetricPolicyRule[];
@@ -541,6 +575,7 @@ export interface MetricPolicy {
  */
 export interface GetMetricPolicyOutput {
   /**
+   * @public
    * <p>The metric policy that is associated with the specific container.</p>
    */
   MetricPolicy: MetricPolicy | undefined;
@@ -551,6 +586,7 @@ export interface GetMetricPolicyOutput {
  */
 export interface ListContainersInput {
   /**
+   * @public
    * <p>Only if you used <code>MaxResults</code> in the first command, enter the token (which
    *          was included in the previous response) to obtain the next set of containers. This token is
    *          included in a response only if there actually are more containers to list.</p>
@@ -558,6 +594,7 @@ export interface ListContainersInput {
   NextToken?: string;
 
   /**
+   * @public
    * <p>Enter the maximum number of containers in the response. Use from 1 to 255 characters.
    *       </p>
    */
@@ -569,11 +606,13 @@ export interface ListContainersInput {
  */
 export interface ListContainersOutput {
   /**
+   * @public
    * <p>The names of the containers.</p>
    */
   Containers: Container[] | undefined;
 
   /**
+   * @public
    * <p>
    *             <code>NextToken</code> is the token to use in the next call to <code>ListContainers</code>.
    *          This token is returned only if you included the <code>MaxResults</code> tag in the original
@@ -587,6 +626,7 @@ export interface ListContainersOutput {
  */
 export interface ListTagsForResourceInput {
   /**
+   * @public
    * <p>The Amazon Resource Name (ARN) for the container.</p>
    */
   Resource: string | undefined;
@@ -597,6 +637,7 @@ export interface ListTagsForResourceInput {
  */
 export interface ListTagsForResourceOutput {
   /**
+   * @public
    * <p>An array of key:value pairs that are assigned to the container.</p>
    */
   Tags?: Tag[];
@@ -607,11 +648,13 @@ export interface ListTagsForResourceOutput {
  */
 export interface PutContainerPolicyInput {
   /**
+   * @public
    * <p>The name of the container.</p>
    */
   ContainerName: string | undefined;
 
   /**
+   * @public
    * <p>The contents of the policy, which includes the following: </p>
    *          <ul>
    *             <li>
@@ -636,11 +679,13 @@ export interface PutContainerPolicyOutput {}
  */
 export interface PutCorsPolicyInput {
   /**
+   * @public
    * <p>The name of the container that you want to assign the CORS policy to.</p>
    */
   ContainerName: string | undefined;
 
   /**
+   * @public
    * <p>The CORS policy to apply to the container.  </p>
    */
   CorsPolicy: CorsRule[] | undefined;
@@ -656,11 +701,13 @@ export interface PutCorsPolicyOutput {}
  */
 export interface PutLifecyclePolicyInput {
   /**
+   * @public
    * <p>The name of the container that you want to assign the object lifecycle policy to.</p>
    */
   ContainerName: string | undefined;
 
   /**
+   * @public
    * <p>The object lifecycle policy to apply to the container.</p>
    */
   LifecyclePolicy: string | undefined;
@@ -676,11 +723,13 @@ export interface PutLifecyclePolicyOutput {}
  */
 export interface PutMetricPolicyInput {
   /**
+   * @public
    * <p>The name of the container that you want to add the metric policy to.</p>
    */
   ContainerName: string | undefined;
 
   /**
+   * @public
    * <p>The metric policy that you want to associate with the container. In the policy, you must indicate whether you want MediaStore to send container-level metrics. You can also include up to five rules to define groups of objects that you want MediaStore to send object-level metrics for.  If you include rules in the policy, construct each rule with both of the following:</p>
    *          <ul>
    *             <li>
@@ -704,6 +753,7 @@ export interface PutMetricPolicyOutput {}
  */
 export interface StartAccessLoggingInput {
   /**
+   * @public
    * <p>The name of the container that you want to start access logging on.</p>
    */
   ContainerName: string | undefined;
@@ -719,6 +769,7 @@ export interface StartAccessLoggingOutput {}
  */
 export interface StopAccessLoggingInput {
   /**
+   * @public
    * <p>The name of the container that you want to stop access logging on.</p>
    */
   ContainerName: string | undefined;
@@ -734,11 +785,13 @@ export interface StopAccessLoggingOutput {}
  */
 export interface TagResourceInput {
   /**
+   * @public
    * <p>The Amazon Resource Name (ARN) for the container. </p>
    */
   Resource: string | undefined;
 
   /**
+   * @public
    * <p>An array of key:value pairs that you want to add to the container. You need to specify only the tags that you want to add or update. For example,
    *             suppose a container already has two tags (customer:CompanyA and priority:High). You want to change the priority tag and also add a third tag
    *             (type:Contract). For TagResource, you specify the following tags: priority:Medium, type:Contract. The result is that your container has three tags:
@@ -757,11 +810,13 @@ export interface TagResourceOutput {}
  */
 export interface UntagResourceInput {
   /**
+   * @public
    * <p>The Amazon Resource Name (ARN) for the container.</p>
    */
   Resource: string | undefined;
 
   /**
+   * @public
    * <p>A comma-separated list of keys for tags that you want to remove from the container. For example, if your container has two tags (customer:CompanyA
    *             and priority:High) and you want to remove one of the tags (priority:High), you specify the key for the tag that you want to remove
    *             (priority).</p>

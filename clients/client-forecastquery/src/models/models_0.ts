@@ -74,23 +74,27 @@ export class LimitExceededException extends __BaseException {
  */
 export interface QueryForecastRequest {
   /**
+   * @public
    * <p>The Amazon Resource Name (ARN) of the forecast to query.</p>
    */
   ForecastArn: string | undefined;
 
   /**
+   * @public
    * <p>The start date for the forecast. Specify the date using this format: yyyy-MM-dd'T'HH:mm:ss
    *       (ISO 8601 format). For example, 2015-01-01T08:00:00.</p>
    */
   StartDate?: string;
 
   /**
+   * @public
    * <p>The end date for the forecast. Specify the date using this format: yyyy-MM-dd'T'HH:mm:ss
    *       (ISO 8601 format). For example, 2015-01-01T20:00:00. </p>
    */
   EndDate?: string;
 
   /**
+   * @public
    * <p>The filtering criteria to apply when retrieving the forecast. For example, to get the
    *       forecast for <code>client_21</code> in the electricity usage dataset, specify the
    *       following:</p>
@@ -104,6 +108,7 @@ export interface QueryForecastRequest {
   Filters: Record<string, string> | undefined;
 
   /**
+   * @public
    * <p>If the result of the previous request was truncated, the response includes a
    *         <code>NextToken</code>. To retrieve the next set of results, use the token in the next
    *       request. Tokens expire after 24 hours.</p>
@@ -118,11 +123,13 @@ export interface QueryForecastRequest {
  */
 export interface DataPoint {
   /**
+   * @public
    * <p>The timestamp of the specific forecast.</p>
    */
   Timestamp?: string;
 
   /**
+   * @public
    * <p>The forecast value.</p>
    */
   Value?: number;
@@ -134,6 +141,7 @@ export interface DataPoint {
  */
 export interface Forecast {
   /**
+   * @public
    * <p>The forecast.</p>
    *          <p>The <i>string</i> of the string-to-array map is one of the following
    *       values:</p>
@@ -159,6 +167,7 @@ export interface Forecast {
  */
 export interface QueryForecastResponse {
   /**
+   * @public
    * <p>The forecast.</p>
    */
   Forecast?: Forecast;
@@ -214,23 +223,27 @@ export class ResourceNotFoundException extends __BaseException {
  */
 export interface QueryWhatIfForecastRequest {
   /**
+   * @public
    * <p>The Amazon Resource Name (ARN) of the what-if forecast to query.</p>
    */
   WhatIfForecastArn: string | undefined;
 
   /**
+   * @public
    * <p>The start date for the what-if forecast. Specify the date using this format: yyyy-MM-dd'T'HH:mm:ss
    *       (ISO 8601 format). For example, 2015-01-01T08:00:00.</p>
    */
   StartDate?: string;
 
   /**
+   * @public
    * <p>The end date for the what-if forecast. Specify the date using this format: yyyy-MM-dd'T'HH:mm:ss
    *       (ISO 8601 format). For example, 2015-01-01T20:00:00. </p>
    */
   EndDate?: string;
 
   /**
+   * @public
    * <p>The filtering criteria to apply when retrieving the forecast. For example, to get the
    *       forecast for <code>client_21</code> in the electricity usage dataset, specify the
    *       following:</p>
@@ -242,6 +255,7 @@ export interface QueryWhatIfForecastRequest {
   Filters: Record<string, string> | undefined;
 
   /**
+   * @public
    * <p>If the result of the previous request was truncated, the response includes a
    *       <code>NextToken</code>. To retrieve the next set of results, use the token in the next
    *       request. Tokens expire after 24 hours.</p>
@@ -254,6 +268,7 @@ export interface QueryWhatIfForecastRequest {
  */
 export interface QueryWhatIfForecastResponse {
   /**
+   * @public
    * <p>Provides information about a forecast. Returned as part of the <a>QueryForecast</a> response.</p>
    */
   Forecast?: Forecast;

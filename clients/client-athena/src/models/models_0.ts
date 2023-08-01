@@ -26,6 +26,7 @@ export type S3AclOption = (typeof S3AclOption)[keyof typeof S3AclOption];
  */
 export interface AclConfiguration {
   /**
+   * @public
    * <p>The Amazon S3 canned ACL that Athena should specify when storing
    *             query results. Currently the only supported canned ACL is
    *                 <code>BUCKET_OWNER_FULL_CONTROL</code>. If a query runs in a workgroup and the
@@ -42,6 +43,7 @@ export interface AclConfiguration {
  */
 export interface BatchGetNamedQueryInput {
   /**
+   * @public
    * <p>An array of query IDs.</p>
    */
   NamedQueryIds: string[] | undefined;
@@ -54,31 +56,37 @@ export interface BatchGetNamedQueryInput {
  */
 export interface NamedQuery {
   /**
+   * @public
    * <p>The query name.</p>
    */
   Name: string | undefined;
 
   /**
+   * @public
    * <p>The query description.</p>
    */
   Description?: string;
 
   /**
+   * @public
    * <p>The database to which the query belongs.</p>
    */
   Database: string | undefined;
 
   /**
+   * @public
    * <p>The SQL statements that make up the query.</p>
    */
   QueryString: string | undefined;
 
   /**
+   * @public
    * <p>The unique identifier of the query.</p>
    */
   NamedQueryId?: string;
 
   /**
+   * @public
    * <p>The name of the workgroup that contains the named query.</p>
    */
   WorkGroup?: string;
@@ -90,17 +98,20 @@ export interface NamedQuery {
  */
 export interface UnprocessedNamedQueryId {
   /**
+   * @public
    * <p>The unique identifier of the named query.</p>
    */
   NamedQueryId?: string;
 
   /**
+   * @public
    * <p>The error code returned when the processing request for the named query failed, if
    *             applicable.</p>
    */
   ErrorCode?: string;
 
   /**
+   * @public
    * <p>The error message returned when the processing request for the named query failed, if
    *             applicable.</p>
    */
@@ -112,11 +123,13 @@ export interface UnprocessedNamedQueryId {
  */
 export interface BatchGetNamedQueryOutput {
   /**
+   * @public
    * <p>Information about the named query IDs submitted.</p>
    */
   NamedQueries?: NamedQuery[];
 
   /**
+   * @public
    * <p>Information about provided query IDs.</p>
    */
   UnprocessedNamedQueryIds?: UnprocessedNamedQueryId[];
@@ -154,6 +167,7 @@ export class InvalidRequestException extends __BaseException {
   readonly name: "InvalidRequestException" = "InvalidRequestException";
   readonly $fault: "client" = "client";
   /**
+   * @public
    * <p>The error code returned when the query execution failed to process, or when the
    *             processing request for the named query failed.</p>
    */
@@ -180,11 +194,13 @@ export class InvalidRequestException extends __BaseException {
  */
 export interface BatchGetPreparedStatementInput {
   /**
+   * @public
    * <p>A list of prepared statement names to return.</p>
    */
   PreparedStatementNames: string[] | undefined;
 
   /**
+   * @public
    * <p>The name of the workgroup to which the prepared statements belong.</p>
    */
   WorkGroup: string | undefined;
@@ -196,26 +212,31 @@ export interface BatchGetPreparedStatementInput {
  */
 export interface PreparedStatement {
   /**
+   * @public
    * <p>The name of the prepared statement.</p>
    */
   StatementName?: string;
 
   /**
+   * @public
    * <p>The query string for the prepared statement.</p>
    */
   QueryStatement?: string;
 
   /**
+   * @public
    * <p>The name of the workgroup to which the prepared statement belongs.</p>
    */
   WorkGroupName?: string;
 
   /**
+   * @public
    * <p>The description of the prepared statement.</p>
    */
   Description?: string;
 
   /**
+   * @public
    * <p>The last modified time of the prepared statement.</p>
    */
   LastModifiedTime?: Date;
@@ -227,16 +248,19 @@ export interface PreparedStatement {
  */
 export interface UnprocessedPreparedStatementName {
   /**
+   * @public
    * <p>The name of a prepared statement that could not be returned due to an error.</p>
    */
   StatementName?: string;
 
   /**
+   * @public
    * <p>The error code returned when the request for the prepared statement failed.</p>
    */
   ErrorCode?: string;
 
   /**
+   * @public
    * <p>The error message containing the reason why the prepared statement could not be
    *             returned. The following error messages are possible:</p>
    *          <ul>
@@ -265,11 +289,13 @@ export interface UnprocessedPreparedStatementName {
  */
 export interface BatchGetPreparedStatementOutput {
   /**
+   * @public
    * <p>The list of prepared statements returned.</p>
    */
   PreparedStatements?: PreparedStatement[];
 
   /**
+   * @public
    * <p>A list of one or more prepared statements that were requested but could not be
    *             returned.</p>
    */
@@ -282,6 +308,7 @@ export interface BatchGetPreparedStatementOutput {
  */
 export interface BatchGetQueryExecutionInput {
   /**
+   * @public
    * <p>An array of query execution IDs.</p>
    */
   QueryExecutionIds: string[] | undefined;
@@ -294,12 +321,14 @@ export interface BatchGetQueryExecutionInput {
  */
 export interface EngineVersion {
   /**
+   * @public
    * <p>The engine version requested by the user. Possible values are determined by the output
    *             of <code>ListEngineVersions</code>, including AUTO. The default is AUTO.</p>
    */
   SelectedEngineVersion?: string;
 
   /**
+   * @public
    * <p>Read only. The engine version on which the query runs. If the user requests a valid
    *             engine version other than Auto, the effective engine version is the same as the engine
    *             version that the user requested. If the user requests Auto, the effective engine version
@@ -316,12 +345,14 @@ export interface EngineVersion {
  */
 export interface QueryExecutionContext {
   /**
+   * @public
    * <p>The name of the database used in the query execution. The database must exist in the
    *             catalog.</p>
    */
   Database?: string;
 
   /**
+   * @public
    * <p>The name of the data catalog used in the query execution.</p>
    */
   Catalog?: string;
@@ -350,6 +381,7 @@ export type EncryptionOption = (typeof EncryptionOption)[keyof typeof Encryption
  */
 export interface EncryptionConfiguration {
   /**
+   * @public
    * <p>Indicates whether Amazon S3 server-side encryption with Amazon S3-managed keys (<code>SSE_S3</code>), server-side encryption with KMS-managed keys
    *                 (<code>SSE_KMS</code>), or client-side encryption with KMS-managed keys
    *                 (<code>CSE_KMS</code>) is used.</p>
@@ -360,6 +392,7 @@ export interface EncryptionConfiguration {
   EncryptionOption: EncryptionOption | string | undefined;
 
   /**
+   * @public
    * <p>For <code>SSE_KMS</code> and <code>CSE_KMS</code>, this is the KMS key ARN or
    *             ID.</p>
    */
@@ -375,6 +408,7 @@ export interface EncryptionConfiguration {
  */
 export interface ResultConfiguration {
   /**
+   * @public
    * <p>The location in Amazon S3 where your query and calculation results are stored, such as
    *                 <code>s3://path/to/query/bucket/</code>. To run the query, you must specify the
    *             query results location using one of the ways: either for individual queries using either
@@ -387,6 +421,7 @@ export interface ResultConfiguration {
   OutputLocation?: string;
 
   /**
+   * @public
    * <p>If query and calculation results are encrypted in Amazon S3, indicates the encryption option
    *             used (for example, <code>SSE_KMS</code> or <code>CSE_KMS</code>) and key information.
    *             This is a client-side setting. If workgroup settings override client-side settings, then
@@ -396,6 +431,7 @@ export interface ResultConfiguration {
   EncryptionConfiguration?: EncryptionConfiguration;
 
   /**
+   * @public
    * <p>The Amazon Web Services account ID that you expect to be the owner of the Amazon S3 bucket specified by <a>ResultConfiguration$OutputLocation</a>.
    *             If set, Athena uses the value for <code>ExpectedBucketOwner</code> when it
    *             makes Amazon S3 calls to your specified output location. If the
@@ -411,6 +447,7 @@ export interface ResultConfiguration {
   ExpectedBucketOwner?: string;
 
   /**
+   * @public
    * <p>Indicates that an Amazon S3 canned ACL should be set to control ownership of
    *             stored query results. Currently the only supported canned ACL is
    *                 <code>BUCKET_OWNER_FULL_CONTROL</code>. This is a client-side setting. If workgroup
@@ -428,12 +465,14 @@ export interface ResultConfiguration {
  */
 export interface ResultReuseByAgeConfiguration {
   /**
+   * @public
    * <p>True if previous query results can be reused when the query is run; otherwise, false.
    *             The default is false.</p>
    */
   Enabled: boolean | undefined;
 
   /**
+   * @public
    * <p>Specifies, in minutes, the maximum age of a previous query result that Athena should consider for reuse. The default is 60.</p>
    */
   MaxAgeInMinutes?: number;
@@ -445,6 +484,7 @@ export interface ResultReuseByAgeConfiguration {
  */
 export interface ResultReuseConfiguration {
   /**
+   * @public
    * <p>Specifies whether previous query results are reused, and if so, their maximum
    *             age.</p>
    */
@@ -472,6 +512,7 @@ export type StatementType = (typeof StatementType)[keyof typeof StatementType];
  */
 export interface ResultReuseInformation {
   /**
+   * @public
    * <p>True if a previous query result was reused; false if the result was generated from a
    *             new run of the query.</p>
    */
@@ -485,16 +526,19 @@ export interface ResultReuseInformation {
  */
 export interface QueryExecutionStatistics {
   /**
+   * @public
    * <p>The number of milliseconds that the query took to execute.</p>
    */
   EngineExecutionTimeInMillis?: number;
 
   /**
+   * @public
    * <p>The number of bytes in the data that was queried.</p>
    */
   DataScannedInBytes?: number;
 
   /**
+   * @public
    * <p>The location and file name of a data manifest file. The manifest file is saved to the
    *                 Athena query results location in Amazon S3. The manifest file
    *             tracks files that the query wrote to Amazon S3. If the query fails, the manifest
@@ -506,11 +550,13 @@ export interface QueryExecutionStatistics {
   DataManifestLocation?: string;
 
   /**
+   * @public
    * <p>The number of milliseconds that Athena took to run the query.</p>
    */
   TotalExecutionTimeInMillis?: number;
 
   /**
+   * @public
    * <p>The number of milliseconds that the query was in your query queue waiting for
    *             resources. Note that if transient errors occur, Athena might automatically
    *             add the query back to the queue.</p>
@@ -518,6 +564,7 @@ export interface QueryExecutionStatistics {
   QueryQueueTimeInMillis?: number;
 
   /**
+   * @public
    * <p>The number of milliseconds that Athena took to plan the query processing
    *             flow. This includes the time spent retrieving table partitions from the data source.
    *             Note that because the query engine performs the query planning, query planning time is a
@@ -526,12 +573,14 @@ export interface QueryExecutionStatistics {
   QueryPlanningTimeInMillis?: number;
 
   /**
+   * @public
    * <p>The number of milliseconds that Athena took to finalize and publish the
    *             query results after the query engine finished running the query.</p>
    */
   ServiceProcessingTimeInMillis?: number;
 
   /**
+   * @public
    * <p>Contains information about whether previous query results were reused for the
    *             query.</p>
    */
@@ -549,6 +598,7 @@ export interface QueryExecutionStatistics {
  */
 export interface AthenaError {
   /**
+   * @public
    * <p>An integer value that specifies the category of a query failure error. The following
    *             list shows the category for each integer value.</p>
    *          <p>
@@ -561,6 +611,7 @@ export interface AthenaError {
   ErrorCategory?: number;
 
   /**
+   * @public
    * <p>An integer value that provides specific information about an Athena query
    *             error. For the meaning of specific values, see the <a href="https://docs.aws.amazon.com/athena/latest/ug/error-reference.html#error-reference-error-type-reference">Error Type Reference</a> in the <i>Amazon Athena User
    *                 Guide</i>.</p>
@@ -568,11 +619,13 @@ export interface AthenaError {
   ErrorType?: number;
 
   /**
+   * @public
    * <p>True if the query might succeed if resubmitted.</p>
    */
   Retryable?: boolean;
 
   /**
+   * @public
    * <p>Contains a short description of the error that occurred.</p>
    */
   ErrorMessage?: string;
@@ -602,6 +655,7 @@ export type QueryExecutionState = (typeof QueryExecutionState)[keyof typeof Quer
  */
 export interface QueryExecutionStatus {
   /**
+   * @public
    * <p>The state of query execution. <code>QUEUED</code> indicates that the query has been
    *             submitted to the service, and Athena will execute the query as soon as
    *             resources are available. <code>RUNNING</code> indicates that the query is in execution
@@ -618,21 +672,25 @@ export interface QueryExecutionStatus {
   State?: QueryExecutionState | string;
 
   /**
+   * @public
    * <p>Further detail about the status of the query.</p>
    */
   StateChangeReason?: string;
 
   /**
+   * @public
    * <p>The date and time that the query was submitted.</p>
    */
   SubmissionDateTime?: Date;
 
   /**
+   * @public
    * <p>The date and time that the query completed.</p>
    */
   CompletionDateTime?: Date;
 
   /**
+   * @public
    * <p>Provides information about an Athena query error.</p>
    */
   AthenaError?: AthenaError;
@@ -644,16 +702,19 @@ export interface QueryExecutionStatus {
  */
 export interface QueryExecution {
   /**
+   * @public
    * <p>The unique identifier for each query execution.</p>
    */
   QueryExecutionId?: string;
 
   /**
+   * @public
    * <p>The SQL query statements which the query execution ran.</p>
    */
   Query?: string;
 
   /**
+   * @public
    * <p>The type of query statement that was run. <code>DDL</code> indicates DDL query
    *             statements. <code>DML</code> indicates DML (Data Manipulation Language) query
    *             statements, such as <code>CREATE TABLE AS SELECT</code>. <code>UTILITY</code> indicates
@@ -663,6 +724,7 @@ export interface QueryExecution {
   StatementType?: StatementType | string;
 
   /**
+   * @public
    * <p>The location in Amazon S3 where query and calculation results are stored and the encryption
    *             option, if any, used for query results. These are known as "client-side settings". If
    *             workgroup settings override client-side settings, then the query uses the location for
@@ -672,44 +734,52 @@ export interface QueryExecution {
   ResultConfiguration?: ResultConfiguration;
 
   /**
+   * @public
    * <p>Specifies the query result reuse behavior that was used for the query.</p>
    */
   ResultReuseConfiguration?: ResultReuseConfiguration;
 
   /**
+   * @public
    * <p>The database in which the query execution occurred.</p>
    */
   QueryExecutionContext?: QueryExecutionContext;
 
   /**
+   * @public
    * <p>The completion date, current state, submission time, and state change reason (if
    *             applicable) for the query execution.</p>
    */
   Status?: QueryExecutionStatus;
 
   /**
+   * @public
    * <p>Query execution statistics, such as the amount of data scanned, the amount of time
    *             that the query took to process, and the type of statement that was run.</p>
    */
   Statistics?: QueryExecutionStatistics;
 
   /**
+   * @public
    * <p>The name of the workgroup in which the query ran.</p>
    */
   WorkGroup?: string;
 
   /**
+   * @public
    * <p>The engine version that executed the query.</p>
    */
   EngineVersion?: EngineVersion;
 
   /**
+   * @public
    * <p>A list of values for the parameters in a query. The values are applied sequentially to
    *             the parameters in the query in the order in which the parameters occur. The list of parameters is not returned in the response.</p>
    */
   ExecutionParameters?: string[];
 
   /**
+   * @public
    * <p>The kind of query statement that was run.</p>
    */
   SubstatementType?: string;
@@ -721,17 +791,20 @@ export interface QueryExecution {
  */
 export interface UnprocessedQueryExecutionId {
   /**
+   * @public
    * <p>The unique identifier of the query execution.</p>
    */
   QueryExecutionId?: string;
 
   /**
+   * @public
    * <p>The error code returned when the query execution failed to process, if
    *             applicable.</p>
    */
   ErrorCode?: string;
 
   /**
+   * @public
    * <p>The error message returned when the query execution failed to process, if
    *             applicable.</p>
    */
@@ -743,11 +816,13 @@ export interface UnprocessedQueryExecutionId {
  */
 export interface BatchGetQueryExecutionOutput {
   /**
+   * @public
    * <p>Information about a query execution.</p>
    */
   QueryExecutions?: QueryExecution[];
 
   /**
+   * @public
    * <p>Information about the query executions that failed to run.</p>
    */
   UnprocessedQueryExecutionIds?: UnprocessedQueryExecutionId[];
@@ -758,6 +833,7 @@ export interface BatchGetQueryExecutionOutput {
  */
 export interface CancelCapacityReservationInput {
   /**
+   * @public
    * <p>The name of the capacity reservation to cancel.</p>
    */
   Name: string | undefined;
@@ -783,6 +859,7 @@ export interface CancelCapacityReservationOutput {}
  */
 export interface Tag {
   /**
+   * @public
    * <p>A tag key. The tag key length is from 1 to 128 Unicode characters in UTF-8. You can
    *             use letters and numbers representable in UTF-8, and the following characters: + - = . _
    *             : / @. Tag keys are case-sensitive and must be unique per resource. </p>
@@ -790,6 +867,7 @@ export interface Tag {
   Key?: string;
 
   /**
+   * @public
    * <p>A tag value. The tag value length is from 0 to 256 Unicode characters in UTF-8. You
    *             can use letters and numbers representable in UTF-8, and the following characters: + - =
    *             . _ : / @. Tag values are case-sensitive. </p>
@@ -802,16 +880,19 @@ export interface Tag {
  */
 export interface CreateCapacityReservationInput {
   /**
+   * @public
    * <p>The number of requested data processing units.</p>
    */
   TargetDpus: number | undefined;
 
   /**
+   * @public
    * <p>The name of the capacity reservation to create.</p>
    */
   Name: string | undefined;
 
   /**
+   * @public
    * <p>The tags for the capacity reservation.</p>
    */
   Tags?: Tag[];
@@ -842,6 +923,7 @@ export type DataCatalogType = (typeof DataCatalogType)[keyof typeof DataCatalogT
  */
 export interface CreateDataCatalogInput {
   /**
+   * @public
    * <p>The name of the data catalog to create. The catalog name must be unique for the
    *                 Amazon Web Services account and can use a maximum of 127 alphanumeric, underscore, at
    *             sign, or hyphen characters. The remainder of the length constraint of 256 is reserved
@@ -850,6 +932,7 @@ export interface CreateDataCatalogInput {
   Name: string | undefined;
 
   /**
+   * @public
    * <p>The type of data catalog to create: <code>LAMBDA</code> for a federated catalog,
    *                 <code>HIVE</code> for an external hive metastore, or <code>GLUE</code> for an
    *                 Glue Data Catalog.</p>
@@ -857,11 +940,13 @@ export interface CreateDataCatalogInput {
   Type: DataCatalogType | string | undefined;
 
   /**
+   * @public
    * <p>A description of the data catalog to be created.</p>
    */
   Description?: string;
 
   /**
+   * @public
    * <p>Specifies the Lambda function or functions to use for creating the data
    *             catalog. This is a mapping whose values depend on the catalog type. </p>
    *          <ul>
@@ -934,6 +1019,7 @@ export interface CreateDataCatalogInput {
   Parameters?: Record<string, string>;
 
   /**
+   * @public
    * <p>A list of comma separated tags to add to the data catalog that is created.</p>
    */
   Tags?: Tag[];
@@ -949,26 +1035,31 @@ export interface CreateDataCatalogOutput {}
  */
 export interface CreateNamedQueryInput {
   /**
+   * @public
    * <p>The query name.</p>
    */
   Name: string | undefined;
 
   /**
+   * @public
    * <p>The query description.</p>
    */
   Description?: string;
 
   /**
+   * @public
    * <p>The database to which the query belongs.</p>
    */
   Database: string | undefined;
 
   /**
+   * @public
    * <p>The contents of the query with all query statements.</p>
    */
   QueryString: string | undefined;
 
   /**
+   * @public
    * <p>A unique case-sensitive string used to ensure the request to create the query is
    *             idempotent (executes only once). If another <code>CreateNamedQuery</code> request is
    *             received, the same response is returned and another query is not created. If a parameter
@@ -983,6 +1074,7 @@ export interface CreateNamedQueryInput {
   ClientRequestToken?: string;
 
   /**
+   * @public
    * <p>The name of the workgroup in which the named query is being created.</p>
    */
   WorkGroup?: string;
@@ -993,6 +1085,7 @@ export interface CreateNamedQueryInput {
  */
 export interface CreateNamedQueryOutput {
   /**
+   * @public
    * <p>The unique ID of the query.</p>
    */
   NamedQueryId?: string;
@@ -1003,17 +1096,20 @@ export interface CreateNamedQueryOutput {
  */
 export interface CreateNotebookInput {
   /**
+   * @public
    * <p>The name of the Spark enabled workgroup in which the notebook will be created.</p>
    */
   WorkGroup: string | undefined;
 
   /**
+   * @public
    * <p>The name of the <code>ipynb</code> file to be created in the Spark workgroup, without
    *             the <code>.ipynb</code> extension.</p>
    */
   Name: string | undefined;
 
   /**
+   * @public
    * <p>A unique case-sensitive string used to ensure the request to create the notebook is
    *             idempotent (executes only once).</p>
    *          <important>
@@ -1031,6 +1127,7 @@ export interface CreateNotebookInput {
  */
 export interface CreateNotebookOutput {
   /**
+   * @public
    * <p>A unique identifier for the notebook.</p>
    */
   NotebookId?: string;
@@ -1058,6 +1155,7 @@ export class TooManyRequestsException extends __BaseException {
   readonly $fault: "client" = "client";
   Message?: string;
   /**
+   * @public
    * <p>The reason for the query throttling, for example, when it exceeds the concurrent query
    *             limit.</p>
    */
@@ -1082,21 +1180,25 @@ export class TooManyRequestsException extends __BaseException {
  */
 export interface CreatePreparedStatementInput {
   /**
+   * @public
    * <p>The name of the prepared statement.</p>
    */
   StatementName: string | undefined;
 
   /**
+   * @public
    * <p>The name of the workgroup to which the prepared statement belongs.</p>
    */
   WorkGroup: string | undefined;
 
   /**
+   * @public
    * <p>The query string for the prepared statement.</p>
    */
   QueryStatement: string | undefined;
 
   /**
+   * @public
    * <p>The description of the prepared statement.</p>
    */
   Description?: string;
@@ -1112,6 +1214,7 @@ export interface CreatePreparedStatementOutput {}
  */
 export interface CreatePresignedNotebookUrlRequest {
   /**
+   * @public
    * <p>The session ID.</p>
    */
   SessionId: string | undefined;
@@ -1122,17 +1225,20 @@ export interface CreatePresignedNotebookUrlRequest {
  */
 export interface CreatePresignedNotebookUrlResponse {
   /**
+   * @public
    * <p>The URL of the notebook. The URL includes the authentication token and notebook file
    *             name and points directly to the opened notebook.</p>
    */
   NotebookUrl: string | undefined;
 
   /**
+   * @public
    * <p>The authentication token for the notebook.</p>
    */
   AuthToken: string | undefined;
 
   /**
+   * @public
    * <p>The UTC epoch time when the authentication token expires.</p>
    */
   AuthTokenExpirationTime: number | undefined;
@@ -1147,6 +1253,7 @@ export class ResourceNotFoundException extends __BaseException {
   readonly $fault: "client" = "client";
   Message?: string;
   /**
+   * @public
    * <p>The name of the Amazon resource.</p>
    */
   ResourceName?: string;
@@ -1171,6 +1278,7 @@ export class ResourceNotFoundException extends __BaseException {
  */
 export interface CustomerContentEncryptionConfiguration {
   /**
+   * @public
    * <p>The KMS key that is used to encrypt the user's data stores in Athena.</p>
    */
   KmsKey: string | undefined;
@@ -1188,6 +1296,7 @@ export interface CustomerContentEncryptionConfiguration {
  */
 export interface WorkGroupConfiguration {
   /**
+   * @public
    * <p>The configuration for the workgroup, which includes the location in Amazon S3
    *             where query and calculation results are stored and the encryption option, if any, used for query and calculation results. To run the query, you must specify the query results location using one of the
    *             ways: either in the workgroup using this setting, or for individual queries
@@ -1198,23 +1307,27 @@ export interface WorkGroupConfiguration {
   ResultConfiguration?: ResultConfiguration;
 
   /**
+   * @public
    * <p>If set to "true", the settings for the workgroup override client-side settings. If set
    *             to "false", client-side settings are used. For more information, see <a href="https://docs.aws.amazon.com/athena/latest/ug/workgroups-settings-override.html">Workgroup Settings Override Client-Side Settings</a>.</p>
    */
   EnforceWorkGroupConfiguration?: boolean;
 
   /**
+   * @public
    * <p>Indicates that the Amazon CloudWatch metrics are enabled for the workgroup.</p>
    */
   PublishCloudWatchMetricsEnabled?: boolean;
 
   /**
+   * @public
    * <p>The upper data usage limit (cutoff) for the amount of bytes a single query in a
    *             workgroup is allowed to scan.</p>
    */
   BytesScannedCutoffPerQuery?: number;
 
   /**
+   * @public
    * <p>If set to <code>true</code>, allows members assigned to a workgroup to reference
    *                 Amazon S3 Requester Pays buckets in queries. If set to <code>false</code>,
    *             workgroup members cannot query data from Requester Pays buckets, and queries that
@@ -1226,6 +1339,7 @@ export interface WorkGroupConfiguration {
   RequesterPaysEnabled?: boolean;
 
   /**
+   * @public
    * <p>The engine version that all queries running on the workgroup use. Queries on the
    *                 <code>AmazonAthenaPreviewFunctionality</code> workgroup run on the preview engine
    *             regardless of this setting.</p>
@@ -1233,21 +1347,25 @@ export interface WorkGroupConfiguration {
   EngineVersion?: EngineVersion;
 
   /**
+   * @public
    * <p>Specifies a user defined JSON string that is passed to the notebook engine.</p>
    */
   AdditionalConfiguration?: string;
 
   /**
+   * @public
    * <p>Role used in a session for accessing the user's resources.</p>
    */
   ExecutionRole?: string;
 
   /**
+   * @public
    * <p>Specifies the KMS key that is used to encrypt the user's data stores in Athena. This setting does not apply to Athena SQL workgroups.</p>
    */
   CustomerContentEncryptionConfiguration?: CustomerContentEncryptionConfiguration;
 
   /**
+   * @public
    * <p>Enforces a minimal level of encryption for the workgroup for query and calculation
    *             results that are written to Amazon S3. When enabled, workgroup users can set
    *             encryption only to the minimum level set by the administrator or higher when they submit queries.</p>
@@ -1261,11 +1379,13 @@ export interface WorkGroupConfiguration {
  */
 export interface CreateWorkGroupInput {
   /**
+   * @public
    * <p>The workgroup name.</p>
    */
   Name: string | undefined;
 
   /**
+   * @public
    * <p>Contains configuration information for creating an Athena SQL workgroup or
    *             Spark enabled Athena workgroup. Athena SQL workgroup
    *             configuration includes the location in Amazon S3 where query and calculation results are stored,
@@ -1278,11 +1398,13 @@ export interface CreateWorkGroupInput {
   Configuration?: WorkGroupConfiguration;
 
   /**
+   * @public
    * <p>The workgroup description.</p>
    */
   Description?: string;
 
   /**
+   * @public
    * <p>A list of comma separated tags to add to the workgroup that is created.</p>
    */
   Tags?: Tag[];
@@ -1298,6 +1420,7 @@ export interface CreateWorkGroupOutput {}
  */
 export interface DeleteCapacityReservationInput {
   /**
+   * @public
    * <p>The name of the capacity reservation to delete.</p>
    */
   Name: string | undefined;
@@ -1313,6 +1436,7 @@ export interface DeleteCapacityReservationOutput {}
  */
 export interface DeleteDataCatalogInput {
   /**
+   * @public
    * <p>The name of the data catalog to delete.</p>
    */
   Name: string | undefined;
@@ -1328,6 +1452,7 @@ export interface DeleteDataCatalogOutput {}
  */
 export interface DeleteNamedQueryInput {
   /**
+   * @public
    * <p>The unique ID of the query to delete.</p>
    */
   NamedQueryId?: string;
@@ -1343,6 +1468,7 @@ export interface DeleteNamedQueryOutput {}
  */
 export interface DeleteNotebookInput {
   /**
+   * @public
    * <p>The ID of the notebook to delete.</p>
    */
   NotebookId: string | undefined;
@@ -1358,11 +1484,13 @@ export interface DeleteNotebookOutput {}
  */
 export interface DeletePreparedStatementInput {
   /**
+   * @public
    * <p>The name of the prepared statement to delete.</p>
    */
   StatementName: string | undefined;
 
   /**
+   * @public
    * <p>The workgroup to which the statement to be deleted belongs.</p>
    */
   WorkGroup: string | undefined;
@@ -1378,11 +1506,13 @@ export interface DeletePreparedStatementOutput {}
  */
 export interface DeleteWorkGroupInput {
   /**
+   * @public
    * <p>The unique name of the workgroup to delete.</p>
    */
   WorkGroup: string | undefined;
 
   /**
+   * @public
    * <p>The option to delete the workgroup and its contents even if the workgroup contains any
    *             named queries, query executions, or notebooks.</p>
    */
@@ -1399,6 +1529,7 @@ export interface DeleteWorkGroupOutput {}
  */
 export interface ExportNotebookInput {
   /**
+   * @public
    * <p>The ID of the notebook to export.</p>
    */
   NotebookId: string | undefined;
@@ -1424,31 +1555,37 @@ export type NotebookType = (typeof NotebookType)[keyof typeof NotebookType];
  */
 export interface NotebookMetadata {
   /**
+   * @public
    * <p>The notebook ID.</p>
    */
   NotebookId?: string;
 
   /**
+   * @public
    * <p>The name of the notebook.</p>
    */
   Name?: string;
 
   /**
+   * @public
    * <p>The name of the Spark enabled workgroup to which the notebook belongs.</p>
    */
   WorkGroup?: string;
 
   /**
+   * @public
    * <p>The time when the notebook was created.</p>
    */
   CreationTime?: Date;
 
   /**
+   * @public
    * <p>The type of notebook. Currently, the only valid type is <code>IPYNB</code>.</p>
    */
   Type?: NotebookType | string;
 
   /**
+   * @public
    * <p>The time when the notebook was last modified.</p>
    */
   LastModifiedTime?: Date;
@@ -1459,12 +1596,14 @@ export interface NotebookMetadata {
  */
 export interface ExportNotebookOutput {
   /**
+   * @public
    * <p>The notebook metadata, including notebook ID, notebook name, and workgroup
    *             name.</p>
    */
   NotebookMetadata?: NotebookMetadata;
 
   /**
+   * @public
    * <p>The content of the exported notebook.</p>
    */
   Payload?: string;
@@ -1475,6 +1614,7 @@ export interface ExportNotebookOutput {
  */
 export interface GetCalculationExecutionRequest {
   /**
+   * @public
    * <p>The calculation execution UUID.</p>
    */
   CalculationExecutionId: string | undefined;
@@ -1486,22 +1626,26 @@ export interface GetCalculationExecutionRequest {
  */
 export interface CalculationResult {
   /**
+   * @public
    * <p>The Amazon S3 location of the <code>stdout</code> file for the calculation.</p>
    */
   StdOutS3Uri?: string;
 
   /**
+   * @public
    * <p>The Amazon S3 location of the <code>stderr</code> error messages file for the
    *             calculation.</p>
    */
   StdErrorS3Uri?: string;
 
   /**
+   * @public
    * <p>The Amazon S3 location of the folder for the calculation results.</p>
    */
   ResultS3Uri?: string;
 
   /**
+   * @public
    * <p>The data format of the calculation result.</p>
    */
   ResultType?: string;
@@ -1513,11 +1657,13 @@ export interface CalculationResult {
  */
 export interface CalculationStatistics {
   /**
+   * @public
    * <p>The data processing unit execution time in milliseconds for the calculation.</p>
    */
   DpuExecutionInMillis?: number;
 
   /**
+   * @public
    * <p>The progress of the calculation.</p>
    */
   Progress?: string;
@@ -1549,16 +1695,19 @@ export type CalculationExecutionState = (typeof CalculationExecutionState)[keyof
  */
 export interface CalculationStatus {
   /**
+   * @public
    * <p>The date and time the calculation was submitted for processing.</p>
    */
   SubmissionDateTime?: Date;
 
   /**
+   * @public
    * <p>The date and time the calculation completed processing.</p>
    */
   CompletionDateTime?: Date;
 
   /**
+   * @public
    * <p>The state of the calculation execution. A description of each state follows.</p>
    *          <p>
    *             <code>CREATING</code> - The calculation is in the process of being created.</p>
@@ -1582,6 +1731,7 @@ export interface CalculationStatus {
   State?: CalculationExecutionState | string;
 
   /**
+   * @public
    * <p>The reason for the calculation state change (for example, the calculation was canceled
    *             because the session was terminated).</p>
    */
@@ -1593,37 +1743,44 @@ export interface CalculationStatus {
  */
 export interface GetCalculationExecutionResponse {
   /**
+   * @public
    * <p>The calculation execution UUID.</p>
    */
   CalculationExecutionId?: string;
 
   /**
+   * @public
    * <p>The session ID that the calculation ran in.</p>
    */
   SessionId?: string;
 
   /**
+   * @public
    * <p>The description of the calculation execution.</p>
    */
   Description?: string;
 
   /**
+   * @public
    * <p>The Amazon S3 location in which calculation results are stored.</p>
    */
   WorkingDirectory?: string;
 
   /**
+   * @public
    * <p>Contains information about the status of the calculation.</p>
    */
   Status?: CalculationStatus;
 
   /**
+   * @public
    * <p>Contains information about the data processing unit (DPU) execution time and progress.
    *             This field is populated only when statistics are available.</p>
    */
   Statistics?: CalculationStatistics;
 
   /**
+   * @public
    * <p>Contains result information. This field is populated only if the calculation is
    *             completed.</p>
    */
@@ -1635,6 +1792,7 @@ export interface GetCalculationExecutionResponse {
  */
 export interface GetCalculationExecutionCodeRequest {
   /**
+   * @public
    * <p>The calculation execution UUID.</p>
    */
   CalculationExecutionId: string | undefined;
@@ -1645,6 +1803,7 @@ export interface GetCalculationExecutionCodeRequest {
  */
 export interface GetCalculationExecutionCodeResponse {
   /**
+   * @public
    * <p>The unencrypted code that was executed for the calculation.</p>
    */
   CodeBlock?: string;
@@ -1655,6 +1814,7 @@ export interface GetCalculationExecutionCodeResponse {
  */
 export interface GetCalculationExecutionStatusRequest {
   /**
+   * @public
    * <p>The calculation execution UUID.</p>
    */
   CalculationExecutionId: string | undefined;
@@ -1665,11 +1825,13 @@ export interface GetCalculationExecutionStatusRequest {
  */
 export interface GetCalculationExecutionStatusResponse {
   /**
+   * @public
    * <p>Contains information about the calculation execution status.</p>
    */
   Status?: CalculationStatus;
 
   /**
+   * @public
    * <p>Contains information about the DPU execution time and progress.</p>
    */
   Statistics?: CalculationStatistics;
@@ -1680,6 +1842,7 @@ export interface GetCalculationExecutionStatusResponse {
  */
 export interface GetCapacityAssignmentConfigurationInput {
   /**
+   * @public
    * <p>The name of the capacity reservation to retrieve the capacity assignment configuration for.</p>
    */
   CapacityReservationName: string | undefined;
@@ -1691,6 +1854,7 @@ export interface GetCapacityAssignmentConfigurationInput {
  */
 export interface CapacityAssignment {
   /**
+   * @public
    * <p>The list of workgroup names for the capacity assignment.</p>
    */
   WorkGroupNames?: string[];
@@ -1702,11 +1866,13 @@ export interface CapacityAssignment {
  */
 export interface CapacityAssignmentConfiguration {
   /**
+   * @public
    * <p>The name of the reservation that the capacity assignment configuration is for.</p>
    */
   CapacityReservationName?: string;
 
   /**
+   * @public
    * <p>The list of assignments that make up the capacity assignment configuration.</p>
    */
   CapacityAssignments?: CapacityAssignment[];
@@ -1717,6 +1883,7 @@ export interface CapacityAssignmentConfiguration {
  */
 export interface GetCapacityAssignmentConfigurationOutput {
   /**
+   * @public
    * <p>The requested capacity assignment configuration for the specified capacity reservation.</p>
    */
   CapacityAssignmentConfiguration: CapacityAssignmentConfiguration | undefined;
@@ -1727,6 +1894,7 @@ export interface GetCapacityAssignmentConfigurationOutput {
  */
 export interface GetCapacityReservationInput {
   /**
+   * @public
    * <p>The name of the capacity reservation.</p>
    */
   Name: string | undefined;
@@ -1753,21 +1921,25 @@ export type CapacityAllocationStatus = (typeof CapacityAllocationStatus)[keyof t
  */
 export interface CapacityAllocation {
   /**
+   * @public
    * <p>The status of the capacity allocation.</p>
    */
   Status: CapacityAllocationStatus | string | undefined;
 
   /**
+   * @public
    * <p>The status message of the capacity allocation.</p>
    */
   StatusMessage?: string;
 
   /**
+   * @public
    * <p>The time when the capacity allocation was requested.</p>
    */
   RequestTime: Date | undefined;
 
   /**
+   * @public
    * <p>The time when the capacity allocation request was completed.</p>
    */
   RequestCompletionTime?: Date;
@@ -1797,36 +1969,43 @@ export type CapacityReservationStatus = (typeof CapacityReservationStatus)[keyof
  */
 export interface CapacityReservation {
   /**
+   * @public
    * <p>The name of the capacity reservation.</p>
    */
   Name: string | undefined;
 
   /**
+   * @public
    * <p>The status of the capacity reservation.</p>
    */
   Status: CapacityReservationStatus | string | undefined;
 
   /**
+   * @public
    * <p>The number of data processing units requested.</p>
    */
   TargetDpus: number | undefined;
 
   /**
+   * @public
    * <p>The number of data processing units currently allocated.</p>
    */
   AllocatedDpus: number | undefined;
 
   /**
+   * @public
    * <p>Contains the submission time of a single allocation request for a capacity reservation and the most recent status of the attempted allocation.</p>
    */
   LastAllocation?: CapacityAllocation;
 
   /**
+   * @public
    * <p>The time of the most recent capacity allocation that succeeded.</p>
    */
   LastSuccessfulAllocationTime?: Date;
 
   /**
+   * @public
    * <p>The time in UTC epoch millis when the capacity reservation was created.</p>
    */
   CreationTime: Date | undefined;
@@ -1837,6 +2016,7 @@ export interface CapacityReservation {
  */
 export interface GetCapacityReservationOutput {
   /**
+   * @public
    * <p>The requested capacity reservation structure.</p>
    */
   CapacityReservation: CapacityReservation | undefined;
@@ -1847,11 +2027,13 @@ export interface GetCapacityReservationOutput {
  */
 export interface GetDatabaseInput {
   /**
+   * @public
    * <p>The name of the data catalog that contains the database to return.</p>
    */
   CatalogName: string | undefined;
 
   /**
+   * @public
    * <p>The name of the database to return.</p>
    */
   DatabaseName: string | undefined;
@@ -1863,16 +2045,19 @@ export interface GetDatabaseInput {
  */
 export interface Database {
   /**
+   * @public
    * <p>The name of the database.</p>
    */
   Name: string | undefined;
 
   /**
+   * @public
    * <p>An optional description of the database.</p>
    */
   Description?: string;
 
   /**
+   * @public
    * <p>A set of custom key/value pairs.</p>
    */
   Parameters?: Record<string, string>;
@@ -1883,6 +2068,7 @@ export interface Database {
  */
 export interface GetDatabaseOutput {
   /**
+   * @public
    * <p>The database returned.</p>
    */
   Database?: Database;
@@ -1920,6 +2106,7 @@ export class MetadataException extends __BaseException {
  */
 export interface GetDataCatalogInput {
   /**
+   * @public
    * <p>The name of the data catalog to return.</p>
    */
   Name: string | undefined;
@@ -1935,6 +2122,7 @@ export interface GetDataCatalogInput {
  */
 export interface DataCatalog {
   /**
+   * @public
    * <p>The name of the data catalog. The catalog name must be unique for the Amazon Web Services account and can use a maximum of 127 alphanumeric, underscore, at sign,
    *             or hyphen characters. The remainder of the length constraint of 256 is reserved for use
    *             by Athena.</p>
@@ -1942,11 +2130,13 @@ export interface DataCatalog {
   Name: string | undefined;
 
   /**
+   * @public
    * <p>An optional description of the data catalog.</p>
    */
   Description?: string;
 
   /**
+   * @public
    * <p>The type of data catalog to create: <code>LAMBDA</code> for a federated catalog,
    *                 <code>HIVE</code> for an external hive metastore, or <code>GLUE</code> for an
    *                 Glue Data Catalog.</p>
@@ -1954,6 +2144,7 @@ export interface DataCatalog {
   Type: DataCatalogType | string | undefined;
 
   /**
+   * @public
    * <p>Specifies the Lambda function or functions to use for the data catalog.
    *             This is a mapping whose values depend on the catalog type. </p>
    *          <ul>
@@ -2026,6 +2217,7 @@ export interface DataCatalog {
  */
 export interface GetDataCatalogOutput {
   /**
+   * @public
    * <p>The data catalog returned.</p>
    */
   DataCatalog?: DataCatalog;
@@ -2036,6 +2228,7 @@ export interface GetDataCatalogOutput {
  */
 export interface GetNamedQueryInput {
   /**
+   * @public
    * <p>The unique ID of the query. Use <a>ListNamedQueries</a> to get query
    *             IDs.</p>
    */
@@ -2047,6 +2240,7 @@ export interface GetNamedQueryInput {
  */
 export interface GetNamedQueryOutput {
   /**
+   * @public
    * <p>Information about the query.</p>
    */
   NamedQuery?: NamedQuery;
@@ -2057,6 +2251,7 @@ export interface GetNamedQueryOutput {
  */
 export interface GetNotebookMetadataInput {
   /**
+   * @public
    * <p>The ID of the notebook whose metadata is to be retrieved.</p>
    */
   NotebookId: string | undefined;
@@ -2067,6 +2262,7 @@ export interface GetNotebookMetadataInput {
  */
 export interface GetNotebookMetadataOutput {
   /**
+   * @public
    * <p>The metadata that is returned for the specified notebook ID.</p>
    */
   NotebookMetadata?: NotebookMetadata;
@@ -2077,11 +2273,13 @@ export interface GetNotebookMetadataOutput {
  */
 export interface GetPreparedStatementInput {
   /**
+   * @public
    * <p>The name of the prepared statement to retrieve.</p>
    */
   StatementName: string | undefined;
 
   /**
+   * @public
    * <p>The workgroup to which the statement to be retrieved belongs.</p>
    */
   WorkGroup: string | undefined;
@@ -2092,6 +2290,7 @@ export interface GetPreparedStatementInput {
  */
 export interface GetPreparedStatementOutput {
   /**
+   * @public
    * <p>The name of the prepared statement that was retrieved.</p>
    */
   PreparedStatement?: PreparedStatement;
@@ -2102,6 +2301,7 @@ export interface GetPreparedStatementOutput {
  */
 export interface GetQueryExecutionInput {
   /**
+   * @public
    * <p>The unique ID of the query execution.</p>
    */
   QueryExecutionId: string | undefined;
@@ -2112,6 +2312,7 @@ export interface GetQueryExecutionInput {
  */
 export interface GetQueryExecutionOutput {
   /**
+   * @public
    * <p>Information about the query execution.</p>
    */
   QueryExecution?: QueryExecution;
@@ -2122,11 +2323,13 @@ export interface GetQueryExecutionOutput {
  */
 export interface GetQueryResultsInput {
   /**
+   * @public
    * <p>The unique ID of the query execution.</p>
    */
   QueryExecutionId: string | undefined;
 
   /**
+   * @public
    * <p>A token generated by the Athena service that specifies where to continue
    *             pagination if a previous request was truncated. To obtain the next set of pages, pass in
    *             the <code>NextToken</code> from the response object of the previous page call.</p>
@@ -2134,6 +2337,7 @@ export interface GetQueryResultsInput {
   NextToken?: string;
 
   /**
+   * @public
    * <p>The maximum number of results (rows) to return in this request.</p>
    */
   MaxResults?: number;
@@ -2160,53 +2364,63 @@ export type ColumnNullable = (typeof ColumnNullable)[keyof typeof ColumnNullable
  */
 export interface ColumnInfo {
   /**
+   * @public
    * <p>The catalog to which the query results belong.</p>
    */
   CatalogName?: string;
 
   /**
+   * @public
    * <p>The schema name (database name) to which the query results belong.</p>
    */
   SchemaName?: string;
 
   /**
+   * @public
    * <p>The table name for the query results.</p>
    */
   TableName?: string;
 
   /**
+   * @public
    * <p>The name of the column.</p>
    */
   Name: string | undefined;
 
   /**
+   * @public
    * <p>A column label.</p>
    */
   Label?: string;
 
   /**
+   * @public
    * <p>The data type of the column.</p>
    */
   Type: string | undefined;
 
   /**
+   * @public
    * <p>For <code>DECIMAL</code> data types, specifies the total number of digits, up to 38.
    *             For performance reasons, we recommend up to 18 digits.</p>
    */
   Precision?: number;
 
   /**
+   * @public
    * <p>For <code>DECIMAL</code> data types, specifies the total number of digits in the
    *             fractional part of the value. Defaults to 0.</p>
    */
   Scale?: number;
 
   /**
+   * @public
    * <p>Indicates the column's nullable status.</p>
    */
   Nullable?: ColumnNullable | string;
 
   /**
+   * @public
    * <p>Indicates whether values in the column are case-sensitive.</p>
    */
   CaseSensitive?: boolean;
@@ -2219,6 +2433,7 @@ export interface ColumnInfo {
  */
 export interface ResultSetMetadata {
   /**
+   * @public
    * <p>Information about the columns returned in a query result metadata.</p>
    */
   ColumnInfo?: ColumnInfo[];
@@ -2230,6 +2445,7 @@ export interface ResultSetMetadata {
  */
 export interface Datum {
   /**
+   * @public
    * <p>The value of the datum.</p>
    */
   VarCharValue?: string;
@@ -2241,6 +2457,7 @@ export interface Datum {
  */
 export interface Row {
   /**
+   * @public
    * <p>The data that populates a row in a query result table.</p>
    */
   Data?: Datum[];
@@ -2253,11 +2470,13 @@ export interface Row {
  */
 export interface ResultSet {
   /**
+   * @public
    * <p>The rows in the table.</p>
    */
   Rows?: Row[];
 
   /**
+   * @public
    * <p>The metadata that describes the column structure and data types of a table of query
    *             results.</p>
    */
@@ -2269,17 +2488,20 @@ export interface ResultSet {
  */
 export interface GetQueryResultsOutput {
   /**
+   * @public
    * <p>The number of rows inserted with a <code>CREATE TABLE AS SELECT</code> statement.
    *         </p>
    */
   UpdateCount?: number;
 
   /**
+   * @public
    * <p>The results of the query execution.</p>
    */
   ResultSet?: ResultSet;
 
   /**
+   * @public
    * <p>A token generated by the Athena service that specifies where to continue
    *             pagination if a previous request was truncated. To obtain the next set of pages, pass in
    *             the <code>NextToken</code> from the response object of the previous page call.</p>
@@ -2292,6 +2514,7 @@ export interface GetQueryResultsOutput {
  */
 export interface GetQueryRuntimeStatisticsInput {
   /**
+   * @public
    * <p>The unique ID of the query execution.</p>
    */
   QueryExecutionId: string | undefined;
@@ -2304,21 +2527,25 @@ export interface GetQueryRuntimeStatisticsInput {
  */
 export interface QueryRuntimeStatisticsRows {
   /**
+   * @public
    * <p>The number of rows read to execute the query.</p>
    */
   InputRows?: number;
 
   /**
+   * @public
    * <p>The number of bytes read to execute the query.</p>
    */
   InputBytes?: number;
 
   /**
+   * @public
    * <p>The number of bytes returned by the query.</p>
    */
   OutputBytes?: number;
 
   /**
+   * @public
    * <p>The number of rows returned by the query.</p>
    */
   OutputRows?: number;
@@ -2331,6 +2558,7 @@ export interface QueryRuntimeStatisticsRows {
  */
 export interface QueryRuntimeStatisticsTimeline {
   /**
+   * @public
    * <p>The number of milliseconds that the query was in your query queue waiting for
    *             resources. Note that if transient errors occur, Athena might automatically
    *             add the query back to the queue.</p>
@@ -2338,6 +2566,7 @@ export interface QueryRuntimeStatisticsTimeline {
   QueryQueueTimeInMillis?: number;
 
   /**
+   * @public
    * <p>The number of milliseconds that Athena took to plan the query processing
    *             flow. This includes the time spent retrieving table partitions from the data source.
    *             Note that because the query engine performs the query planning, query planning time is a
@@ -2346,17 +2575,20 @@ export interface QueryRuntimeStatisticsTimeline {
   QueryPlanningTimeInMillis?: number;
 
   /**
+   * @public
    * <p>The number of milliseconds that the query took to execute.</p>
    */
   EngineExecutionTimeInMillis?: number;
 
   /**
+   * @public
    * <p>The number of milliseconds that Athena took to finalize and publish the
    *             query results after the query engine finished running the query.</p>
    */
   ServiceProcessingTimeInMillis?: number;
 
   /**
+   * @public
    * <p>The number of milliseconds that Athena took to run the query.</p>
    */
   TotalExecutionTimeInMillis?: number;
@@ -2367,6 +2599,7 @@ export interface QueryRuntimeStatisticsTimeline {
  */
 export interface GetSessionRequest {
   /**
+   * @public
    * <p>The session ID.</p>
    */
   SessionId: string | undefined;
@@ -2379,6 +2612,7 @@ export interface GetSessionRequest {
  */
 export interface EngineConfiguration {
   /**
+   * @public
    * <p>The number of DPUs to use for the coordinator. A coordinator is a special executor
    *             that orchestrates processing work and manages other executors in a notebook
    *             session. The default is 1.</p>
@@ -2386,17 +2620,20 @@ export interface EngineConfiguration {
   CoordinatorDpuSize?: number;
 
   /**
+   * @public
    * <p>The maximum number of DPUs that can run concurrently.</p>
    */
   MaxConcurrentDpus: number | undefined;
 
   /**
+   * @public
    * <p>The default number of DPUs to use for executors. An executor is the smallest unit of
    *             compute that a notebook session can request from Athena. The default is 1.</p>
    */
   DefaultExecutorDpuSize?: number;
 
   /**
+   * @public
    * <p>Contains additional notebook engine <code>MAP<string, string></code> parameter
    *             mappings in the form of key-value pairs. To specify an Athena notebook that
    *             the Jupyter server will download and serve, specify a value for the <a>StartSessionRequest$NotebookVersion</a> field, and then add a key named
@@ -2406,6 +2643,7 @@ export interface EngineConfiguration {
   AdditionalConfigs?: Record<string, string>;
 
   /**
+   * @public
    * <p>Specifies custom jar files and Spark properties for use cases like cluster encryption, table formats, and general Spark tuning.</p>
    */
   SparkProperties?: Record<string, string>;
@@ -2417,21 +2655,25 @@ export interface EngineConfiguration {
  */
 export interface SessionConfiguration {
   /**
+   * @public
    * <p>The ARN of the execution role used for the session.</p>
    */
   ExecutionRole?: string;
 
   /**
+   * @public
    * <p>The Amazon S3 location that stores information for the notebook.</p>
    */
   WorkingDirectory?: string;
 
   /**
+   * @public
    * <p>The idle timeout in seconds for the session.</p>
    */
   IdleTimeoutSeconds?: number;
 
   /**
+   * @public
    * <p>If query and calculation results are encrypted in Amazon S3, indicates the encryption option
    *             used (for example, <code>SSE_KMS</code> or <code>CSE_KMS</code>) and key
    *             information.</p>
@@ -2445,6 +2687,7 @@ export interface SessionConfiguration {
  */
 export interface SessionStatistics {
   /**
+   * @public
    * <p>The data processing unit execution time for a session in milliseconds.</p>
    */
   DpuExecutionInMillis?: number;
@@ -2476,27 +2719,32 @@ export type SessionState = (typeof SessionState)[keyof typeof SessionState];
  */
 export interface SessionStatus {
   /**
+   * @public
    * <p>The date and time that the session started.</p>
    */
   StartDateTime?: Date;
 
   /**
+   * @public
    * <p>The most recent date and time that the session was modified.</p>
    */
   LastModifiedDateTime?: Date;
 
   /**
+   * @public
    * <p>The date and time that the session ended.</p>
    */
   EndDateTime?: Date;
 
   /**
+   * @public
    * <p>The date and time starting at which the session became idle. Can be empty if the
    *             session is not currently idle.</p>
    */
   IdleSinceDateTime?: Date;
 
   /**
+   * @public
    * <p>The state of the session. A description of each state follows.</p>
    *          <p>
    *             <code>CREATING</code> - The session is being started, including acquiring
@@ -2521,6 +2769,7 @@ export interface SessionStatus {
   State?: SessionState | string;
 
   /**
+   * @public
    * <p>The reason for the session state change (for example, canceled because the session was
    *             terminated).</p>
    */
@@ -2532,47 +2781,56 @@ export interface SessionStatus {
  */
 export interface GetSessionResponse {
   /**
+   * @public
    * <p>The session ID.</p>
    */
   SessionId?: string;
 
   /**
+   * @public
    * <p>The session description.</p>
    */
   Description?: string;
 
   /**
+   * @public
    * <p>The workgroup to which the session belongs.</p>
    */
   WorkGroup?: string;
 
   /**
+   * @public
    * <p>The engine version used by the session (for example, <code>PySpark engine version
    *                 3</code>). You can get a list of engine versions by calling <a>ListEngineVersions</a>.</p>
    */
   EngineVersion?: string;
 
   /**
+   * @public
    * <p>Contains engine configuration information like DPU usage.</p>
    */
   EngineConfiguration?: EngineConfiguration;
 
   /**
+   * @public
    * <p>The notebook version.</p>
    */
   NotebookVersion?: string;
 
   /**
+   * @public
    * <p>Contains the workgroup configuration information used by the session.</p>
    */
   SessionConfiguration?: SessionConfiguration;
 
   /**
+   * @public
    * <p>Contains information about the status of the session.</p>
    */
   Status?: SessionStatus;
 
   /**
+   * @public
    * <p>Contains the DPU execution time.</p>
    */
   Statistics?: SessionStatistics;
@@ -2583,6 +2841,7 @@ export interface GetSessionResponse {
  */
 export interface GetSessionStatusRequest {
   /**
+   * @public
    * <p>The session ID.</p>
    */
   SessionId: string | undefined;
@@ -2593,11 +2852,13 @@ export interface GetSessionStatusRequest {
  */
 export interface GetSessionStatusResponse {
   /**
+   * @public
    * <p>The session ID.</p>
    */
   SessionId?: string;
 
   /**
+   * @public
    * <p>Contains information about the status of the session.</p>
    */
   Status?: SessionStatus;
@@ -2608,17 +2869,20 @@ export interface GetSessionStatusResponse {
  */
 export interface GetTableMetadataInput {
   /**
+   * @public
    * <p>The name of the data catalog that contains the database and table metadata to
    *             return.</p>
    */
   CatalogName: string | undefined;
 
   /**
+   * @public
    * <p>The name of the database that contains the table metadata to return.</p>
    */
   DatabaseName: string | undefined;
 
   /**
+   * @public
    * <p>The name of the table for which metadata is returned.</p>
    */
   TableName: string | undefined;
@@ -2630,16 +2894,19 @@ export interface GetTableMetadataInput {
  */
 export interface Column {
   /**
+   * @public
    * <p>The name of the column.</p>
    */
   Name: string | undefined;
 
   /**
+   * @public
    * <p>The data type of the column.</p>
    */
   Type?: string;
 
   /**
+   * @public
    * <p>Optional information about the column.</p>
    */
   Comment?: string;
@@ -2651,37 +2918,44 @@ export interface Column {
  */
 export interface TableMetadata {
   /**
+   * @public
    * <p>The name of the table.</p>
    */
   Name: string | undefined;
 
   /**
+   * @public
    * <p>The time that the table was created.</p>
    */
   CreateTime?: Date;
 
   /**
+   * @public
    * <p>The last time the table was accessed.</p>
    */
   LastAccessTime?: Date;
 
   /**
+   * @public
    * <p>The type of table. In Athena, only <code>EXTERNAL_TABLE</code> is
    *             supported.</p>
    */
   TableType?: string;
 
   /**
+   * @public
    * <p>A list of the columns in the table.</p>
    */
   Columns?: Column[];
 
   /**
+   * @public
    * <p>A list of the partition keys in the table.</p>
    */
   PartitionKeys?: Column[];
 
   /**
+   * @public
    * <p>A set of custom key/value pairs for table properties.</p>
    */
   Parameters?: Record<string, string>;
@@ -2692,6 +2966,7 @@ export interface TableMetadata {
  */
 export interface GetTableMetadataOutput {
   /**
+   * @public
    * <p>An object that contains table metadata.</p>
    */
   TableMetadata?: TableMetadata;
@@ -2702,6 +2977,7 @@ export interface GetTableMetadataOutput {
  */
 export interface GetWorkGroupInput {
   /**
+   * @public
    * <p>The name of the workgroup.</p>
    */
   WorkGroup: string | undefined;
@@ -2734,16 +3010,19 @@ export type WorkGroupState = (typeof WorkGroupState)[keyof typeof WorkGroupState
  */
 export interface WorkGroup {
   /**
+   * @public
    * <p>The workgroup name.</p>
    */
   Name: string | undefined;
 
   /**
+   * @public
    * <p>The state of the workgroup: ENABLED or DISABLED.</p>
    */
   State?: WorkGroupState | string;
 
   /**
+   * @public
    * <p>The configuration of the workgroup, which includes the location in Amazon S3
    *             where query and calculation results are stored, the encryption configuration, if any, used for query and calculation results; whether the Amazon CloudWatch Metrics are enabled for the workgroup;
    *             whether workgroup settings override client-side settings; and the data usage limits for
@@ -2754,11 +3033,13 @@ export interface WorkGroup {
   Configuration?: WorkGroupConfiguration;
 
   /**
+   * @public
    * <p>The workgroup description.</p>
    */
   Description?: string;
 
   /**
+   * @public
    * <p>The date and time the workgroup was created.</p>
    */
   CreationTime?: Date;
@@ -2769,6 +3050,7 @@ export interface WorkGroup {
  */
 export interface GetWorkGroupOutput {
   /**
+   * @public
    * <p>Information about the workgroup.</p>
    */
   WorkGroup?: WorkGroup;
@@ -2779,27 +3061,32 @@ export interface GetWorkGroupOutput {
  */
 export interface ImportNotebookInput {
   /**
+   * @public
    * <p>The name of the Spark enabled workgroup to import the notebook to.</p>
    */
   WorkGroup: string | undefined;
 
   /**
+   * @public
    * <p>The name of the notebook to import.</p>
    */
   Name: string | undefined;
 
   /**
+   * @public
    * <p>The notebook content to be imported.</p>
    */
   Payload: string | undefined;
 
   /**
+   * @public
    * <p>The notebook content type. Currently, the only valid type is
    *             <code>IPYNB</code>.</p>
    */
   Type: NotebookType | string | undefined;
 
   /**
+   * @public
    * <p>A unique case-sensitive string used to ensure the request to import the notebook is
    *             idempotent (executes only once).</p>
    *          <important>
@@ -2817,6 +3104,7 @@ export interface ImportNotebookInput {
  */
 export interface ImportNotebookOutput {
   /**
+   * @public
    * <p>The ID assigned to the imported notebook.</p>
    */
   NotebookId?: string;
@@ -2827,11 +3115,13 @@ export interface ImportNotebookOutput {
  */
 export interface ListApplicationDPUSizesInput {
   /**
+   * @public
    * <p>Specifies the maximum number of results to return.</p>
    */
   MaxResults?: number;
 
   /**
+   * @public
    * <p>A token generated by the Athena service that specifies where to continue
    *             pagination if a previous request was truncated.</p>
    */
@@ -2844,12 +3134,14 @@ export interface ListApplicationDPUSizesInput {
  */
 export interface ApplicationDPUSizes {
   /**
+   * @public
    * <p>The name of the supported application runtime (for example, <code>Athena notebook
    *                 version 1</code>).</p>
    */
   ApplicationRuntimeId?: string;
 
   /**
+   * @public
    * <p>A list of the supported DPU sizes that the application runtime supports.</p>
    */
   SupportedDPUSizes?: number[];
@@ -2860,11 +3152,13 @@ export interface ApplicationDPUSizes {
  */
 export interface ListApplicationDPUSizesOutput {
   /**
+   * @public
    * <p>A list of the supported DPU sizes that the application runtime supports.</p>
    */
   ApplicationDPUSizes?: ApplicationDPUSizes[];
 
   /**
+   * @public
    * <p>A token generated by the Athena service that specifies where to continue
    *             pagination if a previous request was truncated. To obtain the next set of pages, pass in
    *             the <code>NextToken</code> from the response object of the previous page call.</p>
@@ -2877,11 +3171,13 @@ export interface ListApplicationDPUSizesOutput {
  */
 export interface ListCalculationExecutionsRequest {
   /**
+   * @public
    * <p>The session ID.</p>
    */
   SessionId: string | undefined;
 
   /**
+   * @public
    * <p>A filter for a specific calculation execution state. A description of each state
    *             follows.</p>
    *          <p>
@@ -2906,11 +3202,13 @@ export interface ListCalculationExecutionsRequest {
   StateFilter?: CalculationExecutionState | string;
 
   /**
+   * @public
    * <p>The maximum number of calculation executions to return.</p>
    */
   MaxResults?: number;
 
   /**
+   * @public
    * <p>A token generated by the Athena service that specifies where to continue
    *             pagination if a previous request was truncated. To obtain the next set of pages, pass in
    *             the <code>NextToken</code> from the response object of the previous page call.</p>
@@ -2924,16 +3222,19 @@ export interface ListCalculationExecutionsRequest {
  */
 export interface CalculationSummary {
   /**
+   * @public
    * <p>The calculation execution UUID.</p>
    */
   CalculationExecutionId?: string;
 
   /**
+   * @public
    * <p>A description of the calculation.</p>
    */
   Description?: string;
 
   /**
+   * @public
    * <p>Contains information about the status of the calculation.</p>
    */
   Status?: CalculationStatus;
@@ -2944,6 +3245,7 @@ export interface CalculationSummary {
  */
 export interface ListCalculationExecutionsResponse {
   /**
+   * @public
    * <p>A token generated by the Athena service that specifies where to continue
    *             pagination if a previous request was truncated. To obtain the next set of pages, pass in
    *             the <code>NextToken</code> from the response object of the previous page call.</p>
@@ -2951,6 +3253,7 @@ export interface ListCalculationExecutionsResponse {
   NextToken?: string;
 
   /**
+   * @public
    * <p>A list of <a>CalculationSummary</a> objects.</p>
    */
   Calculations?: CalculationSummary[];
@@ -2961,12 +3264,14 @@ export interface ListCalculationExecutionsResponse {
  */
 export interface ListCapacityReservationsInput {
   /**
+   * @public
    * <p>A token generated by the Athena service that specifies where to continue
    *             pagination if a previous request was truncated.</p>
    */
   NextToken?: string;
 
   /**
+   * @public
    * <p>Specifies the maximum number of results to return.</p>
    */
   MaxResults?: number;
@@ -2977,6 +3282,7 @@ export interface ListCapacityReservationsInput {
  */
 export interface ListCapacityReservationsOutput {
   /**
+   * @public
    * <p>A token generated by the Athena service that specifies where to continue
    *             pagination if a previous request was truncated. To obtain the next set of pages, pass in
    *             the NextToken from the response object of the previous page call.</p>
@@ -2984,6 +3290,7 @@ export interface ListCapacityReservationsOutput {
   NextToken?: string;
 
   /**
+   * @public
    * <p>The capacity reservations for the current account.</p>
    */
   CapacityReservations: CapacityReservation[] | undefined;
@@ -2994,11 +3301,13 @@ export interface ListCapacityReservationsOutput {
  */
 export interface ListDatabasesInput {
   /**
+   * @public
    * <p>The name of the data catalog that contains the databases to return.</p>
    */
   CatalogName: string | undefined;
 
   /**
+   * @public
    * <p>A token generated by the Athena service that specifies where to continue
    *             pagination if a previous request was truncated. To obtain the next set of pages, pass in
    *             the <code>NextToken</code> from the response object of the previous page call.</p>
@@ -3006,6 +3315,7 @@ export interface ListDatabasesInput {
   NextToken?: string;
 
   /**
+   * @public
    * <p>Specifies the maximum number of results to return.</p>
    */
   MaxResults?: number;
@@ -3016,11 +3326,13 @@ export interface ListDatabasesInput {
  */
 export interface ListDatabasesOutput {
   /**
+   * @public
    * <p>A list of databases from a data catalog.</p>
    */
   DatabaseList?: Database[];
 
   /**
+   * @public
    * <p>A token generated by the Athena service that specifies where to continue
    *             pagination if a previous request was truncated. To obtain the next set of pages, pass in
    *             the NextToken from the response object of the previous page call.</p>
@@ -3033,6 +3345,7 @@ export interface ListDatabasesOutput {
  */
 export interface ListDataCatalogsInput {
   /**
+   * @public
    * <p>A token generated by the Athena service that specifies where to continue
    *             pagination if a previous request was truncated. To obtain the next set of pages, pass in
    *             the NextToken from the response object of the previous page call.</p>
@@ -3040,6 +3353,7 @@ export interface ListDataCatalogsInput {
   NextToken?: string;
 
   /**
+   * @public
    * <p>Specifies the maximum number of data catalogs to return.</p>
    */
   MaxResults?: number;
@@ -3051,6 +3365,7 @@ export interface ListDataCatalogsInput {
  */
 export interface DataCatalogSummary {
   /**
+   * @public
    * <p>The name of the data catalog. The catalog name is unique for the Amazon Web Services account and can use a maximum of 127 alphanumeric, underscore, at sign,
    *             or hyphen characters. The remainder of the length constraint of 256 is reserved for use
    *             by Athena.</p>
@@ -3058,6 +3373,7 @@ export interface DataCatalogSummary {
   CatalogName?: string;
 
   /**
+   * @public
    * <p>The data catalog type.</p>
    */
   Type?: DataCatalogType | string;
@@ -3068,11 +3384,13 @@ export interface DataCatalogSummary {
  */
 export interface ListDataCatalogsOutput {
   /**
+   * @public
    * <p>A summary list of data catalogs.</p>
    */
   DataCatalogsSummary?: DataCatalogSummary[];
 
   /**
+   * @public
    * <p>A token generated by the Athena service that specifies where to continue
    *             pagination if a previous request was truncated. To obtain the next set of pages, pass in
    *             the NextToken from the response object of the previous page call.</p>
@@ -3085,6 +3403,7 @@ export interface ListDataCatalogsOutput {
  */
 export interface ListEngineVersionsInput {
   /**
+   * @public
    * <p>A token generated by the Athena service that specifies where to continue
    *             pagination if a previous request was truncated. To obtain the next set of pages, pass in
    *             the <code>NextToken</code> from the response object of the previous page call.</p>
@@ -3092,6 +3411,7 @@ export interface ListEngineVersionsInput {
   NextToken?: string;
 
   /**
+   * @public
    * <p>The maximum number of engine versions to return in this request.</p>
    */
   MaxResults?: number;
@@ -3102,11 +3422,13 @@ export interface ListEngineVersionsInput {
  */
 export interface ListEngineVersionsOutput {
   /**
+   * @public
    * <p>A list of engine versions that are available to choose from.</p>
    */
   EngineVersions?: EngineVersion[];
 
   /**
+   * @public
    * <p>A token generated by the Athena service that specifies where to continue
    *             pagination if a previous request was truncated. To obtain the next set of pages, pass in
    *             the <code>NextToken</code> from the response object of the previous page call.</p>
@@ -3137,11 +3459,13 @@ export type ExecutorState = (typeof ExecutorState)[keyof typeof ExecutorState];
  */
 export interface ListExecutorsRequest {
   /**
+   * @public
    * <p>The session ID.</p>
    */
   SessionId: string | undefined;
 
   /**
+   * @public
    * <p>A filter for a specific executor state. A description of each state follows.</p>
    *          <p>
    *             <code>CREATING</code> - The executor is being started, including acquiring
@@ -3160,11 +3484,13 @@ export interface ListExecutorsRequest {
   ExecutorStateFilter?: ExecutorState | string;
 
   /**
+   * @public
    * <p>The maximum number of executors to return.</p>
    */
   MaxResults?: number;
 
   /**
+   * @public
    * <p>A token generated by the Athena service that specifies where to continue
    *             pagination if a previous request was truncated. To obtain the next set of pages, pass in
    *             the <code>NextToken</code> from the response object of the previous page call.</p>
@@ -3193,27 +3519,32 @@ export type ExecutorType = (typeof ExecutorType)[keyof typeof ExecutorType];
  */
 export interface ExecutorsSummary {
   /**
+   * @public
    * <p>The UUID of the executor.</p>
    */
   ExecutorId: string | undefined;
 
   /**
+   * @public
    * <p>The type of executor used for the application (<code>COORDINATOR</code>,
    *                 <code>GATEWAY</code>, or <code>WORKER</code>).</p>
    */
   ExecutorType?: ExecutorType | string;
 
   /**
+   * @public
    * <p>The date and time that the executor started.</p>
    */
   StartDateTime?: number;
 
   /**
+   * @public
    * <p>The date and time that the executor was terminated.</p>
    */
   TerminationDateTime?: number;
 
   /**
+   * @public
    * <p>The processing state of the executor. A description of each state follows.</p>
    *          <p>
    *             <code>CREATING</code> - The executor is being started, including acquiring
@@ -3232,6 +3563,7 @@ export interface ExecutorsSummary {
   ExecutorState?: ExecutorState | string;
 
   /**
+   * @public
    * <p>The smallest unit of compute that a session can request from Athena. Size
    *             is measured in data processing unit (DPU) values, a relative measure of processing
    *             power.</p>
@@ -3244,11 +3576,13 @@ export interface ExecutorsSummary {
  */
 export interface ListExecutorsResponse {
   /**
+   * @public
    * <p>The session ID.</p>
    */
   SessionId: string | undefined;
 
   /**
+   * @public
    * <p>A token generated by the Athena service that specifies where to continue
    *             pagination if a previous request was truncated. To obtain the next set of pages, pass in
    *             the <code>NextToken</code> from the response object of the previous page call.</p>
@@ -3256,6 +3590,7 @@ export interface ListExecutorsResponse {
   NextToken?: string;
 
   /**
+   * @public
    * <p>Contains summary information about the executor.</p>
    */
   ExecutorsSummary?: ExecutorsSummary[];
@@ -3266,6 +3601,7 @@ export interface ListExecutorsResponse {
  */
 export interface ListNamedQueriesInput {
   /**
+   * @public
    * <p>A token generated by the Athena service that specifies where to continue
    *             pagination if a previous request was truncated. To obtain the next set of pages, pass in
    *             the <code>NextToken</code> from the response object of the previous page call.</p>
@@ -3273,11 +3609,13 @@ export interface ListNamedQueriesInput {
   NextToken?: string;
 
   /**
+   * @public
    * <p>The maximum number of queries to return in this request.</p>
    */
   MaxResults?: number;
 
   /**
+   * @public
    * <p>The name of the workgroup from which the named queries are being returned. If a
    *             workgroup is not specified, the saved queries for the primary workgroup are
    *             returned.</p>
@@ -3290,11 +3628,13 @@ export interface ListNamedQueriesInput {
  */
 export interface ListNamedQueriesOutput {
   /**
+   * @public
    * <p>The list of unique query IDs.</p>
    */
   NamedQueryIds?: string[];
 
   /**
+   * @public
    * <p>A token generated by the Athena service that specifies where to continue
    *             pagination if a previous request was truncated. To obtain the next set of pages, pass in
    *             the <code>NextToken</code> from the response object of the previous page call.</p>
@@ -3308,6 +3648,7 @@ export interface ListNamedQueriesOutput {
  */
 export interface FilterDefinition {
   /**
+   * @public
    * <p>The name of the notebook to search for.</p>
    */
   Name?: string;
@@ -3318,22 +3659,26 @@ export interface FilterDefinition {
  */
 export interface ListNotebookMetadataInput {
   /**
+   * @public
    * <p>Search filter string.</p>
    */
   Filters?: FilterDefinition;
 
   /**
+   * @public
    * <p>A token generated by the Athena service that specifies where to continue
    *             pagination if a previous request was truncated.</p>
    */
   NextToken?: string;
 
   /**
+   * @public
    * <p>Specifies the maximum number of results to return.</p>
    */
   MaxResults?: number;
 
   /**
+   * @public
    * <p>The name of the Spark enabled workgroup to retrieve notebook metadata for.</p>
    */
   WorkGroup: string | undefined;
@@ -3344,6 +3689,7 @@ export interface ListNotebookMetadataInput {
  */
 export interface ListNotebookMetadataOutput {
   /**
+   * @public
    * <p>A token generated by the Athena service that specifies where to continue
    *             pagination if a previous request was truncated. To obtain the next set of pages, pass in
    *             the <code>NextToken</code> from the response object of the previous page call.</p>
@@ -3351,6 +3697,7 @@ export interface ListNotebookMetadataOutput {
   NextToken?: string;
 
   /**
+   * @public
    * <p>The list of notebook metadata for the specified workgroup.</p>
    */
   NotebookMetadataList?: NotebookMetadata[];
@@ -3361,16 +3708,19 @@ export interface ListNotebookMetadataOutput {
  */
 export interface ListNotebookSessionsRequest {
   /**
+   * @public
    * <p>The ID of the notebook to list sessions for.</p>
    */
   NotebookId: string | undefined;
 
   /**
+   * @public
    * <p>The maximum number of notebook sessions to return.</p>
    */
   MaxResults?: number;
 
   /**
+   * @public
    * <p>A token generated by the Athena service that specifies where to continue
    *             pagination if a previous request was truncated. To obtain the next set of pages, pass in
    *             the <code>NextToken</code> from the response object of the previous page call.</p>
@@ -3384,11 +3734,13 @@ export interface ListNotebookSessionsRequest {
  */
 export interface NotebookSessionSummary {
   /**
+   * @public
    * <p>The notebook session ID.</p>
    */
   SessionId?: string;
 
   /**
+   * @public
    * <p>The time when the notebook session was created.</p>
    */
   CreationTime?: Date;
@@ -3399,11 +3751,13 @@ export interface NotebookSessionSummary {
  */
 export interface ListNotebookSessionsResponse {
   /**
+   * @public
    * <p>A list of the sessions belonging to the notebook.</p>
    */
   NotebookSessionsList: NotebookSessionSummary[] | undefined;
 
   /**
+   * @public
    * <p>A token generated by the Athena service that specifies where to continue
    *             pagination if a previous request was truncated. To obtain the next set of pages, pass in
    *             the <code>NextToken</code> from the response object of the previous page call.</p>
@@ -3416,11 +3770,13 @@ export interface ListNotebookSessionsResponse {
  */
 export interface ListPreparedStatementsInput {
   /**
+   * @public
    * <p>The workgroup to list the prepared statements for.</p>
    */
   WorkGroup: string | undefined;
 
   /**
+   * @public
    * <p>A token generated by the Athena service that specifies where to continue
    *             pagination if a previous request was truncated. To obtain the next set of pages, pass in
    *             the <code>NextToken</code> from the response object of the previous page call.</p>
@@ -3428,6 +3784,7 @@ export interface ListPreparedStatementsInput {
   NextToken?: string;
 
   /**
+   * @public
    * <p>The maximum number of results to return in this request.</p>
    */
   MaxResults?: number;
@@ -3439,11 +3796,13 @@ export interface ListPreparedStatementsInput {
  */
 export interface PreparedStatementSummary {
   /**
+   * @public
    * <p>The name of the prepared statement.</p>
    */
   StatementName?: string;
 
   /**
+   * @public
    * <p>The last modified time of the prepared statement.</p>
    */
   LastModifiedTime?: Date;
@@ -3454,11 +3813,13 @@ export interface PreparedStatementSummary {
  */
 export interface ListPreparedStatementsOutput {
   /**
+   * @public
    * <p>The list of prepared statements for the workgroup.</p>
    */
   PreparedStatements?: PreparedStatementSummary[];
 
   /**
+   * @public
    * <p>A token generated by the Athena service that specifies where to continue
    *             pagination if a previous request was truncated. To obtain the next set of pages, pass in
    *             the <code>NextToken</code> from the response object of the previous page call.</p>
@@ -3471,6 +3832,7 @@ export interface ListPreparedStatementsOutput {
  */
 export interface ListQueryExecutionsInput {
   /**
+   * @public
    * <p>A token generated by the Athena service that specifies where to continue
    *             pagination if a previous request was truncated. To obtain the next set of pages, pass in
    *             the <code>NextToken</code> from the response object of the previous page call.</p>
@@ -3478,11 +3840,13 @@ export interface ListQueryExecutionsInput {
   NextToken?: string;
 
   /**
+   * @public
    * <p>The maximum number of query executions to return in this request.</p>
    */
   MaxResults?: number;
 
   /**
+   * @public
    * <p>The name of the workgroup from which queries are being returned. If a workgroup is not
    *             specified, a list of available query execution IDs for the queries in the primary
    *             workgroup is returned.</p>
@@ -3495,11 +3859,13 @@ export interface ListQueryExecutionsInput {
  */
 export interface ListQueryExecutionsOutput {
   /**
+   * @public
    * <p>The unique IDs of each query execution as an array of strings.</p>
    */
   QueryExecutionIds?: string[];
 
   /**
+   * @public
    * <p>A token to be used by the next request if this request is truncated.</p>
    */
   NextToken?: string;
@@ -3510,11 +3876,13 @@ export interface ListQueryExecutionsOutput {
  */
 export interface ListSessionsRequest {
   /**
+   * @public
    * <p>The workgroup to which the session belongs.</p>
    */
   WorkGroup: string | undefined;
 
   /**
+   * @public
    * <p>A filter for a specific session state. A description of each state follows.</p>
    *          <p>
    *             <code>CREATING</code> - The session is being started, including acquiring
@@ -3539,11 +3907,13 @@ export interface ListSessionsRequest {
   StateFilter?: SessionState | string;
 
   /**
+   * @public
    * <p>The maximum number of sessions to return.</p>
    */
   MaxResults?: number;
 
   /**
+   * @public
    * <p>A token generated by the Athena service that specifies where to continue
    *             pagination if a previous request was truncated. To obtain the next set of pages, pass in
    *             the <code>NextToken</code> from the response object of the previous page call.</p>
@@ -3557,27 +3927,32 @@ export interface ListSessionsRequest {
  */
 export interface SessionSummary {
   /**
+   * @public
    * <p>The session ID.</p>
    */
   SessionId?: string;
 
   /**
+   * @public
    * <p>The session description.</p>
    */
   Description?: string;
 
   /**
+   * @public
    * <p>The engine version used by the session (for example, <code>PySpark engine version
    *                 3</code>).</p>
    */
   EngineVersion?: EngineVersion;
 
   /**
+   * @public
    * <p>The notebook version.</p>
    */
   NotebookVersion?: string;
 
   /**
+   * @public
    * <p>Contains information about the session status.</p>
    */
   Status?: SessionStatus;
@@ -3588,6 +3963,7 @@ export interface SessionSummary {
  */
 export interface ListSessionsResponse {
   /**
+   * @public
    * <p>A token generated by the Athena service that specifies where to continue
    *             pagination if a previous request was truncated. To obtain the next set of pages, pass in
    *             the <code>NextToken</code> from the response object of the previous page call.</p>
@@ -3595,6 +3971,7 @@ export interface ListSessionsResponse {
   NextToken?: string;
 
   /**
+   * @public
    * <p>A list of sessions.</p>
    */
   Sessions?: SessionSummary[];
@@ -3605,22 +3982,26 @@ export interface ListSessionsResponse {
  */
 export interface ListTableMetadataInput {
   /**
+   * @public
    * <p>The name of the data catalog for which table metadata should be returned.</p>
    */
   CatalogName: string | undefined;
 
   /**
+   * @public
    * <p>The name of the database for which table metadata should be returned.</p>
    */
   DatabaseName: string | undefined;
 
   /**
+   * @public
    * <p>A regex filter that pattern-matches table names. If no expression is supplied,
    *             metadata for all tables are listed.</p>
    */
   Expression?: string;
 
   /**
+   * @public
    * <p>A token generated by the Athena service that specifies where to continue
    *             pagination if a previous request was truncated. To obtain the next set of pages, pass in
    *             the NextToken from the response object of the previous page call.</p>
@@ -3628,6 +4009,7 @@ export interface ListTableMetadataInput {
   NextToken?: string;
 
   /**
+   * @public
    * <p>Specifies the maximum number of results to return.</p>
    */
   MaxResults?: number;
@@ -3638,11 +4020,13 @@ export interface ListTableMetadataInput {
  */
 export interface ListTableMetadataOutput {
   /**
+   * @public
    * <p>A list of table metadata.</p>
    */
   TableMetadataList?: TableMetadata[];
 
   /**
+   * @public
    * <p>A token generated by the Athena service that specifies where to continue
    *             pagination if a previous request was truncated. To obtain the next set of pages, pass in
    *             the NextToken from the response object of the previous page call.</p>
@@ -3655,11 +4039,13 @@ export interface ListTableMetadataOutput {
  */
 export interface ListTagsForResourceInput {
   /**
+   * @public
    * <p>Lists the tags for the resource with the specified ARN.</p>
    */
   ResourceARN: string | undefined;
 
   /**
+   * @public
    * <p>The token for the next set of results, or null if there are no additional results for
    *             this request, where the request lists the tags for the resource with the specified
    *             ARN.</p>
@@ -3667,6 +4053,7 @@ export interface ListTagsForResourceInput {
   NextToken?: string;
 
   /**
+   * @public
    * <p>The maximum number of results to be returned per request that lists the tags for the
    *             resource.</p>
    */
@@ -3678,11 +4065,13 @@ export interface ListTagsForResourceInput {
  */
 export interface ListTagsForResourceOutput {
   /**
+   * @public
    * <p>The list of tags associated with the specified resource.</p>
    */
   Tags?: Tag[];
 
   /**
+   * @public
    * <p>A token to be used by the next request if this request is truncated.</p>
    */
   NextToken?: string;
@@ -3693,6 +4082,7 @@ export interface ListTagsForResourceOutput {
  */
 export interface ListWorkGroupsInput {
   /**
+   * @public
    * <p>A token generated by the Athena service that specifies where to continue
    *             pagination if a previous request was truncated. To obtain the next set of pages, pass in
    *             the <code>NextToken</code> from the response object of the previous page call.</p>
@@ -3700,6 +4090,7 @@ export interface ListWorkGroupsInput {
   NextToken?: string;
 
   /**
+   * @public
    * <p>The maximum number of workgroups to return in this request.</p>
    */
   MaxResults?: number;
@@ -3712,26 +4103,31 @@ export interface ListWorkGroupsInput {
  */
 export interface WorkGroupSummary {
   /**
+   * @public
    * <p>The name of the workgroup.</p>
    */
   Name?: string;
 
   /**
+   * @public
    * <p>The state of the workgroup.</p>
    */
   State?: WorkGroupState | string;
 
   /**
+   * @public
    * <p>The workgroup description.</p>
    */
   Description?: string;
 
   /**
+   * @public
    * <p>The workgroup creation date and time.</p>
    */
   CreationTime?: Date;
 
   /**
+   * @public
    * <p>The engine version setting for all queries on the workgroup. Queries on the
    *                 <code>AmazonAthenaPreviewFunctionality</code> workgroup run on the preview engine
    *             regardless of this setting.</p>
@@ -3744,12 +4140,14 @@ export interface WorkGroupSummary {
  */
 export interface ListWorkGroupsOutput {
   /**
+   * @public
    * <p>A list of <a>WorkGroupSummary</a> objects that include the names,
    *             descriptions, creation times, and states for each workgroup.</p>
    */
   WorkGroups?: WorkGroupSummary[];
 
   /**
+   * @public
    * <p>A token generated by the Athena service that specifies where to continue
    *             pagination if a previous request was truncated. To obtain the next set of pages, pass in
    *             the <code>NextToken</code> from the response object of the previous page call.</p>
@@ -3762,11 +4160,13 @@ export interface ListWorkGroupsOutput {
  */
 export interface PutCapacityAssignmentConfigurationInput {
   /**
+   * @public
    * <p>The name of the capacity reservation to put a capacity assignment configuration for.</p>
    */
   CapacityReservationName: string | undefined;
 
   /**
+   * @public
    * <p>The list of assignments for the capacity assignment configuration.</p>
    */
   CapacityAssignments: CapacityAssignment[] | undefined;
@@ -3783,6 +4183,7 @@ export interface PutCapacityAssignmentConfigurationOutput {}
  */
 export interface CalculationConfiguration {
   /**
+   * @public
    * <p>A string that contains the code for the calculation.</p>
    */
   CodeBlock?: string;
@@ -3793,16 +4194,19 @@ export interface CalculationConfiguration {
  */
 export interface StartCalculationExecutionRequest {
   /**
+   * @public
    * <p>The session ID.</p>
    */
   SessionId: string | undefined;
 
   /**
+   * @public
    * <p>A description of the calculation.</p>
    */
   Description?: string;
 
   /**
+   * @public
    * @deprecated
    *
    * <p>Contains configuration information for the calculation.</p>
@@ -3810,11 +4214,13 @@ export interface StartCalculationExecutionRequest {
   CalculationConfiguration?: CalculationConfiguration;
 
   /**
+   * @public
    * <p>A string that contains the code of the calculation.</p>
    */
   CodeBlock?: string;
 
   /**
+   * @public
    * <p>A unique case-sensitive string used to ensure the request to create the calculation is
    *             idempotent (executes only once). If another
    *                 <code>StartCalculationExecutionRequest</code> is received, the same response is
@@ -3835,11 +4241,13 @@ export interface StartCalculationExecutionRequest {
  */
 export interface StartCalculationExecutionResponse {
   /**
+   * @public
    * <p>The calculation execution UUID.</p>
    */
   CalculationExecutionId?: string;
 
   /**
+   * @public
    * <p>
    *             <code>CREATING</code> - The calculation is in the process of being created.</p>
    *          <p>
@@ -3867,11 +4275,13 @@ export interface StartCalculationExecutionResponse {
  */
 export interface StartQueryExecutionInput {
   /**
+   * @public
    * <p>The SQL query statements to be executed.</p>
    */
   QueryString: string | undefined;
 
   /**
+   * @public
    * <p>A unique case-sensitive string used to ensure the request to create the query is
    *             idempotent (executes only once). If another <code>StartQueryExecution</code> request is
    *             received, the same response is returned and another query is not created. If a parameter
@@ -3886,11 +4296,13 @@ export interface StartQueryExecutionInput {
   ClientRequestToken?: string;
 
   /**
+   * @public
    * <p>The database within which the query executes.</p>
    */
   QueryExecutionContext?: QueryExecutionContext;
 
   /**
+   * @public
    * <p>Specifies information about where and how to save the results of the query execution.
    *             If the query runs in a workgroup, then workgroup's settings may override query settings.
    *             This affects the query results location. The workgroup settings override is specified in
@@ -3899,17 +4311,20 @@ export interface StartQueryExecutionInput {
   ResultConfiguration?: ResultConfiguration;
 
   /**
+   * @public
    * <p>The name of the workgroup in which the query is being started.</p>
    */
   WorkGroup?: string;
 
   /**
+   * @public
    * <p>A list of values for the parameters in a query. The values are applied sequentially to
    *             the parameters in the query in the order in which the parameters occur.</p>
    */
   ExecutionParameters?: string[];
 
   /**
+   * @public
    * <p>Specifies the query result reuse behavior for the query.</p>
    */
   ResultReuseConfiguration?: ResultReuseConfiguration;
@@ -3920,6 +4335,7 @@ export interface StartQueryExecutionInput {
  */
 export interface StartQueryExecutionOutput {
   /**
+   * @public
    * <p>The unique ID of the query that ran as a result of this request.</p>
    */
   QueryExecutionId?: string;
@@ -3952,32 +4368,38 @@ export class SessionAlreadyExistsException extends __BaseException {
  */
 export interface StartSessionRequest {
   /**
+   * @public
    * <p>The session description.</p>
    */
   Description?: string;
 
   /**
+   * @public
    * <p>The workgroup to which the session belongs.</p>
    */
   WorkGroup: string | undefined;
 
   /**
+   * @public
    * <p>Contains engine data processing unit (DPU) configuration settings and parameter
    *             mappings.</p>
    */
   EngineConfiguration: EngineConfiguration | undefined;
 
   /**
+   * @public
    * <p>The notebook version. This value is supplied automatically for notebook sessions in the Athena console and is not required for programmatic session access. The only valid notebook version is <code>Athena notebook version 1</code>. If you specify a value for <code>NotebookVersion</code>, you must also specify a value for <code>NotebookId</code>. See <a>EngineConfiguration$AdditionalConfigs</a>.</p>
    */
   NotebookVersion?: string;
 
   /**
+   * @public
    * <p>The idle timeout in minutes for the session.</p>
    */
   SessionIdleTimeoutInMinutes?: number;
 
   /**
+   * @public
    * <p>A unique case-sensitive string used to ensure the request to create the session is
    *             idempotent (executes only once). If another <code>StartSessionRequest</code> is
    *             received, the same response is returned and another session is not created. If a
@@ -3997,11 +4419,13 @@ export interface StartSessionRequest {
  */
 export interface StartSessionResponse {
   /**
+   * @public
    * <p>The session ID.</p>
    */
   SessionId?: string;
 
   /**
+   * @public
    * <p>The state of the session. A description of each state follows.</p>
    *          <p>
    *             <code>CREATING</code> - The session is being started, including acquiring
@@ -4031,6 +4455,7 @@ export interface StartSessionResponse {
  */
 export interface StopCalculationExecutionRequest {
   /**
+   * @public
    * <p>The calculation execution UUID.</p>
    */
   CalculationExecutionId: string | undefined;
@@ -4041,6 +4466,7 @@ export interface StopCalculationExecutionRequest {
  */
 export interface StopCalculationExecutionResponse {
   /**
+   * @public
    * <p>
    *             <code>CREATING</code> - The calculation is in the process of being created.</p>
    *          <p>
@@ -4068,6 +4494,7 @@ export interface StopCalculationExecutionResponse {
  */
 export interface StopQueryExecutionInput {
   /**
+   * @public
    * <p>The unique ID of the query execution to stop.</p>
    */
   QueryExecutionId?: string;
@@ -4083,12 +4510,14 @@ export interface StopQueryExecutionOutput {}
  */
 export interface TagResourceInput {
   /**
+   * @public
    * <p>Specifies the ARN of the Athena resource to
    *             which tags are to be added.</p>
    */
   ResourceARN: string | undefined;
 
   /**
+   * @public
    * <p>A collection of one or more tags, separated by commas, to be added to an Athena resource.</p>
    */
   Tags: Tag[] | undefined;
@@ -4104,6 +4533,7 @@ export interface TagResourceOutput {}
  */
 export interface TerminateSessionRequest {
   /**
+   * @public
    * <p>The session ID.</p>
    */
   SessionId: string | undefined;
@@ -4114,6 +4544,7 @@ export interface TerminateSessionRequest {
  */
 export interface TerminateSessionResponse {
   /**
+   * @public
    * <p>The state of the session. A description of each state follows.</p>
    *          <p>
    *             <code>CREATING</code> - The session is being started, including acquiring
@@ -4143,11 +4574,13 @@ export interface TerminateSessionResponse {
  */
 export interface UntagResourceInput {
   /**
+   * @public
    * <p>Specifies the ARN of the resource from which tags are to be removed.</p>
    */
   ResourceARN: string | undefined;
 
   /**
+   * @public
    * <p>A comma-separated list of one or more tag keys whose tags are to be removed from the
    *             specified resource.</p>
    */
@@ -4164,11 +4597,13 @@ export interface UntagResourceOutput {}
  */
 export interface UpdateCapacityReservationInput {
   /**
+   * @public
    * <p>The new number of requested data processing units.</p>
    */
   TargetDpus: number | undefined;
 
   /**
+   * @public
    * <p>The name of the capacity reservation.</p>
    */
   Name: string | undefined;
@@ -4184,6 +4619,7 @@ export interface UpdateCapacityReservationOutput {}
  */
 export interface UpdateDataCatalogInput {
   /**
+   * @public
    * <p>The name of the data catalog to update. The catalog name must be unique for the
    *                 Amazon Web Services account and can use a maximum of 127 alphanumeric, underscore, at
    *             sign, or hyphen characters. The remainder of the length constraint of 256 is reserved
@@ -4192,6 +4628,7 @@ export interface UpdateDataCatalogInput {
   Name: string | undefined;
 
   /**
+   * @public
    * <p>Specifies the type of data catalog to update. Specify <code>LAMBDA</code> for a
    *             federated catalog, <code>HIVE</code> for an external hive metastore, or
    *                 <code>GLUE</code> for an Glue Data Catalog.</p>
@@ -4199,11 +4636,13 @@ export interface UpdateDataCatalogInput {
   Type: DataCatalogType | string | undefined;
 
   /**
+   * @public
    * <p>New or modified text that describes the data catalog.</p>
    */
   Description?: string;
 
   /**
+   * @public
    * <p>Specifies the Lambda function or functions to use for updating the data
    *             catalog. This is a mapping whose values depend on the catalog type. </p>
    *          <ul>
@@ -4257,21 +4696,25 @@ export interface UpdateDataCatalogOutput {}
  */
 export interface UpdateNamedQueryInput {
   /**
+   * @public
    * <p>The unique identifier (UUID) of the query.</p>
    */
   NamedQueryId: string | undefined;
 
   /**
+   * @public
    * <p>The name of the query.</p>
    */
   Name: string | undefined;
 
   /**
+   * @public
    * <p>The query description.</p>
    */
   Description?: string;
 
   /**
+   * @public
    * <p>The contents of the query with all query statements.</p>
    */
   QueryString: string | undefined;
@@ -4287,27 +4730,32 @@ export interface UpdateNamedQueryOutput {}
  */
 export interface UpdateNotebookInput {
   /**
+   * @public
    * <p>The ID of the notebook to update.</p>
    */
   NotebookId: string | undefined;
 
   /**
+   * @public
    * <p>The updated content for the notebook.</p>
    */
   Payload: string | undefined;
 
   /**
+   * @public
    * <p>The notebook content type. Currently, the only valid type is
    *             <code>IPYNB</code>.</p>
    */
   Type: NotebookType | string | undefined;
 
   /**
+   * @public
    * <p>The active notebook session ID. Required if the notebook has an active session.</p>
    */
   SessionId?: string;
 
   /**
+   * @public
    * <p>A unique case-sensitive string used to ensure the request to create the notebook is
    *             idempotent (executes only once).</p>
    *          <important>
@@ -4330,11 +4778,13 @@ export interface UpdateNotebookOutput {}
  */
 export interface UpdateNotebookMetadataInput {
   /**
+   * @public
    * <p>The ID of the notebook to update the metadata for.</p>
    */
   NotebookId: string | undefined;
 
   /**
+   * @public
    * <p>A unique case-sensitive string used to ensure the request to create the notebook is
    *             idempotent (executes only once).</p>
    *          <important>
@@ -4347,6 +4797,7 @@ export interface UpdateNotebookMetadataInput {
   ClientRequestToken?: string;
 
   /**
+   * @public
    * <p>The name to update the notebook to.</p>
    */
   Name: string | undefined;
@@ -4362,21 +4813,25 @@ export interface UpdateNotebookMetadataOutput {}
  */
 export interface UpdatePreparedStatementInput {
   /**
+   * @public
    * <p>The name of the prepared statement.</p>
    */
   StatementName: string | undefined;
 
   /**
+   * @public
    * <p>The workgroup for the prepared statement.</p>
    */
   WorkGroup: string | undefined;
 
   /**
+   * @public
    * <p>The query string for the prepared statement.</p>
    */
   QueryStatement: string | undefined;
 
   /**
+   * @public
    * <p>The description of the prepared statement.</p>
    */
   Description?: string;
@@ -4394,6 +4849,7 @@ export interface UpdatePreparedStatementOutput {}
  */
 export interface ResultConfigurationUpdates {
   /**
+   * @public
    * <p>The location in Amazon S3 where your query and calculation results are stored, such as
    *                 <code>s3://path/to/query/bucket/</code>. For more information, see <a href="https://docs.aws.amazon.com/athena/latest/ug/querying.html">Working with query
    *                 results, recent queries, and output files</a>. If workgroup settings override
@@ -4405,6 +4861,7 @@ export interface ResultConfigurationUpdates {
   OutputLocation?: string;
 
   /**
+   * @public
    * <p>If set to "true", indicates that the previously-specified query results location (also
    *             known as a client-side setting) for queries in this workgroup should be ignored and set
    *             to null. If set to "false" or not set, and a value is present in the
@@ -4417,11 +4874,13 @@ export interface ResultConfigurationUpdates {
   RemoveOutputLocation?: boolean;
 
   /**
+   * @public
    * <p>The encryption configuration for query and calculation results.</p>
    */
   EncryptionConfiguration?: EncryptionConfiguration;
 
   /**
+   * @public
    * <p>If set to "true", indicates that the previously-specified encryption configuration
    *             (also known as the client-side setting) for queries in this workgroup should be ignored
    *             and set to null. If set to "false" or not set, and a value is present in the
@@ -4434,6 +4893,7 @@ export interface ResultConfigurationUpdates {
   RemoveEncryptionConfiguration?: boolean;
 
   /**
+   * @public
    * <p>The Amazon Web Services account ID that you expect to be the owner of the Amazon S3 bucket specified by <a>ResultConfiguration$OutputLocation</a>.
    *             If set, Athena uses the value for <code>ExpectedBucketOwner</code> when it
    *             makes Amazon S3 calls to your specified output location. If the
@@ -4447,6 +4907,7 @@ export interface ResultConfigurationUpdates {
   ExpectedBucketOwner?: string;
 
   /**
+   * @public
    * <p>If set to "true", removes the Amazon Web Services account ID previously specified for
    *                 <a>ResultConfiguration$ExpectedBucketOwner</a>. If set to "false" or not
    *             set, and a value is present in the <code>ExpectedBucketOwner</code> in
@@ -4458,11 +4919,13 @@ export interface ResultConfigurationUpdates {
   RemoveExpectedBucketOwner?: boolean;
 
   /**
+   * @public
    * <p>The ACL configuration for the query results.</p>
    */
   AclConfiguration?: AclConfiguration;
 
   /**
+   * @public
    * <p>If set to <code>true</code>, indicates that the previously-specified ACL configuration
    *             for queries in this workgroup should be ignored and set to null. If set to
    *                 <code>false</code> or not set, and a value is present in the
@@ -4485,12 +4948,14 @@ export interface ResultConfigurationUpdates {
  */
 export interface WorkGroupConfigurationUpdates {
   /**
+   * @public
    * <p>If set to "true", the settings for the workgroup override client-side settings. If set
    *             to "false" client-side settings are used. For more information, see <a href="https://docs.aws.amazon.com/athena/latest/ug/workgroups-settings-override.html">Workgroup Settings Override Client-Side Settings</a>.</p>
    */
   EnforceWorkGroupConfiguration?: boolean;
 
   /**
+   * @public
    * <p>The result configuration information about the queries in this workgroup that will be
    *             updated. Includes the updated results location and an updated option for encrypting
    *             query results.</p>
@@ -4498,23 +4963,27 @@ export interface WorkGroupConfigurationUpdates {
   ResultConfigurationUpdates?: ResultConfigurationUpdates;
 
   /**
+   * @public
    * <p>Indicates whether this workgroup enables publishing metrics to Amazon CloudWatch.</p>
    */
   PublishCloudWatchMetricsEnabled?: boolean;
 
   /**
+   * @public
    * <p>The upper limit (cutoff) for the amount of bytes a single query in a workgroup is
    *             allowed to scan.</p>
    */
   BytesScannedCutoffPerQuery?: number;
 
   /**
+   * @public
    * <p>Indicates that the data usage control limit per query is removed. <a>WorkGroupConfiguration$BytesScannedCutoffPerQuery</a>
    *          </p>
    */
   RemoveBytesScannedCutoffPerQuery?: boolean;
 
   /**
+   * @public
    * <p>If set to <code>true</code>, allows members assigned to a workgroup to specify Amazon S3 Requester Pays buckets in queries. If set to <code>false</code>, workgroup
    *             members cannot query data from Requester Pays buckets, and queries that retrieve data
    *             from Requester Pays buckets cause an error. The default is <code>false</code>. For more
@@ -4524,6 +4993,7 @@ export interface WorkGroupConfigurationUpdates {
   RequesterPaysEnabled?: boolean;
 
   /**
+   * @public
    * <p>The engine version requested when a workgroup is updated. After the update, all
    *             queries on the workgroup run on the requested engine version. If no value was previously
    *             set, the default is Auto. Queries on the <code>AmazonAthenaPreviewFunctionality</code>
@@ -4532,26 +5002,31 @@ export interface WorkGroupConfigurationUpdates {
   EngineVersion?: EngineVersion;
 
   /**
+   * @public
    * <p>Removes content encryption configuration from an Apache Spark-enabled Athena workgroup.</p>
    */
   RemoveCustomerContentEncryptionConfiguration?: boolean;
 
   /**
+   * @public
    * <p>Contains a user defined string in JSON format for a Spark-enabled workgroup.</p>
    */
   AdditionalConfiguration?: string;
 
   /**
+   * @public
    * <p>Contains the ARN of the execution role for the workgroup</p>
    */
   ExecutionRole?: string;
 
   /**
+   * @public
    * <p>Specifies the KMS key that is used to encrypt the user's data stores in Athena. This setting does not apply to Athena SQL workgroups.</p>
    */
   CustomerContentEncryptionConfiguration?: CustomerContentEncryptionConfiguration;
 
   /**
+   * @public
    * <p>Enforces a minimal level of encryption for the workgroup for query and calculation
    *             results that are written to Amazon S3. When enabled, workgroup users can set
    *             encryption only to the minimum level set by the administrator or higher when they submit queries. This setting does not apply to Spark-enabled workgroups.</p>
@@ -4565,21 +5040,25 @@ export interface WorkGroupConfigurationUpdates {
  */
 export interface UpdateWorkGroupInput {
   /**
+   * @public
    * <p>The specified workgroup that will be updated.</p>
    */
   WorkGroup: string | undefined;
 
   /**
+   * @public
    * <p>The workgroup description.</p>
    */
   Description?: string;
 
   /**
+   * @public
    * <p>Contains configuration updates for an Athena SQL workgroup.</p>
    */
   ConfigurationUpdates?: WorkGroupConfigurationUpdates;
 
   /**
+   * @public
    * <p>The workgroup state that will be updated for the given workgroup.</p>
    */
   State?: WorkGroupState | string;
@@ -4596,23 +5075,27 @@ export interface UpdateWorkGroupOutput {}
  */
 export interface QueryStagePlanNode {
   /**
+   * @public
    * <p>Name of the query stage plan that describes the operation this stage is performing as
    *             part of query execution.</p>
    */
   Name?: string;
 
   /**
+   * @public
    * <p>Information about the operation this query stage plan node is performing.</p>
    */
   Identifier?: string;
 
   /**
+   * @public
    * <p>Stage plan information such as name, identifier, sub plans, and remote sources of
    *             child plan nodes/</p>
    */
   Children?: QueryStagePlanNode[];
 
   /**
+   * @public
    * <p>Source plan node IDs.</p>
    */
   RemoteSources?: string[];
@@ -4625,46 +5108,55 @@ export interface QueryStagePlanNode {
  */
 export interface QueryStage {
   /**
+   * @public
    * <p>The identifier for a stage.</p>
    */
   StageId?: number;
 
   /**
+   * @public
    * <p>State of the stage after query execution.</p>
    */
   State?: string;
 
   /**
+   * @public
    * <p>The number of bytes output from the stage after execution.</p>
    */
   OutputBytes?: number;
 
   /**
+   * @public
    * <p>The number of rows output from the stage after execution.</p>
    */
   OutputRows?: number;
 
   /**
+   * @public
    * <p>The number of bytes input into the stage for execution.</p>
    */
   InputBytes?: number;
 
   /**
+   * @public
    * <p>The number of rows input into the stage for execution.</p>
    */
   InputRows?: number;
 
   /**
+   * @public
    * <p>Time taken to execute this stage.</p>
    */
   ExecutionTime?: number;
 
   /**
+   * @public
    * <p>Stage plan information such as name, identifier, sub plans, and source stages.</p>
    */
   QueryStagePlan?: QueryStagePlanNode;
 
   /**
+   * @public
    * <p>List of sub query stages that form this stage execution plan.</p>
    */
   SubStages?: QueryStage[];
@@ -4677,18 +5169,21 @@ export interface QueryStage {
  */
 export interface QueryRuntimeStatistics {
   /**
+   * @public
    * <p>Timeline statistics such as query queue time, planning time, execution time, service
    *             processing time, and total execution time.</p>
    */
   Timeline?: QueryRuntimeStatisticsTimeline;
 
   /**
+   * @public
    * <p>Statistics such as input rows and bytes read by the query, rows and bytes output by
    *             the query, and the number of rows written by the query.</p>
    */
   Rows?: QueryRuntimeStatisticsRows;
 
   /**
+   * @public
    * <p>Stage statistics such as input and output rows and bytes, execution time, and stage
    *             state. This information also includes substages and the query stage plan.</p>
    */
@@ -4700,6 +5195,7 @@ export interface QueryRuntimeStatistics {
  */
 export interface GetQueryRuntimeStatisticsOutput {
   /**
+   * @public
    * <p>Runtime statistics about the query execution.</p>
    */
   QueryRuntimeStatistics?: QueryRuntimeStatistics;

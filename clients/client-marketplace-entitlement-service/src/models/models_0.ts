@@ -24,12 +24,14 @@ export type GetEntitlementFilterName = (typeof GetEntitlementFilterName)[keyof t
  */
 export interface GetEntitlementsRequest {
   /**
+   * @public
    * <p>Product code is used to uniquely identify a product in AWS Marketplace. The product code
    *    will be provided by AWS Marketplace when the product listing is created.</p>
    */
   ProductCode: string | undefined;
 
   /**
+   * @public
    * <p>Filter is used to return entitlements for a specific customer or for a specific
    *       dimension. Filters are described as keys mapped to a lists of values. Filtered requests are
    *         <i>unioned</i> for each value in the value list, and then
@@ -38,12 +40,14 @@ export interface GetEntitlementsRequest {
   Filter?: Record<string, string[]>;
 
   /**
+   * @public
    * <p>For paginated calls to GetEntitlements, pass the NextToken from the previous
    *    GetEntitlementsResult.</p>
    */
   NextToken?: string;
 
   /**
+   * @public
    * <p>The maximum number of items to retrieve from the GetEntitlements operation. For
    *    pagination, use the NextToken field in subsequent calls to GetEntitlements.</p>
    */
@@ -57,24 +61,28 @@ export interface GetEntitlementsRequest {
  */
 export interface EntitlementValue {
   /**
+   * @public
    * <p>The IntegerValue field will be populated with an integer value when the entitlement is an
    *    integer type. Otherwise, the field will not be set.</p>
    */
   IntegerValue?: number;
 
   /**
+   * @public
    * <p>The DoubleValue field will be populated with a double value when the entitlement is a
    *    double type. Otherwise, the field will not be set.</p>
    */
   DoubleValue?: number;
 
   /**
+   * @public
    * <p>The BooleanValue field will be populated with a boolean value when the entitlement is a
    *       boolean type. Otherwise, the field will not be set.</p>
    */
   BooleanValue?: boolean;
 
   /**
+   * @public
    * <p>The StringValue field will be populated with a string value when the entitlement is a
    *    string type. Otherwise, the field will not be set.</p>
    */
@@ -89,12 +97,14 @@ export interface EntitlementValue {
  */
 export interface Entitlement {
   /**
+   * @public
    * <p>The product code for which the given entitlement applies. Product codes are provided by
    *    AWS Marketplace when the product listing is created.</p>
    */
   ProductCode?: string;
 
   /**
+   * @public
    * <p>The dimension for which the given entitlement applies. Dimensions represent categories of
    *       capacity in a product and are specified when the product is listed in AWS
    *       Marketplace.</p>
@@ -102,6 +112,7 @@ export interface Entitlement {
   Dimension?: string;
 
   /**
+   * @public
    * <p>The customer identifier is a handle to each unique customer in an application. Customer
    *    identifiers are obtained through the ResolveCustomer operation in AWS Marketplace Metering
    *    Service.</p>
@@ -109,12 +120,14 @@ export interface Entitlement {
   CustomerIdentifier?: string;
 
   /**
+   * @public
    * <p>The EntitlementValue represents the amount of capacity that the customer is entitled to
    *    for the product.</p>
    */
   Value?: EntitlementValue;
 
   /**
+   * @public
    * <p>The expiration date represents the minimum date through which this entitlement is
    *    expected to remain valid. For contractual products listed on AWS Marketplace, the expiration date
    *    is the date at which the customer will renew or cancel their contract. Customers who are opting
@@ -129,6 +142,7 @@ export interface Entitlement {
  */
 export interface GetEntitlementsResult {
   /**
+   * @public
    * <p>The set of entitlements found through the GetEntitlements operation. If the result
    *       contains an empty set of entitlements, NextToken might still be present and should be
    *       used.</p>
@@ -136,6 +150,7 @@ export interface GetEntitlementsResult {
   Entitlements?: Entitlement[];
 
   /**
+   * @public
    * <p>For paginated results, use NextToken in subsequent calls to GetEntitlements. If the
    *       result contains an empty set of entitlements, NextToken might still be present and should be
    *       used.</p>

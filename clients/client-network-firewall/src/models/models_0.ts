@@ -16,6 +16,7 @@ import { NetworkFirewallServiceException as __BaseException } from "./NetworkFir
  */
 export interface Dimension {
   /**
+   * @public
    * <p>The value to use in the custom metric dimension.</p>
    */
   Value: string | undefined;
@@ -28,6 +29,7 @@ export interface Dimension {
  */
 export interface PublishMetricAction {
   /**
+   * @public
    * <p></p>
    */
   Dimensions: Dimension[] | undefined;
@@ -39,6 +41,7 @@ export interface PublishMetricAction {
  */
 export interface ActionDefinition {
   /**
+   * @public
    * <p>Stateless inspection criteria that publishes the specified metrics to Amazon CloudWatch for the
    *          matching packet. This setting defines a CloudWatch dimension value to be published.</p>
    *          <p>You can pair this custom action with any of the standard stateless rule actions. For
@@ -56,6 +59,7 @@ export interface ActionDefinition {
  */
 export interface Address {
   /**
+   * @public
    * <p>Specify an IP address or a block of IP addresses in Classless Inter-Domain Routing (CIDR) notation. Network Firewall supports all address ranges for IPv4 and IPv6. </p>
    *          <p>Examples: </p>
    *          <ul>
@@ -83,6 +87,7 @@ export interface Address {
  */
 export interface AssociateFirewallPolicyRequest {
   /**
+   * @public
    * <p>An optional token that you can use for optimistic locking. Network Firewall returns a token to your requests that access the firewall. The token marks the state of the firewall resource at the time of the request. </p>
    *          <p>To make an unconditional change to the firewall, omit the token in your update request. Without the token, Network Firewall performs your updates regardless of whether the firewall has changed since you last retrieved it.</p>
    *          <p>To make a conditional change to the firewall, provide the token in your update request. Network Firewall uses the token to ensure that the firewall hasn't changed since you last retrieved it. If it has changed, the operation fails with an <code>InvalidTokenException</code>. If this happens, retrieve the firewall again to get a current copy of it with a new token. Reapply your changes as needed, then try the operation again using the new token. </p>
@@ -90,18 +95,21 @@ export interface AssociateFirewallPolicyRequest {
   UpdateToken?: string;
 
   /**
+   * @public
    * <p>The Amazon Resource Name (ARN) of the firewall.</p>
    *          <p>You must specify the ARN or the name, and you can specify both. </p>
    */
   FirewallArn?: string;
 
   /**
+   * @public
    * <p>The descriptive name of the firewall. You can't change the name of a firewall after you create it.</p>
    *          <p>You must specify the ARN or the name, and you can specify both. </p>
    */
   FirewallName?: string;
 
   /**
+   * @public
    * <p>The Amazon Resource Name (ARN) of the firewall policy.</p>
    */
   FirewallPolicyArn: string | undefined;
@@ -112,21 +120,25 @@ export interface AssociateFirewallPolicyRequest {
  */
 export interface AssociateFirewallPolicyResponse {
   /**
+   * @public
    * <p>The Amazon Resource Name (ARN) of the firewall.</p>
    */
   FirewallArn?: string;
 
   /**
+   * @public
    * <p>The descriptive name of the firewall. You can't change the name of a firewall after you create it.</p>
    */
   FirewallName?: string;
 
   /**
+   * @public
    * <p>The Amazon Resource Name (ARN) of the firewall policy.</p>
    */
   FirewallPolicyArn?: string;
 
   /**
+   * @public
    * <p>An optional token that you can use for optimistic locking. Network Firewall returns a token to your requests that access the firewall. The token marks the state of the firewall resource at the time of the request. </p>
    *          <p>To make an unconditional change to the firewall, omit the token in your update request. Without the token, Network Firewall performs your updates regardless of whether the firewall has changed since you last retrieved it.</p>
    *          <p>To make a conditional change to the firewall, provide the token in your update request. Network Firewall uses the token to ensure that the firewall hasn't changed since you last retrieved it. If it has changed, the operation fails with an <code>InvalidTokenException</code>. If this happens, retrieve the firewall again to get a current copy of it with a new token. Reapply your changes as needed, then try the operation again using the new token. </p>
@@ -305,11 +317,13 @@ export type IPAddressType = (typeof IPAddressType)[keyof typeof IPAddressType];
  */
 export interface SubnetMapping {
   /**
+   * @public
    * <p>The unique identifier for the subnet. </p>
    */
   SubnetId: string | undefined;
 
   /**
+   * @public
    * <p>The subnet's IP address type. You can't change the IP address type after you create the subnet.</p>
    */
   IPAddressType?: IPAddressType | string;
@@ -320,6 +334,7 @@ export interface SubnetMapping {
  */
 export interface AssociateSubnetsRequest {
   /**
+   * @public
    * <p>An optional token that you can use for optimistic locking. Network Firewall returns a token to your requests that access the firewall. The token marks the state of the firewall resource at the time of the request. </p>
    *          <p>To make an unconditional change to the firewall, omit the token in your update request. Without the token, Network Firewall performs your updates regardless of whether the firewall has changed since you last retrieved it.</p>
    *          <p>To make a conditional change to the firewall, provide the token in your update request. Network Firewall uses the token to ensure that the firewall hasn't changed since you last retrieved it. If it has changed, the operation fails with an <code>InvalidTokenException</code>. If this happens, retrieve the firewall again to get a current copy of it with a new token. Reapply your changes as needed, then try the operation again using the new token. </p>
@@ -327,18 +342,21 @@ export interface AssociateSubnetsRequest {
   UpdateToken?: string;
 
   /**
+   * @public
    * <p>The Amazon Resource Name (ARN) of the firewall.</p>
    *          <p>You must specify the ARN or the name, and you can specify both. </p>
    */
   FirewallArn?: string;
 
   /**
+   * @public
    * <p>The descriptive name of the firewall. You can't change the name of a firewall after you create it.</p>
    *          <p>You must specify the ARN or the name, and you can specify both. </p>
    */
   FirewallName?: string;
 
   /**
+   * @public
    * <p>The IDs of the subnets that you want to associate with the firewall. </p>
    */
   SubnetMappings: SubnetMapping[] | undefined;
@@ -349,21 +367,25 @@ export interface AssociateSubnetsRequest {
  */
 export interface AssociateSubnetsResponse {
   /**
+   * @public
    * <p>The Amazon Resource Name (ARN) of the firewall.</p>
    */
   FirewallArn?: string;
 
   /**
+   * @public
    * <p>The descriptive name of the firewall. You can't change the name of a firewall after you create it.</p>
    */
   FirewallName?: string;
 
   /**
+   * @public
    * <p>The IDs of the subnets that are associated with the firewall. </p>
    */
   SubnetMappings?: SubnetMapping[];
 
   /**
+   * @public
    * <p>An optional token that you can use for optimistic locking. Network Firewall returns a token to your requests that access the firewall. The token marks the state of the firewall resource at the time of the request. </p>
    *          <p>To make an unconditional change to the firewall, omit the token in your update request. Without the token, Network Firewall performs your updates regardless of whether the firewall has changed since you last retrieved it.</p>
    *          <p>To make a conditional change to the firewall, provide the token in your update request. Network Firewall uses the token to ensure that the firewall hasn't changed since you last retrieved it. If it has changed, the operation fails with an <code>InvalidTokenException</code>. If this happens, retrieve the firewall again to get a current copy of it with a new token. Reapply your changes as needed, then try the operation again using the new token. </p>
@@ -419,12 +441,14 @@ export type AttachmentStatus = (typeof AttachmentStatus)[keyof typeof Attachment
  */
 export interface Attachment {
   /**
+   * @public
    * <p>The unique identifier of the subnet that you've specified to be used for a firewall
    *          endpoint. </p>
    */
   SubnetId?: string;
 
   /**
+   * @public
    * <p>The identifier of the firewall endpoint that Network Firewall has instantiated in the
    *          subnet. You use this to identify the firewall endpoint in the VPC route tables, when you
    *          redirect the VPC traffic through the endpoint. </p>
@@ -432,6 +456,7 @@ export interface Attachment {
   EndpointId?: string;
 
   /**
+   * @public
    * <p>The current status of the firewall endpoint in the subnet. This value reflects both the
    *          instantiation of the endpoint in the VPC subnet and the sync states that are reported in
    *          the <code>Config</code> settings. When this value is <code>READY</code>, the endpoint is
@@ -442,6 +467,7 @@ export interface Attachment {
   Status?: AttachmentStatus | string;
 
   /**
+   * @public
    * <p>If Network Firewall fails to create or delete the firewall endpoint in the subnet, it populates this with the reason for the error or failure and how to resolve it. A <code>FAILED</code> status indicates a non-recoverable state, and a <code>ERROR</code> status indicates an issue that you can fix. Depending on the error, it can take as many as 15 minutes to populate this field. For more information about the causes for failiure or errors and solutions available for this field, see <a href="https://docs.aws.amazon.com/network-firewall/latest/developerguide/firewall-troubleshooting-endpoint-failures.html">Troubleshooting firewall endpoint failures</a> in the <i>Network Firewall Developer Guide</i>.</p>
    */
   StatusMessage?: string;
@@ -453,6 +479,7 @@ export interface Attachment {
  */
 export interface IPSetMetadata {
   /**
+   * @public
    * <p>Describes the total number of CIDR blocks currently in use by the IP set references in a firewall. To determine how many CIDR blocks are available for you to use in a firewall, you can call <code>AvailableCIDRCount</code>.</p>
    */
   ResolvedCIDRCount?: number;
@@ -464,16 +491,19 @@ export interface IPSetMetadata {
  */
 export interface CIDRSummary {
   /**
+   * @public
    * <p>The number of CIDR blocks available for use by the IP set references in a firewall.</p>
    */
   AvailableCIDRCount?: number;
 
   /**
+   * @public
    * <p>The number of CIDR blocks used by the IP set references in a firewall.</p>
    */
   UtilizedCIDRCount?: number;
 
   /**
+   * @public
    * <p>The list of the IP set references used by a firewall.</p>
    */
   IPSetReferences?: Record<string, IPSetMetadata>;
@@ -485,6 +515,7 @@ export interface CIDRSummary {
  */
 export interface CapacityUsageSummary {
   /**
+   * @public
    * <p>Describes the capacity usage of the CIDR blocks used by the IP set references in a firewall.</p>
    */
   CIDRs?: CIDRSummary;
@@ -496,21 +527,25 @@ export interface CapacityUsageSummary {
  */
 export interface TlsCertificateData {
   /**
+   * @public
    * <p>The Amazon Resource Name (ARN) of the certificate.</p>
    */
   CertificateArn?: string;
 
   /**
+   * @public
    * <p>The serial number of the certificate.</p>
    */
   CertificateSerial?: string;
 
   /**
+   * @public
    * <p>The status of the certificate.</p>
    */
   Status?: string;
 
   /**
+   * @public
    * <p>Contains details about the certificate status, including information about certificate errors.</p>
    */
   StatusMessage?: string;
@@ -551,11 +586,13 @@ export type EncryptionType = (typeof EncryptionType)[keyof typeof EncryptionType
  */
 export interface EncryptionConfiguration {
   /**
+   * @public
    * <p>The ID of the Amazon Web Services Key Management Service (KMS) customer managed key. You can use any of the key identifiers that KMS supports, unless you're using a key that's managed by another account. If you're using a key managed by another account, then specify the key ARN. For more information, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#key-id">Key ID</a> in the <i>Amazon Web Services KMS Developer Guide</i>.</p>
    */
   KeyId?: string;
 
   /**
+   * @public
    * <p>The type of Amazon Web Services KMS key to use for encryption of your Network Firewall resources.</p>
    */
   Type: EncryptionType | string | undefined;
@@ -570,12 +607,14 @@ export interface EncryptionConfiguration {
  */
 export interface Tag {
   /**
+   * @public
    * <p>The part of the key:value pair that defines a tag. You can use a tag key to describe a
    *          category of information, such as "customer." Tag keys are case-sensitive.</p>
    */
   Key: string | undefined;
 
   /**
+   * @public
    * <p>The part of the key:value pair that defines a tag. You can use a tag value to describe a
    *          specific value within a category, such as "companyA" or "companyB." Tag values are
    *          case-sensitive.</p>
@@ -588,23 +627,27 @@ export interface Tag {
  */
 export interface CreateFirewallRequest {
   /**
+   * @public
    * <p>The descriptive name of the firewall. You can't change the name of a firewall after you create it.</p>
    */
   FirewallName: string | undefined;
 
   /**
+   * @public
    * <p>The Amazon Resource Name (ARN) of the <a>FirewallPolicy</a> that you want to
    *          use for the firewall.</p>
    */
   FirewallPolicyArn: string | undefined;
 
   /**
+   * @public
    * <p>The unique identifier of the VPC where Network Firewall should create the firewall. </p>
    *          <p>You can't change this setting after you create the firewall. </p>
    */
   VpcId: string | undefined;
 
   /**
+   * @public
    * <p>The public subnets to use for your Network Firewall firewalls. Each subnet must belong to a
    *          different Availability Zone in the VPC. Network Firewall creates a firewall endpoint in each
    *          subnet. </p>
@@ -612,6 +655,7 @@ export interface CreateFirewallRequest {
   SubnetMappings: SubnetMapping[] | undefined;
 
   /**
+   * @public
    * <p>A flag indicating whether it is possible to delete the firewall. A setting of <code>TRUE</code> indicates
    *          that the firewall is protected against deletion. Use this setting to protect against
    *          accidentally deleting a firewall that is in use. When you create a firewall, the operation initializes this flag to <code>TRUE</code>.</p>
@@ -619,6 +663,7 @@ export interface CreateFirewallRequest {
   DeleteProtection?: boolean;
 
   /**
+   * @public
    * <p>A setting indicating whether the firewall is protected against changes to the subnet associations.
    *          Use this setting to protect against
    *          accidentally modifying the subnet associations for a firewall that is in use. When you create a firewall, the operation initializes this setting to <code>TRUE</code>.</p>
@@ -626,6 +671,7 @@ export interface CreateFirewallRequest {
   SubnetChangeProtection?: boolean;
 
   /**
+   * @public
    * <p>A setting indicating whether the firewall is protected against a change to the firewall policy association.
    *          Use this setting to protect against
    *          accidentally modifying the firewall policy for a firewall that is in use. When you create a firewall, the operation initializes this setting to <code>TRUE</code>.</p>
@@ -633,16 +679,19 @@ export interface CreateFirewallRequest {
   FirewallPolicyChangeProtection?: boolean;
 
   /**
+   * @public
    * <p>A description of the firewall.</p>
    */
   Description?: string;
 
   /**
+   * @public
    * <p>The key:value pairs to associate with the resource.</p>
    */
   Tags?: Tag[];
 
   /**
+   * @public
    * <p>A complex type that contains settings for encryption of your firewall resources.</p>
    */
   EncryptionConfiguration?: EncryptionConfiguration;
@@ -657,16 +706,19 @@ export interface CreateFirewallRequest {
  */
 export interface Firewall {
   /**
+   * @public
    * <p>The descriptive name of the firewall. You can't change the name of a firewall after you create it.</p>
    */
   FirewallName?: string;
 
   /**
+   * @public
    * <p>The Amazon Resource Name (ARN) of the firewall.</p>
    */
   FirewallArn?: string;
 
   /**
+   * @public
    * <p>The Amazon Resource Name (ARN) of the firewall policy.</p>
    *          <p>The relationship of firewall to firewall policy is many to one. Each firewall requires
    *          one firewall policy association, and you can use the same firewall policy for multiple
@@ -675,17 +727,20 @@ export interface Firewall {
   FirewallPolicyArn: string | undefined;
 
   /**
+   * @public
    * <p>The unique identifier of the VPC where the firewall is in use. </p>
    */
   VpcId: string | undefined;
 
   /**
+   * @public
    * <p>The public subnets that Network Firewall is using for the firewall. Each subnet must belong
    *          to a different Availability Zone. </p>
    */
   SubnetMappings: SubnetMapping[] | undefined;
 
   /**
+   * @public
    * <p>A flag indicating whether it is possible to delete the firewall. A setting of <code>TRUE</code> indicates
    *          that the firewall is protected against deletion. Use this setting to protect against
    *          accidentally deleting a firewall that is in use. When you create a firewall, the operation initializes this flag to <code>TRUE</code>.</p>
@@ -693,6 +748,7 @@ export interface Firewall {
   DeleteProtection?: boolean;
 
   /**
+   * @public
    * <p>A setting indicating whether the firewall is protected against changes to the subnet associations.
    *          Use this setting to protect against
    *          accidentally modifying the subnet associations for a firewall that is in use. When you create a firewall, the operation initializes this setting to <code>TRUE</code>.</p>
@@ -700,6 +756,7 @@ export interface Firewall {
   SubnetChangeProtection?: boolean;
 
   /**
+   * @public
    * <p>A setting indicating whether the firewall is protected against a change to the firewall policy association.
    *          Use this setting to protect against
    *          accidentally modifying the firewall policy for a firewall that is in use. When you create a firewall, the operation initializes this setting to <code>TRUE</code>.</p>
@@ -707,21 +764,25 @@ export interface Firewall {
   FirewallPolicyChangeProtection?: boolean;
 
   /**
+   * @public
    * <p>A description of the firewall.</p>
    */
   Description?: string;
 
   /**
+   * @public
    * <p>The unique identifier for the firewall. </p>
    */
   FirewallId: string | undefined;
 
   /**
+   * @public
    * <p></p>
    */
   Tags?: Tag[];
 
   /**
+   * @public
    * <p>A complex type that contains the Amazon Web Services KMS encryption configuration settings for your firewall.</p>
    */
   EncryptionConfiguration?: EncryptionConfiguration;
@@ -766,11 +827,13 @@ export type PerObjectSyncStatus = (typeof PerObjectSyncStatus)[keyof typeof PerO
  */
 export interface PerObjectStatus {
   /**
+   * @public
    * <p>Indicates whether this object is in sync with the version indicated in the update token.</p>
    */
   SyncStatus?: PerObjectSyncStatus | string;
 
   /**
+   * @public
    * <p>The current version of the object that is either in sync or pending synchronization. </p>
    */
   UpdateToken?: string;
@@ -797,6 +860,7 @@ export interface PerObjectStatus {
  */
 export interface SyncState {
   /**
+   * @public
    * <p>The attachment status of the firewall's association with a single VPC subnet. For each
    *          configured subnet, Network Firewall creates the attachment by instantiating the firewall
    *          endpoint in the subnet so that it's ready to take traffic. This is part of the <a>FirewallStatus</a>.</p>
@@ -804,6 +868,7 @@ export interface SyncState {
   Attachment?: Attachment;
 
   /**
+   * @public
    * <p>The configuration status of the firewall endpoint in a single VPC subnet. Network Firewall
    *          provides each endpoint with the rules that are configured in the firewall policy. Each time
    *          you add a subnet or modify the associated firewall policy, Network Firewall synchronizes the
@@ -818,6 +883,7 @@ export interface SyncState {
  */
 export interface FirewallStatus {
   /**
+   * @public
    * <p>The readiness of the configured firewall to handle network traffic across all of the
    *          Availability Zones where you've configured it. This setting is <code>READY</code> only when
    *          the <code>ConfigurationSyncStateSummary</code> value is <code>IN_SYNC</code> and the
@@ -828,6 +894,7 @@ export interface FirewallStatus {
   Status: FirewallStatusValue | string | undefined;
 
   /**
+   * @public
    * <p>The configuration sync state for the firewall. This summarizes the sync states reported
    *          in the <code>Config</code> settings for all of the Availability Zones where you have
    *          configured the firewall. </p>
@@ -842,6 +909,7 @@ export interface FirewallStatus {
   ConfigurationSyncStateSummary: ConfigurationSyncState | string | undefined;
 
   /**
+   * @public
    * <p>The subnets that you've configured for use by the Network Firewall firewall. This contains
    *          one array element per Availability Zone where you've configured a subnet. These objects
    *          provide details of the information that is summarized in the
@@ -851,6 +919,7 @@ export interface FirewallStatus {
   SyncStates?: Record<string, SyncState>;
 
   /**
+   * @public
    * <p>Describes the capacity usage of the resources contained in a firewall's reference sets. Network Firewall calclulates the capacity usage by taking an aggregated count of all of the resources used by all of the reference sets in a firewall.</p>
    */
   CapacityUsageSummary?: CapacityUsageSummary;
@@ -861,11 +930,13 @@ export interface FirewallStatus {
  */
 export interface CreateFirewallResponse {
   /**
+   * @public
    * <p>The configuration settings for the firewall. These settings include the firewall policy and the subnets in your VPC to use for the firewall endpoints. </p>
    */
   Firewall?: Firewall;
 
   /**
+   * @public
    * <p>Detailed information about the current status of a <a>Firewall</a>. You can retrieve this for a firewall by calling <a>DescribeFirewall</a> and providing the firewall name and ARN.</p>
    */
   FirewallStatus?: FirewallStatus;
@@ -899,6 +970,7 @@ export class LimitExceededException extends __BaseException {
  */
 export interface IPSet {
   /**
+   * @public
    * <p>The list of IP addresses and address ranges, in CIDR notation.
    *
    *       </p>
@@ -912,6 +984,7 @@ export interface IPSet {
  */
 export interface PolicyVariables {
   /**
+   * @public
    * <p>The IPv4 or IPv6 addresses in CIDR notation to use for the Suricata <code>HOME_NET</code> variable. If your firewall uses an inspection VPC, you might want to override the <code>HOME_NET</code> variable with the CIDRs of your home networks. If you don't override <code>HOME_NET</code> with your own CIDRs, Network Firewall by default uses the CIDR of your inspection VPC.</p>
    */
   RuleVariables?: Record<string, IPSet>;
@@ -952,6 +1025,7 @@ export type StreamExceptionPolicy = (typeof StreamExceptionPolicy)[keyof typeof 
  */
 export interface StatefulEngineOptions {
   /**
+   * @public
    * <p>Indicates how to manage the order of stateful rule evaluation for the policy. <code>DEFAULT_ACTION_ORDER</code> is
    *          the default behavior. Stateful rules are provided to the rule engine as Suricata compatible strings, and Suricata evaluates them
    *          based on certain settings. For more information, see
@@ -961,6 +1035,7 @@ export interface StatefulEngineOptions {
   RuleOrder?: RuleOrder | string;
 
   /**
+   * @public
    * <p>Configures how Network Firewall processes traffic when a network connection breaks midstream. Network connections can break due to disruptions in external networks or within the firewall itself.</p>
    *          <ul>
    *             <li>
@@ -999,6 +1074,7 @@ export type OverrideAction = (typeof OverrideAction)[keyof typeof OverrideAction
  */
 export interface StatefulRuleGroupOverride {
   /**
+   * @public
    * <p>The action that changes the rule group from <code>DROP</code> to <code>ALERT</code>. This only applies to
    *       managed rule groups.</p>
    */
@@ -1012,11 +1088,13 @@ export interface StatefulRuleGroupOverride {
  */
 export interface StatefulRuleGroupReference {
   /**
+   * @public
    * <p>The Amazon Resource Name (ARN) of the stateful rule group.</p>
    */
   ResourceArn: string | undefined;
 
   /**
+   * @public
    * <p>An integer setting that indicates the order in which to run the stateful rule groups in
    *       a single <a>FirewallPolicy</a>. This setting only applies to firewall policies
    *       that specify the <code>STRICT_ORDER</code> rule order in the stateful engine options settings.</p>
@@ -1030,6 +1108,7 @@ export interface StatefulRuleGroupReference {
   Priority?: number;
 
   /**
+   * @public
    * <p>The action that allows the policy owner to override the behavior of the rule group within a policy.</p>
    */
   Override?: StatefulRuleGroupOverride;
@@ -1061,11 +1140,13 @@ export interface StatefulRuleGroupReference {
  */
 export interface CustomAction {
   /**
+   * @public
    * <p>The descriptive name of the custom action. You can't change the name of a custom action after you create it.</p>
    */
   ActionName: string | undefined;
 
   /**
+   * @public
    * <p>The custom action associated with the action name.</p>
    */
   ActionDefinition: ActionDefinition | undefined;
@@ -1078,11 +1159,13 @@ export interface CustomAction {
  */
 export interface StatelessRuleGroupReference {
   /**
+   * @public
    * <p>The Amazon Resource Name (ARN) of the stateless rule group.</p>
    */
   ResourceArn: string | undefined;
 
   /**
+   * @public
    * <p>An integer setting that indicates the order in which to run the stateless rule groups in
    *          a single <a>FirewallPolicy</a>. Network Firewall applies each stateless rule group
    *          to a packet starting with the group that has the lowest priority setting. You must ensure
@@ -1101,12 +1184,14 @@ export interface StatelessRuleGroupReference {
  */
 export interface FirewallPolicy {
   /**
+   * @public
    * <p>References to the stateless rule groups that are used in the policy. These define the
    *          matching criteria in stateless rules. </p>
    */
   StatelessRuleGroupReferences?: StatelessRuleGroupReference[];
 
   /**
+   * @public
    * <p>The actions to take on a packet if it doesn't match any of the stateless rules in the
    *          policy. If you want non-matching packets to be forwarded for stateful inspection, specify
    *             <code>aws:forward_to_sfe</code>. </p>
@@ -1120,6 +1205,7 @@ export interface FirewallPolicy {
   StatelessDefaultActions: string[] | undefined;
 
   /**
+   * @public
    * <p>The actions to take on a fragmented UDP packet if it doesn't match any of the stateless
    *       rules in the policy. Network Firewall only manages UDP packet fragments and silently drops packet fragments for other protocols.
    *       If you want non-matching fragmented UDP packets to be forwarded for
@@ -1134,6 +1220,7 @@ export interface FirewallPolicy {
   StatelessFragmentDefaultActions: string[] | undefined;
 
   /**
+   * @public
    * <p>The custom action definitions that are available for use in the firewall policy's
    *             <code>StatelessDefaultActions</code> setting. You name each custom action that you
    *          define, and then you can use it by name in your default actions specifications.</p>
@@ -1141,12 +1228,14 @@ export interface FirewallPolicy {
   StatelessCustomActions?: CustomAction[];
 
   /**
+   * @public
    * <p>References to the stateful rule groups that are used in the policy. These define the
    *          inspection criteria in stateful rules. </p>
    */
   StatefulRuleGroupReferences?: StatefulRuleGroupReference[];
 
   /**
+   * @public
    * <p>The default actions to take on a packet that doesn't match any stateful rules. The stateful default action is optional,
    *          and is only valid when using the strict rule order.</p>
    *          <p>Valid values of the stateful default action:</p>
@@ -1171,17 +1260,20 @@ export interface FirewallPolicy {
   StatefulDefaultActions?: string[];
 
   /**
+   * @public
    * <p>Additional options governing how Network Firewall handles stateful rules. The stateful
    *        rule groups that you use in your policy must have stateful rule options settings that are compatible with these settings.</p>
    */
   StatefulEngineOptions?: StatefulEngineOptions;
 
   /**
+   * @public
    * <p>The Amazon Resource Name (ARN) of the TLS inspection configuration.</p>
    */
   TLSInspectionConfigurationArn?: string;
 
   /**
+   * @public
    * <p>Contains variables that you can use to override default Suricata settings in your firewall policy.</p>
    */
   PolicyVariables?: PolicyVariables;
@@ -1192,26 +1284,31 @@ export interface FirewallPolicy {
  */
 export interface CreateFirewallPolicyRequest {
   /**
+   * @public
    * <p>The descriptive name of the firewall policy. You can't change the name of a firewall policy after you create it.</p>
    */
   FirewallPolicyName: string | undefined;
 
   /**
+   * @public
    * <p>The rule groups and policy actions to use in the firewall policy.</p>
    */
   FirewallPolicy: FirewallPolicy | undefined;
 
   /**
+   * @public
    * <p>A description of the firewall policy.</p>
    */
   Description?: string;
 
   /**
+   * @public
    * <p>The key:value pairs to associate with the resource.</p>
    */
   Tags?: Tag[];
 
   /**
+   * @public
    * <p>Indicates whether you want Network Firewall to just check the validity of the request, rather than run the request. </p>
    *          <p>If set to <code>TRUE</code>, Network Firewall checks whether the request can run successfully,
    *          but doesn't actually make the requested changes. The call returns the value that the request would return if you ran it with
@@ -1222,6 +1319,7 @@ export interface CreateFirewallPolicyRequest {
   DryRun?: boolean;
 
   /**
+   * @public
    * <p>A complex type that contains settings for encryption of your firewall policy resources.</p>
    */
   EncryptionConfiguration?: EncryptionConfiguration;
@@ -1247,11 +1345,13 @@ export type ResourceStatus = (typeof ResourceStatus)[keyof typeof ResourceStatus
  */
 export interface FirewallPolicyResponse {
   /**
+   * @public
    * <p>The descriptive name of the firewall policy. You can't change the name of a firewall policy after you create it.</p>
    */
   FirewallPolicyName: string | undefined;
 
   /**
+   * @public
    * <p>The Amazon Resource Name (ARN) of the firewall policy.</p>
    *          <note>
    *             <p>If this response is for a create request that had <code>DryRun</code> set to
@@ -1262,16 +1362,19 @@ export interface FirewallPolicyResponse {
   FirewallPolicyArn: string | undefined;
 
   /**
+   * @public
    * <p>The unique identifier for the firewall policy. </p>
    */
   FirewallPolicyId: string | undefined;
 
   /**
+   * @public
    * <p>A description of the firewall policy.</p>
    */
   Description?: string;
 
   /**
+   * @public
    * <p>The current status of the firewall policy. You can retrieve this for a firewall policy
    *          by calling <a>DescribeFirewallPolicy</a> and providing the firewall policy's
    *          name or ARN.</p>
@@ -1279,31 +1382,37 @@ export interface FirewallPolicyResponse {
   FirewallPolicyStatus?: ResourceStatus | string;
 
   /**
+   * @public
    * <p>The key:value pairs to associate with the resource.</p>
    */
   Tags?: Tag[];
 
   /**
+   * @public
    * <p>The number of capacity units currently consumed by the policy's stateless rules.</p>
    */
   ConsumedStatelessRuleCapacity?: number;
 
   /**
+   * @public
    * <p>The number of capacity units currently consumed by the policy's stateful rules.</p>
    */
   ConsumedStatefulRuleCapacity?: number;
 
   /**
+   * @public
    * <p>The number of firewalls that are associated with this firewall policy.</p>
    */
   NumberOfAssociations?: number;
 
   /**
+   * @public
    * <p>A complex type that contains the Amazon Web Services KMS encryption configuration settings for your firewall policy.</p>
    */
   EncryptionConfiguration?: EncryptionConfiguration;
 
   /**
+   * @public
    * <p>The last time that the firewall policy was changed.</p>
    */
   LastModifiedTime?: Date;
@@ -1314,12 +1423,14 @@ export interface FirewallPolicyResponse {
  */
 export interface CreateFirewallPolicyResponse {
   /**
+   * @public
    * <p>A token used for optimistic locking. Network Firewall returns a token to your requests that access the firewall policy. The token marks the state of the policy resource at the time of the request. </p>
    *          <p>To make changes to the policy, you provide the token in your request. Network Firewall uses the token to ensure that the policy hasn't changed since you last retrieved it. If it has changed, the operation fails with an <code>InvalidTokenException</code>. If this happens, retrieve the firewall policy again to get a current copy of it with current token. Reapply your changes as needed, then try the operation again using the new token. </p>
    */
   UpdateToken: string | undefined;
 
   /**
+   * @public
    * <p>The high-level properties of a firewall policy. This, along with the <a>FirewallPolicy</a>, define the policy. You can retrieve all objects for a firewall policy by calling <a>DescribeFirewallPolicy</a>. </p>
    */
   FirewallPolicyResponse: FirewallPolicyResponse | undefined;
@@ -1334,6 +1445,7 @@ export interface CreateFirewallPolicyResponse {
  */
 export interface IPSetReference {
   /**
+   * @public
    * <p>The Amazon Resource Name (ARN) of the resource that you are referencing in your rule group.</p>
    */
   ReferenceArn?: string;
@@ -1345,6 +1457,7 @@ export interface IPSetReference {
  */
 export interface ReferenceSets {
   /**
+   * @public
    * <p>The list of IP set references.</p>
    */
   IPSetReferences?: Record<string, IPSetReference>;
@@ -1386,6 +1499,7 @@ export type TargetType = (typeof TargetType)[keyof typeof TargetType];
  */
 export interface RulesSourceList {
   /**
+   * @public
    * <p>The domains that you want to inspect for in your traffic flows. Valid domain specifications are the following:</p>
    *          <ul>
    *             <li>
@@ -1399,11 +1513,13 @@ export interface RulesSourceList {
   Targets: string[] | undefined;
 
   /**
+   * @public
    * <p>The protocols you want to inspect. Specify <code>TLS_SNI</code> for <code>HTTPS</code>. Specify <code>HTTP_HOST</code> for <code>HTTP</code>. You can specify either or both. </p>
    */
   TargetTypes: (TargetType | string)[] | undefined;
 
   /**
+   * @public
    * <p>Whether you want to allow or deny access to the domains in your target list.</p>
    */
   GeneratedRulesType: GeneratedRulesType | string | undefined;
@@ -1478,11 +1594,13 @@ export type StatefulRuleProtocol = (typeof StatefulRuleProtocol)[keyof typeof St
  */
 export interface Header {
   /**
+   * @public
    * <p>The protocol to inspect for. To specify all, you can use <code>IP</code>, because all traffic on Amazon Web Services and on the internet is IP.</p>
    */
   Protocol: StatefulRuleProtocol | string | undefined;
 
   /**
+   * @public
    * <p>The source IP address or address range to inspect for, in CIDR notation.
    *           To match with any address, specify <code>ANY</code>. </p>
    *          <p>Specify an IP address or a block of IP addresses in Classless Inter-Domain Routing (CIDR) notation. Network Firewall supports all address ranges for IPv4 and IPv6. </p>
@@ -1507,6 +1625,7 @@ export interface Header {
   Source: string | undefined;
 
   /**
+   * @public
    * <p>The source port to inspect for. You can specify an individual port, for
    *            example <code>1994</code> and you can specify a port
    *                range, for example <code>1990:1994</code>.
@@ -1515,6 +1634,7 @@ export interface Header {
   SourcePort: string | undefined;
 
   /**
+   * @public
    * <p>The direction of traffic flow to inspect. If set to <code>ANY</code>, the inspection
    *          matches bidirectional traffic, both from the source to the destination and from the
    *          destination to the source. If set to <code>FORWARD</code>, the inspection only matches
@@ -1523,6 +1643,7 @@ export interface Header {
   Direction: StatefulRuleDirection | string | undefined;
 
   /**
+   * @public
    * <p>The destination IP address or address range to inspect for, in CIDR notation.
    *           To match with any address, specify <code>ANY</code>. </p>
    *          <p>Specify an IP address or a block of IP addresses in Classless Inter-Domain Routing (CIDR) notation. Network Firewall supports all address ranges for IPv4 and IPv6. </p>
@@ -1547,6 +1668,7 @@ export interface Header {
   Destination: string | undefined;
 
   /**
+   * @public
    * <p>The destination port to inspect for. You can specify an individual port, for
    *            example <code>1994</code> and you can specify
    *          a port range, for example <code>1990:1994</code>.
@@ -1561,11 +1683,13 @@ export interface Header {
  */
 export interface RuleOption {
   /**
+   * @public
    * <p></p>
    */
   Keyword: string | undefined;
 
   /**
+   * @public
    * <p></p>
    */
   Settings?: string[];
@@ -1580,6 +1704,7 @@ export interface RuleOption {
  */
 export interface StatefulRule {
   /**
+   * @public
    * <p>Defines what Network Firewall should do with the packets in a traffic flow when the flow
    *          matches the stateful rule criteria. For all actions, Network Firewall performs the specified
    *          action and discontinues stateful inspection of the traffic flow. </p>
@@ -1617,12 +1742,14 @@ export interface StatefulRule {
   Action: StatefulAction | string | undefined;
 
   /**
+   * @public
    * <p>The stateful inspection criteria for this rule, used to inspect traffic flows.
    *       </p>
    */
   Header: Header | undefined;
 
   /**
+   * @public
    * <p>Additional options for the rule. These are the Suricata <code>RuleOptions</code> settings.</p>
    */
   RuleOptions: RuleOption[] | undefined;
@@ -1636,12 +1763,14 @@ export interface StatefulRule {
  */
 export interface PortRange {
   /**
+   * @public
    * <p>The lower limit of the port range. This must be less than or equal to the
    *             <code>ToPort</code> specification. </p>
    */
   FromPort: number | undefined;
 
   /**
+   * @public
    * <p>The upper limit of the port range. This must be greater than or equal to the
    *             <code>FromPort</code> specification. </p>
    */
@@ -1674,6 +1803,7 @@ export type TCPFlag = (typeof TCPFlag)[keyof typeof TCPFlag];
  */
 export interface TCPFlagField {
   /**
+   * @public
    * <p>Used in conjunction with the <code>Masks</code> setting to define the flags that must be set and flags that must not be set in order for the packet to match. This setting can only specify values that are also specified in the <code>Masks</code> setting.</p>
    *          <p>For the flags that are specified in the masks setting, the following must be true for the packet to match: </p>
    *          <ul>
@@ -1688,6 +1818,7 @@ export interface TCPFlagField {
   Flags: (TCPFlag | string)[] | undefined;
 
   /**
+   * @public
    * <p>The set of flags to consider in the inspection. To inspect all flags in the valid values list, leave this with no setting.</p>
    */
   Masks?: (TCPFlag | string)[];
@@ -1699,18 +1830,21 @@ export interface TCPFlagField {
  */
 export interface MatchAttributes {
   /**
+   * @public
    * <p>The source IP addresses and address ranges to inspect for, in CIDR notation. If not
    *          specified, this matches with any source address. </p>
    */
   Sources?: Address[];
 
   /**
+   * @public
    * <p>The destination IP addresses and address ranges to inspect for, in CIDR notation. If not
    *          specified, this matches with any destination address. </p>
    */
   Destinations?: Address[];
 
   /**
+   * @public
    * <p>The source ports to inspect for. If not specified, this matches with any source port.
    *          This setting is only used for protocols 6 (TCP) and 17 (UDP). </p>
    *          <p>You can specify individual ports, for example <code>1994</code> and you can specify port
@@ -1719,6 +1853,7 @@ export interface MatchAttributes {
   SourcePorts?: PortRange[];
 
   /**
+   * @public
    * <p>The destination ports to inspect for. If not specified, this matches with any
    *          destination port. This setting is only used for protocols 6 (TCP) and 17 (UDP). </p>
    *          <p>You can specify individual ports, for example <code>1994</code> and you can specify port
@@ -1727,12 +1862,14 @@ export interface MatchAttributes {
   DestinationPorts?: PortRange[];
 
   /**
+   * @public
    * <p>The protocols to inspect for, specified using each protocol's assigned internet protocol
    *          number (IANA). If not specified, this matches with any protocol. </p>
    */
   Protocols?: number[];
 
   /**
+   * @public
    * <p>The TCP flags and masks to inspect for. If not specified, this matches with any
    *          settings. This setting is only used for protocol 6 (TCP).</p>
    */
@@ -1747,11 +1884,13 @@ export interface MatchAttributes {
  */
 export interface RuleDefinition {
   /**
+   * @public
    * <p>Criteria for Network Firewall to use to inspect an individual packet in stateless rule inspection. Each match attributes set can include one or more items such as IP address, CIDR range, port number, protocol, and TCP flags. </p>
    */
   MatchAttributes: MatchAttributes | undefined;
 
   /**
+   * @public
    * <p>The actions to take on a packet that matches one of the stateless rule definition's
    *          match attributes. You must specify a standard action and you can add custom actions. </p>
    *          <note>
@@ -1799,12 +1938,14 @@ export interface RuleDefinition {
  */
 export interface StatelessRule {
   /**
+   * @public
    * <p>Defines the stateless 5-tuple packet inspection criteria and the action to take on a
    *          packet that matches the criteria. </p>
    */
   RuleDefinition: RuleDefinition | undefined;
 
   /**
+   * @public
    * <p>Indicates the order in which to run this rule relative to all of the
    *          rules that are defined for a stateless rule group. Network Firewall evaluates the rules in a
    *          rule group starting with the lowest priority setting. You must ensure that the priority
@@ -1828,11 +1969,13 @@ export interface StatelessRule {
  */
 export interface StatelessRulesAndCustomActions {
   /**
+   * @public
    * <p>Defines the set of stateless rules for use in a stateless rule group. </p>
    */
   StatelessRules: StatelessRule[] | undefined;
 
   /**
+   * @public
    * <p>Defines an array of individual custom action definitions that are available for use by
    *          the stateless rules in this <code>StatelessRulesAndCustomActions</code> specification. You
    *          name each custom action that you define, and then you can use it by name in your <a>StatelessRule</a>
@@ -1850,6 +1993,7 @@ export interface StatelessRulesAndCustomActions {
  */
 export interface RulesSource {
   /**
+   * @public
    * <p>Stateful inspection criteria, provided in Suricata compatible intrusion prevention
    *          system (IPS) rules. Suricata is an open-source network IPS that includes a standard
    *          rule-based language for network traffic inspection.</p>
@@ -1860,11 +2004,13 @@ export interface RulesSource {
   RulesString?: string;
 
   /**
+   * @public
    * <p>Stateful inspection criteria for a domain list rule group. </p>
    */
   RulesSourceList?: RulesSourceList;
 
   /**
+   * @public
    * <p>An array of individual stateful rules inspection criteria to be used together in a stateful rule group.
    *        Use this option to specify simple Suricata rules with protocol, source and destination, ports, direction, and rule options.
    *        For information about the Suricata <code>Rules</code> format, see
@@ -1873,6 +2019,7 @@ export interface RulesSource {
   StatefulRules?: StatefulRule[];
 
   /**
+   * @public
    * <p>Stateless inspection criteria to be used in a stateless rule group. </p>
    */
   StatelessRulesAndCustomActions?: StatelessRulesAndCustomActions;
@@ -1884,6 +2031,7 @@ export interface RulesSource {
  */
 export interface PortSet {
   /**
+   * @public
    * <p>The set of port ranges.
    *       </p>
    */
@@ -1897,11 +2045,13 @@ export interface PortSet {
  */
 export interface RuleVariables {
   /**
+   * @public
    * <p>A list of IP addresses and address ranges, in CIDR notation. </p>
    */
   IPSets?: Record<string, IPSet>;
 
   /**
+   * @public
    * <p>A list of port ranges. </p>
    */
   PortSets?: Record<string, PortSet>;
@@ -1913,6 +2063,7 @@ export interface RuleVariables {
  */
 export interface StatefulRuleOptions {
   /**
+   * @public
    * <p>Indicates how to manage the order of the rule evaluation for the rule group. <code>DEFAULT_ACTION_ORDER</code> is
    *              the default behavior. Stateful rules are provided to the rule engine as Suricata compatible strings, and Suricata evaluates them
    *              based on certain settings. For more information, see
@@ -1933,22 +2084,26 @@ export interface StatefulRuleOptions {
  */
 export interface RuleGroup {
   /**
+   * @public
    * <p>Settings that are available for use in the rules in the rule group. You can only use
    *          these for stateful rule groups. </p>
    */
   RuleVariables?: RuleVariables;
 
   /**
+   * @public
    * <p>The list of a rule group's reference sets.</p>
    */
   ReferenceSets?: ReferenceSets;
 
   /**
+   * @public
    * <p>The stateful rules or stateless rules for the rule group. </p>
    */
   RulesSource: RulesSource | undefined;
 
   /**
+   * @public
    * <p>Additional options governing how Network Firewall handles stateful rules. The policies where you use your stateful
    *        rule group must have stateful rule options settings that are compatible with these settings.</p>
    */
@@ -1961,11 +2116,13 @@ export interface RuleGroup {
  */
 export interface SourceMetadata {
   /**
+   * @public
    * <p>The Amazon Resource Name (ARN) of the rule group that your own rule group is copied from.</p>
    */
   SourceArn?: string;
 
   /**
+   * @public
    * <p>The update token of the Amazon Web Services managed rule group that your own rule group is copied from. To determine the update token for the managed rule group, call <a href="https://docs.aws.amazon.com/network-firewall/latest/APIReference/API_DescribeRuleGroup.html#networkfirewall-DescribeRuleGroup-response-UpdateToken">DescribeRuleGroup</a>.</p>
    */
   SourceUpdateToken?: string;
@@ -1990,11 +2147,13 @@ export type RuleGroupType = (typeof RuleGroupType)[keyof typeof RuleGroupType];
  */
 export interface CreateRuleGroupRequest {
   /**
+   * @public
    * <p>The descriptive name of the rule group. You can't change the name of a rule group after you create it.</p>
    */
   RuleGroupName: string | undefined;
 
   /**
+   * @public
    * <p>An object that defines the rule group rules. </p>
    *          <note>
    *             <p>You must provide either this rule group setting or a <code>Rules</code> setting, but not both. </p>
@@ -2003,6 +2162,7 @@ export interface CreateRuleGroupRequest {
   RuleGroup?: RuleGroup;
 
   /**
+   * @public
    * <p>A string containing stateful rule group rules specifications in Suricata flat format, with one rule
    * per line. Use this to import your existing Suricata compatible rule groups. </p>
    *          <note>
@@ -2014,17 +2174,20 @@ export interface CreateRuleGroupRequest {
   Rules?: string;
 
   /**
+   * @public
    * <p>Indicates whether the rule group is stateless or stateful. If the rule group is stateless, it contains
    * stateless rules. If it is stateful, it contains stateful rules. </p>
    */
   Type: RuleGroupType | string | undefined;
 
   /**
+   * @public
    * <p>A description of the rule group. </p>
    */
   Description?: string;
 
   /**
+   * @public
    * <p>The maximum operating resources that this rule group can use. Rule group capacity is fixed at creation.
    *       When you update a rule group, you are limited to this capacity. When you reference a rule group
    *       from a firewall policy, Network Firewall reserves this capacity for the rule group. </p>
@@ -2070,11 +2233,13 @@ export interface CreateRuleGroupRequest {
   Capacity: number | undefined;
 
   /**
+   * @public
    * <p>The key:value pairs to associate with the resource.</p>
    */
   Tags?: Tag[];
 
   /**
+   * @public
    * <p>Indicates whether you want Network Firewall to just check the validity of the request, rather than run the request. </p>
    *          <p>If set to <code>TRUE</code>, Network Firewall checks whether the request can run successfully,
    *          but doesn't actually make the requested changes. The call returns the value that the request would return if you ran it with
@@ -2085,11 +2250,13 @@ export interface CreateRuleGroupRequest {
   DryRun?: boolean;
 
   /**
+   * @public
    * <p>A complex type that contains settings for encryption of your rule group resources.</p>
    */
   EncryptionConfiguration?: EncryptionConfiguration;
 
   /**
+   * @public
    * <p>A complex type that contains metadata about the rule group that your own rule group is copied from. You can use the metadata to keep track of updates made to the originating rule group.</p>
    */
   SourceMetadata?: SourceMetadata;
@@ -2101,6 +2268,7 @@ export interface CreateRuleGroupRequest {
  */
 export interface RuleGroupResponse {
   /**
+   * @public
    * <p>The Amazon Resource Name (ARN) of the rule group.</p>
    *          <note>
    *             <p>If this response is for a create request that had <code>DryRun</code> set to
@@ -2111,27 +2279,32 @@ export interface RuleGroupResponse {
   RuleGroupArn: string | undefined;
 
   /**
+   * @public
    * <p>The descriptive name of the rule group. You can't change the name of a rule group after you create it.</p>
    */
   RuleGroupName: string | undefined;
 
   /**
+   * @public
    * <p>The unique identifier for the rule group. </p>
    */
   RuleGroupId: string | undefined;
 
   /**
+   * @public
    * <p>A description of the rule group. </p>
    */
   Description?: string;
 
   /**
+   * @public
    * <p>Indicates whether the rule group is stateless or stateful. If the rule group is stateless, it contains
    * stateless rules. If it is stateful, it contains stateful rules. </p>
    */
   Type?: RuleGroupType | string;
 
   /**
+   * @public
    * <p>The maximum operating resources that this rule group can use. Rule group capacity is fixed at creation.
    *       When you update a rule group, you are limited to this capacity. When you reference a rule group
    *       from a firewall policy, Network Firewall reserves this capacity for the rule group. </p>
@@ -2141,36 +2314,43 @@ export interface RuleGroupResponse {
   Capacity?: number;
 
   /**
+   * @public
    * <p>Detailed information about the current status of a rule group. </p>
    */
   RuleGroupStatus?: ResourceStatus | string;
 
   /**
+   * @public
    * <p>The key:value pairs to associate with the resource.</p>
    */
   Tags?: Tag[];
 
   /**
+   * @public
    * <p>The number of capacity units currently consumed by the rule group rules. </p>
    */
   ConsumedCapacity?: number;
 
   /**
+   * @public
    * <p>The number of firewall policies that use this rule group.</p>
    */
   NumberOfAssociations?: number;
 
   /**
+   * @public
    * <p>A complex type that contains the Amazon Web Services KMS encryption configuration settings for your rule group.</p>
    */
   EncryptionConfiguration?: EncryptionConfiguration;
 
   /**
+   * @public
    * <p>A complex type that contains metadata about the rule group that your own rule group is copied from. You can use the metadata to track the version updates made to the originating rule group.</p>
    */
   SourceMetadata?: SourceMetadata;
 
   /**
+   * @public
    * <p>The Amazon resource name (ARN) of the Amazon Simple Notification Service SNS topic that's
    * used to record changes to the managed rule group. You can subscribe to the SNS topic to receive
    * notifications when the managed rule group is modified, such as for new versions and for version
@@ -2179,6 +2359,7 @@ export interface RuleGroupResponse {
   SnsTopic?: string;
 
   /**
+   * @public
    * <p>The last time that the rule group was changed.</p>
    */
   LastModifiedTime?: Date;
@@ -2189,12 +2370,14 @@ export interface RuleGroupResponse {
  */
 export interface CreateRuleGroupResponse {
   /**
+   * @public
    * <p>A token used for optimistic locking. Network Firewall returns a token to your requests that access the rule group. The token marks the state of the rule group resource at the time of the request. </p>
    *          <p>To make changes to the rule group, you provide the token in your request. Network Firewall uses the token to ensure that the rule group hasn't changed since you last retrieved it. If it has changed, the operation fails with an <code>InvalidTokenException</code>. If this happens, retrieve the rule group again to get a current copy of it with a current token. Reapply your changes as needed, then try the operation again using the new token. </p>
    */
   UpdateToken: string | undefined;
 
   /**
+   * @public
    * <p>The high-level properties of a rule group. This, along with the <a>RuleGroup</a>, define the rule group. You can retrieve all objects for a rule group by calling <a>DescribeRuleGroup</a>. </p>
    */
   RuleGroupResponse: RuleGroupResponse | undefined;
@@ -2206,30 +2389,35 @@ export interface CreateRuleGroupResponse {
  */
 export interface ServerCertificateScope {
   /**
+   * @public
    * <p>The source IP addresses and address ranges to decrypt for inspection, in CIDR notation. If not specified, this
    * matches with any source address.</p>
    */
   Sources?: Address[];
 
   /**
+   * @public
    * <p>The destination IP addresses and address ranges to decrypt for inspection, in CIDR notation. If not specified, this
    * matches with any destination address.</p>
    */
   Destinations?: Address[];
 
   /**
+   * @public
    * <p>The source ports to decrypt for inspection, in Transmission Control Protocol (TCP) format. If not specified, this matches with any source port.</p>
    *          <p>You can specify individual ports, for example <code>1994</code>, and you can specify port ranges, such as <code>1990:1994</code>.</p>
    */
   SourcePorts?: PortRange[];
 
   /**
+   * @public
    * <p>The destination ports to decrypt for inspection, in Transmission Control Protocol (TCP) format. If not specified, this matches with any destination port.</p>
    *          <p>You can specify individual ports, for example <code>1994</code>, and you can specify port ranges, such as <code>1990:1994</code>.</p>
    */
   DestinationPorts?: PortRange[];
 
   /**
+   * @public
    * <p>The protocols to decrypt for inspection, specified using each protocol's assigned internet protocol number
    * (IANA). Network Firewall currently supports only TCP.</p>
    */
@@ -2242,6 +2430,7 @@ export interface ServerCertificateScope {
  */
 export interface ServerCertificate {
   /**
+   * @public
    * <p>The Amazon Resource Name (ARN) of the Certificate Manager SSL/TLS server certificate.</p>
    */
   ResourceArn?: string;
@@ -2256,11 +2445,13 @@ export interface ServerCertificate {
  */
 export interface ServerCertificateConfiguration {
   /**
+   * @public
    * <p>The list of a server certificate configuration's Certificate Manager SSL/TLS certificates.</p>
    */
   ServerCertificates?: ServerCertificate[];
 
   /**
+   * @public
    * <p>A list of a server certificate configuration's scopes.</p>
    */
   Scopes?: ServerCertificateScope[];
@@ -2275,6 +2466,7 @@ export interface ServerCertificateConfiguration {
  */
 export interface TLSInspectionConfiguration {
   /**
+   * @public
    * <p>Lists the server certificate configurations that are associated with the TLS configuration.</p>
    */
   ServerCertificateConfigurations?: ServerCertificateConfiguration[];
@@ -2285,11 +2477,13 @@ export interface TLSInspectionConfiguration {
  */
 export interface CreateTLSInspectionConfigurationRequest {
   /**
+   * @public
    * <p>The descriptive name of the TLS inspection configuration. You can't change the name of a TLS inspection configuration after you create it.</p>
    */
   TLSInspectionConfigurationName: string | undefined;
 
   /**
+   * @public
    * <p>The object that defines a TLS inspection configuration. This, along with <a>TLSInspectionConfigurationResponse</a>, define the TLS inspection configuration. You can retrieve all objects for a TLS inspection configuration by calling <a>DescribeTLSInspectionConfiguration</a>. </p>
    *          <p>Network Firewall uses a TLS inspection configuration to decrypt traffic. Network Firewall re-encrypts the traffic before sending it to its destination.</p>
    *          <p>To use a TLS inspection configuration, you add it to a Network Firewall firewall policy, then you apply the firewall policy to a firewall. Network Firewall acts as a proxy service to decrypt and inspect inbound traffic. You can reference a TLS inspection configuration from more than one firewall policy, and you can use a firewall policy in more than one firewall. For more information about using TLS inspection configurations, see <a href="https://docs.aws.amazon.com/network-firewall/latest/developerguide/tls-inspection.html">Decrypting SSL/TLS traffic with TLS
@@ -2298,16 +2492,19 @@ export interface CreateTLSInspectionConfigurationRequest {
   TLSInspectionConfiguration: TLSInspectionConfiguration | undefined;
 
   /**
+   * @public
    * <p>A description of the TLS inspection configuration. </p>
    */
   Description?: string;
 
   /**
+   * @public
    * <p>The key:value pairs to associate with the resource.</p>
    */
   Tags?: Tag[];
 
   /**
+   * @public
    * <p>A complex type that contains optional Amazon Web Services Key Management Service (KMS) encryption settings for your Network Firewall resources. Your data is encrypted by default with an Amazon Web Services owned key that Amazon Web Services owns and manages for you. You can use either the Amazon Web Services owned key, or provide your own customer managed key. To learn more about KMS encryption of your Network Firewall resources, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/kms-encryption-at-rest.html">Encryption at rest with Amazon Web Services Key Managment Service</a> in the <i>Network Firewall Developer Guide</i>.</p>
    */
   EncryptionConfiguration?: EncryptionConfiguration;
@@ -2319,51 +2516,61 @@ export interface CreateTLSInspectionConfigurationRequest {
  */
 export interface TLSInspectionConfigurationResponse {
   /**
+   * @public
    * <p>The Amazon Resource Name (ARN) of the TLS inspection configuration.</p>
    */
   TLSInspectionConfigurationArn: string | undefined;
 
   /**
+   * @public
    * <p>The descriptive name of the TLS inspection configuration. You can't change the name of a TLS inspection configuration after you create it.</p>
    */
   TLSInspectionConfigurationName: string | undefined;
 
   /**
+   * @public
    * <p>A unique identifier for the TLS inspection configuration. This ID is returned in the responses to create and list commands. You provide it to operations such as update and delete.</p>
    */
   TLSInspectionConfigurationId: string | undefined;
 
   /**
+   * @public
    * <p>Detailed information about the current status of a <a>TLSInspectionConfiguration</a>. You can retrieve this for a TLS inspection configuration by calling <a>DescribeTLSInspectionConfiguration</a> and providing the TLS inspection configuration name and ARN.</p>
    */
   TLSInspectionConfigurationStatus?: ResourceStatus | string;
 
   /**
+   * @public
    * <p>A description of the TLS inspection configuration. </p>
    */
   Description?: string;
 
   /**
+   * @public
    * <p>The key:value pairs to associate with the resource.</p>
    */
   Tags?: Tag[];
 
   /**
+   * @public
    * <p>The last time that the TLS inspection configuration was changed.</p>
    */
   LastModifiedTime?: Date;
 
   /**
+   * @public
    * <p>The number of firewall policies that use this TLS inspection configuration.</p>
    */
   NumberOfAssociations?: number;
 
   /**
+   * @public
    * <p>A complex type that contains the Amazon Web Services KMS encryption configuration settings for your TLS inspection configuration.</p>
    */
   EncryptionConfiguration?: EncryptionConfiguration;
 
   /**
+   * @public
    * <p>A list of the certificates associated with the TLS inspection configuration.</p>
    */
   Certificates?: TlsCertificateData[];
@@ -2374,12 +2581,14 @@ export interface TLSInspectionConfigurationResponse {
  */
 export interface CreateTLSInspectionConfigurationResponse {
   /**
+   * @public
    * <p>A token used for optimistic locking. Network Firewall returns a token to your requests that access the TLS inspection configuration. The token marks the state of the TLS inspection configuration resource at the time of the request. </p>
    *          <p>To make changes to the TLS inspection configuration, you provide the token in your request. Network Firewall uses the token to ensure that the TLS inspection configuration hasn't changed since you last retrieved it. If it has changed, the operation fails with an <code>InvalidTokenException</code>. If this happens, retrieve the TLS inspection configuration again to get a current copy of it with a current token. Reapply your changes as needed, then try the operation again using the new token. </p>
    */
   UpdateToken: string | undefined;
 
   /**
+   * @public
    * <p>The high-level properties of a TLS inspection configuration. This, along with the <a>TLSInspectionConfiguration</a>, define the TLS inspection configuration. You can retrieve all objects for a TLS inspection configuration by calling <a>DescribeTLSInspectionConfiguration</a>. </p>
    */
   TLSInspectionConfigurationResponse: TLSInspectionConfigurationResponse | undefined;
@@ -2390,12 +2599,14 @@ export interface CreateTLSInspectionConfigurationResponse {
  */
 export interface DeleteFirewallRequest {
   /**
+   * @public
    * <p>The descriptive name of the firewall. You can't change the name of a firewall after you create it.</p>
    *          <p>You must specify the ARN or the name, and you can specify both. </p>
    */
   FirewallName?: string;
 
   /**
+   * @public
    * <p>The Amazon Resource Name (ARN) of the firewall.</p>
    *          <p>You must specify the ARN or the name, and you can specify both. </p>
    */
@@ -2407,6 +2618,7 @@ export interface DeleteFirewallRequest {
  */
 export interface DeleteFirewallResponse {
   /**
+   * @public
    * <p>The firewall defines the configuration settings for an Network Firewall firewall. These settings include the firewall policy, the subnets in your VPC to use for the firewall endpoints, and any tags that are attached to the firewall Amazon Web Services resource. </p>
    *          <p>The status of the firewall, for example whether it's ready to filter network traffic,
    *          is provided in the corresponding <a>FirewallStatus</a>. You can retrieve both
@@ -2415,6 +2627,7 @@ export interface DeleteFirewallResponse {
   Firewall?: Firewall;
 
   /**
+   * @public
    * <p>Detailed information about the current status of a <a>Firewall</a>. You can retrieve this for a firewall by calling <a>DescribeFirewall</a> and providing the firewall name and ARN.</p>
    */
   FirewallStatus?: FirewallStatus;
@@ -2447,12 +2660,14 @@ export class UnsupportedOperationException extends __BaseException {
  */
 export interface DeleteFirewallPolicyRequest {
   /**
+   * @public
    * <p>The descriptive name of the firewall policy. You can't change the name of a firewall policy after you create it.</p>
    *          <p>You must specify the ARN or the name, and you can specify both. </p>
    */
   FirewallPolicyName?: string;
 
   /**
+   * @public
    * <p>The Amazon Resource Name (ARN) of the firewall policy.</p>
    *          <p>You must specify the ARN or the name, and you can specify both. </p>
    */
@@ -2464,6 +2679,7 @@ export interface DeleteFirewallPolicyRequest {
  */
 export interface DeleteFirewallPolicyResponse {
   /**
+   * @public
    * <p>The object containing the definition of the <a>FirewallPolicyResponse</a>
    *          that you asked to delete. </p>
    */
@@ -2475,6 +2691,7 @@ export interface DeleteFirewallPolicyResponse {
  */
 export interface DeleteResourcePolicyRequest {
   /**
+   * @public
    * <p>The Amazon Resource Name (ARN) of the rule group or firewall policy whose resource policy you want to delete. </p>
    */
   ResourceArn: string | undefined;
@@ -2512,18 +2729,21 @@ export class InvalidResourcePolicyException extends __BaseException {
  */
 export interface DeleteRuleGroupRequest {
   /**
+   * @public
    * <p>The descriptive name of the rule group. You can't change the name of a rule group after you create it.</p>
    *          <p>You must specify the ARN or the name, and you can specify both. </p>
    */
   RuleGroupName?: string;
 
   /**
+   * @public
    * <p>The Amazon Resource Name (ARN) of the rule group.</p>
    *          <p>You must specify the ARN or the name, and you can specify both. </p>
    */
   RuleGroupArn?: string;
 
   /**
+   * @public
    * <p>Indicates whether the rule group is stateless or stateful. If the rule group is stateless, it contains
    * stateless rules. If it is stateful, it contains stateful rules. </p>
    *          <note>
@@ -2538,6 +2758,7 @@ export interface DeleteRuleGroupRequest {
  */
 export interface DeleteRuleGroupResponse {
   /**
+   * @public
    * <p>The high-level properties of a rule group. This, along with the <a>RuleGroup</a>, define the rule group. You can retrieve all objects for a rule group by calling <a>DescribeRuleGroup</a>. </p>
    */
   RuleGroupResponse: RuleGroupResponse | undefined;
@@ -2548,12 +2769,14 @@ export interface DeleteRuleGroupResponse {
  */
 export interface DeleteTLSInspectionConfigurationRequest {
   /**
+   * @public
    * <p>The Amazon Resource Name (ARN) of the TLS inspection configuration.</p>
    *          <p>You must specify the ARN or the name, and you can specify both. </p>
    */
   TLSInspectionConfigurationArn?: string;
 
   /**
+   * @public
    * <p>The descriptive name of the TLS inspection configuration. You can't change the name of a TLS inspection configuration after you create it.</p>
    *          <p>You must specify the ARN or the name, and you can specify both. </p>
    */
@@ -2565,6 +2788,7 @@ export interface DeleteTLSInspectionConfigurationRequest {
  */
 export interface DeleteTLSInspectionConfigurationResponse {
   /**
+   * @public
    * <p>The high-level properties of a TLS inspection configuration. This, along with the <a>TLSInspectionConfiguration</a>, define the TLS inspection configuration. You can retrieve all objects for a TLS inspection configuration by calling <a>DescribeTLSInspectionConfiguration</a>. </p>
    */
   TLSInspectionConfigurationResponse: TLSInspectionConfigurationResponse | undefined;
@@ -2575,12 +2799,14 @@ export interface DeleteTLSInspectionConfigurationResponse {
  */
 export interface DescribeFirewallRequest {
   /**
+   * @public
    * <p>The descriptive name of the firewall. You can't change the name of a firewall after you create it.</p>
    *          <p>You must specify the ARN or the name, and you can specify both. </p>
    */
   FirewallName?: string;
 
   /**
+   * @public
    * <p>The Amazon Resource Name (ARN) of the firewall.</p>
    *          <p>You must specify the ARN or the name, and you can specify both. </p>
    */
@@ -2592,6 +2818,7 @@ export interface DescribeFirewallRequest {
  */
 export interface DescribeFirewallResponse {
   /**
+   * @public
    * <p>An optional token that you can use for optimistic locking. Network Firewall returns a token to your requests that access the firewall. The token marks the state of the firewall resource at the time of the request. </p>
    *          <p>To make an unconditional change to the firewall, omit the token in your update request. Without the token, Network Firewall performs your updates regardless of whether the firewall has changed since you last retrieved it.</p>
    *          <p>To make a conditional change to the firewall, provide the token in your update request. Network Firewall uses the token to ensure that the firewall hasn't changed since you last retrieved it. If it has changed, the operation fails with an <code>InvalidTokenException</code>. If this happens, retrieve the firewall again to get a current copy of it with a new token. Reapply your changes as needed, then try the operation again using the new token. </p>
@@ -2599,11 +2826,13 @@ export interface DescribeFirewallResponse {
   UpdateToken?: string;
 
   /**
+   * @public
    * <p>The configuration settings for the firewall. These settings include the firewall policy and the subnets in your VPC to use for the firewall endpoints. </p>
    */
   Firewall?: Firewall;
 
   /**
+   * @public
    * <p>Detailed information about the current status of a <a>Firewall</a>. You can retrieve this for a firewall by calling <a>DescribeFirewall</a> and providing the firewall name and ARN.</p>
    */
   FirewallStatus?: FirewallStatus;
@@ -2614,12 +2843,14 @@ export interface DescribeFirewallResponse {
  */
 export interface DescribeFirewallPolicyRequest {
   /**
+   * @public
    * <p>The descriptive name of the firewall policy. You can't change the name of a firewall policy after you create it.</p>
    *          <p>You must specify the ARN or the name, and you can specify both. </p>
    */
   FirewallPolicyName?: string;
 
   /**
+   * @public
    * <p>The Amazon Resource Name (ARN) of the firewall policy.</p>
    *          <p>You must specify the ARN or the name, and you can specify both. </p>
    */
@@ -2631,17 +2862,20 @@ export interface DescribeFirewallPolicyRequest {
  */
 export interface DescribeFirewallPolicyResponse {
   /**
+   * @public
    * <p>A token used for optimistic locking. Network Firewall returns a token to your requests that access the firewall policy. The token marks the state of the policy resource at the time of the request. </p>
    *          <p>To make changes to the policy, you provide the token in your request. Network Firewall uses the token to ensure that the policy hasn't changed since you last retrieved it. If it has changed, the operation fails with an <code>InvalidTokenException</code>. If this happens, retrieve the firewall policy again to get a current copy of it with current token. Reapply your changes as needed, then try the operation again using the new token. </p>
    */
   UpdateToken: string | undefined;
 
   /**
+   * @public
    * <p>The high-level properties of a firewall policy. This, along with the <a>FirewallPolicy</a>, define the policy. You can retrieve all objects for a firewall policy by calling <a>DescribeFirewallPolicy</a>. </p>
    */
   FirewallPolicyResponse: FirewallPolicyResponse | undefined;
 
   /**
+   * @public
    * <p>The policy for the specified firewall policy. </p>
    */
   FirewallPolicy?: FirewallPolicy;
@@ -2652,12 +2886,14 @@ export interface DescribeFirewallPolicyResponse {
  */
 export interface DescribeLoggingConfigurationRequest {
   /**
+   * @public
    * <p>The Amazon Resource Name (ARN) of the firewall.</p>
    *          <p>You must specify the ARN or the name, and you can specify both. </p>
    */
   FirewallArn?: string;
 
   /**
+   * @public
    * <p>The descriptive name of the firewall. You can't change the name of a firewall after you create it.</p>
    *          <p>You must specify the ARN or the name, and you can specify both. </p>
    */
@@ -2704,18 +2940,21 @@ export type LogType = (typeof LogType)[keyof typeof LogType];
  */
 export interface LogDestinationConfig {
   /**
+   * @public
    * <p>The type of log to send. Alert logs report traffic that matches a <a>StatefulRule</a> with an action setting that sends an alert log message. Flow logs are
    *          standard network traffic flow logs. </p>
    */
   LogType: LogType | string | undefined;
 
   /**
+   * @public
    * <p>The type of storage destination to send these logs to. You can send logs to an Amazon S3 bucket,
    *          a CloudWatch log group, or a Kinesis Data Firehose delivery stream.</p>
    */
   LogDestinationType: LogDestinationType | string | undefined;
 
   /**
+   * @public
    * <p>The named location for the logs, provided in a key:value mapping that is specific to the
    *          chosen destination type. </p>
    *          <ul>
@@ -2757,6 +2996,7 @@ export interface LogDestinationConfig {
  */
 export interface LoggingConfiguration {
   /**
+   * @public
    * <p>Defines the logging destinations for the logs for a firewall. Network Firewall generates
    *          logs for stateful rule groups. </p>
    */
@@ -2768,11 +3008,13 @@ export interface LoggingConfiguration {
  */
 export interface DescribeLoggingConfigurationResponse {
   /**
+   * @public
    * <p>The Amazon Resource Name (ARN) of the firewall.</p>
    */
   FirewallArn?: string;
 
   /**
+   * @public
    * <p>Defines how Network Firewall performs logging for a <a>Firewall</a>. </p>
    */
   LoggingConfiguration?: LoggingConfiguration;
@@ -2783,6 +3025,7 @@ export interface DescribeLoggingConfigurationResponse {
  */
 export interface DescribeResourcePolicyRequest {
   /**
+   * @public
    * <p>The Amazon Resource Name (ARN) of the rule group or firewall policy whose resource policy you want to retrieve. </p>
    */
   ResourceArn: string | undefined;
@@ -2793,6 +3036,7 @@ export interface DescribeResourcePolicyRequest {
  */
 export interface DescribeResourcePolicyResponse {
   /**
+   * @public
    * <p>The IAM policy for the resource. </p>
    */
   Policy?: string;
@@ -2803,18 +3047,21 @@ export interface DescribeResourcePolicyResponse {
  */
 export interface DescribeRuleGroupRequest {
   /**
+   * @public
    * <p>The descriptive name of the rule group. You can't change the name of a rule group after you create it.</p>
    *          <p>You must specify the ARN or the name, and you can specify both. </p>
    */
   RuleGroupName?: string;
 
   /**
+   * @public
    * <p>The Amazon Resource Name (ARN) of the rule group.</p>
    *          <p>You must specify the ARN or the name, and you can specify both. </p>
    */
   RuleGroupArn?: string;
 
   /**
+   * @public
    * <p>Indicates whether the rule group is stateless or stateful. If the rule group is stateless, it contains
    * stateless rules. If it is stateful, it contains stateful rules. </p>
    *          <note>
@@ -2829,12 +3076,14 @@ export interface DescribeRuleGroupRequest {
  */
 export interface DescribeRuleGroupResponse {
   /**
+   * @public
    * <p>A token used for optimistic locking. Network Firewall returns a token to your requests that access the rule group. The token marks the state of the rule group resource at the time of the request. </p>
    *          <p>To make changes to the rule group, you provide the token in your request. Network Firewall uses the token to ensure that the rule group hasn't changed since you last retrieved it. If it has changed, the operation fails with an <code>InvalidTokenException</code>. If this happens, retrieve the rule group again to get a current copy of it with a current token. Reapply your changes as needed, then try the operation again using the new token. </p>
    */
   UpdateToken: string | undefined;
 
   /**
+   * @public
    * <p>The object that defines the rules in a rule group. This, along with <a>RuleGroupResponse</a>, define the rule group. You can retrieve all objects for a rule group by calling <a>DescribeRuleGroup</a>. </p>
    *          <p>Network Firewall uses a rule group to inspect and control network traffic.
    *     You define stateless rule groups to inspect individual packets and you define stateful rule groups to inspect packets in the context of their
@@ -2845,6 +3094,7 @@ export interface DescribeRuleGroupResponse {
   RuleGroup?: RuleGroup;
 
   /**
+   * @public
    * <p>The high-level properties of a rule group. This, along with the <a>RuleGroup</a>, define the rule group. You can retrieve all objects for a rule group by calling <a>DescribeRuleGroup</a>. </p>
    */
   RuleGroupResponse: RuleGroupResponse | undefined;
@@ -2855,18 +3105,21 @@ export interface DescribeRuleGroupResponse {
  */
 export interface DescribeRuleGroupMetadataRequest {
   /**
+   * @public
    * <p>The descriptive name of the rule group. You can't change the name of a rule group after you create it.</p>
    *          <p>You must specify the ARN or the name, and you can specify both. </p>
    */
   RuleGroupName?: string;
 
   /**
+   * @public
    * <p>The descriptive name of the rule group. You can't change the name of a rule group after you create it.</p>
    *          <p>You must specify the ARN or the name, and you can specify both. </p>
    */
   RuleGroupArn?: string;
 
   /**
+   * @public
    * <p>Indicates whether the rule group is stateless or stateful. If the rule group is stateless, it contains
    * stateless rules. If it is stateful, it contains stateful rules. </p>
    *          <note>
@@ -2881,24 +3134,28 @@ export interface DescribeRuleGroupMetadataRequest {
  */
 export interface DescribeRuleGroupMetadataResponse {
   /**
+   * @public
    * <p>The descriptive name of the rule group. You can't change the name of a rule group after you create it.</p>
    *          <p>You must specify the ARN or the name, and you can specify both. </p>
    */
   RuleGroupArn: string | undefined;
 
   /**
+   * @public
    * <p>The descriptive name of the rule group. You can't change the name of a rule group after you create it.</p>
    *          <p>You must specify the ARN or the name, and you can specify both. </p>
    */
   RuleGroupName: string | undefined;
 
   /**
+   * @public
    * <p>Returns the metadata objects for the specified rule group.
    *       </p>
    */
   Description?: string;
 
   /**
+   * @public
    * <p>Indicates whether the rule group is stateless or stateful. If the rule group is stateless, it contains
    * stateless rules. If it is stateful, it contains stateful rules. </p>
    *          <note>
@@ -2908,6 +3165,7 @@ export interface DescribeRuleGroupMetadataResponse {
   Type?: RuleGroupType | string;
 
   /**
+   * @public
    * <p>The maximum operating resources that this rule group can use. Rule group capacity is fixed at creation.
    *       When you update a rule group, you are limited to this capacity. When you reference a rule group
    *       from a firewall policy, Network Firewall reserves this capacity for the rule group. </p>
@@ -2917,11 +3175,13 @@ export interface DescribeRuleGroupMetadataResponse {
   Capacity?: number;
 
   /**
+   * @public
    * <p>Additional options governing how Network Firewall handles the rule group. You can only use these for stateful rule groups.</p>
    */
   StatefulRuleOptions?: StatefulRuleOptions;
 
   /**
+   * @public
    * <p>The last time that the rule group was changed.</p>
    */
   LastModifiedTime?: Date;
@@ -2932,12 +3192,14 @@ export interface DescribeRuleGroupMetadataResponse {
  */
 export interface DescribeTLSInspectionConfigurationRequest {
   /**
+   * @public
    * <p>The Amazon Resource Name (ARN) of the TLS inspection configuration.</p>
    *          <p>You must specify the ARN or the name, and you can specify both. </p>
    */
   TLSInspectionConfigurationArn?: string;
 
   /**
+   * @public
    * <p>The descriptive name of the TLS inspection configuration. You can't change the name of a TLS inspection configuration after you create it.</p>
    *          <p>You must specify the ARN or the name, and you can specify both. </p>
    */
@@ -2949,12 +3211,14 @@ export interface DescribeTLSInspectionConfigurationRequest {
  */
 export interface DescribeTLSInspectionConfigurationResponse {
   /**
+   * @public
    * <p>A token used for optimistic locking. Network Firewall returns a token to your requests that access the TLS inspection configuration. The token marks the state of the TLS inspection configuration resource at the time of the request. </p>
    *          <p>To make changes to the TLS inspection configuration, you provide the token in your request. Network Firewall uses the token to ensure that the TLS inspection configuration hasn't changed since you last retrieved it. If it has changed, the operation fails with an <code>InvalidTokenException</code>. If this happens, retrieve the TLS inspection configuration again to get a current copy of it with a current token. Reapply your changes as needed, then try the operation again using the new token. </p>
    */
   UpdateToken: string | undefined;
 
   /**
+   * @public
    * <p>The object that defines a TLS inspection configuration. This, along with <a>TLSInspectionConfigurationResponse</a>, define the TLS inspection configuration. You can retrieve all objects for a TLS inspection configuration by calling <a>DescribeTLSInspectionConfiguration</a>. </p>
    *          <p>Network Firewall uses a TLS inspection configuration to decrypt traffic. Network Firewall re-encrypts the traffic before sending it to its destination.</p>
    *          <p>To use a TLS inspection configuration, you add it to a Network Firewall firewall policy, then you apply the firewall policy to a firewall. Network Firewall acts as a proxy service to decrypt and inspect inbound traffic. You can reference a TLS inspection configuration from more than one firewall policy, and you can use a firewall policy in more than one firewall. For more information about using TLS inspection configurations, see <a href="https://docs.aws.amazon.com/network-firewall/latest/developerguide/tls-inspection.html">Decrypting SSL/TLS traffic with TLS
@@ -2963,6 +3227,7 @@ export interface DescribeTLSInspectionConfigurationResponse {
   TLSInspectionConfiguration?: TLSInspectionConfiguration;
 
   /**
+   * @public
    * <p>The high-level properties of a TLS inspection configuration. This, along with the <a>TLSInspectionConfiguration</a>, define the TLS inspection configuration. You can retrieve all objects for a TLS inspection configuration by calling <a>DescribeTLSInspectionConfiguration</a>. </p>
    */
   TLSInspectionConfigurationResponse: TLSInspectionConfigurationResponse | undefined;
@@ -2973,6 +3238,7 @@ export interface DescribeTLSInspectionConfigurationResponse {
  */
 export interface DisassociateSubnetsRequest {
   /**
+   * @public
    * <p>An optional token that you can use for optimistic locking. Network Firewall returns a token to your requests that access the firewall. The token marks the state of the firewall resource at the time of the request. </p>
    *          <p>To make an unconditional change to the firewall, omit the token in your update request. Without the token, Network Firewall performs your updates regardless of whether the firewall has changed since you last retrieved it.</p>
    *          <p>To make a conditional change to the firewall, provide the token in your update request. Network Firewall uses the token to ensure that the firewall hasn't changed since you last retrieved it. If it has changed, the operation fails with an <code>InvalidTokenException</code>. If this happens, retrieve the firewall again to get a current copy of it with a new token. Reapply your changes as needed, then try the operation again using the new token. </p>
@@ -2980,18 +3246,21 @@ export interface DisassociateSubnetsRequest {
   UpdateToken?: string;
 
   /**
+   * @public
    * <p>The Amazon Resource Name (ARN) of the firewall.</p>
    *          <p>You must specify the ARN or the name, and you can specify both. </p>
    */
   FirewallArn?: string;
 
   /**
+   * @public
    * <p>The descriptive name of the firewall. You can't change the name of a firewall after you create it.</p>
    *          <p>You must specify the ARN or the name, and you can specify both. </p>
    */
   FirewallName?: string;
 
   /**
+   * @public
    * <p>The unique identifiers for the subnets that you want to disassociate. </p>
    */
   SubnetIds: string[] | undefined;
@@ -3002,21 +3271,25 @@ export interface DisassociateSubnetsRequest {
  */
 export interface DisassociateSubnetsResponse {
   /**
+   * @public
    * <p>The Amazon Resource Name (ARN) of the firewall.</p>
    */
   FirewallArn?: string;
 
   /**
+   * @public
    * <p>The descriptive name of the firewall. You can't change the name of a firewall after you create it.</p>
    */
   FirewallName?: string;
 
   /**
+   * @public
    * <p>The IDs of the subnets that are associated with the firewall. </p>
    */
   SubnetMappings?: SubnetMapping[];
 
   /**
+   * @public
    * <p>An optional token that you can use for optimistic locking. Network Firewall returns a token to your requests that access the firewall. The token marks the state of the firewall resource at the time of the request. </p>
    *          <p>To make an unconditional change to the firewall, omit the token in your update request. Without the token, Network Firewall performs your updates regardless of whether the firewall has changed since you last retrieved it.</p>
    *          <p>To make a conditional change to the firewall, provide the token in your update request. Network Firewall uses the token to ensure that the firewall hasn't changed since you last retrieved it. If it has changed, the operation fails with an <code>InvalidTokenException</code>. If this happens, retrieve the firewall again to get a current copy of it with a new token. Reapply your changes as needed, then try the operation again using the new token. </p>
@@ -3032,11 +3305,13 @@ export interface DisassociateSubnetsResponse {
  */
 export interface FirewallMetadata {
   /**
+   * @public
    * <p>The descriptive name of the firewall. You can't change the name of a firewall after you create it.</p>
    */
   FirewallName?: string;
 
   /**
+   * @public
    * <p>The Amazon Resource Name (ARN) of the firewall.</p>
    */
   FirewallArn?: string;
@@ -3050,11 +3325,13 @@ export interface FirewallMetadata {
  */
 export interface FirewallPolicyMetadata {
   /**
+   * @public
    * <p>The descriptive name of the firewall policy. You can't change the name of a firewall policy after you create it.</p>
    */
   Name?: string;
 
   /**
+   * @public
    * <p>The Amazon Resource Name (ARN) of the firewall policy.</p>
    */
   Arn?: string;
@@ -3065,6 +3342,7 @@ export interface FirewallPolicyMetadata {
  */
 export interface ListFirewallPoliciesRequest {
   /**
+   * @public
    * <p>When you request a list of objects with a <code>MaxResults</code> setting, if the number of objects that are still available
    *          for retrieval exceeds the maximum you requested, Network Firewall returns a <code>NextToken</code>
    *          value in the response. To retrieve the next batch of objects, use the token returned from the prior request in your next request.</p>
@@ -3072,6 +3350,7 @@ export interface ListFirewallPoliciesRequest {
   NextToken?: string;
 
   /**
+   * @public
    * <p>The maximum number of objects that you want Network Firewall to return for this request. If more
    *           objects are available, in the response, Network Firewall provides a
    *          <code>NextToken</code> value that you can use in a subsequent call to get the next batch of objects.</p>
@@ -3084,6 +3363,7 @@ export interface ListFirewallPoliciesRequest {
  */
 export interface ListFirewallPoliciesResponse {
   /**
+   * @public
    * <p>When you request a list of objects with a <code>MaxResults</code> setting, if the number of objects that are still available
    *          for retrieval exceeds the maximum you requested, Network Firewall returns a <code>NextToken</code>
    *          value in the response. To retrieve the next batch of objects, use the token returned from the prior request in your next request.</p>
@@ -3091,6 +3371,7 @@ export interface ListFirewallPoliciesResponse {
   NextToken?: string;
 
   /**
+   * @public
    * <p>The metadata for the firewall policies. Depending on your setting for max results and
    *          the number of firewall policies that you have, this might not be the full list. </p>
    */
@@ -3102,6 +3383,7 @@ export interface ListFirewallPoliciesResponse {
  */
 export interface ListFirewallsRequest {
   /**
+   * @public
    * <p>When you request a list of objects with a <code>MaxResults</code> setting, if the number of objects that are still available
    *          for retrieval exceeds the maximum you requested, Network Firewall returns a <code>NextToken</code>
    *          value in the response. To retrieve the next batch of objects, use the token returned from the prior request in your next request.</p>
@@ -3109,12 +3391,14 @@ export interface ListFirewallsRequest {
   NextToken?: string;
 
   /**
+   * @public
    * <p>The unique identifiers of the VPCs that you want Network Firewall to retrieve the firewalls
    *          for. Leave this blank to retrieve all firewalls that you have defined.</p>
    */
   VpcIds?: string[];
 
   /**
+   * @public
    * <p>The maximum number of objects that you want Network Firewall to return for this request. If more
    *           objects are available, in the response, Network Firewall provides a
    *          <code>NextToken</code> value that you can use in a subsequent call to get the next batch of objects.</p>
@@ -3127,6 +3411,7 @@ export interface ListFirewallsRequest {
  */
 export interface ListFirewallsResponse {
   /**
+   * @public
    * <p>When you request a list of objects with a <code>MaxResults</code> setting, if the number of objects that are still available
    *          for retrieval exceeds the maximum you requested, Network Firewall returns a <code>NextToken</code>
    *          value in the response. To retrieve the next batch of objects, use the token returned from the prior request in your next request.</p>
@@ -3134,6 +3419,7 @@ export interface ListFirewallsResponse {
   NextToken?: string;
 
   /**
+   * @public
    * <p>The firewall metadata objects for the VPCs that you specified. Depending on your setting
    *          for max results and the number of firewalls you have, a single call might not be the full
    *          list. </p>
@@ -3174,6 +3460,7 @@ export type ResourceManagedStatus = (typeof ResourceManagedStatus)[keyof typeof 
  */
 export interface ListRuleGroupsRequest {
   /**
+   * @public
    * <p>When you request a list of objects with a <code>MaxResults</code> setting, if the number of objects that are still available
    *          for retrieval exceeds the maximum you requested, Network Firewall returns a <code>NextToken</code>
    *          value in the response. To retrieve the next batch of objects, use the token returned from the prior request in your next request.</p>
@@ -3181,6 +3468,7 @@ export interface ListRuleGroupsRequest {
   NextToken?: string;
 
   /**
+   * @public
    * <p>The maximum number of objects that you want Network Firewall to return for this request. If more
    *           objects are available, in the response, Network Firewall provides a
    *          <code>NextToken</code> value that you can use in a subsequent call to get the next batch of objects.</p>
@@ -3188,6 +3476,7 @@ export interface ListRuleGroupsRequest {
   MaxResults?: number;
 
   /**
+   * @public
    * <p>The scope of the request. The default setting of <code>ACCOUNT</code> or a setting of
    *          <code>NULL</code> returns all of the rule groups in your account. A setting of
    *          <code>MANAGED</code> returns all available managed rule groups.</p>
@@ -3195,11 +3484,13 @@ export interface ListRuleGroupsRequest {
   Scope?: ResourceManagedStatus | string;
 
   /**
+   * @public
    * <p>Indicates the general category of the Amazon Web Services managed rule group.</p>
    */
   ManagedType?: ResourceManagedType | string;
 
   /**
+   * @public
    * <p>Indicates whether the rule group is stateless or stateful. If the rule group is stateless, it contains stateless rules. If it is stateful, it contains stateful rules.</p>
    */
   Type?: RuleGroupType | string;
@@ -3213,11 +3504,13 @@ export interface ListRuleGroupsRequest {
  */
 export interface RuleGroupMetadata {
   /**
+   * @public
    * <p>The descriptive name of the rule group. You can't change the name of a rule group after you create it.</p>
    */
   Name?: string;
 
   /**
+   * @public
    * <p>The Amazon Resource Name (ARN) of the rule group.</p>
    */
   Arn?: string;
@@ -3228,6 +3521,7 @@ export interface RuleGroupMetadata {
  */
 export interface ListRuleGroupsResponse {
   /**
+   * @public
    * <p>When you request a list of objects with a <code>MaxResults</code> setting, if the number of objects that are still available
    *          for retrieval exceeds the maximum you requested, Network Firewall returns a <code>NextToken</code>
    *          value in the response. To retrieve the next batch of objects, use the token returned from the prior request in your next request.</p>
@@ -3235,6 +3529,7 @@ export interface ListRuleGroupsResponse {
   NextToken?: string;
 
   /**
+   * @public
    * <p>The rule group metadata objects that you've defined. Depending on your setting for max
    *          results and the number of rule groups, this might not be the full list. </p>
    */
@@ -3246,6 +3541,7 @@ export interface ListRuleGroupsResponse {
  */
 export interface ListTagsForResourceRequest {
   /**
+   * @public
    * <p>When you request a list of objects with a <code>MaxResults</code> setting, if the number of objects that are still available
    *          for retrieval exceeds the maximum you requested, Network Firewall returns a <code>NextToken</code>
    *          value in the response. To retrieve the next batch of objects, use the token returned from the prior request in your next request.</p>
@@ -3253,6 +3549,7 @@ export interface ListTagsForResourceRequest {
   NextToken?: string;
 
   /**
+   * @public
    * <p>The maximum number of objects that you want Network Firewall to return for this request. If more
    *           objects are available, in the response, Network Firewall provides a
    *          <code>NextToken</code> value that you can use in a subsequent call to get the next batch of objects.</p>
@@ -3260,6 +3557,7 @@ export interface ListTagsForResourceRequest {
   MaxResults?: number;
 
   /**
+   * @public
    * <p>The Amazon Resource Name (ARN) of the resource.</p>
    */
   ResourceArn: string | undefined;
@@ -3270,6 +3568,7 @@ export interface ListTagsForResourceRequest {
  */
 export interface ListTagsForResourceResponse {
   /**
+   * @public
    * <p>When you request a list of objects with a <code>MaxResults</code> setting, if the number of objects that are still available
    *          for retrieval exceeds the maximum you requested, Network Firewall returns a <code>NextToken</code>
    *          value in the response. To retrieve the next batch of objects, use the token returned from the prior request in your next request.</p>
@@ -3277,6 +3576,7 @@ export interface ListTagsForResourceResponse {
   NextToken?: string;
 
   /**
+   * @public
    * <p>The tags that are associated with the resource. </p>
    */
   Tags?: Tag[];
@@ -3287,6 +3587,7 @@ export interface ListTagsForResourceResponse {
  */
 export interface ListTLSInspectionConfigurationsRequest {
   /**
+   * @public
    * <p>When you request a list of objects with a <code>MaxResults</code> setting, if the number of objects that are still available
    *          for retrieval exceeds the maximum you requested, Network Firewall returns a <code>NextToken</code>
    *          value in the response. To retrieve the next batch of objects, use the token returned from the prior request in your next request.</p>
@@ -3294,6 +3595,7 @@ export interface ListTLSInspectionConfigurationsRequest {
   NextToken?: string;
 
   /**
+   * @public
    * <p>The maximum number of objects that you want Network Firewall to return for this request. If more
    *           objects are available, in the response, Network Firewall provides a
    *          <code>NextToken</code> value that you can use in a subsequent call to get the next batch of objects.</p>
@@ -3307,11 +3609,13 @@ export interface ListTLSInspectionConfigurationsRequest {
  */
 export interface TLSInspectionConfigurationMetadata {
   /**
+   * @public
    * <p>The descriptive name of the TLS inspection configuration. You can't change the name of a TLS inspection configuration after you create it.</p>
    */
   Name?: string;
 
   /**
+   * @public
    * <p>The Amazon Resource Name (ARN) of the TLS inspection configuration.</p>
    */
   Arn?: string;
@@ -3322,6 +3626,7 @@ export interface TLSInspectionConfigurationMetadata {
  */
 export interface ListTLSInspectionConfigurationsResponse {
   /**
+   * @public
    * <p>When you request a list of objects with a <code>MaxResults</code> setting, if the number of objects that are still available
    *          for retrieval exceeds the maximum you requested, Network Firewall returns a <code>NextToken</code>
    *          value in the response. To retrieve the next batch of objects, use the token returned from the prior request in your next request.</p>
@@ -3329,6 +3634,7 @@ export interface ListTLSInspectionConfigurationsResponse {
   NextToken?: string;
 
   /**
+   * @public
    * <p>The TLS inspection configuration metadata objects that you've defined. Depending on your setting for max results and the number of TLS inspection configurations, this might not be the full list.</p>
    */
   TLSInspectionConfigurations?: TLSInspectionConfigurationMetadata[];
@@ -3361,11 +3667,13 @@ export class LogDestinationPermissionException extends __BaseException {
  */
 export interface PutResourcePolicyRequest {
   /**
+   * @public
    * <p>The Amazon Resource Name (ARN) of the account that you want to share rule groups and firewall policies with.</p>
    */
   ResourceArn: string | undefined;
 
   /**
+   * @public
    * <p>The IAM policy statement that lists the accounts that you want to share your rule group or firewall policy with
    *            and the operations that you want the accounts to be able to perform. </p>
    *          <p>For a rule group resource, you can specify the following operations in the Actions section of the statement:</p>
@@ -3404,11 +3712,13 @@ export interface PutResourcePolicyResponse {}
  */
 export interface TagResourceRequest {
   /**
+   * @public
    * <p>The Amazon Resource Name (ARN) of the resource.</p>
    */
   ResourceArn: string | undefined;
 
   /**
+   * @public
    * <p></p>
    */
   Tags: Tag[] | undefined;
@@ -3424,11 +3734,13 @@ export interface TagResourceResponse {}
  */
 export interface UntagResourceRequest {
   /**
+   * @public
    * <p>The Amazon Resource Name (ARN) of the resource.</p>
    */
   ResourceArn: string | undefined;
 
   /**
+   * @public
    * <p></p>
    */
   TagKeys: string[] | undefined;
@@ -3466,6 +3778,7 @@ export class ResourceOwnerCheckException extends __BaseException {
  */
 export interface UpdateFirewallDeleteProtectionRequest {
   /**
+   * @public
    * <p>An optional token that you can use for optimistic locking. Network Firewall returns a token to your requests that access the firewall. The token marks the state of the firewall resource at the time of the request. </p>
    *          <p>To make an unconditional change to the firewall, omit the token in your update request. Without the token, Network Firewall performs your updates regardless of whether the firewall has changed since you last retrieved it.</p>
    *          <p>To make a conditional change to the firewall, provide the token in your update request. Network Firewall uses the token to ensure that the firewall hasn't changed since you last retrieved it. If it has changed, the operation fails with an <code>InvalidTokenException</code>. If this happens, retrieve the firewall again to get a current copy of it with a new token. Reapply your changes as needed, then try the operation again using the new token. </p>
@@ -3473,18 +3786,21 @@ export interface UpdateFirewallDeleteProtectionRequest {
   UpdateToken?: string;
 
   /**
+   * @public
    * <p>The Amazon Resource Name (ARN) of the firewall.</p>
    *          <p>You must specify the ARN or the name, and you can specify both. </p>
    */
   FirewallArn?: string;
 
   /**
+   * @public
    * <p>The descriptive name of the firewall. You can't change the name of a firewall after you create it.</p>
    *          <p>You must specify the ARN or the name, and you can specify both. </p>
    */
   FirewallName?: string;
 
   /**
+   * @public
    * <p>A flag indicating whether it is possible to delete the firewall. A setting of <code>TRUE</code> indicates
    *          that the firewall is protected against deletion. Use this setting to protect against
    *          accidentally deleting a firewall that is in use. When you create a firewall, the operation initializes this flag to <code>TRUE</code>.</p>
@@ -3497,16 +3813,19 @@ export interface UpdateFirewallDeleteProtectionRequest {
  */
 export interface UpdateFirewallDeleteProtectionResponse {
   /**
+   * @public
    * <p>The Amazon Resource Name (ARN) of the firewall.</p>
    */
   FirewallArn?: string;
 
   /**
+   * @public
    * <p>The descriptive name of the firewall. You can't change the name of a firewall after you create it.</p>
    */
   FirewallName?: string;
 
   /**
+   * @public
    * <p>A flag indicating whether it is possible to delete the firewall. A setting of <code>TRUE</code> indicates
    *          that the firewall is protected against deletion. Use this setting to protect against
    *          accidentally deleting a firewall that is in use. When you create a firewall, the operation initializes this flag to <code>TRUE</code>.</p>
@@ -3514,6 +3833,7 @@ export interface UpdateFirewallDeleteProtectionResponse {
   DeleteProtection?: boolean;
 
   /**
+   * @public
    * <p>An optional token that you can use for optimistic locking. Network Firewall returns a token to your requests that access the firewall. The token marks the state of the firewall resource at the time of the request. </p>
    *          <p>To make an unconditional change to the firewall, omit the token in your update request. Without the token, Network Firewall performs your updates regardless of whether the firewall has changed since you last retrieved it.</p>
    *          <p>To make a conditional change to the firewall, provide the token in your update request. Network Firewall uses the token to ensure that the firewall hasn't changed since you last retrieved it. If it has changed, the operation fails with an <code>InvalidTokenException</code>. If this happens, retrieve the firewall again to get a current copy of it with a new token. Reapply your changes as needed, then try the operation again using the new token. </p>
@@ -3526,6 +3846,7 @@ export interface UpdateFirewallDeleteProtectionResponse {
  */
 export interface UpdateFirewallDescriptionRequest {
   /**
+   * @public
    * <p>An optional token that you can use for optimistic locking. Network Firewall returns a token to your requests that access the firewall. The token marks the state of the firewall resource at the time of the request. </p>
    *          <p>To make an unconditional change to the firewall, omit the token in your update request. Without the token, Network Firewall performs your updates regardless of whether the firewall has changed since you last retrieved it.</p>
    *          <p>To make a conditional change to the firewall, provide the token in your update request. Network Firewall uses the token to ensure that the firewall hasn't changed since you last retrieved it. If it has changed, the operation fails with an <code>InvalidTokenException</code>. If this happens, retrieve the firewall again to get a current copy of it with a new token. Reapply your changes as needed, then try the operation again using the new token. </p>
@@ -3533,18 +3854,21 @@ export interface UpdateFirewallDescriptionRequest {
   UpdateToken?: string;
 
   /**
+   * @public
    * <p>The Amazon Resource Name (ARN) of the firewall.</p>
    *          <p>You must specify the ARN or the name, and you can specify both. </p>
    */
   FirewallArn?: string;
 
   /**
+   * @public
    * <p>The descriptive name of the firewall. You can't change the name of a firewall after you create it.</p>
    *          <p>You must specify the ARN or the name, and you can specify both. </p>
    */
   FirewallName?: string;
 
   /**
+   * @public
    * <p>The new description for the firewall. If you omit this setting, Network Firewall removes
    *          the description for the firewall.</p>
    */
@@ -3556,21 +3880,25 @@ export interface UpdateFirewallDescriptionRequest {
  */
 export interface UpdateFirewallDescriptionResponse {
   /**
+   * @public
    * <p>The Amazon Resource Name (ARN) of the firewall.</p>
    */
   FirewallArn?: string;
 
   /**
+   * @public
    * <p>The descriptive name of the firewall. You can't change the name of a firewall after you create it.</p>
    */
   FirewallName?: string;
 
   /**
+   * @public
    * <p>A description of the firewall.</p>
    */
   Description?: string;
 
   /**
+   * @public
    * <p>An optional token that you can use for optimistic locking. Network Firewall returns a token to your requests that access the firewall. The token marks the state of the firewall resource at the time of the request. </p>
    *          <p>To make an unconditional change to the firewall, omit the token in your update request. Without the token, Network Firewall performs your updates regardless of whether the firewall has changed since you last retrieved it.</p>
    *          <p>To make a conditional change to the firewall, provide the token in your update request. Network Firewall uses the token to ensure that the firewall hasn't changed since you last retrieved it. If it has changed, the operation fails with an <code>InvalidTokenException</code>. If this happens, retrieve the firewall again to get a current copy of it with a new token. Reapply your changes as needed, then try the operation again using the new token. </p>
@@ -3583,6 +3911,7 @@ export interface UpdateFirewallDescriptionResponse {
  */
 export interface UpdateFirewallEncryptionConfigurationRequest {
   /**
+   * @public
    * <p>An optional token that you can use for optimistic locking. Network Firewall returns a token to your requests that access the firewall. The token marks the state of the firewall resource at the time of the request. </p>
    *          <p>To make an unconditional change to the firewall, omit the token in your update request. Without the token, Network Firewall performs your updates regardless of whether the firewall has changed since you last retrieved it.</p>
    *          <p>To make a conditional change to the firewall, provide the token in your update request. Network Firewall uses the token to ensure that the firewall hasn't changed since you last retrieved it. If it has changed, the operation fails with an <code>InvalidTokenException</code>. If this happens, retrieve the firewall again to get a current copy of it with a new token. Reapply your changes as needed, then try the operation again using the new token. </p>
@@ -3590,16 +3919,19 @@ export interface UpdateFirewallEncryptionConfigurationRequest {
   UpdateToken?: string;
 
   /**
+   * @public
    * <p>The Amazon Resource Name (ARN) of the firewall.</p>
    */
   FirewallArn?: string;
 
   /**
+   * @public
    * <p>The descriptive name of the firewall. You can't change the name of a firewall after you create it.</p>
    */
   FirewallName?: string;
 
   /**
+   * @public
    * <p>A complex type that contains optional Amazon Web Services Key Management Service (KMS) encryption settings for your Network Firewall resources. Your data is encrypted by default with an Amazon Web Services owned key that Amazon Web Services owns and manages for you. You can use either the Amazon Web Services owned key, or provide your own customer managed key. To learn more about KMS encryption of your Network Firewall resources, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/kms-encryption-at-rest.html">Encryption at rest with Amazon Web Services Key Managment Service</a> in the <i>Network Firewall Developer Guide</i>.</p>
    */
   EncryptionConfiguration?: EncryptionConfiguration;
@@ -3610,16 +3942,19 @@ export interface UpdateFirewallEncryptionConfigurationRequest {
  */
 export interface UpdateFirewallEncryptionConfigurationResponse {
   /**
+   * @public
    * <p>The Amazon Resource Name (ARN) of the firewall.</p>
    */
   FirewallArn?: string;
 
   /**
+   * @public
    * <p>The descriptive name of the firewall. You can't change the name of a firewall after you create it.</p>
    */
   FirewallName?: string;
 
   /**
+   * @public
    * <p>An optional token that you can use for optimistic locking. Network Firewall returns a token to your requests that access the firewall. The token marks the state of the firewall resource at the time of the request. </p>
    *          <p>To make an unconditional change to the firewall, omit the token in your update request. Without the token, Network Firewall performs your updates regardless of whether the firewall has changed since you last retrieved it.</p>
    *          <p>To make a conditional change to the firewall, provide the token in your update request. Network Firewall uses the token to ensure that the firewall hasn't changed since you last retrieved it. If it has changed, the operation fails with an <code>InvalidTokenException</code>. If this happens, retrieve the firewall again to get a current copy of it with a new token. Reapply your changes as needed, then try the operation again using the new token. </p>
@@ -3627,6 +3962,7 @@ export interface UpdateFirewallEncryptionConfigurationResponse {
   UpdateToken?: string;
 
   /**
+   * @public
    * <p>A complex type that contains optional Amazon Web Services Key Management Service (KMS) encryption settings for your Network Firewall resources. Your data is encrypted by default with an Amazon Web Services owned key that Amazon Web Services owns and manages for you. You can use either the Amazon Web Services owned key, or provide your own customer managed key. To learn more about KMS encryption of your Network Firewall resources, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/kms-encryption-at-rest.html">Encryption at rest with Amazon Web Services Key Managment Service</a> in the <i>Network Firewall Developer Guide</i>.</p>
    */
   EncryptionConfiguration?: EncryptionConfiguration;
@@ -3637,34 +3973,40 @@ export interface UpdateFirewallEncryptionConfigurationResponse {
  */
 export interface UpdateFirewallPolicyRequest {
   /**
+   * @public
    * <p>A token used for optimistic locking. Network Firewall returns a token to your requests that access the firewall policy. The token marks the state of the policy resource at the time of the request. </p>
    *          <p>To make changes to the policy, you provide the token in your request. Network Firewall uses the token to ensure that the policy hasn't changed since you last retrieved it. If it has changed, the operation fails with an <code>InvalidTokenException</code>. If this happens, retrieve the firewall policy again to get a current copy of it with current token. Reapply your changes as needed, then try the operation again using the new token. </p>
    */
   UpdateToken: string | undefined;
 
   /**
+   * @public
    * <p>The Amazon Resource Name (ARN) of the firewall policy.</p>
    *          <p>You must specify the ARN or the name, and you can specify both. </p>
    */
   FirewallPolicyArn?: string;
 
   /**
+   * @public
    * <p>The descriptive name of the firewall policy. You can't change the name of a firewall policy after you create it.</p>
    *          <p>You must specify the ARN or the name, and you can specify both. </p>
    */
   FirewallPolicyName?: string;
 
   /**
+   * @public
    * <p>The updated firewall policy to use for the firewall. </p>
    */
   FirewallPolicy: FirewallPolicy | undefined;
 
   /**
+   * @public
    * <p>A description of the firewall policy.</p>
    */
   Description?: string;
 
   /**
+   * @public
    * <p>Indicates whether you want Network Firewall to just check the validity of the request, rather than run the request. </p>
    *          <p>If set to <code>TRUE</code>, Network Firewall checks whether the request can run successfully,
    *          but doesn't actually make the requested changes. The call returns the value that the request would return if you ran it with
@@ -3675,6 +4017,7 @@ export interface UpdateFirewallPolicyRequest {
   DryRun?: boolean;
 
   /**
+   * @public
    * <p>A complex type that contains settings for encryption of your firewall policy resources.</p>
    */
   EncryptionConfiguration?: EncryptionConfiguration;
@@ -3685,12 +4028,14 @@ export interface UpdateFirewallPolicyRequest {
  */
 export interface UpdateFirewallPolicyResponse {
   /**
+   * @public
    * <p>A token used for optimistic locking. Network Firewall returns a token to your requests that access the firewall policy. The token marks the state of the policy resource at the time of the request. </p>
    *          <p>To make changes to the policy, you provide the token in your request. Network Firewall uses the token to ensure that the policy hasn't changed since you last retrieved it. If it has changed, the operation fails with an <code>InvalidTokenException</code>. If this happens, retrieve the firewall policy again to get a current copy of it with current token. Reapply your changes as needed, then try the operation again using the new token. </p>
    */
   UpdateToken: string | undefined;
 
   /**
+   * @public
    * <p>The high-level properties of a firewall policy. This, along with the <a>FirewallPolicy</a>, define the policy. You can retrieve all objects for a firewall policy by calling <a>DescribeFirewallPolicy</a>. </p>
    */
   FirewallPolicyResponse: FirewallPolicyResponse | undefined;
@@ -3701,6 +4046,7 @@ export interface UpdateFirewallPolicyResponse {
  */
 export interface UpdateFirewallPolicyChangeProtectionRequest {
   /**
+   * @public
    * <p>An optional token that you can use for optimistic locking. Network Firewall returns a token to your requests that access the firewall. The token marks the state of the firewall resource at the time of the request. </p>
    *          <p>To make an unconditional change to the firewall, omit the token in your update request. Without the token, Network Firewall performs your updates regardless of whether the firewall has changed since you last retrieved it.</p>
    *          <p>To make a conditional change to the firewall, provide the token in your update request. Network Firewall uses the token to ensure that the firewall hasn't changed since you last retrieved it. If it has changed, the operation fails with an <code>InvalidTokenException</code>. If this happens, retrieve the firewall again to get a current copy of it with a new token. Reapply your changes as needed, then try the operation again using the new token. </p>
@@ -3708,18 +4054,21 @@ export interface UpdateFirewallPolicyChangeProtectionRequest {
   UpdateToken?: string;
 
   /**
+   * @public
    * <p>The Amazon Resource Name (ARN) of the firewall.</p>
    *          <p>You must specify the ARN or the name, and you can specify both. </p>
    */
   FirewallArn?: string;
 
   /**
+   * @public
    * <p>The descriptive name of the firewall. You can't change the name of a firewall after you create it.</p>
    *          <p>You must specify the ARN or the name, and you can specify both. </p>
    */
   FirewallName?: string;
 
   /**
+   * @public
    * <p>A setting indicating whether the firewall is protected against a change to the firewall policy association.
    *          Use this setting to protect against
    *          accidentally modifying the firewall policy for a firewall that is in use. When you create a firewall, the operation initializes this setting to <code>TRUE</code>.</p>
@@ -3732,6 +4081,7 @@ export interface UpdateFirewallPolicyChangeProtectionRequest {
  */
 export interface UpdateFirewallPolicyChangeProtectionResponse {
   /**
+   * @public
    * <p>An optional token that you can use for optimistic locking. Network Firewall returns a token to your requests that access the firewall. The token marks the state of the firewall resource at the time of the request. </p>
    *          <p>To make an unconditional change to the firewall, omit the token in your update request. Without the token, Network Firewall performs your updates regardless of whether the firewall has changed since you last retrieved it.</p>
    *          <p>To make a conditional change to the firewall, provide the token in your update request. Network Firewall uses the token to ensure that the firewall hasn't changed since you last retrieved it. If it has changed, the operation fails with an <code>InvalidTokenException</code>. If this happens, retrieve the firewall again to get a current copy of it with a new token. Reapply your changes as needed, then try the operation again using the new token. </p>
@@ -3739,16 +4089,19 @@ export interface UpdateFirewallPolicyChangeProtectionResponse {
   UpdateToken?: string;
 
   /**
+   * @public
    * <p>The Amazon Resource Name (ARN) of the firewall.</p>
    */
   FirewallArn?: string;
 
   /**
+   * @public
    * <p>The descriptive name of the firewall. You can't change the name of a firewall after you create it.</p>
    */
   FirewallName?: string;
 
   /**
+   * @public
    * <p>A setting indicating whether the firewall is protected against a change to the firewall policy association.
    *          Use this setting to protect against
    *          accidentally modifying the firewall policy for a firewall that is in use. When you create a firewall, the operation initializes this setting to <code>TRUE</code>.</p>
@@ -3761,18 +4114,21 @@ export interface UpdateFirewallPolicyChangeProtectionResponse {
  */
 export interface UpdateLoggingConfigurationRequest {
   /**
+   * @public
    * <p>The Amazon Resource Name (ARN) of the firewall.</p>
    *          <p>You must specify the ARN or the name, and you can specify both. </p>
    */
   FirewallArn?: string;
 
   /**
+   * @public
    * <p>The descriptive name of the firewall. You can't change the name of a firewall after you create it.</p>
    *          <p>You must specify the ARN or the name, and you can specify both. </p>
    */
   FirewallName?: string;
 
   /**
+   * @public
    * <p>Defines how Network Firewall performs logging for a firewall. If you omit this setting,
    *          Network Firewall disables logging for the firewall.</p>
    */
@@ -3784,16 +4140,19 @@ export interface UpdateLoggingConfigurationRequest {
  */
 export interface UpdateLoggingConfigurationResponse {
   /**
+   * @public
    * <p>The Amazon Resource Name (ARN) of the firewall.</p>
    */
   FirewallArn?: string;
 
   /**
+   * @public
    * <p>The descriptive name of the firewall. You can't change the name of a firewall after you create it.</p>
    */
   FirewallName?: string;
 
   /**
+   * @public
    * <p>Defines how Network Firewall performs logging for a <a>Firewall</a>. </p>
    */
   LoggingConfiguration?: LoggingConfiguration;
@@ -3804,24 +4163,28 @@ export interface UpdateLoggingConfigurationResponse {
  */
 export interface UpdateRuleGroupRequest {
   /**
+   * @public
    * <p>A token used for optimistic locking. Network Firewall returns a token to your requests that access the rule group. The token marks the state of the rule group resource at the time of the request. </p>
    *          <p>To make changes to the rule group, you provide the token in your request. Network Firewall uses the token to ensure that the rule group hasn't changed since you last retrieved it. If it has changed, the operation fails with an <code>InvalidTokenException</code>. If this happens, retrieve the rule group again to get a current copy of it with a current token. Reapply your changes as needed, then try the operation again using the new token. </p>
    */
   UpdateToken: string | undefined;
 
   /**
+   * @public
    * <p>The Amazon Resource Name (ARN) of the rule group.</p>
    *          <p>You must specify the ARN or the name, and you can specify both. </p>
    */
   RuleGroupArn?: string;
 
   /**
+   * @public
    * <p>The descriptive name of the rule group. You can't change the name of a rule group after you create it.</p>
    *          <p>You must specify the ARN or the name, and you can specify both. </p>
    */
   RuleGroupName?: string;
 
   /**
+   * @public
    * <p>An object that defines the rule group rules. </p>
    *          <note>
    *             <p>You must provide either this rule group setting or a <code>Rules</code> setting, but not both. </p>
@@ -3830,6 +4193,7 @@ export interface UpdateRuleGroupRequest {
   RuleGroup?: RuleGroup;
 
   /**
+   * @public
    * <p>A string containing stateful rule group rules specifications in Suricata flat format, with one rule
    * per line. Use this to import your existing Suricata compatible rule groups. </p>
    *          <note>
@@ -3841,6 +4205,7 @@ export interface UpdateRuleGroupRequest {
   Rules?: string;
 
   /**
+   * @public
    * <p>Indicates whether the rule group is stateless or stateful. If the rule group is stateless, it contains
    * stateless rules. If it is stateful, it contains stateful rules. </p>
    *          <note>
@@ -3850,11 +4215,13 @@ export interface UpdateRuleGroupRequest {
   Type?: RuleGroupType | string;
 
   /**
+   * @public
    * <p>A description of the rule group. </p>
    */
   Description?: string;
 
   /**
+   * @public
    * <p>Indicates whether you want Network Firewall to just check the validity of the request, rather than run the request. </p>
    *          <p>If set to <code>TRUE</code>, Network Firewall checks whether the request can run successfully,
    *          but doesn't actually make the requested changes. The call returns the value that the request would return if you ran it with
@@ -3865,11 +4232,13 @@ export interface UpdateRuleGroupRequest {
   DryRun?: boolean;
 
   /**
+   * @public
    * <p>A complex type that contains settings for encryption of your rule group resources.</p>
    */
   EncryptionConfiguration?: EncryptionConfiguration;
 
   /**
+   * @public
    * <p>A complex type that contains metadata about the rule group that your own rule group is copied from. You can use the metadata to keep track of updates made to the originating rule group.</p>
    */
   SourceMetadata?: SourceMetadata;
@@ -3880,12 +4249,14 @@ export interface UpdateRuleGroupRequest {
  */
 export interface UpdateRuleGroupResponse {
   /**
+   * @public
    * <p>A token used for optimistic locking. Network Firewall returns a token to your requests that access the rule group. The token marks the state of the rule group resource at the time of the request. </p>
    *          <p>To make changes to the rule group, you provide the token in your request. Network Firewall uses the token to ensure that the rule group hasn't changed since you last retrieved it. If it has changed, the operation fails with an <code>InvalidTokenException</code>. If this happens, retrieve the rule group again to get a current copy of it with a current token. Reapply your changes as needed, then try the operation again using the new token. </p>
    */
   UpdateToken: string | undefined;
 
   /**
+   * @public
    * <p>The high-level properties of a rule group. This, along with the <a>RuleGroup</a>, define the rule group. You can retrieve all objects for a rule group by calling <a>DescribeRuleGroup</a>. </p>
    */
   RuleGroupResponse: RuleGroupResponse | undefined;
@@ -3896,6 +4267,7 @@ export interface UpdateRuleGroupResponse {
  */
 export interface UpdateSubnetChangeProtectionRequest {
   /**
+   * @public
    * <p>An optional token that you can use for optimistic locking. Network Firewall returns a token to your requests that access the firewall. The token marks the state of the firewall resource at the time of the request. </p>
    *          <p>To make an unconditional change to the firewall, omit the token in your update request. Without the token, Network Firewall performs your updates regardless of whether the firewall has changed since you last retrieved it.</p>
    *          <p>To make a conditional change to the firewall, provide the token in your update request. Network Firewall uses the token to ensure that the firewall hasn't changed since you last retrieved it. If it has changed, the operation fails with an <code>InvalidTokenException</code>. If this happens, retrieve the firewall again to get a current copy of it with a new token. Reapply your changes as needed, then try the operation again using the new token. </p>
@@ -3903,18 +4275,21 @@ export interface UpdateSubnetChangeProtectionRequest {
   UpdateToken?: string;
 
   /**
+   * @public
    * <p>The Amazon Resource Name (ARN) of the firewall.</p>
    *          <p>You must specify the ARN or the name, and you can specify both. </p>
    */
   FirewallArn?: string;
 
   /**
+   * @public
    * <p>The descriptive name of the firewall. You can't change the name of a firewall after you create it.</p>
    *          <p>You must specify the ARN or the name, and you can specify both. </p>
    */
   FirewallName?: string;
 
   /**
+   * @public
    * <p>A setting indicating whether the firewall is protected against changes to the subnet associations.
    *          Use this setting to protect against
    *          accidentally modifying the subnet associations for a firewall that is in use. When you create a firewall, the operation initializes this setting to <code>TRUE</code>.</p>
@@ -3927,6 +4302,7 @@ export interface UpdateSubnetChangeProtectionRequest {
  */
 export interface UpdateSubnetChangeProtectionResponse {
   /**
+   * @public
    * <p>An optional token that you can use for optimistic locking. Network Firewall returns a token to your requests that access the firewall. The token marks the state of the firewall resource at the time of the request. </p>
    *          <p>To make an unconditional change to the firewall, omit the token in your update request. Without the token, Network Firewall performs your updates regardless of whether the firewall has changed since you last retrieved it.</p>
    *          <p>To make a conditional change to the firewall, provide the token in your update request. Network Firewall uses the token to ensure that the firewall hasn't changed since you last retrieved it. If it has changed, the operation fails with an <code>InvalidTokenException</code>. If this happens, retrieve the firewall again to get a current copy of it with a new token. Reapply your changes as needed, then try the operation again using the new token. </p>
@@ -3934,16 +4310,19 @@ export interface UpdateSubnetChangeProtectionResponse {
   UpdateToken?: string;
 
   /**
+   * @public
    * <p>The Amazon Resource Name (ARN) of the firewall.</p>
    */
   FirewallArn?: string;
 
   /**
+   * @public
    * <p>The descriptive name of the firewall. You can't change the name of a firewall after you create it.</p>
    */
   FirewallName?: string;
 
   /**
+   * @public
    * <p>A setting indicating whether the firewall is protected against changes to the subnet associations.
    *          Use this setting to protect against
    *          accidentally modifying the subnet associations for a firewall that is in use. When you create a firewall, the operation initializes this setting to <code>TRUE</code>.</p>
@@ -3956,16 +4335,19 @@ export interface UpdateSubnetChangeProtectionResponse {
  */
 export interface UpdateTLSInspectionConfigurationRequest {
   /**
+   * @public
    * <p>The Amazon Resource Name (ARN) of the TLS inspection configuration.</p>
    */
   TLSInspectionConfigurationArn?: string;
 
   /**
+   * @public
    * <p>The descriptive name of the TLS inspection configuration. You can't change the name of a TLS inspection configuration after you create it.</p>
    */
   TLSInspectionConfigurationName?: string;
 
   /**
+   * @public
    * <p>The object that defines a TLS inspection configuration. This, along with <a>TLSInspectionConfigurationResponse</a>, define the TLS inspection configuration. You can retrieve all objects for a TLS inspection configuration by calling <a>DescribeTLSInspectionConfiguration</a>. </p>
    *          <p>Network Firewall uses a TLS inspection configuration to decrypt traffic. Network Firewall re-encrypts the traffic before sending it to its destination.</p>
    *          <p>To use a TLS inspection configuration, you add it to a Network Firewall firewall policy, then you apply the firewall policy to a firewall. Network Firewall acts as a proxy service to decrypt and inspect inbound traffic. You can reference a TLS inspection configuration from more than one firewall policy, and you can use a firewall policy in more than one firewall. For more information about using TLS inspection configurations, see <a href="https://docs.aws.amazon.com/network-firewall/latest/developerguide/tls-inspection.html">Decrypting SSL/TLS traffic with TLS
@@ -3974,16 +4356,19 @@ export interface UpdateTLSInspectionConfigurationRequest {
   TLSInspectionConfiguration: TLSInspectionConfiguration | undefined;
 
   /**
+   * @public
    * <p>A description of the TLS inspection configuration. </p>
    */
   Description?: string;
 
   /**
+   * @public
    * <p>A complex type that contains the Amazon Web Services KMS encryption configuration settings for your TLS inspection configuration.</p>
    */
   EncryptionConfiguration?: EncryptionConfiguration;
 
   /**
+   * @public
    * <p>A token used for optimistic locking. Network Firewall returns a token to your requests that access the TLS inspection configuration. The token marks the state of the TLS inspection configuration resource at the time of the request. </p>
    *          <p>To make changes to the TLS inspection configuration, you provide the token in your request. Network Firewall uses the token to ensure that the TLS inspection configuration hasn't changed since you last retrieved it. If it has changed, the operation fails with an <code>InvalidTokenException</code>. If this happens, retrieve the TLS inspection configuration again to get a current copy of it with a current token. Reapply your changes as needed, then try the operation again using the new token. </p>
    */
@@ -3995,12 +4380,14 @@ export interface UpdateTLSInspectionConfigurationRequest {
  */
 export interface UpdateTLSInspectionConfigurationResponse {
   /**
+   * @public
    * <p>A token used for optimistic locking. Network Firewall returns a token to your requests that access the TLS inspection configuration. The token marks the state of the TLS inspection configuration resource at the time of the request. </p>
    *          <p>To make changes to the TLS inspection configuration, you provide the token in your request. Network Firewall uses the token to ensure that the TLS inspection configuration hasn't changed since you last retrieved it. If it has changed, the operation fails with an <code>InvalidTokenException</code>. If this happens, retrieve the TLS inspection configuration again to get a current copy of it with a current token. Reapply your changes as needed, then try the operation again using the new token. </p>
    */
   UpdateToken: string | undefined;
 
   /**
+   * @public
    * <p>The high-level properties of a TLS inspection configuration. This, along with the <a>TLSInspectionConfiguration</a>, define the TLS inspection configuration. You can retrieve all objects for a TLS inspection configuration by calling <a>DescribeTLSInspectionConfiguration</a>. </p>
    */
   TLSInspectionConfigurationResponse: TLSInspectionConfigurationResponse | undefined;

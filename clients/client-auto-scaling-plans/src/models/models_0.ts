@@ -32,11 +32,13 @@ export class ConcurrentUpdateException extends __BaseException {
  */
 export interface TagFilter {
   /**
+   * @public
    * <p>The tag key.</p>
    */
   Key?: string;
 
   /**
+   * @public
    * <p>The tag values (0 to 20).</p>
    */
   Values?: string[];
@@ -48,11 +50,13 @@ export interface TagFilter {
  */
 export interface ApplicationSource {
   /**
+   * @public
    * <p>The Amazon Resource Name (ARN) of a AWS CloudFormation stack.</p>
    */
   CloudFormationStackARN?: string;
 
   /**
+   * @public
    * <p>A set of tags (up to 50).</p>
    */
   TagFilters?: TagFilter[];
@@ -64,11 +68,13 @@ export interface ApplicationSource {
  */
 export interface MetricDimension {
   /**
+   * @public
    * <p>The name of the dimension.</p>
    */
   Name: string | undefined;
 
   /**
+   * @public
    * <p>The value of the dimension.</p>
    */
   Value: string | undefined;
@@ -120,16 +126,19 @@ export type MetricStatistic = (typeof MetricStatistic)[keyof typeof MetricStatis
  */
 export interface CustomizedLoadMetricSpecification {
   /**
+   * @public
    * <p>The name of the metric.</p>
    */
   MetricName: string | undefined;
 
   /**
+   * @public
    * <p>The namespace of the metric.</p>
    */
   Namespace: string | undefined;
 
   /**
+   * @public
    * <p>The dimensions of the metric.</p>
    *          <p>Conditional: If you published your metric with dimensions, you must specify the same
    *          dimensions in your customized load metric specification.</p>
@@ -137,11 +146,13 @@ export interface CustomizedLoadMetricSpecification {
   Dimensions?: MetricDimension[];
 
   /**
+   * @public
    * <p>The statistic of the metric. The only valid value is <code>Sum</code>.</p>
    */
   Statistic: MetricStatistic | string | undefined;
 
   /**
+   * @public
    * <p>The unit of the metric.</p>
    */
   Unit?: string;
@@ -173,11 +184,13 @@ export type LoadMetricType = (typeof LoadMetricType)[keyof typeof LoadMetricType
  */
 export interface PredefinedLoadMetricSpecification {
   /**
+   * @public
    * <p>The metric type.</p>
    */
   PredefinedLoadMetricType: LoadMetricType | string | undefined;
 
   /**
+   * @public
    * <p>Identifies the resource associated with the metric type. You can't specify a resource
    *          label unless the metric type is <code>ALBTargetGroupRequestCount</code> and there is a
    *          target group for an Application Load Balancer attached to the Auto Scaling group.</p>
@@ -310,16 +323,19 @@ export type ServiceNamespace = (typeof ServiceNamespace)[keyof typeof ServiceNam
  */
 export interface CustomizedScalingMetricSpecification {
   /**
+   * @public
    * <p>The name of the metric.</p>
    */
   MetricName: string | undefined;
 
   /**
+   * @public
    * <p>The namespace of the metric.</p>
    */
   Namespace: string | undefined;
 
   /**
+   * @public
    * <p>The dimensions of the metric.</p>
    *          <p>Conditional: If you published your metric with dimensions, you must specify the same
    *          dimensions in your customized scaling metric specification.</p>
@@ -327,11 +343,13 @@ export interface CustomizedScalingMetricSpecification {
   Dimensions?: MetricDimension[];
 
   /**
+   * @public
    * <p>The statistic of the metric.</p>
    */
   Statistic: MetricStatistic | string | undefined;
 
   /**
+   * @public
    * <p>The unit of the metric. </p>
    */
   Unit?: string;
@@ -369,12 +387,14 @@ export type ScalingMetricType = (typeof ScalingMetricType)[keyof typeof ScalingM
  */
 export interface PredefinedScalingMetricSpecification {
   /**
+   * @public
    * <p>The metric type. The <code>ALBRequestCountPerTarget</code> metric type applies only to
    *          Auto Scaling groups, Spot Fleet requests, and ECS services.</p>
    */
   PredefinedScalingMetricType: ScalingMetricType | string | undefined;
 
   /**
+   * @public
    * <p>Identifies the resource associated with the metric type. You can't specify a resource
    *          label unless the metric type is <code>ALBRequestCountPerTarget</code> and there is a target
    *          group for an Application Load Balancer attached to the Auto Scaling group, Spot Fleet request, or
@@ -408,18 +428,21 @@ export interface PredefinedScalingMetricSpecification {
  */
 export interface TargetTrackingConfiguration {
   /**
+   * @public
    * <p>A predefined metric. You can specify either a predefined metric or a customized
    *          metric.</p>
    */
   PredefinedScalingMetricSpecification?: PredefinedScalingMetricSpecification;
 
   /**
+   * @public
    * <p>A customized metric. You can specify either a predefined metric or a customized metric.
    *       </p>
    */
   CustomizedScalingMetricSpecification?: CustomizedScalingMetricSpecification;
 
   /**
+   * @public
    * <p>The target value for the metric. Although this property accepts numbers of type Double,
    *          it won't accept values that are either too small or too large. Values must be in the range
    *          of -2^360 to 2^360.</p>
@@ -427,6 +450,7 @@ export interface TargetTrackingConfiguration {
   TargetValue: number | undefined;
 
   /**
+   * @public
    * <p>Indicates whether scale in by the target tracking scaling policy is disabled. If the
    *          value is <code>true</code>, scale in is disabled and the target tracking scaling policy
    *          doesn't remove capacity from the scalable resource. Otherwise, scale in is enabled and the
@@ -436,6 +460,7 @@ export interface TargetTrackingConfiguration {
   DisableScaleIn?: boolean;
 
   /**
+   * @public
    * <p>The amount of time, in seconds, to wait for a previous scale-out activity to take
    *          effect. This property is not used if the scalable resource is an Auto Scaling
    *          group.</p>
@@ -448,6 +473,7 @@ export interface TargetTrackingConfiguration {
   ScaleOutCooldown?: number;
 
   /**
+   * @public
    * <p>The amount of time, in seconds, after a scale-in activity completes before another
    *          scale-in activity can start. This property is not used if the scalable resource is an Auto Scaling
    *          group.</p>
@@ -460,6 +486,7 @@ export interface TargetTrackingConfiguration {
   ScaleInCooldown?: number;
 
   /**
+   * @public
    * <p>The estimated time, in seconds, until a newly launched instance can contribute to the
    *          CloudWatch metrics. This value is used only if the resource is an Auto Scaling group.</p>
    */
@@ -489,11 +516,13 @@ export interface TargetTrackingConfiguration {
  */
 export interface ScalingInstruction {
   /**
+   * @public
    * <p>The namespace of the AWS service.</p>
    */
   ServiceNamespace: ServiceNamespace | string | undefined;
 
   /**
+   * @public
    * <p>The ID of the resource. This string consists of the resource type and unique
    *          identifier.</p>
    *          <ul>
@@ -526,6 +555,7 @@ export interface ScalingInstruction {
   ResourceId: string | undefined;
 
   /**
+   * @public
    * <p>The scalable dimension associated with the resource.</p>
    *          <ul>
    *             <li>
@@ -565,35 +595,41 @@ export interface ScalingInstruction {
   ScalableDimension: ScalableDimension | string | undefined;
 
   /**
+   * @public
    * <p>The minimum capacity of the resource. </p>
    */
   MinCapacity: number | undefined;
 
   /**
+   * @public
    * <p>The maximum capacity of the resource. The exception to this upper limit is if you
    *          specify a non-default setting for <b>PredictiveScalingMaxCapacityBehavior</b>. </p>
    */
   MaxCapacity: number | undefined;
 
   /**
+   * @public
    * <p>The target tracking configurations (up to 10). Each of these structures must specify a
    *          unique scaling metric and a target value for the metric. </p>
    */
   TargetTrackingConfigurations: TargetTrackingConfiguration[] | undefined;
 
   /**
+   * @public
    * <p>The predefined load metric to use for predictive scaling. This parameter or a <b>CustomizedLoadMetricSpecification</b> is required when configuring
    *          predictive scaling, and cannot be used otherwise. </p>
    */
   PredefinedLoadMetricSpecification?: PredefinedLoadMetricSpecification;
 
   /**
+   * @public
    * <p>The customized load metric to use for predictive scaling. This parameter or a <b>PredefinedLoadMetricSpecification</b> is required when configuring
    *          predictive scaling, and cannot be used otherwise. </p>
    */
   CustomizedLoadMetricSpecification?: CustomizedLoadMetricSpecification;
 
   /**
+   * @public
    * <p>The amount of time, in seconds, to buffer the run time of scheduled scaling actions when
    *          scaling out. For example, if the forecast says to add capacity at 10:00 AM, and the buffer
    *          time is 5 minutes, then the run time of the corresponding scheduled scaling action will be
@@ -608,6 +644,7 @@ export interface ScalingInstruction {
   ScheduledActionBufferTime?: number;
 
   /**
+   * @public
    * <p>Defines the behavior that should be applied if the forecast capacity approaches or
    *          exceeds the maximum capacity specified for the resource. The default value is
    *             <code>SetForecastCapacityToMaxCapacity</code>.</p>
@@ -638,6 +675,7 @@ export interface ScalingInstruction {
   PredictiveScalingMaxCapacityBehavior?: PredictiveScalingMaxCapacityBehavior | string;
 
   /**
+   * @public
    * <p>The size of the capacity buffer to use when the forecast capacity is close to or exceeds
    *          the maximum capacity. The value is specified as a percentage relative to the forecast
    *          capacity. For example, if the buffer is 10, this means a 10 percent buffer, such that if
@@ -650,6 +688,7 @@ export interface ScalingInstruction {
   PredictiveScalingMaxCapacityBuffer?: number;
 
   /**
+   * @public
    * <p>The predictive scaling mode. The default value is <code>ForecastAndScale</code>.
    *          Otherwise, AWS Auto Scaling forecasts capacity but does not create any scheduled scaling actions
    *          based on the capacity forecast. </p>
@@ -657,6 +696,7 @@ export interface ScalingInstruction {
   PredictiveScalingMode?: PredictiveScalingMode | string;
 
   /**
+   * @public
    * <p>Controls whether a resource's externally created scaling policies are kept or replaced. </p>
    *          <p>The default value is <code>KeepExternalPolicies</code>. If the parameter is set to
    *             <code>ReplaceExternalPolicies</code>, any scaling policies that are external to AWS Auto Scaling
@@ -669,6 +709,7 @@ export interface ScalingInstruction {
   ScalingPolicyUpdateBehavior?: ScalingPolicyUpdateBehavior | string;
 
   /**
+   * @public
    * <p>Controls whether dynamic scaling by AWS Auto Scaling is disabled. When dynamic scaling is
    *          enabled, AWS Auto Scaling creates target tracking scaling policies based on the specified target
    *          tracking configurations. </p>
@@ -682,12 +723,14 @@ export interface ScalingInstruction {
  */
 export interface CreateScalingPlanRequest {
   /**
+   * @public
    * <p>The name of the scaling plan. Names cannot contain vertical bars, colons, or forward
    *          slashes.</p>
    */
   ScalingPlanName: string | undefined;
 
   /**
+   * @public
    * <p>A CloudFormation stack or set of tags. You can create one scaling plan per application
    *          source.</p>
    *          <p>For more information, see <a href="https://docs.aws.amazon.com/autoscaling/plans/APIReference/API_ApplicationSource.html">ApplicationSource</a> in the <i>AWS Auto Scaling API Reference</i>.</p>
@@ -695,6 +738,7 @@ export interface CreateScalingPlanRequest {
   ApplicationSource: ApplicationSource | undefined;
 
   /**
+   * @public
    * <p>The scaling instructions.</p>
    *          <p>For more information, see <a href="https://docs.aws.amazon.com/autoscaling/plans/APIReference/API_ScalingInstruction.html">ScalingInstruction</a> in the <i>AWS Auto Scaling API Reference</i>.</p>
    */
@@ -706,6 +750,7 @@ export interface CreateScalingPlanRequest {
  */
 export interface CreateScalingPlanResponse {
   /**
+   * @public
    * <p>The version number of the scaling plan. This value is always <code>1</code>. Currently,
    *          you cannot have multiple scaling plan versions.</p>
    */
@@ -784,11 +829,13 @@ export class ValidationException extends __BaseException {
  */
 export interface DeleteScalingPlanRequest {
   /**
+   * @public
    * <p>The name of the scaling plan.</p>
    */
   ScalingPlanName: string | undefined;
 
   /**
+   * @public
    * <p>The version number of the scaling plan. Currently, the only valid value is
    *             <code>1</code>.</p>
    */
@@ -827,23 +874,27 @@ export class ObjectNotFoundException extends __BaseException {
  */
 export interface DescribeScalingPlanResourcesRequest {
   /**
+   * @public
    * <p>The name of the scaling plan.</p>
    */
   ScalingPlanName: string | undefined;
 
   /**
+   * @public
    * <p>The version number of the scaling plan. Currently, the only valid value is
    *             <code>1</code>.</p>
    */
   ScalingPlanVersion: number | undefined;
 
   /**
+   * @public
    * <p>The maximum number of scalable resources to return. The value must be between
    *          1 and 50. The default value is 50.</p>
    */
   MaxResults?: number;
 
   /**
+   * @public
    * <p>The token for the next set of results.</p>
    */
   NextToken?: string;
@@ -868,16 +919,19 @@ export type PolicyType = (typeof PolicyType)[keyof typeof PolicyType];
  */
 export interface ScalingPolicy {
   /**
+   * @public
    * <p>The name of the scaling policy.</p>
    */
   PolicyName: string | undefined;
 
   /**
+   * @public
    * <p>The type of scaling policy.</p>
    */
   PolicyType: PolicyType | string | undefined;
 
   /**
+   * @public
    * <p>The target tracking scaling policy. Includes support for predefined or customized
    *          metrics.</p>
    */
@@ -905,21 +959,25 @@ export type ScalingStatusCode = (typeof ScalingStatusCode)[keyof typeof ScalingS
  */
 export interface ScalingPlanResource {
   /**
+   * @public
    * <p>The name of the scaling plan.</p>
    */
   ScalingPlanName: string | undefined;
 
   /**
+   * @public
    * <p>The version number of the scaling plan.</p>
    */
   ScalingPlanVersion: number | undefined;
 
   /**
+   * @public
    * <p>The namespace of the AWS service.</p>
    */
   ServiceNamespace: ServiceNamespace | string | undefined;
 
   /**
+   * @public
    * <p>The ID of the resource. This string consists of the resource type and unique
    *          identifier.</p>
    *          <ul>
@@ -952,6 +1010,7 @@ export interface ScalingPlanResource {
   ResourceId: string | undefined;
 
   /**
+   * @public
    * <p>The scalable dimension for the resource.</p>
    *          <ul>
    *             <li>
@@ -991,11 +1050,13 @@ export interface ScalingPlanResource {
   ScalableDimension: ScalableDimension | string | undefined;
 
   /**
+   * @public
    * <p>The scaling policies.</p>
    */
   ScalingPolicies?: ScalingPolicy[];
 
   /**
+   * @public
    * <p>The scaling status of the resource.</p>
    *          <ul>
    *             <li>
@@ -1019,6 +1080,7 @@ export interface ScalingPlanResource {
   ScalingStatusCode: ScalingStatusCode | string | undefined;
 
   /**
+   * @public
    * <p>A simple message about the current scaling status of the resource.</p>
    */
   ScalingStatusMessage?: string;
@@ -1029,11 +1091,13 @@ export interface ScalingPlanResource {
  */
 export interface DescribeScalingPlanResourcesResponse {
   /**
+   * @public
    * <p>Information about the scalable resources.</p>
    */
   ScalingPlanResources?: ScalingPlanResource[];
 
   /**
+   * @public
    * <p>The token required to get the next set of results. This value is <code>null</code> if
    *          there are no more results to return.</p>
    */
@@ -1067,12 +1131,14 @@ export class InvalidNextTokenException extends __BaseException {
  */
 export interface DescribeScalingPlansRequest {
   /**
+   * @public
    * <p>The names of the scaling plans (up to 10). If you specify application sources, you
    *          cannot specify scaling plan names.</p>
    */
   ScalingPlanNames?: string[];
 
   /**
+   * @public
    * <p>The version number of the scaling plan. Currently, the only valid value is
    *             <code>1</code>.</p>
    *          <note>
@@ -1083,18 +1149,21 @@ export interface DescribeScalingPlansRequest {
   ScalingPlanVersion?: number;
 
   /**
+   * @public
    * <p>The sources for the applications (up to 10). If you specify scaling plan names, you
    *          cannot specify application sources.</p>
    */
   ApplicationSources?: ApplicationSource[];
 
   /**
+   * @public
    * <p>The maximum number of scalable resources to return. This value can be between
    *          1 and 50. The default value is 50.</p>
    */
   MaxResults?: number;
 
   /**
+   * @public
    * <p>The token for the next set of results.</p>
    */
   NextToken?: string;
@@ -1126,27 +1195,32 @@ export type ScalingPlanStatusCode = (typeof ScalingPlanStatusCode)[keyof typeof 
  */
 export interface ScalingPlan {
   /**
+   * @public
    * <p>The name of the scaling plan.</p>
    */
   ScalingPlanName: string | undefined;
 
   /**
+   * @public
    * <p>The version number of the scaling plan.</p>
    */
   ScalingPlanVersion: number | undefined;
 
   /**
+   * @public
    * <p>A CloudFormation stack or a set of tags. You can create one scaling plan per application
    *          source.</p>
    */
   ApplicationSource: ApplicationSource | undefined;
 
   /**
+   * @public
    * <p>The scaling instructions.</p>
    */
   ScalingInstructions: ScalingInstruction[] | undefined;
 
   /**
+   * @public
    * <p>The status of the scaling plan.</p>
    *          <ul>
    *             <li>
@@ -1187,16 +1261,19 @@ export interface ScalingPlan {
   StatusCode: ScalingPlanStatusCode | string | undefined;
 
   /**
+   * @public
    * <p>A simple message about the current status of the scaling plan.</p>
    */
   StatusMessage?: string;
 
   /**
+   * @public
    * <p>The Unix time stamp when the scaling plan entered the current status.</p>
    */
   StatusStartTime?: Date;
 
   /**
+   * @public
    * <p>The Unix time stamp when the scaling plan was created.</p>
    */
   CreationTime?: Date;
@@ -1207,11 +1284,13 @@ export interface ScalingPlan {
  */
 export interface DescribeScalingPlansResponse {
   /**
+   * @public
    * <p>Information about the scaling plans.</p>
    */
   ScalingPlans?: ScalingPlan[];
 
   /**
+   * @public
    * <p>The token required to get the next set of results. This value is <code>null</code> if
    *          there are no more results to return.</p>
    */
@@ -1239,23 +1318,27 @@ export type ForecastDataType = (typeof ForecastDataType)[keyof typeof ForecastDa
  */
 export interface GetScalingPlanResourceForecastDataRequest {
   /**
+   * @public
    * <p>The name of the scaling plan.</p>
    */
   ScalingPlanName: string | undefined;
 
   /**
+   * @public
    * <p>The version number of the scaling plan. Currently, the only valid value is
    *             <code>1</code>.</p>
    */
   ScalingPlanVersion: number | undefined;
 
   /**
+   * @public
    * <p>The namespace of the AWS service. The only valid value is <code>autoscaling</code>.
    *       </p>
    */
   ServiceNamespace: ServiceNamespace | string | undefined;
 
   /**
+   * @public
    * <p>The ID of the resource. This string consists of a prefix (<code>autoScalingGroup</code>)
    *          followed by the name of a specified Auto Scaling group (<code>my-asg</code>). Example:
    *             <code>autoScalingGroup/my-asg</code>. </p>
@@ -1263,12 +1346,14 @@ export interface GetScalingPlanResourceForecastDataRequest {
   ResourceId: string | undefined;
 
   /**
+   * @public
    * <p>The scalable dimension for the resource. The only valid value is
    *             <code>autoscaling:autoScalingGroup:DesiredCapacity</code>. </p>
    */
   ScalableDimension: ScalableDimension | string | undefined;
 
   /**
+   * @public
    * <p>The type of forecast data to get.</p>
    *          <ul>
    *             <li>
@@ -1296,12 +1381,14 @@ export interface GetScalingPlanResourceForecastDataRequest {
   ForecastDataType: ForecastDataType | string | undefined;
 
   /**
+   * @public
    * <p>The inclusive start time of the time range for the forecast data to get. The date and
    *          time can be at most 56 days before the current date and time. </p>
    */
   StartTime: Date | undefined;
 
   /**
+   * @public
    * <p>The exclusive end time of the time range for the forecast data to get. The maximum time
    *          duration between the start and end time is seven days. </p>
    *          <p>Although this parameter can accept a date and time that is more than two days in the
@@ -1317,11 +1404,13 @@ export interface GetScalingPlanResourceForecastDataRequest {
  */
 export interface Datapoint {
   /**
+   * @public
    * <p>The time stamp for the data point in UTC format.</p>
    */
   Timestamp?: Date;
 
   /**
+   * @public
    * <p>The value of the data point.</p>
    */
   Value?: number;
@@ -1332,6 +1421,7 @@ export interface Datapoint {
  */
 export interface GetScalingPlanResourceForecastDataResponse {
   /**
+   * @public
    * <p>The data points to return.</p>
    */
   Datapoints: Datapoint[] | undefined;
@@ -1342,23 +1432,27 @@ export interface GetScalingPlanResourceForecastDataResponse {
  */
 export interface UpdateScalingPlanRequest {
   /**
+   * @public
    * <p>The name of the scaling plan.</p>
    */
   ScalingPlanName: string | undefined;
 
   /**
+   * @public
    * <p>The version number of the scaling plan. The only valid value is <code>1</code>.
    *          Currently, you cannot have multiple scaling plan versions.</p>
    */
   ScalingPlanVersion: number | undefined;
 
   /**
+   * @public
    * <p>A CloudFormation stack or set of tags.</p>
    *          <p>For more information, see <a href="https://docs.aws.amazon.com/autoscaling/plans/APIReference/API_ApplicationSource.html">ApplicationSource</a> in the <i>AWS Auto Scaling API Reference</i>.</p>
    */
   ApplicationSource?: ApplicationSource;
 
   /**
+   * @public
    * <p>The scaling instructions.</p>
    *          <p>For more information, see <a href="https://docs.aws.amazon.com/autoscaling/plans/APIReference/API_ScalingInstruction.html">ScalingInstruction</a> in the <i>AWS Auto Scaling API Reference</i>.</p>
    */

@@ -30,16 +30,19 @@ export class AccessDeniedException extends __BaseException {
  */
 export interface AddTagsToStreamInput {
   /**
+   * @public
    * <p>The name of the stream.</p>
    */
   StreamName?: string;
 
   /**
+   * @public
    * <p>A set of up to 10 key-value pairs to use to create the tags.</p>
    */
   Tags: Record<string, string> | undefined;
 
   /**
+   * @public
    * <p>The ARN of the stream.</p>
    */
   StreamARN?: string;
@@ -136,11 +139,13 @@ export class ResourceNotFoundException extends __BaseException {
  */
 export interface HashKeyRange {
   /**
+   * @public
    * <p>The starting hash key of the hash key range.</p>
    */
   StartingHashKey: string | undefined;
 
   /**
+   * @public
    * <p>The ending hash key of the hash key range.</p>
    */
   EndingHashKey: string | undefined;
@@ -153,16 +158,19 @@ export interface HashKeyRange {
  */
 export interface ChildShard {
   /**
+   * @public
    * <p>The shard ID of the existing child shard of the current shard.</p>
    */
   ShardId: string | undefined;
 
   /**
+   * @public
    * <p>The current shard that is the parent of the existing child shard.</p>
    */
   ParentShards: string[] | undefined;
 
   /**
+   * @public
    * <p>The range of possible hash key values for the shard, which is a set of ordered
    *             contiguous positive integers.</p>
    */
@@ -191,12 +199,14 @@ export type ConsumerStatus = (typeof ConsumerStatus)[keyof typeof ConsumerStatus
  */
 export interface Consumer {
   /**
+   * @public
    * <p>The name of the consumer is something you choose when you register the
    *             consumer.</p>
    */
   ConsumerName: string | undefined;
 
   /**
+   * @public
    * <p>When you register a consumer, Kinesis Data Streams generates an ARN for it. You need
    *             this ARN to be able to call <a>SubscribeToShard</a>.</p>
    *          <p>If you delete a consumer and then create a new one with the same name, it won't have
@@ -206,12 +216,14 @@ export interface Consumer {
   ConsumerARN: string | undefined;
 
   /**
+   * @public
    * <p>A consumer can't read data while in the <code>CREATING</code> or <code>DELETING</code>
    *             states.</p>
    */
   ConsumerStatus: ConsumerStatus | string | undefined;
 
   /**
+   * @public
    * <p></p>
    */
   ConsumerCreationTimestamp: Date | undefined;
@@ -224,12 +236,14 @@ export interface Consumer {
  */
 export interface ConsumerDescription {
   /**
+   * @public
    * <p>The name of the consumer is something you choose when you register the
    *             consumer.</p>
    */
   ConsumerName: string | undefined;
 
   /**
+   * @public
    * <p>When you register a consumer, Kinesis Data Streams generates an ARN for it. You need
    *             this ARN to be able to call <a>SubscribeToShard</a>.</p>
    *          <p>If you delete a consumer and then create a new one with the same name, it won't have
@@ -239,17 +253,20 @@ export interface ConsumerDescription {
   ConsumerARN: string | undefined;
 
   /**
+   * @public
    * <p>A consumer can't read data while in the <code>CREATING</code> or <code>DELETING</code>
    *             states.</p>
    */
   ConsumerStatus: ConsumerStatus | string | undefined;
 
   /**
+   * @public
    * <p></p>
    */
   ConsumerCreationTimestamp: Date | undefined;
 
   /**
+   * @public
    * <p>The ARN of the stream with which you registered the consumer.</p>
    */
   StreamARN: string | undefined;
@@ -276,6 +293,7 @@ export type StreamMode = (typeof StreamMode)[keyof typeof StreamMode];
  */
 export interface StreamModeDetails {
   /**
+   * @public
    * <p> Specifies the capacity mode to which you want to set your data stream. Currently, in
    *             Kinesis Data Streams, you can choose between an <b>on-demand</b> capacity mode and a <b>provisioned</b> capacity mode for your data streams. </p>
    */
@@ -288,6 +306,7 @@ export interface StreamModeDetails {
  */
 export interface CreateStreamInput {
   /**
+   * @public
    * <p>A name to identify the stream. The stream name is scoped to the Amazon Web Services
    *             account used by the application that creates the stream. It is also scoped by Amazon Web Services Region. That is, two streams in two different Amazon Web Services accounts
    *             can have the same name. Two streams in the same Amazon Web Services account but in two
@@ -296,6 +315,7 @@ export interface CreateStreamInput {
   StreamName: string | undefined;
 
   /**
+   * @public
    * <p>The number of shards that the stream will use. The throughput of the stream is a
    *             function of the number of shards; more shards are required for greater provisioned
    *             throughput.</p>
@@ -303,6 +323,7 @@ export interface CreateStreamInput {
   ShardCount?: number;
 
   /**
+   * @public
    * <p> Indicates the capacity mode of the data stream. Currently, in Kinesis Data Streams,
    *             you can choose between an <b>on-demand</b> capacity mode and a
    *                 <b>provisioned</b> capacity mode for your data
@@ -317,17 +338,20 @@ export interface CreateStreamInput {
  */
 export interface DecreaseStreamRetentionPeriodInput {
   /**
+   * @public
    * <p>The name of the stream to modify.</p>
    */
   StreamName?: string;
 
   /**
+   * @public
    * <p>The new retention period of the stream, in hours. Must be less than the current
    *             retention period.</p>
    */
   RetentionPeriodHours: number | undefined;
 
   /**
+   * @public
    * <p>The ARN of the stream.</p>
    */
   StreamARN?: string;
@@ -339,11 +363,13 @@ export interface DecreaseStreamRetentionPeriodInput {
  */
 export interface DeleteStreamInput {
   /**
+   * @public
    * <p>The name of the stream to delete.</p>
    */
   StreamName?: string;
 
   /**
+   * @public
    * <p>If this parameter is unset (<code>null</code>) or if you set it to <code>false</code>,
    *             and the stream has registered consumers, the call to <code>DeleteStream</code> fails
    *             with a <code>ResourceInUseException</code>. </p>
@@ -351,6 +377,7 @@ export interface DeleteStreamInput {
   EnforceConsumerDeletion?: boolean;
 
   /**
+   * @public
    * <p>The ARN of the stream.</p>
    */
   StreamARN?: string;
@@ -361,6 +388,7 @@ export interface DeleteStreamInput {
  */
 export interface DeregisterStreamConsumerInput {
   /**
+   * @public
    * <p>The ARN of the Kinesis data stream that the consumer is registered with. For more
    *             information, see <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html#arn-syntax-kinesis-streams">Amazon Resource Names (ARNs) and Amazon Web Services Service
    *             Namespaces</a>.</p>
@@ -368,11 +396,13 @@ export interface DeregisterStreamConsumerInput {
   StreamARN?: string;
 
   /**
+   * @public
    * <p>The name that you gave to the consumer.</p>
    */
   ConsumerName?: string;
 
   /**
+   * @public
    * <p>The ARN returned by Kinesis Data Streams when you registered the consumer. If you
    *             don't know the ARN of the consumer that you want to deregister, you can use the
    *             ListStreamConsumers operation to get a list of the descriptions of all the consumers
@@ -392,21 +422,25 @@ export interface DescribeLimitsInput {}
  */
 export interface DescribeLimitsOutput {
   /**
+   * @public
    * <p>The maximum number of shards.</p>
    */
   ShardLimit: number | undefined;
 
   /**
+   * @public
    * <p>The number of open shards.</p>
    */
   OpenShardCount: number | undefined;
 
   /**
+   * @public
    * <p> Indicates the number of data streams with the on-demand capacity mode.</p>
    */
   OnDemandStreamCount: number | undefined;
 
   /**
+   * @public
    * <p> The maximum number of data streams with the on-demand capacity mode. </p>
    */
   OnDemandStreamCountLimit: number | undefined;
@@ -418,17 +452,20 @@ export interface DescribeLimitsOutput {
  */
 export interface DescribeStreamInput {
   /**
+   * @public
    * <p>The name of the stream to describe.</p>
    */
   StreamName?: string;
 
   /**
+   * @public
    * <p>The maximum number of shards to return in a single call. The default value is 100. If
    *             you specify a value greater than 100, at most 100 results are returned.</p>
    */
   Limit?: number;
 
   /**
+   * @public
    * <p>The shard ID of the shard to start with.</p>
    *          <p>Specify this parameter to indicate that you want to describe the stream starting with
    *             the shard whose ID immediately follows <code>ExclusiveStartShardId</code>.</p>
@@ -439,6 +476,7 @@ export interface DescribeStreamInput {
   ExclusiveStartShardId?: string;
 
   /**
+   * @public
    * <p>The ARN of the stream.</p>
    */
   StreamARN?: string;
@@ -484,6 +522,7 @@ export type MetricsName = (typeof MetricsName)[keyof typeof MetricsName];
  */
 export interface EnhancedMetrics {
   /**
+   * @public
    * <p>List of shard-level metrics.</p>
    *          <p>The following are the valid shard-level metrics. The value "<code>ALL</code>" enhances
    *             every metric.</p>
@@ -542,11 +581,13 @@ export interface EnhancedMetrics {
  */
 export interface SequenceNumberRange {
   /**
+   * @public
    * <p>The starting sequence number for the range.</p>
    */
   StartingSequenceNumber: string | undefined;
 
   /**
+   * @public
    * <p>The ending sequence number for the range. Shards that are in the OPEN state have an
    *             ending sequence number of <code>null</code>.</p>
    */
@@ -559,27 +600,32 @@ export interface SequenceNumberRange {
  */
 export interface Shard {
   /**
+   * @public
    * <p>The unique identifier of the shard within the stream.</p>
    */
   ShardId: string | undefined;
 
   /**
+   * @public
    * <p>The shard ID of the shard's parent.</p>
    */
   ParentShardId?: string;
 
   /**
+   * @public
    * <p>The shard ID of the shard adjacent to the shard's parent.</p>
    */
   AdjacentParentShardId?: string;
 
   /**
+   * @public
    * <p>The range of possible hash key values for the shard, which is a set of ordered
    *             contiguous positive integers.</p>
    */
   HashKeyRange: HashKeyRange | undefined;
 
   /**
+   * @public
    * <p>The range of possible sequence numbers for the shard.</p>
    */
   SequenceNumberRange: SequenceNumberRange | undefined;
@@ -607,16 +653,19 @@ export type StreamStatus = (typeof StreamStatus)[keyof typeof StreamStatus];
  */
 export interface StreamDescription {
   /**
+   * @public
    * <p>The name of the stream being described.</p>
    */
   StreamName: string | undefined;
 
   /**
+   * @public
    * <p>The Amazon Resource Name (ARN) for the stream being described.</p>
    */
   StreamARN: string | undefined;
 
   /**
+   * @public
    * <p>The current status of the stream being described. The stream status is one of the
    *             following states:</p>
    *          <ul>
@@ -649,39 +698,46 @@ export interface StreamDescription {
   StreamStatus: StreamStatus | string | undefined;
 
   /**
+   * @public
    * <p> Specifies the capacity mode to which you want to set your data stream. Currently, in
    *             Kinesis Data Streams, you can choose between an <b>on-demand</b> capacity mode and a <b>provisioned</b> capacity mode for your data streams. </p>
    */
   StreamModeDetails?: StreamModeDetails;
 
   /**
+   * @public
    * <p>The shards that comprise the stream.</p>
    */
   Shards: Shard[] | undefined;
 
   /**
+   * @public
    * <p>If set to <code>true</code>, more shards in the stream are available to
    *             describe.</p>
    */
   HasMoreShards: boolean | undefined;
 
   /**
+   * @public
    * <p>The current retention period, in hours. Minimum value of 24. Maximum value of
    *             168.</p>
    */
   RetentionPeriodHours: number | undefined;
 
   /**
+   * @public
    * <p>The approximate time that the stream was created.</p>
    */
   StreamCreationTimestamp: Date | undefined;
 
   /**
+   * @public
    * <p>Represents the current enhanced monitoring settings of the stream.</p>
    */
   EnhancedMonitoring: EnhancedMetrics[] | undefined;
 
   /**
+   * @public
    * <p>The server-side encryption type used on the stream. This parameter can be one of the
    *             following values:</p>
    *          <ul>
@@ -699,6 +755,7 @@ export interface StreamDescription {
   EncryptionType?: EncryptionType | string;
 
   /**
+   * @public
    * <p>The GUID for the customer-managed Amazon Web Services KMS key to use for encryption.
    *             This value can be a globally unique identifier, a fully specified ARN to either an alias
    *             or a key, or an alias name prefixed by "alias/".You can also use a master key owned by
@@ -739,6 +796,7 @@ export interface StreamDescription {
  */
 export interface DescribeStreamOutput {
   /**
+   * @public
    * <p>The current status of the stream, the stream Amazon Resource Name (ARN), an array of
    *             shard objects that comprise the stream, and whether there are more shards
    *             available.</p>
@@ -751,6 +809,7 @@ export interface DescribeStreamOutput {
  */
 export interface DescribeStreamConsumerInput {
   /**
+   * @public
    * <p>The ARN of the Kinesis data stream that the consumer is registered with. For more
    *             information, see <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html#arn-syntax-kinesis-streams">Amazon Resource Names (ARNs) and Amazon Web Services Service
    *             Namespaces</a>.</p>
@@ -758,11 +817,13 @@ export interface DescribeStreamConsumerInput {
   StreamARN?: string;
 
   /**
+   * @public
    * <p>The name that you gave to the consumer.</p>
    */
   ConsumerName?: string;
 
   /**
+   * @public
    * <p>The ARN returned by Kinesis Data Streams when you registered the consumer.</p>
    */
   ConsumerARN?: string;
@@ -773,6 +834,7 @@ export interface DescribeStreamConsumerInput {
  */
 export interface DescribeStreamConsumerOutput {
   /**
+   * @public
    * <p>An object that represents the details of the consumer.</p>
    */
   ConsumerDescription: ConsumerDescription | undefined;
@@ -783,11 +845,13 @@ export interface DescribeStreamConsumerOutput {
  */
 export interface DescribeStreamSummaryInput {
   /**
+   * @public
    * <p>The name of the stream to describe.</p>
    */
   StreamName?: string;
 
   /**
+   * @public
    * <p>The ARN of the stream.</p>
    */
   StreamARN?: string;
@@ -800,16 +864,19 @@ export interface DescribeStreamSummaryInput {
  */
 export interface StreamDescriptionSummary {
   /**
+   * @public
    * <p>The name of the stream being described.</p>
    */
   StreamName: string | undefined;
 
   /**
+   * @public
    * <p>The Amazon Resource Name (ARN) for the stream being described.</p>
    */
   StreamARN: string | undefined;
 
   /**
+   * @public
    * <p>The current status of the stream being described. The stream status is one of the
    *             following states:</p>
    *          <ul>
@@ -842,27 +909,32 @@ export interface StreamDescriptionSummary {
   StreamStatus: StreamStatus | string | undefined;
 
   /**
+   * @public
    * <p> Specifies the capacity mode to which you want to set your data stream. Currently, in
    *             Kinesis Data Streams, you can choose between an <b>on-demand</b> ycapacity mode and a <b>provisioned</b> capacity mode for your data streams. </p>
    */
   StreamModeDetails?: StreamModeDetails;
 
   /**
+   * @public
    * <p>The current retention period, in hours.</p>
    */
   RetentionPeriodHours: number | undefined;
 
   /**
+   * @public
    * <p>The approximate time that the stream was created.</p>
    */
   StreamCreationTimestamp: Date | undefined;
 
   /**
+   * @public
    * <p>Represents the current enhanced monitoring settings of the stream.</p>
    */
   EnhancedMonitoring: EnhancedMetrics[] | undefined;
 
   /**
+   * @public
    * <p>The encryption type used. This value is one of the following:</p>
    *          <ul>
    *             <li>
@@ -880,6 +952,7 @@ export interface StreamDescriptionSummary {
   EncryptionType?: EncryptionType | string;
 
   /**
+   * @public
    * <p>The GUID for the customer-managed Amazon Web Services KMS key to use for encryption.
    *             This value can be a globally unique identifier, a fully specified ARN to either an alias
    *             or a key, or an alias name prefixed by "alias/".You can also use a master key owned by
@@ -914,11 +987,13 @@ export interface StreamDescriptionSummary {
   KeyId?: string;
 
   /**
+   * @public
    * <p>The number of open shards in the stream.</p>
    */
   OpenShardCount: number | undefined;
 
   /**
+   * @public
    * <p>The number of enhanced fan-out consumers registered with the stream.</p>
    */
   ConsumerCount?: number;
@@ -929,6 +1004,7 @@ export interface StreamDescriptionSummary {
  */
 export interface DescribeStreamSummaryOutput {
   /**
+   * @public
    * <p>A <a>StreamDescriptionSummary</a> containing information about the
    *             stream.</p>
    */
@@ -941,11 +1017,13 @@ export interface DescribeStreamSummaryOutput {
  */
 export interface DisableEnhancedMonitoringInput {
   /**
+   * @public
    * <p>The name of the Kinesis data stream for which to disable enhanced monitoring.</p>
    */
   StreamName?: string;
 
   /**
+   * @public
    * <p>List of shard-level metrics to disable.</p>
    *          <p>The following are the valid shard-level metrics. The value "<code>ALL</code>" disables
    *             every metric.</p>
@@ -998,6 +1076,7 @@ export interface DisableEnhancedMonitoringInput {
   ShardLevelMetrics: (MetricsName | string)[] | undefined;
 
   /**
+   * @public
    * <p>The ARN of the stream.</p>
    */
   StreamARN?: string;
@@ -1009,23 +1088,27 @@ export interface DisableEnhancedMonitoringInput {
  */
 export interface EnhancedMonitoringOutput {
   /**
+   * @public
    * <p>The name of the Kinesis data stream.</p>
    */
   StreamName?: string;
 
   /**
+   * @public
    * <p>Represents the current state of the metrics that are in the enhanced state before the
    *             operation.</p>
    */
   CurrentShardLevelMetrics?: (MetricsName | string)[];
 
   /**
+   * @public
    * <p>Represents the list of all the metrics that would be in the enhanced state after the
    *             operation.</p>
    */
   DesiredShardLevelMetrics?: (MetricsName | string)[];
 
   /**
+   * @public
    * <p>The ARN of the stream.</p>
    */
   StreamARN?: string;
@@ -1037,11 +1120,13 @@ export interface EnhancedMonitoringOutput {
  */
 export interface EnableEnhancedMonitoringInput {
   /**
+   * @public
    * <p>The name of the stream for which to enable enhanced monitoring.</p>
    */
   StreamName?: string;
 
   /**
+   * @public
    * <p>List of shard-level metrics to enable.</p>
    *          <p>The following are the valid shard-level metrics. The value "<code>ALL</code>" enables
    *             every metric.</p>
@@ -1094,6 +1179,7 @@ export interface EnableEnhancedMonitoringInput {
   ShardLevelMetrics: (MetricsName | string)[] | undefined;
 
   /**
+   * @public
    * <p>The ARN of the stream.</p>
    */
   StreamARN?: string;
@@ -1145,6 +1231,7 @@ export class ExpiredNextTokenException extends __BaseException {
  */
 export interface GetRecordsInput {
   /**
+   * @public
    * <p>The position in the shard from which you want to start sequentially reading data
    *             records. A shard iterator specifies this position using the sequence number of a data
    *             record in the shard.</p>
@@ -1152,6 +1239,7 @@ export interface GetRecordsInput {
   ShardIterator: string | undefined;
 
   /**
+   * @public
    * <p>The maximum number of records to return. Specify a value of up to 10,000. If you
    *             specify a value that is greater than 10,000, <a>GetRecords</a> throws
    *                 <code>InvalidArgumentException</code>. The default value is 10,000.</p>
@@ -1159,6 +1247,7 @@ export interface GetRecordsInput {
   Limit?: number;
 
   /**
+   * @public
    * <p>The ARN of the stream.</p>
    */
   StreamARN?: string;
@@ -1171,16 +1260,19 @@ export interface GetRecordsInput {
  */
 export interface _Record {
   /**
+   * @public
    * <p>The unique identifier of the record within its shard.</p>
    */
   SequenceNumber: string | undefined;
 
   /**
+   * @public
    * <p>The approximate time that the record was inserted into the stream.</p>
    */
   ApproximateArrivalTimestamp?: Date;
 
   /**
+   * @public
    * <p>The data blob. The data in the blob is both opaque and immutable to Kinesis Data
    *             Streams, which does not inspect, interpret, or change the data in the blob in any way.
    *             When the data blob (the payload before base64-encoding) is added to the partition key
@@ -1189,11 +1281,13 @@ export interface _Record {
   Data: Uint8Array | undefined;
 
   /**
+   * @public
    * <p>Identifies which shard in the stream the data record is assigned to.</p>
    */
   PartitionKey: string | undefined;
 
   /**
+   * @public
    * <p>The encryption type used on the record. This parameter can be one of the following
    *             values:</p>
    *          <ul>
@@ -1217,11 +1311,13 @@ export interface _Record {
  */
 export interface GetRecordsOutput {
   /**
+   * @public
    * <p>The data records retrieved from the shard.</p>
    */
   Records: _Record[] | undefined;
 
   /**
+   * @public
    * <p>The next position in the shard from which to start sequentially reading data records.
    *             If set to <code>null</code>, the shard has been closed and the requested iterator does
    *             not return any more data. </p>
@@ -1229,6 +1325,7 @@ export interface GetRecordsOutput {
   NextShardIterator?: string;
 
   /**
+   * @public
    * <p>The number of milliseconds the <a>GetRecords</a> response is from the tip
    *             of the stream, indicating how far behind current time the consumer is. A value of zero
    *             indicates that record processing is caught up, and there are no new records to process
@@ -1237,6 +1334,7 @@ export interface GetRecordsOutput {
   MillisBehindLatest?: number;
 
   /**
+   * @public
    * <p>The list of the current shard's child shards, returned in the <code>GetRecords</code>
    *             API's response only when the end of the current shard is reached.</p>
    */
@@ -1419,16 +1517,19 @@ export type ShardIteratorType = (typeof ShardIteratorType)[keyof typeof ShardIte
  */
 export interface GetShardIteratorInput {
   /**
+   * @public
    * <p>The name of the Amazon Kinesis data stream.</p>
    */
   StreamName?: string;
 
   /**
+   * @public
    * <p>The shard ID of the Kinesis Data Streams shard to get the iterator for.</p>
    */
   ShardId: string | undefined;
 
   /**
+   * @public
    * <p>Determines how the shard iterator is used to start reading data records from the
    *             shard.</p>
    *          <p>The following are the valid Amazon Kinesis shard iterator types:</p>
@@ -1460,12 +1561,14 @@ export interface GetShardIteratorInput {
   ShardIteratorType: ShardIteratorType | string | undefined;
 
   /**
+   * @public
    * <p>The sequence number of the data record in the shard from which to start reading. Used
    *             with shard iterator type AT_SEQUENCE_NUMBER and AFTER_SEQUENCE_NUMBER.</p>
    */
   StartingSequenceNumber?: string;
 
   /**
+   * @public
    * <p>The time stamp of the data record from which to start reading. Used with shard
    *             iterator type AT_TIMESTAMP. A time stamp is the Unix epoch date with precision in
    *             milliseconds. For example, <code>2016-04-04T19:58:46.480-00:00</code> or
@@ -1477,6 +1580,7 @@ export interface GetShardIteratorInput {
   Timestamp?: Date;
 
   /**
+   * @public
    * <p>The ARN of the stream.</p>
    */
   StreamARN?: string;
@@ -1488,6 +1592,7 @@ export interface GetShardIteratorInput {
  */
 export interface GetShardIteratorOutput {
   /**
+   * @public
    * <p>The position in the shard from which to start reading data records sequentially. A
    *             shard iterator specifies this position using the sequence number of a data record in a
    *             shard.</p>
@@ -1501,17 +1606,20 @@ export interface GetShardIteratorOutput {
  */
 export interface IncreaseStreamRetentionPeriodInput {
   /**
+   * @public
    * <p>The name of the stream to modify.</p>
    */
   StreamName?: string;
 
   /**
+   * @public
    * <p>The new retention period of the stream, in hours. Must be more than the current
    *             retention period.</p>
    */
   RetentionPeriodHours: number | undefined;
 
   /**
+   * @public
    * <p>The ARN of the stream.</p>
    */
   StreamARN?: string;
@@ -1563,6 +1671,7 @@ export type ShardFilterType = (typeof ShardFilterType)[keyof typeof ShardFilterT
  */
 export interface ShardFilter {
   /**
+   * @public
    * <p>The shard type specified in the <code>ShardFilter</code> parameter. This is a required
    *             property of the <code>ShardFilter</code> parameter.</p>
    *          <p>You can specify the following valid values: </p>
@@ -1607,6 +1716,7 @@ export interface ShardFilter {
   Type: ShardFilterType | string | undefined;
 
   /**
+   * @public
    * <p>The exclusive start <code>shardID</code> speified in the <code>ShardFilter</code>
    *             parameter. This property can only be used if the <code>AFTER_SHARD_ID</code> shard type
    *             is specified.</p>
@@ -1614,6 +1724,7 @@ export interface ShardFilter {
   ShardId?: string;
 
   /**
+   * @public
    * <p>The timestamps specified in the <code>ShardFilter</code> parameter. A timestamp is a
    *             Unix epoch date with precision in milliseconds. For example,
    *             2016-04-04T19:58:46.480-00:00 or 1459799926.480. This property can only be used if
@@ -1628,6 +1739,7 @@ export interface ShardFilter {
  */
 export interface ListShardsInput {
   /**
+   * @public
    * <p>The name of the data stream whose shards you want to list. </p>
    *          <p>You cannot specify this parameter if you specify the <code>NextToken</code>
    *             parameter.</p>
@@ -1635,6 +1747,7 @@ export interface ListShardsInput {
   StreamName?: string;
 
   /**
+   * @public
    * <p>When the number of shards in the data stream is greater than the default value for the
    *                 <code>MaxResults</code> parameter, or if you explicitly specify a value for
    *                 <code>MaxResults</code> that is less than the number of shards in the data stream,
@@ -1660,6 +1773,7 @@ export interface ListShardsInput {
   NextToken?: string;
 
   /**
+   * @public
    * <p>Specify this parameter to indicate that you want to list the shards starting with the
    *             shard whose ID immediately follows <code>ExclusiveStartShardId</code>.</p>
    *          <p>If you don't specify this parameter, the default behavior is for
@@ -1670,6 +1784,7 @@ export interface ListShardsInput {
   ExclusiveStartShardId?: string;
 
   /**
+   * @public
    * <p>The maximum number of shards to return in a single call to <code>ListShards</code>.
    *             The maximum number of shards to return in a single call. The default value is 1000. If
    *             you specify a value greater than 1000, at most 1000 results are returned. </p>
@@ -1681,6 +1796,7 @@ export interface ListShardsInput {
   MaxResults?: number;
 
   /**
+   * @public
    * <p>Specify this input parameter to distinguish data streams that have the same name. For
    *             example, if you create a data stream and then delete it, and you later create another
    *             data stream with the same name, you can use this input parameter to specify which of the
@@ -1691,6 +1807,7 @@ export interface ListShardsInput {
   StreamCreationTimestamp?: Date;
 
   /**
+   * @public
    * <p>Enables you to filter out the response of the <code>ListShards</code> API. You can
    *             only specify one filter at a time. </p>
    *          <p>If you use the <code>ShardFilter</code> parameter when invoking the ListShards API,
@@ -1713,6 +1830,7 @@ export interface ListShardsInput {
   ShardFilter?: ShardFilter;
 
   /**
+   * @public
    * <p>The ARN of the stream.</p>
    */
   StreamARN?: string;
@@ -1723,6 +1841,7 @@ export interface ListShardsInput {
  */
 export interface ListShardsOutput {
   /**
+   * @public
    * <p>An array of JSON objects. Each object represents one shard and specifies the IDs of
    *             the shard, the shard's parent, and the shard that's adjacent to the shard's parent. Each
    *             object also contains the starting and ending hash keys and the starting and ending
@@ -1731,6 +1850,7 @@ export interface ListShardsOutput {
   Shards?: Shard[];
 
   /**
+   * @public
    * <p>When the number of shards in the data stream is greater than the default value for the
    *                 <code>MaxResults</code> parameter, or if you explicitly specify a value for
    *                 <code>MaxResults</code> that is less than the number of shards in the data stream,
@@ -1753,6 +1873,7 @@ export interface ListShardsOutput {
  */
 export interface ListStreamConsumersInput {
   /**
+   * @public
    * <p>The ARN of the Kinesis data stream for which you want to list the registered
    *             consumers. For more information, see <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html#arn-syntax-kinesis-streams">Amazon Resource Names (ARNs) and Amazon Web Services Service
    *             Namespaces</a>.</p>
@@ -1760,6 +1881,7 @@ export interface ListStreamConsumersInput {
   StreamARN: string | undefined;
 
   /**
+   * @public
    * <p>When the number of consumers that are registered with the data stream is greater than
    *             the default value for the <code>MaxResults</code> parameter, or if you explicitly
    *             specify a value for <code>MaxResults</code> that is less than the number of consumers
@@ -1787,6 +1909,7 @@ export interface ListStreamConsumersInput {
   NextToken?: string;
 
   /**
+   * @public
    * <p>The maximum number of consumers that you want a single call of
    *                 <code>ListStreamConsumers</code> to return. The default value is 100. If you specify
    *             a value greater than 100, at most 100 results are returned. </p>
@@ -1794,6 +1917,7 @@ export interface ListStreamConsumersInput {
   MaxResults?: number;
 
   /**
+   * @public
    * <p>Specify this input parameter to distinguish data streams that have the same name. For
    *             example, if you create a data stream and then delete it, and you later create another
    *             data stream with the same name, you can use this input parameter to specify which of the
@@ -1808,11 +1932,13 @@ export interface ListStreamConsumersInput {
  */
 export interface ListStreamConsumersOutput {
   /**
+   * @public
    * <p>An array of JSON objects. Each object represents one registered consumer.</p>
    */
   Consumers?: Consumer[];
 
   /**
+   * @public
    * <p>When the number of consumers that are registered with the data stream is greater than
    *             the default value for the <code>MaxResults</code> parameter, or if you explicitly
    *             specify a value for <code>MaxResults</code> that is less than the number of registered
@@ -1838,17 +1964,20 @@ export interface ListStreamConsumersOutput {
  */
 export interface ListStreamsInput {
   /**
+   * @public
    * <p>The maximum number of streams to list. The default value is 100. If you specify a
    *             value greater than 100, at most 100 results are returned.</p>
    */
   Limit?: number;
 
   /**
+   * @public
    * <p>The name of the stream to start the list with.</p>
    */
   ExclusiveStartStreamName?: string;
 
   /**
+   * @public
    * <p></p>
    */
   NextToken?: string;
@@ -1860,27 +1989,32 @@ export interface ListStreamsInput {
  */
 export interface StreamSummary {
   /**
+   * @public
    * <p>The name of a stream.</p>
    */
   StreamName: string | undefined;
 
   /**
+   * @public
    * <p>The ARN of the stream.</p>
    */
   StreamARN: string | undefined;
 
   /**
+   * @public
    * <p>The status of the stream.</p>
    */
   StreamStatus: StreamStatus | string | undefined;
 
   /**
+   * @public
    * <p> Specifies the capacity mode to which you want to set your data stream. Currently, in
    *             Kinesis Data Streams, you can choose between an <b>on-demand</b> capacity mode and a <b>provisioned</b> capacity mode for your data streams. </p>
    */
   StreamModeDetails?: StreamModeDetails;
 
   /**
+   * @public
    * <p>The timestamp at which the stream was created.</p>
    */
   StreamCreationTimestamp?: Date;
@@ -1892,22 +2026,26 @@ export interface StreamSummary {
  */
 export interface ListStreamsOutput {
   /**
+   * @public
    * <p>The names of the streams that are associated with the Amazon Web Services account
    *             making the <code>ListStreams</code> request.</p>
    */
   StreamNames: string[] | undefined;
 
   /**
+   * @public
    * <p>If set to <code>true</code>, there are more streams available to list.</p>
    */
   HasMoreStreams: boolean | undefined;
 
   /**
+   * @public
    * <p></p>
    */
   NextToken?: string;
 
   /**
+   * @public
    * <p></p>
    */
   StreamSummaries?: StreamSummary[];
@@ -1919,11 +2057,13 @@ export interface ListStreamsOutput {
  */
 export interface ListTagsForStreamInput {
   /**
+   * @public
    * <p>The name of the stream.</p>
    */
   StreamName?: string;
 
   /**
+   * @public
    * <p>The key to use as the starting point for the list of tags. If this parameter is set,
    *                 <code>ListTagsForStream</code> gets all tags that occur after
    *                 <code>ExclusiveStartTagKey</code>. </p>
@@ -1931,6 +2071,7 @@ export interface ListTagsForStreamInput {
   ExclusiveStartTagKey?: string;
 
   /**
+   * @public
    * <p>The number of tags to return. If this number is less than the total number of tags
    *             associated with the stream, <code>HasMoreTags</code> is set to <code>true</code>. To
    *             list additional tags, set <code>ExclusiveStartTagKey</code> to the last key in the
@@ -1939,6 +2080,7 @@ export interface ListTagsForStreamInput {
   Limit?: number;
 
   /**
+   * @public
    * <p>The ARN of the stream.</p>
    */
   StreamARN?: string;
@@ -1950,12 +2092,14 @@ export interface ListTagsForStreamInput {
  */
 export interface Tag {
   /**
+   * @public
    * <p>A unique identifier for the tag. Maximum length: 128 characters. Valid characters:
    *             Unicode letters, digits, white space, _ . / = + - % @</p>
    */
   Key: string | undefined;
 
   /**
+   * @public
    * <p>An optional string, typically used to describe or define the tag. Maximum length: 256
    *             characters. Valid characters: Unicode letters, digits, white space, _ . / = + - %
    *             @</p>
@@ -1969,6 +2113,7 @@ export interface Tag {
  */
 export interface ListTagsForStreamOutput {
   /**
+   * @public
    * <p>A list of tags associated with <code>StreamName</code>, starting with the first tag
    *             after <code>ExclusiveStartTagKey</code> and up to the specified <code>Limit</code>.
    *         </p>
@@ -1976,6 +2121,7 @@ export interface ListTagsForStreamOutput {
   Tags: Tag[] | undefined;
 
   /**
+   * @public
    * <p>If set to <code>true</code>, more tags are available. To request additional tags, set
    *                 <code>ExclusiveStartTagKey</code> to the key of the last tag returned.</p>
    */
@@ -1988,21 +2134,25 @@ export interface ListTagsForStreamOutput {
  */
 export interface MergeShardsInput {
   /**
+   * @public
    * <p>The name of the stream for the merge.</p>
    */
   StreamName?: string;
 
   /**
+   * @public
    * <p>The shard ID of the shard to combine with the adjacent shard for the merge.</p>
    */
   ShardToMerge: string | undefined;
 
   /**
+   * @public
    * <p>The shard ID of the adjacent shard for the merge.</p>
    */
   AdjacentShardToMerge: string | undefined;
 
   /**
+   * @public
    * <p>The ARN of the stream.</p>
    */
   StreamARN?: string;
@@ -2036,11 +2186,13 @@ export class ValidationException extends __BaseException {
  */
 export interface PutRecordInput {
   /**
+   * @public
    * <p>The name of the stream to put the data record into.</p>
    */
   StreamName?: string;
 
   /**
+   * @public
    * <p>The data blob to put into the record, which is base64-encoded when the blob is
    *             serialized. When the data blob (the payload before base64-encoding) is added to the
    *             partition key size, the total size must not exceed the maximum record size (1
@@ -2049,6 +2201,7 @@ export interface PutRecordInput {
   Data: Uint8Array | undefined;
 
   /**
+   * @public
    * <p>Determines which shard in the stream the data record is assigned to. Partition keys
    *             are Unicode strings with a maximum length limit of 256 characters for each key. Amazon
    *             Kinesis Data Streams uses the partition key as input to a hash function that maps the
@@ -2060,12 +2213,14 @@ export interface PutRecordInput {
   PartitionKey: string | undefined;
 
   /**
+   * @public
    * <p>The hash value used to explicitly determine the shard the data record is assigned to
    *             by overriding the partition key hash.</p>
    */
   ExplicitHashKey?: string;
 
   /**
+   * @public
    * <p>Guarantees strictly increasing sequence numbers, for puts from the same client and to
    *             the same partition key. Usage: set the <code>SequenceNumberForOrdering</code> of record
    *                 <i>n</i> to the sequence number of record <i>n-1</i> (as
@@ -2075,6 +2230,7 @@ export interface PutRecordInput {
   SequenceNumberForOrdering?: string;
 
   /**
+   * @public
    * <p>The ARN of the stream.</p>
    */
   StreamARN?: string;
@@ -2086,11 +2242,13 @@ export interface PutRecordInput {
  */
 export interface PutRecordOutput {
   /**
+   * @public
    * <p>The shard ID of the shard where the data record was placed.</p>
    */
   ShardId: string | undefined;
 
   /**
+   * @public
    * <p>The sequence number identifier that was assigned to the put data record. The sequence
    *             number for the record is unique across all records in the stream. A sequence number is
    *             the identifier associated with every record put into the stream.</p>
@@ -2098,6 +2256,7 @@ export interface PutRecordOutput {
   SequenceNumber: string | undefined;
 
   /**
+   * @public
    * <p>The encryption type to use on the record. This parameter can be one of the following
    *             values:</p>
    *          <ul>
@@ -2121,6 +2280,7 @@ export interface PutRecordOutput {
  */
 export interface PutRecordsRequestEntry {
   /**
+   * @public
    * <p>The data blob to put into the record, which is base64-encoded when the blob is
    *             serialized. When the data blob (the payload before base64-encoding) is added to the
    *             partition key size, the total size must not exceed the maximum record size (1
@@ -2129,12 +2289,14 @@ export interface PutRecordsRequestEntry {
   Data: Uint8Array | undefined;
 
   /**
+   * @public
    * <p>The hash value used to determine explicitly the shard that the data record is assigned
    *             to by overriding the partition key hash.</p>
    */
   ExplicitHashKey?: string;
 
   /**
+   * @public
    * <p>Determines which shard in the stream the data record is assigned to. Partition keys
    *             are Unicode strings with a maximum length limit of 256 characters for each key. Amazon
    *             Kinesis Data Streams uses the partition key as input to a hash function that maps the
@@ -2152,16 +2314,19 @@ export interface PutRecordsRequestEntry {
  */
 export interface PutRecordsInput {
   /**
+   * @public
    * <p>The records associated with the request.</p>
    */
   Records: PutRecordsRequestEntry[] | undefined;
 
   /**
+   * @public
    * <p>The stream name associated with the request.</p>
    */
   StreamName?: string;
 
   /**
+   * @public
    * <p>The ARN of the stream.</p>
    */
   StreamARN?: string;
@@ -2176,16 +2341,19 @@ export interface PutRecordsInput {
  */
 export interface PutRecordsResultEntry {
   /**
+   * @public
    * <p>The sequence number for an individual record result.</p>
    */
   SequenceNumber?: string;
 
   /**
+   * @public
    * <p>The shard ID for an individual record result.</p>
    */
   ShardId?: string;
 
   /**
+   * @public
    * <p>The error code for an individual record result. <code>ErrorCodes</code> can be either
    *                 <code>ProvisionedThroughputExceededException</code> or
    *             <code>InternalFailure</code>.</p>
@@ -2193,6 +2361,7 @@ export interface PutRecordsResultEntry {
   ErrorCode?: string;
 
   /**
+   * @public
    * <p>The error message for an individual record result. An <code>ErrorCode</code> value of
    *                 <code>ProvisionedThroughputExceededException</code> has an error message that
    *             includes the account ID, stream name, and shard ID. An <code>ErrorCode</code> value of
@@ -2209,12 +2378,14 @@ export interface PutRecordsResultEntry {
  */
 export interface PutRecordsOutput {
   /**
+   * @public
    * <p>The number of unsuccessfully processed records in a <code>PutRecords</code>
    *             request.</p>
    */
   FailedRecordCount?: number;
 
   /**
+   * @public
    * <p>An array of successfully and unsuccessfully processed record results. A record that is
    *             successfully added to a stream includes <code>SequenceNumber</code> and
    *                 <code>ShardId</code> in the result. A record that fails to be added to a stream
@@ -2223,6 +2394,7 @@ export interface PutRecordsOutput {
   Records: PutRecordsResultEntry[] | undefined;
 
   /**
+   * @public
    * <p>The encryption type used on the records. This parameter can be one of the following
    *             values:</p>
    *          <ul>
@@ -2245,6 +2417,7 @@ export interface PutRecordsOutput {
  */
 export interface RegisterStreamConsumerInput {
   /**
+   * @public
    * <p>The ARN of the Kinesis data stream that you want to register the consumer with. For
    *             more info, see <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html#arn-syntax-kinesis-streams">Amazon Resource Names (ARNs) and Amazon Web Services Service
    *             Namespaces</a>.</p>
@@ -2252,6 +2425,7 @@ export interface RegisterStreamConsumerInput {
   StreamARN: string | undefined;
 
   /**
+   * @public
    * <p>For a given Kinesis data stream, each consumer must have a unique name. However,
    *             consumer names don't have to be unique across data streams.</p>
    */
@@ -2263,6 +2437,7 @@ export interface RegisterStreamConsumerInput {
  */
 export interface RegisterStreamConsumerOutput {
   /**
+   * @public
    * <p>An object that represents the details of the consumer you registered. When you
    *             register a consumer, it gets an ARN that is generated by Kinesis Data Streams.</p>
    */
@@ -2275,16 +2450,19 @@ export interface RegisterStreamConsumerOutput {
  */
 export interface RemoveTagsFromStreamInput {
   /**
+   * @public
    * <p>The name of the stream.</p>
    */
   StreamName?: string;
 
   /**
+   * @public
    * <p>A list of tag keys. Each corresponding tag is removed from the stream.</p>
    */
   TagKeys: string[] | undefined;
 
   /**
+   * @public
    * <p>The ARN of the stream.</p>
    */
   StreamARN?: string;
@@ -2296,16 +2474,19 @@ export interface RemoveTagsFromStreamInput {
  */
 export interface SplitShardInput {
   /**
+   * @public
    * <p>The name of the stream for the shard split.</p>
    */
   StreamName?: string;
 
   /**
+   * @public
    * <p>The shard ID of the shard to split.</p>
    */
   ShardToSplit: string | undefined;
 
   /**
+   * @public
    * <p>A hash key value for the starting hash key of one of the child shards created by the
    *             split. The hash key range for a given shard constitutes a set of ordered contiguous
    *             positive integers. The value for <code>NewStartingHashKey</code> must be in the range of
@@ -2317,6 +2498,7 @@ export interface SplitShardInput {
   NewStartingHashKey: string | undefined;
 
   /**
+   * @public
    * <p>The ARN of the stream.</p>
    */
   StreamARN?: string;
@@ -2327,16 +2509,19 @@ export interface SplitShardInput {
  */
 export interface StartStreamEncryptionInput {
   /**
+   * @public
    * <p>The name of the stream for which to start encrypting records.</p>
    */
   StreamName?: string;
 
   /**
+   * @public
    * <p>The encryption type to use. The only valid value is <code>KMS</code>.</p>
    */
   EncryptionType: EncryptionType | string | undefined;
 
   /**
+   * @public
    * <p>The GUID for the customer-managed Amazon Web Services KMS key to use for encryption.
    *             This value can be a globally unique identifier, a fully specified Amazon Resource Name
    *             (ARN) to either an alias or a key, or an alias name prefixed by "alias/".You can also
@@ -2372,6 +2557,7 @@ export interface StartStreamEncryptionInput {
   KeyId: string | undefined;
 
   /**
+   * @public
    * <p>The ARN of the stream.</p>
    */
   StreamARN?: string;
@@ -2382,16 +2568,19 @@ export interface StartStreamEncryptionInput {
  */
 export interface StopStreamEncryptionInput {
   /**
+   * @public
    * <p>The name of the stream on which to stop encrypting records.</p>
    */
   StreamName?: string;
 
   /**
+   * @public
    * <p>The encryption type. The only valid value is <code>KMS</code>.</p>
    */
   EncryptionType: EncryptionType | string | undefined;
 
   /**
+   * @public
    * <p>The GUID for the customer-managed Amazon Web Services KMS key to use for encryption.
    *             This value can be a globally unique identifier, a fully specified Amazon Resource Name
    *             (ARN) to either an alias or a key, or an alias name prefixed by "alias/".You can also
@@ -2427,6 +2616,7 @@ export interface StopStreamEncryptionInput {
   KeyId: string | undefined;
 
   /**
+   * @public
    * <p>The ARN of the stream.</p>
    */
   StreamARN?: string;
@@ -2438,6 +2628,7 @@ export interface StopStreamEncryptionInput {
  */
 export interface StartingPosition {
   /**
+   * @public
    * <p>You can set the starting position to one of the following values:</p>
    *          <p>
    *             <code>AT_SEQUENCE_NUMBER</code>: Start streaming from the position denoted by the
@@ -2458,6 +2649,7 @@ export interface StartingPosition {
   Type: ShardIteratorType | string | undefined;
 
   /**
+   * @public
    * <p>The sequence number of the data record in the shard from which to start streaming. To
    *             specify a sequence number, set <code>StartingPosition</code> to
    *                 <code>AT_SEQUENCE_NUMBER</code> or <code>AFTER_SEQUENCE_NUMBER</code>.</p>
@@ -2465,6 +2657,7 @@ export interface StartingPosition {
   SequenceNumber?: string;
 
   /**
+   * @public
    * <p>The time stamp of the data record from which to start reading. To specify a time
    *             stamp, set <code>StartingPosition</code> to <code>Type AT_TIMESTAMP</code>. A time stamp
    *             is the Unix epoch date with precision in milliseconds. For example,
@@ -2481,17 +2674,20 @@ export interface StartingPosition {
  */
 export interface SubscribeToShardInput {
   /**
+   * @public
    * <p>For this parameter, use the value you obtained when you called <a>RegisterStreamConsumer</a>.</p>
    */
   ConsumerARN: string | undefined;
 
   /**
+   * @public
    * <p>The ID of the shard you want to subscribe to. To see a list of all the shards for a
    *             given stream, use <a>ListShards</a>.</p>
    */
   ShardId: string | undefined;
 
   /**
+   * @public
    * <p>The starting position in the data stream from which to start streaming.</p>
    */
   StartingPosition: StartingPosition | undefined;
@@ -2504,11 +2700,13 @@ export interface SubscribeToShardInput {
  */
 export interface SubscribeToShardEvent {
   /**
+   * @public
    * <p></p>
    */
   Records: _Record[] | undefined;
 
   /**
+   * @public
    * <p>Use this as <code>SequenceNumber</code> in the next call to <a>SubscribeToShard</a>, with <code>StartingPosition</code> set to
    *                 <code>AT_SEQUENCE_NUMBER</code> or <code>AFTER_SEQUENCE_NUMBER</code>. Use
    *                 <code>ContinuationSequenceNumber</code> for checkpointing because it captures your
@@ -2517,6 +2715,7 @@ export interface SubscribeToShardEvent {
   ContinuationSequenceNumber: string | undefined;
 
   /**
+   * @public
    * <p>The number of milliseconds the read records are from the tip of the stream, indicating
    *             how far behind current time the consumer is. A value of zero indicates that record
    *             processing is caught up, and there are no new records to process at this moment.</p>
@@ -2524,6 +2723,7 @@ export interface SubscribeToShardEvent {
   MillisBehindLatest: number | undefined;
 
   /**
+   * @public
    * <p>The list of the child shards of the current shard, returned only at the end of the
    *             current shard.</p>
    */
@@ -2553,6 +2753,7 @@ export type SubscribeToShardEventStream =
  */
 export namespace SubscribeToShardEventStream {
   /**
+   * @public
    * <p>After you call <a>SubscribeToShard</a>, Kinesis Data Streams sends events
    *             of this type to your consumer. For an example of how to handle these events, see <a href="/streams/latest/dev/building-enhanced-consumers-api.html">Enhanced Fan-Out
    *                 Using the Kinesis Data Streams API</a>.</p>
@@ -2572,6 +2773,7 @@ export namespace SubscribeToShardEventStream {
   }
 
   /**
+   * @public
    * <p>The requested resource could not be found. The stream might not be specified
    *             correctly.</p>
    */
@@ -2590,6 +2792,7 @@ export namespace SubscribeToShardEventStream {
   }
 
   /**
+   * @public
    * <p>The resource is not available for this operation. For successful operation, the
    *             resource must be in the <code>ACTIVE</code> state.</p>
    */
@@ -2608,6 +2811,7 @@ export namespace SubscribeToShardEventStream {
   }
 
   /**
+   * @public
    * <p>The request was rejected because the specified customer master key (CMK) isn't
    *             enabled.</p>
    */
@@ -2626,6 +2830,7 @@ export namespace SubscribeToShardEventStream {
   }
 
   /**
+   * @public
    * <p>The request was rejected because the state of the specified resource isn't valid for
    *             this request. For more information, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/key-state.html">How Key State Affects Use of a
    *                 Customer Master Key</a> in the <i>Amazon Web Services Key Management
@@ -2646,6 +2851,7 @@ export namespace SubscribeToShardEventStream {
   }
 
   /**
+   * @public
    * <p>The ciphertext references a key that doesn't exist or that you don't have access
    *             to.</p>
    */
@@ -2664,6 +2870,7 @@ export namespace SubscribeToShardEventStream {
   }
 
   /**
+   * @public
    * <p>The request was rejected because the specified entity or resource can't be
    *             found.</p>
    */
@@ -2682,6 +2889,7 @@ export namespace SubscribeToShardEventStream {
   }
 
   /**
+   * @public
    * <p>The Amazon Web Services access key ID needs a subscription for the service.</p>
    */
   export interface KMSOptInRequiredMember {
@@ -2699,6 +2907,7 @@ export namespace SubscribeToShardEventStream {
   }
 
   /**
+   * @public
    * <p>The request was denied due to request throttling. For more information about
    *             throttling, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/limits.html#requests-per-second">Limits</a> in
    *             the <i>Amazon Web Services Key Management Service Developer
@@ -2719,6 +2928,7 @@ export namespace SubscribeToShardEventStream {
   }
 
   /**
+   * @public
    * <p>The processing of the request failed because of an unknown error, exception, or
    *             failure.</p>
    */
@@ -2736,6 +2946,9 @@ export namespace SubscribeToShardEventStream {
     $unknown?: never;
   }
 
+  /**
+   * @public
+   */
   export interface $UnknownMember {
     SubscribeToShardEvent?: never;
     ResourceNotFoundException?: never;
@@ -2788,6 +3001,7 @@ export namespace SubscribeToShardEventStream {
  */
 export interface SubscribeToShardOutput {
   /**
+   * @public
    * <p>The event stream that your consumer can use to read records from the shard.</p>
    */
   EventStream: AsyncIterable<SubscribeToShardEventStream> | undefined;
@@ -2811,11 +3025,13 @@ export type ScalingType = (typeof ScalingType)[keyof typeof ScalingType];
  */
 export interface UpdateShardCountInput {
   /**
+   * @public
    * <p>The name of the stream.</p>
    */
   StreamName?: string;
 
   /**
+   * @public
    * <p>The new number of shards. This value has the following default limits. By default, you
    *             cannot do the following: </p>
    *          <ul>
@@ -2840,11 +3056,13 @@ export interface UpdateShardCountInput {
   TargetShardCount: number | undefined;
 
   /**
+   * @public
    * <p>The scaling type. Uniform scaling creates shards of equal size.</p>
    */
   ScalingType: ScalingType | string | undefined;
 
   /**
+   * @public
    * <p>The ARN of the stream.</p>
    */
   StreamARN?: string;
@@ -2855,21 +3073,25 @@ export interface UpdateShardCountInput {
  */
 export interface UpdateShardCountOutput {
   /**
+   * @public
    * <p>The name of the stream.</p>
    */
   StreamName?: string;
 
   /**
+   * @public
    * <p>The current number of shards.</p>
    */
   CurrentShardCount?: number;
 
   /**
+   * @public
    * <p>The updated number of shards.</p>
    */
   TargetShardCount?: number;
 
   /**
+   * @public
    * <p>The ARN of the stream.</p>
    */
   StreamARN?: string;
@@ -2880,11 +3102,13 @@ export interface UpdateShardCountOutput {
  */
 export interface UpdateStreamModeInput {
   /**
+   * @public
    * <p> Specifies the ARN of the data stream whose capacity mode you want to update. </p>
    */
   StreamARN: string | undefined;
 
   /**
+   * @public
    * <p> Specifies the capacity mode to which you want to set your data stream. Currently, in
    *             Kinesis Data Streams, you can choose between an <b>on-demand</b> capacity mode and a <b>provisioned</b> capacity mode for your data streams. </p>
    */

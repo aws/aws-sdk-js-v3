@@ -11,6 +11,7 @@ export class AccessDeniedException extends __BaseException {
   readonly name: "AccessDeniedException" = "AccessDeniedException";
   readonly $fault: "client" = "client";
   /**
+   * @public
    * A header that defines the error encountered while processing the request.
    */
   xAmzErrorType?: string;
@@ -37,6 +38,7 @@ export class ConflictException extends __BaseException {
   readonly name: "ConflictException" = "ConflictException";
   readonly $fault: "client" = "client";
   /**
+   * @public
    * A header that defines the error encountered while processing the request.
    */
   xAmzErrorType?: string;
@@ -61,6 +63,7 @@ export class ConflictException extends __BaseException {
  */
 export interface PredictiveDialerConfig {
   /**
+   * @public
    * The bandwidth allocation of a queue resource.
    */
   bandwidthAllocation: number | undefined;
@@ -72,6 +75,7 @@ export interface PredictiveDialerConfig {
  */
 export interface ProgressiveDialerConfig {
   /**
+   * @public
    * The bandwidth allocation of a queue resource.
    */
   bandwidthAllocation: number | undefined;
@@ -91,6 +95,7 @@ export type DialerConfig =
  */
 export namespace DialerConfig {
   /**
+   * @public
    * Progressive Dialer config
    */
   export interface ProgressiveDialerConfigMember {
@@ -100,6 +105,7 @@ export namespace DialerConfig {
   }
 
   /**
+   * @public
    * Predictive Dialer config
    */
   export interface PredictiveDialerConfigMember {
@@ -108,6 +114,9 @@ export namespace DialerConfig {
     $unknown?: never;
   }
 
+  /**
+   * @public
+   */
   export interface $UnknownMember {
     progressiveDialerConfig?: never;
     predictiveDialerConfig?: never;
@@ -134,6 +143,7 @@ export namespace DialerConfig {
  */
 export interface AnswerMachineDetectionConfig {
   /**
+   * @public
    * Enable or disable answering machine detection
    */
   enableAnswerMachineDetection: boolean | undefined;
@@ -145,21 +155,25 @@ export interface AnswerMachineDetectionConfig {
  */
 export interface OutboundCallConfig {
   /**
+   * @public
    * The identifier of the contact flow for the outbound call.
    */
   connectContactFlowId: string | undefined;
 
   /**
+   * @public
    * The phone number associated with the Amazon Connect instance, in E.164 format. If you do not specify a source phone number, you must specify a queue.
    */
   connectSourcePhoneNumber?: string;
 
   /**
+   * @public
    * The queue for the call. If you specify a queue, the phone displayed for caller ID is the phone number specified in the queue. If you do not specify a queue, the queue defined in the contact flow is used. If you do not specify a queue, you must specify a source phone number.
    */
   connectQueueId: string | undefined;
 
   /**
+   * @public
    * Answering Machine Detection config
    */
   answerMachineDetectionConfig?: AnswerMachineDetectionConfig;
@@ -171,26 +185,31 @@ export interface OutboundCallConfig {
  */
 export interface CreateCampaignRequest {
   /**
+   * @public
    * The name of an Amazon Connect Campaign name.
    */
   name: string | undefined;
 
   /**
+   * @public
    * Amazon Connect Instance Id
    */
   connectInstanceId: string | undefined;
 
   /**
+   * @public
    * The possible types of dialer config parameters
    */
   dialerConfig: DialerConfig | undefined;
 
   /**
+   * @public
    * The configuration used for outbound calls.
    */
   outboundCallConfig: OutboundCallConfig | undefined;
 
   /**
+   * @public
    * Tag map with key and value.
    */
   tags?: Record<string, string>;
@@ -202,16 +221,19 @@ export interface CreateCampaignRequest {
  */
 export interface CreateCampaignResponse {
   /**
+   * @public
    * Identifier representing a Campaign
    */
   id?: string;
 
   /**
+   * @public
    * The resource name of an Amazon Connect campaign.
    */
   arn?: string;
 
   /**
+   * @public
    * Tag map with key and value.
    */
   tags?: Record<string, string>;
@@ -226,6 +248,7 @@ export class InternalServerException extends __BaseException {
   readonly $fault: "server" = "server";
   $retryable = {};
   /**
+   * @public
    * A header that defines the error encountered while processing the request.
    */
   xAmzErrorType?: string;
@@ -252,6 +275,7 @@ export class ResourceNotFoundException extends __BaseException {
   readonly name: "ResourceNotFoundException" = "ResourceNotFoundException";
   readonly $fault: "client" = "client";
   /**
+   * @public
    * A header that defines the error encountered while processing the request.
    */
   xAmzErrorType?: string;
@@ -278,6 +302,7 @@ export class ServiceQuotaExceededException extends __BaseException {
   readonly name: "ServiceQuotaExceededException" = "ServiceQuotaExceededException";
   readonly $fault: "client" = "client";
   /**
+   * @public
    * A header that defines the error encountered while processing the request.
    */
   xAmzErrorType?: string;
@@ -305,6 +330,7 @@ export class ThrottlingException extends __BaseException {
   readonly $fault: "client" = "client";
   $retryable = {};
   /**
+   * @public
    * A header that defines the error encountered while processing the request.
    */
   xAmzErrorType?: string;
@@ -331,6 +357,7 @@ export class ValidationException extends __BaseException {
   readonly name: "ValidationException" = "ValidationException";
   readonly $fault: "client" = "client";
   /**
+   * @public
    * A header that defines the error encountered while processing the request.
    */
   xAmzErrorType?: string;
@@ -355,6 +382,7 @@ export class ValidationException extends __BaseException {
  */
 export interface DeleteCampaignRequest {
   /**
+   * @public
    * Identifier representing a Campaign
    */
   id: string | undefined;
@@ -366,6 +394,7 @@ export interface DeleteCampaignRequest {
  */
 export interface DeleteConnectInstanceConfigRequest {
   /**
+   * @public
    * Amazon Connect Instance Id
    */
   connectInstanceId: string | undefined;
@@ -379,6 +408,7 @@ export class InvalidStateException extends __BaseException {
   readonly name: "InvalidStateException" = "InvalidStateException";
   readonly $fault: "client" = "client";
   /**
+   * @public
    * A header that defines the error encountered while processing the request.
    */
   xAmzErrorType?: string;
@@ -403,6 +433,7 @@ export class InvalidStateException extends __BaseException {
  */
 export interface DeleteInstanceOnboardingJobRequest {
   /**
+   * @public
    * Amazon Connect Instance Id
    */
   connectInstanceId: string | undefined;
@@ -414,6 +445,7 @@ export interface DeleteInstanceOnboardingJobRequest {
  */
 export interface DescribeCampaignRequest {
   /**
+   * @public
    * Identifier representing a Campaign
    */
   id: string | undefined;
@@ -425,36 +457,43 @@ export interface DescribeCampaignRequest {
  */
 export interface Campaign {
   /**
+   * @public
    * Identifier representing a Campaign
    */
   id: string | undefined;
 
   /**
+   * @public
    * The resource name of an Amazon Connect campaign.
    */
   arn: string | undefined;
 
   /**
+   * @public
    * The name of an Amazon Connect Campaign name.
    */
   name: string | undefined;
 
   /**
+   * @public
    * Amazon Connect Instance Id
    */
   connectInstanceId: string | undefined;
 
   /**
+   * @public
    * The possible types of dialer config parameters
    */
   dialerConfig: DialerConfig | undefined;
 
   /**
+   * @public
    * The configuration used for outbound calls.
    */
   outboundCallConfig: OutboundCallConfig | undefined;
 
   /**
+   * @public
    * Tag map with key and value.
    */
   tags?: Record<string, string>;
@@ -466,6 +505,7 @@ export interface Campaign {
  */
 export interface DescribeCampaignResponse {
   /**
+   * @public
    * An Amazon Connect campaign.
    */
   campaign?: Campaign;
@@ -477,6 +517,7 @@ export interface DescribeCampaignResponse {
  */
 export interface GetCampaignStateRequest {
   /**
+   * @public
    * Identifier representing a Campaign
    */
   id: string | undefined;
@@ -520,6 +561,7 @@ export type CampaignState = (typeof CampaignState)[keyof typeof CampaignState];
  */
 export interface GetCampaignStateResponse {
   /**
+   * @public
    * State of a campaign
    */
   state?: CampaignState | string;
@@ -531,6 +573,7 @@ export interface GetCampaignStateResponse {
  */
 export interface GetCampaignStateBatchRequest {
   /**
+   * @public
    * List of CampaignId
    */
   campaignIds: string[] | undefined;
@@ -563,11 +606,13 @@ export type GetCampaignStateBatchFailureCode =
  */
 export interface FailedCampaignStateResponse {
   /**
+   * @public
    * Identifier representing a Campaign
    */
   campaignId?: string;
 
   /**
+   * @public
    * A predefined code indicating the error that caused the failure in getting state of campaigns
    */
   failureCode?: GetCampaignStateBatchFailureCode | string;
@@ -579,11 +624,13 @@ export interface FailedCampaignStateResponse {
  */
 export interface SuccessfulCampaignStateResponse {
   /**
+   * @public
    * Identifier representing a Campaign
    */
   campaignId?: string;
 
   /**
+   * @public
    * State of a campaign
    */
   state?: CampaignState | string;
@@ -595,11 +642,13 @@ export interface SuccessfulCampaignStateResponse {
  */
 export interface GetCampaignStateBatchResponse {
   /**
+   * @public
    * List of successful response of campaign state
    */
   successfulRequests?: SuccessfulCampaignStateResponse[];
 
   /**
+   * @public
    * List of failed requests of campaign state
    */
   failedRequests?: FailedCampaignStateResponse[];
@@ -611,6 +660,7 @@ export interface GetCampaignStateBatchResponse {
  */
 export interface GetConnectInstanceConfigRequest {
   /**
+   * @public
    * Amazon Connect Instance Id
    */
   connectInstanceId: string | undefined;
@@ -638,16 +688,19 @@ export type EncryptionType = (typeof EncryptionType)[keyof typeof EncryptionType
  */
 export interface EncryptionConfig {
   /**
+   * @public
    * Boolean to indicate if custom encryption has been enabled.
    */
   enabled: boolean | undefined;
 
   /**
+   * @public
    * Server-side encryption type.
    */
   encryptionType?: EncryptionType | string;
 
   /**
+   * @public
    * KMS key id/arn for encryption config.
    */
   keyArn?: string;
@@ -659,16 +712,19 @@ export interface EncryptionConfig {
  */
 export interface InstanceConfig {
   /**
+   * @public
    * Amazon Connect Instance Id
    */
   connectInstanceId: string | undefined;
 
   /**
+   * @public
    * Service linked role arn
    */
   serviceLinkedRoleArn: string | undefined;
 
   /**
+   * @public
    * Encryption config for Connect Instance. Note that sensitive data will always be encrypted.
    * If disabled, service will perform encryption with its own key.
    * If enabled, a KMS key id needs to be provided and KMS charges will apply.
@@ -683,6 +739,7 @@ export interface InstanceConfig {
  */
 export interface GetConnectInstanceConfigResponse {
   /**
+   * @public
    * Instance config object
    */
   connectInstanceConfig?: InstanceConfig;
@@ -694,6 +751,7 @@ export interface GetConnectInstanceConfigResponse {
  */
 export interface GetInstanceOnboardingJobStatusRequest {
   /**
+   * @public
    * Amazon Connect Instance Id
    */
   connectInstanceId: string | undefined;
@@ -740,16 +798,19 @@ export type InstanceOnboardingJobStatusCode =
  */
 export interface InstanceOnboardingJobStatus {
   /**
+   * @public
    * Amazon Connect Instance Id
    */
   connectInstanceId: string | undefined;
 
   /**
+   * @public
    * Enumeration of the possible states for instance onboarding job
    */
   status: InstanceOnboardingJobStatusCode | string | undefined;
 
   /**
+   * @public
    * Enumeration of the possible failure codes for instance onboarding job
    */
   failureCode?: InstanceOnboardingJobFailureCode | string;
@@ -761,6 +822,7 @@ export interface InstanceOnboardingJobStatus {
  */
 export interface GetInstanceOnboardingJobStatusResponse {
   /**
+   * @public
    * Instance onboarding job status object
    */
   connectInstanceOnboardingJobStatus?: InstanceOnboardingJobStatus;
@@ -788,11 +850,13 @@ export type InstanceIdFilterOperator = (typeof InstanceIdFilterOperator)[keyof t
  */
 export interface InstanceIdFilter {
   /**
+   * @public
    * Amazon Connect Instance Id
    */
   value: string | undefined;
 
   /**
+   * @public
    * Operators for Connect instance identifier filter
    */
   operator: InstanceIdFilterOperator | string | undefined;
@@ -804,6 +868,7 @@ export interface InstanceIdFilter {
  */
 export interface CampaignFilters {
   /**
+   * @public
    * Connect instance identifier filter
    */
   instanceIdFilter?: InstanceIdFilter;
@@ -815,16 +880,19 @@ export interface CampaignFilters {
  */
 export interface ListCampaignsRequest {
   /**
+   * @public
    * The maximum number of results to return per page.
    */
   maxResults?: number;
 
   /**
+   * @public
    * The token for the next set of results.
    */
   nextToken?: string;
 
   /**
+   * @public
    * Filter model by type
    */
   filters?: CampaignFilters;
@@ -836,21 +904,25 @@ export interface ListCampaignsRequest {
  */
 export interface CampaignSummary {
   /**
+   * @public
    * Identifier representing a Campaign
    */
   id: string | undefined;
 
   /**
+   * @public
    * The resource name of an Amazon Connect campaign.
    */
   arn: string | undefined;
 
   /**
+   * @public
    * The name of an Amazon Connect Campaign name.
    */
   name: string | undefined;
 
   /**
+   * @public
    * Amazon Connect Instance Id
    */
   connectInstanceId: string | undefined;
@@ -862,11 +934,13 @@ export interface CampaignSummary {
  */
 export interface ListCampaignsResponse {
   /**
+   * @public
    * The token for the next set of results.
    */
   nextToken?: string;
 
   /**
+   * @public
    * A list of Amazon Connect campaigns.
    */
   campaignSummaryList?: CampaignSummary[];
@@ -878,6 +952,7 @@ export interface ListCampaignsResponse {
  */
 export interface ListTagsForResourceRequest {
   /**
+   * @public
    * Arn
    */
   arn: string | undefined;
@@ -889,6 +964,7 @@ export interface ListTagsForResourceRequest {
  */
 export interface ListTagsForResourceResponse {
   /**
+   * @public
    * Tag map with key and value.
    */
   tags?: Record<string, string>;
@@ -902,11 +978,13 @@ export class InvalidCampaignStateException extends __BaseException {
   readonly name: "InvalidCampaignStateException" = "InvalidCampaignStateException";
   readonly $fault: "client" = "client";
   /**
+   * @public
    * State of a campaign
    */
   state: CampaignState | string | undefined;
 
   /**
+   * @public
    * A header that defines the error encountered while processing the request.
    */
   xAmzErrorType?: string;
@@ -932,6 +1010,7 @@ export class InvalidCampaignStateException extends __BaseException {
  */
 export interface PauseCampaignRequest {
   /**
+   * @public
    * Identifier representing a Campaign
    */
   id: string | undefined;
@@ -943,21 +1022,25 @@ export interface PauseCampaignRequest {
  */
 export interface DialRequest {
   /**
+   * @public
    * Client provided parameter used for idempotency. Its value must be unique for each request.
    */
   clientToken: string | undefined;
 
   /**
+   * @public
    * The phone number of the customer, in E.164 format.
    */
   phoneNumber: string | undefined;
 
   /**
+   * @public
    * Timestamp with no UTC offset or timezone
    */
   expirationTime: Date | undefined;
 
   /**
+   * @public
    * A custom key-value pair using an attribute map. The attributes are standard Amazon Connect attributes, and can be accessed in contact flows just like any other contact attributes.
    */
   attributes: Record<string, string> | undefined;
@@ -969,11 +1052,13 @@ export interface DialRequest {
  */
 export interface PutDialRequestBatchRequest {
   /**
+   * @public
    * Identifier representing a Campaign
    */
   id: string | undefined;
 
   /**
+   * @public
    * A list of dial requests.
    */
   dialRequests: DialRequest[] | undefined;
@@ -1009,16 +1094,19 @@ export type FailureCode = (typeof FailureCode)[keyof typeof FailureCode];
  */
 export interface FailedRequest {
   /**
+   * @public
    * Client provided parameter used for idempotency. Its value must be unique for each request.
    */
   clientToken?: string;
 
   /**
+   * @public
    * Identifier representing a Dial request
    */
   id?: string;
 
   /**
+   * @public
    * A predefined code indicating the error that caused the failure.
    */
   failureCode?: FailureCode | string;
@@ -1030,11 +1118,13 @@ export interface FailedRequest {
  */
 export interface SuccessfulRequest {
   /**
+   * @public
    * Client provided parameter used for idempotency. Its value must be unique for each request.
    */
   clientToken?: string;
 
   /**
+   * @public
    * Identifier representing a Dial request
    */
   id?: string;
@@ -1046,11 +1136,13 @@ export interface SuccessfulRequest {
  */
 export interface PutDialRequestBatchResponse {
   /**
+   * @public
    * A list of successful requests identified by the unique client token.
    */
   successfulRequests?: SuccessfulRequest[];
 
   /**
+   * @public
    * A list of failed requests.
    */
   failedRequests?: FailedRequest[];
@@ -1062,6 +1154,7 @@ export interface PutDialRequestBatchResponse {
  */
 export interface ResumeCampaignRequest {
   /**
+   * @public
    * Identifier representing a Campaign
    */
   id: string | undefined;
@@ -1073,6 +1166,7 @@ export interface ResumeCampaignRequest {
  */
 export interface StartCampaignRequest {
   /**
+   * @public
    * Identifier representing a Campaign
    */
   id: string | undefined;
@@ -1084,11 +1178,13 @@ export interface StartCampaignRequest {
  */
 export interface StartInstanceOnboardingJobRequest {
   /**
+   * @public
    * Amazon Connect Instance Id
    */
   connectInstanceId: string | undefined;
 
   /**
+   * @public
    * Encryption config for Connect Instance. Note that sensitive data will always be encrypted.
    * If disabled, service will perform encryption with its own key.
    * If enabled, a KMS key id needs to be provided and KMS charges will apply.
@@ -1103,6 +1199,7 @@ export interface StartInstanceOnboardingJobRequest {
  */
 export interface StartInstanceOnboardingJobResponse {
   /**
+   * @public
    * Instance onboarding job status object
    */
   connectInstanceOnboardingJobStatus?: InstanceOnboardingJobStatus;
@@ -1114,6 +1211,7 @@ export interface StartInstanceOnboardingJobResponse {
  */
 export interface StopCampaignRequest {
   /**
+   * @public
    * Identifier representing a Campaign
    */
   id: string | undefined;
@@ -1125,11 +1223,13 @@ export interface StopCampaignRequest {
  */
 export interface TagResourceRequest {
   /**
+   * @public
    * Arn
    */
   arn: string | undefined;
 
   /**
+   * @public
    * Tag map with key and value.
    */
   tags: Record<string, string> | undefined;
@@ -1141,11 +1241,13 @@ export interface TagResourceRequest {
  */
 export interface UntagResourceRequest {
   /**
+   * @public
    * Arn
    */
   arn: string | undefined;
 
   /**
+   * @public
    * List of tag keys.
    */
   tagKeys: string[] | undefined;
@@ -1157,11 +1259,13 @@ export interface UntagResourceRequest {
  */
 export interface UpdateCampaignDialerConfigRequest {
   /**
+   * @public
    * Identifier representing a Campaign
    */
   id: string | undefined;
 
   /**
+   * @public
    * The possible types of dialer config parameters
    */
   dialerConfig: DialerConfig | undefined;
@@ -1173,11 +1277,13 @@ export interface UpdateCampaignDialerConfigRequest {
  */
 export interface UpdateCampaignNameRequest {
   /**
+   * @public
    * Identifier representing a Campaign
    */
   id: string | undefined;
 
   /**
+   * @public
    * The name of an Amazon Connect Campaign name.
    */
   name: string | undefined;
@@ -1189,21 +1295,25 @@ export interface UpdateCampaignNameRequest {
  */
 export interface UpdateCampaignOutboundCallConfigRequest {
   /**
+   * @public
    * Identifier representing a Campaign
    */
   id: string | undefined;
 
   /**
+   * @public
    * The identifier of the contact flow for the outbound call.
    */
   connectContactFlowId?: string;
 
   /**
+   * @public
    * The phone number associated with the Amazon Connect instance, in E.164 format. If you do not specify a source phone number, you must specify a queue.
    */
   connectSourcePhoneNumber?: string;
 
   /**
+   * @public
    * Answering Machine Detection config
    */
   answerMachineDetectionConfig?: AnswerMachineDetectionConfig;

@@ -9,11 +9,13 @@ import { TranslateServiceException as __BaseException } from "./TranslateService
  */
 export interface Term {
   /**
+   * @public
    * <p>The source text of the term being translated by the custom terminology.</p>
    */
   SourceText?: string;
 
   /**
+   * @public
    * <p>The target text of the term being translated by the custom terminology.</p>
    */
   TargetText?: string;
@@ -28,12 +30,14 @@ export interface Term {
  */
 export interface AppliedTerminology {
   /**
+   * @public
    * <p>The name of the custom terminology applied to the input text by Amazon Translate for the translated
    *       text response.</p>
    */
   Name?: string;
 
   /**
+   * @public
    * <p>The specific terms of the custom terminology applied to the input text by Amazon Translate for the
    *       translated text response. A maximum of 250 terms will be returned, and the specific terms
    *       applied will be the first 250 terms in the source text. </p>
@@ -105,11 +109,13 @@ export type EncryptionKeyType = (typeof EncryptionKeyType)[keyof typeof Encrypti
  */
 export interface EncryptionKey {
   /**
+   * @public
    * <p>The type of encryption key used by Amazon Translate to encrypt this object.</p>
    */
   Type: EncryptionKeyType | string | undefined;
 
   /**
+   * @public
    * <p>The Amazon Resource Name (ARN) of the encryption key being used to encrypt this object.</p>
    */
   Id: string | undefined;
@@ -136,12 +142,14 @@ export type ParallelDataFormat = (typeof ParallelDataFormat)[keyof typeof Parall
  */
 export interface ParallelDataConfig {
   /**
+   * @public
    * <p>The URI of the Amazon S3 folder that contains the parallel data input file. The folder
    *       must be in the same Region as the API endpoint you are calling.</p>
    */
   S3Uri: string | undefined;
 
   /**
+   * @public
    * <p>The format of the parallel data input file.</p>
    */
   Format: ParallelDataFormat | string | undefined;
@@ -153,12 +161,14 @@ export interface ParallelDataConfig {
  */
 export interface Tag {
   /**
+   * @public
    * <p>The initial part of a key-value pair that forms a tag associated with a given resource.
    *     </p>
    */
   Key: string | undefined;
 
   /**
+   * @public
    * <p> The second part of a key-value pair that forms a tag associated with a given resource.</p>
    */
   Value: string | undefined;
@@ -169,33 +179,39 @@ export interface Tag {
  */
 export interface CreateParallelDataRequest {
   /**
+   * @public
    * <p>A custom name for the parallel data resource in Amazon Translate. You must assign a name
    *       that is unique in the account and region.</p>
    */
   Name: string | undefined;
 
   /**
+   * @public
    * <p>A custom description for the parallel data resource in Amazon Translate.</p>
    */
   Description?: string;
 
   /**
+   * @public
    * <p>Specifies the format and S3 location of the parallel data input file.</p>
    */
   ParallelDataConfig: ParallelDataConfig | undefined;
 
   /**
+   * @public
    * <p>The encryption key used to encrypt this object.</p>
    */
   EncryptionKey?: EncryptionKey;
 
   /**
+   * @public
    * <p>A unique identifier for the request. This token is automatically generated when you use
    *       Amazon Translate through an AWS SDK.</p>
    */
   ClientToken?: string;
 
   /**
+   * @public
    * <p>Tags to be associated with this resource. A tag is a key-value pair that
    *       adds metadata to a resource. Each tag key for the resource must be unique.
    *       For more information, see <a href="https://docs.aws.amazon.com/translate/latest/dg/tagging.html">
@@ -226,11 +242,13 @@ export type ParallelDataStatus = (typeof ParallelDataStatus)[keyof typeof Parall
  */
 export interface CreateParallelDataResponse {
   /**
+   * @public
    * <p>The custom name that you assigned to the parallel data resource.</p>
    */
   Name?: string;
 
   /**
+   * @public
    * <p>The status of the parallel data resource. When the resource is ready for you to use, the
    *       status is <code>ACTIVE</code>.</p>
    */
@@ -378,6 +396,7 @@ export class TooManyTagsException extends __BaseException {
  */
 export interface DeleteParallelDataRequest {
   /**
+   * @public
    * <p>The name of the parallel data resource that is being deleted.</p>
    */
   Name: string | undefined;
@@ -388,11 +407,13 @@ export interface DeleteParallelDataRequest {
  */
 export interface DeleteParallelDataResponse {
   /**
+   * @public
    * <p>The name of the parallel data resource that is being deleted.</p>
    */
   Name?: string;
 
   /**
+   * @public
    * <p>The status of the parallel data deletion.</p>
    */
   Status?: ParallelDataStatus | string;
@@ -427,6 +448,7 @@ export class ResourceNotFoundException extends __BaseException {
  */
 export interface DeleteTerminologyRequest {
   /**
+   * @public
    * <p>The name of the custom terminology being deleted. </p>
    */
   Name: string | undefined;
@@ -437,6 +459,7 @@ export interface DeleteTerminologyRequest {
  */
 export interface DescribeTextTranslationJobRequest {
   /**
+   * @public
    * <p>The identifier that Amazon Translate generated for the job. The <a>StartTextTranslationJob</a> operation returns this identifier in its
    *       response.</p>
    */
@@ -449,6 +472,7 @@ export interface DescribeTextTranslationJobRequest {
  */
 export interface InputDataConfig {
   /**
+   * @public
    * <p>The URI of the AWS S3 folder that contains the input files. Amazon Translate translates all the
    *       files in the folder and all its sub-folders. The folder must be in the same Region as the API endpoint you are
    *       calling.</p>
@@ -456,6 +480,7 @@ export interface InputDataConfig {
   S3Uri: string | undefined;
 
   /**
+   * @public
    * <p>Describes the format of the data that you submit to Amazon Translate as input. You can
    *       specify one of the following multipurpose internet mail extension (MIME) types:</p>
    *          <ul>
@@ -509,16 +534,19 @@ export interface InputDataConfig {
  */
 export interface JobDetails {
   /**
+   * @public
    * <p>The number of documents successfully processed during a translation job.</p>
    */
   TranslatedDocumentsCount?: number;
 
   /**
+   * @public
    * <p>The number of documents that could not be processed during a translation job.</p>
    */
   DocumentsWithErrorsCount?: number;
 
   /**
+   * @public
    * <p>The number of documents used as input in a translation job.</p>
    */
   InputDocumentsCount?: number;
@@ -549,12 +577,14 @@ export type JobStatus = (typeof JobStatus)[keyof typeof JobStatus];
  */
 export interface OutputDataConfig {
   /**
+   * @public
    * <p>The URI of the S3 folder that contains a translation job's output file. The folder must
    *       be in the same Region as the API endpoint that you are calling.</p>
    */
   S3Uri: string | undefined;
 
   /**
+   * @public
    * <p>The encryption key used to encrypt this object.</p>
    */
   EncryptionKey?: EncryptionKey;
@@ -594,6 +624,7 @@ export type Profanity = (typeof Profanity)[keyof typeof Profanity];
  */
 export interface TranslationSettings {
   /**
+   * @public
    * <p>You can optionally specify the desired level of formality for translations
    *         to supported target languages. The formality
    *       setting controls the level of formal language usage (also known as <a href="https://en.wikipedia.org/wiki/Register_(sociolinguistics)">register</a>) in the
@@ -608,6 +639,7 @@ export interface TranslationSettings {
   Formality?: Formality | string;
 
   /**
+   * @public
    * <p>Enable the profanity setting if you want Amazon Translate to mask profane words and
    *       phrases in your translation output.</p>
    *          <p>To mask profane words and phrases, Amazon Translate replaces them with the grawlix string
@@ -630,39 +662,46 @@ export interface TranslationSettings {
  */
 export interface TextTranslationJobProperties {
   /**
+   * @public
    * <p>The ID of the translation job.</p>
    */
   JobId?: string;
 
   /**
+   * @public
    * <p>The user-defined name of the translation job.</p>
    */
   JobName?: string;
 
   /**
+   * @public
    * <p>The status of the translation job.</p>
    */
   JobStatus?: JobStatus | string;
 
   /**
+   * @public
    * <p>The number of documents successfully and unsuccessfully processed during the translation
    *       job.</p>
    */
   JobDetails?: JobDetails;
 
   /**
+   * @public
    * <p>The language code of the language of the source text. The language must be a language
    *       supported by Amazon Translate.</p>
    */
   SourceLanguageCode?: string;
 
   /**
+   * @public
    * <p>The language code of the language of the target text. The language must be a language
    *       supported by Amazon Translate.</p>
    */
   TargetLanguageCodes?: string[];
 
   /**
+   * @public
    * <p>A list containing the names of the terminologies applied to a translation job. Only one
    *       terminology can be applied per <a>StartTextTranslationJob</a> request at this
    *       time.</p>
@@ -670,43 +709,51 @@ export interface TextTranslationJobProperties {
   TerminologyNames?: string[];
 
   /**
+   * @public
    * <p>A list containing the names of the parallel data resources applied to the translation
    *       job.</p>
    */
   ParallelDataNames?: string[];
 
   /**
+   * @public
    * <p>An explanation of any errors that may have occurred during the translation job.</p>
    */
   Message?: string;
 
   /**
+   * @public
    * <p>The time at which the translation job was submitted.</p>
    */
   SubmittedTime?: Date;
 
   /**
+   * @public
    * <p>The time at which the translation job ended.</p>
    */
   EndTime?: Date;
 
   /**
+   * @public
    * <p>The input configuration properties that were specified when the job was requested.</p>
    */
   InputDataConfig?: InputDataConfig;
 
   /**
+   * @public
    * <p>The output configuration properties that were specified when the job was requested.</p>
    */
   OutputDataConfig?: OutputDataConfig;
 
   /**
+   * @public
    * <p>The Amazon Resource Name (ARN) of an AWS Identity Access and Management (IAM) role
    *       that granted Amazon Translate read access to the job's input data.</p>
    */
   DataAccessRoleArn?: string;
 
   /**
+   * @public
    * <p>Settings that modify the translation output.</p>
    */
   Settings?: TranslationSettings;
@@ -717,6 +764,7 @@ export interface TextTranslationJobProperties {
  */
 export interface DescribeTextTranslationJobResponse {
   /**
+   * @public
    * <p>An object that contains the properties associated with an asynchronous batch translation
    *       job.</p>
    */
@@ -728,6 +776,7 @@ export interface DescribeTextTranslationJobResponse {
  */
 export interface GetParallelDataRequest {
   /**
+   * @public
    * <p>The name of the parallel data resource that is being retrieved.</p>
    */
   Name: string | undefined;
@@ -740,11 +789,13 @@ export interface GetParallelDataRequest {
  */
 export interface ParallelDataDataLocation {
   /**
+   * @public
    * <p>Describes the repository that contains the parallel data input file.</p>
    */
   RepositoryType: string | undefined;
 
   /**
+   * @public
    * <p>The Amazon S3 location of the parallel data input file. The location is returned as a
    *       presigned URL to that has a 30-minute expiration.</p>
    *
@@ -767,48 +818,57 @@ export interface ParallelDataDataLocation {
  */
 export interface ParallelDataProperties {
   /**
+   * @public
    * <p>The custom name assigned to the parallel data resource.</p>
    */
   Name?: string;
 
   /**
+   * @public
    * <p>The Amazon Resource Name (ARN) of the parallel data resource.</p>
    */
   Arn?: string;
 
   /**
+   * @public
    * <p>The description assigned to the parallel data resource.</p>
    */
   Description?: string;
 
   /**
+   * @public
    * <p>The status of the parallel data resource. When the parallel data is ready for you to use,
    *       the status is <code>ACTIVE</code>.</p>
    */
   Status?: ParallelDataStatus | string;
 
   /**
+   * @public
    * <p>The source language of the translations in the parallel data file.</p>
    */
   SourceLanguageCode?: string;
 
   /**
+   * @public
    * <p>The language codes for the target languages available in the parallel data file. All
    *       possible target languages are returned as an array.</p>
    */
   TargetLanguageCodes?: string[];
 
   /**
+   * @public
    * <p>Specifies the format and S3 location of the parallel data input file.</p>
    */
   ParallelDataConfig?: ParallelDataConfig;
 
   /**
+   * @public
    * <p>Additional information from Amazon Translate about the parallel data resource. </p>
    */
   Message?: string;
 
   /**
+   * @public
    * <p>The number of UTF-8 characters that Amazon Translate imported from the parallel data input
    *       file. This number includes only the characters in your translation examples. It does not
    *       include characters that are used to format your file. For example, if you provided a
@@ -817,16 +877,19 @@ export interface ParallelDataProperties {
   ImportedDataSize?: number;
 
   /**
+   * @public
    * <p>The number of records successfully imported from the parallel data input file.</p>
    */
   ImportedRecordCount?: number;
 
   /**
+   * @public
    * <p>The number of records unsuccessfully imported from the parallel data input file.</p>
    */
   FailedRecordCount?: number;
 
   /**
+   * @public
    * <p>The number of items in the input file that Amazon Translate skipped when you created or
    *       updated the parallel data resource. For example, Amazon Translate skips empty records, empty
    *       target texts, and empty lines.</p>
@@ -834,26 +897,31 @@ export interface ParallelDataProperties {
   SkippedRecordCount?: number;
 
   /**
+   * @public
    * <p>The encryption key used to encrypt this object.</p>
    */
   EncryptionKey?: EncryptionKey;
 
   /**
+   * @public
    * <p>The time at which the parallel data resource was created.</p>
    */
   CreatedAt?: Date;
 
   /**
+   * @public
    * <p>The time at which the parallel data resource was last updated.</p>
    */
   LastUpdatedAt?: Date;
 
   /**
+   * @public
    * <p>The status of the most recent update attempt for the parallel data resource.</p>
    */
   LatestUpdateAttemptStatus?: ParallelDataStatus | string;
 
   /**
+   * @public
    * <p>The time that the most recent update was attempted.</p>
    */
   LatestUpdateAttemptAt?: Date;
@@ -864,11 +932,13 @@ export interface ParallelDataProperties {
  */
 export interface GetParallelDataResponse {
   /**
+   * @public
    * <p>The properties of the parallel data resource that is being retrieved.</p>
    */
   ParallelDataProperties?: ParallelDataProperties;
 
   /**
+   * @public
    * <p>The Amazon S3 location of the most recent parallel data input file that was successfully
    *       imported into Amazon Translate. The location is returned as a presigned URL that has a
    *       30-minute expiration.</p>
@@ -886,6 +956,7 @@ export interface GetParallelDataResponse {
   DataLocation?: ParallelDataDataLocation;
 
   /**
+   * @public
    * <p>The Amazon S3 location of a file that provides any errors or warnings that were produced
    *       by your input file. This file was created when Amazon Translate attempted to create a parallel
    *       data resource. The location is returned as a presigned URL to that has a 30-minute
@@ -894,6 +965,7 @@ export interface GetParallelDataResponse {
   AuxiliaryDataLocation?: ParallelDataDataLocation;
 
   /**
+   * @public
    * <p>The Amazon S3 location of a file that provides any errors or warnings that were produced
    *       by your input file. This file was created when Amazon Translate attempted to update a parallel
    *       data resource. The location is returned as a presigned URL to that has a 30-minute
@@ -922,11 +994,13 @@ export type TerminologyDataFormat = (typeof TerminologyDataFormat)[keyof typeof 
  */
 export interface GetTerminologyRequest {
   /**
+   * @public
    * <p>The name of the custom terminology being retrieved.</p>
    */
   Name: string | undefined;
 
   /**
+   * @public
    * <p>The data format of the custom terminology being retrieved.</p>
    *          <p>If you don't specify this parameter, Amazon Translate returns a file with the same format
    *       as the file that was imported to create the terminology. </p>
@@ -943,11 +1017,13 @@ export interface GetTerminologyRequest {
  */
 export interface TerminologyDataLocation {
   /**
+   * @public
    * <p>The repository type for the custom terminology data.</p>
    */
   RepositoryType: string | undefined;
 
   /**
+   * @public
    * <p>The Amazon S3 location of the most recent custom terminology input file that was
    *       successfully imported into Amazon Translate. The location is returned as a presigned URL that
    *       has a 30-minute expiration .</p>
@@ -985,58 +1061,69 @@ export type Directionality = (typeof Directionality)[keyof typeof Directionality
  */
 export interface TerminologyProperties {
   /**
+   * @public
    * <p>The name of the custom terminology.</p>
    */
   Name?: string;
 
   /**
+   * @public
    * <p>The description of the custom terminology properties.</p>
    */
   Description?: string;
 
   /**
+   * @public
    * <p> The Amazon Resource Name (ARN) of the custom terminology. </p>
    */
   Arn?: string;
 
   /**
+   * @public
    * <p>The language code for the source text of the translation request for which the custom
    *       terminology is being used.</p>
    */
   SourceLanguageCode?: string;
 
   /**
+   * @public
    * <p>The language codes for the target languages available with the custom terminology
    *       resource. All possible target languages are returned in array.</p>
    */
   TargetLanguageCodes?: string[];
 
   /**
+   * @public
    * <p>The encryption key for the custom terminology.</p>
    */
   EncryptionKey?: EncryptionKey;
 
   /**
+   * @public
    * <p>The size of the file used when importing a custom terminology.</p>
    */
   SizeBytes?: number;
 
   /**
+   * @public
    * <p>The number of terms included in the custom terminology.</p>
    */
   TermCount?: number;
 
   /**
+   * @public
    * <p>The time at which the custom terminology was created, based on the timestamp.</p>
    */
   CreatedAt?: Date;
 
   /**
+   * @public
    * <p>The time at which the custom terminology was last update, based on the timestamp.</p>
    */
   LastUpdatedAt?: Date;
 
   /**
+   * @public
    * <p>The directionality of your terminology resource indicates whether it has one source
    *       language (uni-directional) or multiple (multi-directional). </p>
    *          <dl>
@@ -1054,17 +1141,20 @@ export interface TerminologyProperties {
   Directionality?: Directionality | string;
 
   /**
+   * @public
    * <p>Additional information from Amazon Translate about the terminology resource.</p>
    */
   Message?: string;
 
   /**
+   * @public
    * <p>The number of terms in the input file that Amazon Translate skipped when you created or
    *       updated the terminology resource.</p>
    */
   SkippedTermCount?: number;
 
   /**
+   * @public
    * <p>The format of the custom terminology input file.</p>
    */
   Format?: TerminologyDataFormat | string;
@@ -1075,11 +1165,13 @@ export interface TerminologyProperties {
  */
 export interface GetTerminologyResponse {
   /**
+   * @public
    * <p>The properties of the custom terminology being retrieved.</p>
    */
   TerminologyProperties?: TerminologyProperties;
 
   /**
+   * @public
    * <p>The Amazon S3 location of the most recent custom terminology input file that was
    *       successfully imported into Amazon Translate. The location is returned as a presigned URL that
    *       has a 30-minute expiration.</p>
@@ -1097,6 +1189,7 @@ export interface GetTerminologyResponse {
   TerminologyDataLocation?: TerminologyDataLocation;
 
   /**
+   * @public
    * <p>The Amazon S3 location of a file that provides any errors or warnings that were produced
    *       by your input file. This file was created when Amazon Translate attempted to create a
    *       terminology resource. The location is returned as a presigned URL to that has a 30-minute
@@ -1126,6 +1219,7 @@ export type MergeStrategy = (typeof MergeStrategy)[keyof typeof MergeStrategy];
  */
 export interface TerminologyData {
   /**
+   * @public
    * <p>The file containing the custom terminology data. Your version of the AWS SDK performs a
    *       Base64-encoding on this field before sending a request to the AWS service. Users of the SDK
    *       should not perform Base64-encoding themselves.</p>
@@ -1133,11 +1227,13 @@ export interface TerminologyData {
   File: Uint8Array | undefined;
 
   /**
+   * @public
    * <p>The data format of the custom terminology.</p>
    */
   Format: TerminologyDataFormat | string | undefined;
 
   /**
+   * @public
    * <p>The directionality of your terminology resource indicates whether it has one source
    *       language (uni-directional) or multiple (multi-directional).</p>
    *          <dl>
@@ -1166,11 +1262,13 @@ export interface TerminologyData {
  */
 export interface ImportTerminologyRequest {
   /**
+   * @public
    * <p>The name of the custom terminology being imported.</p>
    */
   Name: string | undefined;
 
   /**
+   * @public
    * <p>The merge strategy of the custom terminology being imported. Currently, only the OVERWRITE
    *       merge strategy is supported. In this case, the imported terminology will overwrite an existing
    *       terminology of the same name.</p>
@@ -1178,21 +1276,25 @@ export interface ImportTerminologyRequest {
   MergeStrategy: MergeStrategy | string | undefined;
 
   /**
+   * @public
    * <p>The description of the custom terminology being imported.</p>
    */
   Description?: string;
 
   /**
+   * @public
    * <p>The terminology data for the custom terminology being imported.</p>
    */
   TerminologyData: TerminologyData | undefined;
 
   /**
+   * @public
    * <p>The encryption key for the custom terminology being imported.</p>
    */
   EncryptionKey?: EncryptionKey;
 
   /**
+   * @public
    * <p>Tags to be associated with this resource. A tag is a key-value pair that
    *       adds metadata to a resource. Each tag key for the resource must be unique.
    *       For more information, see <a href="https://docs.aws.amazon.com/translate/latest/dg/tagging.html">
@@ -1206,11 +1308,13 @@ export interface ImportTerminologyRequest {
  */
 export interface ImportTerminologyResponse {
   /**
+   * @public
    * <p>The properties of the custom terminology being imported.</p>
    */
   TerminologyProperties?: TerminologyProperties;
 
   /**
+   * @public
    * <p>The Amazon S3 location of a file that provides any errors or warnings that were produced
    *       by your input file. This file was created when Amazon Translate attempted to create a
    *       terminology resource. The location is returned as a presigned URL to that has a 30 minute
@@ -1246,17 +1350,20 @@ export type DisplayLanguageCode = (typeof DisplayLanguageCode)[keyof typeof Disp
  */
 export interface ListLanguagesRequest {
   /**
+   * @public
    * <p>The language code for the language to use to display the language names in the response.
    *       The language code is <code>en</code> by default. </p>
    */
   DisplayLanguageCode?: DisplayLanguageCode | string;
 
   /**
+   * @public
    * <p>Include the NextToken value to fetch the next group of supported languages. </p>
    */
   NextToken?: string;
 
   /**
+   * @public
    * <p>The maximum number of results to return in each response.</p>
    */
   MaxResults?: number;
@@ -1268,11 +1375,13 @@ export interface ListLanguagesRequest {
  */
 export interface Language {
   /**
+   * @public
    * <p>Language name of the supported language.</p>
    */
   LanguageName: string | undefined;
 
   /**
+   * @public
    * <p>Language code for the supported language.</p>
    */
   LanguageCode: string | undefined;
@@ -1283,16 +1392,19 @@ export interface Language {
  */
 export interface ListLanguagesResponse {
   /**
+   * @public
    * <p>The list of supported languages.</p>
    */
   Languages?: Language[];
 
   /**
+   * @public
    * <p>The language code passed in with the request.</p>
    */
   DisplayLanguageCode?: DisplayLanguageCode | string;
 
   /**
+   * @public
    * <p> If the response does not include all remaining results, use the NextToken
    *       in the next request to fetch the next group of supported languages.</p>
    */
@@ -1308,6 +1420,7 @@ export class UnsupportedDisplayLanguageCodeException extends __BaseException {
   readonly $fault: "client" = "client";
   Message?: string;
   /**
+   * @public
    * <p>Language code passed in with the request.</p>
    */
   DisplayLanguageCode?: string;
@@ -1331,11 +1444,13 @@ export class UnsupportedDisplayLanguageCodeException extends __BaseException {
  */
 export interface ListParallelDataRequest {
   /**
+   * @public
    * <p>A string that specifies the next page of results to return in a paginated response.</p>
    */
   NextToken?: string;
 
   /**
+   * @public
    * <p>The maximum number of parallel data resources returned for each request.</p>
    */
   MaxResults?: number;
@@ -1346,11 +1461,13 @@ export interface ListParallelDataRequest {
  */
 export interface ListParallelDataResponse {
   /**
+   * @public
    * <p>The properties of the parallel data resources returned by this request.</p>
    */
   ParallelDataPropertiesList?: ParallelDataProperties[];
 
   /**
+   * @public
    * <p>The string to use in a subsequent request to get the next page of results in a paginated
    *       response. This value is null if there are no additional pages.</p>
    */
@@ -1362,6 +1479,7 @@ export interface ListParallelDataResponse {
  */
 export interface ListTagsForResourceRequest {
   /**
+   * @public
    * <p>The Amazon Resource Name (ARN) of the given Amazon Translate resource you are querying.
    *     </p>
    */
@@ -1373,6 +1491,7 @@ export interface ListTagsForResourceRequest {
  */
 export interface ListTagsForResourceResponse {
   /**
+   * @public
    * <p>Tags associated with the Amazon Translate resource being queried. A tag is a key-value
    *       pair that adds as a metadata to a resource used by Amazon Translate. For example, a tag with
    *       "Sales" as the key might be added to a resource to indicate its use by the sales department.
@@ -1386,12 +1505,14 @@ export interface ListTagsForResourceResponse {
  */
 export interface ListTerminologiesRequest {
   /**
+   * @public
    * <p>If the result of the request to ListTerminologies was truncated, include the NextToken to
    *       fetch the next group of custom terminologies. </p>
    */
   NextToken?: string;
 
   /**
+   * @public
    * <p>The maximum number of custom terminologies returned per list request.</p>
    */
   MaxResults?: number;
@@ -1402,11 +1523,13 @@ export interface ListTerminologiesRequest {
  */
 export interface ListTerminologiesResponse {
   /**
+   * @public
    * <p>The properties list of the custom terminologies returned on the list request.</p>
    */
   TerminologyPropertiesList?: TerminologyProperties[];
 
   /**
+   * @public
    * <p> If the response to the ListTerminologies was truncated, the NextToken fetches the next
    *       group of custom terminologies.</p>
    */
@@ -1442,16 +1565,19 @@ export class InvalidFilterException extends __BaseException {
  */
 export interface TextTranslationJobFilter {
   /**
+   * @public
    * <p>Filters the list of jobs by name.</p>
    */
   JobName?: string;
 
   /**
+   * @public
    * <p>Filters the list of jobs based by job status.</p>
    */
   JobStatus?: JobStatus | string;
 
   /**
+   * @public
    * <p>Filters the list of jobs based on the time that the job was submitted for processing and
    *       returns only the jobs submitted before the specified time. Jobs are returned in ascending
    *       order, oldest to newest.</p>
@@ -1459,6 +1585,7 @@ export interface TextTranslationJobFilter {
   SubmittedBeforeTime?: Date;
 
   /**
+   * @public
    * <p>Filters the list of jobs based on the time that the job was submitted for processing and
    *       returns only the jobs submitted after the specified time. Jobs are returned in descending
    *       order, newest to oldest.</p>
@@ -1471,17 +1598,20 @@ export interface TextTranslationJobFilter {
  */
 export interface ListTextTranslationJobsRequest {
   /**
+   * @public
    * <p>The parameters that specify which batch translation jobs to retrieve. Filters include job
    *       name, job status, and submission time. You can only set one filter at a time.</p>
    */
   Filter?: TextTranslationJobFilter;
 
   /**
+   * @public
    * <p>The token to request the next page of results.</p>
    */
   NextToken?: string;
 
   /**
+   * @public
    * <p>The maximum number of results to return in each page. The default value is 100.</p>
    */
   MaxResults?: number;
@@ -1492,11 +1622,13 @@ export interface ListTextTranslationJobsRequest {
  */
 export interface ListTextTranslationJobsResponse {
   /**
+   * @public
    * <p>A list containing the properties of each job that is returned.</p>
    */
   TextTranslationJobPropertiesList?: TextTranslationJobProperties[];
 
   /**
+   * @public
    * <p>The token to use to retrieve the next page of results. This value is <code>null</code>
    *       when there are no more results to return.</p>
    */
@@ -1508,22 +1640,26 @@ export interface ListTextTranslationJobsResponse {
  */
 export interface StartTextTranslationJobRequest {
   /**
+   * @public
    * <p>The name of the batch translation job to be performed.</p>
    */
   JobName?: string;
 
   /**
+   * @public
    * <p>Specifies the format and location of the input documents for the translation job.</p>
    */
   InputDataConfig: InputDataConfig | undefined;
 
   /**
+   * @public
    * <p>Specifies the S3 folder to which your job output will be saved.
    *       </p>
    */
   OutputDataConfig: OutputDataConfig | undefined;
 
   /**
+   * @public
    * <p>The Amazon Resource Name (ARN) of an AWS Identity Access and Management (IAM) role
    *       that grants Amazon Translate read access to your input data. For more information, see
    *       <a href="https://docs.aws.amazon.com/translate/latest/dg/identity-and-access-management.html">Identity and access management </a>.</p>
@@ -1531,6 +1667,7 @@ export interface StartTextTranslationJobRequest {
   DataAccessRoleArn: string | undefined;
 
   /**
+   * @public
    * <p>The language code of the input language. Specify the language if all input documents share the same language.
    *       If you don't know the language of the source files, or your input documents contains different source
    *       languages, select <code>auto</code>. Amazon Translate auto detects the source language for each input document.
@@ -1540,6 +1677,7 @@ export interface StartTextTranslationJobRequest {
   SourceLanguageCode: string | undefined;
 
   /**
+   * @public
    * <p>The target languages of the translation job. Enter up to 10 language codes.
    *       Each input file is translated into each target language.</p>
    *          <p>Each language code is 2 or 5 characters long. For a list of language codes, see <a href="https://docs.aws.amazon.com/translate/latest/dg/what-is-languages.html">Supported languages</a>.</p>
@@ -1547,6 +1685,7 @@ export interface StartTextTranslationJobRequest {
   TargetLanguageCodes: string[] | undefined;
 
   /**
+   * @public
    * <p>The name of a custom terminology resource to add to the translation job. This resource
    *       lists examples source terms and the desired translation for each term.</p>
    *          <p>This parameter accepts only one custom terminology resource.</p>
@@ -1560,6 +1699,7 @@ export interface StartTextTranslationJobRequest {
   TerminologyNames?: string[];
 
   /**
+   * @public
    * <p>The name of a parallel data resource to add to the translation job. This resource consists
    *       of examples that show how you want segments of text to be translated.
    *       If you specify multiple target languages for
@@ -1579,12 +1719,14 @@ export interface StartTextTranslationJobRequest {
   ParallelDataNames?: string[];
 
   /**
+   * @public
    * <p>A unique identifier for the request. This token is generated for you when using the Amazon Translate
    *       SDK.</p>
    */
   ClientToken?: string;
 
   /**
+   * @public
    * <p>Settings to configure your translation output, including the option to set the formality
    *       level of the output text and the option to mask profane words and phrases.</p>
    */
@@ -1596,12 +1738,14 @@ export interface StartTextTranslationJobRequest {
  */
 export interface StartTextTranslationJobResponse {
   /**
+   * @public
    * <p>The identifier generated for the job. To get the status of a job, use this ID with the
    *         <a>DescribeTextTranslationJob</a> operation.</p>
    */
   JobId?: string;
 
   /**
+   * @public
    * <p>The status of the job. Possible values include:</p>
    *          <ul>
    *             <li>
@@ -1651,11 +1795,13 @@ export class UnsupportedLanguagePairException extends __BaseException {
   readonly $fault: "client" = "client";
   Message?: string;
   /**
+   * @public
    * <p>The language code for the language of the input text. </p>
    */
   SourceLanguageCode?: string;
 
   /**
+   * @public
    * <p>The language code for the language of the translated text. </p>
    */
   TargetLanguageCode?: string;
@@ -1680,6 +1826,7 @@ export class UnsupportedLanguagePairException extends __BaseException {
  */
 export interface StopTextTranslationJobRequest {
   /**
+   * @public
    * <p>The job ID of the job to be stopped.</p>
    */
   JobId: string | undefined;
@@ -1690,11 +1837,13 @@ export interface StopTextTranslationJobRequest {
  */
 export interface StopTextTranslationJobResponse {
   /**
+   * @public
    * <p>The job ID of the stopped batch translation job.</p>
    */
   JobId?: string;
 
   /**
+   * @public
    * <p>The status of the designated job. Upon successful completion, the job's status will be
    *         <code>STOPPED</code>.</p>
    */
@@ -1706,12 +1855,14 @@ export interface StopTextTranslationJobResponse {
  */
 export interface TagResourceRequest {
   /**
+   * @public
    * <p>The Amazon Resource Name (ARN) of the given Amazon Translate resource to which you want
    *       to associate the tags. </p>
    */
   ResourceArn: string | undefined;
 
   /**
+   * @public
    * <p>Tags being associated with a specific Amazon Translate resource. There can be a maximum
    *       of 50 tags (both existing and pending) associated with a specific resource.</p>
    */
@@ -1752,6 +1903,7 @@ export class ServiceUnavailableException extends __BaseException {
  */
 export interface Document {
   /**
+   * @public
    * <p>The <code>Content</code>field type is Binary large object (blob).
    *       This object contains the document content converted into base64-encoded binary data.
    *       If you use one of the AWS SDKs, the SDK performs the
@@ -1761,6 +1913,7 @@ export interface Document {
   Content: Uint8Array | undefined;
 
   /**
+   * @public
    * <p>Describes the format of the document. You can specify one of the following:</p>
    *          <ul>
    *             <li>
@@ -1788,11 +1941,13 @@ export interface Document {
  */
 export interface TranslateDocumentRequest {
   /**
+   * @public
    * <p>The content and content type for the document to be translated. The document size must not exceed 100 KB.</p>
    */
   Document: Document | undefined;
 
   /**
+   * @public
    * <p>The name of a terminology list file to add to the translation job. This file
    *       provides source terms and the desired translation for each term.
    *       A terminology list can contain a maximum of 256 terms.
@@ -1804,6 +1959,7 @@ export interface TranslateDocumentRequest {
   TerminologyNames?: string[];
 
   /**
+   * @public
    * <p>The language code for the language of the source text. Do not use <code>auto</code>, because
    *       <code>TranslateDocument</code> does not support language auto-detection.
    *       For a list of supported language codes, see
@@ -1812,6 +1968,7 @@ export interface TranslateDocumentRequest {
   SourceLanguageCode: string | undefined;
 
   /**
+   * @public
    * <p>The language code requested for the translated document.
    *       For a list of supported language codes, see
    *       <a href="https://docs.aws.amazon.com/translate/latest/dg/what-is-languages.html">Supported languages</a>.</p>
@@ -1819,6 +1976,7 @@ export interface TranslateDocumentRequest {
   TargetLanguageCode: string | undefined;
 
   /**
+   * @public
    * <p>Settings to configure your translation output, including the option to set the formality
    *       level of the output text and the option to mask profane words and phrases.</p>
    */
@@ -1831,6 +1989,7 @@ export interface TranslateDocumentRequest {
  */
 export interface TranslatedDocument {
   /**
+   * @public
    * <p>The document containing the translated content.</p>
    */
   Content: Uint8Array | undefined;
@@ -1841,27 +2000,32 @@ export interface TranslatedDocument {
  */
 export interface TranslateDocumentResponse {
   /**
+   * @public
    * <p>The document containing the translated content. The document format matches the source document format.</p>
    */
   TranslatedDocument: TranslatedDocument | undefined;
 
   /**
+   * @public
    * <p>The language code of the source document.</p>
    */
   SourceLanguageCode: string | undefined;
 
   /**
+   * @public
    * <p>The language code of the translated document. </p>
    */
   TargetLanguageCode: string | undefined;
 
   /**
+   * @public
    * <p>The names of the custom terminologies applied to the input text by Amazon Translate to produce the
    *       translated text document.</p>
    */
   AppliedTerminologies?: AppliedTerminology[];
 
   /**
+   * @public
    * <p>Settings to configure your translation output, including the option to set the formality
    *       level of the output text and the option to mask profane words and phrases.</p>
    */
@@ -1880,6 +2044,7 @@ export class DetectedLanguageLowConfidenceException extends __BaseException {
   readonly $fault: "client" = "client";
   Message?: string;
   /**
+   * @public
    * <p>The language code of the auto-detected language from Amazon Comprehend.</p>
    */
   DetectedLanguageCode?: string;
@@ -1926,12 +2091,14 @@ export class TextSizeLimitExceededException extends __BaseException {
  */
 export interface TranslateTextRequest {
   /**
+   * @public
    * <p>The text to translate. The text string can be a maximum of 10,000 bytes long. Depending on
    *       your character set, this may be fewer than 10,000 characters.</p>
    */
   Text: string | undefined;
 
   /**
+   * @public
    * <p>The name of a terminology list file to add to the translation job. This file
    *       provides source terms and the desired translation for each term.
    *       A terminology list can contain a maximum of 256 terms.
@@ -1943,6 +2110,7 @@ export interface TranslateTextRequest {
   TerminologyNames?: string[];
 
   /**
+   * @public
    * <p>The language code for the language of the source text. For a list of language codes, see <a href="https://docs.aws.amazon.com/translate/latest/dg/what-is-languages.html">Supported languages</a>.</p>
    *          <p>To have Amazon Translate determine the source language of your text, you can specify
    *         <code>auto</code> in the <code>SourceLanguageCode</code> field. If you specify
@@ -1956,12 +2124,14 @@ export interface TranslateTextRequest {
   SourceLanguageCode: string | undefined;
 
   /**
+   * @public
    * <p>The language code requested for the language of the target text.
    *       For a list of language codes, see <a href="https://docs.aws.amazon.com/translate/latest/dg/what-is-languages.html">Supported languages</a>.</p>
    */
   TargetLanguageCode: string | undefined;
 
   /**
+   * @public
    * <p>Settings to configure your translation output, including the option to set the formality
    *       level of the output text and the option to mask profane words and phrases.</p>
    */
@@ -1973,27 +2143,32 @@ export interface TranslateTextRequest {
  */
 export interface TranslateTextResponse {
   /**
+   * @public
    * <p>The translated text.</p>
    */
   TranslatedText: string | undefined;
 
   /**
+   * @public
    * <p>The language code for the language of the source text.</p>
    */
   SourceLanguageCode: string | undefined;
 
   /**
+   * @public
    * <p>The language code for the language of the target text. </p>
    */
   TargetLanguageCode: string | undefined;
 
   /**
+   * @public
    * <p>The names of the custom terminologies applied to the input text by Amazon Translate for the
    *       translated text response.</p>
    */
   AppliedTerminologies?: AppliedTerminology[];
 
   /**
+   * @public
    * <p>Optional settings that modify the translation output.</p>
    */
   AppliedSettings?: TranslationSettings;
@@ -2004,12 +2179,14 @@ export interface TranslateTextResponse {
  */
 export interface UntagResourceRequest {
   /**
+   * @public
    * <p> The Amazon Resource Name (ARN) of the given Amazon Translate resource from which you
    *       want to remove the tags. </p>
    */
   ResourceArn: string | undefined;
 
   /**
+   * @public
    * <p>The initial part of a key-value pair that forms a tag being removed from a given resource.
    *         Keys must be unique and cannot be duplicated for a particular resource.
    *     </p>
@@ -2027,21 +2204,25 @@ export interface UntagResourceResponse {}
  */
 export interface UpdateParallelDataRequest {
   /**
+   * @public
    * <p>The name of the parallel data resource being updated.</p>
    */
   Name: string | undefined;
 
   /**
+   * @public
    * <p>A custom description for the parallel data resource in Amazon Translate.</p>
    */
   Description?: string;
 
   /**
+   * @public
    * <p>Specifies the format and S3 location of the parallel data input file.</p>
    */
   ParallelDataConfig: ParallelDataConfig | undefined;
 
   /**
+   * @public
    * <p>A unique identifier for the request. This token is automatically generated when you use
    *       Amazon Translate through an AWS SDK.</p>
    */
@@ -2053,11 +2234,13 @@ export interface UpdateParallelDataRequest {
  */
 export interface UpdateParallelDataResponse {
   /**
+   * @public
    * <p>The name of the parallel data resource being updated.</p>
    */
   Name?: string;
 
   /**
+   * @public
    * <p>The status of the parallel data resource that you are attempting to update. Your update
    *       request is accepted only if this status is either <code>ACTIVE</code> or
    *       <code>FAILED</code>.</p>
@@ -2065,12 +2248,14 @@ export interface UpdateParallelDataResponse {
   Status?: ParallelDataStatus | string;
 
   /**
+   * @public
    * <p>The status of the parallel data update attempt. When the updated parallel data resource is
    *       ready for you to use, the status is <code>ACTIVE</code>.</p>
    */
   LatestUpdateAttemptStatus?: ParallelDataStatus | string;
 
   /**
+   * @public
    * <p>The time that the most recent update was attempted.</p>
    */
   LatestUpdateAttemptAt?: Date;

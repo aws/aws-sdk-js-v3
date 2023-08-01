@@ -5,22 +5,26 @@
  */
 export interface RawMetricData {
   /**
+   * @public
    * <p>The name of the metric.</p>
    */
   MetricName: string | undefined;
 
   /**
+   * @public
    * <p>The time that the metric was recorded.</p>
    */
   Timestamp: Date | undefined;
 
   /**
+   * @public
    * <p>The metric step (epoch).
    *       </p>
    */
   Step?: number;
 
   /**
+   * @public
    * <p>The metric value.</p>
    */
   Value: number | undefined;
@@ -31,11 +35,13 @@ export interface RawMetricData {
  */
 export interface BatchPutMetricsRequest {
   /**
+   * @public
    * <p>The name of the Trial Component to associate with the metrics.</p>
    */
   TrialComponentName: string | undefined;
 
   /**
+   * @public
    * <p>A list of raw metric values to put.</p>
    */
   MetricData: RawMetricData[] | undefined;
@@ -63,6 +69,7 @@ export type PutMetricsErrorCode = (typeof PutMetricsErrorCode)[keyof typeof PutM
  */
 export interface BatchPutMetricsError {
   /**
+   * @public
    * <p>The error code of an error that occured when attempting to put metrics.</p>
    *          <ul>
    *             <li>
@@ -88,6 +95,7 @@ export interface BatchPutMetricsError {
   Code?: PutMetricsErrorCode | string;
 
   /**
+   * @public
    * <p>An index that corresponds to the metric in the request.</p>
    */
   MetricIndex?: number;
@@ -98,6 +106,7 @@ export interface BatchPutMetricsError {
  */
 export interface BatchPutMetricsResponse {
   /**
+   * @public
    * <p>Lists any errors that occur when inserting metric data.</p>
    */
   Errors?: BatchPutMetricsError[];

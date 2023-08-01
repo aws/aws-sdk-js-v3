@@ -305,6 +305,7 @@ export interface XmlListsOutput {
   enumList?: (FooEnum | string)[];
   intEnumList?: (IntegerEnum | number)[];
   /**
+   * @public
    * A list of lists of strings.
    */
   nestedStringList?: string[][];

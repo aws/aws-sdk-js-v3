@@ -10,12 +10,14 @@ import { MarketplaceMeteringServiceException as __BaseException } from "./Market
  */
 export interface Tag {
   /**
+   * @public
    * <p>One part of a key-value pair that makes up a <code>tag</code>. A <code>key</code> is a
    *             label that acts like a category for the specific tag values.</p>
    */
   Key: string | undefined;
 
   /**
+   * @public
    * <p>One part of a key-value pair that makes up a <code>tag</code>. A <code>value</code>
    *             acts as a descriptor within a tag category (key). The value can be empty or null.</p>
    */
@@ -30,11 +32,13 @@ export interface Tag {
  */
 export interface UsageAllocation {
   /**
+   * @public
    * <p>The total quantity allocated to this bucket of usage.</p>
    */
   AllocatedUsageQuantity: number | undefined;
 
   /**
+   * @public
    * <p>The set of tags that define the bucket of usage. For the bucket of items with no tags,
    *             this parameter can be left out.</p>
    */
@@ -50,6 +54,7 @@ export interface UsageAllocation {
  */
 export interface UsageRecord {
   /**
+   * @public
    * <p>Timestamp, in UTC, for which the usage is being reported.</p>
    *         <p>Your application can meter usage for up to one hour in the past. Make sure the
    *                 <code>timestamp</code> value is not before the start of the software usage.</p>
@@ -57,6 +62,7 @@ export interface UsageRecord {
   Timestamp: Date | undefined;
 
   /**
+   * @public
    * <p>The <code>CustomerIdentifier</code> is obtained through the
    *                 <code>ResolveCustomer</code> operation and represents an individual buyer in your
    *             application.</p>
@@ -64,18 +70,21 @@ export interface UsageRecord {
   CustomerIdentifier: string | undefined;
 
   /**
+   * @public
    * <p>During the process of registering a product on AWS Marketplace, dimensions are
    *             specified. These represent different units of value in your application.</p>
    */
   Dimension: string | undefined;
 
   /**
+   * @public
    * <p>The quantity of usage consumed by the customer for the given dimension and time.
    *             Defaults to <code>0</code> if not specified.</p>
    */
   Quantity?: number;
 
   /**
+   * @public
    * <p>The set of <code>UsageAllocations</code> to submit. The sum of all
    *                 <code>UsageAllocation</code> quantities must equal the Quantity of the
    *                 <code>UsageRecord</code>.</p>
@@ -90,12 +99,14 @@ export interface UsageRecord {
  */
 export interface BatchMeterUsageRequest {
   /**
+   * @public
    * <p>The set of <code>UsageRecords</code> to submit. <code>BatchMeterUsage</code> accepts
    *             up to 25 <code>UsageRecords</code> at a time.</p>
    */
   UsageRecords: UsageRecord[] | undefined;
 
   /**
+   * @public
    * <p>Product code is used to uniquely identify a product in AWS Marketplace. The product
    *             code should be the same as the one used during the publishing of a new product.</p>
    */
@@ -124,18 +135,21 @@ export type UsageRecordResultStatus = (typeof UsageRecordResultStatus)[keyof typ
  */
 export interface UsageRecordResult {
   /**
+   * @public
    * <p>The <code>UsageRecord</code> that was part of the <code>BatchMeterUsage</code>
    *             request.</p>
    */
   UsageRecord?: UsageRecord;
 
   /**
+   * @public
    * <p>The <code>MeteringRecordId</code> is a unique identifier for this metering
    *             event.</p>
    */
   MeteringRecordId?: string;
 
   /**
+   * @public
    * <p>The <code>UsageRecordResult</code>
    *             <code>Status</code> indicates the status of an individual <code>UsageRecord</code>
    *             processed by <code>BatchMeterUsage</code>.</p>
@@ -184,6 +198,7 @@ export interface UsageRecordResult {
  */
 export interface BatchMeterUsageResult {
   /**
+   * @public
    * <p>Contains all <code>UsageRecords</code> processed by <code>BatchMeterUsage</code>.
    *             These records were either honored by AWS Marketplace Metering Service or were invalid.
    *             Invalid records should be fixed before being resubmitted.</p>
@@ -191,6 +206,7 @@ export interface BatchMeterUsageResult {
   Results?: UsageRecordResult[];
 
   /**
+   * @public
    * <p>Contains all <code>UsageRecords</code> that were not processed by
    *                 <code>BatchMeterUsage</code>. This is a list of <code>UsageRecords</code>. You can
    *             retry the failed request by making another <code>BatchMeterUsage</code> call with this
@@ -458,12 +474,14 @@ export class InvalidEndpointRegionException extends __BaseException {
  */
 export interface MeterUsageRequest {
   /**
+   * @public
    * <p>Product code is used to uniquely identify a product in AWS Marketplace. The product
    *             code should be the same as the one used during the publishing of a new product.</p>
    */
   ProductCode: string | undefined;
 
   /**
+   * @public
    * <p>Timestamp, in UTC, for which the usage is being reported. Your application can meter
    *             usage for up to one hour in the past. Make sure the <code>timestamp</code> value is not
    *             before the start of the software usage.</p>
@@ -471,17 +489,20 @@ export interface MeterUsageRequest {
   Timestamp: Date | undefined;
 
   /**
+   * @public
    * <p>It will be one of the fcp dimension name provided during the publishing of the
    *             product.</p>
    */
   UsageDimension: string | undefined;
 
   /**
+   * @public
    * <p>Consumption value for the hour. Defaults to <code>0</code> if not specified.</p>
    */
   UsageQuantity?: number;
 
   /**
+   * @public
    * <p>Checks whether you have the permissions required for the action, but does not make the
    *             request. If you have the permissions, the request returns <code>DryRunOperation</code>;
    *             otherwise, it returns <code>UnauthorizedException</code>. Defaults to <code>false</code>
@@ -490,6 +511,7 @@ export interface MeterUsageRequest {
   DryRun?: boolean;
 
   /**
+   * @public
    * <p>The set of <code>UsageAllocations</code> to submit.</p>
    *         <p>The sum of all <code>UsageAllocation</code> quantities must equal the
    *                 <code>UsageQuantity</code> of the <code>MeterUsage</code> request, and each
@@ -504,6 +526,7 @@ export interface MeterUsageRequest {
  */
 export interface MeterUsageResult {
   /**
+   * @public
    * <p>Metering record id.</p>
    */
   MeteringRecordId?: string;
@@ -578,17 +601,20 @@ export class PlatformNotSupportedException extends __BaseException {
  */
 export interface RegisterUsageRequest {
   /**
+   * @public
    * <p>Product code is used to uniquely identify a product in AWS Marketplace. The product
    *             code should be the same as the one used during the publishing of a new product.</p>
    */
   ProductCode: string | undefined;
 
   /**
+   * @public
    * <p>Public Key Version provided by AWS Marketplace</p>
    */
   PublicKeyVersion: number | undefined;
 
   /**
+   * @public
    * <p>(Optional) To scope down the registration to a specific running software instance and
    *             guard against replay attacks.</p>
    */
@@ -600,11 +626,13 @@ export interface RegisterUsageRequest {
  */
 export interface RegisterUsageResult {
   /**
+   * @public
    * <p>(Optional) Only included when public key version has expired</p>
    */
   PublicKeyRotationTimestamp?: Date;
 
   /**
+   * @public
    * <p>JWT Token</p>
    */
   Signature?: string;
@@ -660,6 +688,7 @@ export class InvalidTokenException extends __BaseException {
  */
 export interface ResolveCustomerRequest {
   /**
+   * @public
    * <p>When a buyer visits your website during the registration process, the buyer submits a
    *             registration token through the browser. The registration token is resolved to obtain a
    *                 <code>CustomerIdentifier</code>
@@ -681,6 +710,7 @@ export interface ResolveCustomerRequest {
  */
 export interface ResolveCustomerResult {
   /**
+   * @public
    * <p>The <code>CustomerIdentifier</code> is used to identify an individual customer in your
    *             application. Calls to <code>BatchMeterUsage</code> require
    *                 <code>CustomerIdentifiers</code> for each <code>UsageRecord</code>.</p>
@@ -688,6 +718,7 @@ export interface ResolveCustomerResult {
   CustomerIdentifier?: string;
 
   /**
+   * @public
    * <p>The product code is returned to confirm that the buyer is registering for your
    *             product. Subsequent <code>BatchMeterUsage</code> calls should be made using this product
    *             code.</p>
@@ -695,6 +726,7 @@ export interface ResolveCustomerResult {
   ProductCode?: string;
 
   /**
+   * @public
    * <p>The <code>CustomerAWSAccountId</code> provides the AWS account ID associated with the
    *                 <code>CustomerIdentifier</code> for the individual customer.</p>
    */

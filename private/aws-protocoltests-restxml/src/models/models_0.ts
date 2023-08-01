@@ -318,11 +318,13 @@ export interface HttpRequestWithLabelsInput {
   float: number | undefined;
   double: number | undefined;
   /**
+   * @public
    * Serialized in the path as true or false.
    */
   boolean: boolean | undefined;
 
   /**
+   * @public
    * Note that this member has no format, so it's serialized as an RFC 3399 date-time.
    */
   timestamp: Date | undefined;
@@ -509,6 +511,7 @@ export interface XmlListsInputOutput {
   enumList?: (FooEnum | string)[];
   intEnumList?: (IntegerEnum | number)[];
   /**
+   * @public
    * A list of lists of strings.
    */
   nestedStringList?: string[][];
@@ -769,6 +772,9 @@ export namespace XmlUnionShape {
     $unknown?: never;
   }
 
+  /**
+   * @public
+   */
   export interface $UnknownMember {
     stringValue?: never;
     booleanValue?: never;

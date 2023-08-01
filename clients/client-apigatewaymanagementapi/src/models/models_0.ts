@@ -82,11 +82,13 @@ export interface GetConnectionRequest {
  */
 export interface Identity {
   /**
+   * @public
    * <p>The source IP address of the TCP connection making the request to API Gateway.</p>
    */
   SourceIp: string | undefined;
 
   /**
+   * @public
    * <p>The User Agent of the API caller.</p>
    */
   UserAgent: string | undefined;
@@ -97,12 +99,14 @@ export interface Identity {
  */
 export interface GetConnectionResponse {
   /**
+   * @public
    * <p>The time in ISO 8601 format for when the connection was established.</p>
    */
   ConnectedAt?: Date;
 
   Identity?: Identity;
   /**
+   * @public
    * <p>The time in ISO 8601 format for when the connection was last active.</p>
    */
   LastActiveAt?: Date;
@@ -135,11 +139,13 @@ export class PayloadTooLargeException extends __BaseException {
  */
 export interface PostToConnectionRequest {
   /**
+   * @public
    * <p>The data to be sent to the client specified by its connection id.</p>
    */
   Data: Uint8Array | undefined;
 
   /**
+   * @public
    * <p>The identifier of the connection that a specific client is using.</p>
    */
   ConnectionId: string | undefined;

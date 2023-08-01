@@ -70,11 +70,13 @@ export type EncryptionOption = (typeof EncryptionOption)[keyof typeof Encryption
  */
 export interface KMSKeyDetails {
   /**
+   * @public
    * <p>The ID of the Amazon Web Services KMS key that is associated with a repository association.</p>
    */
   KMSKeyId?: string;
 
   /**
+   * @public
    * <p>The encryption option for a repository association. It is either owned by Amazon Web Services Key
    *          Management Service (KMS) (<code>AWS_OWNED_CMK</code>) or customer managed
    *             (<code>CUSTOMER_MANAGED_CMK</code>).</p>
@@ -88,16 +90,19 @@ export interface KMSKeyDetails {
  */
 export interface ThirdPartySourceRepository {
   /**
+   * @public
    * <p>The name of the third party source repository.</p>
    */
   Name: string | undefined;
 
   /**
+   * @public
    * <p>The Amazon Resource Name (ARN) of an Amazon Web Services CodeStar Connections connection. Its format is <code>arn:aws:codestar-connections:region-id:aws-account_id:connection/connection-id</code>. For more information, see <a href="https://docs.aws.amazon.com/codestar-connections/latest/APIReference/API_Connection.html">Connection</a> in the <i>Amazon Web Services CodeStar Connections API Reference</i>.</p>
    */
   ConnectionArn: string | undefined;
 
   /**
+   * @public
    * <p>The owner of the repository. For a GitHub, GitHub Enterprise, or Bitbucket repository,
    *          this is the username for the account that owns the repository. For an S3 repository, this
    *          can be the username or Amazon Web Services account ID </p>
@@ -113,6 +118,7 @@ export interface ThirdPartySourceRepository {
  */
 export interface CodeCommitRepository {
   /**
+   * @public
    * <p>The name of the Amazon Web Services CodeCommit repository. For more information, see <a href="https://docs.aws.amazon.com/codecommit/latest/APIReference/API_GetRepository.html#CodeCommit-GetRepository-request-repositoryName">repositoryName</a> in the <i>Amazon Web Services CodeCommit API
    *          Reference</i>.</p>
    */
@@ -125,11 +131,13 @@ export interface CodeCommitRepository {
  */
 export interface S3Repository {
   /**
+   * @public
    * <p>The name of the repository in the S3 bucket.</p>
    */
   Name: string | undefined;
 
   /**
+   * @public
    * <p>The name of the S3 bucket used for associating a new S3 repository. It must begin with <code>codeguru-reviewer-</code>. </p>
    */
   BucketName: string | undefined;
@@ -144,21 +152,25 @@ export interface S3Repository {
  */
 export interface Repository {
   /**
+   * @public
    * <p>Information about an Amazon Web Services CodeCommit repository.</p>
    */
   CodeCommit?: CodeCommitRepository;
 
   /**
+   * @public
    * <p> Information about a Bitbucket repository. </p>
    */
   Bitbucket?: ThirdPartySourceRepository;
 
   /**
+   * @public
    * <p>Information about a GitHub Enterprise Server repository.</p>
    */
   GitHubEnterpriseServer?: ThirdPartySourceRepository;
 
   /**
+   * @public
    * <p>Information about a repository in an S3 bucket.</p>
    */
   S3Bucket?: S3Repository;
@@ -169,17 +181,20 @@ export interface Repository {
  */
 export interface AssociateRepositoryRequest {
   /**
+   * @public
    * <p>The repository to associate.</p>
    */
   Repository: Repository | undefined;
 
   /**
+   * @public
    * <p>Amazon CodeGuru Reviewer uses this value to prevent the accidental creation of duplicate repository
    *          associations if there are failures and retries.</p>
    */
   ClientRequestToken?: string;
 
   /**
+   * @public
    * <p>An array of key-value pairs used to tag an associated repository. A tag is a custom attribute label with two parts:</p>
    * 		       <ul>
    *             <li>
@@ -198,6 +213,7 @@ export interface AssociateRepositoryRequest {
   Tags?: Record<string, string>;
 
   /**
+   * @public
    * <p>A <code>KMSKeyDetails</code> object that contains:</p>
    *          <ul>
    *             <li>
@@ -248,12 +264,14 @@ export type ProviderType = (typeof ProviderType)[keyof typeof ProviderType];
  */
 export interface CodeArtifacts {
   /**
+   * @public
    * <p>The S3 object key for a source code .zip file. This is required for all code
    *          reviews.</p>
    */
   SourceCodeArtifactsObjectKey: string | undefined;
 
   /**
+   * @public
    * <p>The S3 object key for a build artifacts .zip file that contains .jar or .class files.
    *          This is required for a code review with security analysis. For more information, see <a href="https://docs.aws.amazon.com/codeguru/latest/reviewer-ug/working-with-cicd.html">Create
    *             code reviews with GitHub Actions</a> in the <i>Amazon CodeGuru Reviewer User
@@ -270,11 +288,13 @@ export interface CodeArtifacts {
  */
 export interface S3RepositoryDetails {
   /**
+   * @public
    * <p>The name of the S3 bucket used for associating a new S3 repository. It must begin with <code>codeguru-reviewer-</code>. </p>
    */
   BucketName?: string;
 
   /**
+   * @public
    * <p>A <code>CodeArtifacts</code> object. The <code>CodeArtifacts</code> object includes the
    *          S3 object key for a source code .zip file and for a build artifacts .zip file that contains
    *          .jar or .class files.</p>
@@ -306,26 +326,31 @@ export type RepositoryAssociationState = (typeof RepositoryAssociationState)[key
  */
 export interface RepositoryAssociation {
   /**
+   * @public
    * <p>The ID of the repository association.</p>
    */
   AssociationId?: string;
 
   /**
+   * @public
    * <p>The Amazon Resource Name (ARN) identifying the repository association.</p>
    */
   AssociationArn?: string;
 
   /**
+   * @public
    * <p>The Amazon Resource Name (ARN) of an Amazon Web Services CodeStar Connections connection. Its format is <code>arn:aws:codestar-connections:region-id:aws-account_id:connection/connection-id</code>. For more information, see <a href="https://docs.aws.amazon.com/codestar-connections/latest/APIReference/API_Connection.html">Connection</a> in the <i>Amazon Web Services CodeStar Connections API Reference</i>.</p>
    */
   ConnectionArn?: string;
 
   /**
+   * @public
    * <p>The name of the repository.</p>
    */
   Name?: string;
 
   /**
+   * @public
    * <p>The owner of the repository. For an Amazon Web Services CodeCommit repository, this is the Amazon Web Services account ID of the
    *       account that owns the repository. For a GitHub, GitHub Enterprise Server, or Bitbucket repository, this is the username for the account that owns the repository.
    *       For an S3 repository, it can be the username or Amazon Web Services account ID.</p>
@@ -333,11 +358,13 @@ export interface RepositoryAssociation {
   Owner?: string;
 
   /**
+   * @public
    * <p>The provider type of the repository association.</p>
    */
   ProviderType?: ProviderType | string;
 
   /**
+   * @public
    * <p>The state of the repository association.</p>
    *          <p>The valid repository association states are:</p>
    *          <ul>
@@ -378,23 +405,27 @@ export interface RepositoryAssociation {
   State?: RepositoryAssociationState | string;
 
   /**
+   * @public
    * <p>A description of why the repository association is in the current state.</p>
    */
   StateReason?: string;
 
   /**
+   * @public
    * <p>The time, in milliseconds since the epoch, when the repository association was last
    *          updated.</p>
    */
   LastUpdatedTimeStamp?: Date;
 
   /**
+   * @public
    * <p>The time, in milliseconds since the epoch, when the repository association was
    *          created.</p>
    */
   CreatedTimeStamp?: Date;
 
   /**
+   * @public
    * <p>A <code>KMSKeyDetails</code> object that contains:</p>
    *          <ul>
    *             <li>
@@ -411,6 +442,7 @@ export interface RepositoryAssociation {
   KMSKeyDetails?: KMSKeyDetails;
 
   /**
+   * @public
    * <p>Specifies the name of an S3 bucket and a <code>CodeArtifacts</code> object that contains
    *          the S3 object keys for a source code .zip file and for a build artifacts .zip file that
    *          contains .jar or .class files.</p>
@@ -423,11 +455,13 @@ export interface RepositoryAssociation {
  */
 export interface AssociateRepositoryResponse {
   /**
+   * @public
    * <p>Information about the repository association.</p>
    */
   RepositoryAssociation?: RepositoryAssociation;
 
   /**
+   * @public
    * <p>An array of key-value pairs used to tag an associated repository. A tag is a custom attribute label with two parts:</p>
    * 		       <ul>
    *             <li>
@@ -543,6 +577,7 @@ export class ValidationException extends __BaseException {
  */
 export interface RepositoryHeadSourceCodeType {
   /**
+   * @public
    * <p>The name of the branch in an associated repository. The
    *             <code>RepositoryHeadSourceCodeType</code> specifies the tip of this branch.</p>
    */
@@ -557,11 +592,13 @@ export interface RepositoryHeadSourceCodeType {
  */
 export interface BranchDiffSourceCodeType {
   /**
+   * @public
    * <p>The source branch for a diff in an associated repository.</p>
    */
   SourceBranchName: string | undefined;
 
   /**
+   * @public
    * <p>The destination branch for a diff in an associated repository.</p>
    */
   DestinationBranchName: string | undefined;
@@ -576,18 +613,21 @@ export interface BranchDiffSourceCodeType {
  */
 export interface CommitDiffSourceCodeType {
   /**
+   * @public
    * <p>The SHA of the source commit used to generate a commit diff. This field is required for
    *          a pull request code review.</p>
    */
   SourceCommit?: string;
 
   /**
+   * @public
    * <p>The SHA of the destination commit used to generate a commit diff. This field is required
    *          for a pull request code review.</p>
    */
   DestinationCommit?: string;
 
   /**
+   * @public
    * <p>The SHA of the merge base of a commit.</p>
    */
   MergeBaseCommit?: string;
@@ -600,6 +640,7 @@ export interface CommitDiffSourceCodeType {
  */
 export interface EventInfo {
   /**
+   * @public
    * <p>The name of the event. The possible names are <code>pull_request</code>,
    *             <code>workflow_dispatch</code>, <code>schedule</code>, and <code>push</code>
    *          </p>
@@ -607,6 +648,7 @@ export interface EventInfo {
   Name?: string;
 
   /**
+   * @public
    * <p>The state of an event. The state might be open, closed, or another state.</p>
    */
   State?: string;
@@ -634,11 +676,13 @@ export type VendorName = (typeof VendorName)[keyof typeof VendorName];
  */
 export interface RequestMetadata {
   /**
+   * @public
    * <p>The ID of the request. This is required for a pull request code review.</p>
    */
   RequestId?: string;
 
   /**
+   * @public
    * <p>An identifier, such as a name or account ID, that is associated with the requester. The
    *             <code>Requester</code> is used to capture the <code>author/actor</code> name of the
    *          event request.</p>
@@ -646,11 +690,13 @@ export interface RequestMetadata {
   Requester?: string;
 
   /**
+   * @public
    * <p>Information about the event associated with a code review.</p>
    */
   EventInfo?: EventInfo;
 
   /**
+   * @public
    * <p>The name of the repository vendor used to upload code to an S3 bucket for a CI/CD code
    *          review. For example, if code and artifacts are uploaded to an S3 bucket for a CI/CD code
    *          review by GitHub scripts from a GitHub repository, then the repository association's
@@ -668,12 +714,14 @@ export interface RequestMetadata {
  */
 export interface S3BucketRepository {
   /**
+   * @public
    * <p>The name of the repository when the <code>ProviderType</code> is
    *          <code>S3Bucket</code>.</p>
    */
   Name: string | undefined;
 
   /**
+   * @public
    * <p>An <code>S3RepositoryDetails</code> object that specifies the name of an S3 bucket and a <code>CodeArtifacts</code> object. The <code>CodeArtifacts</code> object includes the S3 object keys for a source code .zip file and for a build artifacts .zip file.</p>
    */
   Details?: S3RepositoryDetails;
@@ -685,18 +733,21 @@ export interface S3BucketRepository {
  */
 export interface SourceCodeType {
   /**
+   * @public
    * <p>A <a href="https://docs.aws.amazon.com/codeguru/latest/reviewer-api/API_SourceCodeType">SourceCodeType</a> that specifies a commit diff created by a pull request on an
    *          associated repository.</p>
    */
   CommitDiff?: CommitDiffSourceCodeType;
 
   /**
+   * @public
    * <p>A <a href="https://docs.aws.amazon.com/codeguru/latest/reviewer-api/API_SourceCodeType">SourceCodeType</a> that specifies the tip of a branch in an associated
    *          repository.</p>
    */
   RepositoryHead?: RepositoryHeadSourceCodeType;
 
   /**
+   * @public
    * <p>A type of <a href="https://docs.aws.amazon.com/codeguru/latest/reviewer-api/API_SourceCodeType">SourceCodeType</a> that
    *          specifies a source branch name and a destination branch name in an associated
    *          repository.</p>
@@ -704,11 +755,13 @@ export interface SourceCodeType {
   BranchDiff?: BranchDiffSourceCodeType;
 
   /**
+   * @public
    * <p>Information about an associated repository in an S3 bucket that includes its name and an <code>S3RepositoryDetails</code> object. The <code>S3RepositoryDetails</code> object includes the name of an S3 bucket, an S3 key for a source code .zip file, and an S3 key for a build artifacts .zip file. <code>S3BucketRepository</code> is required in <a href="https://docs.aws.amazon.com/codeguru/latest/reviewer-api/API_SourceCodeType">SourceCodeType</a> for <code>S3BucketRepository</code> based code reviews.</p>
    */
   S3BucketRepository?: S3BucketRepository;
 
   /**
+   * @public
    * <p>Metadata that is associated with a code review. This applies to any type of code review
    *          supported by CodeGuru Reviewer. The <code>RequestMetadaa</code> field captures any event metadata. For
    *          example, it might capture metadata associated with an event trigger, such as a push or a
@@ -724,12 +777,14 @@ export interface SourceCodeType {
  */
 export interface RepositoryAnalysis {
   /**
+   * @public
    * <p>A <a href="https://docs.aws.amazon.com/codeguru/latest/reviewer-api/API_SourceCodeType">SourceCodeType</a> that specifies the tip of a branch in an associated
    *          repository.</p>
    */
   RepositoryHead?: RepositoryHeadSourceCodeType;
 
   /**
+   * @public
    * <p>Specifies the source code that is analyzed in a code review.</p>
    */
   SourceCodeType?: SourceCodeType;
@@ -754,12 +809,14 @@ export interface RepositoryAnalysis {
  */
 export interface CodeReviewType {
   /**
+   * @public
    * <p>A code review that analyzes all code under a specified branch in an associated
    *          repository. The associated repository is specified using its ARN in <a href="https://docs.aws.amazon.com/codeguru/latest/reviewer-api/API_CreateCodeReview">CreateCodeReview</a>.</p>
    */
   RepositoryAnalysis: RepositoryAnalysis | undefined;
 
   /**
+   * @public
    * <p>They types of analysis performed during a repository analysis or a pull request review.
    *          You can specify either <code>Security</code>, <code>CodeQuality</code>, or both.</p>
    */
@@ -771,12 +828,14 @@ export interface CodeReviewType {
  */
 export interface CreateCodeReviewRequest {
   /**
+   * @public
    * <p>The name of the code review. The name of each code review in your Amazon Web Services account must be
    *          unique.</p>
    */
   Name: string | undefined;
 
   /**
+   * @public
    * <p>The Amazon Resource Name (ARN) of the <a href="https://docs.aws.amazon.com/codeguru/latest/reviewer-api/API_RepositoryAssociation.html">RepositoryAssociation</a> object. You can retrieve this ARN by calling <a href="https://docs.aws.amazon.com/codeguru/latest/reviewer-api/API_ListRepositoryAssociations.html">ListRepositoryAssociations</a>.</p>
    *          <p>A code review can only be created on an associated repository. This is the ARN of the
    *          associated repository.</p>
@@ -784,12 +843,14 @@ export interface CreateCodeReviewRequest {
   RepositoryAssociationArn: string | undefined;
 
   /**
+   * @public
    * <p>The type of code review to create. This is specified using a <a href="https://docs.aws.amazon.com/codeguru/latest/reviewer-api/API_CodeReviewType.html">CodeReviewType</a>
    *          object. You can create a code review only of type <code>RepositoryAnalysis</code>.</p>
    */
   Type: CodeReviewType | undefined;
 
   /**
+   * @public
    * <p>Amazon CodeGuru Reviewer uses this value to prevent the accidental creation of duplicate code reviews
    *          if there are failures and retries.</p>
    */
@@ -817,6 +878,7 @@ export type ConfigFileState = (typeof ConfigFileState)[keyof typeof ConfigFileSt
  */
 export interface Metrics {
   /**
+   * @public
    * <p>
    *             <code>MeteredLinesOfCodeCount</code> is the number of lines of code in the repository
    *          where the code review happened. This does not include non-code lines such as comments and
@@ -825,6 +887,7 @@ export interface Metrics {
   MeteredLinesOfCodeCount?: number;
 
   /**
+   * @public
    * <p>
    *             <code>SuppressedLinesOfCodeCount</code> is the number of lines of code in the repository
    *          where the code review happened that CodeGuru Reviewer did not analyze. The lines suppressed in the
@@ -835,6 +898,7 @@ export interface Metrics {
   SuppressedLinesOfCodeCount?: number;
 
   /**
+   * @public
    * <p>Total number of recommendations found in the code review.</p>
    */
   FindingsCount?: number;
@@ -877,22 +941,26 @@ export type Type = (typeof Type)[keyof typeof Type];
  */
 export interface CodeReview {
   /**
+   * @public
    * <p>The name of the code review.</p>
    */
   Name?: string;
 
   /**
+   * @public
    * <p>The Amazon Resource Name (ARN) of the <a href="https://docs.aws.amazon.com/codeguru/latest/reviewer-api/API_CodeReview.html">CodeReview</a> object.
    *       </p>
    */
   CodeReviewArn?: string;
 
   /**
+   * @public
    * <p>The name of the repository.</p>
    */
   RepositoryName?: string;
 
   /**
+   * @public
    * <p>The owner of the repository. For an Amazon Web Services CodeCommit repository, this is the Amazon Web Services account ID of the
    *       account that owns the repository. For a GitHub, GitHub Enterprise Server, or Bitbucket repository, this is the username for the account that owns the repository.
    *       For an S3 repository, it can be the username or Amazon Web Services account ID.</p>
@@ -900,12 +968,14 @@ export interface CodeReview {
   Owner?: string;
 
   /**
+   * @public
    * <p>The type of repository that contains the reviewed code (for example, GitHub or
    *          Bitbucket).</p>
    */
   ProviderType?: ProviderType | string;
 
   /**
+   * @public
    * <p>The valid code review states are:</p>
    *          <ul>
    *             <li>
@@ -929,53 +999,63 @@ export interface CodeReview {
   State?: JobState | string;
 
   /**
+   * @public
    * <p>The reason for the state of the code review.</p>
    */
   StateReason?: string;
 
   /**
+   * @public
    * <p>The time, in milliseconds since the epoch, when the code review was created.</p>
    */
   CreatedTimeStamp?: Date;
 
   /**
+   * @public
    * <p>The time, in milliseconds since the epoch, when the code review was last updated.</p>
    */
   LastUpdatedTimeStamp?: Date;
 
   /**
+   * @public
    * <p>The type of code review.</p>
    */
   Type?: Type | string;
 
   /**
+   * @public
    * <p>The pull request ID for the code review.</p>
    */
   PullRequestId?: string;
 
   /**
+   * @public
    * <p>The type of the source code for the code review.</p>
    */
   SourceCodeType?: SourceCodeType;
 
   /**
+   * @public
    * <p>The Amazon Resource Name (ARN) of the <a href="https://docs.aws.amazon.com/codeguru/latest/reviewer-api/API_RepositoryAssociation.html">RepositoryAssociation</a> that contains the reviewed source code. You can retrieve
    *          associated repository ARNs by calling <a href="https://docs.aws.amazon.com/codeguru/latest/reviewer-api/API_ListRepositoryAssociations.html">ListRepositoryAssociations</a>.</p>
    */
   AssociationArn?: string;
 
   /**
+   * @public
    * <p>The statistics from the code review.</p>
    */
   Metrics?: Metrics;
 
   /**
+   * @public
    * <p>The types of analysis performed during a repository analysis or a pull request review.
    *          You can specify either <code>Security</code>, <code>CodeQuality</code>, or both.</p>
    */
   AnalysisTypes?: (AnalysisType | string)[];
 
   /**
+   * @public
    * <p>The state of the <code>aws-codeguru-reviewer.yml</code> configuration file that allows
    *          the configuration of the CodeGuru Reviewer analysis. The file either exists, doesn't exist, or exists
    *          with errors at the root directory of your repository.</p>
@@ -988,6 +1068,7 @@ export interface CodeReview {
  */
 export interface CreateCodeReviewResponse {
   /**
+   * @public
    * <p>Information about a code review. A code review belongs to the associated repository that
    *          contains the reviewed code.</p>
    */
@@ -1021,6 +1102,7 @@ export class ResourceNotFoundException extends __BaseException {
  */
 export interface DescribeCodeReviewRequest {
   /**
+   * @public
    * <p>The Amazon Resource Name (ARN) of the <a href="https://docs.aws.amazon.com/codeguru/latest/reviewer-api/API_CodeReview.html">CodeReview</a> object.
    *       </p>
    */
@@ -1032,6 +1114,7 @@ export interface DescribeCodeReviewRequest {
  */
 export interface DescribeCodeReviewResponse {
   /**
+   * @public
    * <p>Information about the code review.</p>
    */
   CodeReview?: CodeReview;
@@ -1042,18 +1125,21 @@ export interface DescribeCodeReviewResponse {
  */
 export interface DescribeRecommendationFeedbackRequest {
   /**
+   * @public
    * <p>The Amazon Resource Name (ARN) of the <a href="https://docs.aws.amazon.com/codeguru/latest/reviewer-api/API_CodeReview.html">CodeReview</a> object.
    *       </p>
    */
   CodeReviewArn: string | undefined;
 
   /**
+   * @public
    * <p>The recommendation ID that can be used to track the provided recommendations and then to
    *          collect the feedback.</p>
    */
   RecommendationId: string | undefined;
 
   /**
+   * @public
    * <p>Optional parameter to describe the feedback for a given user. If this is not supplied,
    *          it defaults to the user making the request.</p>
    *          <p>
@@ -1084,24 +1170,28 @@ export type Reaction = (typeof Reaction)[keyof typeof Reaction];
  */
 export interface RecommendationFeedback {
   /**
+   * @public
    * <p>The Amazon Resource Name (ARN) of the <a href="https://docs.aws.amazon.com/codeguru/latest/reviewer-api/API_CodeReview.html">CodeReview</a> object.
    *       </p>
    */
   CodeReviewArn?: string;
 
   /**
+   * @public
    * <p>The recommendation ID that can be used to track the provided recommendations. Later on
    *          it can be used to collect the feedback.</p>
    */
   RecommendationId?: string;
 
   /**
+   * @public
    * <p>List for storing reactions. Reactions are utf-8 text code for emojis. You can send an
    *          empty list to clear off all your feedback.</p>
    */
   Reactions?: (Reaction | string)[];
 
   /**
+   * @public
    * <p>The ID of the user that made the API call.</p>
    *          <p>
    *          The <code>UserId</code> is an IAM principal that can be specified as an Amazon Web Services account ID or an Amazon Resource Name (ARN). For
@@ -1111,11 +1201,13 @@ export interface RecommendationFeedback {
   UserId?: string;
 
   /**
+   * @public
    * <p>The time at which the feedback was created.</p>
    */
   CreatedTimeStamp?: Date;
 
   /**
+   * @public
    * <p>The time at which the feedback was last updated.</p>
    */
   LastUpdatedTimeStamp?: Date;
@@ -1126,6 +1218,7 @@ export interface RecommendationFeedback {
  */
 export interface DescribeRecommendationFeedbackResponse {
   /**
+   * @public
    * <p>The recommendation feedback given by the user.</p>
    */
   RecommendationFeedback?: RecommendationFeedback;
@@ -1136,6 +1229,7 @@ export interface DescribeRecommendationFeedbackResponse {
  */
 export interface DescribeRepositoryAssociationRequest {
   /**
+   * @public
    * <p>The Amazon Resource Name (ARN) of the <a href="https://docs.aws.amazon.com/codeguru/latest/reviewer-api/API_RepositoryAssociation.html">RepositoryAssociation</a> object. You can retrieve this ARN by calling <a href="https://docs.aws.amazon.com/codeguru/latest/reviewer-api/API_ListRepositoryAssociations.html">ListRepositoryAssociations</a>.</p>
    */
   AssociationArn: string | undefined;
@@ -1146,11 +1240,13 @@ export interface DescribeRepositoryAssociationRequest {
  */
 export interface DescribeRepositoryAssociationResponse {
   /**
+   * @public
    * <p>Information about the repository association.</p>
    */
   RepositoryAssociation?: RepositoryAssociation;
 
   /**
+   * @public
    * <p>An array of key-value pairs used to tag an associated repository. A tag is a custom attribute label with two parts:</p>
    * 		       <ul>
    *             <li>
@@ -1196,6 +1292,7 @@ export class NotFoundException extends __BaseException {
  */
 export interface DisassociateRepositoryRequest {
   /**
+   * @public
    * <p>The Amazon Resource Name (ARN) of the <a href="https://docs.aws.amazon.com/codeguru/latest/reviewer-api/API_RepositoryAssociation.html">RepositoryAssociation</a> object. You can retrieve this ARN by calling <a href="https://docs.aws.amazon.com/codeguru/latest/reviewer-api/API_ListRepositoryAssociations.html">ListRepositoryAssociations</a>.</p>
    */
   AssociationArn: string | undefined;
@@ -1206,11 +1303,13 @@ export interface DisassociateRepositoryRequest {
  */
 export interface DisassociateRepositoryResponse {
   /**
+   * @public
    * <p>Information about the disassociated repository.</p>
    */
   RepositoryAssociation?: RepositoryAssociation;
 
   /**
+   * @public
    * <p>An array of key-value pairs used to tag an associated repository. A tag is a custom attribute label with two parts:</p>
    * 		       <ul>
    *             <li>
@@ -1234,6 +1333,7 @@ export interface DisassociateRepositoryResponse {
  */
 export interface ListCodeReviewsRequest {
   /**
+   * @public
    * <p>List of provider types for filtering that needs to be applied before displaying the
    *          result. For example, <code>providerTypes=[GitHub]</code> lists code reviews from
    *          GitHub.</p>
@@ -1241,6 +1341,7 @@ export interface ListCodeReviewsRequest {
   ProviderTypes?: (ProviderType | string)[];
 
   /**
+   * @public
    * <p>List of states for filtering that needs to be applied before displaying the result. For
    *          example, <code>states=[Pending]</code> lists code reviews in the Pending state.</p>
    *          <p>The valid code review states are:</p>
@@ -1266,22 +1367,26 @@ export interface ListCodeReviewsRequest {
   States?: (JobState | string)[];
 
   /**
+   * @public
    * <p>List of repository names for filtering that needs to be applied before displaying the
    *          result.</p>
    */
   RepositoryNames?: string[];
 
   /**
+   * @public
    * <p>The type of code reviews to list in the response.</p>
    */
   Type: Type | string | undefined;
 
   /**
+   * @public
    * <p>The maximum number of results that are returned per call. The default is 100.</p>
    */
   MaxResults?: number;
 
   /**
+   * @public
    * <p>If <code>nextToken</code> is returned, there are more results available. The value of
    *             <code>nextToken</code> is a unique pagination token for each page. Make the call again
    *          using the returned token to retrieve the next page. Keep all other arguments
@@ -1296,6 +1401,7 @@ export interface ListCodeReviewsRequest {
  */
 export interface MetricsSummary {
   /**
+   * @public
    * <p>Lines of code metered in the code review. For the initial code review pull request and
    *          all subsequent revisions, this includes all lines of code in the files added to the pull
    *          request. In subsequent revisions, for files that already existed in the pull request, this
@@ -1310,6 +1416,7 @@ export interface MetricsSummary {
   MeteredLinesOfCodeCount?: number;
 
   /**
+   * @public
    * <p>Lines of code suppressed in the code review based on the <code>excludeFiles</code>
    *          element in the <code>aws-codeguru-reviewer.yml</code> file. For full repository analyses,
    *          this number includes all lines of code in the files that are suppressed. For pull requests,
@@ -1328,6 +1435,7 @@ export interface MetricsSummary {
   SuppressedLinesOfCodeCount?: number;
 
   /**
+   * @public
    * <p>Total number of recommendations found in the code review.</p>
    */
   FindingsCount?: number;
@@ -1339,22 +1447,26 @@ export interface MetricsSummary {
  */
 export interface CodeReviewSummary {
   /**
+   * @public
    * <p>The name of the code review.</p>
    */
   Name?: string;
 
   /**
+   * @public
    * <p>The Amazon Resource Name (ARN) of the <a href="https://docs.aws.amazon.com/codeguru/latest/reviewer-api/API_CodeReview.html">CodeReview</a> object.
    *       </p>
    */
   CodeReviewArn?: string;
 
   /**
+   * @public
    * <p>The name of the repository.</p>
    */
   RepositoryName?: string;
 
   /**
+   * @public
    * <p>The owner of the repository. For an Amazon Web Services CodeCommit repository, this is the Amazon Web Services account ID of the
    *       account that owns the repository. For a GitHub, GitHub Enterprise Server, or Bitbucket repository, this is the username for the account that owns the repository.
    *       For an S3 repository, it can be the username or Amazon Web Services account ID.</p>
@@ -1362,11 +1474,13 @@ export interface CodeReviewSummary {
   Owner?: string;
 
   /**
+   * @public
    * <p>The provider type of the repository association.</p>
    */
   ProviderType?: ProviderType | string;
 
   /**
+   * @public
    * <p>The state of the code review.</p>
    *          <p>The valid code review states are:</p>
    *          <ul>
@@ -1391,31 +1505,37 @@ export interface CodeReviewSummary {
   State?: JobState | string;
 
   /**
+   * @public
    * <p>The time, in milliseconds since the epoch, when the code review was created.</p>
    */
   CreatedTimeStamp?: Date;
 
   /**
+   * @public
    * <p>The time, in milliseconds since the epoch, when the code review was last updated.</p>
    */
   LastUpdatedTimeStamp?: Date;
 
   /**
+   * @public
    * <p>The type of the code review.</p>
    */
   Type?: Type | string;
 
   /**
+   * @public
    * <p>The pull request ID for the code review.</p>
    */
   PullRequestId?: string;
 
   /**
+   * @public
    * <p>The statistics from the code review.</p>
    */
   MetricsSummary?: MetricsSummary;
 
   /**
+   * @public
    * <p>Specifies the source code that is analyzed in a code review.</p>
    */
   SourceCodeType?: SourceCodeType;
@@ -1426,11 +1546,13 @@ export interface CodeReviewSummary {
  */
 export interface ListCodeReviewsResponse {
   /**
+   * @public
    * <p>A list of code reviews that meet the criteria of the request.</p>
    */
   CodeReviewSummaries?: CodeReviewSummary[];
 
   /**
+   * @public
    * <p>Pagination token.</p>
    */
   NextToken?: string;
@@ -1441,6 +1563,7 @@ export interface ListCodeReviewsResponse {
  */
 export interface ListRecommendationFeedbackRequest {
   /**
+   * @public
    * <p>If <code>nextToken</code> is returned, there are more results available. The value of
    *             <code>nextToken</code> is a unique pagination token for each page. Make the call again
    *          using the returned token to retrieve the next page. Keep all other arguments
@@ -1449,17 +1572,20 @@ export interface ListRecommendationFeedbackRequest {
   NextToken?: string;
 
   /**
+   * @public
    * <p>The maximum number of results that are returned per call. The default is 100.</p>
    */
   MaxResults?: number;
 
   /**
+   * @public
    * <p>The Amazon Resource Name (ARN) of the <a href="https://docs.aws.amazon.com/codeguru/latest/reviewer-api/API_CodeReview.html">CodeReview</a> object.
    *       </p>
    */
   CodeReviewArn: string | undefined;
 
   /**
+   * @public
    * <p>An Amazon Web Services user's account ID or Amazon Resource Name (ARN). Use this ID to query the
    *          recommendation feedback for a code review from that user.</p>
    *          <p>
@@ -1470,6 +1596,7 @@ export interface ListRecommendationFeedbackRequest {
   UserIds?: string[];
 
   /**
+   * @public
    * <p>Used to query the recommendation feedback for a given recommendation.</p>
    */
   RecommendationIds?: string[];
@@ -1481,17 +1608,20 @@ export interface ListRecommendationFeedbackRequest {
  */
 export interface RecommendationFeedbackSummary {
   /**
+   * @public
    * <p>The recommendation ID that can be used to track the provided recommendations. Later on
    *          it can be used to collect the feedback.</p>
    */
   RecommendationId?: string;
 
   /**
+   * @public
    * <p>List for storing reactions. Reactions are utf-8 text code for emojis.</p>
    */
   Reactions?: (Reaction | string)[];
 
   /**
+   * @public
    * <p>The ID of the user that gave the feedback.</p>
    *          <p>
    *          The <code>UserId</code> is an IAM principal that can be specified as an Amazon Web Services account ID or an Amazon Resource Name (ARN). For
@@ -1506,11 +1636,13 @@ export interface RecommendationFeedbackSummary {
  */
 export interface ListRecommendationFeedbackResponse {
   /**
+   * @public
    * <p>Recommendation feedback summaries corresponding to the code review ARN.</p>
    */
   RecommendationFeedbackSummaries?: RecommendationFeedbackSummary[];
 
   /**
+   * @public
    * <p>If <code>nextToken</code> is returned, there are more results available. The value of
    *             <code>nextToken</code> is a unique pagination token for each page. Make the call again
    *          using the returned token to retrieve the next page. Keep all other arguments
@@ -1524,16 +1656,19 @@ export interface ListRecommendationFeedbackResponse {
  */
 export interface ListRecommendationsRequest {
   /**
+   * @public
    * <p>Pagination token.</p>
    */
   NextToken?: string;
 
   /**
+   * @public
    * <p>The maximum number of results that are returned per call. The default is 100.</p>
    */
   MaxResults?: number;
 
   /**
+   * @public
    * <p>The Amazon Resource Name (ARN) of the <a href="https://docs.aws.amazon.com/codeguru/latest/reviewer-api/API_CodeReview.html">CodeReview</a> object.
    *       </p>
    */
@@ -1569,26 +1704,31 @@ export type RecommendationCategory = (typeof RecommendationCategory)[keyof typeo
  */
 export interface RuleMetadata {
   /**
+   * @public
    * <p>The ID of the rule.</p>
    */
   RuleId?: string;
 
   /**
+   * @public
    * <p>The name of the rule.</p>
    */
   RuleName?: string;
 
   /**
+   * @public
    * <p>A short description of the rule.</p>
    */
   ShortDescription?: string;
 
   /**
+   * @public
    * <p>A long description of the rule.</p>
    */
   LongDescription?: string;
 
   /**
+   * @public
    * <p>Tags that are associated with the rule.</p>
    */
   RuleTags?: string[];
@@ -1617,45 +1757,53 @@ export type Severity = (typeof Severity)[keyof typeof Severity];
  */
 export interface RecommendationSummary {
   /**
+   * @public
    * <p>Name of the file on which a recommendation is provided.</p>
    */
   FilePath?: string;
 
   /**
+   * @public
    * <p>The recommendation ID that can be used to track the provided recommendations. Later on
    *          it can be used to collect the feedback.</p>
    */
   RecommendationId?: string;
 
   /**
+   * @public
    * <p>Start line from where the recommendation is applicable in the source commit or source
    *          branch.</p>
    */
   StartLine?: number;
 
   /**
+   * @public
    * <p>Last line where the recommendation is applicable in the source commit or source branch.
    *          For a single line comment the start line and end line values are the same.</p>
    */
   EndLine?: number;
 
   /**
+   * @public
    * <p>A description of the recommendation generated by CodeGuru Reviewer for the lines of code between
    *          the start line and the end line.</p>
    */
   Description?: string;
 
   /**
+   * @public
    * <p>The type of a recommendation.</p>
    */
   RecommendationCategory?: RecommendationCategory | string;
 
   /**
+   * @public
    * <p>Metadata about a rule. Rule metadata includes an ID, a name, a list of tags, and a short and long description. CodeGuru Reviewer uses rules to analyze code. A rule's recommendation is included in analysis results if code is detected that violates the rule.</p>
    */
   RuleMetadata?: RuleMetadata;
 
   /**
+   * @public
    * <p>The severity of the issue in the code that generated this recommendation.</p>
    */
   Severity?: Severity | string;
@@ -1666,11 +1814,13 @@ export interface RecommendationSummary {
  */
 export interface ListRecommendationsResponse {
   /**
+   * @public
    * <p>List of recommendations for the requested code review.</p>
    */
   RecommendationSummaries?: RecommendationSummary[];
 
   /**
+   * @public
    * <p>Pagination token.</p>
    */
   NextToken?: string;
@@ -1681,11 +1831,13 @@ export interface ListRecommendationsResponse {
  */
 export interface ListRepositoryAssociationsRequest {
   /**
+   * @public
    * <p>List of provider types to use as a filter.</p>
    */
   ProviderTypes?: (ProviderType | string)[];
 
   /**
+   * @public
    * <p>List of repository association states to use as a filter.</p>
    *          <p>The valid repository association states are:</p>
    *          <ul>
@@ -1726,11 +1878,13 @@ export interface ListRepositoryAssociationsRequest {
   States?: (RepositoryAssociationState | string)[];
 
   /**
+   * @public
    * <p>List of repository names to use as a filter.</p>
    */
   Names?: string[];
 
   /**
+   * @public
    * <p>List of owners to use as a filter. For Amazon Web Services CodeCommit, it is the name of the
    *          CodeCommit account that was used to associate the repository. For other repository source
    *          providers, such as Bitbucket and GitHub Enterprise Server, this is name of the account that
@@ -1739,6 +1893,7 @@ export interface ListRepositoryAssociationsRequest {
   Owners?: string[];
 
   /**
+   * @public
    * <p>The maximum number of repository association results returned by
    *             <code>ListRepositoryAssociations</code> in paginated output. When this parameter is
    *          used, <code>ListRepositoryAssociations</code> only returns <code>maxResults</code> results
@@ -1751,6 +1906,7 @@ export interface ListRepositoryAssociationsRequest {
   MaxResults?: number;
 
   /**
+   * @public
    * <p>The <code>nextToken</code> value returned from a previous paginated
    *             <code>ListRepositoryAssociations</code> request where <code>maxResults</code> was used
    *          and the results exceeded the value of that parameter. Pagination continues from the end of
@@ -1770,32 +1926,38 @@ export interface ListRepositoryAssociationsRequest {
  */
 export interface RepositoryAssociationSummary {
   /**
+   * @public
    * <p>The Amazon Resource Name (ARN) of the <a href="https://docs.aws.amazon.com/codeguru/latest/reviewer-api/API_RepositoryAssociation.html">RepositoryAssociation</a> object. You can retrieve this ARN by calling <a href="https://docs.aws.amazon.com/codeguru/latest/reviewer-api/API_ListRepositoryAssociations.html">ListRepositoryAssociations</a>.</p>
    */
   AssociationArn?: string;
 
   /**
+   * @public
    * <p>The Amazon Resource Name (ARN) of an Amazon Web Services CodeStar Connections connection. Its format is <code>arn:aws:codestar-connections:region-id:aws-account_id:connection/connection-id</code>. For more information, see <a href="https://docs.aws.amazon.com/codestar-connections/latest/APIReference/API_Connection.html">Connection</a> in the <i>Amazon Web Services CodeStar Connections API Reference</i>.</p>
    */
   ConnectionArn?: string;
 
   /**
+   * @public
    * <p>The time, in milliseconds since the epoch, since the repository association was last
    *          updated.</p>
    */
   LastUpdatedTimeStamp?: Date;
 
   /**
+   * @public
    * <p>The repository association ID.</p>
    */
   AssociationId?: string;
 
   /**
+   * @public
    * <p>The name of the repository association.</p>
    */
   Name?: string;
 
   /**
+   * @public
    * <p>The owner of the repository. For an Amazon Web Services CodeCommit repository, this is the Amazon Web Services account ID of the
    *       account that owns the repository. For a GitHub, GitHub Enterprise Server, or Bitbucket repository, this is the username for the account that owns the repository.
    *       For an S3 repository, it can be the username or Amazon Web Services account ID.</p>
@@ -1803,11 +1965,13 @@ export interface RepositoryAssociationSummary {
   Owner?: string;
 
   /**
+   * @public
    * <p>The provider type of the repository association.</p>
    */
   ProviderType?: ProviderType | string;
 
   /**
+   * @public
    * <p>The state of the repository association.</p>
    *          <p>The valid repository association states are:</p>
    *          <ul>
@@ -1853,11 +2017,13 @@ export interface RepositoryAssociationSummary {
  */
 export interface ListRepositoryAssociationsResponse {
   /**
+   * @public
    * <p>A list of repository associations that meet the criteria of the request.</p>
    */
   RepositoryAssociationSummaries?: RepositoryAssociationSummary[];
 
   /**
+   * @public
    * <p>The <code>nextToken</code> value to include in a future <code>ListRecommendations</code>
    *          request. When the results of a <code>ListRecommendations</code> request exceed
    *             <code>maxResults</code>, this value can be used to retrieve the next page of results.
@@ -1871,6 +2037,7 @@ export interface ListRepositoryAssociationsResponse {
  */
 export interface ListTagsForResourceRequest {
   /**
+   * @public
    * <p>The Amazon Resource Name (ARN) of the <a href="https://docs.aws.amazon.com/codeguru/latest/reviewer-api/API_RepositoryAssociation.html">RepositoryAssociation</a> object. You can retrieve this ARN by calling <a href="https://docs.aws.amazon.com/codeguru/latest/reviewer-api/API_ListRepositoryAssociations.html">ListRepositoryAssociations</a>.</p>
    */
   resourceArn: string | undefined;
@@ -1881,6 +2048,7 @@ export interface ListTagsForResourceRequest {
  */
 export interface ListTagsForResourceResponse {
   /**
+   * @public
    * <p>An array of key-value pairs used to tag an associated repository. A tag is a custom attribute label with two parts:</p>
    * 		       <ul>
    *             <li>
@@ -1904,18 +2072,21 @@ export interface ListTagsForResourceResponse {
  */
 export interface PutRecommendationFeedbackRequest {
   /**
+   * @public
    * <p>The Amazon Resource Name (ARN) of the <a href="https://docs.aws.amazon.com/codeguru/latest/reviewer-api/API_CodeReview.html">CodeReview</a> object.
    *       </p>
    */
   CodeReviewArn: string | undefined;
 
   /**
+   * @public
    * <p>The recommendation ID that can be used to track the provided recommendations and then to
    *          collect the feedback.</p>
    */
   RecommendationId: string | undefined;
 
   /**
+   * @public
    * <p>List for storing reactions. Reactions are utf-8 text code for emojis. If you send an
    *          empty list it clears all your feedback.</p>
    */
@@ -1932,11 +2103,13 @@ export interface PutRecommendationFeedbackResponse {}
  */
 export interface TagResourceRequest {
   /**
+   * @public
    * <p>The Amazon Resource Name (ARN) of the <a href="https://docs.aws.amazon.com/codeguru/latest/reviewer-api/API_RepositoryAssociation.html">RepositoryAssociation</a> object. You can retrieve this ARN by calling <a href="https://docs.aws.amazon.com/codeguru/latest/reviewer-api/API_ListRepositoryAssociations.html">ListRepositoryAssociations</a>.</p>
    */
   resourceArn: string | undefined;
 
   /**
+   * @public
    * <p>An array of key-value pairs used to tag an associated repository. A tag is a custom attribute label with two parts:</p>
    * 		       <ul>
    *             <li>
@@ -1965,11 +2138,13 @@ export interface TagResourceResponse {}
  */
 export interface UntagResourceRequest {
   /**
+   * @public
    * <p>The Amazon Resource Name (ARN) of the <a href="https://docs.aws.amazon.com/codeguru/latest/reviewer-api/API_RepositoryAssociation.html">RepositoryAssociation</a> object. You can retrieve this ARN by calling <a href="https://docs.aws.amazon.com/codeguru/latest/reviewer-api/API_ListRepositoryAssociations.html">ListRepositoryAssociations</a>.</p>
    */
   resourceArn: string | undefined;
 
   /**
+   * @public
    * <p>A list of the keys for each tag you want to remove from an associated repository.</p>
    */
   TagKeys: string[] | undefined;

@@ -34,16 +34,19 @@ export type Operator = (typeof Operator)[keyof typeof Operator];
  */
 export interface Filter {
   /**
+   * @public
    * <p>The type of name to filter by.</p>
    */
   Name?: string;
 
   /**
+   * @public
    * <p>One or more values for the name to filter by.</p>
    */
   Values?: string[];
 
   /**
+   * @public
    * <p>An operator for filtering results.</p>
    */
   Operator?: Operator | string;
@@ -101,11 +104,13 @@ export type OrganizationIntegration = (typeof OrganizationIntegration)[keyof typ
  */
 export interface LinuxSubscriptionsDiscoverySettings {
   /**
+   * @public
    * <p>The Regions in which to discover data for Linux subscriptions.</p>
    */
   SourceRegions: string[] | undefined;
 
   /**
+   * @public
    * <p>Details if you have enabled resource discovery across your accounts in Organizations.</p>
    */
   OrganizationIntegration: OrganizationIntegration | string | undefined;
@@ -144,27 +149,32 @@ export type Status = (typeof Status)[keyof typeof Status];
  */
 export interface GetServiceSettingsResponse {
   /**
+   * @public
    * <p>Lists if discovery has been enabled for Linux subscriptions.</p>
    */
   LinuxSubscriptionsDiscovery?: LinuxSubscriptionsDiscovery | string;
 
   /**
+   * @public
    * <p>Lists the settings defined for Linux subscriptions discovery. The settings include if
    *       Organizations integration has been enabled, and which Regions data will be aggregated from.</p>
    */
   LinuxSubscriptionsDiscoverySettings?: LinuxSubscriptionsDiscoverySettings;
 
   /**
+   * @public
    * <p>Indicates the status of Linux subscriptions settings being applied.</p>
    */
   Status?: Status | string;
 
   /**
+   * @public
    * <p>A message which details the Linux subscriptions service settings current status.</p>
    */
   StatusMessage?: Record<string, string>;
 
   /**
+   * @public
    * <p>The Region in which License Manager displays the aggregated data for Linux
    *       subscriptions.</p>
    */
@@ -237,36 +247,43 @@ export class ValidationException extends __BaseException {
  */
 export interface Instance {
   /**
+   * @public
    * <p>The AMI ID used to launch the instance.</p>
    */
   AmiId?: string;
 
   /**
+   * @public
    * <p>The instance ID of the resource.</p>
    */
   InstanceID?: string;
 
   /**
+   * @public
    * <p>The instance type of the resource.</p>
    */
   InstanceType?: string;
 
   /**
+   * @public
    * <p>The account ID which owns the instance.</p>
    */
   AccountID?: string;
 
   /**
+   * @public
    * <p>The status of the instance.</p>
    */
   Status?: string;
 
   /**
+   * @public
    * <p>The Region the instance is running in.</p>
    */
   Region?: string;
 
   /**
+   * @public
    * <p>The usage operation of the instance. For more information, see For more information, see
    *         <a href="https://docs.aws.amazon.com/license-manager/latest/userguide/linux-subscriptions-usage-operation.html">Usage
    *         operation values</a> in the <i>License Manager User Guide</i>.</p>
@@ -274,17 +291,20 @@ export interface Instance {
   UsageOperation?: string;
 
   /**
+   * @public
    * <p>The product code for the instance. For more information, see <a href="https://docs.aws.amazon.com/license-manager/latest/userguide/linux-subscriptions-usage-operation.html">Usage
    *         operation values</a> in the <i>License Manager User Guide</i> .</p>
    */
   ProductCode?: string[];
 
   /**
+   * @public
    * <p>The time in which the last discovery updated the instance details.</p>
    */
   LastUpdatedTime?: string;
 
   /**
+   * @public
    * <p>The name of the subscription being used by the instance.</p>
    */
   SubscriptionName?: string;
@@ -297,6 +317,7 @@ export interface Instance {
  */
 export interface ListLinuxSubscriptionInstancesRequest {
   /**
+   * @public
    * <p>An array of structures that you can use to filter the results to those that match one or
    *       more sets of key-value pairs that you specify. For example, you can filter by the name of
    *         <code>AmiID</code> with an optional operator to see subscriptions that match, partially
@@ -366,11 +387,13 @@ export interface ListLinuxSubscriptionInstancesRequest {
   Filters?: Filter[];
 
   /**
+   * @public
    * <p>Maximum number of results to return in a single call.</p>
    */
   MaxResults?: number;
 
   /**
+   * @public
    * <p>Token for the next set of results.</p>
    */
   NextToken?: string;
@@ -381,11 +404,13 @@ export interface ListLinuxSubscriptionInstancesRequest {
  */
 export interface ListLinuxSubscriptionInstancesResponse {
   /**
+   * @public
    * <p>An array that contains instance objects.</p>
    */
   Instances?: Instance[];
 
   /**
+   * @public
    * <p>Token for the next set of results.</p>
    */
   NextToken?: string;
@@ -398,6 +423,7 @@ export interface ListLinuxSubscriptionInstancesResponse {
  */
 export interface ListLinuxSubscriptionsRequest {
   /**
+   * @public
    * <p>An array of structures that you can use to filter the results to those that match one or
    *       more sets of key-value pairs that you specify. For example, you can filter by the name of
    *         <code>Subscription</code> with an optional operator to see subscriptions that match,
@@ -432,11 +458,13 @@ export interface ListLinuxSubscriptionsRequest {
   Filters?: Filter[];
 
   /**
+   * @public
    * <p>Maximum number of results to return in a single call.</p>
    */
   MaxResults?: number;
 
   /**
+   * @public
    * <p>Token for the next set of results.</p>
    */
   NextToken?: string;
@@ -448,11 +476,13 @@ export interface ListLinuxSubscriptionsRequest {
  */
 export interface Subscription {
   /**
+   * @public
    * <p>The name of the subscription.</p>
    */
   Name?: string;
 
   /**
+   * @public
    * <p>The type of subscription. The type can be subscription-included with Amazon EC2, Bring Your Own
    *       Subscription model (BYOS), or from the Amazon Web Services Marketplace. Certain subscriptions may use licensing from the
    *       Amazon Web Services Marketplace as well as OS licensing from Amazon EC2 or BYOS.</p>
@@ -460,6 +490,7 @@ export interface Subscription {
   Type?: string;
 
   /**
+   * @public
    * <p>The total amount of running instances using this subscription.</p>
    */
   InstanceCount?: number;
@@ -470,11 +501,13 @@ export interface Subscription {
  */
 export interface ListLinuxSubscriptionsResponse {
   /**
+   * @public
    * <p>An array that contains subscription objects.</p>
    */
   Subscriptions?: Subscription[];
 
   /**
+   * @public
    * <p>Token for the next set of results.</p>
    */
   NextToken?: string;
@@ -485,17 +518,20 @@ export interface ListLinuxSubscriptionsResponse {
  */
 export interface UpdateServiceSettingsRequest {
   /**
+   * @public
    * <p>Describes if the discovery of Linux subscriptions is enabled.</p>
    */
   LinuxSubscriptionsDiscovery: LinuxSubscriptionsDiscovery | string | undefined;
 
   /**
+   * @public
    * <p>The settings defined for Linux subscriptions discovery. The settings include if Organizations
    *       integration has been enabled, and which Regions data will be aggregated from.</p>
    */
   LinuxSubscriptionsDiscoverySettings: LinuxSubscriptionsDiscoverySettings | undefined;
 
   /**
+   * @public
    * <p>Describes if updates are allowed to the service settings for Linux subscriptions. If you
    *       allow updates, you can aggregate Linux subscription data in more than one home Region.</p>
    */
@@ -507,27 +543,32 @@ export interface UpdateServiceSettingsRequest {
  */
 export interface UpdateServiceSettingsResponse {
   /**
+   * @public
    * <p>Lists if discovery has been enabled for Linux subscriptions.</p>
    */
   LinuxSubscriptionsDiscovery?: LinuxSubscriptionsDiscovery | string;
 
   /**
+   * @public
    * <p>The settings defined for Linux subscriptions discovery. The settings include if Organizations
    *       integration has been enabled, and which Regions data will be aggregated from.</p>
    */
   LinuxSubscriptionsDiscoverySettings?: LinuxSubscriptionsDiscoverySettings;
 
   /**
+   * @public
    * <p>Indicates the status of Linux subscriptions settings being applied.</p>
    */
   Status?: Status | string;
 
   /**
+   * @public
    * <p>A message which details the Linux subscriptions service settings current status.</p>
    */
   StatusMessage?: Record<string, string>;
 
   /**
+   * @public
    * <p>The Region in which License Manager displays the aggregated data for Linux
    *       subscriptions.</p>
    */

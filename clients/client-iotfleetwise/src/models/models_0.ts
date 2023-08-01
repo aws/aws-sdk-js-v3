@@ -73,42 +73,50 @@ export type NodeDataType = (typeof NodeDataType)[keyof typeof NodeDataType];
  */
 export interface Actuator {
   /**
+   * @public
    * <p>The fully qualified name of the actuator. For example, the fully qualified name of an
    *             actuator might be <code>Vehicle.Front.Left.Door.Lock</code>.</p>
    */
   fullyQualifiedName: string | undefined;
 
   /**
+   * @public
    * <p>The specified data type of the actuator. </p>
    */
   dataType: NodeDataType | string | undefined;
 
   /**
+   * @public
    * <p>A brief description of the actuator.</p>
    */
   description?: string;
 
   /**
+   * @public
    * <p>The scientific unit for the actuator.</p>
    */
   unit?: string;
 
   /**
+   * @public
    * <p>A list of possible values an actuator can take.</p>
    */
   allowedValues?: string[];
 
   /**
+   * @public
    * <p>The specified possible minimum value of an actuator.</p>
    */
   min?: number;
 
   /**
+   * @public
    * <p>The specified possible maximum value of an actuator.</p>
    */
   max?: number;
 
   /**
+   * @public
    * @deprecated
    *
    * <p>A specified value for the actuator.</p>
@@ -116,11 +124,13 @@ export interface Actuator {
   assignedValue?: string;
 
   /**
+   * @public
    * <p>The deprecation message for the node or the branch that was moved or deleted.</p>
    */
   deprecationMessage?: string;
 
   /**
+   * @public
    * <p>A comment in addition to the description.</p>
    */
   comment?: string;
@@ -131,11 +141,13 @@ export interface Actuator {
  */
 export interface AssociateVehicleFleetRequest {
   /**
+   * @public
    * <p> The unique ID of the vehicle to associate with the fleet. </p>
    */
   vehicleName: string | undefined;
 
   /**
+   * @public
    * <p> The ID of a fleet. </p>
    */
   fleetId: string | undefined;
@@ -154,6 +166,7 @@ export class InternalServerException extends __BaseException {
   readonly name: "InternalServerException" = "InternalServerException";
   readonly $fault: "server" = "server";
   /**
+   * @public
    * <p>The number of seconds to wait before retrying the command.</p>
    */
   retryAfterSeconds?: number;
@@ -180,11 +193,13 @@ export class ResourceNotFoundException extends __BaseException {
   readonly name: "ResourceNotFoundException" = "ResourceNotFoundException";
   readonly $fault: "client" = "client";
   /**
+   * @public
    * <p>The identifier of the resource that wasn't found.</p>
    */
   resourceId: string | undefined;
 
   /**
+   * @public
    * <p>The type of resource that wasn't found.</p>
    */
   resourceType: string | undefined;
@@ -212,16 +227,19 @@ export class ThrottlingException extends __BaseException {
   readonly name: "ThrottlingException" = "ThrottlingException";
   readonly $fault: "client" = "client";
   /**
+   * @public
    * <p>The quota identifier of the applied throttling rules for this request.</p>
    */
   quotaCode?: string;
 
   /**
+   * @public
    * <p>The code for the service that couldn't be completed due to throttling.</p>
    */
   serviceCode?: string;
 
   /**
+   * @public
    * <p>The number of seconds to wait before retrying the command.</p>
    */
   retryAfterSeconds?: number;
@@ -249,11 +267,13 @@ export class ThrottlingException extends __BaseException {
  */
 export interface ValidationExceptionField {
   /**
+   * @public
    * <p>The name of the parameter field with the validation error.</p>
    */
   name: string | undefined;
 
   /**
+   * @public
    * <p>A message about the validation error.</p>
    */
   message: string | undefined;
@@ -283,11 +303,13 @@ export class ValidationException extends __BaseException {
   readonly name: "ValidationException" = "ValidationException";
   readonly $fault: "client" = "client";
   /**
+   * @public
    * <p>The reason the input failed to satisfy the constraints specified by an Amazon Web Services service.</p>
    */
   reason?: ValidationExceptionReason | string;
 
   /**
+   * @public
    * <p>The list of fields that fail to satisfy the constraints specified by an Amazon Web Services service.</p>
    */
   fieldList?: ValidationExceptionField[];
@@ -314,42 +336,50 @@ export class ValidationException extends __BaseException {
  */
 export interface Attribute {
   /**
+   * @public
    * <p>The fully qualified name of the attribute. For example, the fully qualified name of an
    *             attribute might be <code>Vehicle.Body.Engine.Type</code>.</p>
    */
   fullyQualifiedName: string | undefined;
 
   /**
+   * @public
    * <p>The specified data type of the attribute. </p>
    */
   dataType: NodeDataType | string | undefined;
 
   /**
+   * @public
    * <p>A brief description of the attribute.</p>
    */
   description?: string;
 
   /**
+   * @public
    * <p>The scientific unit for the attribute.</p>
    */
   unit?: string;
 
   /**
+   * @public
    * <p>A list of possible values an attribute can be assigned.</p>
    */
   allowedValues?: string[];
 
   /**
+   * @public
    * <p>The specified possible minimum value of the attribute.</p>
    */
   min?: number;
 
   /**
+   * @public
    * <p>The specified possible maximum value of the attribute.</p>
    */
   max?: number;
 
   /**
+   * @public
    * @deprecated
    *
    * <p>A specified value for the attribute.</p>
@@ -357,16 +387,19 @@ export interface Attribute {
   assignedValue?: string;
 
   /**
+   * @public
    * <p>The default value of the attribute.</p>
    */
   defaultValue?: string;
 
   /**
+   * @public
    * <p>The deprecation message for the node or the branch that was moved or deleted.</p>
    */
   deprecationMessage?: string;
 
   /**
+   * @public
    * <p>A comment in addition to the description.</p>
    */
   comment?: string;
@@ -392,11 +425,13 @@ export type VehicleAssociationBehavior = (typeof VehicleAssociationBehavior)[key
  */
 export interface Tag {
   /**
+   * @public
    * <p>The tag's key.</p>
    */
   Key: string | undefined;
 
   /**
+   * @public
    * <p>The tag's value.</p>
    */
   Value: string | undefined;
@@ -408,22 +443,26 @@ export interface Tag {
  */
 export interface CreateVehicleRequestItem {
   /**
+   * @public
    * <p>The unique ID of the vehicle to create.</p>
    */
   vehicleName: string | undefined;
 
   /**
+   * @public
    * <p>The ARN of the vehicle model (model manifest) to create the vehicle from.</p>
    */
   modelManifestArn: string | undefined;
 
   /**
+   * @public
    * <p>The Amazon Resource Name (ARN) of a decoder manifest associated with the vehicle to create.
    *         </p>
    */
   decoderManifestArn: string | undefined;
 
   /**
+   * @public
    * <p>Static information about a vehicle in a key-value pair. For example: <code>"engine
    *                 Type"</code> : <code>"v6"</code>
    *          </p>
@@ -431,12 +470,14 @@ export interface CreateVehicleRequestItem {
   attributes?: Record<string, string>;
 
   /**
+   * @public
    * <p>An option to create a new Amazon Web Services IoT thing when creating a vehicle, or to validate an
    *             existing thing as a vehicle.</p>
    */
   associationBehavior?: VehicleAssociationBehavior | string;
 
   /**
+   * @public
    * <p>Metadata which can be used to manage the vehicle.</p>
    */
   tags?: Tag[];
@@ -447,6 +488,7 @@ export interface CreateVehicleRequestItem {
  */
 export interface BatchCreateVehicleRequest {
   /**
+   * @public
    * <p> A list of information about each vehicle to create. For more information, see the
    *                  API data type.</p>
    */
@@ -459,16 +501,19 @@ export interface BatchCreateVehicleRequest {
  */
 export interface CreateVehicleError {
   /**
+   * @public
    * <p>The ID of the vehicle with the error.</p>
    */
   vehicleName?: string;
 
   /**
+   * @public
    * <p>An HTTP error code.</p>
    */
   code?: string;
 
   /**
+   * @public
    * <p>A description of the HTTP error.</p>
    */
   message?: string;
@@ -480,16 +525,19 @@ export interface CreateVehicleError {
  */
 export interface CreateVehicleResponseItem {
   /**
+   * @public
    * <p>The unique ID of the vehicle to create.</p>
    */
   vehicleName?: string;
 
   /**
+   * @public
    * <p>The ARN of the created vehicle.</p>
    */
   arn?: string;
 
   /**
+   * @public
    * <p>The ARN of a created or validated Amazon Web Services IoT thing.</p>
    */
   thingArn?: string;
@@ -500,12 +548,14 @@ export interface CreateVehicleResponseItem {
  */
 export interface BatchCreateVehicleResponse {
   /**
+   * @public
    * <p> A list of information about a batch of created vehicles. For more information, see
    *             the  API data type.</p>
    */
   vehicles?: CreateVehicleResponseItem[];
 
   /**
+   * @public
    * <p>A list of information about creation errors, or an empty list if there aren't any
    *             errors. </p>
    */
@@ -520,11 +570,13 @@ export class LimitExceededException extends __BaseException {
   readonly name: "LimitExceededException" = "LimitExceededException";
   readonly $fault: "client" = "client";
   /**
+   * @public
    * <p>The identifier of the resource that was exceeded.</p>
    */
   resourceId: string | undefined;
 
   /**
+   * @public
    * <p>The type of resource that was exceeded.</p>
    */
   resourceType: string | undefined;
@@ -564,21 +616,25 @@ export type UpdateMode = (typeof UpdateMode)[keyof typeof UpdateMode];
  */
 export interface UpdateVehicleRequestItem {
   /**
+   * @public
    * <p>The unique ID of the vehicle to update.</p>
    */
   vehicleName: string | undefined;
 
   /**
+   * @public
    * <p>The ARN of the vehicle model (model manifest) associated with the vehicle to update.</p>
    */
   modelManifestArn?: string;
 
   /**
+   * @public
    * <p>The ARN of the signal decoder manifest associated with the vehicle to update.</p>
    */
   decoderManifestArn?: string;
 
   /**
+   * @public
    * <p>Static information about a vehicle in a key-value pair. For example:</p>
    *         <p>
    *             <code>"engineType"</code> : <code>"1.3 L R2"</code>
@@ -587,6 +643,7 @@ export interface UpdateVehicleRequestItem {
   attributes?: Record<string, string>;
 
   /**
+   * @public
    * <p>The method the specified attributes will update the existing attributes on the
    *             vehicle. Use<code>Overwite</code> to replace the vehicle attributes with the specified
    *             attributes. Or use <code>Merge</code> to combine all attributes.</p>
@@ -600,6 +657,7 @@ export interface UpdateVehicleRequestItem {
  */
 export interface BatchUpdateVehicleRequest {
   /**
+   * @public
    * <p> A list of information about the vehicles to update. For more information, see the
    *                  API data type.</p>
    */
@@ -612,16 +670,19 @@ export interface BatchUpdateVehicleRequest {
  */
 export interface UpdateVehicleError {
   /**
+   * @public
    * <p>The ID of the vehicle with the error.</p>
    */
   vehicleName?: string;
 
   /**
+   * @public
    * <p>The relevant HTTP error code (400+).</p>
    */
   code?: number;
 
   /**
+   * @public
    * <p>A message associated with the error.</p>
    */
   message?: string;
@@ -633,11 +694,13 @@ export interface UpdateVehicleError {
  */
 export interface UpdateVehicleResponseItem {
   /**
+   * @public
    * <p>The unique ID of the updated vehicle.</p>
    */
   vehicleName?: string;
 
   /**
+   * @public
    * <p>The Amazon Resource Name (ARN) of the updated vehicle.</p>
    */
   arn?: string;
@@ -648,6 +711,7 @@ export interface UpdateVehicleResponseItem {
  */
 export interface BatchUpdateVehicleResponse {
   /**
+   * @public
    * <p> A list of information about the batch of updated vehicles. </p>
    *         <note>
    *             <p>This list contains only unique IDs for the vehicles that were updated.</p>
@@ -656,6 +720,7 @@ export interface BatchUpdateVehicleResponse {
   vehicles?: UpdateVehicleResponseItem[];
 
   /**
+   * @public
    * <p>A list of information about errors returned while updating a batch of vehicles, or, if
    *             there aren't any errors, an empty list.</p>
    */
@@ -668,22 +733,26 @@ export interface BatchUpdateVehicleResponse {
  */
 export interface Branch {
   /**
+   * @public
    * <p>The fully qualified name of the branch. For example, the fully qualified name of a
    *             branch might be <code>Vehicle.Body.Engine</code>.</p>
    */
   fullyQualifiedName: string | undefined;
 
   /**
+   * @public
    * <p>A brief description of the branch.</p>
    */
   description?: string;
 
   /**
+   * @public
    * <p>The deprecation message for the node or the branch that was moved or deleted.</p>
    */
   deprecationMessage?: string;
 
   /**
+   * @public
    * <p>A comment in addition to the description.</p>
    */
   comment?: string;
@@ -698,11 +767,13 @@ export class ConflictException extends __BaseException {
   readonly name: "ConflictException" = "ConflictException";
   readonly $fault: "client" = "client";
   /**
+   * @public
    * <p>The resource on which there are conflicting operations.</p>
    */
   resource: string | undefined;
 
   /**
+   * @public
    * <p>The type of resource on which there are conflicting operations..</p>
    */
   resourceType: string | undefined;
@@ -743,12 +814,14 @@ export type TriggerMode = (typeof TriggerMode)[keyof typeof TriggerMode];
  */
 export interface ConditionBasedCollectionScheme {
   /**
+   * @public
    * <p>The logical expression used to recognize what data to collect. For example,
    *                 <code>$variable.Vehicle.OutsideAirTemperature &gt;= 105.0</code>.</p>
    */
   expression: string | undefined;
 
   /**
+   * @public
    * <p>The minimum duration of time between two triggering events to collect data, in
    *             milliseconds.</p>
    *         <note>
@@ -758,6 +831,7 @@ export interface ConditionBasedCollectionScheme {
   minimumTriggerIntervalMs?: number;
 
   /**
+   * @public
    * <p>Whether to collect data for all triggering events (<code>ALWAYS</code>). Specify
    *                 (<code>RISING_EDGE</code>), or specify only when the condition first evaluates to
    *             false. For example, triggering on "AirbagDeployed"; Users aren't interested on
@@ -767,6 +841,7 @@ export interface ConditionBasedCollectionScheme {
   triggerMode?: TriggerMode | string;
 
   /**
+   * @public
    * <p>Specifies the version of the conditional expression language.</p>
    */
   conditionLanguageVersion?: number;
@@ -779,6 +854,7 @@ export interface ConditionBasedCollectionScheme {
  */
 export interface TimeBasedCollectionScheme {
   /**
+   * @public
    * <p>The time period (in milliseconds) to decide how often to collect data. For example,
    *             if the time period is <code>60000</code>, the Edge Agent software collects data once
    *             every minute.</p>
@@ -800,6 +876,7 @@ export type CollectionScheme =
  */
 export namespace CollectionScheme {
   /**
+   * @public
    * <p>Information about a collection scheme that uses a time period to decide how often to
    *             collect data.</p>
    */
@@ -810,6 +887,7 @@ export namespace CollectionScheme {
   }
 
   /**
+   * @public
    * <p>Information about a collection scheme that uses a simple logical expression to
    *             recognize what data to collect.</p>
    */
@@ -819,6 +897,9 @@ export namespace CollectionScheme {
     $unknown?: never;
   }
 
+  /**
+   * @public
+   */
   export interface $UnknownMember {
     timeBasedCollectionScheme?: never;
     conditionBasedCollectionScheme?: never;
@@ -888,11 +969,13 @@ export type StorageCompressionFormat = (typeof StorageCompressionFormat)[keyof t
  */
 export interface S3Config {
   /**
+   * @public
    * <p>The Amazon Resource Name (ARN) of the Amazon S3 bucket.</p>
    */
   bucketArn: string | undefined;
 
   /**
+   * @public
    * <p>Specify the format that files are saved in the Amazon S3 bucket. You can save files in an Apache Parquet or JSON format.</p>
    *         <ul>
    *             <li>
@@ -908,12 +991,14 @@ export interface S3Config {
   dataFormat?: DataFormat | string;
 
   /**
+   * @public
    * <p>By default, stored data is compressed as a .gzip file. Compressed files have a reduced
    *             file size, which can optimize the cost of data storage.</p>
    */
   storageCompressionFormat?: StorageCompressionFormat | string;
 
   /**
+   * @public
    * <p>(Optional) Enter an S3 bucket prefix. The prefix is the string of characters after the bucket name and before the object name. You can use the prefix to organize data stored in Amazon S3 buckets. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/using-prefixes.html">Organizing objects using prefixes</a> in the <i>Amazon Simple Storage Service User Guide</i>.</p>
    *         <p>By default, Amazon Web Services IoT FleetWise sets the prefix <code>processed-data/year=YY/month=MM/date=DD/hour=HH/</code> (in UTC) to data it delivers to Amazon S3. You can enter a prefix to append it to this default prefix. For example, if you enter the prefix <code>vehicles</code>, the prefix will be <code>vehicles/processed-data/year=YY/month=MM/date=DD/hour=HH/</code>.</p>
    */
@@ -926,11 +1011,13 @@ export interface S3Config {
  */
 export interface TimestreamConfig {
   /**
+   * @public
    * <p>The Amazon Resource Name (ARN) of the Amazon Timestream table.</p>
    */
   timestreamTableArn: string | undefined;
 
   /**
+   * @public
    * <p>The Amazon Resource Name (ARN) of the task execution role that grants Amazon Web Services IoT FleetWise permission to deliver data to the Amazon Timestream table.</p>
    */
   executionRoleArn: string | undefined;
@@ -950,6 +1037,7 @@ export type DataDestinationConfig =
  */
 export namespace DataDestinationConfig {
   /**
+   * @public
    * <p>The Amazon S3 bucket where the Amazon Web Services IoT FleetWise campaign sends data.</p>
    */
   export interface S3ConfigMember {
@@ -959,6 +1047,7 @@ export namespace DataDestinationConfig {
   }
 
   /**
+   * @public
    * <p>The Amazon Timestream table where the campaign sends data.</p>
    */
   export interface TimestreamConfigMember {
@@ -967,6 +1056,9 @@ export namespace DataDestinationConfig {
     $unknown?: never;
   }
 
+  /**
+   * @public
+   */
   export interface $UnknownMember {
     s3Config?: never;
     timestreamConfig?: never;
@@ -1006,16 +1098,19 @@ export type DiagnosticsMode = (typeof DiagnosticsMode)[keyof typeof DiagnosticsM
  */
 export interface SignalInformation {
   /**
+   * @public
    * <p>The name of the signal.</p>
    */
   name: string | undefined;
 
   /**
+   * @public
    * <p>The maximum number of samples to collect.</p>
    */
   maxSampleCount?: number;
 
   /**
+   * @public
    * <p>The minimum duration of time (in milliseconds) between two triggering events to
    *             collect data.</p>
    *         <note>
@@ -1044,27 +1139,32 @@ export type SpoolingMode = (typeof SpoolingMode)[keyof typeof SpoolingMode];
  */
 export interface CreateCampaignRequest {
   /**
+   * @public
    * <p> The name of the campaign to create. </p>
    */
   name: string | undefined;
 
   /**
+   * @public
    * <p>An optional description of the campaign to help identify its purpose.</p>
    */
   description?: string;
 
   /**
+   * @public
    * <p>(Optional) The Amazon Resource Name (ARN) of the signal catalog to associate with the campaign.
    *         </p>
    */
   signalCatalogArn: string | undefined;
 
   /**
+   * @public
    * <p> The ARN of the vehicle or fleet to deploy a campaign to. </p>
    */
   targetArn: string | undefined;
 
   /**
+   * @public
    * <p>(Optional) The time, in milliseconds, to deliver a campaign after it was approved. If
    *             it's not specified, <code>0</code> is used.</p>
    *         <p>Default: <code>0</code>
@@ -1073,6 +1173,7 @@ export interface CreateCampaignRequest {
   startTime?: Date;
 
   /**
+   * @public
    * <p> (Optional) The time the campaign expires, in seconds since epoch (January 1, 1970 at
    *             midnight UTC time). Vehicle data isn't collected after the campaign expires. </p>
    *         <p>Default: 253402214400 (December 31, 9999, 00:00:00 UTC)</p>
@@ -1080,6 +1181,7 @@ export interface CreateCampaignRequest {
   expiryTime?: Date;
 
   /**
+   * @public
    * <p> (Optional) How long (in milliseconds) to collect raw data after a triggering event
    *             initiates the collection. If it's not specified, <code>0</code> is used.</p>
    *         <p>Default: <code>0</code>
@@ -1088,6 +1190,7 @@ export interface CreateCampaignRequest {
   postTriggerCollectionDuration?: number;
 
   /**
+   * @public
    * <p> (Optional) Option for a vehicle to send diagnostic trouble codes to Amazon Web Services IoT FleetWise. If you
    *             want to send diagnostic trouble codes, use <code>SEND_ACTIVE_DTCS</code>. If it's not
    *             specified, <code>OFF</code> is used.</p>
@@ -1097,6 +1200,7 @@ export interface CreateCampaignRequest {
   diagnosticsMode?: DiagnosticsMode | string;
 
   /**
+   * @public
    * <p>(Optional) Whether to store collected data after a vehicle lost a connection with the
    *             cloud. After a connection is re-established, the data is automatically forwarded to
    *             Amazon Web Services IoT FleetWise. If you want to store collected data when a vehicle loses connection with the
@@ -1107,6 +1211,7 @@ export interface CreateCampaignRequest {
   spoolingMode?: SpoolingMode | string;
 
   /**
+   * @public
    * <p> (Optional) Whether to compress signals before transmitting data to Amazon Web Services IoT FleetWise. If you
    *             don't want to compress the signals, use <code>OFF</code>. If it's not specified,
    *                 <code>SNAPPY</code> is used. </p>
@@ -1116,6 +1221,7 @@ export interface CreateCampaignRequest {
   compression?: Compression | string;
 
   /**
+   * @public
    * <p>(Optional) A number indicating the priority of one campaign over another campaign for
    *             a certain vehicle or fleet. A campaign with the lowest value is deployed to vehicles
    *             before any other campaigns. If it's not specified, <code>0</code> is used. </p>
@@ -1125,17 +1231,20 @@ export interface CreateCampaignRequest {
   priority?: number;
 
   /**
+   * @public
    * <p>(Optional) A list of information about signals to collect. </p>
    */
   signalsToCollect?: SignalInformation[];
 
   /**
+   * @public
    * <p> The data collection scheme associated with the campaign. You can specify a scheme
    *             that collects data based on time or an event.</p>
    */
   collectionScheme: CollectionScheme | undefined;
 
   /**
+   * @public
    * <p> (Optional) A list of vehicle attributes to associate with a campaign. </p>
    *         <p>Enrich the data with specified vehicle attributes. For example, add <code>make</code> and <code>model</code> to the campaign, and Amazon Web Services IoT FleetWise will associate the data with those attributes as dimensions in Amazon Timestream. You can then query the data against <code>make</code> and <code>model</code>.</p>
    *         <p>Default: An empty array</p>
@@ -1143,11 +1252,13 @@ export interface CreateCampaignRequest {
   dataExtraDimensions?: string[];
 
   /**
+   * @public
    * <p>Metadata that can be used to manage the campaign.</p>
    */
   tags?: Tag[];
 
   /**
+   * @public
    * <p>The destination where the campaign sends data. You can choose to send data to be stored in Amazon S3 or Amazon Timestream.</p>
    *         <p>Amazon S3 optimizes the cost of data storage and provides additional mechanisms to use vehicle data, such as data lakes, centralized data storage, data processing pipelines, and analytics. </p>
    *         <p>You can use Amazon Timestream to access and analyze time series data, and Timestream to query
@@ -1161,11 +1272,13 @@ export interface CreateCampaignRequest {
  */
 export interface CreateCampaignResponse {
   /**
+   * @public
    * <p>The name of the created campaign.</p>
    */
   name?: string;
 
   /**
+   * @public
    * <p> The ARN of the created campaign. </p>
    */
   arn?: string;
@@ -1176,6 +1289,7 @@ export interface CreateCampaignResponse {
  */
 export interface DeleteCampaignRequest {
   /**
+   * @public
    * <p> The name of the campaign to delete. </p>
    */
   name: string | undefined;
@@ -1186,11 +1300,13 @@ export interface DeleteCampaignRequest {
  */
 export interface DeleteCampaignResponse {
   /**
+   * @public
    * <p>The name of the deleted campaign.</p>
    */
   name?: string;
 
   /**
+   * @public
    * <p> The Amazon Resource Name (ARN) of the deleted campaign.</p>
    *         <note>
    *             <p>The ARN isn’t returned if a campaign doesn’t exist.</p>
@@ -1204,6 +1320,7 @@ export interface DeleteCampaignResponse {
  */
 export interface GetCampaignRequest {
   /**
+   * @public
    * <p> The name of the campaign to retrieve information about. </p>
    */
   name: string | undefined;
@@ -1230,31 +1347,37 @@ export type CampaignStatus = (typeof CampaignStatus)[keyof typeof CampaignStatus
  */
 export interface GetCampaignResponse {
   /**
+   * @public
    * <p>The name of the campaign.</p>
    */
   name?: string;
 
   /**
+   * @public
    * <p> The Amazon Resource Name (ARN) of the campaign. </p>
    */
   arn?: string;
 
   /**
+   * @public
    * <p>The description of the campaign.</p>
    */
   description?: string;
 
   /**
+   * @public
    * <p> The ARN of a signal catalog. </p>
    */
   signalCatalogArn?: string;
 
   /**
+   * @public
    * <p> The ARN of the vehicle or the fleet targeted by the campaign. </p>
    */
   targetArn?: string;
 
   /**
+   * @public
    * <p>The state of the campaign. The status can be one of: <code>CREATING</code>,
    *                 <code>WAITING_FOR_APPROVAL</code>, <code>RUNNING</code>, and <code>SUSPENDED</code>.
    *         </p>
@@ -1262,28 +1385,33 @@ export interface GetCampaignResponse {
   status?: CampaignStatus | string;
 
   /**
+   * @public
    * <p> The time, in milliseconds, to deliver a campaign after it was approved.</p>
    */
   startTime?: Date;
 
   /**
+   * @public
    * <p> The time the campaign expires, in seconds since epoch (January 1, 1970 at midnight
    *             UTC time). Vehicle data won't be collected after the campaign expires.</p>
    */
   expiryTime?: Date;
 
   /**
+   * @public
    * <p> How long (in seconds) to collect raw data after a triggering event initiates the
    *             collection. </p>
    */
   postTriggerCollectionDuration?: number;
 
   /**
+   * @public
    * <p> Option for a vehicle to send diagnostic trouble codes to Amazon Web Services IoT FleetWise. </p>
    */
   diagnosticsMode?: DiagnosticsMode | string;
 
   /**
+   * @public
    * <p> Whether to store collected data after a vehicle lost a connection with the cloud.
    *             After a connection is re-established, the data is automatically forwarded to Amazon Web Services IoT FleetWise.
    *         </p>
@@ -1291,6 +1419,7 @@ export interface GetCampaignResponse {
   spoolingMode?: SpoolingMode | string;
 
   /**
+   * @public
    * <p> Whether to compress signals before transmitting data to Amazon Web Services IoT FleetWise. If
    *                 <code>OFF</code> is specified, the signals aren't compressed. If it's not specified,
    *                 <code>SNAPPY</code> is used. </p>
@@ -1298,6 +1427,7 @@ export interface GetCampaignResponse {
   compression?: Compression | string;
 
   /**
+   * @public
    * <p> A number indicating the priority of one campaign over another campaign for a certain
    *             vehicle or fleet. A campaign with the lowest value is deployed to vehicles before any
    *             other campaigns.</p>
@@ -1305,32 +1435,38 @@ export interface GetCampaignResponse {
   priority?: number;
 
   /**
+   * @public
    * <p> Information about a list of signals to collect data on. </p>
    */
   signalsToCollect?: SignalInformation[];
 
   /**
+   * @public
    * <p> Information about the data collection scheme associated with the campaign. </p>
    */
   collectionScheme?: CollectionScheme;
 
   /**
+   * @public
    * <p> A list of vehicle attributes associated with the campaign. </p>
    */
   dataExtraDimensions?: string[];
 
   /**
+   * @public
    * <p> The time the campaign was created in seconds since epoch (January 1, 1970 at midnight
    *             UTC time). </p>
    */
   creationTime?: Date;
 
   /**
+   * @public
    * <p>The last time the campaign was modified.</p>
    */
   lastModificationTime?: Date;
 
   /**
+   * @public
    * <p>The destination where the campaign sends data. You can choose to send data to be stored in Amazon S3 or Amazon Timestream.</p>
    *         <p>Amazon S3 optimizes the cost of data storage and provides additional mechanisms to use vehicle data, such as data lakes, centralized data storage, data processing pipelines, and analytics. </p>
    *         <p>You can use Amazon Timestream to access and analyze time series data, and Timestream to query
@@ -1344,17 +1480,20 @@ export interface GetCampaignResponse {
  */
 export interface ListCampaignsRequest {
   /**
+   * @public
    * <p>A pagination token for the next set of results.</p>
    *          <p>If the results of a search are large, only a portion of the results are returned, and a <code>nextToken</code> pagination token is returned in the response. To retrieve the next set of results, reissue the search request and include the returned token. When all results have been returned, the response does not contain a pagination token value. </p>
    */
   nextToken?: string;
 
   /**
+   * @public
    * <p> The maximum number of items to return, between 1 and 100, inclusive. </p>
    */
   maxResults?: number;
 
   /**
+   * @public
    * <p>Optional parameter to filter the results by the status of each created campaign in
    *             your account. The status can be one of: <code>CREATING</code>,
    *                 <code>WAITING_FOR_APPROVAL</code>, <code>RUNNING</code>, or
@@ -1371,31 +1510,37 @@ export interface ListCampaignsRequest {
  */
 export interface CampaignSummary {
   /**
+   * @public
    * <p>The Amazon Resource Name (ARN) of a campaign.</p>
    */
   arn?: string;
 
   /**
+   * @public
    * <p>The name of a campaign.</p>
    */
   name?: string;
 
   /**
+   * @public
    * <p>The description of the campaign.</p>
    */
   description?: string;
 
   /**
+   * @public
    * <p>The ARN of the signal catalog associated with the campaign.</p>
    */
   signalCatalogArn?: string;
 
   /**
+   * @public
    * <p>The ARN of a vehicle or fleet to which the campaign is deployed.</p>
    */
   targetArn?: string;
 
   /**
+   * @public
    * <p>The state of a campaign. The status can be one of the following:</p>
    *         <ul>
    *             <li>
@@ -1424,11 +1569,13 @@ export interface CampaignSummary {
   status?: CampaignStatus | string;
 
   /**
+   * @public
    * <p>The time the campaign was created.</p>
    */
   creationTime: Date | undefined;
 
   /**
+   * @public
    * <p>The last time the campaign was modified.</p>
    */
   lastModificationTime: Date | undefined;
@@ -1439,11 +1586,13 @@ export interface CampaignSummary {
  */
 export interface ListCampaignsResponse {
   /**
+   * @public
    * <p> A summary of information about each campaign. </p>
    */
   campaignSummaries?: CampaignSummary[];
 
   /**
+   * @public
    * <p> The token to retrieve the next set of results, or <code>null</code> if there are no more results. </p>
    */
   nextToken?: string;
@@ -1470,22 +1619,26 @@ export type UpdateCampaignAction = (typeof UpdateCampaignAction)[keyof typeof Up
  */
 export interface UpdateCampaignRequest {
   /**
+   * @public
    * <p> The name of the campaign to update. </p>
    */
   name: string | undefined;
 
   /**
+   * @public
    * <p>The description of the campaign.</p>
    */
   description?: string;
 
   /**
+   * @public
    * <p> A list of vehicle attributes to associate with a signal. </p>
    *         <p>Default: An empty array</p>
    */
   dataExtraDimensions?: string[];
 
   /**
+   * @public
    * <p> Specifies how to update a campaign. The action can be one of the following:</p>
    *         <ul>
    *             <li>
@@ -1515,16 +1668,19 @@ export interface UpdateCampaignRequest {
  */
 export interface UpdateCampaignResponse {
   /**
+   * @public
    * <p> The Amazon Resource Name (ARN) of the campaign. </p>
    */
   arn?: string;
 
   /**
+   * @public
    * <p>The name of the updated campaign.</p>
    */
   name?: string;
 
   /**
+   * @public
    * <p>The state of a campaign. The status can be one of:</p>
    *         <ul>
    *             <li>
@@ -1559,17 +1715,20 @@ export interface UpdateCampaignResponse {
  */
 export interface CanDbcDefinition {
   /**
+   * @public
    * <p>Contains information about a network interface.</p>
    */
   networkInterface: string | undefined;
 
   /**
+   * @public
    * <p>A list of DBC files. You can upload only one DBC file for each network interface and
    *             specify up to five (inclusive) files in the list.</p>
    */
   canDbcFiles: Uint8Array[] | undefined;
 
   /**
+   * @public
    * <p>Pairs every signal specified in your vehicle model with a signal decoder.</p>
    */
   signalsMap?: Record<string, string>;
@@ -1581,16 +1740,19 @@ export interface CanDbcDefinition {
  */
 export interface CanInterface {
   /**
+   * @public
    * <p>The unique name of the interface.</p>
    */
   name: string | undefined;
 
   /**
+   * @public
    * <p>The name of the communication protocol for the interface.</p>
    */
   protocolName?: string;
 
   /**
+   * @public
    * <p>The version of the communication protocol for the interface.</p>
    */
   protocolVersion?: string;
@@ -1603,21 +1765,25 @@ export interface CanInterface {
  */
 export interface CanSignal {
   /**
+   * @public
    * <p>The ID of the message.</p>
    */
   messageId: number | undefined;
 
   /**
+   * @public
    * <p>Whether the byte ordering of a CAN message is big-endian.</p>
    */
   isBigEndian: boolean | undefined;
 
   /**
+   * @public
    * <p>Whether the message data is specified as a signed value.</p>
    */
   isSigned: boolean | undefined;
 
   /**
+   * @public
    * <p>Indicates the beginning of the CAN signal. This should always be the least significant bit (LSB).</p>
    *         <p>This value might be different from the value in a DBC file. For little endian signals,
    *                 <code>startBit</code> is the same value as in the DBC file. For big endian signals
@@ -1627,21 +1793,25 @@ export interface CanSignal {
   startBit: number | undefined;
 
   /**
+   * @public
    * <p>The offset used to calculate the signal value. Combined with factor, the calculation is <code>value = raw_value * factor + offset</code>.</p>
    */
   offset: number | undefined;
 
   /**
+   * @public
    * <p>A multiplier used to decode the CAN message.</p>
    */
   factor: number | undefined;
 
   /**
+   * @public
    * <p>How many bytes of data are in the message.</p>
    */
   length: number | undefined;
 
   /**
+   * @public
    * <p>The name of the signal.</p>
    */
   name?: string;
@@ -1667,11 +1837,13 @@ export type LogType = (typeof LogType)[keyof typeof LogType];
  */
 export interface CloudWatchLogDeliveryOptions {
   /**
+   * @public
    * <p>The type of log to send data to Amazon CloudWatch Logs.</p>
    */
   logType: LogType | string | undefined;
 
   /**
+   * @public
    * <p>The Amazon CloudWatch Logs group the operation sends data to.</p>
    */
   logGroupName?: string;
@@ -1683,36 +1855,43 @@ export interface CloudWatchLogDeliveryOptions {
  */
 export interface ObdInterface {
   /**
+   * @public
    * <p>The name of the interface.</p>
    */
   name: string | undefined;
 
   /**
+   * @public
    * <p>The ID of the message requesting vehicle data.</p>
    */
   requestMessageId: number | undefined;
 
   /**
+   * @public
    * <p>The standard OBD II PID.</p>
    */
   obdStandard?: string;
 
   /**
+   * @public
    * <p>The maximum number message requests per second.</p>
    */
   pidRequestIntervalSeconds?: number;
 
   /**
+   * @public
    * <p>The maximum number message requests per diagnostic trouble code per second.</p>
    */
   dtcRequestIntervalSeconds?: number;
 
   /**
+   * @public
    * <p>Whether to use extended IDs in the message.</p>
    */
   useExtendedIds?: boolean;
 
   /**
+   * @public
    * <p>Whether the vehicle has a transmission control module (TCM).</p>
    */
   hasTransmissionEcu?: boolean;
@@ -1742,11 +1921,13 @@ export type NetworkInterfaceType = (typeof NetworkInterfaceType)[keyof typeof Ne
  */
 export interface NetworkInterface {
   /**
+   * @public
    * <p>The ID of the network interface.</p>
    */
   interfaceId: string | undefined;
 
   /**
+   * @public
    * <p>The network protocol for the vehicle. For example, <code>CAN_SIGNAL</code> specifies
    *             a protocol that defines how data is communicated between electronic control units
    *             (ECUs). <code>OBD_SIGNAL</code> specifies a protocol that defines how self-diagnostic
@@ -1755,12 +1936,14 @@ export interface NetworkInterface {
   type: NetworkInterfaceType | string | undefined;
 
   /**
+   * @public
    * <p>Information about a network interface specified by the Controller Area Network (CAN)
    *             protocol.</p>
    */
   canInterface?: CanInterface;
 
   /**
+   * @public
    * <p>Information about a network interface specified by the On-board diagnostic (OBD) II
    *             protocol.</p>
    */
@@ -1774,46 +1957,55 @@ export interface NetworkInterface {
  */
 export interface ObdSignal {
   /**
+   * @public
    * <p>The length of the requested data.</p>
    */
   pidResponseLength: number | undefined;
 
   /**
+   * @public
    * <p>The mode of operation (diagnostic service) in a message.</p>
    */
   serviceMode: number | undefined;
 
   /**
+   * @public
    * <p>The diagnostic code used to request data from a vehicle for this signal.</p>
    */
   pid: number | undefined;
 
   /**
+   * @public
    * <p>A multiplier used to decode the message.</p>
    */
   scaling: number | undefined;
 
   /**
+   * @public
    * <p>The offset used to calculate the signal value. Combined with scaling, the calculation is <code>value = raw_value * scaling + offset</code>.</p>
    */
   offset: number | undefined;
 
   /**
+   * @public
    * <p>Indicates the beginning of the message.</p>
    */
   startByte: number | undefined;
 
   /**
+   * @public
    * <p>The length of a message.</p>
    */
   byteLength: number | undefined;
 
   /**
+   * @public
    * <p>The number of positions to shift bits in the message.</p>
    */
   bitRightShift?: number;
 
   /**
+   * @public
    * <p>The number of bits to mask in a message.</p>
    */
   bitMaskLength?: number;
@@ -1839,11 +2031,13 @@ export type SignalDecoderType = (typeof SignalDecoderType)[keyof typeof SignalDe
  */
 export interface SignalDecoder {
   /**
+   * @public
    * <p>The fully qualified name of a signal decoder as defined in a vehicle model.</p>
    */
   fullyQualifiedName: string | undefined;
 
   /**
+   * @public
    * <p>The network protocol for the vehicle. For example, <code>CAN_SIGNAL</code> specifies
    *             a protocol that defines how data is communicated between electronic control units
    *             (ECUs). <code>OBD_SIGNAL</code> specifies a protocol that defines how self-diagnostic
@@ -1852,16 +2046,19 @@ export interface SignalDecoder {
   type: SignalDecoderType | string | undefined;
 
   /**
+   * @public
    * <p>The ID of a network interface that specifies what network protocol a vehicle follows.</p>
    */
   interfaceId: string | undefined;
 
   /**
+   * @public
    * <p>Information about signal decoder using the Controller Area Network (CAN) protocol.</p>
    */
   canSignal?: CanSignal;
 
   /**
+   * @public
    * <p>Information about signal decoder using the On-board diagnostic (OBD) II protocol.</p>
    */
   obdSignal?: ObdSignal;
@@ -1872,31 +2069,37 @@ export interface SignalDecoder {
  */
 export interface CreateDecoderManifestRequest {
   /**
+   * @public
    * <p> The unique name of the decoder manifest to create.</p>
    */
   name: string | undefined;
 
   /**
+   * @public
    * <p> A brief description of the decoder manifest. </p>
    */
   description?: string;
 
   /**
+   * @public
    * <p> The Amazon Resource Name (ARN) of the vehicle model (model manifest). </p>
    */
   modelManifestArn: string | undefined;
 
   /**
+   * @public
    * <p> A list of information about signal decoders. </p>
    */
   signalDecoders?: SignalDecoder[];
 
   /**
+   * @public
    * <p> A list of information about available network interfaces. </p>
    */
   networkInterfaces?: NetworkInterface[];
 
   /**
+   * @public
    * <p>Metadata that can be used to manage the decoder manifest.</p>
    */
   tags?: Tag[];
@@ -1907,11 +2110,13 @@ export interface CreateDecoderManifestRequest {
  */
 export interface CreateDecoderManifestResponse {
   /**
+   * @public
    * <p> The name of the created decoder manifest. </p>
    */
   name: string | undefined;
 
   /**
+   * @public
    * <p> The ARN of the created decoder manifest. </p>
    */
   arn: string | undefined;
@@ -1942,11 +2147,13 @@ export type NetworkInterfaceFailureReason =
  */
 export interface InvalidNetworkInterface {
   /**
+   * @public
    * <p>The ID of the interface that isn't valid.</p>
    */
   interfaceId?: string;
 
   /**
+   * @public
    * <p>A message about why the interface isn't valid. </p>
    */
   reason?: NetworkInterfaceFailureReason | string;
@@ -1980,11 +2187,13 @@ export type SignalDecoderFailureReason = (typeof SignalDecoderFailureReason)[key
  */
 export interface InvalidSignalDecoder {
   /**
+   * @public
    * <p>The name of a signal decoder that isn't valid.</p>
    */
   name?: string;
 
   /**
+   * @public
    * <p>A message about why the signal decoder isn't valid.</p>
    */
   reason?: SignalDecoderFailureReason | string;
@@ -1998,11 +2207,13 @@ export class DecoderManifestValidationException extends __BaseException {
   readonly name: "DecoderManifestValidationException" = "DecoderManifestValidationException";
   readonly $fault: "client" = "client";
   /**
+   * @public
    * <p>The request couldn't be completed because of invalid signals in the request.</p>
    */
   invalidSignals?: InvalidSignalDecoder[];
 
   /**
+   * @public
    * <p>The request couldn't be completed because of invalid network interfaces in the request.</p>
    */
   invalidNetworkInterfaces?: InvalidNetworkInterface[];
@@ -2027,21 +2238,25 @@ export class DecoderManifestValidationException extends __BaseException {
  */
 export interface CreateFleetRequest {
   /**
+   * @public
    * <p> The unique ID of the fleet to create. </p>
    */
   fleetId: string | undefined;
 
   /**
+   * @public
    * <p> A brief description of the fleet to create. </p>
    */
   description?: string;
 
   /**
+   * @public
    * <p> The Amazon Resource Name (ARN) of a signal catalog. </p>
    */
   signalCatalogArn: string | undefined;
 
   /**
+   * @public
    * <p>Metadata that can be used to manage the fleet.</p>
    */
   tags?: Tag[];
@@ -2052,11 +2267,13 @@ export interface CreateFleetRequest {
  */
 export interface CreateFleetResponse {
   /**
+   * @public
    * <p> The ID of the created fleet. </p>
    */
   id: string | undefined;
 
   /**
+   * @public
    * <p> The ARN of the created fleet. </p>
    */
   arn: string | undefined;
@@ -2067,26 +2284,31 @@ export interface CreateFleetResponse {
  */
 export interface CreateModelManifestRequest {
   /**
+   * @public
    * <p> The name of the vehicle model to create.</p>
    */
   name: string | undefined;
 
   /**
+   * @public
    * <p> A brief description of the vehicle model. </p>
    */
   description?: string;
 
   /**
+   * @public
    * <p> A list of nodes, which are a general abstraction of signals. </p>
    */
   nodes: string[] | undefined;
 
   /**
+   * @public
    * <p> The Amazon Resource Name (ARN) of a signal catalog. </p>
    */
   signalCatalogArn: string | undefined;
 
   /**
+   * @public
    * <p>Metadata that can be used to manage the vehicle model.</p>
    */
   tags?: Tag[];
@@ -2097,11 +2319,13 @@ export interface CreateModelManifestRequest {
  */
 export interface CreateModelManifestResponse {
   /**
+   * @public
    * <p> The name of the created vehicle model.</p>
    */
   name: string | undefined;
 
   /**
+   * @public
    * <p> The ARN of the created vehicle model.</p>
    */
   arn: string | undefined;
@@ -2113,11 +2337,13 @@ export interface CreateModelManifestResponse {
  */
 export interface InvalidSignal {
   /**
+   * @public
    * <p>The name of the signal that isn't valid.</p>
    */
   name?: string;
 
   /**
+   * @public
    * <p>A message about why the signal isn't valid.</p>
    */
   reason?: string;
@@ -2131,6 +2357,7 @@ export class InvalidSignalsException extends __BaseException {
   readonly name: "InvalidSignalsException" = "InvalidSignalsException";
   readonly $fault: "client" = "client";
   /**
+   * @public
    * <p>The signals which caused the exception.</p>
    */
   invalidSignals?: InvalidSignal[];
@@ -2159,47 +2386,56 @@ export class InvalidSignalsException extends __BaseException {
  */
 export interface Sensor {
   /**
+   * @public
    * <p>The fully qualified name of the sensor. For example, the fully qualified name of a
    *             sensor might be <code>Vehicle.Body.Engine.Battery</code>.</p>
    */
   fullyQualifiedName: string | undefined;
 
   /**
+   * @public
    * <p>The specified data type of the sensor. </p>
    */
   dataType: NodeDataType | string | undefined;
 
   /**
+   * @public
    * <p>A brief description of a sensor.</p>
    */
   description?: string;
 
   /**
+   * @public
    * <p>The scientific unit of measurement for data collected by the sensor.</p>
    */
   unit?: string;
 
   /**
+   * @public
    * <p>A list of possible values a sensor can take.</p>
    */
   allowedValues?: string[];
 
   /**
+   * @public
    * <p>The specified possible minimum value of the sensor.</p>
    */
   min?: number;
 
   /**
+   * @public
    * <p>The specified possible maximum value of the sensor.</p>
    */
   max?: number;
 
   /**
+   * @public
    * <p>The deprecation message for the node or the branch that was moved or deleted.</p>
    */
   deprecationMessage?: string;
 
   /**
+   * @public
    * <p>A comment in addition to the description.</p>
    */
   comment?: string;
@@ -2222,6 +2458,7 @@ export type Node =
  */
 export namespace Node {
   /**
+   * @public
    * <p>Information about a node specified as a branch.</p>
    *         <note>
    *             <p>A group of signals that are defined in a hierarchical structure.</p>
@@ -2236,6 +2473,7 @@ export namespace Node {
   }
 
   /**
+   * @public
    * <p>An input component that reports the environmental condition of a vehicle.</p>
    *         <note>
    *             <p>You can collect data about fluid levels, temperatures, vibrations, or battery
@@ -2251,6 +2489,7 @@ export namespace Node {
   }
 
   /**
+   * @public
    * <p>Information about a node specified as an actuator.</p>
    *         <note>
    *             <p>An actuator is a digital representation of a vehicle device.</p>
@@ -2265,6 +2504,7 @@ export namespace Node {
   }
 
   /**
+   * @public
    * <p>Information about a node specified as an attribute.</p>
    *         <note>
    *             <p>An attribute represents static information about a vehicle.</p>
@@ -2278,6 +2518,9 @@ export namespace Node {
     $unknown?: never;
   }
 
+  /**
+   * @public
+   */
   export interface $UnknownMember {
     branch?: never;
     sensor?: never;
@@ -2308,22 +2551,26 @@ export namespace Node {
  */
 export interface CreateSignalCatalogRequest {
   /**
+   * @public
    * <p> The name of the signal catalog to create. </p>
    */
   name: string | undefined;
 
   /**
+   * @public
    * <p>A brief description of the signal catalog.</p>
    */
   description?: string;
 
   /**
+   * @public
    * <p> A list of information about nodes, which are a general abstraction of signals. For
    *             more information, see the  API data type.</p>
    */
   nodes?: Node[];
 
   /**
+   * @public
    * <p>Metadata that can be used to manage the signal catalog.</p>
    */
   tags?: Tag[];
@@ -2334,11 +2581,13 @@ export interface CreateSignalCatalogRequest {
  */
 export interface CreateSignalCatalogResponse {
   /**
+   * @public
    * <p> The name of the created signal catalog. </p>
    */
   name: string | undefined;
 
   /**
+   * @public
    * <p> The ARN of the created signal catalog. </p>
    */
   arn: string | undefined;
@@ -2353,11 +2602,13 @@ export class InvalidNodeException extends __BaseException {
   readonly name: "InvalidNodeException" = "InvalidNodeException";
   readonly $fault: "client" = "client";
   /**
+   * @public
    * <p>The specified node type isn't valid.</p>
    */
   invalidNodes?: Node[];
 
   /**
+   * @public
    * <p>The reason the node validation failed.</p>
    */
   reason?: string;
@@ -2382,21 +2633,25 @@ export class InvalidNodeException extends __BaseException {
  */
 export interface CreateVehicleRequest {
   /**
+   * @public
    * <p> The unique ID of the vehicle to create. </p>
    */
   vehicleName: string | undefined;
 
   /**
+   * @public
    * <p> The Amazon Resource Name ARN of a vehicle model. </p>
    */
   modelManifestArn: string | undefined;
 
   /**
+   * @public
    * <p> The ARN of a decoder manifest. </p>
    */
   decoderManifestArn: string | undefined;
 
   /**
+   * @public
    * <p>Static information about a vehicle in a key-value pair. For example:
    *                 <code>"engineType"</code> : <code>"1.3 L R2"</code>
    *          </p>
@@ -2405,6 +2660,7 @@ export interface CreateVehicleRequest {
   attributes?: Record<string, string>;
 
   /**
+   * @public
    * <p> An option to create a new Amazon Web Services IoT thing when creating a vehicle, or to validate an
    *             existing Amazon Web Services IoT thing as a vehicle. </p>
    *         <p>Default: <code/>
@@ -2413,6 +2669,7 @@ export interface CreateVehicleRequest {
   associationBehavior?: VehicleAssociationBehavior | string;
 
   /**
+   * @public
    * <p>Metadata that can be used to manage the vehicle.</p>
    */
   tags?: Tag[];
@@ -2423,16 +2680,19 @@ export interface CreateVehicleRequest {
  */
 export interface CreateVehicleResponse {
   /**
+   * @public
    * <p>The unique ID of the created vehicle.</p>
    */
   vehicleName?: string;
 
   /**
+   * @public
    * <p> The ARN of the created vehicle. </p>
    */
   arn?: string;
 
   /**
+   * @public
    * <p> The ARN of a created or validated Amazon Web Services IoT thing. </p>
    */
   thingArn?: string;
@@ -2443,6 +2703,7 @@ export interface CreateVehicleResponse {
  */
 export interface DeleteDecoderManifestRequest {
   /**
+   * @public
    * <p> The name of the decoder manifest to delete. </p>
    */
   name: string | undefined;
@@ -2453,11 +2714,13 @@ export interface DeleteDecoderManifestRequest {
  */
 export interface DeleteDecoderManifestResponse {
   /**
+   * @public
    * <p>The name of the deleted decoder manifest.</p>
    */
   name: string | undefined;
 
   /**
+   * @public
    * <p>The Amazon Resource Name (ARN) of the deleted decoder manifest.</p>
    */
   arn: string | undefined;
@@ -2468,6 +2731,7 @@ export interface DeleteDecoderManifestResponse {
  */
 export interface GetDecoderManifestRequest {
   /**
+   * @public
    * <p> The name of the decoder manifest to retrieve information about. </p>
    */
   name: string | undefined;
@@ -2492,27 +2756,32 @@ export type ManifestStatus = (typeof ManifestStatus)[keyof typeof ManifestStatus
  */
 export interface GetDecoderManifestResponse {
   /**
+   * @public
    * <p> The name of the decoder manifest. </p>
    */
   name: string | undefined;
 
   /**
+   * @public
    * <p> The Amazon Resource Name (ARN) of the decoder manifest. </p>
    */
   arn: string | undefined;
 
   /**
+   * @public
    * <p> A brief description of the decoder manifest.</p>
    */
   description?: string;
 
   /**
+   * @public
    * <p> The ARN of a vehicle model (model manifest) associated with the decoder
    *             manifest.</p>
    */
   modelManifestArn?: string;
 
   /**
+   * @public
    * <p> The state of the decoder manifest. If the status is <code>ACTIVE</code>, the decoder
    *             manifest can't be edited. If the status is marked <code>DRAFT</code>, you can edit the
    *             decoder manifest.</p>
@@ -2520,11 +2789,13 @@ export interface GetDecoderManifestResponse {
   status?: ManifestStatus | string;
 
   /**
+   * @public
    * <p> The time the decoder manifest was created in seconds since epoch (January 1, 1970 at midnight UTC time). </p>
    */
   creationTime: Date | undefined;
 
   /**
+   * @public
    * <p> The time the decoder manifest was last updated in seconds since epoch (January 1, 1970 at midnight UTC time).  </p>
    */
   lastModificationTime: Date | undefined;
@@ -2541,6 +2812,7 @@ export type NetworkFileDefinition = NetworkFileDefinition.CanDbcMember | Network
  */
 export namespace NetworkFileDefinition {
   /**
+   * @public
    * <p>Information, including CAN DBC files, about the configurations used to create a
    *             decoder manifest.</p>
    */
@@ -2549,6 +2821,9 @@ export namespace NetworkFileDefinition {
     $unknown?: never;
   }
 
+  /**
+   * @public
+   */
   export interface $UnknownMember {
     canDbc?: never;
     $unknown: [string, any];
@@ -2570,11 +2845,13 @@ export namespace NetworkFileDefinition {
  */
 export interface ImportDecoderManifestRequest {
   /**
+   * @public
    * <p> The name of the decoder manifest to import. </p>
    */
   name: string | undefined;
 
   /**
+   * @public
    * <p> The file to load into an Amazon Web Services account. </p>
    */
   networkFileDefinitions: NetworkFileDefinition[] | undefined;
@@ -2585,11 +2862,13 @@ export interface ImportDecoderManifestRequest {
  */
 export interface ImportDecoderManifestResponse {
   /**
+   * @public
    * <p> The name of the imported decoder manifest. </p>
    */
   name: string | undefined;
 
   /**
+   * @public
    * <p> The Amazon Resource Name (ARN) of the decoder manifest that was imported. </p>
    */
   arn: string | undefined;
@@ -2600,17 +2879,20 @@ export interface ImportDecoderManifestResponse {
  */
 export interface ListDecoderManifestNetworkInterfacesRequest {
   /**
+   * @public
    * <p> The name of the decoder manifest to list information about. </p>
    */
   name: string | undefined;
 
   /**
+   * @public
    * <p>A pagination token for the next set of results.</p>
    *          <p>If the results of a search are large, only a portion of the results are returned, and a <code>nextToken</code> pagination token is returned in the response. To retrieve the next set of results, reissue the search request and include the returned token. When all results have been returned, the response does not contain a pagination token value. </p>
    */
   nextToken?: string;
 
   /**
+   * @public
    * <p> The maximum number of items to return, between 1 and 100, inclusive. </p>
    */
   maxResults?: number;
@@ -2621,11 +2903,13 @@ export interface ListDecoderManifestNetworkInterfacesRequest {
  */
 export interface ListDecoderManifestNetworkInterfacesResponse {
   /**
+   * @public
    * <p> A list of information about network interfaces. </p>
    */
   networkInterfaces?: NetworkInterface[];
 
   /**
+   * @public
    * <p> The token to retrieve the next set of results, or <code>null</code> if there are no more results. </p>
    */
   nextToken?: string;
@@ -2636,18 +2920,21 @@ export interface ListDecoderManifestNetworkInterfacesResponse {
  */
 export interface ListDecoderManifestsRequest {
   /**
+   * @public
    * <p> The Amazon Resource Name (ARN) of a vehicle model (model manifest) associated with
    *             the decoder manifest. </p>
    */
   modelManifestArn?: string;
 
   /**
+   * @public
    * <p>A pagination token for the next set of results.</p>
    *          <p>If the results of a search are large, only a portion of the results are returned, and a <code>nextToken</code> pagination token is returned in the response. To retrieve the next set of results, reissue the search request and include the returned token. When all results have been returned, the response does not contain a pagination token value. </p>
    */
   nextToken?: string;
 
   /**
+   * @public
    * <p> The maximum number of items to return, between 1 and 100, inclusive. </p>
    */
   maxResults?: number;
@@ -2660,28 +2947,33 @@ export interface ListDecoderManifestsRequest {
  */
 export interface DecoderManifestSummary {
   /**
+   * @public
    * <p>The name of the decoder manifest.</p>
    */
   name?: string;
 
   /**
+   * @public
    * <p>The ARN of a vehicle model (model manifest) associated with the decoder manifest.
    *         </p>
    */
   arn?: string;
 
   /**
+   * @public
    * <p>The ARN of a vehicle model (model manifest) associated with the decoder
    *             manifest.</p>
    */
   modelManifestArn?: string;
 
   /**
+   * @public
    * <p>A brief description of the decoder manifest.</p>
    */
   description?: string;
 
   /**
+   * @public
    * <p>The state of the decoder manifest. If the status is <code>ACTIVE</code>, the decoder
    *             manifest can't be edited. If the status is marked <code>DRAFT</code>, you can edit the
    *             decoder manifest.</p>
@@ -2689,12 +2981,14 @@ export interface DecoderManifestSummary {
   status?: ManifestStatus | string;
 
   /**
+   * @public
    * <p>The time the decoder manifest was created in seconds since epoch (January 1, 1970 at
    *             midnight UTC time).</p>
    */
   creationTime: Date | undefined;
 
   /**
+   * @public
    * <p>The time the decoder manifest was last updated in seconds since epoch (January 1,
    *             1970 at midnight UTC time).</p>
    */
@@ -2706,11 +3000,13 @@ export interface DecoderManifestSummary {
  */
 export interface ListDecoderManifestsResponse {
   /**
+   * @public
    * <p> A list of information about each decoder manifest. </p>
    */
   summaries?: DecoderManifestSummary[];
 
   /**
+   * @public
    * <p> The token to retrieve the next set of results, or <code>null</code> if there are no more results. </p>
    */
   nextToken?: string;
@@ -2721,17 +3017,20 @@ export interface ListDecoderManifestsResponse {
  */
 export interface ListDecoderManifestSignalsRequest {
   /**
+   * @public
    * <p> The name of the decoder manifest to list information about. </p>
    */
   name: string | undefined;
 
   /**
+   * @public
    * <p>A pagination token for the next set of results.</p>
    *          <p>If the results of a search are large, only a portion of the results are returned, and a <code>nextToken</code> pagination token is returned in the response. To retrieve the next set of results, reissue the search request and include the returned token. When all results have been returned, the response does not contain a pagination token value. </p>
    */
   nextToken?: string;
 
   /**
+   * @public
    * <p> The maximum number of items to return, between 1 and 100, inclusive. </p>
    */
   maxResults?: number;
@@ -2742,11 +3041,13 @@ export interface ListDecoderManifestSignalsRequest {
  */
 export interface ListDecoderManifestSignalsResponse {
   /**
+   * @public
    * <p> Information about a list of signals to decode. </p>
    */
   signalDecoders?: SignalDecoder[];
 
   /**
+   * @public
    * <p> The token to retrieve the next set of results, or <code>null</code> if there are no more results. </p>
    */
   nextToken?: string;
@@ -2757,50 +3058,59 @@ export interface ListDecoderManifestSignalsResponse {
  */
 export interface UpdateDecoderManifestRequest {
   /**
+   * @public
    * <p> The name of the decoder manifest to update.</p>
    */
   name: string | undefined;
 
   /**
+   * @public
    * <p> A brief description of the decoder manifest to update. </p>
    */
   description?: string;
 
   /**
+   * @public
    * <p> A list of information about decoding additional signals to add to the decoder
    *             manifest. </p>
    */
   signalDecodersToAdd?: SignalDecoder[];
 
   /**
+   * @public
    * <p> A list of updated information about decoding signals to update in the decoder
    *             manifest. </p>
    */
   signalDecodersToUpdate?: SignalDecoder[];
 
   /**
+   * @public
    * <p> A list of signal decoders to remove from the decoder manifest. </p>
    */
   signalDecodersToRemove?: string[];
 
   /**
+   * @public
    * <p> A list of information about the network interfaces to add to the decoder manifest.
    *         </p>
    */
   networkInterfacesToAdd?: NetworkInterface[];
 
   /**
+   * @public
    * <p> A list of information about the network interfaces to update in the decoder manifest.
    *         </p>
    */
   networkInterfacesToUpdate?: NetworkInterface[];
 
   /**
+   * @public
    * <p> A list of network interfaces to remove from the decoder manifest.</p>
    */
   networkInterfacesToRemove?: string[];
 
   /**
+   * @public
    * <p> The state of the decoder manifest. If the status is <code>ACTIVE</code>, the decoder
    *             manifest can't be edited. If the status is <code>DRAFT</code>, you can edit the decoder
    *             manifest. </p>
@@ -2813,11 +3123,13 @@ export interface UpdateDecoderManifestRequest {
  */
 export interface UpdateDecoderManifestResponse {
   /**
+   * @public
    * <p> The name of the updated decoder manifest. </p>
    */
   name: string | undefined;
 
   /**
+   * @public
    * <p> The Amazon Resource Name (ARN) of the updated decoder manifest. </p>
    */
   arn: string | undefined;
@@ -2828,6 +3140,7 @@ export interface UpdateDecoderManifestResponse {
  */
 export interface DeleteFleetRequest {
   /**
+   * @public
    * <p> The ID of the fleet to delete. </p>
    */
   fleetId: string | undefined;
@@ -2838,11 +3151,13 @@ export interface DeleteFleetRequest {
  */
 export interface DeleteFleetResponse {
   /**
+   * @public
    * <p>The ID of the deleted fleet.</p>
    */
   id?: string;
 
   /**
+   * @public
    * <p>The Amazon Resource Name (ARN) of the deleted fleet.</p>
    */
   arn?: string;
@@ -2853,6 +3168,7 @@ export interface DeleteFleetResponse {
  */
 export interface DeleteModelManifestRequest {
   /**
+   * @public
    * <p> The name of the model manifest to delete. </p>
    */
   name: string | undefined;
@@ -2863,11 +3179,13 @@ export interface DeleteModelManifestRequest {
  */
 export interface DeleteModelManifestResponse {
   /**
+   * @public
    * <p>The name of the deleted model manifest.</p>
    */
   name: string | undefined;
 
   /**
+   * @public
    * <p>The Amazon Resource Name (ARN) of the deleted model manifest.</p>
    */
   arn: string | undefined;
@@ -2878,6 +3196,7 @@ export interface DeleteModelManifestResponse {
  */
 export interface DeleteSignalCatalogRequest {
   /**
+   * @public
    * <p> The name of the signal catalog to delete. </p>
    */
   name: string | undefined;
@@ -2888,11 +3207,13 @@ export interface DeleteSignalCatalogRequest {
  */
 export interface DeleteSignalCatalogResponse {
   /**
+   * @public
    * <p>The name of the deleted signal catalog.</p>
    */
   name: string | undefined;
 
   /**
+   * @public
    * <p>The Amazon Resource Name (ARN) of the deleted signal catalog.</p>
    */
   arn: string | undefined;
@@ -2903,6 +3224,7 @@ export interface DeleteSignalCatalogResponse {
  */
 export interface DeleteVehicleRequest {
   /**
+   * @public
    * <p>The ID of the vehicle to delete. </p>
    */
   vehicleName: string | undefined;
@@ -2913,11 +3235,13 @@ export interface DeleteVehicleRequest {
  */
 export interface DeleteVehicleResponse {
   /**
+   * @public
    * <p>The ID of the deleted vehicle.</p>
    */
   vehicleName: string | undefined;
 
   /**
+   * @public
    * <p>The Amazon Resource Name (ARN) of the deleted vehicle.</p>
    */
   arn: string | undefined;
@@ -2928,11 +3252,13 @@ export interface DeleteVehicleResponse {
  */
 export interface DisassociateVehicleFleetRequest {
   /**
+   * @public
    * <p> The unique ID of the vehicle to disassociate from the fleet.</p>
    */
   vehicleName: string | undefined;
 
   /**
+   * @public
    * <p> The unique ID of a fleet. </p>
    */
   fleetId: string | undefined;
@@ -2948,17 +3274,20 @@ export interface DisassociateVehicleFleetResponse {}
  */
 export interface ListFleetsForVehicleRequest {
   /**
+   * @public
    * <p> The ID of the vehicle to retrieve information about. </p>
    */
   vehicleName: string | undefined;
 
   /**
+   * @public
    * <p>A pagination token for the next set of results.</p>
    *          <p>If the results of a search are large, only a portion of the results are returned, and a <code>nextToken</code> pagination token is returned in the response. To retrieve the next set of results, reissue the search request and include the returned token. When all results have been returned, the response does not contain a pagination token value. </p>
    */
   nextToken?: string;
 
   /**
+   * @public
    * <p> The maximum number of items to return, between 1 and 100, inclusive. </p>
    */
   maxResults?: number;
@@ -2969,11 +3298,13 @@ export interface ListFleetsForVehicleRequest {
  */
 export interface ListFleetsForVehicleResponse {
   /**
+   * @public
    * <p> A list of fleet IDs that the vehicle is associated with. </p>
    */
   fleets?: string[];
 
   /**
+   * @public
    * <p> The token to retrieve the next set of results, or <code>null</code> if there are no more results. </p>
    */
   nextToken?: string;
@@ -2984,6 +3315,7 @@ export interface ListFleetsForVehicleResponse {
  */
 export interface GetFleetRequest {
   /**
+   * @public
    * <p> The ID of the fleet to retrieve information about. </p>
    */
   fleetId: string | undefined;
@@ -2994,32 +3326,38 @@ export interface GetFleetRequest {
  */
 export interface GetFleetResponse {
   /**
+   * @public
    * <p> The ID of the fleet.</p>
    */
   id: string | undefined;
 
   /**
+   * @public
    * <p> The Amazon Resource Name (ARN) of the fleet. </p>
    */
   arn: string | undefined;
 
   /**
+   * @public
    * <p> A brief description of the fleet. </p>
    */
   description?: string;
 
   /**
+   * @public
    * <p> The ARN of a signal catalog associated with the fleet. </p>
    */
   signalCatalogArn: string | undefined;
 
   /**
+   * @public
    * <p> The time the fleet was created in seconds since epoch (January 1, 1970 at midnight
    *             UTC time). </p>
    */
   creationTime: Date | undefined;
 
   /**
+   * @public
    * <p> The time the fleet was last updated, in seconds since epoch (January 1, 1970 at
    *             midnight UTC time). </p>
    */
@@ -3031,12 +3369,14 @@ export interface GetFleetResponse {
  */
 export interface ListFleetsRequest {
   /**
+   * @public
    * <p>A pagination token for the next set of results.</p>
    *          <p>If the results of a search are large, only a portion of the results are returned, and a <code>nextToken</code> pagination token is returned in the response. To retrieve the next set of results, reissue the search request and include the returned token. When all results have been returned, the response does not contain a pagination token value. </p>
    */
   nextToken?: string;
 
   /**
+   * @public
    * <p> The maximum number of items to return, between 1 and 100, inclusive. </p>
    */
   maxResults?: number;
@@ -3050,32 +3390,38 @@ export interface ListFleetsRequest {
  */
 export interface FleetSummary {
   /**
+   * @public
    * <p>The unique ID of the fleet.</p>
    */
   id: string | undefined;
 
   /**
+   * @public
    * <p>The Amazon Resource Name (ARN) of the fleet.</p>
    */
   arn: string | undefined;
 
   /**
+   * @public
    * <p>A brief description of the fleet.</p>
    */
   description?: string;
 
   /**
+   * @public
    * <p>The ARN of the signal catalog associated with the fleet.</p>
    */
   signalCatalogArn: string | undefined;
 
   /**
+   * @public
    * <p>The time the fleet was created, in seconds since epoch (January 1, 1970 at midnight
    *             UTC time).</p>
    */
   creationTime: Date | undefined;
 
   /**
+   * @public
    * <p>The time the fleet was last updated in seconds since epoch (January 1, 1970 at
    *             midnight UTC time).</p>
    */
@@ -3087,11 +3433,13 @@ export interface FleetSummary {
  */
 export interface ListFleetsResponse {
   /**
+   * @public
    * <p> A list of information for each fleet. </p>
    */
   fleetSummaries?: FleetSummary[];
 
   /**
+   * @public
    * <p> The token to retrieve the next set of results, or <code>null</code> if there are no more results. </p>
    */
   nextToken?: string;
@@ -3102,11 +3450,13 @@ export interface ListFleetsResponse {
  */
 export interface UpdateFleetRequest {
   /**
+   * @public
    * <p> The ID of the fleet to update. </p>
    */
   fleetId: string | undefined;
 
   /**
+   * @public
    * <p> An updated description of the fleet. </p>
    */
   description?: string;
@@ -3117,11 +3467,13 @@ export interface UpdateFleetRequest {
  */
 export interface UpdateFleetResponse {
   /**
+   * @public
    * <p>The ID of the updated fleet.</p>
    */
   id?: string;
 
   /**
+   * @public
    * <p>The Amazon Resource Name (ARN) of the updated fleet.</p>
    */
   arn?: string;
@@ -3132,17 +3484,20 @@ export interface UpdateFleetResponse {
  */
 export interface ListVehiclesInFleetRequest {
   /**
+   * @public
    * <p> The ID of a fleet. </p>
    */
   fleetId: string | undefined;
 
   /**
+   * @public
    * <p>A pagination token for the next set of results.</p>
    *          <p>If the results of a search are large, only a portion of the results are returned, and a <code>nextToken</code> pagination token is returned in the response. To retrieve the next set of results, reissue the search request and include the returned token. When all results have been returned, the response does not contain a pagination token value. </p>
    */
   nextToken?: string;
 
   /**
+   * @public
    * <p> The maximum number of items to return, between 1 and 100, inclusive. </p>
    */
   maxResults?: number;
@@ -3153,11 +3508,13 @@ export interface ListVehiclesInFleetRequest {
  */
 export interface ListVehiclesInFleetResponse {
   /**
+   * @public
    * <p> A list of vehicles associated with the fleet. </p>
    */
   vehicles?: string[];
 
   /**
+   * @public
    * <p> The token to retrieve the next set of results, or <code>null</code> if there are no more results. </p>
    */
   nextToken?: string;
@@ -3177,6 +3534,7 @@ export type FormattedVss = FormattedVss.VssJsonMember | FormattedVss.$UnknownMem
  */
 export namespace FormattedVss {
   /**
+   * @public
    * <p>Provides the VSS in JSON format.</p>
    */
   export interface VssJsonMember {
@@ -3184,6 +3542,9 @@ export namespace FormattedVss {
     $unknown?: never;
   }
 
+  /**
+   * @public
+   */
   export interface $UnknownMember {
     vssJson?: never;
     $unknown: [string, any];
@@ -3210,6 +3571,7 @@ export interface GetLoggingOptionsRequest {}
  */
 export interface GetLoggingOptionsResponse {
   /**
+   * @public
    * <p>Returns information about log delivery to Amazon CloudWatch Logs.</p>
    */
   cloudWatchLogDelivery: CloudWatchLogDeliveryOptions | undefined;
@@ -3220,6 +3582,7 @@ export interface GetLoggingOptionsResponse {
  */
 export interface GetModelManifestRequest {
   /**
+   * @public
    * <p> The name of the vehicle model to retrieve information about. </p>
    */
   name: string | undefined;
@@ -3230,26 +3593,31 @@ export interface GetModelManifestRequest {
  */
 export interface GetModelManifestResponse {
   /**
+   * @public
    * <p> The name of the vehicle model. </p>
    */
   name: string | undefined;
 
   /**
+   * @public
    * <p> The Amazon Resource Name (ARN) of the vehicle model. </p>
    */
   arn: string | undefined;
 
   /**
+   * @public
    * <p> A brief description of the vehicle model. </p>
    */
   description?: string;
 
   /**
+   * @public
    * <p> The ARN of the signal catalog associated with the vehicle model. </p>
    */
   signalCatalogArn?: string;
 
   /**
+   * @public
    * <p> The state of the vehicle model. If the status is <code>ACTIVE</code>, the vehicle
    *             model can't be edited. You can edit the vehicle model if the status is marked
    *                 <code>DRAFT</code>.</p>
@@ -3257,12 +3625,14 @@ export interface GetModelManifestResponse {
   status?: ManifestStatus | string;
 
   /**
+   * @public
    * <p>The time the vehicle model was created, in seconds since epoch (January 1, 1970 at
    *             midnight UTC time).</p>
    */
   creationTime: Date | undefined;
 
   /**
+   * @public
    * <p>The last time the vehicle model was modified.</p>
    */
   lastModificationTime: Date | undefined;
@@ -3295,11 +3665,13 @@ export type RegistrationStatus = (typeof RegistrationStatus)[keyof typeof Regist
  */
 export interface IamRegistrationResponse {
   /**
+   * @public
    * <p>The Amazon Resource Name (ARN) of the IAM role to register.</p>
    */
   roleArn: string | undefined;
 
   /**
+   * @public
    * <p>The status of registering your IAM resource. The status can be one of
    *                 <code>REGISTRATION_SUCCESS</code>, <code>REGISTRATION_PENDING</code>,
    *                 <code>REGISTRATION_FAILURE</code>.</p>
@@ -3307,6 +3679,7 @@ export interface IamRegistrationResponse {
   registrationStatus: RegistrationStatus | string | undefined;
 
   /**
+   * @public
    * <p>A message associated with a registration error.</p>
    */
   errorMessage?: string;
@@ -3318,26 +3691,31 @@ export interface IamRegistrationResponse {
  */
 export interface TimestreamRegistrationResponse {
   /**
+   * @public
    * <p>The name of the Timestream database.</p>
    */
   timestreamDatabaseName: string | undefined;
 
   /**
+   * @public
    * <p>The name of the Timestream database table.</p>
    */
   timestreamTableName: string | undefined;
 
   /**
+   * @public
    * <p>The Amazon Resource Name (ARN) of the Timestream database.</p>
    */
   timestreamDatabaseArn?: string;
 
   /**
+   * @public
    * <p>The ARN of the Timestream database table.</p>
    */
   timestreamTableArn?: string;
 
   /**
+   * @public
    * <p>The status of registering your Amazon Timestream resources. The status can be one of
    *                 <code>REGISTRATION_SUCCESS</code>, <code>REGISTRATION_PENDING</code>,
    *                 <code>REGISTRATION_FAILURE</code>.</p>
@@ -3345,6 +3723,7 @@ export interface TimestreamRegistrationResponse {
   registrationStatus: RegistrationStatus | string | undefined;
 
   /**
+   * @public
    * <p>A message associated with a registration error.</p>
    */
   errorMessage?: string;
@@ -3355,11 +3734,13 @@ export interface TimestreamRegistrationResponse {
  */
 export interface GetRegisterAccountStatusResponse {
   /**
+   * @public
    * <p> The unique ID of the Amazon Web Services account, provided at account creation. </p>
    */
   customerAccountId: string | undefined;
 
   /**
+   * @public
    * <p> The status of registering your account and resources. The status can be one
    *             of:</p>
    *         <ul>
@@ -3383,22 +3764,26 @@ export interface GetRegisterAccountStatusResponse {
   accountStatus: RegistrationStatus | string | undefined;
 
   /**
+   * @public
    * <p> Information about the registered Amazon Timestream resources or errors, if any.</p>
    */
   timestreamRegistrationResponse?: TimestreamRegistrationResponse;
 
   /**
+   * @public
    * <p> Information about the registered IAM resources or errors, if any. </p>
    */
   iamRegistrationResponse: IamRegistrationResponse | undefined;
 
   /**
+   * @public
    * <p> The time the account was registered, in seconds since epoch (January 1, 1970 at
    *             midnight UTC time). </p>
    */
   creationTime: Date | undefined;
 
   /**
+   * @public
    * <p> The time this registration was last updated, in seconds since epoch (January 1, 1970
    *             at midnight UTC time). </p>
    */
@@ -3410,6 +3795,7 @@ export interface GetRegisterAccountStatusResponse {
  */
 export interface GetSignalCatalogRequest {
   /**
+   * @public
    * <p> The name of the signal catalog to retrieve information about. </p>
    */
   name: string | undefined;
@@ -3421,26 +3807,31 @@ export interface GetSignalCatalogRequest {
  */
 export interface NodeCounts {
   /**
+   * @public
    * <p>The total number of nodes in a vehicle network.</p>
    */
   totalNodes?: number;
 
   /**
+   * @public
    * <p>The total number of nodes in a vehicle network that represent branches.</p>
    */
   totalBranches?: number;
 
   /**
+   * @public
    * <p>The total number of nodes in a vehicle network that represent sensors.</p>
    */
   totalSensors?: number;
 
   /**
+   * @public
    * <p>The total number of nodes in a vehicle network that represent attributes.</p>
    */
   totalAttributes?: number;
 
   /**
+   * @public
    * <p>The total number of nodes in a vehicle network that represent actuators.</p>
    */
   totalActuators?: number;
@@ -3451,31 +3842,37 @@ export interface NodeCounts {
  */
 export interface GetSignalCatalogResponse {
   /**
+   * @public
    * <p> The name of the signal catalog. </p>
    */
   name: string | undefined;
 
   /**
+   * @public
    * <p> The Amazon Resource Name (ARN) of the signal catalog. </p>
    */
   arn: string | undefined;
 
   /**
+   * @public
    * <p> A brief description of the signal catalog. </p>
    */
   description?: string;
 
   /**
+   * @public
    * <p> The total number of network nodes specified in a signal catalog. </p>
    */
   nodeCounts?: NodeCounts;
 
   /**
+   * @public
    * <p> The time the signal catalog was created in seconds since epoch (January 1, 1970 at midnight UTC time).  </p>
    */
   creationTime: Date | undefined;
 
   /**
+   * @public
    * <p>The last time the signal catalog was modified.</p>
    */
   lastModificationTime: Date | undefined;
@@ -3486,6 +3883,7 @@ export interface GetSignalCatalogResponse {
  */
 export interface GetVehicleRequest {
   /**
+   * @public
    * <p> The ID of the vehicle to retrieve information about. </p>
    */
   vehicleName: string | undefined;
@@ -3496,26 +3894,31 @@ export interface GetVehicleRequest {
  */
 export interface GetVehicleResponse {
   /**
+   * @public
    * <p>The ID of the vehicle.</p>
    */
   vehicleName?: string;
 
   /**
+   * @public
    * <p> The Amazon Resource Name (ARN) of the vehicle to retrieve information about. </p>
    */
   arn?: string;
 
   /**
+   * @public
    * <p> The ARN of a vehicle model (model manifest) associated with the vehicle. </p>
    */
   modelManifestArn?: string;
 
   /**
+   * @public
    * <p> The ARN of a decoder manifest associated with the vehicle. </p>
    */
   decoderManifestArn?: string;
 
   /**
+   * @public
    * <p>Static information about a vehicle in a key-value pair. For example:</p>
    *         <p>
    *             <code>"engineType"</code> : <code>"1.3 L R2"</code>
@@ -3524,11 +3927,13 @@ export interface GetVehicleResponse {
   attributes?: Record<string, string>;
 
   /**
+   * @public
    * <p> The time the vehicle was created in seconds since epoch (January 1, 1970 at midnight UTC time). </p>
    */
   creationTime?: Date;
 
   /**
+   * @public
    * <p> The time the vehicle was last updated in seconds since epoch (January 1, 1970 at midnight UTC time).  </p>
    */
   lastModificationTime?: Date;
@@ -3539,17 +3944,20 @@ export interface GetVehicleResponse {
  */
 export interface GetVehicleStatusRequest {
   /**
+   * @public
    * <p>A pagination token for the next set of results.</p>
    *          <p>If the results of a search are large, only a portion of the results are returned, and a <code>nextToken</code> pagination token is returned in the response. To retrieve the next set of results, reissue the search request and include the returned token. When all results have been returned, the response does not contain a pagination token value. </p>
    */
   nextToken?: string;
 
   /**
+   * @public
    * <p> The maximum number of items to return, between 1 and 100, inclusive. </p>
    */
   maxResults?: number;
 
   /**
+   * @public
    * <p> The ID of the vehicle to retrieve information about. </p>
    */
   vehicleName: string | undefined;
@@ -3579,16 +3987,19 @@ export type VehicleState = (typeof VehicleState)[keyof typeof VehicleState];
  */
 export interface VehicleStatus {
   /**
+   * @public
    * <p>The name of a campaign.</p>
    */
   campaignName?: string;
 
   /**
+   * @public
    * <p>The unique ID of the vehicle.</p>
    */
   vehicleName?: string;
 
   /**
+   * @public
    * <p>The state of a vehicle, which can be one of the following:</p>
    *         <ul>
    *             <li>
@@ -3625,11 +4036,13 @@ export interface VehicleStatus {
  */
 export interface GetVehicleStatusResponse {
   /**
+   * @public
    * <p> Lists information about the state of the vehicle with deployed campaigns. </p>
    */
   campaigns?: VehicleStatus[];
 
   /**
+   * @public
    * <p> The token to retrieve the next set of results, or <code>null</code> if there are no more results. </p>
    */
   nextToken?: string;
@@ -3644,6 +4057,7 @@ export interface GetVehicleStatusResponse {
  */
 export interface IamResources {
   /**
+   * @public
    * <p>The Amazon Resource Name (ARN) of the IAM resource that allows Amazon Web Services IoT FleetWise to send data to
    *             Amazon Timestream. For example, <code>arn:aws:iam::123456789012:role/SERVICE-ROLE-ARN</code>.
    *         </p>
@@ -3656,22 +4070,26 @@ export interface IamResources {
  */
 export interface ImportSignalCatalogRequest {
   /**
+   * @public
    * <p>The name of the signal catalog to import.</p>
    */
   name: string | undefined;
 
   /**
+   * @public
    * <p> A brief description of the signal catalog. </p>
    */
   description?: string;
 
   /**
+   * @public
    * <p>The contents of the Vehicle Signal Specification (VSS) configuration. VSS is a precise
    *             language used to describe and model signals in vehicle networks.</p>
    */
   vss?: FormattedVss;
 
   /**
+   * @public
    * <p>Metadata that can be used to manage the signal catalog.</p>
    */
   tags?: Tag[];
@@ -3682,11 +4100,13 @@ export interface ImportSignalCatalogRequest {
  */
 export interface ImportSignalCatalogResponse {
   /**
+   * @public
    * <p> The name of the imported signal catalog. </p>
    */
   name: string | undefined;
 
   /**
+   * @public
    * <p> The Amazon Resource Name (ARN) of the imported signal catalog.</p>
    */
   arn: string | undefined;
@@ -3697,6 +4117,7 @@ export interface ImportSignalCatalogResponse {
  */
 export interface ListTagsForResourceRequest {
   /**
+   * @public
    * <p>The ARN of the resource.</p>
    */
   ResourceARN: string | undefined;
@@ -3707,6 +4128,7 @@ export interface ListTagsForResourceRequest {
  */
 export interface ListTagsForResourceResponse {
   /**
+   * @public
    * <p>The list of tags assigned to the resource.</p>
    */
   Tags?: Tag[];
@@ -3717,17 +4139,20 @@ export interface ListTagsForResourceResponse {
  */
 export interface ListModelManifestNodesRequest {
   /**
+   * @public
    * <p> The name of the vehicle model to list information about. </p>
    */
   name: string | undefined;
 
   /**
+   * @public
    * <p>A pagination token for the next set of results.</p>
    *          <p>If the results of a search are large, only a portion of the results are returned, and a <code>nextToken</code> pagination token is returned in the response. To retrieve the next set of results, reissue the search request and include the returned token. When all results have been returned, the response does not contain a pagination token value. </p>
    */
   nextToken?: string;
 
   /**
+   * @public
    * <p> The maximum number of items to return, between 1 and 100, inclusive. </p>
    */
   maxResults?: number;
@@ -3738,11 +4163,13 @@ export interface ListModelManifestNodesRequest {
  */
 export interface ListModelManifestNodesResponse {
   /**
+   * @public
    * <p> A list of information about nodes. </p>
    */
   nodes?: Node[];
 
   /**
+   * @public
    * <p> The token to retrieve the next set of results, or <code>null</code> if there are no more results. </p>
    */
   nextToken?: string;
@@ -3753,18 +4180,21 @@ export interface ListModelManifestNodesResponse {
  */
 export interface ListModelManifestsRequest {
   /**
+   * @public
    * <p> The ARN of a signal catalog. If you specify a signal catalog, only the vehicle models
    *             associated with it are returned.</p>
    */
   signalCatalogArn?: string;
 
   /**
+   * @public
    * <p>A pagination token for the next set of results.</p>
    *          <p>If the results of a search are large, only a portion of the results are returned, and a <code>nextToken</code> pagination token is returned in the response. To retrieve the next set of results, reissue the search request and include the returned token. When all results have been returned, the response does not contain a pagination token value. </p>
    */
   nextToken?: string;
 
   /**
+   * @public
    * <p> The maximum number of items to return, between 1 and 100, inclusive. </p>
    */
   maxResults?: number;
@@ -3777,26 +4207,31 @@ export interface ListModelManifestsRequest {
  */
 export interface ModelManifestSummary {
   /**
+   * @public
    * <p>The name of the vehicle model.</p>
    */
   name?: string;
 
   /**
+   * @public
    * <p>The Amazon Resource Name (ARN) of the vehicle model.</p>
    */
   arn?: string;
 
   /**
+   * @public
    * <p>The ARN of the signal catalog associated with the vehicle model.</p>
    */
   signalCatalogArn?: string;
 
   /**
+   * @public
    * <p>A brief description of the vehicle model.</p>
    */
   description?: string;
 
   /**
+   * @public
    * <p>The state of the vehicle model. If the status is <code>ACTIVE</code>, the vehicle
    *             model can't be edited. If the status is <code>DRAFT</code>, you can edit the vehicle
    *             model.</p>
@@ -3804,12 +4239,14 @@ export interface ModelManifestSummary {
   status?: ManifestStatus | string;
 
   /**
+   * @public
    * <p>The time the vehicle model was created, in seconds since epoch (January 1, 1970 at
    *             midnight UTC time).</p>
    */
   creationTime: Date | undefined;
 
   /**
+   * @public
    * <p>The time the vehicle model was last updated, in seconds since epoch (January 1, 1970
    *             at midnight UTC time).</p>
    */
@@ -3821,11 +4258,13 @@ export interface ModelManifestSummary {
  */
 export interface ListModelManifestsResponse {
   /**
+   * @public
    * <p> A list of information about vehicle models.</p>
    */
   summaries?: ModelManifestSummary[];
 
   /**
+   * @public
    * <p> The token to retrieve the next set of results, or <code>null</code> if there are no more results. </p>
    */
   nextToken?: string;
@@ -3836,28 +4275,33 @@ export interface ListModelManifestsResponse {
  */
 export interface UpdateModelManifestRequest {
   /**
+   * @public
    * <p> The name of the vehicle model to update. </p>
    */
   name: string | undefined;
 
   /**
+   * @public
    * <p> A brief description of the vehicle model. </p>
    */
   description?: string;
 
   /**
+   * @public
    * <p> A list of <code>fullyQualifiedName</code> of nodes, which are a general abstraction
    *             of signals, to add to the vehicle model. </p>
    */
   nodesToAdd?: string[];
 
   /**
+   * @public
    * <p> A list of <code>fullyQualifiedName</code> of nodes, which are a general abstraction
    *             of signals, to remove from the vehicle model. </p>
    */
   nodesToRemove?: string[];
 
   /**
+   * @public
    * <p> The state of the vehicle model. If the status is <code>ACTIVE</code>, the vehicle
    *             model can't be edited. If the status is <code>DRAFT</code>, you can edit the vehicle
    *             model. </p>
@@ -3870,11 +4314,13 @@ export interface UpdateModelManifestRequest {
  */
 export interface UpdateModelManifestResponse {
   /**
+   * @public
    * <p> The name of the updated vehicle model. </p>
    */
   name: string | undefined;
 
   /**
+   * @public
    * <p> The Amazon Resource Name (ARN) of the updated vehicle model. </p>
    */
   arn: string | undefined;
@@ -3885,6 +4331,7 @@ export interface UpdateModelManifestResponse {
  */
 export interface PutLoggingOptionsRequest {
   /**
+   * @public
    * <p>Creates or updates the log delivery option to Amazon CloudWatch Logs.</p>
    */
   cloudWatchLogDelivery: CloudWatchLogDeliveryOptions | undefined;
@@ -3902,11 +4349,13 @@ export interface PutLoggingOptionsResponse {}
  */
 export interface TimestreamResources {
   /**
+   * @public
    * <p>The name of the registered Amazon Timestream database.</p>
    */
   timestreamDatabaseName: string | undefined;
 
   /**
+   * @public
    * <p>The name of the registered Amazon Timestream database table.</p>
    */
   timestreamTableName: string | undefined;
@@ -3917,6 +4366,7 @@ export interface TimestreamResources {
  */
 export interface RegisterAccountRequest {
   /**
+   * @public
    * @deprecated
    *
    * <p>The registered Amazon Timestream resources that Amazon Web Services IoT FleetWise edge agent software can transfer
@@ -3925,6 +4375,7 @@ export interface RegisterAccountRequest {
   timestreamResources?: TimestreamResources;
 
   /**
+   * @public
    * @deprecated
    *
    * <p>The IAM resource that allows Amazon Web Services IoT FleetWise to send data to Amazon Timestream.</p>
@@ -3937,29 +4388,34 @@ export interface RegisterAccountRequest {
  */
 export interface RegisterAccountResponse {
   /**
+   * @public
    * <p> The status of registering your Amazon Web Services account, IAM role, and Timestream resources.
    *         </p>
    */
   registerAccountStatus: RegistrationStatus | string | undefined;
 
   /**
+   * @public
    * <p>The registered Amazon Timestream resources that Amazon Web Services IoT FleetWise edge agent software can transfer
    *             your vehicle data to.</p>
    */
   timestreamResources?: TimestreamResources;
 
   /**
+   * @public
    * <p> The registered IAM resource that allows Amazon Web Services IoT FleetWise to send data to Amazon Timestream. </p>
    */
   iamResources: IamResources | undefined;
 
   /**
+   * @public
    * <p> The time the account was registered, in seconds since epoch (January 1, 1970 at
    *             midnight UTC time). </p>
    */
   creationTime: Date | undefined;
 
   /**
+   * @public
    * <p> The time this registration was last updated, in seconds since epoch (January 1, 1970
    *             at midnight UTC time). </p>
    */
@@ -3971,17 +4427,20 @@ export interface RegisterAccountResponse {
  */
 export interface ListSignalCatalogNodesRequest {
   /**
+   * @public
    * <p> The name of the signal catalog to list information about. </p>
    */
   name: string | undefined;
 
   /**
+   * @public
    * <p>A pagination token for the next set of results.</p>
    *          <p>If the results of a search are large, only a portion of the results are returned, and a <code>nextToken</code> pagination token is returned in the response. To retrieve the next set of results, reissue the search request and include the returned token. When all results have been returned, the response does not contain a pagination token value. </p>
    */
   nextToken?: string;
 
   /**
+   * @public
    * <p> The maximum number of items to return, between 1 and 100, inclusive. </p>
    */
   maxResults?: number;
@@ -3992,11 +4451,13 @@ export interface ListSignalCatalogNodesRequest {
  */
 export interface ListSignalCatalogNodesResponse {
   /**
+   * @public
    * <p> A list of information about nodes. </p>
    */
   nodes?: Node[];
 
   /**
+   * @public
    * <p> The token to retrieve the next set of results, or <code>null</code> if there are no more results. </p>
    */
   nextToken?: string;
@@ -4007,12 +4468,14 @@ export interface ListSignalCatalogNodesResponse {
  */
 export interface ListSignalCatalogsRequest {
   /**
+   * @public
    * <p>A pagination token for the next set of results.</p>
    *          <p>If the results of a search are large, only a portion of the results are returned, and a <code>nextToken</code> pagination token is returned in the response. To retrieve the next set of results, reissue the search request and include the returned token. When all results have been returned, the response does not contain a pagination token value. </p>
    */
   nextToken?: string;
 
   /**
+   * @public
    * <p> The maximum number of items to return, between 1 and 100, inclusive. </p>
    */
   maxResults?: number;
@@ -4025,21 +4488,25 @@ export interface ListSignalCatalogsRequest {
  */
 export interface SignalCatalogSummary {
   /**
+   * @public
    * <p>The name of the signal catalog.</p>
    */
   name?: string;
 
   /**
+   * @public
    * <p>The Amazon Resource Name (ARN) of the signal catalog.</p>
    */
   arn?: string;
 
   /**
+   * @public
    * <p>The time the signal catalog was created in seconds since epoch (January 1, 1970 at midnight UTC time). </p>
    */
   creationTime?: Date;
 
   /**
+   * @public
    * <p>The time the signal catalog was last updated in seconds since epoch (January 1, 1970 at midnight UTC time). </p>
    */
   lastModificationTime?: Date;
@@ -4050,11 +4517,13 @@ export interface SignalCatalogSummary {
  */
 export interface ListSignalCatalogsResponse {
   /**
+   * @public
    * <p> A list of information about each signal catalog. </p>
    */
   summaries?: SignalCatalogSummary[];
 
   /**
+   * @public
    * <p> The token to retrieve the next set of results, or <code>null</code> if there are no more results. </p>
    */
   nextToken?: string;
@@ -4065,26 +4534,31 @@ export interface ListSignalCatalogsResponse {
  */
 export interface UpdateSignalCatalogRequest {
   /**
+   * @public
    * <p> The name of the signal catalog to update. </p>
    */
   name: string | undefined;
 
   /**
+   * @public
    * <p> A brief description of the signal catalog to update.</p>
    */
   description?: string;
 
   /**
+   * @public
    * <p> A list of information about nodes to add to the signal catalog. </p>
    */
   nodesToAdd?: Node[];
 
   /**
+   * @public
    * <p> A list of information about nodes to update in the signal catalog. </p>
    */
   nodesToUpdate?: Node[];
 
   /**
+   * @public
    * <p> A list of <code>fullyQualifiedName</code> of nodes to remove from the signal catalog.
    *         </p>
    */
@@ -4096,11 +4570,13 @@ export interface UpdateSignalCatalogRequest {
  */
 export interface UpdateSignalCatalogResponse {
   /**
+   * @public
    * <p> The name of the updated signal catalog. </p>
    */
   name: string | undefined;
 
   /**
+   * @public
    * <p> The ARN of the updated signal catalog. </p>
    */
   arn: string | undefined;
@@ -4111,11 +4587,13 @@ export interface UpdateSignalCatalogResponse {
  */
 export interface TagResourceRequest {
   /**
+   * @public
    * <p>The ARN of the resource.</p>
    */
   ResourceARN: string | undefined;
 
   /**
+   * @public
    * <p>The new or modified tags for the resource.</p>
    */
   Tags: Tag[] | undefined;
@@ -4131,11 +4609,13 @@ export interface TagResourceResponse {}
  */
 export interface UntagResourceRequest {
   /**
+   * @public
    * <p>The ARN of the resource.</p>
    */
   ResourceARN: string | undefined;
 
   /**
+   * @public
    * <p>A list of the keys of the tags to be removed from the resource.</p>
    */
   TagKeys: string[] | undefined;
@@ -4151,18 +4631,21 @@ export interface UntagResourceResponse {}
  */
 export interface ListVehiclesRequest {
   /**
+   * @public
    * <p> The Amazon Resource Name (ARN) of a vehicle model (model manifest). You can use this optional
    *             parameter to list only the vehicles created from a certain vehicle model. </p>
    */
   modelManifestArn?: string;
 
   /**
+   * @public
    * <p>A pagination token for the next set of results.</p>
    *          <p>If the results of a search are large, only a portion of the results are returned, and a <code>nextToken</code> pagination token is returned in the response. To retrieve the next set of results, reissue the search request and include the returned token. When all results have been returned, the response does not contain a pagination token value. </p>
    */
   nextToken?: string;
 
   /**
+   * @public
    * <p> The maximum number of items to return, between 1 and 100, inclusive. </p>
    */
   maxResults?: number;
@@ -4175,31 +4658,37 @@ export interface ListVehiclesRequest {
  */
 export interface VehicleSummary {
   /**
+   * @public
    * <p>The unique ID of the vehicle.</p>
    */
   vehicleName: string | undefined;
 
   /**
+   * @public
    * <p>The Amazon Resource Name (ARN) of the vehicle.</p>
    */
   arn: string | undefined;
 
   /**
+   * @public
    * <p>The ARN of a vehicle model (model manifest) associated with the vehicle.</p>
    */
   modelManifestArn: string | undefined;
 
   /**
+   * @public
    * <p>The ARN of a decoder manifest associated with the vehicle.</p>
    */
   decoderManifestArn: string | undefined;
 
   /**
+   * @public
    * <p>The time the vehicle was created in seconds since epoch (January 1, 1970 at midnight UTC time).</p>
    */
   creationTime: Date | undefined;
 
   /**
+   * @public
    * <p>The time the vehicle was last updated in seconds since epoch (January 1, 1970 at midnight UTC time). </p>
    */
   lastModificationTime: Date | undefined;
@@ -4210,11 +4699,13 @@ export interface VehicleSummary {
  */
 export interface ListVehiclesResponse {
   /**
+   * @public
    * <p> A list of vehicles and information about them. </p>
    */
   vehicleSummaries?: VehicleSummary[];
 
   /**
+   * @public
    * <p> The token to retrieve the next set of results, or <code>null</code> if there are no more results. </p>
    */
   nextToken?: string;
@@ -4225,21 +4716,25 @@ export interface ListVehiclesResponse {
  */
 export interface UpdateVehicleRequest {
   /**
+   * @public
    * <p>The unique ID of the vehicle to update.</p>
    */
   vehicleName: string | undefined;
 
   /**
+   * @public
    * <p>The ARN of a vehicle model (model manifest) associated with the vehicle.</p>
    */
   modelManifestArn?: string;
 
   /**
+   * @public
    * <p>The ARN of the decoder manifest associated with this vehicle.</p>
    */
   decoderManifestArn?: string;
 
   /**
+   * @public
    * <p>Static information about a vehicle in a key-value pair. For example:</p>
    *         <p>
    *             <code>"engineType"</code> : <code>"1.3 L R2"</code>
@@ -4248,6 +4743,7 @@ export interface UpdateVehicleRequest {
   attributes?: Record<string, string>;
 
   /**
+   * @public
    * <p>The method the specified attributes will update the existing attributes on the
    *             vehicle. Use<code>Overwite</code> to replace the vehicle attributes with the specified
    *             attributes. Or use <code>Merge</code> to combine all attributes.</p>
@@ -4261,11 +4757,13 @@ export interface UpdateVehicleRequest {
  */
 export interface UpdateVehicleResponse {
   /**
+   * @public
    * <p>The ID of the updated vehicle.</p>
    */
   vehicleName?: string;
 
   /**
+   * @public
    * <p>The ARN of the updated vehicle.</p>
    */
   arn?: string;

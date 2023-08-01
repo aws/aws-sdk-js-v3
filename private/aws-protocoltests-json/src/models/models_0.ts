@@ -320,6 +320,9 @@ export namespace MyUnion {
     $unknown?: never;
   }
 
+  /**
+   * @public
+   */
   export interface $UnknownMember {
     stringValue?: never;
     booleanValue?: never;
@@ -366,6 +369,7 @@ export namespace MyUnion {
  */
 export interface UnionInputOutput {
   /**
+   * @public
    * A union with a representative set of types for members.
    */
   contents?: MyUnion;
@@ -462,6 +466,7 @@ export class ErrorWithMembers extends __BaseException {
   MapField?: Record<string, string>;
   Message?: string;
   /**
+   * @public
    * abc
    */
   StringField?: string;

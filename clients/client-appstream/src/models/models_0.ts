@@ -22,11 +22,13 @@ export type AccessEndpointType = (typeof AccessEndpointType)[keyof typeof Access
  */
 export interface AccessEndpoint {
   /**
+   * @public
    * <p>The type of interface endpoint.</p>
    */
   EndpointType: AccessEndpointType | string | undefined;
 
   /**
+   * @public
    * <p>The identifier (ID) of the VPC in which the interface endpoint is used.</p>
    */
   VpceId?: string;
@@ -57,11 +59,13 @@ export type Action = (typeof Action)[keyof typeof Action];
  */
 export interface ErrorDetails {
   /**
+   * @public
    * <p>The error code.</p>
    */
   ErrorCode?: string;
 
   /**
+   * @public
    * <p>The error message.</p>
    */
   ErrorMessage?: string;
@@ -87,11 +91,13 @@ export type PackagingType = (typeof PackagingType)[keyof typeof PackagingType];
  */
 export interface S3Location {
   /**
+   * @public
    * <p>The S3 bucket of the S3 object.</p>
    */
   S3Bucket: string | undefined;
 
   /**
+   * @public
    * <p>The S3 key of the S3 object.</p>
    *          <p>This is required when used for the following:</p>
    *          <ul>
@@ -126,21 +132,25 @@ export interface S3Location {
  */
 export interface ScriptDetails {
   /**
+   * @public
    * <p>The S3 object location for the script.</p>
    */
   ScriptS3Location: S3Location | undefined;
 
   /**
+   * @public
    * <p>The run path for the script.</p>
    */
   ExecutablePath: string | undefined;
 
   /**
+   * @public
    * <p>The runtime parameters passed to the run path for the script.</p>
    */
   ExecutableParameters?: string;
 
   /**
+   * @public
    * <p>The run timeout, in seconds, for the script.</p>
    */
   TimeoutInSeconds: number | undefined;
@@ -172,53 +182,63 @@ export type AppBlockState = (typeof AppBlockState)[keyof typeof AppBlockState];
  */
 export interface AppBlock {
   /**
+   * @public
    * <p>The name of the app block.</p>
    */
   Name: string | undefined;
 
   /**
+   * @public
    * <p>The ARN of the app block.</p>
    */
   Arn: string | undefined;
 
   /**
+   * @public
    * <p>The description of the app block.</p>
    */
   Description?: string;
 
   /**
+   * @public
    * <p>The display name of the app block.</p>
    */
   DisplayName?: string;
 
   /**
+   * @public
    * <p>The source S3 location of the app block.</p>
    */
   SourceS3Location?: S3Location;
 
   /**
+   * @public
    * <p>The setup script details of the app block.</p>
    *          <p>This only applies to app blocks with PackagingType <code>CUSTOM</code>.</p>
    */
   SetupScriptDetails?: ScriptDetails;
 
   /**
+   * @public
    * <p>The created time of the app block.</p>
    */
   CreatedTime?: Date;
 
   /**
+   * @public
    * <p>The post setup script details of the app block.</p>
    *          <p>This only applies to app blocks with PackagingType <code>APPSTREAM2</code>.</p>
    */
   PostSetupScriptDetails?: ScriptDetails;
 
   /**
+   * @public
    * <p>The packaging type of the app block.</p>
    */
   PackagingType?: PackagingType | string;
 
   /**
+   * @public
    * <p>The state of the app block.</p>
    *          <p>An app block with AppStream 2.0 packaging will be in the <code>INACTIVE</code> state
    *             if no application package (VHD) is assigned to it. After an application package (VHD) is
@@ -228,6 +248,7 @@ export interface AppBlock {
   State?: AppBlockState | string;
 
   /**
+   * @public
    * <p>The errors of the app block.</p>
    */
   AppBlockErrors?: ErrorDetails[];
@@ -281,16 +302,19 @@ export type FleetErrorCode = (typeof FleetErrorCode)[keyof typeof FleetErrorCode
  */
 export interface ResourceError {
   /**
+   * @public
    * <p>The error code.</p>
    */
   ErrorCode?: FleetErrorCode | string;
 
   /**
+   * @public
    * <p>The error message.</p>
    */
   ErrorMessage?: string;
 
   /**
+   * @public
    * <p>The time the error occurred.</p>
    */
   ErrorTimestamp?: Date;
@@ -346,11 +370,13 @@ export type AppBlockBuilderStateChangeReasonCode =
  */
 export interface AppBlockBuilderStateChangeReason {
   /**
+   * @public
    * <p>The state change reason code.</p>
    */
   Code?: AppBlockBuilderStateChangeReasonCode | string;
 
   /**
+   * @public
    * <p>The state change reason message.</p>
    */
   Message?: string;
@@ -362,11 +388,13 @@ export interface AppBlockBuilderStateChangeReason {
  */
 export interface VpcConfig {
   /**
+   * @public
    * <p>The identifiers of the subnets to which a network interface is attached from the fleet instance or image builder instance. Fleet instances use one or more subnets. Image builder instances use one subnet.</p>
    */
   SubnetIds?: string[];
 
   /**
+   * @public
    * <p>The identifiers of the security groups for the fleet or image builder.</p>
    */
   SecurityGroupIds?: string[];
@@ -378,26 +406,31 @@ export interface VpcConfig {
  */
 export interface AppBlockBuilder {
   /**
+   * @public
    * <p>The ARN of the app block builder.</p>
    */
   Arn: string | undefined;
 
   /**
+   * @public
    * <p>The name of the app block builder.</p>
    */
   Name: string | undefined;
 
   /**
+   * @public
    * <p>The display name of the app block builder.</p>
    */
   DisplayName?: string;
 
   /**
+   * @public
    * <p>The description of the app block builder.</p>
    */
   Description?: string;
 
   /**
+   * @public
    * <p>The platform of the app block builder.</p>
    *          <p>
    *             <code>WINDOWS_SERVER_2019</code> is the only valid value.</p>
@@ -405,46 +438,55 @@ export interface AppBlockBuilder {
   Platform: AppBlockBuilderPlatformType | string | undefined;
 
   /**
+   * @public
    * <p>The instance type of the app block builder.</p>
    */
   InstanceType: string | undefined;
 
   /**
+   * @public
    * <p>Indicates whether default internet access is enabled for the app block builder.</p>
    */
   EnableDefaultInternetAccess?: boolean;
 
   /**
+   * @public
    * <p>The ARN of the IAM role that is applied to the app block builder.</p>
    */
   IamRoleArn?: string;
 
   /**
+   * @public
    * <p>The VPC configuration for the app block builder.</p>
    */
   VpcConfig: VpcConfig | undefined;
 
   /**
+   * @public
    * <p>The state of the app block builder.</p>
    */
   State: AppBlockBuilderState | string | undefined;
 
   /**
+   * @public
    * <p>The creation time of the app block builder.</p>
    */
   CreatedTime?: Date;
 
   /**
+   * @public
    * <p>The app block builder errors.</p>
    */
   AppBlockBuilderErrors?: ResourceError[];
 
   /**
+   * @public
    * <p>The state change reason.</p>
    */
   StateChangeReason?: AppBlockBuilderStateChangeReason;
 
   /**
+   * @public
    * <p>The list of interface VPC endpoint (interface endpoint) objects. Administrators can connect to the app block builder only through the specified endpoints.</p>
    */
   AccessEndpoints?: AccessEndpoint[];
@@ -456,11 +498,13 @@ export interface AppBlockBuilder {
  */
 export interface AppBlockBuilderAppBlockAssociation {
   /**
+   * @public
    * <p>The ARN of the app block.</p>
    */
   AppBlockArn: string | undefined;
 
   /**
+   * @public
    * <p>The name of the app block builder.</p>
    */
   AppBlockBuilderName: string | undefined;
@@ -503,76 +547,91 @@ export type PlatformType = (typeof PlatformType)[keyof typeof PlatformType];
  */
 export interface Application {
   /**
+   * @public
    * <p>The name of the application.</p>
    */
   Name?: string;
 
   /**
+   * @public
    * <p>The application name to display.</p>
    */
   DisplayName?: string;
 
   /**
+   * @public
    * <p>The URL for the application icon. This URL might be time-limited.</p>
    */
   IconURL?: string;
 
   /**
+   * @public
    * <p>The path to the application executable in the instance.</p>
    */
   LaunchPath?: string;
 
   /**
+   * @public
    * <p>The arguments that are passed to the application at launch.</p>
    */
   LaunchParameters?: string;
 
   /**
+   * @public
    * <p>If there is a problem, the application can be disabled after image creation.</p>
    */
   Enabled?: boolean;
 
   /**
+   * @public
    * <p>Additional attributes that describe the application.</p>
    */
   Metadata?: Record<string, string>;
 
   /**
+   * @public
    * <p>The working directory for the application.</p>
    */
   WorkingDirectory?: string;
 
   /**
+   * @public
    * <p>The description of the application.</p>
    */
   Description?: string;
 
   /**
+   * @public
    * <p>The ARN of the application.</p>
    */
   Arn?: string;
 
   /**
+   * @public
    * <p>The app block ARN of the application.</p>
    */
   AppBlockArn?: string;
 
   /**
+   * @public
    * <p>The S3 location of the application icon.</p>
    */
   IconS3Location?: S3Location;
 
   /**
+   * @public
    * <p>The platforms on which the application can run.</p>
    */
   Platforms?: (PlatformType | string)[];
 
   /**
+   * @public
    * <p>The instance families for the application.</p>
    */
   InstanceFamilies?: string[];
 
   /**
+   * @public
    * <p>The time at which the application was created within the app block.</p>
    */
   CreatedTime?: Date;
@@ -598,11 +657,13 @@ export type ApplicationAttribute = (typeof ApplicationAttribute)[keyof typeof Ap
  */
 export interface ApplicationFleetAssociation {
   /**
+   * @public
    * <p>The name of the fleet associated with the application.</p>
    */
   FleetName: string | undefined;
 
   /**
+   * @public
    * <p>The ARN of the application associated with the fleet.</p>
    */
   ApplicationArn: string | undefined;
@@ -614,11 +675,13 @@ export interface ApplicationFleetAssociation {
  */
 export interface ApplicationSettings {
   /**
+   * @public
    * <p>Enables or disables persistent application settings for users during their streaming sessions. </p>
    */
   Enabled: boolean | undefined;
 
   /**
+   * @public
    * <p>The path prefix for the S3 bucket where users’ persistent application settings are stored. You can allow the same persistent application settings to be used across multiple stacks by specifying the same settings group for each stack. </p>
    */
   SettingsGroup?: string;
@@ -630,16 +693,19 @@ export interface ApplicationSettings {
  */
 export interface ApplicationSettingsResponse {
   /**
+   * @public
    * <p>Specifies whether persistent application settings are enabled for users during their streaming sessions.</p>
    */
   Enabled?: boolean;
 
   /**
+   * @public
    * <p>The path prefix for the S3 bucket where users’ persistent application settings are stored.</p>
    */
   SettingsGroup?: string;
 
   /**
+   * @public
    * <p>The S3 bucket where users’ persistent application settings are stored. When persistent application settings are enabled for the first time for an account in an AWS Region, an S3 bucket is created. The bucket is unique to the AWS account and the Region.
    *         </p>
    */
@@ -665,11 +731,13 @@ export type AppVisibility = (typeof AppVisibility)[keyof typeof AppVisibility];
  */
 export interface AssociateAppBlockBuilderAppBlockRequest {
   /**
+   * @public
    * <p>The ARN of the app block.</p>
    */
   AppBlockArn: string | undefined;
 
   /**
+   * @public
    * <p>The name of the app block builder.</p>
    */
   AppBlockBuilderName: string | undefined;
@@ -680,6 +748,7 @@ export interface AssociateAppBlockBuilderAppBlockRequest {
  */
 export interface AssociateAppBlockBuilderAppBlockResult {
   /**
+   * @public
    * <p>The list of app block builders associated with app blocks.</p>
    */
   AppBlockBuilderAppBlockAssociation?: AppBlockBuilderAppBlockAssociation;
@@ -693,6 +762,7 @@ export class ConcurrentModificationException extends __BaseException {
   readonly name: "ConcurrentModificationException" = "ConcurrentModificationException";
   readonly $fault: "client" = "client";
   /**
+   * @public
    * <p>The error message in the exception.</p>
    */
   Message?: string;
@@ -718,6 +788,7 @@ export class InvalidParameterCombinationException extends __BaseException {
   readonly name: "InvalidParameterCombinationException" = "InvalidParameterCombinationException";
   readonly $fault: "client" = "client";
   /**
+   * @public
    * <p>The error message in the exception.</p>
    */
   Message?: string;
@@ -743,6 +814,7 @@ export class LimitExceededException extends __BaseException {
   readonly name: "LimitExceededException" = "LimitExceededException";
   readonly $fault: "client" = "client";
   /**
+   * @public
    * <p>The error message in the exception.</p>
    */
   Message?: string;
@@ -768,6 +840,7 @@ export class OperationNotPermittedException extends __BaseException {
   readonly name: "OperationNotPermittedException" = "OperationNotPermittedException";
   readonly $fault: "client" = "client";
   /**
+   * @public
    * <p>The error message in the exception.</p>
    */
   Message?: string;
@@ -793,6 +866,7 @@ export class ResourceNotFoundException extends __BaseException {
   readonly name: "ResourceNotFoundException" = "ResourceNotFoundException";
   readonly $fault: "client" = "client";
   /**
+   * @public
    * <p>The error message in the exception.</p>
    */
   Message?: string;
@@ -815,11 +889,13 @@ export class ResourceNotFoundException extends __BaseException {
  */
 export interface AssociateApplicationFleetRequest {
   /**
+   * @public
    * <p>The name of the fleet.</p>
    */
   FleetName: string | undefined;
 
   /**
+   * @public
    * <p>The ARN of the application.</p>
    */
   ApplicationArn: string | undefined;
@@ -830,6 +906,7 @@ export interface AssociateApplicationFleetRequest {
  */
 export interface AssociateApplicationFleetResult {
   /**
+   * @public
    * <p>If fleet name is specified, this returns the list of applications that are associated
    *             to it. If application ARN is specified, this returns the list of fleets to which it is
    *             associated.</p>
@@ -842,16 +919,19 @@ export interface AssociateApplicationFleetResult {
  */
 export interface AssociateApplicationToEntitlementRequest {
   /**
+   * @public
    * <p>The name of the stack.</p>
    */
   StackName: string | undefined;
 
   /**
+   * @public
    * <p>The name of the entitlement.</p>
    */
   EntitlementName: string | undefined;
 
   /**
+   * @public
    * <p>The identifier of the application.</p>
    */
   ApplicationIdentifier: string | undefined;
@@ -870,6 +950,7 @@ export class EntitlementNotFoundException extends __BaseException {
   readonly name: "EntitlementNotFoundException" = "EntitlementNotFoundException";
   readonly $fault: "client" = "client";
   /**
+   * @public
    * <p>The error message in the exception.</p>
    */
   Message?: string;
@@ -892,11 +973,13 @@ export class EntitlementNotFoundException extends __BaseException {
  */
 export interface AssociateFleetRequest {
   /**
+   * @public
    * <p>The name of the fleet. </p>
    */
   FleetName: string | undefined;
 
   /**
+   * @public
    * <p>The name of the stack.</p>
    */
   StackName: string | undefined;
@@ -915,6 +998,7 @@ export class IncompatibleImageException extends __BaseException {
   readonly name: "IncompatibleImageException" = "IncompatibleImageException";
   readonly $fault: "client" = "client";
   /**
+   * @public
    * <p>The error message in the exception.</p>
    */
   Message?: string;
@@ -940,6 +1024,7 @@ export class InvalidAccountStatusException extends __BaseException {
   readonly name: "InvalidAccountStatusException" = "InvalidAccountStatusException";
   readonly $fault: "client" = "client";
   /**
+   * @public
    * <p>The error message in the exception.</p>
    */
   Message?: string;
@@ -979,11 +1064,13 @@ export type AuthenticationType = (typeof AuthenticationType)[keyof typeof Authen
  */
 export interface UserStackAssociation {
   /**
+   * @public
    * <p>The name of the stack that is associated with the user.</p>
    */
   StackName: string | undefined;
 
   /**
+   * @public
    * <p>The email address of the user who is associated with the stack.</p>
    *          <note>
    *             <p>Users' email addresses are case-sensitive.</p>
@@ -992,11 +1079,13 @@ export interface UserStackAssociation {
   UserName: string | undefined;
 
   /**
+   * @public
    * <p>The authentication type for the user.</p>
    */
   AuthenticationType: AuthenticationType | string | undefined;
 
   /**
+   * @public
    * <p>Specifies whether a welcome email is sent to a user after the user is created in the user pool.</p>
    */
   SendEmailNotification?: boolean;
@@ -1007,6 +1096,7 @@ export interface UserStackAssociation {
  */
 export interface BatchAssociateUserStackRequest {
   /**
+   * @public
    * <p>The list of UserStackAssociation objects.</p>
    */
   UserStackAssociations: UserStackAssociation[] | undefined;
@@ -1035,16 +1125,19 @@ export type UserStackAssociationErrorCode =
  */
 export interface UserStackAssociationError {
   /**
+   * @public
    * <p>Information about the user and associated stack.</p>
    */
   UserStackAssociation?: UserStackAssociation;
 
   /**
+   * @public
    * <p>The error code for the error that is returned when a user can’t be associated with or disassociated from a stack.</p>
    */
   ErrorCode?: UserStackAssociationErrorCode | string;
 
   /**
+   * @public
    * <p>The error message for the error that is returned when a user can’t be associated with or disassociated from a stack.</p>
    */
   ErrorMessage?: string;
@@ -1055,6 +1148,7 @@ export interface UserStackAssociationError {
  */
 export interface BatchAssociateUserStackResult {
   /**
+   * @public
    * <p>The list of UserStackAssociationError objects.</p>
    */
   errors?: UserStackAssociationError[];
@@ -1065,6 +1159,7 @@ export interface BatchAssociateUserStackResult {
  */
 export interface BatchDisassociateUserStackRequest {
   /**
+   * @public
    * <p>The list of UserStackAssociation objects.</p>
    */
   UserStackAssociations: UserStackAssociation[] | undefined;
@@ -1075,6 +1170,7 @@ export interface BatchDisassociateUserStackRequest {
  */
 export interface BatchDisassociateUserStackResult {
   /**
+   * @public
    * <p>The list of UserStackAssociationError objects.</p>
    */
   errors?: UserStackAssociationError[];
@@ -1107,11 +1203,13 @@ export type CertificateBasedAuthStatus = (typeof CertificateBasedAuthStatus)[key
  */
 export interface CertificateBasedAuthProperties {
   /**
+   * @public
    * <p>The status of the certificate-based authentication properties.</p>
    */
   Status?: CertificateBasedAuthStatus | string;
 
   /**
+   * @public
    * <p>The ARN of the AWS Certificate Manager Private CA resource.</p>
    */
   CertificateAuthorityArn?: string;
@@ -1123,6 +1221,7 @@ export interface CertificateBasedAuthProperties {
  */
 export interface ComputeCapacity {
   /**
+   * @public
    * <p>The desired number of streaming instances.</p>
    */
   DesiredInstances: number | undefined;
@@ -1134,21 +1233,25 @@ export interface ComputeCapacity {
  */
 export interface ComputeCapacityStatus {
   /**
+   * @public
    * <p>The desired number of streaming instances.</p>
    */
   Desired: number | undefined;
 
   /**
+   * @public
    * <p>The total number of simultaneous streaming instances that are running.</p>
    */
   Running?: number;
 
   /**
+   * @public
    * <p>The number of instances in use for streaming.</p>
    */
   InUse?: number;
 
   /**
+   * @public
    * <p>The number of currently available instances that can be used to stream
    *             sessions.</p>
    */
@@ -1160,21 +1263,25 @@ export interface ComputeCapacityStatus {
  */
 export interface CopyImageRequest {
   /**
+   * @public
    * <p>The name of the image to copy.</p>
    */
   SourceImageName: string | undefined;
 
   /**
+   * @public
    * <p>The name that the image will have when it is copied to the destination.</p>
    */
   DestinationImageName: string | undefined;
 
   /**
+   * @public
    * <p>The destination region to which the image will be copied. This parameter is required, even if you are copying an image within the same region.</p>
    */
   DestinationRegion: string | undefined;
 
   /**
+   * @public
    * <p>The description that the image will have when it is copied to the destination.</p>
    */
   DestinationImageDescription?: string;
@@ -1185,6 +1292,7 @@ export interface CopyImageRequest {
  */
 export interface CopyImageResponse {
   /**
+   * @public
    * <p>The name of the destination image.</p>
    */
   DestinationImageName?: string;
@@ -1198,6 +1306,7 @@ export class ResourceAlreadyExistsException extends __BaseException {
   readonly name: "ResourceAlreadyExistsException" = "ResourceAlreadyExistsException";
   readonly $fault: "client" = "client";
   /**
+   * @public
    * <p>The error message in the exception.</p>
    */
   Message?: string;
@@ -1223,6 +1332,7 @@ export class ResourceNotAvailableException extends __BaseException {
   readonly name: "ResourceNotAvailableException" = "ResourceNotAvailableException";
   readonly $fault: "client" = "client";
   /**
+   * @public
    * <p>The error message in the exception.</p>
    */
   Message?: string;
@@ -1245,43 +1355,51 @@ export class ResourceNotAvailableException extends __BaseException {
  */
 export interface CreateAppBlockRequest {
   /**
+   * @public
    * <p>The name of the app block.</p>
    */
   Name: string | undefined;
 
   /**
+   * @public
    * <p>The description of the app block.</p>
    */
   Description?: string;
 
   /**
+   * @public
    * <p>The display name of the app block. This is not displayed to the user.</p>
    */
   DisplayName?: string;
 
   /**
+   * @public
    * <p>The source S3 location of the app block.</p>
    */
   SourceS3Location: S3Location | undefined;
 
   /**
+   * @public
    * <p>The setup script details of the app block. This must be provided for the
    *                 <code>CUSTOM</code> PackagingType.</p>
    */
   SetupScriptDetails?: ScriptDetails;
 
   /**
+   * @public
    * <p>The tags assigned to the app block.</p>
    */
   Tags?: Record<string, string>;
 
   /**
+   * @public
    * <p>The post setup script details of the app block. This can only be provided for the
    *                 <code>APPSTREAM2</code> PackagingType.</p>
    */
   PostSetupScriptDetails?: ScriptDetails;
 
   /**
+   * @public
    * <p>The packaging type of the app block.</p>
    */
   PackagingType?: PackagingType | string;
@@ -1292,6 +1410,7 @@ export interface CreateAppBlockRequest {
  */
 export interface CreateAppBlockResult {
   /**
+   * @public
    * <p>The app block.</p>
    */
   AppBlock?: AppBlock;
@@ -1302,21 +1421,25 @@ export interface CreateAppBlockResult {
  */
 export interface CreateAppBlockBuilderRequest {
   /**
+   * @public
    * <p>The unique name for the app block builder.</p>
    */
   Name: string | undefined;
 
   /**
+   * @public
    * <p>The description of the app block builder.</p>
    */
   Description?: string;
 
   /**
+   * @public
    * <p>The display name of the app block builder.</p>
    */
   DisplayName?: string;
 
   /**
+   * @public
    * <p>The tags to associate with the app block builder. A tag is a key-value pair, and the
    *             value is optional. For example, Environment=Test. If you do not specify a value,
    *             Environment=. </p>
@@ -1328,6 +1451,7 @@ export interface CreateAppBlockBuilderRequest {
   Tags?: Record<string, string>;
 
   /**
+   * @public
    * <p>The platform of the app block builder.</p>
    *          <p>
    *             <code>WINDOWS_SERVER_2019</code> is the only valid value.</p>
@@ -1335,6 +1459,7 @@ export interface CreateAppBlockBuilderRequest {
   Platform: AppBlockBuilderPlatformType | string | undefined;
 
   /**
+   * @public
    * <p>The instance type to use when launching the app block builder. The following instance
    *             types are available:</p>
    *          <ul>
@@ -1358,6 +1483,7 @@ export interface CreateAppBlockBuilderRequest {
   InstanceType: string | undefined;
 
   /**
+   * @public
    * <p>The VPC configuration for the app block builder.</p>
    *          <p>App block builders require that you specify at least two subnets in different availability
    *             zones.</p>
@@ -1365,11 +1491,13 @@ export interface CreateAppBlockBuilderRequest {
   VpcConfig: VpcConfig | undefined;
 
   /**
+   * @public
    * <p>Enables or disables default internet access for the app block builder.</p>
    */
   EnableDefaultInternetAccess?: boolean;
 
   /**
+   * @public
    * <p>The Amazon Resource Name (ARN) of the IAM role to apply to the app block builder. To
    *             assume a role, the app block builder calls the AWS Security Token Service (STS)
    *                 <code>AssumeRole</code> API operation and passes the ARN of the role to use. The
@@ -1380,6 +1508,7 @@ export interface CreateAppBlockBuilderRequest {
   IamRoleArn?: string;
 
   /**
+   * @public
    * <p>The list of interface VPC endpoint (interface endpoint) objects. Administrators can connect to the app block builder only through the specified endpoints.</p>
    */
   AccessEndpoints?: AccessEndpoint[];
@@ -1390,6 +1519,7 @@ export interface CreateAppBlockBuilderRequest {
  */
 export interface CreateAppBlockBuilderResult {
   /**
+   * @public
    * <p>Describes an app block builder.</p>
    */
   AppBlockBuilder?: AppBlockBuilder;
@@ -1403,6 +1533,7 @@ export class InvalidRoleException extends __BaseException {
   readonly name: "InvalidRoleException" = "InvalidRoleException";
   readonly $fault: "client" = "client";
   /**
+   * @public
    * <p>The error message in the exception.</p>
    */
   Message?: string;
@@ -1428,6 +1559,7 @@ export class RequestLimitExceededException extends __BaseException {
   readonly name: "RequestLimitExceededException" = "RequestLimitExceededException";
   readonly $fault: "client" = "client";
   /**
+   * @public
    * <p>The error message in the exception.</p>
    */
   Message?: string;
@@ -1450,11 +1582,13 @@ export class RequestLimitExceededException extends __BaseException {
  */
 export interface CreateAppBlockBuilderStreamingURLRequest {
   /**
+   * @public
    * <p>The name of the app block builder.</p>
    */
   AppBlockBuilderName: string | undefined;
 
   /**
+   * @public
    * <p>The time that the streaming URL will be valid, in seconds.
    *             Specify a value between 1 and 604800 seconds. The default is 3600 seconds.</p>
    */
@@ -1466,11 +1600,13 @@ export interface CreateAppBlockBuilderStreamingURLRequest {
  */
 export interface CreateAppBlockBuilderStreamingURLResult {
   /**
+   * @public
    * <p>The URL to start the streaming session.</p>
    */
   StreamingURL?: string;
 
   /**
+   * @public
    * <p>The elapsed time, in seconds after the Unix epoch, when this URL expires.</p>
    */
   Expires?: Date;
@@ -1481,56 +1617,67 @@ export interface CreateAppBlockBuilderStreamingURLResult {
  */
 export interface CreateApplicationRequest {
   /**
+   * @public
    * <p>The name of the application. This name is visible to users when display name is not specified.</p>
    */
   Name: string | undefined;
 
   /**
+   * @public
    * <p>The display name of the application. This name is visible to users in the application catalog.</p>
    */
   DisplayName?: string;
 
   /**
+   * @public
    * <p>The description of the application.</p>
    */
   Description?: string;
 
   /**
+   * @public
    * <p>The location in S3 of the application icon.</p>
    */
   IconS3Location: S3Location | undefined;
 
   /**
+   * @public
    * <p>The launch path of the application.</p>
    */
   LaunchPath: string | undefined;
 
   /**
+   * @public
    * <p>The working directory of the application.</p>
    */
   WorkingDirectory?: string;
 
   /**
+   * @public
    * <p>The launch parameters of the application.</p>
    */
   LaunchParameters?: string;
 
   /**
+   * @public
    * <p>The platforms the application supports. WINDOWS_SERVER_2019 and AMAZON_LINUX2 are supported for Elastic fleets.</p>
    */
   Platforms: (PlatformType | string)[] | undefined;
 
   /**
+   * @public
    * <p>The instance families the application supports. Valid values are GENERAL_PURPOSE and GRAPHICS_G4.</p>
    */
   InstanceFamilies: string[] | undefined;
 
   /**
+   * @public
    * <p>The app block ARN to which the application should be associated</p>
    */
   AppBlockArn: string | undefined;
 
   /**
+   * @public
    * <p>The tags assigned to the application.</p>
    */
   Tags?: Record<string, string>;
@@ -1541,6 +1688,7 @@ export interface CreateApplicationRequest {
  */
 export interface CreateApplicationResult {
   /**
+   * @public
    * <p>Describes an application in the application catalog.</p>
    */
   Application?: Application;
@@ -1552,6 +1700,7 @@ export interface CreateApplicationResult {
  */
 export interface ServiceAccountCredentials {
   /**
+   * @public
    * <p>The user name of the account. This account must have the following privileges: create computer objects,
    *             join computers to the domain, and change/reset the password on descendant computer objects for the
    *             organizational units specified.</p>
@@ -1559,6 +1708,7 @@ export interface ServiceAccountCredentials {
   AccountName: string | undefined;
 
   /**
+   * @public
    * <p>The password for the account.</p>
    */
   AccountPassword: string | undefined;
@@ -1569,21 +1719,25 @@ export interface ServiceAccountCredentials {
  */
 export interface CreateDirectoryConfigRequest {
   /**
+   * @public
    * <p>The fully qualified name of the directory (for example, corp.example.com).</p>
    */
   DirectoryName: string | undefined;
 
   /**
+   * @public
    * <p>The distinguished names of the organizational units for computer accounts.</p>
    */
   OrganizationalUnitDistinguishedNames: string[] | undefined;
 
   /**
+   * @public
    * <p>The credentials for the service account used by the fleet or image builder to connect to the directory.</p>
    */
   ServiceAccountCredentials?: ServiceAccountCredentials;
 
   /**
+   * @public
    * <p>The certificate-based authentication properties used to authenticate SAML 2.0 Identity
    *             Provider (IdP) user identities to Active Directory domain-joined streaming instances.
    *             Fallback is turned on by default when certificate-based authentication is <b>Enabled</b> . Fallback allows users to log in using their AD
@@ -1601,26 +1755,31 @@ export interface CreateDirectoryConfigRequest {
  */
 export interface DirectoryConfig {
   /**
+   * @public
    * <p>The fully qualified name of the directory (for example, corp.example.com).</p>
    */
   DirectoryName: string | undefined;
 
   /**
+   * @public
    * <p>The distinguished names of the organizational units for computer accounts.</p>
    */
   OrganizationalUnitDistinguishedNames?: string[];
 
   /**
+   * @public
    * <p>The credentials for the service account used by the fleet or image builder to connect to the directory.</p>
    */
   ServiceAccountCredentials?: ServiceAccountCredentials;
 
   /**
+   * @public
    * <p>The time the directory configuration was created.</p>
    */
   CreatedTime?: Date;
 
   /**
+   * @public
    * <p>The certificate-based authentication properties used to authenticate SAML 2.0 Identity
    *             Provider (IdP) user identities to Active Directory domain-joined streaming instances.
    *             Fallback is turned on by default when certificate-based authentication is <b>Enabled</b> . Fallback allows users to log in using their AD
@@ -1637,6 +1796,7 @@ export interface DirectoryConfig {
  */
 export interface CreateDirectoryConfigResult {
   /**
+   * @public
    * <p>Information about the directory configuration.</p>
    */
   DirectoryConfig?: DirectoryConfig;
@@ -1650,6 +1810,7 @@ export interface CreateDirectoryConfigResult {
  */
 export interface EntitlementAttribute {
   /**
+   * @public
    * <p>A supported AWS IAM SAML <code>PrincipalTag</code> attribute that is matched to the
    *             associated value when a user identity federates into an Amazon AppStream 2.0 SAML
    *             application.</p>
@@ -1682,6 +1843,7 @@ export interface EntitlementAttribute {
   Name: string | undefined;
 
   /**
+   * @public
    * <p>A value that is matched to a supported SAML attribute name when a user identity
    *             federates into an Amazon AppStream 2.0 SAML application. </p>
    */
@@ -1693,26 +1855,31 @@ export interface EntitlementAttribute {
  */
 export interface CreateEntitlementRequest {
   /**
+   * @public
    * <p>The name of the entitlement.</p>
    */
   Name: string | undefined;
 
   /**
+   * @public
    * <p>The name of the stack with which the entitlement is associated.</p>
    */
   StackName: string | undefined;
 
   /**
+   * @public
    * <p>The description of the entitlement.</p>
    */
   Description?: string;
 
   /**
+   * @public
    * <p>Specifies whether all or selected apps are entitled.</p>
    */
   AppVisibility: AppVisibility | string | undefined;
 
   /**
+   * @public
    * <p>The attributes of the entitlement.</p>
    */
   Attributes: EntitlementAttribute[] | undefined;
@@ -1729,36 +1896,43 @@ export interface CreateEntitlementRequest {
  */
 export interface Entitlement {
   /**
+   * @public
    * <p>The name of the entitlement.</p>
    */
   Name: string | undefined;
 
   /**
+   * @public
    * <p>The name of the stack with which the entitlement is associated.</p>
    */
   StackName: string | undefined;
 
   /**
+   * @public
    * <p>The description of the entitlement.</p>
    */
   Description?: string;
 
   /**
+   * @public
    * <p>Specifies whether all or selected apps are entitled.</p>
    */
   AppVisibility: AppVisibility | string | undefined;
 
   /**
+   * @public
    * <p>The attributes of the entitlement.</p>
    */
   Attributes: EntitlementAttribute[] | undefined;
 
   /**
+   * @public
    * <p>The time when the entitlement was created.</p>
    */
   CreatedTime?: Date;
 
   /**
+   * @public
    * <p>The time when the entitlement was last modified.</p>
    */
   LastModifiedTime?: Date;
@@ -1769,6 +1943,7 @@ export interface Entitlement {
  */
 export interface CreateEntitlementResult {
   /**
+   * @public
    * <p>The entitlement.</p>
    */
   Entitlement?: Entitlement;
@@ -1782,6 +1957,7 @@ export class EntitlementAlreadyExistsException extends __BaseException {
   readonly name: "EntitlementAlreadyExistsException" = "EntitlementAlreadyExistsException";
   readonly $fault: "client" = "client";
   /**
+   * @public
    * <p>The error message in the exception.</p>
    */
   Message?: string;
@@ -1805,11 +1981,13 @@ export class EntitlementAlreadyExistsException extends __BaseException {
  */
 export interface DomainJoinInfo {
   /**
+   * @public
    * <p>The fully qualified name of the directory (for example, corp.example.com).</p>
    */
   DirectoryName?: string;
 
   /**
+   * @public
    * <p>The distinguished name of the organizational unit for computer accounts.</p>
    */
   OrganizationalUnitDistinguishedName?: string;
@@ -1849,21 +2027,25 @@ export type StreamView = (typeof StreamView)[keyof typeof StreamView];
  */
 export interface CreateFleetRequest {
   /**
+   * @public
    * <p>A unique name for the fleet.</p>
    */
   Name: string | undefined;
 
   /**
+   * @public
    * <p>The name of the image used to create the fleet.</p>
    */
   ImageName?: string;
 
   /**
+   * @public
    * <p>The ARN of the public, private, or shared image to use.</p>
    */
   ImageArn?: string;
 
   /**
+   * @public
    * <p>The instance type to use when launching fleet instances. The following instance types are available:</p>
    *          <ul>
    *             <li>
@@ -1994,6 +2176,7 @@ export interface CreateFleetRequest {
   InstanceType: string | undefined;
 
   /**
+   * @public
    * <p>The fleet type.</p>
    *          <dl>
    *             <dt>ALWAYS_ON</dt>
@@ -2012,48 +2195,57 @@ export interface CreateFleetRequest {
   FleetType?: FleetType | string;
 
   /**
+   * @public
    * <p>The desired capacity for the fleet. This is not allowed for Elastic fleets. For Elastic fleets, specify MaxConcurrentSessions instead.</p>
    */
   ComputeCapacity?: ComputeCapacity;
 
   /**
+   * @public
    * <p>The VPC configuration for the fleet. This is required for Elastic fleets, but not required for other fleet types. Elastic fleets require that you specify at least two subnets in different availability zones.</p>
    */
   VpcConfig?: VpcConfig;
 
   /**
+   * @public
    * <p>The maximum amount of time that a streaming session can remain active, in seconds. If users are still connected to a streaming instance five minutes before this limit is reached, they are prompted to save any open documents before being disconnected. After this time elapses, the instance is terminated and replaced by a new instance.</p>
    *          <p>Specify a value between 600 and 360000.</p>
    */
   MaxUserDurationInSeconds?: number;
 
   /**
+   * @public
    * <p>The amount of time that a streaming session remains active after users disconnect. If users try to reconnect to the streaming session after a disconnection or network interruption within this time interval, they are connected to their previous session. Otherwise, they are connected to a new session with a new streaming instance. </p>
    *          <p>Specify a value between 60 and 360000.</p>
    */
   DisconnectTimeoutInSeconds?: number;
 
   /**
+   * @public
    * <p>The description to display.</p>
    */
   Description?: string;
 
   /**
+   * @public
    * <p>The fleet name to display.</p>
    */
   DisplayName?: string;
 
   /**
+   * @public
    * <p>Enables or disables default internet access for the fleet.</p>
    */
   EnableDefaultInternetAccess?: boolean;
 
   /**
+   * @public
    * <p>The name of the directory and organizational unit (OU) to use to join the fleet to a Microsoft Active Directory domain. This is not allowed for Elastic fleets. </p>
    */
   DomainJoinInfo?: DomainJoinInfo;
 
   /**
+   * @public
    * <p>The tags to associate with the fleet. A tag is a key-value pair, and the value is optional. For example, Environment=Test. If you do not specify a value, Environment=. </p>
    *          <p>If you do not specify a value, the value is set to an empty string.</p>
    *          <p>Generally allowed characters are: letters, numbers, and spaces representable in UTF-8, and the following special characters: </p>
@@ -2063,6 +2255,7 @@ export interface CreateFleetRequest {
   Tags?: Record<string, string>;
 
   /**
+   * @public
    * <p>The amount of time that users can be idle (inactive) before they are disconnected
    *             from their streaming session and the <code>DisconnectTimeoutInSeconds</code> time
    *             interval begins. Users are notified before they are disconnected due to inactivity. If
@@ -2081,35 +2274,41 @@ export interface CreateFleetRequest {
   IdleDisconnectTimeoutInSeconds?: number;
 
   /**
+   * @public
    * <p>The Amazon Resource Name (ARN) of the IAM role to apply to the fleet. To assume a role, a fleet instance calls the AWS Security Token Service (STS) <code>AssumeRole</code> API operation and passes the ARN of the role to use. The operation creates a new session with temporary credentials. AppStream 2.0 retrieves the temporary credentials and creates the <b>appstream_machine_role</b> credential profile on the instance.</p>
    *          <p>For more information, see <a href="https://docs.aws.amazon.com/appstream2/latest/developerguide/using-iam-roles-to-grant-permissions-to-applications-scripts-streaming-instances.html">Using an IAM Role to Grant Permissions to Applications and Scripts Running on AppStream 2.0 Streaming Instances</a> in the <i>Amazon AppStream 2.0 Administration Guide</i>.</p>
    */
   IamRoleArn?: string;
 
   /**
+   * @public
    * <p>The AppStream 2.0 view that is displayed to your users when they stream from the fleet. When <code>APP</code> is specified, only the windows of applications opened by users display. When <code>DESKTOP</code> is specified, the standard desktop that is provided by the operating system displays.</p>
    *          <p>The default value is <code>APP</code>.</p>
    */
   StreamView?: StreamView | string;
 
   /**
+   * @public
    * <p>The fleet platform. WINDOWS_SERVER_2019 and AMAZON_LINUX2 are supported for Elastic
    *             fleets. </p>
    */
   Platform?: PlatformType | string;
 
   /**
+   * @public
    * <p>The maximum concurrent sessions of the Elastic fleet. This is required for Elastic
    *             fleets, and not allowed for other fleet types.</p>
    */
   MaxConcurrentSessions?: number;
 
   /**
+   * @public
    * <p>The USB device filter strings that specify which USB devices a user can redirect to the fleet streaming session, when using the Windows native client. This is allowed but not required for Elastic fleets.</p>
    */
   UsbDeviceFilterStrings?: string[];
 
   /**
+   * @public
    * <p>The S3 location of the session scripts configuration zip file. This only applies to Elastic fleets.</p>
    */
   SessionScriptS3Location?: S3Location;
@@ -2121,11 +2320,13 @@ export interface CreateFleetRequest {
  */
 export interface FleetError {
   /**
+   * @public
    * <p>The error code.</p>
    */
   ErrorCode?: FleetErrorCode | string;
 
   /**
+   * @public
    * <p>The error message.</p>
    */
   ErrorMessage?: string;
@@ -2153,36 +2354,43 @@ export type FleetState = (typeof FleetState)[keyof typeof FleetState];
  */
 export interface Fleet {
   /**
+   * @public
    * <p>The Amazon Resource Name (ARN) for the fleet.</p>
    */
   Arn: string | undefined;
 
   /**
+   * @public
    * <p>The name of the fleet.</p>
    */
   Name: string | undefined;
 
   /**
+   * @public
    * <p>The fleet name to display.</p>
    */
   DisplayName?: string;
 
   /**
+   * @public
    * <p>The description to display.</p>
    */
   Description?: string;
 
   /**
+   * @public
    * <p>The name of the image used to create the fleet.</p>
    */
   ImageName?: string;
 
   /**
+   * @public
    * <p>The ARN for the public, private, or shared image.</p>
    */
   ImageArn?: string;
 
   /**
+   * @public
    * <p>The instance type to use when launching fleet instances. The following instance types are available:</p>
    *          <ul>
    *             <li>
@@ -2289,6 +2497,7 @@ export interface Fleet {
   InstanceType: string | undefined;
 
   /**
+   * @public
    * <p>The fleet type.</p>
    *          <dl>
    *             <dt>ALWAYS_ON</dt>
@@ -2307,53 +2516,63 @@ export interface Fleet {
   FleetType?: FleetType | string;
 
   /**
+   * @public
    * <p>The capacity status for the fleet.</p>
    */
   ComputeCapacityStatus: ComputeCapacityStatus | undefined;
 
   /**
+   * @public
    * <p>The maximum amount of time that a streaming session can remain active, in seconds. If users are still connected to a streaming instance five minutes before this limit is reached, they are prompted to save any open documents before being disconnected. After this time elapses, the instance is terminated and replaced by a new instance. </p>
    *          <p>Specify a value between 600 and 360000.</p>
    */
   MaxUserDurationInSeconds?: number;
 
   /**
+   * @public
    * <p>The amount of time that a streaming session remains active after users disconnect. If they try to reconnect to the streaming session after a disconnection or network interruption within this time interval, they are connected to their previous session. Otherwise, they are connected to a new session with a new streaming instance.</p>
    *          <p>Specify a value between 60 and 360000.</p>
    */
   DisconnectTimeoutInSeconds?: number;
 
   /**
+   * @public
    * <p>The current state for the fleet.</p>
    */
   State: FleetState | string | undefined;
 
   /**
+   * @public
    * <p>The VPC configuration for the fleet.</p>
    */
   VpcConfig?: VpcConfig;
 
   /**
+   * @public
    * <p>The time the fleet was created.</p>
    */
   CreatedTime?: Date;
 
   /**
+   * @public
    * <p>The fleet errors.</p>
    */
   FleetErrors?: FleetError[];
 
   /**
+   * @public
    * <p>Indicates whether default internet access is enabled for the fleet.</p>
    */
   EnableDefaultInternetAccess?: boolean;
 
   /**
+   * @public
    * <p>The name of the directory and organizational unit (OU) to use to join the fleet to a Microsoft Active Directory domain. </p>
    */
   DomainJoinInfo?: DomainJoinInfo;
 
   /**
+   * @public
    * <p>The amount of time that users can be idle (inactive) before they are disconnected
    *             from their streaming session and the <code>DisconnectTimeoutInSeconds</code> time
    *             interval begins. Users are notified before they are disconnected due to inactivity. If
@@ -2372,33 +2591,39 @@ export interface Fleet {
   IdleDisconnectTimeoutInSeconds?: number;
 
   /**
+   * @public
    * <p>The ARN of the IAM role that is applied to the fleet. To assume a role, the fleet instance calls the AWS Security Token Service (STS) <code>AssumeRole</code> API operation and passes the ARN of the role to use. The operation creates a new session with temporary credentials. AppStream 2.0 retrieves the temporary credentials and creates the <b>appstream_machine_role</b> credential profile on the instance.</p>
    *          <p>For more information, see <a href="https://docs.aws.amazon.com/appstream2/latest/developerguide/using-iam-roles-to-grant-permissions-to-applications-scripts-streaming-instances.html">Using an IAM Role to Grant Permissions to Applications and Scripts Running on AppStream 2.0 Streaming Instances</a> in the <i>Amazon AppStream 2.0 Administration Guide</i>.</p>
    */
   IamRoleArn?: string;
 
   /**
+   * @public
    * <p>The AppStream 2.0 view that is displayed to your users when they stream from the fleet. When <code>APP</code> is specified, only the windows of applications opened by users display. When <code>DESKTOP</code> is specified, the standard desktop that is provided by the operating system displays.</p>
    *          <p>The default value is <code>APP</code>.</p>
    */
   StreamView?: StreamView | string;
 
   /**
+   * @public
    * <p>The platform of the fleet.</p>
    */
   Platform?: PlatformType | string;
 
   /**
+   * @public
    * <p>The maximum number of concurrent sessions for the fleet.</p>
    */
   MaxConcurrentSessions?: number;
 
   /**
+   * @public
    * <p>The USB device filter strings associated with the fleet.</p>
    */
   UsbDeviceFilterStrings?: string[];
 
   /**
+   * @public
    * <p>The S3 location of the session scripts configuration zip file. This only applies to Elastic fleets.</p>
    */
   SessionScriptS3Location?: S3Location;
@@ -2409,6 +2634,7 @@ export interface Fleet {
  */
 export interface CreateFleetResult {
   /**
+   * @public
    * <p>Information about the fleet.</p>
    */
   Fleet?: Fleet;
@@ -2419,21 +2645,25 @@ export interface CreateFleetResult {
  */
 export interface CreateImageBuilderRequest {
   /**
+   * @public
    * <p>A unique name for the image builder.</p>
    */
   Name: string | undefined;
 
   /**
+   * @public
    * <p>The name of the image used to create the image builder.</p>
    */
   ImageName?: string;
 
   /**
+   * @public
    * <p>The ARN of the public, private, or shared image to use.</p>
    */
   ImageArn?: string;
 
   /**
+   * @public
    * <p>The instance type to use when launching the image builder. The following instance types are available:</p>
    *          <ul>
    *             <li>
@@ -2540,42 +2770,50 @@ export interface CreateImageBuilderRequest {
   InstanceType: string | undefined;
 
   /**
+   * @public
    * <p>The description to display.</p>
    */
   Description?: string;
 
   /**
+   * @public
    * <p>The image builder name to display.</p>
    */
   DisplayName?: string;
 
   /**
+   * @public
    * <p>The VPC configuration for the image builder. You can specify only one subnet.</p>
    */
   VpcConfig?: VpcConfig;
 
   /**
+   * @public
    * <p>The Amazon Resource Name (ARN) of the IAM role to apply to the image builder. To assume a role, the image builder calls the AWS Security Token Service (STS) <code>AssumeRole</code> API operation and passes the ARN of the role to use. The operation creates a new session with temporary credentials. AppStream 2.0 retrieves the temporary credentials and creates the <b>appstream_machine_role</b> credential profile on the instance.</p>
    *          <p>For more information, see <a href="https://docs.aws.amazon.com/appstream2/latest/developerguide/using-iam-roles-to-grant-permissions-to-applications-scripts-streaming-instances.html">Using an IAM Role to Grant Permissions to Applications and Scripts Running on AppStream 2.0 Streaming Instances</a> in the <i>Amazon AppStream 2.0 Administration Guide</i>.</p>
    */
   IamRoleArn?: string;
 
   /**
+   * @public
    * <p>Enables or disables default internet access for the image builder.</p>
    */
   EnableDefaultInternetAccess?: boolean;
 
   /**
+   * @public
    * <p>The name of the directory and organizational unit (OU) to use to join the image builder to a Microsoft Active Directory domain. </p>
    */
   DomainJoinInfo?: DomainJoinInfo;
 
   /**
+   * @public
    * <p>The version of the AppStream 2.0 agent to use for this image builder. To use the latest version of the AppStream 2.0 agent, specify [LATEST]. </p>
    */
   AppstreamAgentVersion?: string;
 
   /**
+   * @public
    * <p>The tags to associate with the image builder. A tag is a key-value pair, and the value is optional. For example, Environment=Test. If you do not specify a value, Environment=. </p>
    *          <p>Generally allowed characters are: letters, numbers, and spaces representable in UTF-8, and the following special characters: </p>
    *          <p>_ . : / = + \ - @</p>
@@ -2585,6 +2823,7 @@ export interface CreateImageBuilderRequest {
   Tags?: Record<string, string>;
 
   /**
+   * @public
    * <p>The list of interface VPC endpoint (interface endpoint) objects. Administrators can connect to the image builder only through the specified endpoints.</p>
    */
   AccessEndpoints?: AccessEndpoint[];
@@ -2596,11 +2835,13 @@ export interface CreateImageBuilderRequest {
  */
 export interface NetworkAccessConfiguration {
   /**
+   * @public
    * <p>The private IP address of the elastic network interface that is attached to instances in your VPC.</p>
    */
   EniPrivateIpAddress?: string;
 
   /**
+   * @public
    * <p>The resource identifier of the elastic network interface that is attached to instances in your VPC. All network interfaces have the eni-xxxxxxxx resource identifier.</p>
    */
   EniId?: string;
@@ -2650,11 +2891,13 @@ export type ImageBuilderStateChangeReasonCode =
  */
 export interface ImageBuilderStateChangeReason {
   /**
+   * @public
    * <p>The state change reason code.</p>
    */
   Code?: ImageBuilderStateChangeReasonCode | string;
 
   /**
+   * @public
    * <p>The state change reason message.</p>
    */
   Message?: string;
@@ -2666,36 +2909,43 @@ export interface ImageBuilderStateChangeReason {
  */
 export interface ImageBuilder {
   /**
+   * @public
    * <p>The name of the image builder.</p>
    */
   Name: string | undefined;
 
   /**
+   * @public
    * <p>The ARN for the image builder.</p>
    */
   Arn?: string;
 
   /**
+   * @public
    * <p>The ARN of the image from which this builder was created.</p>
    */
   ImageArn?: string;
 
   /**
+   * @public
    * <p>The description to display.</p>
    */
   Description?: string;
 
   /**
+   * @public
    * <p>The image builder name to display.</p>
    */
   DisplayName?: string;
 
   /**
+   * @public
    * <p>The VPC configuration of the image builder.</p>
    */
   VpcConfig?: VpcConfig;
 
   /**
+   * @public
    * <p>The instance type for the image builder. The following instance types are available:</p>
    *          <ul>
    *             <li>
@@ -2802,57 +3052,68 @@ export interface ImageBuilder {
   InstanceType?: string;
 
   /**
+   * @public
    * <p>The operating system platform of the image builder.</p>
    */
   Platform?: PlatformType | string;
 
   /**
+   * @public
    * <p>The ARN of the IAM role that is applied to the image builder. To assume a role, the image builder calls the AWS Security Token Service (STS) <code>AssumeRole</code> API operation and passes the ARN of the role to use. The operation creates a new session with temporary credentials. AppStream 2.0 retrieves the temporary credentials and creates the <b>appstream_machine_role</b> credential profile on the instance.</p>
    *          <p>For more information, see <a href="https://docs.aws.amazon.com/appstream2/latest/developerguide/using-iam-roles-to-grant-permissions-to-applications-scripts-streaming-instances.html">Using an IAM Role to Grant Permissions to Applications and Scripts Running on AppStream 2.0 Streaming Instances</a> in the <i>Amazon AppStream 2.0 Administration Guide</i>.</p>
    */
   IamRoleArn?: string;
 
   /**
+   * @public
    * <p>The state of the image builder.</p>
    */
   State?: ImageBuilderState | string;
 
   /**
+   * @public
    * <p>The reason why the last state change occurred.</p>
    */
   StateChangeReason?: ImageBuilderStateChangeReason;
 
   /**
+   * @public
    * <p>The time stamp when the image builder was created.</p>
    */
   CreatedTime?: Date;
 
   /**
+   * @public
    * <p>Enables or disables default internet access for the image builder.</p>
    */
   EnableDefaultInternetAccess?: boolean;
 
   /**
+   * @public
    * <p>The name of the directory and organizational unit (OU) to use to join the image builder to a Microsoft Active Directory domain. </p>
    */
   DomainJoinInfo?: DomainJoinInfo;
 
   /**
+   * @public
    * <p>Describes the network details of the fleet or image builder instance.</p>
    */
   NetworkAccessConfiguration?: NetworkAccessConfiguration;
 
   /**
+   * @public
    * <p>The image builder errors.</p>
    */
   ImageBuilderErrors?: ResourceError[];
 
   /**
+   * @public
    * <p>The version of the AppStream 2.0 agent that is currently being used by the image builder. </p>
    */
   AppstreamAgentVersion?: string;
 
   /**
+   * @public
    * <p>The list of virtual private cloud (VPC) interface endpoint objects. Administrators can connect to the image builder only through the specified endpoints.</p>
    */
   AccessEndpoints?: AccessEndpoint[];
@@ -2863,6 +3124,7 @@ export interface ImageBuilder {
  */
 export interface CreateImageBuilderResult {
   /**
+   * @public
    * <p>Information about the image builder.</p>
    */
   ImageBuilder?: ImageBuilder;
@@ -2873,11 +3135,13 @@ export interface CreateImageBuilderResult {
  */
 export interface CreateImageBuilderStreamingURLRequest {
   /**
+   * @public
    * <p>The name of the image builder.</p>
    */
   Name: string | undefined;
 
   /**
+   * @public
    * <p>The time that the streaming URL will be valid, in seconds.
    *             Specify a value between 1 and 604800 seconds. The default is 3600 seconds.</p>
    */
@@ -2889,11 +3153,13 @@ export interface CreateImageBuilderStreamingURLRequest {
  */
 export interface CreateImageBuilderStreamingURLResult {
   /**
+   * @public
    * <p>The URL to start the AppStream 2.0 streaming session.</p>
    */
   StreamingURL?: string;
 
   /**
+   * @public
    * <p>The elapsed time, in seconds after the Unix epoch, when this URL expires.</p>
    */
   Expires?: Date;
@@ -2920,16 +3186,19 @@ export type StorageConnectorType = (typeof StorageConnectorType)[keyof typeof St
  */
 export interface StorageConnector {
   /**
+   * @public
    * <p>The type of storage connector.</p>
    */
   ConnectorType: StorageConnectorType | string | undefined;
 
   /**
+   * @public
    * <p>The ARN of the storage connector.</p>
    */
   ResourceIdentifier?: string;
 
   /**
+   * @public
    * <p>The names of the domains for the account.</p>
    */
   Domains?: string[];
@@ -2955,6 +3224,7 @@ export type PreferredProtocol = (typeof PreferredProtocol)[keyof typeof Preferre
  */
 export interface StreamingExperienceSettings {
   /**
+   * @public
    * <p>The preferred protocol that you want to use while streaming your application.</p>
    */
   PreferredProtocol?: PreferredProtocol | string;
@@ -2980,11 +3250,13 @@ export type Permission = (typeof Permission)[keyof typeof Permission];
  */
 export interface UserSetting {
   /**
+   * @public
    * <p>The action that is enabled or disabled.</p>
    */
   Action: Action | string | undefined;
 
   /**
+   * @public
    * <p>Indicates whether the action is enabled or disabled.</p>
    */
   Permission: Permission | string | undefined;
@@ -2995,46 +3267,55 @@ export interface UserSetting {
  */
 export interface CreateStackRequest {
   /**
+   * @public
    * <p>The name of the stack.</p>
    */
   Name: string | undefined;
 
   /**
+   * @public
    * <p>The description to display.</p>
    */
   Description?: string;
 
   /**
+   * @public
    * <p>The stack name to display.</p>
    */
   DisplayName?: string;
 
   /**
+   * @public
    * <p>The storage connectors to enable.</p>
    */
   StorageConnectors?: StorageConnector[];
 
   /**
+   * @public
    * <p>The URL that users are redirected to after their streaming session ends.</p>
    */
   RedirectURL?: string;
 
   /**
+   * @public
    * <p>The URL that users are redirected to after they click the Send Feedback link. If no URL is specified, no Send Feedback link is displayed.</p>
    */
   FeedbackURL?: string;
 
   /**
+   * @public
    * <p>The actions that are enabled or disabled for users during their streaming sessions. By default, these actions are enabled. </p>
    */
   UserSettings?: UserSetting[];
 
   /**
+   * @public
    * <p>The persistent application settings for users of a stack. When these settings are enabled, changes that users make to applications and Windows settings are automatically saved after each session and applied to the next session.</p>
    */
   ApplicationSettings?: ApplicationSettings;
 
   /**
+   * @public
    * <p>The tags to associate with the stack. A tag is a key-value pair, and the value is optional. For example, Environment=Test. If you do not specify a value, Environment=. </p>
    *          <p>If you do not specify a value, the value is set to an empty string.</p>
    *          <p>Generally allowed characters are: letters, numbers, and spaces representable in UTF-8, and the following special characters: </p>
@@ -3044,16 +3325,19 @@ export interface CreateStackRequest {
   Tags?: Record<string, string>;
 
   /**
+   * @public
    * <p>The list of interface VPC endpoint (interface endpoint) objects. Users of the stack can connect to AppStream 2.0 only through the specified endpoints.</p>
    */
   AccessEndpoints?: AccessEndpoint[];
 
   /**
+   * @public
    * <p>The domains where AppStream 2.0 streaming sessions can be embedded in an iframe. You must approve the domains that you want to host embedded AppStream 2.0 streaming sessions. </p>
    */
   EmbedHostDomains?: string[];
 
   /**
+   * @public
    * <p>The streaming protocol you want your stack to prefer. This can be UDP or TCP. Currently, UDP is only supported in the Windows native client.</p>
    */
   StreamingExperienceSettings?: StreamingExperienceSettings;
@@ -3079,11 +3363,13 @@ export type StackErrorCode = (typeof StackErrorCode)[keyof typeof StackErrorCode
  */
 export interface StackError {
   /**
+   * @public
    * <p>The error code.</p>
    */
   ErrorCode?: StackErrorCode | string;
 
   /**
+   * @public
    * <p>The error message.</p>
    */
   ErrorMessage?: string;
@@ -3095,71 +3381,85 @@ export interface StackError {
  */
 export interface Stack {
   /**
+   * @public
    * <p>The ARN of the stack.</p>
    */
   Arn?: string;
 
   /**
+   * @public
    * <p>The name of the stack.</p>
    */
   Name: string | undefined;
 
   /**
+   * @public
    * <p>The description to display.</p>
    */
   Description?: string;
 
   /**
+   * @public
    * <p>The stack name to display.</p>
    */
   DisplayName?: string;
 
   /**
+   * @public
    * <p>The time the stack was created.</p>
    */
   CreatedTime?: Date;
 
   /**
+   * @public
    * <p>The storage connectors to enable.</p>
    */
   StorageConnectors?: StorageConnector[];
 
   /**
+   * @public
    * <p>The URL that users are redirected to after their streaming session ends.</p>
    */
   RedirectURL?: string;
 
   /**
+   * @public
    * <p>The URL that users are redirected to after they click the Send Feedback link. If no URL is specified, no Send Feedback link is displayed.</p>
    */
   FeedbackURL?: string;
 
   /**
+   * @public
    * <p>The errors for the stack.</p>
    */
   StackErrors?: StackError[];
 
   /**
+   * @public
    * <p>The actions that are enabled or disabled for users during their streaming sessions. By default these actions are enabled.</p>
    */
   UserSettings?: UserSetting[];
 
   /**
+   * @public
    * <p>The persistent application settings for users of the stack.</p>
    */
   ApplicationSettings?: ApplicationSettingsResponse;
 
   /**
+   * @public
    * <p>The list of virtual private cloud (VPC) interface endpoint objects. Users of the stack can connect to AppStream 2.0 only through the specified endpoints. </p>
    */
   AccessEndpoints?: AccessEndpoint[];
 
   /**
+   * @public
    * <p>The domains where AppStream 2.0 streaming sessions can be embedded in an iframe. You must approve the domains that you want to host embedded AppStream 2.0 streaming sessions.</p>
    */
   EmbedHostDomains?: string[];
 
   /**
+   * @public
    * <p>The streaming protocol you want your stack to prefer. This can be UDP or TCP. Currently, UDP is only supported in the Windows native client.</p>
    */
   StreamingExperienceSettings?: StreamingExperienceSettings;
@@ -3170,6 +3470,7 @@ export interface Stack {
  */
 export interface CreateStackResult {
   /**
+   * @public
    * <p>Information about the stack.</p>
    */
   Stack?: Stack;
@@ -3180,33 +3481,39 @@ export interface CreateStackResult {
  */
 export interface CreateStreamingURLRequest {
   /**
+   * @public
    * <p>The name of the stack.</p>
    */
   StackName: string | undefined;
 
   /**
+   * @public
    * <p>The name of the fleet.</p>
    */
   FleetName: string | undefined;
 
   /**
+   * @public
    * <p>The identifier of the user.</p>
    */
   UserId: string | undefined;
 
   /**
+   * @public
    * <p>The name of the application to launch after the session starts. This is the name that you specified
    *             as <b>Name</b> in the Image Assistant. If your fleet is enabled for the <b>Desktop</b> stream view, you can also choose to launch directly to the operating system desktop. To do so, specify <b>Desktop</b>.</p>
    */
   ApplicationId?: string;
 
   /**
+   * @public
    * <p>The time that the streaming URL will be valid, in seconds.
    *             Specify a value between 1 and 604800 seconds. The default is 60 seconds.</p>
    */
   Validity?: number;
 
   /**
+   * @public
    * <p>The session context. For more information, see <a href="https://docs.aws.amazon.com/appstream2/latest/developerguide/managing-stacks-fleets.html#managing-stacks-fleets-parameters">Session Context</a> in the <i>Amazon AppStream 2.0 Administration Guide</i>.</p>
    */
   SessionContext?: string;
@@ -3217,11 +3524,13 @@ export interface CreateStreamingURLRequest {
  */
 export interface CreateStreamingURLResult {
   /**
+   * @public
    * <p>The URL to start the AppStream 2.0 streaming session.</p>
    */
   StreamingURL?: string;
 
   /**
+   * @public
    * <p>The elapsed time, in seconds after the Unix epoch, when this URL expires.</p>
    */
   Expires?: Date;
@@ -3232,26 +3541,31 @@ export interface CreateStreamingURLResult {
  */
 export interface CreateUpdatedImageRequest {
   /**
+   * @public
    * <p>The name of the image to update.</p>
    */
   existingImageName: string | undefined;
 
   /**
+   * @public
    * <p>The name of the new image. The name must be unique within the AWS account and Region.</p>
    */
   newImageName: string | undefined;
 
   /**
+   * @public
    * <p>The description to display for the new image.</p>
    */
   newImageDescription?: string;
 
   /**
+   * @public
    * <p>The name to display for the new image.</p>
    */
   newImageDisplayName?: string;
 
   /**
+   * @public
    * <p>The tags to associate with the new image. A tag is a key-value pair, and the value is optional. For example, Environment=Test. If you do not specify a value, Environment=. </p>
    *          <p>Generally allowed characters are: letters, numbers, and spaces representable in UTF-8, and the following special characters: </p>
    *          <p>_ . : / = + \ - @</p>
@@ -3261,6 +3575,7 @@ export interface CreateUpdatedImageRequest {
   newImageTags?: Record<string, string>;
 
   /**
+   * @public
    * <p>Indicates whether to display the status of image update availability before AppStream 2.0 initiates the process of creating a new updated image. If this value is set to <code>true</code>, AppStream 2.0 displays whether image updates are available. If this value is set to <code>false</code>, AppStream 2.0 initiates the process of creating a new updated image without displaying whether image updates are available.</p>
    */
   dryRun?: boolean;
@@ -3272,11 +3587,13 @@ export interface CreateUpdatedImageRequest {
  */
 export interface ImagePermissions {
   /**
+   * @public
    * <p>Indicates whether the image can be used for a fleet.</p>
    */
   allowFleet?: boolean;
 
   /**
+   * @public
    * <p>Indicates whether the image can be used for an image builder.</p>
    */
   allowImageBuilder?: boolean;
@@ -3322,11 +3639,13 @@ export type ImageStateChangeReasonCode = (typeof ImageStateChangeReasonCode)[key
  */
 export interface ImageStateChangeReason {
   /**
+   * @public
    * <p>The state change reason code.</p>
    */
   Code?: ImageStateChangeReasonCode | string;
 
   /**
+   * @public
    * <p>The state change reason message.</p>
    */
   Message?: string;
@@ -3353,88 +3672,105 @@ export type VisibilityType = (typeof VisibilityType)[keyof typeof VisibilityType
  */
 export interface Image {
   /**
+   * @public
    * <p>The name of the image.</p>
    */
   Name: string | undefined;
 
   /**
+   * @public
    * <p>The ARN of the image.</p>
    */
   Arn?: string;
 
   /**
+   * @public
    * <p>The ARN of the image from which this image was created.</p>
    */
   BaseImageArn?: string;
 
   /**
+   * @public
    * <p>The image name to display.</p>
    */
   DisplayName?: string;
 
   /**
+   * @public
    * <p>The image starts in the <code>PENDING</code> state. If image creation succeeds, the
    *             state is <code>AVAILABLE</code>. If image creation fails, the state is <code>FAILED</code>.</p>
    */
   State?: ImageState | string;
 
   /**
+   * @public
    * <p>Indicates whether the image is public or private.</p>
    */
   Visibility?: VisibilityType | string;
 
   /**
+   * @public
    * <p>Indicates whether an image builder can be launched from this image.</p>
    */
   ImageBuilderSupported?: boolean;
 
   /**
+   * @public
    * <p>The name of the image builder that was used to create the private image. If the image is shared, this value is null.</p>
    */
   ImageBuilderName?: string;
 
   /**
+   * @public
    * <p>The operating system platform of the image.</p>
    */
   Platform?: PlatformType | string;
 
   /**
+   * @public
    * <p>The description to display.</p>
    */
   Description?: string;
 
   /**
+   * @public
    * <p>The reason why the last state change occurred.</p>
    */
   StateChangeReason?: ImageStateChangeReason;
 
   /**
+   * @public
    * <p>The applications associated with the image.</p>
    */
   Applications?: Application[];
 
   /**
+   * @public
    * <p>The time the image was created.</p>
    */
   CreatedTime?: Date;
 
   /**
+   * @public
    * <p>The release date of the public base image.
    *             For private images, this date is the release date of the base image from which the image was created.</p>
    */
   PublicBaseImageReleasedDate?: Date;
 
   /**
+   * @public
    * <p>The version of the AppStream 2.0 agent to use for instances that are launched from this image. </p>
    */
   AppstreamAgentVersion?: string;
 
   /**
+   * @public
    * <p>The permissions to provide to the destination AWS account for the specified image.</p>
    */
   ImagePermissions?: ImagePermissions;
 
   /**
+   * @public
    * <p>Describes the errors that are returned when a new image can't be created.</p>
    */
   ImageErrors?: ResourceError[];
@@ -3445,11 +3781,13 @@ export interface Image {
  */
 export interface CreateUpdatedImageResult {
   /**
+   * @public
    * <p>Describes an image.</p>
    */
   image?: Image;
 
   /**
+   * @public
    * <p>Indicates whether a new image can be created.</p>
    */
   canUpdateImage?: boolean;
@@ -3478,6 +3816,7 @@ export type UsageReportSchedule = (typeof UsageReportSchedule)[keyof typeof Usag
  */
 export interface CreateUsageReportSubscriptionResult {
   /**
+   * @public
    * <p>The Amazon S3 bucket where generated reports are stored.</p>
    *          <p>If you enabled on-instance session scripts and Amazon S3 logging for your session script
    *             configuration, AppStream 2.0 created an S3 bucket to store the script output. The bucket is
@@ -3488,6 +3827,7 @@ export interface CreateUsageReportSubscriptionResult {
   S3BucketName?: string;
 
   /**
+   * @public
    * <p>The schedule for generating usage reports.</p>
    */
   Schedule?: UsageReportSchedule | string;
@@ -3512,6 +3852,7 @@ export type MessageAction = (typeof MessageAction)[keyof typeof MessageAction];
  */
 export interface CreateUserRequest {
   /**
+   * @public
    * <p>The email address of the user.</p>
    *          <note>
    *             <p>Users' email addresses are case-sensitive. During login, if they specify an email address that doesn't use the same capitalization as the email address specified when their user pool account was created, a "user does not exist" error message displays.</p>
@@ -3520,6 +3861,7 @@ export interface CreateUserRequest {
   UserName: string | undefined;
 
   /**
+   * @public
    * <p>The action to take for the welcome email that is sent to a user after the user is created in the user pool. If you specify SUPPRESS, no email is sent. If you specify RESEND, do not specify the first name or last name of the user. If the value is null, the email is sent. </p>
    *          <note>
    *             <p>The temporary password in the welcome email is valid for only 7 days. If users don’t set their passwords within 7 days, you must send them a new welcome email.</p>
@@ -3528,16 +3870,19 @@ export interface CreateUserRequest {
   MessageAction?: MessageAction | string;
 
   /**
+   * @public
    * <p>The first name, or given name, of the user.</p>
    */
   FirstName?: string;
 
   /**
+   * @public
    * <p>The last name, or surname, of the user.</p>
    */
   LastName?: string;
 
   /**
+   * @public
    * <p>The authentication type for the user. You must specify USERPOOL. </p>
    */
   AuthenticationType: AuthenticationType | string | undefined;
@@ -3553,6 +3898,7 @@ export interface CreateUserResult {}
  */
 export interface DeleteAppBlockRequest {
   /**
+   * @public
    * <p>The name of the app block.</p>
    */
   Name: string | undefined;
@@ -3571,6 +3917,7 @@ export class ResourceInUseException extends __BaseException {
   readonly name: "ResourceInUseException" = "ResourceInUseException";
   readonly $fault: "client" = "client";
   /**
+   * @public
    * <p>The error message in the exception.</p>
    */
   Message?: string;
@@ -3593,6 +3940,7 @@ export class ResourceInUseException extends __BaseException {
  */
 export interface DeleteAppBlockBuilderRequest {
   /**
+   * @public
    * <p>The name of the app block builder.</p>
    */
   Name: string | undefined;
@@ -3608,6 +3956,7 @@ export interface DeleteAppBlockBuilderResult {}
  */
 export interface DeleteApplicationRequest {
   /**
+   * @public
    * <p>The name of the application.</p>
    */
   Name: string | undefined;
@@ -3623,6 +3972,7 @@ export interface DeleteApplicationResult {}
  */
 export interface DeleteDirectoryConfigRequest {
   /**
+   * @public
    * <p>The name of the directory configuration.</p>
    */
   DirectoryName: string | undefined;
@@ -3638,11 +3988,13 @@ export interface DeleteDirectoryConfigResult {}
  */
 export interface DeleteEntitlementRequest {
   /**
+   * @public
    * <p>The name of the entitlement.</p>
    */
   Name: string | undefined;
 
   /**
+   * @public
    * <p>The name of the stack with which the entitlement is associated.</p>
    */
   StackName: string | undefined;
@@ -3658,6 +4010,7 @@ export interface DeleteEntitlementResult {}
  */
 export interface DeleteFleetRequest {
   /**
+   * @public
    * <p>The name of the fleet.</p>
    */
   Name: string | undefined;
@@ -3673,6 +4026,7 @@ export interface DeleteFleetResult {}
  */
 export interface DeleteImageRequest {
   /**
+   * @public
    * <p>The name of the image.</p>
    */
   Name: string | undefined;
@@ -3683,6 +4037,7 @@ export interface DeleteImageRequest {
  */
 export interface DeleteImageResult {
   /**
+   * @public
    * <p>Information about the image.</p>
    */
   Image?: Image;
@@ -3693,6 +4048,7 @@ export interface DeleteImageResult {
  */
 export interface DeleteImageBuilderRequest {
   /**
+   * @public
    * <p>The name of the image builder.</p>
    */
   Name: string | undefined;
@@ -3703,6 +4059,7 @@ export interface DeleteImageBuilderRequest {
  */
 export interface DeleteImageBuilderResult {
   /**
+   * @public
    * <p>Information about the image builder.</p>
    */
   ImageBuilder?: ImageBuilder;
@@ -3713,11 +4070,13 @@ export interface DeleteImageBuilderResult {
  */
 export interface DeleteImagePermissionsRequest {
   /**
+   * @public
    * <p>The name of the private image.</p>
    */
   Name: string | undefined;
 
   /**
+   * @public
    * <p>The 12-digit identifier of the AWS account for which to delete image permissions.</p>
    */
   SharedAccountId: string | undefined;
@@ -3733,6 +4092,7 @@ export interface DeleteImagePermissionsResult {}
  */
 export interface DeleteStackRequest {
   /**
+   * @public
    * <p>The name of the stack.</p>
    */
   Name: string | undefined;
@@ -3758,6 +4118,7 @@ export interface DeleteUsageReportSubscriptionResult {}
  */
 export interface DeleteUserRequest {
   /**
+   * @public
    * <p>The email address of the user.</p>
    *          <note>
    *             <p>Users' email addresses are case-sensitive.</p>
@@ -3766,6 +4127,7 @@ export interface DeleteUserRequest {
   UserName: string | undefined;
 
   /**
+   * @public
    * <p>The authentication type for the user. You must specify USERPOOL.</p>
    */
   AuthenticationType: AuthenticationType | string | undefined;
@@ -3781,21 +4143,25 @@ export interface DeleteUserResult {}
  */
 export interface DescribeAppBlockBuilderAppBlockAssociationsRequest {
   /**
+   * @public
    * <p>The ARN of the app block.</p>
    */
   AppBlockArn?: string;
 
   /**
+   * @public
    * <p>The name of the app block builder.</p>
    */
   AppBlockBuilderName?: string;
 
   /**
+   * @public
    * <p>The maximum size of each page of results.</p>
    */
   MaxResults?: number;
 
   /**
+   * @public
    * <p>The pagination token used to retrieve the next page of results for this
    *             operation.</p>
    */
@@ -3807,11 +4173,13 @@ export interface DescribeAppBlockBuilderAppBlockAssociationsRequest {
  */
 export interface DescribeAppBlockBuilderAppBlockAssociationsResult {
   /**
+   * @public
    * <p>This list of app block builders associated with app blocks.</p>
    */
   AppBlockBuilderAppBlockAssociations?: AppBlockBuilderAppBlockAssociation[];
 
   /**
+   * @public
    * <p>The pagination token used to retrieve the next page of results for this
    *             operation.</p>
    */
@@ -3823,17 +4191,20 @@ export interface DescribeAppBlockBuilderAppBlockAssociationsResult {
  */
 export interface DescribeAppBlockBuildersRequest {
   /**
+   * @public
    * <p>The names of the app block builders.</p>
    */
   Names?: string[];
 
   /**
+   * @public
    * <p>The pagination token used to retrieve the next page of results for this
    *             operation.</p>
    */
   NextToken?: string;
 
   /**
+   * @public
    * <p>The maximum size of each page of results. The maximum value is 25.</p>
    */
   MaxResults?: number;
@@ -3844,11 +4215,13 @@ export interface DescribeAppBlockBuildersRequest {
  */
 export interface DescribeAppBlockBuildersResult {
   /**
+   * @public
    * <p>The list that describes one or more app block builders.</p>
    */
   AppBlockBuilders?: AppBlockBuilder[];
 
   /**
+   * @public
    * <p>The pagination token used to retrieve the next page of results for this
    *             operation.</p>
    */
@@ -3860,17 +4233,20 @@ export interface DescribeAppBlockBuildersResult {
  */
 export interface DescribeAppBlocksRequest {
   /**
+   * @public
    * <p>The ARNs of the app blocks.</p>
    */
   Arns?: string[];
 
   /**
+   * @public
    * <p>The pagination token used to retrieve the next page of results for this
    *             operation.</p>
    */
   NextToken?: string;
 
   /**
+   * @public
    * <p>The maximum size of each page of results.</p>
    */
   MaxResults?: number;
@@ -3881,11 +4257,13 @@ export interface DescribeAppBlocksRequest {
  */
 export interface DescribeAppBlocksResult {
   /**
+   * @public
    * <p>The app blocks in the list.</p>
    */
   AppBlocks?: AppBlock[];
 
   /**
+   * @public
    * <p>The pagination token used to retrieve the next page of results for this
    *             operation.</p>
    */
@@ -3897,21 +4275,25 @@ export interface DescribeAppBlocksResult {
  */
 export interface DescribeApplicationFleetAssociationsRequest {
   /**
+   * @public
    * <p>The name of the fleet.</p>
    */
   FleetName?: string;
 
   /**
+   * @public
    * <p>The ARN of the application.</p>
    */
   ApplicationArn?: string;
 
   /**
+   * @public
    * <p>The maximum size of each page of results.</p>
    */
   MaxResults?: number;
 
   /**
+   * @public
    * <p>The pagination token used to retrieve the next page of results for this
    *             operation.</p>
    */
@@ -3923,11 +4305,13 @@ export interface DescribeApplicationFleetAssociationsRequest {
  */
 export interface DescribeApplicationFleetAssociationsResult {
   /**
+   * @public
    * <p>The application fleet associations in the list.</p>
    */
   ApplicationFleetAssociations?: ApplicationFleetAssociation[];
 
   /**
+   * @public
    * <p>The pagination token used to retrieve the next page of results for this
    *             operation.</p>
    */
@@ -3939,17 +4323,20 @@ export interface DescribeApplicationFleetAssociationsResult {
  */
 export interface DescribeApplicationsRequest {
   /**
+   * @public
    * <p>The ARNs for the applications.</p>
    */
   Arns?: string[];
 
   /**
+   * @public
    * <p>The pagination token used to retrieve the next page of results for this
    *             operation.</p>
    */
   NextToken?: string;
 
   /**
+   * @public
    * <p>The maximum size of each page of results.</p>
    */
   MaxResults?: number;
@@ -3960,11 +4347,13 @@ export interface DescribeApplicationsRequest {
  */
 export interface DescribeApplicationsResult {
   /**
+   * @public
    * <p>The applications in the list.</p>
    */
   Applications?: Application[];
 
   /**
+   * @public
    * <p>The pagination token used to retrieve the next page of results for this
    *             operation.</p>
    */
@@ -3976,16 +4365,19 @@ export interface DescribeApplicationsResult {
  */
 export interface DescribeDirectoryConfigsRequest {
   /**
+   * @public
    * <p>The directory names.</p>
    */
   DirectoryNames?: string[];
 
   /**
+   * @public
    * <p>The maximum size of each page of results.</p>
    */
   MaxResults?: number;
 
   /**
+   * @public
    * <p>The pagination token to use to retrieve the next page of results for this operation. If this value is null, it retrieves the first page.</p>
    */
   NextToken?: string;
@@ -3996,11 +4388,13 @@ export interface DescribeDirectoryConfigsRequest {
  */
 export interface DescribeDirectoryConfigsResult {
   /**
+   * @public
    * <p>Information about the directory configurations. Note that although the response syntax in this topic includes the account password, this password is not returned in the actual response. </p>
    */
   DirectoryConfigs?: DirectoryConfig[];
 
   /**
+   * @public
    * <p>The pagination token to use to retrieve the next page of results for this operation. If there are no more pages, this value is null.</p>
    */
   NextToken?: string;
@@ -4011,21 +4405,25 @@ export interface DescribeDirectoryConfigsResult {
  */
 export interface DescribeEntitlementsRequest {
   /**
+   * @public
    * <p>The name of the entitlement.</p>
    */
   Name?: string;
 
   /**
+   * @public
    * <p>The name of the stack with which the entitlement is associated.</p>
    */
   StackName: string | undefined;
 
   /**
+   * @public
    * <p>The pagination token used to retrieve the next page of results for this operation.</p>
    */
   NextToken?: string;
 
   /**
+   * @public
    * <p>The maximum size of each page of results.</p>
    */
   MaxResults?: number;
@@ -4036,11 +4434,13 @@ export interface DescribeEntitlementsRequest {
  */
 export interface DescribeEntitlementsResult {
   /**
+   * @public
    * <p>The entitlements.</p>
    */
   Entitlements?: Entitlement[];
 
   /**
+   * @public
    * <p>The pagination token used to retrieve the next page of results for this
    *             operation.</p>
    */
@@ -4052,11 +4452,13 @@ export interface DescribeEntitlementsResult {
  */
 export interface DescribeFleetsRequest {
   /**
+   * @public
    * <p>The names of the fleets to describe.</p>
    */
   Names?: string[];
 
   /**
+   * @public
    * <p>The pagination token to use to retrieve the next page of results for this operation. If this value is null, it retrieves the first page.</p>
    */
   NextToken?: string;
@@ -4067,11 +4469,13 @@ export interface DescribeFleetsRequest {
  */
 export interface DescribeFleetsResult {
   /**
+   * @public
    * <p>Information about the fleets.</p>
    */
   Fleets?: Fleet[];
 
   /**
+   * @public
    * <p>The pagination token to use to retrieve the next page of results for this operation. If there are no more pages, this value is null.</p>
    */
   NextToken?: string;
@@ -4082,16 +4486,19 @@ export interface DescribeFleetsResult {
  */
 export interface DescribeImageBuildersRequest {
   /**
+   * @public
    * <p>The names of the image builders to describe.</p>
    */
   Names?: string[];
 
   /**
+   * @public
    * <p>The maximum size of each page of results.</p>
    */
   MaxResults?: number;
 
   /**
+   * @public
    * <p>The pagination token to use to retrieve the next page of results for this operation. If this value is null, it retrieves the first page.</p>
    */
   NextToken?: string;
@@ -4102,11 +4509,13 @@ export interface DescribeImageBuildersRequest {
  */
 export interface DescribeImageBuildersResult {
   /**
+   * @public
    * <p>Information about the image builders.</p>
    */
   ImageBuilders?: ImageBuilder[];
 
   /**
+   * @public
    * <p>The pagination token to use to retrieve the next page of results for this operation. If there are no more pages, this value is null.</p>
    */
   NextToken?: string;
@@ -4117,21 +4526,25 @@ export interface DescribeImageBuildersResult {
  */
 export interface DescribeImagePermissionsRequest {
   /**
+   * @public
    * <p>The name of the private image for which to describe permissions. The image must be one that you own. </p>
    */
   Name: string | undefined;
 
   /**
+   * @public
    * <p>The maximum size of each page of results.</p>
    */
   MaxResults?: number;
 
   /**
+   * @public
    * <p>The 12-digit identifier of one or more AWS accounts with which the image is shared.</p>
    */
   SharedAwsAccountIds?: string[];
 
   /**
+   * @public
    * <p>The pagination token to use to retrieve the next page of results for this operation. If this value is null, it retrieves the first page.</p>
    */
   NextToken?: string;
@@ -4143,11 +4556,13 @@ export interface DescribeImagePermissionsRequest {
  */
 export interface SharedImagePermissions {
   /**
+   * @public
    * <p>The 12-digit identifier of the AWS account with which the image is shared.</p>
    */
   sharedAccountId: string | undefined;
 
   /**
+   * @public
    * <p>Describes the permissions for a shared image.</p>
    */
   imagePermissions: ImagePermissions | undefined;
@@ -4158,16 +4573,19 @@ export interface SharedImagePermissions {
  */
 export interface DescribeImagePermissionsResult {
   /**
+   * @public
    * <p>The name of the private image.</p>
    */
   Name?: string;
 
   /**
+   * @public
    * <p>The permissions for a private image that you own. </p>
    */
   SharedImagePermissionsList?: SharedImagePermissions[];
 
   /**
+   * @public
    * <p>The pagination token to use to retrieve the next page of results for this operation. If there are no more pages, this value is null.</p>
    */
   NextToken?: string;
@@ -4178,26 +4596,31 @@ export interface DescribeImagePermissionsResult {
  */
 export interface DescribeImagesRequest {
   /**
+   * @public
    * <p>The names of the public or private images to describe.</p>
    */
   Names?: string[];
 
   /**
+   * @public
    * <p>The ARNs of the public, private, and shared images to describe.</p>
    */
   Arns?: string[];
 
   /**
+   * @public
    * <p>The type of image (public, private, or shared) to describe. </p>
    */
   Type?: VisibilityType | string;
 
   /**
+   * @public
    * <p>The pagination token to use to retrieve the next page of results for this operation. If this value is null, it retrieves the first page.</p>
    */
   NextToken?: string;
 
   /**
+   * @public
    * <p>The maximum size of each page of results.</p>
    */
   MaxResults?: number;
@@ -4208,11 +4631,13 @@ export interface DescribeImagesRequest {
  */
 export interface DescribeImagesResult {
   /**
+   * @public
    * <p>Information about the images.</p>
    */
   Images?: Image[];
 
   /**
+   * @public
    * <p>The pagination token to use to retrieve the next page of results for this operation. If there are no more pages, this value is null.</p>
    */
   NextToken?: string;
@@ -4223,31 +4648,37 @@ export interface DescribeImagesResult {
  */
 export interface DescribeSessionsRequest {
   /**
+   * @public
    * <p>The name of the stack. This value is case-sensitive.</p>
    */
   StackName: string | undefined;
 
   /**
+   * @public
    * <p>The name of the fleet. This value is case-sensitive.</p>
    */
   FleetName: string | undefined;
 
   /**
+   * @public
    * <p>The user identifier (ID). If you specify a user ID, you must also specify the authentication type.</p>
    */
   UserId?: string;
 
   /**
+   * @public
    * <p>The pagination token to use to retrieve the next page of results for this operation. If this value is null, it retrieves the first page.</p>
    */
   NextToken?: string;
 
   /**
+   * @public
    * <p>The size of each page of results. The default value is 20 and the maximum value is 50.</p>
    */
   Limit?: number;
 
   /**
+   * @public
    * <p>The authentication method. Specify <code>API</code> for a user
    *             authenticated using a streaming URL or <code>SAML</code> for a SAML federated user.
    *             The default is to authenticate users using a streaming URL.</p>
@@ -4290,52 +4721,62 @@ export type SessionState = (typeof SessionState)[keyof typeof SessionState];
  */
 export interface Session {
   /**
+   * @public
    * <p>The identifier of the streaming session.</p>
    */
   Id: string | undefined;
 
   /**
+   * @public
    * <p>The identifier of the user for whom the session was created.</p>
    */
   UserId: string | undefined;
 
   /**
+   * @public
    * <p>The name of the stack for the streaming session.</p>
    */
   StackName: string | undefined;
 
   /**
+   * @public
    * <p>The name of the fleet for the streaming session.</p>
    */
   FleetName: string | undefined;
 
   /**
+   * @public
    * <p>The current state of the streaming session.</p>
    */
   State: SessionState | string | undefined;
 
   /**
+   * @public
    * <p>Specifies whether a user is connected to the streaming session.</p>
    */
   ConnectionState?: SessionConnectionState | string;
 
   /**
+   * @public
    * <p>The time when a streaming instance is dedicated for the user.</p>
    */
   StartTime?: Date;
 
   /**
+   * @public
    * <p>The time when the streaming session is set to expire. This time is based on the <code>MaxUserDurationinSeconds</code> value, which determines the maximum length of time that a streaming session can run. A streaming session might end earlier than the time specified in <code>SessionMaxExpirationTime</code>, when the <code>DisconnectTimeOutInSeconds</code> elapses or the user chooses to end his or her session. If the <code>DisconnectTimeOutInSeconds</code> elapses, or the user chooses to end his or her session, the streaming instance is terminated and the streaming session ends.</p>
    */
   MaxExpirationTime?: Date;
 
   /**
+   * @public
    * <p>The authentication method. The user is authenticated using a streaming URL
    *             (<code>API</code>) or SAML 2.0 federation (<code>SAML</code>).</p>
    */
   AuthenticationType?: AuthenticationType | string;
 
   /**
+   * @public
    * <p>The network details for the streaming session.</p>
    */
   NetworkAccessConfiguration?: NetworkAccessConfiguration;
@@ -4346,11 +4787,13 @@ export interface Session {
  */
 export interface DescribeSessionsResult {
   /**
+   * @public
    * <p>Information about the streaming sessions.</p>
    */
   Sessions?: Session[];
 
   /**
+   * @public
    * <p>The pagination token to use to retrieve the next page of results for this operation. If there are no more pages, this value is null.</p>
    */
   NextToken?: string;
@@ -4361,11 +4804,13 @@ export interface DescribeSessionsResult {
  */
 export interface DescribeStacksRequest {
   /**
+   * @public
    * <p>The names of the stacks to describe.</p>
    */
   Names?: string[];
 
   /**
+   * @public
    * <p>The pagination token to use to retrieve the next page of results for this operation. If this value is null, it retrieves the first page.</p>
    */
   NextToken?: string;
@@ -4376,11 +4821,13 @@ export interface DescribeStacksRequest {
  */
 export interface DescribeStacksResult {
   /**
+   * @public
    * <p>Information about the stacks.</p>
    */
   Stacks?: Stack[];
 
   /**
+   * @public
    * <p>The pagination token to use to retrieve the next page of results for this operation. If there are no more pages, this value is null.</p>
    */
   NextToken?: string;
@@ -4391,11 +4838,13 @@ export interface DescribeStacksResult {
  */
 export interface DescribeUsageReportSubscriptionsRequest {
   /**
+   * @public
    * <p>The maximum size of each page of results.</p>
    */
   MaxResults?: number;
 
   /**
+   * @public
    * <p>The pagination token to use to retrieve the next page of results for this operation. If this value is null, it retrieves the first page.</p>
    */
   NextToken?: string;
@@ -4423,11 +4872,13 @@ export type UsageReportExecutionErrorCode =
  */
 export interface LastReportGenerationExecutionError {
   /**
+   * @public
    * <p>The error code for the error that is returned when a usage report can't be generated.</p>
    */
   ErrorCode?: UsageReportExecutionErrorCode | string;
 
   /**
+   * @public
    * <p>The error message for the error that is returned when a usage report can't be generated.</p>
    */
   ErrorMessage?: string;
@@ -4439,6 +4890,7 @@ export interface LastReportGenerationExecutionError {
  */
 export interface UsageReportSubscription {
   /**
+   * @public
    * <p>The Amazon S3 bucket where generated reports are stored.</p>
    *          <p>If you enabled on-instance session scripts and Amazon S3 logging for your session script
    *             configuration, AppStream 2.0 created an S3 bucket to store the script output. The bucket is
@@ -4449,16 +4901,19 @@ export interface UsageReportSubscription {
   S3BucketName?: string;
 
   /**
+   * @public
    * <p>The schedule for generating usage reports.</p>
    */
   Schedule?: UsageReportSchedule | string;
 
   /**
+   * @public
    * <p>The time when the last usage report was generated.</p>
    */
   LastGeneratedReportDate?: Date;
 
   /**
+   * @public
    * <p>The errors that were returned if usage reports couldn't be generated.</p>
    */
   SubscriptionErrors?: LastReportGenerationExecutionError[];
@@ -4469,11 +4924,13 @@ export interface UsageReportSubscription {
  */
 export interface DescribeUsageReportSubscriptionsResult {
   /**
+   * @public
    * <p>Information about the usage report subscription.</p>
    */
   UsageReportSubscriptions?: UsageReportSubscription[];
 
   /**
+   * @public
    * <p>The pagination token to use to retrieve the next page of results for this operation. If there are no more pages, this value is null.</p>
    */
   NextToken?: string;
@@ -4484,16 +4941,19 @@ export interface DescribeUsageReportSubscriptionsResult {
  */
 export interface DescribeUsersRequest {
   /**
+   * @public
    * <p>The authentication type for the users in the user pool to describe. You must specify USERPOOL.</p>
    */
   AuthenticationType: AuthenticationType | string | undefined;
 
   /**
+   * @public
    * <p>The maximum size of each page of results.</p>
    */
   MaxResults?: number;
 
   /**
+   * @public
    * <p>The pagination token to use to retrieve the next page of results for this operation. If this value is null, it retrieves the first page.</p>
    */
   NextToken?: string;
@@ -4505,11 +4965,13 @@ export interface DescribeUsersRequest {
  */
 export interface User {
   /**
+   * @public
    * <p>The ARN of the user.</p>
    */
   Arn?: string;
 
   /**
+   * @public
    * <p>The email address of the user.</p>
    *          <note>
    *             <p>Users' email addresses are case-sensitive.</p>
@@ -4518,11 +4980,13 @@ export interface User {
   UserName?: string;
 
   /**
+   * @public
    * <p>Specifies whether the user in the user pool is enabled.</p>
    */
   Enabled?: boolean;
 
   /**
+   * @public
    * <p>The status of the user in the user pool. The status can be one of the following:</p>
    *          <ul>
    *             <li>
@@ -4545,21 +5009,25 @@ export interface User {
   Status?: string;
 
   /**
+   * @public
    * <p>The first name, or given name, of the user.</p>
    */
   FirstName?: string;
 
   /**
+   * @public
    * <p>The last name, or surname, of the user.</p>
    */
   LastName?: string;
 
   /**
+   * @public
    * <p>The date and time the user was created in the user pool.</p>
    */
   CreatedTime?: Date;
 
   /**
+   * @public
    * <p>The authentication type for the user.</p>
    */
   AuthenticationType: AuthenticationType | string | undefined;
@@ -4570,11 +5038,13 @@ export interface User {
  */
 export interface DescribeUsersResult {
   /**
+   * @public
    * <p>Information about users in the user pool.</p>
    */
   Users?: User[];
 
   /**
+   * @public
    * <p>The pagination token to use to retrieve the next page of results for this operation. If there are no more pages, this value is null.</p>
    */
   NextToken?: string;
@@ -4585,11 +5055,13 @@ export interface DescribeUsersResult {
  */
 export interface DescribeUserStackAssociationsRequest {
   /**
+   * @public
    * <p>The name of the stack that is associated with the user.</p>
    */
   StackName?: string;
 
   /**
+   * @public
    * <p>The email address of the user who is associated with the stack.</p>
    *          <note>
    *             <p>Users' email addresses are case-sensitive.</p>
@@ -4598,16 +5070,19 @@ export interface DescribeUserStackAssociationsRequest {
   UserName?: string;
 
   /**
+   * @public
    * <p>The authentication type for the user who is associated with the stack. You must specify USERPOOL.</p>
    */
   AuthenticationType?: AuthenticationType | string;
 
   /**
+   * @public
    * <p>The maximum size of each page of results.</p>
    */
   MaxResults?: number;
 
   /**
+   * @public
    * <p>The pagination token to use to retrieve the next page of results for this operation. If this value is null, it retrieves the first page.</p>
    */
   NextToken?: string;
@@ -4618,11 +5093,13 @@ export interface DescribeUserStackAssociationsRequest {
  */
 export interface DescribeUserStackAssociationsResult {
   /**
+   * @public
    * <p>The UserStackAssociation objects.</p>
    */
   UserStackAssociations?: UserStackAssociation[];
 
   /**
+   * @public
    * <p>The pagination token to use to retrieve the next page of results for this operation. If there are no more pages, this value is null.</p>
    */
   NextToken?: string;
@@ -4633,6 +5110,7 @@ export interface DescribeUserStackAssociationsResult {
  */
 export interface DisableUserRequest {
   /**
+   * @public
    * <p>The email address of the user.</p>
    *          <note>
    *             <p>Users' email addresses are case-sensitive.</p>
@@ -4641,6 +5119,7 @@ export interface DisableUserRequest {
   UserName: string | undefined;
 
   /**
+   * @public
    * <p>The authentication type for the user. You must specify USERPOOL.</p>
    */
   AuthenticationType: AuthenticationType | string | undefined;
@@ -4656,11 +5135,13 @@ export interface DisableUserResult {}
  */
 export interface DisassociateAppBlockBuilderAppBlockRequest {
   /**
+   * @public
    * <p>The ARN of the app block.</p>
    */
   AppBlockArn: string | undefined;
 
   /**
+   * @public
    * <p>The name of the app block builder.</p>
    */
   AppBlockBuilderName: string | undefined;
@@ -4676,11 +5157,13 @@ export interface DisassociateAppBlockBuilderAppBlockResult {}
  */
 export interface DisassociateApplicationFleetRequest {
   /**
+   * @public
    * <p>The name of the fleet.</p>
    */
   FleetName: string | undefined;
 
   /**
+   * @public
    * <p>The ARN of the application.</p>
    */
   ApplicationArn: string | undefined;
@@ -4696,16 +5179,19 @@ export interface DisassociateApplicationFleetResult {}
  */
 export interface DisassociateApplicationFromEntitlementRequest {
   /**
+   * @public
    * <p>The name of the stack with which the entitlement is associated.</p>
    */
   StackName: string | undefined;
 
   /**
+   * @public
    * <p>The name of the entitlement.</p>
    */
   EntitlementName: string | undefined;
 
   /**
+   * @public
    * <p>The identifier of the application to remove from the entitlement.</p>
    */
   ApplicationIdentifier: string | undefined;
@@ -4721,11 +5207,13 @@ export interface DisassociateApplicationFromEntitlementResult {}
  */
 export interface DisassociateFleetRequest {
   /**
+   * @public
    * <p>The name of the fleet.</p>
    */
   FleetName: string | undefined;
 
   /**
+   * @public
    * <p>The name of the stack.</p>
    */
   StackName: string | undefined;
@@ -4741,6 +5229,7 @@ export interface DisassociateFleetResult {}
  */
 export interface EnableUserRequest {
   /**
+   * @public
    * <p>The email address of the user.</p>
    *          <note>
    *             <p>Users' email addresses are case-sensitive. During login, if they specify an email address that doesn't use the same capitalization as the email address specified when their user pool account was created, a "user does not exist" error message displays. </p>
@@ -4749,6 +5238,7 @@ export interface EnableUserRequest {
   UserName: string | undefined;
 
   /**
+   * @public
    * <p>The authentication type for the user. You must specify USERPOOL.</p>
    */
   AuthenticationType: AuthenticationType | string | undefined;
@@ -4765,6 +5255,7 @@ export interface EnableUserResult {}
  */
 export interface EntitledApplication {
   /**
+   * @public
    * <p>The identifier of the application.</p>
    */
   ApplicationIdentifier: string | undefined;
@@ -4775,6 +5266,7 @@ export interface EntitledApplication {
  */
 export interface ExpireSessionRequest {
   /**
+   * @public
    * <p>The identifier of the streaming session.</p>
    */
   SessionId: string | undefined;
@@ -4808,11 +5300,13 @@ export type FleetAttribute = (typeof FleetAttribute)[keyof typeof FleetAttribute
  */
 export interface ListAssociatedFleetsRequest {
   /**
+   * @public
    * <p>The name of the stack.</p>
    */
   StackName: string | undefined;
 
   /**
+   * @public
    * <p>The pagination token to use to retrieve the next page of results for this operation. If this value is null, it retrieves the first page.</p>
    */
   NextToken?: string;
@@ -4823,11 +5317,13 @@ export interface ListAssociatedFleetsRequest {
  */
 export interface ListAssociatedFleetsResult {
   /**
+   * @public
    * <p>The name of the fleet.</p>
    */
   Names?: string[];
 
   /**
+   * @public
    * <p>The pagination token to use to retrieve the next page of results for this operation. If there are no more pages, this value is null.</p>
    */
   NextToken?: string;
@@ -4838,11 +5334,13 @@ export interface ListAssociatedFleetsResult {
  */
 export interface ListAssociatedStacksRequest {
   /**
+   * @public
    * <p>The name of the fleet.</p>
    */
   FleetName: string | undefined;
 
   /**
+   * @public
    * <p>The pagination token to use to retrieve the next page of results for this operation. If this value is null, it retrieves the first page.</p>
    */
   NextToken?: string;
@@ -4853,11 +5351,13 @@ export interface ListAssociatedStacksRequest {
  */
 export interface ListAssociatedStacksResult {
   /**
+   * @public
    * <p>The name of the stack.</p>
    */
   Names?: string[];
 
   /**
+   * @public
    * <p>The pagination token to use to retrieve the next page of results for this operation. If there are no more pages, this value is null.</p>
    */
   NextToken?: string;
@@ -4868,21 +5368,25 @@ export interface ListAssociatedStacksResult {
  */
 export interface ListEntitledApplicationsRequest {
   /**
+   * @public
    * <p>The name of the stack with which the entitlement is associated.</p>
    */
   StackName: string | undefined;
 
   /**
+   * @public
    * <p>The name of the entitlement.</p>
    */
   EntitlementName: string | undefined;
 
   /**
+   * @public
    * <p>The pagination token used to retrieve the next page of results for this operation.</p>
    */
   NextToken?: string;
 
   /**
+   * @public
    * <p>The maximum size of each page of results.</p>
    */
   MaxResults?: number;
@@ -4893,11 +5397,13 @@ export interface ListEntitledApplicationsRequest {
  */
 export interface ListEntitledApplicationsResult {
   /**
+   * @public
    * <p>The entitled applications.</p>
    */
   EntitledApplications?: EntitledApplication[];
 
   /**
+   * @public
    * <p>The pagination token used to retrieve the next page of results for this operation.</p>
    */
   NextToken?: string;
@@ -4908,6 +5414,7 @@ export interface ListEntitledApplicationsResult {
  */
 export interface ListTagsForResourceRequest {
   /**
+   * @public
    * <p>The Amazon Resource Name (ARN) of the resource.</p>
    */
   ResourceArn: string | undefined;
@@ -4918,6 +5425,7 @@ export interface ListTagsForResourceRequest {
  */
 export interface ListTagsForResourceResponse {
   /**
+   * @public
    * <p>The information about the tags.</p>
    */
   Tags?: Record<string, string>;
@@ -4928,6 +5436,7 @@ export interface ListTagsForResourceResponse {
  */
 export interface StartAppBlockBuilderRequest {
   /**
+   * @public
    * <p>The name of the app block builder.</p>
    */
   Name: string | undefined;
@@ -4938,6 +5447,7 @@ export interface StartAppBlockBuilderRequest {
  */
 export interface StartAppBlockBuilderResult {
   /**
+   * @public
    * <p>Describes an app block builder.</p>
    */
   AppBlockBuilder?: AppBlockBuilder;
@@ -4948,6 +5458,7 @@ export interface StartAppBlockBuilderResult {
  */
 export interface StartFleetRequest {
   /**
+   * @public
    * <p>The name of the fleet.</p>
    */
   Name: string | undefined;
@@ -4963,11 +5474,13 @@ export interface StartFleetResult {}
  */
 export interface StartImageBuilderRequest {
   /**
+   * @public
    * <p>The name of the image builder.</p>
    */
   Name: string | undefined;
 
   /**
+   * @public
    * <p>The version of the AppStream 2.0 agent to use for this image builder. To use the latest version of the AppStream 2.0 agent, specify [LATEST]. </p>
    */
   AppstreamAgentVersion?: string;
@@ -4978,6 +5491,7 @@ export interface StartImageBuilderRequest {
  */
 export interface StartImageBuilderResult {
   /**
+   * @public
    * <p>Information about the image builder.</p>
    */
   ImageBuilder?: ImageBuilder;
@@ -4988,6 +5502,7 @@ export interface StartImageBuilderResult {
  */
 export interface StopAppBlockBuilderRequest {
   /**
+   * @public
    * <p>The name of the app block builder.</p>
    */
   Name: string | undefined;
@@ -4998,6 +5513,7 @@ export interface StopAppBlockBuilderRequest {
  */
 export interface StopAppBlockBuilderResult {
   /**
+   * @public
    * <p>Describes an app block builder.</p>
    */
   AppBlockBuilder?: AppBlockBuilder;
@@ -5008,6 +5524,7 @@ export interface StopAppBlockBuilderResult {
  */
 export interface StopFleetRequest {
   /**
+   * @public
    * <p>The name of the fleet.</p>
    */
   Name: string | undefined;
@@ -5023,6 +5540,7 @@ export interface StopFleetResult {}
  */
 export interface StopImageBuilderRequest {
   /**
+   * @public
    * <p>The name of the image builder.</p>
    */
   Name: string | undefined;
@@ -5033,6 +5551,7 @@ export interface StopImageBuilderRequest {
  */
 export interface StopImageBuilderResult {
   /**
+   * @public
    * <p>Information about the image builder.</p>
    */
   ImageBuilder?: ImageBuilder;
@@ -5043,11 +5562,13 @@ export interface StopImageBuilderResult {
  */
 export interface TagResourceRequest {
   /**
+   * @public
    * <p>The Amazon Resource Name (ARN) of the resource.</p>
    */
   ResourceArn: string | undefined;
 
   /**
+   * @public
    * <p>The tags to associate. A tag is a key-value pair, and the value is optional. For example, Environment=Test. If you do not specify a value, Environment=. </p>
    *          <p>If you do not specify a value, the value is set to an empty string.</p>
    *          <p>Generally allowed characters are: letters, numbers, and spaces representable in UTF-8, and the following special characters: </p>
@@ -5066,11 +5587,13 @@ export interface TagResourceResponse {}
  */
 export interface UntagResourceRequest {
   /**
+   * @public
    * <p>The Amazon Resource Name (ARN) of the resource.</p>
    */
   ResourceArn: string | undefined;
 
   /**
+   * @public
    * <p>The tag keys for the tags to disassociate.</p>
    */
   TagKeys: string[] | undefined;
@@ -5086,21 +5609,25 @@ export interface UntagResourceResponse {}
  */
 export interface UpdateAppBlockBuilderRequest {
   /**
+   * @public
    * <p>The unique name for the app block builder.</p>
    */
   Name: string | undefined;
 
   /**
+   * @public
    * <p>The description of the app block builder.</p>
    */
   Description?: string;
 
   /**
+   * @public
    * <p>The display name of the app block builder.</p>
    */
   DisplayName?: string;
 
   /**
+   * @public
    * <p>The platform of the app block builder.</p>
    *          <p>
    *             <code>WINDOWS_SERVER_2019</code> is the only valid value.</p>
@@ -5108,6 +5635,7 @@ export interface UpdateAppBlockBuilderRequest {
   Platform?: PlatformType | string;
 
   /**
+   * @public
    * <p>The instance type to use when launching the app block builder. The following instance
    *                 types are available:</p>
    *          <ul>
@@ -5131,6 +5659,7 @@ export interface UpdateAppBlockBuilderRequest {
   InstanceType?: string;
 
   /**
+   * @public
    * <p>The VPC configuration for the app block builder.</p>
    *          <p>App block builders require that you specify at least two subnets in different availability
    *             zones.</p>
@@ -5138,11 +5667,13 @@ export interface UpdateAppBlockBuilderRequest {
   VpcConfig?: VpcConfig;
 
   /**
+   * @public
    * <p>Enables or disables default internet access for the app block builder.</p>
    */
   EnableDefaultInternetAccess?: boolean;
 
   /**
+   * @public
    * <p>The Amazon Resource Name (ARN) of the IAM role to apply to the app block builder. To
    *             assume a role, the app block builder calls the AWS Security Token Service (STS)
    *             <code>AssumeRole</code> API operation and passes the ARN of the role to use. The
@@ -5153,11 +5684,13 @@ export interface UpdateAppBlockBuilderRequest {
   IamRoleArn?: string;
 
   /**
+   * @public
    * <p>The list of interface VPC endpoint (interface endpoint) objects. Administrators can connect to the app block builder only through the specified endpoints.</p>
    */
   AccessEndpoints?: AccessEndpoint[];
 
   /**
+   * @public
    * <p>The attributes to delete from the app block builder.</p>
    */
   AttributesToDelete?: (AppBlockBuilderAttribute | string)[];
@@ -5168,6 +5701,7 @@ export interface UpdateAppBlockBuilderRequest {
  */
 export interface UpdateAppBlockBuilderResult {
   /**
+   * @public
    * <p>Describes an app block builder.</p>
    */
   AppBlockBuilder?: AppBlockBuilder;
@@ -5178,46 +5712,55 @@ export interface UpdateAppBlockBuilderResult {
  */
 export interface UpdateApplicationRequest {
   /**
+   * @public
    * <p>The name of the application. This name is visible to users when display name is not specified.</p>
    */
   Name: string | undefined;
 
   /**
+   * @public
    * <p>The display name of the application. This name is visible to users in the application catalog.</p>
    */
   DisplayName?: string;
 
   /**
+   * @public
    * <p>The description of the application.</p>
    */
   Description?: string;
 
   /**
+   * @public
    * <p>The icon S3 location of the application.</p>
    */
   IconS3Location?: S3Location;
 
   /**
+   * @public
    * <p>The launch path of the application.</p>
    */
   LaunchPath?: string;
 
   /**
+   * @public
    * <p>The working directory of the application.</p>
    */
   WorkingDirectory?: string;
 
   /**
+   * @public
    * <p>The launch parameters of the application.</p>
    */
   LaunchParameters?: string;
 
   /**
+   * @public
    * <p>The ARN of the app block.</p>
    */
   AppBlockArn?: string;
 
   /**
+   * @public
    * <p>The attributes to delete for an application.</p>
    */
   AttributesToDelete?: (ApplicationAttribute | string)[];
@@ -5228,6 +5771,7 @@ export interface UpdateApplicationRequest {
  */
 export interface UpdateApplicationResult {
   /**
+   * @public
    * <p>Describes an application in the application catalog.</p>
    */
   Application?: Application;
@@ -5238,21 +5782,25 @@ export interface UpdateApplicationResult {
  */
 export interface UpdateDirectoryConfigRequest {
   /**
+   * @public
    * <p>The name of the Directory Config object.</p>
    */
   DirectoryName: string | undefined;
 
   /**
+   * @public
    * <p>The distinguished names of the organizational units for computer accounts.</p>
    */
   OrganizationalUnitDistinguishedNames?: string[];
 
   /**
+   * @public
    * <p>The credentials for the service account used by the fleet or image builder to connect to the directory.</p>
    */
   ServiceAccountCredentials?: ServiceAccountCredentials;
 
   /**
+   * @public
    * <p>The certificate-based authentication properties used to authenticate SAML 2.0 Identity
    *             Provider (IdP) user identities to Active Directory domain-joined streaming instances.
    *             Fallback is turned on by default when certificate-based authentication is <b>Enabled</b> . Fallback allows users to log in using their AD
@@ -5269,6 +5817,7 @@ export interface UpdateDirectoryConfigRequest {
  */
 export interface UpdateDirectoryConfigResult {
   /**
+   * @public
    * <p>Information about the Directory Config object.</p>
    */
   DirectoryConfig?: DirectoryConfig;
@@ -5279,26 +5828,31 @@ export interface UpdateDirectoryConfigResult {
  */
 export interface UpdateEntitlementRequest {
   /**
+   * @public
    * <p>The name of the entitlement.</p>
    */
   Name: string | undefined;
 
   /**
+   * @public
    * <p>The name of the stack with which the entitlement is associated.</p>
    */
   StackName: string | undefined;
 
   /**
+   * @public
    * <p>The description of the entitlement.</p>
    */
   Description?: string;
 
   /**
+   * @public
    * <p>Specifies whether all or only selected apps are entitled.</p>
    */
   AppVisibility?: AppVisibility | string;
 
   /**
+   * @public
    * <p>The attributes of the entitlement.</p>
    */
   Attributes?: EntitlementAttribute[];
@@ -5309,6 +5863,7 @@ export interface UpdateEntitlementRequest {
  */
 export interface UpdateEntitlementResult {
   /**
+   * @public
    * <p>The entitlement.</p>
    */
   Entitlement?: Entitlement;
@@ -5319,21 +5874,25 @@ export interface UpdateEntitlementResult {
  */
 export interface UpdateFleetRequest {
   /**
+   * @public
    * <p>The name of the image used to create the fleet.</p>
    */
   ImageName?: string;
 
   /**
+   * @public
    * <p>The ARN of the public, private, or shared image to use.</p>
    */
   ImageArn?: string;
 
   /**
+   * @public
    * <p>A unique name for the fleet.</p>
    */
   Name?: string;
 
   /**
+   * @public
    * <p>The instance type to use when launching fleet instances. The following instance types are available:</p>
    *          <ul>
    *             <li>
@@ -5464,28 +6023,33 @@ export interface UpdateFleetRequest {
   InstanceType?: string;
 
   /**
+   * @public
    * <p>The desired capacity for the fleet. This is not allowed for Elastic fleets.</p>
    */
   ComputeCapacity?: ComputeCapacity;
 
   /**
+   * @public
    * <p>The VPC configuration for the fleet. This is required for Elastic fleets, but not required for other fleet types. Elastic fleets require that you specify at least two subnets in different availability zones. </p>
    */
   VpcConfig?: VpcConfig;
 
   /**
+   * @public
    * <p>The maximum amount of time that a streaming session can remain active, in seconds. If users are still connected to a streaming instance five minutes before this limit is reached, they are prompted to save any open documents before being disconnected. After this time elapses, the instance is terminated and replaced by a new instance.</p>
    *          <p>Specify a value between 600 and 432000.</p>
    */
   MaxUserDurationInSeconds?: number;
 
   /**
+   * @public
    * <p>The amount of time that a streaming session remains active after users disconnect. If users try to reconnect to the streaming session after a disconnection or network interruption within this time interval, they are connected to their previous session. Otherwise, they are connected to a new session with a new streaming instance. </p>
    *          <p>Specify a value between 60 and 360000.</p>
    */
   DisconnectTimeoutInSeconds?: number;
 
   /**
+   * @public
    * @deprecated
    *
    * <p>Deletes the VPC association for the specified fleet.</p>
@@ -5493,26 +6057,31 @@ export interface UpdateFleetRequest {
   DeleteVpcConfig?: boolean;
 
   /**
+   * @public
    * <p>The description to display.</p>
    */
   Description?: string;
 
   /**
+   * @public
    * <p>The fleet name to display.</p>
    */
   DisplayName?: string;
 
   /**
+   * @public
    * <p>Enables or disables default internet access for the fleet.</p>
    */
   EnableDefaultInternetAccess?: boolean;
 
   /**
+   * @public
    * <p>The name of the directory and organizational unit (OU) to use to join the fleet to a Microsoft Active Directory domain. </p>
    */
   DomainJoinInfo?: DomainJoinInfo;
 
   /**
+   * @public
    * <p>The amount of time that users can be idle (inactive) before they are disconnected
    *             from their streaming session and the <code>DisconnectTimeoutInSeconds</code> time
    *             interval begins. Users are notified before they are disconnected due to inactivity. If
@@ -5531,38 +6100,45 @@ export interface UpdateFleetRequest {
   IdleDisconnectTimeoutInSeconds?: number;
 
   /**
+   * @public
    * <p>The fleet attributes to delete.</p>
    */
   AttributesToDelete?: (FleetAttribute | string)[];
 
   /**
+   * @public
    * <p>The Amazon Resource Name (ARN) of the IAM role to apply to the fleet. To assume a role, a fleet instance calls the AWS Security Token Service (STS) <code>AssumeRole</code> API operation and passes the ARN of the role to use. The operation creates a new session with temporary credentials. AppStream 2.0 retrieves the temporary credentials and creates the <b>appstream_machine_role</b> credential profile on the instance.</p>
    *          <p>For more information, see <a href="https://docs.aws.amazon.com/appstream2/latest/developerguide/using-iam-roles-to-grant-permissions-to-applications-scripts-streaming-instances.html">Using an IAM Role to Grant Permissions to Applications and Scripts Running on AppStream 2.0 Streaming Instances</a> in the <i>Amazon AppStream 2.0 Administration Guide</i>.</p>
    */
   IamRoleArn?: string;
 
   /**
+   * @public
    * <p>The AppStream 2.0 view that is displayed to your users when they stream from the fleet. When <code>APP</code> is specified, only the windows of applications opened by users display. When <code>DESKTOP</code> is specified, the standard desktop that is provided by the operating system displays.</p>
    *          <p>The default value is <code>APP</code>.</p>
    */
   StreamView?: StreamView | string;
 
   /**
+   * @public
    * <p>The platform of the fleet. WINDOWS_SERVER_2019 and AMAZON_LINUX2 are supported for Elastic fleets. </p>
    */
   Platform?: PlatformType | string;
 
   /**
+   * @public
    * <p>The maximum number of concurrent sessions for a fleet.</p>
    */
   MaxConcurrentSessions?: number;
 
   /**
+   * @public
    * <p>The USB device filter strings that specify which USB devices a user can redirect to the fleet streaming session, when using the Windows native client. This is allowed but not required for Elastic fleets.</p>
    */
   UsbDeviceFilterStrings?: string[];
 
   /**
+   * @public
    * <p>The S3 location of the session scripts configuration zip file. This only applies to Elastic fleets. </p>
    */
   SessionScriptS3Location?: S3Location;
@@ -5573,6 +6149,7 @@ export interface UpdateFleetRequest {
  */
 export interface UpdateFleetResult {
   /**
+   * @public
    * <p>Information about the fleet.</p>
    */
   Fleet?: Fleet;
@@ -5583,16 +6160,19 @@ export interface UpdateFleetResult {
  */
 export interface UpdateImagePermissionsRequest {
   /**
+   * @public
    * <p>The name of the private image.</p>
    */
   Name: string | undefined;
 
   /**
+   * @public
    * <p>The 12-digit identifier of the AWS account for which you want add or update image permissions.</p>
    */
   SharedAccountId: string | undefined;
 
   /**
+   * @public
    * <p>The permissions for the image.</p>
    */
   ImagePermissions: ImagePermissions | undefined;
@@ -5632,26 +6212,31 @@ export type StackAttribute = (typeof StackAttribute)[keyof typeof StackAttribute
  */
 export interface UpdateStackRequest {
   /**
+   * @public
    * <p>The stack name to display.</p>
    */
   DisplayName?: string;
 
   /**
+   * @public
    * <p>The description to display.</p>
    */
   Description?: string;
 
   /**
+   * @public
    * <p>The name of the stack.</p>
    */
   Name: string | undefined;
 
   /**
+   * @public
    * <p>The storage connectors to enable.</p>
    */
   StorageConnectors?: StorageConnector[];
 
   /**
+   * @public
    * @deprecated
    *
    * <p>Deletes the storage connectors currently enabled for the stack.</p>
@@ -5659,41 +6244,49 @@ export interface UpdateStackRequest {
   DeleteStorageConnectors?: boolean;
 
   /**
+   * @public
    * <p>The URL that users are redirected to after their streaming session ends.</p>
    */
   RedirectURL?: string;
 
   /**
+   * @public
    * <p>The URL that users are redirected to after they choose the Send Feedback link. If no URL is specified, no Send Feedback link is displayed.</p>
    */
   FeedbackURL?: string;
 
   /**
+   * @public
    * <p>The stack attributes to delete.</p>
    */
   AttributesToDelete?: (StackAttribute | string)[];
 
   /**
+   * @public
    * <p>The actions that are enabled or disabled for users during their streaming sessions. By default, these actions are enabled.</p>
    */
   UserSettings?: UserSetting[];
 
   /**
+   * @public
    * <p>The persistent application settings for users of a stack. When these settings are enabled, changes that users make to applications and Windows settings are automatically saved after each session and applied to the next session.</p>
    */
   ApplicationSettings?: ApplicationSettings;
 
   /**
+   * @public
    * <p>The list of interface VPC endpoint (interface endpoint) objects. Users of the stack can connect to AppStream 2.0 only through the specified endpoints.</p>
    */
   AccessEndpoints?: AccessEndpoint[];
 
   /**
+   * @public
    * <p>The domains where AppStream 2.0 streaming sessions can be embedded in an iframe. You must approve the domains that you want to host embedded AppStream 2.0 streaming sessions. </p>
    */
   EmbedHostDomains?: string[];
 
   /**
+   * @public
    * <p>The streaming protocol you want your stack to prefer. This can be UDP or TCP. Currently, UDP is only supported in the Windows native client.</p>
    */
   StreamingExperienceSettings?: StreamingExperienceSettings;
@@ -5704,6 +6297,7 @@ export interface UpdateStackRequest {
  */
 export interface UpdateStackResult {
   /**
+   * @public
    * <p>Information about the stack.</p>
    */
   Stack?: Stack;

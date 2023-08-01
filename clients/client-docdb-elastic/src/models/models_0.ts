@@ -45,11 +45,13 @@ export class ConflictException extends __BaseException {
   readonly name: "ConflictException" = "ConflictException";
   readonly $fault: "client" = "client";
   /**
+   * @public
    * <p>The ID of the resource where there was an access conflict.</p>
    */
   resourceId: string | undefined;
 
   /**
+   * @public
    * <p>The type of the resource where there was an access conflict.</p>
    */
   resourceType: string | undefined;
@@ -74,6 +76,7 @@ export class ConflictException extends __BaseException {
  */
 export interface CreateClusterInput {
   /**
+   * @public
    * <p>The name of the new Elastic DocumentDB cluster. This parameter is stored as
    *       a lowercase string.</p>
    *          <p>
@@ -96,11 +99,13 @@ export interface CreateClusterInput {
   clusterName: string | undefined;
 
   /**
+   * @public
    * <p>The authentication type for the Elastic DocumentDB cluster.</p>
    */
   authType: Auth | string | undefined;
 
   /**
+   * @public
    * <p>The name of the Elastic DocumentDB cluster administrator.</p>
    *          <p>
    *             <i>Constraints</i>:</p>
@@ -119,6 +124,7 @@ export interface CreateClusterInput {
   adminUserName: string | undefined;
 
   /**
+   * @public
    * <p>The password for the Elastic DocumentDB cluster administrator and can
    *       contain any printable ASCII characters.</p>
    *          <p>
@@ -135,27 +141,32 @@ export interface CreateClusterInput {
   adminUserPassword: string | undefined;
 
   /**
+   * @public
    * <p>The capacity of each shard in the new Elastic DocumentDB cluster.</p>
    */
   shardCapacity: number | undefined;
 
   /**
+   * @public
    * <p>The number of shards to create in the new Elastic DocumentDB cluster.</p>
    */
   shardCount: number | undefined;
 
   /**
+   * @public
    * <p>A list of EC2 VPC security groups to associate with the new
    *       Elastic DocumentDB cluster.</p>
    */
   vpcSecurityGroupIds?: string[];
 
   /**
+   * @public
    * <p>The Amazon EC2 subnet IDs for the new Elastic DocumentDB cluster.</p>
    */
   subnetIds?: string[];
 
   /**
+   * @public
    * <p>The KMS key identifier to use to encrypt the new Elastic DocumentDB cluster.</p>
    *          <p>The KMS key identifier is the Amazon Resource Name (ARN) for the KMS
    *         encryption key. If you are creating a cluster using the same Amazon account
@@ -168,11 +179,13 @@ export interface CreateClusterInput {
   kmsKeyId?: string;
 
   /**
+   * @public
    * <p>The client token for the Elastic DocumentDB cluster.</p>
    */
   clientToken?: string;
 
   /**
+   * @public
    * <p>The weekly time range during which system maintenance can occur,
    *       in Universal Coordinated Time (UTC).</p>
    *          <p>
@@ -188,6 +201,7 @@ export interface CreateClusterInput {
   preferredMaintenanceWindow?: string;
 
   /**
+   * @public
    * <p>The tags to be assigned to the new Elastic DocumentDB cluster.</p>
    */
   tags?: Record<string, string>;
@@ -220,61 +234,73 @@ export type Status = (typeof Status)[keyof typeof Status];
  */
 export interface Cluster {
   /**
+   * @public
    * <p>The name of the Elastic DocumentDB cluster.</p>
    */
   clusterName: string | undefined;
 
   /**
+   * @public
    * <p>The arn of the Elastic DocumentDB cluster.</p>
    */
   clusterArn: string | undefined;
 
   /**
+   * @public
    * <p>The status of the Elastic DocumentDB cluster.</p>
    */
   status: Status | string | undefined;
 
   /**
+   * @public
    * <p>The URL used to connect to the Elastic DocumentDB cluster.</p>
    */
   clusterEndpoint: string | undefined;
 
   /**
+   * @public
    * <p>The time when the Elastic DocumentDB cluster was created in Universal Coordinated Time (UTC).</p>
    */
   createTime: string | undefined;
 
   /**
+   * @public
    * <p>The name of the Elastic DocumentDB cluster administrator.</p>
    */
   adminUserName: string | undefined;
 
   /**
+   * @public
    * <p>The authentication type for the Elastic DocumentDB cluster.</p>
    */
   authType: Auth | string | undefined;
 
   /**
+   * @public
    * <p>The capacity of each shard in the Elastic DocumentDB cluster.</p>
    */
   shardCapacity: number | undefined;
 
   /**
+   * @public
    * <p>The number of shards in the  Elastic DocumentDB cluster.</p>
    */
   shardCount: number | undefined;
 
   /**
+   * @public
    * <p>A list of EC2 VPC security groups associated with this cluster.</p>
    */
   vpcSecurityGroupIds: string[] | undefined;
 
   /**
+   * @public
    * <p>The Amazon EC2 subnet IDs for the Elastic DocumentDB cluster.</p>
    */
   subnetIds: string[] | undefined;
 
   /**
+   * @public
    * <p>The weekly time range during which system maintenance can occur,
    *       in Universal Coordinated Time (UTC).</p>
    *          <p>
@@ -284,6 +310,7 @@ export interface Cluster {
   preferredMaintenanceWindow: string | undefined;
 
   /**
+   * @public
    * <p>The KMS key identifier to use to encrypt the Elastic DocumentDB cluster.</p>
    */
   kmsKeyId: string | undefined;
@@ -294,6 +321,7 @@ export interface Cluster {
  */
 export interface CreateClusterOutput {
   /**
+   * @public
    * <p>The new Elastic DocumentDB cluster that has been created.</p>
    */
   cluster: Cluster | undefined;
@@ -349,6 +377,7 @@ export class ThrottlingException extends __BaseException {
   readonly $fault: "client" = "client";
   $retryable = {};
   /**
+   * @public
    * <p>The number of seconds to wait before retrying the operation.</p>
    */
   retryAfterSeconds?: number;
@@ -373,11 +402,13 @@ export class ThrottlingException extends __BaseException {
  */
 export interface ValidationExceptionField {
   /**
+   * @public
    * <p>The name of the field where the validation exception occurred.</p>
    */
   name: string | undefined;
 
   /**
+   * @public
    * <p>An error message describing the validation exception in this field.</p>
    */
   message: string | undefined;
@@ -407,12 +438,14 @@ export class ValidationException extends __BaseException {
   readonly name: "ValidationException" = "ValidationException";
   readonly $fault: "client" = "client";
   /**
+   * @public
    * <p>The reason why the validation exception occurred (one of <code>unknownOperation</code>,
    *       <code>cannotParse</code>, <code>fieldValidationFailed</code>, or <code>other</code>).</p>
    */
   reason: ValidationExceptionReason | string | undefined;
 
   /**
+   * @public
    * <p>A list of the fields in which the validation exception occurred.</p>
    */
   fieldList?: ValidationExceptionField[];
@@ -437,16 +470,19 @@ export class ValidationException extends __BaseException {
  */
 export interface CreateClusterSnapshotInput {
   /**
+   * @public
    * <p>The arn of the Elastic DocumentDB cluster that the snapshot will be taken from.</p>
    */
   clusterArn: string | undefined;
 
   /**
+   * @public
    * <p>The name of the Elastic DocumentDB snapshot.</p>
    */
   snapshotName: string | undefined;
 
   /**
+   * @public
    * <p>The tags to be assigned to the new Elastic DocumentDB snapshot.</p>
    */
   tags?: Record<string, string>;
@@ -458,51 +494,61 @@ export interface CreateClusterSnapshotInput {
  */
 export interface ClusterSnapshot {
   /**
+   * @public
    * <p>A list of the IDs of subnets associated with the DB cluster snapshot.</p>
    */
   subnetIds: string[] | undefined;
 
   /**
+   * @public
    * <p>The name of the Elastic DocumentDB snapshot.</p>
    */
   snapshotName: string | undefined;
 
   /**
+   * @public
    * <p>The arn of the Elastic DocumentDB snapshot</p>
    */
   snapshotArn: string | undefined;
 
   /**
+   * @public
    * <p>The time when the Elastic DocumentDB snapshot was created in Universal Coordinated Time (UTC).</p>
    */
   snapshotCreationTime: string | undefined;
 
   /**
+   * @public
    * <p>The arn of the Elastic DocumentDB cluster.</p>
    */
   clusterArn: string | undefined;
 
   /**
+   * @public
    * <p>The time when the Elastic DocumentDB cluster was created in Universal Coordinated Time (UTC).</p>
    */
   clusterCreationTime: string | undefined;
 
   /**
+   * @public
    * <p>The status of the Elastic DocumentDB snapshot.</p>
    */
   status: Status | string | undefined;
 
   /**
+   * @public
    * <p>A list of the IDs of the VPC security groups associated with the cluster snapshot.</p>
    */
   vpcSecurityGroupIds: string[] | undefined;
 
   /**
+   * @public
    * <p>The name of the Elastic DocumentDB cluster administrator.</p>
    */
   adminUserName: string | undefined;
 
   /**
+   * @public
    * <p>The KMS key identifier to use to encrypt the Elastic DocumentDB cluster.</p>
    */
   kmsKeyId: string | undefined;
@@ -513,6 +559,7 @@ export interface ClusterSnapshot {
  */
 export interface CreateClusterSnapshotOutput {
   /**
+   * @public
    * <p>Returns information about the new Elastic DocumentDB snapshot.</p>
    */
   snapshot: ClusterSnapshot | undefined;
@@ -526,11 +573,13 @@ export class ResourceNotFoundException extends __BaseException {
   readonly name: "ResourceNotFoundException" = "ResourceNotFoundException";
   readonly $fault: "client" = "client";
   /**
+   * @public
    * <p>The ID of the resource that could not be located.</p>
    */
   resourceId: string | undefined;
 
   /**
+   * @public
    * <p>The type of the resource that could not be found.</p>
    */
   resourceType: string | undefined;
@@ -555,6 +604,7 @@ export class ResourceNotFoundException extends __BaseException {
  */
 export interface DeleteClusterInput {
   /**
+   * @public
    * <p>The arn of the Elastic DocumentDB cluster that is to be deleted.</p>
    */
   clusterArn: string | undefined;
@@ -565,6 +615,7 @@ export interface DeleteClusterInput {
  */
 export interface DeleteClusterOutput {
   /**
+   * @public
    * <p>Returns information about the newly deleted Elastic DocumentDB cluster.</p>
    */
   cluster: Cluster | undefined;
@@ -575,6 +626,7 @@ export interface DeleteClusterOutput {
  */
 export interface DeleteClusterSnapshotInput {
   /**
+   * @public
    * <p>The arn of the Elastic DocumentDB snapshot that is to be deleted.</p>
    */
   snapshotArn: string | undefined;
@@ -585,6 +637,7 @@ export interface DeleteClusterSnapshotInput {
  */
 export interface DeleteClusterSnapshotOutput {
   /**
+   * @public
    * <p>Returns information about the newly deleted Elastic DocumentDB snapshot.</p>
    */
   snapshot: ClusterSnapshot | undefined;
@@ -595,6 +648,7 @@ export interface DeleteClusterSnapshotOutput {
  */
 export interface GetClusterInput {
   /**
+   * @public
    * <p>The arn of the Elastic DocumentDB cluster.</p>
    */
   clusterArn: string | undefined;
@@ -605,6 +659,7 @@ export interface GetClusterInput {
  */
 export interface GetClusterOutput {
   /**
+   * @public
    * <p>Returns information about a specific Elastic DocumentDB cluster.</p>
    */
   cluster: Cluster | undefined;
@@ -615,6 +670,7 @@ export interface GetClusterOutput {
  */
 export interface GetClusterSnapshotInput {
   /**
+   * @public
    * <p>The arn of the Elastic DocumentDB snapshot.</p>
    */
   snapshotArn: string | undefined;
@@ -625,6 +681,7 @@ export interface GetClusterSnapshotInput {
  */
 export interface GetClusterSnapshotOutput {
   /**
+   * @public
    * <p>Returns information about a specific Elastic DocumentDB snapshot.</p>
    */
   snapshot: ClusterSnapshot | undefined;
@@ -635,11 +692,13 @@ export interface GetClusterSnapshotOutput {
  */
 export interface ListClustersInput {
   /**
+   * @public
    * <p>The nextToken which is used the get the next page of data.</p>
    */
   nextToken?: string;
 
   /**
+   * @public
    * <p>The maximum number of entries to recieve in the response.</p>
    */
   maxResults?: number;
@@ -651,16 +710,19 @@ export interface ListClustersInput {
  */
 export interface ClusterInList {
   /**
+   * @public
    * <p>The name of the Elastic DocumentDB cluster.</p>
    */
   clusterName: string | undefined;
 
   /**
+   * @public
    * <p>The arn of the Elastic DocumentDB cluster.</p>
    */
   clusterArn: string | undefined;
 
   /**
+   * @public
    * <p>The status of the Elastic DocumentDB cluster.</p>
    */
   status: Status | string | undefined;
@@ -671,11 +733,13 @@ export interface ClusterInList {
  */
 export interface ListClustersOutput {
   /**
+   * @public
    * <p>A list of Elastic DocumentDB cluster.</p>
    */
   clusters?: ClusterInList[];
 
   /**
+   * @public
    * <p>The response will provide a nextToken if there is more data beyond the maxResults.</p>
    *          <p>If there is no more data in the responce, the nextToken will not be returned.</p>
    */
@@ -687,16 +751,19 @@ export interface ListClustersOutput {
  */
 export interface ListClusterSnapshotsInput {
   /**
+   * @public
    * <p>The arn of the Elastic DocumentDB cluster.</p>
    */
   clusterArn?: string;
 
   /**
+   * @public
    * <p>The nextToken which is used the get the next page of data.</p>
    */
   nextToken?: string;
 
   /**
+   * @public
    * <p>The maximum number of entries to recieve in the response.</p>
    */
   maxResults?: number;
@@ -708,26 +775,31 @@ export interface ListClusterSnapshotsInput {
  */
 export interface ClusterSnapshotInList {
   /**
+   * @public
    * <p>The name of the Elastic DocumentDB snapshot.</p>
    */
   snapshotName: string | undefined;
 
   /**
+   * @public
    * <p>The arn of the Elastic DocumentDB snapshot</p>
    */
   snapshotArn: string | undefined;
 
   /**
+   * @public
    * <p>The arn of the Elastic DocumentDB cluster.</p>
    */
   clusterArn: string | undefined;
 
   /**
+   * @public
    * <p>The status of the Elastic DocumentDB snapshot.</p>
    */
   status: Status | string | undefined;
 
   /**
+   * @public
    * <p>The time when the Elastic DocumentDB snapshot was created in Universal Coordinated Time (UTC).</p>
    */
   snapshotCreationTime: string | undefined;
@@ -738,11 +810,13 @@ export interface ClusterSnapshotInList {
  */
 export interface ListClusterSnapshotsOutput {
   /**
+   * @public
    * <p>A list of Elastic DocumentDB snapshots for a specified cluster.</p>
    */
   snapshots?: ClusterSnapshotInList[];
 
   /**
+   * @public
    * <p>The response will provide a nextToken if there is more data beyond the maxResults.</p>
    *          <p>If there is no more data in the responce, the nextToken will not be returned.</p>
    */
@@ -754,6 +828,7 @@ export interface ListClusterSnapshotsOutput {
  */
 export interface ListTagsForResourceRequest {
   /**
+   * @public
    * <p>The arn of the Elastic DocumentDB resource.</p>
    */
   resourceArn: string | undefined;
@@ -764,6 +839,7 @@ export interface ListTagsForResourceRequest {
  */
 export interface ListTagsForResourceResponse {
   /**
+   * @public
    * <p>The list of tags for the specified Elastic DocumentDB resource.</p>
    */
   tags?: Record<string, string>;
@@ -774,27 +850,32 @@ export interface ListTagsForResourceResponse {
  */
 export interface RestoreClusterFromSnapshotInput {
   /**
+   * @public
    * <p>The name of the Elastic DocumentDB cluster.</p>
    */
   clusterName: string | undefined;
 
   /**
+   * @public
    * <p>The arn of the Elastic DocumentDB snapshot.</p>
    */
   snapshotArn: string | undefined;
 
   /**
+   * @public
    * <p>A list of EC2 VPC security groups to associate with the
    *       Elastic DocumentDB cluster.</p>
    */
   vpcSecurityGroupIds?: string[];
 
   /**
+   * @public
    * <p>The Amazon EC2 subnet IDs for the Elastic DocumentDB cluster.</p>
    */
   subnetIds?: string[];
 
   /**
+   * @public
    * <p>The KMS key identifier to use to encrypt the new Elastic DocumentDB cluster.</p>
    *          <p>The KMS key identifier is the Amazon Resource Name (ARN) for the KMS
    *         encryption key. If you are creating a cluster using the same Amazon account
@@ -807,6 +888,7 @@ export interface RestoreClusterFromSnapshotInput {
   kmsKeyId?: string;
 
   /**
+   * @public
    * <p>A list of the tag names to be assigned to the restored DB cluster,
    *       in the form of an array of key-value pairs in which the key
    *       is the tag name and the value is the key value.</p>
@@ -819,6 +901,7 @@ export interface RestoreClusterFromSnapshotInput {
  */
 export interface RestoreClusterFromSnapshotOutput {
   /**
+   * @public
    * <p>Returns information about a the restored Elastic DocumentDB cluster.</p>
    */
   cluster: Cluster | undefined;
@@ -829,11 +912,13 @@ export interface RestoreClusterFromSnapshotOutput {
  */
 export interface TagResourceRequest {
   /**
+   * @public
    * <p>The arn of the Elastic DocumentDB resource.</p>
    */
   resourceArn: string | undefined;
 
   /**
+   * @public
    * <p>The tags to be assigned to the Elastic DocumentDB resource.</p>
    */
   tags: Record<string, string> | undefined;
@@ -849,11 +934,13 @@ export interface TagResourceResponse {}
  */
 export interface UntagResourceRequest {
   /**
+   * @public
    * <p>The arn of the Elastic DocumentDB resource.</p>
    */
   resourceArn: string | undefined;
 
   /**
+   * @public
    * <p>The tag keys to be removed from the Elastic DocumentDB resource.</p>
    */
   tagKeys: string[] | undefined;
@@ -869,37 +956,44 @@ export interface UntagResourceResponse {}
  */
 export interface UpdateClusterInput {
   /**
+   * @public
    * <p>The arn of the Elastic DocumentDB cluster.</p>
    */
   clusterArn: string | undefined;
 
   /**
+   * @public
    * <p>The authentication type for the Elastic DocumentDB cluster.</p>
    */
   authType?: Auth | string;
 
   /**
+   * @public
    * <p>The capacity of each shard in the Elastic DocumentDB cluster.</p>
    */
   shardCapacity?: number;
 
   /**
+   * @public
    * <p>The number of shards to create in the Elastic DocumentDB cluster.</p>
    */
   shardCount?: number;
 
   /**
+   * @public
    * <p>A list of EC2 VPC security groups to associate with the new
    *       Elastic DocumentDB cluster.</p>
    */
   vpcSecurityGroupIds?: string[];
 
   /**
+   * @public
    * <p>The number of shards to create in the Elastic DocumentDB cluster.</p>
    */
   subnetIds?: string[];
 
   /**
+   * @public
    * <p>The password for the Elastic DocumentDB cluster administrator. This password can
    *       contain any printable ASCII character except forward slash (/),
    *       double quote ("), or the "at" symbol (@).</p>
@@ -909,11 +1003,13 @@ export interface UpdateClusterInput {
   adminUserPassword?: string;
 
   /**
+   * @public
    * <p>The client token for the Elastic DocumentDB cluster.</p>
    */
   clientToken?: string;
 
   /**
+   * @public
    * <p>The weekly time range during which system maintenance can occur,
    *       in Universal Coordinated Time (UTC).</p>
    *          <p>
@@ -934,6 +1030,7 @@ export interface UpdateClusterInput {
  */
 export interface UpdateClusterOutput {
   /**
+   * @public
    * <p>Returns information about the updated Elastic DocumentDB cluster.</p>
    */
   cluster: Cluster | undefined;

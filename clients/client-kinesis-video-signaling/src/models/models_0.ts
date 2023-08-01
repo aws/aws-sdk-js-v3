@@ -44,23 +44,27 @@ export type Service = (typeof Service)[keyof typeof Service];
  */
 export interface GetIceServerConfigRequest {
   /**
+   * @public
    * <p>The ARN of the signaling channel to be used for the peer-to-peer connection between
    *             configured peers. </p>
    */
   ChannelARN: string | undefined;
 
   /**
+   * @public
    * <p>Unique identifier for the viewer. Must be unique within the signaling channel.</p>
    */
   ClientId?: string;
 
   /**
+   * @public
    * <p>Specifies the desired service. Currently, <code>TURN</code> is the only valid
    *             value.</p>
    */
   Service?: Service | string;
 
   /**
+   * @public
    * <p>An optional user ID to be associated with the credentials.</p>
    */
   Username?: string;
@@ -72,22 +76,26 @@ export interface GetIceServerConfigRequest {
  */
 export interface IceServer {
   /**
+   * @public
    * <p>An array of URIs, in the form specified in the <a href="https://tools.ietf.org/html/draft-petithuguenin-behave-turn-uris-03">I-D.petithuguenin-behave-turn-uris</a> spec. These URIs provide the different
    *             addresses and/or protocols that can be used to reach the TURN server.</p>
    */
   Uris?: string[];
 
   /**
+   * @public
    * <p>A username to login to the ICE server.</p>
    */
   Username?: string;
 
   /**
+   * @public
    * <p>A password to login to the ICE server.</p>
    */
   Password?: string;
 
   /**
+   * @public
    * <p>The period of time, in seconds, during which the username and password are
    *             valid.</p>
    */
@@ -99,6 +107,7 @@ export interface IceServer {
  */
 export interface GetIceServerConfigResponse {
   /**
+   * @public
    * <p>The list of ICE server information objects.</p>
    */
   IceServerList?: IceServer[];
@@ -217,17 +226,20 @@ export class SessionExpiredException extends __BaseException {
  */
 export interface SendAlexaOfferToMasterRequest {
   /**
+   * @public
    * <p>The ARN of the signaling channel by which Alexa and the master peer
    *             communicate.</p>
    */
   ChannelARN: string | undefined;
 
   /**
+   * @public
    * <p>The unique identifier for the sender client.</p>
    */
   SenderClientId: string | undefined;
 
   /**
+   * @public
    * <p>The base64-encoded SDP offer content.</p>
    */
   MessagePayload: string | undefined;
@@ -238,6 +250,7 @@ export interface SendAlexaOfferToMasterRequest {
  */
 export interface SendAlexaOfferToMasterResponse {
   /**
+   * @public
    * <p>The base64-encoded SDP answer content.</p>
    */
   Answer?: string;

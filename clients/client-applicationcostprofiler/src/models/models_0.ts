@@ -28,6 +28,7 @@ export class AccessDeniedException extends __BaseException {
  */
 export interface DeleteReportDefinitionRequest {
   /**
+   * @public
    * <p>Required. ID of the report to delete.</p>
    */
   reportId: string | undefined;
@@ -38,6 +39,7 @@ export interface DeleteReportDefinitionRequest {
  */
 export interface DeleteReportDefinitionResult {
   /**
+   * @public
    * <p>ID of the report that was deleted.</p>
    */
   reportId?: string;
@@ -108,6 +110,7 @@ export class ValidationException extends __BaseException {
  */
 export interface GetReportDefinitionRequest {
   /**
+   * @public
    * <p>ID of the report to retrieve.</p>
    */
   reportId: string | undefined;
@@ -120,11 +123,13 @@ export interface GetReportDefinitionRequest {
  */
 export interface S3Location {
   /**
+   * @public
    * <p>Name of the S3 bucket.</p>
    */
   bucket: string | undefined;
 
   /**
+   * @public
    * <p>Prefix for the location to write to.</p>
    */
   prefix: string | undefined;
@@ -164,36 +169,43 @@ export type ReportFrequency = (typeof ReportFrequency)[keyof typeof ReportFreque
  */
 export interface GetReportDefinitionResult {
   /**
+   * @public
    * <p>ID of the report retrieved.</p>
    */
   reportId: string | undefined;
 
   /**
+   * @public
    * <p>Description of the report.</p>
    */
   reportDescription: string | undefined;
 
   /**
+   * @public
    * <p>Cadence used to generate the report.</p>
    */
   reportFrequency: ReportFrequency | string | undefined;
 
   /**
+   * @public
    * <p>Format of the generated report.</p>
    */
   format: Format | string | undefined;
 
   /**
+   * @public
    * <p>Amazon Simple Storage Service (Amazon S3) location where the report is uploaded.</p>
    */
   destinationS3Location: S3Location | undefined;
 
   /**
+   * @public
    * <p>Timestamp (milliseconds) when this report definition was created.</p>
    */
   createdAt: Date | undefined;
 
   /**
+   * @public
    * <p>Timestamp (milliseconds) when this report definition was last updated.</p>
    */
   lastUpdated: Date | undefined;
@@ -222,16 +234,19 @@ export type S3BucketRegion = (typeof S3BucketRegion)[keyof typeof S3BucketRegion
  */
 export interface SourceS3Location {
   /**
+   * @public
    * <p>Name of the bucket.</p>
    */
   bucket: string | undefined;
 
   /**
+   * @public
    * <p>Key of the object.</p>
    */
   key: string | undefined;
 
   /**
+   * @public
    * <p>Region of the bucket. Only required for Regions that are disabled by default.
    *         For more infomration about Regions that are disabled by default, see <a href="https://docs.aws.amazon.com/general/latest/gr/rande-manage.html#rande-manage-enable">
    *           Enabling a Region</a> in the <i>AWS General Reference guide</i>.</p>
@@ -244,6 +259,7 @@ export interface SourceS3Location {
  */
 export interface ImportApplicationUsageRequest {
   /**
+   * @public
    * <p>Amazon S3 location to import application usage data from.</p>
    */
   sourceS3Location: SourceS3Location | undefined;
@@ -254,6 +270,7 @@ export interface ImportApplicationUsageRequest {
  */
 export interface ImportApplicationUsageResult {
   /**
+   * @public
    * <p>ID of the import request.</p>
    */
   importId: string | undefined;
@@ -264,11 +281,13 @@ export interface ImportApplicationUsageResult {
  */
 export interface ListReportDefinitionsRequest {
   /**
+   * @public
    * <p>The token value from a previous call to access the next page of results.</p>
    */
   nextToken?: string;
 
   /**
+   * @public
    * <p>The maximum number of results to return.</p>
    */
   maxResults?: number;
@@ -280,36 +299,43 @@ export interface ListReportDefinitionsRequest {
  */
 export interface ReportDefinition {
   /**
+   * @public
    * <p>The ID of the report.</p>
    */
   reportId?: string;
 
   /**
+   * @public
    * <p>Description of the report</p>
    */
   reportDescription?: string;
 
   /**
+   * @public
    * <p>The cadence at which the report is generated.</p>
    */
   reportFrequency?: ReportFrequency | string;
 
   /**
+   * @public
    * <p>The format used for the generated reports.</p>
    */
   format?: Format | string;
 
   /**
+   * @public
    * <p>The location in Amazon Simple Storage Service (Amazon S3) the reports should be saved to.</p>
    */
   destinationS3Location?: S3Location;
 
   /**
+   * @public
    * <p>Timestamp (milliseconds) when this report definition was created.</p>
    */
   createdAt?: Date;
 
   /**
+   * @public
    * <p>Timestamp (milliseconds) when this report definition was last updated.</p>
    */
   lastUpdatedAt?: Date;
@@ -320,11 +346,13 @@ export interface ReportDefinition {
  */
 export interface ListReportDefinitionsResult {
   /**
+   * @public
    * <p>The retrieved reports.</p>
    */
   reportDefinitions?: ReportDefinition[];
 
   /**
+   * @public
    * <p>The value of the next token, if it exists. Null if there are no more results.</p>
    */
   nextToken?: string;
@@ -335,27 +363,32 @@ export interface ListReportDefinitionsResult {
  */
 export interface PutReportDefinitionRequest {
   /**
+   * @public
    * <p>Required. ID of the report. You can choose any valid string matching the pattern for the
    *       ID.</p>
    */
   reportId: string | undefined;
 
   /**
+   * @public
    * <p>Required. Description of the report.</p>
    */
   reportDescription: string | undefined;
 
   /**
+   * @public
    * <p>Required. The cadence to generate the report.</p>
    */
   reportFrequency: ReportFrequency | string | undefined;
 
   /**
+   * @public
    * <p>Required. The format to use for the generated report.</p>
    */
   format: Format | string | undefined;
 
   /**
+   * @public
    * <p>Required. Amazon Simple Storage Service (Amazon S3) location where Application Cost Profiler uploads the
    *       report.</p>
    */
@@ -367,6 +400,7 @@ export interface PutReportDefinitionRequest {
  */
 export interface PutReportDefinitionResult {
   /**
+   * @public
    * <p>ID of the report.</p>
    */
   reportId?: string;
@@ -397,26 +431,31 @@ export class ServiceQuotaExceededException extends __BaseException {
  */
 export interface UpdateReportDefinitionRequest {
   /**
+   * @public
    * <p>Required. ID of the report to update.</p>
    */
   reportId: string | undefined;
 
   /**
+   * @public
    * <p>Required. Description of the report.</p>
    */
   reportDescription: string | undefined;
 
   /**
+   * @public
    * <p>Required. The cadence to generate the report.</p>
    */
   reportFrequency: ReportFrequency | string | undefined;
 
   /**
+   * @public
    * <p>Required. The format to use for the generated report.</p>
    */
   format: Format | string | undefined;
 
   /**
+   * @public
    * <p>Required. Amazon Simple Storage Service (Amazon S3) location where Application Cost Profiler uploads the
    *       report.</p>
    */
@@ -428,6 +467,7 @@ export interface UpdateReportDefinitionRequest {
  */
 export interface UpdateReportDefinitionResult {
   /**
+   * @public
    * <p>ID of the report.</p>
    */
   reportId?: string;

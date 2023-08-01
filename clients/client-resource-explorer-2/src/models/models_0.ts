@@ -32,6 +32,7 @@ export class AccessDeniedException extends __BaseException {
  */
 export interface AssociateDefaultViewInput {
   /**
+   * @public
    * <p>The <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon resource name (ARN)</a> of the view to set as the default for the Amazon Web Services Region and
    *             Amazon Web Services account in which you call this operation. The specified view must already exist in
    *             the called Region.</p>
@@ -44,6 +45,7 @@ export interface AssociateDefaultViewInput {
  */
 export interface AssociateDefaultViewOutput {
   /**
+   * @public
    * <p>The <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon resource name (ARN)</a> of the view that the operation set as the default for queries made
    *             in the Amazon Web Services Region and Amazon Web Services account in which you called this operation.</p>
    */
@@ -126,11 +128,13 @@ export class ThrottlingException extends __BaseException {
  */
 export interface ValidationExceptionField {
   /**
+   * @public
    * <p>The name of the request field that had a validation error.</p>
    */
   Name: string | undefined;
 
   /**
+   * @public
    * <p>The validation error caused by the request field.</p>
    */
   ValidationIssue: string | undefined;
@@ -146,6 +150,7 @@ export class ValidationException extends __BaseException {
   readonly $fault: "client" = "client";
   Message: string | undefined;
   /**
+   * @public
    * <p>An array of the request fields that had validation errors.</p>
    */
   FieldList?: ValidationExceptionField[];
@@ -169,6 +174,7 @@ export class ValidationException extends __BaseException {
  */
 export interface BatchGetViewInput {
   /**
+   * @public
    * <p>A list of <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon resource names (ARNs)</a> that identify the views you want details for.</p>
    */
   ViewArns?: string[];
@@ -181,11 +187,13 @@ export interface BatchGetViewInput {
  */
 export interface BatchGetViewError {
   /**
+   * @public
    * <p>The <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon resource name (ARN)</a> of the view for which Resource Explorer failed to retrieve details.</p>
    */
   ViewArn: string | undefined;
 
   /**
+   * @public
    * <p>The description of the error for the specified view.</p>
    */
   ErrorMessage: string | undefined;
@@ -198,6 +206,7 @@ export interface BatchGetViewError {
  */
 export interface SearchFilter {
   /**
+   * @public
    * <p>The string that contains the search keywords, prefixes, and operators to control the
    *             results that can be returned by a <a>Search</a> operation. For more details,
    *             see <a href="https://docs.aws.amazon.com/resource-explorer/latest/APIReference/about-query-syntax.html">Search
@@ -214,6 +223,7 @@ export interface SearchFilter {
  */
 export interface IncludedProperty {
   /**
+   * @public
    * <p>The name of the property that is included in this view.</p>
    *          <p>You can specify the following property names for this field:</p>
    *          <ul>
@@ -238,21 +248,25 @@ export interface IncludedProperty {
  */
 export interface View {
   /**
+   * @public
    * <p>The <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon resource name (ARN)</a> of the view.</p>
    */
   ViewArn?: string;
 
   /**
+   * @public
    * <p>The Amazon Web Services account that owns this view.</p>
    */
   Owner?: string;
 
   /**
+   * @public
    * <p>The date and time when this view was last modified.</p>
    */
   LastUpdatedAt?: Date;
 
   /**
+   * @public
    * <p>An <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon resource name (ARN)</a> of an Amazon Web Services account, an organization, or an
    *         organizational unit (OU) that specifies whether this view includes resources from only
    *         the specified Amazon Web Services account, all accounts in the specified organization, or all accounts in
@@ -263,11 +277,13 @@ export interface View {
   Scope?: string;
 
   /**
+   * @public
    * <p>A structure that contains additional information about the view.</p>
    */
   IncludedProperties?: IncludedProperty[];
 
   /**
+   * @public
    * <p>An array of <a>SearchFilter</a> objects that specify which resources can be
    *             included in the results of queries made using this view.</p>
    */
@@ -279,12 +295,14 @@ export interface View {
  */
 export interface BatchGetViewOutput {
   /**
+   * @public
    * <p>A structure with a list of objects with details for each of the specified
    *             views.</p>
    */
   Views?: View[];
 
   /**
+   * @public
    * <p>If any of the specified ARNs result in an error, then this structure describes the
    *             error.</p>
    */
@@ -342,6 +360,7 @@ export class ConflictException extends __BaseException {
  */
 export interface CreateIndexInput {
   /**
+   * @public
    * <p>This value helps ensure idempotency. Resource Explorer uses this value to prevent the
    *         accidental creation of duplicate versions. We recommend that you generate a <a href="https://wikipedia.org/wiki/Universally_unique_identifier">UUID-type
    *         value</a> to ensure the uniqueness of your views.</p>
@@ -349,6 +368,7 @@ export interface CreateIndexInput {
   ClientToken?: string;
 
   /**
+   * @public
    * <p>The specified tags are attached only to the index created in this Amazon Web Services Region. The
    *             tags aren't attached to any of the resources listed in the index.</p>
    */
@@ -392,6 +412,7 @@ export type IndexState = (typeof IndexState)[keyof typeof IndexState];
  */
 export interface CreateIndexOutput {
   /**
+   * @public
    * <p>The ARN of the new local index for the Region. You can reference this ARN in IAM
    *             permission policies to authorize the following operations: <a>DeleteIndex</a>
    *             | <a>GetIndex</a> | <a>UpdateIndexType</a> | <a>CreateView</a>
@@ -400,6 +421,7 @@ export interface CreateIndexOutput {
   Arn?: string;
 
   /**
+   * @public
    * <p>Indicates the current state of the index. You can check for changes to the state for
    *             asynchronous operations by calling the <a>GetIndex</a> operation.</p>
    *          <note>
@@ -411,6 +433,7 @@ export interface CreateIndexOutput {
   State?: IndexState | string;
 
   /**
+   * @public
    * <p>The date and timestamp when the index was created.</p>
    */
   CreatedAt?: Date;
@@ -421,6 +444,7 @@ export interface CreateIndexOutput {
  */
 export interface DeleteIndexInput {
   /**
+   * @public
    * <p>The <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon resource name (ARN)</a> of the index that you want to delete.</p>
    */
   Arn: string | undefined;
@@ -431,6 +455,7 @@ export interface DeleteIndexInput {
  */
 export interface DeleteIndexOutput {
   /**
+   * @public
    * <p>The <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon resource name (ARN)</a> of the index that you successfully started the deletion
    *             process.</p>
    *          <note>
@@ -440,11 +465,13 @@ export interface DeleteIndexOutput {
   Arn?: string;
 
   /**
+   * @public
    * <p>Indicates the current state of the index. </p>
    */
   State?: IndexState | string;
 
   /**
+   * @public
    * <p>The date and time when you last updated this index.</p>
    */
   LastUpdatedAt?: Date;
@@ -475,6 +502,7 @@ export type IndexType = (typeof IndexType)[keyof typeof IndexType];
  */
 export interface ListIndexesInput {
   /**
+   * @public
    * <p>If specified, limits the output to only indexes of the specified Type, either
    *                 <code>LOCAL</code> or <code>AGGREGATOR</code>.</p>
    *          <p>Use this option to discover the aggregator index for your account.</p>
@@ -482,12 +510,14 @@ export interface ListIndexesInput {
   Type?: IndexType | string;
 
   /**
+   * @public
    * <p>If specified, limits the response to only information about the index in the specified
    *             list of Amazon Web Services Regions.</p>
    */
   Regions?: string[];
 
   /**
+   * @public
    * <p>The maximum number of results that you want included on each page of the
    *     response. If you do not include this parameter, it defaults to a value appropriate to the
    *     operation. If additional items exist beyond those included in the current response, the
@@ -503,6 +533,7 @@ export interface ListIndexesInput {
   MaxResults?: number;
 
   /**
+   * @public
    * <p>The parameter for receiving additional results if you receive a
    *     <code>NextToken</code> response in a previous request. A <code>NextToken</code> response
    *     indicates that more output is available. Set this parameter to the value of the previous
@@ -526,16 +557,19 @@ export interface ListIndexesInput {
  */
 export interface Index {
   /**
+   * @public
    * <p>The Amazon Web Services Region in which the index exists.</p>
    */
   Region?: string;
 
   /**
+   * @public
    * <p>The <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon resource name (ARN)</a> of the index.</p>
    */
   Arn?: string;
 
   /**
+   * @public
    * <p>The type of index. It can be one of the following
    *             values:</p>
    *          <ul>
@@ -562,11 +596,13 @@ export interface Index {
  */
 export interface ListIndexesOutput {
   /**
+   * @public
    * <p>A structure that contains the details and status of each index.</p>
    */
   Indexes?: Index[];
 
   /**
+   * @public
    * <p>If present, indicates that more output is available than is
    *     included in the current response. Use this value in the <code>NextToken</code> request parameter
    *     in a subsequent call to the operation to get the next part of the output. You should repeat this
@@ -584,11 +620,13 @@ export class ServiceQuotaExceededException extends __BaseException {
   readonly $fault: "client" = "client";
   Message: string | undefined;
   /**
+   * @public
    * <p>The name of the service quota that was exceeded by the request.</p>
    */
   Name: string | undefined;
 
   /**
+   * @public
    * <p>The current value for the quota that the request tried to exceed.</p>
    */
   Value: string | undefined;
@@ -613,11 +651,13 @@ export class ServiceQuotaExceededException extends __BaseException {
  */
 export interface UpdateIndexTypeInput {
   /**
+   * @public
    * <p>The <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon resource name (ARN)</a> of the index that you want to update.</p>
    */
   Arn: string | undefined;
 
   /**
+   * @public
    * <p>The type of the index. To understand the difference between <code>LOCAL</code> and
    *                 <code>AGGREGATOR</code>, see <a href="https://docs.aws.amazon.com/resource-explorer/latest/userguide/manage-aggregator-region.html">Turning on cross-Region
    *                 search</a> in the <i>Amazon Web Services Resource Explorer User Guide</i>.</p>
@@ -630,22 +670,26 @@ export interface UpdateIndexTypeInput {
  */
 export interface UpdateIndexTypeOutput {
   /**
+   * @public
    * <p>The <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon resource name (ARN)</a> of the index that you updated.</p>
    */
   Arn?: string;
 
   /**
+   * @public
    * <p>Specifies the type of the specified index after the operation completes.</p>
    */
   Type?: IndexType | string;
 
   /**
+   * @public
    * <p>Indicates the state of the request to update the index. This operation is
    *             asynchronous. Call the <a>GetIndex</a> operation to check for changes.</p>
    */
   State?: IndexState | string;
 
   /**
+   * @public
    * <p>The date and timestamp when the index was last updated.</p>
    */
   LastUpdatedAt?: Date;
@@ -656,6 +700,7 @@ export interface UpdateIndexTypeOutput {
  */
 export interface CreateViewInput {
   /**
+   * @public
    * <p>This value helps ensure idempotency. Resource Explorer uses this value to prevent the
    *         accidental creation of duplicate versions. We recommend that you generate a <a href="https://wikipedia.org/wiki/Universally_unique_identifier">UUID-type
    *         value</a> to ensure the uniqueness of your views.</p>
@@ -663,6 +708,7 @@ export interface CreateViewInput {
   ClientToken?: string;
 
   /**
+   * @public
    * <p>The name of the new view. This name appears in the list of views in Resource Explorer.</p>
    *          <p>The name must be no more than 64 characters long, and can include letters, digits, and
    *             the dash (-) character. The name must be unique within its Amazon Web Services Region.</p>
@@ -670,6 +716,7 @@ export interface CreateViewInput {
   ViewName: string | undefined;
 
   /**
+   * @public
    * <p>Specifies optional fields that you want included in search results from this
    *         view. It is a list of objects that each describe a field to include.</p>
    *          <p>The default is an empty list, with no optional fields included in the results.</p>
@@ -677,6 +724,7 @@ export interface CreateViewInput {
   IncludedProperties?: IncludedProperty[];
 
   /**
+   * @public
    * <p>An array of strings that specify which resources are included in the results of
    *             queries made using this view. When you use this view in a <a>Search</a>
    *             operation, the filter string is combined with the search's <code>QueryString</code>
@@ -695,6 +743,7 @@ export interface CreateViewInput {
   Filters?: SearchFilter;
 
   /**
+   * @public
    * <p>Tag key and value pairs that are attached to the view.</p>
    */
   Tags?: Record<string, string>;
@@ -705,6 +754,7 @@ export interface CreateViewInput {
  */
 export interface CreateViewOutput {
   /**
+   * @public
    * <p>A structure that contains the details about the new view.</p>
    */
   View?: View;
@@ -715,6 +765,7 @@ export interface CreateViewOutput {
  */
 export interface DeleteViewInput {
   /**
+   * @public
    * <p>The <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon resource name (ARN)</a> of the view that you want to delete.</p>
    */
   ViewArn: string | undefined;
@@ -725,6 +776,7 @@ export interface DeleteViewInput {
  */
 export interface DeleteViewOutput {
   /**
+   * @public
    * <p>The <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon resource name (ARN)</a> of the view that you successfully deleted.</p>
    */
   ViewArn?: string;
@@ -735,6 +787,7 @@ export interface DeleteViewOutput {
  */
 export interface GetViewInput {
   /**
+   * @public
    * <p>The <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon resource name (ARN)</a> of the view that you want information about.</p>
    */
   ViewArn: string | undefined;
@@ -745,11 +798,13 @@ export interface GetViewInput {
  */
 export interface GetViewOutput {
   /**
+   * @public
    * <p>A structure that contains the details for the requested view.</p>
    */
   View?: View;
 
   /**
+   * @public
    * <p>Tag key and value pairs that are attached to the view.</p>
    */
   Tags?: Record<string, string>;
@@ -760,6 +815,7 @@ export interface GetViewOutput {
  */
 export interface ListViewsInput {
   /**
+   * @public
    * <p>The parameter for receiving additional results if you receive a
    *     <code>NextToken</code> response in a previous request. A <code>NextToken</code> response
    *     indicates that more output is available. Set this parameter to the value of the previous
@@ -769,6 +825,7 @@ export interface ListViewsInput {
   NextToken?: string;
 
   /**
+   * @public
    * <p>The maximum number of results that you want included on each page of the
    *     response. If you do not include this parameter, it defaults to a value appropriate to the
    *     operation. If additional items exist beyond those included in the current response, the
@@ -789,12 +846,14 @@ export interface ListViewsInput {
  */
 export interface ListViewsOutput {
   /**
+   * @public
    * <p>The list of views available in the Amazon Web Services Region in which you called this
    *             operation.</p>
    */
   Views?: string[];
 
   /**
+   * @public
    * <p>If present, indicates that more output is available than is
    *     included in the current response. Use this value in the <code>NextToken</code> request parameter
    *     in a subsequent call to the operation to get the next part of the output. You should repeat this
@@ -808,11 +867,13 @@ export interface ListViewsOutput {
  */
 export interface UpdateViewInput {
   /**
+   * @public
    * <p>The <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon resource name (ARN)</a> of the view that you want to modify.</p>
    */
   ViewArn: string | undefined;
 
   /**
+   * @public
    * <p>Specifies optional fields that you want included in search results from this
    *         view. It is a list of objects that each describe a field to include.</p>
    *          <p>The default is an empty list, with no optional fields included in the results.</p>
@@ -820,6 +881,7 @@ export interface UpdateViewInput {
   IncludedProperties?: IncludedProperty[];
 
   /**
+   * @public
    * <p>An array of strings that specify which resources are included in the results of
    *             queries made using this view. When you use this view in a <a>Search</a>
    *             operation, the filter string is combined with the search's <code>QueryString</code>
@@ -843,6 +905,7 @@ export interface UpdateViewInput {
  */
 export interface UpdateViewOutput {
   /**
+   * @public
    * <p>Details about the view that you changed with this operation.</p>
    */
   View?: View;
@@ -853,6 +916,7 @@ export interface UpdateViewOutput {
  */
 export interface GetDefaultViewOutput {
   /**
+   * @public
    * <p>The <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon resource name (ARN)</a> of the view that is the current default for the Amazon Web Services Region in
    *             which you called this operation.</p>
    */
@@ -864,11 +928,13 @@ export interface GetDefaultViewOutput {
  */
 export interface GetIndexOutput {
   /**
+   * @public
    * <p>The <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon resource name (ARN)</a> of the index.</p>
    */
   Arn?: string;
 
   /**
+   * @public
    * <p>The type of the index in this Region. For information about the aggregator index and
    *             how it differs from a local index, see <a href="https://docs.aws.amazon.com/resource-explorer/latest/userguide/manage-aggregator-region.html">Turning on cross-Region search
    *                 by creating an aggregator index</a>.</p>
@@ -876,11 +942,13 @@ export interface GetIndexOutput {
   Type?: IndexType | string;
 
   /**
+   * @public
    * <p>The current state of the index in this Amazon Web Services Region.</p>
    */
   State?: IndexState | string;
 
   /**
+   * @public
    * <p>This response value is present only if this index is
    *             <code>Type=AGGREGATOR</code>.</p>
    *          <p>A list of the Amazon Web Services Regions that replicate their content to the index in this
@@ -889,6 +957,7 @@ export interface GetIndexOutput {
   ReplicatingFrom?: string[];
 
   /**
+   * @public
    * <p>This response value is present only if this index is <code>Type=LOCAL</code>.</p>
    *          <p>The Amazon Web Services Region that contains the aggregator index, if one exists. If an aggregator index
    *             does exist then the Region in which you called this operation replicates its index
@@ -897,16 +966,19 @@ export interface GetIndexOutput {
   ReplicatingTo?: string[];
 
   /**
+   * @public
    * <p>The date and time when the index was originally created.</p>
    */
   CreatedAt?: Date;
 
   /**
+   * @public
    * <p>The date and time when the index was last updated.</p>
    */
   LastUpdatedAt?: Date;
 
   /**
+   * @public
    * <p>Tag key and value pairs that are attached to the index.</p>
    */
   Tags?: Record<string, string>;
@@ -917,6 +989,7 @@ export interface GetIndexOutput {
  */
 export interface ListSupportedResourceTypesInput {
   /**
+   * @public
    * <p>The parameter for receiving additional results if you receive a
    *     <code>NextToken</code> response in a previous request. A <code>NextToken</code> response
    *     indicates that more output is available. Set this parameter to the value of the previous
@@ -926,6 +999,7 @@ export interface ListSupportedResourceTypesInput {
   NextToken?: string;
 
   /**
+   * @public
    * <p>The maximum number of results that you want included on each page of the
    *     response. If you do not include this parameter, it defaults to a value appropriate to the
    *     operation. If additional items exist beyond those included in the current response, the
@@ -947,12 +1021,14 @@ export interface ListSupportedResourceTypesInput {
  */
 export interface SupportedResourceType {
   /**
+   * @public
    * <p>The Amazon Web Service that is associated with the resource type. This is the primary
    *             service that lets you create and interact with resources of this type.</p>
    */
   Service?: string;
 
   /**
+   * @public
    * <p>The unique identifier of the resource type.</p>
    */
   ResourceType?: string;
@@ -963,11 +1039,13 @@ export interface SupportedResourceType {
  */
 export interface ListSupportedResourceTypesOutput {
   /**
+   * @public
    * <p>The list of resource types supported by Resource Explorer.</p>
    */
   ResourceTypes?: SupportedResourceType[];
 
   /**
+   * @public
    * <p>If present, indicates that more output is available than is
    *     included in the current response. Use this value in the <code>NextToken</code> request parameter
    *     in a subsequent call to the operation to get the next part of the output. You should repeat this
@@ -981,6 +1059,7 @@ export interface ListSupportedResourceTypesOutput {
  */
 export interface ListTagsForResourceInput {
   /**
+   * @public
    * <p>The <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon resource name (ARN)</a> of the view or index that you want to attach tags to.</p>
    */
   resourceArn: string | undefined;
@@ -991,6 +1070,7 @@ export interface ListTagsForResourceInput {
  */
 export interface ListTagsForResourceOutput {
   /**
+   * @public
    * <p>The tag key and value pairs that you want to attach to the specified view or
    *             index.</p>
    */
@@ -1003,17 +1083,20 @@ export interface ListTagsForResourceOutput {
  */
 export interface ResourceProperty {
   /**
+   * @public
    * <p>The name of this property of the resource.</p>
    */
   Name?: string;
 
   /**
+   * @public
    * <p>The date and time that the information about this resource property was last
    *             updated.</p>
    */
   LastReportedAt?: Date;
 
   /**
+   * @public
    * <p>Details about this property. The content of this field is a JSON object that varies
    *             based on the resource type.</p>
    */
@@ -1027,38 +1110,45 @@ export interface ResourceProperty {
  */
 export interface Resource {
   /**
+   * @public
    * <p>The <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon resource name (ARN)</a> of the resource.</p>
    */
   Arn?: string;
 
   /**
+   * @public
    * <p>The Amazon Web Services account that owns the resource.</p>
    */
   OwningAccountId?: string;
 
   /**
+   * @public
    * <p>The Amazon Web Services Region in which the resource was created and exists.</p>
    */
   Region?: string;
 
   /**
+   * @public
    * <p>The type of the resource.</p>
    */
   ResourceType?: string;
 
   /**
+   * @public
    * <p>The Amazon Web Service that owns the resource and is responsible for creating and updating
    *             it.</p>
    */
   Service?: string;
 
   /**
+   * @public
    * <p>The date and time that Resource Explorer last queried this resource and updated the index with
    *             the latest information about the resource.</p>
    */
   LastReportedAt?: Date;
 
   /**
+   * @public
    * <p>A structure with additional type-specific details about the resource. These properties
    *             can be added by turning on integration between Resource Explorer and other Amazon Web Services services.</p>
    */
@@ -1074,6 +1164,7 @@ export interface Resource {
  */
 export interface ResourceCount {
   /**
+   * @public
    * <p>The number of resources that match the search query. This value can't exceed
    *             1,000. If there are more than 1,000 resources that match
    *             the query, then only 1,000 are counted and the <code>Complete</code>
@@ -1083,6 +1174,7 @@ export interface ResourceCount {
   TotalResources?: number;
 
   /**
+   * @public
    * <p>Indicates whether the <code>TotalResources</code> value represents an exhaustive count
    *             of search results.</p>
    *          <ul>
@@ -1104,6 +1196,7 @@ export interface ResourceCount {
  */
 export interface SearchInput {
   /**
+   * @public
    * <p>A string that includes keywords and filters that specify the resources that you want
    *             to include in the results.</p>
    *          <p>For the complete syntax supported by the <code>QueryString</code> parameter, see
@@ -1119,6 +1212,7 @@ export interface SearchInput {
   QueryString: string | undefined;
 
   /**
+   * @public
    * <p>The maximum number of results that you want included on each page of the
    *     response. If you do not include this parameter, it defaults to a value appropriate to the
    *     operation. If additional items exist beyond those included in the current response, the
@@ -1134,6 +1228,7 @@ export interface SearchInput {
   MaxResults?: number;
 
   /**
+   * @public
    * <p>Specifies the <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon resource name (ARN)</a> of the view to use for the query. If you don't specify a
    *             value for this parameter, then the operation automatically uses the default view for the
    *             Amazon Web Services Region in which you called this operation. If the Region either doesn't have a
@@ -1143,6 +1238,7 @@ export interface SearchInput {
   ViewArn?: string;
 
   /**
+   * @public
    * <p>The parameter for receiving additional results if you receive a
    *     <code>NextToken</code> response in a previous request. A <code>NextToken</code> response
    *     indicates that more output is available. Set this parameter to the value of the previous
@@ -1157,11 +1253,13 @@ export interface SearchInput {
  */
 export interface SearchOutput {
   /**
+   * @public
    * <p>The list of structures that describe the resources that match the query.</p>
    */
   Resources?: Resource[];
 
   /**
+   * @public
    * <p>If present, indicates that more output is available than is
    *     included in the current response. Use this value in the <code>NextToken</code> request parameter
    *     in a subsequent call to the operation to get the next part of the output. You should repeat this
@@ -1170,11 +1268,13 @@ export interface SearchOutput {
   NextToken?: string;
 
   /**
+   * @public
    * <p>The <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon resource name (ARN)</a> of the view that this operation used to perform the search.</p>
    */
   ViewArn?: string;
 
   /**
+   * @public
    * <p>The number of resources that match the query.</p>
    */
   Count?: ResourceCount;
@@ -1185,12 +1285,14 @@ export interface SearchOutput {
  */
 export interface TagResourceInput {
   /**
+   * @public
    * <p>The Amazon Resource Name (ARN) of the view or index that you want to attach tags
    *             to.</p>
    */
   resourceArn: string | undefined;
 
   /**
+   * @public
    * <p>A list of tag key and value pairs that you want to attach to the specified view or
    *             index.</p>
    */
@@ -1207,12 +1309,14 @@ export interface TagResourceOutput {}
  */
 export interface UntagResourceInput {
   /**
+   * @public
    * <p>The Amazon Resource Name (ARN) of the view or index that you want to remove tags
    *             from.</p>
    */
   resourceArn: string | undefined;
 
   /**
+   * @public
    * <p>A list of the keys for the tags that you want to remove from the specified view or
    *             index.</p>
    */

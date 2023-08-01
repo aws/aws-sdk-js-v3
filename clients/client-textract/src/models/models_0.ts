@@ -43,18 +43,21 @@ export class AccessDeniedException extends __BaseException {
  */
 export interface S3Object {
   /**
+   * @public
    * <p>The name of the S3 bucket. Note that the # character is not valid in the file
    *          name.</p>
    */
   Bucket?: string;
 
   /**
+   * @public
    * <p>The file name of the input document. Synchronous operations can use image files that are
    *          in JPEG or PNG format. Asynchronous operations also support PDF and TIFF format files.</p>
    */
   Name?: string;
 
   /**
+   * @public
    * <p>If the bucket has versioning enabled, you can specify the object version. </p>
    */
   Version?: string;
@@ -81,6 +84,7 @@ export interface S3Object {
  */
 export interface Document {
   /**
+   * @public
    * <p>A blob of base64-encoded document bytes. The maximum size of a document that's provided
    *          in a blob of bytes is 5 MB. The document bytes must be in PNG or JPEG format.</p>
    *          <p>If you're using an AWS SDK to call Amazon Textract, you might not need to base64-encode
@@ -89,6 +93,7 @@ export interface Document {
   Bytes?: Uint8Array;
 
   /**
+   * @public
    * <p>Identifies an S3 object as the document source. The maximum size of a document that's
    *          stored in an S3 bucket is 5 MB.</p>
    */
@@ -132,6 +137,7 @@ export type ContentClassifier = (typeof ContentClassifier)[keyof typeof ContentC
  */
 export interface HumanLoopDataAttributes {
   /**
+   * @public
    * <p>Sets whether the input image is free of personally identifiable information or adult
    *          content.</p>
    */
@@ -145,17 +151,20 @@ export interface HumanLoopDataAttributes {
  */
 export interface HumanLoopConfig {
   /**
+   * @public
    * <p>The name of the human workflow used for this image. This should be kept unique within a
    *          region.</p>
    */
   HumanLoopName: string | undefined;
 
   /**
+   * @public
    * <p>The Amazon Resource Name (ARN) of the flow definition.</p>
    */
   FlowDefinitionArn: string | undefined;
 
   /**
+   * @public
    * <p>Sets attributes of the input data.</p>
    */
   DataAttributes?: HumanLoopDataAttributes;
@@ -167,16 +176,19 @@ export interface HumanLoopConfig {
  */
 export interface Query {
   /**
+   * @public
    * <p>Question that Amazon Textract will apply to the document. An example would be "What is the customer's SSN?"</p>
    */
   Text: string | undefined;
 
   /**
+   * @public
    * <p>Alias attached to the query, for ease of location.</p>
    */
   Alias?: string;
 
   /**
+   * @public
    * <p>Pages is a parameter that the user inputs to specify which pages to apply a query to. The following is a
    *          list of rules for using this parameter.</p>
    *          <ul>
@@ -208,6 +220,7 @@ export interface Query {
  */
 export interface QueriesConfig {
   /**
+   * @public
    * <p></p>
    */
   Queries: Query[] | undefined;
@@ -218,6 +231,7 @@ export interface QueriesConfig {
  */
 export interface AnalyzeDocumentRequest {
   /**
+   * @public
    * <p>The input document as base64-encoded bytes or an Amazon S3 object. If you use the AWS
    *          CLI to call Amazon Textract operations, you can't pass image bytes. The document must be an
    *          image in JPEG, PNG, PDF, or TIFF format.</p>
@@ -227,6 +241,7 @@ export interface AnalyzeDocumentRequest {
   Document: Document | undefined;
 
   /**
+   * @public
    * <p>A list of the types of analysis to perform. Add TABLES to the list to return information
    *          about the tables that are detected in the input document. Add FORMS to return detected form
    *          data. Add SIGNATURES to return the locations of detected signatures. To perform both forms
@@ -238,12 +253,14 @@ export interface AnalyzeDocumentRequest {
   FeatureTypes: (FeatureType | string)[] | undefined;
 
   /**
+   * @public
    * <p>Sets the configuration for the human in the loop workflow for analyzing
    *          documents.</p>
    */
   HumanLoopConfig?: HumanLoopConfig;
 
   /**
+   * @public
    * <p>Contains Queries and the alias for those Queries, as determined by the input. </p>
    */
   QueriesConfig?: QueriesConfig;
@@ -313,24 +330,28 @@ export type EntityType = (typeof EntityType)[keyof typeof EntityType];
  */
 export interface BoundingBox {
   /**
+   * @public
    * <p>The width of the bounding box as a ratio of the overall document page
    *          width.</p>
    */
   Width?: number;
 
   /**
+   * @public
    * <p>The height of the bounding box as a ratio of the overall document page
    *          height.</p>
    */
   Height?: number;
 
   /**
+   * @public
    * <p>The left coordinate of the bounding box as a ratio of overall document page
    *          width.</p>
    */
   Left?: number;
 
   /**
+   * @public
    * <p>The top coordinate of the bounding box as a ratio of overall document page
    *          height.</p>
    */
@@ -350,11 +371,13 @@ export interface BoundingBox {
  */
 export interface Point {
   /**
+   * @public
    * <p>The value of the X coordinate for a point on a <code>Polygon</code>.</p>
    */
   X?: number;
 
   /**
+   * @public
    * <p>The value of the Y coordinate for a point on a <code>Polygon</code>.</p>
    */
   Y?: number;
@@ -367,12 +390,14 @@ export interface Point {
  */
 export interface Geometry {
   /**
+   * @public
    * <p>An axis-aligned coarse representation of the location of the recognized item on the
    *          document page.</p>
    */
   BoundingBox?: BoundingBox;
 
   /**
+   * @public
    * <p>Within the bounding box, a fine-grained polygon around the recognized item.</p>
    */
   Polygon?: Point[];
@@ -409,6 +434,7 @@ export type RelationshipType = (typeof RelationshipType)[keyof typeof Relationsh
  */
 export interface Relationship {
   /**
+   * @public
    * <p>The type of relationship between the blocks in the IDs array and the current block. The
    *          following list describes the relationship types that can be returned. </p>
    *          <ul>
@@ -453,6 +479,7 @@ export interface Relationship {
   Type?: RelationshipType | string;
 
   /**
+   * @public
    * <p>An
    *          array of IDs for related blocks. You can get the type of the relationship from the
    *             <code>Type</code> element.</p>
@@ -505,6 +532,7 @@ export type TextType = (typeof TextType)[keyof typeof TextType];
  */
 export interface Block {
   /**
+   * @public
    * <p>The type of text item that's recognized. In operations for text detection, the following
    *          types are returned:</p>
    *          <ul>
@@ -604,23 +632,27 @@ export interface Block {
   BlockType?: BlockType | string;
 
   /**
+   * @public
    * <p>The confidence score that Amazon Textract has in the accuracy of the recognized text and
    *          the accuracy of the geometry points around the recognized text.</p>
    */
   Confidence?: number;
 
   /**
+   * @public
    * <p>The word or line of text that's recognized by Amazon Textract. </p>
    */
   Text?: string;
 
   /**
+   * @public
    * <p>The kind of text that Amazon Textract has detected. Can check for handwritten text and
    *          printed text.</p>
    */
   TextType?: TextType | string;
 
   /**
+   * @public
    * <p>The row in which a table cell is located. The first row position is 1.
    *             <code>RowIndex</code> isn't returned by <code>DetectDocumentText</code> and
    *             <code>GetDocumentTextDetection</code>.</p>
@@ -628,6 +660,7 @@ export interface Block {
   RowIndex?: number;
 
   /**
+   * @public
    * <p>The column in which a table cell appears. The first column position is 1.
    *             <code>ColumnIndex</code> isn't returned by <code>DetectDocumentText</code> and
    *             <code>GetDocumentTextDetection</code>.</p>
@@ -635,18 +668,21 @@ export interface Block {
   ColumnIndex?: number;
 
   /**
+   * @public
    * <p>The number of rows that a table cell spans. <code>RowSpan</code> isn't returned by
    *             <code>DetectDocumentText</code> and <code>GetDocumentTextDetection</code>.</p>
    */
   RowSpan?: number;
 
   /**
+   * @public
    * <p>The number of columns that a table cell spans. <code>ColumnSpan</code> isn't returned by
    *             <code>DetectDocumentText</code> and <code>GetDocumentTextDetection</code>. </p>
    */
   ColumnSpan?: number;
 
   /**
+   * @public
    * <p>The location of the recognized text on the image. It includes an axis-aligned, coarse
    *          bounding box that surrounds the text, and a finer-grain polygon for more accurate spatial
    *          information. </p>
@@ -654,12 +690,14 @@ export interface Block {
   Geometry?: Geometry;
 
   /**
+   * @public
    * <p>The identifier for the recognized text. The identifier is only unique for a single
    *          operation. </p>
    */
   Id?: string;
 
   /**
+   * @public
    * <p>A list of relationship objects that describe how blocks are related to each other. For
    *          example, a LINE block object contains a CHILD relationship type with the WORD blocks that
    *          make up the line of text. There aren't Relationship objects in the list for relationships
@@ -668,6 +706,7 @@ export interface Block {
   Relationships?: Relationship[];
 
   /**
+   * @public
    * <p>The type of entity. </p>
    *          <p>The following entity types can be returned by FORMS analysis:</p>
    *          <ul>
@@ -724,12 +763,14 @@ export interface Block {
   EntityTypes?: (EntityType | string)[];
 
   /**
+   * @public
    * <p>The selection status of a selection element, such as an option button or check box.
    *       </p>
    */
   SelectionStatus?: SelectionStatus | string;
 
   /**
+   * @public
    * <p>The page on which a block was detected. <code>Page</code> is returned by synchronous and
    *          asynchronous operations. Page values greater than 1 are only returned for multipage
    *          documents that are in PDF or TIFF format. A scanned image (JPEG/PNG) provided to an
@@ -741,6 +782,7 @@ export interface Block {
   Page?: number;
 
   /**
+   * @public
    * <p></p>
    */
   Query?: Query;
@@ -752,6 +794,7 @@ export interface Block {
  */
 export interface DocumentMetadata {
   /**
+   * @public
    * <p>The number of pages that are detected in the document.</p>
    */
   Pages?: number;
@@ -764,16 +807,19 @@ export interface DocumentMetadata {
  */
 export interface HumanLoopActivationOutput {
   /**
+   * @public
    * <p>The Amazon Resource Name (ARN) of the HumanLoop created.</p>
    */
   HumanLoopArn?: string;
 
   /**
+   * @public
    * <p>Shows if and why human review was needed.</p>
    */
   HumanLoopActivationReasons?: string[];
 
   /**
+   * @public
    * <p>Shows the result of condition evaluations, including those conditions which activated a
    *          human review.</p>
    */
@@ -785,21 +831,25 @@ export interface HumanLoopActivationOutput {
  */
 export interface AnalyzeDocumentResponse {
   /**
+   * @public
    * <p>Metadata about the analyzed document. An example is the number of pages.</p>
    */
   DocumentMetadata?: DocumentMetadata;
 
   /**
+   * @public
    * <p>The items that are detected and analyzed by <code>AnalyzeDocument</code>.</p>
    */
   Blocks?: Block[];
 
   /**
+   * @public
    * <p>Shows the results of the human in the loop evaluation.</p>
    */
   HumanLoopActivationOutput?: HumanLoopActivationOutput;
 
   /**
+   * @public
    * <p>The version of the model used to analyze the document.</p>
    */
   AnalyzeDocumentModelVersion?: string;
@@ -864,16 +914,19 @@ export class HumanLoopQuotaExceededException extends __BaseException {
   readonly name: "HumanLoopQuotaExceededException" = "HumanLoopQuotaExceededException";
   readonly $fault: "client" = "client";
   /**
+   * @public
    * <p>The resource type.</p>
    */
   ResourceType?: string;
 
   /**
+   * @public
    * <p>The quota code.</p>
    */
   QuotaCode?: string;
 
   /**
+   * @public
    * <p>The service code.</p>
    */
   ServiceCode?: string;
@@ -1056,6 +1109,7 @@ export class UnsupportedDocumentException extends __BaseException {
  */
 export interface AnalyzeExpenseRequest {
   /**
+   * @public
    * <p>The input document, either as bytes or as an S3 object.</p>
    *          <p>You pass image bytes to an Amazon Textract API operation by using the <code>Bytes</code>
    *          property. For example, you would use the <code>Bytes</code> property to pass a document
@@ -1082,6 +1136,7 @@ export interface AnalyzeExpenseRequest {
  */
 export interface ExpenseCurrency {
   /**
+   * @public
    * <p>Currency code for detected currency. the current supported codes are:</p>
    *          <ul>
    *             <li>
@@ -1125,6 +1180,7 @@ export interface ExpenseCurrency {
   Code?: string;
 
   /**
+   * @public
    * <p>Percentage confideence in the detected currency.</p>
    */
   Confidence?: number;
@@ -1138,11 +1194,13 @@ export interface ExpenseCurrency {
  */
 export interface ExpenseGroupProperty {
   /**
+   * @public
    * <p>Informs you on whether the expense group is a name or an address.</p>
    */
   Types?: string[];
 
   /**
+   * @public
    * <p>Provides a group Id number, which will be the same for each in the group.</p>
    */
   Id?: string;
@@ -1154,17 +1212,20 @@ export interface ExpenseGroupProperty {
  */
 export interface ExpenseDetection {
   /**
+   * @public
    * <p>The word or line of text recognized by Amazon Textract</p>
    */
   Text?: string;
 
   /**
+   * @public
    * <p>Information about where the following items are located on a document page: detected
    *          page, text, key-value pairs, tables, table cells, and selection elements.</p>
    */
   Geometry?: Geometry;
 
   /**
+   * @public
    * <p>The confidence in detection, as a percentage</p>
    */
   Confidence?: number;
@@ -1176,11 +1237,13 @@ export interface ExpenseDetection {
  */
 export interface ExpenseType {
   /**
+   * @public
    * <p>The word or line of text detected by Amazon Textract.</p>
    */
   Text?: string;
 
   /**
+   * @public
    * <p>The confidence of accuracy, as a percentage.</p>
    */
   Confidence?: number;
@@ -1193,32 +1256,38 @@ export interface ExpenseType {
  */
 export interface ExpenseField {
   /**
+   * @public
    * <p>The implied label of a detected element. Present alongside LabelDetection for explicit elements.</p>
    */
   Type?: ExpenseType;
 
   /**
+   * @public
    * <p>The explicitly stated label of a detected element.</p>
    */
   LabelDetection?: ExpenseDetection;
 
   /**
+   * @public
    * <p>The value of a detected element. Present in explicit and implicit elements.</p>
    */
   ValueDetection?: ExpenseDetection;
 
   /**
+   * @public
    * <p>The page number the value was detected on.</p>
    */
   PageNumber?: number;
 
   /**
+   * @public
    * <p>Shows the kind of currency, both the code and confidence associated with any monatary value
    *          detected.</p>
    */
   Currency?: ExpenseCurrency;
 
   /**
+   * @public
    * <p>Shows which group a response object belongs to, such as whether an address line
    *          belongs to the vendor's address or the recipent's address.</p>
    */
@@ -1231,6 +1300,7 @@ export interface ExpenseField {
  */
 export interface LineItemFields {
   /**
+   * @public
    * <p>ExpenseFields used to show information from detected lines on a table.</p>
    */
   LineItemExpenseFields?: ExpenseField[];
@@ -1242,11 +1312,13 @@ export interface LineItemFields {
  */
 export interface LineItemGroup {
   /**
+   * @public
    * <p>The number used to identify a specific table in a document. The first table encountered will have a LineItemGroupIndex of 1, the second 2, etc.</p>
    */
   LineItemGroupIndex?: number;
 
   /**
+   * @public
    * <p>The breakdown of information on a particular line of a table. </p>
    */
   LineItems?: LineItemFields[];
@@ -1258,22 +1330,26 @@ export interface LineItemGroup {
  */
 export interface ExpenseDocument {
   /**
+   * @public
    * <p>Denotes which invoice or receipt in the document the information is coming from.
    *       First document will be 1, the second 2, and so on.</p>
    */
   ExpenseIndex?: number;
 
   /**
+   * @public
    * <p>Any information found outside of a table by Amazon Textract.</p>
    */
   SummaryFields?: ExpenseField[];
 
   /**
+   * @public
    * <p>Information detected on each table of a document, seperated into <code>LineItems</code>.</p>
    */
   LineItemGroups?: LineItemGroup[];
 
   /**
+   * @public
    * <p>This is a block object, the same as reported when DetectDocumentText is run on a document.
    *       It provides word level recognition of text.</p>
    */
@@ -1285,11 +1361,13 @@ export interface ExpenseDocument {
  */
 export interface AnalyzeExpenseResponse {
   /**
+   * @public
    * <p>Information about the input document.</p>
    */
   DocumentMetadata?: DocumentMetadata;
 
   /**
+   * @public
    * <p>The expenses detected by Amazon Textract.</p>
    */
   ExpenseDocuments?: ExpenseDocument[];
@@ -1300,6 +1378,7 @@ export interface AnalyzeExpenseResponse {
  */
 export interface AnalyzeIDRequest {
   /**
+   * @public
    * <p>The document being passed to AnalyzeID.</p>
    */
   DocumentPages: Document[] | undefined;
@@ -1325,11 +1404,13 @@ export type ValueType = (typeof ValueType)[keyof typeof ValueType];
  */
 export interface NormalizedValue {
   /**
+   * @public
    * <p>The value of the date, written as Year-Month-DayTHour:Minute:Second.</p>
    */
   Value?: string;
 
   /**
+   * @public
    * <p>The normalized type of the value detected. In this case, DATE.</p>
    */
   ValueType?: ValueType | string;
@@ -1341,17 +1422,20 @@ export interface NormalizedValue {
  */
 export interface AnalyzeIDDetections {
   /**
+   * @public
    * <p>Text of either the normalized field or value associated with it.</p>
    */
   Text: string | undefined;
 
   /**
+   * @public
    * <p>Only returned for dates, returns the type of value detected and the date
    *          written in a more machine readable way.</p>
    */
   NormalizedValue?: NormalizedValue;
 
   /**
+   * @public
    * <p>The confidence score of the detected text.</p>
    */
   Confidence?: number;
@@ -1364,11 +1448,13 @@ export interface AnalyzeIDDetections {
  */
 export interface IdentityDocumentField {
   /**
+   * @public
    * <p>Used to contain the information detected by an AnalyzeID operation.</p>
    */
   Type?: AnalyzeIDDetections;
 
   /**
+   * @public
    * <p>Used to contain the information detected by an AnalyzeID operation.</p>
    */
   ValueDetection?: AnalyzeIDDetections;
@@ -1380,18 +1466,21 @@ export interface IdentityDocumentField {
  */
 export interface IdentityDocument {
   /**
+   * @public
    * <p>Denotes the placement of a document in the IdentityDocument list. The first document
    *          is marked 1, the second 2 and so on.</p>
    */
   DocumentIndex?: number;
 
   /**
+   * @public
    * <p>The structure used to record information extracted from identity documents.
    *          Contains both normalized field and value of the extracted text.</p>
    */
   IdentityDocumentFields?: IdentityDocumentField[];
 
   /**
+   * @public
    * <p>Individual word recognition, as returned by document detection.</p>
    */
   Blocks?: Block[];
@@ -1402,17 +1491,20 @@ export interface IdentityDocument {
  */
 export interface AnalyzeIDResponse {
   /**
+   * @public
    * <p>The list of documents processed by AnalyzeID. Includes a number denoting their place in
    *          the list and the response structure for the document.</p>
    */
   IdentityDocuments?: IdentityDocument[];
 
   /**
+   * @public
    * <p>Information about the input document.</p>
    */
   DocumentMetadata?: DocumentMetadata;
 
   /**
+   * @public
    * <p>The version of the AnalyzeIdentity API being used to process documents.</p>
    */
   AnalyzeIDModelVersion?: string;
@@ -1423,6 +1515,7 @@ export interface AnalyzeIDResponse {
  */
 export interface DetectDocumentTextRequest {
   /**
+   * @public
    * <p>The input document as base64-encoded bytes or an Amazon S3 object. If you use the AWS CLI
    *          to call Amazon Textract operations, you can't pass image bytes. The document must be an image
    *       in JPEG or PNG format.</p>
@@ -1437,18 +1530,21 @@ export interface DetectDocumentTextRequest {
  */
 export interface DetectDocumentTextResponse {
   /**
+   * @public
    * <p>Metadata about the document. It contains the number of pages that are detected in the
    *          document.</p>
    */
   DocumentMetadata?: DocumentMetadata;
 
   /**
+   * @public
    * <p>An array of <code>Block</code> objects that contain the text that's detected in the
    *          document.</p>
    */
   Blocks?: Block[];
 
   /**
+   * @public
    * <p></p>
    */
   DetectDocumentTextModelVersion?: string;
@@ -1460,6 +1556,7 @@ export interface DetectDocumentTextResponse {
  */
 export interface DetectedSignature {
   /**
+   * @public
    * <p>The page a detected signature was found on.</p>
    */
   Page?: number;
@@ -1471,11 +1568,13 @@ export interface DetectedSignature {
  */
 export interface SplitDocument {
   /**
+   * @public
    * <p>The index for a given document in a DocumentGroup of a specific Type.</p>
    */
   Index?: number;
 
   /**
+   * @public
    * <p>An array of page numbers for a for a given document, ordered by logical boundary.</p>
    */
   Pages?: number[];
@@ -1487,6 +1586,7 @@ export interface SplitDocument {
  */
 export interface UndetectedSignature {
   /**
+   * @public
    * <p>The page where a signature was expected but not found.</p>
    */
   Page?: number;
@@ -1498,21 +1598,25 @@ export interface UndetectedSignature {
  */
 export interface DocumentGroup {
   /**
+   * @public
    * <p>The type of document that Amazon Textract has detected. See <a href="https://docs.aws.amazon.com/textract/latest/dg/lending-response-objects.html">Analyze Lending Response Objects</a> for a list of all types returned by Textract.</p>
    */
   Type?: string;
 
   /**
+   * @public
    * <p>An array that contains information about the pages of a document, defined by logical boundary.</p>
    */
   SplitDocuments?: SplitDocument[];
 
   /**
+   * @public
    * <p>A list of the detected signatures found in a document group.</p>
    */
   DetectedSignatures?: DetectedSignature[];
 
   /**
+   * @public
    * <p>A list of any expected signatures not found in a document group.</p>
    */
   UndetectedSignatures?: UndetectedSignature[];
@@ -1527,6 +1631,7 @@ export interface DocumentGroup {
  */
 export interface DocumentLocation {
   /**
+   * @public
    * <p>The Amazon S3 bucket that contains the input document.</p>
    */
   S3Object?: S3Object;
@@ -1538,22 +1643,26 @@ export interface DocumentLocation {
  */
 export interface LendingDetection {
   /**
+   * @public
    * <p>The text extracted for a detected value in a lending document.</p>
    */
   Text?: string;
 
   /**
+   * @public
    * <p>The selection status of a selection element, such as an option button or check box.</p>
    */
   SelectionStatus?: SelectionStatus | string;
 
   /**
+   * @public
    * <p>Information about where the following items are located on a document page: detected
    *          page, text, key-value pairs, tables, table cells, and selection elements.</p>
    */
   Geometry?: Geometry;
 
   /**
+   * @public
    * <p>The confidence level for the text of a detected value in a lending document.</p>
    */
   Confidence?: number;
@@ -1565,16 +1674,19 @@ export interface LendingDetection {
  */
 export interface LendingField {
   /**
+   * @public
    * <p>The type of the lending document.</p>
    */
   Type?: string;
 
   /**
+   * @public
    * <p>The results extracted for a lending document.</p>
    */
   KeyDetection?: LendingDetection;
 
   /**
+   * @public
    * <p>An array of LendingDetection objects.</p>
    */
   ValueDetections?: LendingDetection[];
@@ -1586,11 +1698,13 @@ export interface LendingField {
  */
 export interface SignatureDetection {
   /**
+   * @public
    * <p>The confidence, from 0 to 100, in the predicted values for a detected signature.</p>
    */
   Confidence?: number;
 
   /**
+   * @public
    * <p>Information about where the following items are located on a document page: detected
    *          page, text, key-value pairs, tables, table cells, and selection elements.</p>
    */
@@ -1603,11 +1717,13 @@ export interface SignatureDetection {
  */
 export interface LendingDocument {
   /**
+   * @public
    * <p>An array of LendingField objects.</p>
    */
   LendingFields?: LendingField[];
 
   /**
+   * @public
    * <p>A list of signatures detected in a lending document.</p>
    */
   SignatureDetections?: SignatureDetection[];
@@ -1619,16 +1735,19 @@ export interface LendingDocument {
  */
 export interface Extraction {
   /**
+   * @public
    * <p>Holds the structured data returned by AnalyzeDocument for lending documents.</p>
    */
   LendingDocument?: LendingDocument;
 
   /**
+   * @public
    * <p>The structure holding all the information returned by AnalyzeExpense</p>
    */
   ExpenseDocument?: ExpenseDocument;
 
   /**
+   * @public
    * <p>The structure that lists each document processed in an AnalyzeID operation.</p>
    */
   IdentityDocument?: IdentityDocument;
@@ -1639,6 +1758,7 @@ export interface Extraction {
  */
 export interface GetDocumentAnalysisRequest {
   /**
+   * @public
    * <p>A unique identifier for the text-detection job. The <code>JobId</code> is returned from
    *             <code>StartDocumentAnalysis</code>. A <code>JobId</code> value is only valid for 7
    *          days.</p>
@@ -1646,6 +1766,7 @@ export interface GetDocumentAnalysisRequest {
   JobId: string | undefined;
 
   /**
+   * @public
    * <p>The maximum number of results to return per paginated call. The largest value that you
    *          can specify is 1,000. If you specify a value greater than 1,000, a maximum of 1,000 results
    *          is returned. The default value is 1,000.</p>
@@ -1653,6 +1774,7 @@ export interface GetDocumentAnalysisRequest {
   MaxResults?: number;
 
   /**
+   * @public
    * <p>If the previous response was incomplete (because there are more blocks to retrieve),
    *          Amazon Textract returns a pagination token in the response. You can use this pagination
    *          token to retrieve the next set of blocks.</p>
@@ -1682,11 +1804,13 @@ export type JobStatus = (typeof JobStatus)[keyof typeof JobStatus];
  */
 export interface Warning {
   /**
+   * @public
    * <p>The error code for the warning.</p>
    */
   ErrorCode?: string;
 
   /**
+   * @public
    * <p>A list of the pages that the warning applies to.</p>
    */
   Pages?: number[];
@@ -1697,6 +1821,7 @@ export interface Warning {
  */
 export interface GetDocumentAnalysisResponse {
   /**
+   * @public
    * <p>Information about a document that Amazon Textract processed.
    *             <code>DocumentMetadata</code> is returned in every page of paginated responses from an
    *          Amazon Textract video operation.</p>
@@ -1704,33 +1829,39 @@ export interface GetDocumentAnalysisResponse {
   DocumentMetadata?: DocumentMetadata;
 
   /**
+   * @public
    * <p>The current status of the text detection job.</p>
    */
   JobStatus?: JobStatus | string;
 
   /**
+   * @public
    * <p>If the response is truncated, Amazon Textract returns this token. You can use this token
    *          in the subsequent request to retrieve the next set of text detection results.</p>
    */
   NextToken?: string;
 
   /**
+   * @public
    * <p>The results of the text-analysis operation.</p>
    */
   Blocks?: Block[];
 
   /**
+   * @public
    * <p>A list of warnings that occurred during the document-analysis operation.</p>
    */
   Warnings?: Warning[];
 
   /**
+   * @public
    * <p>Returns if the detection job could not be completed. Contains explanation for what error
    *          occured.</p>
    */
   StatusMessage?: string;
 
   /**
+   * @public
    * <p></p>
    */
   AnalyzeDocumentModelVersion?: string;
@@ -1790,12 +1921,14 @@ export class InvalidKMSKeyException extends __BaseException {
  */
 export interface GetDocumentTextDetectionRequest {
   /**
+   * @public
    * <p>A unique identifier for the text detection job. The <code>JobId</code> is returned from
    *          <code>StartDocumentTextDetection</code>. A <code>JobId</code> value is only valid for 7 days.</p>
    */
   JobId: string | undefined;
 
   /**
+   * @public
    * <p>The maximum number of results to return per paginated call. The largest value you can
    *          specify is 1,000. If you specify a value greater than 1,000, a maximum of 1,000 results is
    *          returned. The default value is 1,000.</p>
@@ -1803,6 +1936,7 @@ export interface GetDocumentTextDetectionRequest {
   MaxResults?: number;
 
   /**
+   * @public
    * <p>If the previous response was incomplete (because there are more blocks to retrieve), Amazon Textract returns a pagination
    *          token in the response. You can use this pagination token to retrieve the next set of blocks.</p>
    */
@@ -1814,39 +1948,46 @@ export interface GetDocumentTextDetectionRequest {
  */
 export interface GetDocumentTextDetectionResponse {
   /**
+   * @public
    * <p>Information about a document that Amazon Textract processed. <code>DocumentMetadata</code> is
    *          returned in every page of paginated responses from an Amazon Textract video operation.</p>
    */
   DocumentMetadata?: DocumentMetadata;
 
   /**
+   * @public
    * <p>The current status of the text detection job.</p>
    */
   JobStatus?: JobStatus | string;
 
   /**
+   * @public
    * <p>If the response is truncated, Amazon Textract returns this token. You can use this token in
    *          the subsequent request to retrieve the next set of text-detection results.</p>
    */
   NextToken?: string;
 
   /**
+   * @public
    * <p>The results of the text-detection operation.</p>
    */
   Blocks?: Block[];
 
   /**
+   * @public
    * <p>A list of warnings that occurred during the text-detection operation for the
    *          document.</p>
    */
   Warnings?: Warning[];
 
   /**
+   * @public
    * <p>Returns if the detection job could not be completed. Contains explanation for what error occured. </p>
    */
   StatusMessage?: string;
 
   /**
+   * @public
    * <p></p>
    */
   DetectDocumentTextModelVersion?: string;
@@ -1857,12 +1998,14 @@ export interface GetDocumentTextDetectionResponse {
  */
 export interface GetExpenseAnalysisRequest {
   /**
+   * @public
    * <p>A unique identifier for the text detection job. The <code>JobId</code> is returned from
    *     <code>StartExpenseAnalysis</code>. A <code>JobId</code> value is only valid for 7 days.</p>
    */
   JobId: string | undefined;
 
   /**
+   * @public
    * <p>The maximum number of results to return per paginated call. The largest value you can
    *    specify is 20. If you specify a value greater than 20, a maximum of 20 results is
    *    returned. The default value is 20.</p>
@@ -1870,6 +2013,7 @@ export interface GetExpenseAnalysisRequest {
   MaxResults?: number;
 
   /**
+   * @public
    * <p>If the previous response was incomplete (because there are more blocks to retrieve), Amazon Textract returns a pagination
    *    token in the response. You can use this pagination token to retrieve the next set of blocks.</p>
    */
@@ -1881,39 +2025,46 @@ export interface GetExpenseAnalysisRequest {
  */
 export interface GetExpenseAnalysisResponse {
   /**
+   * @public
    * <p>Information about a document that Amazon Textract processed. <code>DocumentMetadata</code> is
    *    returned in every page of paginated responses from an Amazon Textract operation.</p>
    */
   DocumentMetadata?: DocumentMetadata;
 
   /**
+   * @public
    * <p>The current status of the text detection job.</p>
    */
   JobStatus?: JobStatus | string;
 
   /**
+   * @public
    * <p>If the response is truncated, Amazon Textract returns this token. You can use this token in
    *    the subsequent request to retrieve the next set of text-detection results.</p>
    */
   NextToken?: string;
 
   /**
+   * @public
    * <p>The expenses detected by Amazon Textract.</p>
    */
   ExpenseDocuments?: ExpenseDocument[];
 
   /**
+   * @public
    * <p>A list of warnings that occurred during the text-detection operation for the
    *    document.</p>
    */
   Warnings?: Warning[];
 
   /**
+   * @public
    * <p>Returns if the detection job could not be completed. Contains explanation for what error occured. </p>
    */
   StatusMessage?: string;
 
   /**
+   * @public
    * <p>The current model version of AnalyzeExpense.</p>
    */
   AnalyzeExpenseModelVersion?: string;
@@ -1924,6 +2075,7 @@ export interface GetExpenseAnalysisResponse {
  */
 export interface GetLendingAnalysisRequest {
   /**
+   * @public
    * <p>A unique identifier for the lending or text-detection job. The <code>JobId</code> is
    *             returned from <code>StartLendingAnalysis</code>. A <code>JobId</code> value is only
    *             valid for 7 days.</p>
@@ -1931,6 +2083,7 @@ export interface GetLendingAnalysisRequest {
   JobId: string | undefined;
 
   /**
+   * @public
    * <p>The maximum number of results to return per paginated call. The largest value that you
    *             can specify is 30. If you specify a value greater than 30, a maximum of 30 results is
    *             returned. The default value is 30.</p>
@@ -1938,6 +2091,7 @@ export interface GetLendingAnalysisRequest {
   MaxResults?: number;
 
   /**
+   * @public
    * <p>If the previous response was incomplete, Amazon Textract returns a pagination token in
    *             the response. You can use this pagination token to retrieve the next set of lending
    *             results.</p>
@@ -1952,11 +2106,13 @@ export interface GetLendingAnalysisRequest {
  */
 export interface Prediction {
   /**
+   * @public
    * <p>The predicted value of a detected object.</p>
    */
   Value?: string;
 
   /**
+   * @public
    * <p>Amazon Textract's confidence in its predicted value.</p>
    */
   Confidence?: number;
@@ -1970,12 +2126,14 @@ export interface Prediction {
  */
 export interface PageClassification {
   /**
+   * @public
    * <p>The class, or document type, assigned to a detected Page object. The class, or document type,
    *          assigned to a detected Page object.</p>
    */
   PageType: Prediction[] | undefined;
 
   /**
+   * @public
    * <p> The page number the value was detected on, relative to Amazon Textract's starting position.</p>
    */
   PageNumber: Prediction[] | undefined;
@@ -1987,16 +2145,19 @@ export interface PageClassification {
  */
 export interface LendingResult {
   /**
+   * @public
    * <p>The page number for a page, with regard to whole submission.</p>
    */
   Page?: number;
 
   /**
+   * @public
    * <p>The classifier result for a given page.</p>
    */
   PageClassification?: PageClassification;
 
   /**
+   * @public
    * <p>An array of Extraction to hold structured data. e.g. normalized key value pairs instead of raw OCR detections .</p>
    */
   Extractions?: Extraction[];
@@ -2007,39 +2168,46 @@ export interface LendingResult {
  */
 export interface GetLendingAnalysisResponse {
   /**
+   * @public
    * <p>Information about the input document.</p>
    */
   DocumentMetadata?: DocumentMetadata;
 
   /**
+   * @public
    * <p> The current status of the lending analysis job.</p>
    */
   JobStatus?: JobStatus | string;
 
   /**
+   * @public
    * <p>If the response is truncated, Amazon Textract returns this token.
    *             You can use this token in the subsequent request to retrieve the next set of lending results.</p>
    */
   NextToken?: string;
 
   /**
+   * @public
    * <p> Holds the information returned by one of AmazonTextract's document analysis
    *             operations for the pinstripe.</p>
    */
   Results?: LendingResult[];
 
   /**
+   * @public
    * <p> A list of warnings that occurred during the lending analysis operation. </p>
    */
   Warnings?: Warning[];
 
   /**
+   * @public
    * <p>  Returns if the lending analysis job could not be completed. Contains explanation for
    *             what error occurred. </p>
    */
   StatusMessage?: string;
 
   /**
+   * @public
    * <p> The current model version of the Analyze Lending API.</p>
    */
   AnalyzeLendingModelVersion?: string;
@@ -2050,6 +2218,7 @@ export interface GetLendingAnalysisResponse {
  */
 export interface GetLendingAnalysisSummaryRequest {
   /**
+   * @public
    * <p> A unique identifier for the lending or text-detection job. The <code>JobId</code> is
    *    returned from StartLendingAnalysis. A <code>JobId</code> value is only valid for 7 days.</p>
    */
@@ -2062,11 +2231,13 @@ export interface GetLendingAnalysisSummaryRequest {
  */
 export interface LendingSummary {
   /**
+   * @public
    * <p>Contains an array of all DocumentGroup objects.</p>
    */
   DocumentGroups?: DocumentGroup[];
 
   /**
+   * @public
    * <p>UndetectedDocumentTypes.</p>
    */
   UndetectedDocumentTypes?: string[];
@@ -2077,32 +2248,38 @@ export interface LendingSummary {
  */
 export interface GetLendingAnalysisSummaryResponse {
   /**
+   * @public
    * <p>Information about the input document.</p>
    */
   DocumentMetadata?: DocumentMetadata;
 
   /**
+   * @public
    * <p> The current status of the lending analysis job. </p>
    */
   JobStatus?: JobStatus | string;
 
   /**
+   * @public
    * <p> Contains summary information for documents grouped by type.</p>
    */
   Summary?: LendingSummary;
 
   /**
+   * @public
    * <p>A list of warnings that occurred during the lending analysis operation.</p>
    */
   Warnings?: Warning[];
 
   /**
+   * @public
    * <p>Returns if the lending analysis could not be completed. Contains explanation for what error
    *    occurred.</p>
    */
   StatusMessage?: string;
 
   /**
+   * @public
    * <p>The current model version of the Analyze Lending API.</p>
    */
   AnalyzeLendingModelVersion?: string;
@@ -2169,11 +2346,13 @@ export class LimitExceededException extends __BaseException {
  */
 export interface NotificationChannel {
   /**
+   * @public
    * <p>The Amazon SNS topic that Amazon Textract posts the completion status to.</p>
    */
   SNSTopicArn: string | undefined;
 
   /**
+   * @public
    * <p>The Amazon Resource Name (ARN) of an IAM role that gives Amazon Textract publishing permissions to the Amazon SNS topic. </p>
    */
   RoleArn: string | undefined;
@@ -2201,11 +2380,13 @@ export interface NotificationChannel {
  */
 export interface OutputConfig {
   /**
+   * @public
    * <p>The name of the bucket your output will go to.</p>
    */
   S3Bucket: string | undefined;
 
   /**
+   * @public
    * <p>The prefix of the object key that the output will be saved to. When not enabled, the
    *          prefix will be “textract_output".</p>
    */
@@ -2217,11 +2398,13 @@ export interface OutputConfig {
  */
 export interface StartDocumentAnalysisRequest {
   /**
+   * @public
    * <p>The location of the document to be processed.</p>
    */
   DocumentLocation: DocumentLocation | undefined;
 
   /**
+   * @public
    * <p>A list of the types of analysis to perform. Add TABLES to the list to return information
    *          about the tables that are detected in the input document. Add FORMS to return detected
    *          form data. To perform both types of analysis, add TABLES
@@ -2232,6 +2415,7 @@ export interface StartDocumentAnalysisRequest {
   FeatureTypes: (FeatureType | string)[] | undefined;
 
   /**
+   * @public
    * <p>The idempotent token that you use to identify the start request. If you use the same
    *          token with multiple <code>StartDocumentAnalysis</code> requests, the same
    *             <code>JobId</code> is returned. Use <code>ClientRequestToken</code> to prevent the same
@@ -2241,6 +2425,7 @@ export interface StartDocumentAnalysisRequest {
   ClientRequestToken?: string;
 
   /**
+   * @public
    * <p>An identifier that you specify that's included in the completion notification published
    *          to the Amazon SNS topic. For example, you can use <code>JobTag</code> to identify the type of
    *          document that the completion notification corresponds to (such as a tax form or a
@@ -2249,18 +2434,21 @@ export interface StartDocumentAnalysisRequest {
   JobTag?: string;
 
   /**
+   * @public
    * <p>The Amazon SNS topic ARN that you want Amazon Textract to publish the completion status of the
    *          operation to. </p>
    */
   NotificationChannel?: NotificationChannel;
 
   /**
+   * @public
    * <p>Sets if the output will go to a customer defined bucket. By default, Amazon Textract will save
    *          the results internally to be accessed by the GetDocumentAnalysis operation.</p>
    */
   OutputConfig?: OutputConfig;
 
   /**
+   * @public
    * <p>The KMS key used to encrypt the inference results. This can be
    *          in either Key ID or Key Alias format. When a KMS key is provided, the
    *          KMS key will be used for server-side encryption of the objects in the
@@ -2270,6 +2458,7 @@ export interface StartDocumentAnalysisRequest {
   KMSKeyId?: string;
 
   /**
+   * @public
    * <p></p>
    */
   QueriesConfig?: QueriesConfig;
@@ -2280,6 +2469,7 @@ export interface StartDocumentAnalysisRequest {
  */
 export interface StartDocumentAnalysisResponse {
   /**
+   * @public
    * <p>The identifier for the document text detection job. Use <code>JobId</code> to identify
    *          the job in a subsequent call to <code>GetDocumentAnalysis</code>. A <code>JobId</code> value
    *          is only valid for 7 days.</p>
@@ -2292,11 +2482,13 @@ export interface StartDocumentAnalysisResponse {
  */
 export interface StartDocumentTextDetectionRequest {
   /**
+   * @public
    * <p>The location of the document to be processed.</p>
    */
   DocumentLocation: DocumentLocation | undefined;
 
   /**
+   * @public
    * <p>The idempotent token that's used to identify the start request. If you use the same
    *          token with multiple <code>StartDocumentTextDetection</code> requests, the same
    *             <code>JobId</code> is returned. Use <code>ClientRequestToken</code> to prevent the same
@@ -2306,6 +2498,7 @@ export interface StartDocumentTextDetectionRequest {
   ClientRequestToken?: string;
 
   /**
+   * @public
    * <p>An identifier that you specify that's included in the completion notification published
    *          to the Amazon SNS topic. For example, you can use <code>JobTag</code> to identify the type of
    *          document that the completion notification corresponds to (such as a tax form or a
@@ -2314,18 +2507,21 @@ export interface StartDocumentTextDetectionRequest {
   JobTag?: string;
 
   /**
+   * @public
    * <p>The Amazon SNS topic ARN that you want Amazon Textract to publish the completion status of the
    *          operation to. </p>
    */
   NotificationChannel?: NotificationChannel;
 
   /**
+   * @public
    * <p>Sets if the output will go to a customer defined bucket. By default Amazon Textract will
    *          save the results internally to be accessed with the GetDocumentTextDetection operation.</p>
    */
   OutputConfig?: OutputConfig;
 
   /**
+   * @public
    * <p>The KMS key used to encrypt the inference results. This can be
    *          in either Key ID or Key Alias format. When a KMS key is provided, the
    *          KMS key will be used for server-side encryption of the objects in the
@@ -2340,6 +2536,7 @@ export interface StartDocumentTextDetectionRequest {
  */
 export interface StartDocumentTextDetectionResponse {
   /**
+   * @public
    * <p>The identifier of the text detection job for the document. Use <code>JobId</code> to
    *          identify the job in a subsequent call to <code>GetDocumentTextDetection</code>.
    *          A <code>JobId</code> value is only valid for 7 days.</p>
@@ -2352,11 +2549,13 @@ export interface StartDocumentTextDetectionResponse {
  */
 export interface StartExpenseAnalysisRequest {
   /**
+   * @public
    * <p>The location of the document to be processed.</p>
    */
   DocumentLocation: DocumentLocation | undefined;
 
   /**
+   * @public
    * <p>The idempotent token that's used to identify the start request. If you use the same token with multiple <code>StartDocumentTextDetection</code> requests, the same <code>JobId</code> is returned.
    *    Use <code>ClientRequestToken</code> to prevent the same job from being accidentally started more than once.
    *    For more information, see <a href="https://docs.aws.amazon.com/textract/latest/dg/api-async.html">Calling Amazon Textract Asynchronous Operations</a>
@@ -2365,6 +2564,7 @@ export interface StartExpenseAnalysisRequest {
   ClientRequestToken?: string;
 
   /**
+   * @public
    * <p>An identifier you specify that's included in the completion notification published
    *    to the Amazon SNS topic. For example, you can use <code>JobTag</code> to identify the type of
    *    document that the completion notification corresponds to (such as a tax form or a
@@ -2373,12 +2573,14 @@ export interface StartExpenseAnalysisRequest {
   JobTag?: string;
 
   /**
+   * @public
    * <p>The Amazon SNS topic ARN that you want Amazon Textract to publish the completion status of the
    *    operation to. </p>
    */
   NotificationChannel?: NotificationChannel;
 
   /**
+   * @public
    * <p>Sets if the output will go to a customer defined bucket. By default, Amazon Textract will
    *    save the results internally to be accessed by the <code>GetExpenseAnalysis</code>
    *    operation.</p>
@@ -2386,6 +2588,7 @@ export interface StartExpenseAnalysisRequest {
   OutputConfig?: OutputConfig;
 
   /**
+   * @public
    * <p>The KMS key used to encrypt the inference results. This can be
    *    in either Key ID or Key Alias format. When a KMS key is provided, the
    *    KMS key will be used for server-side encryption of the objects in the
@@ -2400,6 +2603,7 @@ export interface StartExpenseAnalysisRequest {
  */
 export interface StartExpenseAnalysisResponse {
   /**
+   * @public
    * <p>A unique identifier for the text detection job. The <code>JobId</code> is returned from
    *     <code>StartExpenseAnalysis</code>. A <code>JobId</code> value is only valid for 7 days.</p>
    */
@@ -2411,6 +2615,7 @@ export interface StartExpenseAnalysisResponse {
  */
 export interface StartLendingAnalysisRequest {
   /**
+   * @public
    * <p>The Amazon S3 bucket that contains the document to be processed. It's used by asynchronous
    *          operations.</p>
    *          <p>The input document can be an image file in JPEG or PNG format. It can also be a file in
@@ -2419,6 +2624,7 @@ export interface StartLendingAnalysisRequest {
   DocumentLocation: DocumentLocation | undefined;
 
   /**
+   * @public
    * <p>The idempotent token that you use to identify the start request. If you use the same token
    *    with multiple <code>StartLendingAnalysis</code> requests, the same <code>JobId</code> is
    *    returned. Use <code>ClientRequestToken</code> to prevent the same job from being accidentally
@@ -2427,6 +2633,7 @@ export interface StartLendingAnalysisRequest {
   ClientRequestToken?: string;
 
   /**
+   * @public
    * <p>An identifier that you specify to be included in the completion notification published to
    *    the Amazon SNS topic. For example, you can use <code>JobTag</code> to identify the type of
    *    document that the completion notification corresponds to (such as a tax form or a
@@ -2435,12 +2642,14 @@ export interface StartLendingAnalysisRequest {
   JobTag?: string;
 
   /**
+   * @public
    * <p>The Amazon Simple Notification Service (Amazon SNS) topic to which Amazon Textract publishes the completion status of
    *          an asynchronous document operation. </p>
    */
   NotificationChannel?: NotificationChannel;
 
   /**
+   * @public
    * <p>Sets whether or not your output will go to a user created bucket. Used to set the name
    *          of the bucket, and the prefix on the output file.</p>
    *          <p>
@@ -2462,6 +2671,7 @@ export interface StartLendingAnalysisRequest {
   OutputConfig?: OutputConfig;
 
   /**
+   * @public
    * <p>The KMS key used to encrypt the inference results. This can be in either Key ID or Key
    *    Alias format. When a KMS key is provided, the KMS key will be used for server-side encryption of
    *    the objects in the customer bucket. When this parameter is not enabled, the result will be
@@ -2475,6 +2685,7 @@ export interface StartLendingAnalysisRequest {
  */
 export interface StartLendingAnalysisResponse {
   /**
+   * @public
    * <p>A unique identifier for the lending or text-detection job. The <code>JobId</code> is
    *    returned from <code>StartLendingAnalysis</code>. A <code>JobId</code> value is only valid for 7
    *    days.</p>
