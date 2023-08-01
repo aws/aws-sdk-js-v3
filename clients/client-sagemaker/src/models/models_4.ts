@@ -104,10 +104,42 @@ import {
   ProcessingJob,
   ProfilerConfigForUpdate,
   Project,
-  ResourceConfigForUpdate,
+  RenderingError,
   ResourceType,
   TransformJob,
 } from "./models_3";
+
+/**
+ * @public
+ */
+export interface RenderUiTemplateResponse {
+  /**
+   * @public
+   * <p>A Liquid template that renders the HTML for the worker UI.</p>
+   */
+  RenderedContent: string | undefined;
+
+  /**
+   * @public
+   * <p>A list of one or more <code>RenderingError</code> objects if any were encountered
+   *             while rendering the template. If there were no errors, the list is empty.</p>
+   */
+  Errors: RenderingError[] | undefined;
+}
+
+/**
+ * @public
+ * <p>The <code>ResourceConfig</code> to update <code>KeepAlivePeriodInSeconds</code>. Other
+ *             fields in the <code>ResourceConfig</code> cannot be updated.</p>
+ */
+export interface ResourceConfigForUpdate {
+  /**
+   * @public
+   * <p>The <code>KeepAlivePeriodInSeconds</code> value specified in the
+   *                 <code>ResourceConfig</code> to update.</p>
+   */
+  KeepAlivePeriodInSeconds: number | undefined;
+}
 
 /**
  * @public

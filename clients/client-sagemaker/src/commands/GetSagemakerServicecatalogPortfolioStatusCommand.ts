@@ -13,8 +13,10 @@ import {
   SerdeContext as __SerdeContext,
 } from "@smithy/types";
 
-import { GetSagemakerServicecatalogPortfolioStatusInput } from "../models/models_2";
-import { GetSagemakerServicecatalogPortfolioStatusOutput } from "../models/models_3";
+import {
+  GetSagemakerServicecatalogPortfolioStatusInput,
+  GetSagemakerServicecatalogPortfolioStatusOutput,
+} from "../models/models_3";
 import {
   de_GetSagemakerServicecatalogPortfolioStatusCommand,
   se_GetSagemakerServicecatalogPortfolioStatusCommand,

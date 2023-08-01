@@ -60,7 +60,7 @@ export interface CreateInferenceRecommendationsJobCommandOutput
  *     ModelPackageVersionArn: "STRING_VALUE",
  *     JobDurationInSeconds: Number("int"),
  *     TrafficPattern: { // TrafficPattern
- *       TrafficType: "PHASES",
+ *       TrafficType: "PHASES" || "STAIRS",
  *       Phases: [ // Phases
  *         { // Phase
  *           InitialNumberOfUsers: Number("int"),
@@ -68,6 +68,11 @@ export interface CreateInferenceRecommendationsJobCommandOutput
  *           DurationInSeconds: Number("int"),
  *         },
  *       ],
+ *       Stairs: { // Stairs
+ *         DurationInSeconds: Number("int"),
+ *         NumberOfSteps: Number("int"),
+ *         UsersPerStep: Number("int"),
+ *       },
  *     },
  *     ResourceLimit: { // RecommendationJobResourceLimit
  *       MaxNumberOfTests: Number("int"),
@@ -137,6 +142,7 @@ export interface CreateInferenceRecommendationsJobCommandOutput
  *         ValueInMilliseconds: Number("int"),
  *       },
  *     ],
+ *     FlatInvocations: "Continue" || "Stop",
  *   },
  *   OutputConfig: { // RecommendationJobOutputConfig
  *     KmsKeyId: "STRING_VALUE",

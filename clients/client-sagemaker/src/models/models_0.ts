@@ -6864,7 +6864,7 @@ export interface BatchTransformInput {
 
   /**
    * @public
-   * <p>If specified, monitoring jobs substract this time from the end time. For information
+   * <p>If specified, monitoring jobs subtract this time from the end time. For information
    *             about using offsets for scheduling monitoring jobs, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/model-monitor-model-quality-schedule.html">Schedule Model
    *                 Quality Monitoring Jobs</a>.</p>
    */

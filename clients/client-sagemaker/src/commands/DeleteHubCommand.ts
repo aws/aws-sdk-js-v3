@@ -13,7 +13,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@smithy/types";
 
-import { DeleteHubRequest } from "../models/models_1";
+import { DeleteHubRequest } from "../models/models_2";
 import { de_DeleteHubCommand, se_DeleteHubCommand } from "../protocols/Aws_json1_1";
 import { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
 

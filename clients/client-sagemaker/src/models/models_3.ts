@@ -51,7 +51,6 @@ import {
   DataProcessing,
   DriftCheckBaselines,
   ExperimentConfig,
-  HubContentType,
   HyperParameterTrainingJobDefinition,
   HyperParameterTuningJobConfig,
   HyperParameterTuningJobStrategyType,
@@ -111,6 +110,7 @@ import {
   Filter,
   FlowDefinitionSummary,
   HubContentStatus,
+  HubContentType,
   HubStatus,
   HyperParameterTrainingJobSummary,
   HyperParameterTuningJobCompletionDetails,
@@ -138,7 +138,6 @@ import {
   ProjectStatus,
   RecommendationJobStatus,
   RecommendationMetrics,
-  SagemakerServicecatalogStatus,
   ScheduleStatus,
   SelectiveExecutionConfig,
   ServiceCatalogProvisionedProductDetails,
@@ -155,6 +154,26 @@ import {
   Workforce,
   Workteam,
 } from "./models_2";
+
+/**
+ * @public
+ */
+export interface GetSagemakerServicecatalogPortfolioStatusInput {}
+
+/**
+ * @public
+ * @enum
+ */
+export const SagemakerServicecatalogStatus = {
+  DISABLED: "Disabled",
+  ENABLED: "Enabled",
+} as const;
+
+/**
+ * @public
+ */
+export type SagemakerServicecatalogStatus =
+  (typeof SagemakerServicecatalogStatus)[keyof typeof SagemakerServicecatalogStatus];
 
 /**
  * @public
@@ -10884,38 +10903,6 @@ export interface RenderUiTemplateRequest {
    *          <p>See a list of available Human Ui Amazon Resource Names (ARNs) in <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_UiConfig.html">UiConfig</a>.</p>
    */
   HumanTaskUiArn?: string;
-}
-
-/**
- * @public
- */
-export interface RenderUiTemplateResponse {
-  /**
-   * @public
-   * <p>A Liquid template that renders the HTML for the worker UI.</p>
-   */
-  RenderedContent: string | undefined;
-
-  /**
-   * @public
-   * <p>A list of one or more <code>RenderingError</code> objects if any were encountered
-   *             while rendering the template. If there were no errors, the list is empty.</p>
-   */
-  Errors: RenderingError[] | undefined;
-}
-
-/**
- * @public
- * <p>The <code>ResourceConfig</code> to update <code>KeepAlivePeriodInSeconds</code>. Other
- *             fields in the <code>ResourceConfig</code> cannot be updated.</p>
- */
-export interface ResourceConfigForUpdate {
-  /**
-   * @public
-   * <p>The <code>KeepAlivePeriodInSeconds</code> value specified in the
-   *                 <code>ResourceConfig</code> to update.</p>
-   */
-  KeepAlivePeriodInSeconds: number | undefined;
 }
 
 /**

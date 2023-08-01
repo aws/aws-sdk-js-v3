@@ -102,7 +102,6 @@ import {
   FeatureDefinition,
   FeatureType,
   FlowDefinitionOutputConfig,
-  HubContentType,
   HubS3StorageConfig,
   HumanLoopActivationConfig,
   HumanLoopConfig,
@@ -176,6 +175,31 @@ import {
   UserSettings,
   VendorGuidance,
 } from "./models_1";
+
+/**
+ * @public
+ */
+export interface DeleteHubRequest {
+  /**
+   * @public
+   * <p>The name of the hub to delete.</p>
+   */
+  HubName: string | undefined;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const HubContentType = {
+  MODEL: "Model",
+  NOTEBOOK: "Notebook",
+} as const;
+
+/**
+ * @public
+ */
+export type HubContentType = (typeof HubContentType)[keyof typeof HubContentType];
 
 /**
  * @public
@@ -2955,6 +2979,13 @@ export interface DescribeEndpointOutput {
    *                   <code>Failed</code>: Endpoint could not be created, updated, or re-scaled. Use
    *                     the <code>FailureReason</code> value returned by <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_DescribeEndpoint.html">DescribeEndpoint</a> for information about the failure. <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_DeleteEndpoint.html">DeleteEndpoint</a> is the only operation that can be performed on a
    *                     failed endpoint.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>UpdateRollbackFailed</code>: Both the rolling deployment and auto-rollback failed. Your endpoint
+   *                 is in service with a mix of the old and new endpoint configurations. For information about how to remedy
+   *                 this issue and restore the endpoint's status to <code>InService</code>, see
+   *                     <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/deployment-guardrails-rolling.html">Rolling Deployments</a>.</p>
    *             </li>
    *          </ul>
    */
@@ -11339,26 +11370,6 @@ export interface GetModelPackageGroupPolicyOutput {
    */
   ResourcePolicy: string | undefined;
 }
-
-/**
- * @public
- */
-export interface GetSagemakerServicecatalogPortfolioStatusInput {}
-
-/**
- * @public
- * @enum
- */
-export const SagemakerServicecatalogStatus = {
-  DISABLED: "Disabled",
-  ENABLED: "Enabled",
-} as const;
-
-/**
- * @public
- */
-export type SagemakerServicecatalogStatus =
-  (typeof SagemakerServicecatalogStatus)[keyof typeof SagemakerServicecatalogStatus];
 
 /**
  * @internal

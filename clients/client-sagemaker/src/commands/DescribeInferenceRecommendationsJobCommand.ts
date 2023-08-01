@@ -72,7 +72,7 @@ export interface DescribeInferenceRecommendationsJobCommandOutput
  * //     ModelPackageVersionArn: "STRING_VALUE",
  * //     JobDurationInSeconds: Number("int"),
  * //     TrafficPattern: { // TrafficPattern
- * //       TrafficType: "PHASES",
+ * //       TrafficType: "PHASES" || "STAIRS",
  * //       Phases: [ // Phases
  * //         { // Phase
  * //           InitialNumberOfUsers: Number("int"),
@@ -80,6 +80,11 @@ export interface DescribeInferenceRecommendationsJobCommandOutput
  * //           DurationInSeconds: Number("int"),
  * //         },
  * //       ],
+ * //       Stairs: { // Stairs
+ * //         DurationInSeconds: Number("int"),
+ * //         NumberOfSteps: Number("int"),
+ * //         UsersPerStep: Number("int"),
+ * //       },
  * //     },
  * //     ResourceLimit: { // RecommendationJobResourceLimit
  * //       MaxNumberOfTests: Number("int"),
@@ -148,6 +153,7 @@ export interface DescribeInferenceRecommendationsJobCommandOutput
  * //         ValueInMilliseconds: Number("int"),
  * //       },
  * //     ],
+ * //     FlatInvocations: "Continue" || "Stop",
  * //   },
  * //   InferenceRecommendations: [ // InferenceRecommendations
  * //     { // InferenceRecommendation

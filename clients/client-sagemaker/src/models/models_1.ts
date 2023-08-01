@@ -4476,7 +4476,7 @@ export interface RecommendationJobResourceLimit {
 export interface Phase {
   /**
    * @public
-   * <p>Specifies how many concurrent users to start with.</p>
+   * <p>Specifies how many concurrent users to start with. The value should be between 1 and 3.</p>
    */
   InitialNumberOfUsers?: number;
 
@@ -4488,9 +4488,36 @@ export interface Phase {
 
   /**
    * @public
-   * <p>Specifies how long traffic phase should be.</p>
+   * <p>Specifies how long a traffic phase should be. For custom load tests, the value should be between 120 and 3600.
+   *       This value should not exceed <code>JobDurationInSeconds</code>.</p>
    */
   DurationInSeconds?: number;
+}
+
+/**
+ * @public
+ * <p>Defines the stairs traffic pattern for an Inference Recommender load test. This pattern
+ *          type consists of multiple steps where the number of users increases at each step.</p>
+ *          <p>Specify either the stairs or phases traffic pattern.</p>
+ */
+export interface Stairs {
+  /**
+   * @public
+   * <p>Defines how long each traffic step should be.</p>
+   */
+  DurationInSeconds?: number;
+
+  /**
+   * @public
+   * <p>Specifies how many steps to perform during traffic.</p>
+   */
+  NumberOfSteps?: number;
+
+  /**
+   * @public
+   * <p>Specifies how many new users to spawn in each step.</p>
+   */
+  UsersPerStep?: number;
 }
 
 /**
@@ -4499,6 +4526,7 @@ export interface Phase {
  */
 export const TrafficType = {
   PHASES: "PHASES",
+  STAIRS: "STAIRS",
 } as const;
 
 /**
@@ -4513,7 +4541,7 @@ export type TrafficType = (typeof TrafficType)[keyof typeof TrafficType];
 export interface TrafficPattern {
   /**
    * @public
-   * <p>Defines the traffic patterns.</p>
+   * <p>Defines the traffic patterns. Choose either <code>PHASES</code> or <code>STAIRS</code>.</p>
    */
   TrafficType?: TrafficType | string;
 
@@ -4522,6 +4550,12 @@ export interface TrafficPattern {
    * <p>Defines the phases traffic specification.</p>
    */
   Phases?: Phase[];
+
+  /**
+   * @public
+   * <p>Defines the stairs traffic pattern.</p>
+   */
+  Stairs?: Stairs;
 }
 
 /**
@@ -4556,7 +4590,7 @@ export interface RecommendationJobInputConfig {
 
   /**
    * @public
-   * <p>Specifies the maximum duration of the job, in seconds.></p>
+   * <p>Specifies the maximum duration of the job, in seconds. The maximum value is 7200.</p>
    */
   JobDurationInSeconds?: number;
 
@@ -4727,12 +4761,26 @@ export interface RecommendationJobOutputConfig {
 
 /**
  * @public
+ * @enum
+ */
+export const FlatInvocations = {
+  CONTINUE: "Continue",
+  STOP: "Stop",
+} as const;
+
+/**
+ * @public
+ */
+export type FlatInvocations = (typeof FlatInvocations)[keyof typeof FlatInvocations];
+
+/**
+ * @public
  * <p>The model latency threshold.</p>
  */
 export interface ModelLatencyThreshold {
   /**
    * @public
-   * <p>The model latency percentile threshold.</p>
+   * <p>The model latency percentile threshold. For custom load tests, specify the value as <code>P95</code>.</p>
    */
   Percentile?: string;
 
@@ -4763,6 +4811,14 @@ export interface RecommendationJobStoppingConditions {
    *           complete the inference in the container.</p>
    */
   ModelLatencyThresholds?: ModelLatencyThreshold[];
+
+  /**
+   * @public
+   * <p>Stops a load test when the number of invocations (TPS) peaks and flattens,
+   *          which means that the instance has reached capacity. The default value is <code>Stop</code>.
+   *       If you want the load test to continue after invocations have flattened, set the value to <code>Continue</code>.</p>
+   */
+  FlatInvocations?: FlatInvocations | string;
 }
 
 /**
@@ -11644,31 +11700,6 @@ export interface DeleteFlowDefinitionRequest {
  * @public
  */
 export interface DeleteFlowDefinitionResponse {}
-
-/**
- * @public
- */
-export interface DeleteHubRequest {
-  /**
-   * @public
-   * <p>The name of the hub to delete.</p>
-   */
-  HubName: string | undefined;
-}
-
-/**
- * @public
- * @enum
- */
-export const HubContentType = {
-  MODEL: "Model",
-  NOTEBOOK: "Notebook",
-} as const;
-
-/**
- * @public
- */
-export type HubContentType = (typeof HubContentType)[keyof typeof HubContentType];
 
 /**
  * @internal

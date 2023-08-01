@@ -1045,7 +1045,6 @@ import {
   DeleteExperimentRequest,
   DeleteFeatureGroupRequest,
   DeleteFlowDefinitionRequest,
-  DeleteHubRequest,
   DeploymentConfig,
   DeploymentStage,
   DeviceSelectionConfig,
@@ -1177,6 +1176,7 @@ import {
   SourceAlgorithmSpecification,
   SourceIpConfig,
   SpaceSettings,
+  Stairs,
   TensorBoardAppSettings,
   TensorBoardOutputConfig,
   TrafficPattern,
@@ -1193,6 +1193,7 @@ import {
 } from "../models/models_1";
 import {
   DeleteHubContentRequest,
+  DeleteHubRequest,
   DeleteHumanTaskUiRequest,
   DeleteImageRequest,
   DeleteImageVersionRequest,
@@ -1366,7 +1367,6 @@ import {
   GetDeviceFleetReportResponse,
   GetLineageGroupPolicyRequest,
   GetModelPackageGroupPolicyInput,
-  GetSagemakerServicecatalogPortfolioStatusInput,
   HyperParameterTrainingJobSummary,
   HyperParameterTuningJobCompletionDetails,
   InferenceRecommendation,
@@ -1389,6 +1389,7 @@ import {
   Workteam,
 } from "../models/models_2";
 import {
+  GetSagemakerServicecatalogPortfolioStatusInput,
   GetSearchSuggestionsRequest,
   GitConfigForUpdate,
   HubContentInfo,
@@ -1590,7 +1591,6 @@ import {
   RenderableTask,
   RenderUiTemplateRequest,
   ResourceCatalog,
-  ResourceConfigForUpdate,
   SpaceDetails,
   StudioLifecycleConfigDetails,
   SuggestionQuery,
@@ -1602,6 +1602,7 @@ import {
   UserProfileDetails,
 } from "../models/models_3";
 import {
+  ResourceConfigForUpdate,
   RetryPipelineExecutionRequest,
   SearchExpression,
   SearchRecord,
@@ -21811,6 +21812,8 @@ const se_SendPipelineExecutionStepSuccessRequest = (
 
 // se_SpaceSettings omitted.
 
+// se_Stairs omitted.
+
 // se_StartEdgeDeploymentStageRequest omitted.
 
 // se_StartInferenceExperimentRequest omitted.
@@ -27773,6 +27776,8 @@ const de_SpaceList = (output: any, context: __SerdeContext): SpaceDetails[] => {
 };
 
 // de_SpaceSettings omitted.
+
+// de_Stairs omitted.
 
 // de_StartInferenceExperimentResponse omitted.
 
