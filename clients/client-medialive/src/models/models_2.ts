@@ -860,6 +860,12 @@ export interface UpdateInputDeviceRequest {
    * The settings that you want to apply to the UHD input device.
    */
   UhdDeviceSettings?: InputDeviceConfigurableSettings;
+
+  /**
+   * @public
+   * The Availability Zone you want associated with this input device.
+   */
+  AvailabilityZone?: string;
 }
 
 /**
@@ -944,6 +950,12 @@ export interface UpdateInputDeviceResponse {
    * A collection of key-value pairs.
    */
   Tags?: Record<string, string>;
+
+  /**
+   * @public
+   * The Availability Zone associated with this input device.
+   */
+  AvailabilityZone?: string;
 }
 
 /**

@@ -56,6 +56,7 @@ export interface UpdateInputDeviceCommandOutput extends UpdateInputDeviceRespons
  *     MaxBitrate: Number("int"),
  *     LatencyMs: Number("int"),
  *   },
+ *   AvailabilityZone: "STRING_VALUE",
  * };
  * const command = new UpdateInputDeviceCommand(input);
  * const response = await client.send(command);
@@ -103,6 +104,7 @@ export interface UpdateInputDeviceCommandOutput extends UpdateInputDeviceRespons
  * //   Tags: { // Tags
  * //     "<keys>": "STRING_VALUE",
  * //   },
+ * //   AvailabilityZone: "STRING_VALUE",
  * // };
  *
  * ```

@@ -2141,6 +2141,7 @@ export const se_UpdateInputDeviceCommand = async (
   let body: any;
   body = JSON.stringify(
     take(input, {
+      availabilityZone: [, , `AvailabilityZone`],
       hdDeviceSettings: [, (_) => se_InputDeviceConfigurableSettings(_, context), `HdDeviceSettings`],
       name: [, , `Name`],
       uhdDeviceSettings: [, (_) => se_InputDeviceConfigurableSettings(_, context), `UhdDeviceSettings`],
@@ -4015,6 +4016,7 @@ export const de_DescribeInputDeviceCommand = async (
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   const doc = take(data, {
     Arn: [, __expectString, `arn`],
+    AvailabilityZone: [, __expectString, `availabilityZone`],
     ConnectionState: [, __expectString, `connectionState`],
     DeviceSettingsSyncState: [, __expectString, `deviceSettingsSyncState`],
     DeviceUpdateStatus: [, __expectString, `deviceUpdateStatus`],
@@ -6219,6 +6221,7 @@ export const de_UpdateInputDeviceCommand = async (
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   const doc = take(data, {
     Arn: [, __expectString, `arn`],
+    AvailabilityZone: [, __expectString, `availabilityZone`],
     ConnectionState: [, __expectString, `connectionState`],
     DeviceSettingsSyncState: [, __expectString, `deviceSettingsSyncState`],
     DeviceUpdateStatus: [, __expectString, `deviceUpdateStatus`],
@@ -11236,6 +11239,7 @@ const de_InputDeviceSettings = (output: any, context: __SerdeContext): InputDevi
 const de_InputDeviceSummary = (output: any, context: __SerdeContext): InputDeviceSummary => {
   return take(output, {
     Arn: [, __expectString, `arn`],
+    AvailabilityZone: [, __expectString, `availabilityZone`],
     ConnectionState: [, __expectString, `connectionState`],
     DeviceSettingsSyncState: [, __expectString, `deviceSettingsSyncState`],
     DeviceUpdateStatus: [, __expectString, `deviceUpdateStatus`],

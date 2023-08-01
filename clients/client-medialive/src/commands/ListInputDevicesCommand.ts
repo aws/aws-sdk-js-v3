@@ -95,6 +95,7 @@ export interface ListInputDevicesCommandOutput extends ListInputDevicesResponse,
  * //       Tags: { // Tags
  * //         "<keys>": "STRING_VALUE",
  * //       },
+ * //       AvailabilityZone: "STRING_VALUE",
  * //     },
  * //   ],
  * //   NextToken: "STRING_VALUE",

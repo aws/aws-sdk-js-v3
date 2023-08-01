@@ -6778,6 +6778,12 @@ export interface DescribeInputDeviceResponse {
    * A collection of key-value pairs.
    */
   Tags?: Record<string, string>;
+
+  /**
+   * @public
+   * The Availability Zone associated with this input device.
+   */
+  AvailabilityZone?: string;
 }
 
 /**

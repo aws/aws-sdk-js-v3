@@ -92,6 +92,7 @@ export interface DescribeInputDeviceCommandOutput extends DescribeInputDeviceRes
  * //   Tags: { // Tags
  * //     "<keys>": "STRING_VALUE",
  * //   },
+ * //   AvailabilityZone: "STRING_VALUE",
  * // };
  *
  * ```
