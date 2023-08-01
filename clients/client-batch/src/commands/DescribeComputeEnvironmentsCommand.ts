@@ -76,7 +76,7 @@ export interface DescribeComputeEnvironmentsCommandOutput
  * //       statusReason: "STRING_VALUE",
  * //       computeResources: { // ComputeResource
  * //         type: "EC2" || "SPOT" || "FARGATE" || "FARGATE_SPOT", // required
- * //         allocationStrategy: "BEST_FIT" || "BEST_FIT_PROGRESSIVE" || "SPOT_CAPACITY_OPTIMIZED",
+ * //         allocationStrategy: "BEST_FIT" || "BEST_FIT_PROGRESSIVE" || "SPOT_CAPACITY_OPTIMIZED" || "SPOT_PRICE_CAPACITY_OPTIMIZED",
  * //         minvCpus: Number("int"),
  * //         maxvCpus: Number("int"), // required
  * //         desiredvCpus: Number("int"),

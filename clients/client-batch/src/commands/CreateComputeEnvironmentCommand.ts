@@ -88,8 +88,8 @@ export interface CreateComputeEnvironmentCommandOutput extends CreateComputeEnvi
  *                   <p>Either don't set the service role (<code>serviceRole</code>) parameter or set it to the <b>AWSBatchServiceRole</b> service-linked role.</p>
  *                </li>
  *                <li>
- *                   <p>Set the allocation strategy (<code>allocationStrategy</code>) parameter to <code>BEST_FIT_PROGRESSIVE</code>
- *       or <code>SPOT_CAPACITY_OPTIMIZED</code>.</p>
+ *                   <p>Set the allocation strategy (<code>allocationStrategy</code>) parameter to <code>BEST_FIT_PROGRESSIVE</code>,
+ *         <code>SPOT_CAPACITY_OPTIMIZED</code>, or <code>SPOT_PRICE_CAPACITY_OPTIMIZED</code>.</p>
  *                </li>
  *                <li>
  *                   <p>Set the update to latest image version (<code>updateToLatestImageVersion</code>)
@@ -132,7 +132,7 @@ export interface CreateComputeEnvironmentCommandOutput extends CreateComputeEnvi
  *   unmanagedvCpus: Number("int"),
  *   computeResources: { // ComputeResource
  *     type: "EC2" || "SPOT" || "FARGATE" || "FARGATE_SPOT", // required
- *     allocationStrategy: "BEST_FIT" || "BEST_FIT_PROGRESSIVE" || "SPOT_CAPACITY_OPTIMIZED",
+ *     allocationStrategy: "BEST_FIT" || "BEST_FIT_PROGRESSIVE" || "SPOT_CAPACITY_OPTIMIZED" || "SPOT_PRICE_CAPACITY_OPTIMIZED",
  *     minvCpus: Number("int"),
  *     maxvCpus: Number("int"), // required
  *     desiredvCpus: Number("int"),

@@ -57,7 +57,7 @@ export interface UpdateComputeEnvironmentCommandOutput extends UpdateComputeEnvi
  *     securityGroupIds: [
  *       "STRING_VALUE",
  *     ],
- *     allocationStrategy: "BEST_FIT_PROGRESSIVE" || "SPOT_CAPACITY_OPTIMIZED",
+ *     allocationStrategy: "BEST_FIT_PROGRESSIVE" || "SPOT_CAPACITY_OPTIMIZED" || "SPOT_PRICE_CAPACITY_OPTIMIZED",
  *     instanceTypes: [
  *       "STRING_VALUE",
  *     ],

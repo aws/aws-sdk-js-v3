@@ -268,6 +268,7 @@ export const CRAllocationStrategy = {
   BEST_FIT: "BEST_FIT",
   BEST_FIT_PROGRESSIVE: "BEST_FIT_PROGRESSIVE",
   SPOT_CAPACITY_OPTIMIZED: "SPOT_CAPACITY_OPTIMIZED",
+  SPOT_PRICE_CAPACITY_OPTIMIZED: "SPOT_PRICE_CAPACITY_OPTIMIZED",
 } as const;
 
 /**
@@ -488,8 +489,15 @@ export interface ComputeResource {
    *       interrupted. This allocation strategy is only available for Spot Instance compute
    *       resources.</p>
    *             </dd>
+   *             <dt>SPOT_PRICE_CAPACITY_OPTIMIZED</dt>
+   *             <dd>
+   *                <p>The price and capacity optimized allocation strategy looks at both price and   capacity to
+   *       select the Spot Instance pools that are the least likely to be interrupted and have the lowest
+   *       possible price. This allocation strategy is only available for Spot Instance compute
+   *       resources.</p>
+   *             </dd>
    *          </dl>
-   *          <p>With both <code>BEST_FIT_PROGRESSIVE</code> and <code>SPOT_CAPACITY_OPTIMIZED</code>
+   *          <p>With <code>BEST_FIT_PROGRESSIVE</code>,<code>SPOT_CAPACITY_OPTIMIZED</code> and <code>SPOT_PRICE_CAPACITY_OPTIMIZED</code>
    *    strategies using On-Demand or Spot Instances, and the <code>BEST_FIT</code> strategy using Spot
    *    Instances, Batch might need to exceed <code>maxvCpus</code> to meet your capacity requirements.
    *    In this event, Batch never exceeds <code>maxvCpus</code> by more than a single instance.</p>
@@ -516,7 +524,7 @@ export interface ComputeResource {
    *    compute environment can
    *    support.</p>
    *          <note>
-   *             <p>With both <code>BEST_FIT_PROGRESSIVE</code> and <code>SPOT_CAPACITY_OPTIMIZED</code>
+   *             <p>With <code>BEST_FIT_PROGRESSIVE</code>, <code>SPOT_CAPACITY_OPTIMIZED</code> and <code>SPOT_PRICE_CAPACITY_OPTIMIZED</code>
    *     allocation strategies using On-Demand or Spot Instances, and the <code>BEST_FIT</code> strategy
    *     using Spot Instances, Batch might need to exceed <code>maxvCpus</code> to meet your capacity
    *     requirements. In this event, Batch never exceeds <code>maxvCpus</code> by more than a single
@@ -2183,8 +2191,8 @@ export interface RuntimePlatform {
 
   /**
    * @public
-   * <p>The vCPU architecture. The default value is <code>X86_64</code>. Valid values are <code>X86_64</code> and
-   *   <code> ARM64</code>.</p>
+   * <p>The vCPU architecture. The default value is <code>X86_64</code>. Valid values are
+   *     <code>X86_64</code> and <code>ARM64</code>.</p>
    *          <note>
    *             <p>This parameter must be set to
    *     <code>X86_64</code>
@@ -5456,6 +5464,7 @@ export interface UntagResourceResponse {}
 export const CRUpdateAllocationStrategy = {
   BEST_FIT_PROGRESSIVE: "BEST_FIT_PROGRESSIVE",
   SPOT_CAPACITY_OPTIMIZED: "SPOT_CAPACITY_OPTIMIZED",
+  SPOT_PRICE_CAPACITY_OPTIMIZED: "SPOT_PRICE_CAPACITY_OPTIMIZED",
 } as const;
 
 /**
@@ -5485,7 +5494,7 @@ export interface ComputeResourceUpdate {
    * @public
    * <p>The maximum number of Amazon EC2 vCPUs that an environment can reach.</p>
    *          <note>
-   *             <p>With both <code>BEST_FIT_PROGRESSIVE</code> and <code>SPOT_CAPACITY_OPTIMIZED</code>
+   *             <p>With <code>BEST_FIT_PROGRESSIVE</code>, <code>SPOT_CAPACITY_OPTIMIZED</code>, and <code>SPOT_PRICE_CAPACITY_OPTIMIZED</code>
    *     allocation strategies using On-Demand or Spot Instances, and the <code>BEST_FIT</code> strategy
    *     using Spot Instances, Batch might need to exceed <code>maxvCpus</code> to meet your capacity
    *     requirements. In this event, Batch never exceeds <code>maxvCpus</code> by more than a single
@@ -5581,8 +5590,15 @@ export interface ComputeResourceUpdate {
    *       interrupted. This allocation strategy is only available for Spot Instance compute
    *       resources.</p>
    *             </dd>
+   *             <dt>SPOT_PRICE_CAPACITY_OPTIMIZED</dt>
+   *             <dd>
+   *                <p>The price and capacity optimized allocation strategy looks at both price and   capacity to
+   *       select the Spot Instance pools that are the least likely to be interrupted and have the lowest
+   *       possible price. This allocation strategy is only available for Spot Instance compute
+   *       resources.</p>
+   *             </dd>
    *          </dl>
-   *          <p>With both <code>BEST_FIT_PROGRESSIVE</code> and <code>SPOT_CAPACITY_OPTIMIZED</code>
+   *          <p>With both <code>BEST_FIT_PROGRESSIVE</code>, <code>SPOT_CAPACITY_OPTIMIZED</code>, and <code>SPOT_PRICE_CAPACITY_OPTIMIZED</code>
    *    strategies using On-Demand or Spot Instances, and the <code>BEST_FIT</code> strategy using Spot
    *    Instances, Batch might need to exceed <code>maxvCpus</code> to meet your capacity requirements.
    *    In this event, Batch never exceeds <code>maxvCpus</code> by more than a single instance.</p>
