@@ -36,9 +36,8 @@ export interface UpdateMonitorCommandOutput extends UpdateMonitorOutput, __Metad
 
 /**
  * @public
- * <p>Updates a monitor. You can update a monitor to change the maximum number of city-networks (locations and ASNs or
- * 			internet service providers), to add or remove resources,
- * 			or to change the status of the monitor. Note that you can't change the name of a monitor.</p>
+ * <p>Updates a monitor. You can update a monitor to change the percentage of traffic to monitor or the maximum number of city-networks
+ * 			(locations and ASNs), to add or remove resources, or to change the status of the monitor. Note that you can't change the name of a monitor.</p>
  *          <p>The city-network maximum that you choose is the limit, but you only pay for the number of city-networks that are actually monitored.
  * 			For more information, see <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/IMCityNetworksMaximum.html">Choosing a city-network maximum value</a> in the <i>Amazon CloudWatch User Guide</i>.</p>
  * @example
@@ -69,6 +68,16 @@ export interface UpdateMonitorCommandOutput extends UpdateMonitorOutput, __Metad
  *   HealthEventsConfig: { // HealthEventsConfig
  *     AvailabilityScoreThreshold: Number("double"),
  *     PerformanceScoreThreshold: Number("double"),
+ *     AvailabilityLocalHealthEventsConfig: { // LocalHealthEventsConfig
+ *       Status: "STRING_VALUE",
+ *       HealthScoreThreshold: Number("double"),
+ *       MinTrafficImpact: Number("double"),
+ *     },
+ *     PerformanceLocalHealthEventsConfig: {
+ *       Status: "STRING_VALUE",
+ *       HealthScoreThreshold: Number("double"),
+ *       MinTrafficImpact: Number("double"),
+ *     },
  *   },
  * };
  * const command = new UpdateMonitorCommand(input);

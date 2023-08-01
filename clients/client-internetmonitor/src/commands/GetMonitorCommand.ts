@@ -75,6 +75,16 @@ export interface GetMonitorCommandOutput extends GetMonitorOutput, __MetadataBea
  * //   HealthEventsConfig: { // HealthEventsConfig
  * //     AvailabilityScoreThreshold: Number("double"),
  * //     PerformanceScoreThreshold: Number("double"),
+ * //     AvailabilityLocalHealthEventsConfig: { // LocalHealthEventsConfig
+ * //       Status: "STRING_VALUE",
+ * //       HealthScoreThreshold: Number("double"),
+ * //       MinTrafficImpact: Number("double"),
+ * //     },
+ * //     PerformanceLocalHealthEventsConfig: {
+ * //       Status: "STRING_VALUE",
+ * //       HealthScoreThreshold: Number("double"),
+ * //       MinTrafficImpact: Number("double"),
+ * //     },
  * //   },
  * // };
  *

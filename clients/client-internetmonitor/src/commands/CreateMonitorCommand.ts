@@ -36,13 +36,15 @@ export interface CreateMonitorCommandOutput extends CreateMonitorOutput, __Metad
 
 /**
  * @public
- * <p>Creates a monitor in Amazon CloudWatch Internet Monitor. A monitor is built based on information from the application resources that you add: Amazon Virtual Private Clouds (VPCs),
- * 			Amazon CloudFront distributions, and WorkSpaces directories. Internet Monitor then publishes internet measurements from Amazon Web Services that are specific to
- * 			the <i>city-networks</i>, that is, the locations and ASNs (typically internet service providers or ISPs),
- * 			where clients access your application. For more information, see <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch-InternetMonitor.html">Using Amazon CloudWatch Internet Monitor</a> in the <i>Amazon CloudWatch User Guide</i>.</p>
- *          <p>When you create a monitor, you set a maximum limit for the number of city-networks where client traffic is monitored. The city-network maximum
- * 			that you choose is the limit, but you only pay for the number of city-networks that are actually monitored. You can change the maximum at any time
- * 			by updating your monitor. For more information, see <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/IMCityNetworksMaximum.html">Choosing a city-network maximum value</a> in the <i>Amazon CloudWatch User Guide</i>.</p>
+ * <p>Creates a monitor in Amazon CloudWatch Internet Monitor. A monitor is built based on information from the application resources that you add: VPCs,
+ * 			Network Load Balancers (NLBs), Amazon CloudFront distributions, and Amazon WorkSpaces directories. Internet Monitor then publishes internet measurements from Amazon Web Services
+ * 			that are specific to the <i>city-networks</i>. That is, the locations and ASNs (typically internet service providers or ISPs),
+ * 			where clients access your application. For more information, see <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch-InternetMonitor.html">Using Amazon CloudWatch Internet Monitor</a> in the <i>Amazon CloudWatch User
+ * 					Guide</i>.</p>
+ *          <p>When you create a monitor, you choose the percentage of traffic that you want to monitor. You can also set a maximum limit for the
+ * 			number of city-networks where client traffic is monitored, that caps the total traffic that Internet Monitor monitors. A city-network
+ * 			maximum is the limit of city-networks, but you only pay for the number of city-networks that are actually monitored. You can update your monitor
+ * 			at any time to change the percentage of traffic to monitor or the city-networks maximum. For more information, see <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/IMCityNetworksMaximum.html">Choosing a city-network maximum value</a> in the <i>Amazon CloudWatch User Guide</i>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -70,6 +72,16 @@ export interface CreateMonitorCommandOutput extends CreateMonitorOutput, __Metad
  *   HealthEventsConfig: { // HealthEventsConfig
  *     AvailabilityScoreThreshold: Number("double"),
  *     PerformanceScoreThreshold: Number("double"),
+ *     AvailabilityLocalHealthEventsConfig: { // LocalHealthEventsConfig
+ *       Status: "STRING_VALUE",
+ *       HealthScoreThreshold: Number("double"),
+ *       MinTrafficImpact: Number("double"),
+ *     },
+ *     PerformanceLocalHealthEventsConfig: {
+ *       Status: "STRING_VALUE",
+ *       HealthScoreThreshold: Number("double"),
+ *       MinTrafficImpact: Number("double"),
+ *     },
  *   },
  * };
  * const command = new CreateMonitorCommand(input);

@@ -189,7 +189,7 @@ export interface InternetMonitor {
 /**
  * @public
  * <p>Amazon CloudWatch Internet Monitor provides visibility into how internet issues impact the performance and availability
- * 			between your applications hosted on Amazon Web Services and your end users. It reduces the time it takes for you to diagnose
+ * 			between your applications hosted on Amazon Web Services and your end users. It can reduce the time it takes for you to diagnose
  * 			internet issues from days to minutes. Internet Monitor uses the connectivity data that Amazon Web Services captures from its global
  * 			networking footprint to calculate a baseline of performance and availability for internet traffic. This
  * 			is the same data that Amazon Web Services uses to monitor internet uptime and availability. With those measurements
@@ -200,9 +200,9 @@ export interface InternetMonitor {
  * 			Internet Monitor sends health events to Amazon EventBridge so that you can set up notifications. If an issue is caused by the Amazon Web Services network,
  * 			you also automatically receive an Amazon Web Services Health Dashboard notification with the steps that Amazon Web Services is taking to mitigate the problem.</p>
  *          <p>To use Internet Monitor, you create a <i>monitor</i> and associate your application's resources
- * 			with it, VPCs, CloudFront distributions, or WorkSpaces directories, to enable Internet Monitor to know
+ * 			with it - VPCs, NLBs, CloudFront distributions, or WorkSpaces directories - so Internet Monitor can determine
  * 			where your application's internet traffic is. Internet Monitor then provides internet measurements from Amazon Web Services that are specific to
- * 			the locations and networks that communicate with your application.</p>
+ * 			the locations and ASNs (typically, internet service providers or ISPs) that communicate with your application.</p>
  *          <p>For more information, see <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch-InternetMonitor.html">Using Amazon CloudWatch Internet Monitor</a> in the <i>Amazon CloudWatch User Guide</i>.</p>
  */
 export class InternetMonitor extends InternetMonitorClient implements InternetMonitor {}

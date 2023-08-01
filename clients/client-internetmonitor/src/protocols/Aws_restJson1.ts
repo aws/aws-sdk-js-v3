@@ -52,6 +52,7 @@ import {
   InternetHealth,
   InternetMeasurementsLogDelivery,
   LimitExceededException,
+  LocalHealthEventsConfig,
   NotFoundException,
   PerformanceMeasurement,
   ResourceNotFoundException,
@@ -1163,12 +1164,25 @@ const de_ValidationExceptionRes = async (parsedOutput: any, context: __SerdeCont
  */
 const se_HealthEventsConfig = (input: HealthEventsConfig, context: __SerdeContext): any => {
   return take(input, {
+    AvailabilityLocalHealthEventsConfig: (_) => se_LocalHealthEventsConfig(_, context),
     AvailabilityScoreThreshold: __serializeFloat,
+    PerformanceLocalHealthEventsConfig: (_) => se_LocalHealthEventsConfig(_, context),
     PerformanceScoreThreshold: __serializeFloat,
   });
 };
 
 // se_InternetMeasurementsLogDelivery omitted.
+
+/**
+ * serializeAws_restJson1LocalHealthEventsConfig
+ */
+const se_LocalHealthEventsConfig = (input: LocalHealthEventsConfig, context: __SerdeContext): any => {
+  return take(input, {
+    HealthScoreThreshold: __serializeFloat,
+    MinTrafficImpact: __serializeFloat,
+    Status: [],
+  });
+};
 
 // se_S3Config omitted.
 
@@ -1223,7 +1237,9 @@ const de_HealthEventList = (output: any, context: __SerdeContext): HealthEvent[]
  */
 const de_HealthEventsConfig = (output: any, context: __SerdeContext): HealthEventsConfig => {
   return take(output, {
+    AvailabilityLocalHealthEventsConfig: (_: any) => de_LocalHealthEventsConfig(_, context),
     AvailabilityScoreThreshold: __limitedParseDouble,
+    PerformanceLocalHealthEventsConfig: (_: any) => de_LocalHealthEventsConfig(_, context),
     PerformanceScoreThreshold: __limitedParseDouble,
   }) as any;
 };
@@ -1273,6 +1289,17 @@ const de_InternetHealth = (output: any, context: __SerdeContext): InternetHealth
 };
 
 // de_InternetMeasurementsLogDelivery omitted.
+
+/**
+ * deserializeAws_restJson1LocalHealthEventsConfig
+ */
+const de_LocalHealthEventsConfig = (output: any, context: __SerdeContext): LocalHealthEventsConfig => {
+  return take(output, {
+    HealthScoreThreshold: __limitedParseDouble,
+    MinTrafficImpact: __limitedParseDouble,
+    Status: __expectString,
+  }) as any;
+};
 
 // de_Monitor omitted.
 
