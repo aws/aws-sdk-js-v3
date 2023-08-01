@@ -522,6 +522,14 @@ DeleteDBCluster
 </details>
 <details>
 <summary>
+DeleteDBClusterAutomatedBackup
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-rds/classes/deletedbclusterautomatedbackupcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-rds/interfaces/deletedbclusterautomatedbackupcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-rds/interfaces/deletedbclusterautomatedbackupcommandoutput.html)
+
+</details>
+<details>
+<summary>
 DeleteDBClusterEndpoint
 </summary>
 
@@ -662,6 +670,14 @@ DescribeCertificates
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-rds/classes/describecertificatescommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-rds/interfaces/describecertificatescommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-rds/interfaces/describecertificatescommandoutput.html)
+
+</details>
+<details>
+<summary>
+DescribeDBClusterAutomatedBackups
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-rds/classes/describedbclusterautomatedbackupscommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-rds/interfaces/describedbclusterautomatedbackupscommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-rds/interfaces/describedbclusterautomatedbackupscommandoutput.html)
 
 </details>
 <details>

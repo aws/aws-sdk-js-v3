@@ -70,7 +70,7 @@ export interface RestoreDBClusterToPointInTimeCommandOutput
  * const input = { // RestoreDBClusterToPointInTimeMessage
  *   DBClusterIdentifier: "STRING_VALUE", // required
  *   RestoreType: "STRING_VALUE",
- *   SourceDBClusterIdentifier: "STRING_VALUE", // required
+ *   SourceDBClusterIdentifier: "STRING_VALUE",
  *   RestoreToTime: new Date("TIMESTAMP"),
  *   UseLatestRestorableTime: true || false,
  *   Port: Number("int"),
@@ -114,6 +114,7 @@ export interface RestoreDBClusterToPointInTimeCommandOutput
  *     MaxCapacity: Number("double"),
  *   },
  *   NetworkType: "STRING_VALUE",
+ *   SourceDbClusterResourceId: "STRING_VALUE",
  * };
  * const command = new RestoreDBClusterToPointInTimeCommand(input);
  * const response = await client.send(command);
@@ -284,6 +285,9 @@ export interface RestoreDBClusterToPointInTimeCommandOutput
  *
  * @throws {@link DBClusterAlreadyExistsFault} (client fault)
  *  <p>The user already has a DB cluster with the given identifier.</p>
+ *
+ * @throws {@link DBClusterAutomatedBackupNotFoundFault} (client fault)
+ *  <p>No automated backup for this DB cluster was found.</p>
  *
  * @throws {@link DBClusterNotFoundFault} (client fault)
  *  <p>

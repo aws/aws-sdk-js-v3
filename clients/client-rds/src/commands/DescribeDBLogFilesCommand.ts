@@ -13,7 +13,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@smithy/types";
 
-import { DescribeDBLogFilesMessage, DescribeDBLogFilesResponse } from "../models/models_0";
+import { DescribeDBLogFilesMessage, DescribeDBLogFilesResponse } from "../models/models_1";
 import { de_DescribeDBLogFilesCommand, se_DescribeDBLogFilesCommand } from "../protocols/Aws_query";
 import { RDSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RDSClient";
 

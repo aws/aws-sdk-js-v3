@@ -1889,7 +1889,7 @@ export interface DBClusterSnapshot {
 
   /**
    * @public
-   * <p>The Amazon Resource Name (ARN) for the DB cluster snapshot.</p>
+   * <p>Specifies the Amazon Resource Name (ARN) for the DB cluster snapshot.</p>
    */
   DBClusterSnapshotArn?: string;
 
@@ -1926,6 +1926,12 @@ export interface DBClusterSnapshot {
    *          <p>This setting is only for Aurora DB clusters.</p>
    */
   StorageType?: string;
+
+  /**
+   * @public
+   * <p>Specifies the resource ID of the DB cluster that this DB cluster snapshot was created from.</p>
+   */
+  DbClusterResourceId?: string;
 }
 
 /**
@@ -11703,6 +11709,27 @@ export class InvalidCustomDBEngineVersionStateFault extends __BaseException {
 
 /**
  * @public
+ * <p>The quota for retained automated backups was exceeded. This prevents you from retaining any additional automated
+ *             backups. The retained automated backups quota is the same as your DB cluster quota.</p>
+ */
+export class DBClusterAutomatedBackupQuotaExceededFault extends __BaseException {
+  readonly name: "DBClusterAutomatedBackupQuotaExceededFault" = "DBClusterAutomatedBackupQuotaExceededFault";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<DBClusterAutomatedBackupQuotaExceededFault, __BaseException>) {
+    super({
+      name: "DBClusterAutomatedBackupQuotaExceededFault",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, DBClusterAutomatedBackupQuotaExceededFault.prototype);
+  }
+}
+
+/**
+ * @public
  * <p></p>
  */
 export interface DeleteDBClusterMessage {
@@ -11752,6 +11779,14 @@ export interface DeleteDBClusterMessage {
    *          </ul>
    */
   FinalDBSnapshotIdentifier?: string;
+
+  /**
+   * @public
+   * <p>A value that indicates whether to remove automated backups immediately after the DB
+   *             cluster is deleted. This parameter isn't case-sensitive. The default is to remove
+   *             automated backups immediately after the DB cluster is deleted.</p>
+   */
+  DeleteAutomatedBackups?: boolean;
 }
 
 /**
@@ -11780,6 +11815,251 @@ export interface DeleteDBClusterResult {
    *          </p>
    */
   DBCluster?: DBCluster;
+}
+
+/**
+ * @public
+ * <p>No automated backup for this DB cluster was found.</p>
+ */
+export class DBClusterAutomatedBackupNotFoundFault extends __BaseException {
+  readonly name: "DBClusterAutomatedBackupNotFoundFault" = "DBClusterAutomatedBackupNotFoundFault";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<DBClusterAutomatedBackupNotFoundFault, __BaseException>) {
+    super({
+      name: "DBClusterAutomatedBackupNotFoundFault",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, DBClusterAutomatedBackupNotFoundFault.prototype);
+  }
+}
+
+/**
+ * @public
+ */
+export interface DeleteDBClusterAutomatedBackupMessage {
+  /**
+   * @public
+   * <p>The identifier for the source DB cluster, which can't be changed and which is unique to an Amazon Web Services Region.</p>
+   */
+  DbClusterResourceId: string | undefined;
+}
+
+/**
+ * @public
+ * <p>Earliest and latest time an instance can be restored to:</p>
+ */
+export interface RestoreWindow {
+  /**
+   * @public
+   * <p>The earliest time you can restore an instance to.</p>
+   */
+  EarliestTime?: Date;
+
+  /**
+   * @public
+   * <p>The latest time you can restore an instance to.</p>
+   */
+  LatestTime?: Date;
+}
+
+/**
+ * @public
+ * <p>An automated backup of a DB cluster. It consists of system backups, transaction logs, and the database cluster
+ *             properties that existed at the time you deleted the source cluster.</p>
+ */
+export interface DBClusterAutomatedBackup {
+  /**
+   * @public
+   * <p>The name of the database engine for this automated backup.</p>
+   */
+  Engine?: string;
+
+  /**
+   * @public
+   * <p>The VPC ID associated with the DB cluster.</p>
+   */
+  VpcId?: string;
+
+  /**
+   * @public
+   * <p>The Amazon Resource Name (ARN) for the automated backups.</p>
+   */
+  DBClusterAutomatedBackupsArn?: string;
+
+  /**
+   * @public
+   * <p>The identifier for the source DB cluster, which can't be changed and which is unique to an Amazon Web Services Region.</p>
+   */
+  DBClusterIdentifier?: string;
+
+  /**
+   * @public
+   * <p>Earliest and latest time an instance can be restored to:</p>
+   */
+  RestoreWindow?: RestoreWindow;
+
+  /**
+   * @public
+   * <p>The master user name of the automated backup.</p>
+   */
+  MasterUsername?: string;
+
+  /**
+   * @public
+   * <p>The resource ID for the source DB cluster, which can't be changed and which is unique to an Amazon Web Services Region.</p>
+   */
+  DbClusterResourceId?: string;
+
+  /**
+   * @public
+   * <p>The Amazon Web Services Region associated with the automated backup.</p>
+   */
+  Region?: string;
+
+  /**
+   * @public
+   * <p>The license model information for this DB cluster automated backup.</p>
+   */
+  LicenseModel?: string;
+
+  /**
+   * @public
+   * <p>A list of status information for an automated backup:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>retained</code> - Automated backups for deleted clusters.</p>
+   *             </li>
+   *          </ul>
+   */
+  Status?: string;
+
+  /**
+   * @public
+   * <p>True if mapping of Amazon Web Services Identity and Access Management (IAM) accounts to database accounts is enabled, and
+   *             otherwise false.</p>
+   */
+  IAMDatabaseAuthenticationEnabled?: boolean;
+
+  /**
+   * @public
+   * <p>The time when the DB cluster was created, in Universal Coordinated Time (UTC).</p>
+   */
+  ClusterCreateTime?: Date;
+
+  /**
+   * @public
+   * <p>Specifies whether the source DB cluster is encrypted.</p>
+   */
+  StorageEncrypted?: boolean;
+
+  /**
+   * @public
+   * <p>For all database engines except Amazon Aurora, <code>AllocatedStorage</code> specifies the allocated storage size in gibibytes (GiB).
+   *             For Aurora, <code>AllocatedStorage</code> always returns 1, because Aurora DB cluster storage size isn't fixed, but instead automatically
+   *             adjusts as needed.</p>
+   */
+  AllocatedStorage?: number;
+
+  /**
+   * @public
+   * <p>The version of the database engine for the automated backup.</p>
+   */
+  EngineVersion?: string;
+
+  /**
+   * @public
+   * <p>The Amazon Resource Name (ARN) for the source DB cluster.</p>
+   */
+  DBClusterArn?: string;
+
+  /**
+   * @public
+   * <p>The retention period for the automated backups.</p>
+   */
+  BackupRetentionPeriod?: number;
+
+  /**
+   * @public
+   * <p>The engine mode of the database engine for the automated backup.</p>
+   */
+  EngineMode?: string;
+
+  /**
+   * @public
+   * <p>The Availability Zones where instances in the DB cluster can be created. For information on
+   *             Amazon Web Services Regions and Availability Zones, see
+   *             <a href="https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/Concepts.RegionsAndAvailabilityZones.html">Regions
+   *                 and Availability Zones</a>.</p>
+   */
+  AvailabilityZones?: string[];
+
+  /**
+   * @public
+   * <p>The port number that the automated backup used for connections.</p>
+   *          <p>Default: Inherits from the source DB cluster</p>
+   *          <p>Valid Values: <code>1150-65535</code>
+   *          </p>
+   */
+  Port?: number;
+
+  /**
+   * @public
+   * <p>The Amazon Web Services KMS key ID for an automated backup.</p>
+   *          <p>The Amazon Web Services KMS key identifier is the key ARN, key ID, alias ARN, or alias name for the KMS key.</p>
+   */
+  KmsKeyId?: string;
+
+  /**
+   * @public
+   * <p>The storage type associated with the DB cluster.</p>
+   *          <p>This setting is only for non-Aurora Multi-AZ DB clusters.</p>
+   */
+  StorageType?: string;
+
+  /**
+   * @public
+   * <p>The IOPS (I/O operations per second) value for the automated backup.</p>
+   *          <p>This setting is only for non-Aurora Multi-AZ DB clusters.</p>
+   */
+  Iops?: number;
+}
+
+/**
+ * @public
+ */
+export interface DeleteDBClusterAutomatedBackupResult {
+  /**
+   * @public
+   * <p>An automated backup of a DB cluster. It consists of system backups, transaction logs, and the database cluster
+   *             properties that existed at the time you deleted the source cluster.</p>
+   */
+  DBClusterAutomatedBackup?: DBClusterAutomatedBackup;
+}
+
+/**
+ * @public
+ * <p>The automated backup is in an invalid state.
+ *             For example, this automated backup is associated with an active cluster.</p>
+ */
+export class InvalidDBClusterAutomatedBackupStateFault extends __BaseException {
+  readonly name: "InvalidDBClusterAutomatedBackupStateFault" = "InvalidDBClusterAutomatedBackupStateFault";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<InvalidDBClusterAutomatedBackupStateFault, __BaseException>) {
+    super({
+      name: "InvalidDBClusterAutomatedBackupStateFault",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, InvalidDBClusterAutomatedBackupStateFault.prototype);
+  }
 }
 
 /**
@@ -11909,7 +12189,7 @@ export interface DeleteDBClusterSnapshotResult {
  * @public
  * <p>The quota for retained automated backups was exceeded. This prevents you
  *             from retaining any additional automated backups. The retained automated backups
- *             quota is the same as your DB Instance quota.</p>
+ *             quota is the same as your DB instance quota.</p>
  */
 export class DBInstanceAutomatedBackupQuotaExceededFault extends __BaseException {
   readonly name: "DBInstanceAutomatedBackupQuotaExceededFault" = "DBInstanceAutomatedBackupQuotaExceededFault";
@@ -12053,24 +12333,6 @@ export interface DeleteDBInstanceAutomatedBackupMessage {
 
 /**
  * @public
- * <p>Earliest and latest time an instance can be restored to:</p>
- */
-export interface RestoreWindow {
-  /**
-   * @public
-   * <p>The earliest time you can restore an instance to.</p>
-   */
-  EarliestTime?: Date;
-
-  /**
-   * @public
-   * <p>The latest time you can restore an instance to.</p>
-   */
-  LatestTime?: Date;
-}
-
-/**
- * @public
  * <p>An automated backup of a DB instance. It consists of system backups, transaction logs, and the database instance properties that
  *             existed at the time you deleted the source instance.</p>
  */
@@ -12083,7 +12345,7 @@ export interface DBInstanceAutomatedBackup {
 
   /**
    * @public
-   * <p>The identifier for the source DB instance, which can't be changed and which is unique to an Amazon Web Services Region.</p>
+   * <p>The resource ID for the source DB instance, which can't be changed and which is unique to an Amazon Web Services Region.</p>
    */
   DbiResourceId?: string;
 
@@ -12095,7 +12357,7 @@ export interface DBInstanceAutomatedBackup {
 
   /**
    * @public
-   * <p>The customer id of the instance that is/was associated with the automated backup.</p>
+   * <p>The identifier for the source DB instance, which can't be changed and which is unique to an Amazon Web Services Region.</p>
    */
   DBInstanceIdentifier?: string;
 
@@ -12117,16 +12379,15 @@ export interface DBInstanceAutomatedBackup {
    *          <ul>
    *             <li>
    *                <p>
-   *                   <code>active</code> - automated backups for current instances</p>
+   *                   <code>active</code> - Automated backups for current instances.</p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>retained</code> - automated backups for deleted instances</p>
+   *                   <code>retained</code> - Automated backups for deleted instances.</p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>creating</code> - automated backups that are waiting
-   *                 for the first automated snapshot to be available.</p>
+   *                   <code>creating</code> - Automated backups that are waiting for the first automated snapshot to be available.</p>
    *             </li>
    *          </ul>
    */
@@ -12164,7 +12425,7 @@ export interface DBInstanceAutomatedBackup {
 
   /**
    * @public
-   * <p>The license model of an automated backup.</p>
+   * <p>The master user name of an automated backup.</p>
    */
   MasterUsername?: string;
 
@@ -12936,6 +13197,88 @@ export interface DescribeCertificatesMessage {
    *         If this parameter is specified, the response includes
    *         only records beyond the marker,
    *         up to the value specified by <code>MaxRecords</code>.</p>
+   */
+  Marker?: string;
+}
+
+/**
+ * @public
+ */
+export interface DBClusterAutomatedBackupMessage {
+  /**
+   * @public
+   * <p>The pagination token provided in the previous request. If this parameter is specified the response includes only
+   *             records beyond the marker, up to <code>MaxRecords</code>.</p>
+   */
+  Marker?: string;
+
+  /**
+   * @public
+   * <p>A list of <code>DBClusterAutomatedBackup</code> backups.</p>
+   */
+  DBClusterAutomatedBackups?: DBClusterAutomatedBackup[];
+}
+
+/**
+ * @public
+ */
+export interface DescribeDBClusterAutomatedBackupsMessage {
+  /**
+   * @public
+   * <p>The resource ID of the DB cluster that is the source of the automated backup. This parameter isn't case-sensitive.</p>
+   */
+  DbClusterResourceId?: string;
+
+  /**
+   * @public
+   * <p>(Optional) The user-supplied DB cluster identifier. If this parameter is specified, it must
+   *             match the identifier of an existing DB cluster. It returns information from the
+   *             specific DB cluster's automated backup. This parameter isn't case-sensitive.</p>
+   */
+  DBClusterIdentifier?: string;
+
+  /**
+   * @public
+   * <p>A filter that specifies which resources to return based on status.</p>
+   *          <p>Supported filters are the following:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>status</code>
+   *                </p>
+   *                <ul>
+   *                   <li>
+   *                      <p>
+   *                         <code>retained</code> - Automated backups for deleted clusters and after backup replication is stopped.</p>
+   *                   </li>
+   *                </ul>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>db-cluster-id</code> - Accepts DB cluster identifiers and Amazon Resource Names (ARNs).
+   *                     The results list includes only information about the DB cluster automated backups identified by these ARNs.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>db-cluster-resource-id</code> - Accepts DB resource identifiers and Amazon Resource Names (ARNs).
+   *                     The results list includes only information about the DB cluster resources identified by these ARNs.</p>
+   *             </li>
+   *          </ul>
+   *          <p>Returns all resources by default. The status for each resource is specified in the response.</p>
+   */
+  Filters?: Filter[];
+
+  /**
+   * @public
+   * <p>The maximum number of records to include in the response. If more records exist than the specified <code>MaxRecords</code>
+   *             value, a pagination token called a marker is included in the response so that you can retrieve the remaining results.</p>
+   */
+  MaxRecords?: number;
+
+  /**
+   * @public
+   * <p>The pagination token provided in the previous request. If this parameter is specified the response includes only
+   *             records beyond the marker, up to <code>MaxRecords</code>.</p>
    */
   Marker?: string;
 }
@@ -13726,6 +14069,12 @@ export interface DescribeDBClusterSnapshotsMessage {
    *          <p>You can share a manual DB cluster snapshot  as public by using the <a>ModifyDBClusterSnapshotAttribute</a> API action.</p>
    */
   IncludePublic?: boolean;
+
+  /**
+   * @public
+   * <p>A specific DB cluster resource ID to describe.</p>
+   */
+  DbClusterResourceId?: string;
 }
 
 /**
@@ -13983,322 +14332,4 @@ export interface DescribeDBEngineVersionsMessage {
    * <p>A value that indicates whether to include engine versions that aren't available in the list. The default is to list only available engine versions.</p>
    */
   IncludeAll?: boolean;
-}
-
-/**
- * @public
- * <p>Contains the result of a successful invocation of the <code>DescribeDBInstanceAutomatedBackups</code> action.</p>
- */
-export interface DBInstanceAutomatedBackupMessage {
-  /**
-   * @public
-   * <p>An optional pagination token provided by a previous request.
-   *             If this parameter is specified, the response includes
-   *             only records beyond the marker,
-   *             up to the value specified by <code>MaxRecords</code>.</p>
-   */
-  Marker?: string;
-
-  /**
-   * @public
-   * <p>A list of <code>DBInstanceAutomatedBackup</code> instances.</p>
-   */
-  DBInstanceAutomatedBackups?: DBInstanceAutomatedBackup[];
-}
-
-/**
- * @public
- * <p>Parameter input for DescribeDBInstanceAutomatedBackups.</p>
- */
-export interface DescribeDBInstanceAutomatedBackupsMessage {
-  /**
-   * @public
-   * <p>The resource ID of the DB instance that is the source of
-   *             the automated backup. This parameter isn't case-sensitive.</p>
-   */
-  DbiResourceId?: string;
-
-  /**
-   * @public
-   * <p>(Optional) The user-supplied instance identifier. If this parameter is specified, it must
-   *             match the identifier of an existing DB instance. It returns information from the
-   *             specific DB instance' automated backup. This parameter isn't case-sensitive.</p>
-   */
-  DBInstanceIdentifier?: string;
-
-  /**
-   * @public
-   * <p>A filter that specifies which resources to return based on status.</p>
-   *          <p>Supported filters are the following:</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>status</code>
-   *                </p>
-   *                <ul>
-   *                   <li>
-   *                      <p>
-   *                         <code>active</code> - automated backups for current instances</p>
-   *                   </li>
-   *                   <li>
-   *                      <p>
-   *                         <code>retained</code> - automated backups for deleted instances and after backup replication is stopped</p>
-   *                   </li>
-   *                   <li>
-   *                      <p>
-   *                         <code>creating</code> - automated backups that are waiting for the first automated snapshot to be available</p>
-   *                   </li>
-   *                </ul>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>db-instance-id</code> - Accepts DB instance identifiers and Amazon Resource Names (ARNs).
-   *                 The results list includes only information about the DB instance automated backups identified by these ARNs.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>dbi-resource-id</code> - Accepts DB resource identifiers and Amazon Resource Names (ARNs).
-   *                 The results list includes only information about the DB instance resources identified by these ARNs.</p>
-   *             </li>
-   *          </ul>
-   *          <p>Returns all resources by default. The status for each resource is specified in the response.</p>
-   */
-  Filters?: Filter[];
-
-  /**
-   * @public
-   * <p>The maximum number of records to include in the response. If more records exist than the specified
-   *             <code>MaxRecords</code> value, a pagination token called a marker is included in the response so that
-   *             you can retrieve the remaining results.</p>
-   */
-  MaxRecords?: number;
-
-  /**
-   * @public
-   * <p>The pagination token provided in the previous request. If this parameter is specified the response
-   *             includes only records beyond the marker, up to <code>MaxRecords</code>.</p>
-   */
-  Marker?: string;
-
-  /**
-   * @public
-   * <p>The Amazon Resource Name (ARN) of the replicated automated backups, for example,
-   *             <code>arn:aws:rds:us-east-1:123456789012:auto-backup:ab-L2IJCEXJP7XQ7HOJ4SIEXAMPLE</code>.</p>
-   *          <p>This setting doesn't apply to RDS Custom.</p>
-   */
-  DBInstanceAutomatedBackupsArn?: string;
-}
-
-/**
- * @public
- * <p>Contains the result of a successful invocation of the <code>DescribeDBInstances</code> action.</p>
- */
-export interface DBInstanceMessage {
-  /**
-   * @public
-   * <p>An optional pagination token provided by a previous request.
-   *             If this parameter is specified, the response includes
-   *             only records beyond the marker,
-   *             up to the value specified by <code>MaxRecords</code> .</p>
-   */
-  Marker?: string;
-
-  /**
-   * @public
-   * <p>A list of <code>DBInstance</code> instances.</p>
-   */
-  DBInstances?: DBInstance[];
-}
-
-/**
- * @public
- * <p></p>
- */
-export interface DescribeDBInstancesMessage {
-  /**
-   * @public
-   * <p>The user-supplied instance identifier or the Amazon Resource Name (ARN) of the DB instance. If this parameter is specified,
-   *             information from only the specific DB instance is returned. This parameter isn't case-sensitive.</p>
-   *          <p>Constraints:</p>
-   *          <ul>
-   *             <li>
-   *                <p>If supplied, must match the identifier of an existing DB instance.</p>
-   *             </li>
-   *          </ul>
-   */
-  DBInstanceIdentifier?: string;
-
-  /**
-   * @public
-   * <p>A filter that specifies one or more DB instances to describe.</p>
-   *          <p>Supported Filters:</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>db-cluster-id</code> - Accepts DB cluster identifiers and DB
-   *               cluster Amazon Resource Names (ARNs). The results list only includes information about
-   *               the DB instances associated with the DB clusters identified by these ARNs.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>db-instance-id</code> - Accepts DB instance identifiers and DB
-   *               instance Amazon Resource Names (ARNs). The results list only includes information about
-   *               the DB instances identified by these ARNs.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>dbi-resource-id</code> - Accepts DB instance resource identifiers. The results list
-   *               only includes information about the DB instances identified by these DB instance resource identifiers.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>domain</code> - Accepts Active Directory directory IDs. The results list only includes
-   *               information about the DB instances associated with these domains.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>engine</code> - Accepts engine names. The results list only includes information
-   *               about the DB instances for these engines.</p>
-   *             </li>
-   *          </ul>
-   */
-  Filters?: Filter[];
-
-  /**
-   * @public
-   * <p>The maximum number of records to include in the response.
-   *         If more records exist than the specified <code>MaxRecords</code> value,
-   *         a pagination token called a marker is included in the response so that
-   *         you can retrieve the remaining results.</p>
-   *          <p>Default: 100</p>
-   *          <p>Constraints: Minimum 20, maximum 100.</p>
-   */
-  MaxRecords?: number;
-
-  /**
-   * @public
-   * <p>An optional pagination token provided by a previous
-   *         <code>DescribeDBInstances</code> request.
-   *         If this parameter is specified, the response includes
-   *         only records beyond the marker,
-   *         up to the value specified by <code>MaxRecords</code>.</p>
-   */
-  Marker?: string;
-}
-
-/**
- * @public
- * <p></p>
- */
-export interface DescribeDBLogFilesMessage {
-  /**
-   * @public
-   * <p>The customer-assigned name of the DB instance that contains the log files you want to list.</p>
-   *          <p>Constraints:</p>
-   *          <ul>
-   *             <li>
-   *                <p>Must match the identifier of an existing DBInstance.</p>
-   *             </li>
-   *          </ul>
-   */
-  DBInstanceIdentifier: string | undefined;
-
-  /**
-   * @public
-   * <p>Filters the available log files for log file names that contain the specified string.</p>
-   */
-  FilenameContains?: string;
-
-  /**
-   * @public
-   * <p>Filters the available log files for files written since the specified date, in POSIX timestamp format with milliseconds.</p>
-   */
-  FileLastWritten?: number;
-
-  /**
-   * @public
-   * <p>Filters the available log files for files larger than the specified size.</p>
-   */
-  FileSize?: number;
-
-  /**
-   * @public
-   * <p>This parameter isn't currently supported.</p>
-   */
-  Filters?: Filter[];
-
-  /**
-   * @public
-   * <p>The maximum number of records to include in the response. If more records exist than the specified MaxRecords value, a pagination token called a marker is included in the response so you can retrieve the remaining results.</p>
-   */
-  MaxRecords?: number;
-
-  /**
-   * @public
-   * <p>The pagination token provided in the previous request. If this parameter is specified the response includes only records beyond the marker, up to MaxRecords.</p>
-   */
-  Marker?: string;
-}
-
-/**
- * @public
- * <p>This data type is used as a response element to <code>DescribeDBLogFiles</code>.</p>
- */
-export interface DescribeDBLogFilesDetails {
-  /**
-   * @public
-   * <p>The name of the log file for the specified DB instance.</p>
-   */
-  LogFileName?: string;
-
-  /**
-   * @public
-   * <p>A POSIX timestamp when the last log entry was written.</p>
-   */
-  LastWritten?: number;
-
-  /**
-   * @public
-   * <p>The size, in bytes, of the log file for the specified DB instance.</p>
-   */
-  Size?: number;
-}
-
-/**
- * @public
- * <p>The response from a call to <code>DescribeDBLogFiles</code>.</p>
- */
-export interface DescribeDBLogFilesResponse {
-  /**
-   * @public
-   * <p>The DB log files returned.</p>
-   */
-  DescribeDBLogFiles?: DescribeDBLogFilesDetails[];
-
-  /**
-   * @public
-   * <p>A pagination token that can be used in a later <code>DescribeDBLogFiles</code> request.</p>
-   */
-  Marker?: string;
-}
-
-/**
- * @public
- * <p>Contains the result of a successful invocation of the <code>DescribeDBParameterGroups</code> action.</p>
- */
-export interface DBParameterGroupsMessage {
-  /**
-   * @public
-   * <p>An optional pagination token provided by a previous request.
-   *             If this parameter is specified, the response includes
-   *             only records beyond the marker,
-   *             up to the value specified by <code>MaxRecords</code>.</p>
-   */
-  Marker?: string;
-
-  /**
-   * @public
-   * <p>A list of <code>DBParameterGroup</code> instances.</p>
-   */
-  DBParameterGroups?: DBParameterGroup[];
 }

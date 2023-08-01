@@ -144,6 +144,10 @@ import {
   DeleteCustomDBEngineVersionCommandInput,
   DeleteCustomDBEngineVersionCommandOutput,
 } from "./commands/DeleteCustomDBEngineVersionCommand";
+import {
+  DeleteDBClusterAutomatedBackupCommandInput,
+  DeleteDBClusterAutomatedBackupCommandOutput,
+} from "./commands/DeleteDBClusterAutomatedBackupCommand";
 import { DeleteDBClusterCommandInput, DeleteDBClusterCommandOutput } from "./commands/DeleteDBClusterCommand";
 import {
   DeleteDBClusterEndpointCommandInput,
@@ -205,6 +209,10 @@ import {
   DescribeCertificatesCommandInput,
   DescribeCertificatesCommandOutput,
 } from "./commands/DescribeCertificatesCommand";
+import {
+  DescribeDBClusterAutomatedBackupsCommandInput,
+  DescribeDBClusterAutomatedBackupsCommandOutput,
+} from "./commands/DescribeDBClusterAutomatedBackupsCommand";
 import {
   DescribeDBClusterBacktracksCommandInput,
   DescribeDBClusterBacktracksCommandOutput,
@@ -551,6 +559,7 @@ export type ServiceInputTypes =
   | CreateOptionGroupCommandInput
   | DeleteBlueGreenDeploymentCommandInput
   | DeleteCustomDBEngineVersionCommandInput
+  | DeleteDBClusterAutomatedBackupCommandInput
   | DeleteDBClusterCommandInput
   | DeleteDBClusterEndpointCommandInput
   | DeleteDBClusterParameterGroupCommandInput
@@ -570,6 +579,7 @@ export type ServiceInputTypes =
   | DescribeAccountAttributesCommandInput
   | DescribeBlueGreenDeploymentsCommandInput
   | DescribeCertificatesCommandInput
+  | DescribeDBClusterAutomatedBackupsCommandInput
   | DescribeDBClusterBacktracksCommandInput
   | DescribeDBClusterEndpointsCommandInput
   | DescribeDBClusterParameterGroupsCommandInput
@@ -697,6 +707,7 @@ export type ServiceOutputTypes =
   | CreateOptionGroupCommandOutput
   | DeleteBlueGreenDeploymentCommandOutput
   | DeleteCustomDBEngineVersionCommandOutput
+  | DeleteDBClusterAutomatedBackupCommandOutput
   | DeleteDBClusterCommandOutput
   | DeleteDBClusterEndpointCommandOutput
   | DeleteDBClusterParameterGroupCommandOutput
@@ -716,6 +727,7 @@ export type ServiceOutputTypes =
   | DescribeAccountAttributesCommandOutput
   | DescribeBlueGreenDeploymentsCommandOutput
   | DescribeCertificatesCommandOutput
+  | DescribeDBClusterAutomatedBackupsCommandOutput
   | DescribeDBClusterBacktracksCommandOutput
   | DescribeDBClusterEndpointsCommandOutput
   | DescribeDBClusterParameterGroupsCommandOutput

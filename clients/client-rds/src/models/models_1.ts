@@ -13,6 +13,7 @@ import {
   DBClusterSnapshotAttributesResult,
   DBInstance,
   DBInstanceAutomatedBackup,
+  DBParameterGroup,
   DBProxy,
   DBProxyEndpoint,
   DBSecurityGroup,
@@ -35,6 +36,324 @@ import {
   UserAuthConfig,
 } from "./models_0";
 import { RDSServiceException as __BaseException } from "./RDSServiceException";
+
+/**
+ * @public
+ * <p>Contains the result of a successful invocation of the <code>DescribeDBInstanceAutomatedBackups</code> action.</p>
+ */
+export interface DBInstanceAutomatedBackupMessage {
+  /**
+   * @public
+   * <p>An optional pagination token provided by a previous request.
+   *             If this parameter is specified, the response includes
+   *             only records beyond the marker,
+   *             up to the value specified by <code>MaxRecords</code>.</p>
+   */
+  Marker?: string;
+
+  /**
+   * @public
+   * <p>A list of <code>DBInstanceAutomatedBackup</code> instances.</p>
+   */
+  DBInstanceAutomatedBackups?: DBInstanceAutomatedBackup[];
+}
+
+/**
+ * @public
+ * <p>Parameter input for DescribeDBInstanceAutomatedBackups.</p>
+ */
+export interface DescribeDBInstanceAutomatedBackupsMessage {
+  /**
+   * @public
+   * <p>The resource ID of the DB instance that is the source of
+   *             the automated backup. This parameter isn't case-sensitive.</p>
+   */
+  DbiResourceId?: string;
+
+  /**
+   * @public
+   * <p>(Optional) The user-supplied instance identifier. If this parameter is specified, it must
+   *             match the identifier of an existing DB instance. It returns information from the
+   *             specific DB instance's automated backup. This parameter isn't case-sensitive.</p>
+   */
+  DBInstanceIdentifier?: string;
+
+  /**
+   * @public
+   * <p>A filter that specifies which resources to return based on status.</p>
+   *          <p>Supported filters are the following:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>status</code>
+   *                </p>
+   *                <ul>
+   *                   <li>
+   *                      <p>
+   *                         <code>active</code> - Automated backups for current instances.</p>
+   *                   </li>
+   *                   <li>
+   *                      <p>
+   *                         <code>creating</code> - Automated backups that are waiting for the first automated snapshot to be available.</p>
+   *                   </li>
+   *                   <li>
+   *                      <p>
+   *                         <code>retained</code> - Automated backups for deleted instances and after backup replication is stopped.</p>
+   *                   </li>
+   *                </ul>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>db-instance-id</code> - Accepts DB instance identifiers and Amazon Resource Names (ARNs).
+   *                 The results list includes only information about the DB instance automated backups identified by these ARNs.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>dbi-resource-id</code> - Accepts DB resource identifiers and Amazon Resource Names (ARNs).
+   *                 The results list includes only information about the DB instance resources identified by these ARNs.</p>
+   *             </li>
+   *          </ul>
+   *          <p>Returns all resources by default. The status for each resource is specified in the response.</p>
+   */
+  Filters?: Filter[];
+
+  /**
+   * @public
+   * <p>The maximum number of records to include in the response. If more records exist than the specified
+   *             <code>MaxRecords</code> value, a pagination token called a marker is included in the response so that
+   *             you can retrieve the remaining results.</p>
+   */
+  MaxRecords?: number;
+
+  /**
+   * @public
+   * <p>The pagination token provided in the previous request. If this parameter is specified the response
+   *             includes only records beyond the marker, up to <code>MaxRecords</code>.</p>
+   */
+  Marker?: string;
+
+  /**
+   * @public
+   * <p>The Amazon Resource Name (ARN) of the replicated automated backups, for example,
+   *             <code>arn:aws:rds:us-east-1:123456789012:auto-backup:ab-L2IJCEXJP7XQ7HOJ4SIEXAMPLE</code>.</p>
+   *          <p>This setting doesn't apply to RDS Custom.</p>
+   */
+  DBInstanceAutomatedBackupsArn?: string;
+}
+
+/**
+ * @public
+ * <p>Contains the result of a successful invocation of the <code>DescribeDBInstances</code> action.</p>
+ */
+export interface DBInstanceMessage {
+  /**
+   * @public
+   * <p>An optional pagination token provided by a previous request.
+   *             If this parameter is specified, the response includes
+   *             only records beyond the marker,
+   *             up to the value specified by <code>MaxRecords</code> .</p>
+   */
+  Marker?: string;
+
+  /**
+   * @public
+   * <p>A list of <code>DBInstance</code> instances.</p>
+   */
+  DBInstances?: DBInstance[];
+}
+
+/**
+ * @public
+ * <p></p>
+ */
+export interface DescribeDBInstancesMessage {
+  /**
+   * @public
+   * <p>The user-supplied instance identifier or the Amazon Resource Name (ARN) of the DB instance. If this parameter is specified,
+   *             information from only the specific DB instance is returned. This parameter isn't case-sensitive.</p>
+   *          <p>Constraints:</p>
+   *          <ul>
+   *             <li>
+   *                <p>If supplied, must match the identifier of an existing DB instance.</p>
+   *             </li>
+   *          </ul>
+   */
+  DBInstanceIdentifier?: string;
+
+  /**
+   * @public
+   * <p>A filter that specifies one or more DB instances to describe.</p>
+   *          <p>Supported Filters:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>db-cluster-id</code> - Accepts DB cluster identifiers and DB
+   *               cluster Amazon Resource Names (ARNs). The results list only includes information about
+   *               the DB instances associated with the DB clusters identified by these ARNs.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>db-instance-id</code> - Accepts DB instance identifiers and DB
+   *               instance Amazon Resource Names (ARNs). The results list only includes information about
+   *               the DB instances identified by these ARNs.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>dbi-resource-id</code> - Accepts DB instance resource identifiers. The results list
+   *               only includes information about the DB instances identified by these DB instance resource identifiers.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>domain</code> - Accepts Active Directory directory IDs. The results list only includes
+   *               information about the DB instances associated with these domains.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>engine</code> - Accepts engine names. The results list only includes information
+   *               about the DB instances for these engines.</p>
+   *             </li>
+   *          </ul>
+   */
+  Filters?: Filter[];
+
+  /**
+   * @public
+   * <p>The maximum number of records to include in the response.
+   *         If more records exist than the specified <code>MaxRecords</code> value,
+   *         a pagination token called a marker is included in the response so that
+   *         you can retrieve the remaining results.</p>
+   *          <p>Default: 100</p>
+   *          <p>Constraints: Minimum 20, maximum 100.</p>
+   */
+  MaxRecords?: number;
+
+  /**
+   * @public
+   * <p>An optional pagination token provided by a previous
+   *         <code>DescribeDBInstances</code> request.
+   *         If this parameter is specified, the response includes
+   *         only records beyond the marker,
+   *         up to the value specified by <code>MaxRecords</code>.</p>
+   */
+  Marker?: string;
+}
+
+/**
+ * @public
+ * <p></p>
+ */
+export interface DescribeDBLogFilesMessage {
+  /**
+   * @public
+   * <p>The customer-assigned name of the DB instance that contains the log files you want to list.</p>
+   *          <p>Constraints:</p>
+   *          <ul>
+   *             <li>
+   *                <p>Must match the identifier of an existing DBInstance.</p>
+   *             </li>
+   *          </ul>
+   */
+  DBInstanceIdentifier: string | undefined;
+
+  /**
+   * @public
+   * <p>Filters the available log files for log file names that contain the specified string.</p>
+   */
+  FilenameContains?: string;
+
+  /**
+   * @public
+   * <p>Filters the available log files for files written since the specified date, in POSIX timestamp format with milliseconds.</p>
+   */
+  FileLastWritten?: number;
+
+  /**
+   * @public
+   * <p>Filters the available log files for files larger than the specified size.</p>
+   */
+  FileSize?: number;
+
+  /**
+   * @public
+   * <p>This parameter isn't currently supported.</p>
+   */
+  Filters?: Filter[];
+
+  /**
+   * @public
+   * <p>The maximum number of records to include in the response. If more records exist than the specified MaxRecords value, a pagination token called a marker is included in the response so you can retrieve the remaining results.</p>
+   */
+  MaxRecords?: number;
+
+  /**
+   * @public
+   * <p>The pagination token provided in the previous request. If this parameter is specified the response includes only records beyond the marker, up to MaxRecords.</p>
+   */
+  Marker?: string;
+}
+
+/**
+ * @public
+ * <p>This data type is used as a response element to <code>DescribeDBLogFiles</code>.</p>
+ */
+export interface DescribeDBLogFilesDetails {
+  /**
+   * @public
+   * <p>The name of the log file for the specified DB instance.</p>
+   */
+  LogFileName?: string;
+
+  /**
+   * @public
+   * <p>A POSIX timestamp when the last log entry was written.</p>
+   */
+  LastWritten?: number;
+
+  /**
+   * @public
+   * <p>The size, in bytes, of the log file for the specified DB instance.</p>
+   */
+  Size?: number;
+}
+
+/**
+ * @public
+ * <p>The response from a call to <code>DescribeDBLogFiles</code>.</p>
+ */
+export interface DescribeDBLogFilesResponse {
+  /**
+   * @public
+   * <p>The DB log files returned.</p>
+   */
+  DescribeDBLogFiles?: DescribeDBLogFilesDetails[];
+
+  /**
+   * @public
+   * <p>A pagination token that can be used in a later <code>DescribeDBLogFiles</code> request.</p>
+   */
+  Marker?: string;
+}
+
+/**
+ * @public
+ * <p>Contains the result of a successful invocation of the <code>DescribeDBParameterGroups</code> action.</p>
+ */
+export interface DBParameterGroupsMessage {
+  /**
+   * @public
+   * <p>An optional pagination token provided by a previous request.
+   *             If this parameter is specified, the response includes
+   *             only records beyond the marker,
+   *             up to the value specified by <code>MaxRecords</code>.</p>
+   */
+  Marker?: string;
+
+  /**
+   * @public
+   * <p>A list of <code>DBParameterGroup</code> instances.</p>
+   */
+  DBParameterGroups?: DBParameterGroup[];
+}
 
 /**
  * @public
@@ -8289,7 +8608,7 @@ export interface RestoreDBClusterToPointInTimeMessage {
    *          </ul>
    *          <p>Valid for: Aurora DB clusters and Multi-AZ DB clusters</p>
    */
-  SourceDBClusterIdentifier: string | undefined;
+  SourceDBClusterIdentifier?: string;
 
   /**
    * @public
@@ -8618,6 +8937,12 @@ export interface RestoreDBClusterToPointInTimeMessage {
    *          <p>Valid for: Aurora DB clusters only</p>
    */
   NetworkType?: string;
+
+  /**
+   * @public
+   * <p>The resource ID of the source DB cluster from which to restore.</p>
+   */
+  SourceDbClusterResourceId?: string;
 }
 
 /**

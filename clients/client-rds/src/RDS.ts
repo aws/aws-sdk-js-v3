@@ -163,6 +163,11 @@ import {
   DeleteCustomDBEngineVersionCommandOutput,
 } from "./commands/DeleteCustomDBEngineVersionCommand";
 import {
+  DeleteDBClusterAutomatedBackupCommand,
+  DeleteDBClusterAutomatedBackupCommandInput,
+  DeleteDBClusterAutomatedBackupCommandOutput,
+} from "./commands/DeleteDBClusterAutomatedBackupCommand";
+import {
   DeleteDBClusterCommand,
   DeleteDBClusterCommandInput,
   DeleteDBClusterCommandOutput,
@@ -257,6 +262,11 @@ import {
   DescribeCertificatesCommandInput,
   DescribeCertificatesCommandOutput,
 } from "./commands/DescribeCertificatesCommand";
+import {
+  DescribeDBClusterAutomatedBackupsCommand,
+  DescribeDBClusterAutomatedBackupsCommandInput,
+  DescribeDBClusterAutomatedBackupsCommandOutput,
+} from "./commands/DescribeDBClusterAutomatedBackupsCommand";
 import {
   DescribeDBClusterBacktracksCommand,
   DescribeDBClusterBacktracksCommandInput,
@@ -743,6 +753,7 @@ const commands = {
   DeleteBlueGreenDeploymentCommand,
   DeleteCustomDBEngineVersionCommand,
   DeleteDBClusterCommand,
+  DeleteDBClusterAutomatedBackupCommand,
   DeleteDBClusterEndpointCommand,
   DeleteDBClusterParameterGroupCommand,
   DeleteDBClusterSnapshotCommand,
@@ -761,6 +772,7 @@ const commands = {
   DescribeAccountAttributesCommand,
   DescribeBlueGreenDeploymentsCommand,
   DescribeCertificatesCommand,
+  DescribeDBClusterAutomatedBackupsCommand,
   DescribeDBClusterBacktracksCommand,
   DescribeDBClusterEndpointsCommand,
   DescribeDBClusterParameterGroupsCommand,
@@ -1398,6 +1410,23 @@ export interface RDS {
   ): void;
 
   /**
+   * @see {@link DeleteDBClusterAutomatedBackupCommand}
+   */
+  deleteDBClusterAutomatedBackup(
+    args: DeleteDBClusterAutomatedBackupCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteDBClusterAutomatedBackupCommandOutput>;
+  deleteDBClusterAutomatedBackup(
+    args: DeleteDBClusterAutomatedBackupCommandInput,
+    cb: (err: any, data?: DeleteDBClusterAutomatedBackupCommandOutput) => void
+  ): void;
+  deleteDBClusterAutomatedBackup(
+    args: DeleteDBClusterAutomatedBackupCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteDBClusterAutomatedBackupCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link DeleteDBClusterEndpointCommand}
    */
   deleteDBClusterEndpoint(
@@ -1695,6 +1724,23 @@ export interface RDS {
     args: DescribeCertificatesCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: DescribeCertificatesCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DescribeDBClusterAutomatedBackupsCommand}
+   */
+  describeDBClusterAutomatedBackups(
+    args: DescribeDBClusterAutomatedBackupsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DescribeDBClusterAutomatedBackupsCommandOutput>;
+  describeDBClusterAutomatedBackups(
+    args: DescribeDBClusterAutomatedBackupsCommandInput,
+    cb: (err: any, data?: DescribeDBClusterAutomatedBackupsCommandOutput) => void
+  ): void;
+  describeDBClusterAutomatedBackups(
+    args: DescribeDBClusterAutomatedBackupsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DescribeDBClusterAutomatedBackupsCommandOutput) => void
   ): void;
 
   /**

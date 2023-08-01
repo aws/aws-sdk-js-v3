@@ -119,6 +119,10 @@ import {
   DeleteCustomDBEngineVersionCommandInput,
   DeleteCustomDBEngineVersionCommandOutput,
 } from "../commands/DeleteCustomDBEngineVersionCommand";
+import {
+  DeleteDBClusterAutomatedBackupCommandInput,
+  DeleteDBClusterAutomatedBackupCommandOutput,
+} from "../commands/DeleteDBClusterAutomatedBackupCommand";
 import { DeleteDBClusterCommandInput, DeleteDBClusterCommandOutput } from "../commands/DeleteDBClusterCommand";
 import {
   DeleteDBClusterEndpointCommandInput,
@@ -180,6 +184,10 @@ import {
   DescribeCertificatesCommandInput,
   DescribeCertificatesCommandOutput,
 } from "../commands/DescribeCertificatesCommand";
+import {
+  DescribeDBClusterAutomatedBackupsCommandInput,
+  DescribeDBClusterAutomatedBackupsCommandOutput,
+} from "../commands/DescribeDBClusterAutomatedBackupsCommand";
 import {
   DescribeDBClusterBacktracksCommandInput,
   DescribeDBClusterBacktracksCommandOutput,
@@ -559,6 +567,10 @@ import {
   CustomDBEngineVersionQuotaExceededFault,
   DBCluster,
   DBClusterAlreadyExistsFault,
+  DBClusterAutomatedBackup,
+  DBClusterAutomatedBackupMessage,
+  DBClusterAutomatedBackupNotFoundFault,
+  DBClusterAutomatedBackupQuotaExceededFault,
   DBClusterBacktrack,
   DBClusterBacktrackMessage,
   DBClusterBacktrackNotFoundFault,
@@ -590,11 +602,9 @@ import {
   DBInstance,
   DBInstanceAlreadyExistsFault,
   DBInstanceAutomatedBackup,
-  DBInstanceAutomatedBackupMessage,
   DBInstanceAutomatedBackupNotFoundFault,
   DBInstanceAutomatedBackupQuotaExceededFault,
   DBInstanceAutomatedBackupsReplication,
-  DBInstanceMessage,
   DBInstanceNotFoundFault,
   DBInstanceRole,
   DBInstanceRoleAlreadyExistsFault,
@@ -604,7 +614,6 @@ import {
   DBParameterGroupAlreadyExistsFault,
   DBParameterGroupNotFoundFault,
   DBParameterGroupQuotaExceededFault,
-  DBParameterGroupsMessage,
   DBParameterGroupStatus,
   DBProxy,
   DBProxyAlreadyExistsFault,
@@ -635,6 +644,8 @@ import {
   DeleteBlueGreenDeploymentRequest,
   DeleteBlueGreenDeploymentResponse,
   DeleteCustomDBEngineVersionMessage,
+  DeleteDBClusterAutomatedBackupMessage,
+  DeleteDBClusterAutomatedBackupResult,
   DeleteDBClusterEndpointMessage,
   DeleteDBClusterMessage,
   DeleteDBClusterParameterGroupMessage,
@@ -665,6 +676,7 @@ import {
   DescribeBlueGreenDeploymentsRequest,
   DescribeBlueGreenDeploymentsResponse,
   DescribeCertificatesMessage,
+  DescribeDBClusterAutomatedBackupsMessage,
   DescribeDBClusterBacktracksMessage,
   DescribeDBClusterEndpointsMessage,
   DescribeDBClusterParameterGroupsMessage,
@@ -674,11 +686,6 @@ import {
   DescribeDBClusterSnapshotAttributesResult,
   DescribeDBClusterSnapshotsMessage,
   DescribeDBEngineVersionsMessage,
-  DescribeDBInstanceAutomatedBackupsMessage,
-  DescribeDBInstancesMessage,
-  DescribeDBLogFilesDetails,
-  DescribeDBLogFilesMessage,
-  DescribeDBLogFilesResponse,
   DomainMembership,
   DomainNotFoundFault,
   Ec2ImagePropertiesNotSupportedFault,
@@ -700,6 +707,7 @@ import {
   InsufficientStorageClusterCapacityFault,
   InvalidBlueGreenDeploymentStateFault,
   InvalidCustomDBEngineVersionStateFault,
+  InvalidDBClusterAutomatedBackupStateFault,
   InvalidDBClusterEndpointStateFault,
   InvalidDBClusterSnapshotStateFault,
   InvalidDBClusterStateFault,
@@ -773,10 +781,13 @@ import {
   DBClusterCapacityInfo,
   DBClusterParameterGroupNameMessage,
   DBClusterRoleNotFoundFault,
+  DBInstanceAutomatedBackupMessage,
+  DBInstanceMessage,
   DBInstanceRoleNotFoundFault,
   DBLogFileNotFoundFault,
   DBParameterGroupDetails,
   DBParameterGroupNameMessage,
+  DBParameterGroupsMessage,
   DBProxyTarget,
   DBProxyTargetAlreadyRegisteredFault,
   DBProxyTargetGroup,
@@ -786,6 +797,11 @@ import {
   DBSnapshotMessage,
   DBSubnetGroupMessage,
   DBUpgradeDependencyFailureFault,
+  DescribeDBInstanceAutomatedBackupsMessage,
+  DescribeDBInstancesMessage,
+  DescribeDBLogFilesDetails,
+  DescribeDBLogFilesMessage,
+  DescribeDBLogFilesResponse,
   DescribeDBParameterGroupsMessage,
   DescribeDBParametersMessage,
   DescribeDBProxiesRequest,
@@ -1529,6 +1545,23 @@ export const se_DeleteDBClusterCommand = async (
 };
 
 /**
+ * serializeAws_queryDeleteDBClusterAutomatedBackupCommand
+ */
+export const se_DeleteDBClusterAutomatedBackupCommand = async (
+  input: DeleteDBClusterAutomatedBackupCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = SHARED_HEADERS;
+  let body: any;
+  body = buildFormUrlencodedString({
+    ...se_DeleteDBClusterAutomatedBackupMessage(input, context),
+    Action: "DeleteDBClusterAutomatedBackup",
+    Version: "2014-10-31",
+  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+/**
  * serializeAws_queryDeleteDBClusterEndpointCommand
  */
 export const se_DeleteDBClusterEndpointCommand = async (
@@ -1829,6 +1862,23 @@ export const se_DescribeCertificatesCommand = async (
   body = buildFormUrlencodedString({
     ...se_DescribeCertificatesMessage(input, context),
     Action: "DescribeCertificates",
+    Version: "2014-10-31",
+  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+/**
+ * serializeAws_queryDescribeDBClusterAutomatedBackupsCommand
+ */
+export const se_DescribeDBClusterAutomatedBackupsCommand = async (
+  input: DescribeDBClusterAutomatedBackupsCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = SHARED_HEADERS;
+  let body: any;
+  body = buildFormUrlencodedString({
+    ...se_DescribeDBClusterAutomatedBackupsMessage(input, context),
+    Action: "DescribeDBClusterAutomatedBackups",
     Version: "2014-10-31",
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -5295,6 +5345,9 @@ const de_DeleteDBClusterCommandError = async (
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
+    case "DBClusterAutomatedBackupQuotaExceededFault":
+    case "com.amazonaws.rds#DBClusterAutomatedBackupQuotaExceededFault":
+      throw await de_DBClusterAutomatedBackupQuotaExceededFaultRes(parsedOutput, context);
     case "DBClusterNotFoundFault":
     case "com.amazonaws.rds#DBClusterNotFoundFault":
       throw await de_DBClusterNotFoundFaultRes(parsedOutput, context);
@@ -5310,6 +5363,55 @@ const de_DeleteDBClusterCommandError = async (
     case "SnapshotQuotaExceeded":
     case "com.amazonaws.rds#SnapshotQuotaExceededFault":
       throw await de_SnapshotQuotaExceededFaultRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody: parsedBody.Error,
+        errorCode,
+      });
+  }
+};
+
+/**
+ * deserializeAws_queryDeleteDBClusterAutomatedBackupCommand
+ */
+export const de_DeleteDBClusterAutomatedBackupCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteDBClusterAutomatedBackupCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_DeleteDBClusterAutomatedBackupCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_DeleteDBClusterAutomatedBackupResult(data.DeleteDBClusterAutomatedBackupResult, context);
+  const response: DeleteDBClusterAutomatedBackupCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_queryDeleteDBClusterAutomatedBackupCommandError
+ */
+const de_DeleteDBClusterAutomatedBackupCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteDBClusterAutomatedBackupCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "DBClusterAutomatedBackupNotFoundFault":
+    case "com.amazonaws.rds#DBClusterAutomatedBackupNotFoundFault":
+      throw await de_DBClusterAutomatedBackupNotFoundFaultRes(parsedOutput, context);
+    case "InvalidDBClusterAutomatedBackupStateFault":
+    case "com.amazonaws.rds#InvalidDBClusterAutomatedBackupStateFault":
+      throw await de_InvalidDBClusterAutomatedBackupStateFaultRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       return throwDefaultError({
@@ -6186,6 +6288,52 @@ const de_DescribeCertificatesCommandError = async (
     case "CertificateNotFound":
     case "com.amazonaws.rds#CertificateNotFoundFault":
       throw await de_CertificateNotFoundFaultRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody: parsedBody.Error,
+        errorCode,
+      });
+  }
+};
+
+/**
+ * deserializeAws_queryDescribeDBClusterAutomatedBackupsCommand
+ */
+export const de_DescribeDBClusterAutomatedBackupsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeDBClusterAutomatedBackupsCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_DescribeDBClusterAutomatedBackupsCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_DBClusterAutomatedBackupMessage(data.DescribeDBClusterAutomatedBackupsResult, context);
+  const response: DescribeDBClusterAutomatedBackupsCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_queryDescribeDBClusterAutomatedBackupsCommandError
+ */
+const de_DescribeDBClusterAutomatedBackupsCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeDBClusterAutomatedBackupsCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "DBClusterAutomatedBackupNotFoundFault":
+    case "com.amazonaws.rds#DBClusterAutomatedBackupNotFoundFault":
+      throw await de_DBClusterAutomatedBackupNotFoundFaultRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       return throwDefaultError({
@@ -10023,6 +10171,9 @@ const de_RestoreDBClusterToPointInTimeCommandError = async (
     case "DBClusterAlreadyExistsFault":
     case "com.amazonaws.rds#DBClusterAlreadyExistsFault":
       throw await de_DBClusterAlreadyExistsFaultRes(parsedOutput, context);
+    case "DBClusterAutomatedBackupNotFoundFault":
+    case "com.amazonaws.rds#DBClusterAutomatedBackupNotFoundFault":
+      throw await de_DBClusterAutomatedBackupNotFoundFaultRes(parsedOutput, context);
     case "DBClusterNotFoundFault":
     case "com.amazonaws.rds#DBClusterNotFoundFault":
       throw await de_DBClusterNotFoundFaultRes(parsedOutput, context);
@@ -11304,6 +11455,38 @@ const de_DBClusterAlreadyExistsFaultRes = async (
 };
 
 /**
+ * deserializeAws_queryDBClusterAutomatedBackupNotFoundFaultRes
+ */
+const de_DBClusterAutomatedBackupNotFoundFaultRes = async (
+  parsedOutput: any,
+  context: __SerdeContext
+): Promise<DBClusterAutomatedBackupNotFoundFault> => {
+  const body = parsedOutput.body;
+  const deserialized: any = de_DBClusterAutomatedBackupNotFoundFault(body.Error, context);
+  const exception = new DBClusterAutomatedBackupNotFoundFault({
+    $metadata: deserializeMetadata(parsedOutput),
+    ...deserialized,
+  });
+  return __decorateServiceException(exception, body);
+};
+
+/**
+ * deserializeAws_queryDBClusterAutomatedBackupQuotaExceededFaultRes
+ */
+const de_DBClusterAutomatedBackupQuotaExceededFaultRes = async (
+  parsedOutput: any,
+  context: __SerdeContext
+): Promise<DBClusterAutomatedBackupQuotaExceededFault> => {
+  const body = parsedOutput.body;
+  const deserialized: any = de_DBClusterAutomatedBackupQuotaExceededFault(body.Error, context);
+  const exception = new DBClusterAutomatedBackupQuotaExceededFault({
+    $metadata: deserializeMetadata(parsedOutput),
+    ...deserialized,
+  });
+  return __decorateServiceException(exception, body);
+};
+
+/**
  * deserializeAws_queryDBClusterBacktrackNotFoundFaultRes
  */
 const de_DBClusterBacktrackNotFoundFaultRes = async (
@@ -12286,6 +12469,22 @@ const de_InvalidCustomDBEngineVersionStateFaultRes = async (
   const body = parsedOutput.body;
   const deserialized: any = de_InvalidCustomDBEngineVersionStateFault(body.Error, context);
   const exception = new InvalidCustomDBEngineVersionStateFault({
+    $metadata: deserializeMetadata(parsedOutput),
+    ...deserialized,
+  });
+  return __decorateServiceException(exception, body);
+};
+
+/**
+ * deserializeAws_queryInvalidDBClusterAutomatedBackupStateFaultRes
+ */
+const de_InvalidDBClusterAutomatedBackupStateFaultRes = async (
+  parsedOutput: any,
+  context: __SerdeContext
+): Promise<InvalidDBClusterAutomatedBackupStateFault> => {
+  const body = parsedOutput.body;
+  const deserialized: any = de_InvalidDBClusterAutomatedBackupStateFault(body.Error, context);
+  const exception = new InvalidDBClusterAutomatedBackupStateFault({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
   });
@@ -14651,6 +14850,20 @@ const se_DeleteCustomDBEngineVersionMessage = (
 };
 
 /**
+ * serializeAws_queryDeleteDBClusterAutomatedBackupMessage
+ */
+const se_DeleteDBClusterAutomatedBackupMessage = (
+  input: DeleteDBClusterAutomatedBackupMessage,
+  context: __SerdeContext
+): any => {
+  const entries: any = {};
+  if (input.DbClusterResourceId != null) {
+    entries["DbClusterResourceId"] = input.DbClusterResourceId;
+  }
+  return entries;
+};
+
+/**
  * serializeAws_queryDeleteDBClusterEndpointMessage
  */
 const se_DeleteDBClusterEndpointMessage = (input: DeleteDBClusterEndpointMessage, context: __SerdeContext): any => {
@@ -14674,6 +14887,9 @@ const se_DeleteDBClusterMessage = (input: DeleteDBClusterMessage, context: __Ser
   }
   if (input.FinalDBSnapshotIdentifier != null) {
     entries["FinalDBSnapshotIdentifier"] = input.FinalDBSnapshotIdentifier;
+  }
+  if (input.DeleteAutomatedBackups != null) {
+    entries["DeleteAutomatedBackups"] = input.DeleteAutomatedBackups;
   }
   return entries;
 };
@@ -14939,6 +15155,39 @@ const se_DescribeCertificatesMessage = (input: DescribeCertificatesMessage, cont
 };
 
 /**
+ * serializeAws_queryDescribeDBClusterAutomatedBackupsMessage
+ */
+const se_DescribeDBClusterAutomatedBackupsMessage = (
+  input: DescribeDBClusterAutomatedBackupsMessage,
+  context: __SerdeContext
+): any => {
+  const entries: any = {};
+  if (input.DbClusterResourceId != null) {
+    entries["DbClusterResourceId"] = input.DbClusterResourceId;
+  }
+  if (input.DBClusterIdentifier != null) {
+    entries["DBClusterIdentifier"] = input.DBClusterIdentifier;
+  }
+  if (input.Filters != null) {
+    const memberEntries = se_FilterList(input.Filters, context);
+    if (input.Filters?.length === 0) {
+      entries.Filters = [];
+    }
+    Object.entries(memberEntries).forEach(([key, value]) => {
+      const loc = `Filters.${key}`;
+      entries[loc] = value;
+    });
+  }
+  if (input.MaxRecords != null) {
+    entries["MaxRecords"] = input.MaxRecords;
+  }
+  if (input.Marker != null) {
+    entries["Marker"] = input.Marker;
+  }
+  return entries;
+};
+
+/**
  * serializeAws_queryDescribeDBClusterBacktracksMessage
  */
 const se_DescribeDBClusterBacktracksMessage = (
@@ -15149,6 +15398,9 @@ const se_DescribeDBClusterSnapshotsMessage = (
   }
   if (input.IncludePublic != null) {
     entries["IncludePublic"] = input.IncludePublic;
+  }
+  if (input.DbClusterResourceId != null) {
+    entries["DbClusterResourceId"] = input.DbClusterResourceId;
   }
   return entries;
 };
@@ -17974,6 +18226,9 @@ const se_RestoreDBClusterToPointInTimeMessage = (
   if (input.NetworkType != null) {
     entries["NetworkType"] = input.NetworkType;
   }
+  if (input.SourceDbClusterResourceId != null) {
+    entries["SourceDbClusterResourceId"] = input.SourceDbClusterResourceId;
+  }
   return entries;
 };
 
@@ -20028,6 +20283,152 @@ const de_DBClusterAlreadyExistsFault = (output: any, context: __SerdeContext): D
 };
 
 /**
+ * deserializeAws_queryDBClusterAutomatedBackup
+ */
+const de_DBClusterAutomatedBackup = (output: any, context: __SerdeContext): DBClusterAutomatedBackup => {
+  const contents: any = {};
+  if (output["Engine"] !== undefined) {
+    contents.Engine = __expectString(output["Engine"]);
+  }
+  if (output["VpcId"] !== undefined) {
+    contents.VpcId = __expectString(output["VpcId"]);
+  }
+  if (output["DBClusterAutomatedBackupsArn"] !== undefined) {
+    contents.DBClusterAutomatedBackupsArn = __expectString(output["DBClusterAutomatedBackupsArn"]);
+  }
+  if (output["DBClusterIdentifier"] !== undefined) {
+    contents.DBClusterIdentifier = __expectString(output["DBClusterIdentifier"]);
+  }
+  if (output["RestoreWindow"] !== undefined) {
+    contents.RestoreWindow = de_RestoreWindow(output["RestoreWindow"], context);
+  }
+  if (output["MasterUsername"] !== undefined) {
+    contents.MasterUsername = __expectString(output["MasterUsername"]);
+  }
+  if (output["DbClusterResourceId"] !== undefined) {
+    contents.DbClusterResourceId = __expectString(output["DbClusterResourceId"]);
+  }
+  if (output["Region"] !== undefined) {
+    contents.Region = __expectString(output["Region"]);
+  }
+  if (output["LicenseModel"] !== undefined) {
+    contents.LicenseModel = __expectString(output["LicenseModel"]);
+  }
+  if (output["Status"] !== undefined) {
+    contents.Status = __expectString(output["Status"]);
+  }
+  if (output["IAMDatabaseAuthenticationEnabled"] !== undefined) {
+    contents.IAMDatabaseAuthenticationEnabled = __parseBoolean(output["IAMDatabaseAuthenticationEnabled"]);
+  }
+  if (output["ClusterCreateTime"] !== undefined) {
+    contents.ClusterCreateTime = __expectNonNull(__parseRfc3339DateTimeWithOffset(output["ClusterCreateTime"]));
+  }
+  if (output["StorageEncrypted"] !== undefined) {
+    contents.StorageEncrypted = __parseBoolean(output["StorageEncrypted"]);
+  }
+  if (output["AllocatedStorage"] !== undefined) {
+    contents.AllocatedStorage = __strictParseInt32(output["AllocatedStorage"]) as number;
+  }
+  if (output["EngineVersion"] !== undefined) {
+    contents.EngineVersion = __expectString(output["EngineVersion"]);
+  }
+  if (output["DBClusterArn"] !== undefined) {
+    contents.DBClusterArn = __expectString(output["DBClusterArn"]);
+  }
+  if (output["BackupRetentionPeriod"] !== undefined) {
+    contents.BackupRetentionPeriod = __strictParseInt32(output["BackupRetentionPeriod"]) as number;
+  }
+  if (output["EngineMode"] !== undefined) {
+    contents.EngineMode = __expectString(output["EngineMode"]);
+  }
+  if (output.AvailabilityZones === "") {
+    contents.AvailabilityZones = [];
+  } else if (
+    output["AvailabilityZones"] !== undefined &&
+    output["AvailabilityZones"]["AvailabilityZone"] !== undefined
+  ) {
+    contents.AvailabilityZones = de_AvailabilityZones(
+      __getArrayIfSingleItem(output["AvailabilityZones"]["AvailabilityZone"]),
+      context
+    );
+  }
+  if (output["Port"] !== undefined) {
+    contents.Port = __strictParseInt32(output["Port"]) as number;
+  }
+  if (output["KmsKeyId"] !== undefined) {
+    contents.KmsKeyId = __expectString(output["KmsKeyId"]);
+  }
+  if (output["StorageType"] !== undefined) {
+    contents.StorageType = __expectString(output["StorageType"]);
+  }
+  if (output["Iops"] !== undefined) {
+    contents.Iops = __strictParseInt32(output["Iops"]) as number;
+  }
+  return contents;
+};
+
+/**
+ * deserializeAws_queryDBClusterAutomatedBackupList
+ */
+const de_DBClusterAutomatedBackupList = (output: any, context: __SerdeContext): DBClusterAutomatedBackup[] => {
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      return de_DBClusterAutomatedBackup(entry, context);
+    });
+};
+
+/**
+ * deserializeAws_queryDBClusterAutomatedBackupMessage
+ */
+const de_DBClusterAutomatedBackupMessage = (output: any, context: __SerdeContext): DBClusterAutomatedBackupMessage => {
+  const contents: any = {};
+  if (output["Marker"] !== undefined) {
+    contents.Marker = __expectString(output["Marker"]);
+  }
+  if (output.DBClusterAutomatedBackups === "") {
+    contents.DBClusterAutomatedBackups = [];
+  } else if (
+    output["DBClusterAutomatedBackups"] !== undefined &&
+    output["DBClusterAutomatedBackups"]["DBClusterAutomatedBackup"] !== undefined
+  ) {
+    contents.DBClusterAutomatedBackups = de_DBClusterAutomatedBackupList(
+      __getArrayIfSingleItem(output["DBClusterAutomatedBackups"]["DBClusterAutomatedBackup"]),
+      context
+    );
+  }
+  return contents;
+};
+
+/**
+ * deserializeAws_queryDBClusterAutomatedBackupNotFoundFault
+ */
+const de_DBClusterAutomatedBackupNotFoundFault = (
+  output: any,
+  context: __SerdeContext
+): DBClusterAutomatedBackupNotFoundFault => {
+  const contents: any = {};
+  if (output["message"] !== undefined) {
+    contents.message = __expectString(output["message"]);
+  }
+  return contents;
+};
+
+/**
+ * deserializeAws_queryDBClusterAutomatedBackupQuotaExceededFault
+ */
+const de_DBClusterAutomatedBackupQuotaExceededFault = (
+  output: any,
+  context: __SerdeContext
+): DBClusterAutomatedBackupQuotaExceededFault => {
+  const contents: any = {};
+  if (output["message"] !== undefined) {
+    contents.message = __expectString(output["message"]);
+  }
+  return contents;
+};
+
+/**
  * deserializeAws_queryDBClusterBacktrack
  */
 const de_DBClusterBacktrack = (output: any, context: __SerdeContext): DBClusterBacktrack => {
@@ -20585,6 +20986,9 @@ const de_DBClusterSnapshot = (output: any, context: __SerdeContext): DBClusterSn
   }
   if (output["StorageType"] !== undefined) {
     contents.StorageType = __expectString(output["StorageType"]);
+  }
+  if (output["DbClusterResourceId"] !== undefined) {
+    contents.DbClusterResourceId = __expectString(output["DbClusterResourceId"]);
   }
   return contents;
 };
@@ -22570,6 +22974,20 @@ const de_DeleteBlueGreenDeploymentResponse = (
 };
 
 /**
+ * deserializeAws_queryDeleteDBClusterAutomatedBackupResult
+ */
+const de_DeleteDBClusterAutomatedBackupResult = (
+  output: any,
+  context: __SerdeContext
+): DeleteDBClusterAutomatedBackupResult => {
+  const contents: any = {};
+  if (output["DBClusterAutomatedBackup"] !== undefined) {
+    contents.DBClusterAutomatedBackup = de_DBClusterAutomatedBackup(output["DBClusterAutomatedBackup"], context);
+  }
+  return contents;
+};
+
+/**
  * deserializeAws_queryDeleteDBClusterResult
  */
 const de_DeleteDBClusterResult = (output: any, context: __SerdeContext): DeleteDBClusterResult => {
@@ -23715,6 +24133,20 @@ const de_InvalidCustomDBEngineVersionStateFault = (
   output: any,
   context: __SerdeContext
 ): InvalidCustomDBEngineVersionStateFault => {
+  const contents: any = {};
+  if (output["message"] !== undefined) {
+    contents.message = __expectString(output["message"]);
+  }
+  return contents;
+};
+
+/**
+ * deserializeAws_queryInvalidDBClusterAutomatedBackupStateFault
+ */
+const de_InvalidDBClusterAutomatedBackupStateFault = (
+  output: any,
+  context: __SerdeContext
+): InvalidDBClusterAutomatedBackupStateFault => {
   const contents: any = {};
   if (output["message"] !== undefined) {
     contents.message = __expectString(output["message"]);

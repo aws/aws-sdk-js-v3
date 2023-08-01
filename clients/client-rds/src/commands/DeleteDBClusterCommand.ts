@@ -57,6 +57,7 @@ export interface DeleteDBClusterCommandOutput extends DeleteDBClusterResult, __M
  *   DBClusterIdentifier: "STRING_VALUE", // required
  *   SkipFinalSnapshot: true || false,
  *   FinalDBSnapshotIdentifier: "STRING_VALUE",
+ *   DeleteAutomatedBackups: true || false,
  * };
  * const command = new DeleteDBClusterCommand(input);
  * const response = await client.send(command);
@@ -224,6 +225,10 @@ export interface DeleteDBClusterCommandOutput extends DeleteDBClusterResult, __M
  * @see {@link DeleteDBClusterCommandInput} for command's `input` shape.
  * @see {@link DeleteDBClusterCommandOutput} for command's `response` shape.
  * @see {@link RDSClientResolvedConfig | config} for RDSClient's `config` shape.
+ *
+ * @throws {@link DBClusterAutomatedBackupQuotaExceededFault} (client fault)
+ *  <p>The quota for retained automated backups was exceeded. This prevents you from retaining any additional automated
+ *             backups. The retained automated backups quota is the same as your DB cluster quota.</p>
  *
  * @throws {@link DBClusterNotFoundFault} (client fault)
  *  <p>

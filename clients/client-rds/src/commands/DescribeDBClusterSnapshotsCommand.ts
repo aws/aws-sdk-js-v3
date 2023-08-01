@@ -65,6 +65,7 @@ export interface DescribeDBClusterSnapshotsCommandOutput extends DBClusterSnapsh
  *   Marker: "STRING_VALUE",
  *   IncludeShared: true || false,
  *   IncludePublic: true || false,
+ *   DbClusterResourceId: "STRING_VALUE",
  * };
  * const command = new DescribeDBClusterSnapshotsCommand(input);
  * const response = await client.send(command);
@@ -103,6 +104,7 @@ export interface DescribeDBClusterSnapshotsCommandOutput extends DBClusterSnapsh
  * //       ],
  * //       DBSystemId: "STRING_VALUE",
  * //       StorageType: "STRING_VALUE",
+ * //       DbClusterResourceId: "STRING_VALUE",
  * //     },
  * //   ],
  * // };
