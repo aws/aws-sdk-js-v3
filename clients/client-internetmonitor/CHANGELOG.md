@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.382.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.381.0...v3.382.0) (2023-08-01)
+
+
+### Features
+
+* **client-internetmonitor:** This release adds a new feature for Amazon CloudWatch Internet Monitor that enables customers to set custom thresholds, for performance and availability drops, for impact limited to a single city-network to trigger creation of a health event. ([3eca91f](https://github.com/aws/aws-sdk-js-v3/commit/3eca91f54b077591ac6868bc155336bc062564c7))
+
+
+
+
+
 ## [3.379.1](https://github.com/aws/aws-sdk-js-v3/compare/v3.379.0...v3.379.1) (2023-07-28)
 
 **Note:** Version bump only for package @aws-sdk/client-internetmonitor

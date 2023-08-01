@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.382.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.381.0...v3.382.0) (2023-08-01)
+
+
+### Features
+
+* **client-polly:** Amazon Polly adds new French Belgian voice - Isabelle. Isabelle is available as Neural voice only. ([913c968](https://github.com/aws/aws-sdk-js-v3/commit/913c968abb15fe012937f338a73e667e648b3d7f))
+
+
+
+
+
 ## [3.379.1](https://github.com/aws/aws-sdk-js-v3/compare/v3.379.0...v3.379.1) (2023-07-28)
 
 **Note:** Version bump only for package @aws-sdk/client-polly

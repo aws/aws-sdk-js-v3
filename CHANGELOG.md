@@ -3,6 +3,23 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.382.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.381.0...v3.382.0) (2023-08-01)
+
+
+### Features
+
+* **client-batch:** This release adds support for price capacity optimized allocation strategy for Spot Instances. ([be1dfe2](https://github.com/aws/aws-sdk-js-v3/commit/be1dfe23b1f01717e966781aa7a08ec1e6546470))
+* **client-database-migration-service:** Adding new API describe-engine-versions which provides information about the lifecycle of a replication instance's version. ([dac6d12](https://github.com/aws/aws-sdk-js-v3/commit/dac6d124892a3de86fcb684941d2a4bdbaa90614))
+* **client-internetmonitor:** This release adds a new feature for Amazon CloudWatch Internet Monitor that enables customers to set custom thresholds, for performance and availability drops, for impact limited to a single city-network to trigger creation of a health event. ([3eca91f](https://github.com/aws/aws-sdk-js-v3/commit/3eca91f54b077591ac6868bc155336bc062564c7))
+* **client-medialive:** AWS Elemental Link devices now report their Availability Zone. Link devices now support the ability to change their Availability Zone. ([c6e9083](https://github.com/aws/aws-sdk-js-v3/commit/c6e9083c4adc688ed0033a7ad22649eee0d661c0))
+* **client-polly:** Amazon Polly adds new French Belgian voice - Isabelle. Isabelle is available as Neural voice only. ([913c968](https://github.com/aws/aws-sdk-js-v3/commit/913c968abb15fe012937f338a73e667e648b3d7f))
+* **client-rds:** Added support for deleted clusters PiTR. ([ee7aaf6](https://github.com/aws/aws-sdk-js-v3/commit/ee7aaf6b12191346c61546f0d8c95d0099635793))
+* **client-sagemaker:** Add Stairs TrafficPattern and FlatInvocations to RecommendationJobStoppingConditions ([aae6569](https://github.com/aws/aws-sdk-js-v3/commit/aae65693a3668ededc6e42a58e964dd212926d44))
+
+
+
+
+
 # [3.381.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.380.0...v3.381.0) (2023-07-31)
 
 

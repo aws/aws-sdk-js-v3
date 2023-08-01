@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.382.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.381.0...v3.382.0) (2023-08-01)
+
+
+### Features
+
+* **client-rds:** Added support for deleted clusters PiTR. ([ee7aaf6](https://github.com/aws/aws-sdk-js-v3/commit/ee7aaf6b12191346c61546f0d8c95d0099635793))
+
+
+
+
+
 # [3.381.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.380.0...v3.381.0) (2023-07-31)
 
 

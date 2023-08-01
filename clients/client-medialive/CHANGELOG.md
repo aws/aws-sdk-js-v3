@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.382.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.381.0...v3.382.0) (2023-08-01)
+
+
+### Features
+
+* **client-medialive:** AWS Elemental Link devices now report their Availability Zone. Link devices now support the ability to change their Availability Zone. ([c6e9083](https://github.com/aws/aws-sdk-js-v3/commit/c6e9083c4adc688ed0033a7ad22649eee0d661c0))
+
+
+
+
+
 ## [3.379.1](https://github.com/aws/aws-sdk-js-v3/compare/v3.379.0...v3.379.1) (2023-07-28)
 
 **Note:** Version bump only for package @aws-sdk/client-medialive
