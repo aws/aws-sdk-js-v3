@@ -450,6 +450,14 @@ DescribeEndpointTypes
 </details>
 <details>
 <summary>
+DescribeEngineVersions
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-database-migration-service/classes/describeengineversionscommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-database-migration-service/interfaces/describeengineversionscommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-database-migration-service/interfaces/describeengineversionscommandoutput.html)
+
+</details>
+<details>
+<summary>
 DescribeEventCategories
 </summary>
 

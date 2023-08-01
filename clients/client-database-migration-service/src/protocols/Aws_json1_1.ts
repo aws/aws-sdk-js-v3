@@ -121,6 +121,10 @@ import {
   DescribeEndpointTypesCommandOutput,
 } from "../commands/DescribeEndpointTypesCommand";
 import {
+  DescribeEngineVersionsCommandInput,
+  DescribeEngineVersionsCommandOutput,
+} from "../commands/DescribeEngineVersionsCommand";
+import {
   DescribeEventCategoriesCommandInput,
   DescribeEventCategoriesCommandOutput,
 } from "../commands/DescribeEventCategoriesCommand";
@@ -335,6 +339,8 @@ import {
   DescribeEndpointSettingsMessage,
   DescribeEndpointsMessage,
   DescribeEndpointTypesMessage,
+  DescribeEngineVersionsMessage,
+  DescribeEngineVersionsResponse,
   DescribeEventCategoriesMessage,
   DescribeEventsMessage,
   DescribeEventsResponse,
@@ -378,6 +384,7 @@ import {
   DocDbSettings,
   DynamoDbSettings,
   ElasticsearchSettings,
+  EngineVersion,
   Event,
   Filter,
   GcpMySQLSettings,
@@ -852,6 +859,19 @@ export const se_DescribeEndpointTypesCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("DescribeEndpointTypes");
+  let body: any;
+  body = JSON.stringify(_json(input));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+/**
+ * serializeAws_json1_1DescribeEngineVersionsCommand
+ */
+export const se_DescribeEngineVersionsCommand = async (
+  input: DescribeEngineVersionsCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = sharedHeaders("DescribeEngineVersions");
   let body: any;
   body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -2988,6 +3008,46 @@ const de_DescribeEndpointTypesCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeEndpointTypesCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  const parsedBody = parsedOutput.body;
+  return throwDefaultError({
+    output,
+    parsedBody,
+    errorCode,
+  });
+};
+
+/**
+ * deserializeAws_json1_1DescribeEngineVersionsCommand
+ */
+export const de_DescribeEngineVersionsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeEngineVersionsCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_DescribeEngineVersionsCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_DescribeEngineVersionsResponse(data, context);
+  const response: DescribeEngineVersionsCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1DescribeEngineVersionsCommandError
+ */
+const de_DescribeEngineVersionsCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeEngineVersionsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseErrorBody(output.body, context),
@@ -5922,6 +5982,8 @@ const se_CreateReplicationTaskMessage = (input: CreateReplicationTaskMessage, co
 
 // se_DescribeEndpointTypesMessage omitted.
 
+// se_DescribeEngineVersionsMessage omitted.
+
 // se_DescribeEventCategoriesMessage omitted.
 
 /**
@@ -6180,6 +6242,8 @@ const de_ApplyPendingMaintenanceActionResponse = (
 
 // de_AvailabilityZonesList omitted.
 
+// de_AvailableUpgradesList omitted.
+
 // de_BatchStartRecommendationsErrorEntry omitted.
 
 // de_BatchStartRecommendationsErrorEntryList omitted.
@@ -6374,6 +6438,16 @@ const de_DescribeCertificatesResponse = (output: any, context: __SerdeContext): 
 // de_DescribeEndpointsResponse omitted.
 
 // de_DescribeEndpointTypesResponse omitted.
+
+/**
+ * deserializeAws_json1_1DescribeEngineVersionsResponse
+ */
+const de_DescribeEngineVersionsResponse = (output: any, context: __SerdeContext): DescribeEngineVersionsResponse => {
+  return take(output, {
+    EngineVersions: (_: any) => de_EngineVersionList(_, context),
+    Marker: __expectString,
+  }) as any;
+};
 
 // de_DescribeEventCategoriesResponse omitted.
 
@@ -6586,6 +6660,34 @@ const de_DescribeTableStatisticsResponse = (output: any, context: __SerdeContext
 // de_EndpointSettingEnumValues omitted.
 
 // de_EndpointSettingsList omitted.
+
+/**
+ * deserializeAws_json1_1EngineVersion
+ */
+const de_EngineVersion = (output: any, context: __SerdeContext): EngineVersion => {
+  return take(output, {
+    AutoUpgradeDate: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    AvailableUpgrades: _json,
+    DeprecationDate: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    ForceUpgradeDate: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    LaunchDate: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    Lifecycle: __expectString,
+    ReleaseStatus: __expectString,
+    Version: __expectString,
+  }) as any;
+};
+
+/**
+ * deserializeAws_json1_1EngineVersionList
+ */
+const de_EngineVersionList = (output: any, context: __SerdeContext): EngineVersion[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      return de_EngineVersion(entry, context);
+    });
+  return retVal;
+};
 
 /**
  * deserializeAws_json1_1Event

@@ -2620,9 +2620,7 @@ export interface PostgreSQLSettings {
 
   /**
    * @public
-   * <p>Specifies whether to use default or custom replication behavior for
-   *          PostgreSQL-compatible endpoints. You can use this setting to specify replication
-   *          behavior for endpoints that require additional configuration, such as Babelfish endpoints.</p>
+   * <p>Specifies the default behavior of the replication's handling of PostgreSQL- compatible endpoints that require some additional configuration, such as Babelfish endpoints.</p>
    */
   DatabaseMode?: DatabaseMode | string;
 
@@ -7455,6 +7453,114 @@ export interface DescribeEndpointTypesResponse {
 
 /**
  * @public
+ */
+export interface DescribeEngineVersionsMessage {
+  /**
+   * @public
+   * <p>The maximum number of records to include in the response. If more records exist than the specified
+   *          <code>MaxRecords</code> value, a pagination token called a marker is included in the response so that
+   *          the remaining results can be retrieved. </p>
+   */
+  MaxRecords?: number;
+
+  /**
+   * @public
+   * <p>An optional pagination token provided by a previous request. If this parameter is specified,
+   *          the response includes only records beyond the marker, up to the value specified by <code>MaxRecords</code>. </p>
+   */
+  Marker?: string;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const ReleaseStatusValues = {
+  BETA: "beta",
+  PROD: "prod",
+} as const;
+
+/**
+ * @public
+ */
+export type ReleaseStatusValues = (typeof ReleaseStatusValues)[keyof typeof ReleaseStatusValues];
+
+/**
+ * @public
+ * <p>Provides information about a replication instance version.</p>
+ */
+export interface EngineVersion {
+  /**
+   * @public
+   * <p>The version number of the replication instance.</p>
+   */
+  Version?: string;
+
+  /**
+   * @public
+   * <p>The lifecycle status of the replication instance version. Valid values are <code>DEPRECATED</code>,
+   *          <code>DEFAULT_VERSION</code>, and <code>ACTIVE</code>.</p>
+   */
+  Lifecycle?: string;
+
+  /**
+   * @public
+   * <p>The release status of the replication instance version.</p>
+   */
+  ReleaseStatus?: ReleaseStatusValues | string;
+
+  /**
+   * @public
+   * <p>The date when the replication instance version became publicly available.</p>
+   */
+  LaunchDate?: Date;
+
+  /**
+   * @public
+   * <p>The date when the replication instance will be automatically upgraded. This setting only applies
+   *       if the <code>auto-minor-version</code> setting is enabled.</p>
+   */
+  AutoUpgradeDate?: Date;
+
+  /**
+   * @public
+   * <p>The date when the replication instance version will be deprecated and can no longer be requested.</p>
+   */
+  DeprecationDate?: Date;
+
+  /**
+   * @public
+   * <p>The date when the replication instance will have a version upgrade forced.</p>
+   */
+  ForceUpgradeDate?: Date;
+
+  /**
+   * @public
+   * <p>The list of valid replication instance versions that you can upgrade to.</p>
+   */
+  AvailableUpgrades?: string[];
+}
+
+/**
+ * @public
+ */
+export interface DescribeEngineVersionsResponse {
+  /**
+   * @public
+   * <p>Returned <code>EngineVersion</code> objects that describe the replication instance engine versions used in the project.</p>
+   */
+  EngineVersions?: EngineVersion[];
+
+  /**
+   * @public
+   * <p>An optional pagination token provided by a previous request. If this parameter is specified, the response
+   *          includes only records beyond the marker, up to the value specified by <code>MaxRecords</code>. </p>
+   */
+  Marker?: string;
+}
+
+/**
+ * @public
  * <p></p>
  */
 export interface DescribeEventCategoriesMessage {
@@ -8580,20 +8686,6 @@ export interface DescribeOrderableReplicationInstancesMessage {
    */
   Marker?: string;
 }
-
-/**
- * @public
- * @enum
- */
-export const ReleaseStatusValues = {
-  BETA: "beta",
-  PROD: "prod",
-} as const;
-
-/**
- * @public
- */
-export type ReleaseStatusValues = (typeof ReleaseStatusValues)[keyof typeof ReleaseStatusValues];
 
 /**
  * @public

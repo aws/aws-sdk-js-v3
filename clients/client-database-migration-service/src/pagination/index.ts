@@ -10,15 +10,16 @@ export * from "./DescribeEndpointTypesPaginator";
 
 export * from "./DescribeEndpointsPaginator";
 
+export * from "./DescribeEngineVersionsPaginator";
+
 export * from "./DescribeEventSubscriptionsPaginator";
 
 export * from "./DescribeEventsPaginator";
 
 export * from "./DescribeFleetAdvisorCollectorsPaginator";
-
-export * from "./DescribeFleetAdvisorDatabasesPaginator";
 // smithy-typescript generated code
 export * from "./Interfaces";
+export * from "./DescribeFleetAdvisorDatabasesPaginator";
 export * from "./DescribeFleetAdvisorLsaAnalysisPaginator";
 export * from "./DescribeFleetAdvisorSchemaObjectSummaryPaginator";
 export * from "./DescribeFleetAdvisorSchemasPaginator";

@@ -148,6 +148,11 @@ import {
   DescribeEndpointTypesCommandOutput,
 } from "./commands/DescribeEndpointTypesCommand";
 import {
+  DescribeEngineVersionsCommand,
+  DescribeEngineVersionsCommandInput,
+  DescribeEngineVersionsCommandOutput,
+} from "./commands/DescribeEngineVersionsCommand";
+import {
   DescribeEventCategoriesCommand,
   DescribeEventCategoriesCommandInput,
   DescribeEventCategoriesCommandOutput,
@@ -424,6 +429,7 @@ const commands = {
   DescribeEndpointsCommand,
   DescribeEndpointSettingsCommand,
   DescribeEndpointTypesCommand,
+  DescribeEngineVersionsCommand,
   DescribeEventCategoriesCommand,
   DescribeEventsCommand,
   DescribeEventSubscriptionsCommand,
@@ -961,6 +967,23 @@ export interface DatabaseMigrationService {
     args: DescribeEndpointTypesCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: DescribeEndpointTypesCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DescribeEngineVersionsCommand}
+   */
+  describeEngineVersions(
+    args: DescribeEngineVersionsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DescribeEngineVersionsCommandOutput>;
+  describeEngineVersions(
+    args: DescribeEngineVersionsCommandInput,
+    cb: (err: any, data?: DescribeEngineVersionsCommandOutput) => void
+  ): void;
+  describeEngineVersions(
+    args: DescribeEngineVersionsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DescribeEngineVersionsCommandOutput) => void
   ): void;
 
   /**

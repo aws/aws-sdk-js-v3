@@ -148,6 +148,10 @@ import {
   DescribeEndpointTypesCommandOutput,
 } from "./commands/DescribeEndpointTypesCommand";
 import {
+  DescribeEngineVersionsCommandInput,
+  DescribeEngineVersionsCommandOutput,
+} from "./commands/DescribeEngineVersionsCommand";
+import {
   DescribeEventCategoriesCommandInput,
   DescribeEventCategoriesCommandOutput,
 } from "./commands/DescribeEventCategoriesCommand";
@@ -359,6 +363,7 @@ export type ServiceInputTypes =
   | DescribeEndpointSettingsCommandInput
   | DescribeEndpointTypesCommandInput
   | DescribeEndpointsCommandInput
+  | DescribeEngineVersionsCommandInput
   | DescribeEventCategoriesCommandInput
   | DescribeEventSubscriptionsCommandInput
   | DescribeEventsCommandInput
@@ -442,6 +447,7 @@ export type ServiceOutputTypes =
   | DescribeEndpointSettingsCommandOutput
   | DescribeEndpointTypesCommandOutput
   | DescribeEndpointsCommandOutput
+  | DescribeEngineVersionsCommandOutput
   | DescribeEventCategoriesCommandOutput
   | DescribeEventSubscriptionsCommandOutput
   | DescribeEventsCommandOutput

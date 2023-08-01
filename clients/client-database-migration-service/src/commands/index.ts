@@ -28,6 +28,7 @@ export * from "./DescribeConnectionsCommand";
 export * from "./DescribeEndpointSettingsCommand";
 export * from "./DescribeEndpointTypesCommand";
 export * from "./DescribeEndpointsCommand";
+export * from "./DescribeEngineVersionsCommand";
 export * from "./DescribeEventCategoriesCommand";
 export * from "./DescribeEventSubscriptionsCommand";
 export * from "./DescribeEventsCommand";
