@@ -33,11 +33,13 @@ export class AccessDeniedException extends __BaseException {
  */
 export interface PixelAnomaly {
   /**
+   * @public
    * <p>The percentage area of the image that the anomaly type covers.</p>
    */
   TotalPercentageArea?: number;
 
   /**
+   * @public
    * <p>A hex color value for the mask that covers an anomaly type. Each anomaly type has
    *          a different mask color. The color maps to the color of the anomaly type used in the
    *          training dataset. </p>
@@ -52,6 +54,7 @@ export interface PixelAnomaly {
  */
 export interface Anomaly {
   /**
+   * @public
    * <p>The name of an anomaly type found in an image.
    *          <code>Name</code> maps to an anomaly type in the training dataset, apart from the anomaly type <code>background</code>.
    *       The service automatically inserts the <code>background</code> anomaly type into the response from <code>DetectAnomalies</code>. </p>
@@ -59,6 +62,7 @@ export interface Anomaly {
   Name?: string;
 
   /**
+   * @public
    * <p>Information about the pixel mask that covers an anomaly type.</p>
    */
   PixelAnomaly?: PixelAnomaly;
@@ -90,11 +94,13 @@ export class ConflictException extends __BaseException {
   readonly $fault: "client" = "client";
   Message: string | undefined;
   /**
+   * @public
    * <p>The ID of the resource.</p>
    */
   ResourceId: string | undefined;
 
   /**
+   * @public
    * <p>The type of the resource.</p>
    */
   ResourceType: ResourceType | string | undefined;
@@ -120,16 +126,19 @@ export class ConflictException extends __BaseException {
  */
 export interface InputS3Object {
   /**
+   * @public
    * <p>The Amazon S3 bucket that contains the manifest.</p>
    */
   Bucket: string | undefined;
 
   /**
+   * @public
    * <p>The name and location of the manifest file withiin the bucket.</p>
    */
   Key: string | undefined;
 
   /**
+   * @public
    * <p>The version ID of the bucket.</p>
    */
   VersionId?: string;
@@ -142,6 +151,7 @@ export interface InputS3Object {
  */
 export interface DatasetGroundTruthManifest {
   /**
+   * @public
    * <p>The S3 bucket location for the manifest file.</p>
    */
   S3Object?: InputS3Object;
@@ -153,6 +163,7 @@ export interface DatasetGroundTruthManifest {
  */
 export interface DatasetSource {
   /**
+   * @public
    * <p>Location information for the manifest file.</p>
    */
   GroundTruthManifest?: DatasetGroundTruthManifest;
@@ -163,17 +174,20 @@ export interface DatasetSource {
  */
 export interface CreateDatasetRequest {
   /**
+   * @public
    * <p>The name of the project in which you want to create a dataset.</p>
    */
   ProjectName: string | undefined;
 
   /**
+   * @public
    * <p>The type of the dataset. Specify <code>train</code> for a training dataset.
    *       Specify <code>test</code> for a test dataset.</p>
    */
   DatasetType: string | undefined;
 
   /**
+   * @public
    * <p>The location of the manifest file that Amazon Lookout for Vision uses to create the dataset.</p>
    *          <p>If you don't specify <code>DatasetSource</code>, an empty dataset is created and the operation
    *       synchronously returns. Later, you can add JSON Lines by calling <a>UpdateDatasetEntries</a>.
@@ -186,6 +200,7 @@ export interface CreateDatasetRequest {
   DatasetSource?: DatasetSource;
 
   /**
+   * @public
    * <p>ClientToken is an idempotency token that ensures a call to <code>CreateDataset</code>
    *       completes only once.  You choose the value to pass. For example, An issue might prevent you
    *       from getting a response from <code>CreateDataset</code>.
@@ -231,21 +246,25 @@ export type DatasetStatus = (typeof DatasetStatus)[keyof typeof DatasetStatus];
  */
 export interface DatasetMetadata {
   /**
+   * @public
    * <p>The type of the dataset.</p>
    */
   DatasetType?: string;
 
   /**
+   * @public
    * <p>The Unix timestamp for the date and time that the dataset was created. </p>
    */
   CreationTimestamp?: Date;
 
   /**
+   * @public
    * <p>The status for the dataset.</p>
    */
   Status?: DatasetStatus | string;
 
   /**
+   * @public
    * <p>The status message for the dataset.</p>
    */
   StatusMessage?: string;
@@ -256,6 +275,7 @@ export interface DatasetMetadata {
  */
 export interface CreateDatasetResponse {
   /**
+   * @public
    * <p>Information about the dataset.</p>
    */
   DatasetMetadata?: DatasetMetadata;
@@ -270,6 +290,7 @@ export class InternalServerException extends __BaseException {
   readonly $fault: "server" = "server";
   Message: string | undefined;
   /**
+   * @public
    * <p>The period of time, in seconds, before the operation can be retried.</p>
    */
   RetryAfterSeconds?: number;
@@ -297,11 +318,13 @@ export class ResourceNotFoundException extends __BaseException {
   readonly $fault: "client" = "client";
   Message: string | undefined;
   /**
+   * @public
    * <p>The ID of the resource.</p>
    */
   ResourceId: string | undefined;
 
   /**
+   * @public
    * <p>The type of the resource.</p>
    */
   ResourceType: ResourceType | string | undefined;
@@ -331,21 +354,25 @@ export class ServiceQuotaExceededException extends __BaseException {
   readonly $fault: "client" = "client";
   Message: string | undefined;
   /**
+   * @public
    * <p>The ID of the resource.</p>
    */
   ResourceId?: string;
 
   /**
+   * @public
    * <p>The type of the resource.</p>
    */
   ResourceType?: ResourceType | string;
 
   /**
+   * @public
    * <p>The quota code. </p>
    */
   QuotaCode: string | undefined;
 
   /**
+   * @public
    * <p>The service code. </p>
    */
   ServiceCode: string | undefined;
@@ -376,16 +403,19 @@ export class ThrottlingException extends __BaseException {
   readonly $fault: "client" = "client";
   Message: string | undefined;
   /**
+   * @public
    * <p>The quota code. </p>
    */
   QuotaCode?: string;
 
   /**
+   * @public
    * <p>The service code. </p>
    */
   ServiceCode?: string;
 
   /**
+   * @public
    * <p>The period of time, in seconds, before the operation can be retried. </p>
    */
   RetryAfterSeconds?: number;
@@ -435,6 +465,7 @@ export class ValidationException extends __BaseException {
  */
 export interface S3Location {
   /**
+   * @public
    * <p>The S3 bucket that contains the training or model packaging job output. If you are training a model,
    *          the bucket must in your AWS account. If you use an S3 bucket for a model packaging job,
    *       the S3 bucket must be in the same AWS Region and AWS account in which you use AWS IoT Greengrass.</p>
@@ -442,6 +473,7 @@ export interface S3Location {
   Bucket: string | undefined;
 
   /**
+   * @public
    * <p>The path of the folder, within the S3 bucket, that contains the output.</p>
    */
   Prefix?: string;
@@ -453,6 +485,7 @@ export interface S3Location {
  */
 export interface OutputConfig {
   /**
+   * @public
    * <p>The S3 location for the output.</p>
    */
   S3Location: S3Location | undefined;
@@ -464,11 +497,13 @@ export interface OutputConfig {
  */
 export interface Tag {
   /**
+   * @public
    * <p>The key of the tag that is attached to the specified model.</p>
    */
   Key: string | undefined;
 
   /**
+   * @public
    * <p>The value of the tag that is attached to the specified model.</p>
    */
   Value: string | undefined;
@@ -479,16 +514,19 @@ export interface Tag {
  */
 export interface CreateModelRequest {
   /**
+   * @public
    * <p>The name of the project in which you want to create a model version.</p>
    */
   ProjectName: string | undefined;
 
   /**
+   * @public
    * <p>A description for the version of the model.</p>
    */
   Description?: string;
 
   /**
+   * @public
    * <p>ClientToken is an idempotency token that ensures a call to <code>CreateModel</code>
    *       completes only once.  You choose the value to pass. For example, An issue
    *       might prevent you from getting a response from <code>CreateModel</code>.
@@ -504,11 +542,13 @@ export interface CreateModelRequest {
   ClientToken?: string;
 
   /**
+   * @public
    * <p>The location where Amazon Lookout for Vision saves the training results.</p>
    */
   OutputConfig: OutputConfig | undefined;
 
   /**
+   * @public
    * <p>The identifier for your AWS KMS key.
    *          The key is used to encrypt training and test images copied into the service for model training. Your
    *          source images are unaffected.
@@ -517,6 +557,7 @@ export interface CreateModelRequest {
   KmsKeyId?: string;
 
   /**
+   * @public
    * <p>A set of tags (key-value pairs) that you want to attach to the model.</p>
    */
   Tags?: Tag[];
@@ -528,16 +569,19 @@ export interface CreateModelRequest {
  */
 export interface ModelPerformance {
   /**
+   * @public
    * <p>The overall F1 score metric for the trained model.</p>
    */
   F1Score?: number;
 
   /**
+   * @public
    * <p>The overall recall metric value for the trained model. </p>
    */
   Recall?: number;
 
   /**
+   * @public
    * <p>The overall precision metric value for the trained model.</p>
    */
   Precision?: number;
@@ -570,36 +614,43 @@ export type ModelStatus = (typeof ModelStatus)[keyof typeof ModelStatus];
  */
 export interface ModelMetadata {
   /**
+   * @public
    * <p>The unix timestamp for the date and time that the model was created. </p>
    */
   CreationTimestamp?: Date;
 
   /**
+   * @public
    * <p>The version of the model.</p>
    */
   ModelVersion?: string;
 
   /**
+   * @public
    * <p>The Amazon Resource Name (ARN) of the model.</p>
    */
   ModelArn?: string;
 
   /**
+   * @public
    * <p>The description for the model.</p>
    */
   Description?: string;
 
   /**
+   * @public
    * <p>The status of the model.</p>
    */
   Status?: ModelStatus | string;
 
   /**
+   * @public
    * <p>The status message for the model.</p>
    */
   StatusMessage?: string;
 
   /**
+   * @public
    * <p>Performance metrics for the model. Not available until training has successfully completed.</p>
    */
   Performance?: ModelPerformance;
@@ -610,6 +661,7 @@ export interface ModelMetadata {
  */
 export interface CreateModelResponse {
   /**
+   * @public
    * <p>The response from a call to <code>CreateModel</code>.</p>
    */
   ModelMetadata?: ModelMetadata;
@@ -620,11 +672,13 @@ export interface CreateModelResponse {
  */
 export interface CreateProjectRequest {
   /**
+   * @public
    * <p>The name for the project.</p>
    */
   ProjectName: string | undefined;
 
   /**
+   * @public
    * <p>ClientToken is an idempotency token that ensures a call to <code>CreateProject</code>
    *       completes only once.  You choose the value to pass. For example, An issue might prevent you from
    *       getting a response from <code>CreateProject</code>.
@@ -647,16 +701,19 @@ export interface CreateProjectRequest {
  */
 export interface ProjectMetadata {
   /**
+   * @public
    * <p>The Amazon Resource Name (ARN) of the project.</p>
    */
   ProjectArn?: string;
 
   /**
+   * @public
    * <p>The name of the project.</p>
    */
   ProjectName?: string;
 
   /**
+   * @public
    * <p>The unix timestamp for the date and time that the project was created. </p>
    */
   CreationTimestamp?: Date;
@@ -667,6 +724,7 @@ export interface ProjectMetadata {
  */
 export interface CreateProjectResponse {
   /**
+   * @public
    * <p>Information about the project.</p>
    */
   ProjectMetadata?: ProjectMetadata;
@@ -678,21 +736,25 @@ export interface CreateProjectResponse {
  */
 export interface DatasetImageStats {
   /**
+   * @public
    * <p>The total number of images in the dataset.</p>
    */
   Total?: number;
 
   /**
+   * @public
    * <p>The total number of labeled images.</p>
    */
   Labeled?: number;
 
   /**
+   * @public
    * <p>The total number of images labeled as normal.</p>
    */
   Normal?: number;
 
   /**
+   * @public
    * <p>the total number of images labeled as an anomaly.</p>
    */
   Anomaly?: number;
@@ -704,37 +766,44 @@ export interface DatasetImageStats {
  */
 export interface DatasetDescription {
   /**
+   * @public
    * <p>The name of the project that contains the dataset.</p>
    */
   ProjectName?: string;
 
   /**
+   * @public
    * <p>The type of the dataset. The value <code>train</code> represents a training dataset or single dataset project.
    *       The value <code>test</code> represents a test dataset.</p>
    */
   DatasetType?: string;
 
   /**
+   * @public
    * <p>The Unix timestamp for the time and date that the dataset was created.</p>
    */
   CreationTimestamp?: Date;
 
   /**
+   * @public
    * <p>The Unix timestamp for the date and time that the dataset was last updated.</p>
    */
   LastUpdatedTimestamp?: Date;
 
   /**
+   * @public
    * <p>The status of the dataset.</p>
    */
   Status?: DatasetStatus | string;
 
   /**
+   * @public
    * <p>The status message for the dataset. </p>
    */
   StatusMessage?: string;
 
   /**
+   * @public
    * <p>Statistics about the images in a dataset.</p>
    */
   ImageStats?: DatasetImageStats;
@@ -745,11 +814,13 @@ export interface DatasetDescription {
  */
 export interface DeleteDatasetRequest {
   /**
+   * @public
    * <p>The name of the project that contains the dataset that you want to delete.</p>
    */
   ProjectName: string | undefined;
 
   /**
+   * @public
    * <p>The type of the dataset to delete. Specify <code>train</code> to delete the training dataset.
    *       Specify <code>test</code> to delete the test dataset. To delete the dataset in a single dataset project,
    *          specify <code>train</code>.</p>
@@ -757,6 +828,7 @@ export interface DeleteDatasetRequest {
   DatasetType: string | undefined;
 
   /**
+   * @public
    * <p>ClientToken is an idempotency token that ensures a call to <code>DeleteDataset</code>
    *       completes only once.  You choose the value to pass. For example, An issue might prevent you from getting a response from <code>DeleteDataset</code>.
    *       In this case, safely retry your call
@@ -781,16 +853,19 @@ export interface DeleteDatasetResponse {}
  */
 export interface DeleteModelRequest {
   /**
+   * @public
    * <p>The name of the project that contains the model that you want to delete.</p>
    */
   ProjectName: string | undefined;
 
   /**
+   * @public
    * <p>The version of the model that you want to delete.</p>
    */
   ModelVersion: string | undefined;
 
   /**
+   * @public
    * <p>ClientToken is an idempotency token that ensures a call to <code>DeleteModel</code>
    *       completes only once.  You choose the value to pass. For example, an issue might prevent
    *       you from getting a response from <code>DeleteModel</code>.
@@ -812,6 +887,7 @@ export interface DeleteModelRequest {
  */
 export interface DeleteModelResponse {
   /**
+   * @public
    * <p>The Amazon Resource Name (ARN) of the model that was deleted.</p>
    */
   ModelArn?: string;
@@ -822,11 +898,13 @@ export interface DeleteModelResponse {
  */
 export interface DeleteProjectRequest {
   /**
+   * @public
    * <p>The name of the project to delete.</p>
    */
   ProjectName: string | undefined;
 
   /**
+   * @public
    * <p>ClientToken is an idempotency token that ensures a call to <code>DeleteProject</code>
    *          completes only once.  You choose the value to pass. For example, An issue
    *          might prevent you from getting a response from <code>DeleteProject</code>.
@@ -847,6 +925,7 @@ export interface DeleteProjectRequest {
  */
 export interface DeleteProjectResponse {
   /**
+   * @public
    * <p>The Amazon Resource Name (ARN) of the project that was deleted.</p>
    */
   ProjectArn?: string;
@@ -857,11 +936,13 @@ export interface DeleteProjectResponse {
  */
 export interface DescribeDatasetRequest {
   /**
+   * @public
    * <p>The name of the project that contains the dataset that you want to describe.</p>
    */
   ProjectName: string | undefined;
 
   /**
+   * @public
    * <p>The type of the dataset to describe. Specify <code>train</code> to describe the
    *       training dataset. Specify <code>test</code> to describe the test dataset.
    *       If you have a single dataset project, specify <code>train</code>
@@ -875,6 +956,7 @@ export interface DescribeDatasetRequest {
  */
 export interface DescribeDatasetResponse {
   /**
+   * @public
    * <p>The description of the requested dataset. </p>
    */
   DatasetDescription?: DatasetDescription;
@@ -885,11 +967,13 @@ export interface DescribeDatasetResponse {
  */
 export interface DescribeModelRequest {
   /**
+   * @public
    * <p>The project that contains the version of a model that you want to describe.</p>
    */
   ProjectName: string | undefined;
 
   /**
+   * @public
    * <p>The version of the model that you want to describe.</p>
    */
   ModelVersion: string | undefined;
@@ -901,11 +985,13 @@ export interface DescribeModelRequest {
  */
 export interface OutputS3Object {
   /**
+   * @public
    * <p>The bucket that contains the training output.</p>
    */
   Bucket: string | undefined;
 
   /**
+   * @public
    * <p>The location of the training output in the bucket.</p>
    */
   Key: string | undefined;
@@ -917,68 +1003,81 @@ export interface OutputS3Object {
  */
 export interface ModelDescription {
   /**
+   * @public
    * <p>The version of the model</p>
    */
   ModelVersion?: string;
 
   /**
+   * @public
    * <p>The Amazon Resource Name (ARN) of the model.</p>
    */
   ModelArn?: string;
 
   /**
+   * @public
    * <p>The unix timestamp for the date and time that the model was created. </p>
    */
   CreationTimestamp?: Date;
 
   /**
+   * @public
    * <p>The description for the model.</p>
    */
   Description?: string;
 
   /**
+   * @public
    * <p>The status of the model.</p>
    */
   Status?: ModelStatus | string;
 
   /**
+   * @public
    * <p>The status message for the model.</p>
    */
   StatusMessage?: string;
 
   /**
+   * @public
    * <p>Performance metrics for the model. Created during training.</p>
    */
   Performance?: ModelPerformance;
 
   /**
+   * @public
    * <p>The S3 location where Amazon Lookout for Vision saves model training files.</p>
    */
   OutputConfig?: OutputConfig;
 
   /**
+   * @public
    * <p>The S3 location where Amazon Lookout for Vision saves the manifest file
    *          that was used to test the trained model and generate the performance scores.</p>
    */
   EvaluationManifest?: OutputS3Object;
 
   /**
+   * @public
    * <p>The S3 location where Amazon Lookout for Vision saves the performance metrics.</p>
    */
   EvaluationResult?: OutputS3Object;
 
   /**
+   * @public
    * <p>The unix timestamp for the date and time that the evaluation ended. </p>
    */
   EvaluationEndTimestamp?: Date;
 
   /**
+   * @public
    * <p>The identifer for the AWS Key Management Service (AWS KMS) key that was used to encrypt the model
    *          during training.</p>
    */
   KmsKeyId?: string;
 
   /**
+   * @public
    * <p>The minimum number of inference units used by the model. For more information,
    *          see <a>StartModel</a>
    *          </p>
@@ -986,6 +1085,7 @@ export interface ModelDescription {
   MinInferenceUnits?: number;
 
   /**
+   * @public
    * <p>The maximum number of inference units Amazon Lookout for Vision uses to auto-scale the model.
    *          For more information, see <a>StartModel</a>.</p>
    */
@@ -997,6 +1097,7 @@ export interface ModelDescription {
  */
 export interface DescribeModelResponse {
   /**
+   * @public
    * <p>Contains the description of the model.</p>
    */
   ModelDescription?: ModelDescription;
@@ -1007,12 +1108,14 @@ export interface DescribeModelResponse {
  */
 export interface DescribeModelPackagingJobRequest {
   /**
+   * @public
    * <p>The name of the project that contains the model packaging job that you want to describe.
    * </p>
    */
   ProjectName: string | undefined;
 
   /**
+   * @public
    * <p>The job name for the model packaging job.
    *
    * </p>
@@ -1079,6 +1182,7 @@ export type TargetPlatformOs = (typeof TargetPlatformOs)[keyof typeof TargetPlat
  */
 export interface TargetPlatform {
   /**
+   * @public
    * <p>The target operating system for the model. Linux is the only operating system
    *          that is currently supported.
    *       </p>
@@ -1086,6 +1190,7 @@ export interface TargetPlatform {
   Os: TargetPlatformOs | string | undefined;
 
   /**
+   * @public
    * <p>The target architecture for the model. The currently supported architectures are
    *          X86_64 (64-bit version of the x86 instruction set) and ARM_64 (ARMv8 64-bit CPU).
    *       </p>
@@ -1093,6 +1198,7 @@ export interface TargetPlatform {
   Arch: TargetPlatformArch | string | undefined;
 
   /**
+   * @public
    * <p>The target accelerator for the model. Currently, Amazon Lookout for Vision only supports NVIDIA (Nvidia graphics processing unit)
    *          and CPU accelerators. If you specify NVIDIA as an accelerator, you must also specify the <code>gpu-code</code>, <code>trt-ver</code>,
    *          and <code>cuda-ver</code> compiler options. If you don't specify an accelerator, Lookout for Vision uses the CPU for compilation and we highly recommend that you use the
@@ -1125,6 +1231,7 @@ export interface TargetPlatform {
  */
 export interface GreengrassConfiguration {
   /**
+   * @public
    * <p>Additional compiler options for the Greengrass component. Currently,
    *    only NVIDIA Graphics Processing Units (GPU) and CPU accelerators are supported.
    *    If you specify <code>TargetDevice</code>, don't specify <code>CompilerOptions</code>.</p>
@@ -1136,6 +1243,7 @@ export interface GreengrassConfiguration {
   CompilerOptions?: string;
 
   /**
+   * @public
    * <p>The target device for the model. Currently the only supported value is <code>jetson_xavier</code>.
    *       If you specify <code>TargetDevice</code>, you can't specify
    *       <code>TargetPlatform</code>.
@@ -1145,6 +1253,7 @@ export interface GreengrassConfiguration {
   TargetDevice?: TargetDevice | string;
 
   /**
+   * @public
    * <p>The target platform for the model. If you specify <code>TargetPlatform</code>, you can't specify
    *          <code>TargetDevice</code>.
    *       </p>
@@ -1152,6 +1261,7 @@ export interface GreengrassConfiguration {
   TargetPlatform?: TargetPlatform;
 
   /**
+   * @public
    * <p>
    *          An S3 location in which Lookout for Vision stores the component artifacts.
    *       </p>
@@ -1159,6 +1269,7 @@ export interface GreengrassConfiguration {
   S3OutputLocation: S3Location | undefined;
 
   /**
+   * @public
    * <p>
    *    A name for the AWS IoT Greengrass component.
    * </p>
@@ -1166,6 +1277,7 @@ export interface GreengrassConfiguration {
   ComponentName: string | undefined;
 
   /**
+   * @public
    * <p>A Version for the AWS IoT Greengrass component. If you don't provide a
    *       value, a default value of <code>
    *                <i>Model Version</i>.0.0</code> is used.
@@ -1174,6 +1286,7 @@ export interface GreengrassConfiguration {
   ComponentVersion?: string;
 
   /**
+   * @public
    * <p>
    *    A description for the AWS IoT Greengrass component.
    * </p>
@@ -1181,6 +1294,7 @@ export interface GreengrassConfiguration {
   ComponentDescription?: string;
 
   /**
+   * @public
    * <p>
    *    A set of tags (key-value pairs) that you want to attach to the AWS IoT Greengrass component.
    * </p>
@@ -1197,6 +1311,7 @@ export interface GreengrassConfiguration {
  */
 export interface ModelPackagingConfiguration {
   /**
+   * @public
    * <p>
    * Configuration information for the AWS IoT Greengrass component in a model packaging job.
    * </p>
@@ -1212,6 +1327,7 @@ export interface ModelPackagingConfiguration {
  */
 export interface GreengrassOutputDetails {
   /**
+   * @public
    * <p>
    * The Amazon Resource Name (ARN) of the component.
    * </p>
@@ -1219,6 +1335,7 @@ export interface GreengrassOutputDetails {
   ComponentVersionArn?: string;
 
   /**
+   * @public
    * <p>
    * The name of the component.
    * </p>
@@ -1226,6 +1343,7 @@ export interface GreengrassOutputDetails {
   ComponentName?: string;
 
   /**
+   * @public
    * <p>
    * The version of the component.
    * </p>
@@ -1241,6 +1359,7 @@ export interface GreengrassOutputDetails {
  */
 export interface ModelPackagingOutputDetails {
   /**
+   * @public
    * <p>
    * Information about the AWS IoT Greengrass component in a model packaging job.
    * </p>
@@ -1273,6 +1392,7 @@ export type ModelPackagingJobStatus = (typeof ModelPackagingJobStatus)[keyof typ
  */
 export interface ModelPackagingDescription {
   /**
+   * @public
    * <p>
    * The name of the model packaging job.
    * </p>
@@ -1280,6 +1400,7 @@ export interface ModelPackagingDescription {
   JobName?: string;
 
   /**
+   * @public
    * <p>The name of the project that's associated with a model that's in the model package.
    *
    * </p>
@@ -1287,6 +1408,7 @@ export interface ModelPackagingDescription {
   ProjectName?: string;
 
   /**
+   * @public
    * <p>The version of the model used in the model packaging job.
    *
    * </p>
@@ -1294,6 +1416,7 @@ export interface ModelPackagingDescription {
   ModelVersion?: string;
 
   /**
+   * @public
    * <p>
    * The configuration information used in the model packaging job.
    * </p>
@@ -1301,6 +1424,7 @@ export interface ModelPackagingDescription {
   ModelPackagingConfiguration?: ModelPackagingConfiguration;
 
   /**
+   * @public
    * <p>The description for the model packaging job.
    *
    * </p>
@@ -1308,6 +1432,7 @@ export interface ModelPackagingDescription {
   ModelPackagingJobDescription?: string;
 
   /**
+   * @public
    * <p>The AWS service used to package the job. Currently Lookout for Vision can package
    * jobs with AWS IoT Greengrass.
    * </p>
@@ -1315,6 +1440,7 @@ export interface ModelPackagingDescription {
   ModelPackagingMethod?: string;
 
   /**
+   * @public
    * <p>Information about the output of the model packaging job. For more information,
    *    see <a>DescribeModelPackagingJob</a>.
    * </p>
@@ -1322,6 +1448,7 @@ export interface ModelPackagingDescription {
   ModelPackagingOutputDetails?: ModelPackagingOutputDetails;
 
   /**
+   * @public
    * <p>
    * The status of the model packaging job.
    * </p>
@@ -1329,6 +1456,7 @@ export interface ModelPackagingDescription {
   Status?: ModelPackagingJobStatus | string;
 
   /**
+   * @public
    * <p>
    * The status message for the model packaging job.
    * </p>
@@ -1336,6 +1464,7 @@ export interface ModelPackagingDescription {
   StatusMessage?: string;
 
   /**
+   * @public
    * <p>
    *    The Unix timestamp for the time and date that the model packaging job was created.
    * </p>
@@ -1343,6 +1472,7 @@ export interface ModelPackagingDescription {
   CreationTimestamp?: Date;
 
   /**
+   * @public
    * <p>
    *    The Unix timestamp for the time and date that the model packaging job was last updated.
    * </p>
@@ -1355,6 +1485,7 @@ export interface ModelPackagingDescription {
  */
 export interface DescribeModelPackagingJobResponse {
   /**
+   * @public
    * <p>The description of the model packaging job.
    * </p>
    */
@@ -1366,6 +1497,7 @@ export interface DescribeModelPackagingJobResponse {
  */
 export interface DescribeProjectRequest {
   /**
+   * @public
    * <p>The name of the project that you want to describe.</p>
    */
   ProjectName: string | undefined;
@@ -1377,21 +1509,25 @@ export interface DescribeProjectRequest {
  */
 export interface ProjectDescription {
   /**
+   * @public
    * <p>The Amazon Resource Name (ARN) of the project.</p>
    */
   ProjectArn?: string;
 
   /**
+   * @public
    * <p>The name of the project.</p>
    */
   ProjectName?: string;
 
   /**
+   * @public
    * <p>The unix timestamp for the date and time that the project was created. </p>
    */
   CreationTimestamp?: Date;
 
   /**
+   * @public
    * <p>A list of datasets in the project.</p>
    */
   Datasets?: DatasetMetadata[];
@@ -1402,6 +1538,7 @@ export interface ProjectDescription {
  */
 export interface DescribeProjectResponse {
   /**
+   * @public
    * <p>The description of the project.</p>
    */
   ProjectDescription?: ProjectDescription;
@@ -1412,21 +1549,25 @@ export interface DescribeProjectResponse {
  */
 export interface DetectAnomaliesRequest {
   /**
+   * @public
    * <p>The name of the project that contains the model version that you want to use.</p>
    */
   ProjectName: string | undefined;
 
   /**
+   * @public
    * <p>The version of the model that you want to use.</p>
    */
   ModelVersion: string | undefined;
 
   /**
+   * @public
    * <p>The unencrypted image bytes that you want to analyze. </p>
    */
   Body: StreamingBlobTypes | undefined;
 
   /**
+   * @public
    * <p>The type of the image passed in <code>Body</code>.
    *          Valid values are <code>image/png</code> (PNG format images) and <code>image/jpeg</code> (JPG format images). </p>
    */
@@ -1439,6 +1580,7 @@ export interface DetectAnomaliesRequest {
  */
 export interface ImageSource {
   /**
+   * @public
    * <p>The type of the image.</p>
    */
   Type?: string;
@@ -1454,22 +1596,26 @@ export interface ImageSource {
  */
 export interface DetectAnomalyResult {
   /**
+   * @public
    * <p>The source of the image that was analyzed. <code>direct</code> means that the
    *       images was supplied from the local computer. No other values are supported.</p>
    */
   Source?: ImageSource;
 
   /**
+   * @public
    * <p>True if Amazon Lookout for Vision classifies the image as containing an anomaly, otherwise false.</p>
    */
   IsAnomalous?: boolean;
 
   /**
+   * @public
    * <p>The confidence that Lookout for Vision has in the accuracy of the classification in <code>IsAnomalous</code>.</p>
    */
   Confidence?: number;
 
   /**
+   * @public
    * <p>If the model is an image segmentation model, <code>Anomalies</code> contains a list of
    *          anomaly types found in the image. There is one entry for each type of anomaly found (even
    *          if multiple instances of an anomaly type exist on the image). The first element in the list
@@ -1483,6 +1629,7 @@ export interface DetectAnomalyResult {
   Anomalies?: Anomaly[];
 
   /**
+   * @public
    * <p>If the model is an image segmentation model, <code>AnomalyMask</code> contains pixel masks that covers all anomaly types found on the image.
    *
    *       Each anomaly type has a different mask color. To map a color to an anomaly type, see the <code>color</code> field
@@ -1497,6 +1644,7 @@ export interface DetectAnomalyResult {
  */
 export interface DetectAnomaliesResponse {
   /**
+   * @public
    * <p>The results of the <code>DetectAnomalies</code> operation.</p>
    */
   DetectAnomalyResult?: DetectAnomalyResult;
@@ -1507,11 +1655,13 @@ export interface DetectAnomaliesResponse {
  */
 export interface ListDatasetEntriesRequest {
   /**
+   * @public
    * <p>The name of the project that contains the dataset that you want to list.</p>
    */
   ProjectName: string | undefined;
 
   /**
+   * @public
    * <p>The type of the dataset that you want to list.  Specify <code>train</code> to list
    *          the training dataset. Specify <code>test</code> to list the test dataset. If you have a single dataset
    *       project, specify <code>train</code>.</p>
@@ -1519,28 +1669,33 @@ export interface ListDatasetEntriesRequest {
   DatasetType: string | undefined;
 
   /**
+   * @public
    * <p>Specify <code>true</code> to include labeled entries, otherwise specify <code>false</code>. If you
    *       don't specify a value, Lookout for Vision returns all entries.</p>
    */
   Labeled?: boolean;
 
   /**
+   * @public
    * <p>Specify <code>normal</code> to include only normal images. Specify <code>anomaly</code> to only include
    *          anomalous entries. If you don't specify a value, Amazon Lookout for Vision returns normal and anomalous images.</p>
    */
   AnomalyClass?: string;
 
   /**
+   * @public
    * <p>Only includes entries before the specified date in the response. For example, <code>2020-06-23T00:00:00</code>.</p>
    */
   BeforeCreationDate?: Date;
 
   /**
+   * @public
    * <p>Only includes entries after the specified date in the response. For example, <code>2020-06-23T00:00:00</code>.</p>
    */
   AfterCreationDate?: Date;
 
   /**
+   * @public
    * <p>If the previous response was incomplete (because there is more data to retrieve),
    *          Amazon Lookout for Vision returns a pagination token in the response. You can use this pagination token to
    *          retrieve the next set of dataset entries.</p>
@@ -1548,6 +1703,7 @@ export interface ListDatasetEntriesRequest {
   NextToken?: string;
 
   /**
+   * @public
    * <p>The maximum number of results to return per paginated call. The largest value you can specify is 100.
    *          If you specify a value greater than 100, a ValidationException
    *          error occurs. The default value is 100.</p>
@@ -1555,6 +1711,7 @@ export interface ListDatasetEntriesRequest {
   MaxResults?: number;
 
   /**
+   * @public
    * <p>Perform a "contains" search on the  values of the <code>source-ref</code> key within the dataset.
    *          For example a value of "IMG_17"  returns all JSON Lines where the <code>source-ref</code> key value matches <i>*IMG_17*</i>.</p>
    */
@@ -1566,11 +1723,13 @@ export interface ListDatasetEntriesRequest {
  */
 export interface ListDatasetEntriesResponse {
   /**
+   * @public
    * <p>A list of the entries (JSON Lines) within the dataset.</p>
    */
   DatasetEntries?: string[];
 
   /**
+   * @public
    * <p>If the response is truncated, Amazon Lookout for Vision returns this token
    *          that you can use in the subsequent request to retrieve the next set ofdataset entries.</p>
    */
@@ -1582,6 +1741,7 @@ export interface ListDatasetEntriesResponse {
  */
 export interface ListModelPackagingJobsRequest {
   /**
+   * @public
    * <p>
    * The name of the project for which you want to list the model packaging jobs.
    * </p>
@@ -1589,6 +1749,7 @@ export interface ListModelPackagingJobsRequest {
   ProjectName: string | undefined;
 
   /**
+   * @public
    * <p>If the previous response was incomplete (because there is more
    *       results to retrieve), Amazon Lookout for Vision returns a pagination token in the response. You can use this pagination
    *       token to retrieve the next set of results. </p>
@@ -1596,6 +1757,7 @@ export interface ListModelPackagingJobsRequest {
   NextToken?: string;
 
   /**
+   * @public
    * <p>The maximum number of results to return per paginated call. The largest value you can specify is 100.
    *       If you specify a value greater than 100, a ValidationException
    *       error occurs. The default value is 100. </p>
@@ -1611,6 +1773,7 @@ export interface ListModelPackagingJobsRequest {
  */
 export interface ModelPackagingJobMetadata {
   /**
+   * @public
    * <p>
    * The name of the model packaging job.
    * </p>
@@ -1618,6 +1781,7 @@ export interface ModelPackagingJobMetadata {
   JobName?: string;
 
   /**
+   * @public
    * <p>
    * The project that contains the model that is in the model package.
    * </p>
@@ -1625,6 +1789,7 @@ export interface ModelPackagingJobMetadata {
   ProjectName?: string;
 
   /**
+   * @public
    * <p>
    * The version of the model that is in the model package.
    * </p>
@@ -1632,6 +1797,7 @@ export interface ModelPackagingJobMetadata {
   ModelVersion?: string;
 
   /**
+   * @public
    * <p>
    * The description for the model packaging job.
    * </p>
@@ -1639,6 +1805,7 @@ export interface ModelPackagingJobMetadata {
   ModelPackagingJobDescription?: string;
 
   /**
+   * @public
    * <p>
    * The AWS service used to package the job. Currently Lookout for Vision can package
    *       jobs with AWS IoT Greengrass.
@@ -1647,23 +1814,27 @@ export interface ModelPackagingJobMetadata {
   ModelPackagingMethod?: string;
 
   /**
+   * @public
    * <p>The status of the model packaging job.
    * </p>
    */
   Status?: ModelPackagingJobStatus | string;
 
   /**
+   * @public
    * <p>The status message for the model packaging job.
    * </p>
    */
   StatusMessage?: string;
 
   /**
+   * @public
    * <p>The Unix timestamp for the time and date that the model packaging job was created.</p>
    */
   CreationTimestamp?: Date;
 
   /**
+   * @public
    * <p>The Unix timestamp for the time and date that the model packaging job was last updated.</p>
    */
   LastUpdatedTimestamp?: Date;
@@ -1674,6 +1845,7 @@ export interface ModelPackagingJobMetadata {
  */
 export interface ListModelPackagingJobsResponse {
   /**
+   * @public
    * <p>
    * A list of the model packaging jobs created for the specified Amazon Lookout for Vision project.
    * </p>
@@ -1681,6 +1853,7 @@ export interface ListModelPackagingJobsResponse {
   ModelPackagingJobs?: ModelPackagingJobMetadata[];
 
   /**
+   * @public
    * <p>If the previous response was incomplete (because there is more
    *    results to retrieve), Amazon Lookout for Vision returns a pagination token in the response. You can use this pagination
    *    token to retrieve the next set of results.
@@ -1694,11 +1867,13 @@ export interface ListModelPackagingJobsResponse {
  */
 export interface ListModelsRequest {
   /**
+   * @public
    * <p>The name of the project that contains the model versions that you want to list.</p>
    */
   ProjectName: string | undefined;
 
   /**
+   * @public
    * <p>If the previous response was incomplete (because there is more data to retrieve),
    *          Amazon Lookout for Vision returns a pagination token in the response. You can use this pagination token to
    *          retrieve the next set of models.</p>
@@ -1706,6 +1881,7 @@ export interface ListModelsRequest {
   NextToken?: string;
 
   /**
+   * @public
    * <p>The maximum number of results to return per paginated call. The largest value you can specify is 100.
    *          If you specify a value greater than 100, a ValidationException
    *          error occurs. The default value is 100.</p>
@@ -1718,11 +1894,13 @@ export interface ListModelsRequest {
  */
 export interface ListModelsResponse {
   /**
+   * @public
    * <p>A list of model versions in the specified project. </p>
    */
   Models?: ModelMetadata[];
 
   /**
+   * @public
    * <p>If the response is truncated, Amazon Lookout for Vision returns this token
    *          that you can use in the subsequent request to retrieve the next set of models. </p>
    */
@@ -1734,6 +1912,7 @@ export interface ListModelsResponse {
  */
 export interface ListProjectsRequest {
   /**
+   * @public
    * <p>If the previous response was incomplete (because there is more data to retrieve),
    *          Amazon Lookout for Vision returns a pagination token in the response. You can use this pagination token to
    *          retrieve the next set of projects.</p>
@@ -1741,6 +1920,7 @@ export interface ListProjectsRequest {
   NextToken?: string;
 
   /**
+   * @public
    * <p>The maximum number of results to return per paginated call. The largest value you can specify is 100.
    *          If you specify a value greater than 100, a ValidationException
    *          error occurs. The default value is 100.</p>
@@ -1753,11 +1933,13 @@ export interface ListProjectsRequest {
  */
 export interface ListProjectsResponse {
   /**
+   * @public
    * <p>A list of projects in your AWS account.</p>
    */
   Projects?: ProjectMetadata[];
 
   /**
+   * @public
    * <p>If the response is truncated, Amazon Lookout for Vision returns this token
    *          that you can use in the subsequent request to retrieve the next set of projects.</p>
    */
@@ -1769,6 +1951,7 @@ export interface ListProjectsResponse {
  */
 export interface ListTagsForResourceRequest {
   /**
+   * @public
    * <p>The Amazon Resource Name (ARN) of the model for which you want to list tags. </p>
    */
   ResourceArn: string | undefined;
@@ -1779,6 +1962,7 @@ export interface ListTagsForResourceRequest {
  */
 export interface ListTagsForResourceResponse {
   /**
+   * @public
    * <p>A map of tag keys and values attached to the specified model.</p>
    */
   Tags?: Tag[];
@@ -1789,16 +1973,19 @@ export interface ListTagsForResourceResponse {
  */
 export interface StartModelRequest {
   /**
+   * @public
    * <p>The name of the project that contains the model that you want to start.</p>
    */
   ProjectName: string | undefined;
 
   /**
+   * @public
    * <p>The version of the model that you want to start.</p>
    */
   ModelVersion: string | undefined;
 
   /**
+   * @public
    * <p>The minimum number of inference units to use. A single
    *          inference unit represents 1 hour of processing.
    *          Use a higher number to increase the TPS throughput of your model. You are charged for the number
@@ -1808,6 +1995,7 @@ export interface StartModelRequest {
   MinInferenceUnits: number | undefined;
 
   /**
+   * @public
    * <p>ClientToken is an idempotency token that ensures a call to <code>StartModel</code>
    *          completes only once.  You choose the value to pass. For example, An issue might prevent
    *          you from getting a response from <code>StartModel</code>.
@@ -1825,6 +2013,7 @@ export interface StartModelRequest {
   ClientToken?: string;
 
   /**
+   * @public
    * <p>The maximum number of inference units to use for auto-scaling the model. If you don't
    *          specify a value, Amazon Lookout for Vision doesn't auto-scale the model.</p>
    */
@@ -1853,6 +2042,7 @@ export type ModelHostingStatus = (typeof ModelHostingStatus)[keyof typeof ModelH
  */
 export interface StartModelResponse {
   /**
+   * @public
    * <p>The current running status of the model.</p>
    */
   Status?: ModelHostingStatus | string;
@@ -1863,6 +2053,7 @@ export interface StartModelResponse {
  */
 export interface StartModelPackagingJobRequest {
   /**
+   * @public
    * <p>
    * The name of the project which contains the version of the model that you want to package.
    * </p>
@@ -1870,6 +2061,7 @@ export interface StartModelPackagingJobRequest {
   ProjectName: string | undefined;
 
   /**
+   * @public
    * <p>
    * The version of the model within the project that you want to package.
    * </p>
@@ -1877,6 +2069,7 @@ export interface StartModelPackagingJobRequest {
   ModelVersion: string | undefined;
 
   /**
+   * @public
    * <p>A name for the model packaging job. If you don't supply a value, the service creates
    *    a job name for you.
    * </p>
@@ -1884,18 +2077,21 @@ export interface StartModelPackagingJobRequest {
   JobName?: string;
 
   /**
+   * @public
    * <p>The configuration for the model packaging job.
    * </p>
    */
   Configuration: ModelPackagingConfiguration | undefined;
 
   /**
+   * @public
    * <p>A description for the model packaging job.
    * </p>
    */
   Description?: string;
 
   /**
+   * @public
    * <p>ClientToken is an idempotency token that ensures a call to <code>StartModelPackagingJob</code>
    *       completes only once.  You choose the value to pass. For example, An issue might prevent you
    *       from getting a response from <code>StartModelPackagingJob</code>.
@@ -1917,6 +2113,7 @@ export interface StartModelPackagingJobRequest {
  */
 export interface StartModelPackagingJobResponse {
   /**
+   * @public
    * <p>The job name for the model packaging job. If you don't supply a job name in the <code>JobName</code> input parameter,
    *    the service creates a job name for you.
    *
@@ -1930,16 +2127,19 @@ export interface StartModelPackagingJobResponse {
  */
 export interface StopModelRequest {
   /**
+   * @public
    * <p>The name of the project that contains the model that you want to stop.</p>
    */
   ProjectName: string | undefined;
 
   /**
+   * @public
    * <p>The version of the model that you want to stop.</p>
    */
   ModelVersion: string | undefined;
 
   /**
+   * @public
    * <p>ClientToken is an idempotency token that ensures a call to <code>StopModel</code>
    *          completes only once.  You choose the value to pass. For example, An issue
    *          might prevent you from getting a response from <code>StopModel</code>.
@@ -1963,6 +2163,7 @@ export interface StopModelRequest {
  */
 export interface StopModelResponse {
   /**
+   * @public
    * <p>The status of the model.</p>
    */
   Status?: ModelHostingStatus | string;
@@ -1973,11 +2174,13 @@ export interface StopModelResponse {
  */
 export interface TagResourceRequest {
   /**
+   * @public
    * <p>The Amazon Resource Name (ARN) of the model to assign the tags.</p>
    */
   ResourceArn: string | undefined;
 
   /**
+   * @public
    * <p>The key-value tags to assign to the model.</p>
    */
   Tags: Tag[] | undefined;
@@ -1993,11 +2196,13 @@ export interface TagResourceResponse {}
  */
 export interface UntagResourceRequest {
   /**
+   * @public
    * <p>The Amazon Resource Name (ARN) of the model from which you want to remove tags. </p>
    */
   ResourceArn: string | undefined;
 
   /**
+   * @public
    * <p>A list of the keys of the tags that you want to remove.</p>
    */
   TagKeys: string[] | undefined;
@@ -2013,11 +2218,13 @@ export interface UntagResourceResponse {}
  */
 export interface UpdateDatasetEntriesRequest {
   /**
+   * @public
    * <p>The name of the project that contains the dataset that you want to update.</p>
    */
   ProjectName: string | undefined;
 
   /**
+   * @public
    * <p>The type of the dataset that you want to update. Specify <code>train</code> to update
    *       the training dataset. Specify <code>test</code> to update the test dataset. If you
    *        have a single dataset project, specify <code>train</code>.</p>
@@ -2025,11 +2232,13 @@ export interface UpdateDatasetEntriesRequest {
   DatasetType: string | undefined;
 
   /**
+   * @public
    * <p>The entries to add to the dataset.</p>
    */
   Changes: Uint8Array | undefined;
 
   /**
+   * @public
    * <p>ClientToken is an idempotency token that ensures a call to <code>UpdateDatasetEntries</code>
    *          completes only once.  You choose the value to pass. For example, An issue
    *          might prevent you from getting a response from <code>UpdateDatasetEntries</code>.
@@ -2052,6 +2261,7 @@ export interface UpdateDatasetEntriesRequest {
  */
 export interface UpdateDatasetEntriesResponse {
   /**
+   * @public
    * <p>The status of the dataset update.</p>
    */
   Status?: DatasetStatus | string;

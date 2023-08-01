@@ -45,16 +45,19 @@ export type Status = (typeof Status)[keyof typeof Status];
  */
 export interface AccountEnrollmentStatus {
   /**
+   * @public
    * <p>The Amazon Web Services account ID.</p>
    */
   accountId?: string;
 
   /**
+   * @public
    * <p>The account enrollment status.</p>
    */
   status?: Status | string;
 
   /**
+   * @public
    * <p>The reason for the account enrollment status.</p>
    *          <p>For example, an account might show a status of <code>Pending</code> because member
    *             accounts of an organization require more time to be enrolled in the service.</p>
@@ -62,6 +65,7 @@ export interface AccountEnrollmentStatus {
   statusReason?: string;
 
   /**
+   * @public
    * <p>The Unix epoch timestamp, in seconds, of when the account enrollment status was last
    *             updated.</p>
    */
@@ -88,23 +92,27 @@ export type AutoScalingConfiguration = (typeof AutoScalingConfiguration)[keyof t
  */
 export interface AutoScalingGroupConfiguration {
   /**
+   * @public
    * <p>The desired capacity, or number of instances, for the Auto Scaling group.</p>
    */
   desiredCapacity?: number;
 
   /**
+   * @public
    * <p>The minimum size, or minimum number of instances, for the Auto Scaling
    *             group.</p>
    */
   minSize?: number;
 
   /**
+   * @public
    * <p>The maximum size, or maximum number of instances, for the Auto Scaling
    *             group.</p>
    */
   maxSize?: number;
 
   /**
+   * @public
    * <p>The instance type for the Auto Scaling group.</p>
    */
   instanceType?: string;
@@ -178,6 +186,7 @@ export type ExternalMetricsSource = (typeof ExternalMetricsSource)[keyof typeof 
  */
 export interface ExternalMetricsPreference {
   /**
+   * @public
    * <p> Contains the source options for external metrics preferences. </p>
    */
   source?: ExternalMetricsSource | string;
@@ -204,6 +213,7 @@ export type InferredWorkloadTypesPreference =
  */
 export interface EffectiveRecommendationPreferences {
   /**
+   * @public
    * <p>Describes the CPU vendor and architecture for an instance or Auto Scaling group
    *             recommendations.</p>
    *          <p>For example, when you specify <code>AWS_ARM64</code> with:</p>
@@ -225,6 +235,7 @@ export interface EffectiveRecommendationPreferences {
   cpuVendorArchitectures?: (CpuVendorArchitecture | string)[];
 
   /**
+   * @public
    * <p>Describes the activation status of the enhanced infrastructure metrics
    *             preference.</p>
    *          <p>A status of <code>Active</code> confirms that the preference is applied in the latest
@@ -237,6 +248,7 @@ export interface EffectiveRecommendationPreferences {
   enhancedInfrastructureMetrics?: EnhancedInfrastructureMetrics | string;
 
   /**
+   * @public
    * <p>Describes the activation status of the inferred workload types preference.</p>
    *          <p>A status of <code>Active</code> confirms that the preference is applied in the latest
    *             recommendation refresh. A status of <code>Inactive</code> confirms that it's not yet
@@ -245,6 +257,7 @@ export interface EffectiveRecommendationPreferences {
   inferredWorkloadTypes?: InferredWorkloadTypesPreference | string;
 
   /**
+   * @public
    * <p> An object that describes the external metrics recommendation preference. </p>
    *          <p> If the preference is applied in the latest recommendation refresh, an object with a
    *             valid <code>source</code> value appears in the response. If the preference isn't applied
@@ -356,6 +369,7 @@ export type MetricStatistic = (typeof MetricStatistic)[keyof typeof MetricStatis
  */
 export interface UtilizationMetric {
   /**
+   * @public
    * <p>The name of the utilization metric.</p>
    *          <p>The following utilization metrics are available:</p>
    *          <ul>
@@ -469,6 +483,7 @@ export interface UtilizationMetric {
   name?: MetricName | string;
 
   /**
+   * @public
    * <p>The statistic of the utilization metric.</p>
    *          <p>The Compute Optimizer API, Command Line Interface (CLI), and SDKs
    *             return utilization metrics using only the <code>Maximum</code> statistic, which is the
@@ -485,6 +500,7 @@ export interface UtilizationMetric {
   statistic?: MetricStatistic | string;
 
   /**
+   * @public
    * <p>The value of the utilization metric.</p>
    */
   value?: number;
@@ -513,12 +529,14 @@ export type Currency = (typeof Currency)[keyof typeof Currency];
  */
 export interface EstimatedMonthlySavings {
   /**
+   * @public
    * <p>The currency of the estimated monthly
    *             savings.</p>
    */
   currency?: Currency | string;
 
   /**
+   * @public
    * <p>The value of the estimated monthly savings.</p>
    */
   value?: number;
@@ -545,12 +563,14 @@ export interface EstimatedMonthlySavings {
  */
 export interface SavingsOpportunity {
   /**
+   * @public
    * <p>The estimated monthly savings possible as a percentage of monthly cost by adopting
    *                 Compute Optimizer recommendations for a given resource.</p>
    */
   savingsOpportunityPercentage?: number;
 
   /**
+   * @public
    * <p>An object that describes the estimated monthly savings amount possible by adopting Compute Optimizer recommendations for a given
    *             resource. This is based on the On-Demand instance pricing..</p>
    */
@@ -563,11 +583,13 @@ export interface SavingsOpportunity {
  */
 export interface AutoScalingGroupRecommendationOption {
   /**
+   * @public
    * <p>An array of objects that describe an Auto Scaling group configuration.</p>
    */
   configuration?: AutoScalingGroupConfiguration;
 
   /**
+   * @public
    * <p>An array of objects that describe the projected utilization metrics of the Auto Scaling group recommendation option.</p>
    *          <note>
    *             <p>The <code>Cpu</code> and <code>Memory</code> metrics are the only projected
@@ -580,6 +602,7 @@ export interface AutoScalingGroupRecommendationOption {
   projectedUtilizationMetrics?: UtilizationMetric[];
 
   /**
+   * @public
    * <p>The performance risk of the Auto Scaling group configuration
    *             recommendation.</p>
    *          <p>Performance risk indicates the likelihood of the recommended instance type not meeting
@@ -599,12 +622,14 @@ export interface AutoScalingGroupRecommendationOption {
   performanceRisk?: number;
 
   /**
+   * @public
    * <p>The rank of the Auto Scaling group recommendation option.</p>
    *          <p>The top recommendation option is ranked as <code>1</code>.</p>
    */
   rank?: number;
 
   /**
+   * @public
    * <p>An object that describes the savings opportunity for the Auto Scaling group
    *             recommendation option. Savings opportunity includes the estimated monthly savings amount
    *             and percentage.</p>
@@ -612,6 +637,7 @@ export interface AutoScalingGroupRecommendationOption {
   savingsOpportunity?: SavingsOpportunity;
 
   /**
+   * @public
    * <p>The level of effort required to migrate from the current instance type to the
    *             recommended instance type.</p>
    *          <p>For example, the migration effort is <code>Low</code> if Amazon EMR is the
@@ -630,21 +656,25 @@ export interface AutoScalingGroupRecommendationOption {
  */
 export interface AutoScalingGroupRecommendation {
   /**
+   * @public
    * <p>The Amazon Web Services account ID of the Auto Scaling group.</p>
    */
   accountId?: string;
 
   /**
+   * @public
    * <p>The Amazon Resource Name (ARN) of the Auto Scaling group.</p>
    */
   autoScalingGroupArn?: string;
 
   /**
+   * @public
    * <p>The name of the Auto Scaling group.</p>
    */
   autoScalingGroupName?: string;
 
   /**
+   * @public
    * <p>The finding classification of the Auto Scaling group.</p>
    *          <p>Findings for Auto Scaling groups include:</p>
    *          <ul>
@@ -670,35 +700,41 @@ export interface AutoScalingGroupRecommendation {
   finding?: Finding | string;
 
   /**
+   * @public
    * <p>An array of objects that describe the utilization metrics of the Auto Scaling
    *             group.</p>
    */
   utilizationMetrics?: UtilizationMetric[];
 
   /**
+   * @public
    * <p>The number of days for which utilization metrics were analyzed for the Auto Scaling group.</p>
    */
   lookBackPeriodInDays?: number;
 
   /**
+   * @public
    * <p>An array of objects that describe the current configuration of the Auto Scaling
    *             group.</p>
    */
   currentConfiguration?: AutoScalingGroupConfiguration;
 
   /**
+   * @public
    * <p>An array of objects that describe the recommendation options for the Auto Scaling
    *             group.</p>
    */
   recommendationOptions?: AutoScalingGroupRecommendationOption[];
 
   /**
+   * @public
    * <p>The timestamp of when the Auto Scaling group recommendation was last
    *             generated.</p>
    */
   lastRefreshTimestamp?: Date;
 
   /**
+   * @public
    * <p>The risk of the current Auto Scaling group not meeting the performance needs of
    *             its workloads. The higher the risk, the more likely the current Auto Scaling group
    *             configuration has insufficient capacity and cannot meet workload requirements.</p>
@@ -706,11 +742,13 @@ export interface AutoScalingGroupRecommendation {
   currentPerformanceRisk?: CurrentPerformanceRisk | string;
 
   /**
+   * @public
    * <p>An object that describes the effective recommendation preferences for the Auto Scaling group.</p>
    */
   effectiveRecommendationPreferences?: EffectiveRecommendationPreferences;
 
   /**
+   * @public
    * <p>The applications that might be running on the instances in the Auto Scaling group
    *             as inferred by Compute Optimizer.</p>
    *          <p>Compute Optimizer can infer if one of the following applications might be running on
@@ -836,6 +874,7 @@ export type ScopeName = (typeof ScopeName)[keyof typeof ScopeName];
  */
 export interface Scope {
   /**
+   * @public
    * <p>The name of the scope.</p>
    *          <p>The following scopes are possible:</p>
    *          <ul>
@@ -861,6 +900,7 @@ export interface Scope {
   name?: ScopeName | string;
 
   /**
+   * @public
    * <p>The value of the scope.</p>
    *          <p>If you specified the <code>name</code> of the scope as:</p>
    *          <ul>
@@ -889,6 +929,7 @@ export interface Scope {
  */
 export interface DeleteRecommendationPreferencesRequest {
   /**
+   * @public
    * <p>The target resource type of the recommendation preference to delete.</p>
    *          <p>The <code>Ec2Instance</code> option encompasses standalone instances and instances
    *             that are part of Auto Scaling groups. The <code>AutoScalingGroup</code> option
@@ -901,6 +942,7 @@ export interface DeleteRecommendationPreferencesRequest {
   resourceType: ResourceType | string | undefined;
 
   /**
+   * @public
    * <p>An object that describes the scope of the recommendation preference to delete.</p>
    *          <p>You can delete recommendation preferences that are created at the organization level
    *             (for management accounts of an organization only), account level, and resource level.
@@ -911,6 +953,7 @@ export interface DeleteRecommendationPreferencesRequest {
   scope?: Scope;
 
   /**
+   * @public
    * <p>The name of the recommendation preference to delete.</p>
    */
   recommendationPreferenceNames: (RecommendationPreferenceName | string)[] | undefined;
@@ -1087,6 +1130,7 @@ export type JobFilterName = (typeof JobFilterName)[keyof typeof JobFilterName];
  */
 export interface JobFilter {
   /**
+   * @public
    * <p>The name of the filter.</p>
    *          <p>Specify <code>ResourceType</code> to return export jobs of a specific resource type
    *             (for example, <code>Ec2Instance</code>).</p>
@@ -1096,6 +1140,7 @@ export interface JobFilter {
   name?: JobFilterName | string;
 
   /**
+   * @public
    * <p>The value of the filter.</p>
    *          <p>The valid values for this parameter are as follows, depending on what you specify for
    *             the <code>name</code> parameter:</p>
@@ -1121,6 +1166,7 @@ export interface JobFilter {
  */
 export interface DescribeRecommendationExportJobsRequest {
   /**
+   * @public
    * <p>The identification numbers of the export jobs to return.</p>
    *          <p>An export job ID is returned when you create an export using the <a>ExportAutoScalingGroupRecommendations</a> or <a>ExportEC2InstanceRecommendations</a> actions.</p>
    *          <p>All export jobs created in the last seven days are returned if this parameter is
@@ -1129,17 +1175,20 @@ export interface DescribeRecommendationExportJobsRequest {
   jobIds?: string[];
 
   /**
+   * @public
    * <p>An array of objects to specify a filter that returns a more specific list of export
    *             jobs.</p>
    */
   filters?: JobFilter[];
 
   /**
+   * @public
    * <p>The token to advance to the next page of export jobs.</p>
    */
   nextToken?: string;
 
   /**
+   * @public
    * <p>The maximum number of export jobs to return with a single request.</p>
    *          <p>To retrieve the remaining results, make another request with the returned
    *                 <code>nextToken</code> value.</p>
@@ -1154,18 +1203,21 @@ export interface DescribeRecommendationExportJobsRequest {
  */
 export interface S3Destination {
   /**
+   * @public
    * <p>The name of the Amazon S3 bucket used as the destination of an export
    *             file.</p>
    */
   bucket?: string;
 
   /**
+   * @public
    * <p>The Amazon S3 bucket key of an export file.</p>
    *          <p>The key uniquely identifies the object, or export file, in the S3 bucket.</p>
    */
   key?: string;
 
   /**
+   * @public
    * <p>The Amazon S3 bucket key of a metadata file.</p>
    *          <p>The key uniquely identifies the object, or metadata file, in the S3 bucket.</p>
    */
@@ -1178,6 +1230,7 @@ export interface S3Destination {
  */
 export interface ExportDestination {
   /**
+   * @public
    * <p>An object that describes the destination Amazon Simple Storage Service (Amazon S3)
    *             bucket name and object keys of a recommendations export file, and its associated
    *             metadata file.</p>
@@ -1211,36 +1264,43 @@ export type JobStatus = (typeof JobStatus)[keyof typeof JobStatus];
  */
 export interface RecommendationExportJob {
   /**
+   * @public
    * <p>The identification number of the export job.</p>
    */
   jobId?: string;
 
   /**
+   * @public
    * <p>An object that describes the destination of the export file.</p>
    */
   destination?: ExportDestination;
 
   /**
+   * @public
    * <p>The resource type of the exported recommendations.</p>
    */
   resourceType?: ResourceType | string;
 
   /**
+   * @public
    * <p>The status of the export job.</p>
    */
   status?: JobStatus | string;
 
   /**
+   * @public
    * <p>The timestamp of when the export job was created.</p>
    */
   creationTimestamp?: Date;
 
   /**
+   * @public
    * <p>The timestamp of when the export job was last updated.</p>
    */
   lastUpdatedTimestamp?: Date;
 
   /**
+   * @public
    * <p>The reason for an export job failure.</p>
    */
   failureReason?: string;
@@ -1251,11 +1311,13 @@ export interface RecommendationExportJob {
  */
 export interface DescribeRecommendationExportJobsResponse {
   /**
+   * @public
    * <p>An array of objects that describe recommendation export jobs.</p>
    */
   recommendationExportJobs?: RecommendationExportJob[];
 
   /**
+   * @public
    * <p>The token to use to advance to the next page of export jobs.</p>
    *          <p>This value is null when there are no more pages of export jobs to return.</p>
    */
@@ -1375,6 +1437,7 @@ export type FilterName = (typeof FilterName)[keyof typeof FilterName];
  */
 export interface Filter {
   /**
+   * @public
    * <p>The name of the filter.</p>
    *          <p>Specify <code>Finding</code> to return recommendations with a specific finding
    *             classification. For example, <code>Underprovisioned</code>.</p>
@@ -1399,6 +1462,7 @@ export interface Filter {
   name?: FilterName | string;
 
   /**
+   * @public
    * <p>The value of the filter.</p>
    *          <p>The valid values for this parameter are as follows, depending on what you specify for
    *             the <code>name</code> parameter and the resource type that you wish to filter results
@@ -1575,6 +1639,7 @@ export interface Filter {
  */
 export interface RecommendationPreferences {
   /**
+   * @public
    * <p>Specifies the CPU vendor and architecture for Amazon EC2 instance and Auto Scaling group recommendations.</p>
    *          <p>For example, when you specify <code>AWS_ARM64</code> with:</p>
    *          <ul>
@@ -1609,12 +1674,14 @@ export interface RecommendationPreferences {
  */
 export interface S3DestinationConfig {
   /**
+   * @public
    * <p>The name of the Amazon S3 bucket to use as the destination for an export
    *             job.</p>
    */
   bucket?: string;
 
   /**
+   * @public
    * <p>The Amazon S3 bucket prefix for an export job.</p>
    */
   keyPrefix?: string;
@@ -1625,6 +1692,7 @@ export interface S3DestinationConfig {
  */
 export interface ExportAutoScalingGroupRecommendationsRequest {
   /**
+   * @public
    * <p>The IDs of the Amazon Web Services accounts for which to export Auto Scaling group
    *             recommendations.</p>
    *          <p>If your account is the management account of an organization, use this parameter to
@@ -1638,11 +1706,13 @@ export interface ExportAutoScalingGroupRecommendationsRequest {
   accountIds?: string[];
 
   /**
+   * @public
    * <p>An array of objects to specify a filter that exports a more specific set of Auto Scaling group recommendations.</p>
    */
   filters?: Filter[];
 
   /**
+   * @public
    * <p>The recommendations data to include in the export file. For more information about the
    *             fields that can be exported, see <a href="https://docs.aws.amazon.com/compute-optimizer/latest/ug/exporting-recommendations.html#exported-files">Exported files</a> in the <i>Compute Optimizer User
    *             Guide</i>.</p>
@@ -1650,6 +1720,7 @@ export interface ExportAutoScalingGroupRecommendationsRequest {
   fieldsToExport?: (ExportableAutoScalingGroupField | string)[];
 
   /**
+   * @public
    * <p>An object to specify the destination Amazon Simple Storage Service (Amazon S3) bucket
    *             name and key prefix for the export job.</p>
    *          <p>You must create the destination Amazon S3 bucket for your recommendations
@@ -1663,12 +1734,14 @@ export interface ExportAutoScalingGroupRecommendationsRequest {
   s3DestinationConfig: S3DestinationConfig | undefined;
 
   /**
+   * @public
    * <p>The format of the export file.</p>
    *          <p>The only export file format currently supported is <code>Csv</code>.</p>
    */
   fileFormat?: FileFormat | string;
 
   /**
+   * @public
    * <p>Indicates whether to include recommendations for resources in all member accounts of
    *             the organization if your account is the management account of an organization.</p>
    *          <p>The member accounts must also be opted in to Compute Optimizer, and trusted access for
@@ -1685,6 +1758,7 @@ export interface ExportAutoScalingGroupRecommendationsRequest {
   includeMemberAccounts?: boolean;
 
   /**
+   * @public
    * <p>An object to specify the preferences for the Auto Scaling group recommendations
    *             to export.</p>
    */
@@ -1696,6 +1770,7 @@ export interface ExportAutoScalingGroupRecommendationsRequest {
  */
 export interface ExportAutoScalingGroupRecommendationsResponse {
   /**
+   * @public
    * <p>The identification number of the export job.</p>
    *          <p>Use the <a>DescribeRecommendationExportJobs</a> action, and specify the job
    *             ID to view the status of an export job.</p>
@@ -1703,6 +1778,7 @@ export interface ExportAutoScalingGroupRecommendationsResponse {
   jobId?: string;
 
   /**
+   * @public
    * <p>An object that describes the destination Amazon S3 bucket of a recommendations
    *             export file.</p>
    */
@@ -1796,6 +1872,7 @@ export type EBSFilterName = (typeof EBSFilterName)[keyof typeof EBSFilterName];
  */
 export interface EBSFilter {
   /**
+   * @public
    * <p>The name of the filter.</p>
    *          <p>Specify <code>Finding</code> to return recommendations with a specific finding
    *             classification (for example, <code>NotOptimized</code>).</p>
@@ -1815,6 +1892,7 @@ export interface EBSFilter {
   name?: EBSFilterName | string;
 
   /**
+   * @public
    * <p>The value of the filter.</p>
    *          <p>The valid values are <code>Optimized</code>, or <code>NotOptimized</code>.</p>
    */
@@ -1826,6 +1904,7 @@ export interface EBSFilter {
  */
 export interface ExportEBSVolumeRecommendationsRequest {
   /**
+   * @public
    * <p>The IDs of the Amazon Web Services accounts for which to export Amazon EBS
    *             volume recommendations.</p>
    *          <p>If your account is the management account of an organization, use this parameter to
@@ -1839,11 +1918,13 @@ export interface ExportEBSVolumeRecommendationsRequest {
   accountIds?: string[];
 
   /**
+   * @public
    * <p>An array of objects to specify a filter that exports a more specific set of Amazon EBS volume recommendations.</p>
    */
   filters?: EBSFilter[];
 
   /**
+   * @public
    * <p>The recommendations data to include in the export file. For more information about the
    *             fields that can be exported, see <a href="https://docs.aws.amazon.com/compute-optimizer/latest/ug/exporting-recommendations.html#exported-files">Exported files</a> in the <i>Compute Optimizer User
    *             Guide</i>.</p>
@@ -1851,6 +1932,7 @@ export interface ExportEBSVolumeRecommendationsRequest {
   fieldsToExport?: (ExportableVolumeField | string)[];
 
   /**
+   * @public
    * <p>Describes the destination Amazon Simple Storage Service (Amazon S3) bucket name and
    *             key prefix for a recommendations export job.</p>
    *          <p>You must create the destination Amazon S3 bucket for your recommendations
@@ -1864,12 +1946,14 @@ export interface ExportEBSVolumeRecommendationsRequest {
   s3DestinationConfig: S3DestinationConfig | undefined;
 
   /**
+   * @public
    * <p>The format of the export file.</p>
    *          <p>The only export file format currently supported is <code>Csv</code>.</p>
    */
   fileFormat?: FileFormat | string;
 
   /**
+   * @public
    * <p>Indicates whether to include recommendations for resources in all member accounts of
    *             the organization if your account is the management account of an organization.</p>
    *          <p>The member accounts must also be opted in to Compute Optimizer, and trusted access for
@@ -1891,6 +1975,7 @@ export interface ExportEBSVolumeRecommendationsRequest {
  */
 export interface ExportEBSVolumeRecommendationsResponse {
   /**
+   * @public
    * <p>The identification number of the export job.</p>
    *          <p>Use the <a>DescribeRecommendationExportJobs</a> action, and specify the job
    *             ID to view the status of an export job.</p>
@@ -1898,6 +1983,7 @@ export interface ExportEBSVolumeRecommendationsResponse {
   jobId?: string;
 
   /**
+   * @public
    * <p>Describes the destination Amazon Simple Storage Service (Amazon S3) bucket name and
    *             object keys of a recommendations export file, and its associated metadata file.</p>
    */
@@ -1986,6 +2072,7 @@ export type ExportableInstanceField = (typeof ExportableInstanceField)[keyof typ
  */
 export interface ExportEC2InstanceRecommendationsRequest {
   /**
+   * @public
    * <p>The IDs of the Amazon Web Services accounts for which to export instance
    *             recommendations.</p>
    *          <p>If your account is the management account of an organization, use this parameter to
@@ -1999,12 +2086,14 @@ export interface ExportEC2InstanceRecommendationsRequest {
   accountIds?: string[];
 
   /**
+   * @public
    * <p>An array of objects to specify a filter that exports a more specific set of instance
    *             recommendations.</p>
    */
   filters?: Filter[];
 
   /**
+   * @public
    * <p>The recommendations data to include in the export file. For more information about the
    *             fields that can be exported, see <a href="https://docs.aws.amazon.com/compute-optimizer/latest/ug/exporting-recommendations.html#exported-files">Exported files</a> in the <i>Compute Optimizer User
    *             Guide</i>.</p>
@@ -2012,6 +2101,7 @@ export interface ExportEC2InstanceRecommendationsRequest {
   fieldsToExport?: (ExportableInstanceField | string)[];
 
   /**
+   * @public
    * <p>An object to specify the destination Amazon Simple Storage Service (Amazon S3) bucket
    *             name and key prefix for the export job.</p>
    *          <p>You must create the destination Amazon S3 bucket for your recommendations
@@ -2026,12 +2116,14 @@ export interface ExportEC2InstanceRecommendationsRequest {
   s3DestinationConfig: S3DestinationConfig | undefined;
 
   /**
+   * @public
    * <p>The format of the export file.</p>
    *          <p>The only export file format currently supported is <code>Csv</code>.</p>
    */
   fileFormat?: FileFormat | string;
 
   /**
+   * @public
    * <p>Indicates whether to include recommendations for resources in all member accounts of
    *             the organization if your account is the management account of an organization.</p>
    *          <p>The member accounts must also be opted in to Compute Optimizer, and trusted access for
@@ -2046,6 +2138,7 @@ export interface ExportEC2InstanceRecommendationsRequest {
   includeMemberAccounts?: boolean;
 
   /**
+   * @public
    * <p>An object to specify the preferences for the Amazon EC2 instance
    *             recommendations to export.</p>
    */
@@ -2057,6 +2150,7 @@ export interface ExportEC2InstanceRecommendationsRequest {
  */
 export interface ExportEC2InstanceRecommendationsResponse {
   /**
+   * @public
    * <p>The identification number of the export job.</p>
    *          <p>Use the <a>DescribeRecommendationExportJobs</a> action, and specify the job
    *             ID to view the status of an export job.</p>
@@ -2064,6 +2158,7 @@ export interface ExportEC2InstanceRecommendationsResponse {
   jobId?: string;
 
   /**
+   * @public
    * <p>An object that describes the destination Amazon S3 bucket of a recommendations
    *             export file.</p>
    */
@@ -2132,6 +2227,7 @@ export type ECSServiceRecommendationFilterName =
  */
 export interface ECSServiceRecommendationFilter {
   /**
+   * @public
    * <p>
    *             The name of the filter.
    *         </p>
@@ -2157,6 +2253,7 @@ export interface ECSServiceRecommendationFilter {
   name?: ECSServiceRecommendationFilterName | string;
 
   /**
+   * @public
    * <p>
    *             The value of the filter.
    *         </p>
@@ -2181,6 +2278,7 @@ export interface ECSServiceRecommendationFilter {
  */
 export interface ExportECSServiceRecommendationsRequest {
   /**
+   * @public
    * <p>
    *             The Amazon Web Services account IDs for the export Amazon ECS service recommendations.
    *         </p>
@@ -2196,6 +2294,7 @@ export interface ExportECSServiceRecommendationsRequest {
   accountIds?: string[];
 
   /**
+   * @public
    * <p>
    *             An array of objects to specify a filter that exports a more specific set
    *             of Amazon ECS service recommendations.
@@ -2204,6 +2303,7 @@ export interface ExportECSServiceRecommendationsRequest {
   filters?: ECSServiceRecommendationFilter[];
 
   /**
+   * @public
    * <p>The recommendations data to include in the export file. For more information about the
    *             fields that can be exported, see <a href="https://docs.aws.amazon.com/compute-optimizer/latest/ug/exporting-recommendations.html#exported-files">Exported files</a> in the <i>Compute Optimizer User
    *                     Guide</i>.</p>
@@ -2211,6 +2311,7 @@ export interface ExportECSServiceRecommendationsRequest {
   fieldsToExport?: (ExportableECSServiceField | string)[];
 
   /**
+   * @public
    * <p>Describes the destination Amazon Simple Storage Service (Amazon S3) bucket name and
    *             key prefix for a recommendations export job.</p>
    *          <p>You must create the destination Amazon S3 bucket for your recommendations
@@ -2224,6 +2325,7 @@ export interface ExportECSServiceRecommendationsRequest {
   s3DestinationConfig: S3DestinationConfig | undefined;
 
   /**
+   * @public
    * <p>
    *             The format of the export file.
    *         </p>
@@ -2232,6 +2334,7 @@ export interface ExportECSServiceRecommendationsRequest {
   fileFormat?: FileFormat | string;
 
   /**
+   * @public
    * <p>If your account is the management account or the delegated administrator of an organization,
    *             this parameter indicates whether to include recommendations for resources in all member accounts of
    *             the organization.</p>
@@ -2252,6 +2355,7 @@ export interface ExportECSServiceRecommendationsRequest {
  */
 export interface ExportECSServiceRecommendationsResponse {
   /**
+   * @public
    * <p>
    *             The identification number of the export job.
    *         </p>
@@ -2262,6 +2366,7 @@ export interface ExportECSServiceRecommendationsResponse {
   jobId?: string;
 
   /**
+   * @public
    * <p>Describes the destination Amazon Simple Storage Service (Amazon S3) bucket name and
    *             object keys of a recommendations export file, and its associated metadata file.</p>
    */
@@ -2336,6 +2441,7 @@ export type LambdaFunctionRecommendationFilterName =
  */
 export interface LambdaFunctionRecommendationFilter {
   /**
+   * @public
    * <p>The name of the filter.</p>
    *          <p>Specify <code>Finding</code> to return recommendations with a specific finding
    *             classification (for example, <code>NotOptimized</code>).</p>
@@ -2357,6 +2463,7 @@ export interface LambdaFunctionRecommendationFilter {
   name?: LambdaFunctionRecommendationFilterName | string;
 
   /**
+   * @public
    * <p>The value of the filter.</p>
    *          <p>The valid values for this parameter are as follows, depending on what you specify for
    *             the <code>name</code> parameter:</p>
@@ -2382,6 +2489,7 @@ export interface LambdaFunctionRecommendationFilter {
  */
 export interface ExportLambdaFunctionRecommendationsRequest {
   /**
+   * @public
    * <p>The IDs of the Amazon Web Services accounts for which to export Lambda
    *             function recommendations.</p>
    *          <p>If your account is the management account of an organization, use this parameter to
@@ -2395,11 +2503,13 @@ export interface ExportLambdaFunctionRecommendationsRequest {
   accountIds?: string[];
 
   /**
+   * @public
    * <p>An array of objects to specify a filter that exports a more specific set of Lambda function recommendations.</p>
    */
   filters?: LambdaFunctionRecommendationFilter[];
 
   /**
+   * @public
    * <p>The recommendations data to include in the export file. For more information about the
    *             fields that can be exported, see <a href="https://docs.aws.amazon.com/compute-optimizer/latest/ug/exporting-recommendations.html#exported-files">Exported files</a> in the <i>Compute Optimizer User
    *             Guide</i>.</p>
@@ -2407,6 +2517,7 @@ export interface ExportLambdaFunctionRecommendationsRequest {
   fieldsToExport?: (ExportableLambdaFunctionField | string)[];
 
   /**
+   * @public
    * <p>Describes the destination Amazon Simple Storage Service (Amazon S3) bucket name and
    *             key prefix for a recommendations export job.</p>
    *          <p>You must create the destination Amazon S3 bucket for your recommendations
@@ -2420,12 +2531,14 @@ export interface ExportLambdaFunctionRecommendationsRequest {
   s3DestinationConfig: S3DestinationConfig | undefined;
 
   /**
+   * @public
    * <p>The format of the export file.</p>
    *          <p>The only export file format currently supported is <code>Csv</code>.</p>
    */
   fileFormat?: FileFormat | string;
 
   /**
+   * @public
    * <p>Indicates whether to include recommendations for resources in all member accounts of
    *             the organization if your account is the management account of an organization.</p>
    *          <p>The member accounts must also be opted in to Compute Optimizer, and trusted access for
@@ -2447,6 +2560,7 @@ export interface ExportLambdaFunctionRecommendationsRequest {
  */
 export interface ExportLambdaFunctionRecommendationsResponse {
   /**
+   * @public
    * <p>The identification number of the export job.</p>
    *          <p>Use the <a>DescribeRecommendationExportJobs</a> action, and specify the job
    *             ID to view the status of an export job.</p>
@@ -2454,6 +2568,7 @@ export interface ExportLambdaFunctionRecommendationsResponse {
   jobId?: string;
 
   /**
+   * @public
    * <p>Describes the destination Amazon Simple Storage Service (Amazon S3) bucket name and
    *             object keys of a recommendations export file, and its associated metadata file.</p>
    */
@@ -2465,6 +2580,7 @@ export interface ExportLambdaFunctionRecommendationsResponse {
  */
 export interface GetAutoScalingGroupRecommendationsRequest {
   /**
+   * @public
    * <p>The ID of the Amazon Web Services account for which to return Auto Scaling group
    *             recommendations.</p>
    *          <p>If your account is the management account of an organization, use this parameter to
@@ -2475,18 +2591,21 @@ export interface GetAutoScalingGroupRecommendationsRequest {
   accountIds?: string[];
 
   /**
+   * @public
    * <p>The Amazon Resource Name (ARN) of the Auto Scaling groups for which to return
    *             recommendations.</p>
    */
   autoScalingGroupArns?: string[];
 
   /**
+   * @public
    * <p>The token to advance to the next page of Auto Scaling group
    *             recommendations.</p>
    */
   nextToken?: string;
 
   /**
+   * @public
    * <p>The maximum number of Auto Scaling group recommendations to return with a single
    *             request.</p>
    *          <p>To retrieve the remaining results, make another request with the returned
@@ -2495,11 +2614,13 @@ export interface GetAutoScalingGroupRecommendationsRequest {
   maxResults?: number;
 
   /**
+   * @public
    * <p>An array of objects to specify a filter that returns a more specific list of Auto Scaling group recommendations.</p>
    */
   filters?: Filter[];
 
   /**
+   * @public
    * <p>An object to specify the preferences for the Auto Scaling group recommendations
    *             to return in the response.</p>
    */
@@ -2515,16 +2636,19 @@ export interface GetAutoScalingGroupRecommendationsRequest {
  */
 export interface GetRecommendationError {
   /**
+   * @public
    * <p>The ID of the error.</p>
    */
   identifier?: string;
 
   /**
+   * @public
    * <p>The error code.</p>
    */
   code?: string;
 
   /**
+   * @public
    * <p>The message, or reason, for the error.</p>
    */
   message?: string;
@@ -2535,6 +2659,7 @@ export interface GetRecommendationError {
  */
 export interface GetAutoScalingGroupRecommendationsResponse {
   /**
+   * @public
    * <p>The token to use to advance to the next page of Auto Scaling group
    *             recommendations.</p>
    *          <p>This value is null when there are no more pages of Auto Scaling group
@@ -2543,11 +2668,13 @@ export interface GetAutoScalingGroupRecommendationsResponse {
   nextToken?: string;
 
   /**
+   * @public
    * <p>An array of objects that describe Auto Scaling group recommendations.</p>
    */
   autoScalingGroupRecommendations?: AutoScalingGroupRecommendation[];
 
   /**
+   * @public
    * <p>An array of objects that describe errors of the request.</p>
    *          <p>For example, an error is returned if you request recommendations for an unsupported
    *                 Auto Scaling group.</p>
@@ -2560,17 +2687,20 @@ export interface GetAutoScalingGroupRecommendationsResponse {
  */
 export interface GetEBSVolumeRecommendationsRequest {
   /**
+   * @public
    * <p>The Amazon Resource Name (ARN) of the volumes for which to return
    *             recommendations.</p>
    */
   volumeArns?: string[];
 
   /**
+   * @public
    * <p>The token to advance to the next page of volume recommendations.</p>
    */
   nextToken?: string;
 
   /**
+   * @public
    * <p>The maximum number of volume recommendations to return with a single request.</p>
    *          <p>To retrieve the remaining results, make another request with the returned
    *                 <code>nextToken</code> value.</p>
@@ -2578,12 +2708,14 @@ export interface GetEBSVolumeRecommendationsRequest {
   maxResults?: number;
 
   /**
+   * @public
    * <p>An array of objects to specify a filter that returns a more specific list of volume
    *             recommendations.</p>
    */
   filters?: EBSFilter[];
 
   /**
+   * @public
    * <p>The ID of the Amazon Web Services account for which to return volume
    *             recommendations.</p>
    *          <p>If your account is the management account of an organization, use this parameter to
@@ -2600,6 +2732,7 @@ export interface GetEBSVolumeRecommendationsRequest {
  */
 export interface VolumeConfiguration {
   /**
+   * @public
    * <p>The volume type.</p>
    *          <p>This can be <code>gp2</code> for General Purpose SSD, <code>io1</code> or
    *                 <code>io2</code> for Provisioned IOPS SSD, <code>st1</code> for Throughput Optimized
@@ -2609,31 +2742,37 @@ export interface VolumeConfiguration {
   volumeType?: string;
 
   /**
+   * @public
    * <p>The size of the volume, in GiB.</p>
    */
   volumeSize?: number;
 
   /**
+   * @public
    * <p>The baseline IOPS of the volume.</p>
    */
   volumeBaselineIOPS?: number;
 
   /**
+   * @public
    * <p>The burst IOPS of the volume.</p>
    */
   volumeBurstIOPS?: number;
 
   /**
+   * @public
    * <p>The baseline throughput of the volume.</p>
    */
   volumeBaselineThroughput?: number;
 
   /**
+   * @public
    * <p>The burst throughput of the volume.</p>
    */
   volumeBurstThroughput?: number;
 
   /**
+   * @public
    * <p>
    *             Contains the image used to boot the instance during launch.
    *         </p>
@@ -2663,6 +2802,7 @@ export type EBSFinding = (typeof EBSFinding)[keyof typeof EBSFinding];
  */
 export interface Tag {
   /**
+   * @public
    * <p>
    *             One part of a key-value pair that makes up a tag. A key is a general
    *             label that acts like a category for more specific tag values.
@@ -2671,6 +2811,7 @@ export interface Tag {
   key?: string;
 
   /**
+   * @public
    * <p>
    *             One part of a key-value pair that make up a tag. A value acts as a descriptor
    *             within a tag category (key). The value can be empty or null.
@@ -2705,6 +2846,7 @@ export type EBSMetricName = (typeof EBSMetricName)[keyof typeof EBSMetricName];
  */
 export interface EBSUtilizationMetric {
   /**
+   * @public
    * <p>The name of the utilization metric.</p>
    *          <p>The following utilization metrics are available:</p>
    *          <ul>
@@ -2737,6 +2879,7 @@ export interface EBSUtilizationMetric {
   name?: EBSMetricName | string;
 
   /**
+   * @public
    * <p>The statistic of the utilization metric.</p>
    *          <p>The Compute Optimizer API, Command Line Interface (CLI), and SDKs
    *             return utilization metrics using only the <code>Maximum</code> statistic, which is the
@@ -2753,6 +2896,7 @@ export interface EBSUtilizationMetric {
   statistic?: MetricStatistic | string;
 
   /**
+   * @public
    * <p>The value of the utilization metric.</p>
    */
   value?: number;
@@ -2765,11 +2909,13 @@ export interface EBSUtilizationMetric {
  */
 export interface VolumeRecommendationOption {
   /**
+   * @public
    * <p>An array of objects that describe a volume configuration.</p>
    */
   configuration?: VolumeConfiguration;
 
   /**
+   * @public
    * <p>The performance risk of the volume recommendation option.</p>
    *          <p>Performance risk is the likelihood of the recommended volume type meeting the
    *             performance requirement of your workload.</p>
@@ -2782,12 +2928,14 @@ export interface VolumeRecommendationOption {
   performanceRisk?: number;
 
   /**
+   * @public
    * <p>The rank of the volume recommendation option.</p>
    *          <p>The top recommendation option is ranked as <code>1</code>.</p>
    */
   rank?: number;
 
   /**
+   * @public
    * <p>An object that describes the savings opportunity for the EBS volume recommendation
    *             option. Savings opportunity includes the estimated monthly savings amount and
    *             percentage.</p>
@@ -2801,21 +2949,25 @@ export interface VolumeRecommendationOption {
  */
 export interface VolumeRecommendation {
   /**
+   * @public
    * <p>The Amazon Resource Name (ARN) of the current volume.</p>
    */
   volumeArn?: string;
 
   /**
+   * @public
    * <p>The Amazon Web Services account ID of the volume.</p>
    */
   accountId?: string;
 
   /**
+   * @public
    * <p>An array of objects that describe the current configuration of the volume.</p>
    */
   currentConfiguration?: VolumeConfiguration;
 
   /**
+   * @public
    * <p>The finding classification of the volume.</p>
    *          <p>Findings for volumes include:</p>
    *          <ul>
@@ -2842,26 +2994,31 @@ export interface VolumeRecommendation {
   finding?: EBSFinding | string;
 
   /**
+   * @public
    * <p>An array of objects that describe the utilization metrics of the volume.</p>
    */
   utilizationMetrics?: EBSUtilizationMetric[];
 
   /**
+   * @public
    * <p>The number of days for which utilization metrics were analyzed for the volume.</p>
    */
   lookBackPeriodInDays?: number;
 
   /**
+   * @public
    * <p>An array of objects that describe the recommendation options for the volume.</p>
    */
   volumeRecommendationOptions?: VolumeRecommendationOption[];
 
   /**
+   * @public
    * <p>The timestamp of when the volume recommendation was last generated.</p>
    */
   lastRefreshTimestamp?: Date;
 
   /**
+   * @public
    * <p>The risk of the current EBS volume not meeting the performance needs of its workloads.
    *             The higher the risk, the more likely the current EBS volume doesn't have sufficient
    *             capacity.</p>
@@ -2869,6 +3026,7 @@ export interface VolumeRecommendation {
   currentPerformanceRisk?: CurrentPerformanceRisk | string;
 
   /**
+   * @public
    * <p>
    *             A list of tags assigned to your Amazon EBS volume recommendations.
    *         </p>
@@ -2881,6 +3039,7 @@ export interface VolumeRecommendation {
  */
 export interface GetEBSVolumeRecommendationsResponse {
   /**
+   * @public
    * <p>The token to use to advance to the next page of volume recommendations.</p>
    *          <p>This value is null when there are no more pages of volume recommendations to
    *             return.</p>
@@ -2888,11 +3047,13 @@ export interface GetEBSVolumeRecommendationsResponse {
   nextToken?: string;
 
   /**
+   * @public
    * <p>An array of objects that describe volume recommendations.</p>
    */
   volumeRecommendations?: VolumeRecommendation[];
 
   /**
+   * @public
    * <p>An array of objects that describe errors of the request.</p>
    *          <p>For example, an error is returned if you request recommendations for an unsupported
    *             volume.</p>
@@ -2905,17 +3066,20 @@ export interface GetEBSVolumeRecommendationsResponse {
  */
 export interface GetEC2InstanceRecommendationsRequest {
   /**
+   * @public
    * <p>The Amazon Resource Name (ARN) of the instances for which to return
    *             recommendations.</p>
    */
   instanceArns?: string[];
 
   /**
+   * @public
    * <p>The token to advance to the next page of instance recommendations.</p>
    */
   nextToken?: string;
 
   /**
+   * @public
    * <p>The maximum number of instance recommendations to return with a single request.</p>
    *          <p>To retrieve the remaining results, make another request with the returned
    *                 <code>nextToken</code> value.</p>
@@ -2923,12 +3087,14 @@ export interface GetEC2InstanceRecommendationsRequest {
   maxResults?: number;
 
   /**
+   * @public
    * <p>An array of objects to specify a filter that returns a more specific list of instance
    *             recommendations.</p>
    */
   filters?: Filter[];
 
   /**
+   * @public
    * <p>The ID of the Amazon Web Services account for which to return instance
    *             recommendations.</p>
    *          <p>If your account is the management account of an organization, use this parameter to
@@ -2938,6 +3104,7 @@ export interface GetEC2InstanceRecommendationsRequest {
   accountIds?: string[];
 
   /**
+   * @public
    * <p>An object to specify the preferences for the Amazon EC2 instance
    *             recommendations to return in the response.</p>
    */
@@ -2974,6 +3141,7 @@ export type ExternalMetricStatusCode = (typeof ExternalMetricStatusCode)[keyof t
  */
 export interface ExternalMetricStatus {
   /**
+   * @public
    * <p>
    *             The status code for Compute Optimizer's integration with an external metrics provider.
    *         </p>
@@ -2981,6 +3149,7 @@ export interface ExternalMetricStatus {
   statusCode?: ExternalMetricStatusCode | string;
 
   /**
+   * @public
    * <p>
    *             The reason for Compute Optimizer's integration status with your external metric provider.
    *         </p>
@@ -3059,11 +3228,13 @@ export type PlatformDifference = (typeof PlatformDifference)[keyof typeof Platfo
  */
 export interface InstanceRecommendationOption {
   /**
+   * @public
    * <p>The instance type of the instance recommendation.</p>
    */
   instanceType?: string;
 
   /**
+   * @public
    * <p>An array of objects that describe the projected utilization metrics of the instance
    *             recommendation option.</p>
    *          <note>
@@ -3077,6 +3248,7 @@ export interface InstanceRecommendationOption {
   projectedUtilizationMetrics?: UtilizationMetric[];
 
   /**
+   * @public
    * <p>Describes the configuration differences between the current instance and the
    *             recommended instance type. You should consider the configuration differences before
    *             migrating your workloads from the current instance to the recommended instance type. The
@@ -3177,6 +3349,7 @@ export interface InstanceRecommendationOption {
   platformDifferences?: (PlatformDifference | string)[];
 
   /**
+   * @public
    * <p>The performance risk of the instance recommendation option.</p>
    *          <p>Performance risk indicates the likelihood of the recommended instance type not meeting
    *             the resource needs of your workload. Compute Optimizer calculates an individual
@@ -3195,12 +3368,14 @@ export interface InstanceRecommendationOption {
   performanceRisk?: number;
 
   /**
+   * @public
    * <p>The rank of the instance recommendation option.</p>
    *          <p>The top recommendation option is ranked as <code>1</code>.</p>
    */
   rank?: number;
 
   /**
+   * @public
    * <p>An object that describes the savings opportunity for the instance recommendation
    *             option. Savings opportunity includes the estimated monthly savings amount and
    *             percentage.</p>
@@ -3208,6 +3383,7 @@ export interface InstanceRecommendationOption {
   savingsOpportunity?: SavingsOpportunity;
 
   /**
+   * @public
    * <p>The level of effort required to migrate from the current instance type to the
    *             recommended instance type.</p>
    *          <p>For example, the migration effort is <code>Low</code> if Amazon EMR is the
@@ -3244,11 +3420,13 @@ export type RecommendationSourceType = (typeof RecommendationSourceType)[keyof t
  */
 export interface RecommendationSource {
   /**
+   * @public
    * <p>The Amazon Resource Name (ARN) of the recommendation source.</p>
    */
   recommendationSourceArn?: string;
 
   /**
+   * @public
    * <p>The resource type of the recommendation source.</p>
    */
   recommendationSourceType?: RecommendationSourceType | string;
@@ -3260,26 +3438,31 @@ export interface RecommendationSource {
  */
 export interface InstanceRecommendation {
   /**
+   * @public
    * <p>The Amazon Resource Name (ARN) of the current instance.</p>
    */
   instanceArn?: string;
 
   /**
+   * @public
    * <p>The Amazon Web Services account ID of the instance.</p>
    */
   accountId?: string;
 
   /**
+   * @public
    * <p>The name of the current instance.</p>
    */
   instanceName?: string;
 
   /**
+   * @public
    * <p>The instance type of the current instance.</p>
    */
   currentInstanceType?: string;
 
   /**
+   * @public
    * <p>The finding classification of the instance.</p>
    *          <p>Findings for instances include:</p>
    *          <ul>
@@ -3319,6 +3502,7 @@ export interface InstanceRecommendation {
   finding?: Finding | string;
 
   /**
+   * @public
    * <p>The reason for the finding classification of the instance.</p>
    *          <p>Finding reason codes for instances include:</p>
    *          <ul>
@@ -3518,32 +3702,38 @@ export interface InstanceRecommendation {
   findingReasonCodes?: (InstanceRecommendationFindingReasonCode | string)[];
 
   /**
+   * @public
    * <p>An array of objects that describe the utilization metrics of the instance.</p>
    */
   utilizationMetrics?: UtilizationMetric[];
 
   /**
+   * @public
    * <p>The number of days for which utilization metrics were analyzed for the
    *             instance.</p>
    */
   lookBackPeriodInDays?: number;
 
   /**
+   * @public
    * <p>An array of objects that describe the recommendation options for the instance.</p>
    */
   recommendationOptions?: InstanceRecommendationOption[];
 
   /**
+   * @public
    * <p>An array of objects that describe the source resource of the recommendation.</p>
    */
   recommendationSources?: RecommendationSource[];
 
   /**
+   * @public
    * <p>The timestamp of when the instance recommendation was last generated.</p>
    */
   lastRefreshTimestamp?: Date;
 
   /**
+   * @public
    * <p>The risk of the current instance not meeting the performance needs of its workloads.
    *             The higher the risk, the more likely the current instance cannot meet the performance
    *             requirements of its workload.</p>
@@ -3551,12 +3741,14 @@ export interface InstanceRecommendation {
   currentPerformanceRisk?: CurrentPerformanceRisk | string;
 
   /**
+   * @public
    * <p>An object that describes the effective recommendation preferences for the
    *             instance.</p>
    */
   effectiveRecommendationPreferences?: EffectiveRecommendationPreferences;
 
   /**
+   * @public
    * <p>The applications that might be running on the instance as inferred by Compute Optimizer.</p>
    *          <p>Compute Optimizer can infer if one of the following applications might be running on
    *             the instance:</p>
@@ -3611,6 +3803,7 @@ export interface InstanceRecommendation {
   inferredWorkloadTypes?: (InferredWorkloadType | string)[];
 
   /**
+   * @public
    * <p>
    *             The state of the instance when the recommendation was generated.
    *         </p>
@@ -3618,6 +3811,7 @@ export interface InstanceRecommendation {
   instanceState?: InstanceState | string;
 
   /**
+   * @public
    * <p>
    *             A list of tags assigned to your Amazon EC2 instance recommendations.
    *         </p>
@@ -3625,6 +3819,7 @@ export interface InstanceRecommendation {
   tags?: Tag[];
 
   /**
+   * @public
    * <p>
    *             An object that describes Compute Optimizer's integration status with your external metrics provider.
    *         </p>
@@ -3637,6 +3832,7 @@ export interface InstanceRecommendation {
  */
 export interface GetEC2InstanceRecommendationsResponse {
   /**
+   * @public
    * <p>The token to use to advance to the next page of instance recommendations.</p>
    *          <p>This value is null when there are no more pages of instance recommendations to
    *             return.</p>
@@ -3644,11 +3840,13 @@ export interface GetEC2InstanceRecommendationsResponse {
   nextToken?: string;
 
   /**
+   * @public
    * <p>An array of objects that describe instance recommendations.</p>
    */
   instanceRecommendations?: InstanceRecommendation[];
 
   /**
+   * @public
    * <p>An array of objects that describe errors of the request.</p>
    *          <p>For example, an error is returned if you request recommendations for an instance of an
    *             unsupported instance family.</p>
@@ -3661,32 +3859,38 @@ export interface GetEC2InstanceRecommendationsResponse {
  */
 export interface GetEC2RecommendationProjectedMetricsRequest {
   /**
+   * @public
    * <p>The Amazon Resource Name (ARN) of the instances for which to return recommendation
    *             projected metrics.</p>
    */
   instanceArn: string | undefined;
 
   /**
+   * @public
    * <p>The statistic of the projected metrics.</p>
    */
   stat: MetricStatistic | string | undefined;
 
   /**
+   * @public
    * <p>The granularity, in seconds, of the projected metrics data points.</p>
    */
   period: number | undefined;
 
   /**
+   * @public
    * <p>The timestamp of the first projected metrics data point to return.</p>
    */
   startTime: Date | undefined;
 
   /**
+   * @public
    * <p>The timestamp of the last projected metrics data point to return.</p>
    */
   endTime: Date | undefined;
 
   /**
+   * @public
    * <p>An object to specify the preferences for the Amazon EC2 recommendation
    *             projected metrics to return in the response.</p>
    */
@@ -3710,6 +3914,7 @@ export interface GetEC2RecommendationProjectedMetricsRequest {
  */
 export interface ProjectedMetric {
   /**
+   * @public
    * <p>The name of the projected utilization metric.</p>
    *          <p>The following projected utilization metrics are returned:</p>
    *          <ul>
@@ -3743,11 +3948,13 @@ export interface ProjectedMetric {
   name?: MetricName | string;
 
   /**
+   * @public
    * <p>The timestamps of the projected utilization metric.</p>
    */
   timestamps?: Date[];
 
   /**
+   * @public
    * <p>The values of the projected utilization metrics.</p>
    */
   values?: number[];
@@ -3765,11 +3972,13 @@ export interface ProjectedMetric {
  */
 export interface RecommendedOptionProjectedMetric {
   /**
+   * @public
    * <p>The recommended instance type.</p>
    */
   recommendedInstanceType?: string;
 
   /**
+   * @public
    * <p>The rank of the recommendation option projected metric.</p>
    *          <p>The top recommendation option is ranked as <code>1</code>.</p>
    *          <p>The projected metric rank correlates to the recommendation option rank. For example,
@@ -3779,6 +3988,7 @@ export interface RecommendedOptionProjectedMetric {
   rank?: number;
 
   /**
+   * @public
    * <p>An array of objects that describe a projected utilization metric.</p>
    */
   projectedMetrics?: ProjectedMetric[];
@@ -3789,6 +3999,7 @@ export interface RecommendedOptionProjectedMetric {
  */
 export interface GetEC2RecommendationProjectedMetricsResponse {
   /**
+   * @public
    * <p>An array of objects that describes projected metrics.</p>
    */
   recommendedOptionProjectedMetrics?: RecommendedOptionProjectedMetric[];
@@ -3799,6 +4010,7 @@ export interface GetEC2RecommendationProjectedMetricsResponse {
  */
 export interface GetECSServiceRecommendationProjectedMetricsRequest {
   /**
+   * @public
    * <p>
    *             The ARN that identifies the Amazon ECS service.
    *         </p>
@@ -3812,6 +4024,7 @@ export interface GetECSServiceRecommendationProjectedMetricsRequest {
   serviceArn: string | undefined;
 
   /**
+   * @public
    * <p>
    *             The statistic of the projected metrics.
    *         </p>
@@ -3819,6 +4032,7 @@ export interface GetECSServiceRecommendationProjectedMetricsRequest {
   stat: MetricStatistic | string | undefined;
 
   /**
+   * @public
    * <p>
    *             The granularity, in seconds, of the projected metrics data points.
    *         </p>
@@ -3826,6 +4040,7 @@ export interface GetECSServiceRecommendationProjectedMetricsRequest {
   period: number | undefined;
 
   /**
+   * @public
    * <p>
    *             The timestamp of the first projected metrics data point to return.
    *         </p>
@@ -3833,6 +4048,7 @@ export interface GetECSServiceRecommendationProjectedMetricsRequest {
   startTime: Date | undefined;
 
   /**
+   * @public
    * <p>
    *             The timestamp of the last projected metrics data point to return.
    *         </p>
@@ -3864,6 +4080,7 @@ export type ECSServiceMetricName = (typeof ECSServiceMetricName)[keyof typeof EC
  */
 export interface ECSServiceProjectedMetric {
   /**
+   * @public
    * <p>
    *             The name of the projected metric.
    *         </p>
@@ -3884,6 +4101,7 @@ export interface ECSServiceProjectedMetric {
   name?: ECSServiceMetricName | string;
 
   /**
+   * @public
    * <p>
    *             The timestamps of the projected metric.
    *         </p>
@@ -3891,6 +4109,7 @@ export interface ECSServiceProjectedMetric {
   timestamps?: Date[];
 
   /**
+   * @public
    * <p>
    *             The upper bound values for the projected metric.
    *         </p>
@@ -3898,6 +4117,7 @@ export interface ECSServiceProjectedMetric {
   upperBoundValues?: number[];
 
   /**
+   * @public
    * <p>
    *             The lower bound values for the projected metric.
    *         </p>
@@ -3915,6 +4135,7 @@ export interface ECSServiceProjectedMetric {
  */
 export interface ECSServiceRecommendedOptionProjectedMetric {
   /**
+   * @public
    * <p>
    *             The recommended CPU size for the Amazon ECS service.
    *         </p>
@@ -3922,6 +4143,7 @@ export interface ECSServiceRecommendedOptionProjectedMetric {
   recommendedCpuUnits?: number;
 
   /**
+   * @public
    * <p>
    *             The recommended memory size for the Amazon ECS service.
    *         </p>
@@ -3929,6 +4151,7 @@ export interface ECSServiceRecommendedOptionProjectedMetric {
   recommendedMemorySize?: number;
 
   /**
+   * @public
    * <p>
    *             An array of objects that describe the projected metric.
    *         </p>
@@ -3941,6 +4164,7 @@ export interface ECSServiceRecommendedOptionProjectedMetric {
  */
 export interface GetECSServiceRecommendationProjectedMetricsResponse {
   /**
+   * @public
    * <p>
    *             An array of objects that describes the projected metrics.
    *         </p>
@@ -3953,6 +4177,7 @@ export interface GetECSServiceRecommendationProjectedMetricsResponse {
  */
 export interface GetECSServiceRecommendationsRequest {
   /**
+   * @public
    * <p>
    *             The ARN that identifies the Amazon ECS service.
    *         </p>
@@ -3966,6 +4191,7 @@ export interface GetECSServiceRecommendationsRequest {
   serviceArns?: string[];
 
   /**
+   * @public
    * <p>
    *             The token to advance to the next page of Amazon ECS service recommendations.
    *         </p>
@@ -3973,6 +4199,7 @@ export interface GetECSServiceRecommendationsRequest {
   nextToken?: string;
 
   /**
+   * @public
    * <p>
    *             The maximum number of Amazon ECS service recommendations to return with a single request.
    *         </p>
@@ -3982,6 +4209,7 @@ export interface GetECSServiceRecommendationsRequest {
   maxResults?: number;
 
   /**
+   * @public
    * <p>
    *             An array of objects to specify a filter that returns a more specific list of Amazon ECS service recommendations.
    *         </p>
@@ -3989,6 +4217,7 @@ export interface GetECSServiceRecommendationsRequest {
   filters?: ECSServiceRecommendationFilter[];
 
   /**
+   * @public
    * <p>
    *             Return the Amazon ECS service recommendations to the specified Amazon Web Services account IDs.
    *         </p>
@@ -4008,6 +4237,7 @@ export interface GetECSServiceRecommendationsRequest {
  */
 export interface MemorySizeConfiguration {
   /**
+   * @public
    * <p>
    *             The amount of memory in the container.
    *         </p>
@@ -4015,6 +4245,7 @@ export interface MemorySizeConfiguration {
   memory?: number;
 
   /**
+   * @public
    * <p>
    *             The limit of memory reserve for the container.
    *         </p>
@@ -4030,6 +4261,7 @@ export interface MemorySizeConfiguration {
  */
 export interface ContainerConfiguration {
   /**
+   * @public
    * <p>
    *             The name of the container.
    *         </p>
@@ -4037,6 +4269,7 @@ export interface ContainerConfiguration {
   containerName?: string;
 
   /**
+   * @public
    * <p>
    *             The memory size configurations for the container.
    *         </p>
@@ -4044,6 +4277,7 @@ export interface ContainerConfiguration {
   memorySizeConfiguration?: MemorySizeConfiguration;
 
   /**
+   * @public
    * <p>
    *             The number of CPU units reserved for the container.
    *         </p>
@@ -4059,6 +4293,7 @@ export interface ContainerConfiguration {
  */
 export interface ServiceConfiguration {
   /**
+   * @public
    * <p>
    *             The amount of memory used by the tasks in the Amazon ECS service.
    *         </p>
@@ -4066,6 +4301,7 @@ export interface ServiceConfiguration {
   memory?: number;
 
   /**
+   * @public
    * <p>
    *             The number of CPU units used by the tasks in the Amazon ECS service.
    *         </p>
@@ -4073,6 +4309,7 @@ export interface ServiceConfiguration {
   cpu?: number;
 
   /**
+   * @public
    * <p>
    *             The container configurations within a task of an Amazon ECS service.
    *         </p>
@@ -4080,6 +4317,7 @@ export interface ServiceConfiguration {
   containerConfigurations?: ContainerConfiguration[];
 
   /**
+   * @public
    * <p>
    *             Describes the Auto Scaling configuration methods for an Amazon ECS service. This affects
    *             the generated recommendations. For example, if Auto Scaling is configured on a
@@ -4108,6 +4346,7 @@ export interface ServiceConfiguration {
   autoScalingConfiguration?: AutoScalingConfiguration | string;
 
   /**
+   * @public
    * <p>
    *             The task definition ARN used by the tasks in the Amazon ECS service.
    *         </p>
@@ -4170,6 +4409,7 @@ export type ECSServiceLaunchType = (typeof ECSServiceLaunchType)[keyof typeof EC
  */
 export interface ContainerRecommendation {
   /**
+   * @public
    * <p>
    *             The name of the container.
    *         </p>
@@ -4177,6 +4417,7 @@ export interface ContainerRecommendation {
   containerName?: string;
 
   /**
+   * @public
    * <p>
    *             The recommended memory size configurations for the container.
    *         </p>
@@ -4184,6 +4425,7 @@ export interface ContainerRecommendation {
   memorySizeConfiguration?: MemorySizeConfiguration;
 
   /**
+   * @public
    * <p>
    *             The recommended number of CPU units reserved for the container.
    *         </p>
@@ -4215,6 +4457,7 @@ export type ECSServiceMetricStatistic = (typeof ECSServiceMetricStatistic)[keyof
  */
 export interface ECSServiceProjectedUtilizationMetric {
   /**
+   * @public
    * <p>
    *             The name of the projected utilization metric.
    *         </p>
@@ -4235,6 +4478,7 @@ export interface ECSServiceProjectedUtilizationMetric {
   name?: ECSServiceMetricName | string;
 
   /**
+   * @public
    * <p>The statistic of the projected utilization metric.</p>
    *          <p>The Compute Optimizer API, Command Line Interface (CLI), and SDKs
    *             return utilization metrics using only the <code>Maximum</code> statistic, which is the
@@ -4251,6 +4495,7 @@ export interface ECSServiceProjectedUtilizationMetric {
   statistic?: ECSServiceMetricStatistic | string;
 
   /**
+   * @public
    * <p>
    *             The lower bound values for the projected utilization metrics.
    *         </p>
@@ -4258,6 +4503,7 @@ export interface ECSServiceProjectedUtilizationMetric {
   lowerBoundValue?: number;
 
   /**
+   * @public
    * <p>
    *             The upper bound values for the projected utilization metrics.
    *         </p>
@@ -4273,6 +4519,7 @@ export interface ECSServiceProjectedUtilizationMetric {
  */
 export interface ECSServiceRecommendationOption {
   /**
+   * @public
    * <p>
    *             The memory size of the Amazon ECS service recommendation option.
    *         </p>
@@ -4280,6 +4527,7 @@ export interface ECSServiceRecommendationOption {
   memory?: number;
 
   /**
+   * @public
    * <p>
    *             The CPU size of the Amazon ECS service recommendation option.
    *         </p>
@@ -4287,6 +4535,7 @@ export interface ECSServiceRecommendationOption {
   cpu?: number;
 
   /**
+   * @public
    * <p>Describes the savings opportunity for recommendations of a given resource type or for
    *             the recommendation option of an individual resource.</p>
    *          <p>Savings opportunity represents the estimated monthly savings you can achieve by
@@ -4307,6 +4556,7 @@ export interface ECSServiceRecommendationOption {
   savingsOpportunity?: SavingsOpportunity;
 
   /**
+   * @public
    * <p>
    *             An array of objects that describe the projected utilization metrics of the Amazon ECS service recommendation option.
    *         </p>
@@ -4314,6 +4564,7 @@ export interface ECSServiceRecommendationOption {
   projectedUtilizationMetrics?: ECSServiceProjectedUtilizationMetric[];
 
   /**
+   * @public
    * <p>
    *             The CPU and memory size recommendations for the containers within the task of your Amazon ECS service.
    *         </p>
@@ -4331,6 +4582,7 @@ export interface ECSServiceRecommendationOption {
  */
 export interface ECSServiceUtilizationMetric {
   /**
+   * @public
    * <p>
    *             The name of the utilization metric.
    *         </p>
@@ -4349,6 +4601,7 @@ export interface ECSServiceUtilizationMetric {
   name?: ECSServiceMetricName | string;
 
   /**
+   * @public
    * <p>The statistic of the utilization metric.</p>
    *          <p>The Compute Optimizer API, Command Line Interface (CLI), and SDKs
    *             return utilization metrics using only the <code>Maximum</code> statistic, which is the
@@ -4365,6 +4618,7 @@ export interface ECSServiceUtilizationMetric {
   statistic?: ECSServiceMetricStatistic | string;
 
   /**
+   * @public
    * <p>
    *             The value of the utilization metric.
    *         </p>
@@ -4380,6 +4634,7 @@ export interface ECSServiceUtilizationMetric {
  */
 export interface ECSServiceRecommendation {
   /**
+   * @public
    * <p>
    *             The Amazon Resource Name (ARN) of the current Amazon ECS service.
    *         </p>
@@ -4393,6 +4648,7 @@ export interface ECSServiceRecommendation {
   serviceArn?: string;
 
   /**
+   * @public
    * <p>
    *             The Amazon Web Services account ID of the Amazon ECS service.
    *         </p>
@@ -4400,6 +4656,7 @@ export interface ECSServiceRecommendation {
   accountId?: string;
 
   /**
+   * @public
    * <p>
    *             The configuration of the current Amazon ECS service.
    *         </p>
@@ -4407,6 +4664,7 @@ export interface ECSServiceRecommendation {
   currentServiceConfiguration?: ServiceConfiguration;
 
   /**
+   * @public
    * <p>
    *             An array of objects that describe the utilization metrics of the Amazon ECS service.
    *         </p>
@@ -4414,6 +4672,7 @@ export interface ECSServiceRecommendation {
   utilizationMetrics?: ECSServiceUtilizationMetric[];
 
   /**
+   * @public
    * <p>
    *             The number of days the Amazon ECS service utilization metrics were analyzed.
    *         </p>
@@ -4421,6 +4680,7 @@ export interface ECSServiceRecommendation {
   lookbackPeriodInDays?: number;
 
   /**
+   * @public
    * <p>
    *             The launch type the Amazon ECS service is using.
    *         </p>
@@ -4431,6 +4691,7 @@ export interface ECSServiceRecommendation {
   launchType?: ECSServiceLaunchType | string;
 
   /**
+   * @public
    * <p>
    *             The timestamp of when the Amazon ECS service recommendation was last generated.
    *         </p>
@@ -4438,6 +4699,7 @@ export interface ECSServiceRecommendation {
   lastRefreshTimestamp?: Date;
 
   /**
+   * @public
    * <p>
    *             The finding classification of an Amazon ECS service.
    *         </p>
@@ -4474,6 +4736,7 @@ export interface ECSServiceRecommendation {
   finding?: ECSServiceRecommendationFinding | string;
 
   /**
+   * @public
    * <p>
    *             The reason for the finding classification of an Amazon ECS service.
    *         </p>
@@ -4520,6 +4783,7 @@ export interface ECSServiceRecommendation {
   findingReasonCodes?: (ECSServiceRecommendationFindingReasonCode | string)[];
 
   /**
+   * @public
    * <p>
    *             An array of objects that describe the recommendation options for the Amazon ECS service.
    *         </p>
@@ -4527,6 +4791,7 @@ export interface ECSServiceRecommendation {
   serviceRecommendationOptions?: ECSServiceRecommendationOption[];
 
   /**
+   * @public
    * <p>
    *             The risk of the current Amazon ECS service not meeting the performance needs of its workloads.
    *             The higher the risk, the more likely the current service can't meet the performance
@@ -4536,6 +4801,7 @@ export interface ECSServiceRecommendation {
   currentPerformanceRisk?: CurrentPerformanceRisk | string;
 
   /**
+   * @public
    * <p>
    *             A list of tags assigned to your Amazon ECS service recommendations.
    *         </p>
@@ -4548,6 +4814,7 @@ export interface ECSServiceRecommendation {
  */
 export interface GetECSServiceRecommendationsResponse {
   /**
+   * @public
    * <p>
    *             The token to advance to the next page of Amazon ECS service recommendations.
    *         </p>
@@ -4555,6 +4822,7 @@ export interface GetECSServiceRecommendationsResponse {
   nextToken?: string;
 
   /**
+   * @public
    * <p>
    *             An array of objects that describe the Amazon ECS service recommendations.
    *         </p>
@@ -4562,6 +4830,7 @@ export interface GetECSServiceRecommendationsResponse {
   ecsServiceRecommendations?: ECSServiceRecommendation[];
 
   /**
+   * @public
    * <p>
    *             An array of objects that describe errors of the request.
    *         </p>
@@ -4574,6 +4843,7 @@ export interface GetECSServiceRecommendationsResponse {
  */
 export interface GetEffectiveRecommendationPreferencesRequest {
   /**
+   * @public
    * <p>The Amazon Resource Name (ARN) of the resource for which to confirm effective
    *             recommendation preferences. Only EC2 instance and Auto Scaling group ARNs are
    *             currently supported.</p>
@@ -4586,6 +4856,7 @@ export interface GetEffectiveRecommendationPreferencesRequest {
  */
 export interface GetEffectiveRecommendationPreferencesResponse {
   /**
+   * @public
    * <p>The status of the enhanced infrastructure metrics recommendation preference. Considers
    *             all applicable preferences that you might have set at the resource, account, and
    *             organization level.</p>
@@ -4602,6 +4873,7 @@ export interface GetEffectiveRecommendationPreferencesResponse {
   enhancedInfrastructureMetrics?: EnhancedInfrastructureMetrics | string;
 
   /**
+   * @public
    * <p>The provider of the external metrics recommendation preference. Considers all
    *             applicable preferences that you might have set at the account and organization
    *             level.</p>
@@ -4628,11 +4900,13 @@ export interface GetEnrollmentStatusRequest {}
  */
 export interface GetEnrollmentStatusResponse {
   /**
+   * @public
    * <p>The enrollment status of the account.</p>
    */
   status?: Status | string;
 
   /**
+   * @public
    * <p>The reason for the enrollment status of the account.</p>
    *          <p>For example, an account might show a status of <code>Pending</code> because member
    *             accounts of an organization require more time to be enrolled in the service.</p>
@@ -4640,18 +4914,21 @@ export interface GetEnrollmentStatusResponse {
   statusReason?: string;
 
   /**
+   * @public
    * <p>Confirms the enrollment status of member accounts of the organization, if the account
    *             is a management account of an organization.</p>
    */
   memberAccountsEnrolled?: boolean;
 
   /**
+   * @public
    * <p>The Unix epoch timestamp, in seconds, of when the account enrollment status was last
    *             updated.</p>
    */
   lastUpdatedTimestamp?: Date;
 
   /**
+   * @public
    * <p>The count of organization member accounts that are opted in to the service, if your
    *             account is an organization management account.</p>
    */
@@ -4679,6 +4956,7 @@ export type EnrollmentFilterName = (typeof EnrollmentFilterName)[keyof typeof En
  */
 export interface EnrollmentFilter {
   /**
+   * @public
    * <p>The name of the filter.</p>
    *          <p>Specify <code>Status</code> to return accounts with a specific enrollment status (for
    *             example, <code>Active</code>).</p>
@@ -4686,6 +4964,7 @@ export interface EnrollmentFilter {
   name?: EnrollmentFilterName | string;
 
   /**
+   * @public
    * <p>The value of the filter.</p>
    *          <p>The valid values are <code>Active</code>, <code>Inactive</code>, <code>Pending</code>,
    *             and <code>Failed</code>.</p>
@@ -4698,17 +4977,20 @@ export interface EnrollmentFilter {
  */
 export interface GetEnrollmentStatusesForOrganizationRequest {
   /**
+   * @public
    * <p>An array of objects to specify a filter that returns a more specific list of account
    *             enrollment statuses.</p>
    */
   filters?: EnrollmentFilter[];
 
   /**
+   * @public
    * <p>The token to advance to the next page of account enrollment statuses.</p>
    */
   nextToken?: string;
 
   /**
+   * @public
    * <p>The maximum number of account enrollment statuses to return with a single request. You
    *             can specify up to 100 statuses to return with each request.</p>
    *          <p>To retrieve the remaining results, make another request with the returned
@@ -4722,12 +5004,14 @@ export interface GetEnrollmentStatusesForOrganizationRequest {
  */
 export interface GetEnrollmentStatusesForOrganizationResponse {
   /**
+   * @public
    * <p>An array of objects that describe the enrollment statuses of organization member
    *             accounts.</p>
    */
   accountEnrollmentStatuses?: AccountEnrollmentStatus[];
 
   /**
+   * @public
    * <p>The token to use to advance to the next page of account enrollment statuses.</p>
    *          <p>This value is null when there are no more pages of account enrollment statuses to
    *             return.</p>
@@ -4740,6 +5024,7 @@ export interface GetEnrollmentStatusesForOrganizationResponse {
  */
 export interface GetLambdaFunctionRecommendationsRequest {
   /**
+   * @public
    * <p>The Amazon Resource Name (ARN) of the functions for which to return
    *             recommendations.</p>
    *          <p>You can specify a qualified or unqualified ARN. If you specify an unqualified ARN
@@ -4753,6 +5038,7 @@ export interface GetLambdaFunctionRecommendationsRequest {
   functionArns?: string[];
 
   /**
+   * @public
    * <p>The ID of the Amazon Web Services account for which to return function
    *             recommendations.</p>
    *          <p>If your account is the management account of an organization, use this parameter to
@@ -4762,17 +5048,20 @@ export interface GetLambdaFunctionRecommendationsRequest {
   accountIds?: string[];
 
   /**
+   * @public
    * <p>An array of objects to specify a filter that returns a more specific list of function
    *             recommendations.</p>
    */
   filters?: LambdaFunctionRecommendationFilter[];
 
   /**
+   * @public
    * <p>The token to advance to the next page of function recommendations.</p>
    */
   nextToken?: string;
 
   /**
+   * @public
    * <p>The maximum number of function recommendations to return with a single request.</p>
    *          <p>To retrieve the remaining results, make another request with the returned
    *                 <code>nextToken</code> value.</p>
@@ -4850,16 +5139,19 @@ export type LambdaFunctionMemoryMetricStatistic =
  */
 export interface LambdaFunctionMemoryProjectedMetric {
   /**
+   * @public
    * <p>The name of the projected utilization metric.</p>
    */
   name?: LambdaFunctionMemoryMetricName | string;
 
   /**
+   * @public
    * <p>The statistic of the projected utilization metric.</p>
    */
   statistic?: LambdaFunctionMemoryMetricStatistic | string;
 
   /**
+   * @public
    * <p>The values of the projected utilization metrics.</p>
    */
   value?: number;
@@ -4871,23 +5163,27 @@ export interface LambdaFunctionMemoryProjectedMetric {
  */
 export interface LambdaFunctionMemoryRecommendationOption {
   /**
+   * @public
    * <p>The rank of the function recommendation option.</p>
    *          <p>The top recommendation option is ranked as <code>1</code>.</p>
    */
   rank?: number;
 
   /**
+   * @public
    * <p>The memory size, in MB, of the function recommendation option.</p>
    */
   memorySize?: number;
 
   /**
+   * @public
    * <p>An array of objects that describe the projected utilization metrics of the function
    *             recommendation option.</p>
    */
   projectedUtilizationMetrics?: LambdaFunctionMemoryProjectedMetric[];
 
   /**
+   * @public
    * <p>An object that describes the savings opportunity for the Lambda function
    *             recommendation option. Savings opportunity includes the estimated monthly savings amount
    *             and percentage.</p>
@@ -4930,6 +5226,7 @@ export type LambdaFunctionMetricStatistic =
  */
 export interface LambdaFunctionUtilizationMetric {
   /**
+   * @public
    * <p>The name of the utilization metric.</p>
    *          <p>The following utilization metrics are available:</p>
    *          <ul>
@@ -4947,6 +5244,7 @@ export interface LambdaFunctionUtilizationMetric {
   name?: LambdaFunctionMetricName | string;
 
   /**
+   * @public
    * <p>The statistic of the utilization metric.</p>
    *          <p>The Compute Optimizer API, Command Line Interface (CLI), and SDKs
    *             return utilization metrics using only the <code>Maximum</code> statistic, which is the
@@ -4963,6 +5261,7 @@ export interface LambdaFunctionUtilizationMetric {
   statistic?: LambdaFunctionMetricStatistic | string;
 
   /**
+   * @public
    * <p>The value of the utilization metric.</p>
    */
   value?: number;
@@ -4974,47 +5273,56 @@ export interface LambdaFunctionUtilizationMetric {
  */
 export interface LambdaFunctionRecommendation {
   /**
+   * @public
    * <p>The Amazon Resource Name (ARN) of the current function.</p>
    */
   functionArn?: string;
 
   /**
+   * @public
    * <p>The version number of the current function.</p>
    */
   functionVersion?: string;
 
   /**
+   * @public
    * <p>The Amazon Web Services account ID of the function.</p>
    */
   accountId?: string;
 
   /**
+   * @public
    * <p>The amount of memory, in MB, that's allocated to the current function.</p>
    */
   currentMemorySize?: number;
 
   /**
+   * @public
    * <p>The number of times your function code was applied during the look-back period.</p>
    */
   numberOfInvocations?: number;
 
   /**
+   * @public
    * <p>An array of objects that describe the utilization metrics of the function.</p>
    */
   utilizationMetrics?: LambdaFunctionUtilizationMetric[];
 
   /**
+   * @public
    * <p>The number of days for which utilization metrics were analyzed for the
    *             function.</p>
    */
   lookbackPeriodInDays?: number;
 
   /**
+   * @public
    * <p>The timestamp of when the function recommendation was last generated.</p>
    */
   lastRefreshTimestamp?: Date;
 
   /**
+   * @public
    * <p>The finding classification of the function.</p>
    *          <p>Findings for functions include:</p>
    *          <ul>
@@ -5062,6 +5370,7 @@ export interface LambdaFunctionRecommendation {
   finding?: LambdaFunctionRecommendationFinding | string;
 
   /**
+   * @public
    * <p>The reason for the finding classification of the function.</p>
    *          <note>
    *             <p>Functions that have a finding classification of <code>Optimized</code> don't have
@@ -5115,12 +5424,14 @@ export interface LambdaFunctionRecommendation {
   findingReasonCodes?: (LambdaFunctionRecommendationFindingReasonCode | string)[];
 
   /**
+   * @public
    * <p>An array of objects that describe the memory configuration recommendation options for
    *             the function.</p>
    */
   memorySizeRecommendationOptions?: LambdaFunctionMemoryRecommendationOption[];
 
   /**
+   * @public
    * <p>The risk of the current Lambda function not meeting the performance needs
    *             of its workloads. The higher the risk, the more likely the current Lambda
    *             function requires more memory.</p>
@@ -5128,6 +5439,7 @@ export interface LambdaFunctionRecommendation {
   currentPerformanceRisk?: CurrentPerformanceRisk | string;
 
   /**
+   * @public
    * <p>
    *             A list of tags assigned to your Lambda function recommendations.
    *         </p>
@@ -5140,6 +5452,7 @@ export interface LambdaFunctionRecommendation {
  */
 export interface GetLambdaFunctionRecommendationsResponse {
   /**
+   * @public
    * <p>The token to use to advance to the next page of function recommendations.</p>
    *          <p>This value is null when there are no more pages of function recommendations to
    *             return.</p>
@@ -5147,6 +5460,7 @@ export interface GetLambdaFunctionRecommendationsResponse {
   nextToken?: string;
 
   /**
+   * @public
    * <p>An array of objects that describe function recommendations.</p>
    */
   lambdaFunctionRecommendations?: LambdaFunctionRecommendation[];
@@ -5157,6 +5471,7 @@ export interface GetLambdaFunctionRecommendationsResponse {
  */
 export interface GetRecommendationPreferencesRequest {
   /**
+   * @public
    * <p>The target resource type of the recommendation preference for which to return
    *             preferences.</p>
    *          <p>The <code>Ec2Instance</code> option encompasses standalone instances and instances
@@ -5170,6 +5485,7 @@ export interface GetRecommendationPreferencesRequest {
   resourceType: ResourceType | string | undefined;
 
   /**
+   * @public
    * <p>An object that describes the scope of the recommendation preference to return.</p>
    *          <p>You can return recommendation preferences that are created at the organization level
    *             (for management accounts of an organization only), account level, and resource level.
@@ -5180,11 +5496,13 @@ export interface GetRecommendationPreferencesRequest {
   scope?: Scope;
 
   /**
+   * @public
    * <p>The token to advance to the next page of recommendation preferences.</p>
    */
   nextToken?: string;
 
   /**
+   * @public
    * <p>The maximum number of recommendation preferences to return with a single
    *             request.</p>
    *          <p>To retrieve the remaining results, make another request with the returned
@@ -5199,6 +5517,7 @@ export interface GetRecommendationPreferencesRequest {
  */
 export interface RecommendationPreferencesDetail {
   /**
+   * @public
    * <p>An object that describes the scope of the recommendation preference.</p>
    *          <p>Recommendation preferences can be created at the organization level (for management
    *             accounts of an organization only), account level, and resource level. For more
@@ -5209,6 +5528,7 @@ export interface RecommendationPreferencesDetail {
   scope?: Scope;
 
   /**
+   * @public
    * <p>The target resource type of the recommendation preference to create.</p>
    *          <p>The <code>Ec2Instance</code> option encompasses standalone instances and instances
    *             that are part of Auto Scaling groups. The <code>AutoScalingGroup</code> option
@@ -5217,6 +5537,7 @@ export interface RecommendationPreferencesDetail {
   resourceType?: ResourceType | string;
 
   /**
+   * @public
    * <p>The status of the enhanced infrastructure metrics recommendation preference.</p>
    *          <p>When the recommendations page is refreshed, a status of <code>Active</code> confirms
    *             that the preference is applied to the recommendations, and a status of
@@ -5229,6 +5550,7 @@ export interface RecommendationPreferencesDetail {
   enhancedInfrastructureMetrics?: EnhancedInfrastructureMetrics | string;
 
   /**
+   * @public
    * <p>The status of the inferred workload types recommendation preference.</p>
    *          <p>When the recommendations page is refreshed, a status of <code>Active</code> confirms
    *             that the preference is applied to the recommendations, and a status of
@@ -5238,6 +5560,7 @@ export interface RecommendationPreferencesDetail {
   inferredWorkloadTypes?: InferredWorkloadTypesPreference | string;
 
   /**
+   * @public
    * <p> An object that describes the external metrics recommendation preference. </p>
    *          <p> If the preference is applied in the latest recommendation refresh, an object with a
    *             valid <code>source</code> value appears in the response. If the preference isn't applied
@@ -5251,6 +5574,7 @@ export interface RecommendationPreferencesDetail {
  */
 export interface GetRecommendationPreferencesResponse {
   /**
+   * @public
    * <p>The token to use to advance to the next page of recommendation preferences.</p>
    *          <p>This value is null when there are no more pages of recommendation preferences to
    *             return.</p>
@@ -5258,6 +5582,7 @@ export interface GetRecommendationPreferencesResponse {
   nextToken?: string;
 
   /**
+   * @public
    * <p>An array of objects that describe recommendation preferences.</p>
    */
   recommendationPreferencesDetails?: RecommendationPreferencesDetail[];
@@ -5268,6 +5593,7 @@ export interface GetRecommendationPreferencesResponse {
  */
 export interface GetRecommendationSummariesRequest {
   /**
+   * @public
    * <p>The ID of the Amazon Web Services account for which to return recommendation
    *             summaries.</p>
    *          <p>If your account is the management account of an organization, use this parameter to
@@ -5277,11 +5603,13 @@ export interface GetRecommendationSummariesRequest {
   accountIds?: string[];
 
   /**
+   * @public
    * <p>The token to advance to the next page of recommendation summaries.</p>
    */
   nextToken?: string;
 
   /**
+   * @public
    * <p>The maximum number of recommendation summaries to return with a single request.</p>
    *          <p>To retrieve the remaining results, make another request with the returned
    *                 <code>nextToken</code> value.</p>
@@ -5298,21 +5626,25 @@ export interface GetRecommendationSummariesRequest {
  */
 export interface CurrentPerformanceRiskRatings {
   /**
+   * @public
    * <p>A count of the applicable resource types with a high performance risk rating.</p>
    */
   high?: number;
 
   /**
+   * @public
    * <p>A count of the applicable resource types with a medium performance risk rating.</p>
    */
   medium?: number;
 
   /**
+   * @public
    * <p>A count of the applicable resource types with a low performance risk rating.</p>
    */
   low?: number;
 
   /**
+   * @public
    * <p>A count of the applicable resource types with a very low performance risk
    *             rating.</p>
    */
@@ -5330,6 +5662,7 @@ export interface CurrentPerformanceRiskRatings {
  */
 export interface InferredWorkloadSaving {
   /**
+   * @public
    * <p>The applications that might be running on the instance as inferred by Compute Optimizer.</p>
    *          <p>Compute Optimizer can infer if one of the following applications might be running on
    *             the instance:</p>
@@ -5384,6 +5717,7 @@ export interface InferredWorkloadSaving {
   inferredWorkloadTypes?: (InferredWorkloadType | string)[];
 
   /**
+   * @public
    * <p>An object that describes the estimated monthly savings amount possible by adopting Compute Optimizer recommendations for a given
    *             resource. This is based on the On-Demand instance pricing.</p>
    */
@@ -5410,11 +5744,13 @@ export type FindingReasonCode = (typeof FindingReasonCode)[keyof typeof FindingR
  */
 export interface ReasonCodeSummary {
   /**
+   * @public
    * <p>The name of the finding reason code.</p>
    */
   name?: FindingReasonCode | string;
 
   /**
+   * @public
    * <p>The value of the finding reason code summary.</p>
    */
   value?: number;
@@ -5426,16 +5762,19 @@ export interface ReasonCodeSummary {
  */
 export interface Summary {
   /**
+   * @public
    * <p>The finding classification of the recommendation.</p>
    */
   name?: Finding | string;
 
   /**
+   * @public
    * <p>The value of the recommendation summary.</p>
    */
   value?: number;
 
   /**
+   * @public
    * <p>An array of objects that summarize a finding reason code.</p>
    */
   reasonCodeSummaries?: ReasonCodeSummary[];
@@ -5447,33 +5786,39 @@ export interface Summary {
  */
 export interface RecommendationSummary {
   /**
+   * @public
    * <p>An array of objects that describe a recommendation summary.</p>
    */
   summaries?: Summary[];
 
   /**
+   * @public
    * <p>The resource type that the recommendation summary applies to.</p>
    */
   recommendationResourceType?: RecommendationSourceType | string;
 
   /**
+   * @public
    * <p>The Amazon Web Services account ID of the recommendation summary.</p>
    */
   accountId?: string;
 
   /**
+   * @public
    * <p>An object that describes the savings opportunity for a given resource type. Savings
    *             opportunity includes the estimated monthly savings amount and percentage.</p>
    */
   savingsOpportunity?: SavingsOpportunity;
 
   /**
+   * @public
    * <p>An object that describes the performance risk ratings for a given resource
    *             type.</p>
    */
   currentPerformanceRiskRatings?: CurrentPerformanceRiskRatings;
 
   /**
+   * @public
    * <p>
    *             An array of objects that describes the estimated monthly saving amounts for the instances running on the specified
    *             <code>inferredWorkloadTypes</code>. The array contains the top three savings opportunites for the instances running
@@ -5488,6 +5833,7 @@ export interface RecommendationSummary {
  */
 export interface GetRecommendationSummariesResponse {
   /**
+   * @public
    * <p>The token to use to advance to the next page of recommendation summaries.</p>
    *          <p>This value is null when there are no more pages of recommendation summaries to
    *             return.</p>
@@ -5495,6 +5841,7 @@ export interface GetRecommendationSummariesResponse {
   nextToken?: string;
 
   /**
+   * @public
    * <p>An array of objects that summarize a recommendation.</p>
    */
   recommendationSummaries?: RecommendationSummary[];
@@ -5505,6 +5852,7 @@ export interface GetRecommendationSummariesResponse {
  */
 export interface PutRecommendationPreferencesRequest {
   /**
+   * @public
    * <p>The target resource type of the recommendation preference to create.</p>
    *          <p>The <code>Ec2Instance</code> option encompasses standalone instances and instances
    *             that are part of Auto Scaling groups. The <code>AutoScalingGroup</code> option
@@ -5517,6 +5865,7 @@ export interface PutRecommendationPreferencesRequest {
   resourceType: ResourceType | string | undefined;
 
   /**
+   * @public
    * <p>An object that describes the scope of the recommendation preference to create.</p>
    *          <p>You can create recommendation preferences at the organization level (for management
    *             accounts of an organization only), account level, and resource level. For more
@@ -5537,6 +5886,7 @@ export interface PutRecommendationPreferencesRequest {
   scope?: Scope;
 
   /**
+   * @public
    * <p>The status of the enhanced infrastructure metrics recommendation preference to create
    *             or update.</p>
    *          <p>Specify the <code>Active</code> status to activate the preference, or specify
@@ -5548,6 +5898,7 @@ export interface PutRecommendationPreferencesRequest {
   enhancedInfrastructureMetrics?: EnhancedInfrastructureMetrics | string;
 
   /**
+   * @public
    * <p>The status of the inferred workload types recommendation preference to create or
    *             update.</p>
    *          <note>
@@ -5562,6 +5913,7 @@ export interface PutRecommendationPreferencesRequest {
   inferredWorkloadTypes?: InferredWorkloadTypesPreference | string;
 
   /**
+   * @public
    * <p>The provider of the external metrics recommendation preference to create or
    *             update.</p>
    *          <p>Specify a valid provider in the <code>source</code> field to activate the preference.
@@ -5585,6 +5937,7 @@ export interface PutRecommendationPreferencesResponse {}
  */
 export interface UpdateEnrollmentStatusRequest {
   /**
+   * @public
    * <p>The new enrollment status of the account.</p>
    *          <p>The following status options are available:</p>
    *          <ul>
@@ -5611,6 +5964,7 @@ export interface UpdateEnrollmentStatusRequest {
   status: Status | string | undefined;
 
   /**
+   * @public
    * <p>Indicates whether to enroll member accounts of the organization if the account is the
    *             management account of an organization.</p>
    */
@@ -5622,11 +5976,13 @@ export interface UpdateEnrollmentStatusRequest {
  */
 export interface UpdateEnrollmentStatusResponse {
   /**
+   * @public
    * <p>The enrollment status of the account.</p>
    */
   status?: Status | string;
 
   /**
+   * @public
    * <p>The reason for the enrollment status of the account. For example, an account might
    *             show a status of <code>Pending</code> because member accounts of an organization require
    *             more time to be enrolled in the service.</p>

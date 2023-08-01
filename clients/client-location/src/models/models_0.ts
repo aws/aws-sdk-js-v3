@@ -37,6 +37,7 @@ export type Status = "Active" | "Expired";
  */
 export interface ApiKeyFilter {
   /**
+   * @public
    * <p>Filter on <code>Active</code> or <code>Expired</code> API keys.</p>
    */
   KeyStatus?: Status | string;
@@ -71,6 +72,7 @@ export class ConflictException extends __BaseException {
  */
 export interface ApiKeyRestrictions {
   /**
+   * @public
    * <p>A list of allowed actions that an API key resource grants permissions to
    *             perform. You must have at least one action for each type of resource. For example,
    *             if you have a place resource, you must include at least one place action.</p>
@@ -141,6 +143,7 @@ export interface ApiKeyRestrictions {
   AllowActions: string[] | undefined;
 
   /**
+   * @public
    * <p>A list of allowed resource ARNs that a API key bearer can perform actions on.</p>
    *          <ul>
    *             <li>
@@ -170,6 +173,7 @@ export interface ApiKeyRestrictions {
   AllowResources: string[] | undefined;
 
   /**
+   * @public
    * <p>An optional list of allowed HTTP referers for which requests must originate from.
    *             Requests using this API key from other domains will not be allowed.</p>
    *          <p>Requirements:</p>
@@ -203,6 +207,7 @@ export interface ApiKeyRestrictions {
  */
 export interface CreateKeyRequest {
   /**
+   * @public
    * <p>A custom name for the API key resource.</p>
    *          <p>Requirements:</p>
    *          <ul>
@@ -221,16 +226,19 @@ export interface CreateKeyRequest {
   KeyName: string | undefined;
 
   /**
+   * @public
    * <p>The API key restrictions for the API key resource.</p>
    */
   Restrictions: ApiKeyRestrictions | undefined;
 
   /**
+   * @public
    * <p>An optional description for the API key resource.</p>
    */
   Description?: string;
 
   /**
+   * @public
    * <p>The optional timestamp for when the API key resource will expire in <a href="https://www.iso.org/iso-8601-date-and-time-format.html"> ISO 8601</a>
    *             format: <code>YYYY-MM-DDThh:mm:ss.sssZ</code>. One of <code>NoExpiry</code> or
    *                 <code>ExpireTime</code> must be set.</p>
@@ -238,12 +246,14 @@ export interface CreateKeyRequest {
   ExpireTime?: Date;
 
   /**
+   * @public
    * <p>Optionally set to <code>true</code> to set no expiration time for the API key. One of
    *                 <code>NoExpiry</code> or <code>ExpireTime</code> must be set.</p>
    */
   NoExpiry?: boolean;
 
   /**
+   * @public
    * <p>Applies one or more tags to the map resource. A tag is a key-value pair that helps
    *             manage, identify, search, and filter your resources by labelling them.</p>
    *          <p>Format: <code>"key" : "value"</code>
@@ -279,12 +289,14 @@ export interface CreateKeyRequest {
  */
 export interface CreateKeyResponse {
   /**
+   * @public
    * <p>The key value/string of an API key. This value is used when making API calls to
    *             authorize the call. For example, see <a href="https://docs.aws.amazon.com/location/latest/APIReference/API_GetMapGlyphs.html">GetMapGlyphs</a>.</p>
    */
   Key: string | undefined;
 
   /**
+   * @public
    * <p>The Amazon Resource Name (ARN) for the API key resource. Used when you need to specify
    *             a resource across all Amazon Web Services.</p>
    *          <ul>
@@ -298,11 +310,13 @@ export interface CreateKeyResponse {
   KeyArn: string | undefined;
 
   /**
+   * @public
    * <p>The name of the API key resource.</p>
    */
   KeyName: string | undefined;
 
   /**
+   * @public
    * <p>The timestamp for when the API key resource was created in <a href="https://www.iso.org/iso-8601-date-and-time-format.html"> ISO 8601</a>
    *             format: <code>YYYY-MM-DDThh:mm:ss.sssZ</code>. </p>
    */
@@ -341,6 +355,7 @@ export class ServiceQuotaExceededException extends __BaseException {
   readonly name: "ServiceQuotaExceededException" = "ServiceQuotaExceededException";
   readonly $fault: "client" = "client";
   /**
+   * @public
    * <p>A message with the reason for the service quota exceeded exception error.</p>
    */
   Message: string | undefined;
@@ -388,11 +403,13 @@ export class ThrottlingException extends __BaseException {
  */
 export interface ValidationExceptionField {
   /**
+   * @public
    * <p>The field name where the invalid entry was detected.</p>
    */
   Name: string | undefined;
 
   /**
+   * @public
    * <p>A message with the reason for the validation exception error.</p>
    */
   Message: string | undefined;
@@ -417,11 +434,13 @@ export class ValidationException extends __BaseException {
   readonly $fault: "client" = "client";
   Message: string | undefined;
   /**
+   * @public
    * <p>A message with the reason for the validation exception error.</p>
    */
   Reason: ValidationExceptionReason | string | undefined;
 
   /**
+   * @public
    * <p>The field where the invalid entry was detected.</p>
    */
   FieldList: ValidationExceptionField[] | undefined;
@@ -446,6 +465,7 @@ export class ValidationException extends __BaseException {
  */
 export interface DeleteKeyRequest {
   /**
+   * @public
    * <p>The name of the API key to delete.</p>
    */
   KeyName: string | undefined;
@@ -483,6 +503,7 @@ export class ResourceNotFoundException extends __BaseException {
  */
 export interface DescribeKeyRequest {
   /**
+   * @public
    * <p>The name of the API key resource.</p>
    */
   KeyName: string | undefined;
@@ -493,11 +514,13 @@ export interface DescribeKeyRequest {
  */
 export interface DescribeKeyResponse {
   /**
+   * @public
    * <p>The key value/string of an API key.</p>
    */
   Key: string | undefined;
 
   /**
+   * @public
    * <p>The Amazon Resource Name (ARN) for the API key resource. Used when you need to specify
    *             a resource across all Amazon Web Services.</p>
    *          <ul>
@@ -511,40 +534,47 @@ export interface DescribeKeyResponse {
   KeyArn: string | undefined;
 
   /**
+   * @public
    * <p>The name of the API key resource.</p>
    */
   KeyName: string | undefined;
 
   /**
+   * @public
    * <p>API Restrictions on the allowed actions, resources, and referers for an API key
    *             resource.</p>
    */
   Restrictions: ApiKeyRestrictions | undefined;
 
   /**
+   * @public
    * <p>The timestamp for when the API key resource was created in <a href="https://www.iso.org/iso-8601-date-and-time-format.html"> ISO 8601</a>
    *             format: <code>YYYY-MM-DDThh:mm:ss.sssZ</code>. </p>
    */
   CreateTime: Date | undefined;
 
   /**
+   * @public
    * <p>The timestamp for when the API key resource will expire in <a href="https://www.iso.org/iso-8601-date-and-time-format.html"> ISO 8601</a>
    *             format: <code>YYYY-MM-DDThh:mm:ss.sssZ</code>. </p>
    */
   ExpireTime: Date | undefined;
 
   /**
+   * @public
    * <p>The timestamp for when the API key resource was last updated in <a href="https://www.iso.org/iso-8601-date-and-time-format.html"> ISO 8601</a>
    *             format: <code>YYYY-MM-DDThh:mm:ss.sssZ</code>. </p>
    */
   UpdateTime: Date | undefined;
 
   /**
+   * @public
    * <p>The optional description for the API key resource.</p>
    */
   Description?: string;
 
   /**
+   * @public
    * <p>Tags associated with the API key resource.</p>
    */
   Tags?: Record<string, string>;
@@ -555,6 +585,7 @@ export interface DescribeKeyResponse {
  */
 export interface ListKeysRequest {
   /**
+   * @public
    * <p>An optional limit for the number of resources returned in a single call. </p>
    *          <p>Default value: <code>100</code>
    *          </p>
@@ -562,6 +593,7 @@ export interface ListKeysRequest {
   MaxResults?: number;
 
   /**
+   * @public
    * <p>The pagination token specifying which page of results to return in the response. If no
    *             token is provided, the default page is the first page. </p>
    *          <p>Default value: <code>null</code>
@@ -570,6 +602,7 @@ export interface ListKeysRequest {
   NextToken?: string;
 
   /**
+   * @public
    * <p>Optionally filter the list to only <code>Active</code> or <code>Expired</code> API
    *             keys.</p>
    */
@@ -582,34 +615,40 @@ export interface ListKeysRequest {
  */
 export interface ListKeysResponseEntry {
   /**
+   * @public
    * <p>The name of the API key resource.</p>
    */
   KeyName: string | undefined;
 
   /**
+   * @public
    * <p>The timestamp for when the API key resource will expire, in <a href="https://www.iso.org/iso-8601-date-and-time-format.html"> ISO 8601</a>
    *             format: <code>YYYY-MM-DDThh:mm:ss.sssZ</code>.</p>
    */
   ExpireTime: Date | undefined;
 
   /**
+   * @public
    * <p>The optional description for the API key resource.</p>
    */
   Description?: string;
 
   /**
+   * @public
    * <p>API Restrictions on the allowed actions, resources, and referers for an API key
    *             resource.</p>
    */
   Restrictions: ApiKeyRestrictions | undefined;
 
   /**
+   * @public
    * <p>The timestamp of when the API key was created, in <a href="https://www.iso.org/iso-8601-date-and-time-format.html"> ISO 8601</a>
    *             format: <code>YYYY-MM-DDThh:mm:ss.sssZ</code>.</p>
    */
   CreateTime: Date | undefined;
 
   /**
+   * @public
    * <p>The timestamp of when the API key was last updated, in <a href="https://www.iso.org/iso-8601-date-and-time-format.html"> ISO 8601</a>
    *             format: <code>YYYY-MM-DDThh:mm:ss.sssZ</code>.</p>
    */
@@ -621,12 +660,14 @@ export interface ListKeysResponseEntry {
  */
 export interface ListKeysResponse {
   /**
+   * @public
    * <p>Contains API key resources in your Amazon Web Services account. Details include API key
    *             name, allowed referers and timestamp for when the API key will expire.</p>
    */
   Entries: ListKeysResponseEntry[] | undefined;
 
   /**
+   * @public
    * <p>A pagination token indicating there are additional pages available. You can use the
    *             token in a following request to fetch the next set of results. </p>
    */
@@ -638,28 +679,33 @@ export interface ListKeysResponse {
  */
 export interface UpdateKeyRequest {
   /**
+   * @public
    * <p>The name of the API key resource to update.</p>
    */
   KeyName: string | undefined;
 
   /**
+   * @public
    * <p>Updates the description for the API key resource.</p>
    */
   Description?: string;
 
   /**
+   * @public
    * <p>Updates the timestamp for when the API key resource will expire in <a href="https://www.iso.org/iso-8601-date-and-time-format.html"> ISO 8601</a>
    *             format: <code>YYYY-MM-DDThh:mm:ss.sssZ</code>. </p>
    */
   ExpireTime?: Date;
 
   /**
+   * @public
    * <p>Whether the API key should expire. Set to <code>true</code> to set the API key to have
    *             no expiration time.</p>
    */
   NoExpiry?: boolean;
 
   /**
+   * @public
    * <p>The boolean flag to be included for updating <code>ExpireTime</code> or
    *                 <code>Restrictions</code> details.</p>
    *          <p>Must be set to <code>true</code> to update an API key resource that has been used in
@@ -672,6 +718,7 @@ export interface UpdateKeyRequest {
   ForceUpdate?: boolean;
 
   /**
+   * @public
    * <p>Updates the API key restrictions for the API key resource.</p>
    */
   Restrictions?: ApiKeyRestrictions;
@@ -682,6 +729,7 @@ export interface UpdateKeyRequest {
  */
 export interface UpdateKeyResponse {
   /**
+   * @public
    * <p>The Amazon Resource Name (ARN) for the API key resource. Used when you need to specify
    *             a resource across all Amazon Web Services.</p>
    *          <ul>
@@ -695,11 +743,13 @@ export interface UpdateKeyResponse {
   KeyArn: string | undefined;
 
   /**
+   * @public
    * <p>The name of the API key resource.</p>
    */
   KeyName: string | undefined;
 
   /**
+   * @public
    * <p>The timestamp for when the API key resource was last updated in <a href="https://www.iso.org/iso-8601-date-and-time-format.html"> ISO 8601</a>
    *             format: <code>YYYY-MM-DDThh:mm:ss.sssZ</code>. </p>
    */
@@ -711,11 +761,13 @@ export interface UpdateKeyResponse {
  */
 export interface AssociateTrackerConsumerRequest {
   /**
+   * @public
    * <p>The name of the tracker resource to be associated with a geofence collection.</p>
    */
   TrackerName: string | undefined;
 
   /**
+   * @public
    * <p>The Amazon Resource Name (ARN) for the geofence collection to be associated to tracker
    *             resource. Used when you need to specify a resource across all Amazon Web Services.</p>
    *          <ul>
@@ -739,11 +791,13 @@ export interface AssociateTrackerConsumerResponse {}
  */
 export interface BatchDeleteDevicePositionHistoryRequest {
   /**
+   * @public
    * <p>The name of the tracker resource to delete the device position history from.</p>
    */
   TrackerName: string | undefined;
 
   /**
+   * @public
    * <p>Devices whose position history you want to delete.</p>
    *          <ul>
    *             <li>
@@ -773,11 +827,13 @@ export type BatchItemErrorCode =
  */
 export interface BatchItemError {
   /**
+   * @public
    * <p>The error code associated with the batch request error.</p>
    */
   Code?: BatchItemErrorCode | string;
 
   /**
+   * @public
    * <p>A message with the reason for the batch request error.</p>
    */
   Message?: string;
@@ -789,11 +845,13 @@ export interface BatchItemError {
  */
 export interface BatchDeleteDevicePositionHistoryError {
   /**
+   * @public
    * <p>The ID of the device for this position.</p>
    */
   DeviceId: string | undefined;
 
   /**
+   * @public
    * <p>Contains the batch request error details associated with the request.</p>
    */
   Error: BatchItemError | undefined;
@@ -804,6 +862,7 @@ export interface BatchDeleteDevicePositionHistoryError {
  */
 export interface BatchDeleteDevicePositionHistoryResponse {
   /**
+   * @public
    * <p>Contains error details for each device history that failed to delete.</p>
    */
   Errors: BatchDeleteDevicePositionHistoryError[] | undefined;
@@ -814,11 +873,13 @@ export interface BatchDeleteDevicePositionHistoryResponse {
  */
 export interface BatchDeleteGeofenceRequest {
   /**
+   * @public
    * <p>The geofence collection storing the geofences to be deleted.</p>
    */
   CollectionName: string | undefined;
 
   /**
+   * @public
    * <p>The batch of geofences to be deleted.</p>
    */
   GeofenceIds: string[] | undefined;
@@ -831,11 +892,13 @@ export interface BatchDeleteGeofenceRequest {
  */
 export interface BatchDeleteGeofenceError {
   /**
+   * @public
    * <p>The geofence associated with the error message.</p>
    */
   GeofenceId: string | undefined;
 
   /**
+   * @public
    * <p>Contains details associated to the batch error.</p>
    */
   Error: BatchItemError | undefined;
@@ -846,6 +909,7 @@ export interface BatchDeleteGeofenceError {
  */
 export interface BatchDeleteGeofenceResponse {
   /**
+   * @public
    * <p>Contains error details for each geofence that failed to delete.</p>
    */
   Errors: BatchDeleteGeofenceError[] | undefined;
@@ -857,6 +921,7 @@ export interface BatchDeleteGeofenceResponse {
  */
 export interface PositionalAccuracy {
   /**
+   * @public
    * <p>Estimated maximum distance, in meters, between the measured position and the true
    *             position of a device, along the Earth's surface.</p>
    */
@@ -869,11 +934,13 @@ export interface PositionalAccuracy {
  */
 export interface DevicePositionUpdate {
   /**
+   * @public
    * <p>The device associated to the position update.</p>
    */
   DeviceId: string | undefined;
 
   /**
+   * @public
    * <p>The timestamp at which the device's position was determined. Uses <a href="https://www.iso.org/iso-8601-date-and-time-format.html">ISO 8601</a>
    *             format: <code>YYYY-MM-DDThh:mm:ss.sssZ</code>
    *          </p>
@@ -881,17 +948,20 @@ export interface DevicePositionUpdate {
   SampleTime: Date | undefined;
 
   /**
+   * @public
    * <p>The latest device position defined in <a href="https://earth-info.nga.mil/index.php?dir=wgs84&amp;action=wgs84">WGS 84</a> format:
    *             <code>[X or longitude, Y or latitude]</code>.</p>
    */
   Position: number[] | undefined;
 
   /**
+   * @public
    * <p>The accuracy of the device position.</p>
    */
   Accuracy?: PositionalAccuracy;
 
   /**
+   * @public
    * <p>Associates one of more properties with the position update. A property is a key-value
    *             pair stored with the position update and added to any geofence event the update may
    *             trigger.</p>
@@ -906,12 +976,14 @@ export interface DevicePositionUpdate {
  */
 export interface BatchEvaluateGeofencesRequest {
   /**
+   * @public
    * <p>The geofence collection used in evaluating the position of devices against its
    *             geofences.</p>
    */
   CollectionName: string | undefined;
 
   /**
+   * @public
    * <p>Contains device details for each device to be evaluated against the given geofence
    *             collection.</p>
    */
@@ -925,11 +997,13 @@ export interface BatchEvaluateGeofencesRequest {
  */
 export interface BatchEvaluateGeofencesError {
   /**
+   * @public
    * <p>The device associated with the position evaluation error.</p>
    */
   DeviceId: string | undefined;
 
   /**
+   * @public
    * <p>Specifies a timestamp for when the error occurred in <a href="https://www.iso.org/iso-8601-date-and-time-format.html">ISO 8601</a>
    *             format: <code>YYYY-MM-DDThh:mm:ss.sssZ</code>
    *          </p>
@@ -937,6 +1011,7 @@ export interface BatchEvaluateGeofencesError {
   SampleTime: Date | undefined;
 
   /**
+   * @public
    * <p>Contains details associated to the batch error.</p>
    */
   Error: BatchItemError | undefined;
@@ -947,6 +1022,7 @@ export interface BatchEvaluateGeofencesError {
  */
 export interface BatchEvaluateGeofencesResponse {
   /**
+   * @public
    * <p>Contains error details for each device that failed to evaluate its position against
    *             the given geofence collection.</p>
    */
@@ -958,11 +1034,13 @@ export interface BatchEvaluateGeofencesResponse {
  */
 export interface BatchGetDevicePositionRequest {
   /**
+   * @public
    * <p>The tracker resource retrieving the device position.</p>
    */
   TrackerName: string | undefined;
 
   /**
+   * @public
    * <p>Devices whose position you want to retrieve.</p>
    *          <ul>
    *             <li>
@@ -981,33 +1059,39 @@ export interface BatchGetDevicePositionRequest {
  */
 export interface DevicePosition {
   /**
+   * @public
    * <p>The device whose position you retrieved.</p>
    */
   DeviceId?: string;
 
   /**
+   * @public
    * <p>The timestamp at which the device's position was determined. Uses <a href="https://www.iso.org/iso-8601-date-and-time-format.html"> ISO 8601</a>
    *             format: <code>YYYY-MM-DDThh:mm:ss.sssZ</code>. </p>
    */
   SampleTime: Date | undefined;
 
   /**
+   * @public
    * <p>The timestamp for when the tracker resource received the device position in <a href="https://www.iso.org/iso-8601-date-and-time-format.html"> ISO 8601</a>
    *             format: <code>YYYY-MM-DDThh:mm:ss.sssZ</code>. </p>
    */
   ReceivedTime: Date | undefined;
 
   /**
+   * @public
    * <p>The last known device position.</p>
    */
   Position: number[] | undefined;
 
   /**
+   * @public
    * <p>The accuracy of the device position.</p>
    */
   Accuracy?: PositionalAccuracy;
 
   /**
+   * @public
    * <p>The properties associated with the position.</p>
    */
   PositionProperties?: Record<string, string>;
@@ -1019,11 +1103,13 @@ export interface DevicePosition {
  */
 export interface BatchGetDevicePositionError {
   /**
+   * @public
    * <p>The ID of the device that didn't return a position.</p>
    */
   DeviceId: string | undefined;
 
   /**
+   * @public
    * <p>Contains details related to the error code.</p>
    */
   Error: BatchItemError | undefined;
@@ -1034,12 +1120,14 @@ export interface BatchGetDevicePositionError {
  */
 export interface BatchGetDevicePositionResponse {
   /**
+   * @public
    * <p>Contains  error details for each device that failed to send its position to the tracker
    *             resource.</p>
    */
   Errors: BatchGetDevicePositionError[] | undefined;
 
   /**
+   * @public
    * <p>Contains device position details such as the device ID, position, and timestamps for
    *             when the position was received and sampled.</p>
    */
@@ -1052,12 +1140,14 @@ export interface BatchGetDevicePositionResponse {
  */
 export interface Circle {
   /**
+   * @public
    * <p>A single point geometry, specifying the center of the circle, using <a href="https://gisgeography.com/wgs84-world-geodetic-system/">WGS 84</a>
    *             coordinates, in the form <code>[longitude, latitude]</code>.</p>
    */
   Center: number[] | undefined;
 
   /**
+   * @public
    * <p>The radius of the circle in meters. Must be greater than zero and no
    *             larger than 100,000 (100 kilometers).</p>
    */
@@ -1076,6 +1166,7 @@ export interface Circle {
  */
 export interface GeofenceGeometry {
   /**
+   * @public
    * <p>A polygon is a list of linear rings which are each made up of a list of
    *             vertices.</p>
    *          <p>Each vertex is a 2-dimensional point of the form: <code>[longitude, latitude]</code>.
@@ -1093,6 +1184,7 @@ export interface GeofenceGeometry {
   Polygon?: number[][][];
 
   /**
+   * @public
    * <p>A circle on the earth, as defined by a center point and a radius.</p>
    */
   Circle?: Circle;
@@ -1104,11 +1196,13 @@ export interface GeofenceGeometry {
  */
 export interface BatchPutGeofenceRequestEntry {
   /**
+   * @public
    * <p>The identifier for the geofence to be stored in a given geofence collection.</p>
    */
   GeofenceId: string | undefined;
 
   /**
+   * @public
    * <p>Contains the details of the position of the geofence. Can be either a
    *             polygon or a circle. Including both will return a validation error.</p>
    *          <note>
@@ -1119,6 +1213,7 @@ export interface BatchPutGeofenceRequestEntry {
   Geometry: GeofenceGeometry | undefined;
 
   /**
+   * @public
    * <p>Associates one of more properties with the geofence. A property is a key-value
    *             pair stored with the geofence and added to any geofence event triggered with that
    *             geofence.</p>
@@ -1133,11 +1228,13 @@ export interface BatchPutGeofenceRequestEntry {
  */
 export interface BatchPutGeofenceRequest {
   /**
+   * @public
    * <p>The geofence collection storing the geofences.</p>
    */
   CollectionName: string | undefined;
 
   /**
+   * @public
    * <p>The batch of geofences to be stored in a geofence collection.</p>
    */
   Entries: BatchPutGeofenceRequestEntry[] | undefined;
@@ -1150,11 +1247,13 @@ export interface BatchPutGeofenceRequest {
  */
 export interface BatchPutGeofenceError {
   /**
+   * @public
    * <p>The geofence associated with the error message.</p>
    */
   GeofenceId: string | undefined;
 
   /**
+   * @public
    * <p>Contains details associated to the batch error.</p>
    */
   Error: BatchItemError | undefined;
@@ -1167,11 +1266,13 @@ export interface BatchPutGeofenceError {
  */
 export interface BatchPutGeofenceSuccess {
   /**
+   * @public
    * <p>The geofence successfully stored in a geofence collection.</p>
    */
   GeofenceId: string | undefined;
 
   /**
+   * @public
    * <p>The timestamp for when the geofence was stored in a geofence collection in <a href="https://www.iso.org/iso-8601-date-and-time-format.html">ISO 8601</a>
    *             format: <code>YYYY-MM-DDThh:mm:ss.sssZ</code>
    *          </p>
@@ -1179,6 +1280,7 @@ export interface BatchPutGeofenceSuccess {
   CreateTime: Date | undefined;
 
   /**
+   * @public
    * <p>The timestamp for when the geofence was last updated in <a href="https://www.iso.org/iso-8601-date-and-time-format.html">ISO 8601</a>
    *             format: <code>YYYY-MM-DDThh:mm:ss.sssZ</code>
    *          </p>
@@ -1191,11 +1293,13 @@ export interface BatchPutGeofenceSuccess {
  */
 export interface BatchPutGeofenceResponse {
   /**
+   * @public
    * <p>Contains each geofence that was successfully stored in a geofence collection.</p>
    */
   Successes: BatchPutGeofenceSuccess[] | undefined;
 
   /**
+   * @public
    * <p>Contains additional error details for each geofence that failed to be stored in a
    *             geofence collection.</p>
    */
@@ -1207,11 +1311,13 @@ export interface BatchPutGeofenceResponse {
  */
 export interface BatchUpdateDevicePositionRequest {
   /**
+   * @public
    * <p>The name of the tracker resource to update.</p>
    */
   TrackerName: string | undefined;
 
   /**
+   * @public
    * <p>Contains the position update details for each device, up to 10 devices.</p>
    */
   Updates: DevicePositionUpdate[] | undefined;
@@ -1223,17 +1329,20 @@ export interface BatchUpdateDevicePositionRequest {
  */
 export interface BatchUpdateDevicePositionError {
   /**
+   * @public
    * <p>The device associated with the failed location update.</p>
    */
   DeviceId: string | undefined;
 
   /**
+   * @public
    * <p>The timestamp at which the device position was determined. Uses <a href="https://www.iso.org/iso-8601-date-and-time-format.html"> ISO 8601</a>
    *             format: <code>YYYY-MM-DDThh:mm:ss.sssZ</code>. </p>
    */
   SampleTime: Date | undefined;
 
   /**
+   * @public
    * <p>Contains details related to the error code such as the error code and error
    *             message.</p>
    */
@@ -1245,6 +1354,7 @@ export interface BatchUpdateDevicePositionError {
  */
 export interface BatchUpdateDevicePositionResponse {
   /**
+   * @public
    * <p>Contains  error details for each device that failed to update its position.</p>
    */
   Errors: BatchUpdateDevicePositionError[] | undefined;
@@ -1257,6 +1367,7 @@ export interface BatchUpdateDevicePositionResponse {
  */
 export interface CalculateRouteCarModeOptions {
   /**
+   * @public
    * <p>Avoids ferries when calculating routes.</p>
    *          <p>Default Value: <code>false</code>
    *          </p>
@@ -1266,6 +1377,7 @@ export interface CalculateRouteCarModeOptions {
   AvoidFerries?: boolean;
 
   /**
+   * @public
    * <p>Avoids tolls when calculating routes.</p>
    *          <p>Default Value: <code>false</code>
    *          </p>
@@ -1298,6 +1410,7 @@ export type DimensionUnit = "Feet" | "Meters";
  */
 export interface TruckDimensions {
   /**
+   * @public
    * <p>The length of the truck.</p>
    *          <ul>
    *             <li>
@@ -1313,6 +1426,7 @@ export interface TruckDimensions {
   Length?: number;
 
   /**
+   * @public
    * <p>The height of the truck.</p>
    *          <ul>
    *             <li>
@@ -1328,6 +1442,7 @@ export interface TruckDimensions {
   Height?: number;
 
   /**
+   * @public
    * <p>The width of the truck.</p>
    *          <ul>
    *             <li>
@@ -1343,6 +1458,7 @@ export interface TruckDimensions {
   Width?: number;
 
   /**
+   * @public
    * <p> Specifies the unit of measurement for the truck dimensions.</p>
    *          <p>Default Value: <code>Meters</code>
    *          </p>
@@ -1363,6 +1479,7 @@ export type VehicleWeightUnit = "Kilograms" | "Pounds";
  */
 export interface TruckWeight {
   /**
+   * @public
    * <p>The total weight of the truck. </p>
    *          <ul>
    *             <li>
@@ -1373,6 +1490,7 @@ export interface TruckWeight {
   Total?: number;
 
   /**
+   * @public
    * <p>The unit of measurement to use for the truck weight.</p>
    *          <p>Default Value: <code>Kilograms</code>
    *          </p>
@@ -1387,6 +1505,7 @@ export interface TruckWeight {
  */
 export interface CalculateRouteTruckModeOptions {
   /**
+   * @public
    * <p>Avoids ferries when calculating routes.</p>
    *          <p>Default Value: <code>false</code>
    *          </p>
@@ -1396,6 +1515,7 @@ export interface CalculateRouteTruckModeOptions {
   AvoidFerries?: boolean;
 
   /**
+   * @public
    * <p>Avoids tolls when calculating routes.</p>
    *          <p>Default Value: <code>false</code>
    *          </p>
@@ -1405,6 +1525,7 @@ export interface CalculateRouteTruckModeOptions {
   AvoidTolls?: boolean;
 
   /**
+   * @public
    * <p>Specifies the truck's dimension specifications including length, height, width, and
    *             unit of measurement. Used to avoid roads that can't support the truck's
    *             dimensions.</p>
@@ -1412,6 +1533,7 @@ export interface CalculateRouteTruckModeOptions {
   Dimensions?: TruckDimensions;
 
   /**
+   * @public
    * <p>Specifies the truck's weight specifications including total weight and unit of
    *             measurement. Used to avoid roads that can't support the truck's weight.</p>
    */
@@ -1423,12 +1545,14 @@ export interface CalculateRouteTruckModeOptions {
  */
 export interface CalculateRouteRequest {
   /**
+   * @public
    * <p>The name of the route calculator resource that you want to use to calculate the route.
    *         </p>
    */
   CalculatorName: string | undefined;
 
   /**
+   * @public
    * <p>The start position for the route. Defined in <a href="https://earth-info.nga.mil/index.php?dir=wgs84&amp;action=wgs84">World Geodetic
    *             System (WGS 84)</a> format:
    *                 <code>[longitude, latitude]</code>.</p>
@@ -1450,6 +1574,7 @@ export interface CalculateRouteRequest {
   DeparturePosition: number[] | undefined;
 
   /**
+   * @public
    * <p>The finish position for the route. Defined in <a href="https://earth-info.nga.mil/index.php?dir=wgs84&amp;action=wgs84">World Geodetic
    *             System (WGS 84)</a> format:
    *                 <code>[longitude, latitude]</code>.</p>
@@ -1469,6 +1594,7 @@ export interface CalculateRouteRequest {
   DestinationPosition: number[] | undefined;
 
   /**
+   * @public
    * <p>Specifies an ordered list of up to 23 intermediate positions to include along a route
    *             between the departure position and destination position. </p>
    *          <ul>
@@ -1494,6 +1620,7 @@ export interface CalculateRouteRequest {
   WaypointPositions?: number[][];
 
   /**
+   * @public
    * <p>Specifies the mode of transport when calculating a route. Used in estimating the speed
    *             of travel and road compatibility. You can choose <code>Car</code>, <code>Truck</code>,
    *             <code>Walking</code>, <code>Bicycle</code> or <code>Motorcycle</code> as options for
@@ -1525,6 +1652,7 @@ export interface CalculateRouteRequest {
   TravelMode?: TravelMode | string;
 
   /**
+   * @public
    * <p>Specifies the desired time of departure. Uses the given time to calculate the route.
    *             Otherwise, the best time of day to travel with the best traffic conditions is used to
    *             calculate the route.</p>
@@ -1544,6 +1672,7 @@ export interface CalculateRouteRequest {
   DepartureTime?: Date;
 
   /**
+   * @public
    * <p>Sets the time of departure as the current time. Uses the current time to calculate a
    *             route. Otherwise, the best time of day to travel with the best traffic conditions is
    *             used to calculate the route.</p>
@@ -1555,6 +1684,7 @@ export interface CalculateRouteRequest {
   DepartNow?: boolean;
 
   /**
+   * @public
    * <p>Set the unit system to specify the distance.</p>
    *          <p>Default Value: <code>Kilometers</code>
    *          </p>
@@ -1562,6 +1692,7 @@ export interface CalculateRouteRequest {
   DistanceUnit?: DistanceUnit | string;
 
   /**
+   * @public
    * <p>Set to include the geometry details in the result for each path between a pair of
    *             positions.</p>
    *          <p>Default Value: <code>false</code>
@@ -1572,6 +1703,7 @@ export interface CalculateRouteRequest {
   IncludeLegGeometry?: boolean;
 
   /**
+   * @public
    * <p>Specifies route preferences when traveling by <code>Car</code>, such as avoiding
    *             routes that use ferries or tolls.</p>
    *          <p>Requirements: <code>TravelMode</code> must be specified as <code>Car</code>.</p>
@@ -1579,6 +1711,7 @@ export interface CalculateRouteRequest {
   CarModeOptions?: CalculateRouteCarModeOptions;
 
   /**
+   * @public
    * <p>Specifies route preferences when traveling by <code>Truck</code>, such as avoiding
    *             routes that use ferries or tolls, and truck specifications to consider when choosing an
    *             optimal road.</p>
@@ -1587,6 +1720,7 @@ export interface CalculateRouteRequest {
   TruckModeOptions?: CalculateRouteTruckModeOptions;
 
   /**
+   * @public
    * <p>The optional <a href="https://docs.aws.amazon.com/location/latest/developerguide/using-apikeys.html">API key</a> to authorize
    *             the request.</p>
    */
@@ -1600,6 +1734,7 @@ export interface CalculateRouteRequest {
  */
 export interface LegGeometry {
   /**
+   * @public
    * <p>An ordered list of positions used to plot a route on a map. </p>
    *          <p>The first position is closest to the start position for the leg, and the last position
    *             is the closest to the end position for the leg.</p>
@@ -1621,24 +1756,28 @@ export interface LegGeometry {
  */
 export interface Step {
   /**
+   * @public
    * <p>The starting position of a step. If the position is the first step in the leg, this
    *             position is the same as the start position of the leg.</p>
    */
   StartPosition: number[] | undefined;
 
   /**
+   * @public
    * <p>The end position of a step. If the position the last step in the leg, this position is
    *             the same as the end position of the leg.</p>
    */
   EndPosition: number[] | undefined;
 
   /**
+   * @public
    * <p>The travel distance between the step's <code>StartPosition</code> and
    *                 <code>EndPosition</code>.</p>
    */
   Distance: number | undefined;
 
   /**
+   * @public
    * <p>The estimated travel time, in seconds, from the step's <code>StartPosition</code> to
    *             the <code>EndPosition</code>. . The travel mode and departure time that you specify in
    *             the request determines the calculated time.</p>
@@ -1646,6 +1785,7 @@ export interface Step {
   DurationSeconds: number | undefined;
 
   /**
+   * @public
    * <p>Represents the start position, or index, in a sequence of steps within the leg's line
    *             string geometry. For example, the index of the first step in a leg geometry is
    *                 <code>0</code>. </p>
@@ -1686,6 +1826,7 @@ export interface Step {
  */
 export interface Leg {
   /**
+   * @public
    * <p>The starting position of the leg. Follows the format
    *             <code>[longitude,latitude]</code>.</p>
    *          <note>
@@ -1696,6 +1837,7 @@ export interface Leg {
   StartPosition: number[] | undefined;
 
   /**
+   * @public
    * <p>The terminating position of the leg. Follows the format
    *                 <code>[longitude,latitude]</code>.</p>
    *          <note>
@@ -1706,6 +1848,7 @@ export interface Leg {
   EndPosition: number[] | undefined;
 
   /**
+   * @public
    * <p>The distance between the leg's <code>StartPosition</code> and <code>EndPosition</code>
    *             along a calculated route. </p>
    *          <ul>
@@ -1718,6 +1861,7 @@ export interface Leg {
   Distance: number | undefined;
 
   /**
+   * @public
    * <p>The estimated travel time between the leg's <code>StartPosition</code> and
    *                 <code>EndPosition</code>. The travel mode and departure time that you specify in the
    *             request determines the calculated time.</p>
@@ -1725,11 +1869,13 @@ export interface Leg {
   DurationSeconds: number | undefined;
 
   /**
+   * @public
    * <p>Contains the calculated route's path as a linestring geometry.</p>
    */
   Geometry?: LegGeometry;
 
   /**
+   * @public
    * <p>Contains a list of steps, which represent subsections of a leg. Each step provides
    *             instructions for how to move to the next step in the leg such as the step's start
    *             position, end position, travel distance, travel duration, and geometry offset.</p>
@@ -1743,6 +1889,7 @@ export interface Leg {
  */
 export interface CalculateRouteSummary {
   /**
+   * @public
    * <p>Specifies a geographical box surrounding a route. Used to zoom into a route when
    *             displaying it in a map. For example, <code>[min x, min y, max x, max y]</code>.</p>
    *          <p>The first 2 <code>bbox</code> parameters describe the lower southwest corner: </p>
@@ -1771,6 +1918,7 @@ export interface CalculateRouteSummary {
   RouteBBox: number[] | undefined;
 
   /**
+   * @public
    * <p>The data provider of traffic and road network data used to calculate the route.
    *             Indicates one of the available providers:</p>
    *          <ul>
@@ -1795,6 +1943,7 @@ export interface CalculateRouteSummary {
   DataSource: string | undefined;
 
   /**
+   * @public
    * <p>The total distance covered by the route. The sum of the distance travelled between
    *             every stop on the route.</p>
    *          <note>
@@ -1806,6 +1955,7 @@ export interface CalculateRouteSummary {
   Distance: number | undefined;
 
   /**
+   * @public
    * <p>The total travel time for the route measured in seconds. The sum of the travel time
    *             between every stop on the
    *             route.</p>
@@ -1813,6 +1963,7 @@ export interface CalculateRouteSummary {
   DurationSeconds: number | undefined;
 
   /**
+   * @public
    * <p>The unit of measurement for route distances.</p>
    */
   DistanceUnit: DistanceUnit | string | undefined;
@@ -1825,6 +1976,7 @@ export interface CalculateRouteSummary {
  */
 export interface CalculateRouteResponse {
   /**
+   * @public
    * <p>Contains details about each path between a pair of positions included along a route
    *             such as: <code>StartPosition</code>, <code>EndPosition</code>, <code>Distance</code>,
    *                 <code>DurationSeconds</code>, <code>Geometry</code>, and <code>Steps</code>. The
@@ -1857,6 +2009,7 @@ export interface CalculateRouteResponse {
   Legs: Leg[] | undefined;
 
   /**
+   * @public
    * <p>Contains information about the whole route, such as: <code>RouteBBox</code>,
    *                 <code>DataSource</code>, <code>Distance</code>, <code>DistanceUnit</code>, and
    *                 <code>DurationSeconds</code>.</p>
@@ -1869,12 +2022,14 @@ export interface CalculateRouteResponse {
  */
 export interface CalculateRouteMatrixRequest {
   /**
+   * @public
    * <p>The name of the route calculator resource that you want to use to calculate the route
    *             matrix. </p>
    */
   CalculatorName: string | undefined;
 
   /**
+   * @public
    * <p>The list of departure (origin) positions for the route matrix. An array of points,
    *             each of which is itself a 2-value array defined in <a href="https://earth-info.nga.mil/GandG/wgs84/index.html">WGS 84</a> format:
    *                 <code>[longitude, latitude]</code>. For example, <code>[-123.115,
@@ -1896,6 +2051,7 @@ export interface CalculateRouteMatrixRequest {
   DeparturePositions: number[][] | undefined;
 
   /**
+   * @public
    * <p>The list of destination positions for the route matrix. An array of points, each of
    *             which is itself a 2-value array defined in <a href="https://earth-info.nga.mil/GandG/wgs84/index.html">WGS 84</a> format:
    *                 <code>[longitude, latitude]</code>. For example, <code>[-122.339,
@@ -1918,6 +2074,7 @@ export interface CalculateRouteMatrixRequest {
   DestinationPositions: number[][] | undefined;
 
   /**
+   * @public
    * <p>Specifies the mode of transport when calculating a route. Used in estimating the speed
    *             of travel and road compatibility.</p>
    *          <p>The <code>TravelMode</code> you specify also determines how you specify route
@@ -1946,6 +2103,7 @@ export interface CalculateRouteMatrixRequest {
   TravelMode?: TravelMode | string;
 
   /**
+   * @public
    * <p>Specifies the desired time of departure. Uses the given time to calculate the route
    *             matrix. You can't set both <code>DepartureTime</code> and <code>DepartNow</code>. If
    *             neither is set, the best time of day to travel with the best traffic conditions is used
@@ -1966,6 +2124,7 @@ export interface CalculateRouteMatrixRequest {
   DepartureTime?: Date;
 
   /**
+   * @public
    * <p>Sets the time of departure as the current time. Uses the current time to calculate the
    *             route matrix. You can't set both <code>DepartureTime</code> and <code>DepartNow</code>.
    *             If neither is set, the best time of day to travel with the best traffic conditions is
@@ -1978,6 +2137,7 @@ export interface CalculateRouteMatrixRequest {
   DepartNow?: boolean;
 
   /**
+   * @public
    * <p>Set the unit system to specify the distance.</p>
    *          <p>Default Value: <code>Kilometers</code>
    *          </p>
@@ -1985,6 +2145,7 @@ export interface CalculateRouteMatrixRequest {
   DistanceUnit?: DistanceUnit | string;
 
   /**
+   * @public
    * <p>Specifies route preferences when traveling by <code>Car</code>, such as avoiding
    *             routes that use ferries or tolls.</p>
    *          <p>Requirements: <code>TravelMode</code> must be specified as <code>Car</code>.</p>
@@ -1992,6 +2153,7 @@ export interface CalculateRouteMatrixRequest {
   CarModeOptions?: CalculateRouteCarModeOptions;
 
   /**
+   * @public
    * <p>Specifies route preferences when traveling by <code>Truck</code>, such as avoiding
    *             routes that use ferries or tolls, and truck specifications to consider when choosing an
    *             optimal road.</p>
@@ -2000,6 +2162,7 @@ export interface CalculateRouteMatrixRequest {
   TruckModeOptions?: CalculateRouteTruckModeOptions;
 
   /**
+   * @public
    * <p>The optional <a href="https://docs.aws.amazon.com/location/latest/developerguide/using-apikeys.html">API key</a> to authorize
    *             the request.</p>
    */
@@ -2069,11 +2232,13 @@ export type RouteMatrixErrorCode =
  */
 export interface RouteMatrixEntryError {
   /**
+   * @public
    * <p>The type of error which occurred for the route calculation.</p>
    */
   Code: RouteMatrixErrorCode | string | undefined;
 
   /**
+   * @public
    * <p>A message about the error that occurred for the route calculation.</p>
    */
   Message?: string;
@@ -2086,16 +2251,19 @@ export interface RouteMatrixEntryError {
  */
 export interface RouteMatrixEntry {
   /**
+   * @public
    * <p>The total distance of travel for the route.</p>
    */
   Distance?: number;
 
   /**
+   * @public
    * <p>The expected duration of travel for the route.</p>
    */
   DurationSeconds?: number;
 
   /**
+   * @public
    * <p>An error corresponding to the calculation of a route between the
    *                 <code>DeparturePosition</code> and <code>DestinationPosition</code>.</p>
    */
@@ -2108,6 +2276,7 @@ export interface RouteMatrixEntry {
  */
 export interface CalculateRouteMatrixSummary {
   /**
+   * @public
    * <p>The data provider of traffic and road network data used to calculate the routes.
    *             Indicates one of the available providers:</p>
    *          <ul>
@@ -2133,6 +2302,7 @@ export interface CalculateRouteMatrixSummary {
   DataSource: string | undefined;
 
   /**
+   * @public
    * <p>The count of cells in the route matrix. Equal to the number of
    *                 <code>DeparturePositions</code> multiplied by the number of
    *                 <code>DestinationPositions</code>.</p>
@@ -2140,12 +2310,14 @@ export interface CalculateRouteMatrixSummary {
   RouteCount: number | undefined;
 
   /**
+   * @public
    * <p>The count of error results in the route matrix. If this number is 0, all routes were
    *             calculated successfully.</p>
    */
   ErrorCount: number | undefined;
 
   /**
+   * @public
    * <p>The unit of measurement for route distances.</p>
    */
   DistanceUnit: DistanceUnit | string | undefined;
@@ -2157,6 +2329,7 @@ export interface CalculateRouteMatrixSummary {
  */
 export interface CalculateRouteMatrixResponse {
   /**
+   * @public
    * <p>The calculated route matrix containing the results for all pairs of
    *                 <code>DeparturePositions</code> to <code>DestinationPositions</code>. Each row
    *             corresponds to one entry in <code>DeparturePositions</code>. Each entry in the row
@@ -2166,6 +2339,7 @@ export interface CalculateRouteMatrixResponse {
   RouteMatrix: RouteMatrixEntry[][] | undefined;
 
   /**
+   * @public
    * <p>For routes calculated using an Esri route calculator resource, departure positions are
    *             snapped to the closest road. For Esri route calculator resources, this returns the list
    *             of departure/origin positions used for calculation of the
@@ -2174,12 +2348,14 @@ export interface CalculateRouteMatrixResponse {
   SnappedDeparturePositions?: number[][];
 
   /**
+   * @public
    * <p>The list of destination positions for the route matrix used for calculation of the
    *                 <code>RouteMatrix</code>.</p>
    */
   SnappedDestinationPositions?: number[][];
 
   /**
+   * @public
    * <p>Contains information about the route matrix, <code>DataSource</code>,
    *                 <code>DistanceUnit</code>, <code>RouteCount</code> and
    *             <code>ErrorCount</code>.</p>
@@ -2197,6 +2373,7 @@ export type PricingPlan = "MobileAssetManagement" | "MobileAssetTracking" | "Req
  */
 export interface CreateGeofenceCollectionRequest {
   /**
+   * @public
    * <p>A custom name for the geofence collection.</p>
    *          <p>Requirements:</p>
    *          <ul>
@@ -2215,6 +2392,7 @@ export interface CreateGeofenceCollectionRequest {
   CollectionName: string | undefined;
 
   /**
+   * @public
    * @deprecated
    *
    * <p>No longer used. If included, the only allowed value is
@@ -2223,6 +2401,7 @@ export interface CreateGeofenceCollectionRequest {
   PricingPlan?: PricingPlan | string;
 
   /**
+   * @public
    * @deprecated
    *
    * <p>This parameter is no longer used.</p>
@@ -2230,11 +2409,13 @@ export interface CreateGeofenceCollectionRequest {
   PricingPlanDataSource?: string;
 
   /**
+   * @public
    * <p>An optional description for the geofence collection.</p>
    */
   Description?: string;
 
   /**
+   * @public
    * <p>Applies one or more tags to the geofence collection. A tag is a key-value pair helps
    *             manage, identify, search, and filter your resources by labelling them.</p>
    *          <p>Format: <code>"key" : "value"</code>
@@ -2265,6 +2446,7 @@ export interface CreateGeofenceCollectionRequest {
   Tags?: Record<string, string>;
 
   /**
+   * @public
    * <p>A key identifier for an
    *             <a href="https://docs.aws.amazon.com/kms/latest/developerguide/create-keys.html">Amazon Web Services
    *                 KMS customer managed key</a>. Enter a key ID, key ARN, alias name, or alias ARN.
@@ -2278,11 +2460,13 @@ export interface CreateGeofenceCollectionRequest {
  */
 export interface CreateGeofenceCollectionResponse {
   /**
+   * @public
    * <p>The name for the geofence collection.</p>
    */
   CollectionName: string | undefined;
 
   /**
+   * @public
    * <p>The Amazon Resource Name (ARN) for the geofence collection resource. Used when you
    *             need to specify a resource across all Amazon Web Services. </p>
    *          <ul>
@@ -2296,6 +2480,7 @@ export interface CreateGeofenceCollectionResponse {
   CollectionArn: string | undefined;
 
   /**
+   * @public
    * <p>The timestamp for when the geofence collection was created in <a href="https://www.iso.org/iso-8601-date-and-time-format.html">ISO 8601</a>
    *             format: <code>YYYY-MM-DDThh:mm:ss.sssZ</code>
    *          </p>
@@ -2309,6 +2494,7 @@ export interface CreateGeofenceCollectionResponse {
  */
 export interface MapConfiguration {
   /**
+   * @public
    * <p>Specifies the map style selected from an available data provider.</p>
    *          <p>Valid <a href="https://docs.aws.amazon.com/location/latest/developerguide/esri.html">Esri map styles</a>:</p>
    *          <ul>
@@ -2453,6 +2639,7 @@ export interface MapConfiguration {
   Style: string | undefined;
 
   /**
+   * @public
    * <p>Specifies the political view for the style. Leave unset to not use a political
    *             view, or, for styles that support specific political views, you can choose a view,
    *             such as <code>IND</code> for the Indian view.</p>
@@ -2472,6 +2659,7 @@ export interface MapConfiguration {
  */
 export interface CreateMapRequest {
   /**
+   * @public
    * <p>The name for the map resource.</p>
    *          <p>Requirements:</p>
    *          <ul>
@@ -2489,6 +2677,7 @@ export interface CreateMapRequest {
   MapName: string | undefined;
 
   /**
+   * @public
    * <p>Specifies the <code>MapConfiguration</code>, including the map style, for the
    *             map resource that you create. The map style defines the look of maps and the data
    *             provider for your map resource.</p>
@@ -2496,6 +2685,7 @@ export interface CreateMapRequest {
   Configuration: MapConfiguration | undefined;
 
   /**
+   * @public
    * @deprecated
    *
    * <p>No longer used. If included, the only allowed value is
@@ -2504,11 +2694,13 @@ export interface CreateMapRequest {
   PricingPlan?: PricingPlan | string;
 
   /**
+   * @public
    * <p>An optional description for the map resource.</p>
    */
   Description?: string;
 
   /**
+   * @public
    * <p>Applies one or more tags to the map resource. A tag is a key-value pair helps manage,
    *             identify, search, and filter your resources by labelling them.</p>
    *          <p>Format: <code>"key" : "value"</code>
@@ -2544,11 +2736,13 @@ export interface CreateMapRequest {
  */
 export interface CreateMapResponse {
   /**
+   * @public
    * <p>The name of the map resource.</p>
    */
   MapName: string | undefined;
 
   /**
+   * @public
    * <p>The Amazon Resource Name (ARN) for the map resource. Used to specify a resource across
    *             all Amazon Web Services.</p>
    *          <ul>
@@ -2562,6 +2756,7 @@ export interface CreateMapResponse {
   MapArn: string | undefined;
 
   /**
+   * @public
    * <p>The timestamp for when the map resource was created in <a href="https://www.iso.org/iso-8601-date-and-time-format.html">ISO 8601</a>
    *             format: <code>YYYY-MM-DDThh:mm:ss.sssZ</code>.</p>
    */
@@ -2596,6 +2791,7 @@ export type IntendedUse = "SingleUse" | "Storage";
  */
 export interface DataSourceConfiguration {
   /**
+   * @public
    * <p>Specifies how the results of an operation will be stored by the caller. </p>
    *          <p>Valid values include:</p>
    *          <ul>
@@ -2620,6 +2816,7 @@ export interface DataSourceConfiguration {
  */
 export interface CreatePlaceIndexRequest {
   /**
+   * @public
    * <p>The name of the place index resource. </p>
    *          <p>Requirements:</p>
    *          <ul>
@@ -2638,6 +2835,7 @@ export interface CreatePlaceIndexRequest {
   IndexName: string | undefined;
 
   /**
+   * @public
    * <p>Specifies the geospatial data provider for the new place index.</p>
    *          <note>
    *             <p>This field is case-sensitive. Enter the valid values as shown. For example,
@@ -2672,6 +2870,7 @@ export interface CreatePlaceIndexRequest {
   DataSource: string | undefined;
 
   /**
+   * @public
    * @deprecated
    *
    * <p>No longer used. If included, the only allowed value is
@@ -2680,16 +2879,19 @@ export interface CreatePlaceIndexRequest {
   PricingPlan?: PricingPlan | string;
 
   /**
+   * @public
    * <p>The optional description for the place index resource.</p>
    */
   Description?: string;
 
   /**
+   * @public
    * <p>Specifies the data storage option requesting Places.</p>
    */
   DataSourceConfiguration?: DataSourceConfiguration;
 
   /**
+   * @public
    * <p>Applies one or more tags to the place index resource. A tag is a key-value pair that
    *             helps you manage, identify, search, and filter your resources.</p>
    *          <p>Format: <code>"key" : "value"</code>
@@ -2725,11 +2927,13 @@ export interface CreatePlaceIndexRequest {
  */
 export interface CreatePlaceIndexResponse {
   /**
+   * @public
    * <p>The name for the place index resource.</p>
    */
   IndexName: string | undefined;
 
   /**
+   * @public
    * <p>The Amazon Resource Name (ARN) for the place index resource. Used to specify a
    *             resource across Amazon Web Services. </p>
    *          <ul>
@@ -2743,6 +2947,7 @@ export interface CreatePlaceIndexResponse {
   IndexArn: string | undefined;
 
   /**
+   * @public
    * <p>The timestamp for when the place index resource was created in <a href="https://www.iso.org/iso-8601-date-and-time-format.html">ISO 8601</a>
    *             format: <code>YYYY-MM-DDThh:mm:ss.sssZ</code>. </p>
    */
@@ -2754,6 +2959,7 @@ export interface CreatePlaceIndexResponse {
  */
 export interface CreateRouteCalculatorRequest {
   /**
+   * @public
    * <p>The name of the route calculator resource. </p>
    *          <p>Requirements:</p>
    *          <ul>
@@ -2772,6 +2978,7 @@ export interface CreateRouteCalculatorRequest {
   CalculatorName: string | undefined;
 
   /**
+   * @public
    * <p>Specifies the data provider of traffic and road network data.</p>
    *          <note>
    *             <p>This field is case-sensitive. Enter the valid values as shown. For example,
@@ -2804,6 +3011,7 @@ export interface CreateRouteCalculatorRequest {
   DataSource: string | undefined;
 
   /**
+   * @public
    * @deprecated
    *
    * <p>No longer used. If included, the only allowed value is
@@ -2812,11 +3020,13 @@ export interface CreateRouteCalculatorRequest {
   PricingPlan?: PricingPlan | string;
 
   /**
+   * @public
    * <p>The optional description for the route calculator resource.</p>
    */
   Description?: string;
 
   /**
+   * @public
    * <p>Applies one or more tags to the route calculator resource. A tag is a key-value pair
    *             helps manage, identify, search, and filter your resources by labelling them.</p>
    *          <ul>
@@ -2858,6 +3068,7 @@ export interface CreateRouteCalculatorRequest {
  */
 export interface CreateRouteCalculatorResponse {
   /**
+   * @public
    * <p>The name of the route calculator resource. </p>
    *          <ul>
    *             <li>
@@ -2868,6 +3079,7 @@ export interface CreateRouteCalculatorResponse {
   CalculatorName: string | undefined;
 
   /**
+   * @public
    * <p>The Amazon Resource Name (ARN) for the route calculator resource. Use the ARN when you
    *             specify a resource across all Amazon Web Services.</p>
    *          <ul>
@@ -2881,6 +3093,7 @@ export interface CreateRouteCalculatorResponse {
   CalculatorArn: string | undefined;
 
   /**
+   * @public
    * <p>The timestamp when the route calculator resource was created in <a href="https://www.iso.org/iso-8601-date-and-time-format.html">ISO 8601</a>
    *             format: <code>YYYY-MM-DDThh:mm:ss.sssZ</code>. </p>
    *          <ul>
@@ -2903,6 +3116,7 @@ export type PositionFiltering = "AccuracyBased" | "DistanceBased" | "TimeBased";
  */
 export interface CreateTrackerRequest {
   /**
+   * @public
    * <p>The name for the tracker resource.</p>
    *          <p>Requirements:</p>
    *          <ul>
@@ -2920,6 +3134,7 @@ export interface CreateTrackerRequest {
   TrackerName: string | undefined;
 
   /**
+   * @public
    * @deprecated
    *
    * <p>No longer used. If included, the only allowed value is
@@ -2928,6 +3143,7 @@ export interface CreateTrackerRequest {
   PricingPlan?: PricingPlan | string;
 
   /**
+   * @public
    * <p>A key identifier for an
    *            <a href="https://docs.aws.amazon.com/kms/latest/developerguide/create-keys.html">Amazon Web Services
    *                KMS customer managed key</a>. Enter a key ID, key ARN, alias name, or alias ARN.</p>
@@ -2935,6 +3151,7 @@ export interface CreateTrackerRequest {
   KmsKeyId?: string;
 
   /**
+   * @public
    * @deprecated
    *
    * <p>This parameter is no longer used.</p>
@@ -2942,11 +3159,13 @@ export interface CreateTrackerRequest {
   PricingPlanDataSource?: string;
 
   /**
+   * @public
    * <p>An optional description for the tracker resource.</p>
    */
   Description?: string;
 
   /**
+   * @public
    * <p>Applies one or more tags to the tracker resource. A tag is a key-value pair helps
    *             manage, identify, search, and filter your resources by labelling them.</p>
    *          <p>Format: <code>"key" : "value"</code>
@@ -2977,6 +3196,7 @@ export interface CreateTrackerRequest {
   Tags?: Record<string, string>;
 
   /**
+   * @public
    * <p>Specifies the position filtering for the tracker resource.</p>
    *          <p>Valid values:</p>
    *          <ul>
@@ -3012,6 +3232,7 @@ export interface CreateTrackerRequest {
   PositionFiltering?: PositionFiltering | string;
 
   /**
+   * @public
    * <p>Whether to enable position <code>UPDATE</code> events from this tracker to be sent to
    *             EventBridge.</p>
    *          <note>
@@ -3028,11 +3249,13 @@ export interface CreateTrackerRequest {
  */
 export interface CreateTrackerResponse {
   /**
+   * @public
    * <p>The name of the tracker resource.</p>
    */
   TrackerName: string | undefined;
 
   /**
+   * @public
    * <p>The Amazon Resource Name (ARN) for the tracker resource. Used when you need to specify
    *             a resource across all Amazon Web Services.</p>
    *          <ul>
@@ -3046,6 +3269,7 @@ export interface CreateTrackerResponse {
   TrackerArn: string | undefined;
 
   /**
+   * @public
    * <p>The timestamp for when the tracker resource was created in <a href="https://www.iso.org/iso-8601-date-and-time-format.html"> ISO 8601</a>
    *             format: <code>YYYY-MM-DDThh:mm:ss.sssZ</code>. </p>
    */
@@ -3057,6 +3281,7 @@ export interface CreateTrackerResponse {
  */
 export interface DeleteGeofenceCollectionRequest {
   /**
+   * @public
    * <p>The name of the geofence collection to be deleted.</p>
    */
   CollectionName: string | undefined;
@@ -3072,6 +3297,7 @@ export interface DeleteGeofenceCollectionResponse {}
  */
 export interface DeleteMapRequest {
   /**
+   * @public
    * <p>The name of the map resource to be deleted.</p>
    */
   MapName: string | undefined;
@@ -3087,6 +3313,7 @@ export interface DeleteMapResponse {}
  */
 export interface DeletePlaceIndexRequest {
   /**
+   * @public
    * <p>The name of the place index resource to be deleted.</p>
    */
   IndexName: string | undefined;
@@ -3102,6 +3329,7 @@ export interface DeletePlaceIndexResponse {}
  */
 export interface DeleteRouteCalculatorRequest {
   /**
+   * @public
    * <p>The name of the route calculator resource to be deleted.</p>
    */
   CalculatorName: string | undefined;
@@ -3117,6 +3345,7 @@ export interface DeleteRouteCalculatorResponse {}
  */
 export interface DeleteTrackerRequest {
   /**
+   * @public
    * <p>The name of the tracker resource to be deleted.</p>
    */
   TrackerName: string | undefined;
@@ -3132,6 +3361,7 @@ export interface DeleteTrackerResponse {}
  */
 export interface DescribeGeofenceCollectionRequest {
   /**
+   * @public
    * <p>The name of the geofence collection.</p>
    */
   CollectionName: string | undefined;
@@ -3142,11 +3372,13 @@ export interface DescribeGeofenceCollectionRequest {
  */
 export interface DescribeGeofenceCollectionResponse {
   /**
+   * @public
    * <p>The name of the geofence collection.</p>
    */
   CollectionName: string | undefined;
 
   /**
+   * @public
    * <p>The Amazon Resource Name (ARN) for the geofence collection resource. Used when you
    *             need to specify a resource across all Amazon Web Services. </p>
    *          <ul>
@@ -3160,11 +3392,13 @@ export interface DescribeGeofenceCollectionResponse {
   CollectionArn: string | undefined;
 
   /**
+   * @public
    * <p>The optional description for the geofence collection.</p>
    */
   Description: string | undefined;
 
   /**
+   * @public
    * @deprecated
    *
    * <p>No longer used. Always returns <code>RequestBasedUsage</code>.</p>
@@ -3172,6 +3406,7 @@ export interface DescribeGeofenceCollectionResponse {
   PricingPlan?: PricingPlan | string;
 
   /**
+   * @public
    * @deprecated
    *
    * <p>No longer used. Always returns an empty string.</p>
@@ -3179,6 +3414,7 @@ export interface DescribeGeofenceCollectionResponse {
   PricingPlanDataSource?: string;
 
   /**
+   * @public
    * <p>A key identifier for an
    *             <a href="https://docs.aws.amazon.com/kms/latest/developerguide/create-keys.html">Amazon Web Services
    *                 KMS customer managed key</a> assigned to the Amazon Location resource</p>
@@ -3186,11 +3422,13 @@ export interface DescribeGeofenceCollectionResponse {
   KmsKeyId?: string;
 
   /**
+   * @public
    * <p>Displays the key, value pairs of tags associated with this resource.</p>
    */
   Tags?: Record<string, string>;
 
   /**
+   * @public
    * <p>The timestamp for when the geofence resource was created in <a href="https://www.iso.org/iso-8601-date-and-time-format.html">ISO 8601</a>
    *             format: <code>YYYY-MM-DDThh:mm:ss.sssZ</code>
    *          </p>
@@ -3198,6 +3436,7 @@ export interface DescribeGeofenceCollectionResponse {
   CreateTime: Date | undefined;
 
   /**
+   * @public
    * <p>The timestamp for when the geofence collection was last updated in <a href="https://www.iso.org/iso-8601-date-and-time-format.html">ISO 8601</a>
    *             format: <code>YYYY-MM-DDThh:mm:ss.sssZ</code>
    *          </p>
@@ -3210,6 +3449,7 @@ export interface DescribeGeofenceCollectionResponse {
  */
 export interface DescribeMapRequest {
   /**
+   * @public
    * <p>The name of the map resource.</p>
    */
   MapName: string | undefined;
@@ -3220,11 +3460,13 @@ export interface DescribeMapRequest {
  */
 export interface DescribeMapResponse {
   /**
+   * @public
    * <p>The map style selected from an available provider.</p>
    */
   MapName: string | undefined;
 
   /**
+   * @public
    * <p>The Amazon Resource Name (ARN) for the map resource. Used to specify a resource across
    *             all Amazon Web Services.</p>
    *          <ul>
@@ -3238,6 +3480,7 @@ export interface DescribeMapResponse {
   MapArn: string | undefined;
 
   /**
+   * @public
    * @deprecated
    *
    * <p>No longer used. Always returns <code>RequestBasedUsage</code>.</p>
@@ -3245,32 +3488,38 @@ export interface DescribeMapResponse {
   PricingPlan?: PricingPlan | string;
 
   /**
+   * @public
    * <p>Specifies the data provider for the associated map tiles.</p>
    */
   DataSource: string | undefined;
 
   /**
+   * @public
    * <p>Specifies the map tile style selected from a partner data provider.</p>
    */
   Configuration: MapConfiguration | undefined;
 
   /**
+   * @public
    * <p>The optional description for the map resource.</p>
    */
   Description: string | undefined;
 
   /**
+   * @public
    * <p>Tags associated with the map resource.</p>
    */
   Tags?: Record<string, string>;
 
   /**
+   * @public
    * <p>The timestamp for when the map resource was created in <a href="https://www.iso.org/iso-8601-date-and-time-format.html">ISO 8601</a>
    *             format: <code>YYYY-MM-DDThh:mm:ss.sssZ</code>.</p>
    */
   CreateTime: Date | undefined;
 
   /**
+   * @public
    * <p>The timestamp for when the map resource was last update in <a href="https://www.iso.org/iso-8601-date-and-time-format.html">ISO 8601</a>
    *             format: <code>YYYY-MM-DDThh:mm:ss.sssZ</code>.</p>
    */
@@ -3282,6 +3531,7 @@ export interface DescribeMapResponse {
  */
 export interface DescribePlaceIndexRequest {
   /**
+   * @public
    * <p>The name of the place index resource.</p>
    */
   IndexName: string | undefined;
@@ -3292,11 +3542,13 @@ export interface DescribePlaceIndexRequest {
  */
 export interface DescribePlaceIndexResponse {
   /**
+   * @public
    * <p>The name of the place index resource being described.</p>
    */
   IndexName: string | undefined;
 
   /**
+   * @public
    * <p>The Amazon Resource Name (ARN) for the place index resource. Used to specify a
    *             resource across Amazon Web Services. </p>
    *          <ul>
@@ -3310,6 +3562,7 @@ export interface DescribePlaceIndexResponse {
   IndexArn: string | undefined;
 
   /**
+   * @public
    * @deprecated
    *
    * <p>No longer used. Always returns <code>RequestBasedUsage</code>.</p>
@@ -3317,23 +3570,27 @@ export interface DescribePlaceIndexResponse {
   PricingPlan?: PricingPlan | string;
 
   /**
+   * @public
    * <p>The optional description for the place index resource.</p>
    */
   Description: string | undefined;
 
   /**
+   * @public
    * <p>The timestamp for when the place index resource was created in <a href="https://www.iso.org/iso-8601-date-and-time-format.html">ISO 8601</a>
    *             format: <code>YYYY-MM-DDThh:mm:ss.sssZ</code>. </p>
    */
   CreateTime: Date | undefined;
 
   /**
+   * @public
    * <p>The timestamp for when the place index resource was last updated in <a href="https://www.iso.org/iso-8601-date-and-time-format.html">ISO 8601</a>
    *             format: <code>YYYY-MM-DDThh:mm:ss.sssZ</code>. </p>
    */
   UpdateTime: Date | undefined;
 
   /**
+   * @public
    * <p>The data provider of geospatial data. Values can be one of the following:</p>
    *          <ul>
    *             <li>
@@ -3357,11 +3614,13 @@ export interface DescribePlaceIndexResponse {
   DataSource: string | undefined;
 
   /**
+   * @public
    * <p>The specified data storage option for requesting Places.</p>
    */
   DataSourceConfiguration: DataSourceConfiguration | undefined;
 
   /**
+   * @public
    * <p>Tags associated with place index resource.</p>
    */
   Tags?: Record<string, string>;
@@ -3372,6 +3631,7 @@ export interface DescribePlaceIndexResponse {
  */
 export interface DescribeRouteCalculatorRequest {
   /**
+   * @public
    * <p>The name of the route calculator resource.</p>
    */
   CalculatorName: string | undefined;
@@ -3382,11 +3642,13 @@ export interface DescribeRouteCalculatorRequest {
  */
 export interface DescribeRouteCalculatorResponse {
   /**
+   * @public
    * <p>The name of the route calculator resource being described.</p>
    */
   CalculatorName: string | undefined;
 
   /**
+   * @public
    * <p>The Amazon Resource Name (ARN) for the Route calculator resource. Use the ARN when you
    *             specify a resource across Amazon Web Services.</p>
    *          <ul>
@@ -3400,6 +3662,7 @@ export interface DescribeRouteCalculatorResponse {
   CalculatorArn: string | undefined;
 
   /**
+   * @public
    * @deprecated
    *
    * <p>Always returns <code>RequestBasedUsage</code>.</p>
@@ -3407,11 +3670,13 @@ export interface DescribeRouteCalculatorResponse {
   PricingPlan?: PricingPlan | string;
 
   /**
+   * @public
    * <p>The optional description of the route calculator resource.</p>
    */
   Description: string | undefined;
 
   /**
+   * @public
    * <p>The timestamp when the route calculator resource was created in <a href="https://www.iso.org/iso-8601-date-and-time-format.html">ISO 8601</a>
    *             format: <code>YYYY-MM-DDThh:mm:ss.sssZ</code>. </p>
    *          <ul>
@@ -3424,6 +3689,7 @@ export interface DescribeRouteCalculatorResponse {
   CreateTime: Date | undefined;
 
   /**
+   * @public
    * <p>The timestamp when the route calculator resource was last updated in <a href="https://www.iso.org/iso-8601-date-and-time-format.html">ISO 8601</a>
    *             format: <code>YYYY-MM-DDThh:mm:ss.sssZ</code>. </p>
    *          <ul>
@@ -3436,6 +3702,7 @@ export interface DescribeRouteCalculatorResponse {
   UpdateTime: Date | undefined;
 
   /**
+   * @public
    * <p>The data provider of traffic and road network data. Indicates one of the available
    *             providers:</p>
    *          <ul>
@@ -3460,6 +3727,7 @@ export interface DescribeRouteCalculatorResponse {
   DataSource: string | undefined;
 
   /**
+   * @public
    * <p>Tags associated with route calculator resource.</p>
    */
   Tags?: Record<string, string>;
@@ -3470,6 +3738,7 @@ export interface DescribeRouteCalculatorResponse {
  */
 export interface DescribeTrackerRequest {
   /**
+   * @public
    * <p>The name of the tracker resource.</p>
    */
   TrackerName: string | undefined;
@@ -3480,11 +3749,13 @@ export interface DescribeTrackerRequest {
  */
 export interface DescribeTrackerResponse {
   /**
+   * @public
    * <p>The name of the tracker resource.</p>
    */
   TrackerName: string | undefined;
 
   /**
+   * @public
    * <p>The Amazon Resource Name (ARN) for the tracker resource. Used when you need to specify
    *             a resource across all Amazon Web Services.</p>
    *          <ul>
@@ -3498,11 +3769,13 @@ export interface DescribeTrackerResponse {
   TrackerArn: string | undefined;
 
   /**
+   * @public
    * <p>The optional description for the tracker resource.</p>
    */
   Description: string | undefined;
 
   /**
+   * @public
    * @deprecated
    *
    * <p>Always returns <code>RequestBasedUsage</code>.</p>
@@ -3510,6 +3783,7 @@ export interface DescribeTrackerResponse {
   PricingPlan?: PricingPlan | string;
 
   /**
+   * @public
    * @deprecated
    *
    * <p>No longer used. Always returns an empty string.</p>
@@ -3517,34 +3791,40 @@ export interface DescribeTrackerResponse {
   PricingPlanDataSource?: string;
 
   /**
+   * @public
    * <p>The tags associated with the tracker resource.</p>
    */
   Tags?: Record<string, string>;
 
   /**
+   * @public
    * <p>The timestamp for when the tracker resource was created in <a href="https://www.iso.org/iso-8601-date-and-time-format.html"> ISO 8601</a>
    *             format: <code>YYYY-MM-DDThh:mm:ss.sssZ</code>. </p>
    */
   CreateTime: Date | undefined;
 
   /**
+   * @public
    * <p>The timestamp for when the tracker resource was last updated in <a href="https://www.iso.org/iso-8601-date-and-time-format.html"> ISO 8601</a>
    *             format: <code>YYYY-MM-DDThh:mm:ss.sssZ</code>. </p>
    */
   UpdateTime: Date | undefined;
 
   /**
+   * @public
    * <p>A key identifier for an <a href="https://docs.aws.amazon.com/kms/latest/developerguide/create-keys.html">Amazon Web Services
    *             KMS customer managed key</a> assigned to the Amazon Location resource.</p>
    */
   KmsKeyId?: string;
 
   /**
+   * @public
    * <p>The position filtering method of the tracker resource.</p>
    */
   PositionFiltering?: PositionFiltering | string;
 
   /**
+   * @public
    * <p>Whether <code>UPDATE</code> events from this tracker in EventBridge are
    *             enabled. If set to <code>true</code> these events will be sent to EventBridge.</p>
    */
@@ -3556,11 +3836,13 @@ export interface DescribeTrackerResponse {
  */
 export interface DisassociateTrackerConsumerRequest {
   /**
+   * @public
    * <p>The name of the tracker resource to be dissociated from the consumer.</p>
    */
   TrackerName: string | undefined;
 
   /**
+   * @public
    * <p>The Amazon Resource Name (ARN) for the geofence collection to be disassociated from
    *             the tracker resource. Used when you need to specify a resource across all Amazon Web Services. </p>
    *          <ul>
@@ -3584,6 +3866,7 @@ export interface DisassociateTrackerConsumerResponse {}
  */
 export interface ListTagsForResourceRequest {
   /**
+   * @public
    * <p>The Amazon Resource Name (ARN) of the resource whose tags you want to retrieve.</p>
    *          <ul>
    *             <li>
@@ -3601,6 +3884,7 @@ export interface ListTagsForResourceRequest {
  */
 export interface ListTagsForResourceResponse {
   /**
+   * @public
    * <p>Tags that have been applied to the specified resource. Tags are mapped from the tag
    *             key to the tag value: <code>"TagKey" : "TagValue"</code>.</p>
    *          <ul>
@@ -3618,6 +3902,7 @@ export interface ListTagsForResourceResponse {
  */
 export interface TagResourceRequest {
   /**
+   * @public
    * <p>The Amazon Resource Name (ARN) of the resource whose tags you want to update.</p>
    *          <ul>
    *             <li>
@@ -3630,6 +3915,7 @@ export interface TagResourceRequest {
   ResourceArn: string | undefined;
 
   /**
+   * @public
    * <p>Applies one or more tags to specific resource. A tag is a key-value pair that helps
    *             you manage, identify, search, and filter your resources.</p>
    *          <p>Format: <code>"key" : "value"</code>
@@ -3670,6 +3956,7 @@ export interface TagResourceResponse {}
  */
 export interface UntagResourceRequest {
   /**
+   * @public
    * <p>The Amazon Resource Name (ARN) of the resource from which you want to remove
    *             tags.</p>
    *          <ul>
@@ -3683,6 +3970,7 @@ export interface UntagResourceRequest {
   ResourceArn: string | undefined;
 
   /**
+   * @public
    * <p>The list of tag keys to remove from the specified resource.</p>
    */
   TagKeys: string[] | undefined;
@@ -3698,11 +3986,13 @@ export interface UntagResourceResponse {}
  */
 export interface GetGeofenceRequest {
   /**
+   * @public
    * <p>The geofence collection storing the target geofence.</p>
    */
   CollectionName: string | undefined;
 
   /**
+   * @public
    * <p>The geofence you're retrieving details for.</p>
    */
   GeofenceId: string | undefined;
@@ -3713,16 +4003,19 @@ export interface GetGeofenceRequest {
  */
 export interface GetGeofenceResponse {
   /**
+   * @public
    * <p>The geofence identifier.</p>
    */
   GeofenceId: string | undefined;
 
   /**
+   * @public
    * <p>Contains the geofence geometry details describing a polygon or a circle.</p>
    */
   Geometry: GeofenceGeometry | undefined;
 
   /**
+   * @public
    * <p>Identifies the state of the geofence. A geofence will hold one of the following
    *             states:</p>
    *          <ul>
@@ -3753,6 +4046,7 @@ export interface GetGeofenceResponse {
   Status: string | undefined;
 
   /**
+   * @public
    * <p>The timestamp for when the geofence collection was created in <a href="https://www.iso.org/iso-8601-date-and-time-format.html">ISO 8601</a>
    *             format: <code>YYYY-MM-DDThh:mm:ss.sssZ</code>
    *          </p>
@@ -3760,6 +4054,7 @@ export interface GetGeofenceResponse {
   CreateTime: Date | undefined;
 
   /**
+   * @public
    * <p>The timestamp for when the geofence collection was last updated in <a href="https://www.iso.org/iso-8601-date-and-time-format.html">ISO 8601</a>
    *             format: <code>YYYY-MM-DDThh:mm:ss.sssZ</code>
    *          </p>
@@ -3767,6 +4062,7 @@ export interface GetGeofenceResponse {
   UpdateTime: Date | undefined;
 
   /**
+   * @public
    * <p>User defined properties of the geofence. A property is a key-value
    *             pair stored with the geofence and added to any geofence event triggered with that
    *             geofence.</p>
@@ -3781,6 +4077,7 @@ export interface GetGeofenceResponse {
  */
 export interface ListGeofenceCollectionsRequest {
   /**
+   * @public
    * <p>An optional limit for the number of resources returned in a single call. </p>
    *          <p>Default value: <code>100</code>
    *          </p>
@@ -3788,6 +4085,7 @@ export interface ListGeofenceCollectionsRequest {
   MaxResults?: number;
 
   /**
+   * @public
    * <p>The pagination token specifying which page of results to return in the response. If no
    *             token is provided, the default page is the first page. </p>
    *          <p>Default value: <code>null</code>
@@ -3802,16 +4100,19 @@ export interface ListGeofenceCollectionsRequest {
  */
 export interface ListGeofenceCollectionsResponseEntry {
   /**
+   * @public
    * <p>The name of the geofence collection.</p>
    */
   CollectionName: string | undefined;
 
   /**
+   * @public
    * <p>The description for the geofence collection</p>
    */
   Description: string | undefined;
 
   /**
+   * @public
    * @deprecated
    *
    * <p>No longer used. Always returns <code>RequestBasedUsage</code>.</p>
@@ -3819,6 +4120,7 @@ export interface ListGeofenceCollectionsResponseEntry {
   PricingPlan?: PricingPlan | string;
 
   /**
+   * @public
    * @deprecated
    *
    * <p>No longer used. Always returns an empty string.</p>
@@ -3826,6 +4128,7 @@ export interface ListGeofenceCollectionsResponseEntry {
   PricingPlanDataSource?: string;
 
   /**
+   * @public
    * <p>The timestamp for when the geofence collection was created in <a href="https://www.iso.org/iso-8601-date-and-time-format.html">ISO 8601</a>
    *             format: <code>YYYY-MM-DDThh:mm:ss.sssZ</code>
    *          </p>
@@ -3833,6 +4136,7 @@ export interface ListGeofenceCollectionsResponseEntry {
   CreateTime: Date | undefined;
 
   /**
+   * @public
    * <p>Specifies a timestamp for when the resource was last updated in <a href="https://www.iso.org/iso-8601-date-and-time-format.html">ISO 8601</a>
    *             format: <code>YYYY-MM-DDThh:mm:ss.sssZ</code>
    *          </p>
@@ -3845,11 +4149,13 @@ export interface ListGeofenceCollectionsResponseEntry {
  */
 export interface ListGeofenceCollectionsResponse {
   /**
+   * @public
    * <p>Lists the geofence collections that exist in your Amazon Web Services account.</p>
    */
   Entries: ListGeofenceCollectionsResponseEntry[] | undefined;
 
   /**
+   * @public
    * <p>A pagination token indicating there are additional pages available. You can use the
    *             token in a following request to fetch the next set of results. </p>
    */
@@ -3861,11 +4167,13 @@ export interface ListGeofenceCollectionsResponse {
  */
 export interface ListGeofencesRequest {
   /**
+   * @public
    * <p>The name of the geofence collection storing the list of geofences.</p>
    */
   CollectionName: string | undefined;
 
   /**
+   * @public
    * <p>The pagination token specifying which page of results to return in the response. If no
    *             token is provided, the default page is the first page. </p>
    *          <p>Default value: <code>null</code>
@@ -3874,6 +4182,7 @@ export interface ListGeofencesRequest {
   NextToken?: string;
 
   /**
+   * @public
    * <p>An optional limit for the number of geofences returned in a single call. </p>
    *          <p>Default value: <code>100</code>
    *          </p>
@@ -3887,16 +4196,19 @@ export interface ListGeofencesRequest {
  */
 export interface ListGeofenceResponseEntry {
   /**
+   * @public
    * <p>The geofence identifier.</p>
    */
   GeofenceId: string | undefined;
 
   /**
+   * @public
    * <p>Contains the geofence geometry details describing a polygon or a circle.</p>
    */
   Geometry: GeofenceGeometry | undefined;
 
   /**
+   * @public
    * <p>Identifies the state of the geofence. A geofence will hold one of the following
    *             states:</p>
    *          <ul>
@@ -3927,6 +4239,7 @@ export interface ListGeofenceResponseEntry {
   Status: string | undefined;
 
   /**
+   * @public
    * <p>The timestamp for when the geofence was stored in a geofence collection in <a href="https://www.iso.org/iso-8601-date-and-time-format.html">ISO 8601</a>
    *             format: <code>YYYY-MM-DDThh:mm:ss.sssZ</code>
    *          </p>
@@ -3934,6 +4247,7 @@ export interface ListGeofenceResponseEntry {
   CreateTime: Date | undefined;
 
   /**
+   * @public
    * <p>The timestamp for when the geofence was last updated in <a href="https://www.iso.org/iso-8601-date-and-time-format.html">ISO 8601</a>
    *             format: <code>YYYY-MM-DDThh:mm:ss.sssZ</code>
    *          </p>
@@ -3941,6 +4255,7 @@ export interface ListGeofenceResponseEntry {
   UpdateTime: Date | undefined;
 
   /**
+   * @public
    * <p>User defined properties of the geofence. A property is a key-value
    *             pair stored with the geofence and added to any geofence event triggered with that
    *             geofence.</p>
@@ -3955,11 +4270,13 @@ export interface ListGeofenceResponseEntry {
  */
 export interface ListGeofencesResponse {
   /**
+   * @public
    * <p>Contains a list of geofences stored in the geofence collection.</p>
    */
   Entries: ListGeofenceResponseEntry[] | undefined;
 
   /**
+   * @public
    * <p>A pagination token indicating there are additional pages available. You can use the
    *             token in a following request to fetch the next set of results. </p>
    */
@@ -3971,16 +4288,19 @@ export interface ListGeofencesResponse {
  */
 export interface PutGeofenceRequest {
   /**
+   * @public
    * <p>The geofence collection to store the geofence in.</p>
    */
   CollectionName: string | undefined;
 
   /**
+   * @public
    * <p>An identifier for the geofence. For example, <code>ExampleGeofence-1</code>.</p>
    */
   GeofenceId: string | undefined;
 
   /**
+   * @public
    * <p>Contains the details to specify the position of the geofence. Can be either a
    *             polygon or a circle. Including both will return a validation error.</p>
    *          <note>
@@ -3991,6 +4311,7 @@ export interface PutGeofenceRequest {
   Geometry: GeofenceGeometry | undefined;
 
   /**
+   * @public
    * <p>Associates one of more properties with the geofence. A property is a key-value
    *             pair stored with the geofence and added to any geofence event triggered with that
    *             geofence.</p>
@@ -4005,11 +4326,13 @@ export interface PutGeofenceRequest {
  */
 export interface PutGeofenceResponse {
   /**
+   * @public
    * <p>The geofence identifier entered in the request.</p>
    */
   GeofenceId: string | undefined;
 
   /**
+   * @public
    * <p>The timestamp for when the geofence was created in <a href="https://www.iso.org/iso-8601-date-and-time-format.html">ISO 8601</a>
    *             format: <code>YYYY-MM-DDThh:mm:ss.sssZ</code>
    *          </p>
@@ -4017,6 +4340,7 @@ export interface PutGeofenceResponse {
   CreateTime: Date | undefined;
 
   /**
+   * @public
    * <p>The timestamp for when the geofence was last updated in <a href="https://www.iso.org/iso-8601-date-and-time-format.html">ISO 8601</a>
    *             format: <code>YYYY-MM-DDThh:mm:ss.sssZ</code>
    *          </p>
@@ -4029,11 +4353,13 @@ export interface PutGeofenceResponse {
  */
 export interface UpdateGeofenceCollectionRequest {
   /**
+   * @public
    * <p>The name of the geofence collection to update.</p>
    */
   CollectionName: string | undefined;
 
   /**
+   * @public
    * @deprecated
    *
    * <p>No longer used. If included, the only allowed value is
@@ -4042,6 +4368,7 @@ export interface UpdateGeofenceCollectionRequest {
   PricingPlan?: PricingPlan | string;
 
   /**
+   * @public
    * @deprecated
    *
    * <p>This parameter is no longer used.</p>
@@ -4049,6 +4376,7 @@ export interface UpdateGeofenceCollectionRequest {
   PricingPlanDataSource?: string;
 
   /**
+   * @public
    * <p>Updates the description for the geofence collection.</p>
    */
   Description?: string;
@@ -4059,11 +4387,13 @@ export interface UpdateGeofenceCollectionRequest {
  */
 export interface UpdateGeofenceCollectionResponse {
   /**
+   * @public
    * <p>The name of the updated geofence collection.</p>
    */
   CollectionName: string | undefined;
 
   /**
+   * @public
    * <p>The Amazon Resource Name (ARN) of the updated geofence collection. Used to specify a
    *             resource across Amazon Web Services.</p>
    *          <ul>
@@ -4077,6 +4407,7 @@ export interface UpdateGeofenceCollectionResponse {
   CollectionArn: string | undefined;
 
   /**
+   * @public
    * <p>The time when the geofence collection was last updated in <a href="https://www.iso.org/iso-8601-date-and-time-format.html">ISO 8601</a>
    *             format: <code>YYYY-MM-DDThh:mm:ss.sssZ</code>
    *          </p>
@@ -4089,11 +4420,13 @@ export interface UpdateGeofenceCollectionResponse {
  */
 export interface GetDevicePositionRequest {
   /**
+   * @public
    * <p>The tracker resource receiving the position update.</p>
    */
   TrackerName: string | undefined;
 
   /**
+   * @public
    * <p>The device whose position you want to retrieve.</p>
    */
   DeviceId: string | undefined;
@@ -4104,33 +4437,39 @@ export interface GetDevicePositionRequest {
  */
 export interface GetDevicePositionResponse {
   /**
+   * @public
    * <p>The device whose position you retrieved.</p>
    */
   DeviceId?: string;
 
   /**
+   * @public
    * <p>The timestamp at which the device's position was determined. Uses <a href="https://www.iso.org/iso-8601-date-and-time-format.html"> ISO 8601 </a>
    *             format: <code>YYYY-MM-DDThh:mm:ss.sssZ</code>. </p>
    */
   SampleTime: Date | undefined;
 
   /**
+   * @public
    * <p>The timestamp for when the tracker resource received the device position in <a href="https://www.iso.org/iso-8601-date-and-time-format.html"> ISO 8601 </a>
    *             format: <code>YYYY-MM-DDThh:mm:ss.sssZ</code>. </p>
    */
   ReceivedTime: Date | undefined;
 
   /**
+   * @public
    * <p>The last known device position.</p>
    */
   Position: number[] | undefined;
 
   /**
+   * @public
    * <p>The accuracy of the device position.</p>
    */
   Accuracy?: PositionalAccuracy;
 
   /**
+   * @public
    * <p>The properties associated with the position.</p>
    */
   PositionProperties?: Record<string, string>;
@@ -4141,16 +4480,19 @@ export interface GetDevicePositionResponse {
  */
 export interface GetDevicePositionHistoryRequest {
   /**
+   * @public
    * <p>The tracker resource receiving the request for the device position history.</p>
    */
   TrackerName: string | undefined;
 
   /**
+   * @public
    * <p>The device whose position history you want to retrieve.</p>
    */
   DeviceId: string | undefined;
 
   /**
+   * @public
    * <p>The pagination token specifying which page of results to return in the response. If no
    *             token is provided, the default page is the first page. </p>
    *          <p>Default value: <code>null</code>
@@ -4159,6 +4501,7 @@ export interface GetDevicePositionHistoryRequest {
   NextToken?: string;
 
   /**
+   * @public
    * <p>Specify the start time for the position history in <a href="https://www.iso.org/iso-8601-date-and-time-format.html"> ISO 8601</a>
    *             format: <code>YYYY-MM-DDThh:mm:ss.sssZ</code>. By default, the value will be 24 hours
    *             prior to the time that the request is made.</p>
@@ -4173,6 +4516,7 @@ export interface GetDevicePositionHistoryRequest {
   StartTimeInclusive?: Date;
 
   /**
+   * @public
    * <p>Specify the end time for the position history in <a href="https://www.iso.org/iso-8601-date-and-time-format.html"> ISO 8601</a>
    *             format: <code>YYYY-MM-DDThh:mm:ss.sssZ</code>. By default, the value will be the time
    *             that the request is made.</p>
@@ -4187,6 +4531,7 @@ export interface GetDevicePositionHistoryRequest {
   EndTimeExclusive?: Date;
 
   /**
+   * @public
    * <p>An optional limit for the number of device positions returned in a single call.</p>
    *          <p>Default value: <code>100</code>
    *          </p>
@@ -4199,11 +4544,13 @@ export interface GetDevicePositionHistoryRequest {
  */
 export interface GetDevicePositionHistoryResponse {
   /**
+   * @public
    * <p>Contains the position history details for the requested device.</p>
    */
   DevicePositions: DevicePosition[] | undefined;
 
   /**
+   * @public
    * <p>A pagination token indicating there are additional pages available. You can use the
    *             token in a following request to fetch the next set of results.</p>
    */
@@ -4215,11 +4562,13 @@ export interface GetDevicePositionHistoryResponse {
  */
 export interface GetMapGlyphsRequest {
   /**
+   * @public
    * <p>The map resource associated with the glyph ﬁle.</p>
    */
   MapName: string | undefined;
 
   /**
+   * @public
    * <p>A comma-separated list of fonts to load glyphs from in order of preference. For
    *             example, <code>Noto Sans Regular, Arial Unicode</code>.</p>
    *          <p>Valid fonts stacks for <a href="https://docs.aws.amazon.com/location/latest/developerguide/esri.html">Esri</a> styles: </p>
@@ -4310,6 +4659,7 @@ export interface GetMapGlyphsRequest {
   FontStack: string | undefined;
 
   /**
+   * @public
    * <p>A Unicode range of characters to download glyphs for. Each response will contain 256
    *             characters. For example, 0–255 includes all characters from range <code>U+0000</code> to
    *                 <code>00FF</code>. Must be aligned to multiples of 256.</p>
@@ -4317,6 +4667,7 @@ export interface GetMapGlyphsRequest {
   FontUnicodeRange: string | undefined;
 
   /**
+   * @public
    * <p>The optional <a href="https://docs.aws.amazon.com/location/latest/developerguide/using-apikeys.html">API key</a> to authorize
    *             the request.</p>
    */
@@ -4328,16 +4679,19 @@ export interface GetMapGlyphsRequest {
  */
 export interface GetMapGlyphsResponse {
   /**
+   * @public
    * <p>The glyph, as binary blob.</p>
    */
   Blob?: Uint8Array;
 
   /**
+   * @public
    * <p>The map glyph content type. For example, <code>application/octet-stream</code>.</p>
    */
   ContentType?: string;
 
   /**
+   * @public
    * <p>The HTTP Cache-Control directive for the value.</p>
    */
   CacheControl?: string;
@@ -4348,11 +4702,13 @@ export interface GetMapGlyphsResponse {
  */
 export interface GetMapSpritesRequest {
   /**
+   * @public
    * <p>The map resource associated with the sprite ﬁle.</p>
    */
   MapName: string | undefined;
 
   /**
+   * @public
    * <p>The name of the sprite ﬁle. Use the following ﬁle names for the sprite sheet:</p>
    *          <ul>
    *             <li>
@@ -4381,6 +4737,7 @@ export interface GetMapSpritesRequest {
   FileName: string | undefined;
 
   /**
+   * @public
    * <p>The optional <a href="https://docs.aws.amazon.com/location/latest/developerguide/using-apikeys.html">API key</a> to authorize
    *             the request.</p>
    */
@@ -4392,11 +4749,13 @@ export interface GetMapSpritesRequest {
  */
 export interface GetMapSpritesResponse {
   /**
+   * @public
    * <p>Contains the body of the sprite sheet or JSON offset ﬁle.</p>
    */
   Blob?: Uint8Array;
 
   /**
+   * @public
    * <p>The content type of the sprite sheet and offsets. For example, the sprite sheet
    *             content type is <code>image/png</code>, and the sprite offset JSON document is
    *                 <code>application/json</code>. </p>
@@ -4404,6 +4763,7 @@ export interface GetMapSpritesResponse {
   ContentType?: string;
 
   /**
+   * @public
    * <p>The HTTP Cache-Control directive for the value.</p>
    */
   CacheControl?: string;
@@ -4414,11 +4774,13 @@ export interface GetMapSpritesResponse {
  */
 export interface GetMapStyleDescriptorRequest {
   /**
+   * @public
    * <p>The map resource to retrieve the style descriptor from.</p>
    */
   MapName: string | undefined;
 
   /**
+   * @public
    * <p>The optional <a href="https://docs.aws.amazon.com/location/latest/developerguide/using-apikeys.html">API key</a> to authorize
    *             the request.</p>
    */
@@ -4430,17 +4792,20 @@ export interface GetMapStyleDescriptorRequest {
  */
 export interface GetMapStyleDescriptorResponse {
   /**
+   * @public
    * <p>Contains the body of the style descriptor.</p>
    */
   Blob?: Uint8Array;
 
   /**
+   * @public
    * <p>The style descriptor's content type. For example,
    *             <code>application/json</code>.</p>
    */
   ContentType?: string;
 
   /**
+   * @public
    * <p>The HTTP Cache-Control directive for the value.</p>
    */
   CacheControl?: string;
@@ -4451,26 +4816,31 @@ export interface GetMapStyleDescriptorResponse {
  */
 export interface GetMapTileRequest {
   /**
+   * @public
    * <p>The map resource to retrieve the map tiles from.</p>
    */
   MapName: string | undefined;
 
   /**
+   * @public
    * <p>The zoom value for the map tile.</p>
    */
   Z: string | undefined;
 
   /**
+   * @public
    * <p>The X axis value for the map tile.</p>
    */
   X: string | undefined;
 
   /**
+   * @public
    * <p>The Y axis value for the map tile. </p>
    */
   Y: string | undefined;
 
   /**
+   * @public
    * <p>The optional <a href="https://docs.aws.amazon.com/location/latest/developerguide/using-apikeys.html">API key</a> to authorize
    *             the request.</p>
    */
@@ -4482,17 +4852,20 @@ export interface GetMapTileRequest {
  */
 export interface GetMapTileResponse {
   /**
+   * @public
    * <p>Contains Mapbox Vector Tile (MVT) data.</p>
    */
   Blob?: Uint8Array;
 
   /**
+   * @public
    * <p>The map tile's content type. For example,
    *                 <code>application/vnd.mapbox-vector-tile</code>.</p>
    */
   ContentType?: string;
 
   /**
+   * @public
    * <p>The HTTP Cache-Control directive for the value.</p>
    */
   CacheControl?: string;
@@ -4503,16 +4876,19 @@ export interface GetMapTileResponse {
  */
 export interface GetPlaceRequest {
   /**
+   * @public
    * <p>The name of the place index resource that you want to use for the search.</p>
    */
   IndexName: string | undefined;
 
   /**
+   * @public
    * <p>The identifier of the place to find.</p>
    */
   PlaceId: string | undefined;
 
   /**
+   * @public
    * <p>The preferred language used to return results. The value must be a valid <a href="https://tools.ietf.org/search/bcp47">BCP 47</a> language tag, for example,
    *                 <code>en</code> for English.</p>
    *          <p>This setting affects the languages used in the results, but not the results
@@ -4531,6 +4907,7 @@ export interface GetPlaceRequest {
   Language?: string;
 
   /**
+   * @public
    * <p>The optional <a href="https://docs.aws.amazon.com/location/latest/developerguide/using-apikeys.html">API key</a> to authorize
    *             the request.</p>
    */
@@ -4543,6 +4920,7 @@ export interface GetPlaceRequest {
  */
 export interface PlaceGeometry {
   /**
+   * @public
    * <p>A single point geometry specifies a location for a Place using <a href="https://gisgeography.com/wgs84-world-geodetic-system/">WGS 84</a>
    *             coordinates:</p>
    *          <ul>
@@ -4566,6 +4944,7 @@ export interface PlaceGeometry {
  */
 export interface TimeZone {
   /**
+   * @public
    * <p>The name of the time zone, following the <a href="https://www.iana.org/time-zones">
    *                 IANA time zone standard</a>. For example,
    *             <code>America/Los_Angeles</code>.</p>
@@ -4573,6 +4952,7 @@ export interface TimeZone {
   Name: string | undefined;
 
   /**
+   * @public
    * <p>The time zone's offset, in seconds, from UTC.</p>
    */
   Offset?: number;
@@ -4587,63 +4967,74 @@ export interface TimeZone {
  */
 export interface Place {
   /**
+   * @public
    * <p>The full name and address of the point of interest such as a city, region, or country.
    *             For example, <code>123 Any Street, Any Town, USA</code>.</p>
    */
   Label?: string;
 
   /**
+   * @public
    * <p>Places uses a point geometry to specify a location or a Place.</p>
    */
   Geometry: PlaceGeometry | undefined;
 
   /**
+   * @public
    * <p>The numerical portion of an address, such as a building number. </p>
    */
   AddressNumber?: string;
 
   /**
+   * @public
    * <p>The name for a street or a road to identify a location. For example, <code>Main
    *                 Street</code>.</p>
    */
   Street?: string;
 
   /**
+   * @public
    * <p>The name of a community district. For example, <code>Downtown</code>.</p>
    */
   Neighborhood?: string;
 
   /**
+   * @public
    * <p>A name for a local area, such as a city or town name. For example,
    *                 <code>Toronto</code>.</p>
    */
   Municipality?: string;
 
   /**
+   * @public
    * <p>A county, or an area that's part of a larger region. For example, <code>Metro
    *                 Vancouver</code>.</p>
    */
   SubRegion?: string;
 
   /**
+   * @public
    * <p>A name for an area or geographical division, such as a province or state name. For
    *             example, <code>British Columbia</code>.</p>
    */
   Region?: string;
 
   /**
+   * @public
    * <p>A country/region specified using <a href="https://www.iso.org/iso-3166-country-codes.html">ISO 3166</a> 3-digit
    *             country/region code. For example, <code>CAN</code>.</p>
    */
   Country?: string;
 
   /**
+   * @public
    * <p>A group of numbers and letters in a country-specific format, which accompanies the
    *             address for the purpose of identifying a location. </p>
    */
   PostalCode?: string;
 
   /**
+   * @public
    * <p>
    *             <code>True</code> if the result is interpolated from other known places.</p>
    *          <p>
@@ -4657,12 +5048,14 @@ export interface Place {
   Interpolated?: boolean;
 
   /**
+   * @public
    * <p>The time zone in which the <code>Place</code> is located. Returned only when using
    *             HERE or Grab as the selected partner.</p>
    */
   TimeZone?: TimeZone;
 
   /**
+   * @public
    * <p>For addresses with a <code>UnitNumber</code>, the type of unit. For example,
    *                 <code>Apartment</code>.</p>
    *          <note>
@@ -4672,6 +5065,7 @@ export interface Place {
   UnitType?: string;
 
   /**
+   * @public
    * <p>For addresses with multiple units, the unit identifier. Can include numbers and
    *             letters, for example <code>3B</code> or <code>Unit 123</code>.</p>
    *          <note>
@@ -4682,6 +5076,7 @@ export interface Place {
   UnitNumber?: string;
 
   /**
+   * @public
    * <p>The Amazon Location categories that describe this Place.</p>
    *          <p>For more information about using categories, including a list of Amazon Location
    *             categories, see <a href="https://docs.aws.amazon.com/location/latest/developerguide/category-filtering.html">Categories and filtering</a>, in the <i>Amazon Location Service Developer
@@ -4690,6 +5085,7 @@ export interface Place {
   Categories?: string[];
 
   /**
+   * @public
    * <p>Categories from the data provider that describe the Place that are not mapped
    *             to any Amazon Location categories.</p>
    */
@@ -4701,6 +5097,7 @@ export interface Place {
  */
 export interface GetPlaceResponse {
   /**
+   * @public
    * <p>Details about the result, such as its address and position.</p>
    */
   Place: Place | undefined;
@@ -4711,11 +5108,13 @@ export interface GetPlaceResponse {
  */
 export interface ListDevicePositionsRequest {
   /**
+   * @public
    * <p>The tracker resource containing the requested devices.</p>
    */
   TrackerName: string | undefined;
 
   /**
+   * @public
    * <p>An optional limit for the number of entries returned in a single call.</p>
    *          <p>Default value: <code>100</code>
    *          </p>
@@ -4723,6 +5122,7 @@ export interface ListDevicePositionsRequest {
   MaxResults?: number;
 
   /**
+   * @public
    * <p>The pagination token specifying which page of results to return in the response. If no
    *             token is provided, the default page is the first page.</p>
    *          <p>Default value: <code>null</code>
@@ -4737,27 +5137,32 @@ export interface ListDevicePositionsRequest {
  */
 export interface ListDevicePositionsResponseEntry {
   /**
+   * @public
    * <p>The ID of the device for this position.</p>
    */
   DeviceId: string | undefined;
 
   /**
+   * @public
    * <p>The timestamp at which the device position was determined. Uses <a href="https://www.iso.org/iso-8601-date-and-time-format.html"> ISO 8601</a>
    *             format: <code>YYYY-MM-DDThh:mm:ss.sssZ</code>.</p>
    */
   SampleTime: Date | undefined;
 
   /**
+   * @public
    * <p>The last known device position. Empty if no positions currently stored.</p>
    */
   Position: number[] | undefined;
 
   /**
+   * @public
    * <p>The accuracy of the device position.</p>
    */
   Accuracy?: PositionalAccuracy;
 
   /**
+   * @public
    * <p>The properties associated with the position.</p>
    */
   PositionProperties?: Record<string, string>;
@@ -4768,12 +5173,14 @@ export interface ListDevicePositionsResponseEntry {
  */
 export interface ListDevicePositionsResponse {
   /**
+   * @public
    * <p>Contains details about each device's last known position. These details includes the device ID,
    *             the time when the position was sampled on the device, the time that the service received the update, and the most recent coordinates.</p>
    */
   Entries: ListDevicePositionsResponseEntry[] | undefined;
 
   /**
+   * @public
    * <p>A pagination token indicating there are additional pages available. You can use the
    *             token in a following request to fetch the next set of results.</p>
    */
@@ -4785,6 +5192,7 @@ export interface ListDevicePositionsResponse {
  */
 export interface ListMapsRequest {
   /**
+   * @public
    * <p>An optional limit for the number of resources returned in a single call. </p>
    *          <p>Default value: <code>100</code>
    *          </p>
@@ -4792,6 +5200,7 @@ export interface ListMapsRequest {
   MaxResults?: number;
 
   /**
+   * @public
    * <p>The pagination token specifying which page of results to return in the response. If no
    *             token is provided, the default page is the first page.</p>
    *          <p>Default value: <code>null</code>
@@ -4806,21 +5215,25 @@ export interface ListMapsRequest {
  */
 export interface ListMapsResponseEntry {
   /**
+   * @public
    * <p>The name of the associated map resource.</p>
    */
   MapName: string | undefined;
 
   /**
+   * @public
    * <p>The description for the map resource.</p>
    */
   Description: string | undefined;
 
   /**
+   * @public
    * <p>Specifies the data provider for the associated map tiles.</p>
    */
   DataSource: string | undefined;
 
   /**
+   * @public
    * @deprecated
    *
    * <p>No longer used. Always returns <code>RequestBasedUsage</code>.</p>
@@ -4828,12 +5241,14 @@ export interface ListMapsResponseEntry {
   PricingPlan?: PricingPlan | string;
 
   /**
+   * @public
    * <p>The timestamp for when the map resource was created in <a href="https://www.iso.org/iso-8601-date-and-time-format.html">ISO 8601</a>
    *             format: <code>YYYY-MM-DDThh:mm:ss.sssZ</code>.</p>
    */
   CreateTime: Date | undefined;
 
   /**
+   * @public
    * <p>The timestamp for when the map resource was last updated in <a href="https://www.iso.org/iso-8601-date-and-time-format.html">ISO 8601</a>
    *             format: <code>YYYY-MM-DDThh:mm:ss.sssZ</code>.</p>
    */
@@ -4845,11 +5260,13 @@ export interface ListMapsResponseEntry {
  */
 export interface ListMapsResponse {
   /**
+   * @public
    * <p>Contains a list of maps in your Amazon Web Services account</p>
    */
   Entries: ListMapsResponseEntry[] | undefined;
 
   /**
+   * @public
    * <p>A pagination token indicating there are additional pages available. You can use the token in a following request to fetch the next set of results. </p>
    */
   NextToken?: string;
@@ -4860,6 +5277,7 @@ export interface ListMapsResponse {
  */
 export interface ListPlaceIndexesRequest {
   /**
+   * @public
    * <p>An optional limit for the maximum number of results returned in a single call.</p>
    *          <p>Default value: <code>100</code>
    *          </p>
@@ -4867,6 +5285,7 @@ export interface ListPlaceIndexesRequest {
   MaxResults?: number;
 
   /**
+   * @public
    * <p>The pagination token specifying which page of results to return in the response. If no
    *             token is provided, the default page is the first page.</p>
    *          <p>Default value: <code>null</code>
@@ -4881,16 +5300,19 @@ export interface ListPlaceIndexesRequest {
  */
 export interface ListPlaceIndexesResponseEntry {
   /**
+   * @public
    * <p>The name of the place index resource.</p>
    */
   IndexName: string | undefined;
 
   /**
+   * @public
    * <p>The optional description for the place index resource.</p>
    */
   Description: string | undefined;
 
   /**
+   * @public
    * <p>The data provider of geospatial data. Values can be one of the following:</p>
    *          <ul>
    *             <li>
@@ -4914,6 +5336,7 @@ export interface ListPlaceIndexesResponseEntry {
   DataSource: string | undefined;
 
   /**
+   * @public
    * @deprecated
    *
    * <p>No longer used. Always returns <code>RequestBasedUsage</code>.</p>
@@ -4921,12 +5344,14 @@ export interface ListPlaceIndexesResponseEntry {
   PricingPlan?: PricingPlan | string;
 
   /**
+   * @public
    * <p>The timestamp for when the place index resource was created in <a href="https://www.iso.org/iso-8601-date-and-time-format.html">ISO 8601</a>
    *             format: <code>YYYY-MM-DDThh:mm:ss.sssZ</code>. </p>
    */
   CreateTime: Date | undefined;
 
   /**
+   * @public
    * <p>The timestamp for when the place index resource was last updated in <a href="https://www.iso.org/iso-8601-date-and-time-format.html">ISO 8601</a>
    *             format: <code>YYYY-MM-DDThh:mm:ss.sssZ</code>. </p>
    */
@@ -4938,11 +5363,13 @@ export interface ListPlaceIndexesResponseEntry {
  */
 export interface ListPlaceIndexesResponse {
   /**
+   * @public
    * <p>Lists the place index resources that exist in your Amazon Web Services account</p>
    */
   Entries: ListPlaceIndexesResponseEntry[] | undefined;
 
   /**
+   * @public
    * <p>A pagination token indicating that there are additional pages available. You can use
    *             the token in a new request to fetch the next page of results.</p>
    */
@@ -4954,6 +5381,7 @@ export interface ListPlaceIndexesResponse {
  */
 export interface ListRouteCalculatorsRequest {
   /**
+   * @public
    * <p>An optional maximum number of results returned in a single call.</p>
    *          <p>Default Value: <code>100</code>
    *          </p>
@@ -4961,6 +5389,7 @@ export interface ListRouteCalculatorsRequest {
   MaxResults?: number;
 
   /**
+   * @public
    * <p>The pagination token specifying which page of results to return in the response. If no
    *             token is provided, the default page is the first page.</p>
    *          <p>Default Value: <code>null</code>
@@ -4975,16 +5404,19 @@ export interface ListRouteCalculatorsRequest {
  */
 export interface ListRouteCalculatorsResponseEntry {
   /**
+   * @public
    * <p>The name of the route calculator resource.</p>
    */
   CalculatorName: string | undefined;
 
   /**
+   * @public
    * <p>The optional description of the route calculator resource.</p>
    */
   Description: string | undefined;
 
   /**
+   * @public
    * <p>The data provider of traffic and road network data. Indicates one of the available
    *             providers:</p>
    *          <ul>
@@ -5009,6 +5441,7 @@ export interface ListRouteCalculatorsResponseEntry {
   DataSource: string | undefined;
 
   /**
+   * @public
    * @deprecated
    *
    * <p>Always returns <code>RequestBasedUsage</code>.</p>
@@ -5016,6 +5449,7 @@ export interface ListRouteCalculatorsResponseEntry {
   PricingPlan?: PricingPlan | string;
 
   /**
+   * @public
    * <p>The timestamp when the route calculator resource was created in <a href="https://www.iso.org/iso-8601-date-and-time-format.html">ISO 8601</a>
    *             format: <code>YYYY-MM-DDThh:mm:ss.sssZ</code>. </p>
    *          <ul>
@@ -5028,6 +5462,7 @@ export interface ListRouteCalculatorsResponseEntry {
   CreateTime: Date | undefined;
 
   /**
+   * @public
    * <p>The timestamp when the route calculator resource was last updated in <a href="https://www.iso.org/iso-8601-date-and-time-format.html">ISO 8601</a>
    *             format: <code>YYYY-MM-DDThh:mm:ss.sssZ</code>. </p>
    *          <ul>
@@ -5045,11 +5480,13 @@ export interface ListRouteCalculatorsResponseEntry {
  */
 export interface ListRouteCalculatorsResponse {
   /**
+   * @public
    * <p>Lists the route calculator resources that exist in your Amazon Web Services account</p>
    */
   Entries: ListRouteCalculatorsResponseEntry[] | undefined;
 
   /**
+   * @public
    * <p>A pagination token indicating there are additional pages available. You can use the
    *             token in a subsequent request to fetch the next set of results.</p>
    */
@@ -5061,11 +5498,13 @@ export interface ListRouteCalculatorsResponse {
  */
 export interface ListTrackerConsumersRequest {
   /**
+   * @public
    * <p>The tracker resource whose associated geofence collections you want to list.</p>
    */
   TrackerName: string | undefined;
 
   /**
+   * @public
    * <p>An optional limit for the number of resources returned in a single call. </p>
    *          <p>Default value: <code>100</code>
    *          </p>
@@ -5073,6 +5512,7 @@ export interface ListTrackerConsumersRequest {
   MaxResults?: number;
 
   /**
+   * @public
    * <p>The pagination token specifying which page of results to return in the response. If no
    *             token is provided, the default page is the first page. </p>
    *          <p>Default value: <code>null</code>
@@ -5086,11 +5526,13 @@ export interface ListTrackerConsumersRequest {
  */
 export interface ListTrackerConsumersResponse {
   /**
+   * @public
    * <p>Contains the list of geofence collection ARNs associated to the tracker resource.</p>
    */
   ConsumerArns: string[] | undefined;
 
   /**
+   * @public
    * <p>A pagination token indicating there are additional pages available. You can use the
    *             token in a following request to fetch the next set of results. </p>
    */
@@ -5102,6 +5544,7 @@ export interface ListTrackerConsumersResponse {
  */
 export interface ListTrackersRequest {
   /**
+   * @public
    * <p>An optional limit for the number of resources returned in a single call. </p>
    *          <p>Default value: <code>100</code>
    *          </p>
@@ -5109,6 +5552,7 @@ export interface ListTrackersRequest {
   MaxResults?: number;
 
   /**
+   * @public
    * <p>The pagination token specifying which page of results to return in the response. If no
    *             token is provided, the default page is the first page. </p>
    *          <p>Default value: <code>null</code>
@@ -5123,16 +5567,19 @@ export interface ListTrackersRequest {
  */
 export interface ListTrackersResponseEntry {
   /**
+   * @public
    * <p>The name of the tracker resource.</p>
    */
   TrackerName: string | undefined;
 
   /**
+   * @public
    * <p>The description for the tracker resource.</p>
    */
   Description: string | undefined;
 
   /**
+   * @public
    * @deprecated
    *
    * <p>Always returns <code>RequestBasedUsage</code>.</p>
@@ -5140,6 +5587,7 @@ export interface ListTrackersResponseEntry {
   PricingPlan?: PricingPlan | string;
 
   /**
+   * @public
    * @deprecated
    *
    * <p>No longer used. Always returns an empty string.</p>
@@ -5147,12 +5595,14 @@ export interface ListTrackersResponseEntry {
   PricingPlanDataSource?: string;
 
   /**
+   * @public
    * <p>The timestamp for when the tracker resource was created in <a href="https://www.iso.org/iso-8601-date-and-time-format.html"> ISO 8601</a>
    *             format: <code>YYYY-MM-DDThh:mm:ss.sssZ</code>. </p>
    */
   CreateTime: Date | undefined;
 
   /**
+   * @public
    * <p>The timestamp at which the device's position was determined. Uses <a href="https://www.iso.org/iso-8601-date-and-time-format.html"> ISO 8601</a>
    *             format: <code>YYYY-MM-DDThh:mm:ss.sssZ</code>. </p>
    */
@@ -5164,12 +5614,14 @@ export interface ListTrackersResponseEntry {
  */
 export interface ListTrackersResponse {
   /**
+   * @public
    * <p>Contains tracker resources in your Amazon Web Services account. Details include tracker name,
    *             description and timestamps for when the tracker was created and last updated.</p>
    */
   Entries: ListTrackersResponseEntry[] | undefined;
 
   /**
+   * @public
    * <p>A pagination token indicating there are additional pages available. You can use the
    *             token in a following request to fetch the next set of results.  </p>
    */
@@ -5182,6 +5634,7 @@ export interface ListTrackersResponse {
  */
 export interface MapConfigurationUpdate {
   /**
+   * @public
    * <p>Specifies the political view for the style. Set to an empty string to not use a
    *             political view, or, for styles that support specific political views, you can choose a
    *             view, such as <code>IND</code> for the Indian view.</p>
@@ -5200,11 +5653,13 @@ export interface MapConfigurationUpdate {
  */
 export interface UpdateMapRequest {
   /**
+   * @public
    * <p>The name of the map resource to update.</p>
    */
   MapName: string | undefined;
 
   /**
+   * @public
    * @deprecated
    *
    * <p>No longer used. If included, the only allowed value is
@@ -5213,11 +5668,13 @@ export interface UpdateMapRequest {
   PricingPlan?: PricingPlan | string;
 
   /**
+   * @public
    * <p>Updates the description for the map resource.</p>
    */
   Description?: string;
 
   /**
+   * @public
    * <p>Updates the parts of the map configuration that can be updated, including the
    *             political view.</p>
    */
@@ -5229,11 +5686,13 @@ export interface UpdateMapRequest {
  */
 export interface UpdateMapResponse {
   /**
+   * @public
    * <p>The name of the updated map resource.</p>
    */
   MapName: string | undefined;
 
   /**
+   * @public
    * <p>The Amazon Resource Name (ARN) of the updated map resource. Used to specify a resource
    *             across AWS.</p>
    *          <ul>
@@ -5246,6 +5705,7 @@ export interface UpdateMapResponse {
   MapArn: string | undefined;
 
   /**
+   * @public
    * <p>The timestamp for when the map resource was last updated in <a href="https://www.iso.org/iso-8601-date-and-time-format.html"> ISO 8601</a>
    *             format: <code>YYYY-MM-DDThh:mm:ss.sssZ</code>. </p>
    */
@@ -5257,11 +5717,13 @@ export interface UpdateMapResponse {
  */
 export interface SearchPlaceIndexForPositionRequest {
   /**
+   * @public
    * <p>The name of the place index resource you want to use for the search.</p>
    */
   IndexName: string | undefined;
 
   /**
+   * @public
    * <p>Specifies the longitude and latitude of the position to query.</p>
    *          <p> This parameter must contain a pair of numbers. The first number represents the X
    *             coordinate, or longitude; the second number represents the Y coordinate, or
@@ -5272,6 +5734,7 @@ export interface SearchPlaceIndexForPositionRequest {
   Position: number[] | undefined;
 
   /**
+   * @public
    * <p>An optional parameter. The maximum number of results returned per request.</p>
    *          <p>Default value: <code>50</code>
    *          </p>
@@ -5279,6 +5742,7 @@ export interface SearchPlaceIndexForPositionRequest {
   MaxResults?: number;
 
   /**
+   * @public
    * <p>The preferred language used to return results. The value must be a valid <a href="https://tools.ietf.org/search/bcp47">BCP 47</a> language tag, for example,
    *                 <code>en</code> for English.</p>
    *          <p>This setting affects the languages used in the results, but not the results
@@ -5297,6 +5761,7 @@ export interface SearchPlaceIndexForPositionRequest {
   Language?: string;
 
   /**
+   * @public
    * <p>The optional <a href="https://docs.aws.amazon.com/location/latest/developerguide/using-apikeys.html">API key</a> to authorize
    *             the request.</p>
    */
@@ -5310,11 +5775,13 @@ export interface SearchPlaceIndexForPositionRequest {
  */
 export interface SearchForPositionResult {
   /**
+   * @public
    * <p>Details about the search result, such as its address and position.</p>
    */
   Place: Place | undefined;
 
   /**
+   * @public
    * <p>The distance in meters of a great-circle arc between the query position and the
    *             result.</p>
    *          <note>
@@ -5325,6 +5792,7 @@ export interface SearchForPositionResult {
   Distance: number | undefined;
 
   /**
+   * @public
    * <p>The unique identifier of the place. You can use this with the <code>GetPlace</code>
    *             operation to find the place again later.</p>
    *          <note>
@@ -5342,11 +5810,13 @@ export interface SearchForPositionResult {
  */
 export interface SearchPlaceIndexForPositionSummary {
   /**
+   * @public
    * <p>The position specified in the request.</p>
    */
   Position: number[] | undefined;
 
   /**
+   * @public
    * <p>Contains the optional result count limit that is specified in the request.</p>
    *          <p>Default value: <code>50</code>
    *          </p>
@@ -5354,6 +5824,7 @@ export interface SearchPlaceIndexForPositionSummary {
   MaxResults?: number;
 
   /**
+   * @public
    * <p>The geospatial data provider attached to the place index resource specified in the
    *             request. Values can be one of the following:</p>
    *          <ul>
@@ -5372,6 +5843,7 @@ export interface SearchPlaceIndexForPositionSummary {
   DataSource: string | undefined;
 
   /**
+   * @public
    * <p>The preferred language used to return results. Matches the language in the request.
    *             The value is a valid <a href="https://tools.ietf.org/search/bcp47">BCP 47</a>
    *             language tag, for example, <code>en</code> for English.</p>
@@ -5384,6 +5856,7 @@ export interface SearchPlaceIndexForPositionSummary {
  */
 export interface SearchPlaceIndexForPositionResponse {
   /**
+   * @public
    * <p>Contains a summary of the request. Echoes the input values for <code>Position</code>,
    *                 <code>Language</code>, <code>MaxResults</code>, and the <code>DataSource</code> of
    *             the place index. </p>
@@ -5391,6 +5864,7 @@ export interface SearchPlaceIndexForPositionResponse {
   Summary: SearchPlaceIndexForPositionSummary | undefined;
 
   /**
+   * @public
    * <p>Returns a list of Places closest to the specified position. Each result contains
    *             additional information about the Places returned.</p>
    */
@@ -5402,17 +5876,20 @@ export interface SearchPlaceIndexForPositionResponse {
  */
 export interface SearchPlaceIndexForSuggestionsRequest {
   /**
+   * @public
    * <p>The name of the place index resource you want to use for the search.</p>
    */
   IndexName: string | undefined;
 
   /**
+   * @public
    * <p>The free-form partial text to use to generate place suggestions. For example,
    *                 <code>eiffel tow</code>.</p>
    */
   Text: string | undefined;
 
   /**
+   * @public
    * <p>An optional parameter that indicates a preference for place suggestions that are
    *             closer to a specified position.</p>
    *          <p> If provided, this parameter must contain a pair of numbers. The first number
@@ -5429,6 +5906,7 @@ export interface SearchPlaceIndexForSuggestionsRequest {
   BiasPosition?: number[];
 
   /**
+   * @public
    * <p>An optional parameter that limits the search results by returning only suggestions
    *             within a specified bounding box.</p>
    *          <p> If provided, this parameter must contain a total of four consecutive numbers in two
@@ -5449,6 +5927,7 @@ export interface SearchPlaceIndexForSuggestionsRequest {
   FilterBBox?: number[];
 
   /**
+   * @public
    * <p>An optional parameter that limits the search results by returning only suggestions
    *             within the provided list of countries.</p>
    *          <ul>
@@ -5462,6 +5941,7 @@ export interface SearchPlaceIndexForSuggestionsRequest {
   FilterCountries?: string[];
 
   /**
+   * @public
    * <p>An optional parameter. The maximum number of results returned per request. </p>
    *          <p>The default: <code>5</code>
    *          </p>
@@ -5469,6 +5949,7 @@ export interface SearchPlaceIndexForSuggestionsRequest {
   MaxResults?: number;
 
   /**
+   * @public
    * <p>The preferred language used to return results. The value must be a valid <a href="https://tools.ietf.org/search/bcp47">BCP 47</a> language tag, for example,
    *                 <code>en</code> for English.</p>
    *          <p>This setting affects the languages used in the results. If no language is specified,
@@ -5485,6 +5966,7 @@ export interface SearchPlaceIndexForSuggestionsRequest {
   Language?: string;
 
   /**
+   * @public
    * <p>A list of one or more Amazon Location categories to filter the returned places. If you
    *             include more than one category, the results will include results that match
    *             <i>any</i> of the categories listed.</p>
@@ -5495,6 +5977,7 @@ export interface SearchPlaceIndexForSuggestionsRequest {
   FilterCategories?: string[];
 
   /**
+   * @public
    * <p>The optional <a href="https://docs.aws.amazon.com/location/latest/developerguide/using-apikeys.html">API key</a> to authorize
    *             the request.</p>
    */
@@ -5508,11 +5991,13 @@ export interface SearchPlaceIndexForSuggestionsRequest {
  */
 export interface SearchForSuggestionsResult {
   /**
+   * @public
    * <p>The text of the place suggestion, typically formatted as an address string.</p>
    */
   Text: string | undefined;
 
   /**
+   * @public
    * <p>The unique identifier of the Place. You can use this with the <code>GetPlace</code>
    *             operation to find the place again later, or to get full information for the Place.</p>
    *          <p>The <code>GetPlace</code> request must use the same <code>PlaceIndex</code>
@@ -5527,6 +6012,7 @@ export interface SearchForSuggestionsResult {
   PlaceId?: string;
 
   /**
+   * @public
    * <p>The Amazon Location categories that describe the Place.</p>
    *          <p>For more information about using categories, including a list of Amazon Location
    *             categories, see <a href="https://docs.aws.amazon.com/location/latest/developerguide/category-filtering.html">Categories and filtering</a>, in the <i>Amazon Location Service Developer
@@ -5535,6 +6021,7 @@ export interface SearchForSuggestionsResult {
   Categories?: string[];
 
   /**
+   * @public
    * <p>Categories from the data provider that describe the Place that are not mapped
    *             to any Amazon Location categories.</p>
    */
@@ -5548,11 +6035,13 @@ export interface SearchForSuggestionsResult {
  */
 export interface SearchPlaceIndexForSuggestionsSummary {
   /**
+   * @public
    * <p>The free-form partial text input specified in the request.</p>
    */
   Text: string | undefined;
 
   /**
+   * @public
    * <p>Contains the coordinates for the optional bias position specified in the
    *             request.</p>
    *          <p>This parameter contains a pair of numbers. The first number represents the X
@@ -5564,22 +6053,26 @@ export interface SearchPlaceIndexForSuggestionsSummary {
   BiasPosition?: number[];
 
   /**
+   * @public
    * <p>Contains the coordinates for the optional bounding box specified in the
    *             request.</p>
    */
   FilterBBox?: number[];
 
   /**
+   * @public
    * <p>Contains the optional country filter specified in the request.</p>
    */
   FilterCountries?: string[];
 
   /**
+   * @public
    * <p>Contains the optional result count limit specified in the request.</p>
    */
   MaxResults?: number;
 
   /**
+   * @public
    * <p>The geospatial data provider attached to the place index resource specified in the
    *             request. Values can be one of the following:</p>
    *          <ul>
@@ -5598,6 +6091,7 @@ export interface SearchPlaceIndexForSuggestionsSummary {
   DataSource: string | undefined;
 
   /**
+   * @public
    * <p>The preferred language used to return results. Matches the language in the request.
    *             The value is a valid <a href="https://tools.ietf.org/search/bcp47">BCP 47</a>
    *             language tag, for example, <code>en</code> for English.</p>
@@ -5605,6 +6099,7 @@ export interface SearchPlaceIndexForSuggestionsSummary {
   Language?: string;
 
   /**
+   * @public
    * <p>The optional category filter specified in the request.</p>
    */
   FilterCategories?: string[];
@@ -5615,6 +6110,7 @@ export interface SearchPlaceIndexForSuggestionsSummary {
  */
 export interface SearchPlaceIndexForSuggestionsResponse {
   /**
+   * @public
    * <p>Contains a summary of the request. Echoes the input values for
    *                 <code>BiasPosition</code>, <code>FilterBBox</code>, <code>FilterCountries</code>,
    *                 <code>Language</code>, <code>MaxResults</code>, and <code>Text</code>. Also includes
@@ -5623,6 +6119,7 @@ export interface SearchPlaceIndexForSuggestionsResponse {
   Summary: SearchPlaceIndexForSuggestionsSummary | undefined;
 
   /**
+   * @public
    * <p>A list of place suggestions that best match the search text.</p>
    */
   Results: SearchForSuggestionsResult[] | undefined;
@@ -5633,17 +6130,20 @@ export interface SearchPlaceIndexForSuggestionsResponse {
  */
 export interface SearchPlaceIndexForTextRequest {
   /**
+   * @public
    * <p>The name of the place index resource you want to use for the search.</p>
    */
   IndexName: string | undefined;
 
   /**
+   * @public
    * <p>The address, name, city, or region to be used in the search in free-form text format.
    *             For example, <code>123 Any Street</code>.</p>
    */
   Text: string | undefined;
 
   /**
+   * @public
    * <p>An optional parameter that indicates a preference for places that are closer to a
    *             specified position.</p>
    *          <p> If provided, this parameter must contain a pair of numbers. The first number
@@ -5660,6 +6160,7 @@ export interface SearchPlaceIndexForTextRequest {
   BiasPosition?: number[];
 
   /**
+   * @public
    * <p>An optional parameter that limits the search results by returning only places that are
    *             within the provided bounding box.</p>
    *          <p> If provided, this parameter must contain a total of four consecutive numbers in two
@@ -5680,6 +6181,7 @@ export interface SearchPlaceIndexForTextRequest {
   FilterBBox?: number[];
 
   /**
+   * @public
    * <p>An optional parameter that limits the search results by returning only places that are
    *             in a specified list of countries.</p>
    *          <ul>
@@ -5693,6 +6195,7 @@ export interface SearchPlaceIndexForTextRequest {
   FilterCountries?: string[];
 
   /**
+   * @public
    * <p>An optional parameter. The maximum number of results returned per request. </p>
    *          <p>The default: <code>50</code>
    *          </p>
@@ -5700,6 +6203,7 @@ export interface SearchPlaceIndexForTextRequest {
   MaxResults?: number;
 
   /**
+   * @public
    * <p>The preferred language used to return results. The value must be a valid <a href="https://tools.ietf.org/search/bcp47">BCP 47</a> language tag, for example,
    *                 <code>en</code> for English.</p>
    *          <p>This setting affects the languages used in the results, but not the results
@@ -5716,6 +6220,7 @@ export interface SearchPlaceIndexForTextRequest {
   Language?: string;
 
   /**
+   * @public
    * <p>A list of one or more Amazon Location categories to filter the returned places. If you
    *             include more than one category, the results will include results that match
    *             <i>any</i> of the categories listed.</p>
@@ -5726,6 +6231,7 @@ export interface SearchPlaceIndexForTextRequest {
   FilterCategories?: string[];
 
   /**
+   * @public
    * <p>The optional <a href="https://docs.aws.amazon.com/location/latest/developerguide/using-apikeys.html">API key</a> to authorize
    *             the request.</p>
    */
@@ -5739,11 +6245,13 @@ export interface SearchPlaceIndexForTextRequest {
  */
 export interface SearchForTextResult {
   /**
+   * @public
    * <p>Details about the search result, such as its address and position.</p>
    */
   Place: Place | undefined;
 
   /**
+   * @public
    * <p>The distance in meters of a great-circle arc between the bias position specified and
    *             the result. <code>Distance</code> will be returned only if a bias position was specified
    *             in the query.</p>
@@ -5755,6 +6263,7 @@ export interface SearchForTextResult {
   Distance?: number;
 
   /**
+   * @public
    * <p>The relative confidence in the match for a result among the results returned. For
    *             example, if more fields for an address match (including house number, street, city,
    *             country/region, and postal code), the relevance score is closer to 1.</p>
@@ -5763,6 +6272,7 @@ export interface SearchForTextResult {
   Relevance?: number;
 
   /**
+   * @public
    * <p>The unique identifier of the place. You can use this with the <code>GetPlace</code>
    *             operation to find the place again later.</p>
    *          <note>
@@ -5779,11 +6289,13 @@ export interface SearchForTextResult {
  */
 export interface SearchPlaceIndexForTextSummary {
   /**
+   * @public
    * <p>The search text specified in the request.</p>
    */
   Text: string | undefined;
 
   /**
+   * @public
    * <p>Contains the coordinates for the optional bias position specified in the
    *             request.</p>
    *          <p>This parameter contains a pair of numbers. The first number represents the X
@@ -5795,22 +6307,26 @@ export interface SearchPlaceIndexForTextSummary {
   BiasPosition?: number[];
 
   /**
+   * @public
    * <p>Contains the coordinates for the optional bounding box specified in the
    *             request.</p>
    */
   FilterBBox?: number[];
 
   /**
+   * @public
    * <p>Contains the optional country filter specified in the request.</p>
    */
   FilterCountries?: string[];
 
   /**
+   * @public
    * <p>Contains the optional result count limit specified in the request.</p>
    */
   MaxResults?: number;
 
   /**
+   * @public
    * <p>The bounding box that fully contains all search results.</p>
    *          <note>
    *             <p>If you specified the optional <code>FilterBBox</code> parameter in the request,
@@ -5820,6 +6336,7 @@ export interface SearchPlaceIndexForTextSummary {
   ResultBBox?: number[];
 
   /**
+   * @public
    * <p>The geospatial data provider attached to the place index resource specified in the
    *             request. Values can be one of the following:</p>
    *          <ul>
@@ -5838,6 +6355,7 @@ export interface SearchPlaceIndexForTextSummary {
   DataSource: string | undefined;
 
   /**
+   * @public
    * <p>The preferred language used to return results. Matches the language in the request.
    *             The value is a valid <a href="https://tools.ietf.org/search/bcp47">BCP 47</a>
    *             language tag, for example, <code>en</code> for English.</p>
@@ -5845,6 +6363,7 @@ export interface SearchPlaceIndexForTextSummary {
   Language?: string;
 
   /**
+   * @public
    * <p>The optional category filter specified in the request.</p>
    */
   FilterCategories?: string[];
@@ -5855,6 +6374,7 @@ export interface SearchPlaceIndexForTextSummary {
  */
 export interface SearchPlaceIndexForTextResponse {
   /**
+   * @public
    * <p>Contains a summary of the request. Echoes the input values for
    *                 <code>BiasPosition</code>, <code>FilterBBox</code>, <code>FilterCountries</code>,
    *                 <code>Language</code>, <code>MaxResults</code>, and <code>Text</code>. Also includes
@@ -5864,6 +6384,7 @@ export interface SearchPlaceIndexForTextResponse {
   Summary: SearchPlaceIndexForTextSummary | undefined;
 
   /**
+   * @public
    * <p>A list of Places matching the input text. Each result contains additional information
    *             about the specific point of interest. </p>
    *          <p>Not all response properties are included with all responses. Some properties may only
@@ -5877,11 +6398,13 @@ export interface SearchPlaceIndexForTextResponse {
  */
 export interface UpdatePlaceIndexRequest {
   /**
+   * @public
    * <p>The name of the place index resource to update.</p>
    */
   IndexName: string | undefined;
 
   /**
+   * @public
    * @deprecated
    *
    * <p>No longer used. If included, the only allowed value is
@@ -5890,11 +6413,13 @@ export interface UpdatePlaceIndexRequest {
   PricingPlan?: PricingPlan | string;
 
   /**
+   * @public
    * <p>Updates the description for the place index resource.</p>
    */
   Description?: string;
 
   /**
+   * @public
    * <p>Updates the data storage option for the place index resource.</p>
    */
   DataSourceConfiguration?: DataSourceConfiguration;
@@ -5905,11 +6430,13 @@ export interface UpdatePlaceIndexRequest {
  */
 export interface UpdatePlaceIndexResponse {
   /**
+   * @public
    * <p>The name of the updated place index resource.</p>
    */
   IndexName: string | undefined;
 
   /**
+   * @public
    * <p>The Amazon Resource Name (ARN) of the upated place index resource. Used to specify a
    *             resource across Amazon Web Services.</p>
    *          <ul>
@@ -5923,6 +6450,7 @@ export interface UpdatePlaceIndexResponse {
   IndexArn: string | undefined;
 
   /**
+   * @public
    * <p>The timestamp for when the place index resource was last updated in <a href="https://www.iso.org/iso-8601-date-and-time-format.html"> ISO 8601</a>
    *             format: <code>YYYY-MM-DDThh:mm:ss.sssZ</code>. </p>
    */
@@ -5934,11 +6462,13 @@ export interface UpdatePlaceIndexResponse {
  */
 export interface UpdateRouteCalculatorRequest {
   /**
+   * @public
    * <p>The name of the route calculator resource to update.</p>
    */
   CalculatorName: string | undefined;
 
   /**
+   * @public
    * @deprecated
    *
    * <p>No longer used. If included, the only allowed value is
@@ -5947,6 +6477,7 @@ export interface UpdateRouteCalculatorRequest {
   PricingPlan?: PricingPlan | string;
 
   /**
+   * @public
    * <p>Updates the description for the route calculator resource.</p>
    */
   Description?: string;
@@ -5957,11 +6488,13 @@ export interface UpdateRouteCalculatorRequest {
  */
 export interface UpdateRouteCalculatorResponse {
   /**
+   * @public
    * <p>The name of the updated route calculator resource.</p>
    */
   CalculatorName: string | undefined;
 
   /**
+   * @public
    * <p>The Amazon Resource Name (ARN) of the updated route calculator resource. Used to
    *             specify a resource across AWS.</p>
    *          <ul>
@@ -5975,6 +6508,7 @@ export interface UpdateRouteCalculatorResponse {
   CalculatorArn: string | undefined;
 
   /**
+   * @public
    * <p>The timestamp for when the route calculator was last updated in <a href="https://www.iso.org/iso-8601-date-and-time-format.html"> ISO 8601</a>
    *             format: <code>YYYY-MM-DDThh:mm:ss.sssZ</code>. </p>
    */
@@ -5986,11 +6520,13 @@ export interface UpdateRouteCalculatorResponse {
  */
 export interface UpdateTrackerRequest {
   /**
+   * @public
    * <p>The name of the tracker resource to update.</p>
    */
   TrackerName: string | undefined;
 
   /**
+   * @public
    * @deprecated
    *
    * <p>No longer used. If included, the only allowed value is
@@ -5999,6 +6535,7 @@ export interface UpdateTrackerRequest {
   PricingPlan?: PricingPlan | string;
 
   /**
+   * @public
    * @deprecated
    *
    * <p>This parameter is no longer used.</p>
@@ -6006,11 +6543,13 @@ export interface UpdateTrackerRequest {
   PricingPlanDataSource?: string;
 
   /**
+   * @public
    * <p>Updates the description for the tracker resource.</p>
    */
   Description?: string;
 
   /**
+   * @public
    * <p>Updates the position filtering for the tracker resource.</p>
    *          <p>Valid values:</p>
    *          <ul>
@@ -6045,6 +6584,7 @@ export interface UpdateTrackerRequest {
   PositionFiltering?: PositionFiltering | string;
 
   /**
+   * @public
    * <p>Whether to enable position <code>UPDATE</code> events from this tracker to be sent to
    *             EventBridge.</p>
    *          <note>
@@ -6061,11 +6601,13 @@ export interface UpdateTrackerRequest {
  */
 export interface UpdateTrackerResponse {
   /**
+   * @public
    * <p>The name of the updated tracker resource.</p>
    */
   TrackerName: string | undefined;
 
   /**
+   * @public
    * <p>The Amazon Resource Name (ARN) of the updated tracker resource. Used to specify a resource across
    *             AWS.</p>
    *          <ul>
@@ -6078,6 +6620,7 @@ export interface UpdateTrackerResponse {
   TrackerArn: string | undefined;
 
   /**
+   * @public
    * <p>The timestamp for when the tracker resource was last updated in <a href="https://www.iso.org/iso-8601-date-and-time-format.html"> ISO 8601</a>
    *             format: <code>YYYY-MM-DDThh:mm:ss.sssZ</code>. </p>
    */

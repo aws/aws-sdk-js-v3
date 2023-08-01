@@ -24,6 +24,7 @@ export type AdditionalArtifact = (typeof AdditionalArtifact)[keyof typeof Additi
  */
 export interface DeleteReportDefinitionRequest {
   /**
+   * @public
    * <p>The name of the report that you want to delete. The name must be unique, is case sensitive, and can't include spaces.</p>
    */
   ReportName?: string;
@@ -35,6 +36,7 @@ export interface DeleteReportDefinitionRequest {
  */
 export interface DeleteReportDefinitionResponse {
   /**
+   * @public
    * <p>Whether the deletion was successful or not.</p>
    */
   ResponseMessage?: string;
@@ -48,6 +50,7 @@ export class InternalErrorException extends __BaseException {
   readonly name: "InternalErrorException" = "InternalErrorException";
   readonly $fault: "server" = "server";
   /**
+   * @public
    * <p>A message to show the detail of the exception.</p>
    */
   Message?: string;
@@ -73,6 +76,7 @@ export class ValidationException extends __BaseException {
   readonly name: "ValidationException" = "ValidationException";
   readonly $fault: "client" = "client";
   /**
+   * @public
    * <p>A message to show the detail of the exception.</p>
    */
   Message?: string;
@@ -96,11 +100,13 @@ export class ValidationException extends __BaseException {
  */
 export interface DescribeReportDefinitionsRequest {
   /**
+   * @public
    * <p>The maximum number of results that AWS returns for the operation.</p>
    */
   MaxResults?: number;
 
   /**
+   * @public
    * <p>A generic string.</p>
    */
   NextToken?: string;
@@ -227,65 +233,77 @@ export type TimeUnit = (typeof TimeUnit)[keyof typeof TimeUnit];
  */
 export interface ReportDefinition {
   /**
+   * @public
    * <p>The name of the report that you want to create. The name must be unique,
    *         is case sensitive, and can't include spaces. </p>
    */
   ReportName: string | undefined;
 
   /**
+   * @public
    * <p>The length of time covered by the report. </p>
    */
   TimeUnit: TimeUnit | string | undefined;
 
   /**
+   * @public
    * <p>The format that AWS saves the report in.</p>
    */
   Format: ReportFormat | string | undefined;
 
   /**
+   * @public
    * <p>The compression format that AWS uses for the report.</p>
    */
   Compression: CompressionFormat | string | undefined;
 
   /**
+   * @public
    * <p>A list of strings that indicate additional content that Amazon Web Services includes in the report, such as individual resource IDs. </p>
    */
   AdditionalSchemaElements: (SchemaElement | string)[] | undefined;
 
   /**
+   * @public
    * <p>The S3 bucket where AWS delivers the report.</p>
    */
   S3Bucket: string | undefined;
 
   /**
+   * @public
    * <p>The prefix that AWS adds to the report name when AWS delivers the report. Your prefix
    *         can't include spaces.</p>
    */
   S3Prefix: string | undefined;
 
   /**
+   * @public
    * <p>The region of the S3 bucket that AWS delivers the report into.</p>
    */
   S3Region: AWSRegion | string | undefined;
 
   /**
+   * @public
    * <p>A list of manifests that you want Amazon Web Services to create for this report.</p>
    */
   AdditionalArtifacts?: (AdditionalArtifact | string)[];
 
   /**
+   * @public
    * <p>Whether you want Amazon Web Services to update your reports after they have been finalized if Amazon Web Services detects charges related to
    *       previous months. These charges can include refunds, credits, or support fees.</p>
    */
   RefreshClosedReports?: boolean;
 
   /**
+   * @public
    * <p>Whether you want Amazon Web Services to overwrite the previous version of each report or
    *          to deliver the report in addition to the previous versions.</p>
    */
   ReportVersioning?: ReportVersioning | string;
 
   /**
+   * @public
    * <p>
    *       The Amazon resource name of the billing view. You can get this value by using the billing view service public APIs.
    *     </p>
@@ -299,11 +317,13 @@ export interface ReportDefinition {
  */
 export interface DescribeReportDefinitionsResponse {
   /**
+   * @public
    * <p>A list of AWS Cost and Usage reports owned by the account.</p>
    */
   ReportDefinitions?: ReportDefinition[];
 
   /**
+   * @public
    * <p>A generic string.</p>
    */
   NextToken?: string;
@@ -314,12 +334,14 @@ export interface DescribeReportDefinitionsResponse {
  */
 export interface ModifyReportDefinitionRequest {
   /**
+   * @public
    * <p>The name of the report that you want to create. The name must be unique,
    *         is case sensitive, and can't include spaces. </p>
    */
   ReportName: string | undefined;
 
   /**
+   * @public
    * <p>The definition of AWS Cost and Usage Report. You can specify the report name,
    *          time unit, report format, compression format, S3 bucket, additional artifacts, and schema
    *          elements in the definition.
@@ -341,6 +363,7 @@ export class DuplicateReportNameException extends __BaseException {
   readonly name: "DuplicateReportNameException" = "DuplicateReportNameException";
   readonly $fault: "client" = "client";
   /**
+   * @public
    * <p>A message to show the detail of the exception.</p>
    */
   Message?: string;
@@ -364,6 +387,7 @@ export class DuplicateReportNameException extends __BaseException {
  */
 export interface PutReportDefinitionRequest {
   /**
+   * @public
    * <p>Represents the output of the PutReportDefinition operation. The content consists of the detailed
    *       metadata and data file information. </p>
    */
@@ -384,6 +408,7 @@ export class ReportLimitReachedException extends __BaseException {
   readonly name: "ReportLimitReachedException" = "ReportLimitReachedException";
   readonly $fault: "client" = "client";
   /**
+   * @public
    * <p>A message to show the detail of the exception.</p>
    */
   Message?: string;

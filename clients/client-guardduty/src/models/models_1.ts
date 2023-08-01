@@ -22,6 +22,7 @@ import {
  */
 export interface StartMonitoringMembersResponse {
   /**
+   * @public
    * <p>A list of objects that contain the unprocessed account and a result string that explains
    *       why it was unprocessed.</p>
    */
@@ -33,12 +34,14 @@ export interface StartMonitoringMembersResponse {
  */
 export interface StopMonitoringMembersRequest {
   /**
+   * @public
    * <p>The unique ID of the detector associated with the GuardDuty administrator account that is
    *       monitoring member accounts.</p>
    */
   DetectorId: string | undefined;
 
   /**
+   * @public
    * <p>A list of account IDs for the member accounts to stop monitoring.</p>
    */
   AccountIds: string[] | undefined;
@@ -49,6 +52,7 @@ export interface StopMonitoringMembersRequest {
  */
 export interface StopMonitoringMembersResponse {
   /**
+   * @public
    * <p>A list of objects that contain an accountId for each account that could not be processed,
    *       and a result string that indicates why the account was not processed. </p>
    */
@@ -60,11 +64,13 @@ export interface StopMonitoringMembersResponse {
  */
 export interface TagResourceRequest {
   /**
+   * @public
    * <p>The Amazon Resource Name (ARN) for the GuardDuty resource to apply a tag to.</p>
    */
   ResourceArn: string | undefined;
 
   /**
+   * @public
    * <p>The tags to be added to a resource.</p>
    */
   Tags: Record<string, string> | undefined;
@@ -80,11 +86,13 @@ export interface TagResourceResponse {}
  */
 export interface UnarchiveFindingsRequest {
   /**
+   * @public
    * <p>The ID of the detector associated with the findings to unarchive.</p>
    */
   DetectorId: string | undefined;
 
   /**
+   * @public
    * <p>The IDs of the findings to unarchive.</p>
    */
   FindingIds: string[] | undefined;
@@ -100,11 +108,13 @@ export interface UnarchiveFindingsResponse {}
  */
 export interface UntagResourceRequest {
   /**
+   * @public
    * <p>The Amazon Resource Name (ARN) for the resource to remove tags from.</p>
    */
   ResourceArn: string | undefined;
 
   /**
+   * @public
    * <p>The tag keys to remove from the resource.</p>
    */
   TagKeys: string[] | undefined;
@@ -120,22 +130,26 @@ export interface UntagResourceResponse {}
  */
 export interface UpdateDetectorRequest {
   /**
+   * @public
    * <p>The unique ID of the detector to update.</p>
    */
   DetectorId: string | undefined;
 
   /**
+   * @public
    * <p>Specifies whether the detector is enabled or not enabled.</p>
    */
   Enable?: boolean;
 
   /**
+   * @public
    * <p>An enum value that specifies how frequently findings are exported, such as to CloudWatch
    *       Events.</p>
    */
   FindingPublishingFrequency?: FindingPublishingFrequency | string;
 
   /**
+   * @public
    * @deprecated
    *
    * <p>Describes which data sources will be updated.</p>
@@ -146,6 +160,7 @@ export interface UpdateDetectorRequest {
   DataSources?: DataSourceConfigurations;
 
   /**
+   * @public
    * <p>Provides the features that will be updated for the detector.</p>
    */
   Features?: DetectorFeatureConfiguration[];
@@ -161,17 +176,20 @@ export interface UpdateDetectorResponse {}
  */
 export interface UpdateFilterRequest {
   /**
+   * @public
    * <p>The unique ID of the detector that specifies the GuardDuty service where you want to
    *       update a filter.</p>
    */
   DetectorId: string | undefined;
 
   /**
+   * @public
    * <p>The name of the filter.</p>
    */
   FilterName: string | undefined;
 
   /**
+   * @public
    * <p>The description of the filter. Valid characters include alphanumeric characters, and
    *       special characters such as hyphen, period, colon, underscore, parentheses (<code>\{ \}</code>,
    *         <code>[ ]</code>, and <code>( )</code>), forward slash, horizontal tab, vertical tab,
@@ -180,17 +198,20 @@ export interface UpdateFilterRequest {
   Description?: string;
 
   /**
+   * @public
    * <p>Specifies the action that is to be applied to the findings that match the filter.</p>
    */
   Action?: FilterAction | string;
 
   /**
+   * @public
    * <p>Specifies the position of the filter in the list of current filters. Also specifies the
    *       order in which this filter is applied to the findings.</p>
    */
   Rank?: number;
 
   /**
+   * @public
    * <p>Represents the criteria to be used in the filter for querying findings.</p>
    */
   FindingCriteria?: FindingCriteria;
@@ -201,6 +222,7 @@ export interface UpdateFilterRequest {
  */
 export interface UpdateFilterResponse {
   /**
+   * @public
    * <p>The name of the filter.</p>
    */
   Name: string | undefined;
@@ -211,21 +233,25 @@ export interface UpdateFilterResponse {
  */
 export interface UpdateFindingsFeedbackRequest {
   /**
+   * @public
    * <p>The ID of the detector associated with the findings to update feedback for.</p>
    */
   DetectorId: string | undefined;
 
   /**
+   * @public
    * <p>The IDs of the findings that you want to mark as useful or not useful.</p>
    */
   FindingIds: string[] | undefined;
 
   /**
+   * @public
    * <p>The feedback for the finding.</p>
    */
   Feedback: Feedback | string | undefined;
 
   /**
+   * @public
    * <p>Additional feedback about the GuardDuty findings.</p>
    */
   Comments?: string;
@@ -241,26 +267,31 @@ export interface UpdateFindingsFeedbackResponse {}
  */
 export interface UpdateIPSetRequest {
   /**
+   * @public
    * <p>The detectorID that specifies the GuardDuty service whose IPSet you want to update.</p>
    */
   DetectorId: string | undefined;
 
   /**
+   * @public
    * <p>The unique ID that specifies the IPSet that you want to update.</p>
    */
   IpSetId: string | undefined;
 
   /**
+   * @public
    * <p>The unique ID that specifies the IPSet that you want to update.</p>
    */
   Name?: string;
 
   /**
+   * @public
    * <p>The updated URI of the file that contains the IPSet. </p>
    */
   Location?: string;
 
   /**
+   * @public
    * <p>The updated Boolean value that specifies whether the IPSet is active or not.</p>
    */
   Activate?: boolean;
@@ -276,17 +307,20 @@ export interface UpdateIPSetResponse {}
  */
 export interface UpdateMalwareScanSettingsRequest {
   /**
+   * @public
    * <p>The unique ID of the detector that specifies the GuardDuty service where you want to
    *       update scan settings.</p>
    */
   DetectorId: string | undefined;
 
   /**
+   * @public
    * <p>Represents the criteria to be used in the filter for selecting resources to scan.</p>
    */
   ScanResourceCriteria?: ScanResourceCriteria;
 
   /**
+   * @public
    * <p>An enum value representing possible snapshot preservation settings.</p>
    */
   EbsSnapshotPreservation?: EbsSnapshotPreservation | string;
@@ -303,11 +337,13 @@ export interface UpdateMalwareScanSettingsResponse {}
  */
 export interface MemberAdditionalConfiguration {
   /**
+   * @public
    * <p>Name of the additional configuration.</p>
    */
   Name?: OrgFeatureAdditionalConfiguration | string;
 
   /**
+   * @public
    * <p>Status of the additional configuration.</p>
    */
   Status?: FeatureStatus | string;
@@ -319,16 +355,19 @@ export interface MemberAdditionalConfiguration {
  */
 export interface MemberFeaturesConfiguration {
   /**
+   * @public
    * <p>The name of the feature.</p>
    */
   Name?: OrgFeature | string;
 
   /**
+   * @public
    * <p>The status of the feature.</p>
    */
   Status?: FeatureStatus | string;
 
   /**
+   * @public
    * <p>Additional configuration of the feature for the member account.</p>
    */
   AdditionalConfiguration?: MemberAdditionalConfiguration[];
@@ -339,16 +378,19 @@ export interface MemberFeaturesConfiguration {
  */
 export interface UpdateMemberDetectorsRequest {
   /**
+   * @public
    * <p>The detector ID of the administrator account.</p>
    */
   DetectorId: string | undefined;
 
   /**
+   * @public
    * <p>A list of member account IDs to be updated.</p>
    */
   AccountIds: string[] | undefined;
 
   /**
+   * @public
    * @deprecated
    *
    * <p>Describes which data sources will be updated.</p>
@@ -356,6 +398,7 @@ export interface UpdateMemberDetectorsRequest {
   DataSources?: DataSourceConfigurations;
 
   /**
+   * @public
    * <p>A list of features that will be updated for the specified member accounts.</p>
    */
   Features?: MemberFeaturesConfiguration[];
@@ -366,6 +409,7 @@ export interface UpdateMemberDetectorsRequest {
  */
 export interface UpdateMemberDetectorsResponse {
   /**
+   * @public
    * <p>A list of member account IDs that were unable to be processed along with an explanation
    *       for why they were not processed.</p>
    */
@@ -378,6 +422,7 @@ export interface UpdateMemberDetectorsResponse {
  */
 export interface OrganizationKubernetesAuditLogsConfiguration {
   /**
+   * @public
    * <p>A value that contains information on whether Kubernetes audit logs should be enabled
    *       automatically as a data source for the organization.</p>
    */
@@ -390,6 +435,7 @@ export interface OrganizationKubernetesAuditLogsConfiguration {
  */
 export interface OrganizationKubernetesConfiguration {
   /**
+   * @public
    * <p>Whether Kubernetes audit logs data source should be auto-enabled for new members joining
    *       the organization.</p>
    */
@@ -402,6 +448,7 @@ export interface OrganizationKubernetesConfiguration {
  */
 export interface OrganizationEbsVolumes {
   /**
+   * @public
    * <p>Whether scanning EBS volumes should be auto-enabled for new members joining the
    *       organization.</p>
    */
@@ -414,6 +461,7 @@ export interface OrganizationEbsVolumes {
  */
 export interface OrganizationScanEc2InstanceWithFindings {
   /**
+   * @public
    * <p>Whether scanning EBS volumes should be auto-enabled for new members joining the
    *       organization.</p>
    */
@@ -426,6 +474,7 @@ export interface OrganizationScanEc2InstanceWithFindings {
  */
 export interface OrganizationMalwareProtectionConfiguration {
   /**
+   * @public
    * <p>Whether Malware Protection for EC2 instances with findings should be auto-enabled for new
    *       members joining the organization.</p>
    */
@@ -439,6 +488,7 @@ export interface OrganizationMalwareProtectionConfiguration {
  */
 export interface OrganizationS3LogsConfiguration {
   /**
+   * @public
    * <p>A value that contains information on whether S3 data event logs will be enabled
    *       automatically as a data source for the organization.</p>
    */
@@ -452,18 +502,21 @@ export interface OrganizationS3LogsConfiguration {
  */
 export interface OrganizationDataSourceConfigurations {
   /**
+   * @public
    * <p>Describes whether S3 data event logs are enabled for new members of the
    *       organization.</p>
    */
   S3Logs?: OrganizationS3LogsConfiguration;
 
   /**
+   * @public
    * <p>Describes the configuration of Kubernetes data sources for new members of the
    *       organization.</p>
    */
   Kubernetes?: OrganizationKubernetesConfiguration;
 
   /**
+   * @public
    * <p>Describes the configuration of Malware Protection for new members of the
    *       organization.</p>
    */
@@ -476,12 +529,14 @@ export interface OrganizationDataSourceConfigurations {
  */
 export interface OrganizationAdditionalConfiguration {
   /**
+   * @public
    * <p>The name of the additional configuration that will be configured for the
    *       organization.</p>
    */
   Name?: OrgFeatureAdditionalConfiguration | string;
 
   /**
+   * @public
    * <p>The status of the additional configuration that will be configured for the
    *       organization.</p>
    */
@@ -494,16 +549,19 @@ export interface OrganizationAdditionalConfiguration {
  */
 export interface OrganizationFeatureConfiguration {
   /**
+   * @public
    * <p>The name of the feature that will be configured for the organization.</p>
    */
   Name?: OrgFeature | string;
 
   /**
+   * @public
    * <p>The status of the feature that will be configured for the organization.</p>
    */
   AutoEnable?: OrgFeatureStatus | string;
 
   /**
+   * @public
    * <p>The additional information that will be configured for the organization.</p>
    */
   AdditionalConfiguration?: OrganizationAdditionalConfiguration[];
@@ -514,11 +572,13 @@ export interface OrganizationFeatureConfiguration {
  */
 export interface UpdateOrganizationConfigurationRequest {
   /**
+   * @public
    * <p>The ID of the detector that configures the delegated administrator.</p>
    */
   DetectorId: string | undefined;
 
   /**
+   * @public
    * @deprecated
    *
    * <p>Indicates whether to automatically enable member accounts in the organization.</p>
@@ -528,6 +588,7 @@ export interface UpdateOrganizationConfigurationRequest {
   AutoEnable?: boolean;
 
   /**
+   * @public
    * @deprecated
    *
    * <p>Describes which data sources will be updated.</p>
@@ -535,11 +596,13 @@ export interface UpdateOrganizationConfigurationRequest {
   DataSources?: OrganizationDataSourceConfigurations;
 
   /**
+   * @public
    * <p>A list of features that will be configured for the organization.</p>
    */
   Features?: OrganizationFeatureConfiguration[];
 
   /**
+   * @public
    * <p>Indicates the auto-enablement configuration of GuardDuty for the member accounts in the
    *       organization. </p>
    *          <ul>
@@ -576,16 +639,19 @@ export interface UpdateOrganizationConfigurationResponse {}
  */
 export interface UpdatePublishingDestinationRequest {
   /**
+   * @public
    * <p>The ID of the detector associated with the publishing destinations to update.</p>
    */
   DetectorId: string | undefined;
 
   /**
+   * @public
    * <p>The ID of the publishing destination to update.</p>
    */
   DestinationId: string | undefined;
 
   /**
+   * @public
    * <p>A <code>DestinationProperties</code> object that includes the <code>DestinationArn</code>
    *       and <code>KmsKeyArn</code> of the publishing destination.</p>
    */
@@ -602,27 +668,32 @@ export interface UpdatePublishingDestinationResponse {}
  */
 export interface UpdateThreatIntelSetRequest {
   /**
+   * @public
    * <p>The detectorID that specifies the GuardDuty service whose ThreatIntelSet you want to
    *       update.</p>
    */
   DetectorId: string | undefined;
 
   /**
+   * @public
    * <p>The unique ID that specifies the ThreatIntelSet that you want to update.</p>
    */
   ThreatIntelSetId: string | undefined;
 
   /**
+   * @public
    * <p>The unique ID that specifies the ThreatIntelSet that you want to update.</p>
    */
   Name?: string;
 
   /**
+   * @public
    * <p>The updated URI of the file that contains the ThreateIntelSet.</p>
    */
   Location?: string;
 
   /**
+   * @public
    * <p>The updated Boolean value that specifies whether the ThreateIntelSet is active or
    *       not.</p>
    */

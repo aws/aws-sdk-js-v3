@@ -71,6 +71,7 @@ import {
  */
 export interface ListPolicyVersionsResponse {
   /**
+   * @public
    * <p>The policy versions.</p>
    */
   policyVersions?: PolicyVersion[];
@@ -82,21 +83,25 @@ export interface ListPolicyVersionsResponse {
  */
 export interface ListPrincipalPoliciesRequest {
   /**
+   * @public
    * <p>The principal. Valid principals are CertificateArn (arn:aws:iot:<i>region</i>:<i>accountId</i>:cert/<i>certificateId</i>), thingGroupArn (arn:aws:iot:<i>region</i>:<i>accountId</i>:thinggroup/<i>groupName</i>) and CognitoId (<i>region</i>:<i>id</i>).</p>
    */
   principal: string | undefined;
 
   /**
+   * @public
    * <p>The marker for the next set of results.</p>
    */
   marker?: string;
 
   /**
+   * @public
    * <p>The result page size.</p>
    */
   pageSize?: number;
 
   /**
+   * @public
    * <p>Specifies the order for results. If true, results are returned in ascending creation
    *          order.</p>
    */
@@ -109,11 +114,13 @@ export interface ListPrincipalPoliciesRequest {
  */
 export interface ListPrincipalPoliciesResponse {
   /**
+   * @public
    * <p>The policies.</p>
    */
   policies?: Policy[];
 
   /**
+   * @public
    * <p>The marker for the next set of results, or null if there are no additional
    *          results.</p>
    */
@@ -126,6 +133,7 @@ export interface ListPrincipalPoliciesResponse {
  */
 export interface ListPrincipalThingsRequest {
   /**
+   * @public
    * <p>To retrieve the next set of results, the <code>nextToken</code>
    * 			value from a previous response; otherwise <b>null</b> to receive
    * 			the first set of results.</p>
@@ -133,11 +141,13 @@ export interface ListPrincipalThingsRequest {
   nextToken?: string;
 
   /**
+   * @public
    * <p>The maximum number of results to return in this operation.</p>
    */
   maxResults?: number;
 
   /**
+   * @public
    * <p>The principal.</p>
    */
   principal: string | undefined;
@@ -149,11 +159,13 @@ export interface ListPrincipalThingsRequest {
  */
 export interface ListPrincipalThingsResponse {
   /**
+   * @public
    * <p>The things.</p>
    */
   things?: string[];
 
   /**
+   * @public
    * <p>The token to use to get the next set of results, or <b>null</b> if there are no additional results.</p>
    */
   nextToken?: string;
@@ -164,11 +176,13 @@ export interface ListPrincipalThingsResponse {
  */
 export interface ListProvisioningTemplatesRequest {
   /**
+   * @public
    * <p>The maximum number of results to return at one time.</p>
    */
   maxResults?: number;
 
   /**
+   * @public
    * <p>A token to retrieve the next set of results.</p>
    */
   nextToken?: string;
@@ -180,36 +194,43 @@ export interface ListProvisioningTemplatesRequest {
  */
 export interface ProvisioningTemplateSummary {
   /**
+   * @public
    * <p>The ARN of the provisioning template.</p>
    */
   templateArn?: string;
 
   /**
+   * @public
    * <p>The name of the provisioning template.</p>
    */
   templateName?: string;
 
   /**
+   * @public
    * <p>The description of the provisioning template.</p>
    */
   description?: string;
 
   /**
+   * @public
    * <p>The date when the provisioning template summary was created.</p>
    */
   creationDate?: Date;
 
   /**
+   * @public
    * <p>The date when the provisioning template summary was last modified.</p>
    */
   lastModifiedDate?: Date;
 
   /**
+   * @public
    * <p>True if the fleet provision template is enabled, otherwise false.</p>
    */
   enabled?: boolean;
 
   /**
+   * @public
    * <p>The type you define in a provisioning template. You can create a template with only one type.
    *          You can't change the template type after its creation. The default value is <code>FLEET_PROVISIONING</code>.
    *          For more information about provisioning template, see: <a href="https://docs.aws.amazon.com/iot/latest/developerguide/provision-template.html">Provisioning template</a>.
@@ -223,11 +244,13 @@ export interface ProvisioningTemplateSummary {
  */
 export interface ListProvisioningTemplatesResponse {
   /**
+   * @public
    * <p>A list of provisioning templates</p>
    */
   templates?: ProvisioningTemplateSummary[];
 
   /**
+   * @public
    * <p>A token to retrieve the next set of results.</p>
    */
   nextToken?: string;
@@ -238,16 +261,19 @@ export interface ListProvisioningTemplatesResponse {
  */
 export interface ListProvisioningTemplateVersionsRequest {
   /**
+   * @public
    * <p>The name of the provisioning template.</p>
    */
   templateName: string | undefined;
 
   /**
+   * @public
    * <p>The maximum number of results to return at one time.</p>
    */
   maxResults?: number;
 
   /**
+   * @public
    * <p>A token to retrieve the next set of results.</p>
    */
   nextToken?: string;
@@ -259,16 +285,19 @@ export interface ListProvisioningTemplateVersionsRequest {
  */
 export interface ProvisioningTemplateVersionSummary {
   /**
+   * @public
    * <p>The ID of the fleet provisioning template version.</p>
    */
   versionId?: number;
 
   /**
+   * @public
    * <p>The date when the provisioning template version was created</p>
    */
   creationDate?: Date;
 
   /**
+   * @public
    * <p>True if the provisioning template version is the default version, otherwise
    *          false.</p>
    */
@@ -280,11 +309,13 @@ export interface ProvisioningTemplateVersionSummary {
  */
 export interface ListProvisioningTemplateVersionsResponse {
   /**
+   * @public
    * <p>The list of provisioning template versions.</p>
    */
   versions?: ProvisioningTemplateVersionSummary[];
 
   /**
+   * @public
    * <p>A token to retrieve the next set of results.</p>
    */
   nextToken?: string;
@@ -295,17 +326,20 @@ export interface ListProvisioningTemplateVersionsResponse {
  */
 export interface ListRelatedResourcesForAuditFindingRequest {
   /**
+   * @public
    * <p>The finding Id.</p>
    */
   findingId: string | undefined;
 
   /**
+   * @public
    * <p>A token that can be used to retrieve the next set of results,
    *       or <code>null</code> if there are no additional results.</p>
    */
   nextToken?: string;
 
   /**
+   * @public
    * <p>The maximum number of results to return at one time.</p>
    */
   maxResults?: number;
@@ -316,11 +350,13 @@ export interface ListRelatedResourcesForAuditFindingRequest {
  */
 export interface ListRelatedResourcesForAuditFindingResponse {
   /**
+   * @public
    * <p>The related resources.</p>
    */
   relatedResources?: RelatedResource[];
 
   /**
+   * @public
    * <p>A token that can be used to retrieve the next set of results,
    *       or <code>null</code> for the first API call.</p>
    */
@@ -332,16 +368,19 @@ export interface ListRelatedResourcesForAuditFindingResponse {
  */
 export interface ListRoleAliasesRequest {
   /**
+   * @public
    * <p>The maximum number of results to return at one time.</p>
    */
   pageSize?: number;
 
   /**
+   * @public
    * <p>A marker used to get the next set of results.</p>
    */
   marker?: string;
 
   /**
+   * @public
    * <p>Return the list of role aliases in ascending alphabetical order.</p>
    */
   ascendingOrder?: boolean;
@@ -352,11 +391,13 @@ export interface ListRoleAliasesRequest {
  */
 export interface ListRoleAliasesResponse {
   /**
+   * @public
    * <p>The role aliases.</p>
    */
   roleAliases?: string[];
 
   /**
+   * @public
    * <p>A marker used to get the next set of results.</p>
    */
   nextMarker?: string;
@@ -367,11 +408,13 @@ export interface ListRoleAliasesResponse {
  */
 export interface ListScheduledAuditsRequest {
   /**
+   * @public
    * <p>The token for the next set of results.</p>
    */
   nextToken?: string;
 
   /**
+   * @public
    * <p>The maximum number of results to return at one time. The default is 25.</p>
    */
   maxResults?: number;
@@ -383,21 +426,25 @@ export interface ListScheduledAuditsRequest {
  */
 export interface ScheduledAuditMetadata {
   /**
+   * @public
    * <p>The name of the scheduled audit.</p>
    */
   scheduledAuditName?: string;
 
   /**
+   * @public
    * <p>The ARN of the scheduled audit.</p>
    */
   scheduledAuditArn?: string;
 
   /**
+   * @public
    * <p>How often the scheduled audit occurs.</p>
    */
   frequency?: AuditFrequency | string;
 
   /**
+   * @public
    * <p>The day of the month on which the scheduled audit is run (if the
    *           <code>frequency</code> is "MONTHLY").
    *         If days 29-31 are specified, and the month does not have that many
@@ -406,6 +453,7 @@ export interface ScheduledAuditMetadata {
   dayOfMonth?: string;
 
   /**
+   * @public
    * <p>The day of the week on which the scheduled audit is run (if the
    *           <code>frequency</code> is "WEEKLY" or "BIWEEKLY").</p>
    */
@@ -417,11 +465,13 @@ export interface ScheduledAuditMetadata {
  */
 export interface ListScheduledAuditsResponse {
   /**
+   * @public
    * <p>The list of scheduled audits.</p>
    */
   scheduledAudits?: ScheduledAuditMetadata[];
 
   /**
+   * @public
    * <p>A token that can be used to retrieve the next set of results,
    *             or <code>null</code> if there are no additional results.</p>
    */
@@ -433,16 +483,19 @@ export interface ListScheduledAuditsResponse {
  */
 export interface ListSecurityProfilesRequest {
   /**
+   * @public
    * <p>The token for the next set of results.</p>
    */
   nextToken?: string;
 
   /**
+   * @public
    * <p>The maximum number of results to return at one time.</p>
    */
   maxResults?: number;
 
   /**
+   * @public
    * <p>A filter to limit results to the security profiles that use the defined dimension.
    *       Cannot be used with <code>metricName</code>
    *          </p>
@@ -450,6 +503,7 @@ export interface ListSecurityProfilesRequest {
   dimensionName?: string;
 
   /**
+   * @public
    * <p> The name of the custom metric.
    *       Cannot be used with <code>dimensionName</code>. </p>
    */
@@ -462,11 +516,13 @@ export interface ListSecurityProfilesRequest {
  */
 export interface SecurityProfileIdentifier {
   /**
+   * @public
    * <p>The name you've given to the security profile.</p>
    */
   name: string | undefined;
 
   /**
+   * @public
    * <p>The ARN of the security profile.</p>
    */
   arn: string | undefined;
@@ -477,11 +533,13 @@ export interface SecurityProfileIdentifier {
  */
 export interface ListSecurityProfilesResponse {
   /**
+   * @public
    * <p>A list of security profile identifiers (names and ARNs).</p>
    */
   securityProfileIdentifiers?: SecurityProfileIdentifier[];
 
   /**
+   * @public
    * <p>A token that can be used to retrieve the next set of results, or <code>null</code> if there are no
    *         additional results.</p>
    */
@@ -493,21 +551,25 @@ export interface ListSecurityProfilesResponse {
  */
 export interface ListSecurityProfilesForTargetRequest {
   /**
+   * @public
    * <p>The token for the next set of results.</p>
    */
   nextToken?: string;
 
   /**
+   * @public
    * <p>The maximum number of results to return at one time.</p>
    */
   maxResults?: number;
 
   /**
+   * @public
    * <p>If true, return child groups too.</p>
    */
   recursive?: boolean;
 
   /**
+   * @public
    * <p>The ARN of the target (thing group) whose attached security profiles you want to get.</p>
    */
   securityProfileTargetArn: string | undefined;
@@ -520,6 +582,7 @@ export interface ListSecurityProfilesForTargetRequest {
  */
 export interface SecurityProfileTarget {
   /**
+   * @public
    * <p>The ARN of the security profile.</p>
    */
   arn: string | undefined;
@@ -531,11 +594,13 @@ export interface SecurityProfileTarget {
  */
 export interface SecurityProfileTargetMapping {
   /**
+   * @public
    * <p>Information that identifies the security profile.</p>
    */
   securityProfileIdentifier?: SecurityProfileIdentifier;
 
   /**
+   * @public
    * <p>Information about the target (thing group) associated with the security profile.</p>
    */
   target?: SecurityProfileTarget;
@@ -546,11 +611,13 @@ export interface SecurityProfileTargetMapping {
  */
 export interface ListSecurityProfilesForTargetResponse {
   /**
+   * @public
    * <p>A list of security profiles and their associated targets.</p>
    */
   securityProfileTargetMappings?: SecurityProfileTargetMapping[];
 
   /**
+   * @public
    * <p>A token that can be used to retrieve the next set of results, or <code>null</code> if there are no
    *         additional results.</p>
    */
@@ -562,16 +629,19 @@ export interface ListSecurityProfilesForTargetResponse {
  */
 export interface ListStreamsRequest {
   /**
+   * @public
    * <p>The maximum number of results to return at a time.</p>
    */
   maxResults?: number;
 
   /**
+   * @public
    * <p>A token used to get the next set of results.</p>
    */
   nextToken?: string;
 
   /**
+   * @public
    * <p>Set to true to return the list of streams in ascending order.</p>
    */
   ascendingOrder?: boolean;
@@ -583,21 +653,25 @@ export interface ListStreamsRequest {
  */
 export interface StreamSummary {
   /**
+   * @public
    * <p>The stream ID.</p>
    */
   streamId?: string;
 
   /**
+   * @public
    * <p>The stream ARN.</p>
    */
   streamArn?: string;
 
   /**
+   * @public
    * <p>The stream version.</p>
    */
   streamVersion?: number;
 
   /**
+   * @public
    * <p>A description of the stream.</p>
    */
   description?: string;
@@ -608,11 +682,13 @@ export interface StreamSummary {
  */
 export interface ListStreamsResponse {
   /**
+   * @public
    * <p>A list of streams.</p>
    */
   streams?: StreamSummary[];
 
   /**
+   * @public
    * <p>A token used to get the next set of results.</p>
    */
   nextToken?: string;
@@ -623,11 +699,13 @@ export interface ListStreamsResponse {
  */
 export interface ListTagsForResourceRequest {
   /**
+   * @public
    * <p>The ARN of the resource.</p>
    */
   resourceArn: string | undefined;
 
   /**
+   * @public
    * <p>To retrieve the next set of results, the <code>nextToken</code>
    * 			value from a previous response; otherwise <b>null</b> to receive
    * 			the first set of results.</p>
@@ -640,11 +718,13 @@ export interface ListTagsForResourceRequest {
  */
 export interface ListTagsForResourceResponse {
   /**
+   * @public
    * <p>The list of tags assigned to the resource.</p>
    */
   tags?: Tag[];
 
   /**
+   * @public
    * <p>The token to use to get the next set of results, or <b>null</b> if there are no additional results.</p>
    */
   nextToken?: string;
@@ -655,16 +735,19 @@ export interface ListTagsForResourceResponse {
  */
 export interface ListTargetsForPolicyRequest {
   /**
+   * @public
    * <p>The policy name.</p>
    */
   policyName: string | undefined;
 
   /**
+   * @public
    * <p>A marker used to get the next set of results.</p>
    */
   marker?: string;
 
   /**
+   * @public
    * <p>The maximum number of results to return at one time.</p>
    */
   pageSize?: number;
@@ -675,11 +758,13 @@ export interface ListTargetsForPolicyRequest {
  */
 export interface ListTargetsForPolicyResponse {
   /**
+   * @public
    * <p>The policy targets.</p>
    */
   targets?: string[];
 
   /**
+   * @public
    * <p>A marker used to get the next set of results.</p>
    */
   nextMarker?: string;
@@ -690,16 +775,19 @@ export interface ListTargetsForPolicyResponse {
  */
 export interface ListTargetsForSecurityProfileRequest {
   /**
+   * @public
    * <p>The security profile.</p>
    */
   securityProfileName: string | undefined;
 
   /**
+   * @public
    * <p>The token for the next set of results.</p>
    */
   nextToken?: string;
 
   /**
+   * @public
    * <p>The maximum number of results to return at one time.</p>
    */
   maxResults?: number;
@@ -710,11 +798,13 @@ export interface ListTargetsForSecurityProfileRequest {
  */
 export interface ListTargetsForSecurityProfileResponse {
   /**
+   * @public
    * <p>The thing groups to which the security profile is attached.</p>
    */
   securityProfileTargets?: SecurityProfileTarget[];
 
   /**
+   * @public
    * <p>A token that can be used to retrieve the next set of results, or <code>null</code> if there are no
    *         additional results.</p>
    */
@@ -726,6 +816,7 @@ export interface ListTargetsForSecurityProfileResponse {
  */
 export interface ListThingGroupsRequest {
   /**
+   * @public
    * <p>To retrieve the next set of results, the <code>nextToken</code>
    * 			value from a previous response; otherwise <b>null</b> to receive
    * 			the first set of results.</p>
@@ -733,21 +824,25 @@ export interface ListThingGroupsRequest {
   nextToken?: string;
 
   /**
+   * @public
    * <p>The maximum number of results to return at one time.</p>
    */
   maxResults?: number;
 
   /**
+   * @public
    * <p>A filter that limits the results to those with the specified parent group.</p>
    */
   parentGroup?: string;
 
   /**
+   * @public
    * <p>A filter that limits the results to those with the specified name prefix.</p>
    */
   namePrefixFilter?: string;
 
   /**
+   * @public
    * <p>If true, return child groups as well.</p>
    */
   recursive?: boolean;
@@ -758,11 +853,13 @@ export interface ListThingGroupsRequest {
  */
 export interface ListThingGroupsResponse {
   /**
+   * @public
    * <p>The thing groups.</p>
    */
   thingGroups?: GroupNameAndArn[];
 
   /**
+   * @public
    * <p>The token to use to get the next set of results. Will not be returned if operation has returned all results.</p>
    */
   nextToken?: string;
@@ -773,11 +870,13 @@ export interface ListThingGroupsResponse {
  */
 export interface ListThingGroupsForThingRequest {
   /**
+   * @public
    * <p>The thing name.</p>
    */
   thingName: string | undefined;
 
   /**
+   * @public
    * <p>To retrieve the next set of results, the <code>nextToken</code>
    * 			value from a previous response; otherwise <b>null</b> to receive
    * 			the first set of results.</p>
@@ -785,6 +884,7 @@ export interface ListThingGroupsForThingRequest {
   nextToken?: string;
 
   /**
+   * @public
    * <p>The maximum number of results to return at one time.</p>
    */
   maxResults?: number;
@@ -795,11 +895,13 @@ export interface ListThingGroupsForThingRequest {
  */
 export interface ListThingGroupsForThingResponse {
   /**
+   * @public
    * <p>The thing groups.</p>
    */
   thingGroups?: GroupNameAndArn[];
 
   /**
+   * @public
    * <p>The token to use to get the next set of results, or <b>null</b> if there are no additional results.</p>
    */
   nextToken?: string;
@@ -811,6 +913,7 @@ export interface ListThingGroupsForThingResponse {
  */
 export interface ListThingPrincipalsRequest {
   /**
+   * @public
    * <p>To retrieve the next set of results, the <code>nextToken</code>
    * 			value from a previous response; otherwise <b>null</b> to receive
    * 			the first set of results.</p>
@@ -818,11 +921,13 @@ export interface ListThingPrincipalsRequest {
   nextToken?: string;
 
   /**
+   * @public
    * <p>The maximum number of results to return in this operation.</p>
    */
   maxResults?: number;
 
   /**
+   * @public
    * <p>The name of the thing.</p>
    */
   thingName: string | undefined;
@@ -834,11 +939,13 @@ export interface ListThingPrincipalsRequest {
  */
 export interface ListThingPrincipalsResponse {
   /**
+   * @public
    * <p>The principals associated with the thing.</p>
    */
   principals?: string[];
 
   /**
+   * @public
    * <p>The token to use to get the next set of results, or <b>null</b> if there are no additional results.</p>
    */
   nextToken?: string;
@@ -863,16 +970,19 @@ export type ReportType = (typeof ReportType)[keyof typeof ReportType];
  */
 export interface ListThingRegistrationTaskReportsRequest {
   /**
+   * @public
    * <p>The id of the task.</p>
    */
   taskId: string | undefined;
 
   /**
+   * @public
    * <p>The type of task report.</p>
    */
   reportType: ReportType | string | undefined;
 
   /**
+   * @public
    * <p>To retrieve the next set of results, the <code>nextToken</code>
    * 			value from a previous response; otherwise <b>null</b> to receive
    * 		the first set of results.</p>
@@ -880,6 +990,7 @@ export interface ListThingRegistrationTaskReportsRequest {
   nextToken?: string;
 
   /**
+   * @public
    * <p>The maximum number of results to return per request.</p>
    */
   maxResults?: number;
@@ -890,16 +1001,19 @@ export interface ListThingRegistrationTaskReportsRequest {
  */
 export interface ListThingRegistrationTaskReportsResponse {
   /**
+   * @public
    * <p>Links to the task resources.</p>
    */
   resourceLinks?: string[];
 
   /**
+   * @public
    * <p>The type of task report.</p>
    */
   reportType?: ReportType | string;
 
   /**
+   * @public
    * <p>The token to use to get the next set of results, or <b>null</b> if there are no additional results.</p>
    */
   nextToken?: string;
@@ -910,6 +1024,7 @@ export interface ListThingRegistrationTaskReportsResponse {
  */
 export interface ListThingRegistrationTasksRequest {
   /**
+   * @public
    * <p>To retrieve the next set of results, the <code>nextToken</code>
    * 			value from a previous response; otherwise <b>null</b> to receive
    * 			the first set of results.</p>
@@ -917,11 +1032,13 @@ export interface ListThingRegistrationTasksRequest {
   nextToken?: string;
 
   /**
+   * @public
    * <p>The maximum number of results to return at one time.</p>
    */
   maxResults?: number;
 
   /**
+   * @public
    * <p>The status of the bulk thing provisioning task.</p>
    */
   status?: Status | string;
@@ -932,11 +1049,13 @@ export interface ListThingRegistrationTasksRequest {
  */
 export interface ListThingRegistrationTasksResponse {
   /**
+   * @public
    * <p>A list of bulk thing provisioning task IDs.</p>
    */
   taskIds?: string[];
 
   /**
+   * @public
    * <p>The token to use to get the next set of results, or <b>null</b> if there are no additional results.</p>
    */
   nextToken?: string;
@@ -948,6 +1067,7 @@ export interface ListThingRegistrationTasksResponse {
  */
 export interface ListThingsRequest {
   /**
+   * @public
    * <p>To retrieve the next set of results, the <code>nextToken</code>
    * 			value from a previous response; otherwise <b>null</b> to receive
    * 			the first set of results.</p>
@@ -955,26 +1075,31 @@ export interface ListThingsRequest {
   nextToken?: string;
 
   /**
+   * @public
    * <p>The maximum number of results to return in this operation.</p>
    */
   maxResults?: number;
 
   /**
+   * @public
    * <p>The attribute name used to search for things.</p>
    */
   attributeName?: string;
 
   /**
+   * @public
    * <p>The attribute value used to search for things.</p>
    */
   attributeValue?: string;
 
   /**
+   * @public
    * <p>The name of the thing type used to search for things.</p>
    */
   thingTypeName?: string;
 
   /**
+   * @public
    * <p>When <code>true</code>, the action returns the thing resources with attribute values
    *                      that start with the <code>attributeValue</code> provided.</p>
    *          <p>When <code>false</code>, or not present, the action returns only the thing
@@ -991,26 +1116,31 @@ export interface ListThingsRequest {
  */
 export interface ThingAttribute {
   /**
+   * @public
    * <p>The name of the thing.</p>
    */
   thingName?: string;
 
   /**
+   * @public
    * <p>The name of the thing type, if the thing has been associated with a type.</p>
    */
   thingTypeName?: string;
 
   /**
+   * @public
    * <p>The thing ARN.</p>
    */
   thingArn?: string;
 
   /**
+   * @public
    * <p>A list of thing attributes which are name-value pairs.</p>
    */
   attributes?: Record<string, string>;
 
   /**
+   * @public
    * <p>The version of the thing record in the registry.</p>
    */
   version?: number;
@@ -1022,11 +1152,13 @@ export interface ThingAttribute {
  */
 export interface ListThingsResponse {
   /**
+   * @public
    * <p>The things.</p>
    */
   things?: ThingAttribute[];
 
   /**
+   * @public
    * <p>The token to use to get the next set of results. Will not be returned if operation has returned all results.</p>
    */
   nextToken?: string;
@@ -1037,11 +1169,13 @@ export interface ListThingsResponse {
  */
 export interface ListThingsInBillingGroupRequest {
   /**
+   * @public
    * <p>The name of the billing group.</p>
    */
   billingGroupName: string | undefined;
 
   /**
+   * @public
    * <p>To retrieve the next set of results, the <code>nextToken</code>
    * 			value from a previous response; otherwise <b>null</b> to receive
    * 			the first set of results.</p>
@@ -1049,6 +1183,7 @@ export interface ListThingsInBillingGroupRequest {
   nextToken?: string;
 
   /**
+   * @public
    * <p>The maximum number of results to return per request.</p>
    */
   maxResults?: number;
@@ -1059,11 +1194,13 @@ export interface ListThingsInBillingGroupRequest {
  */
 export interface ListThingsInBillingGroupResponse {
   /**
+   * @public
    * <p>A list of things in the billing group.</p>
    */
   things?: string[];
 
   /**
+   * @public
    * <p>The token to use to get the next set of results. Will not be returned if operation has returned all results.</p>
    */
   nextToken?: string;
@@ -1074,17 +1211,20 @@ export interface ListThingsInBillingGroupResponse {
  */
 export interface ListThingsInThingGroupRequest {
   /**
+   * @public
    * <p>The thing group name.</p>
    */
   thingGroupName: string | undefined;
 
   /**
+   * @public
    * <p>When true, list things in this thing group and in all child groups as
    * 			well.</p>
    */
   recursive?: boolean;
 
   /**
+   * @public
    * <p>To retrieve the next set of results, the <code>nextToken</code>
    * 			value from a previous response; otherwise <b>null</b> to receive
    * 			the first set of results.</p>
@@ -1092,6 +1232,7 @@ export interface ListThingsInThingGroupRequest {
   nextToken?: string;
 
   /**
+   * @public
    * <p>The maximum number of results to return at one time.</p>
    */
   maxResults?: number;
@@ -1102,11 +1243,13 @@ export interface ListThingsInThingGroupRequest {
  */
 export interface ListThingsInThingGroupResponse {
   /**
+   * @public
    * <p>The things in the specified thing group.</p>
    */
   things?: string[];
 
   /**
+   * @public
    * <p>The token to use to get the next set of results, or <b>null</b> if there are no additional results.</p>
    */
   nextToken?: string;
@@ -1118,6 +1261,7 @@ export interface ListThingsInThingGroupResponse {
  */
 export interface ListThingTypesRequest {
   /**
+   * @public
    * <p>To retrieve the next set of results, the <code>nextToken</code>
    * 			value from a previous response; otherwise <b>null</b> to receive
    * 			the first set of results.</p>
@@ -1125,11 +1269,13 @@ export interface ListThingTypesRequest {
   nextToken?: string;
 
   /**
+   * @public
    * <p>The maximum number of results to return in this operation.</p>
    */
   maxResults?: number;
 
   /**
+   * @public
    * <p>The name of the thing type.</p>
    */
   thingTypeName?: string;
@@ -1141,21 +1287,25 @@ export interface ListThingTypesRequest {
  */
 export interface ThingTypeDefinition {
   /**
+   * @public
    * <p>The name of the thing type.</p>
    */
   thingTypeName?: string;
 
   /**
+   * @public
    * <p>The thing type ARN.</p>
    */
   thingTypeArn?: string;
 
   /**
+   * @public
    * <p>The ThingTypeProperties for the thing type.</p>
    */
   thingTypeProperties?: ThingTypeProperties;
 
   /**
+   * @public
    * <p>The ThingTypeMetadata contains additional information about the thing type including: creation date and
    * 			time, a value indicating whether the thing type is deprecated, and a date and time when it was
    * 			deprecated.</p>
@@ -1169,11 +1319,13 @@ export interface ThingTypeDefinition {
  */
 export interface ListThingTypesResponse {
   /**
+   * @public
    * <p>The thing types.</p>
    */
   thingTypes?: ThingTypeDefinition[];
 
   /**
+   * @public
    * <p>The token for the next set of results. Will not be returned if operation has returned all results.</p>
    */
   nextToken?: string;
@@ -1184,11 +1336,13 @@ export interface ListThingTypesResponse {
  */
 export interface ListTopicRuleDestinationsRequest {
   /**
+   * @public
    * <p>The maximum number of results to return at one time.</p>
    */
   maxResults?: number;
 
   /**
+   * @public
    * <p>To retrieve the next set of results, the <code>nextToken</code>
    *          value from a previous response; otherwise <b>null</b> to receive
    *          the first set of results.</p>
@@ -1202,6 +1356,7 @@ export interface ListTopicRuleDestinationsRequest {
  */
 export interface HttpUrlDestinationSummary {
   /**
+   * @public
    * <p>The URL used to confirm ownership of or access to the HTTP topic rule destination
    *          URL.</p>
    */
@@ -1214,21 +1369,25 @@ export interface HttpUrlDestinationSummary {
  */
 export interface VpcDestinationSummary {
   /**
+   * @public
    * <p>The subnet IDs of the VPC destination.</p>
    */
   subnetIds?: string[];
 
   /**
+   * @public
    * <p>The security groups of the VPC destination.</p>
    */
   securityGroups?: string[];
 
   /**
+   * @public
    * <p>The ID of the VPC.</p>
    */
   vpcId?: string;
 
   /**
+   * @public
    * <p>The ARN of a role that has permission to create and attach to elastic network interfaces (ENIs).</p>
    */
   roleArn?: string;
@@ -1240,11 +1399,13 @@ export interface VpcDestinationSummary {
  */
 export interface TopicRuleDestinationSummary {
   /**
+   * @public
    * <p>The topic rule destination ARN.</p>
    */
   arn?: string;
 
   /**
+   * @public
    * <p>The status of the topic rule destination. Valid values are:</p>
    *          <dl>
    *             <dt>IN_PROGRESS</dt>
@@ -1281,26 +1442,31 @@ export interface TopicRuleDestinationSummary {
   status?: TopicRuleDestinationStatus | string;
 
   /**
+   * @public
    * <p>The date and time when the topic rule destination was created.</p>
    */
   createdAt?: Date;
 
   /**
+   * @public
    * <p>The date and time when the topic rule destination was last updated.</p>
    */
   lastUpdatedAt?: Date;
 
   /**
+   * @public
    * <p>The reason the topic rule destination is in the current status.</p>
    */
   statusReason?: string;
 
   /**
+   * @public
    * <p>Information about the HTTP URL.</p>
    */
   httpUrlSummary?: HttpUrlDestinationSummary;
 
   /**
+   * @public
    * <p>Information about the virtual private cloud (VPC) connection.</p>
    */
   vpcDestinationSummary?: VpcDestinationSummary;
@@ -1311,11 +1477,13 @@ export interface TopicRuleDestinationSummary {
  */
 export interface ListTopicRuleDestinationsResponse {
   /**
+   * @public
    * <p>Information about a topic rule destination.</p>
    */
   destinationSummaries?: TopicRuleDestinationSummary[];
 
   /**
+   * @public
    * <p>The token to use to get the next set of results, or <b>null</b> if there are no additional results.</p>
    */
   nextToken?: string;
@@ -1327,16 +1495,19 @@ export interface ListTopicRuleDestinationsResponse {
  */
 export interface ListTopicRulesRequest {
   /**
+   * @public
    * <p>The topic.</p>
    */
   topic?: string;
 
   /**
+   * @public
    * <p>The maximum number of results to return.</p>
    */
   maxResults?: number;
 
   /**
+   * @public
    * <p>To retrieve the next set of results, the <code>nextToken</code>
    *          value from a previous response; otherwise <b>null</b> to receive
    *          the first set of results.</p>
@@ -1344,6 +1515,7 @@ export interface ListTopicRulesRequest {
   nextToken?: string;
 
   /**
+   * @public
    * <p>Specifies whether the rule is disabled.</p>
    */
   ruleDisabled?: boolean;
@@ -1355,26 +1527,31 @@ export interface ListTopicRulesRequest {
  */
 export interface TopicRuleListItem {
   /**
+   * @public
    * <p>The rule ARN.</p>
    */
   ruleArn?: string;
 
   /**
+   * @public
    * <p>The name of the rule.</p>
    */
   ruleName?: string;
 
   /**
+   * @public
    * <p>The pattern for the topic names that apply.</p>
    */
   topicPattern?: string;
 
   /**
+   * @public
    * <p>The date and time the rule was created.</p>
    */
   createdAt?: Date;
 
   /**
+   * @public
    * <p>Specifies whether the rule is disabled.</p>
    */
   ruleDisabled?: boolean;
@@ -1386,11 +1563,13 @@ export interface TopicRuleListItem {
  */
 export interface ListTopicRulesResponse {
   /**
+   * @public
    * <p>The rules.</p>
    */
   rules?: TopicRuleListItem[];
 
   /**
+   * @public
    * <p>The token to use to get the next set of results, or <b>null</b> if there are no additional results.</p>
    */
   nextToken?: string;
@@ -1401,12 +1580,14 @@ export interface ListTopicRulesResponse {
  */
 export interface ListV2LoggingLevelsRequest {
   /**
+   * @public
    * <p>The type of resource for which you are configuring logging. Must be
    *             <code>THING_Group</code>.</p>
    */
   targetType?: LogTargetType | string;
 
   /**
+   * @public
    * <p>To retrieve the next set of results, the <code>nextToken</code>
    *          value from a previous response; otherwise <b>null</b> to receive
    *          the first set of results.</p>
@@ -1414,6 +1595,7 @@ export interface ListV2LoggingLevelsRequest {
   nextToken?: string;
 
   /**
+   * @public
    * <p>The maximum number of results to return at one time.</p>
    */
   maxResults?: number;
@@ -1425,11 +1607,13 @@ export interface ListV2LoggingLevelsRequest {
  */
 export interface LogTarget {
   /**
+   * @public
    * <p>The target type.</p>
    */
   targetType: LogTargetType | string | undefined;
 
   /**
+   * @public
    * <p>The target name.</p>
    */
   targetName?: string;
@@ -1441,11 +1625,13 @@ export interface LogTarget {
  */
 export interface LogTargetConfiguration {
   /**
+   * @public
    * <p>A log target</p>
    */
   logTarget?: LogTarget;
 
   /**
+   * @public
    * <p>The logging level.</p>
    */
   logLevel?: LogLevel | string;
@@ -1456,11 +1642,13 @@ export interface LogTargetConfiguration {
  */
 export interface ListV2LoggingLevelsResponse {
   /**
+   * @public
    * <p>The logging configuration for a target.</p>
    */
   logTargetConfigurations?: LogTargetConfiguration[];
 
   /**
+   * @public
    * <p>The token to use to get the next set of results, or <b>null</b> if there are no additional results.</p>
    */
   nextToken?: string;
@@ -1471,26 +1659,31 @@ export interface ListV2LoggingLevelsResponse {
  */
 export interface ListViolationEventsRequest {
   /**
+   * @public
    * <p>The start time for the alerts to be listed.</p>
    */
   startTime: Date | undefined;
 
   /**
+   * @public
    * <p>The end time for the alerts to be listed.</p>
    */
   endTime: Date | undefined;
 
   /**
+   * @public
    * <p>A filter to limit results to those alerts caused by the specified thing.</p>
    */
   thingName?: string;
 
   /**
+   * @public
    * <p>A filter to limit results to those alerts generated by the specified security profile.</p>
    */
   securityProfileName?: string;
 
   /**
+   * @public
    * <p>
    *       The criteria for a behavior.
    *     </p>
@@ -1498,6 +1691,7 @@ export interface ListViolationEventsRequest {
   behaviorCriteriaType?: BehaviorCriteriaType | string;
 
   /**
+   * @public
    * <p>
    *       A list of all suppressed alerts.
    *     </p>
@@ -1505,16 +1699,19 @@ export interface ListViolationEventsRequest {
   listSuppressedAlerts?: boolean;
 
   /**
+   * @public
    * <p>The verification state of the violation (detect alarm).</p>
    */
   verificationState?: VerificationState | string;
 
   /**
+   * @public
    * <p>The token for the next set of results.</p>
    */
   nextToken?: string;
 
   /**
+   * @public
    * <p>The maximum number of results to return at one time.</p>
    */
   maxResults?: number;
@@ -1541,31 +1738,37 @@ export type ViolationEventType = (typeof ViolationEventType)[keyof typeof Violat
  */
 export interface ViolationEvent {
   /**
+   * @public
    * <p>The ID of the violation event.</p>
    */
   violationId?: string;
 
   /**
+   * @public
    * <p>The name of the thing responsible for the violation event.</p>
    */
   thingName?: string;
 
   /**
+   * @public
    * <p>The name of the security profile whose behavior was violated.</p>
    */
   securityProfileName?: string;
 
   /**
+   * @public
    * <p>The behavior that was violated.</p>
    */
   behavior?: Behavior;
 
   /**
+   * @public
    * <p>The value of the metric (the measurement).</p>
    */
   metricValue?: MetricValue;
 
   /**
+   * @public
    * <p>
    *             The details of a violation event.
    *         </p>
@@ -1573,21 +1776,25 @@ export interface ViolationEvent {
   violationEventAdditionalInfo?: ViolationEventAdditionalInfo;
 
   /**
+   * @public
    * <p>The type of violation event.</p>
    */
   violationEventType?: ViolationEventType | string;
 
   /**
+   * @public
    * <p>The verification state of the violation (detect alarm).</p>
    */
   verificationState?: VerificationState | string;
 
   /**
+   * @public
    * <p>The description of the verification state of the violation.</p>
    */
   verificationStateDescription?: string;
 
   /**
+   * @public
    * <p>The time the violation event occurred.</p>
    */
   violationEventTime?: Date;
@@ -1598,12 +1805,14 @@ export interface ViolationEvent {
  */
 export interface ListViolationEventsResponse {
   /**
+   * @public
    * <p>The security profile violation alerts issued for this account during the given time period,
    *       potentially filtered by security profile, behavior violated, or thing (device) violating.</p>
    */
   violationEvents?: ViolationEvent[];
 
   /**
+   * @public
    * <p>A token that can be used to retrieve the next set of results, or <code>null</code> if there are no
    *         additional results.</p>
    */
@@ -1615,16 +1824,19 @@ export interface ListViolationEventsResponse {
  */
 export interface PutVerificationStateOnViolationRequest {
   /**
+   * @public
    * <p>The violation ID.</p>
    */
   violationId: string | undefined;
 
   /**
+   * @public
    * <p>The verification state of the violation.</p>
    */
   verificationState: VerificationState | string | undefined;
 
   /**
+   * @public
    * <p>The description of the verification state of the violation (detect alarm).</p>
    */
   verificationStateDescription?: string;
@@ -1641,11 +1853,13 @@ export interface PutVerificationStateOnViolationResponse {}
  */
 export interface RegisterCACertificateRequest {
   /**
+   * @public
    * <p>The CA certificate.</p>
    */
   caCertificate: string | undefined;
 
   /**
+   * @public
    * <p>The private key verification certificate. If <code>certificateMode</code> is
    *             <code>SNI_ONLY</code>, the <code>verificationCertificate</code> field must be empty. If
    *             <code>certificateMode</code> is <code>DEFAULT</code> or not provided, the
@@ -1654,6 +1868,7 @@ export interface RegisterCACertificateRequest {
   verificationCertificate?: string;
 
   /**
+   * @public
    * <p>A boolean value that specifies if the CA certificate is set to active.</p>
    *          <p>Valid values: <code>ACTIVE | INACTIVE</code>
    *          </p>
@@ -1661,17 +1876,20 @@ export interface RegisterCACertificateRequest {
   setAsActive?: boolean;
 
   /**
+   * @public
    * <p>Allows this CA certificate to be used for auto registration of device
    *          certificates.</p>
    */
   allowAutoRegistration?: boolean;
 
   /**
+   * @public
    * <p>Information about the registration configuration.</p>
    */
   registrationConfig?: RegistrationConfig;
 
   /**
+   * @public
    * <p>Metadata which can be used to manage the CA certificate.</p>
    *          <note>
    *             <p>For URI Request parameters use format: ...key1=value1&key2=value2...</p>
@@ -1684,6 +1902,7 @@ export interface RegisterCACertificateRequest {
   tags?: Tag[];
 
   /**
+   * @public
    * <p>Describes the certificate mode in which the Certificate Authority (CA) will be
    *          registered. If the <code>verificationCertificate</code> field is not provided, set <code>certificateMode</code> to be <code>SNI_ONLY</code>.
    *          If the <code>verificationCertificate</code> field is provided, set <code>certificateMode</code> to be <code>DEFAULT</code>.
@@ -1703,11 +1922,13 @@ export interface RegisterCACertificateRequest {
  */
 export interface RegisterCACertificateResponse {
   /**
+   * @public
    * <p>The CA certificate ARN.</p>
    */
   certificateArn?: string;
 
   /**
+   * @public
    * <p>The CA certificate identifier.</p>
    */
   certificateId?: string;
@@ -1761,16 +1982,19 @@ export class CertificateConflictException extends __BaseException {
  */
 export interface RegisterCertificateRequest {
   /**
+   * @public
    * <p>The certificate data, in PEM format.</p>
    */
   certificatePem: string | undefined;
 
   /**
+   * @public
    * <p>The CA certificate used to sign the device certificate being registered.</p>
    */
   caCertificatePem?: string;
 
   /**
+   * @public
    * @deprecated
    *
    * <p>A boolean value that specifies if the certificate is set to active.</p>
@@ -1780,6 +2004,7 @@ export interface RegisterCertificateRequest {
   setAsActive?: boolean;
 
   /**
+   * @public
    * <p>The status of the register certificate request. Valid values that you can use include
    *          <code>ACTIVE</code>, <code>INACTIVE</code>, and <code>REVOKED</code>.</p>
    */
@@ -1792,11 +2017,13 @@ export interface RegisterCertificateRequest {
  */
 export interface RegisterCertificateResponse {
   /**
+   * @public
    * <p>The certificate ARN.</p>
    */
   certificateArn?: string;
 
   /**
+   * @public
    * <p>The certificate identifier.</p>
    */
   certificateId?: string;
@@ -1807,11 +2034,13 @@ export interface RegisterCertificateResponse {
  */
 export interface RegisterCertificateWithoutCARequest {
   /**
+   * @public
    * <p>The certificate data, in PEM format.</p>
    */
   certificatePem: string | undefined;
 
   /**
+   * @public
    * <p>The status of the register certificate request.</p>
    */
   status?: CertificateStatus | string;
@@ -1822,11 +2051,13 @@ export interface RegisterCertificateWithoutCARequest {
  */
 export interface RegisterCertificateWithoutCAResponse {
   /**
+   * @public
    * <p>The Amazon Resource Name (ARN) of the registered certificate.</p>
    */
   certificateArn?: string;
 
   /**
+   * @public
    * <p>The ID of the registered certificate. (The last part of the certificate ARN contains the
    *          certificate ID.</p>
    */
@@ -1838,11 +2069,13 @@ export interface RegisterCertificateWithoutCAResponse {
  */
 export interface RegisterThingRequest {
   /**
+   * @public
    * <p>The provisioning template. See <a href="https://docs.aws.amazon.com/iot/latest/developerguide/provision-w-cert.html">Provisioning Devices That Have Device Certificates</a> for more information.</p>
    */
   templateBody: string | undefined;
 
   /**
+   * @public
    * <p>The parameters for provisioning a thing. See <a href="https://docs.aws.amazon.com/iot/latest/developerguide/provision-template.html">Provisioning Templates</a> for more information.</p>
    */
   parameters?: Record<string, string>;
@@ -1853,11 +2086,13 @@ export interface RegisterThingRequest {
  */
 export interface RegisterThingResponse {
   /**
+   * @public
    * <p>The certificate data, in PEM format.</p>
    */
   certificatePem?: string;
 
   /**
+   * @public
    * <p>ARNs for the generated resources.</p>
    */
   resourceArns?: Record<string, string>;
@@ -1889,12 +2124,14 @@ export class ResourceRegistrationFailureException extends __BaseException {
  */
 export interface RejectCertificateTransferRequest {
   /**
+   * @public
    * <p>The ID of the certificate. (The last part of the certificate ARN contains the
    *          certificate ID.)</p>
    */
   certificateId: string | undefined;
 
   /**
+   * @public
    * <p>The reason the certificate transfer was rejected.</p>
    */
   rejectReason?: string;
@@ -1905,21 +2142,25 @@ export interface RejectCertificateTransferRequest {
  */
 export interface RemoveThingFromBillingGroupRequest {
   /**
+   * @public
    * <p>The name of the billing group.</p>
    */
   billingGroupName?: string;
 
   /**
+   * @public
    * <p>The ARN of the billing group.</p>
    */
   billingGroupArn?: string;
 
   /**
+   * @public
    * <p>The name of the thing to be removed from the billing group.</p>
    */
   thingName?: string;
 
   /**
+   * @public
    * <p>The ARN of the thing to be removed from the billing group.</p>
    */
   thingArn?: string;
@@ -1935,21 +2176,25 @@ export interface RemoveThingFromBillingGroupResponse {}
  */
 export interface RemoveThingFromThingGroupRequest {
   /**
+   * @public
    * <p>The group name.</p>
    */
   thingGroupName?: string;
 
   /**
+   * @public
    * <p>The group ARN.</p>
    */
   thingGroupArn?: string;
 
   /**
+   * @public
    * <p>The name of the thing to remove from the group.</p>
    */
   thingName?: string;
 
   /**
+   * @public
    * <p>The ARN of the thing to remove from the group.</p>
    */
   thingArn?: string;
@@ -1966,11 +2211,13 @@ export interface RemoveThingFromThingGroupResponse {}
  */
 export interface ReplaceTopicRuleRequest {
   /**
+   * @public
    * <p>The name of the rule.</p>
    */
   ruleName: string | undefined;
 
   /**
+   * @public
    * <p>The rule payload.</p>
    */
   topicRulePayload: TopicRulePayload | undefined;
@@ -1981,28 +2228,33 @@ export interface ReplaceTopicRuleRequest {
  */
 export interface SearchIndexRequest {
   /**
+   * @public
    * <p>The search index name.</p>
    */
   indexName?: string;
 
   /**
+   * @public
    * <p>The search query string. For more information about the search query syntax, see <a href="https://docs.aws.amazon.com/iot/latest/developerguide/query-syntax.html">Query
    *       syntax</a>.</p>
    */
   queryString: string | undefined;
 
   /**
+   * @public
    * <p>The token used to get the next set of results, or <code>null</code> if there are no additional
    *       results.</p>
    */
   nextToken?: string;
 
   /**
+   * @public
    * <p>The maximum number of results to return at one time.</p>
    */
   maxResults?: number;
 
   /**
+   * @public
    * <p>The query version.</p>
    */
   queryVersion?: string;
@@ -2014,26 +2266,31 @@ export interface SearchIndexRequest {
  */
 export interface ThingGroupDocument {
   /**
+   * @public
    * <p>The thing group name.</p>
    */
   thingGroupName?: string;
 
   /**
+   * @public
    * <p>The thing group ID.</p>
    */
   thingGroupId?: string;
 
   /**
+   * @public
    * <p>The thing group description.</p>
    */
   thingGroupDescription?: string;
 
   /**
+   * @public
    * <p>The thing group attributes.</p>
    */
   attributes?: Record<string, string>;
 
   /**
+   * @public
    * <p>Parent group names.</p>
    */
   parentGroupNames?: string[];
@@ -2045,18 +2302,21 @@ export interface ThingGroupDocument {
  */
 export interface ThingConnectivity {
   /**
+   * @public
    * <p>True if the thing is connected to the Amazon Web Services IoT Core service; false if it is not
    *       connected.</p>
    */
   connected?: boolean;
 
   /**
+   * @public
    * <p>The epoch time (in milliseconds) when the thing last connected or disconnected. If the
    *       thing has been disconnected for approximately an hour, the time value might be missing.</p>
    */
   timestamp?: number;
 
   /**
+   * @public
    * <p>The reason why the client is disconnected. If the thing has been disconnected for approximately an hour, the <code>disconnectReason</code> value might be missing.</p>
    */
   disconnectReason?: string;
@@ -2068,31 +2328,37 @@ export interface ThingConnectivity {
  */
 export interface ThingDocument {
   /**
+   * @public
    * <p>The thing name.</p>
    */
   thingName?: string;
 
   /**
+   * @public
    * <p>The thing ID.</p>
    */
   thingId?: string;
 
   /**
+   * @public
    * <p>The thing type name.</p>
    */
   thingTypeName?: string;
 
   /**
+   * @public
    * <p>Thing group names.</p>
    */
   thingGroupNames?: string[];
 
   /**
+   * @public
    * <p>The attributes.</p>
    */
   attributes?: Record<string, string>;
 
   /**
+   * @public
    * <p>The unnamed shadow and named shadow.</p>
    *          <p>For more information about shadows, see <a href="https://docs.aws.amazon.com/iot/latest/developerguide/iot-device-shadows.html">IoT Device Shadow service.</a>
    *          </p>
@@ -2100,12 +2366,14 @@ export interface ThingDocument {
   shadow?: string;
 
   /**
+   * @public
    * <p>Contains Device Defender data.</p>
    *          <p>For more information about Device Defender, see <a href="https://docs.aws.amazon.com/iot/latest/developerguide/device-defender.html">Device Defender</a>. </p>
    */
   deviceDefender?: string;
 
   /**
+   * @public
    * <p>Indicates whether the thing is connected to the Amazon Web Services IoT Core service.</p>
    */
   connectivity?: ThingConnectivity;
@@ -2116,17 +2384,20 @@ export interface ThingDocument {
  */
 export interface SearchIndexResponse {
   /**
+   * @public
    * <p>The token used to get the next set of results, or <code>null</code> if there are no additional
    *       results.</p>
    */
   nextToken?: string;
 
   /**
+   * @public
    * <p>The things that match the search query.</p>
    */
   things?: ThingDocument[];
 
   /**
+   * @public
    * <p>The thing groups that match the search query.</p>
    */
   thingGroups?: ThingGroupDocument[];
@@ -2137,6 +2408,7 @@ export interface SearchIndexResponse {
  */
 export interface SetDefaultAuthorizerRequest {
   /**
+   * @public
    * <p>The authorizer name.</p>
    */
   authorizerName: string | undefined;
@@ -2147,11 +2419,13 @@ export interface SetDefaultAuthorizerRequest {
  */
 export interface SetDefaultAuthorizerResponse {
   /**
+   * @public
    * <p>The authorizer name.</p>
    */
   authorizerName?: string;
 
   /**
+   * @public
    * <p>The authorizer ARN.</p>
    */
   authorizerArn?: string;
@@ -2163,11 +2437,13 @@ export interface SetDefaultAuthorizerResponse {
  */
 export interface SetDefaultPolicyVersionRequest {
   /**
+   * @public
    * <p>The policy name.</p>
    */
   policyName: string | undefined;
 
   /**
+   * @public
    * <p>The policy version ID.</p>
    */
   policyVersionId: string | undefined;
@@ -2179,11 +2455,13 @@ export interface SetDefaultPolicyVersionRequest {
  */
 export interface LoggingOptionsPayload {
   /**
+   * @public
    * <p>The ARN of the IAM role that grants access.</p>
    */
   roleArn: string | undefined;
 
   /**
+   * @public
    * <p>The log level.</p>
    */
   logLevel?: LogLevel | string;
@@ -2195,6 +2473,7 @@ export interface LoggingOptionsPayload {
  */
 export interface SetLoggingOptionsRequest {
   /**
+   * @public
    * <p>The logging options payload.</p>
    */
   loggingOptionsPayload: LoggingOptionsPayload | undefined;
@@ -2205,11 +2484,13 @@ export interface SetLoggingOptionsRequest {
  */
 export interface SetV2LoggingLevelRequest {
   /**
+   * @public
    * <p>The log target.</p>
    */
   logTarget: LogTarget | undefined;
 
   /**
+   * @public
    * <p>The log level.</p>
    */
   logLevel: LogLevel | string | undefined;
@@ -2220,16 +2501,19 @@ export interface SetV2LoggingLevelRequest {
  */
 export interface SetV2LoggingOptionsRequest {
   /**
+   * @public
    * <p>The ARN of the role that allows IoT to write to Cloudwatch logs.</p>
    */
   roleArn?: string;
 
   /**
+   * @public
    * <p>The default logging level.</p>
    */
   defaultLogLevel?: LogLevel | string;
 
   /**
+   * @public
    * <p>If true all logs are disabled. The default is false.</p>
    */
   disableAllLogs?: boolean;
@@ -2240,11 +2524,13 @@ export interface SetV2LoggingOptionsRequest {
  */
 export interface StartAuditMitigationActionsTaskRequest {
   /**
+   * @public
    * <p>A unique identifier for the task. You can use this identifier to check the status of the task or to cancel it.</p>
    */
   taskId: string | undefined;
 
   /**
+   * @public
    * <p>Specifies the audit findings to which the mitigation actions are applied. You can apply
    *       them to a type of audit check, to all findings from an audit, or to a
    *       specific set of
@@ -2253,11 +2539,13 @@ export interface StartAuditMitigationActionsTaskRequest {
   target: AuditMitigationActionsTaskTarget | undefined;
 
   /**
+   * @public
    * <p>For an audit check, specifies which mitigation actions to apply. Those actions must be defined in your Amazon Web Services accounts.</p>
    */
   auditCheckToActionsMapping: Record<string, string[]> | undefined;
 
   /**
+   * @public
    * <p>Each audit mitigation task must have a unique client request token. If you try to start a new task with the same token as a task that already exists, an exception occurs. If you omit this value, a unique client request token is generated automatically.</p>
    */
   clientRequestToken?: string;
@@ -2268,6 +2556,7 @@ export interface StartAuditMitigationActionsTaskRequest {
  */
 export interface StartAuditMitigationActionsTaskResponse {
   /**
+   * @public
    * <p>The unique identifier for the audit mitigation task. This matches the <code>taskId</code> that you specified in the request.</p>
    */
   taskId?: string;
@@ -2300,6 +2589,7 @@ export class TaskAlreadyExistsException extends __BaseException {
  */
 export interface StartDetectMitigationActionsTaskRequest {
   /**
+   * @public
    * <p>
    *       The unique identifier of the task.
    *     </p>
@@ -2307,6 +2597,7 @@ export interface StartDetectMitigationActionsTaskRequest {
   taskId: string | undefined;
 
   /**
+   * @public
    * <p>
    *       Specifies the ML Detect findings to which the mitigation actions are applied.
    *     </p>
@@ -2314,6 +2605,7 @@ export interface StartDetectMitigationActionsTaskRequest {
   target: DetectMitigationActionsTaskTarget | undefined;
 
   /**
+   * @public
    * <p>
    *       The actions to be performed when a device has unexpected behavior.
    *     </p>
@@ -2321,6 +2613,7 @@ export interface StartDetectMitigationActionsTaskRequest {
   actions: string[] | undefined;
 
   /**
+   * @public
    * <p>
    *       Specifies the time period of which violation events occurred between.
    *     </p>
@@ -2328,6 +2621,7 @@ export interface StartDetectMitigationActionsTaskRequest {
   violationEventOccurrenceRange?: ViolationEventOccurrenceRange;
 
   /**
+   * @public
    * <p>
    *       Specifies to list only active violations.
    *     </p>
@@ -2335,6 +2629,7 @@ export interface StartDetectMitigationActionsTaskRequest {
   includeOnlyActiveViolations?: boolean;
 
   /**
+   * @public
    * <p>
    *       Specifies to include suppressed alerts.
    *     </p>
@@ -2342,6 +2637,7 @@ export interface StartDetectMitigationActionsTaskRequest {
   includeSuppressedAlerts?: boolean;
 
   /**
+   * @public
    * <p>
    *       Each mitigation action task must have a unique client request token. If you try to create a new task with the same token as a task that already exists, an exception occurs. If you omit this value, Amazon Web Services SDKs will automatically generate a unique client request.
    *     </p>
@@ -2354,6 +2650,7 @@ export interface StartDetectMitigationActionsTaskRequest {
  */
 export interface StartDetectMitigationActionsTaskResponse {
   /**
+   * @public
    * <p>
    *       The unique identifier of the task.
    *     </p>
@@ -2366,6 +2663,7 @@ export interface StartDetectMitigationActionsTaskResponse {
  */
 export interface StartOnDemandAuditTaskRequest {
   /**
+   * @public
    * <p>Which checks are performed during the audit. The checks you specify must be enabled
    *             for your account or an exception occurs. Use <code>DescribeAccountAuditConfiguration</code>
    *             to see the list of all checks, including those that are enabled or
@@ -2379,6 +2677,7 @@ export interface StartOnDemandAuditTaskRequest {
  */
 export interface StartOnDemandAuditTaskResponse {
   /**
+   * @public
    * <p>The ID of the on-demand audit you started.</p>
    */
   taskId?: string;
@@ -2389,16 +2688,19 @@ export interface StartOnDemandAuditTaskResponse {
  */
 export interface StartThingRegistrationTaskRequest {
   /**
+   * @public
    * <p>The provisioning template.</p>
    */
   templateBody: string | undefined;
 
   /**
+   * @public
    * <p>The S3 bucket that contains the input file.</p>
    */
   inputFileBucket: string | undefined;
 
   /**
+   * @public
    * <p>The name of input file within the S3 bucket. This file contains a newline delimited
    * 			JSON file. Each line contains the parameter values to provision one device
    * 			(thing).</p>
@@ -2406,6 +2708,7 @@ export interface StartThingRegistrationTaskRequest {
   inputFileKey: string | undefined;
 
   /**
+   * @public
    * <p>The IAM role ARN that grants permission the input file.</p>
    */
   roleArn: string | undefined;
@@ -2416,6 +2719,7 @@ export interface StartThingRegistrationTaskRequest {
  */
 export interface StartThingRegistrationTaskResponse {
   /**
+   * @public
    * <p>The bulk thing provisioning task ID.</p>
    */
   taskId?: string;
@@ -2426,6 +2730,7 @@ export interface StartThingRegistrationTaskResponse {
  */
 export interface StopThingRegistrationTaskRequest {
   /**
+   * @public
    * <p>The bulk thing provisioning task ID.</p>
    */
   taskId: string | undefined;
@@ -2441,11 +2746,13 @@ export interface StopThingRegistrationTaskResponse {}
  */
 export interface TagResourceRequest {
   /**
+   * @public
    * <p>The ARN of the resource.</p>
    */
   resourceArn: string | undefined;
 
   /**
+   * @public
    * <p>The new or modified tags for the resource.</p>
    */
   tags: Tag[] | undefined;
@@ -2461,33 +2768,39 @@ export interface TagResourceResponse {}
  */
 export interface TestAuthorizationRequest {
   /**
+   * @public
    * <p>The principal. Valid principals are CertificateArn (arn:aws:iot:<i>region</i>:<i>accountId</i>:cert/<i>certificateId</i>), thingGroupArn (arn:aws:iot:<i>region</i>:<i>accountId</i>:thinggroup/<i>groupName</i>) and CognitoId (<i>region</i>:<i>id</i>).</p>
    */
   principal?: string;
 
   /**
+   * @public
    * <p>The Cognito identity pool ID.</p>
    */
   cognitoIdentityPoolId?: string;
 
   /**
+   * @public
    * <p>A list of authorization info objects. Simulating authorization will create a response
    *          for each <code>authInfo</code> object in the list.</p>
    */
   authInfos: AuthInfo[] | undefined;
 
   /**
+   * @public
    * <p>The MQTT client ID.</p>
    */
   clientId?: string;
 
   /**
+   * @public
    * <p>When testing custom authorization, the policies specified here are treated as if they
    *          are attached to the principal being authorized.</p>
    */
   policyNamesToAdd?: string[];
 
   /**
+   * @public
    * <p>When testing custom authorization, the policies specified here are treated as if they
    *          are not attached to the principal being authorized.</p>
    */
@@ -2499,6 +2812,7 @@ export interface TestAuthorizationRequest {
  */
 export interface TestAuthorizationResponse {
   /**
+   * @public
    * <p>The authentication results.</p>
    */
   authResults?: AuthResult[];
@@ -2530,11 +2844,13 @@ export class InvalidResponseException extends __BaseException {
  */
 export interface HttpContext {
   /**
+   * @public
    * <p>The header keys and values in an HTTP authorization request.</p>
    */
   headers?: Record<string, string>;
 
   /**
+   * @public
    * <p>The query string keys and values in an HTTP authorization request.</p>
    */
   queryString?: string;
@@ -2546,16 +2862,19 @@ export interface HttpContext {
  */
 export interface MqttContext {
   /**
+   * @public
    * <p>The value of the <code>username</code> key in an MQTT authorization request.</p>
    */
   username?: string;
 
   /**
+   * @public
    * <p>The value of the <code>password</code> key in an MQTT authorization request.</p>
    */
   password?: Uint8Array;
 
   /**
+   * @public
    * <p>The value of the <code>clientId</code> key in an MQTT authorization request.</p>
    */
   clientId?: string;
@@ -2567,6 +2886,7 @@ export interface MqttContext {
  */
 export interface TlsContext {
   /**
+   * @public
    * <p>The value of the <code>serverName</code> key in a TLS authorization request.</p>
    */
   serverName?: string;
@@ -2577,32 +2897,38 @@ export interface TlsContext {
  */
 export interface TestInvokeAuthorizerRequest {
   /**
+   * @public
    * <p>The custom authorizer name.</p>
    */
   authorizerName: string | undefined;
 
   /**
+   * @public
    * <p>The token returned by your custom authentication service.</p>
    */
   token?: string;
 
   /**
+   * @public
    * <p>The signature made with the token and your custom authentication service's private
    *          key. This value must be Base-64-encoded.</p>
    */
   tokenSignature?: string;
 
   /**
+   * @public
    * <p>Specifies a test HTTP authorization request.</p>
    */
   httpContext?: HttpContext;
 
   /**
+   * @public
    * <p>Specifies a test MQTT authorization request.</p>
    */
   mqttContext?: MqttContext;
 
   /**
+   * @public
    * <p>Specifies a test TLS authorization request.</p>
    */
   tlsContext?: TlsContext;
@@ -2613,26 +2939,31 @@ export interface TestInvokeAuthorizerRequest {
  */
 export interface TestInvokeAuthorizerResponse {
   /**
+   * @public
    * <p>True if the token is authenticated, otherwise false.</p>
    */
   isAuthenticated?: boolean;
 
   /**
+   * @public
    * <p>The principal ID.</p>
    */
   principalId?: string;
 
   /**
+   * @public
    * <p>IAM policy documents.</p>
    */
   policyDocuments?: string[];
 
   /**
+   * @public
    * <p>The number of seconds after which the temporary credentials are refreshed.</p>
    */
   refreshAfterInSeconds?: number;
 
   /**
+   * @public
    * <p>The number of seconds after which the connection is terminated.</p>
    */
   disconnectAfterInSeconds?: number;
@@ -2644,17 +2975,20 @@ export interface TestInvokeAuthorizerResponse {
  */
 export interface TransferCertificateRequest {
   /**
+   * @public
    * <p>The ID of the certificate. (The last part of the certificate ARN contains the
    *          certificate ID.)</p>
    */
   certificateId: string | undefined;
 
   /**
+   * @public
    * <p>The Amazon Web Services account.</p>
    */
   targetAwsAccount: string | undefined;
 
   /**
+   * @public
    * <p>The transfer message.</p>
    */
   transferMessage?: string;
@@ -2666,6 +3000,7 @@ export interface TransferCertificateRequest {
  */
 export interface TransferCertificateResponse {
   /**
+   * @public
    * <p>The ARN of the certificate.</p>
    */
   transferredCertificateArn?: string;
@@ -2697,11 +3032,13 @@ export class TransferConflictException extends __BaseException {
  */
 export interface UntagResourceRequest {
   /**
+   * @public
    * <p>The ARN of the resource.</p>
    */
   resourceArn: string | undefined;
 
   /**
+   * @public
    * <p>A list of the keys of the tags to be removed from the resource.</p>
    */
   tagKeys: string[] | undefined;
@@ -2717,6 +3054,7 @@ export interface UntagResourceResponse {}
  */
 export interface UpdateAccountAuditConfigurationRequest {
   /**
+   * @public
    * <p>The Amazon
    *       Resource Name
    *       (ARN)
@@ -2729,11 +3067,13 @@ export interface UpdateAccountAuditConfigurationRequest {
   roleArn?: string;
 
   /**
+   * @public
    * <p>Information about the targets to which audit notifications are sent.</p>
    */
   auditNotificationTargetConfigurations?: Record<string, AuditNotificationTarget>;
 
   /**
+   * @public
    * <p>Specifies which audit checks are enabled and disabled for this account. Use
    *             <code>DescribeAccountAuditConfiguration</code> to see the list of all checks, including those
    *             that are currently enabled.</p>
@@ -2761,6 +3101,7 @@ export interface UpdateAccountAuditConfigurationResponse {}
  */
 export interface UpdateAuditSuppressionRequest {
   /**
+   * @public
    * <p>An audit check name. Checks must be enabled
    *         for your account. (Use <code>DescribeAccountAuditConfiguration</code> to see the list
    *         of all checks, including those that are enabled or use <code>UpdateAccountAuditConfiguration</code>
@@ -2769,11 +3110,13 @@ export interface UpdateAuditSuppressionRequest {
   checkName: string | undefined;
 
   /**
+   * @public
    * <p>Information that identifies the noncompliant resource.</p>
    */
   resourceIdentifier: ResourceIdentifier | undefined;
 
   /**
+   * @public
    * <p>
    *       The expiration date (epoch timestamp in seconds) that you want the suppression to adhere to.
    *     </p>
@@ -2781,6 +3124,7 @@ export interface UpdateAuditSuppressionRequest {
   expirationDate?: Date;
 
   /**
+   * @public
    * <p>
    *       Indicates whether a suppression should exist indefinitely or not.
    *     </p>
@@ -2788,6 +3132,7 @@ export interface UpdateAuditSuppressionRequest {
   suppressIndefinitely?: boolean;
 
   /**
+   * @public
    * <p>
    *       The description of the audit suppression.
    *     </p>
@@ -2805,31 +3150,37 @@ export interface UpdateAuditSuppressionResponse {}
  */
 export interface UpdateAuthorizerRequest {
   /**
+   * @public
    * <p>The authorizer name.</p>
    */
   authorizerName: string | undefined;
 
   /**
+   * @public
    * <p>The ARN of the authorizer's Lambda function.</p>
    */
   authorizerFunctionArn?: string;
 
   /**
+   * @public
    * <p>The key used to extract the token from the HTTP headers. </p>
    */
   tokenKeyName?: string;
 
   /**
+   * @public
    * <p>The public keys used to verify the token signature.</p>
    */
   tokenSigningPublicKeys?: Record<string, string>;
 
   /**
+   * @public
    * <p>The status of the update authorizer request.</p>
    */
   status?: AuthorizerStatus | string;
 
   /**
+   * @public
    * <p>When <code>true</code>, the result from the authorizer’s Lambda function is
    * 	  cached for the time specified in <code>refreshAfterInSeconds</code>. The cached
    * 	  result is used while the device reuses the same HTTP connection.</p>
@@ -2842,11 +3193,13 @@ export interface UpdateAuthorizerRequest {
  */
 export interface UpdateAuthorizerResponse {
   /**
+   * @public
    * <p>The authorizer name.</p>
    */
   authorizerName?: string;
 
   /**
+   * @public
    * <p>The authorizer ARN.</p>
    */
   authorizerArn?: string;
@@ -2857,16 +3210,19 @@ export interface UpdateAuthorizerResponse {
  */
 export interface UpdateBillingGroupRequest {
   /**
+   * @public
    * <p>The name of the billing group.</p>
    */
   billingGroupName: string | undefined;
 
   /**
+   * @public
    * <p>The properties of the billing group.</p>
    */
   billingGroupProperties: BillingGroupProperties | undefined;
 
   /**
+   * @public
    * <p>The expected version of the billing group. If the version of the billing group does
    * 			not match the expected version specified in the request, the
    * 				<code>UpdateBillingGroup</code> request is rejected with a
@@ -2880,6 +3236,7 @@ export interface UpdateBillingGroupRequest {
  */
 export interface UpdateBillingGroupResponse {
   /**
+   * @public
    * <p>The latest version of the billing group.</p>
    */
   version?: number;
@@ -2891,11 +3248,13 @@ export interface UpdateBillingGroupResponse {
  */
 export interface UpdateCACertificateRequest {
   /**
+   * @public
    * <p>The CA certificate identifier.</p>
    */
   certificateId: string | undefined;
 
   /**
+   * @public
    * <p>The updated status of the CA certificate.</p>
    *          <p>
    *             <b>Note:</b> The status value REGISTER_INACTIVE is deprecated and
@@ -2904,17 +3263,20 @@ export interface UpdateCACertificateRequest {
   newStatus?: CACertificateStatus | string;
 
   /**
+   * @public
    * <p>The new value for the auto registration status. Valid values are: "ENABLE" or
    *          "DISABLE".</p>
    */
   newAutoRegistrationStatus?: AutoRegistrationStatus | string;
 
   /**
+   * @public
    * <p>Information about the registration configuration.</p>
    */
   registrationConfig?: RegistrationConfig;
 
   /**
+   * @public
    * <p>If true, removes auto registration.</p>
    */
   removeAutoRegistration?: boolean;
@@ -2926,12 +3288,14 @@ export interface UpdateCACertificateRequest {
  */
 export interface UpdateCertificateRequest {
   /**
+   * @public
    * <p>The ID of the certificate. (The last part of the certificate ARN contains the
    *          certificate ID.)</p>
    */
   certificateId: string | undefined;
 
   /**
+   * @public
    * <p>The new status.</p>
    *          <p>
    *             <b>Note:</b> Setting the status to PENDING_TRANSFER  or PENDING_ACTIVATION will result
@@ -2949,12 +3313,14 @@ export interface UpdateCertificateRequest {
  */
 export interface UpdateCustomMetricRequest {
   /**
+   * @public
    * <p> The name of the custom metric.
    *       Cannot be updated. </p>
    */
   metricName: string | undefined;
 
   /**
+   * @public
    * <p>
    *       Field
    *       represents a friendly name in the console for the custom metric,
@@ -2972,6 +3338,7 @@ export interface UpdateCustomMetricRequest {
  */
 export interface UpdateCustomMetricResponse {
   /**
+   * @public
    * <p>
    *       The name of the custom metric.
    *     </p>
@@ -2979,6 +3346,7 @@ export interface UpdateCustomMetricResponse {
   metricName?: string;
 
   /**
+   * @public
    * <p>
    *       The Amazon Resource Number (ARN) of the custom metric.
    *     </p>
@@ -2986,6 +3354,7 @@ export interface UpdateCustomMetricResponse {
   metricArn?: string;
 
   /**
+   * @public
    * <p> The type of the custom metric. </p>
    *          <important>
    *             <p>The type <code>number</code> only takes a single metric value as an input, but while submitting the metrics value in the DeviceMetrics report, it must be passed as an array with a single value.</p>
@@ -2994,6 +3363,7 @@ export interface UpdateCustomMetricResponse {
   metricType?: CustomMetricType | string;
 
   /**
+   * @public
    * <p>
    *       A friendly name in the console for the custom metric
    *     </p>
@@ -3001,6 +3371,7 @@ export interface UpdateCustomMetricResponse {
   displayName?: string;
 
   /**
+   * @public
    * <p>
    *       The creation date of the custom metric in milliseconds since epoch.
    *     </p>
@@ -3008,6 +3379,7 @@ export interface UpdateCustomMetricResponse {
   creationDate?: Date;
 
   /**
+   * @public
    * <p>
    *       The time the custom metric was last modified in milliseconds since epoch.
    *     </p>
@@ -3020,11 +3392,13 @@ export interface UpdateCustomMetricResponse {
  */
 export interface UpdateDimensionRequest {
   /**
+   * @public
    * <p>A unique identifier for the dimension. Choose something that describes the type and value to make it easy to remember what it does.</p>
    */
   name: string | undefined;
 
   /**
+   * @public
    * <p>Specifies the value or list of values for the dimension. For <code>TOPIC_FILTER</code> dimensions, this is a pattern used to match the MQTT topic (for example, "admin/#").</p>
    */
   stringValues: string[] | undefined;
@@ -3035,11 +3409,13 @@ export interface UpdateDimensionRequest {
  */
 export interface UpdateDimensionResponse {
   /**
+   * @public
    * <p>A unique identifier for the dimension.</p>
    */
   name?: string;
 
   /**
+   * @public
    * <p>The Amazon Resource
    *       Name (ARN)of
    *       the created dimension.</p>
@@ -3047,21 +3423,25 @@ export interface UpdateDimensionResponse {
   arn?: string;
 
   /**
+   * @public
    * <p>The type of the dimension.</p>
    */
   type?: DimensionType | string;
 
   /**
+   * @public
    * <p>The value or list of values used to scope the dimension. For example, for topic filters, this is the pattern used to match the MQTT topic name.</p>
    */
   stringValues?: string[];
 
   /**
+   * @public
    * <p>The date and time, in milliseconds since epoch, when the dimension was initially created.</p>
    */
   creationDate?: Date;
 
   /**
+   * @public
    * <p>The date and time, in milliseconds since epoch, when the dimension was most recently updated.</p>
    */
   lastModifiedDate?: Date;
@@ -3072,26 +3452,31 @@ export interface UpdateDimensionResponse {
  */
 export interface UpdateDomainConfigurationRequest {
   /**
+   * @public
    * <p>The name of the domain configuration to be updated.</p>
    */
   domainConfigurationName: string | undefined;
 
   /**
+   * @public
    * <p>An object that specifies the authorization service for a domain.</p>
    */
   authorizerConfig?: AuthorizerConfig;
 
   /**
+   * @public
    * <p>The status to which the domain configuration should be updated.</p>
    */
   domainConfigurationStatus?: DomainConfigurationStatus | string;
 
   /**
+   * @public
    * <p>Removes the authorization configuration from a domain.</p>
    */
   removeAuthorizerConfig?: boolean;
 
   /**
+   * @public
    * <p>An object that specifies the TLS configuration for a domain.</p>
    */
   tlsConfig?: TlsConfig;
@@ -3102,11 +3487,13 @@ export interface UpdateDomainConfigurationRequest {
  */
 export interface UpdateDomainConfigurationResponse {
   /**
+   * @public
    * <p>The name of the domain configuration that was updated.</p>
    */
   domainConfigurationName?: string;
 
   /**
+   * @public
    * <p>The ARN of the domain configuration that was updated.</p>
    */
   domainConfigurationArn?: string;
@@ -3117,21 +3504,25 @@ export interface UpdateDomainConfigurationResponse {
  */
 export interface UpdateDynamicThingGroupRequest {
   /**
+   * @public
    * <p>The name of the dynamic thing group to update.</p>
    */
   thingGroupName: string | undefined;
 
   /**
+   * @public
    * <p>The dynamic thing group properties to update.</p>
    */
   thingGroupProperties: ThingGroupProperties | undefined;
 
   /**
+   * @public
    * <p>The expected version of the dynamic thing group to update.</p>
    */
   expectedVersion?: number;
 
   /**
+   * @public
    * <p>The dynamic thing group index to update.</p>
    *          <note>
    *             <p>Currently one index is supported: <code>AWS_Things</code>.</p>
@@ -3140,11 +3531,13 @@ export interface UpdateDynamicThingGroupRequest {
   indexName?: string;
 
   /**
+   * @public
    * <p>The dynamic thing group search query string to update.</p>
    */
   queryString?: string;
 
   /**
+   * @public
    * <p>The dynamic thing group query version to update.</p>
    *          <note>
    *             <p>Currently one query version is supported: "2017-09-30". If not specified, the
@@ -3159,6 +3552,7 @@ export interface UpdateDynamicThingGroupRequest {
  */
 export interface UpdateDynamicThingGroupResponse {
   /**
+   * @public
    * <p>The dynamic thing group version.</p>
    */
   version?: number;
@@ -3169,6 +3563,7 @@ export interface UpdateDynamicThingGroupResponse {
  */
 export interface UpdateEventConfigurationsRequest {
   /**
+   * @public
    * <p>The new event configuration values.</p>
    */
   eventConfigurations?: Record<string, Configuration>;
@@ -3184,52 +3579,62 @@ export interface UpdateEventConfigurationsResponse {}
  */
 export interface UpdateFleetMetricRequest {
   /**
+   * @public
    * <p>The name of the fleet metric to update.</p>
    */
   metricName: string | undefined;
 
   /**
+   * @public
    * <p>The search query string.</p>
    */
   queryString?: string;
 
   /**
+   * @public
    * <p>The type of the aggregation query.</p>
    */
   aggregationType?: AggregationType;
 
   /**
+   * @public
    * <p>The time in seconds between fleet metric emissions. Range [60(1 min), 86400(1 day)] and must be multiple of 60.</p>
    */
   period?: number;
 
   /**
+   * @public
    * <p>The field to aggregate.</p>
    */
   aggregationField?: string;
 
   /**
+   * @public
    * <p>The description of the fleet metric.</p>
    */
   description?: string;
 
   /**
+   * @public
    * <p>The version of the query.</p>
    */
   queryVersion?: string;
 
   /**
+   * @public
    * <p>The name of the index to search.</p>
    */
   indexName: string | undefined;
 
   /**
+   * @public
    * <p>Used to support unit transformation such as milliseconds to seconds. The unit must be
    *       supported by <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/APIReference/API_MetricDatum.html">CW metric</a>.</p>
    */
   unit?: FleetMetricUnit | string;
 
   /**
+   * @public
    * <p>The expected version of the fleet metric record in the registry.</p>
    */
   expectedVersion?: number;
@@ -3240,11 +3645,13 @@ export interface UpdateFleetMetricRequest {
  */
 export interface UpdateIndexingConfigurationRequest {
   /**
+   * @public
    * <p>Thing indexing configuration.</p>
    */
   thingIndexingConfiguration?: ThingIndexingConfiguration;
 
   /**
+   * @public
    * <p>Thing group indexing configuration.</p>
    */
   thingGroupIndexingConfiguration?: ThingGroupIndexingConfiguration;
@@ -3260,37 +3667,44 @@ export interface UpdateIndexingConfigurationResponse {}
  */
 export interface UpdateJobRequest {
   /**
+   * @public
    * <p>The ID of the job to be updated.</p>
    */
   jobId: string | undefined;
 
   /**
+   * @public
    * <p>A short text description of the job.</p>
    */
   description?: string;
 
   /**
+   * @public
    * <p>Configuration information for pre-signed S3 URLs.</p>
    */
   presignedUrlConfig?: PresignedUrlConfig;
 
   /**
+   * @public
    * <p>Allows you to create a staged rollout of the job.</p>
    */
   jobExecutionsRolloutConfig?: JobExecutionsRolloutConfig;
 
   /**
+   * @public
    * <p>Allows you to create criteria to abort a job.</p>
    */
   abortConfig?: AbortConfig;
 
   /**
+   * @public
    * <p>Specifies the amount of time each device has to finish its execution of the job. The timer is started when the job execution status is set to <code>IN_PROGRESS</code>.
    *             If the job execution status is not set to another terminal state before the time expires, it will be automatically set to <code>TIMED_OUT</code>. </p>
    */
   timeoutConfig?: TimeoutConfig;
 
   /**
+   * @public
    * <p>The namespace used to indicate that a job is a customer-managed job.</p>
    *          <p>When you specify a value for this parameter, Amazon Web Services IoT Core sends jobs notifications to MQTT topics that
    *             contain the value in the following format.</p>
@@ -3304,6 +3718,7 @@ export interface UpdateJobRequest {
   namespaceId?: string;
 
   /**
+   * @public
    * <p>Allows you to create the criteria to retry a job.</p>
    */
   jobExecutionsRetryConfig?: JobExecutionsRetryConfig;
@@ -3314,6 +3729,7 @@ export interface UpdateJobRequest {
  */
 export interface UpdateMitigationActionRequest {
   /**
+   * @public
    * <p>The friendly name for the mitigation action. You cannot change the name by using
    *         <code>UpdateMitigationAction</code>. Instead, you must delete and
    *       recreate the
@@ -3322,11 +3738,13 @@ export interface UpdateMitigationActionRequest {
   actionName: string | undefined;
 
   /**
+   * @public
    * <p>The ARN of the IAM role that is used to apply the mitigation action.</p>
    */
   roleArn?: string;
 
   /**
+   * @public
    * <p>Defines the type of action and the parameters for that action.</p>
    */
   actionParams?: MitigationActionParams;
@@ -3337,11 +3755,13 @@ export interface UpdateMitigationActionRequest {
  */
 export interface UpdateMitigationActionResponse {
   /**
+   * @public
    * <p>The ARN for the new mitigation action.</p>
    */
   actionArn?: string;
 
   /**
+   * @public
    * <p>A unique identifier for the mitigation action.</p>
    */
   actionId?: string;
@@ -3352,16 +3772,19 @@ export interface UpdateMitigationActionResponse {
  */
 export interface UpdatePackageRequest {
   /**
+   * @public
    * <p>The name of the target package.</p>
    */
   packageName: string | undefined;
 
   /**
+   * @public
    * <p>The package description.</p>
    */
   description?: string;
 
   /**
+   * @public
    * <p>The name of the default package version.</p>
    *          <p>
    *             <b>Note:</b> You cannot name a <code>defaultVersion</code>
@@ -3370,6 +3793,7 @@ export interface UpdatePackageRequest {
   defaultVersionName?: string;
 
   /**
+   * @public
    * <p>Indicates whether you want to remove the named default package version from the software package.
    *       Set as <code>true</code> to remove the default package version. </p>
    *          <p>
@@ -3379,6 +3803,7 @@ export interface UpdatePackageRequest {
   unsetDefaultVersion?: boolean;
 
   /**
+   * @public
    * <p>A unique case-sensitive identifier that you can provide to ensure the idempotency of the request.
    *       Don't reuse this client token if a new idempotent request is required.</p>
    */
@@ -3395,11 +3820,13 @@ export interface UpdatePackageResponse {}
  */
 export interface UpdatePackageConfigurationRequest {
   /**
+   * @public
    * <p>Configuration to manage job's package version reporting. This updates the thing's reserved named shadow that the job targets.</p>
    */
   versionUpdateByJobsConfig?: VersionUpdateByJobsConfig;
 
   /**
+   * @public
    * <p>A unique case-sensitive identifier that you can provide to ensure the idempotency of the request.
    *       Don't reuse this client token if a new idempotent request is required.</p>
    */
@@ -3430,21 +3857,25 @@ export type PackageVersionAction = (typeof PackageVersionAction)[keyof typeof Pa
  */
 export interface UpdatePackageVersionRequest {
   /**
+   * @public
    * <p>The name of the associated software package.</p>
    */
   packageName: string | undefined;
 
   /**
+   * @public
    * <p>The name of the target package version.</p>
    */
   versionName: string | undefined;
 
   /**
+   * @public
    * <p>The package version description.</p>
    */
   description?: string;
 
   /**
+   * @public
    * <p>Metadata that can be used to define a package version’s configuration. For example, the S3 file location, configuration options that are being sent to the device or fleet. </p>
    *          <p>
    *             <b>Note:</b> Attributes can be updated only when the package version
@@ -3454,11 +3885,13 @@ export interface UpdatePackageVersionRequest {
   attributes?: Record<string, string>;
 
   /**
+   * @public
    * <p>The status that the package version should be assigned. For more information, see <a href="https://docs.aws.amazon.com/iot/latest/developerguide/preparing-to-use-software-package-catalog.html#package-version-lifecycle">Package version lifecycle</a>.</p>
    */
   action?: PackageVersionAction | string;
 
   /**
+   * @public
    * <p>A unique case-sensitive identifier that you can provide to ensure the idempotency of the request.
    *       Don't reuse this client token if a new idempotent request is required.</p>
    */
@@ -3475,32 +3908,38 @@ export interface UpdatePackageVersionResponse {}
  */
 export interface UpdateProvisioningTemplateRequest {
   /**
+   * @public
    * <p>The name of the provisioning template.</p>
    */
   templateName: string | undefined;
 
   /**
+   * @public
    * <p>The description of the provisioning template.</p>
    */
   description?: string;
 
   /**
+   * @public
    * <p>True to enable the provisioning template, otherwise false.</p>
    */
   enabled?: boolean;
 
   /**
+   * @public
    * <p>The ID of the default provisioning template version.</p>
    */
   defaultVersionId?: number;
 
   /**
+   * @public
    * <p>The ARN of the role associated with the provisioning template. This IoT role grants
    *          permission to provision a device.</p>
    */
   provisioningRoleArn?: string;
 
   /**
+   * @public
    * <p>Updates the pre-provisioning hook template. Only supports template of type
    *             <code>FLEET_PROVISIONING</code>. For more information about provisioning template types,
    *          see <a href="https://docs.aws.amazon.com/iot/latest/apireference/API_CreateProvisioningTemplate.html#iot-CreateProvisioningTemplate-request-type">type</a>.</p>
@@ -3508,6 +3947,7 @@ export interface UpdateProvisioningTemplateRequest {
   preProvisioningHook?: ProvisioningHook;
 
   /**
+   * @public
    * <p>Removes pre-provisioning hook template.</p>
    */
   removePreProvisioningHook?: boolean;
@@ -3523,16 +3963,19 @@ export interface UpdateProvisioningTemplateResponse {}
  */
 export interface UpdateRoleAliasRequest {
   /**
+   * @public
    * <p>The role alias to update.</p>
    */
   roleAlias: string | undefined;
 
   /**
+   * @public
    * <p>The role ARN.</p>
    */
   roleArn?: string;
 
   /**
+   * @public
    * <p>The number of seconds the credential will be valid.</p>
    *          <p>This value must be less than or equal to the maximum session duration of the IAM role
    *          that the role alias references.</p>
@@ -3545,11 +3988,13 @@ export interface UpdateRoleAliasRequest {
  */
 export interface UpdateRoleAliasResponse {
   /**
+   * @public
    * <p>The role alias.</p>
    */
   roleAlias?: string;
 
   /**
+   * @public
    * <p>The role alias ARN.</p>
    */
   roleAliasArn?: string;
@@ -3560,6 +4005,7 @@ export interface UpdateRoleAliasResponse {
  */
 export interface UpdateScheduledAuditRequest {
   /**
+   * @public
    * <p>How often the scheduled audit takes
    *       place,
    *       either <code>DAILY</code>,
@@ -3569,6 +4015,7 @@ export interface UpdateScheduledAuditRequest {
   frequency?: AuditFrequency | string;
 
   /**
+   * @public
    * <p>The day of the month on which the scheduled audit takes place.
    *       This
    *       can
@@ -3579,6 +4026,7 @@ export interface UpdateScheduledAuditRequest {
   dayOfMonth?: string;
 
   /**
+   * @public
    * <p>The day of the week on which the scheduled audit takes place.
    *       This
    *       can
@@ -3588,6 +4036,7 @@ export interface UpdateScheduledAuditRequest {
   dayOfWeek?: DayOfWeek | string;
 
   /**
+   * @public
    * <p>Which checks are performed during the scheduled audit. Checks must be enabled
    *             for your account. (Use <code>DescribeAccountAuditConfiguration</code> to see the list
    *             of all checks, including those that are enabled or use <code>UpdateAccountAuditConfiguration</code>
@@ -3596,6 +4045,7 @@ export interface UpdateScheduledAuditRequest {
   targetCheckNames?: string[];
 
   /**
+   * @public
    * <p>The name of the scheduled audit. (Max. 128 chars)</p>
    */
   scheduledAuditName: string | undefined;
@@ -3606,6 +4056,7 @@ export interface UpdateScheduledAuditRequest {
  */
 export interface UpdateScheduledAuditResponse {
   /**
+   * @public
    * <p>The ARN of the scheduled audit.</p>
    */
   scheduledAuditArn?: string;
@@ -3616,26 +4067,31 @@ export interface UpdateScheduledAuditResponse {
  */
 export interface UpdateSecurityProfileRequest {
   /**
+   * @public
    * <p>The name of the security profile you want to update.</p>
    */
   securityProfileName: string | undefined;
 
   /**
+   * @public
    * <p>A description of the security profile.</p>
    */
   securityProfileDescription?: string;
 
   /**
+   * @public
    * <p>Specifies the behaviors that, when violated by a device (thing), cause an alert.</p>
    */
   behaviors?: Behavior[];
 
   /**
+   * @public
    * <p>Where the alerts are sent. (Alerts are always sent to the console.)</p>
    */
   alertTargets?: Record<string, AlertTarget>;
 
   /**
+   * @public
    * @deprecated
    *
    * <p>
@@ -3652,23 +4108,27 @@ export interface UpdateSecurityProfileRequest {
   additionalMetricsToRetain?: string[];
 
   /**
+   * @public
    * <p>A list of metrics whose data is retained (stored). By default, data is retained for any metric used in the profile's behaviors, but it is also retained for any metric specified here. Can be used with custom metrics; cannot be used with dimensions.</p>
    */
   additionalMetricsToRetainV2?: MetricToRetain[];
 
   /**
+   * @public
    * <p>If true, delete all <code>behaviors</code> defined for this security profile.
    *         If any <code>behaviors</code> are defined in the current invocation, an exception occurs.</p>
    */
   deleteBehaviors?: boolean;
 
   /**
+   * @public
    * <p>If true, delete all <code>alertTargets</code> defined for this security profile.
    *         If any <code>alertTargets</code> are defined in the current invocation, an exception occurs.</p>
    */
   deleteAlertTargets?: boolean;
 
   /**
+   * @public
    * <p>If true, delete all <code>additionalMetricsToRetain</code> defined for this
    *         security profile. If any <code>additionalMetricsToRetain</code> are defined in the current
    *         invocation, an exception occurs.</p>
@@ -3676,6 +4136,7 @@ export interface UpdateSecurityProfileRequest {
   deleteAdditionalMetricsToRetain?: boolean;
 
   /**
+   * @public
    * <p>The expected version of the security profile. A new version is generated whenever
    *         the security profile is updated. If you specify a value that is different from the actual
    *         version, a <code>VersionConflictException</code> is thrown.</p>
@@ -3688,31 +4149,37 @@ export interface UpdateSecurityProfileRequest {
  */
 export interface UpdateSecurityProfileResponse {
   /**
+   * @public
    * <p>The name of the security profile that was updated.</p>
    */
   securityProfileName?: string;
 
   /**
+   * @public
    * <p>The ARN of the security profile that was updated.</p>
    */
   securityProfileArn?: string;
 
   /**
+   * @public
    * <p>The description of the security profile.</p>
    */
   securityProfileDescription?: string;
 
   /**
+   * @public
    * <p>Specifies the behaviors that, when violated by a device (thing), cause an alert.</p>
    */
   behaviors?: Behavior[];
 
   /**
+   * @public
    * <p>Where the alerts are sent. (Alerts are always sent to the console.)</p>
    */
   alertTargets?: Record<string, AlertTarget>;
 
   /**
+   * @public
    * @deprecated
    *
    * <p>
@@ -3729,21 +4196,25 @@ export interface UpdateSecurityProfileResponse {
   additionalMetricsToRetain?: string[];
 
   /**
+   * @public
    * <p>A list of metrics whose data is retained (stored). By default, data is retained for any metric used in the profile's behaviors, but it is also retained for any metric specified here. Can be used with custom metrics; cannot be used with dimensions.</p>
    */
   additionalMetricsToRetainV2?: MetricToRetain[];
 
   /**
+   * @public
    * <p>The updated version of the security profile.</p>
    */
   version?: number;
 
   /**
+   * @public
    * <p>The time the security profile was created.</p>
    */
   creationDate?: Date;
 
   /**
+   * @public
    * <p>The time the security profile was last modified.</p>
    */
   lastModifiedDate?: Date;
@@ -3754,21 +4225,25 @@ export interface UpdateSecurityProfileResponse {
  */
 export interface UpdateStreamRequest {
   /**
+   * @public
    * <p>The stream ID.</p>
    */
   streamId: string | undefined;
 
   /**
+   * @public
    * <p>The description of the stream.</p>
    */
   description?: string;
 
   /**
+   * @public
    * <p>The files associated with the stream.</p>
    */
   files?: StreamFile[];
 
   /**
+   * @public
    * <p>An IAM role that allows the IoT service principal assumes to access your S3 files.</p>
    */
   roleArn?: string;
@@ -3779,21 +4254,25 @@ export interface UpdateStreamRequest {
  */
 export interface UpdateStreamResponse {
   /**
+   * @public
    * <p>The stream ID.</p>
    */
   streamId?: string;
 
   /**
+   * @public
    * <p>The stream ARN.</p>
    */
   streamArn?: string;
 
   /**
+   * @public
    * <p>A description of the stream.</p>
    */
   description?: string;
 
   /**
+   * @public
    * <p>The stream version.</p>
    */
   streamVersion?: number;
@@ -3805,6 +4284,7 @@ export interface UpdateStreamResponse {
  */
 export interface UpdateThingRequest {
   /**
+   * @public
    * <p>The name of the thing to update.</p>
    *          <p>You can't change a thing's name. To change a thing's name, you must create a
    * 			new thing, give it the new name, and then delete the old thing.</p>
@@ -3812,11 +4292,13 @@ export interface UpdateThingRequest {
   thingName: string | undefined;
 
   /**
+   * @public
    * <p>The name of the thing type.</p>
    */
   thingTypeName?: string;
 
   /**
+   * @public
    * <p>A list of thing attributes, a JSON string containing name-value pairs. For
    * 			example:</p>
    *          <p>
@@ -3827,6 +4309,7 @@ export interface UpdateThingRequest {
   attributePayload?: AttributePayload;
 
   /**
+   * @public
    * <p>The expected version of the thing record in the registry. If the version of the
    * 			record in the registry does not match the expected version specified in the request, the
    * 				<code>UpdateThing</code> request is rejected with a
@@ -3835,6 +4318,7 @@ export interface UpdateThingRequest {
   expectedVersion?: number;
 
   /**
+   * @public
    * <p>Remove a thing type association. If <b>true</b>, the
    * 			association is removed.</p>
    */
@@ -3852,16 +4336,19 @@ export interface UpdateThingResponse {}
  */
 export interface UpdateThingGroupRequest {
   /**
+   * @public
    * <p>The thing group to update.</p>
    */
   thingGroupName: string | undefined;
 
   /**
+   * @public
    * <p>The thing group properties.</p>
    */
   thingGroupProperties: ThingGroupProperties | undefined;
 
   /**
+   * @public
    * <p>The expected version of the thing group. If this does not match the version of the
    * 			thing group being updated, the update will fail.</p>
    */
@@ -3873,6 +4360,7 @@ export interface UpdateThingGroupRequest {
  */
 export interface UpdateThingGroupResponse {
   /**
+   * @public
    * <p>The version of the updated thing group.</p>
    */
   version?: number;
@@ -3883,21 +4371,25 @@ export interface UpdateThingGroupResponse {
  */
 export interface UpdateThingGroupsForThingRequest {
   /**
+   * @public
    * <p>The thing whose group memberships will be updated.</p>
    */
   thingName?: string;
 
   /**
+   * @public
    * <p>The groups to which the thing will be added.</p>
    */
   thingGroupsToAdd?: string[];
 
   /**
+   * @public
    * <p>The groups from which the thing will be removed.</p>
    */
   thingGroupsToRemove?: string[];
 
   /**
+   * @public
    * <p>Override dynamic thing groups with static thing groups when 10-group limit is
    * 			reached. If a thing belongs to 10 thing groups, and one or more of those groups are
    * 			dynamic thing groups, adding a thing to a static group removes the thing from the last
@@ -3916,11 +4408,13 @@ export interface UpdateThingGroupsForThingResponse {}
  */
 export interface UpdateTopicRuleDestinationRequest {
   /**
+   * @public
    * <p>The ARN of the topic rule destination.</p>
    */
   arn: string | undefined;
 
   /**
+   * @public
    * <p>The status of the topic rule destination. Valid values are:</p>
    *          <dl>
    *             <dt>IN_PROGRESS</dt>
@@ -3967,6 +4461,7 @@ export interface UpdateTopicRuleDestinationResponse {}
  */
 export interface ValidateSecurityProfileBehaviorsRequest {
   /**
+   * @public
    * <p>Specifies the behaviors that, when violated by a device (thing), cause an alert.</p>
    */
   behaviors: Behavior[] | undefined;
@@ -3978,6 +4473,7 @@ export interface ValidateSecurityProfileBehaviorsRequest {
  */
 export interface ValidationError {
   /**
+   * @public
    * <p>The description of an error found in the behaviors.</p>
    */
   errorMessage?: string;
@@ -3988,11 +4484,13 @@ export interface ValidationError {
  */
 export interface ValidateSecurityProfileBehaviorsResponse {
   /**
+   * @public
    * <p>True if the behaviors were valid.</p>
    */
   valid?: boolean;
 
   /**
+   * @public
    * <p>The list of any errors found in the behaviors.</p>
    */
   validationErrors?: ValidationError[];

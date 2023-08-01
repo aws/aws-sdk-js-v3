@@ -9,12 +9,14 @@ import { ACMPCAServiceException as __BaseException } from "./ACMPCAServiceExcept
  */
 export interface CustomAttribute {
   /**
+   * @public
    * <p>Specifies the object identifier (OID) of the attribute type of the relative
    * 			distinguished name (RDN).</p>
    */
   ObjectIdentifier: string | undefined;
 
   /**
+   * @public
    * <p></p>
    *          <p>Specifies the attribute value of relative distinguished name (RDN).</p>
    */
@@ -31,34 +33,40 @@ export interface CustomAttribute {
  */
 export interface ASN1Subject {
   /**
+   * @public
    * <p>Two-digit code that specifies the country in which the certificate subject
    * 			located.</p>
    */
   Country?: string;
 
   /**
+   * @public
    * <p>Legal name of the organization with which the certificate subject is affiliated.
    * 		</p>
    */
   Organization?: string;
 
   /**
+   * @public
    * <p>A subdivision or unit of the organization (such as sales or finance) with which the
    * 			certificate subject is affiliated.</p>
    */
   OrganizationalUnit?: string;
 
   /**
+   * @public
    * <p>Disambiguating information for the certificate subject.</p>
    */
   DistinguishedNameQualifier?: string;
 
   /**
+   * @public
    * <p>State in which the subject of the certificate is located.</p>
    */
   State?: string;
 
   /**
+   * @public
    * <p>For CA and end-entity certificates in a private PKI, the common name (CN) can be any
    * 			string within the length limit. </p>
    *          <p>Note: In publicly trusted certificates, the common name must be a fully qualified
@@ -67,40 +75,47 @@ export interface ASN1Subject {
   CommonName?: string;
 
   /**
+   * @public
    * <p>The certificate serial number.</p>
    */
   SerialNumber?: string;
 
   /**
+   * @public
    * <p>The locality (such as a city or town) in which the certificate subject is
    * 			located.</p>
    */
   Locality?: string;
 
   /**
+   * @public
    * <p>A title such as Mr. or Ms., which is pre-pended to the name to refer formally to the
    * 			certificate subject.</p>
    */
   Title?: string;
 
   /**
+   * @public
    * <p>Family name. In the US and the UK, for example, the surname of an individual is
    * 			ordered last. In Asian cultures the surname is typically ordered first.</p>
    */
   Surname?: string;
 
   /**
+   * @public
    * <p>First name.</p>
    */
   GivenName?: string;
 
   /**
+   * @public
    * <p>Concatenation that typically contains the first letter of the <b>GivenName</b>, the first letter of the middle name if one exists, and the
    * 			first letter of the <b>Surname</b>.</p>
    */
   Initials?: string;
 
   /**
+   * @public
    * <p>Typically a shortened version of a longer <b>GivenName</b>.
    * 			For example, Jonathan is often shortened to John. Elizabeth is often shortened to Beth,
    * 			Liz, or Eliza.</p>
@@ -108,12 +123,14 @@ export interface ASN1Subject {
   Pseudonym?: string;
 
   /**
+   * @public
    * <p>Typically a qualifier appended to the name of an individual. Examples include Jr. for
    * 			junior, Sr. for senior, and III for third.</p>
    */
   GenerationQualifier?: string;
 
   /**
+   * @public
    * <p></p>
    *          <p>Contains a sequence of one or more X.500 relative distinguished names (RDNs), each of
    * 			which consists of an object identifier (OID) and a value. For more information, see
@@ -133,11 +150,13 @@ export interface ASN1Subject {
  */
 export interface EdiPartyName {
   /**
+   * @public
    * <p>Specifies the party name.</p>
    */
   PartyName: string | undefined;
 
   /**
+   * @public
    * <p>Specifies the name assigner.</p>
    */
   NameAssigner?: string;
@@ -152,11 +171,13 @@ export interface EdiPartyName {
  */
 export interface OtherName {
   /**
+   * @public
    * <p>Specifies an OID. </p>
    */
   TypeId: string | undefined;
 
   /**
+   * @public
    * <p>Specifies an OID value.</p>
    */
   Value: string | undefined;
@@ -170,22 +191,26 @@ export interface OtherName {
  */
 export interface GeneralName {
   /**
+   * @public
    * <p>Represents <code>GeneralName</code> using an <code>OtherName</code> object.</p>
    */
   OtherName?: OtherName;
 
   /**
+   * @public
    * <p>Represents <code>GeneralName</code> as an <a href="https://datatracker.ietf.org/doc/html/rfc822">RFC 822</a> email
    * 			address.</p>
    */
   Rfc822Name?: string;
 
   /**
+   * @public
    * <p>Represents <code>GeneralName</code> as a DNS name.</p>
    */
   DnsName?: string;
 
   /**
+   * @public
    * <p>Contains information about the certificate subject. The <code>Subject</code> field in
    * 			the certificate identifies the entity that owns or controls the public key in the
    * 			certificate. The entity can be a user, computer, device, or service. The <code>Subject
@@ -195,21 +220,25 @@ export interface GeneralName {
   DirectoryName?: ASN1Subject;
 
   /**
+   * @public
    * <p>Represents <code>GeneralName</code> as an <code>EdiPartyName</code> object.</p>
    */
   EdiPartyName?: EdiPartyName;
 
   /**
+   * @public
    * <p>Represents <code>GeneralName</code> as a URI.</p>
    */
   UniformResourceIdentifier?: string;
 
   /**
+   * @public
    * <p>Represents <code>GeneralName</code> as an IPv4 or IPv6 address.</p>
    */
   IpAddress?: string;
 
   /**
+   * @public
    * <p> Represents <code>GeneralName</code> as an object identifier (OID).</p>
    */
   RegisteredId?: string;
@@ -238,6 +267,7 @@ export type AccessMethodType = (typeof AccessMethodType)[keyof typeof AccessMeth
  */
 export interface AccessMethod {
   /**
+   * @public
    * <p>An object identifier (OID) specifying the <code>AccessMethod</code>. The OID must
    * 			satisfy the regular expression shown below. For more information, see NIST's definition
    * 			of <a href="https://csrc.nist.gov/glossary/term/Object_Identifier">Object Identifier
@@ -246,6 +276,7 @@ export interface AccessMethod {
   CustomObjectIdentifier?: string;
 
   /**
+   * @public
    * <p>Specifies the <code>AccessMethod</code>.</p>
    */
   AccessMethodType?: AccessMethodType | string;
@@ -258,11 +289,13 @@ export interface AccessMethod {
  */
 export interface AccessDescription {
   /**
+   * @public
    * <p>The type and format of <code>AccessDescription</code> information.</p>
    */
   AccessMethod: AccessMethod | undefined;
 
   /**
+   * @public
    * <p>The location of <code>AccessDescription</code> information.</p>
    */
   AccessLocation: GeneralName | undefined;
@@ -275,46 +308,55 @@ export interface AccessDescription {
  */
 export interface KeyUsage {
   /**
+   * @public
    * <p> Key can be used for digital signing.</p>
    */
   DigitalSignature?: boolean;
 
   /**
+   * @public
    * <p>Key can be used for non-repudiation.</p>
    */
   NonRepudiation?: boolean;
 
   /**
+   * @public
    * <p>Key can be used to encipher data.</p>
    */
   KeyEncipherment?: boolean;
 
   /**
+   * @public
    * <p>Key can be used to decipher data.</p>
    */
   DataEncipherment?: boolean;
 
   /**
+   * @public
    * <p>Key can be used in a key-agreement protocol.</p>
    */
   KeyAgreement?: boolean;
 
   /**
+   * @public
    * <p>Key can be used to sign certificates.</p>
    */
   KeyCertSign?: boolean;
 
   /**
+   * @public
    * <p>Key can be used to sign CRLs.</p>
    */
   CRLSign?: boolean;
 
   /**
+   * @public
    * <p>Key can be used only to encipher data.</p>
    */
   EncipherOnly?: boolean;
 
   /**
+   * @public
    * <p>Key can be used only to decipher data.</p>
    */
   DecipherOnly?: boolean;
@@ -327,12 +369,14 @@ export interface KeyUsage {
  */
 export interface CsrExtensions {
   /**
+   * @public
    * <p>Indicates the purpose of the certificate and of the key contained in the
    * 			certificate.</p>
    */
   KeyUsage?: KeyUsage;
 
   /**
+   * @public
    * <p>For CA certificates, provides a path to additional information pertaining to the CA,
    * 			such as revocation and policy. For more information, see <a href="https://datatracker.ietf.org/doc/html/rfc5280#section-4.2.2.2">Subject
    * 				Information Access</a> in RFC 5280.</p>
@@ -384,6 +428,7 @@ export type SigningAlgorithm = (typeof SigningAlgorithm)[keyof typeof SigningAlg
  */
 export interface CertificateAuthorityConfiguration {
   /**
+   * @public
    * <p>Type of the public key algorithm and size, in bits, of the key pair that your CA
    * 			creates when it issues a certificate. When you create a subordinate CA, you must use a
    * 			key algorithm supported by the parent CA.</p>
@@ -391,6 +436,7 @@ export interface CertificateAuthorityConfiguration {
   KeyAlgorithm: KeyAlgorithm | string | undefined;
 
   /**
+   * @public
    * <p>Name of the algorithm your private CA uses to sign certificate requests.</p>
    *          <p>This parameter should not be confused with the <code>SigningAlgorithm</code> parameter
    * 			used to sign certificates when they are issued.</p>
@@ -398,12 +444,14 @@ export interface CertificateAuthorityConfiguration {
   SigningAlgorithm: SigningAlgorithm | string | undefined;
 
   /**
+   * @public
    * <p>Structure that contains X.500 distinguished name information for your private
    * 			CA.</p>
    */
   Subject: ASN1Subject | undefined;
 
   /**
+   * @public
    * <p>Specifies information to be added to the extension section of the certificate signing
    * 			request (CSR).</p>
    */
@@ -569,6 +617,7 @@ export type S3ObjectAcl = (typeof S3ObjectAcl)[keyof typeof S3ObjectAcl];
  */
 export interface CrlConfiguration {
   /**
+   * @public
    * <p>Boolean value that specifies whether certificate revocation lists (CRLs) are enabled.
    * 			You can use this value to enable certificate revocation for a new CA when you call the
    * 				<a href="https://docs.aws.amazon.com/privateca/latest/APIReference/API_CreateCertificateAuthority.html">CreateCertificateAuthority</a> action or for an existing CA when you call the
@@ -577,11 +626,13 @@ export interface CrlConfiguration {
   Enabled: boolean | undefined;
 
   /**
+   * @public
    * <p>Validity period of the CRL in days.</p>
    */
   ExpirationInDays?: number;
 
   /**
+   * @public
    * <p>Name inserted into the certificate <b>CRL Distribution
    * 				Points</b> extension that enables the use of an alias for the CRL
    * 			distribution point. Use this value if you don't want the name of your S3 bucket to be
@@ -595,6 +646,7 @@ export interface CrlConfiguration {
   CustomCname?: string;
 
   /**
+   * @public
    * <p>Name of the S3 bucket that contains the CRL. If you do not provide a value for the
    * 				<b>CustomCname</b> argument, the name of your S3 bucket
    * 			is placed into the <b>CRL Distribution Points</b> extension of
@@ -608,6 +660,7 @@ export interface CrlConfiguration {
   S3BucketName?: string;
 
   /**
+   * @public
    * <p>Determines whether the CRL will be publicly readable or privately held in the CRL
    * 			Amazon S3 bucket. If you choose PUBLIC_READ, the CRL will be accessible over the public
    * 			internet. If you choose BUCKET_OWNER_FULL_CONTROL, only the owner of the CRL S3 bucket
@@ -636,12 +689,14 @@ export interface CrlConfiguration {
  */
 export interface OcspConfiguration {
   /**
+   * @public
    * <p>Flag enabling use of the Online Certificate Status Protocol (OCSP) for validating
    * 			certificate revocation status.</p>
    */
   Enabled: boolean | undefined;
 
   /**
+   * @public
    * <p>By default, Amazon Web Services Private CA injects an Amazon Web Services domain into certificates being validated by
    * 			the Online Certificate Status Protocol (OCSP). A customer can alternatively use this
    * 			object to define a CNAME specifying a customized OCSP domain.</p>
@@ -668,6 +723,7 @@ export interface OcspConfiguration {
  */
 export interface RevocationConfiguration {
   /**
+   * @public
    * <p>Configuration of the certificate revocation list (CRL), if any, maintained by your
    * 			private CA. A CRL is typically updated approximately 30 minutes after a certificate
    * 	is revoked. If for any reason a CRL update fails, Amazon Web Services Private CA makes further attempts
@@ -676,6 +732,7 @@ export interface RevocationConfiguration {
   CrlConfiguration?: CrlConfiguration;
 
   /**
+   * @public
    * <p>Configuration of Online Certificate Status Protocol (OCSP) support, if any, maintained
    * 			by your private CA. When you revoke a certificate, OCSP responses may take up to 60 minutes
    * 	to reflect the new status.</p>
@@ -692,11 +749,13 @@ export interface RevocationConfiguration {
  */
 export interface Tag {
   /**
+   * @public
    * <p>Key (name) of the tag.</p>
    */
   Key: string | undefined;
 
   /**
+   * @public
    * <p>Value of the tag.</p>
    */
   Value?: string;
@@ -722,12 +781,14 @@ export type CertificateAuthorityUsageMode =
  */
 export interface CreateCertificateAuthorityRequest {
   /**
+   * @public
    * <p>Name and bit size of the private key algorithm, the name of the signing algorithm, and
    * 			X.500 certificate subject information.</p>
    */
   CertificateAuthorityConfiguration: CertificateAuthorityConfiguration | undefined;
 
   /**
+   * @public
    * <p>Contains information to enable Online Certificate Status Protocol (OCSP) support, to
    * 			enable a certificate revocation list (CRL), to enable both, or to enable neither. The
    * 			default is for both certificate validation mechanisms to be disabled. </p>
@@ -761,11 +822,13 @@ export interface CreateCertificateAuthorityRequest {
   RevocationConfiguration?: RevocationConfiguration;
 
   /**
+   * @public
    * <p>The type of the certificate authority.</p>
    */
   CertificateAuthorityType: CertificateAuthorityType | string | undefined;
 
   /**
+   * @public
    * <p>Custom string that can be used to distinguish between calls to the <b>CreateCertificateAuthority</b> action. Idempotency tokens for
    * 				<b>CreateCertificateAuthority</b> time out after five
    * 			minutes. Therefore, if you call <b>CreateCertificateAuthority</b> multiple times with the same idempotency
@@ -777,6 +840,7 @@ export interface CreateCertificateAuthorityRequest {
   IdempotencyToken?: string;
 
   /**
+   * @public
    * <p>Specifies a cryptographic key management compliance standard used for handling CA
    * 			keys.</p>
    *          <p>Default: FIPS_140_2_LEVEL_3_OR_HIGHER</p>
@@ -793,6 +857,7 @@ export interface CreateCertificateAuthorityRequest {
   KeyStorageSecurityStandard?: KeyStorageSecurityStandard | string;
 
   /**
+   * @public
    * <p>Key-value pairs that will be attached to the new private CA. You can associate up to
    * 			50 tags with a private CA. For information using tags with IAM to manage permissions,
    * 			see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/access_iam-tags.html">Controlling Access Using IAM Tags</a>.</p>
@@ -800,6 +865,7 @@ export interface CreateCertificateAuthorityRequest {
   Tags?: Tag[];
 
   /**
+   * @public
    * <p>Specifies whether the CA issues general-purpose certificates that typically require a
    * 			revocation mechanism, or short-lived certificates that may optionally omit revocation
    * 			because they expire quickly. Short-lived certificate validity is limited to seven
@@ -814,6 +880,7 @@ export interface CreateCertificateAuthorityRequest {
  */
 export interface CreateCertificateAuthorityResponse {
   /**
+   * @public
    * <p>If successful, the Amazon Resource Name (ARN) of the certificate authority (CA). This
    * 			is of the form: </p>
    *          <p>
@@ -926,6 +993,7 @@ export type AuditReportResponseFormat = (typeof AuditReportResponseFormat)[keyof
  */
 export interface CreateCertificateAuthorityAuditReportRequest {
   /**
+   * @public
    * <p>The Amazon Resource Name (ARN) of the CA to be audited. This is of the form:</p>
    *          <p>
    *             <code>arn:aws:acm-pca:<i>region</i>:<i>account</i>:certificate-authority/<i>12345678-1234-1234-1234-123456789012</i>
@@ -934,11 +1002,13 @@ export interface CreateCertificateAuthorityAuditReportRequest {
   CertificateAuthorityArn: string | undefined;
 
   /**
+   * @public
    * <p>The name of the S3 bucket that will contain the audit report.</p>
    */
   S3BucketName: string | undefined;
 
   /**
+   * @public
    * <p>The format in which to create the report. This can be either <b>JSON</b> or <b>CSV</b>.</p>
    */
   AuditReportResponseFormat: AuditReportResponseFormat | string | undefined;
@@ -949,11 +1019,13 @@ export interface CreateCertificateAuthorityAuditReportRequest {
  */
 export interface CreateCertificateAuthorityAuditReportResponse {
   /**
+   * @public
    * <p>An alphanumeric string that contains a report identifier.</p>
    */
   AuditReportId?: string;
 
   /**
+   * @public
    * <p>The <b>key</b> that uniquely identifies the report file in
    * 			your S3 bucket.</p>
    */
@@ -1082,6 +1154,7 @@ export type ActionType = (typeof ActionType)[keyof typeof ActionType];
  */
 export interface CreatePermissionRequest {
   /**
+   * @public
    * <p>The Amazon Resource Name (ARN) of the CA that grants the permissions. You can find the
    * 			ARN by calling the <a href="https://docs.aws.amazon.com/privateca/latest/APIReference/API_ListCertificateAuthorities.html">ListCertificateAuthorities</a> action. This must have the following form: </p>
    *          <p>
@@ -1092,17 +1165,20 @@ export interface CreatePermissionRequest {
   CertificateAuthorityArn: string | undefined;
 
   /**
+   * @public
    * <p>The Amazon Web Services service or identity that receives the permission. At this time, the only
    * 			valid principal is <code>acm.amazonaws.com</code>.</p>
    */
   Principal: string | undefined;
 
   /**
+   * @public
    * <p>The ID of the calling account.</p>
    */
   SourceAccount?: string;
 
   /**
+   * @public
    * <p>The actions that the specified Amazon Web Services service principal can use. These include
    * 				<code>IssueCertificate</code>, <code>GetCertificate</code>, and
    * 				<code>ListPermissions</code>.</p>
@@ -1155,6 +1231,7 @@ export class ConcurrentModificationException extends __BaseException {
  */
 export interface DeleteCertificateAuthorityRequest {
   /**
+   * @public
    * <p>The Amazon Resource Name (ARN) that was returned when you called <a href="https://docs.aws.amazon.com/privateca/latest/APIReference/API_CreateCertificateAuthority.html">CreateCertificateAuthority</a>. This must have the following form: </p>
    *          <p>
    *             <code>arn:aws:acm-pca:<i>region</i>:<i>account</i>:certificate-authority/<i>12345678-1234-1234-1234-123456789012</i>
@@ -1164,6 +1241,7 @@ export interface DeleteCertificateAuthorityRequest {
   CertificateAuthorityArn: string | undefined;
 
   /**
+   * @public
    * <p>The number of days to make a CA restorable after it has been deleted. This can be
    * 			anywhere from 7 to 30 days, with 30 being the default.</p>
    */
@@ -1175,6 +1253,7 @@ export interface DeleteCertificateAuthorityRequest {
  */
 export interface DeletePermissionRequest {
   /**
+   * @public
    * <p>The Amazon Resource Number (ARN) of the private CA that issued the permissions. You
    * 			can find the CA's ARN by calling the <a href="https://docs.aws.amazon.com/privateca/latest/APIReference/API_ListCertificateAuthorities.html">ListCertificateAuthorities</a> action. This must have the following form: </p>
    *          <p>
@@ -1185,6 +1264,7 @@ export interface DeletePermissionRequest {
   CertificateAuthorityArn: string | undefined;
 
   /**
+   * @public
    * <p>The Amazon Web Services service or identity that will have its CA permissions revoked. At this time,
    * 			the only valid service principal is <code>acm.amazonaws.com</code>
    *          </p>
@@ -1192,6 +1272,7 @@ export interface DeletePermissionRequest {
   Principal: string | undefined;
 
   /**
+   * @public
    * <p>The Amazon Web Services account that calls this action.</p>
    */
   SourceAccount?: string;
@@ -1202,6 +1283,7 @@ export interface DeletePermissionRequest {
  */
 export interface DeletePolicyRequest {
   /**
+   * @public
    * <p>The Amazon Resource Number (ARN) of the private CA that will have its policy deleted.
    * 			You can find the CA's ARN by calling the <a href="https://docs.aws.amazon.com/privateca/latest/APIReference/API_ListCertificateAuthorities.html">ListCertificateAuthorities</a> action. The ARN value must have the form
    * 				<code>arn:aws:acm-pca:region:account:certificate-authority/01234567-89ab-cdef-0123-0123456789ab</code>.
@@ -1237,6 +1319,7 @@ export class LockoutPreventedException extends __BaseException {
  */
 export interface DescribeCertificateAuthorityRequest {
   /**
+   * @public
    * <p>The Amazon Resource Name (ARN) that was returned when you called <a href="https://docs.aws.amazon.com/privateca/latest/APIReference/API_CreateCertificateAuthority.html">CreateCertificateAuthority</a>. This must be of the form: </p>
    *          <p>
    *             <code>arn:aws:acm-pca:<i>region</i>:<i>account</i>:certificate-authority/<i>12345678-1234-1234-1234-123456789012</i>
@@ -1294,6 +1377,7 @@ export type CertificateAuthorityStatus = (typeof CertificateAuthorityStatus)[key
  */
 export interface CertificateAuthority {
   /**
+   * @public
    * <p>Amazon Resource Name (ARN) for your private certificate authority (CA). The format is
    * 					<code>
    *                <i>12345678-1234-1234-1234-123456789012</i>
@@ -1302,68 +1386,81 @@ export interface CertificateAuthority {
   Arn?: string;
 
   /**
+   * @public
    * <p>The Amazon Web Services account ID that owns the certificate authority.</p>
    */
   OwnerAccount?: string;
 
   /**
+   * @public
    * <p>Date and time at which your private CA was created.</p>
    */
   CreatedAt?: Date;
 
   /**
+   * @public
    * <p>Date and time at which your private CA was last updated.</p>
    */
   LastStateChangeAt?: Date;
 
   /**
+   * @public
    * <p>Type of your private CA.</p>
    */
   Type?: CertificateAuthorityType | string;
 
   /**
+   * @public
    * <p>Serial number of your private CA.</p>
    */
   Serial?: string;
 
   /**
+   * @public
    * <p>Status of your private CA.</p>
    */
   Status?: CertificateAuthorityStatus | string;
 
   /**
+   * @public
    * <p>Date and time before which your private CA certificate is not valid.</p>
    */
   NotBefore?: Date;
 
   /**
+   * @public
    * <p>Date and time after which your private CA certificate is not valid.</p>
    */
   NotAfter?: Date;
 
   /**
+   * @public
    * <p>Reason the request to create your private CA failed.</p>
    */
   FailureReason?: FailureReason | string;
 
   /**
+   * @public
    * <p>Your private CA configuration.</p>
    */
   CertificateAuthorityConfiguration?: CertificateAuthorityConfiguration;
 
   /**
+   * @public
    * <p>Information about the Online Certificate Status Protocol (OCSP) configuration or
    * 			certificate revocation list (CRL) created and maintained by your private CA. </p>
    */
   RevocationConfiguration?: RevocationConfiguration;
 
   /**
+   * @public
    * <p>The period during which a deleted CA can be restored. For more information, see the
    * 				<code>PermanentDeletionTimeInDays</code> parameter of the <a href="https://docs.aws.amazon.com/privateca/latest/APIReference/API_DeleteCertificateAuthorityRequest.html">DeleteCertificateAuthorityRequest</a> action. </p>
    */
   RestorableUntil?: Date;
 
   /**
+   * @public
    * <p>Defines a cryptographic key management compliance standard used for handling CA keys. </p>
    *          <p>Default: FIPS_140_2_LEVEL_3_OR_HIGHER</p>
    *          <p>Note: Amazon Web Services Region ap-northeast-3 supports only FIPS_140_2_LEVEL_2_OR_HIGHER. You must
@@ -1375,6 +1472,7 @@ export interface CertificateAuthority {
   KeyStorageSecurityStandard?: KeyStorageSecurityStandard | string;
 
   /**
+   * @public
    * <p>Specifies whether the CA issues general-purpose certificates that typically require a
    * 			revocation mechanism, or short-lived certificates that may optionally omit revocation
    * 			because they expire quickly. Short-lived certificate validity is limited to seven
@@ -1389,6 +1487,7 @@ export interface CertificateAuthority {
  */
 export interface DescribeCertificateAuthorityResponse {
   /**
+   * @public
    * <p>A <a href="https://docs.aws.amazon.com/privateca/latest/APIReference/API_CertificateAuthority.html">CertificateAuthority</a> structure that contains information about your private
    * 			CA.</p>
    */
@@ -1400,6 +1499,7 @@ export interface DescribeCertificateAuthorityResponse {
  */
 export interface DescribeCertificateAuthorityAuditReportRequest {
   /**
+   * @public
    * <p>The Amazon Resource Name (ARN) of the private CA. This must be of the form:</p>
    *          <p>
    *             <code>arn:aws:acm-pca:<i>region</i>:<i>account</i>:certificate-authority/<i>12345678-1234-1234-1234-123456789012</i>
@@ -1409,6 +1509,7 @@ export interface DescribeCertificateAuthorityAuditReportRequest {
   CertificateAuthorityArn: string | undefined;
 
   /**
+   * @public
    * <p>The report ID returned by calling the <a href="https://docs.aws.amazon.com/privateca/latest/APIReference/API_CreateCertificateAuthorityAuditReport.html">CreateCertificateAuthorityAuditReport</a> action.</p>
    */
   AuditReportId: string | undefined;
@@ -1434,22 +1535,26 @@ export type AuditReportStatus = (typeof AuditReportStatus)[keyof typeof AuditRep
  */
 export interface DescribeCertificateAuthorityAuditReportResponse {
   /**
+   * @public
    * <p>Specifies whether report creation is in progress, has succeeded, or has failed.</p>
    */
   AuditReportStatus?: AuditReportStatus | string;
 
   /**
+   * @public
    * <p>Name of the S3 bucket that contains the report.</p>
    */
   S3BucketName?: string;
 
   /**
+   * @public
    * <p>S3 <b>key</b> that uniquely identifies the report file in
    * 			your S3 bucket.</p>
    */
   S3Key?: string;
 
   /**
+   * @public
    * <p>The date and time at which the report was created.</p>
    */
   CreatedAt?: Date;
@@ -1460,6 +1565,7 @@ export interface DescribeCertificateAuthorityAuditReportResponse {
  */
 export interface GetCertificateRequest {
   /**
+   * @public
    * <p>The Amazon Resource Name (ARN) that was returned when you called <a href="https://docs.aws.amazon.com/privateca/latest/APIReference/API_CreateCertificateAuthority.html">CreateCertificateAuthority</a>. This must be of the form: </p>
    *          <p>
    *             <code>arn:aws:acm-pca:<i>region</i>:<i>account</i>:certificate-authority/<i>12345678-1234-1234-1234-123456789012</i>
@@ -1469,6 +1575,7 @@ export interface GetCertificateRequest {
   CertificateAuthorityArn: string | undefined;
 
   /**
+   * @public
    * <p>The ARN of the issued certificate. The ARN contains the certificate serial number and
    * 			must be in the following form: </p>
    *          <p>
@@ -1484,12 +1591,14 @@ export interface GetCertificateRequest {
  */
 export interface GetCertificateResponse {
   /**
+   * @public
    * <p>The base64 PEM-encoded certificate specified by the <code>CertificateArn</code>
    * 			parameter.</p>
    */
   Certificate?: string;
 
   /**
+   * @public
    * <p>The base64 PEM-encoded certificate chain that chains up to the root CA certificate
    * 			that you used to sign your private CA certificate. </p>
    */
@@ -1501,6 +1610,7 @@ export interface GetCertificateResponse {
  */
 export interface GetCertificateAuthorityCertificateRequest {
   /**
+   * @public
    * <p>The Amazon Resource Name (ARN) of your private CA. This is of the form:</p>
    *          <p>
    *             <code>arn:aws:acm-pca:<i>region</i>:<i>account</i>:certificate-authority/<i>12345678-1234-1234-1234-123456789012</i>
@@ -1515,11 +1625,13 @@ export interface GetCertificateAuthorityCertificateRequest {
  */
 export interface GetCertificateAuthorityCertificateResponse {
   /**
+   * @public
    * <p>Base64-encoded certificate authority (CA) certificate.</p>
    */
   Certificate?: string;
 
   /**
+   * @public
    * <p>Base64-encoded certificate chain that includes any intermediate certificates and
    * 			chains up to root certificate that you used to sign your private CA certificate. The
    * 			chain does not include your private CA certificate. If this is a root CA, the value will
@@ -1533,6 +1645,7 @@ export interface GetCertificateAuthorityCertificateResponse {
  */
 export interface GetCertificateAuthorityCsrRequest {
   /**
+   * @public
    * <p>The Amazon Resource Name (ARN) that was returned when you called the <a href="https://docs.aws.amazon.com/privateca/latest/APIReference/API_CreateCertificateAuthority.html">CreateCertificateAuthority</a> action. This must be of the form: </p>
    *          <p>
    *             <code>arn:aws:acm-pca:<i>region</i>:<i>account</i>:certificate-authority/<i>12345678-1234-1234-1234-123456789012</i>
@@ -1547,6 +1660,7 @@ export interface GetCertificateAuthorityCsrRequest {
  */
 export interface GetCertificateAuthorityCsrResponse {
   /**
+   * @public
    * <p>The base64 PEM-encoded certificate signing request (CSR) for your private CA
    * 			certificate.</p>
    */
@@ -1558,6 +1672,7 @@ export interface GetCertificateAuthorityCsrResponse {
  */
 export interface GetPolicyRequest {
   /**
+   * @public
    * <p>The Amazon Resource Number (ARN) of the private CA that will have its policy
    * 			retrieved. You can find the CA's ARN by calling the ListCertificateAuthorities action.
    *
@@ -1571,6 +1686,7 @@ export interface GetPolicyRequest {
  */
 export interface GetPolicyResponse {
   /**
+   * @public
    * <p>The policy attached to the private CA as a JSON document.</p>
    */
   Policy?: string;
@@ -1602,6 +1718,7 @@ export class CertificateMismatchException extends __BaseException {
  */
 export interface ImportCertificateAuthorityCertificateRequest {
   /**
+   * @public
    * <p>The Amazon Resource Name (ARN) that was returned when you called <a href="https://docs.aws.amazon.com/privateca/latest/APIReference/API_CreateCertificateAuthority.html">CreateCertificateAuthority</a>. This must be of the form: </p>
    *          <p>
    *             <code>arn:aws:acm-pca:<i>region</i>:<i>account</i>:certificate-authority/<i>12345678-1234-1234-1234-123456789012</i>
@@ -1611,12 +1728,14 @@ export interface ImportCertificateAuthorityCertificateRequest {
   CertificateAuthorityArn: string | undefined;
 
   /**
+   * @public
    * <p>The PEM-encoded certificate for a private CA. This may be a self-signed certificate in
    * 			the case of a root CA, or it may be signed by another CA that you control.</p>
    */
   Certificate: Uint8Array | undefined;
 
   /**
+   * @public
    * <p>A PEM-encoded file that contains all of your certificates, other than the certificate
    * 			you're importing, chaining up to your root CA. Your Amazon Web Services Private CA-hosted or on-premises
    * 			root certificate is the last in the chain, and each certificate in the chain signs the
@@ -1687,6 +1806,7 @@ export type PolicyQualifierId = (typeof PolicyQualifierId)[keyof typeof PolicyQu
  */
 export interface Qualifier {
   /**
+   * @public
    * <p>Contains a pointer to a certification practice statement (CPS) published by the
    * 			CA.</p>
    */
@@ -1701,11 +1821,13 @@ export interface Qualifier {
  */
 export interface PolicyQualifierInfo {
   /**
+   * @public
    * <p>Identifies the qualifier modifying a <code>CertPolicyId</code>.</p>
    */
   PolicyQualifierId: PolicyQualifierId | string | undefined;
 
   /**
+   * @public
    * <p>Defines the qualifier type. Amazon Web Services Private CA supports the use of a URI for a CPS qualifier
    * 			in this field.</p>
    */
@@ -1718,6 +1840,7 @@ export interface PolicyQualifierInfo {
  */
 export interface PolicyInformation {
   /**
+   * @public
    * <p>Specifies the object identifier (OID) of the certificate policy under which the
    * 			certificate was issued. For more information, see NIST's definition of <a href="https://csrc.nist.gov/glossary/term/Object_Identifier">Object Identifier
    * 				(OID)</a>.</p>
@@ -1725,6 +1848,7 @@ export interface PolicyInformation {
   CertPolicyId: string | undefined;
 
   /**
+   * @public
    * <p>Modifies the given <code>CertPolicyId</code> with a qualifier. Amazon Web Services Private CA supports the
    * 			certification practice statement (CPS) qualifier.</p>
    */
@@ -1742,6 +1866,7 @@ export interface PolicyInformation {
  */
 export interface CustomExtension {
   /**
+   * @public
    * <p></p>
    *          <p>Specifies the object identifier (OID) of the X.509 extension. For more information,
    * 			see the <a href="https://oidref.com/2.5.29">Global OID reference database.</a>
@@ -1750,12 +1875,14 @@ export interface CustomExtension {
   ObjectIdentifier: string | undefined;
 
   /**
+   * @public
    * <p></p>
    *          <p>Specifies the base64-encoded value of the X.509 extension.</p>
    */
   Value: string | undefined;
 
   /**
+   * @public
    * <p></p>
    *          <p>Specifies the critical flag of the X.509 extension.</p>
    */
@@ -1790,12 +1917,14 @@ export type ExtendedKeyUsageType = (typeof ExtendedKeyUsageType)[keyof typeof Ex
  */
 export interface ExtendedKeyUsage {
   /**
+   * @public
    * <p>Specifies a standard <code>ExtendedKeyUsage</code> as defined as in <a href="https://datatracker.ietf.org/doc/html/rfc5280#section-4.2.1.12">RFC
    * 				5280</a>.</p>
    */
   ExtendedKeyUsageType?: ExtendedKeyUsageType | string;
 
   /**
+   * @public
    * <p>Specifies a custom <code>ExtendedKeyUsage</code> with an object identifier
    * 			(OID).</p>
    */
@@ -1808,6 +1937,7 @@ export interface ExtendedKeyUsage {
  */
 export interface Extensions {
   /**
+   * @public
    * <p>Contains a sequence of one or more policy information terms, each of which consists of
    * 			an object identifier (OID) and optional qualifiers. For more information, see NIST's
    * 			definition of <a href="https://csrc.nist.gov/glossary/term/Object_Identifier">Object
@@ -1820,18 +1950,21 @@ export interface Extensions {
   CertificatePolicies?: PolicyInformation[];
 
   /**
+   * @public
    * <p>Specifies additional purposes for which the certified public key may be used other
    * 			than basic purposes indicated in the <code>KeyUsage</code> extension.</p>
    */
   ExtendedKeyUsage?: ExtendedKeyUsage[];
 
   /**
+   * @public
    * <p>Defines one or more purposes for which the key contained in the certificate can be
    * 			used. Default value for each option is false.</p>
    */
   KeyUsage?: KeyUsage;
 
   /**
+   * @public
    * <p>The subject alternative name extension allows identities to be bound to the subject of
    * 			the certificate. These identities may be included in addition to or in place of the
    * 			identity in the subject field of the certificate.</p>
@@ -1839,6 +1972,7 @@ export interface Extensions {
   SubjectAlternativeNames?: GeneralName[];
 
   /**
+   * @public
    * <p></p>
    *          <p>Contains a sequence of one or more X.509 extensions, each of which consists of an
    * 			object identifier (OID), a base64-encoded value, and the critical flag. For more
@@ -1860,11 +1994,13 @@ export interface Extensions {
  */
 export interface ApiPassthrough {
   /**
+   * @public
    * <p>Specifies X.509 extension information for a certificate.</p>
    */
   Extensions?: Extensions;
 
   /**
+   * @public
    * <p>Contains information about the certificate subject. The <code>Subject</code> field in
    * 			the certificate identifies the entity that owns or controls the public key in the
    * 			certificate. The entity can be a user, computer, device, or service. The <code>Subject
@@ -1906,11 +2042,13 @@ export type ValidityPeriodType = (typeof ValidityPeriodType)[keyof typeof Validi
  */
 export interface Validity {
   /**
+   * @public
    * <p>A long integer interpreted according to the value of <code>Type</code>, below.</p>
    */
   Value: number | undefined;
 
   /**
+   * @public
    * <p>Determines how <i>Amazon Web Services Private CA</i> interprets the <code>Value</code>
    * 			parameter, an integer. Supported validity types include those listed below. Type
    * 			definitions with values include a sample input value and the resulting output. </p>
@@ -1964,6 +2102,7 @@ export interface Validity {
  */
 export interface IssueCertificateRequest {
   /**
+   * @public
    * <p>Specifies X.509 certificate information to be included in the issued certificate. An
    * 				<code>APIPassthrough</code> or <code>APICSRPassthrough</code> template variant must
    * 			be selected, or else this parameter is ignored. For more information about using these
@@ -1975,6 +2114,7 @@ export interface IssueCertificateRequest {
   ApiPassthrough?: ApiPassthrough;
 
   /**
+   * @public
    * <p>The Amazon Resource Name (ARN) that was returned when you called <a href="https://docs.aws.amazon.com/privateca/latest/APIReference/API_CreateCertificateAuthority.html">CreateCertificateAuthority</a>. This must be of the form:</p>
    *          <p>
    *             <code>arn:aws:acm-pca:<i>region</i>:<i>account</i>:certificate-authority/<i>12345678-1234-1234-1234-123456789012</i>
@@ -1984,6 +2124,7 @@ export interface IssueCertificateRequest {
   CertificateAuthorityArn: string | undefined;
 
   /**
+   * @public
    * <p>The certificate signing request (CSR) for the certificate you want to issue. As an
    * 			example, you can use the following OpenSSL command to create the CSR and a 2048 bit RSA
    * 			private key. </p>
@@ -2006,6 +2147,7 @@ export interface IssueCertificateRequest {
   Csr: Uint8Array | undefined;
 
   /**
+   * @public
    * <p>The name of the algorithm that will be used to sign the certificate to be issued. </p>
    *          <p>This parameter should not be confused with the <code>SigningAlgorithm</code> parameter
    * 			used to sign a CSR in the <code>CreateCertificateAuthority</code> action.</p>
@@ -2017,6 +2159,7 @@ export interface IssueCertificateRequest {
   SigningAlgorithm: SigningAlgorithm | string | undefined;
 
   /**
+   * @public
    * <p>Specifies a custom configuration template to use when issuing a certificate. If this
    * 			parameter is not provided, Amazon Web Services Private CA defaults to the
    * 				<code>EndEntityCertificate/V1</code> template. For CA certificates, you should
@@ -2032,6 +2175,7 @@ export interface IssueCertificateRequest {
   TemplateArn?: string;
 
   /**
+   * @public
    * <p>Information describing the end of the validity period of the certificate. This
    * 			parameter sets the “Not After” date for the certificate.</p>
    *          <p>Certificate validity is the period of time during which a certificate is valid.
@@ -2049,6 +2193,7 @@ export interface IssueCertificateRequest {
   Validity: Validity | undefined;
 
   /**
+   * @public
    * <p>Information describing the start of the validity period of the certificate. This
    * 			parameter sets the “Not Before" date for the certificate.</p>
    *          <p>By default, when issuing a certificate, Amazon Web Services Private CA sets the "Not Before" date to the
@@ -2066,6 +2211,7 @@ export interface IssueCertificateRequest {
   ValidityNotBefore?: Validity;
 
   /**
+   * @public
    * <p>Alphanumeric string that can be used to distinguish between calls to the <b>IssueCertificate</b> action. Idempotency tokens for <b>IssueCertificate</b> time out after one minute. Therefore, if you
    * 			call <b>IssueCertificate</b> multiple times with the same
    * 			idempotency token within one minute, Amazon Web Services Private CA recognizes that you are requesting only
@@ -2080,6 +2226,7 @@ export interface IssueCertificateRequest {
  */
 export interface IssueCertificateResponse {
   /**
+   * @public
    * <p>The Amazon Resource Name (ARN) of the issued certificate and the certificate serial
    * 			number. This is of the form:</p>
    *          <p>
@@ -2150,6 +2297,7 @@ export type ResourceOwner = (typeof ResourceOwner)[keyof typeof ResourceOwner];
  */
 export interface ListCertificateAuthoritiesRequest {
   /**
+   * @public
    * <p>Use this parameter when paginating results in a subsequent request after you receive a
    * 			response with truncated results. Set it to the value of the <code>NextToken</code>
    * 			parameter from the response you just received.</p>
@@ -2157,6 +2305,7 @@ export interface ListCertificateAuthoritiesRequest {
   NextToken?: string;
 
   /**
+   * @public
    * <p>Use this parameter when paginating results to specify the maximum number of items to
    * 			return in the response on each page. If additional items exist beyond the number you
    * 			specify, the <code>NextToken</code> element is sent in the response. Use this
@@ -2166,6 +2315,7 @@ export interface ListCertificateAuthoritiesRequest {
   MaxResults?: number;
 
   /**
+   * @public
    * <p>Use this parameter to filter the returned set of certificate authorities based on
    * 			their owner. The default is SELF.</p>
    */
@@ -2177,11 +2327,13 @@ export interface ListCertificateAuthoritiesRequest {
  */
 export interface ListCertificateAuthoritiesResponse {
   /**
+   * @public
    * <p>Summary information about each certificate authority you have created.</p>
    */
   CertificateAuthorities?: CertificateAuthority[];
 
   /**
+   * @public
    * <p>When the list is truncated, this value is present and should be used for the
    * 				<code>NextToken</code> parameter in a subsequent pagination request.</p>
    */
@@ -2193,6 +2345,7 @@ export interface ListCertificateAuthoritiesResponse {
  */
 export interface ListPermissionsRequest {
   /**
+   * @public
    * <p>The Amazon Resource Number (ARN) of the private CA to inspect. You can find the ARN by
    * 			calling the <a href="https://docs.aws.amazon.com/privateca/latest/APIReference/API_ListCertificateAuthorities.html">ListCertificateAuthorities</a> action. This must be of the form:
    * 				<code>arn:aws:acm-pca:region:account:certificate-authority/12345678-1234-1234-1234-123456789012</code>
@@ -2201,12 +2354,14 @@ export interface ListPermissionsRequest {
   CertificateAuthorityArn: string | undefined;
 
   /**
+   * @public
    * <p>When paginating results, use this parameter in a subsequent request after you receive
    * 			a response with truncated results. Set it to the value of <b>NextToken</b> from the response you just received.</p>
    */
   NextToken?: string;
 
   /**
+   * @public
    * <p>When paginating results, use this parameter to specify the maximum number of items to
    * 			return in the response. If additional items exist beyond the number you specify, the
    * 				<b>NextToken</b> element is sent in the response. Use this
@@ -2228,33 +2383,39 @@ export interface ListPermissionsRequest {
  */
 export interface Permission {
   /**
+   * @public
    * <p>The Amazon Resource Number (ARN) of the private CA from which the permission was
    * 			issued.</p>
    */
   CertificateAuthorityArn?: string;
 
   /**
+   * @public
    * <p>The time at which the permission was created.</p>
    */
   CreatedAt?: Date;
 
   /**
+   * @public
    * <p>The Amazon Web Services service or entity that holds the permission. At this time, the only valid
    * 			principal is <code>acm.amazonaws.com</code>.</p>
    */
   Principal?: string;
 
   /**
+   * @public
    * <p>The ID of the account that assigned the permission.</p>
    */
   SourceAccount?: string;
 
   /**
+   * @public
    * <p>The private CA actions that can be performed by the designated Amazon Web Services service.</p>
    */
   Actions?: (ActionType | string)[];
 
   /**
+   * @public
    * <p>The name of the policy that is associated with the permission.</p>
    */
   Policy?: string;
@@ -2265,12 +2426,14 @@ export interface Permission {
  */
 export interface ListPermissionsResponse {
   /**
+   * @public
    * <p>Summary information about each permission assigned by the specified private CA,
    * 			including the action enabled, the policy provided, and the time of creation.</p>
    */
   Permissions?: Permission[];
 
   /**
+   * @public
    * <p>When the list is truncated, this value is present and should be used for the <b>NextToken</b> parameter in a subsequent pagination request.
    * 		</p>
    */
@@ -2282,6 +2445,7 @@ export interface ListPermissionsResponse {
  */
 export interface ListTagsRequest {
   /**
+   * @public
    * <p>The Amazon Resource Name (ARN) that was returned when you called the <a href="https://docs.aws.amazon.com/privateca/latest/APIReference/API_CreateCertificateAuthority.html">CreateCertificateAuthority</a> action. This must be of the form: </p>
    *          <p>
    *             <code>arn:aws:acm-pca:<i>region</i>:<i>account</i>:certificate-authority/<i>12345678-1234-1234-1234-123456789012</i>
@@ -2291,12 +2455,14 @@ export interface ListTagsRequest {
   CertificateAuthorityArn: string | undefined;
 
   /**
+   * @public
    * <p>Use this parameter when paginating results in a subsequent request after you receive a
    * 			response with truncated results. Set it to the value of <b>NextToken</b> from the response you just received.</p>
    */
   NextToken?: string;
 
   /**
+   * @public
    * <p>Use this parameter when paginating results to specify the maximum number of items to
    * 			return in the response. If additional items exist beyond the number you specify, the
    * 				<b>NextToken</b> element is sent in the response. Use this
@@ -2311,11 +2477,13 @@ export interface ListTagsRequest {
  */
 export interface ListTagsResponse {
   /**
+   * @public
    * <p>The tags associated with your private CA.</p>
    */
   Tags?: Tag[];
 
   /**
+   * @public
    * <p>When the list is truncated, this value is present and should be used for the <b>NextToken</b> parameter in a subsequent pagination request.
    * 		</p>
    */
@@ -2327,6 +2495,7 @@ export interface ListTagsResponse {
  */
 export interface PutPolicyRequest {
   /**
+   * @public
    * <p>The Amazon Resource Number (ARN) of the private CA to associate with the policy. The
    * 			ARN of the CA can be found by calling the <a href="https://docs.aws.amazon.com/privateca/latest/APIReference/API_ListCertificateAuthorities.html">ListCertificateAuthorities</a> action.</p>
    *          <p></p>
@@ -2334,6 +2503,7 @@ export interface PutPolicyRequest {
   ResourceArn: string | undefined;
 
   /**
+   * @public
    * <p>The path and file name of a JSON-formatted IAM policy to attach to the specified
    * 			private CA resource. If this policy does not contain all required statements or if it
    * 			includes any statement that is not allowed, the <code>PutPolicy</code> action returns an
@@ -2348,6 +2518,7 @@ export interface PutPolicyRequest {
  */
 export interface RestoreCertificateAuthorityRequest {
   /**
+   * @public
    * <p>The Amazon Resource Name (ARN) that was returned when you called the <a href="https://docs.aws.amazon.com/privateca/latest/APIReference/API_CreateCertificateAuthority.html">CreateCertificateAuthority</a> action. This must be of the form: </p>
    *          <p>
    *             <code>arn:aws:acm-pca:<i>region</i>:<i>account</i>:certificate-authority/<i>12345678-1234-1234-1234-123456789012</i>
@@ -2402,6 +2573,7 @@ export type RevocationReason = (typeof RevocationReason)[keyof typeof Revocation
  */
 export interface RevokeCertificateRequest {
   /**
+   * @public
    * <p>Amazon Resource Name (ARN) of the private CA that issued the certificate to be
    * 			revoked. This must be of the form:</p>
    *          <p>
@@ -2412,6 +2584,7 @@ export interface RevokeCertificateRequest {
   CertificateAuthorityArn: string | undefined;
 
   /**
+   * @public
    * <p>Serial number of the certificate to be revoked. This must be in hexadecimal format.
    * 			You can retrieve the serial number by calling <a href="https://docs.aws.amazon.com/privateca/latest/APIReference/API_GetCertificate.html">GetCertificate</a> with the Amazon
    * 			Resource Name (ARN) of the certificate you want and the ARN of your private CA. The
@@ -2427,6 +2600,7 @@ export interface RevokeCertificateRequest {
   CertificateSerial: string | undefined;
 
   /**
+   * @public
    * <p>Specifies why you revoked the certificate.</p>
    */
   RevocationReason: RevocationReason | string | undefined;
@@ -2437,6 +2611,7 @@ export interface RevokeCertificateRequest {
  */
 export interface TagCertificateAuthorityRequest {
   /**
+   * @public
    * <p>The Amazon Resource Name (ARN) that was returned when you called <a href="https://docs.aws.amazon.com/privateca/latest/APIReference/API_CreateCertificateAuthority.html">CreateCertificateAuthority</a>. This must be of the form: </p>
    *          <p>
    *             <code>arn:aws:acm-pca:<i>region</i>:<i>account</i>:certificate-authority/<i>12345678-1234-1234-1234-123456789012</i>
@@ -2446,6 +2621,7 @@ export interface TagCertificateAuthorityRequest {
   CertificateAuthorityArn: string | undefined;
 
   /**
+   * @public
    * <p>List of tags to be associated with the CA.</p>
    */
   Tags: Tag[] | undefined;
@@ -2477,6 +2653,7 @@ export class TooManyTagsException extends __BaseException {
  */
 export interface UntagCertificateAuthorityRequest {
   /**
+   * @public
    * <p>The Amazon Resource Name (ARN) that was returned when you called <a href="https://docs.aws.amazon.com/privateca/latest/APIReference/API_CreateCertificateAuthority.html">CreateCertificateAuthority</a>. This must be of the form: </p>
    *          <p>
    *             <code>arn:aws:acm-pca:<i>region</i>:<i>account</i>:certificate-authority/<i>12345678-1234-1234-1234-123456789012</i>
@@ -2486,6 +2663,7 @@ export interface UntagCertificateAuthorityRequest {
   CertificateAuthorityArn: string | undefined;
 
   /**
+   * @public
    * <p>List of tags to be removed from the CA.</p>
    */
   Tags: Tag[] | undefined;
@@ -2496,6 +2674,7 @@ export interface UntagCertificateAuthorityRequest {
  */
 export interface UpdateCertificateAuthorityRequest {
   /**
+   * @public
    * <p>Amazon Resource Name (ARN) of the private CA that issued the certificate to be
    * 			revoked. This must be of the form:</p>
    *          <p>
@@ -2506,6 +2685,7 @@ export interface UpdateCertificateAuthorityRequest {
   CertificateAuthorityArn: string | undefined;
 
   /**
+   * @public
    * <p>Contains information to enable Online Certificate Status Protocol (OCSP) support, to
    * 			enable a certificate revocation list (CRL), to enable both, or to enable neither. If
    * 			this parameter is not supplied, existing capibilites remain unchanged. For more
@@ -2538,6 +2718,7 @@ export interface UpdateCertificateAuthorityRequest {
   RevocationConfiguration?: RevocationConfiguration;
 
   /**
+   * @public
    * <p>Status of your private CA.</p>
    */
   Status?: CertificateAuthorityStatus | string;

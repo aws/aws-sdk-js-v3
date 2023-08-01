@@ -57,18 +57,21 @@ export class AuthorizationPendingException extends __BaseException {
  */
 export interface CreateTokenRequest {
   /**
+   * @public
    * <p>The unique identifier string for each client. This value should come from the persisted
    *       result of the <a>RegisterClient</a> API.</p>
    */
   clientId: string | undefined;
 
   /**
+   * @public
    * <p>A secret string generated for the client. This value should come from the persisted result
    *       of the <a>RegisterClient</a> API.</p>
    */
   clientSecret: string | undefined;
 
   /**
+   * @public
    * <p>Supports grant types for the authorization code, refresh token, and device code request.
    *       For device code requests, specify the following value:</p>
    *
@@ -82,6 +85,7 @@ export interface CreateTokenRequest {
   grantType: string | undefined;
 
   /**
+   * @public
    * <p>Used only when calling this API for the device code grant type. This short-term code is
    *       used to identify this authentication attempt. This should come from an in-memory reference to
    *       the result of the <a>StartDeviceAuthorization</a> API.</p>
@@ -89,12 +93,14 @@ export interface CreateTokenRequest {
   deviceCode?: string;
 
   /**
+   * @public
    * <p>The authorization code received from the authorization service. This parameter is required
    *       to perform an authorization grant request to get access to a token.</p>
    */
   code?: string;
 
   /**
+   * @public
    * <p>Currently, <code>refreshToken</code> is not yet implemented and is not supported. For more
    *       information about the features and limitations of the current IAM Identity Center OIDC implementation,
    *       see <i>Considerations for Using this Guide</i> in the <a href="https://docs.aws.amazon.com/singlesignon/latest/OIDCAPIReference/Welcome.html">IAM Identity Center
@@ -105,12 +111,14 @@ export interface CreateTokenRequest {
   refreshToken?: string;
 
   /**
+   * @public
    * <p>The list of scopes that is defined by the client. Upon authorization, this list is used to
    *       restrict permissions when granting an access token.</p>
    */
   scope?: string[];
 
   /**
+   * @public
    * <p>The location of the application that will receive the authorization code. Users authorize
    *       the service to send the request to this location.</p>
    */
@@ -122,22 +130,26 @@ export interface CreateTokenRequest {
  */
 export interface CreateTokenResponse {
   /**
+   * @public
    * <p>An opaque token to access IAM Identity Center resources assigned to a user.</p>
    */
   accessToken?: string;
 
   /**
+   * @public
    * <p>Used to notify the client that the returned token is an access token. The supported type
    *       is <code>BearerToken</code>.</p>
    */
   tokenType?: string;
 
   /**
+   * @public
    * <p>Indicates the time in seconds when an access token will expire.</p>
    */
   expiresIn?: number;
 
   /**
+   * @public
    * <p>Currently, <code>refreshToken</code> is not yet implemented and is not supported. For more
    *       information about the features and limitations of the current IAM Identity Center OIDC implementation,
    *       see <i>Considerations for Using this Guide</i> in the <a href="https://docs.aws.amazon.com/singlesignon/latest/OIDCAPIReference/Welcome.html">IAM Identity Center
@@ -148,6 +160,7 @@ export interface CreateTokenResponse {
   refreshToken?: string;
 
   /**
+   * @public
    * <p>Currently, <code>idToken</code> is not yet implemented and is not supported. For more
    *       information about the features and limitations of the current IAM Identity Center OIDC implementation,
    *       see <i>Considerations for Using this Guide</i> in the <a href="https://docs.aws.amazon.com/singlesignon/latest/OIDCAPIReference/Welcome.html">IAM Identity Center
@@ -410,17 +423,20 @@ export class InvalidClientMetadataException extends __BaseException {
  */
 export interface RegisterClientRequest {
   /**
+   * @public
    * <p>The friendly name of the client.</p>
    */
   clientName: string | undefined;
 
   /**
+   * @public
    * <p>The type of client. The service supports only <code>public</code> as a client type.
    *       Anything other than public will be rejected by the service.</p>
    */
   clientType: string | undefined;
 
   /**
+   * @public
    * <p>The list of scopes that are defined by the client. Upon authorization, this list is used
    *       to restrict permissions when granting an access token.</p>
    */
@@ -432,35 +448,41 @@ export interface RegisterClientRequest {
  */
 export interface RegisterClientResponse {
   /**
+   * @public
    * <p>The unique identifier string for each client. This client uses this identifier to get
    *       authenticated by the service in subsequent calls.</p>
    */
   clientId?: string;
 
   /**
+   * @public
    * <p>A secret string generated for the client. The client will use this string to get
    *       authenticated by the service in subsequent calls.</p>
    */
   clientSecret?: string;
 
   /**
+   * @public
    * <p>Indicates the time at which the <code>clientId</code> and <code>clientSecret</code> were
    *       issued.</p>
    */
   clientIdIssuedAt?: number;
 
   /**
+   * @public
    * <p>Indicates the time at which the <code>clientId</code> and <code>clientSecret</code> will
    *       become invalid.</p>
    */
   clientSecretExpiresAt?: number;
 
   /**
+   * @public
    * <p>The endpoint where the client can request authorization.</p>
    */
   authorizationEndpoint?: string;
 
   /**
+   * @public
    * <p>The endpoint where the client can get an access token.</p>
    */
   tokenEndpoint?: string;
@@ -471,6 +493,7 @@ export interface RegisterClientResponse {
  */
 export interface StartDeviceAuthorizationRequest {
   /**
+   * @public
    * <p>The unique identifier string for the client that is registered with IAM Identity Center. This value
    *       should come from the persisted result of the <a>RegisterClient</a> API
    *       operation.</p>
@@ -478,12 +501,14 @@ export interface StartDeviceAuthorizationRequest {
   clientId: string | undefined;
 
   /**
+   * @public
    * <p>A secret string that is generated for the client. This value should come from the
    *       persisted result of the <a>RegisterClient</a> API operation.</p>
    */
   clientSecret: string | undefined;
 
   /**
+   * @public
    * <p>The URL for the AWS access portal. For more information, see <a href="https://docs.aws.amazon.com/singlesignon/latest/userguide/using-the-portal.html">Using
    *       the AWS access portal</a> in the <i>IAM Identity Center User Guide</i>.</p>
    */
@@ -495,22 +520,26 @@ export interface StartDeviceAuthorizationRequest {
  */
 export interface StartDeviceAuthorizationResponse {
   /**
+   * @public
    * <p>The short-lived code that is used by the device when polling for a session token.</p>
    */
   deviceCode?: string;
 
   /**
+   * @public
    * <p>A one-time user verification code. This is needed to authorize an in-use device.</p>
    */
   userCode?: string;
 
   /**
+   * @public
    * <p>The URI of the verification page that takes the <code>userCode</code> to authorize the
    *       device.</p>
    */
   verificationUri?: string;
 
   /**
+   * @public
    * <p>An alternate URL that the client can use to automatically launch a browser. This process
    *       skips the manual step in which the user visits the verification page and enters their
    *       code.</p>
@@ -518,11 +547,13 @@ export interface StartDeviceAuthorizationResponse {
   verificationUriComplete?: string;
 
   /**
+   * @public
    * <p>Indicates the number of seconds in which the verification code will become invalid.</p>
    */
   expiresIn?: number;
 
   /**
+   * @public
    * <p>Indicates the number of seconds the client must wait between attempts when polling for a
    *       session.</p>
    */

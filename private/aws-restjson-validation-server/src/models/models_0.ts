@@ -123,6 +123,9 @@ export namespace EnumUnion {
     $unknown?: never;
   }
 
+  /**
+   * @public
+   */
   export interface $UnknownMember {
     first?: never;
     second?: never;
@@ -265,11 +268,13 @@ export namespace MalformedEnumInput {
  */
 export interface ValidationExceptionField {
   /**
+   * @public
    * A JSONPointer expression to the structure member whose value failed to satisfy the modeled constraints.
    */
   path: string | undefined;
 
   /**
+   * @public
    * A detailed description of the validation failure.
    */
   message: string | undefined;
@@ -318,6 +323,7 @@ export class ValidationException extends __BaseException {
   readonly name: "ValidationException" = "ValidationException";
   readonly $fault: "client" = "client";
   /**
+   * @public
    * A list of specific failures encountered while validating the input.
    * A member can appear in this list more than once if it failed to satisfy multiple constraints.
    */
@@ -545,6 +551,9 @@ export namespace PatternUnion {
     $unknown?: never;
   }
 
+  /**
+   * @public
+   */
   export interface $UnknownMember {
     first?: never;
     second?: never;
@@ -691,6 +700,9 @@ export namespace PatternUnionOverride {
     $unknown?: never;
   }
 
+  /**
+   * @public
+   */
   export interface $UnknownMember {
     first?: never;
     second?: never;
@@ -1171,6 +1183,9 @@ export namespace FooUnion {
     $unknown?: never;
   }
 
+  /**
+   * @public
+   */
   export interface $UnknownMember {
     string?: never;
     integer?: never;
@@ -1494,6 +1509,9 @@ export namespace RecursiveUnionOne {
     $unknown?: never;
   }
 
+  /**
+   * @public
+   */
   export interface $UnknownMember {
     string?: never;
     union?: never;
@@ -1573,6 +1591,9 @@ export namespace RecursiveUnionTwo {
     $unknown?: never;
   }
 
+  /**
+   * @public
+   */
   export interface $UnknownMember {
     string?: never;
     union?: never;

@@ -51,16 +51,19 @@ import { AppConfigServiceException as __BaseException } from "./AppConfigService
  */
 export interface Action {
   /**
+   * @public
    * <p>The action name.</p>
    */
   Name?: string;
 
   /**
+   * @public
    * <p>Information about the action.</p>
    */
   Description?: string;
 
   /**
+   * @public
    * <p>The extension URI associated to the action point in the extension definition. The URI
    *          can be an Amazon Resource Name (ARN) for one of the following: an Lambda
    *          function, an Amazon Simple Queue Service queue, an Amazon Simple Notification Service topic, or the Amazon EventBridge default event bus.</p>
@@ -68,6 +71,7 @@ export interface Action {
   Uri?: string;
 
   /**
+   * @public
    * <p>An Amazon Resource Name (ARN) for an Identity and Access Management assume role.</p>
    */
   RoleArn?: string;
@@ -79,16 +83,19 @@ export interface Action {
  */
 export interface ActionInvocation {
   /**
+   * @public
    * <p>The name, the ID, or the Amazon Resource Name (ARN) of the extension.</p>
    */
   ExtensionIdentifier?: string;
 
   /**
+   * @public
    * <p>The name of the action.</p>
    */
   ActionName?: string;
 
   /**
+   * @public
    * <p>The extension URI associated to the action point in the extension definition. The URI
    *          can be an Amazon Resource Name (ARN) for one of the following: an Lambda
    *          function, an Amazon Simple Queue Service queue, an Amazon Simple Notification Service topic, or the Amazon EventBridge default event bus.</p>
@@ -96,21 +103,25 @@ export interface ActionInvocation {
   Uri?: string;
 
   /**
+   * @public
    * <p>An Amazon Resource Name (ARN) for an Identity and Access Management assume role.</p>
    */
   RoleArn?: string;
 
   /**
+   * @public
    * <p>The error message when an extension invocation fails.</p>
    */
   ErrorMessage?: string;
 
   /**
+   * @public
    * <p>The error code when an extension invocation fails.</p>
    */
   ErrorCode?: string;
 
   /**
+   * @public
    * <p>A system-generated ID for this invocation.</p>
    */
   InvocationId?: string;
@@ -140,16 +151,19 @@ export type ActionPoint = (typeof ActionPoint)[keyof typeof ActionPoint];
  */
 export interface Application {
   /**
+   * @public
    * <p>The application ID.</p>
    */
   Id?: string;
 
   /**
+   * @public
    * <p>The application name.</p>
    */
   Name?: string;
 
   /**
+   * @public
    * <p>The description of the application.</p>
    */
   Description?: string;
@@ -162,28 +176,33 @@ export interface Application {
  */
 export interface InvalidConfigurationDetail {
   /**
+   * @public
    * <p>The invalid or out-of-range validation constraint in your JSON schema that failed
    *          validation.</p>
    */
   Constraint?: string;
 
   /**
+   * @public
    * <p>Location of the validation constraint in the configuration JSON schema that failed
    *          validation.</p>
    */
   Location?: string;
 
   /**
+   * @public
    * <p>The reason for an invalid configuration error.</p>
    */
   Reason?: string;
 
   /**
+   * @public
    * <p>The type of error for an invalid configuration.</p>
    */
   Type?: string;
 
   /**
+   * @public
    * <p>Details about an error with Lambda when a synchronous extension
    *          experiences an error during an invocation.</p>
    */
@@ -202,6 +221,7 @@ export type BadRequestDetails = BadRequestDetails.InvalidConfigurationMember | B
  */
 export namespace BadRequestDetails {
   /**
+   * @public
    * <p>Detailed information about the bad request exception error when creating a hosted
    *          configuration version.</p>
    */
@@ -210,6 +230,9 @@ export namespace BadRequestDetails {
     $unknown?: never;
   }
 
+  /**
+   * @public
+   */
   export interface $UnknownMember {
     InvalidConfiguration?: never;
     $unknown: [string, any];
@@ -249,6 +272,7 @@ export class BadRequestException extends __BaseException {
   Message?: string;
   Reason?: BadRequestReason | string;
   /**
+   * @public
    * <p>Detailed information about the input that failed to satisfy the constraints specified by
    *          a call.</p>
    */
@@ -274,16 +298,19 @@ export class BadRequestException extends __BaseException {
  */
 export interface CreateApplicationRequest {
   /**
+   * @public
    * <p>A name for the application.</p>
    */
   Name: string | undefined;
 
   /**
+   * @public
    * <p>A description of the application.</p>
    */
   Description?: string;
 
   /**
+   * @public
    * <p>Metadata to assign to the application. Tags help organize and categorize your AppConfig resources. Each tag consists of a key and an optional value, both of which
    *          you define.</p>
    */
@@ -336,6 +363,7 @@ export type ValidatorType = (typeof ValidatorType)[keyof typeof ValidatorType];
  */
 export interface Validator {
   /**
+   * @public
    * <p>AppConfig supports validators of type <code>JSON_SCHEMA</code> and
    *             <code>LAMBDA</code>
    *          </p>
@@ -343,6 +371,7 @@ export interface Validator {
   Type: ValidatorType | string | undefined;
 
   /**
+   * @public
    * <p>Either the JSON Schema content or the Amazon Resource Name (ARN) of an Lambda
    *          function.</p>
    */
@@ -354,42 +383,50 @@ export interface Validator {
  */
 export interface ConfigurationProfile {
   /**
+   * @public
    * <p>The application ID.</p>
    */
   ApplicationId?: string;
 
   /**
+   * @public
    * <p>The configuration profile ID.</p>
    */
   Id?: string;
 
   /**
+   * @public
    * <p>The name of the configuration profile.</p>
    */
   Name?: string;
 
   /**
+   * @public
    * <p>The configuration profile description.</p>
    */
   Description?: string;
 
   /**
+   * @public
    * <p>The URI location of the configuration.</p>
    */
   LocationUri?: string;
 
   /**
+   * @public
    * <p>The ARN of an IAM role with permission to access the configuration at the specified
    *             <code>LocationUri</code>.</p>
    */
   RetrievalRoleArn?: string;
 
   /**
+   * @public
    * <p>A list of methods for validating the configuration.</p>
    */
   Validators?: Validator[];
 
   /**
+   * @public
    * <p>The type of configurations contained in the profile. AppConfig supports
    *             <code>feature flags</code> and <code>freeform</code> configurations. We recommend you
    *          create feature flag configurations to enable or disable new features and freeform
@@ -410,21 +447,25 @@ export interface ConfigurationProfile {
  */
 export interface CreateConfigurationProfileRequest {
   /**
+   * @public
    * <p>The application ID.</p>
    */
   ApplicationId: string | undefined;
 
   /**
+   * @public
    * <p>A name for the configuration profile.</p>
    */
   Name: string | undefined;
 
   /**
+   * @public
    * <p>A description of the configuration profile.</p>
    */
   Description?: string;
 
   /**
+   * @public
    * <p>A URI to locate the configuration. You can specify the following:</p>
    *          <ul>
    *             <li>
@@ -455,6 +496,7 @@ export interface CreateConfigurationProfileRequest {
   LocationUri: string | undefined;
 
   /**
+   * @public
    * <p>The ARN of an IAM role with permission to access the configuration at the specified
    *             <code>LocationUri</code>.</p>
    *          <important>
@@ -465,11 +507,13 @@ export interface CreateConfigurationProfileRequest {
   RetrievalRoleArn?: string;
 
   /**
+   * @public
    * <p>A list of methods for validating the configuration.</p>
    */
   Validators?: Validator[];
 
   /**
+   * @public
    * <p>Metadata to assign to the configuration profile. Tags help organize and categorize your
    *             AppConfig resources. Each tag consists of a key and an optional value, both of
    *          which you define.</p>
@@ -477,6 +521,7 @@ export interface CreateConfigurationProfileRequest {
   Tags?: Record<string, string>;
 
   /**
+   * @public
    * <p>The type of configurations contained in the profile. AppConfig supports
    *             <code>feature flags</code> and <code>freeform</code> configurations. We recommend you
    *          create feature flag configurations to enable or disable new features and freeform
@@ -549,21 +594,25 @@ export type ReplicateTo = (typeof ReplicateTo)[keyof typeof ReplicateTo];
  */
 export interface CreateDeploymentStrategyRequest {
   /**
+   * @public
    * <p>A name for the deployment strategy.</p>
    */
   Name: string | undefined;
 
   /**
+   * @public
    * <p>A description of the deployment strategy.</p>
    */
   Description?: string;
 
   /**
+   * @public
    * <p>Total amount of time for a deployment to last.</p>
    */
   DeploymentDurationInMinutes: number | undefined;
 
   /**
+   * @public
    * <p>Specifies the amount of time AppConfig monitors for Amazon CloudWatch alarms after the
    *          configuration has been deployed to 100% of its targets, before considering the deployment
    *          to be complete. If an alarm is triggered during this time, AppConfig rolls back
@@ -574,12 +623,14 @@ export interface CreateDeploymentStrategyRequest {
   FinalBakeTimeInMinutes?: number;
 
   /**
+   * @public
    * <p>The percentage of targets to receive a deployed configuration during each
    *          interval.</p>
    */
   GrowthFactor: number | undefined;
 
   /**
+   * @public
    * <p>The algorithm used to define how percentage grows over time. AppConfig
    *          supports the following growth types:</p>
    *          <p>
@@ -613,11 +664,13 @@ export interface CreateDeploymentStrategyRequest {
   GrowthType?: GrowthType | string;
 
   /**
+   * @public
    * <p>Save the deployment strategy to a Systems Manager (SSM) document.</p>
    */
   ReplicateTo?: ReplicateTo | string;
 
   /**
+   * @public
    * <p>Metadata to assign to the deployment strategy. Tags help organize and categorize your
    *             AppConfig resources. Each tag consists of a key and an optional value, both of
    *          which you define.</p>
@@ -630,43 +683,51 @@ export interface CreateDeploymentStrategyRequest {
  */
 export interface DeploymentStrategy {
   /**
+   * @public
    * <p>The deployment strategy ID.</p>
    */
   Id?: string;
 
   /**
+   * @public
    * <p>The name of the deployment strategy.</p>
    */
   Name?: string;
 
   /**
+   * @public
    * <p>The description of the deployment strategy.</p>
    */
   Description?: string;
 
   /**
+   * @public
    * <p>Total amount of time the deployment lasted.</p>
    */
   DeploymentDurationInMinutes?: number;
 
   /**
+   * @public
    * <p>The algorithm used to define how percentage grew over time.</p>
    */
   GrowthType?: GrowthType | string;
 
   /**
+   * @public
    * <p>The percentage of targets that received a deployed configuration during each
    *          interval.</p>
    */
   GrowthFactor?: number;
 
   /**
+   * @public
    * <p>The amount of time that AppConfig monitored for alarms before considering the
    *          deployment to be complete and no longer eligible for automatic rollback.</p>
    */
   FinalBakeTimeInMinutes?: number;
 
   /**
+   * @public
    * <p>Save the deployment strategy to a Systems Manager (SSM) document.</p>
    */
   ReplicateTo?: ReplicateTo | string;
@@ -678,11 +739,13 @@ export interface DeploymentStrategy {
  */
 export interface Monitor {
   /**
+   * @public
    * <p>Amazon Resource Name (ARN) of the Amazon CloudWatch alarm.</p>
    */
   AlarmArn: string | undefined;
 
   /**
+   * @public
    * <p>ARN of an Identity and Access Management (IAM) role for AppConfig to monitor
    *             <code>AlarmArn</code>.</p>
    */
@@ -694,26 +757,31 @@ export interface Monitor {
  */
 export interface CreateEnvironmentRequest {
   /**
+   * @public
    * <p>The application ID.</p>
    */
   ApplicationId: string | undefined;
 
   /**
+   * @public
    * <p>A name for the environment.</p>
    */
   Name: string | undefined;
 
   /**
+   * @public
    * <p>A description of the environment.</p>
    */
   Description?: string;
 
   /**
+   * @public
    * <p>Amazon CloudWatch alarms to monitor during the deployment process.</p>
    */
   Monitors?: Monitor[];
 
   /**
+   * @public
    * <p>Metadata to assign to the environment. Tags help organize and categorize your AppConfig resources. Each tag consists of a key and an optional value, both of which
    *          you define.</p>
    */
@@ -741,26 +809,31 @@ export type EnvironmentState = (typeof EnvironmentState)[keyof typeof Environmen
  */
 export interface Environment {
   /**
+   * @public
    * <p>The application ID.</p>
    */
   ApplicationId?: string;
 
   /**
+   * @public
    * <p>The environment ID.</p>
    */
   Id?: string;
 
   /**
+   * @public
    * <p>The name of the environment.</p>
    */
   Name?: string;
 
   /**
+   * @public
    * <p>The description of the environment.</p>
    */
   Description?: string;
 
   /**
+   * @public
    * <p>The state of the environment. An environment can be in one of the following states:
    *             <code>READY_FOR_DEPLOYMENT</code>, <code>DEPLOYING</code>, <code>ROLLING_BACK</code>, or
    *             <code>ROLLED_BACK</code>
@@ -769,6 +842,7 @@ export interface Environment {
   State?: EnvironmentState | string;
 
   /**
+   * @public
    * <p>Amazon CloudWatch alarms monitored during the deployment.</p>
    */
   Monitors?: Monitor[];
@@ -807,11 +881,13 @@ export class ConflictException extends __BaseException {
  */
 export interface Parameter {
   /**
+   * @public
    * <p>Information about the parameter.</p>
    */
   Description?: string;
 
   /**
+   * @public
    * <p>A parameter value must be specified in the extension association.</p>
    */
   Required?: boolean;
@@ -822,22 +898,26 @@ export interface Parameter {
  */
 export interface CreateExtensionRequest {
   /**
+   * @public
    * <p>A name for the extension. Each extension name in your account must be unique. Extension
    *          versions use the same name.</p>
    */
   Name: string | undefined;
 
   /**
+   * @public
    * <p>Information about the extension.</p>
    */
   Description?: string;
 
   /**
+   * @public
    * <p>The actions defined in the extension.</p>
    */
   Actions: Record<string, Action[]> | undefined;
 
   /**
+   * @public
    * <p>The parameters accepted by the extension. You specify parameter values when you
    *          associate the extension to an AppConfig resource by using the
    *             <code>CreateExtensionAssociation</code> API action. For Lambda extension
@@ -846,6 +926,7 @@ export interface CreateExtensionRequest {
   Parameters?: Record<string, Parameter>;
 
   /**
+   * @public
    * <p>Adds one or more tags for the specified extension. Tags are metadata that help you
    *          categorize resources in different ways, for example, by purpose, owner, or environment.
    *          Each tag consists of a key and an optional value, both of which you define. </p>
@@ -853,6 +934,7 @@ export interface CreateExtensionRequest {
   Tags?: Record<string, string>;
 
   /**
+   * @public
    * <p>You can omit this field when you create an extension. When you create a new version,
    *          specify the most recent current version number. For example, you create version 3, enter 2
    *          for this field.</p>
@@ -865,36 +947,43 @@ export interface CreateExtensionRequest {
  */
 export interface Extension {
   /**
+   * @public
    * <p>The system-generated ID of the extension.</p>
    */
   Id?: string;
 
   /**
+   * @public
    * <p>The extension name.</p>
    */
   Name?: string;
 
   /**
+   * @public
    * <p>The extension version number.</p>
    */
   VersionNumber?: number;
 
   /**
+   * @public
    * <p>The system-generated Amazon Resource Name (ARN) for the extension.</p>
    */
   Arn?: string;
 
   /**
+   * @public
    * <p>Information about the extension.</p>
    */
   Description?: string;
 
   /**
+   * @public
    * <p>The actions defined in the extension.</p>
    */
   Actions?: Record<string, Action[]>;
 
   /**
+   * @public
    * <p>The parameters accepted by the extension. You specify parameter values when you
    *          associate the extension to an AppConfig resource by using the
    *             <code>CreateExtensionAssociation</code> API action. For Lambda extension
@@ -930,28 +1019,33 @@ export class ServiceQuotaExceededException extends __BaseException {
  */
 export interface CreateExtensionAssociationRequest {
   /**
+   * @public
    * <p>The name, the ID, or the Amazon Resource Name (ARN) of the extension.</p>
    */
   ExtensionIdentifier: string | undefined;
 
   /**
+   * @public
    * <p>The version number of the extension. If not specified, AppConfig uses the
    *          maximum version of the extension.</p>
    */
   ExtensionVersionNumber?: number;
 
   /**
+   * @public
    * <p>The ARN of an application, configuration profile, or environment.</p>
    */
   ResourceIdentifier: string | undefined;
 
   /**
+   * @public
    * <p>The parameter names and values defined in the extensions. Extension parameters marked
    *             <code>Required</code> must be entered for this field.</p>
    */
   Parameters?: Record<string, string>;
 
   /**
+   * @public
    * <p>Adds one or more tags for the specified extension association. Tags are metadata that
    *          help you categorize resources in different ways, for example, by purpose, owner, or
    *          environment. Each tag consists of a key and an optional value, both of which you define.
@@ -965,32 +1059,38 @@ export interface CreateExtensionAssociationRequest {
  */
 export interface ExtensionAssociation {
   /**
+   * @public
    * <p>The system-generated ID for the association.</p>
    */
   Id?: string;
 
   /**
+   * @public
    * <p>The ARN of the extension defined in the association.</p>
    */
   ExtensionArn?: string;
 
   /**
+   * @public
    * <p>The ARNs of applications, configuration profiles, or environments defined in the
    *          association.</p>
    */
   ResourceArn?: string;
 
   /**
+   * @public
    * <p>The system-generated Amazon Resource Name (ARN) for the extension.</p>
    */
   Arn?: string;
 
   /**
+   * @public
    * <p>The parameter names and values defined in the association.</p>
    */
   Parameters?: Record<string, string>;
 
   /**
+   * @public
    * <p>The version number for the extension defined in the association.</p>
    */
   ExtensionVersionNumber?: number;
@@ -1001,32 +1101,38 @@ export interface ExtensionAssociation {
  */
 export interface CreateHostedConfigurationVersionRequest {
   /**
+   * @public
    * <p>The application ID.</p>
    */
   ApplicationId: string | undefined;
 
   /**
+   * @public
    * <p>The configuration profile ID.</p>
    */
   ConfigurationProfileId: string | undefined;
 
   /**
+   * @public
    * <p>A description of the configuration.</p>
    */
   Description?: string;
 
   /**
+   * @public
    * <p>The content of the configuration or the configuration data.</p>
    */
   Content: Uint8Array | undefined;
 
   /**
+   * @public
    * <p>A standard MIME type describing the format of the configuration content. For more
    *          information, see <a href="https://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.17">Content-Type</a>.</p>
    */
   ContentType: string | undefined;
 
   /**
+   * @public
    * <p>An optional locking token used to prevent race conditions from overwriting configuration
    *          updates when creating a new version. To ensure your data is not overwritten when creating
    *          multiple hosted configuration versions in rapid succession, specify the version number of
@@ -1035,6 +1141,7 @@ export interface CreateHostedConfigurationVersionRequest {
   LatestVersionNumber?: number;
 
   /**
+   * @public
    * <p>An optional, user-defined label for the AppConfig hosted configuration version. This value must contain at least one non-numeric character. For example, "v2.2.0".</p>
    */
   VersionLabel?: string;
@@ -1045,37 +1152,44 @@ export interface CreateHostedConfigurationVersionRequest {
  */
 export interface HostedConfigurationVersion {
   /**
+   * @public
    * <p>The application ID.</p>
    */
   ApplicationId?: string;
 
   /**
+   * @public
    * <p>The configuration profile ID.</p>
    */
   ConfigurationProfileId?: string;
 
   /**
+   * @public
    * <p>The configuration version.</p>
    */
   VersionNumber?: number;
 
   /**
+   * @public
    * <p>A description of the configuration.</p>
    */
   Description?: string;
 
   /**
+   * @public
    * <p>The content of the configuration or the configuration data.</p>
    */
   Content?: Uint8Array;
 
   /**
+   * @public
    * <p>A standard MIME type describing the format of the configuration content. For more
    *          information, see <a href="https://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.17">Content-Type</a>.</p>
    */
   ContentType?: string;
 
   /**
+   * @public
    * <p>A user-defined label for an AppConfig hosted configuration version.</p>
    */
   VersionLabel?: string;
@@ -1127,6 +1241,7 @@ export class PayloadTooLargeException extends __BaseException {
  */
 export interface DeleteApplicationRequest {
   /**
+   * @public
    * <p>The ID of the application to delete.</p>
    */
   ApplicationId: string | undefined;
@@ -1137,11 +1252,13 @@ export interface DeleteApplicationRequest {
  */
 export interface DeleteConfigurationProfileRequest {
   /**
+   * @public
    * <p>The application ID that includes the configuration profile you want to delete.</p>
    */
   ApplicationId: string | undefined;
 
   /**
+   * @public
    * <p>The ID of the configuration profile you want to delete.</p>
    */
   ConfigurationProfileId: string | undefined;
@@ -1152,6 +1269,7 @@ export interface DeleteConfigurationProfileRequest {
  */
 export interface DeleteDeploymentStrategyRequest {
   /**
+   * @public
    * <p>The ID of the deployment strategy you want to delete.</p>
    */
   DeploymentStrategyId: string | undefined;
@@ -1162,11 +1280,13 @@ export interface DeleteDeploymentStrategyRequest {
  */
 export interface DeleteEnvironmentRequest {
   /**
+   * @public
    * <p>The application ID that includes the environment that you want to delete.</p>
    */
   ApplicationId: string | undefined;
 
   /**
+   * @public
    * <p>The ID of the environment that you want to delete.</p>
    */
   EnvironmentId: string | undefined;
@@ -1177,11 +1297,13 @@ export interface DeleteEnvironmentRequest {
  */
 export interface DeleteExtensionRequest {
   /**
+   * @public
    * <p>The name, ID, or Amazon Resource Name (ARN) of the extension you want to delete.</p>
    */
   ExtensionIdentifier: string | undefined;
 
   /**
+   * @public
    * <p>A specific version of an extension to delete. If omitted, the highest version is
    *          deleted.</p>
    */
@@ -1193,6 +1315,7 @@ export interface DeleteExtensionRequest {
  */
 export interface DeleteExtensionAssociationRequest {
   /**
+   * @public
    * <p>The ID of the extension association to delete.</p>
    */
   ExtensionAssociationId: string | undefined;
@@ -1203,16 +1326,19 @@ export interface DeleteExtensionAssociationRequest {
  */
 export interface DeleteHostedConfigurationVersionRequest {
   /**
+   * @public
    * <p>The application ID.</p>
    */
   ApplicationId: string | undefined;
 
   /**
+   * @public
    * <p>The configuration profile ID.</p>
    */
   ConfigurationProfileId: string | undefined;
 
   /**
+   * @public
    * <p>The versions number to delete.</p>
    */
   VersionNumber: number | undefined;
@@ -1223,6 +1349,7 @@ export interface DeleteHostedConfigurationVersionRequest {
  */
 export interface GetApplicationRequest {
   /**
+   * @public
    * <p>The ID of the application you want to get.</p>
    */
   ApplicationId: string | undefined;
@@ -1233,6 +1360,7 @@ export interface GetApplicationRequest {
  */
 export interface Configuration {
   /**
+   * @public
    * <p>The content of the configuration or the configuration data.</p>
    *          <important>
    *             <p>The <code>Content</code> attribute only contains data if the system finds new or
@@ -1245,11 +1373,13 @@ export interface Configuration {
   Content?: Uint8Array;
 
   /**
+   * @public
    * <p>The configuration version.</p>
    */
   ConfigurationVersion?: string;
 
   /**
+   * @public
    * <p>A standard MIME type describing the format of the configuration content. For more
    *          information, see <a href="http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.17">Content-Type</a>.</p>
    */
@@ -1261,24 +1391,28 @@ export interface Configuration {
  */
 export interface GetConfigurationRequest {
   /**
+   * @public
    * <p>The application to get. Specify either the application name or the application
    *          ID.</p>
    */
   Application: string | undefined;
 
   /**
+   * @public
    * <p>The environment to get. Specify either the environment name or the environment
    *          ID.</p>
    */
   Environment: string | undefined;
 
   /**
+   * @public
    * <p>The configuration to get. Specify either the configuration name or the configuration
    *          ID.</p>
    */
   Configuration: string | undefined;
 
   /**
+   * @public
    * <p>The clientId parameter in the following command is a unique, user-specified ID to
    *          identify the client for the configuration. This ID enables AppConfig to deploy
    *          the configuration in intervals, as defined in the deployment strategy. </p>
@@ -1286,6 +1420,7 @@ export interface GetConfigurationRequest {
   ClientId: string | undefined;
 
   /**
+   * @public
    * <p>The configuration version returned in the most recent <code>GetConfiguration</code>
    *          response.</p>
    *          <important>
@@ -1314,12 +1449,14 @@ export interface GetConfigurationRequest {
  */
 export interface GetConfigurationProfileRequest {
   /**
+   * @public
    * <p>The ID of the application that includes the configuration profile you want to
    *          get.</p>
    */
   ApplicationId: string | undefined;
 
   /**
+   * @public
    * <p>The ID of the configuration profile that you want to get.</p>
    */
   ConfigurationProfileId: string | undefined;
@@ -1331,21 +1468,25 @@ export interface GetConfigurationProfileRequest {
  */
 export interface AppliedExtension {
   /**
+   * @public
    * <p>The system-generated ID of the extension.</p>
    */
   ExtensionId?: string;
 
   /**
+   * @public
    * <p>The system-generated ID for the association.</p>
    */
   ExtensionAssociationId?: string;
 
   /**
+   * @public
    * <p>The extension version number.</p>
    */
   VersionNumber?: number;
 
   /**
+   * @public
    * <p>One or more parameters for the actions called by the extension.</p>
    */
   Parameters?: Record<string, string>;
@@ -1391,6 +1532,7 @@ export type TriggeredBy = (typeof TriggeredBy)[keyof typeof TriggeredBy];
  */
 export interface DeploymentEvent {
   /**
+   * @public
    * <p>The type of deployment event. Deployment event types include the start, stop, or
    *          completion of a deployment; a percentage update; the start or stop of a bake period; and
    *          the start or completion of a rollback.</p>
@@ -1398,12 +1540,14 @@ export interface DeploymentEvent {
   EventType?: DeploymentEventType | string;
 
   /**
+   * @public
    * <p>The entity that triggered the deployment event. Events can be triggered by a user,
    *             AppConfig, an Amazon CloudWatch alarm, or an internal error.</p>
    */
   TriggeredBy?: TriggeredBy | string;
 
   /**
+   * @public
    * <p>A description of the deployment event. Descriptions include, but are not limited to, the
    *          user account or the Amazon CloudWatch alarm ARN that initiated a rollback, the percentage of hosts
    *          that received the deployment, or in the case of an internal error, a recommendation to
@@ -1412,11 +1556,13 @@ export interface DeploymentEvent {
   Description?: string;
 
   /**
+   * @public
    * <p>The list of extensions that were invoked as part of the deployment.</p>
    */
   ActionInvocations?: ActionInvocation[];
 
   /**
+   * @public
    * <p>The date and time the event occurred.</p>
    */
   OccurredAt?: Date;
@@ -1445,99 +1591,118 @@ export type DeploymentState = (typeof DeploymentState)[keyof typeof DeploymentSt
  */
 export interface Deployment {
   /**
+   * @public
    * <p>The ID of the application that was deployed.</p>
    */
   ApplicationId?: string;
 
   /**
+   * @public
    * <p>The ID of the environment that was deployed.</p>
    */
   EnvironmentId?: string;
 
   /**
+   * @public
    * <p>The ID of the deployment strategy that was deployed.</p>
    */
   DeploymentStrategyId?: string;
 
   /**
+   * @public
    * <p>The ID of the configuration profile that was deployed.</p>
    */
   ConfigurationProfileId?: string;
 
   /**
+   * @public
    * <p>The sequence number of the deployment.</p>
    */
   DeploymentNumber?: number;
 
   /**
+   * @public
    * <p>The name of the configuration.</p>
    */
   ConfigurationName?: string;
 
   /**
+   * @public
    * <p>Information about the source location of the configuration.</p>
    */
   ConfigurationLocationUri?: string;
 
   /**
+   * @public
    * <p>The configuration version that was deployed.</p>
    */
   ConfigurationVersion?: string;
 
   /**
+   * @public
    * <p>The description of the deployment.</p>
    */
   Description?: string;
 
   /**
+   * @public
    * <p>Total amount of time the deployment lasted.</p>
    */
   DeploymentDurationInMinutes?: number;
 
   /**
+   * @public
    * <p>The algorithm used to define how percentage grew over time.</p>
    */
   GrowthType?: GrowthType | string;
 
   /**
+   * @public
    * <p>The percentage of targets to receive a deployed configuration during each
    *          interval.</p>
    */
   GrowthFactor?: number;
 
   /**
+   * @public
    * <p>The amount of time that AppConfig monitored for alarms before considering the
    *          deployment to be complete and no longer eligible for automatic rollback.</p>
    */
   FinalBakeTimeInMinutes?: number;
 
   /**
+   * @public
    * <p>The state of the deployment.</p>
    */
   State?: DeploymentState | string;
 
   /**
+   * @public
    * <p>A list containing all events related to a deployment. The most recent events are
    *          displayed first.</p>
    */
   EventLog?: DeploymentEvent[];
 
   /**
+   * @public
    * <p>The percentage of targets for which the deployment is available.</p>
    */
   PercentageComplete?: number;
 
   /**
+   * @public
    * <p>The time the deployment started.</p>
    */
   StartedAt?: Date;
 
   /**
+   * @public
    * <p>The time the deployment completed. </p>
    */
   CompletedAt?: Date;
 
   /**
+   * @public
    * <p>A list of extensions that were processed as part of the deployment. The extensions that
    *          were previously associated to the configuration profile, environment, or the application
    *          when <code>StartDeployment</code> was called.</p>
@@ -1545,6 +1710,7 @@ export interface Deployment {
   AppliedExtensions?: AppliedExtension[];
 
   /**
+   * @public
    * <p>The Amazon Resource Name of the Key Management Service key used to encrypt configuration
    *          data. You can encrypt secrets stored in Secrets Manager, Amazon Simple Storage Service
    *          (Amazon S3) objects encrypted with SSE-KMS, or secure string parameters stored in Amazon Web Services Systems Manager
@@ -1553,6 +1719,7 @@ export interface Deployment {
   KmsKeyArn?: string;
 
   /**
+   * @public
    * <p>The KMS key identifier (key ID, key alias, or key ARN). AppConfig uses this ID to encrypt the configuration data using a customer managed key. </p>
    */
   KmsKeyIdentifier?: string;
@@ -1563,16 +1730,19 @@ export interface Deployment {
  */
 export interface GetDeploymentRequest {
   /**
+   * @public
    * <p>The ID of the application that includes the deployment you want to get. </p>
    */
   ApplicationId: string | undefined;
 
   /**
+   * @public
    * <p>The ID of the environment that includes the deployment you want to get. </p>
    */
   EnvironmentId: string | undefined;
 
   /**
+   * @public
    * <p>The sequence number of the deployment.</p>
    */
   DeploymentNumber: number | undefined;
@@ -1583,6 +1753,7 @@ export interface GetDeploymentRequest {
  */
 export interface GetDeploymentStrategyRequest {
   /**
+   * @public
    * <p>The ID of the deployment strategy to get.</p>
    */
   DeploymentStrategyId: string | undefined;
@@ -1593,11 +1764,13 @@ export interface GetDeploymentStrategyRequest {
  */
 export interface GetEnvironmentRequest {
   /**
+   * @public
    * <p>The ID of the application that includes the environment you want to get.</p>
    */
   ApplicationId: string | undefined;
 
   /**
+   * @public
    * <p>The ID of the environment that you want to get.</p>
    */
   EnvironmentId: string | undefined;
@@ -1608,11 +1781,13 @@ export interface GetEnvironmentRequest {
  */
 export interface GetExtensionRequest {
   /**
+   * @public
    * <p>The name, the ID, or the Amazon Resource Name (ARN) of the extension.</p>
    */
   ExtensionIdentifier: string | undefined;
 
   /**
+   * @public
    * <p>The extension version number. If no version number was defined, AppConfig uses
    *          the highest version.</p>
    */
@@ -1624,6 +1799,7 @@ export interface GetExtensionRequest {
  */
 export interface GetExtensionAssociationRequest {
   /**
+   * @public
    * <p>The extension association ID to get.</p>
    */
   ExtensionAssociationId: string | undefined;
@@ -1634,16 +1810,19 @@ export interface GetExtensionAssociationRequest {
  */
 export interface GetHostedConfigurationVersionRequest {
   /**
+   * @public
    * <p>The application ID.</p>
    */
   ApplicationId: string | undefined;
 
   /**
+   * @public
    * <p>The configuration profile ID.</p>
    */
   ConfigurationProfileId: string | undefined;
 
   /**
+   * @public
    * <p>The version.</p>
    */
   VersionNumber: number | undefined;
@@ -1654,11 +1833,13 @@ export interface GetHostedConfigurationVersionRequest {
  */
 export interface Applications {
   /**
+   * @public
    * <p>The elements from this collection.</p>
    */
   Items?: Application[];
 
   /**
+   * @public
    * <p>The token for the next set of items to return. Use this token to get the next set of
    *          results.</p>
    */
@@ -1670,12 +1851,14 @@ export interface Applications {
  */
 export interface ListApplicationsRequest {
   /**
+   * @public
    * <p>The maximum number of items to return for this call. The call also returns a token that
    *          you can specify in a subsequent call to get the next set of results.</p>
    */
   MaxResults?: number;
 
   /**
+   * @public
    * <p>A token to start the list. Next token is a pagination token generated by AppConfig to describe what page the previous List call ended on. For the first List
    *          request, the nextToken should not be set. On subsequent calls, the nextToken parameter
    *          should be set to the previous responses nextToken value. Use this token to get the next set
@@ -1690,31 +1873,37 @@ export interface ListApplicationsRequest {
  */
 export interface ConfigurationProfileSummary {
   /**
+   * @public
    * <p>The application ID.</p>
    */
   ApplicationId?: string;
 
   /**
+   * @public
    * <p>The ID of the configuration profile.</p>
    */
   Id?: string;
 
   /**
+   * @public
    * <p>The name of the configuration profile.</p>
    */
   Name?: string;
 
   /**
+   * @public
    * <p>The URI location of the configuration.</p>
    */
   LocationUri?: string;
 
   /**
+   * @public
    * <p>The types of validators in the configuration profile.</p>
    */
   ValidatorTypes?: (ValidatorType | string)[];
 
   /**
+   * @public
    * <p>The type of configurations contained in the profile. AppConfig supports
    *             <code>feature flags</code> and <code>freeform</code> configurations. We recommend you
    *          create feature flag configurations to enable or disable new features and freeform
@@ -1735,11 +1924,13 @@ export interface ConfigurationProfileSummary {
  */
 export interface ConfigurationProfiles {
   /**
+   * @public
    * <p>The elements from this collection.</p>
    */
   Items?: ConfigurationProfileSummary[];
 
   /**
+   * @public
    * <p>The token for the next set of items to return. Use this token to get the next set of
    *          results.</p>
    */
@@ -1751,22 +1942,26 @@ export interface ConfigurationProfiles {
  */
 export interface ListConfigurationProfilesRequest {
   /**
+   * @public
    * <p>The application ID.</p>
    */
   ApplicationId: string | undefined;
 
   /**
+   * @public
    * <p>The maximum number of items to return for this call. The call also returns a token that
    *          you can specify in a subsequent call to get the next set of results.</p>
    */
   MaxResults?: number;
 
   /**
+   * @public
    * <p>A token to start the list. Use this token to get the next set of results.</p>
    */
   NextToken?: string;
 
   /**
+   * @public
    * <p>A filter based on the type of configurations that the configuration profile contains. A
    *          configuration can be a feature flag or a freeform configuration.</p>
    */
@@ -1779,58 +1974,69 @@ export interface ListConfigurationProfilesRequest {
  */
 export interface DeploymentSummary {
   /**
+   * @public
    * <p>The sequence number of the deployment.</p>
    */
   DeploymentNumber?: number;
 
   /**
+   * @public
    * <p>The name of the configuration.</p>
    */
   ConfigurationName?: string;
 
   /**
+   * @public
    * <p>The version of the configuration.</p>
    */
   ConfigurationVersion?: string;
 
   /**
+   * @public
    * <p>Total amount of time the deployment lasted.</p>
    */
   DeploymentDurationInMinutes?: number;
 
   /**
+   * @public
    * <p>The algorithm used to define how percentage grows over time.</p>
    */
   GrowthType?: GrowthType | string;
 
   /**
+   * @public
    * <p>The percentage of targets to receive a deployed configuration during each
    *          interval.</p>
    */
   GrowthFactor?: number;
 
   /**
+   * @public
    * <p>The amount of time that AppConfig monitors for alarms before considering the
    *          deployment to be complete and no longer eligible for automatic rollback.</p>
    */
   FinalBakeTimeInMinutes?: number;
 
   /**
+   * @public
    * <p>The state of the deployment.</p>
    */
   State?: DeploymentState | string;
 
   /**
+   * @public
    * <p>The percentage of targets for which the deployment is available.</p>
    */
   PercentageComplete?: number;
 
   /**
+   * @public
    * <p>Time the deployment started.</p>
    */
   StartedAt?: Date;
 
   /**
+   * @public
    * <p>Time the deployment completed.</p>
    */
   CompletedAt?: Date;
@@ -1841,11 +2047,13 @@ export interface DeploymentSummary {
  */
 export interface Deployments {
   /**
+   * @public
    * <p>The elements from this collection.</p>
    */
   Items?: DeploymentSummary[];
 
   /**
+   * @public
    * <p>The token for the next set of items to return. Use this token to get the next set of
    *          results.</p>
    */
@@ -1857,16 +2065,19 @@ export interface Deployments {
  */
 export interface ListDeploymentsRequest {
   /**
+   * @public
    * <p>The application ID.</p>
    */
   ApplicationId: string | undefined;
 
   /**
+   * @public
    * <p>The environment ID.</p>
    */
   EnvironmentId: string | undefined;
 
   /**
+   * @public
    * <p>The maximum number of items that may be returned for this call. If there are items that
    *          have not yet been returned, the response will include a non-null <code>NextToken</code>
    *          that you can provide in a subsequent call to get the next set of results.</p>
@@ -1874,6 +2085,7 @@ export interface ListDeploymentsRequest {
   MaxResults?: number;
 
   /**
+   * @public
    * <p>The token returned by a prior call to this operation indicating the next set of results
    *          to be returned. If not specified, the operation will return the first set of
    *          results.</p>
@@ -1886,11 +2098,13 @@ export interface ListDeploymentsRequest {
  */
 export interface DeploymentStrategies {
   /**
+   * @public
    * <p>The elements from this collection.</p>
    */
   Items?: DeploymentStrategy[];
 
   /**
+   * @public
    * <p>The token for the next set of items to return. Use this token to get the next set of
    *          results.</p>
    */
@@ -1902,12 +2116,14 @@ export interface DeploymentStrategies {
  */
 export interface ListDeploymentStrategiesRequest {
   /**
+   * @public
    * <p>The maximum number of items to return for this call. The call also returns a token that
    *          you can specify in a subsequent call to get the next set of results.</p>
    */
   MaxResults?: number;
 
   /**
+   * @public
    * <p>A token to start the list. Use this token to get the next set of results.</p>
    */
   NextToken?: string;
@@ -1918,11 +2134,13 @@ export interface ListDeploymentStrategiesRequest {
  */
 export interface Environments {
   /**
+   * @public
    * <p>The elements from this collection.</p>
    */
   Items?: Environment[];
 
   /**
+   * @public
    * <p>The token for the next set of items to return. Use this token to get the next set of
    *          results.</p>
    */
@@ -1934,17 +2152,20 @@ export interface Environments {
  */
 export interface ListEnvironmentsRequest {
   /**
+   * @public
    * <p>The application ID.</p>
    */
   ApplicationId: string | undefined;
 
   /**
+   * @public
    * <p>The maximum number of items to return for this call. The call also returns a token that
    *          you can specify in a subsequent call to get the next set of results.</p>
    */
   MaxResults?: number;
 
   /**
+   * @public
    * <p>A token to start the list. Use this token to get the next set of results.</p>
    */
   NextToken?: string;
@@ -1959,6 +2180,7 @@ export interface ListEnvironmentsRequest {
  */
 export interface ExtensionAssociationSummary {
   /**
+   * @public
    * <p>The extension association ID. This ID is used to call other
    *             <code>ExtensionAssociation</code> API actions such as
    *             <code>GetExtensionAssociation</code> or <code>DeleteExtensionAssociation</code>.</p>
@@ -1966,11 +2188,13 @@ export interface ExtensionAssociationSummary {
   Id?: string;
 
   /**
+   * @public
    * <p>The system-generated Amazon Resource Name (ARN) for the extension.</p>
    */
   ExtensionArn?: string;
 
   /**
+   * @public
    * <p>The ARNs of applications, configuration profiles, or environments defined in the
    *          association.</p>
    */
@@ -1982,12 +2206,14 @@ export interface ExtensionAssociationSummary {
  */
 export interface ExtensionAssociations {
   /**
+   * @public
    * <p>The list of extension associations. Each item represents an extension association to an
    *          application, environment, or configuration profile. </p>
    */
   Items?: ExtensionAssociationSummary[];
 
   /**
+   * @public
    * <p>The token for the next set of items to return. Use this token to get the next set of
    *          results.</p>
    */
@@ -1999,27 +2225,32 @@ export interface ExtensionAssociations {
  */
 export interface ListExtensionAssociationsRequest {
   /**
+   * @public
    * <p>The ARN of an application, configuration profile, or environment.</p>
    */
   ResourceIdentifier?: string;
 
   /**
+   * @public
    * <p>The name, the ID, or the Amazon Resource Name (ARN) of the extension.</p>
    */
   ExtensionIdentifier?: string;
 
   /**
+   * @public
    * <p>The version number for the extension defined in the association.</p>
    */
   ExtensionVersionNumber?: number;
 
   /**
+   * @public
    * <p>The maximum number of items to return for this call. The call also returns a token that
    *          you can specify in a subsequent call to get the next set of results.</p>
    */
   MaxResults?: number;
 
   /**
+   * @public
    * <p>A token to start the list. Use this token to get the next set of results or pass null to
    *          get the first set of results. </p>
    */
@@ -2033,26 +2264,31 @@ export interface ListExtensionAssociationsRequest {
  */
 export interface ExtensionSummary {
   /**
+   * @public
    * <p>The system-generated ID of the extension.</p>
    */
   Id?: string;
 
   /**
+   * @public
    * <p>The extension name.</p>
    */
   Name?: string;
 
   /**
+   * @public
    * <p>The extension version number.</p>
    */
   VersionNumber?: number;
 
   /**
+   * @public
    * <p>The system-generated Amazon Resource Name (ARN) for the extension.</p>
    */
   Arn?: string;
 
   /**
+   * @public
    * <p>Information about the extension.</p>
    */
   Description?: string;
@@ -2063,12 +2299,14 @@ export interface ExtensionSummary {
  */
 export interface Extensions {
   /**
+   * @public
    * <p>The list of available extensions. The list includes Amazon Web Services authored and
    *          user-created extensions.</p>
    */
   Items?: ExtensionSummary[];
 
   /**
+   * @public
    * <p>The token for the next set of items to return. Use this token to get the next set of
    *          results.</p>
    */
@@ -2080,17 +2318,20 @@ export interface Extensions {
  */
 export interface ListExtensionsRequest {
   /**
+   * @public
    * <p>The maximum number of items to return for this call. The call also returns a token that
    *          you can specify in a subsequent call to get the next set of results.</p>
    */
   MaxResults?: number;
 
   /**
+   * @public
    * <p>A token to start the list. Use this token to get the next set of results. </p>
    */
   NextToken?: string;
 
   /**
+   * @public
    * <p>The extension name.</p>
    */
   Name?: string;
@@ -2102,32 +2343,38 @@ export interface ListExtensionsRequest {
  */
 export interface HostedConfigurationVersionSummary {
   /**
+   * @public
    * <p>The application ID.</p>
    */
   ApplicationId?: string;
 
   /**
+   * @public
    * <p>The configuration profile ID.</p>
    */
   ConfigurationProfileId?: string;
 
   /**
+   * @public
    * <p>The configuration version.</p>
    */
   VersionNumber?: number;
 
   /**
+   * @public
    * <p>A description of the configuration.</p>
    */
   Description?: string;
 
   /**
+   * @public
    * <p>A standard MIME type describing the format of the configuration content. For more
    *          information, see <a href="https://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.17">Content-Type</a>.</p>
    */
   ContentType?: string;
 
   /**
+   * @public
    * <p>A user-defined label for an AppConfig hosted configuration version.</p>
    */
   VersionLabel?: string;
@@ -2138,11 +2385,13 @@ export interface HostedConfigurationVersionSummary {
  */
 export interface HostedConfigurationVersions {
   /**
+   * @public
    * <p>The elements from this collection.</p>
    */
   Items?: HostedConfigurationVersionSummary[];
 
   /**
+   * @public
    * <p>The token for the next set of items to return. Use this token to get the next set of
    *          results.</p>
    */
@@ -2154,27 +2403,32 @@ export interface HostedConfigurationVersions {
  */
 export interface ListHostedConfigurationVersionsRequest {
   /**
+   * @public
    * <p>The application ID.</p>
    */
   ApplicationId: string | undefined;
 
   /**
+   * @public
    * <p>The configuration profile ID.</p>
    */
   ConfigurationProfileId: string | undefined;
 
   /**
+   * @public
    * <p>The maximum number of items to return for this call. The call also returns a token that
    *          you can specify in a subsequent call to get the next set of results.</p>
    */
   MaxResults?: number;
 
   /**
+   * @public
    * <p>A token to start the list. Use this token to get the next set of results. </p>
    */
   NextToken?: string;
 
   /**
+   * @public
    * <p>An optional filter that can be used to specify the version label of an AppConfig hosted configuration version. This parameter supports filtering by prefix using a wildcard, for example "v2*". If you don't specify an asterisk at the end of the value, only an exact match is returned.</p>
    */
   VersionLabel?: string;
@@ -2185,6 +2439,7 @@ export interface ListHostedConfigurationVersionsRequest {
  */
 export interface ListTagsForResourceRequest {
   /**
+   * @public
    * <p>The resource ARN.</p>
    */
   ResourceArn: string | undefined;
@@ -2195,6 +2450,7 @@ export interface ListTagsForResourceRequest {
  */
 export interface ResourceTags {
   /**
+   * @public
    * <p>Metadata to assign to AppConfig resources. Tags help organize and categorize
    *          your AppConfig resources. Each tag consists of a key and an optional value, both
    *          of which you define.</p>
@@ -2207,42 +2463,50 @@ export interface ResourceTags {
  */
 export interface StartDeploymentRequest {
   /**
+   * @public
    * <p>The application ID.</p>
    */
   ApplicationId: string | undefined;
 
   /**
+   * @public
    * <p>The environment ID.</p>
    */
   EnvironmentId: string | undefined;
 
   /**
+   * @public
    * <p>The deployment strategy ID.</p>
    */
   DeploymentStrategyId: string | undefined;
 
   /**
+   * @public
    * <p>The configuration profile ID.</p>
    */
   ConfigurationProfileId: string | undefined;
 
   /**
+   * @public
    * <p>The configuration version to deploy. If deploying an AppConfig hosted configuration version, you can specify either the version number or version label.</p>
    */
   ConfigurationVersion: string | undefined;
 
   /**
+   * @public
    * <p>A description of the deployment.</p>
    */
   Description?: string;
 
   /**
+   * @public
    * <p>Metadata to assign to the deployment. Tags help organize and categorize your AppConfig resources. Each tag consists of a key and an optional value, both of which
    *          you define.</p>
    */
   Tags?: Record<string, string>;
 
   /**
+   * @public
    * <p>The KMS key identifier (key ID, key alias, or key ARN). AppConfig uses this ID to encrypt the configuration data using a customer managed key. </p>
    */
   KmsKeyIdentifier?: string;
@@ -2253,16 +2517,19 @@ export interface StartDeploymentRequest {
  */
 export interface StopDeploymentRequest {
   /**
+   * @public
    * <p>The application ID.</p>
    */
   ApplicationId: string | undefined;
 
   /**
+   * @public
    * <p>The environment ID.</p>
    */
   EnvironmentId: string | undefined;
 
   /**
+   * @public
    * <p>The sequence number of the deployment.</p>
    */
   DeploymentNumber: number | undefined;
@@ -2273,11 +2540,13 @@ export interface StopDeploymentRequest {
  */
 export interface TagResourceRequest {
   /**
+   * @public
    * <p>The ARN of the resource for which to retrieve tags.</p>
    */
   ResourceArn: string | undefined;
 
   /**
+   * @public
    * <p>The key-value string map. The valid character set is [a-zA-Z+-=._:/]. The tag key can be
    *          up to 128 characters and must not start with <code>aws:</code>. The tag value can be up to
    *          256 characters.</p>
@@ -2290,11 +2559,13 @@ export interface TagResourceRequest {
  */
 export interface UntagResourceRequest {
   /**
+   * @public
    * <p>The ARN of the resource for which to remove tags.</p>
    */
   ResourceArn: string | undefined;
 
   /**
+   * @public
    * <p>The tag keys to delete.</p>
    */
   TagKeys: string[] | undefined;
@@ -2305,16 +2576,19 @@ export interface UntagResourceRequest {
  */
 export interface UpdateApplicationRequest {
   /**
+   * @public
    * <p>The application ID.</p>
    */
   ApplicationId: string | undefined;
 
   /**
+   * @public
    * <p>The name of the application.</p>
    */
   Name?: string;
 
   /**
+   * @public
    * <p>A description of the application.</p>
    */
   Description?: string;
@@ -2325,32 +2599,38 @@ export interface UpdateApplicationRequest {
  */
 export interface UpdateConfigurationProfileRequest {
   /**
+   * @public
    * <p>The application ID.</p>
    */
   ApplicationId: string | undefined;
 
   /**
+   * @public
    * <p>The ID of the configuration profile.</p>
    */
   ConfigurationProfileId: string | undefined;
 
   /**
+   * @public
    * <p>The name of the configuration profile.</p>
    */
   Name?: string;
 
   /**
+   * @public
    * <p>A description of the configuration profile.</p>
    */
   Description?: string;
 
   /**
+   * @public
    * <p>The ARN of an IAM role with permission to access the configuration at the specified
    *             <code>LocationUri</code>.</p>
    */
   RetrievalRoleArn?: string;
 
   /**
+   * @public
    * <p>A list of methods for validating the configuration.</p>
    */
   Validators?: Validator[];
@@ -2361,33 +2641,39 @@ export interface UpdateConfigurationProfileRequest {
  */
 export interface UpdateDeploymentStrategyRequest {
   /**
+   * @public
    * <p>The deployment strategy ID.</p>
    */
   DeploymentStrategyId: string | undefined;
 
   /**
+   * @public
    * <p>A description of the deployment strategy.</p>
    */
   Description?: string;
 
   /**
+   * @public
    * <p>Total amount of time for a deployment to last.</p>
    */
   DeploymentDurationInMinutes?: number;
 
   /**
+   * @public
    * <p>The amount of time that AppConfig monitors for alarms before considering the
    *          deployment to be complete and no longer eligible for automatic rollback.</p>
    */
   FinalBakeTimeInMinutes?: number;
 
   /**
+   * @public
    * <p>The percentage of targets to receive a deployed configuration during each
    *          interval.</p>
    */
   GrowthFactor?: number;
 
   /**
+   * @public
    * <p>The algorithm used to define how percentage grows over time. AppConfig
    *          supports the following growth types:</p>
    *          <p>
@@ -2425,26 +2711,31 @@ export interface UpdateDeploymentStrategyRequest {
  */
 export interface UpdateEnvironmentRequest {
   /**
+   * @public
    * <p>The application ID.</p>
    */
   ApplicationId: string | undefined;
 
   /**
+   * @public
    * <p>The environment ID.</p>
    */
   EnvironmentId: string | undefined;
 
   /**
+   * @public
    * <p>The name of the environment.</p>
    */
   Name?: string;
 
   /**
+   * @public
    * <p>A description of the environment.</p>
    */
   Description?: string;
 
   /**
+   * @public
    * <p>Amazon CloudWatch alarms to monitor during the deployment process.</p>
    */
   Monitors?: Monitor[];
@@ -2455,26 +2746,31 @@ export interface UpdateEnvironmentRequest {
  */
 export interface UpdateExtensionRequest {
   /**
+   * @public
    * <p>The name, the ID, or the Amazon Resource Name (ARN) of the extension.</p>
    */
   ExtensionIdentifier: string | undefined;
 
   /**
+   * @public
    * <p>Information about the extension.</p>
    */
   Description?: string;
 
   /**
+   * @public
    * <p>The actions defined in the extension.</p>
    */
   Actions?: Record<string, Action[]>;
 
   /**
+   * @public
    * <p>One or more parameters for the actions called by the extension.</p>
    */
   Parameters?: Record<string, Parameter>;
 
   /**
+   * @public
    * <p>The extension version number.</p>
    */
   VersionNumber?: number;
@@ -2485,11 +2781,13 @@ export interface UpdateExtensionRequest {
  */
 export interface UpdateExtensionAssociationRequest {
   /**
+   * @public
    * <p>The system-generated ID for the association.</p>
    */
   ExtensionAssociationId: string | undefined;
 
   /**
+   * @public
    * <p>The parameter names and values defined in the extension.</p>
    */
   Parameters?: Record<string, string>;
@@ -2500,16 +2798,19 @@ export interface UpdateExtensionAssociationRequest {
  */
 export interface ValidateConfigurationRequest {
   /**
+   * @public
    * <p>The application ID.</p>
    */
   ApplicationId: string | undefined;
 
   /**
+   * @public
    * <p>The configuration profile ID.</p>
    */
   ConfigurationProfileId: string | undefined;
 
   /**
+   * @public
    * <p>The version of the configuration to validate.</p>
    */
   ConfigurationVersion: string | undefined;

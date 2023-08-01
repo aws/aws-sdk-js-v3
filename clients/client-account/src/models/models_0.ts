@@ -44,11 +44,13 @@ export type AlternateContactType = (typeof AlternateContactType)[keyof typeof Al
  */
 export interface DeleteAlternateContactRequest {
   /**
+   * @public
    * <p>Specifies which of the alternate contacts to delete. </p>
    */
   AlternateContactType: AlternateContactType | string | undefined;
 
   /**
+   * @public
    * <p>Specifies the 12 digit account ID number of the Amazon Web Services account that
    *         you want to access or modify with this operation.</p>
    *          <p>If you do not specify this parameter, it defaults to the Amazon Web Services account of the
@@ -143,11 +145,13 @@ export class TooManyRequestsException extends __BaseException {
  */
 export interface ValidationExceptionField {
   /**
+   * @public
    * <p>The field name where the invalid entry was detected.</p>
    */
   name: string | undefined;
 
   /**
+   * @public
    * <p>A message about the validation exception.</p>
    */
   message: string | undefined;
@@ -175,11 +179,13 @@ export class ValidationException extends __BaseException {
   readonly name: "ValidationException" = "ValidationException";
   readonly $fault: "client" = "client";
   /**
+   * @public
    * <p>The reason that validation failed.</p>
    */
   reason?: ValidationExceptionReason | string;
 
   /**
+   * @public
    * <p>The field where the invalid entry was detected.</p>
    */
   fieldList?: ValidationExceptionField[];
@@ -204,11 +210,13 @@ export class ValidationException extends __BaseException {
  */
 export interface GetAlternateContactRequest {
   /**
+   * @public
    * <p>Specifies which alternate contact you want to retrieve.</p>
    */
   AlternateContactType: AlternateContactType | string | undefined;
 
   /**
+   * @public
    * <p>Specifies the 12 digit account ID number of the Amazon Web Services account that
    *         you want to access or modify with this operation.</p>
    *          <p>If you do not specify this parameter, it defaults to the Amazon Web Services account of the
@@ -238,26 +246,31 @@ export interface GetAlternateContactRequest {
  */
 export interface AlternateContact {
   /**
+   * @public
    * <p>The name associated with this alternate contact.</p>
    */
   Name?: string;
 
   /**
+   * @public
    * <p>The title associated with this alternate contact.</p>
    */
   Title?: string;
 
   /**
+   * @public
    * <p>The email address associated with this alternate contact.</p>
    */
   EmailAddress?: string;
 
   /**
+   * @public
    * <p>The phone number associated with this alternate contact.</p>
    */
   PhoneNumber?: string;
 
   /**
+   * @public
    * <p>The type of alternate contact.</p>
    */
   AlternateContactType?: AlternateContactType | string;
@@ -268,6 +281,7 @@ export interface AlternateContact {
  */
 export interface GetAlternateContactResponse {
   /**
+   * @public
    * <p>A structure that contains the details for the specified alternate contact.</p>
    */
   AlternateContact?: AlternateContact;
@@ -278,31 +292,37 @@ export interface GetAlternateContactResponse {
  */
 export interface PutAlternateContactRequest {
   /**
+   * @public
    * <p>Specifies a name for the alternate contact.</p>
    */
   Name: string | undefined;
 
   /**
+   * @public
    * <p>Specifies a title for the alternate contact.</p>
    */
   Title: string | undefined;
 
   /**
+   * @public
    * <p>Specifies an email address for the alternate contact. </p>
    */
   EmailAddress: string | undefined;
 
   /**
+   * @public
    * <p>Specifies a phone number for the alternate contact.</p>
    */
   PhoneNumber: string | undefined;
 
   /**
+   * @public
    * <p>Specifies which alternate contact you want to create or update.</p>
    */
   AlternateContactType: AlternateContactType | string | undefined;
 
   /**
+   * @public
    * <p>Specifies the 12 digit account ID number of the Amazon Web Services account that
    *         you want to access or modify with this operation.</p>
    *          <p>If you do not specify this parameter, it defaults to the Amazon Web Services account of the
@@ -330,6 +350,7 @@ export interface PutAlternateContactRequest {
  */
 export interface GetContactInformationRequest {
   /**
+   * @public
    * <p>Specifies the 12-digit account ID number of the Amazon Web Services account that you want to access
    *             or modify with this operation. If you don't specify this parameter, it defaults to the
    *             Amazon Web Services account of the identity used to call the operation. To use this parameter, the
@@ -358,61 +379,73 @@ export interface GetContactInformationRequest {
  */
 export interface ContactInformation {
   /**
+   * @public
    * <p>The full name of the primary contact address.</p>
    */
   FullName: string | undefined;
 
   /**
+   * @public
    * <p>The first line of the primary contact address.</p>
    */
   AddressLine1: string | undefined;
 
   /**
+   * @public
    * <p>The second line of the primary contact address, if any.</p>
    */
   AddressLine2?: string;
 
   /**
+   * @public
    * <p>The third line of the primary contact address, if any.</p>
    */
   AddressLine3?: string;
 
   /**
+   * @public
    * <p>The city of the primary contact address.</p>
    */
   City: string | undefined;
 
   /**
+   * @public
    * <p>The state or region of the primary contact address. This field is required in selected countries.</p>
    */
   StateOrRegion?: string;
 
   /**
+   * @public
    * <p>The district or county of the primary contact address, if any.</p>
    */
   DistrictOrCounty?: string;
 
   /**
+   * @public
    * <p>The postal code of the primary contact address.</p>
    */
   PostalCode: string | undefined;
 
   /**
+   * @public
    * <p>The ISO-3166 two-letter country code for the primary contact address.</p>
    */
   CountryCode: string | undefined;
 
   /**
+   * @public
    * <p>The phone number of the primary contact information. The number will be validated and, in some countries, checked for activation.</p>
    */
   PhoneNumber: string | undefined;
 
   /**
+   * @public
    * <p>The name of the company associated with the primary contact information, if any.</p>
    */
   CompanyName?: string;
 
   /**
+   * @public
    * <p>The URL of the website associated with the primary contact information, if any.</p>
    */
   WebsiteUrl?: string;
@@ -423,6 +456,7 @@ export interface ContactInformation {
  */
 export interface GetContactInformationResponse {
   /**
+   * @public
    * <p>Contains the details of the primary contact information associated with an Amazon Web Services account.</p>
    */
   ContactInformation?: ContactInformation;
@@ -433,11 +467,13 @@ export interface GetContactInformationResponse {
  */
 export interface PutContactInformationRequest {
   /**
+   * @public
    * <p>Contains the details of the primary contact information associated with an Amazon Web Services account.</p>
    */
   ContactInformation: ContactInformation | undefined;
 
   /**
+   * @public
    * <p>Specifies the 12-digit account ID number of the Amazon Web Services account that you want to access
    *             or modify with this operation. If you don't specify this parameter, it defaults to the
    *             Amazon Web Services account of the identity used to call the operation. To use this parameter, the
@@ -487,6 +523,7 @@ export class ConflictException extends __BaseException {
  */
 export interface DisableRegionRequest {
   /**
+   * @public
    * <p>Specifies the 12-digit account ID number of the Amazon Web Services account that you want to access
    *             or modify with this operation. If you don't specify this parameter, it defaults to the
    *             Amazon Web Services account of the identity used to call the operation. To use this parameter, the
@@ -509,6 +546,7 @@ export interface DisableRegionRequest {
   AccountId?: string;
 
   /**
+   * @public
    * <p>Specifies the Region-code for a given Region name (for example, <code>af-south-1</code>). When
    *             you disable a Region, Amazon Web Services performs actions to deactivate that Region in your account, such
    *             as destroying IAM resources in the Region. This process takes a few minutes for most
@@ -523,6 +561,7 @@ export interface DisableRegionRequest {
  */
 export interface EnableRegionRequest {
   /**
+   * @public
    * <p>Specifies the 12-digit account ID number of the Amazon Web Services account that you want to access
    *             or modify with this operation. If you don't specify this parameter, it defaults to the
    *             Amazon Web Services account of the identity used to call the operation. To use this parameter, the
@@ -545,6 +584,7 @@ export interface EnableRegionRequest {
   AccountId?: string;
 
   /**
+   * @public
    * <p>Specifies the Region-code for a given Region name (for example, <code>af-south-1</code>). When
    *             you enable a Region, Amazon Web Services performs actions to prepare your account in that Region, such
    *             as distributing your IAM resources to the Region. This process takes a few minutes for
@@ -560,6 +600,7 @@ export interface EnableRegionRequest {
  */
 export interface GetRegionOptStatusRequest {
   /**
+   * @public
    * <p>Specifies the 12-digit account ID number of the Amazon Web Services account that you want to access
    *             or modify with this operation. If you don't specify this parameter, it defaults to the
    *             Amazon Web Services account of the identity used to call the operation. To use this parameter, the
@@ -582,6 +623,7 @@ export interface GetRegionOptStatusRequest {
   AccountId?: string;
 
   /**
+   * @public
    * <p>Specifies the Region-code for a given Region name (for example, <code>af-south-1</code>). This
    *             function will return the status of whatever Region you pass into this parameter. </p>
    */
@@ -610,11 +652,13 @@ export type RegionOptStatus = (typeof RegionOptStatus)[keyof typeof RegionOptSta
  */
 export interface GetRegionOptStatusResponse {
   /**
+   * @public
    * <p>The Region code that was passed in.</p>
    */
   RegionName?: string;
 
   /**
+   * @public
    * <p>One of the potential statuses a Region can undergo (Enabled, Enabling, Disabled,
    *             Disabling, Enabled_By_Default).</p>
    */
@@ -626,6 +670,7 @@ export interface GetRegionOptStatusResponse {
  */
 export interface ListRegionsRequest {
   /**
+   * @public
    * <p>Specifies the 12-digit account ID number of the Amazon Web Services account that you want to access
    *             or modify with this operation. If you don't specify this parameter, it defaults to the
    *             Amazon Web Services account of the identity used to call the operation. To use this parameter, the
@@ -648,6 +693,7 @@ export interface ListRegionsRequest {
   AccountId?: string;
 
   /**
+   * @public
    * <p>The total number of items to return in the command’s output. If the total number of
    *             items available is more than the value specified, a <code>NextToken</code> is provided
    *             in the command’s output. To resume pagination, provide the <code>NextToken</code> value
@@ -659,6 +705,7 @@ export interface ListRegionsRequest {
   MaxResults?: number;
 
   /**
+   * @public
    * <p>A token used to specify where to start paginating. This is the <code>NextToken</code>
    *             from a previously truncated response. For usage examples, see <a href="http://docs.aws.amazon.com/cli/latest/userguide/pagination.html">Pagination</a> in the
    *                 <i>Amazon Web Services Command Line Interface User Guide</i>.</p>
@@ -666,6 +713,7 @@ export interface ListRegionsRequest {
   NextToken?: string;
 
   /**
+   * @public
    * <p>A list of Region statuses (Enabling, Enabled, Disabling, Disabled, Enabled_by_default)
    *             to use to filter the list of Regions for a given account. For example, passing in a
    *             value of ENABLING will only return a list of Regions with a Region status of
@@ -681,11 +729,13 @@ export interface ListRegionsRequest {
  */
 export interface Region {
   /**
+   * @public
    * <p>The Region code of a given Region (for example, <code>us-east-1</code>).</p>
    */
   RegionName?: string;
 
   /**
+   * @public
    * <p>One of potential statuses a Region can undergo (Enabled, Enabling, Disabled, Disabling,
    *             Enabled_By_Default).</p>
    */
@@ -697,12 +747,14 @@ export interface Region {
  */
 export interface ListRegionsResponse {
   /**
+   * @public
    * <p>If there is more data to be returned, this will be populated. It should be passed into
    *             the <code>next-token</code> request parameter of <code>list-regions</code>.</p>
    */
   NextToken?: string;
 
   /**
+   * @public
    * <p>This is a list of Regions for a given account, or if the filtered parameter was used,
    *             a list of Regions that match the filter criteria set in the <code>filter</code>
    *             parameter.</p>

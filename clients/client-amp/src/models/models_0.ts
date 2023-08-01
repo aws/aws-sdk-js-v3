@@ -31,11 +31,13 @@ export class ConflictException extends __BaseException {
   readonly name: "ConflictException" = "ConflictException";
   readonly $fault: "client" = "client";
   /**
+   * @public
    * Identifier of the resource affected.
    */
   resourceId: string | undefined;
 
   /**
+   * @public
    * Type of the resource affected.
    */
   resourceType: string | undefined;
@@ -61,16 +63,19 @@ export class ConflictException extends __BaseException {
  */
 export interface CreateAlertManagerDefinitionRequest {
   /**
+   * @public
    * The ID of the workspace in which to create the alert manager definition.
    */
   workspaceId: string | undefined;
 
   /**
+   * @public
    * The alert manager definition data.
    */
   data: Uint8Array | undefined;
 
   /**
+   * @public
    * Optional, unique, case-sensitive, user-provided identifier to ensure the idempotency of the request.
    */
   clientToken?: string;
@@ -119,11 +124,13 @@ export type AlertManagerDefinitionStatusCode =
  */
 export interface AlertManagerDefinitionStatus {
   /**
+   * @public
    * Status code of this definition.
    */
   statusCode: AlertManagerDefinitionStatusCode | string | undefined;
 
   /**
+   * @public
    * The reason for failure if any.
    */
   statusReason?: string;
@@ -135,6 +142,7 @@ export interface AlertManagerDefinitionStatus {
  */
 export interface CreateAlertManagerDefinitionResponse {
   /**
+   * @public
    * The status of alert manager definition.
    */
   status: AlertManagerDefinitionStatus | undefined;
@@ -149,6 +157,7 @@ export class InternalServerException extends __BaseException {
   readonly $fault: "server" = "server";
   $retryable = {};
   /**
+   * @public
    * Advice to clients on when the call can be safely retried.
    */
   retryAfterSeconds?: number;
@@ -175,11 +184,13 @@ export class ResourceNotFoundException extends __BaseException {
   readonly name: "ResourceNotFoundException" = "ResourceNotFoundException";
   readonly $fault: "client" = "client";
   /**
+   * @public
    * Identifier of the resource affected.
    */
   resourceId: string | undefined;
 
   /**
+   * @public
    * Type of the resource affected.
    */
   resourceType: string | undefined;
@@ -207,21 +218,25 @@ export class ServiceQuotaExceededException extends __BaseException {
   readonly name: "ServiceQuotaExceededException" = "ServiceQuotaExceededException";
   readonly $fault: "client" = "client";
   /**
+   * @public
    * Identifier of the resource affected.
    */
   resourceId: string | undefined;
 
   /**
+   * @public
    * Type of the resource affected.
    */
   resourceType: string | undefined;
 
   /**
+   * @public
    * Service Quotas requirement to identify originating service.
    */
   serviceCode: string | undefined;
 
   /**
+   * @public
    * Service Quotas requirement to identify originating quota.
    */
   quotaCode: string | undefined;
@@ -252,16 +267,19 @@ export class ThrottlingException extends __BaseException {
   readonly $fault: "client" = "client";
   $retryable = {};
   /**
+   * @public
    * Service Quotas requirement to identify originating service.
    */
   serviceCode?: string;
 
   /**
+   * @public
    * Service Quotas requirement to identify originating quota.
    */
   quotaCode?: string;
 
   /**
+   * @public
    * Advice to clients on when the call can be safely retried.
    */
   retryAfterSeconds?: number;
@@ -288,11 +306,13 @@ export class ThrottlingException extends __BaseException {
  */
 export interface ValidationExceptionField {
   /**
+   * @public
    * The field name.
    */
   name: string | undefined;
 
   /**
+   * @public
    * Message describing why the field failed validation.
    */
   message: string | undefined;
@@ -322,11 +342,13 @@ export class ValidationException extends __BaseException {
   readonly name: "ValidationException" = "ValidationException";
   readonly $fault: "client" = "client";
   /**
+   * @public
    * Reason the request failed validation.
    */
   reason: ValidationExceptionReason | string | undefined;
 
   /**
+   * @public
    * The field that caused the error, if applicable. If more than one field caused the error, pick one and elaborate in the message.
    */
   fieldList?: ValidationExceptionField[];
@@ -352,11 +374,13 @@ export class ValidationException extends __BaseException {
  */
 export interface DeleteAlertManagerDefinitionRequest {
   /**
+   * @public
    * The ID of the workspace in which to delete the alert manager definition.
    */
   workspaceId: string | undefined;
 
   /**
+   * @public
    * Optional, unique, case-sensitive, user-provided identifier to ensure the idempotency of the request.
    */
   clientToken?: string;
@@ -368,6 +392,7 @@ export interface DeleteAlertManagerDefinitionRequest {
  */
 export interface DescribeAlertManagerDefinitionRequest {
   /**
+   * @public
    * The ID of the workspace to describe.
    */
   workspaceId: string | undefined;
@@ -379,21 +404,25 @@ export interface DescribeAlertManagerDefinitionRequest {
  */
 export interface AlertManagerDefinitionDescription {
   /**
+   * @public
    * The status of alert manager definition.
    */
   status: AlertManagerDefinitionStatus | undefined;
 
   /**
+   * @public
    * The alert manager definition.
    */
   data: Uint8Array | undefined;
 
   /**
+   * @public
    * The time when the alert manager definition was created.
    */
   createdAt: Date | undefined;
 
   /**
+   * @public
    * The time when the alert manager definition was modified.
    */
   modifiedAt: Date | undefined;
@@ -405,6 +434,7 @@ export interface AlertManagerDefinitionDescription {
  */
 export interface DescribeAlertManagerDefinitionResponse {
   /**
+   * @public
    * The properties of the selected workspace's alert manager definition.
    */
   alertManagerDefinition: AlertManagerDefinitionDescription | undefined;
@@ -416,16 +446,19 @@ export interface DescribeAlertManagerDefinitionResponse {
  */
 export interface PutAlertManagerDefinitionRequest {
   /**
+   * @public
    * The ID of the workspace in which to update the alert manager definition.
    */
   workspaceId: string | undefined;
 
   /**
+   * @public
    * The alert manager definition data.
    */
   data: Uint8Array | undefined;
 
   /**
+   * @public
    * Optional, unique, case-sensitive, user-provided identifier to ensure the idempotency of the request.
    */
   clientToken?: string;
@@ -437,6 +470,7 @@ export interface PutAlertManagerDefinitionRequest {
  */
 export interface PutAlertManagerDefinitionResponse {
   /**
+   * @public
    * The status of alert manager definition.
    */
   status: AlertManagerDefinitionStatus | undefined;
@@ -447,6 +481,7 @@ export interface PutAlertManagerDefinitionResponse {
  */
 export interface ListTagsForResourceRequest {
   /**
+   * @public
    * The ARN of the resource.
    */
   resourceArn: string | undefined;
@@ -457,6 +492,7 @@ export interface ListTagsForResourceRequest {
  */
 export interface ListTagsForResourceResponse {
   /**
+   * @public
    * The list of tags assigned to the resource.
    */
   tags?: Record<string, string>;
@@ -467,11 +503,13 @@ export interface ListTagsForResourceResponse {
  */
 export interface TagResourceRequest {
   /**
+   * @public
    * The ARN of the resource.
    */
   resourceArn: string | undefined;
 
   /**
+   * @public
    * The list of tags assigned to the resource.
    */
   tags: Record<string, string> | undefined;
@@ -487,11 +525,13 @@ export interface TagResourceResponse {}
  */
 export interface UntagResourceRequest {
   /**
+   * @public
    * The ARN of the resource.
    */
   resourceArn: string | undefined;
 
   /**
+   * @public
    * One or more tag keys
    */
   tagKeys: string[] | undefined;
@@ -508,16 +548,19 @@ export interface UntagResourceResponse {}
  */
 export interface CreateWorkspaceRequest {
   /**
+   * @public
    * An optional user-assigned alias for this workspace. This alias is for user reference and does not need to be unique.
    */
   alias?: string;
 
   /**
+   * @public
    * Optional, unique, case-sensitive, user-provided identifier to ensure the idempotency of the request.
    */
   clientToken?: string;
 
   /**
+   * @public
    * Optional, user-provided tags for this workspace.
    */
   tags?: Record<string, string>;
@@ -561,6 +604,7 @@ export type WorkspaceStatusCode = (typeof WorkspaceStatusCode)[keyof typeof Work
  */
 export interface WorkspaceStatus {
   /**
+   * @public
    * Status code of this workspace.
    */
   statusCode: WorkspaceStatusCode | string | undefined;
@@ -572,21 +616,25 @@ export interface WorkspaceStatus {
  */
 export interface CreateWorkspaceResponse {
   /**
+   * @public
    * The generated ID of the workspace that was just created.
    */
   workspaceId: string | undefined;
 
   /**
+   * @public
    * The ARN of the workspace that was just created.
    */
   arn: string | undefined;
 
   /**
+   * @public
    * The status of the workspace that was just created (usually CREATING).
    */
   status: WorkspaceStatus | undefined;
 
   /**
+   * @public
    * The tags of this workspace.
    */
   tags?: Record<string, string>;
@@ -598,11 +646,13 @@ export interface CreateWorkspaceResponse {
  */
 export interface DeleteWorkspaceRequest {
   /**
+   * @public
    * The ID of the workspace to delete.
    */
   workspaceId: string | undefined;
 
   /**
+   * @public
    * Optional, unique, case-sensitive, user-provided identifier to ensure the idempotency of the request.
    */
   clientToken?: string;
@@ -614,6 +664,7 @@ export interface DeleteWorkspaceRequest {
  */
 export interface DescribeWorkspaceRequest {
   /**
+   * @public
    * The ID of the workspace to describe.
    */
   workspaceId: string | undefined;
@@ -625,36 +676,43 @@ export interface DescribeWorkspaceRequest {
  */
 export interface WorkspaceDescription {
   /**
+   * @public
    * Unique string identifying this workspace.
    */
   workspaceId: string | undefined;
 
   /**
+   * @public
    * Alias of this workspace.
    */
   alias?: string;
 
   /**
+   * @public
    * The Amazon Resource Name (ARN) of this workspace.
    */
   arn: string | undefined;
 
   /**
+   * @public
    * The status of this workspace.
    */
   status: WorkspaceStatus | undefined;
 
   /**
+   * @public
    * Prometheus endpoint URI.
    */
   prometheusEndpoint?: string;
 
   /**
+   * @public
    * The time when the workspace was created.
    */
   createdAt: Date | undefined;
 
   /**
+   * @public
    * The tags of this workspace.
    */
   tags?: Record<string, string>;
@@ -666,6 +724,7 @@ export interface WorkspaceDescription {
  */
 export interface DescribeWorkspaceResponse {
   /**
+   * @public
    * The properties of the selected workspace.
    */
   workspace: WorkspaceDescription | undefined;
@@ -677,16 +736,19 @@ export interface DescribeWorkspaceResponse {
  */
 export interface ListWorkspacesRequest {
   /**
+   * @public
    * Pagination token to request the next page in a paginated list. This token is obtained from the output of the previous ListWorkspaces request.
    */
   nextToken?: string;
 
   /**
+   * @public
    * Optional filter for workspace alias. Only the workspaces with aliases that begin with this value will be returned.
    */
   alias?: string;
 
   /**
+   * @public
    * Maximum results to return in response (default=100, maximum=1000).
    */
   maxResults?: number;
@@ -698,31 +760,37 @@ export interface ListWorkspacesRequest {
  */
 export interface WorkspaceSummary {
   /**
+   * @public
    * Unique string identifying this workspace.
    */
   workspaceId: string | undefined;
 
   /**
+   * @public
    * Alias of this workspace.
    */
   alias?: string;
 
   /**
+   * @public
    * The AmazonResourceName of this workspace.
    */
   arn: string | undefined;
 
   /**
+   * @public
    * The status of this workspace.
    */
   status: WorkspaceStatus | undefined;
 
   /**
+   * @public
    * The time when the workspace was created.
    */
   createdAt: Date | undefined;
 
   /**
+   * @public
    * The tags of this workspace.
    */
   tags?: Record<string, string>;
@@ -734,11 +802,13 @@ export interface WorkspaceSummary {
  */
 export interface ListWorkspacesResponse {
   /**
+   * @public
    * The list of existing workspaces, including those undergoing creation or deletion.
    */
   workspaces: WorkspaceSummary[] | undefined;
 
   /**
+   * @public
    * Pagination token to use when requesting the next page in this list.
    */
   nextToken?: string;
@@ -750,16 +820,19 @@ export interface ListWorkspacesResponse {
  */
 export interface CreateLoggingConfigurationRequest {
   /**
+   * @public
    * The ID of the workspace to vend logs to.
    */
   workspaceId: string | undefined;
 
   /**
+   * @public
    * The ARN of the CW log group to which the vended log data will be published.
    */
   logGroupArn: string | undefined;
 
   /**
+   * @public
    * Optional, unique, case-sensitive, user-provided identifier to ensure the idempotency of the request.
    */
   clientToken?: string;
@@ -808,11 +881,13 @@ export type LoggingConfigurationStatusCode =
  */
 export interface LoggingConfigurationStatus {
   /**
+   * @public
    * Status code of the logging configuration.
    */
   statusCode: LoggingConfigurationStatusCode | string | undefined;
 
   /**
+   * @public
    * The reason for failure if any.
    */
   statusReason?: string;
@@ -824,6 +899,7 @@ export interface LoggingConfigurationStatus {
  */
 export interface CreateLoggingConfigurationResponse {
   /**
+   * @public
    * The status of the logging configuration.
    */
   status: LoggingConfigurationStatus | undefined;
@@ -835,11 +911,13 @@ export interface CreateLoggingConfigurationResponse {
  */
 export interface DeleteLoggingConfigurationRequest {
   /**
+   * @public
    * The ID of the workspace to vend logs to.
    */
   workspaceId: string | undefined;
 
   /**
+   * @public
    * Optional, unique, case-sensitive, user-provided identifier to ensure the idempotency of the request.
    */
   clientToken?: string;
@@ -851,6 +929,7 @@ export interface DeleteLoggingConfigurationRequest {
  */
 export interface DescribeLoggingConfigurationRequest {
   /**
+   * @public
    * The ID of the workspace to vend logs to.
    */
   workspaceId: string | undefined;
@@ -862,26 +941,31 @@ export interface DescribeLoggingConfigurationRequest {
  */
 export interface LoggingConfigurationMetadata {
   /**
+   * @public
    * The status of the logging configuration.
    */
   status: LoggingConfigurationStatus | undefined;
 
   /**
+   * @public
    * The workspace where the logging configuration exists.
    */
   workspace: string | undefined;
 
   /**
+   * @public
    * The ARN of the CW log group to which the vended log data will be published.
    */
   logGroupArn: string | undefined;
 
   /**
+   * @public
    * The time when the logging configuration was created.
    */
   createdAt: Date | undefined;
 
   /**
+   * @public
    * The time when the logging configuration was modified.
    */
   modifiedAt: Date | undefined;
@@ -893,6 +977,7 @@ export interface LoggingConfigurationMetadata {
  */
 export interface DescribeLoggingConfigurationResponse {
   /**
+   * @public
    * Metadata object containing information about the logging configuration of a workspace.
    */
   loggingConfiguration: LoggingConfigurationMetadata | undefined;
@@ -904,16 +989,19 @@ export interface DescribeLoggingConfigurationResponse {
  */
 export interface UpdateLoggingConfigurationRequest {
   /**
+   * @public
    * The ID of the workspace to vend logs to.
    */
   workspaceId: string | undefined;
 
   /**
+   * @public
    * The ARN of the CW log group to which the vended log data will be published.
    */
   logGroupArn: string | undefined;
 
   /**
+   * @public
    * Optional, unique, case-sensitive, user-provided identifier to ensure the idempotency of the request.
    */
   clientToken?: string;
@@ -925,6 +1013,7 @@ export interface UpdateLoggingConfigurationRequest {
  */
 export interface UpdateLoggingConfigurationResponse {
   /**
+   * @public
    * The status of the logging configuration.
    */
   status: LoggingConfigurationStatus | undefined;
@@ -936,26 +1025,31 @@ export interface UpdateLoggingConfigurationResponse {
  */
 export interface CreateRuleGroupsNamespaceRequest {
   /**
+   * @public
    * The ID of the workspace in which to create the rule group namespace.
    */
   workspaceId: string | undefined;
 
   /**
+   * @public
    * The rule groups namespace name.
    */
   name: string | undefined;
 
   /**
+   * @public
    * The namespace data that define the rule groups.
    */
   data: Uint8Array | undefined;
 
   /**
+   * @public
    * Optional, unique, case-sensitive, user-provided identifier to ensure the idempotency of the request.
    */
   clientToken?: string;
 
   /**
+   * @public
    * Optional, user-provided tags for this rule groups namespace.
    */
   tags?: Record<string, string>;
@@ -1004,11 +1098,13 @@ export type RuleGroupsNamespaceStatusCode =
  */
 export interface RuleGroupsNamespaceStatus {
   /**
+   * @public
    * Status code of this namespace.
    */
   statusCode: RuleGroupsNamespaceStatusCode | string | undefined;
 
   /**
+   * @public
    * The reason for failure if any.
    */
   statusReason?: string;
@@ -1020,21 +1116,25 @@ export interface RuleGroupsNamespaceStatus {
  */
 export interface CreateRuleGroupsNamespaceResponse {
   /**
+   * @public
    * The rule groups namespace name.
    */
   name: string | undefined;
 
   /**
+   * @public
    * The Amazon Resource Name (ARN) of this rule groups namespace.
    */
   arn: string | undefined;
 
   /**
+   * @public
    * The status of rule groups namespace.
    */
   status: RuleGroupsNamespaceStatus | undefined;
 
   /**
+   * @public
    * The tags of this rule groups namespace.
    */
   tags?: Record<string, string>;
@@ -1046,16 +1146,19 @@ export interface CreateRuleGroupsNamespaceResponse {
  */
 export interface DeleteRuleGroupsNamespaceRequest {
   /**
+   * @public
    * The ID of the workspace to delete rule group definition.
    */
   workspaceId: string | undefined;
 
   /**
+   * @public
    * The rule groups namespace name.
    */
   name: string | undefined;
 
   /**
+   * @public
    * Optional, unique, case-sensitive, user-provided identifier to ensure the idempotency of the request.
    */
   clientToken?: string;
@@ -1067,11 +1170,13 @@ export interface DeleteRuleGroupsNamespaceRequest {
  */
 export interface DescribeRuleGroupsNamespaceRequest {
   /**
+   * @public
    * The ID of the workspace to describe.
    */
   workspaceId: string | undefined;
 
   /**
+   * @public
    * The rule groups namespace.
    */
   name: string | undefined;
@@ -1083,36 +1188,43 @@ export interface DescribeRuleGroupsNamespaceRequest {
  */
 export interface RuleGroupsNamespaceDescription {
   /**
+   * @public
    * The Amazon Resource Name (ARN) of this rule groups namespace.
    */
   arn: string | undefined;
 
   /**
+   * @public
    * The rule groups namespace name.
    */
   name: string | undefined;
 
   /**
+   * @public
    * The status of rule groups namespace.
    */
   status: RuleGroupsNamespaceStatus | undefined;
 
   /**
+   * @public
    * The rule groups namespace data.
    */
   data: Uint8Array | undefined;
 
   /**
+   * @public
    * The time when the rule groups namespace was created.
    */
   createdAt: Date | undefined;
 
   /**
+   * @public
    * The time when the rule groups namespace was modified.
    */
   modifiedAt: Date | undefined;
 
   /**
+   * @public
    * The tags of this rule groups namespace.
    */
   tags?: Record<string, string>;
@@ -1124,6 +1236,7 @@ export interface RuleGroupsNamespaceDescription {
  */
 export interface DescribeRuleGroupsNamespaceResponse {
   /**
+   * @public
    * The selected rule groups namespace.
    */
   ruleGroupsNamespace: RuleGroupsNamespaceDescription | undefined;
@@ -1135,21 +1248,25 @@ export interface DescribeRuleGroupsNamespaceResponse {
  */
 export interface ListRuleGroupsNamespacesRequest {
   /**
+   * @public
    * The ID of the workspace.
    */
   workspaceId: string | undefined;
 
   /**
+   * @public
    * Optional filter for rule groups namespace name. Only the rule groups namespace that begin with this value will be returned.
    */
   name?: string;
 
   /**
+   * @public
    * Pagination token to request the next page in a paginated list. This token is obtained from the output of the previous ListRuleGroupsNamespaces request.
    */
   nextToken?: string;
 
   /**
+   * @public
    * Maximum results to return in response (default=100, maximum=1000).
    */
   maxResults?: number;
@@ -1161,31 +1278,37 @@ export interface ListRuleGroupsNamespacesRequest {
  */
 export interface RuleGroupsNamespaceSummary {
   /**
+   * @public
    * The Amazon Resource Name (ARN) of this rule groups namespace.
    */
   arn: string | undefined;
 
   /**
+   * @public
    * The rule groups namespace name.
    */
   name: string | undefined;
 
   /**
+   * @public
    * The status of rule groups namespace.
    */
   status: RuleGroupsNamespaceStatus | undefined;
 
   /**
+   * @public
    * The time when the rule groups namespace was created.
    */
   createdAt: Date | undefined;
 
   /**
+   * @public
    * The time when the rule groups namespace was modified.
    */
   modifiedAt: Date | undefined;
 
   /**
+   * @public
    * The tags of this rule groups namespace.
    */
   tags?: Record<string, string>;
@@ -1197,11 +1320,13 @@ export interface RuleGroupsNamespaceSummary {
  */
 export interface ListRuleGroupsNamespacesResponse {
   /**
+   * @public
    * The list of the selected rule groups namespaces.
    */
   ruleGroupsNamespaces: RuleGroupsNamespaceSummary[] | undefined;
 
   /**
+   * @public
    * Pagination token to use when requesting the next page in this list.
    */
   nextToken?: string;
@@ -1213,21 +1338,25 @@ export interface ListRuleGroupsNamespacesResponse {
  */
 export interface PutRuleGroupsNamespaceRequest {
   /**
+   * @public
    * The ID of the workspace in which to update the rule group namespace.
    */
   workspaceId: string | undefined;
 
   /**
+   * @public
    * The rule groups namespace name.
    */
   name: string | undefined;
 
   /**
+   * @public
    * The namespace data that define the rule groups.
    */
   data: Uint8Array | undefined;
 
   /**
+   * @public
    * Optional, unique, case-sensitive, user-provided identifier to ensure the idempotency of the request.
    */
   clientToken?: string;
@@ -1239,21 +1368,25 @@ export interface PutRuleGroupsNamespaceRequest {
  */
 export interface PutRuleGroupsNamespaceResponse {
   /**
+   * @public
    * The rule groups namespace name.
    */
   name: string | undefined;
 
   /**
+   * @public
    * The Amazon Resource Name (ARN) of this rule groups namespace.
    */
   arn: string | undefined;
 
   /**
+   * @public
    * The status of rule groups namespace.
    */
   status: RuleGroupsNamespaceStatus | undefined;
 
   /**
+   * @public
    * The tags of this rule groups namespace.
    */
   tags?: Record<string, string>;
@@ -1265,16 +1398,19 @@ export interface PutRuleGroupsNamespaceResponse {
  */
 export interface UpdateWorkspaceAliasRequest {
   /**
+   * @public
    * The ID of the workspace being updated.
    */
   workspaceId: string | undefined;
 
   /**
+   * @public
    * The new alias of the workspace.
    */
   alias?: string;
 
   /**
+   * @public
    * Optional, unique, case-sensitive, user-provided identifier to ensure the idempotency of the request.
    */
   clientToken?: string;

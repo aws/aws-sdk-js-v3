@@ -31,11 +31,13 @@ export class ConflictException extends __BaseException {
   readonly name: "ConflictException" = "ConflictException";
   readonly $fault: "client" = "client";
   /**
+   * @public
    * Identifier of the resource in use
    */
   resourceId: string | undefined;
 
   /**
+   * @public
    * Type of the resource in use
    */
   resourceType: string | undefined;
@@ -80,6 +82,7 @@ export class EndpointTemporarilyUnavailableException extends __BaseException {
  */
 export interface GetRoutingControlStateRequest {
   /**
+   * @public
    * <p>The Amazon Resource Name (ARN) for the routing control that you want to get the state for.</p>
    */
   RoutingControlArn: string | undefined;
@@ -104,16 +107,19 @@ export type RoutingControlState = (typeof RoutingControlState)[keyof typeof Rout
  */
 export interface GetRoutingControlStateResponse {
   /**
+   * @public
    * <p>The Amazon Resource Name (ARN) of the response.</p>
    */
   RoutingControlArn: string | undefined;
 
   /**
+   * @public
    * <p>The state of the routing control.</p>
    */
   RoutingControlState: RoutingControlState | string | undefined;
 
   /**
+   * @public
    * <p>The routing control name.</p>
    */
   RoutingControlName?: string;
@@ -127,6 +133,7 @@ export class InternalServerException extends __BaseException {
   readonly name: "InternalServerException" = "InternalServerException";
   readonly $fault: "server" = "server";
   /**
+   * @public
    * Advice to clients on when the call can be safely retried
    */
   retryAfterSeconds?: number;
@@ -153,11 +160,13 @@ export class ResourceNotFoundException extends __BaseException {
   readonly name: "ResourceNotFoundException" = "ResourceNotFoundException";
   readonly $fault: "client" = "client";
   /**
+   * @public
    * Hypothetical resource identifier that was not found
    */
   resourceId: string | undefined;
 
   /**
+   * @public
    * Hypothetical resource type that was not found
    */
   resourceType: string | undefined;
@@ -185,6 +194,7 @@ export class ThrottlingException extends __BaseException {
   readonly name: "ThrottlingException" = "ThrottlingException";
   readonly $fault: "client" = "client";
   /**
+   * @public
    * Advice to clients on when the call can be safely retried
    */
   retryAfterSeconds?: number;
@@ -209,11 +219,13 @@ export class ThrottlingException extends __BaseException {
  */
 export interface ValidationExceptionField {
   /**
+   * @public
    * <p>The field that had the validation exception.</p>
    */
   name: string | undefined;
 
   /**
+   * @public
    * <p>Information about the validation exception.</p>
    */
   message: string | undefined;
@@ -243,11 +255,13 @@ export class ValidationException extends __BaseException {
   readonly name: "ValidationException" = "ValidationException";
   readonly $fault: "client" = "client";
   /**
+   * @public
    * Reason the request failed validation
    */
   reason?: ValidationExceptionReason | string;
 
   /**
+   * @public
    * The fields that caused the error, if applicable
    */
   fields?: ValidationExceptionField[];
@@ -272,16 +286,19 @@ export class ValidationException extends __BaseException {
  */
 export interface ListRoutingControlsRequest {
   /**
+   * @public
    * <p>The Amazon Resource Name (ARN) of the control panel of the routing controls to list.</p>
    */
   ControlPanelArn?: string;
 
   /**
+   * @public
    * <p>The token for the next set of results. You receive this token from a previous call.</p>
    */
   NextToken?: string;
 
   /**
+   * @public
    * <p>The number of routing controls objects that you want to return with this call. The default value is 500.</p>
    */
   MaxResults?: number;
@@ -295,26 +312,31 @@ export interface ListRoutingControlsRequest {
  */
 export interface RoutingControl {
   /**
+   * @public
    * <p>The Amazon Resource Name (ARN) of the control panel where the routing control is located.</p>
    */
   ControlPanelArn?: string;
 
   /**
+   * @public
    * <p>The name of the control panel where the routing control is located.</p>
    */
   ControlPanelName?: string;
 
   /**
+   * @public
    * <p>The Amazon Resource Name (ARN) of the routing control.</p>
    */
   RoutingControlArn?: string;
 
   /**
+   * @public
    * <p>The name of the routing control.</p>
    */
   RoutingControlName?: string;
 
   /**
+   * @public
    * <p>The current state of the routing control. When a routing control state is On, traffic flows to a cell. When
    * 			the state is Off, traffic does not flow. </p>
    */
@@ -326,11 +348,13 @@ export interface RoutingControl {
  */
 export interface ListRoutingControlsResponse {
   /**
+   * @public
    * <p>The list of routing controls.</p>
    */
   RoutingControls: RoutingControl[] | undefined;
 
   /**
+   * @public
    * <p>The token for the next set of results. You receive this token from a previous call.</p>
    */
   NextToken?: string;
@@ -344,21 +368,25 @@ export class ServiceLimitExceededException extends __BaseException {
   readonly name: "ServiceLimitExceededException" = "ServiceLimitExceededException";
   readonly $fault: "client" = "client";
   /**
+   * @public
    * <p>The resource identifier of the limit that was exceeded.</p>
    */
   resourceId?: string;
 
   /**
+   * @public
    * <p>The resource type of the limit that was exceeded.</p>
    */
   resourceType?: string;
 
   /**
+   * @public
    * <p>The code of the limit that was exceeded.</p>
    */
   limitCode: string | undefined;
 
   /**
+   * @public
    * <p>The service code of the limit that was exceeded.</p>
    */
   serviceCode: string | undefined;
@@ -385,16 +413,19 @@ export class ServiceLimitExceededException extends __BaseException {
  */
 export interface UpdateRoutingControlStateRequest {
   /**
+   * @public
    * <p>The Amazon Resource Name (ARN) for the routing control that you want to update the state for.</p>
    */
   RoutingControlArn: string | undefined;
 
   /**
+   * @public
    * <p>The state of the routing control. You can set the value to be On or Off.</p>
    */
   RoutingControlState: RoutingControlState | string | undefined;
 
   /**
+   * @public
    * <p>The Amazon Resource Names (ARNs) for the safety rules that you want to override when you're updating the state of
    * 			a routing control. You can override one safety rule or multiple safety rules by including one or more ARNs, separated
    * 			by commas.</p>
@@ -415,11 +446,13 @@ export interface UpdateRoutingControlStateResponse {}
  */
 export interface UpdateRoutingControlStateEntry {
   /**
+   * @public
    * <p>The Amazon Resource Name (ARN) for a routing control state entry.</p>
    */
   RoutingControlArn: string | undefined;
 
   /**
+   * @public
    * <p>The routing control state in a set of routing control state entries.</p>
    */
   RoutingControlState: RoutingControlState | string | undefined;
@@ -430,11 +463,13 @@ export interface UpdateRoutingControlStateEntry {
  */
 export interface UpdateRoutingControlStatesRequest {
   /**
+   * @public
    * <p>A set of routing control entries that you want to update.</p>
    */
   UpdateRoutingControlStateEntries: UpdateRoutingControlStateEntry[] | undefined;
 
   /**
+   * @public
    * <p>The Amazon Resource Names (ARNs) for the safety rules that you want to override when you're updating routing
    * 			control states. You can override one safety rule or multiple safety rules by including one or more ARNs, separated
    * 			by commas.</p>

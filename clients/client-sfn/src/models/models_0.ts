@@ -29,11 +29,13 @@ export class ActivityDoesNotExist extends __BaseException {
  */
 export interface ActivityFailedEventDetails {
   /**
+   * @public
    * <p>The error code of the failure.</p>
    */
   error?: string;
 
   /**
+   * @public
    * <p>A more detailed explanation of the cause of the failure.</p>
    */
   cause?: string;
@@ -66,11 +68,13 @@ export class ActivityLimitExceeded extends __BaseException {
  */
 export interface ActivityListItem {
   /**
+   * @public
    * <p>The Amazon Resource Name (ARN) that identifies the activity.</p>
    */
   activityArn: string | undefined;
 
   /**
+   * @public
    * <p>The name of the activity.</p>
    *          <p>A name must <i>not</i> contain:</p>
    *          <ul>
@@ -98,6 +102,7 @@ export interface ActivityListItem {
   name: string | undefined;
 
   /**
+   * @public
    * <p>The date the activity is created.</p>
    */
   creationDate: Date | undefined;
@@ -109,6 +114,7 @@ export interface ActivityListItem {
  */
 export interface HistoryEventExecutionDataDetails {
   /**
+   * @public
    * <p>Indicates whether input or output was truncated in the response. Always <code>false</code>
    *       for API calls.</p>
    */
@@ -121,26 +127,31 @@ export interface HistoryEventExecutionDataDetails {
  */
 export interface ActivityScheduledEventDetails {
   /**
+   * @public
    * <p>The Amazon Resource Name (ARN) of the scheduled activity.</p>
    */
   resource: string | undefined;
 
   /**
+   * @public
    * <p>The JSON data input to the activity task. Length constraints apply to the payload size, and are expressed as bytes in UTF-8 encoding.</p>
    */
   input?: string;
 
   /**
+   * @public
    * <p>Contains details about the input for an execution history event.</p>
    */
   inputDetails?: HistoryEventExecutionDataDetails;
 
   /**
+   * @public
    * <p>The maximum allowed duration of the activity task.</p>
    */
   timeoutInSeconds?: number;
 
   /**
+   * @public
    * <p>The maximum allowed duration between two heartbeats for the activity task.</p>
    */
   heartbeatInSeconds?: number;
@@ -153,11 +164,13 @@ export interface ActivityScheduledEventDetails {
  */
 export interface ActivityScheduleFailedEventDetails {
   /**
+   * @public
    * <p>The error code of the failure.</p>
    */
   error?: string;
 
   /**
+   * @public
    * <p>A more detailed explanation of the cause of the failure.</p>
    */
   cause?: string;
@@ -169,6 +182,7 @@ export interface ActivityScheduleFailedEventDetails {
  */
 export interface ActivityStartedEventDetails {
   /**
+   * @public
    * <p>The name of the worker that the task is assigned to. These names are provided by the
    *       workers when calling <a>GetActivityTask</a>.</p>
    */
@@ -182,11 +196,13 @@ export interface ActivityStartedEventDetails {
  */
 export interface ActivitySucceededEventDetails {
   /**
+   * @public
    * <p>The JSON data output by the activity task. Length constraints apply to the payload size, and are expressed as bytes in UTF-8 encoding.</p>
    */
   output?: string;
 
   /**
+   * @public
    * <p>Contains details about the output of an execution history event.</p>
    */
   outputDetails?: HistoryEventExecutionDataDetails;
@@ -198,11 +214,13 @@ export interface ActivitySucceededEventDetails {
  */
 export interface ActivityTimedOutEventDetails {
   /**
+   * @public
    * <p>The error code of the failure.</p>
    */
   error?: string;
 
   /**
+   * @public
    * <p>A more detailed explanation of the cause of the timeout.</p>
    */
   cause?: string;
@@ -241,11 +259,13 @@ export class ActivityWorkerLimitExceeded extends __BaseException {
  */
 export interface Tag {
   /**
+   * @public
    * <p>The key of a tag.</p>
    */
   key?: string;
 
   /**
+   * @public
    * <p>The value of a tag.</p>
    */
   value?: string;
@@ -256,6 +276,7 @@ export interface Tag {
  */
 export interface CreateActivityInput {
   /**
+   * @public
    * <p>The name of the activity to create. This name must be unique for your Amazon Web Services account and region for 90 days. For more information,
    *     see <a href="https://docs.aws.amazon.com/step-functions/latest/dg/limits.html#service-limits-state-machine-executions">
    *     Limits Related to State Machine Executions</a> in the <i>Step Functions Developer Guide</i>.</p>
@@ -285,6 +306,7 @@ export interface CreateActivityInput {
   name: string | undefined;
 
   /**
+   * @public
    * <p>The list of tags to add to a resource.</p>
    *          <p>An array of key-value pairs. For more information, see <a href="https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/cost-alloc-tags.html">Using
    *       Cost Allocation Tags</a> in the <i>Amazon Web Services Billing and Cost Management User
@@ -300,11 +322,13 @@ export interface CreateActivityInput {
  */
 export interface CreateActivityOutput {
   /**
+   * @public
    * <p>The Amazon Resource Name (ARN) that identifies the created activity.</p>
    */
   activityArn: string | undefined;
 
   /**
+   * @public
    * <p>The date the activity is created.</p>
    */
   creationDate: Date | undefined;
@@ -380,6 +404,7 @@ export class ConflictException extends __BaseException {
  */
 export interface CloudWatchLogsLogGroup {
   /**
+   * @public
    * <p>The ARN of the the CloudWatch log group to which you want your logs emitted to. The ARN
    *       must end with <code>:*</code>
    *          </p>
@@ -393,6 +418,7 @@ export interface CloudWatchLogsLogGroup {
  */
 export interface LogDestination {
   /**
+   * @public
    * <p>An object describing a CloudWatch log group. For more information, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-logs-loggroup.html">AWS::Logs::LogGroup</a> in the CloudFormation User Guide.</p>
    */
   cloudWatchLogsLogGroup?: CloudWatchLogsLogGroup;
@@ -421,17 +447,20 @@ export type LogLevel = (typeof LogLevel)[keyof typeof LogLevel];
  */
 export interface LoggingConfiguration {
   /**
+   * @public
    * <p>Defines which category of execution history events are logged.</p>
    */
   level?: LogLevel | string;
 
   /**
+   * @public
    * <p>Determines whether execution data is included in your log. When set to <code>false</code>,
    *       data is excluded.</p>
    */
   includeExecutionData?: boolean;
 
   /**
+   * @public
    * <p>An array of objects that describes where your execution history events will be logged.
    *       Limited to size 1. Required, if your log level is not set to <code>OFF</code>.</p>
    */
@@ -446,6 +475,7 @@ export interface LoggingConfiguration {
  */
 export interface TracingConfiguration {
   /**
+   * @public
    * <p>When set to <code>true</code>, X-Ray tracing is enabled.</p>
    */
   enabled?: boolean;
@@ -470,6 +500,7 @@ export type StateMachineType = (typeof StateMachineType)[keyof typeof StateMachi
  */
 export interface CreateStateMachineInput {
   /**
+   * @public
    * <p>The name of the state machine. </p>
    *          <p>A name must <i>not</i> contain:</p>
    *          <ul>
@@ -497,16 +528,19 @@ export interface CreateStateMachineInput {
   name: string | undefined;
 
   /**
+   * @public
    * <p>The Amazon States Language definition of the state machine. See <a href="https://docs.aws.amazon.com/step-functions/latest/dg/concepts-amazon-states-language.html">Amazon States Language</a>.</p>
    */
   definition: string | undefined;
 
   /**
+   * @public
    * <p>The Amazon Resource Name (ARN) of the IAM role to use for this state machine.</p>
    */
   roleArn: string | undefined;
 
   /**
+   * @public
    * <p>Determines whether a Standard or Express state machine is created. The default is
    *         <code>STANDARD</code>. You cannot update the <code>type</code> of a state machine once it
    *       has been created.</p>
@@ -514,6 +548,7 @@ export interface CreateStateMachineInput {
   type?: StateMachineType | string;
 
   /**
+   * @public
    * <p>Defines what execution history events are logged and where they are logged.</p>
    *          <note>
    *             <p>By default, the <code>level</code> is set to <code>OFF</code>. For more information see
@@ -524,6 +559,7 @@ export interface CreateStateMachineInput {
   loggingConfiguration?: LoggingConfiguration;
 
   /**
+   * @public
    * <p>Tags to be added when creating a state machine.</p>
    *          <p>An array of key-value pairs. For more information, see <a href="https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/cost-alloc-tags.html">Using
    *       Cost Allocation Tags</a> in the <i>Amazon Web Services Billing and Cost Management User
@@ -534,16 +570,19 @@ export interface CreateStateMachineInput {
   tags?: Tag[];
 
   /**
+   * @public
    * <p>Selects whether X-Ray tracing is enabled.</p>
    */
   tracingConfiguration?: TracingConfiguration;
 
   /**
+   * @public
    * <p>Set to <code>true</code> to publish the first version of the state machine during creation. The default is <code>false</code>.</p>
    */
   publish?: boolean;
 
   /**
+   * @public
    * <p>Sets description about the state machine version. You can only set the description if the <code>publish</code> parameter is set to <code>true</code>. Otherwise, if you set <code>versionDescription</code>, but <code>publish</code> to <code>false</code>, this API action throws <code>ValidationException</code>.</p>
    */
   versionDescription?: string;
@@ -554,16 +593,19 @@ export interface CreateStateMachineInput {
  */
 export interface CreateStateMachineOutput {
   /**
+   * @public
    * <p>The Amazon Resource Name (ARN) that identifies the created state machine.</p>
    */
   stateMachineArn: string | undefined;
 
   /**
+   * @public
    * <p>The date the state machine is created.</p>
    */
   creationDate: Date | undefined;
 
   /**
+   * @public
    * <p>The Amazon Resource Name (ARN) that identifies the created state machine version. If you do not set the <code>publish</code> parameter to <code>true</code>, this field returns null value.</p>
    */
   stateMachineVersionArn?: string;
@@ -756,6 +798,7 @@ export class ValidationException extends __BaseException {
   readonly name: "ValidationException" = "ValidationException";
   readonly $fault: "client" = "client";
   /**
+   * @public
    * <p>The input does not satisfy the constraints specified by an Amazon Web Services service.</p>
    */
   reason?: ValidationExceptionReason | string;
@@ -782,12 +825,14 @@ export class ValidationException extends __BaseException {
  */
 export interface RoutingConfigurationListItem {
   /**
+   * @public
    * <p>The Amazon Resource Name (ARN) that identifies one or two state machine versions defined in the routing configuration.</p>
    *          <p>If you specify the ARN of a second version, it must belong to the same state machine as the first version.</p>
    */
   stateMachineVersionArn: string | undefined;
 
   /**
+   * @public
    * <p>The percentage of traffic you want to route to the second state machine
    *       version. The sum of the weights in the routing
    *       configuration must be equal to 100.</p>
@@ -800,17 +845,20 @@ export interface RoutingConfigurationListItem {
  */
 export interface CreateStateMachineAliasInput {
   /**
+   * @public
    * <p>A description for the state machine alias.</p>
    */
   description?: string;
 
   /**
+   * @public
    * <p>The name of the state machine alias.</p>
    *          <p>To avoid conflict with version ARNs, don't use an integer in the name of the alias.</p>
    */
   name: string | undefined;
 
   /**
+   * @public
    * <p>The routing configuration of a state machine alias. The routing configuration shifts
    *       execution traffic between two state machine versions. <code>routingConfiguration</code>
    *       contains an array of <code>RoutingConfig</code> objects that specify up to two state machine
@@ -825,11 +873,13 @@ export interface CreateStateMachineAliasInput {
  */
 export interface CreateStateMachineAliasOutput {
   /**
+   * @public
    * <p>The Amazon Resource Name (ARN) that identifies the created state machine alias.</p>
    */
   stateMachineAliasArn: string | undefined;
 
   /**
+   * @public
    * <p>The date the state machine alias was created.</p>
    */
   creationDate: Date | undefined;
@@ -883,6 +933,7 @@ export class ServiceQuotaExceededException extends __BaseException {
  */
 export interface DeleteActivityInput {
   /**
+   * @public
    * <p>The Amazon Resource Name (ARN) of the activity to delete.</p>
    */
   activityArn: string | undefined;
@@ -898,6 +949,7 @@ export interface DeleteActivityOutput {}
  */
 export interface DeleteStateMachineInput {
   /**
+   * @public
    * <p>The Amazon Resource Name (ARN) of the state machine to delete.</p>
    */
   stateMachineArn: string | undefined;
@@ -913,6 +965,7 @@ export interface DeleteStateMachineOutput {}
  */
 export interface DeleteStateMachineAliasInput {
   /**
+   * @public
    * <p>The Amazon Resource Name (ARN) of the state machine alias to delete.</p>
    */
   stateMachineAliasArn: string | undefined;
@@ -928,6 +981,7 @@ export interface DeleteStateMachineAliasOutput {}
  */
 export interface DeleteStateMachineVersionInput {
   /**
+   * @public
    * <p>The Amazon Resource Name (ARN) of the state machine version to delete.</p>
    */
   stateMachineVersionArn: string | undefined;
@@ -943,6 +997,7 @@ export interface DeleteStateMachineVersionOutput {}
  */
 export interface DescribeActivityInput {
   /**
+   * @public
    * <p>The Amazon Resource Name (ARN) of the activity to describe.</p>
    */
   activityArn: string | undefined;
@@ -953,11 +1008,13 @@ export interface DescribeActivityInput {
  */
 export interface DescribeActivityOutput {
   /**
+   * @public
    * <p>The Amazon Resource Name (ARN) that identifies the activity.</p>
    */
   activityArn: string | undefined;
 
   /**
+   * @public
    * <p>The name of the activity.</p>
    *          <p>A name must <i>not</i> contain:</p>
    *          <ul>
@@ -985,6 +1042,7 @@ export interface DescribeActivityOutput {
   name: string | undefined;
 
   /**
+   * @public
    * <p>The date the activity is created.</p>
    */
   creationDate: Date | undefined;
@@ -995,6 +1053,7 @@ export interface DescribeActivityOutput {
  */
 export interface DescribeExecutionInput {
   /**
+   * @public
    * <p>The Amazon Resource Name (ARN) of the execution to describe.</p>
    */
   executionArn: string | undefined;
@@ -1006,6 +1065,7 @@ export interface DescribeExecutionInput {
  */
 export interface CloudWatchEventsExecutionDataDetails {
   /**
+   * @public
    * <p>Indicates whether input or output was included in the response. Always <code>true</code>
    *       for API calls. </p>
    */
@@ -1034,16 +1094,19 @@ export type ExecutionStatus = (typeof ExecutionStatus)[keyof typeof ExecutionSta
  */
 export interface DescribeExecutionOutput {
   /**
+   * @public
    * <p>The Amazon Resource Name (ARN) that identifies the execution.</p>
    */
   executionArn: string | undefined;
 
   /**
+   * @public
    * <p>The Amazon Resource Name (ARN) of the executed stated machine.</p>
    */
   stateMachineArn: string | undefined;
 
   /**
+   * @public
    * <p>The name of the execution.</p>
    *          <p>A name must <i>not</i> contain:</p>
    *          <ul>
@@ -1071,31 +1134,37 @@ export interface DescribeExecutionOutput {
   name?: string;
 
   /**
+   * @public
    * <p>The current status of the execution.</p>
    */
   status: ExecutionStatus | string | undefined;
 
   /**
+   * @public
    * <p>The date the execution is started.</p>
    */
   startDate: Date | undefined;
 
   /**
+   * @public
    * <p>If the execution ended, the date the execution stopped.</p>
    */
   stopDate?: Date;
 
   /**
+   * @public
    * <p>The string that contains the JSON input data of the execution. Length constraints apply to the payload size, and are expressed as bytes in UTF-8 encoding.</p>
    */
   input?: string;
 
   /**
+   * @public
    * <p>Provides details about execution input or output.</p>
    */
   inputDetails?: CloudWatchEventsExecutionDataDetails;
 
   /**
+   * @public
    * <p>The JSON output data of the execution. Length constraints apply to the payload size, and are expressed as bytes in UTF-8 encoding.</p>
    *          <note>
    *             <p>This field is set only if the execution succeeds. If the execution fails, this field is
@@ -1105,31 +1174,37 @@ export interface DescribeExecutionOutput {
   output?: string;
 
   /**
+   * @public
    * <p>Provides details about execution input or output.</p>
    */
   outputDetails?: CloudWatchEventsExecutionDataDetails;
 
   /**
+   * @public
    * <p>The X-Ray trace header that was passed to the execution.</p>
    */
   traceHeader?: string;
 
   /**
+   * @public
    * <p>The Amazon Resource Name (ARN) that identifies a Map Run, which dispatched this execution.</p>
    */
   mapRunArn?: string;
 
   /**
+   * @public
    * <p>The error string if the state machine execution failed.</p>
    */
   error?: string;
 
   /**
+   * @public
    * <p>The cause string if the state machine execution failed.</p>
    */
   cause?: string;
 
   /**
+   * @public
    * <p>The Amazon Resource Name (ARN) of the state machine version associated with the execution. The version ARN is a combination of state machine ARN and the version number separated by a colon (:). For example, <code>stateMachineARN:1</code>.</p>
    *          <p>If you start an execution from a <code>StartExecution</code> request without specifying a
    *       state machine version or alias ARN, Step Functions returns a null value.</p>
@@ -1137,6 +1212,7 @@ export interface DescribeExecutionOutput {
   stateMachineVersionArn?: string;
 
   /**
+   * @public
    * <p>The Amazon Resource Name (ARN) of the state machine alias associated with the execution. The alias ARN is a combination of state machine ARN and the alias name separated by a colon (:). For example, <code>stateMachineARN:PROD</code>.</p>
    *          <p>If you start an execution from a <code>StartExecution</code> request with a
    *       state machine version ARN, this field will be null.</p>
@@ -1169,6 +1245,7 @@ export class ExecutionDoesNotExist extends __BaseException {
  */
 export interface DescribeMapRunInput {
   /**
+   * @public
    * <p>The Amazon Resource Name (ARN) that identifies a Map Run.</p>
    */
   mapRunArn: string | undefined;
@@ -1180,41 +1257,49 @@ export interface DescribeMapRunInput {
  */
 export interface MapRunExecutionCounts {
   /**
+   * @public
    * <p>The total number of child workflow executions that were started by a Map Run, but haven't started executing yet. </p>
    */
   pending: number | undefined;
 
   /**
+   * @public
    * <p>The total number of child workflow executions that were started by a Map Run and are currently in-progress.</p>
    */
   running: number | undefined;
 
   /**
+   * @public
    * <p>The total number of child workflow executions that were started by a Map Run and have completed successfully.</p>
    */
   succeeded: number | undefined;
 
   /**
+   * @public
    * <p>The total number of child workflow executions that were started by a Map Run, but have failed.</p>
    */
   failed: number | undefined;
 
   /**
+   * @public
    * <p>The total number of child workflow executions that were started by a Map Run and have timed out.</p>
    */
   timedOut: number | undefined;
 
   /**
+   * @public
    * <p>The total number of child workflow executions that were started by a Map Run and were running, but were either stopped by the user or by Step Functions because the Map Run failed. </p>
    */
   aborted: number | undefined;
 
   /**
+   * @public
    * <p>The total number of child workflow executions that were started by a Map Run.</p>
    */
   total: number | undefined;
 
   /**
+   * @public
    * <p>Returns the count of child workflow executions whose results were written by <code>ResultWriter</code>. For more information, see <a href="https://docs.aws.amazon.com/step-functions/latest/dg/input-output-resultwriter.html">ResultWriter</a> in the <i>Step Functions Developer Guide</i>.</p>
    */
   resultsWritten: number | undefined;
@@ -1226,41 +1311,49 @@ export interface MapRunExecutionCounts {
  */
 export interface MapRunItemCounts {
   /**
+   * @public
    * <p>The total number of items to process in child workflow executions that haven't started running yet.</p>
    */
   pending: number | undefined;
 
   /**
+   * @public
    * <p>The total number of items being processed in child workflow executions that are currently in-progress.</p>
    */
   running: number | undefined;
 
   /**
+   * @public
    * <p>The total number of items processed in child workflow executions that have completed successfully.</p>
    */
   succeeded: number | undefined;
 
   /**
+   * @public
    * <p>The total number of items processed in child workflow executions that have failed.</p>
    */
   failed: number | undefined;
 
   /**
+   * @public
    * <p>The total number of items processed in child workflow executions that have timed out.</p>
    */
   timedOut: number | undefined;
 
   /**
+   * @public
    * <p>The total number of items processed in child workflow executions that were either stopped by the user or by Step Functions, because the Map Run failed.</p>
    */
   aborted: number | undefined;
 
   /**
+   * @public
    * <p>The total number of items processed in all the child workflow executions started by a Map Run.</p>
    */
   total: number | undefined;
 
   /**
+   * @public
    * <p>Returns the count of items whose results were written by <code>ResultWriter</code>. For more information, see <a href="https://docs.aws.amazon.com/step-functions/latest/dg/input-output-resultwriter.html">ResultWriter</a> in the <i>Step Functions Developer Guide</i>.</p>
    */
   resultsWritten: number | undefined;
@@ -1287,51 +1380,61 @@ export type MapRunStatus = (typeof MapRunStatus)[keyof typeof MapRunStatus];
  */
 export interface DescribeMapRunOutput {
   /**
+   * @public
    * <p>The Amazon Resource Name (ARN) that identifies a Map Run.</p>
    */
   mapRunArn: string | undefined;
 
   /**
+   * @public
    * <p>The Amazon Resource Name (ARN) that identifies the execution in which the Map Run was started.</p>
    */
   executionArn: string | undefined;
 
   /**
+   * @public
    * <p>The current status of the Map Run.</p>
    */
   status: MapRunStatus | string | undefined;
 
   /**
+   * @public
    * <p>The date when the Map Run was started.</p>
    */
   startDate: Date | undefined;
 
   /**
+   * @public
    * <p>The date when the Map Run was stopped.</p>
    */
   stopDate?: Date;
 
   /**
+   * @public
    * <p>The maximum number of child workflow executions configured to run in parallel for the Map Run at the same time.</p>
    */
   maxConcurrency: number | undefined;
 
   /**
+   * @public
    * <p>The maximum percentage of failed child workflow executions before the Map Run fails.</p>
    */
   toleratedFailurePercentage: number | undefined;
 
   /**
+   * @public
    * <p>The maximum number of failed child workflow executions before the Map Run fails.</p>
    */
   toleratedFailureCount: number | undefined;
 
   /**
+   * @public
    * <p>A JSON object that contains information about the total number of items, and the item count for each processing status, such as <code>pending</code> and <code>failed</code>.</p>
    */
   itemCounts: MapRunItemCounts | undefined;
 
   /**
+   * @public
    * <p>A JSON object that contains information about the total number of child workflow executions for the Map Run, and the count of child workflow executions for each status, such as <code>failed</code> and <code>succeeded</code>.</p>
    */
   executionCounts: MapRunExecutionCounts | undefined;
@@ -1342,6 +1445,7 @@ export interface DescribeMapRunOutput {
  */
 export interface DescribeStateMachineInput {
   /**
+   * @public
    * <p>The Amazon Resource Name (ARN) of the state machine for which you want the information.</p>
    *          <p>If you specify a state machine version ARN, this API returns details about that version. The version ARN is a combination of state machine ARN and the version number separated by a colon (:). For example, <code>stateMachineARN:1</code>.</p>
    */
@@ -1367,12 +1471,14 @@ export type StateMachineStatus = (typeof StateMachineStatus)[keyof typeof StateM
  */
 export interface DescribeStateMachineOutput {
   /**
+   * @public
    * <p>The Amazon Resource Name (ARN) that identifies the state machine.</p>
    *          <p>If you specified a state machine version ARN in your request, the API returns the version ARN. The version ARN is a combination of state machine ARN and the version number separated by a colon (:). For example, <code>stateMachineARN:1</code>.</p>
    */
   stateMachineArn: string | undefined;
 
   /**
+   * @public
    * <p>The name of the state machine.</p>
    *          <p>A name must <i>not</i> contain:</p>
    *          <ul>
@@ -1400,50 +1506,59 @@ export interface DescribeStateMachineOutput {
   name: string | undefined;
 
   /**
+   * @public
    * <p>The current status of the state machine.</p>
    */
   status?: StateMachineStatus | string;
 
   /**
+   * @public
    * <p>The Amazon States Language definition of the state machine. See <a href="https://docs.aws.amazon.com/step-functions/latest/dg/concepts-amazon-states-language.html">Amazon States Language</a>.</p>
    */
   definition: string | undefined;
 
   /**
+   * @public
    * <p>The Amazon Resource Name (ARN) of the IAM role used when creating this state machine. (The IAM role
    *       maintains security by granting Step Functions access to Amazon Web Services resources.)</p>
    */
   roleArn: string | undefined;
 
   /**
+   * @public
    * <p>The <code>type</code> of the state machine (<code>STANDARD</code> or
    *       <code>EXPRESS</code>).</p>
    */
   type: StateMachineType | string | undefined;
 
   /**
+   * @public
    * <p>The date the state machine is created.</p>
    *          <p>For a state machine version, <code>creationDate</code> is the date the version was created.</p>
    */
   creationDate: Date | undefined;
 
   /**
+   * @public
    * <p>The <code>LoggingConfiguration</code> data type is used to set CloudWatch Logs
    *       options.</p>
    */
   loggingConfiguration?: LoggingConfiguration;
 
   /**
+   * @public
    * <p>Selects whether X-Ray tracing is enabled.</p>
    */
   tracingConfiguration?: TracingConfiguration;
 
   /**
+   * @public
    * <p>A user-defined or an auto-generated string that identifies a <code>Map</code> state. This parameter is present only if the <code>stateMachineArn</code> specified in input is a qualified state machine ARN.</p>
    */
   label?: string;
 
   /**
+   * @public
    * <p>The revision identifier for the state machine.</p>
    *          <p>Use the <code>revisionId</code> parameter to compare between versions of a state machine
    *       configuration used for executions without performing a diff of the properties, such as
@@ -1452,6 +1567,7 @@ export interface DescribeStateMachineOutput {
   revisionId?: string;
 
   /**
+   * @public
    * <p>The description of the state machine version.</p>
    */
   description?: string;
@@ -1482,6 +1598,7 @@ export class StateMachineDoesNotExist extends __BaseException {
  */
 export interface DescribeStateMachineAliasInput {
   /**
+   * @public
    * <p>The Amazon Resource Name (ARN) of the state machine alias.</p>
    */
   stateMachineAliasArn: string | undefined;
@@ -1492,31 +1609,37 @@ export interface DescribeStateMachineAliasInput {
  */
 export interface DescribeStateMachineAliasOutput {
   /**
+   * @public
    * <p>The Amazon Resource Name (ARN) of the state machine alias.</p>
    */
   stateMachineAliasArn?: string;
 
   /**
+   * @public
    * <p>The name of the state machine alias.</p>
    */
   name?: string;
 
   /**
+   * @public
    * <p>A description of the alias.</p>
    */
   description?: string;
 
   /**
+   * @public
    * <p>The routing configuration of the alias.</p>
    */
   routingConfiguration?: RoutingConfigurationListItem[];
 
   /**
+   * @public
    * <p>The date the state machine alias was created.</p>
    */
   creationDate?: Date;
 
   /**
+   * @public
    * <p>The date the state machine alias was last updated.</p>
    *          <p>For a newly created state machine, this is the same as the creation date.</p>
    */
@@ -1528,6 +1651,7 @@ export interface DescribeStateMachineAliasOutput {
  */
 export interface DescribeStateMachineForExecutionInput {
   /**
+   * @public
    * <p>The Amazon Resource Name (ARN) of the execution you want state machine information for.</p>
    */
   executionArn: string | undefined;
@@ -1538,53 +1662,63 @@ export interface DescribeStateMachineForExecutionInput {
  */
 export interface DescribeStateMachineForExecutionOutput {
   /**
+   * @public
    * <p>The Amazon Resource Name (ARN) of the state machine associated with the execution.</p>
    */
   stateMachineArn: string | undefined;
 
   /**
+   * @public
    * <p>The name of the state machine associated with the execution.</p>
    */
   name: string | undefined;
 
   /**
+   * @public
    * <p>The Amazon States Language definition of the state machine. See <a href="https://docs.aws.amazon.com/step-functions/latest/dg/concepts-amazon-states-language.html">Amazon States Language</a>.</p>
    */
   definition: string | undefined;
 
   /**
+   * @public
    * <p>The Amazon Resource Name (ARN) of the IAM role of the State Machine for the execution. </p>
    */
   roleArn: string | undefined;
 
   /**
+   * @public
    * <p>The date and time the state machine associated with an execution was updated. For a newly
    *       created state machine, this is the creation date.</p>
    */
   updateDate: Date | undefined;
 
   /**
+   * @public
    * <p>The <code>LoggingConfiguration</code> data type is used to set CloudWatch Logs
    *       options.</p>
    */
   loggingConfiguration?: LoggingConfiguration;
 
   /**
+   * @public
    * <p>Selects whether X-Ray tracing is enabled.</p>
    */
   tracingConfiguration?: TracingConfiguration;
 
   /**
+   * @public
    * <p>The Amazon Resource Name (ARN) of the Map Run that started the child workflow execution. This field is returned only if the <code>executionArn</code> is a child workflow execution that was started by a Distributed Map state.</p>
    */
   mapRunArn?: string;
 
   /**
+   * @public
    * <p>A user-defined or an auto-generated string that identifies a <code>Map</code> state. This ﬁeld is returned only if the <code>executionArn</code> is a child workflow execution that was started by a Distributed Map state.</p>
    */
   label?: string;
 
   /**
+   * @public
    * <p>The revision identifier for the state machine. The first revision ID when you create the state machine is null.</p>
    *          <p>Use the state machine <code>revisionId</code> parameter to compare the revision of a state machine with the configuration of the state machine used for executions without performing a diff of the properties, such as <code>definition</code> and <code>roleArn</code>.</p>
    */
@@ -1596,12 +1730,14 @@ export interface DescribeStateMachineForExecutionOutput {
  */
 export interface GetActivityTaskInput {
   /**
+   * @public
    * <p>The Amazon Resource Name (ARN) of the activity to retrieve tasks from (assigned when you create the task
    *       using <a>CreateActivity</a>.)</p>
    */
   activityArn: string | undefined;
 
   /**
+   * @public
    * <p>You can provide an arbitrary name in order to identify the worker that the task is
    *       assigned to. This name is used when it is logged in the execution history.</p>
    */
@@ -1613,6 +1749,7 @@ export interface GetActivityTaskInput {
  */
 export interface GetActivityTaskOutput {
   /**
+   * @public
    * <p>A token that identifies the scheduled task. This token must be copied and included in
    *       subsequent calls to <a>SendTaskHeartbeat</a>, <a>SendTaskSuccess</a> or
    *         <a>SendTaskFailure</a> in order to report the progress or completion of the
@@ -1621,6 +1758,7 @@ export interface GetActivityTaskOutput {
   taskToken?: string;
 
   /**
+   * @public
    * <p>The string that contains the JSON input data for the task. Length constraints apply to the payload size, and are expressed as bytes in UTF-8 encoding.</p>
    */
   input?: string;
@@ -1631,11 +1769,13 @@ export interface GetActivityTaskOutput {
  */
 export interface GetExecutionHistoryInput {
   /**
+   * @public
    * <p>The Amazon Resource Name (ARN) of the execution.</p>
    */
   executionArn: string | undefined;
 
   /**
+   * @public
    * <p>The maximum number of results that are returned per call. You can use <code>nextToken</code> to obtain further pages of results.
    *     The default is 100 and the maximum allowed page size is 1000. A value of 0 uses the default.</p>
    *          <p>This is only an upper limit. The actual number of results returned per call might be fewer than the specified maximum.</p>
@@ -1643,17 +1783,20 @@ export interface GetExecutionHistoryInput {
   maxResults?: number;
 
   /**
+   * @public
    * <p>Lists events in descending order of their <code>timeStamp</code>.</p>
    */
   reverseOrder?: boolean;
 
   /**
+   * @public
    * <p>If <code>nextToken</code> is returned, there are more results available. The value of <code>nextToken</code> is a unique pagination token for each page.
    *     Make the call again using the returned token to retrieve the next page. Keep all other arguments unchanged. Each pagination token expires after 24 hours. Using an expired pagination token will return an <i>HTTP 400 InvalidToken</i> error.</p>
    */
   nextToken?: string;
 
   /**
+   * @public
    * <p>You can select whether execution data (input or output of a history event) is returned.
    *       The default is <code>true</code>.</p>
    */
@@ -1666,11 +1809,13 @@ export interface GetExecutionHistoryInput {
  */
 export interface ExecutionAbortedEventDetails {
   /**
+   * @public
    * <p>The error code of the failure.</p>
    */
   error?: string;
 
   /**
+   * @public
    * <p>A more detailed explanation of the cause of the failure.</p>
    */
   cause?: string;
@@ -1682,11 +1827,13 @@ export interface ExecutionAbortedEventDetails {
  */
 export interface ExecutionFailedEventDetails {
   /**
+   * @public
    * <p>The error code of the failure.</p>
    */
   error?: string;
 
   /**
+   * @public
    * <p>A more detailed explanation of the cause of the failure.</p>
    */
   cause?: string;
@@ -1698,26 +1845,31 @@ export interface ExecutionFailedEventDetails {
  */
 export interface ExecutionStartedEventDetails {
   /**
+   * @public
    * <p>The JSON data input to the execution. Length constraints apply to the payload size, and are expressed as bytes in UTF-8 encoding.</p>
    */
   input?: string;
 
   /**
+   * @public
    * <p>Contains details about the input for an execution history event.</p>
    */
   inputDetails?: HistoryEventExecutionDataDetails;
 
   /**
+   * @public
    * <p>The Amazon Resource Name (ARN) of the IAM role used for executing Lambda tasks.</p>
    */
   roleArn?: string;
 
   /**
+   * @public
    * <p>The Amazon Resource Name (ARN) that identifies a state machine alias used for starting the state machine execution.</p>
    */
   stateMachineAliasArn?: string;
 
   /**
+   * @public
    * <p>The Amazon Resource Name (ARN) that identifies a state machine version used for starting the state machine execution.</p>
    */
   stateMachineVersionArn?: string;
@@ -1729,11 +1881,13 @@ export interface ExecutionStartedEventDetails {
  */
 export interface ExecutionSucceededEventDetails {
   /**
+   * @public
    * <p>The JSON data output by the execution. Length constraints apply to the payload size, and are expressed as bytes in UTF-8 encoding.</p>
    */
   output?: string;
 
   /**
+   * @public
    * <p>Contains details about the output of an execution history event.</p>
    */
   outputDetails?: HistoryEventExecutionDataDetails;
@@ -1745,11 +1899,13 @@ export interface ExecutionSucceededEventDetails {
  */
 export interface ExecutionTimedOutEventDetails {
   /**
+   * @public
    * <p>The error code of the failure.</p>
    */
   error?: string;
 
   /**
+   * @public
    * <p>A more detailed explanation of the cause of the timeout.</p>
    */
   cause?: string;
@@ -1761,11 +1917,13 @@ export interface ExecutionTimedOutEventDetails {
  */
 export interface LambdaFunctionFailedEventDetails {
   /**
+   * @public
    * <p>The error code of the failure.</p>
    */
   error?: string;
 
   /**
+   * @public
    * <p>A more detailed explanation of the cause of the failure.</p>
    */
   cause?: string;
@@ -1777,6 +1935,7 @@ export interface LambdaFunctionFailedEventDetails {
  */
 export interface TaskCredentials {
   /**
+   * @public
    * <p>The ARN of an IAM role that Step Functions assumes for the task. The role can allow cross-account access to resources.</p>
    */
   roleArn?: string;
@@ -1788,26 +1947,31 @@ export interface TaskCredentials {
  */
 export interface LambdaFunctionScheduledEventDetails {
   /**
+   * @public
    * <p>The Amazon Resource Name (ARN) of the scheduled Lambda function.</p>
    */
   resource: string | undefined;
 
   /**
+   * @public
    * <p>The JSON data input to the Lambda function. Length constraints apply to the payload size, and are expressed as bytes in UTF-8 encoding.</p>
    */
   input?: string;
 
   /**
+   * @public
    * <p>Contains details about input for an execution history event.</p>
    */
   inputDetails?: HistoryEventExecutionDataDetails;
 
   /**
+   * @public
    * <p>The maximum allowed duration of the Lambda function.</p>
    */
   timeoutInSeconds?: number;
 
   /**
+   * @public
    * <p>The credentials that Step Functions uses for the task.</p>
    */
   taskCredentials?: TaskCredentials;
@@ -1820,11 +1984,13 @@ export interface LambdaFunctionScheduledEventDetails {
  */
 export interface LambdaFunctionScheduleFailedEventDetails {
   /**
+   * @public
    * <p>The error code of the failure.</p>
    */
   error?: string;
 
   /**
+   * @public
    * <p>A more detailed explanation of the cause of the failure.</p>
    */
   cause?: string;
@@ -1836,11 +2002,13 @@ export interface LambdaFunctionScheduleFailedEventDetails {
  */
 export interface LambdaFunctionStartFailedEventDetails {
   /**
+   * @public
    * <p>The error code of the failure.</p>
    */
   error?: string;
 
   /**
+   * @public
    * <p>A more detailed explanation of the cause of the failure.</p>
    */
   cause?: string;
@@ -1853,11 +2021,13 @@ export interface LambdaFunctionStartFailedEventDetails {
  */
 export interface LambdaFunctionSucceededEventDetails {
   /**
+   * @public
    * <p>The JSON data output by the Lambda function. Length constraints apply to the payload size, and are expressed as bytes in UTF-8 encoding.</p>
    */
   output?: string;
 
   /**
+   * @public
    * <p>Contains details about the output of an execution history event.</p>
    */
   outputDetails?: HistoryEventExecutionDataDetails;
@@ -1869,11 +2039,13 @@ export interface LambdaFunctionSucceededEventDetails {
  */
 export interface LambdaFunctionTimedOutEventDetails {
   /**
+   * @public
    * <p>The error code of the failure.</p>
    */
   error?: string;
 
   /**
+   * @public
    * <p>A more detailed explanation of the cause of the timeout.</p>
    */
   cause?: string;
@@ -1885,11 +2057,13 @@ export interface LambdaFunctionTimedOutEventDetails {
  */
 export interface MapIterationEventDetails {
   /**
+   * @public
    * <p>The name of the iteration’s parent Map state.</p>
    */
   name?: string;
 
   /**
+   * @public
    * <p>The index of the array belonging to the Map state iteration.</p>
    */
   index?: number;
@@ -1901,11 +2075,13 @@ export interface MapIterationEventDetails {
  */
 export interface MapRunFailedEventDetails {
   /**
+   * @public
    * <p>The error code of the Map Run failure.</p>
    */
   error?: string;
 
   /**
+   * @public
    * <p>A more detailed explanation of the cause of the failure.</p>
    */
   cause?: string;
@@ -1917,6 +2093,7 @@ export interface MapRunFailedEventDetails {
  */
 export interface MapRunStartedEventDetails {
   /**
+   * @public
    * <p>The Amazon Resource Name (ARN) of a Map Run that was started.</p>
    */
   mapRunArn?: string;
@@ -1928,6 +2105,7 @@ export interface MapRunStartedEventDetails {
  */
 export interface MapStateStartedEventDetails {
   /**
+   * @public
    * <p>The size of the array for Map state iterations.</p>
    */
   length?: number;
@@ -1939,16 +2117,19 @@ export interface MapStateStartedEventDetails {
  */
 export interface StateEnteredEventDetails {
   /**
+   * @public
    * <p>The name of the state.</p>
    */
   name: string | undefined;
 
   /**
+   * @public
    * <p>The string that contains the JSON input data for the state. Length constraints apply to the payload size, and are expressed as bytes in UTF-8 encoding.</p>
    */
   input?: string;
 
   /**
+   * @public
    * <p>Contains details about the input for an execution history event.</p>
    */
   inputDetails?: HistoryEventExecutionDataDetails;
@@ -1960,6 +2141,7 @@ export interface StateEnteredEventDetails {
  */
 export interface StateExitedEventDetails {
   /**
+   * @public
    * <p>The name of the state.</p>
    *          <p>A name must <i>not</i> contain:</p>
    *          <ul>
@@ -1987,11 +2169,13 @@ export interface StateExitedEventDetails {
   name: string | undefined;
 
   /**
+   * @public
    * <p>The JSON output data of the state. Length constraints apply to the payload size, and are expressed as bytes in UTF-8 encoding.</p>
    */
   output?: string;
 
   /**
+   * @public
    * <p>Contains details about the output of an execution history event.</p>
    */
   outputDetails?: HistoryEventExecutionDataDetails;
@@ -2003,21 +2187,25 @@ export interface StateExitedEventDetails {
  */
 export interface TaskFailedEventDetails {
   /**
+   * @public
    * <p>The service name of the resource in a task state.</p>
    */
   resourceType: string | undefined;
 
   /**
+   * @public
    * <p>The action of the resource called by a task state.</p>
    */
   resource: string | undefined;
 
   /**
+   * @public
    * <p>The error code of the failure.</p>
    */
   error?: string;
 
   /**
+   * @public
    * <p>A more detailed explanation of the cause of the failure.</p>
    */
   cause?: string;
@@ -2029,37 +2217,44 @@ export interface TaskFailedEventDetails {
  */
 export interface TaskScheduledEventDetails {
   /**
+   * @public
    * <p>The service name of the resource in a task state.</p>
    */
   resourceType: string | undefined;
 
   /**
+   * @public
    * <p>The action of the resource called by a task state.</p>
    */
   resource: string | undefined;
 
   /**
+   * @public
    * <p>The region of the scheduled task</p>
    */
   region: string | undefined;
 
   /**
+   * @public
    * <p>The JSON data passed to the resource referenced in a task state.
    *       Length constraints apply to the payload size, and are expressed as bytes in UTF-8 encoding.</p>
    */
   parameters: string | undefined;
 
   /**
+   * @public
    * <p>The maximum allowed duration of the task.</p>
    */
   timeoutInSeconds?: number;
 
   /**
+   * @public
    * <p>The maximum allowed duration between two heartbeats for the task.</p>
    */
   heartbeatInSeconds?: number;
 
   /**
+   * @public
    * <p>The credentials that Step Functions uses for the task.</p>
    */
   taskCredentials?: TaskCredentials;
@@ -2071,11 +2266,13 @@ export interface TaskScheduledEventDetails {
  */
 export interface TaskStartedEventDetails {
   /**
+   * @public
    * <p>The service name of the resource in a task state.</p>
    */
   resourceType: string | undefined;
 
   /**
+   * @public
    * <p>The action of the resource called by a task state.</p>
    */
   resource: string | undefined;
@@ -2087,21 +2284,25 @@ export interface TaskStartedEventDetails {
  */
 export interface TaskStartFailedEventDetails {
   /**
+   * @public
    * <p>The service name of the resource in a task state.</p>
    */
   resourceType: string | undefined;
 
   /**
+   * @public
    * <p>The action of the resource called by a task state.</p>
    */
   resource: string | undefined;
 
   /**
+   * @public
    * <p>The error code of the failure.</p>
    */
   error?: string;
 
   /**
+   * @public
    * <p>A more detailed explanation of the cause of the failure.</p>
    */
   cause?: string;
@@ -2113,21 +2314,25 @@ export interface TaskStartFailedEventDetails {
  */
 export interface TaskSubmitFailedEventDetails {
   /**
+   * @public
    * <p>The service name of the resource in a task state.</p>
    */
   resourceType: string | undefined;
 
   /**
+   * @public
    * <p>The action of the resource called by a task state.</p>
    */
   resource: string | undefined;
 
   /**
+   * @public
    * <p>The error code of the failure.</p>
    */
   error?: string;
 
   /**
+   * @public
    * <p>A more detailed explanation of the cause of the failure.</p>
    */
   cause?: string;
@@ -2139,21 +2344,25 @@ export interface TaskSubmitFailedEventDetails {
  */
 export interface TaskSubmittedEventDetails {
   /**
+   * @public
    * <p>The service name of the resource in a task state.</p>
    */
   resourceType: string | undefined;
 
   /**
+   * @public
    * <p>The action of the resource called by a task state.</p>
    */
   resource: string | undefined;
 
   /**
+   * @public
    * <p>The response from a resource when a task has started. Length constraints apply to the payload size, and are expressed as bytes in UTF-8 encoding.</p>
    */
   output?: string;
 
   /**
+   * @public
    * <p>Contains details about the output of an execution history event.</p>
    */
   outputDetails?: HistoryEventExecutionDataDetails;
@@ -2165,22 +2374,26 @@ export interface TaskSubmittedEventDetails {
  */
 export interface TaskSucceededEventDetails {
   /**
+   * @public
    * <p>The service name of the resource in a task state.</p>
    */
   resourceType: string | undefined;
 
   /**
+   * @public
    * <p>The action of the resource called by a task state.</p>
    */
   resource: string | undefined;
 
   /**
+   * @public
    * <p>The full JSON response from a resource when a task has succeeded. This response becomes
    *       the output of the related task. Length constraints apply to the payload size, and are expressed as bytes in UTF-8 encoding.</p>
    */
   output?: string;
 
   /**
+   * @public
    * <p>Contains details about the output of an execution history event.</p>
    */
   outputDetails?: HistoryEventExecutionDataDetails;
@@ -2192,21 +2405,25 @@ export interface TaskSucceededEventDetails {
  */
 export interface TaskTimedOutEventDetails {
   /**
+   * @public
    * <p>The service name of the resource in a task state.</p>
    */
   resourceType: string | undefined;
 
   /**
+   * @public
    * <p>The action of the resource called by a task state.</p>
    */
   resource: string | undefined;
 
   /**
+   * @public
    * <p>The error code of the failure.</p>
    */
   error?: string;
 
   /**
+   * @public
    * <p>A more detailed explanation of the cause of the failure.</p>
    */
   cause?: string;
@@ -2289,194 +2506,232 @@ export type HistoryEventType = (typeof HistoryEventType)[keyof typeof HistoryEve
  */
 export interface HistoryEvent {
   /**
+   * @public
    * <p>The date and time the event occurred.</p>
    */
   timestamp: Date | undefined;
 
   /**
+   * @public
    * <p>The type of the event.</p>
    */
   type: HistoryEventType | string | undefined;
 
   /**
+   * @public
    * <p>The id of the event. Events are numbered sequentially, starting at one.</p>
    */
   id: number | undefined;
 
   /**
+   * @public
    * <p>The id of the previous event.</p>
    */
   previousEventId?: number;
 
   /**
+   * @public
    * <p>Contains details about an activity that failed during an execution.</p>
    */
   activityFailedEventDetails?: ActivityFailedEventDetails;
 
   /**
+   * @public
    * <p>Contains details about an activity schedule event that failed during an execution.</p>
    */
   activityScheduleFailedEventDetails?: ActivityScheduleFailedEventDetails;
 
   /**
+   * @public
    * <p>Contains details about an activity scheduled during an execution.</p>
    */
   activityScheduledEventDetails?: ActivityScheduledEventDetails;
 
   /**
+   * @public
    * <p>Contains details about the start of an activity during an execution.</p>
    */
   activityStartedEventDetails?: ActivityStartedEventDetails;
 
   /**
+   * @public
    * <p>Contains details about an activity that successfully terminated during an
    *       execution.</p>
    */
   activitySucceededEventDetails?: ActivitySucceededEventDetails;
 
   /**
+   * @public
    * <p>Contains details about an activity timeout that occurred during an execution.</p>
    */
   activityTimedOutEventDetails?: ActivityTimedOutEventDetails;
 
   /**
+   * @public
    * <p>Contains details about the failure of a task.</p>
    */
   taskFailedEventDetails?: TaskFailedEventDetails;
 
   /**
+   * @public
    * <p>Contains details about a task that was scheduled.</p>
    */
   taskScheduledEventDetails?: TaskScheduledEventDetails;
 
   /**
+   * @public
    * <p>Contains details about a task that failed to start.</p>
    */
   taskStartFailedEventDetails?: TaskStartFailedEventDetails;
 
   /**
+   * @public
    * <p>Contains details about a task that was started.</p>
    */
   taskStartedEventDetails?: TaskStartedEventDetails;
 
   /**
+   * @public
    * <p>Contains details about a task that where the submit failed.</p>
    */
   taskSubmitFailedEventDetails?: TaskSubmitFailedEventDetails;
 
   /**
+   * @public
    * <p>Contains details about a submitted task.</p>
    */
   taskSubmittedEventDetails?: TaskSubmittedEventDetails;
 
   /**
+   * @public
    * <p>Contains details about a task that succeeded.</p>
    */
   taskSucceededEventDetails?: TaskSucceededEventDetails;
 
   /**
+   * @public
    * <p>Contains details about a task that timed out.</p>
    */
   taskTimedOutEventDetails?: TaskTimedOutEventDetails;
 
   /**
+   * @public
    * <p>Contains details about an execution failure event.</p>
    */
   executionFailedEventDetails?: ExecutionFailedEventDetails;
 
   /**
+   * @public
    * <p>Contains details about the start of the execution.</p>
    */
   executionStartedEventDetails?: ExecutionStartedEventDetails;
 
   /**
+   * @public
    * <p>Contains details about the successful termination of the execution.</p>
    */
   executionSucceededEventDetails?: ExecutionSucceededEventDetails;
 
   /**
+   * @public
    * <p>Contains details about an abort of an execution.</p>
    */
   executionAbortedEventDetails?: ExecutionAbortedEventDetails;
 
   /**
+   * @public
    * <p>Contains details about the execution timeout that occurred during the execution.</p>
    */
   executionTimedOutEventDetails?: ExecutionTimedOutEventDetails;
 
   /**
+   * @public
    * <p>Contains details about Map state that was started.</p>
    */
   mapStateStartedEventDetails?: MapStateStartedEventDetails;
 
   /**
+   * @public
    * <p>Contains details about an iteration of a Map state that was started.</p>
    */
   mapIterationStartedEventDetails?: MapIterationEventDetails;
 
   /**
+   * @public
    * <p>Contains details about an iteration of a Map state that succeeded.</p>
    */
   mapIterationSucceededEventDetails?: MapIterationEventDetails;
 
   /**
+   * @public
    * <p>Contains details about an iteration of a Map state that failed.</p>
    */
   mapIterationFailedEventDetails?: MapIterationEventDetails;
 
   /**
+   * @public
    * <p>Contains details about an iteration of a Map state that was aborted.</p>
    */
   mapIterationAbortedEventDetails?: MapIterationEventDetails;
 
   /**
+   * @public
    * <p>Contains details about a Lambda function that failed during an execution.</p>
    */
   lambdaFunctionFailedEventDetails?: LambdaFunctionFailedEventDetails;
 
   /**
+   * @public
    * <p>Contains details about a failed Lambda function schedule event that occurred during an
    *       execution.</p>
    */
   lambdaFunctionScheduleFailedEventDetails?: LambdaFunctionScheduleFailedEventDetails;
 
   /**
+   * @public
    * <p>Contains details about a Lambda function scheduled during an execution.</p>
    */
   lambdaFunctionScheduledEventDetails?: LambdaFunctionScheduledEventDetails;
 
   /**
+   * @public
    * <p>Contains details about a lambda function that failed to start during an execution.</p>
    */
   lambdaFunctionStartFailedEventDetails?: LambdaFunctionStartFailedEventDetails;
 
   /**
+   * @public
    * <p>Contains details about a Lambda function that terminated successfully during an
    *       execution.</p>
    */
   lambdaFunctionSucceededEventDetails?: LambdaFunctionSucceededEventDetails;
 
   /**
+   * @public
    * <p>Contains details about a Lambda function timeout that occurred during an execution.</p>
    */
   lambdaFunctionTimedOutEventDetails?: LambdaFunctionTimedOutEventDetails;
 
   /**
+   * @public
    * <p>Contains details about a state entered during an execution.</p>
    */
   stateEnteredEventDetails?: StateEnteredEventDetails;
 
   /**
+   * @public
    * <p>Contains details about an exit from a state during an execution.</p>
    */
   stateExitedEventDetails?: StateExitedEventDetails;
 
   /**
+   * @public
    * <p>Contains details, such as <code>mapRunArn</code>, and the start date and time of a Map Run. <code>mapRunArn</code> is the Amazon Resource Name (ARN) of the Map Run that was started.</p>
    */
   mapRunStartedEventDetails?: MapRunStartedEventDetails;
 
   /**
+   * @public
    * <p>Contains error and cause details about a Map Run that failed.</p>
    */
   mapRunFailedEventDetails?: MapRunFailedEventDetails;
@@ -2487,11 +2742,13 @@ export interface HistoryEvent {
  */
 export interface GetExecutionHistoryOutput {
   /**
+   * @public
    * <p>The list of events that occurred in the execution.</p>
    */
   events: HistoryEvent[] | undefined;
 
   /**
+   * @public
    * <p>If <code>nextToken</code> is returned, there are more results available. The value of <code>nextToken</code> is a unique pagination token for each page.
    *     Make the call again using the returned token to retrieve the next page. Keep all other arguments unchanged. Each pagination token expires after 24 hours. Using an expired pagination token will return an <i>HTTP 400 InvalidToken</i> error.</p>
    */
@@ -2523,6 +2780,7 @@ export class InvalidToken extends __BaseException {
  */
 export interface ListActivitiesInput {
   /**
+   * @public
    * <p>The maximum number of results that are returned per call. You can use <code>nextToken</code> to obtain further pages of results.
    *     The default is 100 and the maximum allowed page size is 1000. A value of 0 uses the default.</p>
    *          <p>This is only an upper limit. The actual number of results returned per call might be fewer than the specified maximum.</p>
@@ -2530,6 +2788,7 @@ export interface ListActivitiesInput {
   maxResults?: number;
 
   /**
+   * @public
    * <p>If <code>nextToken</code> is returned, there are more results available. The value of <code>nextToken</code> is a unique pagination token for each page.
    *     Make the call again using the returned token to retrieve the next page. Keep all other arguments unchanged. Each pagination token expires after 24 hours. Using an expired pagination token will return an <i>HTTP 400 InvalidToken</i> error.</p>
    */
@@ -2541,11 +2800,13 @@ export interface ListActivitiesInput {
  */
 export interface ListActivitiesOutput {
   /**
+   * @public
    * <p>The list of activities.</p>
    */
   activities: ActivityListItem[] | undefined;
 
   /**
+   * @public
    * <p>If <code>nextToken</code> is returned, there are more results available. The value of <code>nextToken</code> is a unique pagination token for each page.
    *     Make the call again using the returned token to retrieve the next page. Keep all other arguments unchanged. Each pagination token expires after 24 hours. Using an expired pagination token will return an <i>HTTP 400 InvalidToken</i> error.</p>
    */
@@ -2557,6 +2818,7 @@ export interface ListActivitiesOutput {
  */
 export interface ListExecutionsInput {
   /**
+   * @public
    * <p>The Amazon Resource Name (ARN) of the state machine whose executions is listed.</p>
    *          <p>You can specify either a <code>mapRunArn</code> or a <code>stateMachineArn</code>, but not both.</p>
    *          <p>You can also return a list of executions associated with a specific <a href="https://docs.aws.amazon.com/step-functions/latest/dg/concepts-state-machine-alias.html">alias</a> or <a href="https://docs.aws.amazon.com/step-functions/latest/dg/concepts-state-machine-version.html">version</a>, by specifying an alias ARN or a version ARN in the <code>stateMachineArn</code> parameter.</p>
@@ -2564,12 +2826,14 @@ export interface ListExecutionsInput {
   stateMachineArn?: string;
 
   /**
+   * @public
    * <p>If specified, only list the executions whose current execution status matches the given
    *       filter.</p>
    */
   statusFilter?: ExecutionStatus | string;
 
   /**
+   * @public
    * <p>The maximum number of results that are returned per call. You can use <code>nextToken</code> to obtain further pages of results.
    *     The default is 100 and the maximum allowed page size is 1000. A value of 0 uses the default.</p>
    *          <p>This is only an upper limit. The actual number of results returned per call might be fewer than the specified maximum.</p>
@@ -2577,12 +2841,14 @@ export interface ListExecutionsInput {
   maxResults?: number;
 
   /**
+   * @public
    * <p>If <code>nextToken</code> is returned, there are more results available. The value of <code>nextToken</code> is a unique pagination token for each page.
    *     Make the call again using the returned token to retrieve the next page. Keep all other arguments unchanged. Each pagination token expires after 24 hours. Using an expired pagination token will return an <i>HTTP 400 InvalidToken</i> error.</p>
    */
   nextToken?: string;
 
   /**
+   * @public
    * <p>The Amazon Resource Name (ARN) of the Map Run that started the child workflow executions. If the <code>mapRunArn</code> field is specified, a list of all of the child workflow executions started by a Map Run is returned. For more information, see <a href="https://docs.aws.amazon.com/step-functions/latest/dg/concepts-examine-map-run.html">Examining Map Run</a> in the <i>Step Functions Developer Guide</i>.</p>
    *          <p>You can specify either a <code>mapRunArn</code> or a <code>stateMachineArn</code>, but not both.</p>
    */
@@ -2595,16 +2861,19 @@ export interface ListExecutionsInput {
  */
 export interface ExecutionListItem {
   /**
+   * @public
    * <p>The Amazon Resource Name (ARN) that identifies the execution.</p>
    */
   executionArn: string | undefined;
 
   /**
+   * @public
    * <p>The Amazon Resource Name (ARN) of the state machine that ran the execution.</p>
    */
   stateMachineArn: string | undefined;
 
   /**
+   * @public
    * <p>The name of the execution.</p>
    *          <p>A name must <i>not</i> contain:</p>
    *          <ul>
@@ -2632,31 +2901,37 @@ export interface ExecutionListItem {
   name: string | undefined;
 
   /**
+   * @public
    * <p>The current status of the execution.</p>
    */
   status: ExecutionStatus | string | undefined;
 
   /**
+   * @public
    * <p>The date the execution started.</p>
    */
   startDate: Date | undefined;
 
   /**
+   * @public
    * <p>If the execution already ended, the date the execution stopped.</p>
    */
   stopDate?: Date;
 
   /**
+   * @public
    * <p>The Amazon Resource Name (ARN) of a Map Run. This field is returned only if <code>mapRunArn</code> was specified in the <code>ListExecutions</code> API action. If <code>stateMachineArn</code> was specified in <code>ListExecutions</code>, the <code>mapRunArn</code> isn't returned.</p>
    */
   mapRunArn?: string;
 
   /**
+   * @public
    * <p>The total number of items processed in a child workflow execution. This field is returned only if <code>mapRunArn</code> was specified in the <code>ListExecutions</code> API action. If <code>stateMachineArn</code> was specified in <code>ListExecutions</code>, the <code>itemCount</code> field isn't returned.</p>
    */
   itemCount?: number;
 
   /**
+   * @public
    * <p>The Amazon Resource Name (ARN) of the state machine version associated with the execution.</p>
    *          <p>If the state machine execution was started with an unqualified ARN, it returns null.</p>
    *          <p>If the execution was started using a <code>stateMachineAliasArn</code>, both the <code>stateMachineAliasArn</code> and <code>stateMachineVersionArn</code> parameters contain the respective values.</p>
@@ -2664,6 +2939,7 @@ export interface ExecutionListItem {
   stateMachineVersionArn?: string;
 
   /**
+   * @public
    * <p>The Amazon Resource Name (ARN) of the state machine alias used to start an execution.</p>
    *          <p>If the state machine execution was started with an unqualified ARN or a version ARN, it returns null.</p>
    */
@@ -2675,11 +2951,13 @@ export interface ExecutionListItem {
  */
 export interface ListExecutionsOutput {
   /**
+   * @public
    * <p>The list of matching executions.</p>
    */
   executions: ExecutionListItem[] | undefined;
 
   /**
+   * @public
    * <p>If <code>nextToken</code> is returned, there are more results available. The value of <code>nextToken</code> is a unique pagination token for each page.
    *     Make the call again using the returned token to retrieve the next page. Keep all other arguments unchanged. Each pagination token expires after 24 hours. Using an expired pagination token will return an <i>HTTP 400 InvalidToken</i> error.</p>
    */
@@ -2691,11 +2969,13 @@ export interface ListExecutionsOutput {
  */
 export interface ListMapRunsInput {
   /**
+   * @public
    * <p>The Amazon Resource Name (ARN) of the execution for which the Map Runs must be listed.</p>
    */
   executionArn: string | undefined;
 
   /**
+   * @public
    * <p>The maximum number of results that are returned per call. You can use <code>nextToken</code> to obtain further pages of results.
    *     The default is 100 and the maximum allowed page size is 1000. A value of 0 uses the default.</p>
    *          <p>This is only an upper limit. The actual number of results returned per call might be fewer than the specified maximum.</p>
@@ -2703,6 +2983,7 @@ export interface ListMapRunsInput {
   maxResults?: number;
 
   /**
+   * @public
    * <p>If <code>nextToken</code> is returned, there are more results available. The value of <code>nextToken</code> is a unique pagination token for each page.
    *     Make the call again using the returned token to retrieve the next page. Keep all other arguments unchanged. Each pagination token expires after 24 hours. Using an expired pagination token will return an <i>HTTP 400 InvalidToken</i> error.</p>
    */
@@ -2715,26 +2996,31 @@ export interface ListMapRunsInput {
  */
 export interface MapRunListItem {
   /**
+   * @public
    * <p>The <code>executionArn</code> of the execution from which the Map Run was started.</p>
    */
   executionArn: string | undefined;
 
   /**
+   * @public
    * <p>The Amazon Resource Name (ARN) of the Map Run.</p>
    */
   mapRunArn: string | undefined;
 
   /**
+   * @public
    * <p>The Amazon Resource Name (ARN) of the executed state machine.</p>
    */
   stateMachineArn: string | undefined;
 
   /**
+   * @public
    * <p>The date on which the Map Run started.</p>
    */
   startDate: Date | undefined;
 
   /**
+   * @public
    * <p>The date on which the Map Run stopped.</p>
    */
   stopDate?: Date;
@@ -2745,11 +3031,13 @@ export interface MapRunListItem {
  */
 export interface ListMapRunsOutput {
   /**
+   * @public
    * <p>An array that lists information related to a Map Run, such as the Amazon Resource Name (ARN) of the Map Run and the ARN of the state machine that started the Map Run.</p>
    */
   mapRuns: MapRunListItem[] | undefined;
 
   /**
+   * @public
    * <p>If <code>nextToken</code> is returned, there are more results available. The value of <code>nextToken</code> is a unique pagination token for each page.
    *     Make the call again using the returned token to retrieve the next page. Keep all other arguments unchanged. Each pagination token expires after 24 hours. Using an expired pagination token will return an <i>HTTP 400 InvalidToken</i> error.</p>
    */
@@ -2761,18 +3049,21 @@ export interface ListMapRunsOutput {
  */
 export interface ListStateMachineAliasesInput {
   /**
+   * @public
    * <p>The Amazon Resource Name (ARN) of the state machine for which you want to list aliases.</p>
    *          <p>If you specify a state machine version ARN, this API returns a list of aliases for that version.</p>
    */
   stateMachineArn: string | undefined;
 
   /**
+   * @public
    * <p>If <code>nextToken</code> is returned, there are more results available. The value of <code>nextToken</code> is a unique pagination token for each page.
    *     Make the call again using the returned token to retrieve the next page. Keep all other arguments unchanged. Each pagination token expires after 24 hours. Using an expired pagination token will return an <i>HTTP 400 InvalidToken</i> error.</p>
    */
   nextToken?: string;
 
   /**
+   * @public
    * <p>The maximum number of results that are returned per call. You can use <code>nextToken</code> to obtain further pages of results.
    *     The default is 100 and the maximum allowed page size is 1000. A value of 0 uses the default.</p>
    *          <p>This is only an upper limit. The actual number of results returned per call might be fewer than the specified maximum.</p>
@@ -2786,11 +3077,13 @@ export interface ListStateMachineAliasesInput {
  */
 export interface StateMachineAliasListItem {
   /**
+   * @public
    * <p>The Amazon Resource Name (ARN) that identifies a state machine alias. The alias ARN is a combination of state machine ARN and the alias name separated by a colon (:). For example, <code>stateMachineARN:PROD</code>.</p>
    */
   stateMachineAliasArn: string | undefined;
 
   /**
+   * @public
    * <p>The creation date of a state machine alias.</p>
    */
   creationDate: Date | undefined;
@@ -2801,11 +3094,13 @@ export interface StateMachineAliasListItem {
  */
 export interface ListStateMachineAliasesOutput {
   /**
+   * @public
    * <p>Aliases for the state machine.</p>
    */
   stateMachineAliases: StateMachineAliasListItem[] | undefined;
 
   /**
+   * @public
    * <p>If <code>nextToken</code> is returned, there are more results available. The value of <code>nextToken</code> is a unique pagination token for each page.
    *     Make the call again using the returned token to retrieve the next page. Keep all other arguments unchanged. Each pagination token expires after 24 hours. Using an expired pagination token will return an <i>HTTP 400 InvalidToken</i> error.</p>
    */
@@ -2817,6 +3112,7 @@ export interface ListStateMachineAliasesOutput {
  */
 export interface ListStateMachinesInput {
   /**
+   * @public
    * <p>The maximum number of results that are returned per call. You can use <code>nextToken</code> to obtain further pages of results.
    *     The default is 100 and the maximum allowed page size is 1000. A value of 0 uses the default.</p>
    *          <p>This is only an upper limit. The actual number of results returned per call might be fewer than the specified maximum.</p>
@@ -2824,6 +3120,7 @@ export interface ListStateMachinesInput {
   maxResults?: number;
 
   /**
+   * @public
    * <p>If <code>nextToken</code> is returned, there are more results available. The value of <code>nextToken</code> is a unique pagination token for each page.
    *     Make the call again using the returned token to retrieve the next page. Keep all other arguments unchanged. Each pagination token expires after 24 hours. Using an expired pagination token will return an <i>HTTP 400 InvalidToken</i> error.</p>
    */
@@ -2836,11 +3133,13 @@ export interface ListStateMachinesInput {
  */
 export interface StateMachineListItem {
   /**
+   * @public
    * <p>The Amazon Resource Name (ARN) that identifies the state machine.</p>
    */
   stateMachineArn: string | undefined;
 
   /**
+   * @public
    * <p>The name of the state machine.</p>
    *          <p>A name must <i>not</i> contain:</p>
    *          <ul>
@@ -2868,11 +3167,13 @@ export interface StateMachineListItem {
   name: string | undefined;
 
   /**
+   * @public
    * <p></p>
    */
   type: StateMachineType | string | undefined;
 
   /**
+   * @public
    * <p>The date the state machine is created.</p>
    */
   creationDate: Date | undefined;
@@ -2884,6 +3185,7 @@ export interface StateMachineListItem {
 export interface ListStateMachinesOutput {
   stateMachines: StateMachineListItem[] | undefined;
   /**
+   * @public
    * <p>If <code>nextToken</code> is returned, there are more results available. The value of <code>nextToken</code> is a unique pagination token for each page.
    *     Make the call again using the returned token to retrieve the next page. Keep all other arguments unchanged. Each pagination token expires after 24 hours. Using an expired pagination token will return an <i>HTTP 400 InvalidToken</i> error.</p>
    */
@@ -2895,17 +3197,20 @@ export interface ListStateMachinesOutput {
  */
 export interface ListStateMachineVersionsInput {
   /**
+   * @public
    * <p>The Amazon Resource Name (ARN) of the state machine.</p>
    */
   stateMachineArn: string | undefined;
 
   /**
+   * @public
    * <p>If <code>nextToken</code> is returned, there are more results available. The value of <code>nextToken</code> is a unique pagination token for each page.
    *     Make the call again using the returned token to retrieve the next page. Keep all other arguments unchanged. Each pagination token expires after 24 hours. Using an expired pagination token will return an <i>HTTP 400 InvalidToken</i> error.</p>
    */
   nextToken?: string;
 
   /**
+   * @public
    * <p>The maximum number of results that are returned per call. You can use <code>nextToken</code> to obtain further pages of results.
    *     The default is 100 and the maximum allowed page size is 1000. A value of 0 uses the default.</p>
    *          <p>This is only an upper limit. The actual number of results returned per call might be fewer than the specified maximum.</p>
@@ -2919,11 +3224,13 @@ export interface ListStateMachineVersionsInput {
  */
 export interface StateMachineVersionListItem {
   /**
+   * @public
    * <p>The Amazon Resource Name (ARN) that identifies a state machine version. The version ARN is a combination of state machine ARN and the version number separated by a colon (:). For example, <code>stateMachineARN:1</code>.</p>
    */
   stateMachineVersionArn: string | undefined;
 
   /**
+   * @public
    * <p>The creation date of a state machine version.</p>
    */
   creationDate: Date | undefined;
@@ -2934,11 +3241,13 @@ export interface StateMachineVersionListItem {
  */
 export interface ListStateMachineVersionsOutput {
   /**
+   * @public
    * <p>Versions for the state machine.</p>
    */
   stateMachineVersions: StateMachineVersionListItem[] | undefined;
 
   /**
+   * @public
    * <p>If <code>nextToken</code> is returned, there are more results available. The value of <code>nextToken</code> is a unique pagination token for each page.
    *     Make the call again using the returned token to retrieve the next page. Keep all other arguments unchanged. Each pagination token expires after 24 hours. Using an expired pagination token will return an <i>HTTP 400 InvalidToken</i> error.</p>
    */
@@ -2950,6 +3259,7 @@ export interface ListStateMachineVersionsOutput {
  */
 export interface ListTagsForResourceInput {
   /**
+   * @public
    * <p>The Amazon Resource Name (ARN) for the Step Functions state machine or activity.</p>
    */
   resourceArn: string | undefined;
@@ -2960,6 +3270,7 @@ export interface ListTagsForResourceInput {
  */
 export interface ListTagsForResourceOutput {
   /**
+   * @public
    * <p>An array of tags associated with the resource.</p>
    */
   tags?: Tag[];
@@ -2970,11 +3281,13 @@ export interface ListTagsForResourceOutput {
  */
 export interface PublishStateMachineVersionInput {
   /**
+   * @public
    * <p>The Amazon Resource Name (ARN) of the state machine.</p>
    */
   stateMachineArn: string | undefined;
 
   /**
+   * @public
    * <p>Only publish the state machine version if the current state machine's revision ID matches the specified ID.</p>
    *          <p>Use this option to avoid publishing a version if the state machine changed since you last
    *       updated it. If the specified revision ID doesn't match the state machine's current revision
@@ -2989,6 +3302,7 @@ export interface PublishStateMachineVersionInput {
   revisionId?: string;
 
   /**
+   * @public
    * <p>An optional description of the state machine version.</p>
    */
   description?: string;
@@ -2999,11 +3313,13 @@ export interface PublishStateMachineVersionInput {
  */
 export interface PublishStateMachineVersionOutput {
   /**
+   * @public
    * <p>The date the version was created.</p>
    */
   creationDate: Date | undefined;
 
   /**
+   * @public
    * <p>The Amazon Resource Name (ARN) (ARN) that identifies the state machine version.</p>
    */
   stateMachineVersionArn: string | undefined;
@@ -3014,6 +3330,7 @@ export interface PublishStateMachineVersionOutput {
  */
 export interface SendTaskFailureInput {
   /**
+   * @public
    * <p>The token that represents this task. Task tokens are generated by Step Functions when
    *       tasks are assigned to a worker, or in the <a href="https://docs.aws.amazon.com/step-functions/latest/dg/input-output-contextobject.html">context object</a> when a
    *       workflow enters a task state. See <a>GetActivityTaskOutput$taskToken</a>.</p>
@@ -3021,11 +3338,13 @@ export interface SendTaskFailureInput {
   taskToken: string | undefined;
 
   /**
+   * @public
    * <p>The error code of the failure.</p>
    */
   error?: string;
 
   /**
+   * @public
    * <p>A more detailed explanation of the cause of the failure.</p>
    */
   cause?: string;
@@ -3079,6 +3398,7 @@ export class TaskTimedOut extends __BaseException {
  */
 export interface SendTaskHeartbeatInput {
   /**
+   * @public
    * <p>The token that represents this task. Task tokens are generated by Step Functions when
    *       tasks are assigned to a worker, or in the <a href="https://docs.aws.amazon.com/step-functions/latest/dg/input-output-contextobject.html">context object</a> when a
    *       workflow enters a task state. See <a>GetActivityTaskOutput$taskToken</a>.</p>
@@ -3116,6 +3436,7 @@ export class InvalidOutput extends __BaseException {
  */
 export interface SendTaskSuccessInput {
   /**
+   * @public
    * <p>The token that represents this task. Task tokens are generated by Step Functions when
    *       tasks are assigned to a worker, or in the <a href="https://docs.aws.amazon.com/step-functions/latest/dg/input-output-contextobject.html">context object</a> when a
    *       workflow enters a task state. See <a>GetActivityTaskOutput$taskToken</a>.</p>
@@ -3123,6 +3444,7 @@ export interface SendTaskSuccessInput {
   taskToken: string | undefined;
 
   /**
+   * @public
    * <p>The JSON output of the task. Length constraints apply to the payload size, and are expressed as bytes in UTF-8 encoding.</p>
    */
   output: string | undefined;
@@ -3204,6 +3526,7 @@ export class InvalidExecutionInput extends __BaseException {
  */
 export interface StartExecutionInput {
   /**
+   * @public
    * <p>The Amazon Resource Name (ARN) of the state machine to execute.</p>
    *          <p>The <code>stateMachineArn</code> parameter accepts one of the following inputs:</p>
    *          <ul>
@@ -3238,6 +3561,7 @@ export interface StartExecutionInput {
   stateMachineArn: string | undefined;
 
   /**
+   * @public
    * <p>Optional name of the execution.
    *       This name must be unique for your Amazon Web Services account, Region, and state machine for 90 days. For more information,
    *     see <a href="https://docs.aws.amazon.com/step-functions/latest/dg/limits.html#service-limits-state-machine-executions">
@@ -3268,6 +3592,7 @@ export interface StartExecutionInput {
   name?: string;
 
   /**
+   * @public
    * <p>The string that contains the JSON input data for the execution, for example:</p>
    *          <p>
    *             <code>"input": "\{\"first_name\" : \"test\"\}"</code>
@@ -3282,6 +3607,7 @@ export interface StartExecutionInput {
   input?: string;
 
   /**
+   * @public
    * <p>Passes the X-Ray trace header. The trace header can also be passed in the request
    *       payload.</p>
    */
@@ -3293,11 +3619,13 @@ export interface StartExecutionInput {
  */
 export interface StartExecutionOutput {
   /**
+   * @public
    * <p>The Amazon Resource Name (ARN) that identifies the execution.</p>
    */
   executionArn: string | undefined;
 
   /**
+   * @public
    * <p>The date the execution is started.</p>
    */
   startDate: Date | undefined;
@@ -3308,16 +3636,19 @@ export interface StartExecutionOutput {
  */
 export interface StartSyncExecutionInput {
   /**
+   * @public
    * <p>The Amazon Resource Name (ARN) of the state machine to execute.</p>
    */
   stateMachineArn: string | undefined;
 
   /**
+   * @public
    * <p>The name of the execution.</p>
    */
   name?: string;
 
   /**
+   * @public
    * <p>The string that contains the JSON input data for the execution, for example:</p>
    *          <p>
    *             <code>"input": "\{\"first_name\" : \"test\"\}"</code>
@@ -3332,6 +3663,7 @@ export interface StartSyncExecutionInput {
   input?: string;
 
   /**
+   * @public
    * <p>Passes the X-Ray trace header. The trace header can also be passed in the request
    *       payload.</p>
    */
@@ -3344,11 +3676,13 @@ export interface StartSyncExecutionInput {
  */
 export interface BillingDetails {
   /**
+   * @public
    * <p>Billed memory consumption of your workflow, in MB.</p>
    */
   billedMemoryUsedInMB?: number;
 
   /**
+   * @public
    * <p>Billed duration of your workflow, in milliseconds.</p>
    */
   billedDurationInMilliseconds?: number;
@@ -3374,56 +3708,67 @@ export type SyncExecutionStatus = (typeof SyncExecutionStatus)[keyof typeof Sync
  */
 export interface StartSyncExecutionOutput {
   /**
+   * @public
    * <p>The Amazon Resource Name (ARN) that identifies the execution.</p>
    */
   executionArn: string | undefined;
 
   /**
+   * @public
    * <p>The Amazon Resource Name (ARN) that identifies the state machine.</p>
    */
   stateMachineArn?: string;
 
   /**
+   * @public
    * <p>The name of the execution.</p>
    */
   name?: string;
 
   /**
+   * @public
    * <p>The date the execution is started.</p>
    */
   startDate: Date | undefined;
 
   /**
+   * @public
    * <p>If the execution has already ended, the date the execution stopped.</p>
    */
   stopDate: Date | undefined;
 
   /**
+   * @public
    * <p>The current status of the execution.</p>
    */
   status: SyncExecutionStatus | string | undefined;
 
   /**
+   * @public
    * <p>The error code of the failure.</p>
    */
   error?: string;
 
   /**
+   * @public
    * <p>A more detailed explanation of the cause of the failure.</p>
    */
   cause?: string;
 
   /**
+   * @public
    * <p>The string that contains the JSON input data of the execution. Length constraints apply to the payload size, and are expressed as bytes in UTF-8 encoding.</p>
    */
   input?: string;
 
   /**
+   * @public
    * <p>Provides details about execution input or output.</p>
    */
   inputDetails?: CloudWatchEventsExecutionDataDetails;
 
   /**
+   * @public
    * <p>The JSON output data of the execution. Length constraints apply to the payload size, and are expressed as bytes in UTF-8 encoding.</p>
    *          <note>
    *             <p>This field is set only if the execution succeeds. If the execution fails, this field is
@@ -3433,16 +3778,19 @@ export interface StartSyncExecutionOutput {
   output?: string;
 
   /**
+   * @public
    * <p>Provides details about execution input or output.</p>
    */
   outputDetails?: CloudWatchEventsExecutionDataDetails;
 
   /**
+   * @public
    * <p>The X-Ray trace header that was passed to the execution.</p>
    */
   traceHeader?: string;
 
   /**
+   * @public
    * <p>An object that describes workflow billing details, including billed duration and memory
    *       use.</p>
    */
@@ -3454,16 +3802,19 @@ export interface StartSyncExecutionOutput {
  */
 export interface StopExecutionInput {
   /**
+   * @public
    * <p>The Amazon Resource Name (ARN) of the execution to stop.</p>
    */
   executionArn: string | undefined;
 
   /**
+   * @public
    * <p>The error code of the failure.</p>
    */
   error?: string;
 
   /**
+   * @public
    * <p>A more detailed explanation of the cause of the failure.</p>
    */
   cause?: string;
@@ -3474,6 +3825,7 @@ export interface StopExecutionInput {
  */
 export interface StopExecutionOutput {
   /**
+   * @public
    * <p>The date the execution is stopped.</p>
    */
   stopDate: Date | undefined;
@@ -3484,11 +3836,13 @@ export interface StopExecutionOutput {
  */
 export interface TagResourceInput {
   /**
+   * @public
    * <p>The Amazon Resource Name (ARN) for the Step Functions state machine or activity.</p>
    */
   resourceArn: string | undefined;
 
   /**
+   * @public
    * <p>The list of tags to add to a resource.</p>
    *          <p>Tags may only contain Unicode letters, digits, white space, or these symbols: <code>_ . : / = + - @</code>.</p>
    */
@@ -3505,11 +3859,13 @@ export interface TagResourceOutput {}
  */
 export interface UntagResourceInput {
   /**
+   * @public
    * <p>The Amazon Resource Name (ARN) for the Step Functions state machine or activity.</p>
    */
   resourceArn: string | undefined;
 
   /**
+   * @public
    * <p>The list of tags to remove from the resource.</p>
    */
   tagKeys: string[] | undefined;
@@ -3525,21 +3881,25 @@ export interface UntagResourceOutput {}
  */
 export interface UpdateMapRunInput {
   /**
+   * @public
    * <p>The Amazon Resource Name (ARN) of a Map Run.</p>
    */
   mapRunArn: string | undefined;
 
   /**
+   * @public
    * <p>The maximum number of child workflow executions that can be specified to run in parallel for the Map Run at the same time.</p>
    */
   maxConcurrency?: number;
 
   /**
+   * @public
    * <p>The maximum percentage of failed items before the Map Run fails.</p>
    */
   toleratedFailurePercentage?: number;
 
   /**
+   * @public
    * <p>The maximum number of failed items before the Map Run fails.</p>
    */
   toleratedFailureCount?: number;
@@ -3576,32 +3936,38 @@ export class MissingRequiredParameter extends __BaseException {
  */
 export interface UpdateStateMachineInput {
   /**
+   * @public
    * <p>The Amazon Resource Name (ARN) of the state machine.</p>
    */
   stateMachineArn: string | undefined;
 
   /**
+   * @public
    * <p>The Amazon States Language definition of the state machine. See <a href="https://docs.aws.amazon.com/step-functions/latest/dg/concepts-amazon-states-language.html">Amazon States Language</a>.</p>
    */
   definition?: string;
 
   /**
+   * @public
    * <p>The Amazon Resource Name (ARN) of the IAM role of the state machine.</p>
    */
   roleArn?: string;
 
   /**
+   * @public
    * <p>Use the <code>LoggingConfiguration</code> data type to set CloudWatch Logs
    *       options.</p>
    */
   loggingConfiguration?: LoggingConfiguration;
 
   /**
+   * @public
    * <p>Selects whether X-Ray tracing is enabled.</p>
    */
   tracingConfiguration?: TracingConfiguration;
 
   /**
+   * @public
    * <p>Specifies whether the state machine version is published. The default is
    *         <code>false</code>. To publish a version after updating the state machine, set
    *         <code>publish</code> to <code>true</code>.</p>
@@ -3609,6 +3975,7 @@ export interface UpdateStateMachineInput {
   publish?: boolean;
 
   /**
+   * @public
    * <p>An optional description of the state machine version to publish.</p>
    *          <p>You can only specify the <code>versionDescription</code> parameter if you've set <code>publish</code> to <code>true</code>.</p>
    */
@@ -3620,16 +3987,19 @@ export interface UpdateStateMachineInput {
  */
 export interface UpdateStateMachineOutput {
   /**
+   * @public
    * <p>The date and time the state machine was updated.</p>
    */
   updateDate: Date | undefined;
 
   /**
+   * @public
    * <p>The revision identifier for the updated state machine.</p>
    */
   revisionId?: string;
 
   /**
+   * @public
    * <p>The Amazon Resource Name (ARN) of the published state machine version.</p>
    *          <p>If the <code>publish</code> parameter isn't set to <code>true</code>, this field returns null.</p>
    */
@@ -3641,16 +4011,19 @@ export interface UpdateStateMachineOutput {
  */
 export interface UpdateStateMachineAliasInput {
   /**
+   * @public
    * <p>The Amazon Resource Name (ARN) of the state machine alias.</p>
    */
   stateMachineAliasArn: string | undefined;
 
   /**
+   * @public
    * <p>A description of the state machine alias.</p>
    */
   description?: string;
 
   /**
+   * @public
    * <p>The routing configuration of the state machine alias.</p>
    *          <p>An array of <code>RoutingConfig</code> objects that specifies up to two state machine versions that the alias starts executions for.</p>
    */
@@ -3662,6 +4035,7 @@ export interface UpdateStateMachineAliasInput {
  */
 export interface UpdateStateMachineAliasOutput {
   /**
+   * @public
    * <p>The date and time the state machine alias was updated.</p>
    */
   updateDate: Date | undefined;

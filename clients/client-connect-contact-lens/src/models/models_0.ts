@@ -74,21 +74,25 @@ export class InvalidRequestException extends __BaseException {
  */
 export interface ListRealtimeContactAnalysisSegmentsRequest {
   /**
+   * @public
    * <p>The identifier of the Amazon Connect instance.</p>
    */
   InstanceId: string | undefined;
 
   /**
+   * @public
    * <p>The identifier of the contact.</p>
    */
   ContactId: string | undefined;
 
   /**
+   * @public
    * <p>The maximimum number of results to return per page.</p>
    */
   MaxResults?: number;
 
   /**
+   * @public
    * <p>The token for the next set of results. Use the value returned in the previous
    * response in the next request to retrieve the next set of results.</p>
    */
@@ -101,11 +105,13 @@ export interface ListRealtimeContactAnalysisSegmentsRequest {
  */
 export interface PointOfInterest {
   /**
+   * @public
    * <p>The beginning offset in milliseconds where the category rule was detected.</p>
    */
   BeginOffsetMillis: number | undefined;
 
   /**
+   * @public
    * <p>The ending offset in milliseconds where the category rule was detected.</p>
    */
   EndOffsetMillis: number | undefined;
@@ -117,6 +123,7 @@ export interface PointOfInterest {
  */
 export interface CategoryDetails {
   /**
+   * @public
    * <p>The section of audio where the category rule was detected.</p>
    */
   PointsOfInterest: PointOfInterest[] | undefined;
@@ -129,11 +136,13 @@ export interface CategoryDetails {
  */
 export interface Categories {
   /**
+   * @public
    * <p>The category rules that have been matched in the analyzed segment.</p>
    */
   MatchedCategories: string[] | undefined;
 
   /**
+   * @public
    * <p>The category rule that was matched and when it occurred in the transcript.</p>
    */
   MatchedDetails: Record<string, CategoryDetails> | undefined;
@@ -145,11 +154,13 @@ export interface Categories {
  */
 export interface CharacterOffsets {
   /**
+   * @public
    * <p>The beginning of the issue.</p>
    */
   BeginOffsetChar: number | undefined;
 
   /**
+   * @public
    * <p>The end of the issue.</p>
    */
   EndOffsetChar: number | undefined;
@@ -162,6 +173,7 @@ export interface CharacterOffsets {
  */
 export interface IssueDetected {
   /**
+   * @public
    * <p>The offset for when the issue was detected in the segment.</p>
    */
   CharacterOffsets: CharacterOffsets | undefined;
@@ -188,41 +200,49 @@ export type SentimentValue = (typeof SentimentValue)[keyof typeof SentimentValue
  */
 export interface Transcript {
   /**
+   * @public
    * <p>The identifier of the transcript.</p>
    */
   Id: string | undefined;
 
   /**
+   * @public
    * <p>The identifier of the participant.</p>
    */
   ParticipantId: string | undefined;
 
   /**
+   * @public
    * <p>The role of participant. For example, is it a customer, agent, or system.</p>
    */
   ParticipantRole: string | undefined;
 
   /**
+   * @public
    * <p>The content of the transcript.</p>
    */
   Content: string | undefined;
 
   /**
+   * @public
    * <p>The beginning offset in the contact for this transcript.</p>
    */
   BeginOffsetMillis: number | undefined;
 
   /**
+   * @public
    * <p>The end offset in the contact for this transcript.</p>
    */
   EndOffsetMillis: number | undefined;
 
   /**
+   * @public
    * <p>The sentiment of the detected for this piece of transcript.</p>
    */
   Sentiment: SentimentValue | string | undefined;
 
   /**
+   * @public
    * <p>List of positions where issues were detected on the transcript.</p>
    */
   IssuesDetected?: IssueDetected[];
@@ -234,11 +254,13 @@ export interface Transcript {
  */
 export interface RealtimeContactAnalysisSegment {
   /**
+   * @public
    * <p>The analyzed transcript.</p>
    */
   Transcript?: Transcript;
 
   /**
+   * @public
    * <p>The matched category rules.</p>
    */
   Categories?: Categories;
@@ -249,11 +271,13 @@ export interface RealtimeContactAnalysisSegment {
  */
 export interface ListRealtimeContactAnalysisSegmentsResponse {
   /**
+   * @public
    * <p>An analyzed transcript or category.</p>
    */
   Segments: RealtimeContactAnalysisSegment[] | undefined;
 
   /**
+   * @public
    * <p>If there are additional results, this is the token for the next set of results. If response includes <code>nextToken</code> there are two possible scenarios:</p>
    *          <ul>
    *             <li>

@@ -8,29 +8,34 @@ import { CodeStarServiceException as __BaseException } from "./CodeStarServiceEx
  */
 export interface AssociateTeamMemberRequest {
   /**
+   * @public
    * <p>The ID of the project to which you will add the IAM user.</p>
    */
   projectId: string | undefined;
 
   /**
+   * @public
    * <p>A user- or system-generated token that identifies the entity that requested the team
    *       member association to the project. This token can be used to repeat the request.</p>
    */
   clientRequestToken?: string;
 
   /**
+   * @public
    * <p>The Amazon Resource Name (ARN) for the IAM user you want to add to the AWS CodeStar
    *       project.</p>
    */
   userArn: string | undefined;
 
   /**
+   * @public
    * <p>The AWS CodeStar project role that will apply to this user. This role determines what actions
    *       a user can take in an AWS CodeStar project.</p>
    */
   projectRole: string | undefined;
 
   /**
+   * @public
    * <p>Whether the team member is allowed to use an SSH public/private key pair to remotely
    *       access project resources, for example Amazon EC2 instances.</p>
    */
@@ -42,6 +47,7 @@ export interface AssociateTeamMemberRequest {
  */
 export interface AssociateTeamMemberResult {
   /**
+   * @public
    * <p>The user- or system-generated token from the initial request that can be used to repeat
    *       the request.</p>
    */
@@ -196,6 +202,7 @@ export class ValidationException extends __BaseException {
  */
 export interface CodeCommitCodeDestination {
   /**
+   * @public
    * <p>The name of the AWS CodeCommit repository to be created in AWS CodeStar.</p>
    */
   name: string | undefined;
@@ -208,38 +215,45 @@ export interface CodeCommitCodeDestination {
  */
 export interface GitHubCodeDestination {
   /**
+   * @public
    * <p>Name of the GitHub repository to be created in AWS CodeStar.</p>
    */
   name: string | undefined;
 
   /**
+   * @public
    * <p>Description for the GitHub repository to be created in AWS CodeStar. This description displays in
    *       GitHub after the repository is created.</p>
    */
   description?: string;
 
   /**
+   * @public
    * <p>The type of GitHub repository to be created in AWS CodeStar. Valid values are User or Organization.</p>
    */
   type: string | undefined;
 
   /**
+   * @public
    * <p>The GitHub username for the owner of the GitHub repository to be created in AWS CodeStar. If this repository should
    *       be owned by a GitHub organization, provide its name.</p>
    */
   owner: string | undefined;
 
   /**
+   * @public
    * <p>Whether the GitHub repository is to be a private repository.</p>
    */
   privateRepository: boolean | undefined;
 
   /**
+   * @public
    * <p>Whether to enable issues for the GitHub repository.</p>
    */
   issuesEnabled: boolean | undefined;
 
   /**
+   * @public
    * <p>The GitHub user's personal access token for the GitHub repository.</p>
    */
   token: string | undefined;
@@ -252,12 +266,14 @@ export interface GitHubCodeDestination {
  */
 export interface CodeDestination {
   /**
+   * @public
    * <p>Information about the AWS CodeCommit repository to be created in AWS CodeStar. This is where the source code files provided
    *       with the project request will be uploaded after project creation.</p>
    */
   codeCommit?: CodeCommitCodeDestination;
 
   /**
+   * @public
    * <p>Information about the GitHub repository to be created in AWS CodeStar. This is where the source code files provided with the
    *       project request will be uploaded after project creation.</p>
    */
@@ -271,12 +287,14 @@ export interface CodeDestination {
  */
 export interface S3Location {
   /**
+   * @public
    * <p>The Amazon S3 bucket name where the source code files provided with the project
    *       request are stored.</p>
    */
   bucketName?: string;
 
   /**
+   * @public
    * <p>The Amazon S3 object key where the source code files provided with the project
    *       request are stored.</p>
    */
@@ -290,6 +308,7 @@ export interface S3Location {
  */
 export interface CodeSource {
   /**
+   * @public
    * <p>Information about the Amazon S3 location where the source code files provided with the
    *       project request are stored. </p>
    */
@@ -304,12 +323,14 @@ export interface CodeSource {
  */
 export interface Code {
   /**
+   * @public
    * <p>The location where the source code files provided with the project request are
    *       stored. AWS CodeStar retrieves the files during project creation.</p>
    */
   source: CodeSource | undefined;
 
   /**
+   * @public
    * <p>The repository to be created in AWS CodeStar. Valid values are AWS CodeCommit or GitHub. After AWS CodeStar provisions the new repository, the
    *       source code files provided with the project request are placed in the repository.</p>
    */
@@ -323,6 +344,7 @@ export interface Code {
  */
 export interface ToolchainSource {
   /**
+   * @public
    * <p>The Amazon S3 bucket where the toolchain template file provided with the project
    *       request is stored.</p>
    */
@@ -336,18 +358,21 @@ export interface ToolchainSource {
  */
 export interface Toolchain {
   /**
+   * @public
    * <p>The Amazon S3 location where the toolchain template file provided with the
    *       project request is stored. AWS CodeStar retrieves the file during project creation.</p>
    */
   source: ToolchainSource | undefined;
 
   /**
+   * @public
    * <p>The service role ARN for AWS CodeStar to use for the toolchain template during stack
    *       provisioning.</p>
    */
   roleArn?: string;
 
   /**
+   * @public
    * <p>The list of parameter overrides to be passed into the toolchain template during stack
    *       provisioning, if any.</p>
    */
@@ -359,39 +384,46 @@ export interface Toolchain {
  */
 export interface CreateProjectRequest {
   /**
+   * @public
    * <p>The display name for the project to be created in AWS CodeStar.</p>
    */
   name: string | undefined;
 
   /**
+   * @public
    * <p>The ID of the project to be created in AWS CodeStar.</p>
    */
   id: string | undefined;
 
   /**
+   * @public
    * <p>The description of the project, if any.</p>
    */
   description?: string;
 
   /**
+   * @public
    * <p>A user- or system-generated token that identifies the entity that requested project
    *       creation. This token can be used to repeat the request.</p>
    */
   clientRequestToken?: string;
 
   /**
+   * @public
    * <p>A list of the Code objects submitted with the project request. If this
    *       parameter is specified, the request must also include the toolchain parameter.</p>
    */
   sourceCode?: Code[];
 
   /**
+   * @public
    * <p>The name of the toolchain template file submitted with the project request. If
    *       this parameter is specified, the request must also include the sourceCode parameter.</p>
    */
   toolchain?: Toolchain;
 
   /**
+   * @public
    * <p>The tags created for the project.</p>
    */
   tags?: Record<string, string>;
@@ -402,22 +434,26 @@ export interface CreateProjectRequest {
  */
 export interface CreateProjectResult {
   /**
+   * @public
    * <p>The ID of the project.</p>
    */
   id: string | undefined;
 
   /**
+   * @public
    * <p>The Amazon Resource Name (ARN) of the created project.</p>
    */
   arn: string | undefined;
 
   /**
+   * @public
    * <p>A user- or system-generated token that identifies the entity that requested project
    *       creation.</p>
    */
   clientRequestToken?: string;
 
   /**
+   * @public
    * <p>Reserved for future use.</p>
    */
   projectTemplateId?: string;
@@ -470,22 +506,26 @@ export class ProjectCreationFailedException extends __BaseException {
  */
 export interface CreateUserProfileRequest {
   /**
+   * @public
    * <p>The Amazon Resource Name (ARN) of the user in IAM.</p>
    */
   userArn: string | undefined;
 
   /**
+   * @public
    * <p>The name that will be displayed as the friendly name for the user in AWS CodeStar. </p>
    */
   displayName: string | undefined;
 
   /**
+   * @public
    * <p>The email address that will be displayed as part of the user's profile in
    *       AWS CodeStar.</p>
    */
   emailAddress: string | undefined;
 
   /**
+   * @public
    * <p>The SSH public key associated with the user in AWS CodeStar. If a project owner allows the
    *       user remote access to project resources, this public key will be used along with the user's
    *       private key for SSH access.</p>
@@ -498,21 +538,25 @@ export interface CreateUserProfileRequest {
  */
 export interface CreateUserProfileResult {
   /**
+   * @public
    * <p>The Amazon Resource Name (ARN) of the user in IAM.</p>
    */
   userArn: string | undefined;
 
   /**
+   * @public
    * <p>The name that is displayed as the friendly name for the user in AWS CodeStar.</p>
    */
   displayName?: string;
 
   /**
+   * @public
    * <p>The email address that is displayed as part of the user's profile in AWS CodeStar.</p>
    */
   emailAddress?: string;
 
   /**
+   * @public
    * <p>The SSH public key associated with the user in AWS CodeStar. This is the public portion of the
    *       public/private keypair the user can use to access project resources if a project owner allows
    *       the user remote access to those resources.</p>
@@ -520,11 +564,13 @@ export interface CreateUserProfileResult {
   sshPublicKey?: string;
 
   /**
+   * @public
    * <p>The date the user profile was created, in timestamp format.</p>
    */
   createdTimestamp?: Date;
 
   /**
+   * @public
    * <p>The date the user profile was last modified, in timestamp format.</p>
    */
   lastModifiedTimestamp?: Date;
@@ -556,17 +602,20 @@ export class UserProfileAlreadyExistsException extends __BaseException {
  */
 export interface DeleteProjectRequest {
   /**
+   * @public
    * <p>The ID of the project to be deleted in AWS CodeStar.</p>
    */
   id: string | undefined;
 
   /**
+   * @public
    * <p>A user- or system-generated token that identifies the entity that requested project
    *       deletion. This token can be used to repeat the request. </p>
    */
   clientRequestToken?: string;
 
   /**
+   * @public
    * <p>Whether to send a delete request for the primary stack in AWS CloudFormation originally
    *       used to generate the project and its resources. This option will delete all AWS resources for
    *       the project (except for any buckets in Amazon S3) as well as deleting the project itself.
@@ -580,12 +629,14 @@ export interface DeleteProjectRequest {
  */
 export interface DeleteProjectResult {
   /**
+   * @public
    * <p>The ID of the primary stack in AWS CloudFormation that will be deleted as part of
    *       deleting the project and its resources.</p>
    */
   stackId?: string;
 
   /**
+   * @public
    * <p>The Amazon Resource Name (ARN) of the deleted project.</p>
    */
   projectArn?: string;
@@ -596,6 +647,7 @@ export interface DeleteProjectResult {
  */
 export interface DeleteUserProfileRequest {
   /**
+   * @public
    * <p>The Amazon Resource Name (ARN) of the user to delete from AWS CodeStar.</p>
    */
   userArn: string | undefined;
@@ -606,6 +658,7 @@ export interface DeleteUserProfileRequest {
  */
 export interface DeleteUserProfileResult {
   /**
+   * @public
    * <p>The Amazon Resource Name (ARN) of the user deleted from AWS CodeStar.</p>
    */
   userArn: string | undefined;
@@ -616,6 +669,7 @@ export interface DeleteUserProfileResult {
  */
 export interface DescribeProjectRequest {
   /**
+   * @public
    * <p>The ID of the project.</p>
    */
   id: string | undefined;
@@ -628,11 +682,13 @@ export interface DescribeProjectRequest {
  */
 export interface ProjectStatus {
   /**
+   * @public
    * <p>The phase of completion for a project creation or deletion.</p>
    */
   state: string | undefined;
 
   /**
+   * @public
    * <p>In the case of a project creation or deletion failure, a reason for the
    *       failure.</p>
    */
@@ -644,48 +700,57 @@ export interface ProjectStatus {
  */
 export interface DescribeProjectResult {
   /**
+   * @public
    * <p>The display name for the project.</p>
    */
   name?: string;
 
   /**
+   * @public
    * <p>The ID of the project.</p>
    */
   id?: string;
 
   /**
+   * @public
    * <p>The Amazon Resource Name (ARN) for the project.</p>
    */
   arn?: string;
 
   /**
+   * @public
    * <p>The description of the project, if any.</p>
    */
   description?: string;
 
   /**
+   * @public
    * <p>A user- or system-generated token that identifies the entity that requested project
    *       creation. </p>
    */
   clientRequestToken?: string;
 
   /**
+   * @public
    * <p>The date and time the project was created, in timestamp format.</p>
    */
   createdTimeStamp?: Date;
 
   /**
+   * @public
    * <p>The ID of the primary stack in AWS CloudFormation used to generate resources for the
    *       project.</p>
    */
   stackId?: string;
 
   /**
+   * @public
    * <p>The ID for the AWS CodeStar project template used to create the project.</p>
    */
   projectTemplateId?: string;
 
   /**
+   * @public
    * <p>The project creation or deletion status.</p>
    */
   status?: ProjectStatus;
@@ -696,6 +761,7 @@ export interface DescribeProjectResult {
  */
 export interface DescribeUserProfileRequest {
   /**
+   * @public
    * <p>The Amazon Resource Name (ARN) of the user.</p>
    */
   userArn: string | undefined;
@@ -706,11 +772,13 @@ export interface DescribeUserProfileRequest {
  */
 export interface DescribeUserProfileResult {
   /**
+   * @public
    * <p>The Amazon Resource Name (ARN) of the user.</p>
    */
   userArn: string | undefined;
 
   /**
+   * @public
    * <p>The display name shown for the user in AWS CodeStar projects. For example, this could be set
    *       to both first and last name ("Mary Major") or a single name ("Mary"). The display name is also
    *       used to generate the initial icon associated with the user in AWS CodeStar projects. If spaces are
@@ -723,11 +791,13 @@ export interface DescribeUserProfileResult {
   displayName?: string;
 
   /**
+   * @public
    * <p>The email address for the user. Optional.</p>
    */
   emailAddress?: string;
 
   /**
+   * @public
    * <p>The SSH public key associated with the user. This SSH public key is associated with the
    *       user profile, and can be used in conjunction with the associated private key for access to
    *       project resources, such as Amazon EC2 instances, if a project owner grants remote access to
@@ -736,12 +806,14 @@ export interface DescribeUserProfileResult {
   sshPublicKey?: string;
 
   /**
+   * @public
    * <p>The date and time when the user profile was created in AWS CodeStar, in timestamp
    *       format.</p>
    */
   createdTimestamp: Date | undefined;
 
   /**
+   * @public
    * <p>The date and time when the user profile was last modified, in timestamp
    *       format.</p>
    */
@@ -773,11 +845,13 @@ export class UserProfileNotFoundException extends __BaseException {
  */
 export interface DisassociateTeamMemberRequest {
   /**
+   * @public
    * <p>The ID of the AWS CodeStar project from which you want to remove a team member.</p>
    */
   projectId: string | undefined;
 
   /**
+   * @public
    * <p>The Amazon Resource Name (ARN) of the IAM user or group whom you want to remove from
    *       the project.</p>
    */
@@ -814,12 +888,14 @@ export class InvalidNextTokenException extends __BaseException {
  */
 export interface ListProjectsRequest {
   /**
+   * @public
    * <p>The continuation token to be used to return the next set of results, if the results
    *       cannot be returned in one response.</p>
    */
   nextToken?: string;
 
   /**
+   * @public
    * <p>The maximum amount of data that can be contained in a single set of results.</p>
    */
   maxResults?: number;
@@ -831,11 +907,13 @@ export interface ListProjectsRequest {
  */
 export interface ProjectSummary {
   /**
+   * @public
    * <p>The ID of the project.</p>
    */
   projectId?: string;
 
   /**
+   * @public
    * <p>The Amazon Resource Name (ARN) of the project.</p>
    */
   projectArn?: string;
@@ -846,11 +924,13 @@ export interface ProjectSummary {
  */
 export interface ListProjectsResult {
   /**
+   * @public
    * <p>A list of projects.</p>
    */
   projects: ProjectSummary[] | undefined;
 
   /**
+   * @public
    * <p>The continuation token to use when requesting the next set of results, if there are
    *       more results to be returned.</p>
    */
@@ -862,17 +942,20 @@ export interface ListProjectsResult {
  */
 export interface ListResourcesRequest {
   /**
+   * @public
    * <p>The ID of the project.</p>
    */
   projectId: string | undefined;
 
   /**
+   * @public
    * <p>The continuation token for the next set of results, if the results cannot be returned
    *       in one response.</p>
    */
   nextToken?: string;
 
   /**
+   * @public
    * <p>The maximum amount of data that can be contained in a single set of results.</p>
    */
   maxResults?: number;
@@ -884,6 +967,7 @@ export interface ListResourcesRequest {
  */
 export interface Resource {
   /**
+   * @public
    * <p>The Amazon Resource Name (ARN) of the resource.</p>
    */
   id: string | undefined;
@@ -894,11 +978,13 @@ export interface Resource {
  */
 export interface ListResourcesResult {
   /**
+   * @public
    * <p>An array of resources associated with the project. </p>
    */
   resources?: Resource[];
 
   /**
+   * @public
    * <p>The continuation token to use when requesting the next set of results, if there are
    *       more results to be returned.</p>
    */
@@ -910,16 +996,19 @@ export interface ListResourcesResult {
  */
 export interface ListTagsForProjectRequest {
   /**
+   * @public
    * <p>The ID of the project to get tags for.</p>
    */
   id: string | undefined;
 
   /**
+   * @public
    * <p>Reserved for future use.</p>
    */
   nextToken?: string;
 
   /**
+   * @public
    * <p>Reserved for future use.</p>
    */
   maxResults?: number;
@@ -930,11 +1019,13 @@ export interface ListTagsForProjectRequest {
  */
 export interface ListTagsForProjectResult {
   /**
+   * @public
    * <p>The tags for the project.</p>
    */
   tags?: Record<string, string>;
 
   /**
+   * @public
    * <p>Reserved for future use.</p>
    */
   nextToken?: string;
@@ -945,17 +1036,20 @@ export interface ListTagsForProjectResult {
  */
 export interface ListTeamMembersRequest {
   /**
+   * @public
    * <p>The ID of the project for which you want to list team members.</p>
    */
   projectId: string | undefined;
 
   /**
+   * @public
    * <p>The continuation token for the next set of results, if the results cannot be returned
    *       in one response.</p>
    */
   nextToken?: string;
 
   /**
+   * @public
    * <p>The maximum number of team members you want returned in a response.</p>
    */
   maxResults?: number;
@@ -967,11 +1061,13 @@ export interface ListTeamMembersRequest {
  */
 export interface TeamMember {
   /**
+   * @public
    * <p>The Amazon Resource Name (ARN) of the user in IAM.</p>
    */
   userArn: string | undefined;
 
   /**
+   * @public
    * <p>The role assigned to the user in the project. Project roles have different levels of
    *       access. For more information, see <a href="http://docs.aws.amazon.com/codestar/latest/userguide/working-with-teams.html">Working with
    *         Teams</a> in the <i>AWS CodeStar User Guide</i>. </p>
@@ -979,6 +1075,7 @@ export interface TeamMember {
   projectRole: string | undefined;
 
   /**
+   * @public
    * <p>Whether the user is allowed to remotely access project resources using an SSH
    *       public/private key pair.</p>
    */
@@ -990,11 +1087,13 @@ export interface TeamMember {
  */
 export interface ListTeamMembersResult {
   /**
+   * @public
    * <p>A list of team member objects for the project.</p>
    */
   teamMembers: TeamMember[] | undefined;
 
   /**
+   * @public
    * <p>The continuation token to use when requesting the next set of results, if there are
    *       more results to be returned.</p>
    */
@@ -1006,12 +1105,14 @@ export interface ListTeamMembersResult {
  */
 export interface ListUserProfilesRequest {
   /**
+   * @public
    * <p>The continuation token for the next set of results, if the results cannot be returned
    *       in one response.</p>
    */
   nextToken?: string;
 
   /**
+   * @public
    * <p>The maximum number of results to return in a response.</p>
    */
   maxResults?: number;
@@ -1023,11 +1124,13 @@ export interface ListUserProfilesRequest {
  */
 export interface UserProfileSummary {
   /**
+   * @public
    * <p>The Amazon Resource Name (ARN) of the user in IAM.</p>
    */
   userArn?: string;
 
   /**
+   * @public
    * <p>The display name of a user in AWS CodeStar. For example, this could be set to both first and
    *       last name ("Mary Major") or a single name ("Mary"). The display name is also used to generate
    *       the initial icon associated with the user in AWS CodeStar projects. If spaces are included in the
@@ -1040,11 +1143,13 @@ export interface UserProfileSummary {
   displayName?: string;
 
   /**
+   * @public
    * <p>The email address associated with the user.</p>
    */
   emailAddress?: string;
 
   /**
+   * @public
    * <p>The SSH public key associated with the user in AWS CodeStar. If a project owner allows the
    *       user remote access to project resources, this public key will be used along with the user's
    *       private key for SSH access.</p>
@@ -1057,11 +1162,13 @@ export interface UserProfileSummary {
  */
 export interface ListUserProfilesResult {
   /**
+   * @public
    * <p>All the user profiles configured in AWS CodeStar for an AWS account.</p>
    */
   userProfiles: UserProfileSummary[] | undefined;
 
   /**
+   * @public
    * <p>The continuation token to use when requesting the next set of results, if there are
    *       more results to be returned.</p>
    */
@@ -1073,11 +1180,13 @@ export interface ListUserProfilesResult {
  */
 export interface TagProjectRequest {
   /**
+   * @public
    * <p>The ID of the project you want to add a tag to.</p>
    */
   id: string | undefined;
 
   /**
+   * @public
    * <p>The tags you want to add to the project.</p>
    */
   tags: Record<string, string> | undefined;
@@ -1088,6 +1197,7 @@ export interface TagProjectRequest {
  */
 export interface TagProjectResult {
   /**
+   * @public
    * <p>The tags for the project.</p>
    */
   tags?: Record<string, string>;
@@ -1098,11 +1208,13 @@ export interface TagProjectResult {
  */
 export interface UntagProjectRequest {
   /**
+   * @public
    * <p>The ID of the project to remove tags from.</p>
    */
   id: string | undefined;
 
   /**
+   * @public
    * <p>The tags to remove from the project.</p>
    */
   tags: string[] | undefined;
@@ -1118,16 +1230,19 @@ export interface UntagProjectResult {}
  */
 export interface UpdateProjectRequest {
   /**
+   * @public
    * <p>The ID of the project you want to update.</p>
    */
   id: string | undefined;
 
   /**
+   * @public
    * <p>The name of the project you want to update.</p>
    */
   name?: string;
 
   /**
+   * @public
    * <p>The description of the project, if any.</p>
    */
   description?: string;
@@ -1163,17 +1278,20 @@ export class TeamMemberNotFoundException extends __BaseException {
  */
 export interface UpdateTeamMemberRequest {
   /**
+   * @public
    * <p>The ID of the project.</p>
    */
   projectId: string | undefined;
 
   /**
+   * @public
    * <p>The Amazon Resource Name (ARN) of the user for whom you want to change team membership
    *       attributes.</p>
    */
   userArn: string | undefined;
 
   /**
+   * @public
    * <p>The role assigned to the user in the project. Project roles have different levels of
    *       access. For more information, see <a href="http://docs.aws.amazon.com/codestar/latest/userguide/working-with-teams.html">Working with
    *         Teams</a> in the <i>AWS CodeStar User Guide</i>.</p>
@@ -1181,6 +1299,7 @@ export interface UpdateTeamMemberRequest {
   projectRole?: string;
 
   /**
+   * @public
    * <p>Whether a team member is allowed to remotely access project resources using the SSH
    *       public key associated with the user's profile. Even if this is set to True, the user must
    *       associate a public key with their profile before the user can access resources.</p>
@@ -1193,17 +1312,20 @@ export interface UpdateTeamMemberRequest {
  */
 export interface UpdateTeamMemberResult {
   /**
+   * @public
    * <p>The Amazon Resource Name (ARN) of the user whose team membership attributes were
    *       updated.</p>
    */
   userArn?: string;
 
   /**
+   * @public
    * <p>The project role granted to the user.</p>
    */
   projectRole?: string;
 
   /**
+   * @public
    * <p>Whether a team member is allowed to remotely access project resources using the SSH
    *       public key associated with the user's profile.</p>
    */
@@ -1215,23 +1337,27 @@ export interface UpdateTeamMemberResult {
  */
 export interface UpdateUserProfileRequest {
   /**
+   * @public
    * <p>The name that will be displayed as the friendly name for the user in AWS
    *       CodeStar.</p>
    */
   userArn: string | undefined;
 
   /**
+   * @public
    * <p>The name that is displayed as the friendly name for the user in AWS CodeStar.</p>
    */
   displayName?: string;
 
   /**
+   * @public
    * <p>The email address that is displayed as part of the user's profile in AWS
    *       CodeStar.</p>
    */
   emailAddress?: string;
 
   /**
+   * @public
    * <p>The SSH public key associated with the user in AWS CodeStar. If a project owner allows the
    *       user remote access to project resources, this public key will be used along with the user's
    *       private key for SSH access.</p>
@@ -1244,22 +1370,26 @@ export interface UpdateUserProfileRequest {
  */
 export interface UpdateUserProfileResult {
   /**
+   * @public
    * <p>The Amazon Resource Name (ARN) of the user in IAM.</p>
    */
   userArn: string | undefined;
 
   /**
+   * @public
    * <p>The name that is displayed as the friendly name for the user in AWS CodeStar.</p>
    */
   displayName?: string;
 
   /**
+   * @public
    * <p>The email address that is displayed as part of the user's profile in AWS
    *       CodeStar.</p>
    */
   emailAddress?: string;
 
   /**
+   * @public
    * <p>The SSH public key associated with the user in AWS CodeStar. This is the public portion of the
    *       public/private keypair the user can use to access project resources if a project owner allows
    *       the user remote access to those resources.</p>
@@ -1267,11 +1397,13 @@ export interface UpdateUserProfileResult {
   sshPublicKey?: string;
 
   /**
+   * @public
    * <p>The date the user profile was created, in timestamp format.</p>
    */
   createdTimestamp?: Date;
 
   /**
+   * @public
    * <p>The date the user profile was last modified, in timestamp format.</p>
    */
   lastModifiedTimestamp?: Date;

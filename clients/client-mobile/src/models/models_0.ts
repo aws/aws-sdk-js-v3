@@ -56,6 +56,7 @@ export class BadRequestException extends __BaseException {
  */
 export interface CreateProjectRequest {
   /**
+   * @public
    * <p>
    *             Name of the project.
    *         </p>
@@ -63,6 +64,7 @@ export interface CreateProjectRequest {
   name?: string;
 
   /**
+   * @public
    * <p>
    *             Default region where project resources should be created.
    *         </p>
@@ -70,6 +72,7 @@ export interface CreateProjectRequest {
   region?: string;
 
   /**
+   * @public
    * <p>
    *             ZIP or YAML file which contains configuration settings to be used when creating
    *             the project. This may be the contents of the file downloaded from the URL provided
@@ -79,6 +82,7 @@ export interface CreateProjectRequest {
   contents?: Uint8Array;
 
   /**
+   * @public
    * <p>
    *             Unique identifier for an exported snapshot of project configuration. This
    *             snapshot identifier is included in the share URL when a project is exported.
@@ -95,6 +99,7 @@ export interface CreateProjectRequest {
  */
 export interface Resource {
   /**
+   * @public
    * <p>
    *             Simplified name for type of AWS resource (e.g., bucket is an Amazon S3 bucket).
    *         </p>
@@ -102,6 +107,7 @@ export interface Resource {
   type?: string;
 
   /**
+   * @public
    * <p>
    *             Name of the AWS resource (e.g., for an Amazon S3 bucket this is the name of the bucket).
    *         </p>
@@ -109,6 +115,7 @@ export interface Resource {
   name?: string;
 
   /**
+   * @public
    * <p>
    *             AWS resource name which uniquely identifies the resource in AWS systems.
    *         </p>
@@ -116,6 +123,7 @@ export interface Resource {
   arn?: string;
 
   /**
+   * @public
    * <p>
    *             Identifies which feature in AWS Mobile Hub is associated with this AWS resource.
    *         </p>
@@ -123,6 +131,7 @@ export interface Resource {
   feature?: string;
 
   /**
+   * @public
    * <p>
    *             Key-value attribute pairs.
    *         </p>
@@ -153,6 +162,7 @@ export type ProjectState = (typeof ProjectState)[keyof typeof ProjectState];
  */
 export interface ProjectDetails {
   /**
+   * @public
    * <p>
    *             Name of the project.
    *         </p>
@@ -160,6 +170,7 @@ export interface ProjectDetails {
   name?: string;
 
   /**
+   * @public
    * <p>
    *             Unique project identifier.
    *         </p>
@@ -167,6 +178,7 @@ export interface ProjectDetails {
   projectId?: string;
 
   /**
+   * @public
    * <p>
    *             Default region to use for AWS resource creation in the AWS Mobile Hub project.
    *         </p>
@@ -174,6 +186,7 @@ export interface ProjectDetails {
   region?: string;
 
   /**
+   * @public
    * <p>
    *             Synchronization state for a project.
    *         </p>
@@ -181,6 +194,7 @@ export interface ProjectDetails {
   state?: ProjectState | string;
 
   /**
+   * @public
    * <p>
    *             Date the project was created.
    *         </p>
@@ -188,6 +202,7 @@ export interface ProjectDetails {
   createdDate?: Date;
 
   /**
+   * @public
    * <p>
    *             Date of the last modification of the project.
    *         </p>
@@ -195,6 +210,7 @@ export interface ProjectDetails {
   lastUpdatedDate?: Date;
 
   /**
+   * @public
    * <p>
    *             Website URL for this project in the AWS Mobile Hub console.
    *         </p>
@@ -202,6 +218,7 @@ export interface ProjectDetails {
   consoleUrl?: string;
 
   /**
+   * @public
    * <p>
    *             List of AWS resources associated with a project.
    *         </p>
@@ -217,6 +234,7 @@ export interface ProjectDetails {
  */
 export interface CreateProjectResult {
   /**
+   * @public
    * <p>
    *             Detailed information about the created AWS Mobile Hub project.
    *         </p>
@@ -260,6 +278,7 @@ export class LimitExceededException extends __BaseException {
   readonly name: "LimitExceededException" = "LimitExceededException";
   readonly $fault: "client" = "client";
   /**
+   * @public
    * <p>
    *             The Exception Error Message.
    *         </p>
@@ -313,6 +332,7 @@ export class ServiceUnavailableException extends __BaseException {
   readonly name: "ServiceUnavailableException" = "ServiceUnavailableException";
   readonly $fault: "server" = "server";
   /**
+   * @public
    * <p>
    *             The Exception Error Message.
    *         </p>
@@ -344,6 +364,7 @@ export class TooManyRequestsException extends __BaseException {
   readonly name: "TooManyRequestsException" = "TooManyRequestsException";
   readonly $fault: "client" = "client";
   /**
+   * @public
    * <p>
    *             The Exception Error Message.
    *         </p>
@@ -394,6 +415,7 @@ export class UnauthorizedException extends __BaseException {
  */
 export interface DeleteProjectRequest {
   /**
+   * @public
    * <p>
    *             Unique project identifier.
    *         </p>
@@ -409,6 +431,7 @@ export interface DeleteProjectRequest {
  */
 export interface DeleteProjectResult {
   /**
+   * @public
    * <p>
    *             Resources which were deleted.
    *         </p>
@@ -416,6 +439,7 @@ export interface DeleteProjectResult {
   deletedResources?: Resource[];
 
   /**
+   * @public
    * <p>
    *             Resources which were not deleted, due to a risk of losing potentially
    *             important data or files.
@@ -432,6 +456,7 @@ export interface DeleteProjectResult {
  */
 export interface DescribeBundleRequest {
   /**
+   * @public
    * <p>
    *             Unique bundle identifier.
    *         </p>
@@ -466,6 +491,7 @@ export type Platform = (typeof Platform)[keyof typeof Platform];
  */
 export interface BundleDetails {
   /**
+   * @public
    * <p>
    *             Unique bundle identifier.
    *         </p>
@@ -473,6 +499,7 @@ export interface BundleDetails {
   bundleId?: string;
 
   /**
+   * @public
    * <p>
    *             Title of the download bundle.
    *         </p>
@@ -480,6 +507,7 @@ export interface BundleDetails {
   title?: string;
 
   /**
+   * @public
    * <p>
    *             Version of the download bundle.
    *         </p>
@@ -487,6 +515,7 @@ export interface BundleDetails {
   version?: string;
 
   /**
+   * @public
    * <p>
    *             Description of the download bundle.
    *         </p>
@@ -494,6 +523,7 @@ export interface BundleDetails {
   description?: string;
 
   /**
+   * @public
    * <p>
    *             Icon for the download bundle.
    *         </p>
@@ -501,6 +531,7 @@ export interface BundleDetails {
   iconUrl?: string;
 
   /**
+   * @public
    * <p>
    *             Developer desktop or mobile app or website platforms.
    *         </p>
@@ -516,6 +547,7 @@ export interface BundleDetails {
  */
 export interface DescribeBundleResult {
   /**
+   * @public
    * <p>
    *             The details of the bundle.
    *         </p>
@@ -531,6 +563,7 @@ export interface DescribeBundleResult {
  */
 export interface DescribeProjectRequest {
   /**
+   * @public
    * <p>
    *             Unique project identifier.
    *         </p>
@@ -538,6 +571,7 @@ export interface DescribeProjectRequest {
   projectId: string | undefined;
 
   /**
+   * @public
    * <p>
    *             If set to true, causes AWS Mobile Hub to synchronize information from other services, e.g., update state of AWS CloudFormation stacks in the AWS Mobile Hub project.
    *         </p>
@@ -553,6 +587,7 @@ export interface DescribeProjectRequest {
  */
 export interface DescribeProjectResult {
   /**
+   * @public
    * <p>
    *             Detailed information about an AWS Mobile Hub project.
    *         </p>
@@ -569,6 +604,7 @@ export interface DescribeProjectResult {
  */
 export interface ExportBundleRequest {
   /**
+   * @public
    * <p>
    *             Unique bundle identifier.
    *         </p>
@@ -576,6 +612,7 @@ export interface ExportBundleRequest {
   bundleId: string | undefined;
 
   /**
+   * @public
    * <p>
    *             Unique project identifier.
    *         </p>
@@ -583,6 +620,7 @@ export interface ExportBundleRequest {
   projectId?: string;
 
   /**
+   * @public
    * <p>
    *             Developer desktop or target application platform.
    *         </p>
@@ -600,6 +638,7 @@ export interface ExportBundleRequest {
  */
 export interface ExportBundleResult {
   /**
+   * @public
    * <p>
    *             URL which contains the custom-generated SDK and tool packages used
    *             to integrate the client mobile app or web app with the AWS resources
@@ -617,6 +656,7 @@ export interface ExportBundleResult {
  */
 export interface ExportProjectRequest {
   /**
+   * @public
    * <p>
    *             Unique project identifier.
    *         </p>
@@ -632,6 +672,7 @@ export interface ExportProjectRequest {
  */
 export interface ExportProjectResult {
   /**
+   * @public
    * <p>
    *             URL which can be used to download the exported project configuation file(s).
    *         </p>
@@ -639,6 +680,7 @@ export interface ExportProjectResult {
   downloadUrl?: string;
 
   /**
+   * @public
    * <p>
    *             URL which can be shared to allow other AWS users to create their own project
    *             in AWS Mobile Hub with the same configuration as the specified project. This
@@ -651,6 +693,7 @@ export interface ExportProjectResult {
   shareUrl?: string;
 
   /**
+   * @public
    * <p>
    *             Unique identifier for the exported snapshot of the project configuration. This
    *             snapshot identifier is included in the share URL.
@@ -667,6 +710,7 @@ export interface ExportProjectResult {
  */
 export interface ListBundlesRequest {
   /**
+   * @public
    * <p>
    *             Maximum number of records to list in a single response.
    *         </p>
@@ -674,6 +718,7 @@ export interface ListBundlesRequest {
   maxResults?: number;
 
   /**
+   * @public
    * <p>
    *             Pagination token. Set to null to start listing bundles from start.
    *             If non-null pagination token is returned in a result, then pass its
@@ -691,6 +736,7 @@ export interface ListBundlesRequest {
  */
 export interface ListBundlesResult {
   /**
+   * @public
    * <p>
    *             A list of bundles.
    *         </p>
@@ -698,6 +744,7 @@ export interface ListBundlesResult {
   bundleList?: BundleDetails[];
 
   /**
+   * @public
    * <p>
    *             Pagination token. If non-null pagination token is returned in a result,
    *             then pass its value in another request to fetch more entries.
@@ -714,6 +761,7 @@ export interface ListBundlesResult {
  */
 export interface ListProjectsRequest {
   /**
+   * @public
    * <p>
    *             Maximum number of records to list in a single response.
    *         </p>
@@ -721,6 +769,7 @@ export interface ListProjectsRequest {
   maxResults?: number;
 
   /**
+   * @public
    * <p>
    *             Pagination token. Set to null to start listing projects from start.
    *             If non-null pagination token is returned in a result, then pass its
@@ -738,6 +787,7 @@ export interface ListProjectsRequest {
  */
 export interface ProjectSummary {
   /**
+   * @public
    * <p>
    *             Name of the project.
    *         </p>
@@ -745,6 +795,7 @@ export interface ProjectSummary {
   name?: string;
 
   /**
+   * @public
    * <p>
    *             Unique project identifier.
    *         </p>
@@ -760,6 +811,7 @@ export interface ProjectSummary {
  */
 export interface ListProjectsResult {
   /**
+   * @public
    * <p>
    *             List of projects.
    *         </p>
@@ -767,6 +819,7 @@ export interface ListProjectsResult {
   projects?: ProjectSummary[];
 
   /**
+   * @public
    * <p>
    *             Pagination token. Set to null to start listing records from start.
    *             If non-null pagination token is returned in a result, then pass its
@@ -784,6 +837,7 @@ export interface ListProjectsResult {
  */
 export interface UpdateProjectRequest {
   /**
+   * @public
    * <p>
    *             ZIP or YAML file which contains project configuration to be updated. This should
    *             be the contents of the file downloaded from the URL provided in an export project
@@ -793,6 +847,7 @@ export interface UpdateProjectRequest {
   contents?: Uint8Array;
 
   /**
+   * @public
    * <p>
    *             Unique project identifier.
    *         </p>
@@ -808,6 +863,7 @@ export interface UpdateProjectRequest {
  */
 export interface UpdateProjectResult {
   /**
+   * @public
    * <p>
    *             Detailed information about the updated AWS Mobile Hub project.
    *         </p>

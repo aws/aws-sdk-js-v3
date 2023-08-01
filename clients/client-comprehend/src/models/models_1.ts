@@ -9,6 +9,7 @@ import { FlywheelProperties, JobStatus, Tag, VpcConfig } from "./models_0";
  */
 export interface StopPiiEntitiesDetectionJobRequest {
   /**
+   * @public
    * <p>The identifier of the PII entities detection job to stop.</p>
    */
   JobId: string | undefined;
@@ -19,11 +20,13 @@ export interface StopPiiEntitiesDetectionJobRequest {
  */
 export interface StopPiiEntitiesDetectionJobResponse {
   /**
+   * @public
    * <p>The identifier of the PII entities detection job to stop.</p>
    */
   JobId?: string;
 
   /**
+   * @public
    * <p>The status of the PII entities detection job.</p>
    */
   JobStatus?: JobStatus | string;
@@ -34,6 +37,7 @@ export interface StopPiiEntitiesDetectionJobResponse {
  */
 export interface StopSentimentDetectionJobRequest {
   /**
+   * @public
    * <p>The identifier of the sentiment detection job to stop.</p>
    */
   JobId: string | undefined;
@@ -44,11 +48,13 @@ export interface StopSentimentDetectionJobRequest {
  */
 export interface StopSentimentDetectionJobResponse {
   /**
+   * @public
    * <p>The identifier of the sentiment detection job to stop.</p>
    */
   JobId?: string;
 
   /**
+   * @public
    * <p>Either <code>STOP_REQUESTED</code> if the job is currently running, or
    *         <code>STOPPED</code> if the job was previously stopped with the
    *         <code>StopSentimentDetectionJob</code> operation.</p>
@@ -61,6 +67,7 @@ export interface StopSentimentDetectionJobResponse {
  */
 export interface StopTargetedSentimentDetectionJobRequest {
   /**
+   * @public
    * <p>The identifier of the targeted sentiment detection job to stop.</p>
    */
   JobId: string | undefined;
@@ -71,11 +78,13 @@ export interface StopTargetedSentimentDetectionJobRequest {
  */
 export interface StopTargetedSentimentDetectionJobResponse {
   /**
+   * @public
    * <p>The identifier of the targeted sentiment detection job to stop.</p>
    */
   JobId?: string;
 
   /**
+   * @public
    * <p>Either <code>STOP_REQUESTED</code> if the job is currently running, or
    *       <code>STOPPED</code> if the job was previously stopped with the
    *       <code>StopSentimentDetectionJob</code> operation.</p>
@@ -88,6 +97,7 @@ export interface StopTargetedSentimentDetectionJobResponse {
  */
 export interface StopTrainingDocumentClassifierRequest {
   /**
+   * @public
    * <p>The Amazon Resource Name (ARN) that identifies the document classifier currently being
    *       trained.</p>
    */
@@ -104,6 +114,7 @@ export interface StopTrainingDocumentClassifierResponse {}
  */
 export interface StopTrainingEntityRecognizerRequest {
   /**
+   * @public
    * <p>The Amazon Resource Name (ARN) that identifies the entity recognizer currently being
    *       trained.</p>
    */
@@ -143,12 +154,14 @@ export class ConcurrentModificationException extends __BaseException {
  */
 export interface TagResourceRequest {
   /**
+   * @public
    * <p>The Amazon Resource Name (ARN) of the given Amazon Comprehend resource to which you want
    *       to associate the tags. </p>
    */
   ResourceArn: string | undefined;
 
   /**
+   * @public
    * <p>Tags being associated with a specific Amazon Comprehend resource. There can be a maximum
    *       of 50 tags (both existing and pending) associated with a specific resource. </p>
    */
@@ -188,12 +201,14 @@ export class TooManyTagKeysException extends __BaseException {
  */
 export interface UntagResourceRequest {
   /**
+   * @public
    * <p> The Amazon Resource Name (ARN) of the given Amazon Comprehend resource from which you
    *       want to remove the tags. </p>
    */
   ResourceArn: string | undefined;
 
   /**
+   * @public
    * <p>The initial part of a key-value pair that forms a tag being removed from a given resource.
    *       For example, a tag with "Sales" as the key might be added to a resource to indicate its use by
    *       the sales department. Keys must be unique and cannot be duplicated for a particular resource.
@@ -212,16 +227,19 @@ export interface UntagResourceResponse {}
  */
 export interface UpdateEndpointRequest {
   /**
+   * @public
    * <p>The Amazon Resource Number (ARN) of the endpoint being updated.</p>
    */
   EndpointArn: string | undefined;
 
   /**
+   * @public
    * <p>The ARN of the new model to use when updating an existing endpoint.</p>
    */
   DesiredModelArn?: string;
 
   /**
+   * @public
    * <p> The desired number of inference units to be used by the model using this endpoint.
    *
    *       Each inference unit represents of a throughput of 100 characters per second.</p>
@@ -229,11 +247,13 @@ export interface UpdateEndpointRequest {
   DesiredInferenceUnits?: number;
 
   /**
+   * @public
    * <p>Data access role ARN to use in case the new model is encrypted with a customer CMK.</p>
    */
   DesiredDataAccessRoleArn?: string;
 
   /**
+   * @public
    * <p>The Amazon Resource Number (ARN) of the flywheel</p>
    */
   FlywheelArn?: string;
@@ -244,6 +264,7 @@ export interface UpdateEndpointRequest {
  */
 export interface UpdateEndpointResponse {
   /**
+   * @public
    * <p>The Amazon Resource Number (ARN) of the new model.</p>
    */
   DesiredModelArn?: string;
@@ -255,6 +276,7 @@ export interface UpdateEndpointResponse {
  */
 export interface UpdateDataSecurityConfig {
   /**
+   * @public
    * <p>ID for the KMS key that Amazon Comprehend uses to encrypt
    *       trained custom models. The ModelKmsKeyId can be either of the following formats:</p>
    *          <ul>
@@ -272,11 +294,13 @@ export interface UpdateDataSecurityConfig {
   ModelKmsKeyId?: string;
 
   /**
+   * @public
    * <p>ID for the KMS key that Amazon Comprehend uses to encrypt the volume.</p>
    */
   VolumeKmsKeyId?: string;
 
   /**
+   * @public
    * <p> Configuration parameters for an optional private Virtual Private Cloud (VPC) containing
    *       the resources you are using for the job. For more information, see <a href="https://docs.aws.amazon.com/vpc/latest/userguide/what-is-amazon-vpc.html">Amazon
    *         VPC</a>. </p>
@@ -289,22 +313,26 @@ export interface UpdateDataSecurityConfig {
  */
 export interface UpdateFlywheelRequest {
   /**
+   * @public
    * <p>The Amazon Resource Number (ARN) of the flywheel to update.</p>
    */
   FlywheelArn: string | undefined;
 
   /**
+   * @public
    * <p>The Amazon Resource Number (ARN) of the active model version.</p>
    */
   ActiveModelArn?: string;
 
   /**
+   * @public
    * <p>The Amazon Resource Name (ARN) of the IAM role that
    *       grants Amazon Comprehend permission to access the flywheel data.</p>
    */
   DataAccessRoleArn?: string;
 
   /**
+   * @public
    * <p>Flywheel data security configuration.</p>
    */
   DataSecurityConfig?: UpdateDataSecurityConfig;
@@ -315,6 +343,7 @@ export interface UpdateFlywheelRequest {
  */
 export interface UpdateFlywheelResponse {
   /**
+   * @public
    * <p>The flywheel properties.</p>
    */
   FlywheelProperties?: FlywheelProperties;

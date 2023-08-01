@@ -10,11 +10,13 @@ import { SupportServiceException as __BaseException } from "./SupportServiceExce
  */
 export interface Attachment {
   /**
+   * @public
    * <p>The name of the attachment file.</p>
    */
   fileName?: string;
 
   /**
+   * @public
    * <p>The content of the attachment file.</p>
    */
   data?: Uint8Array;
@@ -25,6 +27,7 @@ export interface Attachment {
  */
 export interface AddAttachmentsToSetRequest {
   /**
+   * @public
    * <p>The ID of the attachment set. If an <code>attachmentSetId</code> is not specified, a
    *             new attachment set is created, and the ID of the set is returned in the response. If an
    *                 <code>attachmentSetId</code> is specified, the attachments are added to the
@@ -33,6 +36,7 @@ export interface AddAttachmentsToSetRequest {
   attachmentSetId?: string;
 
   /**
+   * @public
    * <p>One or more attachments to add to the set. You can add up to three attachments per
    *             set. The size limit is 5 MB per attachment.</p>
    *          <p>In the <code>Attachment</code> object, use the <code>data</code> parameter to specify
@@ -50,6 +54,7 @@ export interface AddAttachmentsToSetRequest {
  */
 export interface AddAttachmentsToSetResponse {
   /**
+   * @public
    * <p>The ID of the attachment set. If an <code>attachmentSetId</code> was not specified, a
    *             new attachment set is created, and the ID of the set is returned in the response. If an
    *                 <code>attachmentSetId</code> was specified, the attachments are added to the
@@ -58,6 +63,7 @@ export interface AddAttachmentsToSetResponse {
   attachmentSetId?: string;
 
   /**
+   * @public
    * <p>The time and date when the attachment set expires.</p>
    */
   expiryTime?: string;
@@ -171,6 +177,7 @@ export class InternalServerError extends __BaseException {
  */
 export interface AddCommunicationToCaseRequest {
   /**
+   * @public
    * <p>The support case ID requested or returned in the call. The case ID is an alphanumeric
    *             string formatted as shown in this example:
    *                 case-<i>12345678910-2013-c4c1d2bf33c5cf47</i>
@@ -179,16 +186,19 @@ export interface AddCommunicationToCaseRequest {
   caseId?: string;
 
   /**
+   * @public
    * <p>The body of an email communication to add to the support case.</p>
    */
   communicationBody: string | undefined;
 
   /**
+   * @public
    * <p>The email addresses in the CC line of an email to be added to the support case.</p>
    */
   ccEmailAddresses?: string[];
 
   /**
+   * @public
    * <p>The ID of a set of one or more attachments for the communication to add to the case.
    *             Create the set by calling <a>AddAttachmentsToSet</a>
    *          </p>
@@ -202,6 +212,7 @@ export interface AddCommunicationToCaseRequest {
  */
 export interface AddCommunicationToCaseResponse {
   /**
+   * @public
    * <p>True if <a>AddCommunicationToCase</a> succeeds. Otherwise, returns an
    *             error.</p>
    */
@@ -235,11 +246,13 @@ export class CaseIdNotFound extends __BaseException {
  */
 export interface AttachmentDetails {
   /**
+   * @public
    * <p>The ID of the attachment.</p>
    */
   attachmentId?: string;
 
   /**
+   * @public
    * <p>The file name of the attachment.</p>
    */
   fileName?: string;
@@ -290,17 +303,20 @@ export class CaseCreationLimitExceeded extends __BaseException {
  */
 export interface CreateCaseRequest {
   /**
+   * @public
    * <p>The title of the support case. The title appears in the <b>Subject</b> field on the Amazon Web Services Support Center <a href="https://console.aws.amazon.com/support/home#/case/create">Create Case</a> page.</p>
    */
   subject: string | undefined;
 
   /**
+   * @public
    * <p>The code for the Amazon Web Services service. You can use the <a>DescribeServices</a>
    *             operation to get the possible <code>serviceCode</code> values.</p>
    */
   serviceCode?: string;
 
   /**
+   * @public
    * <p>A value that indicates the urgency of the case. This value determines the response
    *             time according to your service level agreement with Amazon Web Services Support. You can use the <a>DescribeSeverityLevels</a> operation to get the possible values for
    *                 <code>severityCode</code>. </p>
@@ -314,18 +330,21 @@ export interface CreateCaseRequest {
   severityCode?: string;
 
   /**
+   * @public
    * <p>The category of problem for the support case. You also use the <a>DescribeServices</a> operation to get the category code for a service. Each
    *             Amazon Web Services service defines its own set of category codes.</p>
    */
   categoryCode?: string;
 
   /**
+   * @public
    * <p>The communication body text that describes the issue. This text appears in the
    *                 <b>Description</b> field on the Amazon Web Services Support Center <a href="https://console.aws.amazon.com/support/home#/case/create">Create Case</a> page.</p>
    */
   communicationBody: string | undefined;
 
   /**
+   * @public
    * <p>A list of email addresses that Amazon Web Services Support copies on case correspondence. Amazon Web Services Support
    *             identifies the account that creates the case when you specify your Amazon Web Services credentials in
    *             an HTTP POST method or use the <a href="http://aws.amazon.com/tools/">Amazon Web Services SDKs</a>.
@@ -334,6 +353,7 @@ export interface CreateCaseRequest {
   ccEmailAddresses?: string[];
 
   /**
+   * @public
    * <p>The language in which Amazon Web Services Support handles the case. Amazon Web Services Support
    * currently supports Chinese (“zh”), English ("en"), Japanese ("ja") and Korean (“ko”). You must specify the ISO 639-1
    * code for the <code>language</code> parameter if you want support in that language.</p>
@@ -341,6 +361,7 @@ export interface CreateCaseRequest {
   language?: string;
 
   /**
+   * @public
    * <p>The type of issue for the case. You can specify <code>customer-service</code> or
    *                 <code>technical</code>. If you don't specify a value, the default is
    *                 <code>technical</code>.</p>
@@ -348,6 +369,7 @@ export interface CreateCaseRequest {
   issueType?: string;
 
   /**
+   * @public
    * <p>The ID of a set of one or more attachments for the case. Create the set by using the
    *                 <a>AddAttachmentsToSet</a> operation.</p>
    */
@@ -360,6 +382,7 @@ export interface CreateCaseRequest {
  */
 export interface CreateCaseResponse {
   /**
+   * @public
    * <p>The support case ID requested or returned in the call. The case ID is an alphanumeric
    *             string in the following format:
    *                 case-<i>12345678910-2013-c4c1d2bf33c5cf47</i>
@@ -394,6 +417,7 @@ export class DescribeAttachmentLimitExceeded extends __BaseException {
  */
 export interface DescribeAttachmentRequest {
   /**
+   * @public
    * <p>The ID of the attachment to return. Attachment IDs are returned by the <a>DescribeCommunications</a> operation.</p>
    */
   attachmentId: string | undefined;
@@ -405,6 +429,7 @@ export interface DescribeAttachmentRequest {
  */
 export interface DescribeAttachmentResponse {
   /**
+   * @public
    * <p>This object includes the attachment content and file name.</p>
    *          <p>In the previous response syntax, the value for the <code>data</code> parameter appears
    *             as <code>blob</code>, which is represented as a base64-encoded string. The value for
@@ -419,45 +444,53 @@ export interface DescribeAttachmentResponse {
  */
 export interface DescribeCasesRequest {
   /**
+   * @public
    * <p>A list of ID numbers of the support cases you want returned. The maximum number of
    *             cases is 100.</p>
    */
   caseIdList?: string[];
 
   /**
+   * @public
    * <p>The ID displayed for a case in the Amazon Web Services Support Center user interface.</p>
    */
   displayId?: string;
 
   /**
+   * @public
    * <p>The start date for a filtered date search on support case communications. Case
    *             communications are available for 12 months after creation.</p>
    */
   afterTime?: string;
 
   /**
+   * @public
    * <p>The end date for a filtered date search on support case communications. Case
    *             communications are available for 12 months after creation.</p>
    */
   beforeTime?: string;
 
   /**
+   * @public
    * <p>Specifies whether to include resolved support cases in the <code>DescribeCases</code>
    *             response. By default, resolved cases aren't included.</p>
    */
   includeResolvedCases?: boolean;
 
   /**
+   * @public
    * <p>A resumption point for pagination.</p>
    */
   nextToken?: string;
 
   /**
+   * @public
    * <p>The maximum number of results to return before paginating.</p>
    */
   maxResults?: number;
 
   /**
+   * @public
    * <p>The language in which Amazon Web Services Support handles the case. Amazon Web Services Support
    * currently supports Chinese (“zh”), English ("en"), Japanese ("ja") and Korean (“ko”). You must specify the ISO 639-1
    * code for the <code>language</code> parameter if you want support in that language.</p>
@@ -465,6 +498,7 @@ export interface DescribeCasesRequest {
   language?: string;
 
   /**
+   * @public
    * <p>Specifies whether to include communications in the <code>DescribeCases</code>
    *             response. By default, communications are included.</p>
    */
@@ -479,6 +513,7 @@ export interface DescribeCasesRequest {
  */
 export interface Communication {
   /**
+   * @public
    * <p>The support case ID requested or returned in the call. The case ID is an alphanumeric
    *             string formatted as shown in this example:
    *                 case-<i>12345678910-2013-c4c1d2bf33c5cf47</i>
@@ -487,11 +522,13 @@ export interface Communication {
   caseId?: string;
 
   /**
+   * @public
    * <p>The text of the communication between the customer and Amazon Web Services Support.</p>
    */
   body?: string;
 
   /**
+   * @public
    * <p>The identity of the account that submitted, or responded to, the support case.
    *             Customer entries include the IAM role as well as the email address (for example,
    *             "AdminRole (Role) <janedoe@example.com>). Entries from the Amazon Web Services Support team display
@@ -501,11 +538,13 @@ export interface Communication {
   submittedBy?: string;
 
   /**
+   * @public
    * <p>The time the communication was created.</p>
    */
   timeCreated?: string;
 
   /**
+   * @public
    * <p>Information about the attachments to the case communication.</p>
    */
   attachmentSet?: AttachmentDetails[];
@@ -517,11 +556,13 @@ export interface Communication {
  */
 export interface RecentCaseCommunications {
   /**
+   * @public
    * <p>The five most recent communications associated with the case.</p>
    */
   communications?: Communication[];
 
   /**
+   * @public
    * <p>A resumption point for pagination.</p>
    */
   nextToken?: string;
@@ -635,6 +676,7 @@ export interface RecentCaseCommunications {
  */
 export interface CaseDetails {
   /**
+   * @public
    * <p>The support case ID requested or returned in the call. The case ID is an alphanumeric
    *             string formatted as shown in this example:
    *                 case-<i>12345678910-2013-c4c1d2bf33c5cf47</i>
@@ -643,17 +685,20 @@ export interface CaseDetails {
   caseId?: string;
 
   /**
+   * @public
    * <p>The ID displayed for the case in the Amazon Web Services Support Center. This is a numeric
    *             string.</p>
    */
   displayId?: string;
 
   /**
+   * @public
    * <p>The subject line for the case in the Amazon Web Services Support Center.</p>
    */
   subject?: string;
 
   /**
+   * @public
    * <p>The status of the case.</p>
    *          <p>Valid values:</p>
    *          <ul>
@@ -692,32 +737,38 @@ export interface CaseDetails {
   status?: string;
 
   /**
+   * @public
    * <p>The code for the Amazon Web Services service. You can get a list of codes and the corresponding
    *             service names by calling <a>DescribeServices</a>.</p>
    */
   serviceCode?: string;
 
   /**
+   * @public
    * <p>The category of problem for the support case.</p>
    */
   categoryCode?: string;
 
   /**
+   * @public
    * <p>The code for the severity level returned by the call to <a>DescribeSeverityLevels</a>.</p>
    */
   severityCode?: string;
 
   /**
+   * @public
    * <p>The email address of the account that submitted the case.</p>
    */
   submittedBy?: string;
 
   /**
+   * @public
    * <p>The time that the case was created in the Amazon Web Services Support Center.</p>
    */
   timeCreated?: string;
 
   /**
+   * @public
    * <p>The five most recent communications between you and Amazon Web Services Support Center, including the
    *             IDs of any attachments to the communications. Also includes a <code>nextToken</code>
    *             that you can use to retrieve earlier communications.</p>
@@ -725,11 +776,13 @@ export interface CaseDetails {
   recentCommunications?: RecentCaseCommunications;
 
   /**
+   * @public
    * <p>The email addresses that receive copies of communication about the case.</p>
    */
   ccEmailAddresses?: string[];
 
   /**
+   * @public
    * <p>The language in which Amazon Web Services Support handles the case. Amazon Web Services Support
    * currently supports Chinese (“zh”), English ("en"), Japanese ("ja") and Korean (“ko”). You must specify the ISO 639-1
    * code for the <code>language</code> parameter if you want support in that language.</p>
@@ -745,11 +798,13 @@ export interface CaseDetails {
  */
 export interface DescribeCasesResponse {
   /**
+   * @public
    * <p>The details for the cases that match the request.</p>
    */
   cases?: CaseDetails[];
 
   /**
+   * @public
    * <p>A resumption point for pagination.</p>
    */
   nextToken?: string;
@@ -760,6 +815,7 @@ export interface DescribeCasesResponse {
  */
 export interface DescribeCommunicationsRequest {
   /**
+   * @public
    * <p>The support case ID requested or returned in the call. The case ID is an alphanumeric
    *             string formatted as shown in this example:
    *                 case-<i>12345678910-2013-c4c1d2bf33c5cf47</i>
@@ -768,23 +824,27 @@ export interface DescribeCommunicationsRequest {
   caseId: string | undefined;
 
   /**
+   * @public
    * <p>The end date for a filtered date search on support case communications. Case
    *             communications are available for 12 months after creation.</p>
    */
   beforeTime?: string;
 
   /**
+   * @public
    * <p>The start date for a filtered date search on support case communications. Case
    *             communications are available for 12 months after creation.</p>
    */
   afterTime?: string;
 
   /**
+   * @public
    * <p>A resumption point for pagination.</p>
    */
   nextToken?: string;
 
   /**
+   * @public
    * <p>The maximum number of results to return before paginating.</p>
    */
   maxResults?: number;
@@ -797,11 +857,13 @@ export interface DescribeCommunicationsRequest {
  */
 export interface DescribeCommunicationsResponse {
   /**
+   * @public
    * <p>The communications for the case.</p>
    */
   communications?: Communication[];
 
   /**
+   * @public
    * <p>A resumption point for pagination.</p>
    */
   nextToken?: string;
@@ -812,6 +874,7 @@ export interface DescribeCommunicationsResponse {
  */
 export interface DescribeCreateCaseOptionsRequest {
   /**
+   * @public
    * <p>The type of issue for the case. You can specify <code>customer-service</code> or
    *                 <code>technical</code>. If you don't specify a value, the default is
    *                 <code>technical</code>.</p>
@@ -819,12 +882,14 @@ export interface DescribeCreateCaseOptionsRequest {
   issueType: string | undefined;
 
   /**
+   * @public
    * <p>The code for the Amazon Web Services service. You can use the <a>DescribeServices</a>
    *             operation to get the possible <code>serviceCode</code> values.</p>
    */
   serviceCode: string | undefined;
 
   /**
+   * @public
    * <p>The language in which Amazon Web Services Support handles the case. Amazon Web Services Support
    * currently supports Chinese (“zh”), English ("en"), Japanese ("ja") and Korean (“ko”). You must specify the ISO 639-1
    * code for the <code>language</code> parameter if you want support in that language.</p>
@@ -832,6 +897,7 @@ export interface DescribeCreateCaseOptionsRequest {
   language: string | undefined;
 
   /**
+   * @public
    * <p>The category of problem for the support case. You also use the <a>DescribeServices</a> operation to get the category code for a service. Each
    *             Amazon Web Services service defines its own set of category codes.</p>
    */
@@ -844,6 +910,7 @@ export interface DescribeCreateCaseOptionsRequest {
  */
 export interface DateInterval {
   /**
+   * @public
    * <p>
    *         A JSON object containing start and date time (UTC). Date and time format is RFC 3339 : 'yyyy-MM-dd'T'HH:mm:ss.SSSZZ'.
    *         </p>
@@ -851,6 +918,7 @@ export interface DateInterval {
   startDateTime?: string;
 
   /**
+   * @public
    * <p>
    *         End Date Time (UTC). RFC 3339 format : 'yyyy-MM-dd'T'HH:mm:ss.SSSZZ'.
    *         </p>
@@ -864,6 +932,7 @@ export interface DateInterval {
  */
 export interface SupportedHour {
   /**
+   * @public
    * <p>
    *         Start Time. RFC 3339 format <code>'HH:mm:ss.SSS'</code>.
    *         </p>
@@ -871,6 +940,7 @@ export interface SupportedHour {
   startTime?: string;
 
   /**
+   * @public
    * <p>
    *         End Time. RFC 3339 format <code>'HH:mm:ss.SSS'</code>.
    *         </p>
@@ -909,6 +979,7 @@ export interface SupportedHour {
  */
 export interface CommunicationTypeOptions {
   /**
+   * @public
    * <p>
    *         A string value indicating the communication type. At the moment the type value can assume one of 3 values at the moment chat, web and call.
    *         </p>
@@ -916,6 +987,7 @@ export interface CommunicationTypeOptions {
   type?: string;
 
   /**
+   * @public
    * <p>
    *         A JSON-formatted list containing time ranges when support is available.
    *         </p>
@@ -923,6 +995,7 @@ export interface CommunicationTypeOptions {
   supportedHours?: SupportedHour[];
 
   /**
+   * @public
    * <p>
    *         A JSON-formatted list containing date and time ranges for periods without support
    *         </p>
@@ -935,6 +1008,7 @@ export interface CommunicationTypeOptions {
  */
 export interface DescribeCreateCaseOptionsResponse {
   /**
+   * @public
    * <p>Language availability can be any of the following:</p>
    *          <ul>
    *             <li>
@@ -957,6 +1031,7 @@ export interface DescribeCreateCaseOptionsResponse {
   languageAvailability?: string;
 
   /**
+   * @public
    * <p>
    *         A JSON-formatted array that contains the available communication type options, along with the available support
    *         timeframes for the given inputs.
@@ -992,11 +1067,13 @@ export class ThrottlingException extends __BaseException {
  */
 export interface DescribeServicesRequest {
   /**
+   * @public
    * <p>A JSON-formatted list of service codes available for Amazon Web Services services.</p>
    */
   serviceCodeList?: string[];
 
   /**
+   * @public
    * <p>The language in which Amazon Web Services Support handles the case. Amazon Web Services Support
    * currently supports Chinese (“zh”), English ("en"), Japanese ("ja") and Korean (“ko”). You must specify the ISO 639-1
    * code for the <code>language</code> parameter if you want support in that language.</p>
@@ -1012,11 +1089,13 @@ export interface DescribeServicesRequest {
  */
 export interface Category {
   /**
+   * @public
    * <p>The category code for the support case.</p>
    */
   code?: string;
 
   /**
+   * @public
    * <p>The category name for the support case.</p>
    */
   name?: string;
@@ -1029,18 +1108,21 @@ export interface Category {
  */
 export interface Service {
   /**
+   * @public
    * <p>The code for an Amazon Web Services service returned by the <a>DescribeServices</a>
    *             response. The <code>name</code> element contains the corresponding friendly name.</p>
    */
   code?: string;
 
   /**
+   * @public
    * <p>The friendly name for an Amazon Web Services service. The <code>code</code> element contains the
    *             corresponding code.</p>
    */
   name?: string;
 
   /**
+   * @public
    * <p>A list of categories that describe the type of support issue a case describes.
    *             Categories consist of a category name and a category code. Category names and codes are
    *             passed to Amazon Web Services Support when you call <a>CreateCase</a>.</p>
@@ -1055,6 +1137,7 @@ export interface Service {
  */
 export interface DescribeServicesResponse {
   /**
+   * @public
    * <p>A JSON-formatted list of Amazon Web Services services.</p>
    */
   services?: Service[];
@@ -1065,6 +1148,7 @@ export interface DescribeServicesResponse {
  */
 export interface DescribeSeverityLevelsRequest {
   /**
+   * @public
    * <p>The language in which Amazon Web Services Support handles the case. Amazon Web Services Support
    * currently supports Chinese (“zh”), English ("en"), Japanese ("ja") and Korean (“ko”). You must specify the ISO 639-1
    * code for the <code>language</code> parameter if you want support in that language.</p>
@@ -1081,6 +1165,7 @@ export interface DescribeSeverityLevelsRequest {
  */
 export interface SeverityLevel {
   /**
+   * @public
    * <p>The code for case severity level.</p>
    *          <p>Valid values: <code>low</code> | <code>normal</code> | <code>high</code> |
    *                 <code>urgent</code> | <code>critical</code>
@@ -1089,6 +1174,7 @@ export interface SeverityLevel {
   code?: string;
 
   /**
+   * @public
    * <p>The name of the severity level that corresponds to the severity level code.</p>
    *          <note>
    *             <p>The values returned by the API are different from the values that appear in the
@@ -1131,6 +1217,7 @@ export interface SeverityLevel {
  */
 export interface DescribeSeverityLevelsResponse {
   /**
+   * @public
    * <p>The available severity levels for the support case. Available severity levels are
    *             defined by your service level agreement with Amazon Web Services.</p>
    */
@@ -1142,18 +1229,21 @@ export interface DescribeSeverityLevelsResponse {
  */
 export interface DescribeSupportedLanguagesRequest {
   /**
+   * @public
    * <p>The type of issue for the case. You can specify <code>customer-service</code> or
    *                 <code>technical</code>.</p>
    */
   issueType: string | undefined;
 
   /**
+   * @public
    * <p>The code for the Amazon Web Services service. You can use the <a>DescribeServices</a>
    *             operation to get the possible <code>serviceCode</code> values.</p>
    */
   serviceCode: string | undefined;
 
   /**
+   * @public
    * <p>The category of problem for the support case. You also use the <a>DescribeServices</a> operation to get the category code for a service. Each
    *             Amazon Web Services service defines its own set of category codes.</p>
    */
@@ -1170,6 +1260,7 @@ export interface DescribeSupportedLanguagesRequest {
  */
 export interface SupportedLanguage {
   /**
+   * @public
    * <p>
    *         2 digit ISO 639-1 code. e.g. <code>en</code>
    *          </p>
@@ -1177,6 +1268,7 @@ export interface SupportedLanguage {
   code?: string;
 
   /**
+   * @public
    * <p>
    *         Full language description e.g. <code>ENGLISH</code>
    *          </p>
@@ -1184,6 +1276,7 @@ export interface SupportedLanguage {
   language?: string;
 
   /**
+   * @public
    * <p>
    *             Language display value e.g. <code>ENGLISH</code>
    *          </p>
@@ -1196,6 +1289,7 @@ export interface SupportedLanguage {
  */
 export interface DescribeSupportedLanguagesResponse {
   /**
+   * @public
    * <p>
    *         A JSON-formatted array that contains the available ISO 639-1 language codes.
    *         </p>
@@ -1208,6 +1302,7 @@ export interface DescribeSupportedLanguagesResponse {
  */
 export interface DescribeTrustedAdvisorCheckRefreshStatusesRequest {
   /**
+   * @public
    * <p>The IDs of the Trusted Advisor checks to get the status.</p>
    *          <note>
    *             <p>If you specify the check ID of a check that is automatically refreshed, you might
@@ -1223,11 +1318,13 @@ export interface DescribeTrustedAdvisorCheckRefreshStatusesRequest {
  */
 export interface TrustedAdvisorCheckRefreshStatus {
   /**
+   * @public
    * <p>The unique identifier for the Trusted Advisor check.</p>
    */
   checkId: string | undefined;
 
   /**
+   * @public
    * <p>The status of the Trusted Advisor check for which a refresh has been requested:
    *             </p>
    *          <ul>
@@ -1259,6 +1356,7 @@ export interface TrustedAdvisorCheckRefreshStatus {
   status: string | undefined;
 
   /**
+   * @public
    * <p>The amount of time, in milliseconds, until the Trusted Advisor check is eligible for
    *             refresh.</p>
    */
@@ -1271,6 +1369,7 @@ export interface TrustedAdvisorCheckRefreshStatus {
  */
 export interface DescribeTrustedAdvisorCheckRefreshStatusesResponse {
   /**
+   * @public
    * <p>The refresh status of the specified Trusted Advisor checks.</p>
    */
   statuses: TrustedAdvisorCheckRefreshStatus[] | undefined;
@@ -1282,11 +1381,13 @@ export interface DescribeTrustedAdvisorCheckRefreshStatusesResponse {
  */
 export interface DescribeTrustedAdvisorCheckResultRequest {
   /**
+   * @public
    * <p>The unique identifier for the Trusted Advisor check.</p>
    */
   checkId: string | undefined;
 
   /**
+   * @public
    * <p>The ISO 639-1 code for the language that you want your check results to appear
    *             in.</p>
    *          <p>The Amazon Web Services Support API currently supports the following languages for Trusted Advisor:</p>
@@ -1347,12 +1448,14 @@ export interface DescribeTrustedAdvisorCheckResultRequest {
  */
 export interface TrustedAdvisorCostOptimizingSummary {
   /**
+   * @public
    * <p>The estimated monthly savings that might be realized if the recommended operations are
    *             taken.</p>
    */
   estimatedMonthlySavings: number | undefined;
 
   /**
+   * @public
    * <p>The estimated percentage of savings that might be realized if the recommended
    *             operations are taken.</p>
    */
@@ -1366,6 +1469,7 @@ export interface TrustedAdvisorCostOptimizingSummary {
  */
 export interface TrustedAdvisorCategorySpecificSummary {
   /**
+   * @public
    * <p>The summary information about cost savings for a Trusted Advisor check that is in the Cost
    *             Optimizing category.</p>
    */
@@ -1378,27 +1482,32 @@ export interface TrustedAdvisorCategorySpecificSummary {
  */
 export interface TrustedAdvisorResourceDetail {
   /**
+   * @public
    * <p>The status code for the resource identified in the Trusted Advisor check.</p>
    */
   status: string | undefined;
 
   /**
+   * @public
    * <p>The Amazon Web Services Region in which the identified resource is located.</p>
    */
   region?: string;
 
   /**
+   * @public
    * <p>The unique identifier for the identified resource.</p>
    */
   resourceId: string | undefined;
 
   /**
+   * @public
    * <p>Specifies whether the Amazon Web Services resource was ignored by Trusted Advisor because it was marked as
    *             suppressed by the user.</p>
    */
   isSuppressed?: boolean;
 
   /**
+   * @public
    * <p>Additional information about the identified resource. The exact metadata and its order
    *             can be obtained by inspecting the <a>TrustedAdvisorCheckDescription</a>
    *             object returned by the call to <a>DescribeTrustedAdvisorChecks</a>. <b>Metadata</b> contains all the data that is shown in the Excel
@@ -1413,22 +1522,26 @@ export interface TrustedAdvisorResourceDetail {
  */
 export interface TrustedAdvisorResourcesSummary {
   /**
+   * @public
    * <p>The number of Amazon Web Services resources that were analyzed by the Trusted Advisor check.</p>
    */
   resourcesProcessed: number | undefined;
 
   /**
+   * @public
    * <p>The number of Amazon Web Services resources that were flagged (listed) by the Trusted Advisor check.</p>
    */
   resourcesFlagged: number | undefined;
 
   /**
+   * @public
    * <p>The number of Amazon Web Services resources ignored by Trusted Advisor because information was
    *             unavailable.</p>
    */
   resourcesIgnored: number | undefined;
 
   /**
+   * @public
    * <p>The number of Amazon Web Services resources ignored by Trusted Advisor because they were marked as
    *             suppressed by the user.</p>
    */
@@ -1441,33 +1554,39 @@ export interface TrustedAdvisorResourcesSummary {
  */
 export interface TrustedAdvisorCheckResult {
   /**
+   * @public
    * <p>The unique identifier for the Trusted Advisor check.</p>
    */
   checkId: string | undefined;
 
   /**
+   * @public
    * <p>The time of the last refresh of the check.</p>
    */
   timestamp: string | undefined;
 
   /**
+   * @public
    * <p>The alert status of the check: "ok" (green), "warning" (yellow), "error" (red), or
    *             "not_available".</p>
    */
   status: string | undefined;
 
   /**
+   * @public
    * <p>Details about Amazon Web Services resources that were analyzed in a call to Trusted Advisor <a>DescribeTrustedAdvisorCheckSummaries</a>.</p>
    */
   resourcesSummary: TrustedAdvisorResourcesSummary | undefined;
 
   /**
+   * @public
    * <p>Summary information that relates to the category of the check. Cost Optimizing is the
    *             only category that is currently supported.</p>
    */
   categorySpecificSummary: TrustedAdvisorCategorySpecificSummary | undefined;
 
   /**
+   * @public
    * <p>The details about each resource listed in the check result.</p>
    */
   flaggedResources: TrustedAdvisorResourceDetail[] | undefined;
@@ -1479,6 +1598,7 @@ export interface TrustedAdvisorCheckResult {
  */
 export interface DescribeTrustedAdvisorCheckResultResponse {
   /**
+   * @public
    * <p>The detailed results of the Trusted Advisor check.</p>
    */
   result?: TrustedAdvisorCheckResult;
@@ -1489,6 +1609,7 @@ export interface DescribeTrustedAdvisorCheckResultResponse {
  */
 export interface DescribeTrustedAdvisorChecksRequest {
   /**
+   * @public
    * <p>The ISO 639-1 code for the language that you want your checks to appear in.</p>
    *          <p>The Amazon Web Services Support API currently supports the following languages for Trusted Advisor:</p>
    *          <ul>
@@ -1547,27 +1668,32 @@ export interface DescribeTrustedAdvisorChecksRequest {
  */
 export interface TrustedAdvisorCheckDescription {
   /**
+   * @public
    * <p>The unique identifier for the Trusted Advisor check.</p>
    */
   id: string | undefined;
 
   /**
+   * @public
    * <p>The display name for the Trusted Advisor check.</p>
    */
   name: string | undefined;
 
   /**
+   * @public
    * <p>The description of the Trusted Advisor check, which includes the alert criteria and
    *             recommended operations (contains HTML markup).</p>
    */
   description: string | undefined;
 
   /**
+   * @public
    * <p>The category of the Trusted Advisor check.</p>
    */
   category: string | undefined;
 
   /**
+   * @public
    * <p>The column headings for the data returned by the Trusted Advisor check. The order of the
    *             headings corresponds to the order of the data in the <b>Metadata</b> element of the <a>TrustedAdvisorResourceDetail</a>
    *             for the check. <b>Metadata</b> contains all the data that is
@@ -1583,6 +1709,7 @@ export interface TrustedAdvisorCheckDescription {
  */
 export interface DescribeTrustedAdvisorChecksResponse {
   /**
+   * @public
    * <p>Information about all available Trusted Advisor checks.</p>
    */
   checks: TrustedAdvisorCheckDescription[] | undefined;
@@ -1593,6 +1720,7 @@ export interface DescribeTrustedAdvisorChecksResponse {
  */
 export interface DescribeTrustedAdvisorCheckSummariesRequest {
   /**
+   * @public
    * <p>The IDs of the Trusted Advisor checks.</p>
    */
   checkIds: string[] | undefined;
@@ -1605,32 +1733,38 @@ export interface DescribeTrustedAdvisorCheckSummariesRequest {
  */
 export interface TrustedAdvisorCheckSummary {
   /**
+   * @public
    * <p>The unique identifier for the Trusted Advisor check.</p>
    */
   checkId: string | undefined;
 
   /**
+   * @public
    * <p>The time of the last refresh of the check.</p>
    */
   timestamp: string | undefined;
 
   /**
+   * @public
    * <p>The alert status of the check: "ok" (green), "warning" (yellow), "error" (red), or
    *             "not_available".</p>
    */
   status: string | undefined;
 
   /**
+   * @public
    * <p>Specifies whether the Trusted Advisor check has flagged resources.</p>
    */
   hasFlaggedResources?: boolean;
 
   /**
+   * @public
    * <p>Details about Amazon Web Services resources that were analyzed in a call to Trusted Advisor <a>DescribeTrustedAdvisorCheckSummaries</a>.</p>
    */
   resourcesSummary: TrustedAdvisorResourcesSummary | undefined;
 
   /**
+   * @public
    * <p>Summary information that relates to the category of the check. Cost Optimizing is the
    *             only category that is currently supported.</p>
    */
@@ -1643,6 +1777,7 @@ export interface TrustedAdvisorCheckSummary {
  */
 export interface DescribeTrustedAdvisorCheckSummariesResponse {
   /**
+   * @public
    * <p>The summary information for the requested Trusted Advisor checks.</p>
    */
   summaries: TrustedAdvisorCheckSummary[] | undefined;
@@ -1654,6 +1789,7 @@ export interface DescribeTrustedAdvisorCheckSummariesResponse {
  */
 export interface RefreshTrustedAdvisorCheckRequest {
   /**
+   * @public
    * <p>The unique identifier for the Trusted Advisor check to refresh.</p>
    *          <note>
    *             <p>Specifying the check ID of a check that is automatically refreshed causes an
@@ -1669,6 +1805,7 @@ export interface RefreshTrustedAdvisorCheckRequest {
  */
 export interface RefreshTrustedAdvisorCheckResponse {
   /**
+   * @public
    * <p>The current refresh status for a check, including the amount of time until the check
    *             is eligible for refresh.</p>
    */
@@ -1680,6 +1817,7 @@ export interface RefreshTrustedAdvisorCheckResponse {
  */
 export interface ResolveCaseRequest {
   /**
+   * @public
    * <p>The support case ID requested or returned in the call. The case ID is an alphanumeric
    *             string formatted as shown in this example:
    *                 case-<i>12345678910-2013-c4c1d2bf33c5cf47</i>
@@ -1694,11 +1832,13 @@ export interface ResolveCaseRequest {
  */
 export interface ResolveCaseResponse {
   /**
+   * @public
    * <p>The status of the case when the <a>ResolveCase</a> request was sent.</p>
    */
   initialCaseStatus?: string;
 
   /**
+   * @public
    * <p>The status of the case after the <a>ResolveCase</a> request was
    *             processed.</p>
    */

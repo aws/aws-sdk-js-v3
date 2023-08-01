@@ -11,6 +11,7 @@ import { DLMServiceException as __BaseException } from "./DLMServiceException";
  */
 export interface EncryptionConfiguration {
   /**
+   * @public
    * <p>To encrypt a copy of an unencrypted snapshot when encryption by default is not enabled, enable
    * 			encryption using this parameter. Copies of encrypted snapshots are encrypted, even if this
    * 			parameter is false or when encryption by default is not enabled.</p>
@@ -18,6 +19,7 @@ export interface EncryptionConfiguration {
   Encrypted: boolean | undefined;
 
   /**
+   * @public
    * <p>The Amazon Resource Name (ARN) of the KMS key to use for EBS encryption. If
    * 			this parameter is not specified, the default KMS key for the account is used.</p>
    */
@@ -49,12 +51,14 @@ export type RetentionIntervalUnitValues =
  */
 export interface CrossRegionCopyRetainRule {
   /**
+   * @public
    * <p>The amount of time to retain a cross-Region snapshot or AMI copy. The maximum is 100 years.
    * 			This is equivalent to 1200 months, 5200 weeks, or 36500 days.</p>
    */
   Interval?: number;
 
   /**
+   * @public
    * <p>The unit of time for time-based retention. For example, to retain a cross-Region copy for
    * 			3 months, specify <code>Interval=3</code> and <code>IntervalUnit=MONTHS</code>.</p>
    */
@@ -72,16 +76,19 @@ export interface CrossRegionCopyRetainRule {
  */
 export interface CrossRegionCopyAction {
   /**
+   * @public
    * <p>The target Region.</p>
    */
   Target: string | undefined;
 
   /**
+   * @public
    * <p>The encryption settings for the copied snapshot.</p>
    */
   EncryptionConfiguration: EncryptionConfiguration | undefined;
 
   /**
+   * @public
    * <p>Specifies a retention rule for cross-Region snapshot copies created by snapshot or
    * 			event-based policies, or cross-Region AMI copies created by AMI policies. After the
    * 			retention period expires, the cross-Region copy is deleted.</p>
@@ -96,11 +103,13 @@ export interface CrossRegionCopyAction {
  */
 export interface Action {
   /**
+   * @public
    * <p>A descriptive name for the action.</p>
    */
   Name: string | undefined;
 
   /**
+   * @public
    * <p>The rule for copying shared snapshots across Regions.</p>
    */
   CrossRegionCopy: CrossRegionCopyAction[] | undefined;
@@ -123,6 +132,7 @@ export interface Action {
  */
 export interface RetentionArchiveTier {
   /**
+   * @public
    * <p>The maximum number of snapshots to retain in the archive storage tier for each volume.
    * 			The count must ensure that each snapshot remains in the archive tier for at least
    * 		90 days. For example, if the schedule creates snapshots every 30 days, you must specify a
@@ -131,12 +141,14 @@ export interface RetentionArchiveTier {
   Count?: number;
 
   /**
+   * @public
    * <p>Specifies the period of time to retain snapshots in the archive tier. After this period
    * 			expires, the snapshot is permanently deleted.</p>
    */
   Interval?: number;
 
   /**
+   * @public
    * <p>The unit of time in which to measure the <b>Interval</b>. For
    * 			example, to retain a snapshots in the archive tier for 6 months, specify <code>Interval=6</code>
    * 			and <code>IntervalUnit=MONTHS</code>.</p>
@@ -151,6 +163,7 @@ export interface RetentionArchiveTier {
  */
 export interface ArchiveRetainRule {
   /**
+   * @public
    * <p>Information about retention period in the Amazon EBS Snapshots Archive. For more information, see
    * 			<a href="https://docs.aws.amazon.com/AWSEC2/latest/WindowsGuide/snapshot-archive.html">Archive Amazon
    * 				EBS snapshots</a>.</p>
@@ -165,6 +178,7 @@ export interface ArchiveRetainRule {
  */
 export interface ArchiveRule {
   /**
+   * @public
    * <p>Information about the retention period for the snapshot archiving rule.</p>
    */
   RetainRule: ArchiveRetainRule | undefined;
@@ -190,17 +204,20 @@ export type EventTypeValues = (typeof EventTypeValues)[keyof typeof EventTypeVal
  */
 export interface EventParameters {
   /**
+   * @public
    * <p>The type of event. Currently, only snapshot sharing events are supported.</p>
    */
   EventType: EventTypeValues | string | undefined;
 
   /**
+   * @public
    * <p>The IDs of the Amazon Web Services accounts that can trigger policy by sharing snapshots with your account.
    * 			The policy only runs if one of the specified Amazon Web Services accounts shares a snapshot with your account.</p>
    */
   SnapshotOwner: string[] | undefined;
 
   /**
+   * @public
    * <p>The snapshot description that can trigger the policy. The description pattern is specified using
    * 			a regular expression. The policy runs only if a snapshot with a description that matches the
    * 			specified pattern is shared with your account.</p>
@@ -231,11 +248,13 @@ export type EventSourceValues = (typeof EventSourceValues)[keyof typeof EventSou
  */
 export interface EventSource {
   /**
+   * @public
    * <p>The source of the event. Currently only managed CloudWatch Events rules are supported.</p>
    */
   Type: EventSourceValues | string | undefined;
 
   /**
+   * @public
    * <p>Information about the event.</p>
    */
   Parameters?: EventParameters;
@@ -247,11 +266,13 @@ export interface EventSource {
  */
 export interface Tag {
   /**
+   * @public
    * <p>The tag key.</p>
    */
   Key: string | undefined;
 
   /**
+   * @public
    * <p>The tag value.</p>
    */
   Value: string | undefined;
@@ -271,6 +292,7 @@ export interface Tag {
  */
 export interface _Parameters {
   /**
+   * @public
    * <p>
    *             <b>[Snapshot policies that target instances only]</b> Indicates whether to exclude the root volume from multi-volume
    * 			snapshot sets. The default is <code>false</code>. If you specify <code>true</code>,
@@ -280,6 +302,7 @@ export interface _Parameters {
   ExcludeBootVolume?: boolean;
 
   /**
+   * @public
    * <p>
    *             <b>[AMI policies only]</b> Indicates whether targeted instances are rebooted when the lifecycle policy
    * 			runs. <code>true</code> indicates that targeted instances are not rebooted when the policy
@@ -289,6 +312,7 @@ export interface _Parameters {
   NoReboot?: boolean;
 
   /**
+   * @public
    * <p>
    *             <b>[Snapshot policies that target instances only]</b> The tags used to identify data (non-root) volumes to exclude from
    * 			multi-volume snapshot sets.</p>
@@ -389,6 +413,7 @@ export type LocationValues = (typeof LocationValues)[keyof typeof LocationValues
  */
 export interface CreateRule {
   /**
+   * @public
    * <p>
    *             <b>[Snapshot policies only]</b> Specifies the destination for snapshots created by the policy. To create
    * 			snapshots in the same Region as the source resource, specify <code>CLOUD</code>. To create
@@ -402,16 +427,19 @@ export interface CreateRule {
   Location?: LocationValues | string;
 
   /**
+   * @public
    * <p>The interval between snapshots. The supported values are 1, 2, 3, 4, 6, 8, 12, and 24.</p>
    */
   Interval?: number;
 
   /**
+   * @public
    * <p>The interval unit.</p>
    */
   IntervalUnit?: IntervalUnitValues | string;
 
   /**
+   * @public
    * <p>The time, in UTC, to start the operation. The supported format is hh:mm.</p>
    *          <p>The operation occurs within a one-hour window following the specified time. If you do
    * 			not specify a time, Amazon Data Lifecycle Manager selects a time within the next 24 hours.</p>
@@ -419,6 +447,7 @@ export interface CreateRule {
   Times?: string[];
 
   /**
+   * @public
    * <p>The schedule, as a Cron expression. The schedule interval must be between 1 hour and 1
    * 			year. For more information, see <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/events/ScheduledEvents.html#CronExpressions">Cron
    * 				expressions</a> in the <i>Amazon CloudWatch User Guide</i>.</p>
@@ -433,6 +462,7 @@ export interface CreateRule {
  */
 export interface CrossRegionCopyDeprecateRule {
   /**
+   * @public
    * <p>The period after which to deprecate the cross-Region AMI copies. The period must be less than or
    * 			equal to the cross-Region AMI copy retention period, and it can't be greater than 10 years. This is
    * 			equivalent to 120 months, 520 weeks, or 3650 days.</p>
@@ -440,6 +470,7 @@ export interface CrossRegionCopyDeprecateRule {
   Interval?: number;
 
   /**
+   * @public
    * <p>The unit of time in which to measure the <b>Interval</b>. For example,
    * 			to deprecate a cross-Region AMI copy after 3 months, specify <code>Interval=3</code> and
    * 			<code>IntervalUnit=MONTHS</code>.</p>
@@ -458,6 +489,7 @@ export interface CrossRegionCopyDeprecateRule {
  */
 export interface CrossRegionCopyRule {
   /**
+   * @public
    * <note>
    *             <p>Avoid using this parameter when creating new policies. Instead, use
    * 				<b>Target</b> to specify a target Region or a target
@@ -469,6 +501,7 @@ export interface CrossRegionCopyRule {
   TargetRegion?: string;
 
   /**
+   * @public
    * <p>The target Region or the Amazon Resource Name (ARN) of the target Outpost for the
    * 			snapshot copies.</p>
    *          <p>Use this parameter instead of <b>TargetRegion</b>. Do not
@@ -477,6 +510,7 @@ export interface CrossRegionCopyRule {
   Target?: string;
 
   /**
+   * @public
    * <p>To encrypt a copy of an unencrypted snapshot if encryption by default is not enabled,
    * 			enable encryption using this parameter. Copies of encrypted snapshots are encrypted,
    * 			even if this parameter is false or if encryption by default is not enabled.</p>
@@ -484,24 +518,28 @@ export interface CrossRegionCopyRule {
   Encrypted: boolean | undefined;
 
   /**
+   * @public
    * <p>The Amazon Resource Name (ARN) of the KMS key to use for EBS encryption. If this
    * 			parameter is not specified, the default KMS key for the account is used.</p>
    */
   CmkArn?: string;
 
   /**
+   * @public
    * <p>Indicates whether to copy all user-defined tags from the source snapshot or AMI to the
    * 			cross-Region copy.</p>
    */
   CopyTags?: boolean;
 
   /**
+   * @public
    * <p>The retention rule that indicates how long the cross-Region snapshot or AMI copies are
    * 			to be retained in the destination Region.</p>
    */
   RetainRule?: CrossRegionCopyRetainRule;
 
   /**
+   * @public
    * <p>
    *             <b>[AMI policies only]</b> The AMI deprecation rule for cross-Region AMI copies created by the rule.</p>
    */
@@ -518,6 +556,7 @@ export interface CrossRegionCopyRule {
  */
 export interface DeprecateRule {
   /**
+   * @public
    * <p>If the schedule has a count-based retention rule, this parameter specifies the number of oldest
    * 			AMIs to deprecate. The count must be less than or equal to the schedule's retention count, and it
    * 			can't be greater than 1000.</p>
@@ -525,6 +564,7 @@ export interface DeprecateRule {
   Count?: number;
 
   /**
+   * @public
    * <p>If the schedule has an age-based retention rule, this parameter specifies the period after which
    * 			to deprecate AMIs created by the schedule. The period must be less than or equal to the schedule's
    * 			retention period, and it can't be greater than 10 years. This is equivalent to 120 months, 520
@@ -533,6 +573,7 @@ export interface DeprecateRule {
   Interval?: number;
 
   /**
+   * @public
    * <p>The unit of time in which to measure the <b>Interval</b>.</p>
    */
   IntervalUnit?: RetentionIntervalUnitValues | string;
@@ -547,22 +588,26 @@ export interface DeprecateRule {
  */
 export interface FastRestoreRule {
   /**
+   * @public
    * <p>The number of snapshots to be enabled with fast snapshot restore.</p>
    */
   Count?: number;
 
   /**
+   * @public
    * <p>The amount of time to enable fast snapshot restore. The maximum is 100 years. This is
    * 			equivalent to 1200 months, 5200 weeks, or 36500 days.</p>
    */
   Interval?: number;
 
   /**
+   * @public
    * <p>The unit of time for enabling fast snapshot restore.</p>
    */
   IntervalUnit?: RetentionIntervalUnitValues | string;
 
   /**
+   * @public
    * <p>The Availability Zones in which to enable fast snapshot restore.</p>
    */
   AvailabilityZones: string[] | undefined;
@@ -607,6 +652,7 @@ export interface FastRestoreRule {
  */
 export interface RetainRule {
   /**
+   * @public
    * <p>The number of snapshots to retain for each volume, up to a maximum of 1000. For example if you want to
    * 			retain a maximum of three snapshots, specify <code>3</code>. When the fourth snapshot is created, the
    * 			oldest retained snapshot is deleted, or it is moved to the archive tier if you have specified an
@@ -615,12 +661,14 @@ export interface RetainRule {
   Count?: number;
 
   /**
+   * @public
    * <p>The amount of time to retain each snapshot. The maximum is 100 years. This is
    * 			equivalent to 1200 months, 5200 weeks, or 36500 days.</p>
    */
   Interval?: number;
 
   /**
+   * @public
    * <p>The unit of time for time-based retention. For example, to retain snapshots for 3 months, specify
    * 			<code>Interval=3</code> and <code>IntervalUnit=MONTHS</code>. Once the snapshot has been retained for
    * 			3 months, it is deleted, or it is moved to the archive tier if you have specified an
@@ -636,16 +684,19 @@ export interface RetainRule {
  */
 export interface ShareRule {
   /**
+   * @public
    * <p>The IDs of the Amazon Web Services accounts with which to share the snapshots.</p>
    */
   TargetAccounts: string[] | undefined;
 
   /**
+   * @public
    * <p>The period after which snapshots that are shared with other Amazon Web Services accounts are automatically unshared.</p>
    */
   UnshareInterval?: number;
 
   /**
+   * @public
    * <p>The unit of time for the automatic unsharing interval.</p>
    */
   UnshareIntervalUnit?: RetentionIntervalUnitValues | string;
@@ -658,23 +709,27 @@ export interface ShareRule {
  */
 export interface Schedule {
   /**
+   * @public
    * <p>The name of the schedule.</p>
    */
   Name?: string;
 
   /**
+   * @public
    * <p>Copy all user-defined tags on a source volume to snapshots of the volume created by
    * 			this policy.</p>
    */
   CopyTags?: boolean;
 
   /**
+   * @public
    * <p>The tags to apply to policy-created resources. These user-defined tags are in addition
    * 			to the Amazon Web Services-added lifecycle tags.</p>
    */
   TagsToAdd?: Tag[];
 
   /**
+   * @public
    * <p>
    *             <b>[AMI policies and snapshot policies that target instances only]</b>
    * 			A collection of key/value pairs with values determined dynamically when the policy is
@@ -685,22 +740,26 @@ export interface Schedule {
   VariableTags?: Tag[];
 
   /**
+   * @public
    * <p>The creation rule.</p>
    */
   CreateRule?: CreateRule;
 
   /**
+   * @public
    * <p>The retention rule for snapshots or AMIs created by the policy.</p>
    */
   RetainRule?: RetainRule;
 
   /**
+   * @public
    * <p>
    *             <b>[Snapshot policies only]</b> The rule for enabling fast snapshot restore.</p>
    */
   FastRestoreRule?: FastRestoreRule;
 
   /**
+   * @public
    * <p>Specifies a rule for copying snapshots or AMIs across regions.</p>
    *          <note>
    *             <p>You can't specify cross-Region copy rules for policies that create snapshots on an Outpost.
@@ -711,18 +770,21 @@ export interface Schedule {
   CrossRegionCopyRules?: CrossRegionCopyRule[];
 
   /**
+   * @public
    * <p>
    *             <b>[Snapshot policies only]</b> The rule for sharing snapshots with other Amazon Web Services accounts.</p>
    */
   ShareRules?: ShareRule[];
 
   /**
+   * @public
    * <p>
    *             <b>[AMI policies only]</b> The AMI deprecation rule for the schedule.</p>
    */
   DeprecateRule?: DeprecateRule;
 
   /**
+   * @public
    * <p>
    *             <b>[Snapshot policies that target volumes only]</b> The snapshot archiving rule for the schedule. When you specify an archiving
    * 			rule, snapshots are automatically moved from the standard tier to the archive tier once the schedule's
@@ -741,6 +803,7 @@ export interface Schedule {
  */
 export interface PolicyDetails {
   /**
+   * @public
    * <p>
    *             <b>[All policy types]</b> The valid target resource types and actions a policy can manage. Specify <code>EBS_SNAPSHOT_MANAGEMENT</code>
    * 			to create a lifecycle policy that manages the lifecycle of Amazon EBS snapshots. Specify <code>IMAGE_MANAGEMENT</code>
@@ -751,6 +814,7 @@ export interface PolicyDetails {
   PolicyType?: PolicyTypeValues | string;
 
   /**
+   * @public
    * <p>
    *             <b>[Snapshot policies only]</b> The target resource type for snapshot and AMI lifecycle policies. Use <code>VOLUME </code>to
    * 			create snapshots of individual volumes or use <code>INSTANCE</code> to create multi-volume
@@ -759,6 +823,7 @@ export interface PolicyDetails {
   ResourceTypes?: (ResourceTypeValues | string)[];
 
   /**
+   * @public
    * <p>
    *             <b>[Snapshot and AMI policies only]</b> The location of the resources to backup. If the source resources are located in an
    * 			Amazon Web Services Region, specify <code>CLOUD</code>. If the source resources are located on an Outpost
@@ -769,12 +834,14 @@ export interface PolicyDetails {
   ResourceLocations?: (ResourceLocationValues | string)[];
 
   /**
+   * @public
    * <p>
    *             <b>[Snapshot and AMI policies only]</b> The single tag that identifies targeted resources for this policy.</p>
    */
   TargetTags?: Tag[];
 
   /**
+   * @public
    * <p>
    *             <b>[Snapshot and AMI policies only]</b> The schedules of policy-defined actions for snapshot and AMI lifecycle policies. A policy
    * 			can have up to four schedules—one mandatory schedule and up to three optional schedules.</p>
@@ -782,6 +849,7 @@ export interface PolicyDetails {
   Schedules?: Schedule[];
 
   /**
+   * @public
    * <p>
    *             <b>[Snapshot and AMI policies only]</b> A set of optional parameters for snapshot and AMI lifecycle policies. </p>
    *          <note>
@@ -794,12 +862,14 @@ export interface PolicyDetails {
   Parameters?: _Parameters;
 
   /**
+   * @public
    * <p>
    *             <b>[Event-based policies only]</b>  The event that activates the event-based policy.</p>
    */
   EventSource?: EventSource;
 
   /**
+   * @public
    * <p>
    *             <b>[Event-based policies only]</b>  The actions to be performed when the  event-based policy is activated. You can specify
    * 			only one action per policy.</p>
@@ -826,28 +896,33 @@ export type SettablePolicyStateValues = (typeof SettablePolicyStateValues)[keyof
  */
 export interface CreateLifecyclePolicyRequest {
   /**
+   * @public
    * <p>The Amazon Resource Name (ARN) of the IAM role used to run the operations specified by
    * 			the lifecycle policy.</p>
    */
   ExecutionRoleArn: string | undefined;
 
   /**
+   * @public
    * <p>A description of the lifecycle policy. The characters ^[0-9A-Za-z _-]+$ are
    * 			supported.</p>
    */
   Description: string | undefined;
 
   /**
+   * @public
    * <p>The desired activation state of the lifecycle policy after creation.</p>
    */
   State: SettablePolicyStateValues | string | undefined;
 
   /**
+   * @public
    * <p>The configuration details of the lifecycle policy.</p>
    */
   PolicyDetails: PolicyDetails | undefined;
 
   /**
+   * @public
    * <p>The tags to apply to the lifecycle policy during creation.</p>
    */
   Tags?: Record<string, string>;
@@ -858,6 +933,7 @@ export interface CreateLifecyclePolicyRequest {
  */
 export interface CreateLifecyclePolicyResponse {
   /**
+   * @public
    * <p>The identifier of the lifecycle policy.</p>
    */
   PolicyId?: string;
@@ -898,11 +974,13 @@ export class InvalidRequestException extends __BaseException {
   Message?: string;
   Code?: string;
   /**
+   * @public
    * <p>The request omitted one or more required parameters.</p>
    */
   RequiredParameters?: string[];
 
   /**
+   * @public
    * <p>The request included parameters that cannot be provided together.</p>
    */
   MutuallyExclusiveParameters?: string[];
@@ -933,6 +1011,7 @@ export class LimitExceededException extends __BaseException {
   Message?: string;
   Code?: string;
   /**
+   * @public
    * <p>Value is the type of resource for which a limit was exceeded.</p>
    */
   ResourceType?: string;
@@ -957,6 +1036,7 @@ export class LimitExceededException extends __BaseException {
  */
 export interface DeleteLifecyclePolicyRequest {
   /**
+   * @public
    * <p>The identifier of the lifecycle policy.</p>
    */
   PolicyId: string | undefined;
@@ -977,11 +1057,13 @@ export class ResourceNotFoundException extends __BaseException {
   Message?: string;
   Code?: string;
   /**
+   * @public
    * <p>Value is the type of resource that was not found.</p>
    */
   ResourceType?: string;
 
   /**
+   * @public
    * <p>Value is a list of resource IDs that were not found.</p>
    */
   ResourceIds?: string[];
@@ -1022,27 +1104,32 @@ export type GettablePolicyStateValues = (typeof GettablePolicyStateValues)[keyof
  */
 export interface GetLifecyclePoliciesRequest {
   /**
+   * @public
    * <p>The identifiers of the data lifecycle policies.</p>
    */
   PolicyIds?: string[];
 
   /**
+   * @public
    * <p>The activation state.</p>
    */
   State?: GettablePolicyStateValues | string;
 
   /**
+   * @public
    * <p>The resource type.</p>
    */
   ResourceTypes?: (ResourceTypeValues | string)[];
 
   /**
+   * @public
    * <p>The target tag for a policy.</p>
    *          <p>Tags are strings in the format <code>key=value</code>.</p>
    */
   TargetTags?: string[];
 
   /**
+   * @public
    * <p>The tags to add to objects created by the policy.</p>
    *          <p>Tags are strings in the format <code>key=value</code>.</p>
    *          <p>These user-defined tags are added in addition to the Amazon Web Services-added lifecycle tags.</p>
@@ -1056,26 +1143,31 @@ export interface GetLifecyclePoliciesRequest {
  */
 export interface LifecyclePolicySummary {
   /**
+   * @public
    * <p>The identifier of the lifecycle policy.</p>
    */
   PolicyId?: string;
 
   /**
+   * @public
    * <p>The description of the lifecycle policy.</p>
    */
   Description?: string;
 
   /**
+   * @public
    * <p>The activation state of the lifecycle policy.</p>
    */
   State?: GettablePolicyStateValues | string;
 
   /**
+   * @public
    * <p>The tags.</p>
    */
   Tags?: Record<string, string>;
 
   /**
+   * @public
    * <p>The type of policy. <code>EBS_SNAPSHOT_MANAGEMENT</code> indicates that the policy
    * 			manages the lifecycle of Amazon EBS snapshots. <code>IMAGE_MANAGEMENT</code>
    * 			indicates that the policy manages the lifecycle of EBS-backed AMIs.
@@ -1090,6 +1182,7 @@ export interface LifecyclePolicySummary {
  */
 export interface GetLifecyclePoliciesResponse {
   /**
+   * @public
    * <p>Summary information about the lifecycle policies.</p>
    */
   Policies?: LifecyclePolicySummary[];
@@ -1100,6 +1193,7 @@ export interface GetLifecyclePoliciesResponse {
  */
 export interface GetLifecyclePolicyRequest {
   /**
+   * @public
    * <p>The identifier of the lifecycle policy.</p>
    */
   PolicyId: string | undefined;
@@ -1112,52 +1206,62 @@ export interface GetLifecyclePolicyRequest {
  */
 export interface LifecyclePolicy {
   /**
+   * @public
    * <p>The identifier of the lifecycle policy.</p>
    */
   PolicyId?: string;
 
   /**
+   * @public
    * <p>The description of the lifecycle policy.</p>
    */
   Description?: string;
 
   /**
+   * @public
    * <p>The activation state of the lifecycle policy.</p>
    */
   State?: GettablePolicyStateValues | string;
 
   /**
+   * @public
    * <p>The description of the status.</p>
    */
   StatusMessage?: string;
 
   /**
+   * @public
    * <p>The Amazon Resource Name (ARN) of the IAM role used to run the operations specified by
    * 			the lifecycle policy.</p>
    */
   ExecutionRoleArn?: string;
 
   /**
+   * @public
    * <p>The local date and time when the lifecycle policy was created.</p>
    */
   DateCreated?: Date;
 
   /**
+   * @public
    * <p>The local date and time when the lifecycle policy was last modified.</p>
    */
   DateModified?: Date;
 
   /**
+   * @public
    * <p>The configuration of the lifecycle policy</p>
    */
   PolicyDetails?: PolicyDetails;
 
   /**
+   * @public
    * <p>The tags.</p>
    */
   Tags?: Record<string, string>;
 
   /**
+   * @public
    * <p>The Amazon Resource Name (ARN) of the policy.</p>
    */
   PolicyArn?: string;
@@ -1168,6 +1272,7 @@ export interface LifecyclePolicy {
  */
 export interface GetLifecyclePolicyResponse {
   /**
+   * @public
    * <p>Detailed information about the lifecycle policy.</p>
    */
   Policy?: LifecyclePolicy;
@@ -1178,6 +1283,7 @@ export interface GetLifecyclePolicyResponse {
  */
 export interface ListTagsForResourceRequest {
   /**
+   * @public
    * <p>The Amazon Resource Name (ARN) of the resource.</p>
    */
   ResourceArn: string | undefined;
@@ -1188,6 +1294,7 @@ export interface ListTagsForResourceRequest {
  */
 export interface ListTagsForResourceResponse {
   /**
+   * @public
    * <p>Information about the tags.</p>
    */
   Tags?: Record<string, string>;
@@ -1198,11 +1305,13 @@ export interface ListTagsForResourceResponse {
  */
 export interface TagResourceRequest {
   /**
+   * @public
    * <p>The Amazon Resource Name (ARN) of the resource.</p>
    */
   ResourceArn: string | undefined;
 
   /**
+   * @public
    * <p>One or more tags.</p>
    */
   Tags: Record<string, string> | undefined;
@@ -1218,11 +1327,13 @@ export interface TagResourceResponse {}
  */
 export interface UntagResourceRequest {
   /**
+   * @public
    * <p>The Amazon Resource Name (ARN) of the resource.</p>
    */
   ResourceArn: string | undefined;
 
   /**
+   * @public
    * <p>The tag keys.</p>
    */
   TagKeys: string[] | undefined;
@@ -1238,27 +1349,32 @@ export interface UntagResourceResponse {}
  */
 export interface UpdateLifecyclePolicyRequest {
   /**
+   * @public
    * <p>The identifier of the lifecycle policy.</p>
    */
   PolicyId: string | undefined;
 
   /**
+   * @public
    * <p>The Amazon Resource Name (ARN) of the IAM role used to run the operations specified by
    * 			the lifecycle policy.</p>
    */
   ExecutionRoleArn?: string;
 
   /**
+   * @public
    * <p>The desired activation state of the lifecycle policy after creation.</p>
    */
   State?: SettablePolicyStateValues | string;
 
   /**
+   * @public
    * <p>A description of the lifecycle policy.</p>
    */
   Description?: string;
 
   /**
+   * @public
    * <p>The configuration of the lifecycle policy. You cannot update the policy type or the
    * 			resource type.</p>
    */

@@ -10,36 +10,43 @@ import { ServiceCatalogAppRegistryServiceException as __BaseException } from "./
  */
 export interface Application {
   /**
+   * @public
    * <p>The identifier of the application.</p>
    */
   id?: string;
 
   /**
+   * @public
    * <p>The Amazon resource name (ARN) that specifies the application across services.</p>
    */
   arn?: string;
 
   /**
+   * @public
    * <p>The name of the application. The name must be unique in the region in which you are creating the application.</p>
    */
   name?: string;
 
   /**
+   * @public
    * <p>The description of the application.</p>
    */
   description?: string;
 
   /**
+   * @public
    * <p>The ISO-8601 formatted timestamp of the moment when the application was created.</p>
    */
   creationTime?: Date;
 
   /**
+   * @public
    * <p> The ISO-8601 formatted timestamp of the moment when the application was last updated.</p>
    */
   lastUpdateTime?: Date;
 
   /**
+   * @public
    * <p>Key-value pairs you can use to associate with the application.</p>
    */
   tags?: Record<string, string>;
@@ -51,31 +58,37 @@ export interface Application {
  */
 export interface ApplicationSummary {
   /**
+   * @public
    * <p>The identifier of the application.</p>
    */
   id?: string;
 
   /**
+   * @public
    * <p>The Amazon resource name (ARN) that specifies the application across services.</p>
    */
   arn?: string;
 
   /**
+   * @public
    * <p>The name of the application. The name must be unique in the region in which you are creating the application.</p>
    */
   name?: string;
 
   /**
+   * @public
    * <p>The description of the application.</p>
    */
   description?: string;
 
   /**
+   * @public
    * <p>The ISO-8601 formatted timestamp of the moment when the application was created.</p>
    */
   creationTime?: Date;
 
   /**
+   * @public
    * <p> The ISO-8601 formatted timestamp of the moment when the application was last updated.</p>
    */
   lastUpdateTime?: Date;
@@ -93,6 +106,7 @@ export interface ApplicationSummary {
  */
 export interface TagQueryConfiguration {
   /**
+   * @public
    * <p>
    *       Condition
    *       in the IAM policy
@@ -112,6 +126,7 @@ export interface TagQueryConfiguration {
  */
 export interface AppRegistryConfiguration {
   /**
+   * @public
    * <p>
    *       Includes the definition
    *       of a <code>tagQuery</code>.
@@ -125,6 +140,7 @@ export interface AppRegistryConfiguration {
  */
 export interface AssociateAttributeGroupRequest {
   /**
+   * @public
    * <p>
    *        The name, ID, or ARN
    *        of the application.
@@ -133,6 +149,7 @@ export interface AssociateAttributeGroupRequest {
   application: string | undefined;
 
   /**
+   * @public
    * <p>
    *        The name, ID, or ARN
    *        of the attribute group
@@ -148,11 +165,13 @@ export interface AssociateAttributeGroupRequest {
  */
 export interface AssociateAttributeGroupResponse {
   /**
+   * @public
    * <p>The Amazon resource name (ARN) of the application that was augmented with attributes.</p>
    */
   applicationArn?: string;
 
   /**
+   * @public
    * <p>The Amazon resource name (ARN) of the attribute group that contains the application's new attributes.</p>
    */
   attributeGroupArn?: string;
@@ -281,6 +300,7 @@ export type ResourceType = (typeof ResourceType)[keyof typeof ResourceType];
  */
 export interface AssociateResourceRequest {
   /**
+   * @public
    * <p>
    *        The name, ID, or ARN
    *        of the application.
@@ -289,11 +309,13 @@ export interface AssociateResourceRequest {
   application: string | undefined;
 
   /**
+   * @public
    * <p>The type of resource of which the application will be associated.</p>
    */
   resourceType: ResourceType | string | undefined;
 
   /**
+   * @public
    * <p>The name or ID of the resource of which the application will be associated.</p>
    */
   resource: string | undefined;
@@ -304,11 +326,13 @@ export interface AssociateResourceRequest {
  */
 export interface AssociateResourceResponse {
   /**
+   * @public
    * <p>The Amazon resource name (ARN) of the application that was augmented with attributes.</p>
    */
   applicationArn?: string;
 
   /**
+   * @public
    * <p>The Amazon resource name (ARN) that specifies the resource.</p>
    */
   resourceArn?: string;
@@ -326,6 +350,7 @@ export class ThrottlingException extends __BaseException {
   readonly name: "ThrottlingException" = "ThrottlingException";
   readonly $fault: "client" = "client";
   /**
+   * @public
    * <p>The originating service code.</p>
    */
   serviceCode?: string;
@@ -350,36 +375,43 @@ export class ThrottlingException extends __BaseException {
  */
 export interface AttributeGroup {
   /**
+   * @public
    * <p>The globally unique attribute group identifier of the attribute group.</p>
    */
   id?: string;
 
   /**
+   * @public
    * <p>The Amazon resource name (ARN) that specifies the attribute group across services.</p>
    */
   arn?: string;
 
   /**
+   * @public
    * <p>The name of the attribute group.</p>
    */
   name?: string;
 
   /**
+   * @public
    * <p>The description of the attribute group that the user provides.</p>
    */
   description?: string;
 
   /**
+   * @public
    * <p>The ISO-8601 formatted timestamp of the moment the attribute group was created.</p>
    */
   creationTime?: Date;
 
   /**
+   * @public
    * <p>The ISO-8601 formatted timestamp of the moment the attribute group was last updated. This time is the same as the creationTime for a newly created attribute group.</p>
    */
   lastUpdateTime?: Date;
 
   /**
+   * @public
    * <p>Key-value pairs you can use to associate with the attribute group.</p>
    */
   tags?: Record<string, string>;
@@ -393,16 +425,19 @@ export interface AttributeGroup {
  */
 export interface AttributeGroupDetails {
   /**
+   * @public
    * <p>The unique identifier of the attribute group.</p>
    */
   id?: string;
 
   /**
+   * @public
    * <p>The Amazon resource name (ARN) that specifies the attribute group.</p>
    */
   arn?: string;
 
   /**
+   * @public
    * @deprecated
    *
    * <important>
@@ -419,6 +454,7 @@ export interface AttributeGroupDetails {
   name?: string;
 
   /**
+   * @public
    * <p>The service principal that created the attribute group.</p>
    */
   createdBy?: string;
@@ -430,36 +466,43 @@ export interface AttributeGroupDetails {
  */
 export interface AttributeGroupSummary {
   /**
+   * @public
    * <p>The globally unique attribute group identifier of the attribute group.</p>
    */
   id?: string;
 
   /**
+   * @public
    * <p>The Amazon resource name (ARN) that specifies the attribute group across services.</p>
    */
   arn?: string;
 
   /**
+   * @public
    * <p>The name of the attribute group.</p>
    */
   name?: string;
 
   /**
+   * @public
    * <p>The description of the attribute group that the user provides.</p>
    */
   description?: string;
 
   /**
+   * @public
    * <p>The ISO-8601 formatted timestamp of the moment the attribute group was created.</p>
    */
   creationTime?: Date;
 
   /**
+   * @public
    * <p>The ISO-8601 formatted timestamp of the moment the attribute group was last updated. This time is the same as the creationTime for a newly created attribute group.</p>
    */
   lastUpdateTime?: Date;
 
   /**
+   * @public
    * <p>The service principal that created the attribute group.</p>
    */
   createdBy?: string;
@@ -470,21 +513,25 @@ export interface AttributeGroupSummary {
  */
 export interface CreateApplicationRequest {
   /**
+   * @public
    * <p>The name of the application. The name must be unique in the region in which you are creating the application.</p>
    */
   name: string | undefined;
 
   /**
+   * @public
    * <p>The description of the application.</p>
    */
   description?: string;
 
   /**
+   * @public
    * <p>Key-value pairs you can use to associate with the application.</p>
    */
   tags?: Record<string, string>;
 
   /**
+   * @public
    * <p>A unique identifier that you provide to ensure idempotency. If you retry a request that
    *       completed successfully using the same client token and the same parameters, the retry succeeds
    *       without performing any further actions. If you retry a successful request using the same
@@ -498,6 +545,7 @@ export interface CreateApplicationRequest {
  */
 export interface CreateApplicationResponse {
   /**
+   * @public
    * <p>Information about the application.</p>
    */
   application?: Application;
@@ -508,26 +556,31 @@ export interface CreateApplicationResponse {
  */
 export interface CreateAttributeGroupRequest {
   /**
+   * @public
    * <p>The name of the attribute group.</p>
    */
   name: string | undefined;
 
   /**
+   * @public
    * <p>The description of the attribute group that the user provides.</p>
    */
   description?: string;
 
   /**
+   * @public
    * <p>A JSON string in the form of nested key-value pairs that represent the attributes in the group and describes an application and its components.</p>
    */
   attributes: string | undefined;
 
   /**
+   * @public
    * <p>Key-value pairs you can use to associate with the attribute group.</p>
    */
   tags?: Record<string, string>;
 
   /**
+   * @public
    * <p>A unique identifier that you provide to ensure idempotency. If you retry a request that
    *       completed successfully using the same client token and the same parameters, the retry succeeds
    *       without performing any further actions. If you retry a successful request using the same
@@ -541,6 +594,7 @@ export interface CreateAttributeGroupRequest {
  */
 export interface CreateAttributeGroupResponse {
   /**
+   * @public
    * <p>Information about the attribute group.</p>
    */
   attributeGroup?: AttributeGroup;
@@ -551,6 +605,7 @@ export interface CreateAttributeGroupResponse {
  */
 export interface DeleteApplicationRequest {
   /**
+   * @public
    * <p>
    *        The name, ID, or ARN
    *        of the application.
@@ -564,6 +619,7 @@ export interface DeleteApplicationRequest {
  */
 export interface DeleteApplicationResponse {
   /**
+   * @public
    * <p>Information about the deleted application.</p>
    */
   application?: ApplicationSummary;
@@ -574,6 +630,7 @@ export interface DeleteApplicationResponse {
  */
 export interface DeleteAttributeGroupRequest {
   /**
+   * @public
    * <p>
    *        The name, ID, or ARN
    *        of the attribute group
@@ -589,6 +646,7 @@ export interface DeleteAttributeGroupRequest {
  */
 export interface DeleteAttributeGroupResponse {
   /**
+   * @public
    * <p>Information about the deleted attribute group.</p>
    */
   attributeGroup?: AttributeGroupSummary;
@@ -599,6 +657,7 @@ export interface DeleteAttributeGroupResponse {
  */
 export interface DisassociateAttributeGroupRequest {
   /**
+   * @public
    * <p>
    *        The name, ID, or ARN
    *        of the application.
@@ -607,6 +666,7 @@ export interface DisassociateAttributeGroupRequest {
   application: string | undefined;
 
   /**
+   * @public
    * <p>
    *        The name, ID, or ARN
    *        of the attribute group
@@ -622,11 +682,13 @@ export interface DisassociateAttributeGroupRequest {
  */
 export interface DisassociateAttributeGroupResponse {
   /**
+   * @public
    * <p>The Amazon resource name (ARN) that specifies the application.</p>
    */
   applicationArn?: string;
 
   /**
+   * @public
    * <p>The Amazon resource name (ARN) that specifies the attribute group.</p>
    */
   attributeGroupArn?: string;
@@ -637,16 +699,19 @@ export interface DisassociateAttributeGroupResponse {
  */
 export interface DisassociateResourceRequest {
   /**
+   * @public
    * <p>The name or ID of the application.</p>
    */
   application: string | undefined;
 
   /**
+   * @public
    * <p>The type of the resource that is being disassociated.</p>
    */
   resourceType: ResourceType | string | undefined;
 
   /**
+   * @public
    * <p>The name or ID of the resource.</p>
    */
   resource: string | undefined;
@@ -657,11 +722,13 @@ export interface DisassociateResourceRequest {
  */
 export interface DisassociateResourceResponse {
   /**
+   * @public
    * <p>The Amazon resource name (ARN) that specifies the application.</p>
    */
   applicationArn?: string;
 
   /**
+   * @public
    * <p>The Amazon resource name (ARN) that specifies the resource.</p>
    */
   resourceArn?: string;
@@ -672,6 +739,7 @@ export interface DisassociateResourceResponse {
  */
 export interface GetApplicationRequest {
   /**
+   * @public
    * <p>
    *        The name, ID, or ARN
    *        of the application.
@@ -704,6 +772,7 @@ export type ResourceGroupState = (typeof ResourceGroupState)[keyof typeof Resour
  */
 export interface ResourceGroup {
   /**
+   * @public
    * <p>The state of the propagation process for the resource group. The states includes:</p>
    *          <p>
    *             <code>CREATING </code>if the resource group is in the process of being created.</p>
@@ -721,11 +790,13 @@ export interface ResourceGroup {
   state?: ResourceGroupState | string;
 
   /**
+   * @public
    * <p>The Amazon resource name (ARN) of the resource group.</p>
    */
   arn?: string;
 
   /**
+   * @public
    * <p>The error message that generates when the propagation process for the resource group fails.</p>
    */
   errorMessage?: string;
@@ -737,6 +808,7 @@ export interface ResourceGroup {
  */
 export interface Integrations {
   /**
+   * @public
    * <p> The information about the resource group integration.</p>
    */
   resourceGroup?: ResourceGroup;
@@ -747,46 +819,55 @@ export interface Integrations {
  */
 export interface GetApplicationResponse {
   /**
+   * @public
    * <p>The identifier of the application.</p>
    */
   id?: string;
 
   /**
+   * @public
    * <p>The Amazon resource name (ARN) that specifies the application across services.</p>
    */
   arn?: string;
 
   /**
+   * @public
    * <p>The name of the application. The name must be unique in the region in which you are creating the application.</p>
    */
   name?: string;
 
   /**
+   * @public
    * <p>The description of the application.</p>
    */
   description?: string;
 
   /**
+   * @public
    * <p>The ISO-8601 formatted timestamp of the moment when the application was created.</p>
    */
   creationTime?: Date;
 
   /**
+   * @public
    * <p>The ISO-8601 formatted timestamp of the moment when the application was last updated.</p>
    */
   lastUpdateTime?: Date;
 
   /**
+   * @public
    * <p>The number of top-level resources that were registered as part of this application.</p>
    */
   associatedResourceCount?: number;
 
   /**
+   * @public
    * <p>Key-value pairs associated with the application.</p>
    */
   tags?: Record<string, string>;
 
   /**
+   * @public
    * <p>
    *        The information
    *        about the integration
@@ -804,6 +885,7 @@ export interface GetApplicationResponse {
  */
 export interface GetAssociatedResourceRequest {
   /**
+   * @public
    * <p>
    *        The name, ID, or ARN
    *        of the application.
@@ -812,11 +894,13 @@ export interface GetAssociatedResourceRequest {
   application: string | undefined;
 
   /**
+   * @public
    * <p>The type of resource associated with the application.</p>
    */
   resourceType: ResourceType | string | undefined;
 
   /**
+   * @public
    * <p>The name or ID of the resource associated with the application.</p>
    */
   resource: string | undefined;
@@ -828,6 +912,7 @@ export interface GetAssociatedResourceRequest {
  */
 export interface ResourceIntegrations {
   /**
+   * @public
    * <p>The information about the integration of Resource Groups.</p>
    */
   resourceGroup?: ResourceGroup;
@@ -839,21 +924,25 @@ export interface ResourceIntegrations {
  */
 export interface Resource {
   /**
+   * @public
    * <p>The name of the resource.</p>
    */
   name?: string;
 
   /**
+   * @public
    * <p>The Amazon resource name (ARN) of the resource.</p>
    */
   arn?: string;
 
   /**
+   * @public
    * <p>The time the resource was associated with the application.</p>
    */
   associationTime?: Date;
 
   /**
+   * @public
    * <p>The service integration information about the resource.
    *      </p>
    */
@@ -865,6 +954,7 @@ export interface Resource {
  */
 export interface GetAssociatedResourceResponse {
   /**
+   * @public
    * <p>The resource associated with the application.</p>
    */
   resource?: Resource;
@@ -875,6 +965,7 @@ export interface GetAssociatedResourceResponse {
  */
 export interface GetAttributeGroupRequest {
   /**
+   * @public
    * <p>
    *        The name, ID, or ARN
    *        of the attribute group
@@ -890,46 +981,55 @@ export interface GetAttributeGroupRequest {
  */
 export interface GetAttributeGroupResponse {
   /**
+   * @public
    * <p>The identifier of the attribute group.</p>
    */
   id?: string;
 
   /**
+   * @public
    * <p>The Amazon resource name (ARN) that specifies the attribute group across services.</p>
    */
   arn?: string;
 
   /**
+   * @public
    * <p>The name of the attribute group.</p>
    */
   name?: string;
 
   /**
+   * @public
    * <p>The description of the attribute group that the user provides.</p>
    */
   description?: string;
 
   /**
+   * @public
    * <p>A JSON string in the form of nested key-value pairs that represent the attributes in the group and describes an application and its components.</p>
    */
   attributes?: string;
 
   /**
+   * @public
    * <p>The ISO-8601 formatted timestamp of the moment the attribute group was created.</p>
    */
   creationTime?: Date;
 
   /**
+   * @public
    * <p>The ISO-8601 formatted timestamp of the moment the attribute group was last updated. This time is the same as the creationTime for a newly created attribute group.</p>
    */
   lastUpdateTime?: Date;
 
   /**
+   * @public
    * <p>Key-value pairs associated with the attribute group.</p>
    */
   tags?: Record<string, string>;
 
   /**
+   * @public
    * <p>The service principal that created the attribute group.</p>
    */
   createdBy?: string;
@@ -940,6 +1040,7 @@ export interface GetAttributeGroupResponse {
  */
 export interface GetConfigurationResponse {
   /**
+   * @public
    * <p>
    *       Retrieves <code>TagKey</code> configuration
    *       from an account.
@@ -953,11 +1054,13 @@ export interface GetConfigurationResponse {
  */
 export interface ListApplicationsRequest {
   /**
+   * @public
    * <p>The token to use to get the next page of results after a previous API call. </p>
    */
   nextToken?: string;
 
   /**
+   * @public
    * <p>The upper bound of the number of results to return (cannot exceed 25). If this parameter is omitted, it defaults to 25. This value is optional.</p>
    */
   maxResults?: number;
@@ -968,11 +1071,13 @@ export interface ListApplicationsRequest {
  */
 export interface ListApplicationsResponse {
   /**
+   * @public
    * <p>This list of applications.</p>
    */
   applications?: ApplicationSummary[];
 
   /**
+   * @public
    * <p>The token to use to get the next page of results after a previous API call. </p>
    */
   nextToken?: string;
@@ -983,16 +1088,19 @@ export interface ListApplicationsResponse {
  */
 export interface ListAssociatedAttributeGroupsRequest {
   /**
+   * @public
    * <p>The name or ID of the application.</p>
    */
   application: string | undefined;
 
   /**
+   * @public
    * <p>The token to use to get the next page of results after a previous API call. </p>
    */
   nextToken?: string;
 
   /**
+   * @public
    * <p>The upper bound of the number of results to return (cannot exceed 25). If this parameter is omitted, it defaults to 25. This value is optional.</p>
    */
   maxResults?: number;
@@ -1003,11 +1111,13 @@ export interface ListAssociatedAttributeGroupsRequest {
  */
 export interface ListAssociatedAttributeGroupsResponse {
   /**
+   * @public
    * <p>A list of attribute group IDs.</p>
    */
   attributeGroups?: string[];
 
   /**
+   * @public
    * <p>The token to use to get the next page of results after a previous API call. </p>
    */
   nextToken?: string;
@@ -1018,6 +1128,7 @@ export interface ListAssociatedAttributeGroupsResponse {
  */
 export interface ListAssociatedResourcesRequest {
   /**
+   * @public
    * <p>
    *        The name, ID, or ARN
    *        of the application.
@@ -1026,11 +1137,13 @@ export interface ListAssociatedResourcesRequest {
   application: string | undefined;
 
   /**
+   * @public
    * <p>The token to use to get the next page of results after a previous API call. </p>
    */
   nextToken?: string;
 
   /**
+   * @public
    * <p>The upper bound of the number of results to return (cannot exceed 25). If this parameter is omitted, it defaults to 25. This value is optional.</p>
    */
   maxResults?: number;
@@ -1047,6 +1160,7 @@ export interface ListAssociatedResourcesRequest {
  */
 export interface ResourceDetails {
   /**
+   * @public
    * <p>The value of the tag.</p>
    */
   tagValue?: string;
@@ -1058,16 +1172,19 @@ export interface ResourceDetails {
  */
 export interface ResourceInfo {
   /**
+   * @public
    * <p>The name of the resource.</p>
    */
   name?: string;
 
   /**
+   * @public
    * <p>The Amazon resource name (ARN) that specifies the resource across services.</p>
    */
   arn?: string;
 
   /**
+   * @public
    * <p>
    *       Provides information
    *       about the Service Catalog App Registry resource type.
@@ -1076,6 +1193,7 @@ export interface ResourceInfo {
   resourceType?: ResourceType | string;
 
   /**
+   * @public
    * <p>
    *       The details related
    *       to
@@ -1090,11 +1208,13 @@ export interface ResourceInfo {
  */
 export interface ListAssociatedResourcesResponse {
   /**
+   * @public
    * <p>Information about the resources.</p>
    */
   resources?: ResourceInfo[];
 
   /**
+   * @public
    * <p>The token to use to get the next page of results after a previous API call. </p>
    */
   nextToken?: string;
@@ -1105,11 +1225,13 @@ export interface ListAssociatedResourcesResponse {
  */
 export interface ListAttributeGroupsRequest {
   /**
+   * @public
    * <p>The token to use to get the next page of results after a previous API call. </p>
    */
   nextToken?: string;
 
   /**
+   * @public
    * <p>The upper bound of the number of results to return (cannot exceed 25). If this parameter is omitted, it defaults to 25. This value is optional.</p>
    */
   maxResults?: number;
@@ -1120,11 +1242,13 @@ export interface ListAttributeGroupsRequest {
  */
 export interface ListAttributeGroupsResponse {
   /**
+   * @public
    * <p>This list of attribute groups.</p>
    */
   attributeGroups?: AttributeGroupSummary[];
 
   /**
+   * @public
    * <p>The token to use to get the next page of results after a previous API call. </p>
    */
   nextToken?: string;
@@ -1135,16 +1259,19 @@ export interface ListAttributeGroupsResponse {
  */
 export interface ListAttributeGroupsForApplicationRequest {
   /**
+   * @public
    * <p>The name or ID of the application.</p>
    */
   application: string | undefined;
 
   /**
+   * @public
    * <p>This token retrieves the next page of results after a previous API call.</p>
    */
   nextToken?: string;
 
   /**
+   * @public
    * <p>The upper bound of the number of results to return. The value cannot exceed 25. If you omit this parameter, it defaults to 25. This value is optional.</p>
    */
   maxResults?: number;
@@ -1155,11 +1282,13 @@ export interface ListAttributeGroupsForApplicationRequest {
  */
 export interface ListAttributeGroupsForApplicationResponse {
   /**
+   * @public
    * <p> The details related to a specific attribute group. </p>
    */
   attributeGroupsDetails?: AttributeGroupDetails[];
 
   /**
+   * @public
    * <p>The token to use to get the next page of results after a previous API call.</p>
    */
   nextToken?: string;
@@ -1170,6 +1299,7 @@ export interface ListAttributeGroupsForApplicationResponse {
  */
 export interface ListTagsForResourceRequest {
   /**
+   * @public
    * <p>The Amazon resource name (ARN) that specifies the resource.</p>
    */
   resourceArn: string | undefined;
@@ -1180,6 +1310,7 @@ export interface ListTagsForResourceRequest {
  */
 export interface ListTagsForResourceResponse {
   /**
+   * @public
    * <p>The tags on the resource.</p>
    */
   tags?: Record<string, string>;
@@ -1190,6 +1321,7 @@ export interface ListTagsForResourceResponse {
  */
 export interface PutConfigurationRequest {
   /**
+   * @public
    * <p>
    *       Associates a <code>TagKey</code> configuration
    *       to an account.
@@ -1203,11 +1335,13 @@ export interface PutConfigurationRequest {
  */
 export interface SyncResourceRequest {
   /**
+   * @public
    * <p>The type of resource of which the application will be associated.</p>
    */
   resourceType: ResourceType | string | undefined;
 
   /**
+   * @public
    * <p>An entity you can work with and specify with a name or ID. Examples include an Amazon EC2 instance, an Amazon Web Services CloudFormation stack, or an Amazon S3 bucket.</p>
    */
   resource: string | undefined;
@@ -1232,16 +1366,19 @@ export type SyncAction = (typeof SyncAction)[keyof typeof SyncAction];
  */
 export interface SyncResourceResponse {
   /**
+   * @public
    * <p>The Amazon resource name (ARN) that specifies the application.</p>
    */
   applicationArn?: string;
 
   /**
+   * @public
    * <p>The Amazon resource name (ARN) that specifies the resource.</p>
    */
   resourceArn?: string;
 
   /**
+   * @public
    * <p>The results of the output if an application is associated with an ARN value, which could be <code>syncStarted</code> or None.</p>
    */
   actionTaken?: SyncAction | string;
@@ -1252,11 +1389,13 @@ export interface SyncResourceResponse {
  */
 export interface TagResourceRequest {
   /**
+   * @public
    * <p>The Amazon resource name (ARN) that specifies the resource.</p>
    */
   resourceArn: string | undefined;
 
   /**
+   * @public
    * <p>The new or modified tags for the resource.</p>
    */
   tags: Record<string, string> | undefined;
@@ -1272,11 +1411,13 @@ export interface TagResourceResponse {}
  */
 export interface UntagResourceRequest {
   /**
+   * @public
    * <p>The Amazon resource name (ARN) that specifies the resource.</p>
    */
   resourceArn: string | undefined;
 
   /**
+   * @public
    * <p>A list of the tag keys to remove from the specified resource.</p>
    */
   tagKeys: string[] | undefined;
@@ -1292,6 +1433,7 @@ export interface UntagResourceResponse {}
  */
 export interface UpdateApplicationRequest {
   /**
+   * @public
    * <p>
    *        The name, ID, or ARN
    *        of the application
@@ -1301,6 +1443,7 @@ export interface UpdateApplicationRequest {
   application: string | undefined;
 
   /**
+   * @public
    * @deprecated
    *
    * <p>Deprecated: The new name of the application. The name must be unique in the region in which you are
@@ -1309,6 +1452,7 @@ export interface UpdateApplicationRequest {
   name?: string;
 
   /**
+   * @public
    * <p>The new description of the application.</p>
    */
   description?: string;
@@ -1319,6 +1463,7 @@ export interface UpdateApplicationRequest {
  */
 export interface UpdateApplicationResponse {
   /**
+   * @public
    * <p>The updated information of the application.</p>
    */
   application?: Application;
@@ -1329,6 +1474,7 @@ export interface UpdateApplicationResponse {
  */
 export interface UpdateAttributeGroupRequest {
   /**
+   * @public
    * <p>
    *        The name, ID, or ARN
    *        of the attribute group
@@ -1339,6 +1485,7 @@ export interface UpdateAttributeGroupRequest {
   attributeGroup: string | undefined;
 
   /**
+   * @public
    * @deprecated
    *
    * <p>Deprecated: The new name of the attribute group. The name must be unique in the region in which you are
@@ -1347,11 +1494,13 @@ export interface UpdateAttributeGroupRequest {
   name?: string;
 
   /**
+   * @public
    * <p>The description of the attribute group that the user provides.</p>
    */
   description?: string;
 
   /**
+   * @public
    * <p>A JSON string in the form of nested key-value pairs that represent the attributes in the group and describes an application and its components.</p>
    */
   attributes?: string;
@@ -1362,6 +1511,7 @@ export interface UpdateAttributeGroupRequest {
  */
 export interface UpdateAttributeGroupResponse {
   /**
+   * @public
    * <p>The updated information of the attribute group.</p>
    */
   attributeGroup?: AttributeGroup;

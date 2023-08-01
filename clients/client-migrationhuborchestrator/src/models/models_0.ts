@@ -29,6 +29,7 @@ export class AccessDeniedException extends __BaseException {
  */
 export interface ListTagsForResourceRequest {
   /**
+   * @public
    * <p>The Amazon Resource Name (ARN) of the resource.</p>
    */
   resourceArn: string | undefined;
@@ -39,6 +40,7 @@ export interface ListTagsForResourceRequest {
  */
 export interface ListTagsForResourceResponse {
   /**
+   * @public
    * <p>The tags added to a resource.</p>
    */
   tags?: Record<string, string>;
@@ -102,6 +104,7 @@ export type StepInput =
  */
 export namespace StepInput {
   /**
+   * @public
    * <p>The value of the integer.</p>
    */
   export interface IntegerValueMember {
@@ -113,6 +116,7 @@ export namespace StepInput {
   }
 
   /**
+   * @public
    * <p>String value.</p>
    */
   export interface StringValueMember {
@@ -124,6 +128,7 @@ export namespace StepInput {
   }
 
   /**
+   * @public
    * <p>List of string values.</p>
    */
   export interface ListOfStringsValueMember {
@@ -135,6 +140,7 @@ export namespace StepInput {
   }
 
   /**
+   * @public
    * <p>Map of string values.</p>
    */
   export interface MapOfStringValueMember {
@@ -145,6 +151,9 @@ export namespace StepInput {
     $unknown?: never;
   }
 
+  /**
+   * @public
+   */
   export interface $UnknownMember {
     integerValue?: never;
     stringValue?: never;
@@ -175,36 +184,43 @@ export namespace StepInput {
  */
 export interface CreateMigrationWorkflowRequest {
   /**
+   * @public
    * <p>The name of the migration workflow.</p>
    */
   name: string | undefined;
 
   /**
+   * @public
    * <p>The description of the migration workflow.</p>
    */
   description?: string;
 
   /**
+   * @public
    * <p>The ID of the template.</p>
    */
   templateId: string | undefined;
 
   /**
+   * @public
    * <p>The configuration ID of the application configured in Application Discovery Service.</p>
    */
   applicationConfigurationId: string | undefined;
 
   /**
+   * @public
    * <p>The input parameters required to create a migration workflow.</p>
    */
   inputParameters: Record<string, StepInput> | undefined;
 
   /**
+   * @public
    * <p>The servers on which a step will be run.</p>
    */
   stepTargets?: string[];
 
   /**
+   * @public
    * <p>The tags to add on a migration workflow.</p>
    */
   tags?: Record<string, string>;
@@ -242,56 +258,67 @@ export type MigrationWorkflowStatusEnum =
  */
 export interface CreateMigrationWorkflowResponse {
   /**
+   * @public
    * <p>The ID of the migration workflow.</p>
    */
   id?: string;
 
   /**
+   * @public
    * <p>The Amazon Resource Name (ARN) of the migration workflow.</p>
    */
   arn?: string;
 
   /**
+   * @public
    * <p>The name of the migration workflow.</p>
    */
   name?: string;
 
   /**
+   * @public
    * <p>The description of the migration workflow.</p>
    */
   description?: string;
 
   /**
+   * @public
    * <p>The ID of the template.</p>
    */
   templateId?: string;
 
   /**
+   * @public
    * <p>The configuration ID of the application configured in Application Discovery Service.</p>
    */
   adsApplicationConfigurationId?: string;
 
   /**
+   * @public
    * <p>The inputs for creating a migration workflow.</p>
    */
   workflowInputs?: Record<string, StepInput>;
 
   /**
+   * @public
    * <p>The servers on which a step will be run.</p>
    */
   stepTargets?: string[];
 
   /**
+   * @public
    * <p>The status of the migration workflow.</p>
    */
   status?: MigrationWorkflowStatusEnum | string;
 
   /**
+   * @public
    * <p>The time at which the migration workflow was created.</p>
    */
   creationTime?: Date;
 
   /**
+   * @public
    * <p>The tags to add on a migration workflow.</p>
    */
   tags?: Record<string, string>;
@@ -342,6 +369,7 @@ export class ThrottlingException extends __BaseException {
  */
 export interface DeleteMigrationWorkflowRequest {
   /**
+   * @public
    * <p>The ID of the migration workflow you want to delete.</p>
    */
   id: string | undefined;
@@ -352,16 +380,19 @@ export interface DeleteMigrationWorkflowRequest {
  */
 export interface DeleteMigrationWorkflowResponse {
   /**
+   * @public
    * <p>The ID of the migration workflow.</p>
    */
   id?: string;
 
   /**
+   * @public
    * <p>The Amazon Resource Name (ARN) of the migration workflow.</p>
    */
   arn?: string;
 
   /**
+   * @public
    * <p>The status of the migration workflow.</p>
    */
   status?: MigrationWorkflowStatusEnum | string;
@@ -372,6 +403,7 @@ export interface DeleteMigrationWorkflowResponse {
  */
 export interface GetMigrationWorkflowRequest {
   /**
+   * @public
    * <p>The ID of the migration workflow.</p>
    */
   id: string | undefined;
@@ -383,11 +415,13 @@ export interface GetMigrationWorkflowRequest {
  */
 export interface Tool {
   /**
+   * @public
    * <p>The name of an AWS service. </p>
    */
   name?: string;
 
   /**
+   * @public
    * <p>The URL of an AWS service.</p>
    */
   url?: string;
@@ -398,101 +432,121 @@ export interface Tool {
  */
 export interface GetMigrationWorkflowResponse {
   /**
+   * @public
    * <p>The ID of the migration workflow.</p>
    */
   id?: string;
 
   /**
+   * @public
    * <p>The Amazon Resource Name (ARN) of the migration workflow.</p>
    */
   arn?: string;
 
   /**
+   * @public
    * <p>The name of the migration workflow.</p>
    */
   name?: string;
 
   /**
+   * @public
    * <p>The description of the migration workflow.</p>
    */
   description?: string;
 
   /**
+   * @public
    * <p>The ID of the template.</p>
    */
   templateId?: string;
 
   /**
+   * @public
    * <p>The configuration ID of the application configured in Application Discovery Service.</p>
    */
   adsApplicationConfigurationId?: string;
 
   /**
+   * @public
    * <p>The name of the application configured in Application Discovery Service.</p>
    */
   adsApplicationName?: string;
 
   /**
+   * @public
    * <p>The status of the migration workflow.</p>
    */
   status?: MigrationWorkflowStatusEnum | string;
 
   /**
+   * @public
    * <p>The status message of the migration workflow.</p>
    */
   statusMessage?: string;
 
   /**
+   * @public
    * <p>The time at which the migration workflow was created.</p>
    */
   creationTime?: Date;
 
   /**
+   * @public
    * <p>The time at which the migration workflow was last started.</p>
    */
   lastStartTime?: Date;
 
   /**
+   * @public
    * <p>The time at which the migration workflow was last stopped.</p>
    */
   lastStopTime?: Date;
 
   /**
+   * @public
    * <p>The time at which the migration workflow was last modified.</p>
    */
   lastModifiedTime?: Date;
 
   /**
+   * @public
    * <p>The time at which the migration workflow ended.</p>
    */
   endTime?: Date;
 
   /**
+   * @public
    * <p>List of AWS services utilized in a migration workflow.</p>
    */
   tools?: Tool[];
 
   /**
+   * @public
    * <p>The total number of steps in the migration workflow.</p>
    */
   totalSteps?: number;
 
   /**
+   * @public
    * <p>Get a list of completed steps in the migration workflow.</p>
    */
   completedSteps?: number;
 
   /**
+   * @public
    * <p>The inputs required for creating the migration workflow.</p>
    */
   workflowInputs?: Record<string, StepInput>;
 
   /**
+   * @public
    * <p>The tags added to the migration workflow.</p>
    */
   tags?: Record<string, string>;
 
   /**
+   * @public
    * <p>The Amazon S3 bucket where the migration logs are stored.</p>
    */
   workflowBucket?: string;
@@ -503,31 +557,37 @@ export interface GetMigrationWorkflowResponse {
  */
 export interface ListMigrationWorkflowsRequest {
   /**
+   * @public
    * <p>The maximum number of results that can be returned.</p>
    */
   maxResults?: number;
 
   /**
+   * @public
    * <p>The pagination token.</p>
    */
   nextToken?: string;
 
   /**
+   * @public
    * <p>The ID of the template.</p>
    */
   templateId?: string;
 
   /**
+   * @public
    * <p>The name of the application configured in Application Discovery Service.</p>
    */
   adsApplicationConfigurationName?: string;
 
   /**
+   * @public
    * <p>The status of the migration workflow.</p>
    */
   status?: MigrationWorkflowStatusEnum | string;
 
   /**
+   * @public
    * <p>The name of the migration workflow.</p>
    */
   name?: string;
@@ -539,51 +599,61 @@ export interface ListMigrationWorkflowsRequest {
  */
 export interface MigrationWorkflowSummary {
   /**
+   * @public
    * <p>The ID of the migration workflow.</p>
    */
   id?: string;
 
   /**
+   * @public
    * <p>The name of the migration workflow.</p>
    */
   name?: string;
 
   /**
+   * @public
    * <p>The ID of the template.</p>
    */
   templateId?: string;
 
   /**
+   * @public
    * <p>The name of the application configured in Application Discovery Service.</p>
    */
   adsApplicationConfigurationName?: string;
 
   /**
+   * @public
    * <p>The status of the migration workflow.</p>
    */
   status?: MigrationWorkflowStatusEnum | string;
 
   /**
+   * @public
    * <p>The time at which the migration workflow was created.</p>
    */
   creationTime?: Date;
 
   /**
+   * @public
    * <p>The time at which the migration workflow ended.</p>
    */
   endTime?: Date;
 
   /**
+   * @public
    * <p>The status message of the migration workflow.</p>
    */
   statusMessage?: string;
 
   /**
+   * @public
    * <p>The steps completed in the migration workflow.</p>
    */
   completedSteps?: number;
 
   /**
+   * @public
    * <p>All the steps in a migration workflow.</p>
    */
   totalSteps?: number;
@@ -594,11 +664,13 @@ export interface MigrationWorkflowSummary {
  */
 export interface ListMigrationWorkflowsResponse {
   /**
+   * @public
    * <p>The pagination token.</p>
    */
   nextToken?: string;
 
   /**
+   * @public
    * <p>The summary of the migration workflow.</p>
    */
   migrationWorkflowSummary: MigrationWorkflowSummary[] | undefined;
@@ -609,6 +681,7 @@ export interface ListMigrationWorkflowsResponse {
  */
 export interface StartMigrationWorkflowRequest {
   /**
+   * @public
    * <p>The ID of the migration workflow.</p>
    */
   id: string | undefined;
@@ -619,26 +692,31 @@ export interface StartMigrationWorkflowRequest {
  */
 export interface StartMigrationWorkflowResponse {
   /**
+   * @public
    * <p>The ID of the migration workflow.</p>
    */
   id?: string;
 
   /**
+   * @public
    * <p>The Amazon Resource Name (ARN) of the migration workflow.</p>
    */
   arn?: string;
 
   /**
+   * @public
    * <p>The status of the migration workflow.</p>
    */
   status?: MigrationWorkflowStatusEnum | string;
 
   /**
+   * @public
    * <p>The status message of the migration workflow.</p>
    */
   statusMessage?: string;
 
   /**
+   * @public
    * <p>The time at which the migration workflow was last started.</p>
    */
   lastStartTime?: Date;
@@ -649,6 +727,7 @@ export interface StartMigrationWorkflowResponse {
  */
 export interface StopMigrationWorkflowRequest {
   /**
+   * @public
    * <p>The ID of the migration workflow.</p>
    */
   id: string | undefined;
@@ -659,26 +738,31 @@ export interface StopMigrationWorkflowRequest {
  */
 export interface StopMigrationWorkflowResponse {
   /**
+   * @public
    * <p>The ID of the migration workflow.</p>
    */
   id?: string;
 
   /**
+   * @public
    * <p>The Amazon Resource Name (ARN) of the migration workflow.</p>
    */
   arn?: string;
 
   /**
+   * @public
    * <p>The status of the migration workflow.</p>
    */
   status?: MigrationWorkflowStatusEnum | string;
 
   /**
+   * @public
    * <p>The status message of the migration workflow.</p>
    */
   statusMessage?: string;
 
   /**
+   * @public
    * <p>The time at which the migration workflow was stopped.</p>
    */
   lastStopTime?: Date;
@@ -689,26 +773,31 @@ export interface StopMigrationWorkflowResponse {
  */
 export interface UpdateMigrationWorkflowRequest {
   /**
+   * @public
    * <p>The ID of the migration workflow.</p>
    */
   id: string | undefined;
 
   /**
+   * @public
    * <p>The name of the migration workflow.</p>
    */
   name?: string;
 
   /**
+   * @public
    * <p>The description of the migration workflow.</p>
    */
   description?: string;
 
   /**
+   * @public
    * <p>The input parameters required to update a migration workflow.</p>
    */
   inputParameters?: Record<string, StepInput>;
 
   /**
+   * @public
    * <p>The servers on which a step will be run.</p>
    */
   stepTargets?: string[];
@@ -719,61 +808,73 @@ export interface UpdateMigrationWorkflowRequest {
  */
 export interface UpdateMigrationWorkflowResponse {
   /**
+   * @public
    * <p>The ID of the migration workflow.</p>
    */
   id?: string;
 
   /**
+   * @public
    * <p>The Amazon Resource Name (ARN) of the migration workflow.</p>
    */
   arn?: string;
 
   /**
+   * @public
    * <p>The name of the migration workflow.</p>
    */
   name?: string;
 
   /**
+   * @public
    * <p>The description of the migration workflow.</p>
    */
   description?: string;
 
   /**
+   * @public
    * <p>The ID of the template.</p>
    */
   templateId?: string;
 
   /**
+   * @public
    * <p>The ID of the application configured in Application Discovery Service.</p>
    */
   adsApplicationConfigurationId?: string;
 
   /**
+   * @public
    * <p>The inputs required to update a migration workflow.</p>
    */
   workflowInputs?: Record<string, StepInput>;
 
   /**
+   * @public
    * <p>The servers on which a step will be run.</p>
    */
   stepTargets?: string[];
 
   /**
+   * @public
    * <p>The status of the migration workflow.</p>
    */
   status?: MigrationWorkflowStatusEnum | string;
 
   /**
+   * @public
    * <p>The time at which the migration workflow was created.</p>
    */
   creationTime?: Date;
 
   /**
+   * @public
    * <p>The time at which the migration workflow was last modified.</p>
    */
   lastModifiedTime?: Date;
 
   /**
+   * @public
    * <p>The tags added to the migration workflow.</p>
    */
   tags?: Record<string, string>;
@@ -784,6 +885,7 @@ export interface UpdateMigrationWorkflowResponse {
  */
 export interface GetMigrationWorkflowTemplateRequest {
   /**
+   * @public
    * <p>The ID of the template.</p>
    */
   id: string | undefined;
@@ -811,16 +913,19 @@ export type DataType = (typeof DataType)[keyof typeof DataType];
  */
 export interface TemplateInput {
   /**
+   * @public
    * <p>The name of the template.</p>
    */
   inputName?: string;
 
   /**
+   * @public
    * <p>The data type of the template input.</p>
    */
   dataType?: DataType | string;
 
   /**
+   * @public
    * <p>Determine if an input is required from the template.</p>
    */
   required?: boolean;
@@ -844,36 +949,43 @@ export type TemplateStatus = (typeof TemplateStatus)[keyof typeof TemplateStatus
  */
 export interface GetMigrationWorkflowTemplateResponse {
   /**
+   * @public
    * <p>The ID of the template.</p>
    */
   id?: string;
 
   /**
+   * @public
    * <p>The name of the template.</p>
    */
   name?: string;
 
   /**
+   * @public
    * <p>The time at which the template was last created.</p>
    */
   description?: string;
 
   /**
+   * @public
    * <p>The inputs provided for the creation of the migration workflow.</p>
    */
   inputs?: TemplateInput[];
 
   /**
+   * @public
    * <p>List of AWS services utilized in a migration workflow.</p>
    */
   tools?: Tool[];
 
   /**
+   * @public
    * <p>The status of the template.</p>
    */
   status?: TemplateStatus | string;
 
   /**
+   * @public
    * <p>The time at which the template was last created.</p>
    */
   creationTime?: Date;
@@ -884,16 +996,19 @@ export interface GetMigrationWorkflowTemplateResponse {
  */
 export interface ListMigrationWorkflowTemplatesRequest {
   /**
+   * @public
    * <p>The maximum number of results that can be returned.</p>
    */
   maxResults?: number;
 
   /**
+   * @public
    * <p>The pagination token.</p>
    */
   nextToken?: string;
 
   /**
+   * @public
    * <p>The name of the template.</p>
    */
   name?: string;
@@ -905,21 +1020,25 @@ export interface ListMigrationWorkflowTemplatesRequest {
  */
 export interface TemplateSummary {
   /**
+   * @public
    * <p>The ID of the template.</p>
    */
   id?: string;
 
   /**
+   * @public
    * <p>The name of the template.</p>
    */
   name?: string;
 
   /**
+   * @public
    * <p>The Amazon Resource Name (ARN) of the template.</p>
    */
   arn?: string;
 
   /**
+   * @public
    * <p>The description of the template.</p>
    */
   description?: string;
@@ -930,11 +1049,13 @@ export interface TemplateSummary {
  */
 export interface ListMigrationWorkflowTemplatesResponse {
   /**
+   * @public
    * <p>The pagination token.</p>
    */
   nextToken?: string;
 
   /**
+   * @public
    * <p>The summary of the template.</p>
    */
   templateSummary: TemplateSummary[] | undefined;
@@ -945,11 +1066,13 @@ export interface ListMigrationWorkflowTemplatesResponse {
  */
 export interface ListPluginsRequest {
   /**
+   * @public
    * <p>The maximum number of plugins that can be returned.</p>
    */
   maxResults?: number;
 
   /**
+   * @public
    * <p>The pagination token.</p>
    */
   nextToken?: string;
@@ -975,31 +1098,37 @@ export type PluginHealth = (typeof PluginHealth)[keyof typeof PluginHealth];
  */
 export interface PluginSummary {
   /**
+   * @public
    * <p>The ID of the plugin.</p>
    */
   pluginId?: string;
 
   /**
+   * @public
    * <p>The name of the host.</p>
    */
   hostname?: string;
 
   /**
+   * @public
    * <p>The status of the plugin.</p>
    */
   status?: PluginHealth | string;
 
   /**
+   * @public
    * <p>The IP address at which the plugin is located.</p>
    */
   ipAddress?: string;
 
   /**
+   * @public
    * <p>The version of the plugin.</p>
    */
   version?: string;
 
   /**
+   * @public
    * <p>The time at which the plugin was registered.</p>
    */
   registeredTime?: string;
@@ -1010,11 +1139,13 @@ export interface PluginSummary {
  */
 export interface ListPluginsResponse {
   /**
+   * @public
    * <p>The pagination token.</p>
    */
   nextToken?: string;
 
   /**
+   * @public
    * <p>Migration Hub Orchestrator plugins.</p>
    */
   plugins?: PluginSummary[];
@@ -1025,11 +1156,13 @@ export interface ListPluginsResponse {
  */
 export interface TagResourceRequest {
   /**
+   * @public
    * <p>The Amazon Resource Name (ARN) of the resource to which you want to add tags.</p>
    */
   resourceArn: string | undefined;
 
   /**
+   * @public
    * <p>A collection of labels, in the form of key:value pairs, that apply to this
    *             resource.</p>
    */
@@ -1046,16 +1179,19 @@ export interface TagResourceResponse {}
  */
 export interface GetTemplateStepRequest {
   /**
+   * @public
    * <p>The ID of the step.</p>
    */
   id: string | undefined;
 
   /**
+   * @public
    * <p>The ID of the template.</p>
    */
   templateId: string | undefined;
 
   /**
+   * @public
    * <p>The ID of the step group.</p>
    */
   stepGroupId: string | undefined;
@@ -1067,16 +1203,19 @@ export interface GetTemplateStepRequest {
  */
 export interface StepOutput {
   /**
+   * @public
    * <p>The name of the step.</p>
    */
   name?: string;
 
   /**
+   * @public
    * <p>The data type of the step output.</p>
    */
   dataType?: DataType | string;
 
   /**
+   * @public
    * <p>Determine if an output is required from a step.</p>
    */
   required?: boolean;
@@ -1102,11 +1241,13 @@ export type StepActionType = (typeof StepActionType)[keyof typeof StepActionType
  */
 export interface PlatformCommand {
   /**
+   * @public
    * <p>Command for Linux.</p>
    */
   linux?: string;
 
   /**
+   * @public
    * <p>Command for Windows.</p>
    */
   windows?: string;
@@ -1132,11 +1273,13 @@ export type RunEnvironment = (typeof RunEnvironment)[keyof typeof RunEnvironment
  */
 export interface PlatformScriptKey {
   /**
+   * @public
    * <p>The script location for Linux.</p>
    */
   linux?: string;
 
   /**
+   * @public
    * <p>The script location for Windows.</p>
    */
   windows?: string;
@@ -1163,26 +1306,31 @@ export type TargetType = (typeof TargetType)[keyof typeof TargetType];
  */
 export interface StepAutomationConfiguration {
   /**
+   * @public
    * <p>The Amazon S3 bucket where the script is located.</p>
    */
   scriptLocationS3Bucket?: string;
 
   /**
+   * @public
    * <p>The Amazon S3 key for the script location.</p>
    */
   scriptLocationS3Key?: PlatformScriptKey;
 
   /**
+   * @public
    * <p>The command to run the script.</p>
    */
   command?: PlatformCommand;
 
   /**
+   * @public
    * <p>The source or target environment.</p>
    */
   runEnvironment?: RunEnvironment | string;
 
   /**
+   * @public
    * <p>The servers on which to run the script.</p>
    */
   targetType?: TargetType | string;
@@ -1193,57 +1341,68 @@ export interface StepAutomationConfiguration {
  */
 export interface GetTemplateStepResponse {
   /**
+   * @public
    * <p>The ID of the step.</p>
    */
   id?: string;
 
   /**
+   * @public
    * <p>The ID of the step group.</p>
    */
   stepGroupId?: string;
 
   /**
+   * @public
    * <p>The ID of the template.</p>
    */
   templateId?: string;
 
   /**
+   * @public
    * <p>The name of the step.</p>
    */
   name?: string;
 
   /**
+   * @public
    * <p>The description of the step.</p>
    */
   description?: string;
 
   /**
+   * @public
    * <p>The action type of the step. You must run and update the status of a manual step for
    *             the workflow to continue after the completion of the step.</p>
    */
   stepActionType?: StepActionType | string;
 
   /**
+   * @public
    * <p>The time at which the step was created.</p>
    */
   creationTime?: string;
 
   /**
+   * @public
    * <p>The previous step.</p>
    */
   previous?: string[];
 
   /**
+   * @public
    * <p>The next step.</p>
    */
   next?: string[];
 
   /**
+   * @public
    * <p>The outputs of the step.</p>
    */
   outputs?: StepOutput[];
 
   /**
+   * @public
    * <p>The custom script to run tests on source or target environments.</p>
    */
   stepAutomationConfiguration?: StepAutomationConfiguration;
@@ -1254,21 +1413,25 @@ export interface GetTemplateStepResponse {
  */
 export interface ListTemplateStepsRequest {
   /**
+   * @public
    * <p>The maximum number of results that can be returned.</p>
    */
   maxResults?: number;
 
   /**
+   * @public
    * <p>The pagination token.</p>
    */
   nextToken?: string;
 
   /**
+   * @public
    * <p>The ID of the template.</p>
    */
   templateId: string | undefined;
 
   /**
+   * @public
    * <p>The ID of the step group.</p>
    */
   stepGroupId: string | undefined;
@@ -1294,47 +1457,56 @@ export type Owner = (typeof Owner)[keyof typeof Owner];
  */
 export interface TemplateStepSummary {
   /**
+   * @public
    * <p>The ID of the step.</p>
    */
   id?: string;
 
   /**
+   * @public
    * <p>The ID of the step group.</p>
    */
   stepGroupId?: string;
 
   /**
+   * @public
    * <p>The ID of the template.</p>
    */
   templateId?: string;
 
   /**
+   * @public
    * <p>The name of the step.</p>
    */
   name?: string;
 
   /**
+   * @public
    * <p>The action type of the step. You must run and update the status of a manual step for
    *             the workflow to continue after the completion of the step.</p>
    */
   stepActionType?: StepActionType | string;
 
   /**
+   * @public
    * <p>The servers on which to run the script.</p>
    */
   targetType?: TargetType | string;
 
   /**
+   * @public
    * <p>The owner of the step.</p>
    */
   owner?: Owner | string;
 
   /**
+   * @public
    * <p>The previous step.</p>
    */
   previous?: string[];
 
   /**
+   * @public
    * <p>The next step.</p>
    */
   next?: string[];
@@ -1345,11 +1517,13 @@ export interface TemplateStepSummary {
  */
 export interface ListTemplateStepsResponse {
   /**
+   * @public
    * <p>The pagination token.</p>
    */
   nextToken?: string;
 
   /**
+   * @public
    * <p>The list of summaries of steps in a template.</p>
    */
   templateStepSummaryList?: TemplateStepSummary[];
@@ -1360,11 +1534,13 @@ export interface ListTemplateStepsResponse {
  */
 export interface GetTemplateStepGroupRequest {
   /**
+   * @public
    * <p>The ID of the template.</p>
    */
   templateId: string | undefined;
 
   /**
+   * @public
    * <p>The ID of the step group.</p>
    */
   id: string | undefined;
@@ -1395,51 +1571,61 @@ export type StepGroupStatus = (typeof StepGroupStatus)[keyof typeof StepGroupSta
  */
 export interface GetTemplateStepGroupResponse {
   /**
+   * @public
    * <p>The ID of the template.</p>
    */
   templateId?: string;
 
   /**
+   * @public
    * <p>The ID of the step group.</p>
    */
   id?: string;
 
   /**
+   * @public
    * <p>The name of the step group.</p>
    */
   name?: string;
 
   /**
+   * @public
    * <p>The description of the step group.</p>
    */
   description?: string;
 
   /**
+   * @public
    * <p>The status of the step group.</p>
    */
   status?: StepGroupStatus | string;
 
   /**
+   * @public
    * <p>The time at which the step group was created.</p>
    */
   creationTime?: Date;
 
   /**
+   * @public
    * <p>The time at which the step group was last modified.</p>
    */
   lastModifiedTime?: Date;
 
   /**
+   * @public
    * <p>List of AWS services utilized in a migration workflow.</p>
    */
   tools?: Tool[];
 
   /**
+   * @public
    * <p>The previous step group.</p>
    */
   previous?: string[];
 
   /**
+   * @public
    * <p>The next step group.</p>
    */
   next?: string[];
@@ -1450,16 +1636,19 @@ export interface GetTemplateStepGroupResponse {
  */
 export interface ListTemplateStepGroupsRequest {
   /**
+   * @public
    * <p>The maximum number of results that can be returned.</p>
    */
   maxResults?: number;
 
   /**
+   * @public
    * <p>The pagination token.</p>
    */
   nextToken?: string;
 
   /**
+   * @public
    * <p>The ID of the template.</p>
    */
   templateId: string | undefined;
@@ -1471,21 +1660,25 @@ export interface ListTemplateStepGroupsRequest {
  */
 export interface TemplateStepGroupSummary {
   /**
+   * @public
    * <p>The ID of the step group.</p>
    */
   id?: string;
 
   /**
+   * @public
    * <p>The name of the step group.</p>
    */
   name?: string;
 
   /**
+   * @public
    * <p>The previous step group.</p>
    */
   previous?: string[];
 
   /**
+   * @public
    * <p>The next step group.</p>
    */
   next?: string[];
@@ -1496,11 +1689,13 @@ export interface TemplateStepGroupSummary {
  */
 export interface ListTemplateStepGroupsResponse {
   /**
+   * @public
    * <p>The pagination token.</p>
    */
   nextToken?: string;
 
   /**
+   * @public
    * <p>The summary of the step group in the template.</p>
    */
   templateStepGroupSummary: TemplateStepGroupSummary[] | undefined;
@@ -1511,12 +1706,14 @@ export interface ListTemplateStepGroupsResponse {
  */
 export interface UntagResourceRequest {
   /**
+   * @public
    * <p>The Amazon Resource Name (ARN) of the resource from which you want to remove
    *             tags.</p>
    */
   resourceArn: string | undefined;
 
   /**
+   * @public
    * <p>One or more tag keys. Specify only the tag keys, not the tag values.</p>
    */
   tagKeys: string[] | undefined;
@@ -1542,6 +1739,7 @@ export type WorkflowStepOutputUnion =
  */
 export namespace WorkflowStepOutputUnion {
   /**
+   * @public
    * <p>The integer value. </p>
    */
   export interface IntegerValueMember {
@@ -1552,6 +1750,7 @@ export namespace WorkflowStepOutputUnion {
   }
 
   /**
+   * @public
    * <p>The string value.</p>
    */
   export interface StringValueMember {
@@ -1562,6 +1761,7 @@ export namespace WorkflowStepOutputUnion {
   }
 
   /**
+   * @public
    * <p>The list of string value.</p>
    */
   export interface ListOfStringValueMember {
@@ -1571,6 +1771,9 @@ export namespace WorkflowStepOutputUnion {
     $unknown?: never;
   }
 
+  /**
+   * @public
+   */
   export interface $UnknownMember {
     integerValue?: never;
     stringValue?: never;
@@ -1599,21 +1802,25 @@ export namespace WorkflowStepOutputUnion {
  */
 export interface WorkflowStepOutput {
   /**
+   * @public
    * <p>The name of the step.</p>
    */
   name?: string;
 
   /**
+   * @public
    * <p>The data type of the output.</p>
    */
   dataType?: DataType | string;
 
   /**
+   * @public
    * <p>Determine if an output is required from a step.</p>
    */
   required?: boolean;
 
   /**
+   * @public
    * <p>The value of the output.</p>
    */
   value?: WorkflowStepOutputUnion;
@@ -1625,26 +1832,31 @@ export interface WorkflowStepOutput {
  */
 export interface WorkflowStepAutomationConfiguration {
   /**
+   * @public
    * <p>The Amazon S3 bucket where the script is located.</p>
    */
   scriptLocationS3Bucket?: string;
 
   /**
+   * @public
    * <p>The Amazon S3 key for the script location.</p>
    */
   scriptLocationS3Key?: PlatformScriptKey;
 
   /**
+   * @public
    * <p>The command required to run the script.</p>
    */
   command?: PlatformCommand;
 
   /**
+   * @public
    * <p>The source or target environment.</p>
    */
   runEnvironment?: RunEnvironment | string;
 
   /**
+   * @public
    * <p>The servers on which to run the script.</p>
    */
   targetType?: TargetType | string;
@@ -1655,52 +1867,62 @@ export interface WorkflowStepAutomationConfiguration {
  */
 export interface CreateWorkflowStepRequest {
   /**
+   * @public
    * <p>The name of the step.</p>
    */
   name: string | undefined;
 
   /**
+   * @public
    * <p>The ID of the step group.</p>
    */
   stepGroupId: string | undefined;
 
   /**
+   * @public
    * <p>The ID of the migration workflow.</p>
    */
   workflowId: string | undefined;
 
   /**
+   * @public
    * <p>The action type of the step. You must run and update the status of a manual step for
    *             the workflow to continue after the completion of the step.</p>
    */
   stepActionType: StepActionType | string | undefined;
 
   /**
+   * @public
    * <p>The description of the step.</p>
    */
   description?: string;
 
   /**
+   * @public
    * <p>The custom script to run tests on source or target environments.</p>
    */
   workflowStepAutomationConfiguration?: WorkflowStepAutomationConfiguration;
 
   /**
+   * @public
    * <p>The servers on which a step will be run.</p>
    */
   stepTarget?: string[];
 
   /**
+   * @public
    * <p>The key value pairs added for the expected output.</p>
    */
   outputs?: WorkflowStepOutput[];
 
   /**
+   * @public
    * <p>The previous step.</p>
    */
   previous?: string[];
 
   /**
+   * @public
    * <p>The next step.</p>
    */
   next?: string[];
@@ -1711,21 +1933,25 @@ export interface CreateWorkflowStepRequest {
  */
 export interface CreateWorkflowStepResponse {
   /**
+   * @public
    * <p>The ID of the step.</p>
    */
   id?: string;
 
   /**
+   * @public
    * <p>The ID of the step group.</p>
    */
   stepGroupId?: string;
 
   /**
+   * @public
    * <p>The ID of the migration workflow.</p>
    */
   workflowId?: string;
 
   /**
+   * @public
    * <p>The name of the step.</p>
    */
   name?: string;
@@ -1736,16 +1962,19 @@ export interface CreateWorkflowStepResponse {
  */
 export interface DeleteWorkflowStepRequest {
   /**
+   * @public
    * <p>The ID of the step you want to delete.</p>
    */
   id: string | undefined;
 
   /**
+   * @public
    * <p>The ID of the step group that contains the step you want to delete.</p>
    */
   stepGroupId: string | undefined;
 
   /**
+   * @public
    * <p>The ID of the migration workflow.</p>
    */
   workflowId: string | undefined;
@@ -1761,16 +1990,19 @@ export interface DeleteWorkflowStepResponse {}
  */
 export interface GetWorkflowStepRequest {
   /**
+   * @public
    * <p>The ID of the migration workflow.</p>
    */
   workflowId: string | undefined;
 
   /**
+   * @public
    * <p>desThe ID of the step group.</p>
    */
   stepGroupId: string | undefined;
 
   /**
+   * @public
    * <p>The ID of the step.</p>
    */
   id: string | undefined;
@@ -1800,107 +2032,128 @@ export type StepStatus = (typeof StepStatus)[keyof typeof StepStatus];
  */
 export interface GetWorkflowStepResponse {
   /**
+   * @public
    * <p>The name of the step.</p>
    */
   name?: string;
 
   /**
+   * @public
    * <p>The ID of the step group.</p>
    */
   stepGroupId?: string;
 
   /**
+   * @public
    * <p>The ID of the migration workflow.</p>
    */
   workflowId?: string;
 
   /**
+   * @public
    * <p>The ID of the step.</p>
    */
   stepId?: string;
 
   /**
+   * @public
    * <p>The description of the step.</p>
    */
   description?: string;
 
   /**
+   * @public
    * <p>The action type of the step. You must run and update the status of a manual step for
    *             the workflow to continue after the completion of the step.</p>
    */
   stepActionType?: StepActionType | string;
 
   /**
+   * @public
    * <p>The owner of the step.</p>
    */
   owner?: Owner | string;
 
   /**
+   * @public
    * <p>The custom script to run tests on source or target environments.</p>
    */
   workflowStepAutomationConfiguration?: WorkflowStepAutomationConfiguration;
 
   /**
+   * @public
    * <p>The servers on which a step will be run.</p>
    */
   stepTarget?: string[];
 
   /**
+   * @public
    * <p>The outputs of the step.</p>
    */
   outputs?: WorkflowStepOutput[];
 
   /**
+   * @public
    * <p>The previous step.</p>
    */
   previous?: string[];
 
   /**
+   * @public
    * <p>The next step.</p>
    */
   next?: string[];
 
   /**
+   * @public
    * <p>The status of the step.</p>
    */
   status?: StepStatus | string;
 
   /**
+   * @public
    * <p>The status message of the migration workflow.</p>
    */
   statusMessage?: string;
 
   /**
+   * @public
    * <p>The output location of the script.</p>
    */
   scriptOutputLocation?: string;
 
   /**
+   * @public
    * <p>The time at which the step was created.</p>
    */
   creationTime?: Date;
 
   /**
+   * @public
    * <p>The time at which the workflow was last started.</p>
    */
   lastStartTime?: Date;
 
   /**
+   * @public
    * <p>The time at which the step ended.</p>
    */
   endTime?: Date;
 
   /**
+   * @public
    * <p>The number of servers that have been migrated.</p>
    */
   noOfSrvCompleted?: number;
 
   /**
+   * @public
    * <p>The number of servers that have failed to migrate.</p>
    */
   noOfSrvFailed?: number;
 
   /**
+   * @public
    * <p>The total number of servers that have been migrated.</p>
    */
   totalNoOfSrv?: number;
@@ -1911,21 +2164,25 @@ export interface GetWorkflowStepResponse {
  */
 export interface ListWorkflowStepsRequest {
   /**
+   * @public
    * <p>The pagination token.</p>
    */
   nextToken?: string;
 
   /**
+   * @public
    * <p>The maximum number of results that can be returned.</p>
    */
   maxResults?: number;
 
   /**
+   * @public
    * <p>The ID of the migration workflow.</p>
    */
   workflowId: string | undefined;
 
   /**
+   * @public
    * <p>The ID of the step group.</p>
    */
   stepGroupId: string | undefined;
@@ -1937,67 +2194,80 @@ export interface ListWorkflowStepsRequest {
  */
 export interface WorkflowStepSummary {
   /**
+   * @public
    * <p>The ID of the step.</p>
    */
   stepId?: string;
 
   /**
+   * @public
    * <p>The name of the step.</p>
    */
   name?: string;
 
   /**
+   * @public
    * <p>The action type of the step. You must run and update the status of a manual step for
    *             the workflow to continue after the completion of the step.</p>
    */
   stepActionType?: StepActionType | string;
 
   /**
+   * @public
    * <p>The owner of the step.</p>
    */
   owner?: Owner | string;
 
   /**
+   * @public
    * <p>The previous step.</p>
    */
   previous?: string[];
 
   /**
+   * @public
    * <p>The next step.</p>
    */
   next?: string[];
 
   /**
+   * @public
    * <p>The status of the step.</p>
    */
   status?: StepStatus | string;
 
   /**
+   * @public
    * <p>The status message of the migration workflow.</p>
    */
   statusMessage?: string;
 
   /**
+   * @public
    * <p>The number of servers that have been migrated.</p>
    */
   noOfSrvCompleted?: number;
 
   /**
+   * @public
    * <p>The number of servers that have failed to migrate.</p>
    */
   noOfSrvFailed?: number;
 
   /**
+   * @public
    * <p>The total number of servers that have been migrated.</p>
    */
   totalNoOfSrv?: number;
 
   /**
+   * @public
    * <p>The description of the step.</p>
    */
   description?: string;
 
   /**
+   * @public
    * <p>The location of the script.</p>
    */
   scriptLocation?: string;
@@ -2008,11 +2278,13 @@ export interface WorkflowStepSummary {
  */
 export interface ListWorkflowStepsResponse {
   /**
+   * @public
    * <p>The pagination token.</p>
    */
   nextToken?: string;
 
   /**
+   * @public
    * <p>The summary of steps in a migration workflow.</p>
    */
   workflowStepsSummary: WorkflowStepSummary[] | undefined;
@@ -2023,16 +2295,19 @@ export interface ListWorkflowStepsResponse {
  */
 export interface RetryWorkflowStepRequest {
   /**
+   * @public
    * <p>The ID of the migration workflow.</p>
    */
   workflowId: string | undefined;
 
   /**
+   * @public
    * <p>The ID of the step group.</p>
    */
   stepGroupId: string | undefined;
 
   /**
+   * @public
    * <p>The ID of the step.</p>
    */
   id: string | undefined;
@@ -2043,21 +2318,25 @@ export interface RetryWorkflowStepRequest {
  */
 export interface RetryWorkflowStepResponse {
   /**
+   * @public
    * <p>The ID of the step group.</p>
    */
   stepGroupId?: string;
 
   /**
+   * @public
    * <p>The ID of the migration workflow.</p>
    */
   workflowId?: string;
 
   /**
+   * @public
    * <p>The ID of the step.</p>
    */
   id?: string;
 
   /**
+   * @public
    * <p>The status of the step.</p>
    */
   status?: StepStatus | string;
@@ -2068,62 +2347,74 @@ export interface RetryWorkflowStepResponse {
  */
 export interface UpdateWorkflowStepRequest {
   /**
+   * @public
    * <p>The ID of the step.</p>
    */
   id: string | undefined;
 
   /**
+   * @public
    * <p>The ID of the step group.</p>
    */
   stepGroupId: string | undefined;
 
   /**
+   * @public
    * <p>The ID of the migration workflow.</p>
    */
   workflowId: string | undefined;
 
   /**
+   * @public
    * <p>The name of the step.</p>
    */
   name?: string;
 
   /**
+   * @public
    * <p>The description of the step.</p>
    */
   description?: string;
 
   /**
+   * @public
    * <p>The action type of the step. You must run and update the status of a manual step for
    *             the workflow to continue after the completion of the step.</p>
    */
   stepActionType?: StepActionType | string;
 
   /**
+   * @public
    * <p>The custom script to run tests on the source and target environments.</p>
    */
   workflowStepAutomationConfiguration?: WorkflowStepAutomationConfiguration;
 
   /**
+   * @public
    * <p>The servers on which a step will be run.</p>
    */
   stepTarget?: string[];
 
   /**
+   * @public
    * <p>The outputs of a step.</p>
    */
   outputs?: WorkflowStepOutput[];
 
   /**
+   * @public
    * <p>The previous step.</p>
    */
   previous?: string[];
 
   /**
+   * @public
    * <p>The next step.</p>
    */
   next?: string[];
 
   /**
+   * @public
    * <p>The status of the step.</p>
    */
   status?: StepStatus | string;
@@ -2134,21 +2425,25 @@ export interface UpdateWorkflowStepRequest {
  */
 export interface UpdateWorkflowStepResponse {
   /**
+   * @public
    * <p>The ID of the step.</p>
    */
   id?: string;
 
   /**
+   * @public
    * <p>The ID of the step group.</p>
    */
   stepGroupId?: string;
 
   /**
+   * @public
    * <p>The ID of the migration workflow.</p>
    */
   workflowId?: string;
 
   /**
+   * @public
    * <p>The name of the step.</p>
    */
   name?: string;
@@ -2159,26 +2454,31 @@ export interface UpdateWorkflowStepResponse {
  */
 export interface CreateWorkflowStepGroupRequest {
   /**
+   * @public
    * <p>The ID of the migration workflow that will contain the step group.</p>
    */
   workflowId: string | undefined;
 
   /**
+   * @public
    * <p>The name of the step group.</p>
    */
   name: string | undefined;
 
   /**
+   * @public
    * <p>The description of the step group.</p>
    */
   description?: string;
 
   /**
+   * @public
    * <p>The next step group.</p>
    */
   next?: string[];
 
   /**
+   * @public
    * <p>The previous step group.</p>
    */
   previous?: string[];
@@ -2189,41 +2489,49 @@ export interface CreateWorkflowStepGroupRequest {
  */
 export interface CreateWorkflowStepGroupResponse {
   /**
+   * @public
    * <p>The ID of the migration workflow that contains the step group.</p>
    */
   workflowId?: string;
 
   /**
+   * @public
    * <p>The name of the step group.</p>
    */
   name?: string;
 
   /**
+   * @public
    * <p>The ID of the step group.</p>
    */
   id?: string;
 
   /**
+   * @public
    * <p>The description of the step group.</p>
    */
   description?: string;
 
   /**
+   * @public
    * <p>List of AWS services utilized in a migration workflow.</p>
    */
   tools?: Tool[];
 
   /**
+   * @public
    * <p>The next step group.</p>
    */
   next?: string[];
 
   /**
+   * @public
    * <p>The previous step group.</p>
    */
   previous?: string[];
 
   /**
+   * @public
    * <p>The time at which the step group is created.</p>
    */
   creationTime?: Date;
@@ -2234,11 +2542,13 @@ export interface CreateWorkflowStepGroupResponse {
  */
 export interface DeleteWorkflowStepGroupRequest {
   /**
+   * @public
    * <p>The ID of the migration workflow.</p>
    */
   workflowId: string | undefined;
 
   /**
+   * @public
    * <p>The ID of the step group you want to delete.</p>
    */
   id: string | undefined;
@@ -2254,11 +2564,13 @@ export interface DeleteWorkflowStepGroupResponse {}
  */
 export interface GetWorkflowStepGroupRequest {
   /**
+   * @public
    * <p>The ID of the step group.</p>
    */
   id: string | undefined;
 
   /**
+   * @public
    * <p>The ID of the migration workflow.</p>
    */
   workflowId: string | undefined;
@@ -2269,61 +2581,73 @@ export interface GetWorkflowStepGroupRequest {
  */
 export interface GetWorkflowStepGroupResponse {
   /**
+   * @public
    * <p>The ID of the step group.</p>
    */
   id?: string;
 
   /**
+   * @public
    * <p>The ID of the migration workflow.</p>
    */
   workflowId?: string;
 
   /**
+   * @public
    * <p>The name of the step group.</p>
    */
   name?: string;
 
   /**
+   * @public
    * <p>The description of the step group.</p>
    */
   description?: string;
 
   /**
+   * @public
    * <p>The status of the step group.</p>
    */
   status?: StepGroupStatus | string;
 
   /**
+   * @public
    * <p>The owner of the step group.</p>
    */
   owner?: Owner | string;
 
   /**
+   * @public
    * <p>The time at which the step group was created.</p>
    */
   creationTime?: Date;
 
   /**
+   * @public
    * <p>The time at which the step group was last modified.</p>
    */
   lastModifiedTime?: Date;
 
   /**
+   * @public
    * <p>The time at which the step group ended.</p>
    */
   endTime?: Date;
 
   /**
+   * @public
    * <p>List of AWS services utilized in a migration workflow.</p>
    */
   tools?: Tool[];
 
   /**
+   * @public
    * <p>The previous step group.</p>
    */
   previous?: string[];
 
   /**
+   * @public
    * <p>The next step group.</p>
    */
   next?: string[];
@@ -2334,16 +2658,19 @@ export interface GetWorkflowStepGroupResponse {
  */
 export interface ListWorkflowStepGroupsRequest {
   /**
+   * @public
    * <p>The pagination token.</p>
    */
   nextToken?: string;
 
   /**
+   * @public
    * <p>The maximum number of results that can be returned.</p>
    */
   maxResults?: number;
 
   /**
+   * @public
    * <p>The ID of the migration workflow.</p>
    */
   workflowId: string | undefined;
@@ -2355,31 +2682,37 @@ export interface ListWorkflowStepGroupsRequest {
  */
 export interface WorkflowStepGroupSummary {
   /**
+   * @public
    * <p>The ID of the step group.</p>
    */
   id?: string;
 
   /**
+   * @public
    * <p>The name of the step group.</p>
    */
   name?: string;
 
   /**
+   * @public
    * <p>The owner of the step group.</p>
    */
   owner?: Owner | string;
 
   /**
+   * @public
    * <p>The status of the step group.</p>
    */
   status?: StepGroupStatus | string;
 
   /**
+   * @public
    * <p>The previous step group.</p>
    */
   previous?: string[];
 
   /**
+   * @public
    * <p>The next step group.</p>
    */
   next?: string[];
@@ -2390,11 +2723,13 @@ export interface WorkflowStepGroupSummary {
  */
 export interface ListWorkflowStepGroupsResponse {
   /**
+   * @public
    * <p>The pagination token.</p>
    */
   nextToken?: string;
 
   /**
+   * @public
    * <p>The summary of step groups in a migration workflow.</p>
    */
   workflowStepGroupsSummary: WorkflowStepGroupSummary[] | undefined;
@@ -2405,31 +2740,37 @@ export interface ListWorkflowStepGroupsResponse {
  */
 export interface UpdateWorkflowStepGroupRequest {
   /**
+   * @public
    * <p>The ID of the migration workflow.</p>
    */
   workflowId: string | undefined;
 
   /**
+   * @public
    * <p>The ID of the step group.</p>
    */
   id: string | undefined;
 
   /**
+   * @public
    * <p>The name of the step group.</p>
    */
   name?: string;
 
   /**
+   * @public
    * <p>The description of the step group.</p>
    */
   description?: string;
 
   /**
+   * @public
    * <p>The next step group.</p>
    */
   next?: string[];
 
   /**
+   * @public
    * <p>The previous step group.</p>
    */
   previous?: string[];
@@ -2440,41 +2781,49 @@ export interface UpdateWorkflowStepGroupRequest {
  */
 export interface UpdateWorkflowStepGroupResponse {
   /**
+   * @public
    * <p>The ID of the migration workflow.</p>
    */
   workflowId?: string;
 
   /**
+   * @public
    * <p>The name of the step group.</p>
    */
   name?: string;
 
   /**
+   * @public
    * <p>The ID of the step group.</p>
    */
   id?: string;
 
   /**
+   * @public
    * <p>The description of the step group.</p>
    */
   description?: string;
 
   /**
+   * @public
    * <p>List of AWS services utilized in a migration workflow.</p>
    */
   tools?: Tool[];
 
   /**
+   * @public
    * <p>The next step group.</p>
    */
   next?: string[];
 
   /**
+   * @public
    * <p>The previous step group.</p>
    */
   previous?: string[];
 
   /**
+   * @public
    * <p>The time at which the step group was last modified.</p>
    */
   lastModifiedTime?: Date;

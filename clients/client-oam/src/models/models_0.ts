@@ -12,6 +12,7 @@ export class ConflictException extends __BaseException {
   readonly $fault: "client" = "client";
   Message?: string;
   /**
+   * @public
    * <p>The name of the exception.</p>
    */
   amznErrorType?: string;
@@ -50,6 +51,7 @@ export type ResourceType = (typeof ResourceType)[keyof typeof ResourceType];
  */
 export interface CreateLinkInput {
   /**
+   * @public
    * <p>Specify a friendly human-readable name to use to identify this source account when you are viewing data from it in the monitoring
    *             account.</p>
    *         <p>You can use a custom label or use the following variables:</p>
@@ -71,12 +73,14 @@ export interface CreateLinkInput {
   LabelTemplate: string | undefined;
 
   /**
+   * @public
    * <p>An array of strings that define which types of data that the source account shares with the monitoring
    *             account.</p>
    */
   ResourceTypes: (ResourceType | string)[] | undefined;
 
   /**
+   * @public
    * <p>The ARN of the sink to use to create this link. You can use <a href="https://docs.aws.amazon.com/OAM/latest/APIReference/API_ListSinks.html">ListSinks</a> to find the ARNs of sinks.</p>
    *         <p>For more information about sinks, see
    *             <a href="https://docs.aws.amazon.com/OAM/latest/APIReference/API_CreateSink.html">CreateSink</a>.</p>
@@ -84,6 +88,7 @@ export interface CreateLinkInput {
   SinkIdentifier: string | undefined;
 
   /**
+   * @public
    * <p>Assigns one or more tags (key-value pairs) to the link. </p>
    *         <p>Tags can help you organize and categorize your resources. You can also use them to scope user
    *             permissions by granting a user
@@ -99,37 +104,44 @@ export interface CreateLinkInput {
  */
 export interface CreateLinkOutput {
   /**
+   * @public
    * <p>The ARN of the link that is newly created.</p>
    */
   Arn?: string;
 
   /**
+   * @public
    * <p>The random ID string that Amazon Web Services generated as part of the link ARN.</p>
    */
   Id?: string;
 
   /**
+   * @public
    * <p>The label that you assigned to this link. If the <code>labelTemplate</code> includes variables,
    *             this field displays the variables resolved to their actual values.</p>
    */
   Label?: string;
 
   /**
+   * @public
    * <p>The exact label template that you specified, with the variables not resolved.</p>
    */
   LabelTemplate?: string;
 
   /**
+   * @public
    * <p>The resource types supported by this link.</p>
    */
   ResourceTypes?: string[];
 
   /**
+   * @public
    * <p>The ARN of the sink that is used for this link.</p>
    */
   SinkArn?: string;
 
   /**
+   * @public
    * <p>The tags assigned to the link.</p>
    */
   Tags?: Record<string, string>;
@@ -144,6 +156,7 @@ export class InternalServiceFault extends __BaseException {
   readonly $fault: "server" = "server";
   Message?: string;
   /**
+   * @public
    * <p>The name of the exception.</p>
    */
   amznErrorType?: string;
@@ -170,6 +183,7 @@ export class InvalidParameterException extends __BaseException {
   readonly name: "InvalidParameterException" = "InvalidParameterException";
   readonly $fault: "client" = "client";
   /**
+   * @public
    * <p>The name of the exception.</p>
    */
   amznErrorType?: string;
@@ -196,6 +210,7 @@ export class MissingRequiredParameterException extends __BaseException {
   readonly name: "MissingRequiredParameterException" = "MissingRequiredParameterException";
   readonly $fault: "client" = "client";
   /**
+   * @public
    * <p>The name of the exception.</p>
    */
   amznErrorType?: string;
@@ -223,6 +238,7 @@ export class ServiceQuotaExceededException extends __BaseException {
   readonly $fault: "client" = "client";
   Message?: string;
   /**
+   * @public
    * <p>The name of the exception.</p>
    */
   amznErrorType?: string;
@@ -246,11 +262,13 @@ export class ServiceQuotaExceededException extends __BaseException {
  */
 export interface CreateSinkInput {
   /**
+   * @public
    * <p>A name for the sink.</p>
    */
   Name: string | undefined;
 
   /**
+   * @public
    * <p>Assigns one or more tags (key-value pairs) to the link. </p>
    *         <p>Tags can help you organize and categorize your resources. You can also use them to scope user
    *             permissions by granting a user
@@ -266,21 +284,25 @@ export interface CreateSinkInput {
  */
 export interface CreateSinkOutput {
   /**
+   * @public
    * <p>The ARN of the sink that is newly created.</p>
    */
   Arn?: string;
 
   /**
+   * @public
    * <p>The random ID string that Amazon Web Services generated as part of the sink ARN.</p>
    */
   Id?: string;
 
   /**
+   * @public
    * <p>The name of the sink.</p>
    */
   Name?: string;
 
   /**
+   * @public
    * <p>The tags assigned to the sink.</p>
    */
   Tags?: Record<string, string>;
@@ -291,6 +313,7 @@ export interface CreateSinkOutput {
  */
 export interface DeleteLinkInput {
   /**
+   * @public
    * <p>The ARN of the link to delete.</p>
    */
   Identifier: string | undefined;
@@ -310,6 +333,7 @@ export class ResourceNotFoundException extends __BaseException {
   readonly $fault: "client" = "client";
   Message?: string;
   /**
+   * @public
    * <p>The name of the exception.</p>
    */
   amznErrorType?: string;
@@ -333,6 +357,7 @@ export class ResourceNotFoundException extends __BaseException {
  */
 export interface DeleteSinkInput {
   /**
+   * @public
    * <p>The ARN of the sink to delete.</p>
    */
   Identifier: string | undefined;
@@ -348,6 +373,7 @@ export interface DeleteSinkOutput {}
  */
 export interface GetLinkInput {
   /**
+   * @public
    * <p>The ARN of the link to retrieve information for.</p>
    */
   Identifier: string | undefined;
@@ -358,36 +384,43 @@ export interface GetLinkInput {
  */
 export interface GetLinkOutput {
   /**
+   * @public
    * <p>The ARN of the link.</p>
    */
   Arn?: string;
 
   /**
+   * @public
    * <p>The random ID string that Amazon Web Services generated as part of the link ARN.</p>
    */
   Id?: string;
 
   /**
+   * @public
    * <p>The label that you assigned to this link, with the variables resolved to their actual values.</p>
    */
   Label?: string;
 
   /**
+   * @public
    * <p>The exact label template that was specified when the link was created, with the template variables not resolved.</p>
    */
   LabelTemplate?: string;
 
   /**
+   * @public
    * <p>The resource types supported by this link.</p>
    */
   ResourceTypes?: string[];
 
   /**
+   * @public
    * <p>The ARN of the sink that is used for this link.</p>
    */
   SinkArn?: string;
 
   /**
+   * @public
    * <p>The tags assigned to the link.</p>
    */
   Tags?: Record<string, string>;
@@ -398,6 +431,7 @@ export interface GetLinkOutput {
  */
 export interface GetSinkInput {
   /**
+   * @public
    * <p>The ARN of the sink to retrieve information for.</p>
    */
   Identifier: string | undefined;
@@ -408,21 +442,25 @@ export interface GetSinkInput {
  */
 export interface GetSinkOutput {
   /**
+   * @public
    * <p>The ARN of the sink.</p>
    */
   Arn?: string;
 
   /**
+   * @public
    * <p>The random ID string that Amazon Web Services generated as part of the sink ARN.</p>
    */
   Id?: string;
 
   /**
+   * @public
    * <p>The name of the sink.</p>
    */
   Name?: string;
 
   /**
+   * @public
    * <p>The tags assigned to the sink.</p>
    */
   Tags?: Record<string, string>;
@@ -433,6 +471,7 @@ export interface GetSinkOutput {
  */
 export interface GetSinkPolicyInput {
   /**
+   * @public
    * <p>The ARN of the sink to retrieve the policy of.</p>
    */
   SinkIdentifier: string | undefined;
@@ -443,16 +482,19 @@ export interface GetSinkPolicyInput {
  */
 export interface GetSinkPolicyOutput {
   /**
+   * @public
    * <p>The ARN of the sink.</p>
    */
   SinkArn?: string;
 
   /**
+   * @public
    * <p>The random ID string that Amazon Web Services generated as part of the sink ARN.</p>
    */
   SinkId?: string;
 
   /**
+   * @public
    * <p>The policy that you specified, in JSON format.</p>
    */
   Policy?: string;
@@ -463,16 +505,19 @@ export interface GetSinkPolicyOutput {
  */
 export interface ListAttachedLinksInput {
   /**
+   * @public
    * <p>Limits the number of returned links to the specified number.</p>
    */
   MaxResults?: number;
 
   /**
+   * @public
    * <p>The token for the next set of items to return. You received this token from a previous call.</p>
    */
   NextToken?: string;
 
   /**
+   * @public
    * <p>The ARN of the sink that you want to retrieve links for.</p>
    */
   SinkIdentifier: string | undefined;
@@ -485,16 +530,19 @@ export interface ListAttachedLinksInput {
  */
 export interface ListAttachedLinksItem {
   /**
+   * @public
    * <p>The label that was assigned to this link at creation, with the variables resolved to their actual values.</p>
    */
   Label?: string;
 
   /**
+   * @public
    * <p>The ARN of the link.</p>
    */
   LinkArn?: string;
 
   /**
+   * @public
    * <p>The resource types supported by this link.</p>
    */
   ResourceTypes?: string[];
@@ -505,11 +553,13 @@ export interface ListAttachedLinksItem {
  */
 export interface ListAttachedLinksOutput {
   /**
+   * @public
    * <p>An array of structures that contain the information about the attached links.</p>
    */
   Items: ListAttachedLinksItem[] | undefined;
 
   /**
+   * @public
    * <p>The token to use when requesting the next set of links.</p>
    */
   NextToken?: string;
@@ -520,11 +570,13 @@ export interface ListAttachedLinksOutput {
  */
 export interface ListLinksInput {
   /**
+   * @public
    * <p>Limits the number of returned links to the specified number.</p>
    */
   MaxResults?: number;
 
   /**
+   * @public
    * <p>The token for the next set of items to return. You received this token from a previous call.</p>
    */
   NextToken?: string;
@@ -536,26 +588,31 @@ export interface ListLinksInput {
  */
 export interface ListLinksItem {
   /**
+   * @public
    * <p>The ARN of the link.</p>
    */
   Arn?: string;
 
   /**
+   * @public
    * <p>The random ID string that Amazon Web Services generated as part of the link ARN.</p>
    */
   Id?: string;
 
   /**
+   * @public
    * <p>The label that was assigned to this link at creation, with the variables resolved to their actual values.</p>
    */
   Label?: string;
 
   /**
+   * @public
    * <p>The resource types supported by this link.</p>
    */
   ResourceTypes?: string[];
 
   /**
+   * @public
    * <p>The ARN of the sink that this link is attached to.</p>
    */
   SinkArn?: string;
@@ -566,11 +623,13 @@ export interface ListLinksItem {
  */
 export interface ListLinksOutput {
   /**
+   * @public
    * <p>An array of structures that contain the information about the returned links.</p>
    */
   Items: ListLinksItem[] | undefined;
 
   /**
+   * @public
    * <p>The token to use when requesting the next set of links.</p>
    */
   NextToken?: string;
@@ -581,11 +640,13 @@ export interface ListLinksOutput {
  */
 export interface ListSinksInput {
   /**
+   * @public
    * <p>Limits the number of returned links to the specified number.</p>
    */
   MaxResults?: number;
 
   /**
+   * @public
    * <p>The token for the next set of items to return. You received this token from a previous call.</p>
    */
   NextToken?: string;
@@ -597,16 +658,19 @@ export interface ListSinksInput {
  */
 export interface ListSinksItem {
   /**
+   * @public
    * <p>The ARN of the sink.</p>
    */
   Arn?: string;
 
   /**
+   * @public
    * <p>The random ID string that Amazon Web Services generated as part of the sink ARN.</p>
    */
   Id?: string;
 
   /**
+   * @public
    * <p>The name of the sink.</p>
    */
   Name?: string;
@@ -617,11 +681,13 @@ export interface ListSinksItem {
  */
 export interface ListSinksOutput {
   /**
+   * @public
    * <p>An array of structures that contain the information about the returned sinks.</p>
    */
   Items: ListSinksItem[] | undefined;
 
   /**
+   * @public
    * <p>The token to use when requesting the next set of sinks.</p>
    */
   NextToken?: string;
@@ -632,6 +698,7 @@ export interface ListSinksOutput {
  */
 export interface ListTagsForResourceInput {
   /**
+   * @public
    * <p>The ARN of the  resource that you want to view tags for.</p>
    *         <p>The ARN format of a sink is
    *             <code>arn:aws:oam:<i>Region</i>:<i>account-id</i>:sink/<i>sink-id</i>
@@ -658,6 +725,7 @@ export interface ListTagsForResourceInput {
  */
 export interface ListTagsForResourceOutput {
   /**
+   * @public
    * <p>The list of tags associated with the requested resource.&gt;</p>
    */
   Tags?: Record<string, string>;
@@ -690,11 +758,13 @@ export class ValidationException extends __BaseException {
  */
 export interface PutSinkPolicyInput {
   /**
+   * @public
    * <p>The ARN of the sink to attach this policy to.</p>
    */
   SinkIdentifier: string | undefined;
 
   /**
+   * @public
    * <p>The JSON policy to use. If you are updating an existing policy, the entire existing policy is
    *             replaced by what you specify here.</p>
    *         <p>The policy must be in JSON string format with quotation marks escaped and no newlines.</p>
@@ -708,16 +778,19 @@ export interface PutSinkPolicyInput {
  */
 export interface PutSinkPolicyOutput {
   /**
+   * @public
    * <p>The ARN of the sink.</p>
    */
   SinkArn?: string;
 
   /**
+   * @public
    * <p>The random ID string that Amazon Web Services generated as part of the sink ARN.</p>
    */
   SinkId?: string;
 
   /**
+   * @public
    * <p>The policy that you specified.</p>
    */
   Policy?: string;
@@ -728,6 +801,7 @@ export interface PutSinkPolicyOutput {
  */
 export interface TagResourceInput {
   /**
+   * @public
    * <p>The ARN of the  resource that you're adding tags to.</p>
    *         <p>The ARN format of a sink is
    *             <code>arn:aws:oam:<i>Region</i>:<i>account-id</i>:sink/<i>sink-id</i>
@@ -743,6 +817,7 @@ export interface TagResourceInput {
   ResourceArn: string | undefined;
 
   /**
+   * @public
    * <p>The list of key-value pairs to associate with the resource.</p>
    */
   Tags: Record<string, string> | undefined;
@@ -780,6 +855,7 @@ export class TooManyTagsException extends __BaseException {
  */
 export interface UntagResourceInput {
   /**
+   * @public
    * <p>The ARN of the resource that you're removing tags from.</p>
    *         <p>The ARN format of a sink is
    *             <code>arn:aws:oam:<i>Region</i>:<i>account-id</i>:sink/<i>sink-id</i>
@@ -795,6 +871,7 @@ export interface UntagResourceInput {
   ResourceArn: string | undefined;
 
   /**
+   * @public
    * <p>The list of tag keys to remove from the resource.</p>
    */
   TagKeys: string[] | undefined;
@@ -810,11 +887,13 @@ export interface UntagResourceOutput {}
  */
 export interface UpdateLinkInput {
   /**
+   * @public
    * <p>The ARN of the link that you want to update.</p>
    */
   Identifier: string | undefined;
 
   /**
+   * @public
    * <p>An array of strings that define which types of data that the source account will send to the monitoring
    *             account.</p>
    *         <p>Your input here replaces the current set of data types that are shared.</p>
@@ -827,36 +906,43 @@ export interface UpdateLinkInput {
  */
 export interface UpdateLinkOutput {
   /**
+   * @public
    * <p>The ARN of the link that you have updated.</p>
    */
   Arn?: string;
 
   /**
+   * @public
    * <p>The random ID string that Amazon Web Services generated as part of the sink ARN.</p>
    */
   Id?: string;
 
   /**
+   * @public
    * <p>The label assigned to this link, with the variables resolved to their actual values.</p>
    */
   Label?: string;
 
   /**
+   * @public
    * <p>The exact label template that was specified when the link was created, with the template variables not resolved.</p>
    */
   LabelTemplate?: string;
 
   /**
+   * @public
    * <p>The resource types now supported by this link.</p>
    */
   ResourceTypes?: string[];
 
   /**
+   * @public
    * <p>The ARN of the sink that is used for this link.</p>
    */
   SinkArn?: string;
 
   /**
+   * @public
    * <p>The tags assigned to the link.</p>
    */
   Tags?: Record<string, string>;

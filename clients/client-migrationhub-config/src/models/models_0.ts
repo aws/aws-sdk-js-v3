@@ -46,11 +46,13 @@ export type TargetType = (typeof TargetType)[keyof typeof TargetType];
  */
 export interface Target {
   /**
+   * @public
    * <p>The target type is always an <code>ACCOUNT</code>.</p>
    */
   Type: TargetType | string | undefined;
 
   /**
+   * @public
    * <p>The <code>TargetID</code> is a 12-character identifier of the <code>ACCOUNT</code> for
    *       which the control was created. (This must be the current account.) </p>
    */
@@ -62,17 +64,20 @@ export interface Target {
  */
 export interface CreateHomeRegionControlRequest {
   /**
+   * @public
    * <p>The name of the home region of the calling account.</p>
    */
   HomeRegion: string | undefined;
 
   /**
+   * @public
    * <p>The account for which this command sets up a home region control. The <code>Target</code>
    *       is always of type <code>ACCOUNT</code>.</p>
    */
   Target: Target | undefined;
 
   /**
+   * @public
    * <p>Optional Boolean flag to indicate whether any effect should take place. It tests whether
    *       the caller has permission to make the call.</p>
    */
@@ -87,18 +92,21 @@ export interface CreateHomeRegionControlRequest {
  */
 export interface HomeRegionControl {
   /**
+   * @public
    * <p>A unique identifier that's generated for each home region control. It's always a string
    *       that begins with "hrc-" followed by 12 lowercase letters and numbers.</p>
    */
   ControlId?: string;
 
   /**
+   * @public
    * <p>The AWS Region that's been set as home region. For example, "us-west-2" or "eu-central-1"
    *       are valid home regions.</p>
    */
   HomeRegion?: string;
 
   /**
+   * @public
    * <p>The target parameter specifies the identifier to which the home region is applied, which
    *       is always an <code>ACCOUNT</code>. It applies the home region to the current
    *         <code>ACCOUNT</code>.</p>
@@ -106,6 +114,7 @@ export interface HomeRegionControl {
   Target?: Target;
 
   /**
+   * @public
    * <p>A timestamp representing the time when the customer called
    *         <code>CreateHomeregionControl</code> and set the home region for the account.</p>
    */
@@ -117,6 +126,7 @@ export interface HomeRegionControl {
  */
 export interface CreateHomeRegionControlResult {
   /**
+   * @public
    * <p>This object is the <code>HomeRegionControl</code> object that's returned by a successful
    *       call to <code>CreateHomeRegionControl</code>.</p>
    */
@@ -224,6 +234,7 @@ export class ThrottlingException extends __BaseException {
   readonly $fault: "client" = "client";
   Message: string | undefined;
   /**
+   * @public
    * <p>The number of seconds the caller should wait before retrying.</p>
    */
   RetryAfterSeconds?: number;
@@ -247,17 +258,20 @@ export class ThrottlingException extends __BaseException {
  */
 export interface DescribeHomeRegionControlsRequest {
   /**
+   * @public
    * <p>The <code>ControlID</code> is a unique identifier string of your
    *         <code>HomeRegionControl</code> object.</p>
    */
   ControlId?: string;
 
   /**
+   * @public
    * <p>The name of the home region you'd like to view.</p>
    */
   HomeRegion?: string;
 
   /**
+   * @public
    * <p>The target parameter specifies the identifier to which the home region is applied, which
    *       is always of type <code>ACCOUNT</code>. It applies the home region to the current
    *         <code>ACCOUNT</code>.</p>
@@ -265,11 +279,13 @@ export interface DescribeHomeRegionControlsRequest {
   Target?: Target;
 
   /**
+   * @public
    * <p>The maximum number of filtering results to display per page. </p>
    */
   MaxResults?: number;
 
   /**
+   * @public
    * <p>If a <code>NextToken</code> was returned by a previous call, more results are available.
    *       To retrieve the next page of results, make the call again using the returned token in
    *         <code>NextToken</code>.</p>
@@ -282,11 +298,13 @@ export interface DescribeHomeRegionControlsRequest {
  */
 export interface DescribeHomeRegionControlsResult {
   /**
+   * @public
    * <p>An array that contains your <code>HomeRegionControl</code> objects.</p>
    */
   HomeRegionControls?: HomeRegionControl[];
 
   /**
+   * @public
    * <p>If a <code>NextToken</code> was returned by a previous call, more results are available.
    *       To retrieve the next page of results, make the call again using the returned token in
    *         <code>NextToken</code>.</p>
@@ -304,6 +322,7 @@ export interface GetHomeRegionRequest {}
  */
 export interface GetHomeRegionResult {
   /**
+   * @public
    * <p>The name of the home region of the calling account.</p>
    */
   HomeRegion?: string;

@@ -8,33 +8,39 @@ import { SavingsplansServiceException as __BaseException } from "./SavingsplansS
  */
 export interface CreateSavingsPlanRequest {
   /**
+   * @public
    * <p>The ID of the offering.</p>
    */
   savingsPlanOfferingId: string | undefined;
 
   /**
+   * @public
    * <p>The hourly commitment, in USD. This is a value between 0.001 and 1 million. You cannot specify more
    *         than five digits after the decimal point.</p>
    */
   commitment: string | undefined;
 
   /**
+   * @public
    * <p>The up-front payment amount. This is a whole number between 50 and 99 percent of the total value of the Savings Plan.
    *        This parameter is supported only if the payment option is <code>Partial Upfront</code>.</p>
    */
   upfrontPaymentAmount?: string;
 
   /**
+   * @public
    * <p>The time at which to purchase the Savings Plan, in UTC format (YYYY-MM-DDTHH:MM:SSZ).</p>
    */
   purchaseTime?: Date;
 
   /**
+   * @public
    * <p>Unique, case-sensitive identifier that you provide to ensure the idempotency of the request.</p>
    */
   clientToken?: string;
 
   /**
+   * @public
    * <p>One or more tags.</p>
    */
   tags?: Record<string, string>;
@@ -45,6 +51,7 @@ export interface CreateSavingsPlanRequest {
  */
 export interface CreateSavingsPlanResponse {
   /**
+   * @public
    * <p>The ID of the Savings Plan.</p>
    */
   savingsPlanId?: string;
@@ -135,6 +142,7 @@ export class ValidationException extends __BaseException {
  */
 export interface DeleteQueuedSavingsPlanRequest {
   /**
+   * @public
    * <p>The ID of the Savings Plan.</p>
    */
   savingsPlanId: string | undefined;
@@ -171,11 +179,13 @@ export type SavingsPlanRateFilterName = (typeof SavingsPlanRateFilterName)[keyof
  */
 export interface SavingsPlanRateFilter {
   /**
+   * @public
    * <p>The filter name.</p>
    */
   name?: SavingsPlanRateFilterName | string;
 
   /**
+   * @public
    * <p>The filter values.</p>
    */
   values?: string[];
@@ -186,21 +196,25 @@ export interface SavingsPlanRateFilter {
  */
 export interface DescribeSavingsPlanRatesRequest {
   /**
+   * @public
    * <p>The ID of the Savings Plan.</p>
    */
   savingsPlanId: string | undefined;
 
   /**
+   * @public
    * <p>The filters.</p>
    */
   filters?: SavingsPlanRateFilter[];
 
   /**
+   * @public
    * <p>The token for the next page of results.</p>
    */
   nextToken?: string;
 
   /**
+   * @public
    * <p>The maximum number of results to return with a single call. To retrieve additional results, make another
    *          call with the returned token value.</p>
    */
@@ -260,11 +274,13 @@ export type SavingsPlanRatePropertyKey = (typeof SavingsPlanRatePropertyKey)[key
  */
 export interface SavingsPlanRateProperty {
   /**
+   * @public
    * <p>The property name.</p>
    */
   name?: SavingsPlanRatePropertyKey | string;
 
   /**
+   * @public
    * <p>The property value.</p>
    */
   value?: string;
@@ -308,41 +324,49 @@ export type SavingsPlanRateUnit = (typeof SavingsPlanRateUnit)[keyof typeof Savi
  */
 export interface SavingsPlanRate {
   /**
+   * @public
    * <p>The rate.</p>
    */
   rate?: string;
 
   /**
+   * @public
    * <p>The currency.</p>
    */
   currency?: CurrencyCode | string;
 
   /**
+   * @public
    * <p>The unit.</p>
    */
   unit?: SavingsPlanRateUnit | string;
 
   /**
+   * @public
    * <p>The product type.</p>
    */
   productType?: SavingsPlanProductType | string;
 
   /**
+   * @public
    * <p>The service.</p>
    */
   serviceCode?: SavingsPlanRateServiceCode | string;
 
   /**
+   * @public
    * <p>The usage details of the line item in the billing report.</p>
    */
   usageType?: string;
 
   /**
+   * @public
    * <p>The specific AWS operation for the line item in the billing report.</p>
    */
   operation?: string;
 
   /**
+   * @public
    * <p>The properties.</p>
    */
   properties?: SavingsPlanRateProperty[];
@@ -353,16 +377,19 @@ export interface SavingsPlanRate {
  */
 export interface DescribeSavingsPlanRatesResponse {
   /**
+   * @public
    * <p>The ID of the Savings Plan.</p>
    */
   savingsPlanId?: string;
 
   /**
+   * @public
    * <p>Information about the Savings Plans rates.</p>
    */
   searchResults?: SavingsPlanRate[];
 
   /**
+   * @public
    * <p>The token to use to retrieve the next page of results. This value is null when there are no more
    *          results to return. </p>
    */
@@ -396,11 +423,13 @@ export type SavingsPlansFilterName = (typeof SavingsPlansFilterName)[keyof typeo
  */
 export interface SavingsPlanFilter {
   /**
+   * @public
    * <p>The filter name.</p>
    */
   name?: SavingsPlansFilterName | string;
 
   /**
+   * @public
    * <p>The filter value.</p>
    */
   values?: string[];
@@ -429,32 +458,38 @@ export type SavingsPlanState = (typeof SavingsPlanState)[keyof typeof SavingsPla
  */
 export interface DescribeSavingsPlansRequest {
   /**
+   * @public
    * <p>The Amazon Resource Names (ARN) of the Savings Plans.</p>
    */
   savingsPlanArns?: string[];
 
   /**
+   * @public
    * <p>The IDs of the Savings Plans.</p>
    */
   savingsPlanIds?: string[];
 
   /**
+   * @public
    * <p>The token for the next page of results.</p>
    */
   nextToken?: string;
 
   /**
+   * @public
    * <p>The maximum number of results to return with a single call. To retrieve additional results, make another
    *        call with the returned token value.</p>
    */
   maxResults?: number;
 
   /**
+   * @public
    * <p>The states.</p>
    */
   states?: (SavingsPlanState | string)[];
 
   /**
+   * @public
    * <p>The filters.</p>
    */
   filters?: SavingsPlanFilter[];
@@ -496,91 +531,109 @@ export type SavingsPlanType = (typeof SavingsPlanType)[keyof typeof SavingsPlanT
  */
 export interface SavingsPlan {
   /**
+   * @public
    * <p>The ID of the offering.</p>
    */
   offeringId?: string;
 
   /**
+   * @public
    * <p>The ID of the Savings Plan.</p>
    */
   savingsPlanId?: string;
 
   /**
+   * @public
    * <p>The Amazon Resource Name (ARN) of the Savings Plan.</p>
    */
   savingsPlanArn?: string;
 
   /**
+   * @public
    * <p>The description.</p>
    */
   description?: string;
 
   /**
+   * @public
    * <p>The start time.</p>
    */
   start?: string;
 
   /**
+   * @public
    * <p>The end time.</p>
    */
   end?: string;
 
   /**
+   * @public
    * <p>The state.</p>
    */
   state?: SavingsPlanState | string;
 
   /**
+   * @public
    * <p>The AWS Region.</p>
    */
   region?: string;
 
   /**
+   * @public
    * <p>The EC2 instance family.</p>
    */
   ec2InstanceFamily?: string;
 
   /**
+   * @public
    * <p>The plan type.</p>
    */
   savingsPlanType?: SavingsPlanType | string;
 
   /**
+   * @public
    * <p>The payment option.</p>
    */
   paymentOption?: SavingsPlanPaymentOption | string;
 
   /**
+   * @public
    * <p>The product types.</p>
    */
   productTypes?: (SavingsPlanProductType | string)[];
 
   /**
+   * @public
    * <p>The currency.</p>
    */
   currency?: CurrencyCode | string;
 
   /**
+   * @public
    * <p>The hourly commitment, in USD.</p>
    */
   commitment?: string;
 
   /**
+   * @public
    * <p>The up-front payment amount.</p>
    */
   upfrontPaymentAmount?: string;
 
   /**
+   * @public
    * <p>The recurring payment amount.</p>
    */
   recurringPaymentAmount?: string;
 
   /**
+   * @public
    * <p>The duration of the term, in seconds.</p>
    */
   termDurationInSeconds?: number;
 
   /**
+   * @public
    * <p>One or more tags.</p>
    */
   tags?: Record<string, string>;
@@ -591,11 +644,13 @@ export interface SavingsPlan {
  */
 export interface DescribeSavingsPlansResponse {
   /**
+   * @public
    * <p>Information about the Savings Plans.</p>
    */
   savingsPlans?: SavingsPlan[];
 
   /**
+   * @public
    * <p>The token to use to retrieve the next page of results. This value is null when there are no more
    *        results to return.</p>
    */
@@ -627,11 +682,13 @@ export type SavingsPlanRateFilterAttribute =
  */
 export interface SavingsPlanOfferingRateFilterElement {
   /**
+   * @public
    * <p>The filter name.</p>
    */
   name?: SavingsPlanRateFilterAttribute | string;
 
   /**
+   * @public
    * <p>The filter values.</p>
    */
   values?: string[];
@@ -642,51 +699,61 @@ export interface SavingsPlanOfferingRateFilterElement {
  */
 export interface DescribeSavingsPlansOfferingRatesRequest {
   /**
+   * @public
    * <p>The IDs of the offerings.</p>
    */
   savingsPlanOfferingIds?: string[];
 
   /**
+   * @public
    * <p>The payment options.</p>
    */
   savingsPlanPaymentOptions?: (SavingsPlanPaymentOption | string)[];
 
   /**
+   * @public
    * <p>The plan types.</p>
    */
   savingsPlanTypes?: (SavingsPlanType | string)[];
 
   /**
+   * @public
    * <p>The AWS products.</p>
    */
   products?: (SavingsPlanProductType | string)[];
 
   /**
+   * @public
    * <p>The services.</p>
    */
   serviceCodes?: (SavingsPlanRateServiceCode | string)[];
 
   /**
+   * @public
    * <p>The usage details of the line item in the billing report.</p>
    */
   usageTypes?: string[];
 
   /**
+   * @public
    * <p>The specific AWS operation for the line item in the billing report.</p>
    */
   operations?: string[];
 
   /**
+   * @public
    * <p>The filters.</p>
    */
   filters?: SavingsPlanOfferingRateFilterElement[];
 
   /**
+   * @public
    * <p>The token for the next page of results.</p>
    */
   nextToken?: string;
 
   /**
+   * @public
    * <p>The maximum number of results to return with a single call. To retrieve additional results, make another
    *        call with the returned token value.</p>
    */
@@ -699,11 +766,13 @@ export interface DescribeSavingsPlansOfferingRatesRequest {
  */
 export interface SavingsPlanOfferingRateProperty {
   /**
+   * @public
    * <p>The property name.</p>
    */
   name?: string;
 
   /**
+   * @public
    * <p>The property value.</p>
    */
   value?: string;
@@ -715,31 +784,37 @@ export interface SavingsPlanOfferingRateProperty {
  */
 export interface ParentSavingsPlanOffering {
   /**
+   * @public
    * <p>The ID of the offering.</p>
    */
   offeringId?: string;
 
   /**
+   * @public
    * <p>The payment option.</p>
    */
   paymentOption?: SavingsPlanPaymentOption | string;
 
   /**
+   * @public
    * <p>The plan type.</p>
    */
   planType?: SavingsPlanType | string;
 
   /**
+   * @public
    * <p>The duration, in seconds.</p>
    */
   durationSeconds?: number;
 
   /**
+   * @public
    * <p>The currency.</p>
    */
   currency?: CurrencyCode | string;
 
   /**
+   * @public
    * <p>The description.</p>
    */
   planDescription?: string;
@@ -751,41 +826,49 @@ export interface ParentSavingsPlanOffering {
  */
 export interface SavingsPlanOfferingRate {
   /**
+   * @public
    * <p>The Savings Plan offering.</p>
    */
   savingsPlanOffering?: ParentSavingsPlanOffering;
 
   /**
+   * @public
    * <p>The Savings Plan rate.</p>
    */
   rate?: string;
 
   /**
+   * @public
    * <p>The unit.</p>
    */
   unit?: SavingsPlanRateUnit | string;
 
   /**
+   * @public
    * <p>The product type.</p>
    */
   productType?: SavingsPlanProductType | string;
 
   /**
+   * @public
    * <p>The service.</p>
    */
   serviceCode?: SavingsPlanRateServiceCode | string;
 
   /**
+   * @public
    * <p>The usage details of the line item in the billing report.</p>
    */
   usageType?: string;
 
   /**
+   * @public
    * <p>The specific AWS operation for the line item in the billing report.</p>
    */
   operation?: string;
 
   /**
+   * @public
    * <p>The properties.</p>
    */
   properties?: SavingsPlanOfferingRateProperty[];
@@ -796,11 +879,13 @@ export interface SavingsPlanOfferingRate {
  */
 export interface DescribeSavingsPlansOfferingRatesResponse {
   /**
+   * @public
    * <p>Information about the Savings Plans offering rates.</p>
    */
   searchResults?: SavingsPlanOfferingRate[];
 
   /**
+   * @public
    * <p>The token to use to retrieve the next page of results. This value is null when there are no more
    *        results to return.</p>
    */
@@ -828,11 +913,13 @@ export type SavingsPlanOfferingFilterAttribute =
  */
 export interface SavingsPlanOfferingFilterElement {
   /**
+   * @public
    * <p>The filter name.</p>
    */
   name?: SavingsPlanOfferingFilterAttribute | string;
 
   /**
+   * @public
    * <p>The filter values.</p>
    */
   values?: string[];
@@ -843,66 +930,79 @@ export interface SavingsPlanOfferingFilterElement {
  */
 export interface DescribeSavingsPlansOfferingsRequest {
   /**
+   * @public
    * <p>The IDs of the offerings.</p>
    */
   offeringIds?: string[];
 
   /**
+   * @public
    * <p>The payment options.</p>
    */
   paymentOptions?: (SavingsPlanPaymentOption | string)[];
 
   /**
+   * @public
    * <p>The product type.</p>
    */
   productType?: SavingsPlanProductType | string;
 
   /**
+   * @public
    * <p>The plan type.</p>
    */
   planTypes?: (SavingsPlanType | string)[];
 
   /**
+   * @public
    * <p>The durations, in seconds.</p>
    */
   durations?: number[];
 
   /**
+   * @public
    * <p>The currencies.</p>
    */
   currencies?: (CurrencyCode | string)[];
 
   /**
+   * @public
    * <p>The descriptions.</p>
    */
   descriptions?: string[];
 
   /**
+   * @public
    * <p>The services.</p>
    */
   serviceCodes?: string[];
 
   /**
+   * @public
    * <p>The usage details of the line item in the billing report.</p>
    */
   usageTypes?: string[];
 
   /**
+   * @public
    * <p>The specific AWS operation for the line item in the billing report.</p>
    */
   operations?: string[];
 
   /**
+   * @public
    * <p>The filters.</p>
    */
   filters?: SavingsPlanOfferingFilterElement[];
 
   /**
+   * @public
    * <p>The token for the next page of results.</p>
    */
   nextToken?: string;
 
   /**
+   * @public
    * <p>The maximum number of results to return with a single call. To retrieve additional results, make another
    *        call with the returned token value.</p>
    */
@@ -930,11 +1030,13 @@ export type SavingsPlanOfferingPropertyKey =
  */
 export interface SavingsPlanOfferingProperty {
   /**
+   * @public
    * <p>The property name.</p>
    */
   name?: SavingsPlanOfferingPropertyKey | string;
 
   /**
+   * @public
    * <p>The property value.</p>
    */
   value?: string;
@@ -946,56 +1048,67 @@ export interface SavingsPlanOfferingProperty {
  */
 export interface SavingsPlanOffering {
   /**
+   * @public
    * <p>The ID of the offering.</p>
    */
   offeringId?: string;
 
   /**
+   * @public
    * <p>The product type.</p>
    */
   productTypes?: (SavingsPlanProductType | string)[];
 
   /**
+   * @public
    * <p>The plan type.</p>
    */
   planType?: SavingsPlanType | string;
 
   /**
+   * @public
    * <p>The description.</p>
    */
   description?: string;
 
   /**
+   * @public
    * <p>The payment option.</p>
    */
   paymentOption?: SavingsPlanPaymentOption | string;
 
   /**
+   * @public
    * <p>The duration, in seconds.</p>
    */
   durationSeconds?: number;
 
   /**
+   * @public
    * <p>The currency.</p>
    */
   currency?: CurrencyCode | string;
 
   /**
+   * @public
    * <p>The service.</p>
    */
   serviceCode?: string;
 
   /**
+   * @public
    * <p>The usage details of the line item in the billing report.</p>
    */
   usageType?: string;
 
   /**
+   * @public
    * <p>The specific AWS operation for the line item in the billing report.</p>
    */
   operation?: string;
 
   /**
+   * @public
    * <p>The properties.</p>
    */
   properties?: SavingsPlanOfferingProperty[];
@@ -1006,11 +1119,13 @@ export interface SavingsPlanOffering {
  */
 export interface DescribeSavingsPlansOfferingsResponse {
   /**
+   * @public
    * <p>Information about the Savings Plans offerings.</p>
    */
   searchResults?: SavingsPlanOffering[];
 
   /**
+   * @public
    * <p>The token to use to retrieve the next page of results. This value is null when there are no more
    *        results to return.</p>
    */
@@ -1022,6 +1137,7 @@ export interface DescribeSavingsPlansOfferingsResponse {
  */
 export interface ListTagsForResourceRequest {
   /**
+   * @public
    * <p>The Amazon Resource Name (ARN) of the resource.</p>
    */
   resourceArn: string | undefined;
@@ -1032,6 +1148,7 @@ export interface ListTagsForResourceRequest {
  */
 export interface ListTagsForResourceResponse {
   /**
+   * @public
    * <p>Information about the tags.</p>
    */
   tags?: Record<string, string>;
@@ -1042,11 +1159,13 @@ export interface ListTagsForResourceResponse {
  */
 export interface TagResourceRequest {
   /**
+   * @public
    * <p>The Amazon Resource Name (ARN) of the resource.</p>
    */
   resourceArn: string | undefined;
 
   /**
+   * @public
    * <p>One or more tags. For example, \{ "tags": \{"key1":"value1", "key2":"value2"\} \}.</p>
    */
   tags: Record<string, string> | undefined;
@@ -1062,11 +1181,13 @@ export interface TagResourceResponse {}
  */
 export interface UntagResourceRequest {
   /**
+   * @public
    * <p>The Amazon Resource Name (ARN) of the resource.</p>
    */
   resourceArn: string | undefined;
 
   /**
+   * @public
    * <p>The tag keys.</p>
    */
   tagKeys: string[] | undefined;

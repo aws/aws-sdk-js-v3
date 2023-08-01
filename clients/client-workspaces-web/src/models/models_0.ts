@@ -28,11 +28,13 @@ export class AccessDeniedException extends __BaseException {
  */
 export interface AssociateBrowserSettingsRequest {
   /**
+   * @public
    * <p>The ARN of the web portal.</p>
    */
   portalArn: string | undefined;
 
   /**
+   * @public
    * <p>The ARN of the browser settings.</p>
    */
   browserSettingsArn: string | undefined;
@@ -43,11 +45,13 @@ export interface AssociateBrowserSettingsRequest {
  */
 export interface AssociateBrowserSettingsResponse {
   /**
+   * @public
    * <p>The ARN of the web portal.</p>
    */
   portalArn: string | undefined;
 
   /**
+   * @public
    * <p>The ARN of the browser settings.</p>
    */
   browserSettingsArn: string | undefined;
@@ -61,11 +65,13 @@ export class ConflictException extends __BaseException {
   readonly name: "ConflictException" = "ConflictException";
   readonly $fault: "client" = "client";
   /**
+   * @public
    * <p>Identifier of the resource affected.</p>
    */
   resourceId?: string;
 
   /**
+   * @public
    * <p>Type of the resource affected.</p>
    */
   resourceType?: string;
@@ -93,6 +99,7 @@ export class InternalServerException extends __BaseException {
   readonly name: "InternalServerException" = "InternalServerException";
   readonly $fault: "server" = "server";
   /**
+   * @public
    * <p>Advice to clients on when the call can be safely retried.</p>
    */
   retryAfterSeconds?: number;
@@ -119,11 +126,13 @@ export class ResourceNotFoundException extends __BaseException {
   readonly name: "ResourceNotFoundException" = "ResourceNotFoundException";
   readonly $fault: "client" = "client";
   /**
+   * @public
    * <p>Hypothetical identifier of the resource affected.</p>
    */
   resourceId?: string;
 
   /**
+   * @public
    * <p>Hypothetical type of the resource affected.</p>
    */
   resourceType?: string;
@@ -151,16 +160,19 @@ export class ThrottlingException extends __BaseException {
   readonly name: "ThrottlingException" = "ThrottlingException";
   readonly $fault: "client" = "client";
   /**
+   * @public
    * <p>The originating service.</p>
    */
   serviceCode?: string;
 
   /**
+   * @public
    * <p>The originating quota.</p>
    */
   quotaCode?: string;
 
   /**
+   * @public
    * <p>Advice to clients on when the call can be safely retried.</p>
    */
   retryAfterSeconds?: number;
@@ -187,11 +199,13 @@ export class ThrottlingException extends __BaseException {
  */
 export interface ValidationExceptionField {
   /**
+   * @public
    * <p>The name of the field that failed validation.</p>
    */
   name: string | undefined;
 
   /**
+   * @public
    * <p>The message describing why the field failed validation.</p>
    */
   message: string | undefined;
@@ -221,11 +235,13 @@ export class ValidationException extends __BaseException {
   readonly name: "ValidationException" = "ValidationException";
   readonly $fault: "client" = "client";
   /**
+   * @public
    * <p>Reason the request failed validation</p>
    */
   reason?: ValidationExceptionReason | string;
 
   /**
+   * @public
    * <p>The field that caused the error.</p>
    */
   fieldList?: ValidationExceptionField[];
@@ -250,11 +266,13 @@ export class ValidationException extends __BaseException {
  */
 export interface AssociateIpAccessSettingsRequest {
   /**
+   * @public
    * <p>The ARN of the web portal.</p>
    */
   portalArn: string | undefined;
 
   /**
+   * @public
    * <p>The ARN of the IP access settings.</p>
    */
   ipAccessSettingsArn: string | undefined;
@@ -265,11 +283,13 @@ export interface AssociateIpAccessSettingsRequest {
  */
 export interface AssociateIpAccessSettingsResponse {
   /**
+   * @public
    * <p>The ARN of the web portal.</p>
    */
   portalArn: string | undefined;
 
   /**
+   * @public
    * <p>The ARN of the IP access settings resource.</p>
    */
   ipAccessSettingsArn: string | undefined;
@@ -280,11 +300,13 @@ export interface AssociateIpAccessSettingsResponse {
  */
 export interface AssociateNetworkSettingsRequest {
   /**
+   * @public
    * <p>The ARN of the web portal.</p>
    */
   portalArn: string | undefined;
 
   /**
+   * @public
    * <p>The ARN of the network settings.</p>
    */
   networkSettingsArn: string | undefined;
@@ -295,11 +317,13 @@ export interface AssociateNetworkSettingsRequest {
  */
 export interface AssociateNetworkSettingsResponse {
   /**
+   * @public
    * <p>The ARN of the web portal.</p>
    */
   portalArn: string | undefined;
 
   /**
+   * @public
    * <p>The ARN of the network settings.</p>
    */
   networkSettingsArn: string | undefined;
@@ -310,11 +334,13 @@ export interface AssociateNetworkSettingsResponse {
  */
 export interface AssociateTrustStoreRequest {
   /**
+   * @public
    * <p>The ARN of the web portal.</p>
    */
   portalArn: string | undefined;
 
   /**
+   * @public
    * <p>The ARN of the trust store.</p>
    */
   trustStoreArn: string | undefined;
@@ -325,11 +351,13 @@ export interface AssociateTrustStoreRequest {
  */
 export interface AssociateTrustStoreResponse {
   /**
+   * @public
    * <p>The ARN of the web portal.</p>
    */
   portalArn: string | undefined;
 
   /**
+   * @public
    * <p>The ARN of the trust store.</p>
    */
   trustStoreArn: string | undefined;
@@ -340,11 +368,13 @@ export interface AssociateTrustStoreResponse {
  */
 export interface AssociateUserAccessLoggingSettingsRequest {
   /**
+   * @public
    * <p>The ARN of the web portal.</p>
    */
   portalArn: string | undefined;
 
   /**
+   * @public
    * <p>The ARN of the user access logging settings.</p>
    */
   userAccessLoggingSettingsArn: string | undefined;
@@ -355,11 +385,13 @@ export interface AssociateUserAccessLoggingSettingsRequest {
  */
 export interface AssociateUserAccessLoggingSettingsResponse {
   /**
+   * @public
    * <p>The ARN of the web portal.</p>
    */
   portalArn: string | undefined;
 
   /**
+   * @public
    * <p>The ARN of the user access logging settings.</p>
    */
   userAccessLoggingSettingsArn: string | undefined;
@@ -370,11 +402,13 @@ export interface AssociateUserAccessLoggingSettingsResponse {
  */
 export interface AssociateUserSettingsRequest {
   /**
+   * @public
    * <p>The ARN of the web portal.</p>
    */
   portalArn: string | undefined;
 
   /**
+   * @public
    * <p>The ARN of the user settings.</p>
    */
   userSettingsArn: string | undefined;
@@ -385,11 +419,13 @@ export interface AssociateUserSettingsRequest {
  */
 export interface AssociateUserSettingsResponse {
   /**
+   * @public
    * <p>The ARN of the web portal.</p>
    */
   portalArn: string | undefined;
 
   /**
+   * @public
    * <p>The ARN of the user settings.</p>
    */
   userSettingsArn: string | undefined;
@@ -415,11 +451,13 @@ export type AuthenticationType = (typeof AuthenticationType)[keyof typeof Authen
  */
 export interface Tag {
   /**
+   * @public
    * <p>The key of the tag.</p>
    */
   Key: string | undefined;
 
   /**
+   * @public
    * <p>The value of the tag</p>
    */
   Value: string | undefined;
@@ -430,27 +468,32 @@ export interface Tag {
  */
 export interface CreateBrowserSettingsRequest {
   /**
+   * @public
    * <p>The tags to add to the browser settings resource. A tag is a key-value pair.</p>
    */
   tags?: Tag[];
 
   /**
+   * @public
    * <p>The custom managed key of the browser settings.</p>
    */
   customerManagedKey?: string;
 
   /**
+   * @public
    * <p>Additional encryption context of the browser settings.</p>
    */
   additionalEncryptionContext?: Record<string, string>;
 
   /**
+   * @public
    * <p>A JSON string containing Chrome Enterprise policies that will be applied to all
    *          streaming sessions.</p>
    */
   browserPolicy: string | undefined;
 
   /**
+   * @public
    * <p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the
    *          request. Idempotency ensures that an API request completes only once. With an idempotent
    *          request, if the original request completes successfully, subsequent retries with the same
@@ -465,6 +508,7 @@ export interface CreateBrowserSettingsRequest {
  */
 export interface CreateBrowserSettingsResponse {
   /**
+   * @public
    * <p>The ARN of the browser settings.</p>
    */
   browserSettingsArn: string | undefined;
@@ -478,21 +522,25 @@ export class ServiceQuotaExceededException extends __BaseException {
   readonly name: "ServiceQuotaExceededException" = "ServiceQuotaExceededException";
   readonly $fault: "client" = "client";
   /**
+   * @public
    * <p>Identifier of the resource affected.</p>
    */
   resourceId?: string;
 
   /**
+   * @public
    * <p> Type of the resource affected.</p>
    */
   resourceType?: string;
 
   /**
+   * @public
    * <p>The originating service.</p>
    */
   serviceCode?: string;
 
   /**
+   * @public
    * <p>The originating quota.</p>
    */
   quotaCode?: string;
@@ -537,21 +585,25 @@ export type IdentityProviderType = (typeof IdentityProviderType)[keyof typeof Id
  */
 export interface CreateIdentityProviderRequest {
   /**
+   * @public
    * <p>The ARN of the web portal.</p>
    */
   portalArn: string | undefined;
 
   /**
+   * @public
    * <p>The identity provider name.</p>
    */
   identityProviderName: string | undefined;
 
   /**
+   * @public
    * <p>The identity provider type.</p>
    */
   identityProviderType: IdentityProviderType | string | undefined;
 
   /**
+   * @public
    * <p>The identity provider details. The following list describes the provider detail keys for
    *          each identity provider type. </p>
    *          <ul>
@@ -709,6 +761,7 @@ export interface CreateIdentityProviderRequest {
   identityProviderDetails: Record<string, string> | undefined;
 
   /**
+   * @public
    * <p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the
    *          request. Idempotency ensures that an API request completes only once. With an idempotent
    *          request, if the original request completes successfully, subsequent retries with the same
@@ -724,6 +777,7 @@ export interface CreateIdentityProviderRequest {
  */
 export interface CreateIdentityProviderResponse {
   /**
+   * @public
    * <p>The ARN of the identity provider.</p>
    */
   identityProviderArn: string | undefined;
@@ -735,11 +789,13 @@ export interface CreateIdentityProviderResponse {
  */
 export interface IpRule {
   /**
+   * @public
    * <p>The IP range of the IP rule.</p>
    */
   ipRange: string | undefined;
 
   /**
+   * @public
    * <p>The description of the IP rule.</p>
    */
   description?: string;
@@ -750,36 +806,43 @@ export interface IpRule {
  */
 export interface CreateIpAccessSettingsRequest {
   /**
+   * @public
    * <p>The display name of the IP access settings.</p>
    */
   displayName?: string;
 
   /**
+   * @public
    * <p>The description of the IP access settings.</p>
    */
   description?: string;
 
   /**
+   * @public
    * <p>The tags to add to the browser settings resource. A tag is a key-value pair.</p>
    */
   tags?: Tag[];
 
   /**
+   * @public
    * <p>The custom managed key of the IP access settings.</p>
    */
   customerManagedKey?: string;
 
   /**
+   * @public
    * <p>Additional encryption context of the IP access settings.</p>
    */
   additionalEncryptionContext?: Record<string, string>;
 
   /**
+   * @public
    * <p>The IP rules of the IP access settings.</p>
    */
   ipRules: IpRule[] | undefined;
 
   /**
+   * @public
    * <p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the
    *          request. Idempotency ensures that an API request completes only once. With an idempotent
    *          request, if the original request completes successfully, subsequent retries with the same
@@ -795,6 +858,7 @@ export interface CreateIpAccessSettingsRequest {
  */
 export interface CreateIpAccessSettingsResponse {
   /**
+   * @public
    * <p>The ARN of the IP access settings resource.</p>
    */
   ipAccessSettingsArn: string | undefined;
@@ -805,26 +869,31 @@ export interface CreateIpAccessSettingsResponse {
  */
 export interface CreateNetworkSettingsRequest {
   /**
+   * @public
    * <p>The VPC that streaming instances will connect to.</p>
    */
   vpcId: string | undefined;
 
   /**
+   * @public
    * <p>The subnets in which network interfaces are created to connect streaming instances to your VPC. At least two of these subnets must be in different availability zones.</p>
    */
   subnetIds: string[] | undefined;
 
   /**
+   * @public
    * <p>One or more security groups used to control access from streaming instances to your VPC.</p>
    */
   securityGroupIds: string[] | undefined;
 
   /**
+   * @public
    * <p>The tags to add to the network settings resource. A tag is a key-value pair.</p>
    */
   tags?: Tag[];
 
   /**
+   * @public
    * <p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the
    *          request. Idempotency ensures that an API request completes only once. With an idempotent
    *          request, if the original request completes successfully, subsequent retries with the same
@@ -840,6 +909,7 @@ export interface CreateNetworkSettingsRequest {
  */
 export interface CreateNetworkSettingsResponse {
   /**
+   * @public
    * <p>The ARN of the network settings.</p>
    */
   networkSettingsArn: string | undefined;
@@ -850,26 +920,31 @@ export interface CreateNetworkSettingsResponse {
  */
 export interface CreatePortalRequest {
   /**
+   * @public
    * <p>The name of the web portal. This is not visible to users who log into the web portal.</p>
    */
   displayName?: string;
 
   /**
+   * @public
    * <p>The tags to add to the web portal. A tag is a key-value pair.</p>
    */
   tags?: Tag[];
 
   /**
+   * @public
    * <p>The customer managed key of the web portal.</p>
    */
   customerManagedKey?: string;
 
   /**
+   * @public
    * <p>The additional encryption context of the portal.</p>
    */
   additionalEncryptionContext?: Record<string, string>;
 
   /**
+   * @public
    * <p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the
    *          request. Idempotency ensures that an API request completes only once. With an idempotent
    *          request, if the original request completes successfully, subsequent retries with the same
@@ -880,6 +955,7 @@ export interface CreatePortalRequest {
   clientToken?: string;
 
   /**
+   * @public
    * <p>The type of authentication integration points used when signing into the web portal.
    *          Defaults to <code>Standard</code>.</p>
    *          <p>
@@ -902,11 +978,13 @@ export interface CreatePortalRequest {
  */
 export interface CreatePortalResponse {
   /**
+   * @public
    * <p>The ARN of the web portal.</p>
    */
   portalArn: string | undefined;
 
   /**
+   * @public
    * <p>The endpoint URL of the web portal that users access in order to start streaming sessions.</p>
    */
   portalEndpoint: string | undefined;
@@ -917,16 +995,19 @@ export interface CreatePortalResponse {
  */
 export interface CreateTrustStoreRequest {
   /**
+   * @public
    * <p>A list of CA certificates to be added to the trust store.</p>
    */
   certificateList: Uint8Array[] | undefined;
 
   /**
+   * @public
    * <p>The tags to add to the trust store. A tag is a key-value pair.</p>
    */
   tags?: Tag[];
 
   /**
+   * @public
    * <p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the
    *          request. Idempotency ensures that an API request completes only once. With an idempotent
    *          request, if the original request completes successfully, subsequent retries with the same
@@ -942,6 +1023,7 @@ export interface CreateTrustStoreRequest {
  */
 export interface CreateTrustStoreResponse {
   /**
+   * @public
    * <p>The ARN of the trust store.</p>
    */
   trustStoreArn: string | undefined;
@@ -952,16 +1034,19 @@ export interface CreateTrustStoreResponse {
  */
 export interface CreateUserAccessLoggingSettingsRequest {
   /**
+   * @public
    * <p>The ARN of the Kinesis stream.</p>
    */
   kinesisStreamArn: string | undefined;
 
   /**
+   * @public
    * <p>The tags to add to the user settings resource. A tag is a key-value pair.</p>
    */
   tags?: Tag[];
 
   /**
+   * @public
    * <p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the
    *          request. Idempotency ensures that an API request completes only once. With an idempotent
    *          request, if the original request completes successfully, subsequent retries with the same
@@ -977,6 +1062,7 @@ export interface CreateUserAccessLoggingSettingsRequest {
  */
 export interface CreateUserAccessLoggingSettingsResponse {
   /**
+   * @public
    * <p>The ARN of the user access logging settings.</p>
    */
   userAccessLoggingSettingsArn: string | undefined;
@@ -1001,50 +1087,59 @@ export type EnabledType = (typeof EnabledType)[keyof typeof EnabledType];
  */
 export interface CreateUserSettingsRequest {
   /**
+   * @public
    * <p>Specifies whether the user can copy text from the streaming session to the local
    *          device.</p>
    */
   copyAllowed: EnabledType | string | undefined;
 
   /**
+   * @public
    * <p>Specifies whether the user can paste text from the local device to the streaming
    *          session.</p>
    */
   pasteAllowed: EnabledType | string | undefined;
 
   /**
+   * @public
    * <p>Specifies whether the user can download files from the streaming session to the local
    *          device.</p>
    */
   downloadAllowed: EnabledType | string | undefined;
 
   /**
+   * @public
    * <p>Specifies whether the user can upload files from the local device to the streaming
    *          session.</p>
    */
   uploadAllowed: EnabledType | string | undefined;
 
   /**
+   * @public
    * <p>Specifies whether the user can print to the local device.</p>
    */
   printAllowed: EnabledType | string | undefined;
 
   /**
+   * @public
    * <p>The tags to add to the user settings resource. A tag is a key-value pair.</p>
    */
   tags?: Tag[];
 
   /**
+   * @public
    * <p>The amount of time that a streaming session remains active after users disconnect.</p>
    */
   disconnectTimeoutInMinutes?: number;
 
   /**
+   * @public
    * <p>The amount of time that users can be idle (inactive) before they are disconnected from their streaming session and the disconnect timeout interval begins.</p>
    */
   idleDisconnectTimeoutInMinutes?: number;
 
   /**
+   * @public
    * <p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the
    *          request. Idempotency ensures that an API request completes only once. With an idempotent
    *          request, if the original request completes successfully, subsequent retries with the same
@@ -1060,6 +1155,7 @@ export interface CreateUserSettingsRequest {
  */
 export interface CreateUserSettingsResponse {
   /**
+   * @public
    * <p>The ARN of the user settings.</p>
    */
   userSettingsArn: string | undefined;
@@ -1070,6 +1166,7 @@ export interface CreateUserSettingsResponse {
  */
 export interface DeleteBrowserSettingsRequest {
   /**
+   * @public
    * <p>The ARN of the browser settings.</p>
    */
   browserSettingsArn: string | undefined;
@@ -1085,6 +1182,7 @@ export interface DeleteBrowserSettingsResponse {}
  */
 export interface DeleteIdentityProviderRequest {
   /**
+   * @public
    * <p>The ARN of the identity provider.</p>
    */
   identityProviderArn: string | undefined;
@@ -1100,6 +1198,7 @@ export interface DeleteIdentityProviderResponse {}
  */
 export interface DeleteIpAccessSettingsRequest {
   /**
+   * @public
    * <p>The ARN of the IP access settings.</p>
    */
   ipAccessSettingsArn: string | undefined;
@@ -1115,6 +1214,7 @@ export interface DeleteIpAccessSettingsResponse {}
  */
 export interface DeleteNetworkSettingsRequest {
   /**
+   * @public
    * <p>The ARN of the network settings.</p>
    */
   networkSettingsArn: string | undefined;
@@ -1130,6 +1230,7 @@ export interface DeleteNetworkSettingsResponse {}
  */
 export interface DeletePortalRequest {
   /**
+   * @public
    * <p>The ARN of the web portal.</p>
    */
   portalArn: string | undefined;
@@ -1145,6 +1246,7 @@ export interface DeletePortalResponse {}
  */
 export interface DeleteTrustStoreRequest {
   /**
+   * @public
    * <p>The ARN of the trust store.</p>
    */
   trustStoreArn: string | undefined;
@@ -1160,6 +1262,7 @@ export interface DeleteTrustStoreResponse {}
  */
 export interface DeleteUserAccessLoggingSettingsRequest {
   /**
+   * @public
    * <p>The ARN of the user access logging settings.</p>
    */
   userAccessLoggingSettingsArn: string | undefined;
@@ -1175,6 +1278,7 @@ export interface DeleteUserAccessLoggingSettingsResponse {}
  */
 export interface DeleteUserSettingsRequest {
   /**
+   * @public
    * <p>The ARN of the user settings.</p>
    */
   userSettingsArn: string | undefined;
@@ -1190,6 +1294,7 @@ export interface DeleteUserSettingsResponse {}
  */
 export interface DisassociateBrowserSettingsRequest {
   /**
+   * @public
    * <p>The ARN of the web portal.</p>
    */
   portalArn: string | undefined;
@@ -1205,6 +1310,7 @@ export interface DisassociateBrowserSettingsResponse {}
  */
 export interface DisassociateIpAccessSettingsRequest {
   /**
+   * @public
    * <p>The ARN of the web portal.</p>
    */
   portalArn: string | undefined;
@@ -1220,6 +1326,7 @@ export interface DisassociateIpAccessSettingsResponse {}
  */
 export interface DisassociateNetworkSettingsRequest {
   /**
+   * @public
    * <p>The ARN of the web portal.</p>
    */
   portalArn: string | undefined;
@@ -1235,6 +1342,7 @@ export interface DisassociateNetworkSettingsResponse {}
  */
 export interface DisassociateTrustStoreRequest {
   /**
+   * @public
    * <p>The ARN of the web portal.</p>
    */
   portalArn: string | undefined;
@@ -1250,6 +1358,7 @@ export interface DisassociateTrustStoreResponse {}
  */
 export interface DisassociateUserAccessLoggingSettingsRequest {
   /**
+   * @public
    * <p>The ARN of the web portal.</p>
    */
   portalArn: string | undefined;
@@ -1265,6 +1374,7 @@ export interface DisassociateUserAccessLoggingSettingsResponse {}
  */
 export interface DisassociateUserSettingsRequest {
   /**
+   * @public
    * <p>The ARN of the web portal.</p>
    */
   portalArn: string | undefined;
@@ -1280,6 +1390,7 @@ export interface DisassociateUserSettingsResponse {}
  */
 export interface GetBrowserSettingsRequest {
   /**
+   * @public
    * <p>The ARN of the browser settings.</p>
    */
   browserSettingsArn: string | undefined;
@@ -1293,16 +1404,19 @@ export interface GetBrowserSettingsRequest {
  */
 export interface BrowserSettings {
   /**
+   * @public
    * <p>The ARN of the browser settings.</p>
    */
   browserSettingsArn: string | undefined;
 
   /**
+   * @public
    * <p>A list of web portal ARNs that this browser settings is associated with.</p>
    */
   associatedPortalArns?: string[];
 
   /**
+   * @public
    * <p>A JSON string containing Chrome Enterprise policies that will be applied to all
    *          streaming sessions.</p>
    */
@@ -1314,6 +1428,7 @@ export interface BrowserSettings {
  */
 export interface GetBrowserSettingsResponse {
   /**
+   * @public
    * <p>The browser settings.</p>
    */
   browserSettings?: BrowserSettings;
@@ -1324,6 +1439,7 @@ export interface GetBrowserSettingsResponse {
  */
 export interface GetIdentityProviderRequest {
   /**
+   * @public
    * <p>The ARN of the identity provider.</p>
    */
   identityProviderArn: string | undefined;
@@ -1335,21 +1451,25 @@ export interface GetIdentityProviderRequest {
  */
 export interface IdentityProvider {
   /**
+   * @public
    * <p>The ARN of the identity provider.</p>
    */
   identityProviderArn: string | undefined;
 
   /**
+   * @public
    * <p>The identity provider name.</p>
    */
   identityProviderName?: string;
 
   /**
+   * @public
    * <p>The identity provider type.</p>
    */
   identityProviderType?: IdentityProviderType | string;
 
   /**
+   * @public
    * <p>The identity provider details. The following list describes the provider detail keys for
    *          each identity provider type. </p>
    *          <ul>
@@ -1512,6 +1632,7 @@ export interface IdentityProvider {
  */
 export interface GetIdentityProviderResponse {
   /**
+   * @public
    * <p>The identity provider.</p>
    */
   identityProvider?: IdentityProvider;
@@ -1522,6 +1643,7 @@ export interface GetIdentityProviderResponse {
  */
 export interface GetIpAccessSettingsRequest {
   /**
+   * @public
    * <p>The ARN of the IP access settings.</p>
    */
   ipAccessSettingsArn: string | undefined;
@@ -1533,31 +1655,37 @@ export interface GetIpAccessSettingsRequest {
  */
 export interface IpAccessSettings {
   /**
+   * @public
    * <p>The ARN of the IP access settings resource.</p>
    */
   ipAccessSettingsArn: string | undefined;
 
   /**
+   * @public
    * <p>A list of web portal ARNs that this IP access settings resource is associated with.</p>
    */
   associatedPortalArns?: string[];
 
   /**
+   * @public
    * <p>The IP rules of the IP access settings.</p>
    */
   ipRules?: IpRule[];
 
   /**
+   * @public
    * <p> The display name of the IP access settings.</p>
    */
   displayName?: string;
 
   /**
+   * @public
    * <p>The description of the IP access settings.</p>
    */
   description?: string;
 
   /**
+   * @public
    * <p>The creation date timestamp of the IP access settings.</p>
    */
   creationDate?: Date;
@@ -1568,6 +1696,7 @@ export interface IpAccessSettings {
  */
 export interface GetIpAccessSettingsResponse {
   /**
+   * @public
    * <p>The IP access settings.</p>
    */
   ipAccessSettings?: IpAccessSettings;
@@ -1578,6 +1707,7 @@ export interface GetIpAccessSettingsResponse {
  */
 export interface GetNetworkSettingsRequest {
   /**
+   * @public
    * <p>The ARN of the network settings.</p>
    */
   networkSettingsArn: string | undefined;
@@ -1591,26 +1721,31 @@ export interface GetNetworkSettingsRequest {
  */
 export interface NetworkSettings {
   /**
+   * @public
    * <p>The ARN of the network settings.</p>
    */
   networkSettingsArn: string | undefined;
 
   /**
+   * @public
    * <p>A list of web portal ARNs that this network settings is associated with.</p>
    */
   associatedPortalArns?: string[];
 
   /**
+   * @public
    * <p>The VPC that streaming instances will connect to.</p>
    */
   vpcId?: string;
 
   /**
+   * @public
    * <p>The subnets in which network interfaces are created to connect streaming instances to your VPC. At least two of these subnets must be in different availability zones.</p>
    */
   subnetIds?: string[];
 
   /**
+   * @public
    * <p>One or more security groups used to control access from streaming instances to your VPC. </p>
    */
   securityGroupIds?: string[];
@@ -1621,6 +1756,7 @@ export interface NetworkSettings {
  */
 export interface GetNetworkSettingsResponse {
   /**
+   * @public
    * <p>The network settings.</p>
    */
   networkSettings?: NetworkSettings;
@@ -1631,6 +1767,7 @@ export interface GetNetworkSettingsResponse {
  */
 export interface GetPortalRequest {
   /**
+   * @public
    * <p>The ARN of the web portal.</p>
    */
   portalArn: string | undefined;
@@ -1683,72 +1820,86 @@ export type RendererType = (typeof RendererType)[keyof typeof RendererType];
  */
 export interface Portal {
   /**
+   * @public
    * <p>The ARN of the web portal.</p>
    */
   portalArn?: string;
 
   /**
+   * @public
    * <p>The renderer that is used in streaming sessions.</p>
    */
   rendererType?: RendererType | string;
 
   /**
+   * @public
    * <p>The browser that users see when using a streaming session.</p>
    */
   browserType?: BrowserType | string;
 
   /**
+   * @public
    * <p>The status of the web portal.</p>
    */
   portalStatus?: PortalStatus | string;
 
   /**
+   * @public
    * <p>The endpoint URL of the web portal that users access in order to start streaming
    *          sessions.</p>
    */
   portalEndpoint?: string;
 
   /**
+   * @public
    * <p>The name of the web portal.</p>
    */
   displayName?: string;
 
   /**
+   * @public
    * <p>The creation date of the web portal.</p>
    */
   creationDate?: Date;
 
   /**
+   * @public
    * <p>The ARN of the browser settings that is associated with this web portal.</p>
    */
   browserSettingsArn?: string;
 
   /**
+   * @public
    * <p>The ARN of the user settings that is associated with the web portal.</p>
    */
   userSettingsArn?: string;
 
   /**
+   * @public
    * <p>The ARN of the network settings that is associated with the web portal.</p>
    */
   networkSettingsArn?: string;
 
   /**
+   * @public
    * <p>The ARN of the trust store that is associated with the web portal.</p>
    */
   trustStoreArn?: string;
 
   /**
+   * @public
    * <p>A message that explains why the web portal is in its current status.</p>
    */
   statusReason?: string;
 
   /**
+   * @public
    * <p>The ARN of the user access logging settings that is associated with the web portal.</p>
    */
   userAccessLoggingSettingsArn?: string;
 
   /**
+   * @public
    * <p>The type of authentication integration points used when signing into the web portal.
    *          Defaults to <code>Standard</code>.</p>
    *          <p>
@@ -1766,6 +1917,7 @@ export interface Portal {
   authenticationType?: AuthenticationType | string;
 
   /**
+   * @public
    * <p>The ARN of the IP access settings.</p>
    */
   ipAccessSettingsArn?: string;
@@ -1776,6 +1928,7 @@ export interface Portal {
  */
 export interface GetPortalResponse {
   /**
+   * @public
    * <p>The web portal.</p>
    */
   portal?: Portal;
@@ -1786,6 +1939,7 @@ export interface GetPortalResponse {
  */
 export interface GetPortalServiceProviderMetadataRequest {
   /**
+   * @public
    * <p>The ARN of the web portal.</p>
    */
   portalArn: string | undefined;
@@ -1796,11 +1950,13 @@ export interface GetPortalServiceProviderMetadataRequest {
  */
 export interface GetPortalServiceProviderMetadataResponse {
   /**
+   * @public
    * <p>The ARN of the web portal.</p>
    */
   portalArn: string | undefined;
 
   /**
+   * @public
    * <p>The service provider SAML metadata.</p>
    */
   serviceProviderSamlMetadata?: string;
@@ -1811,6 +1967,7 @@ export interface GetPortalServiceProviderMetadataResponse {
  */
 export interface GetTrustStoreRequest {
   /**
+   * @public
    * <p>The ARN of the trust store.</p>
    */
   trustStoreArn: string | undefined;
@@ -1826,11 +1983,13 @@ export interface GetTrustStoreRequest {
  */
 export interface TrustStore {
   /**
+   * @public
    * <p>A list of web portal ARNs that this trust store is associated with.</p>
    */
   associatedPortalArns?: string[];
 
   /**
+   * @public
    * <p>The ARN of the trust store.</p>
    */
   trustStoreArn?: string;
@@ -1841,6 +2000,7 @@ export interface TrustStore {
  */
 export interface GetTrustStoreResponse {
   /**
+   * @public
    * <p>The trust store.</p>
    */
   trustStore?: TrustStore;
@@ -1851,11 +2011,13 @@ export interface GetTrustStoreResponse {
  */
 export interface GetTrustStoreCertificateRequest {
   /**
+   * @public
    * <p>The ARN of the trust store certificate.</p>
    */
   trustStoreArn: string | undefined;
 
   /**
+   * @public
    * <p>The thumbprint of the trust store certificate.</p>
    */
   thumbprint: string | undefined;
@@ -1867,31 +2029,37 @@ export interface GetTrustStoreCertificateRequest {
  */
 export interface Certificate {
   /**
+   * @public
    * <p>A hexadecimal identifier for the certificate.</p>
    */
   thumbprint?: string;
 
   /**
+   * @public
    * <p>The entity the certificate belongs to.</p>
    */
   subject?: string;
 
   /**
+   * @public
    * <p>The entity that issued the certificate.</p>
    */
   issuer?: string;
 
   /**
+   * @public
    * <p>The certificate is not valid before this date.</p>
    */
   notValidBefore?: Date;
 
   /**
+   * @public
    * <p>The certificate is not valid after this date.</p>
    */
   notValidAfter?: Date;
 
   /**
+   * @public
    * <p>The body of the certificate.</p>
    */
   body?: Uint8Array;
@@ -1902,11 +2070,13 @@ export interface Certificate {
  */
 export interface GetTrustStoreCertificateResponse {
   /**
+   * @public
    * <p>The ARN of the trust store certificate.</p>
    */
   trustStoreArn?: string;
 
   /**
+   * @public
    * <p>The certificate of the trust store certificate.</p>
    */
   certificate?: Certificate;
@@ -1917,6 +2087,7 @@ export interface GetTrustStoreCertificateResponse {
  */
 export interface GetUserAccessLoggingSettingsRequest {
   /**
+   * @public
    * <p>The ARN of the user access logging settings.</p>
    */
   userAccessLoggingSettingsArn: string | undefined;
@@ -1928,16 +2099,19 @@ export interface GetUserAccessLoggingSettingsRequest {
  */
 export interface UserAccessLoggingSettings {
   /**
+   * @public
    * <p>The ARN of the user access logging settings.</p>
    */
   userAccessLoggingSettingsArn: string | undefined;
 
   /**
+   * @public
    * <p>A list of web portal ARNs that this user access logging settings is associated with.</p>
    */
   associatedPortalArns?: string[];
 
   /**
+   * @public
    * <p>The ARN of the Kinesis stream.</p>
    */
   kinesisStreamArn?: string;
@@ -1948,6 +2122,7 @@ export interface UserAccessLoggingSettings {
  */
 export interface GetUserAccessLoggingSettingsResponse {
   /**
+   * @public
    * <p>The user access logging settings.</p>
    */
   userAccessLoggingSettings?: UserAccessLoggingSettings;
@@ -1958,6 +2133,7 @@ export interface GetUserAccessLoggingSettingsResponse {
  */
 export interface GetUserSettingsRequest {
   /**
+   * @public
    * <p>The ARN of the user settings.</p>
    */
   userSettingsArn: string | undefined;
@@ -1971,50 +2147,59 @@ export interface GetUserSettingsRequest {
  */
 export interface UserSettings {
   /**
+   * @public
    * <p>The ARN of the user settings.</p>
    */
   userSettingsArn: string | undefined;
 
   /**
+   * @public
    * <p>A list of web portal ARNs that this user settings is associated with.</p>
    */
   associatedPortalArns?: string[];
 
   /**
+   * @public
    * <p>Specifies whether the user can copy text from the streaming session to the local
    *          device.</p>
    */
   copyAllowed?: EnabledType | string;
 
   /**
+   * @public
    * <p>Specifies whether the user can paste text from the local device to the streaming
    *          session.</p>
    */
   pasteAllowed?: EnabledType | string;
 
   /**
+   * @public
    * <p>Specifies whether the user can download files from the streaming session to the local
    *          device.</p>
    */
   downloadAllowed?: EnabledType | string;
 
   /**
+   * @public
    * <p>Specifies whether the user can upload files from the local device to the streaming
    *          session.</p>
    */
   uploadAllowed?: EnabledType | string;
 
   /**
+   * @public
    * <p>Specifies whether the user can print to the local device.</p>
    */
   printAllowed?: EnabledType | string;
 
   /**
+   * @public
    * <p>The amount of time that a streaming session remains active after users disconnect.</p>
    */
   disconnectTimeoutInMinutes?: number;
 
   /**
+   * @public
    * <p>The amount of time that users can be idle (inactive) before they are disconnected from their streaming session and the disconnect timeout interval begins.</p>
    */
   idleDisconnectTimeoutInMinutes?: number;
@@ -2025,6 +2210,7 @@ export interface UserSettings {
  */
 export interface GetUserSettingsResponse {
   /**
+   * @public
    * <p>The user settings.</p>
    */
   userSettings?: UserSettings;
@@ -2035,11 +2221,13 @@ export interface GetUserSettingsResponse {
  */
 export interface ListBrowserSettingsRequest {
   /**
+   * @public
    * <p>The pagination token used to retrieve the next page of results for this operation.</p>
    */
   nextToken?: string;
 
   /**
+   * @public
    * <p>The maximum number of results to be included in the next page.</p>
    */
   maxResults?: number;
@@ -2051,6 +2239,7 @@ export interface ListBrowserSettingsRequest {
  */
 export interface BrowserSettingsSummary {
   /**
+   * @public
    * <p>The ARN of the browser settings.</p>
    */
   browserSettingsArn?: string;
@@ -2061,11 +2250,13 @@ export interface BrowserSettingsSummary {
  */
 export interface ListBrowserSettingsResponse {
   /**
+   * @public
    * <p>The browser settings.</p>
    */
   browserSettings?: BrowserSettingsSummary[];
 
   /**
+   * @public
    * <p>The pagination token used to retrieve the next page of results for this operation.</p>
    */
   nextToken?: string;
@@ -2076,16 +2267,19 @@ export interface ListBrowserSettingsResponse {
  */
 export interface ListIdentityProvidersRequest {
   /**
+   * @public
    * <p>The pagination token used to retrieve the next page of results for this operation.</p>
    */
   nextToken?: string;
 
   /**
+   * @public
    * <p>The maximum number of results to be included in the next page.</p>
    */
   maxResults?: number;
 
   /**
+   * @public
    * <p>The ARN of the web portal.</p>
    */
   portalArn: string | undefined;
@@ -2097,16 +2291,19 @@ export interface ListIdentityProvidersRequest {
  */
 export interface IdentityProviderSummary {
   /**
+   * @public
    * <p>The ARN of the identity provider.</p>
    */
   identityProviderArn?: string;
 
   /**
+   * @public
    * <p>The identity provider name.</p>
    */
   identityProviderName?: string;
 
   /**
+   * @public
    * <p>The identity provider type.</p>
    */
   identityProviderType?: IdentityProviderType | string;
@@ -2117,11 +2314,13 @@ export interface IdentityProviderSummary {
  */
 export interface ListIdentityProvidersResponse {
   /**
+   * @public
    * <p>The pagination token used to retrieve the next page of results for this operation.</p>
    */
   nextToken?: string;
 
   /**
+   * @public
    * <p>The identity providers.</p>
    */
   identityProviders?: IdentityProviderSummary[];
@@ -2132,11 +2331,13 @@ export interface ListIdentityProvidersResponse {
  */
 export interface ListIpAccessSettingsRequest {
   /**
+   * @public
    * <p>The pagination token used to retrieve the next page of results for this operation.</p>
    */
   nextToken?: string;
 
   /**
+   * @public
    * <p>The maximum number of results to be included in the next page.</p>
    */
   maxResults?: number;
@@ -2148,21 +2349,25 @@ export interface ListIpAccessSettingsRequest {
  */
 export interface IpAccessSettingsSummary {
   /**
+   * @public
    * <p>The ARN of IP access settings.</p>
    */
   ipAccessSettingsArn?: string;
 
   /**
+   * @public
    * <p>The display name of the IP access settings.</p>
    */
   displayName?: string;
 
   /**
+   * @public
    * <p>The description of the IP access settings.</p>
    */
   description?: string;
 
   /**
+   * @public
    * <p>The creation date timestamp of the IP access settings.</p>
    */
   creationDate?: Date;
@@ -2173,11 +2378,13 @@ export interface IpAccessSettingsSummary {
  */
 export interface ListIpAccessSettingsResponse {
   /**
+   * @public
    * <p>The IP access settings.</p>
    */
   ipAccessSettings?: IpAccessSettingsSummary[];
 
   /**
+   * @public
    * <p>The pagination token used to retrieve the next page of results for this operation.</p>
    */
   nextToken?: string;
@@ -2188,11 +2395,13 @@ export interface ListIpAccessSettingsResponse {
  */
 export interface ListNetworkSettingsRequest {
   /**
+   * @public
    * <p>The pagination token used to retrieve the next page of results for this operation.</p>
    */
   nextToken?: string;
 
   /**
+   * @public
    * <p>The maximum number of results to be included in the next page.</p>
    */
   maxResults?: number;
@@ -2204,11 +2413,13 @@ export interface ListNetworkSettingsRequest {
  */
 export interface NetworkSettingsSummary {
   /**
+   * @public
    * <p>The ARN of the network settings.</p>
    */
   networkSettingsArn?: string;
 
   /**
+   * @public
    * <p>The VPC ID of the network settings.</p>
    */
   vpcId?: string;
@@ -2219,11 +2430,13 @@ export interface NetworkSettingsSummary {
  */
 export interface ListNetworkSettingsResponse {
   /**
+   * @public
    * <p>The network settings.</p>
    */
   networkSettings?: NetworkSettingsSummary[];
 
   /**
+   * @public
    * <p>The pagination token used to retrieve the next page of results for this operation.</p>
    */
   nextToken?: string;
@@ -2234,11 +2447,13 @@ export interface ListNetworkSettingsResponse {
  */
 export interface ListPortalsRequest {
   /**
+   * @public
    * <p>The pagination token used to retrieve the next page of results for this operation. </p>
    */
   nextToken?: string;
 
   /**
+   * @public
    * <p>The maximum number of results to be included in the next page.</p>
    */
   maxResults?: number;
@@ -2250,67 +2465,80 @@ export interface ListPortalsRequest {
  */
 export interface PortalSummary {
   /**
+   * @public
    * <p>The ARN of the web portal.</p>
    */
   portalArn?: string;
 
   /**
+   * @public
    * <p>The renderer that is used in streaming sessions.</p>
    */
   rendererType?: RendererType | string;
 
   /**
+   * @public
    * <p>The browser type of the web portal.</p>
    */
   browserType?: BrowserType | string;
 
   /**
+   * @public
    * <p>The status of the web portal.</p>
    */
   portalStatus?: PortalStatus | string;
 
   /**
+   * @public
    * <p>The endpoint URL of the web portal that users access in order to start streaming
    *          sessions.</p>
    */
   portalEndpoint?: string;
 
   /**
+   * @public
    * <p>The name of the web portal.</p>
    */
   displayName?: string;
 
   /**
+   * @public
    * <p>The creation date of the web portal.</p>
    */
   creationDate?: Date;
 
   /**
+   * @public
    * <p>The ARN of the browser settings that is associated with the web portal.</p>
    */
   browserSettingsArn?: string;
 
   /**
+   * @public
    * <p>The ARN of the user settings that is associated with the web portal.</p>
    */
   userSettingsArn?: string;
 
   /**
+   * @public
    * <p>The ARN of the network settings that is associated with the web portal.</p>
    */
   networkSettingsArn?: string;
 
   /**
+   * @public
    * <p>The ARN of the trust that is associated with this web portal.</p>
    */
   trustStoreArn?: string;
 
   /**
+   * @public
    * <p>The ARN of the user access logging settings that is associated with the web portal.</p>
    */
   userAccessLoggingSettingsArn?: string;
 
   /**
+   * @public
    * <p>The type of authentication integration points used when signing into the web portal.
    *          Defaults to <code>Standard</code>.</p>
    *          <p>
@@ -2328,6 +2556,7 @@ export interface PortalSummary {
   authenticationType?: AuthenticationType | string;
 
   /**
+   * @public
    * <p>The ARN of the IP access settings.</p>
    */
   ipAccessSettingsArn?: string;
@@ -2338,11 +2567,13 @@ export interface PortalSummary {
  */
 export interface ListPortalsResponse {
   /**
+   * @public
    * <p>The portals in the list.</p>
    */
   portals?: PortalSummary[];
 
   /**
+   * @public
    * <p>The pagination token used to retrieve the next page of results for this operation. </p>
    */
   nextToken?: string;
@@ -2353,6 +2584,7 @@ export interface ListPortalsResponse {
  */
 export interface ListTagsForResourceRequest {
   /**
+   * @public
    * <p>The ARN of the resource.</p>
    */
   resourceArn: string | undefined;
@@ -2363,6 +2595,7 @@ export interface ListTagsForResourceRequest {
  */
 export interface ListTagsForResourceResponse {
   /**
+   * @public
    * <p>The tags of the resource.</p>
    */
   tags?: Tag[];
@@ -2373,16 +2606,19 @@ export interface ListTagsForResourceResponse {
  */
 export interface ListTrustStoreCertificatesRequest {
   /**
+   * @public
    * <p>The ARN of the trust store</p>
    */
   trustStoreArn: string | undefined;
 
   /**
+   * @public
    * <p>The pagination token used to retrieve the next page of results for this operation.</p>
    */
   nextToken?: string;
 
   /**
+   * @public
    * <p>The maximum number of results to be included in the next page.</p>
    */
   maxResults?: number;
@@ -2394,26 +2630,31 @@ export interface ListTrustStoreCertificatesRequest {
  */
 export interface CertificateSummary {
   /**
+   * @public
    * <p>A hexadecimal identifier for the certificate.</p>
    */
   thumbprint?: string;
 
   /**
+   * @public
    * <p>The entity the certificate belongs to.</p>
    */
   subject?: string;
 
   /**
+   * @public
    * <p>The entity that issued the certificate.</p>
    */
   issuer?: string;
 
   /**
+   * @public
    * <p>The certificate is not valid before this date.</p>
    */
   notValidBefore?: Date;
 
   /**
+   * @public
    * <p>The certificate is not valid after this date.</p>
    */
   notValidAfter?: Date;
@@ -2424,16 +2665,19 @@ export interface CertificateSummary {
  */
 export interface ListTrustStoreCertificatesResponse {
   /**
+   * @public
    * <p>The certificate list.</p>
    */
   certificateList?: CertificateSummary[];
 
   /**
+   * @public
    * <p>The ARN of the trust store.</p>
    */
   trustStoreArn?: string;
 
   /**
+   * @public
    * <p>The pagination token used to retrieve the next page of results for this operation.&gt;</p>
    */
   nextToken?: string;
@@ -2444,11 +2688,13 @@ export interface ListTrustStoreCertificatesResponse {
  */
 export interface ListTrustStoresRequest {
   /**
+   * @public
    * <p>The pagination token used to retrieve the next page of results for this operation.</p>
    */
   nextToken?: string;
 
   /**
+   * @public
    * <p>The maximum number of results to be included in the next page.</p>
    */
   maxResults?: number;
@@ -2460,6 +2706,7 @@ export interface ListTrustStoresRequest {
  */
 export interface TrustStoreSummary {
   /**
+   * @public
    * <p>The ARN of the trust store.</p>
    */
   trustStoreArn?: string;
@@ -2470,11 +2717,13 @@ export interface TrustStoreSummary {
  */
 export interface ListTrustStoresResponse {
   /**
+   * @public
    * <p>The trust stores.</p>
    */
   trustStores?: TrustStoreSummary[];
 
   /**
+   * @public
    * <p>The pagination token used to retrieve the next page of results for this operation.</p>
    */
   nextToken?: string;
@@ -2485,11 +2734,13 @@ export interface ListTrustStoresResponse {
  */
 export interface ListUserAccessLoggingSettingsRequest {
   /**
+   * @public
    * <p>The pagination token used to retrieve the next page of results for this operation.</p>
    */
   nextToken?: string;
 
   /**
+   * @public
    * <p>The maximum number of results to be included in the next page.</p>
    */
   maxResults?: number;
@@ -2501,11 +2752,13 @@ export interface ListUserAccessLoggingSettingsRequest {
  */
 export interface UserAccessLoggingSettingsSummary {
   /**
+   * @public
    * <p>The ARN of the user access logging settings.</p>
    */
   userAccessLoggingSettingsArn?: string;
 
   /**
+   * @public
    * <p>The ARN of the Kinesis stream.</p>
    */
   kinesisStreamArn?: string;
@@ -2516,11 +2769,13 @@ export interface UserAccessLoggingSettingsSummary {
  */
 export interface ListUserAccessLoggingSettingsResponse {
   /**
+   * @public
    * <p>The user access logging settings.</p>
    */
   userAccessLoggingSettings?: UserAccessLoggingSettingsSummary[];
 
   /**
+   * @public
    * <p>The pagination token used to retrieve the next page of results for this operation.</p>
    */
   nextToken?: string;
@@ -2531,11 +2786,13 @@ export interface ListUserAccessLoggingSettingsResponse {
  */
 export interface ListUserSettingsRequest {
   /**
+   * @public
    * <p>The pagination token used to retrieve the next page of results for this operation. </p>
    */
   nextToken?: string;
 
   /**
+   * @public
    * <p>The maximum number of results to be included in the next page.</p>
    */
   maxResults?: number;
@@ -2547,45 +2804,53 @@ export interface ListUserSettingsRequest {
  */
 export interface UserSettingsSummary {
   /**
+   * @public
    * <p>The ARN of the user settings.</p>
    */
   userSettingsArn?: string;
 
   /**
+   * @public
    * <p>Specifies whether the user can copy text from the streaming session to the local
    *          device.</p>
    */
   copyAllowed?: EnabledType | string;
 
   /**
+   * @public
    * <p>Specifies whether the user can paste text from the local device to the streaming
    *          session.</p>
    */
   pasteAllowed?: EnabledType | string;
 
   /**
+   * @public
    * <p>Specifies whether the user can download files from the streaming session to the local
    *          device.</p>
    */
   downloadAllowed?: EnabledType | string;
 
   /**
+   * @public
    * <p>Specifies whether the user can upload files from the local device to the streaming
    *          session.</p>
    */
   uploadAllowed?: EnabledType | string;
 
   /**
+   * @public
    * <p>Specifies whether the user can print to the local device.</p>
    */
   printAllowed?: EnabledType | string;
 
   /**
+   * @public
    * <p>The amount of time that a streaming session remains active after users disconnect.</p>
    */
   disconnectTimeoutInMinutes?: number;
 
   /**
+   * @public
    * <p>The amount of time that users can be idle (inactive) before they are disconnected from their streaming session and the disconnect timeout interval begins.</p>
    */
   idleDisconnectTimeoutInMinutes?: number;
@@ -2596,11 +2861,13 @@ export interface UserSettingsSummary {
  */
 export interface ListUserSettingsResponse {
   /**
+   * @public
    * <p>The user settings.</p>
    */
   userSettings?: UserSettingsSummary[];
 
   /**
+   * @public
    * <p>The pagination token used to retrieve the next page of results for this operation. </p>
    */
   nextToken?: string;
@@ -2611,16 +2878,19 @@ export interface ListUserSettingsResponse {
  */
 export interface TagResourceRequest {
   /**
+   * @public
    * <p>The ARN of the resource.</p>
    */
   resourceArn: string | undefined;
 
   /**
+   * @public
    * <p>The tags of the resource.</p>
    */
   tags: Tag[] | undefined;
 
   /**
+   * @public
    * <p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the
    *          request. Idempotency ensures that an API request completes only once. With an idempotent
    *          request, if the original request completes successfully, subsequent retries with the same
@@ -2644,6 +2914,7 @@ export class TooManyTagsException extends __BaseException {
   readonly name: "TooManyTagsException" = "TooManyTagsException";
   readonly $fault: "client" = "client";
   /**
+   * @public
    * <p>Name of the resource affected.</p>
    */
   resourceName?: string;
@@ -2667,11 +2938,13 @@ export class TooManyTagsException extends __BaseException {
  */
 export interface UntagResourceRequest {
   /**
+   * @public
    * <p>The ARN of the resource.</p>
    */
   resourceArn: string | undefined;
 
   /**
+   * @public
    * <p>The list of tag keys to remove from the resource.</p>
    */
   tagKeys: string[] | undefined;
@@ -2687,17 +2960,20 @@ export interface UntagResourceResponse {}
  */
 export interface UpdateBrowserSettingsRequest {
   /**
+   * @public
    * <p>The ARN of the browser settings.</p>
    */
   browserSettingsArn: string | undefined;
 
   /**
+   * @public
    * <p>A JSON string containing Chrome Enterprise policies that will be applied to all
    *          streaming sessions. </p>
    */
   browserPolicy?: string;
 
   /**
+   * @public
    * <p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the
    *          request. Idempotency ensures that an API request completes only once. With an idempotent
    *          request, if the original request completes successfully, subsequent retries with the same
@@ -2713,6 +2989,7 @@ export interface UpdateBrowserSettingsRequest {
  */
 export interface UpdateBrowserSettingsResponse {
   /**
+   * @public
    * <p>The browser settings.</p>
    */
   browserSettings: BrowserSettings | undefined;
@@ -2723,21 +3000,25 @@ export interface UpdateBrowserSettingsResponse {
  */
 export interface UpdateIdentityProviderRequest {
   /**
+   * @public
    * <p>The ARN of the identity provider.</p>
    */
   identityProviderArn: string | undefined;
 
   /**
+   * @public
    * <p>The name of the identity provider.</p>
    */
   identityProviderName?: string;
 
   /**
+   * @public
    * <p>The type of the identity provider.</p>
    */
   identityProviderType?: IdentityProviderType | string;
 
   /**
+   * @public
    * <p>The details of the identity provider. The following list describes the provider detail keys for
    *          each identity provider type. </p>
    *          <ul>
@@ -2895,6 +3176,7 @@ export interface UpdateIdentityProviderRequest {
   identityProviderDetails?: Record<string, string>;
 
   /**
+   * @public
    * <p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the
    *          request. Idempotency ensures that an API request completes only once. With an idempotent
    *          request, if the original request completes successfully, subsequent retries with the same
@@ -2910,6 +3192,7 @@ export interface UpdateIdentityProviderRequest {
  */
 export interface UpdateIdentityProviderResponse {
   /**
+   * @public
    * <p>The identity provider.</p>
    */
   identityProvider: IdentityProvider | undefined;
@@ -2920,26 +3203,31 @@ export interface UpdateIdentityProviderResponse {
  */
 export interface UpdateIpAccessSettingsRequest {
   /**
+   * @public
    * <p>The ARN of the IP access settings.</p>
    */
   ipAccessSettingsArn: string | undefined;
 
   /**
+   * @public
    * <p>The display name of the IP access settings.</p>
    */
   displayName?: string;
 
   /**
+   * @public
    * <p>The description of the IP access settings.</p>
    */
   description?: string;
 
   /**
+   * @public
    * <p>The updated IP rules of the IP access settings.</p>
    */
   ipRules?: IpRule[];
 
   /**
+   * @public
    * <p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the
    *          request. Idempotency ensures that an API request completes only once. With an idempotent
    *          request, if the original request completes successfully, subsequent retries with the same
@@ -2955,6 +3243,7 @@ export interface UpdateIpAccessSettingsRequest {
  */
 export interface UpdateIpAccessSettingsResponse {
   /**
+   * @public
    * <p>The IP access settings.</p>
    */
   ipAccessSettings: IpAccessSettings | undefined;
@@ -2965,26 +3254,31 @@ export interface UpdateIpAccessSettingsResponse {
  */
 export interface UpdateNetworkSettingsRequest {
   /**
+   * @public
    * <p>The ARN of the network settings.</p>
    */
   networkSettingsArn: string | undefined;
 
   /**
+   * @public
    * <p>The VPC that streaming instances will connect to.</p>
    */
   vpcId?: string;
 
   /**
+   * @public
    * <p>The subnets in which network interfaces are created to connect streaming instances to your VPC. At least two of these subnets must be in different availability zones.</p>
    */
   subnetIds?: string[];
 
   /**
+   * @public
    * <p>One or more security groups used to control access from streaming instances to your VPC.</p>
    */
   securityGroupIds?: string[];
 
   /**
+   * @public
    * <p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the
    *          request. Idempotency ensures that an API request completes only once. With an idempotent
    *          request, if the original request completes successfully, subsequent retries with the same
@@ -3000,6 +3294,7 @@ export interface UpdateNetworkSettingsRequest {
  */
 export interface UpdateNetworkSettingsResponse {
   /**
+   * @public
    * <p>The network settings.</p>
    */
   networkSettings: NetworkSettings | undefined;
@@ -3010,16 +3305,19 @@ export interface UpdateNetworkSettingsResponse {
  */
 export interface UpdatePortalRequest {
   /**
+   * @public
    * <p>The ARN of the web portal.</p>
    */
   portalArn: string | undefined;
 
   /**
+   * @public
    * <p>The name of the web portal. This is not visible to users who log into the web portal.</p>
    */
   displayName?: string;
 
   /**
+   * @public
    * <p>The type of authentication integration points used when signing into the web portal.
    *          Defaults to <code>Standard</code>.</p>
    *          <p>
@@ -3042,6 +3340,7 @@ export interface UpdatePortalRequest {
  */
 export interface UpdatePortalResponse {
   /**
+   * @public
    * <p>The web portal.</p>
    */
   portal?: Portal;
@@ -3052,21 +3351,25 @@ export interface UpdatePortalResponse {
  */
 export interface UpdateTrustStoreRequest {
   /**
+   * @public
    * <p>The ARN of the trust store.</p>
    */
   trustStoreArn: string | undefined;
 
   /**
+   * @public
    * <p>A list of CA certificates to add to the trust store.</p>
    */
   certificatesToAdd?: Uint8Array[];
 
   /**
+   * @public
    * <p>A list of CA certificates to delete from a trust store.</p>
    */
   certificatesToDelete?: string[];
 
   /**
+   * @public
    * <p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the
    *          request. Idempotency ensures that an API request completes only once. With an idempotent
    *          request, if the original request completes successfully, subsequent retries with the same
@@ -3082,6 +3385,7 @@ export interface UpdateTrustStoreRequest {
  */
 export interface UpdateTrustStoreResponse {
   /**
+   * @public
    * <p>The ARN of the trust store.</p>
    */
   trustStoreArn: string | undefined;
@@ -3092,16 +3396,19 @@ export interface UpdateTrustStoreResponse {
  */
 export interface UpdateUserAccessLoggingSettingsRequest {
   /**
+   * @public
    * <p>The ARN of the user access logging settings.</p>
    */
   userAccessLoggingSettingsArn: string | undefined;
 
   /**
+   * @public
    * <p>The ARN of the Kinesis stream.</p>
    */
   kinesisStreamArn?: string;
 
   /**
+   * @public
    * <p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the
    *          request. Idempotency ensures that an API request completes only once. With an idempotent
    *          request, if the original request completes successfully, subsequent retries with the same
@@ -3117,6 +3424,7 @@ export interface UpdateUserAccessLoggingSettingsRequest {
  */
 export interface UpdateUserAccessLoggingSettingsResponse {
   /**
+   * @public
    * <p>The user access logging settings.</p>
    */
   userAccessLoggingSettings: UserAccessLoggingSettings | undefined;
@@ -3127,50 +3435,59 @@ export interface UpdateUserAccessLoggingSettingsResponse {
  */
 export interface UpdateUserSettingsRequest {
   /**
+   * @public
    * <p>The ARN of the user settings.</p>
    */
   userSettingsArn: string | undefined;
 
   /**
+   * @public
    * <p>Specifies whether the user can copy text from the streaming session to the local
    *          device.</p>
    */
   copyAllowed?: EnabledType | string;
 
   /**
+   * @public
    * <p>Specifies whether the user can paste text from the local device to the streaming
    *          session.</p>
    */
   pasteAllowed?: EnabledType | string;
 
   /**
+   * @public
    * <p>Specifies whether the user can download files from the streaming session to the local
    *          device.</p>
    */
   downloadAllowed?: EnabledType | string;
 
   /**
+   * @public
    * <p>Specifies whether the user can upload files from the local device to the streaming
    *          session.</p>
    */
   uploadAllowed?: EnabledType | string;
 
   /**
+   * @public
    * <p>Specifies whether the user can print to the local device.</p>
    */
   printAllowed?: EnabledType | string;
 
   /**
+   * @public
    * <p>The amount of time that a streaming session remains active after users disconnect.</p>
    */
   disconnectTimeoutInMinutes?: number;
 
   /**
+   * @public
    * <p>The amount of time that users can be idle (inactive) before they are disconnected from their streaming session and the disconnect timeout interval begins.</p>
    */
   idleDisconnectTimeoutInMinutes?: number;
 
   /**
+   * @public
    * <p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the
    *          request. Idempotency ensures that an API request completes only once. With an idempotent
    *          request, if the original request completes successfully, subsequent retries with the same
@@ -3186,6 +3503,7 @@ export interface UpdateUserSettingsRequest {
  */
 export interface UpdateUserSettingsResponse {
   /**
+   * @public
    * <p>The user settings.</p>
    */
   userSettings: UserSettings | undefined;

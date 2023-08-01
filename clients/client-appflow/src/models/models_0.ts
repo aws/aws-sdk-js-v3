@@ -44,12 +44,14 @@ export type AggregationType = (typeof AggregationType)[keyof typeof AggregationT
  */
 export interface AggregationConfig {
   /**
+   * @public
    * <p> Specifies whether Amazon AppFlow aggregates the flow records into a single file, or
    *       leave them unaggregated. </p>
    */
   aggregationType?: AggregationType | string;
 
   /**
+   * @public
    * <p>The desired file size, in MB, for each output file that Amazon AppFlow writes to the
    *       flow destination. For each file, Amazon AppFlow attempts to achieve the size that you
    *       specify. The actual file sizes might differ from this target based on the number and size of
@@ -77,12 +79,14 @@ export type AmplitudeConnectorOperator = (typeof AmplitudeConnectorOperator)[key
  */
 export interface AmplitudeConnectorProfileCredentials {
   /**
+   * @public
    * <p> A unique alphanumeric identifier used to authenticate a user, developer, or calling
    *       program to your API. </p>
    */
   apiKey: string | undefined;
 
   /**
+   * @public
    * <p> The Secret Access Key portion of the credentials. </p>
    */
   secretKey: string | undefined;
@@ -106,6 +110,7 @@ export interface AmplitudeMetadata {}
  */
 export interface AmplitudeSourceProperties {
   /**
+   * @public
    * <p> The object specified in the Amplitude flow source. </p>
    */
   object: string | undefined;
@@ -117,11 +122,13 @@ export interface AmplitudeSourceProperties {
  */
 export interface ApiKeyCredentials {
   /**
+   * @public
    * <p>The API key required for API key authentication.</p>
    */
   apiKey: string | undefined;
 
   /**
+   * @public
    * <p>The API secret key required for API key authentication.</p>
    */
   apiSecretKey?: string;
@@ -133,31 +140,37 @@ export interface ApiKeyCredentials {
  */
 export interface AuthParameter {
   /**
+   * @public
    * <p>The authentication key required to authenticate with the connector.</p>
    */
   key?: string;
 
   /**
+   * @public
    * <p>Indicates whether this authentication parameter is required.</p>
    */
   isRequired?: boolean;
 
   /**
+   * @public
    * <p>Label used for authentication parameter.</p>
    */
   label?: string;
 
   /**
+   * @public
    * <p>A description about the authentication parameter.</p>
    */
   description?: string;
 
   /**
+   * @public
    * <p>Indicates whether this authentication parameter is a sensitive field.</p>
    */
   isSensitiveField?: boolean;
 
   /**
+   * @public
    * <p>Contains default values for this authentication parameter that are supplied by the
    *       connector.</p>
    */
@@ -170,11 +183,13 @@ export interface AuthParameter {
  */
 export interface CustomAuthConfig {
   /**
+   * @public
    * <p>The authentication type that the custom connector uses.</p>
    */
   customAuthenticationType?: string;
 
   /**
+   * @public
    * <p>Information about authentication parameters required for authentication.</p>
    */
   authParameters?: AuthParameter[];
@@ -200,37 +215,44 @@ export type OAuth2CustomPropType = (typeof OAuth2CustomPropType)[keyof typeof OA
  */
 export interface OAuth2CustomParameter {
   /**
+   * @public
    * <p>The key of the custom parameter required for OAuth 2.0 authentication.</p>
    */
   key?: string;
 
   /**
+   * @public
    * <p>Indicates whether the custom parameter for OAuth 2.0 authentication is required.</p>
    */
   isRequired?: boolean;
 
   /**
+   * @public
    * <p>The label of the custom parameter used for OAuth 2.0 authentication.</p>
    */
   label?: string;
 
   /**
+   * @public
    * <p>A description about the custom parameter used for OAuth 2.0 authentication.</p>
    */
   description?: string;
 
   /**
+   * @public
    * <p>Indicates whether this authentication custom parameter is a sensitive field.</p>
    */
   isSensitiveField?: boolean;
 
   /**
+   * @public
    * <p>Contains default values for this authentication parameter that are supplied by the
    *       connector.</p>
    */
   connectorSuppliedValues?: string[];
 
   /**
+   * @public
    * <p>Indicates whether custom parameter is used with TokenUrl or AuthUrl.</p>
    */
   type?: OAuth2CustomPropType | string;
@@ -257,26 +279,31 @@ export type OAuth2GrantType = (typeof OAuth2GrantType)[keyof typeof OAuth2GrantT
  */
 export interface OAuth2Defaults {
   /**
+   * @public
    * <p>OAuth 2.0 scopes that the connector supports.</p>
    */
   oauthScopes?: string[];
 
   /**
+   * @public
    * <p>Token URLs that can be used for OAuth 2.0 authentication.</p>
    */
   tokenUrls?: string[];
 
   /**
+   * @public
    * <p>Auth code URLs that can be used for OAuth 2.0 authentication.</p>
    */
   authCodeUrls?: string[];
 
   /**
+   * @public
    * <p>OAuth 2.0 grant types supported by the connector.</p>
    */
   oauth2GrantTypesSupported?: (OAuth2GrantType | string)[];
 
   /**
+   * @public
    * <p>List of custom parameters required for OAuth 2.0 authentication.</p>
    */
   oauth2CustomProperties?: OAuth2CustomParameter[];
@@ -288,31 +315,37 @@ export interface OAuth2Defaults {
  */
 export interface AuthenticationConfig {
   /**
+   * @public
    * <p>Indicates whether basic authentication is supported by the connector.</p>
    */
   isBasicAuthSupported?: boolean;
 
   /**
+   * @public
    * <p>Indicates whether API key authentication is supported by the connector</p>
    */
   isApiKeyAuthSupported?: boolean;
 
   /**
+   * @public
    * <p>Indicates whether OAuth 2.0 authentication is supported by the connector.</p>
    */
   isOAuth2Supported?: boolean;
 
   /**
+   * @public
    * <p>Indicates whether custom authentication is supported by the connector</p>
    */
   isCustomAuthSupported?: boolean;
 
   /**
+   * @public
    * <p>Contains the default values required for OAuth 2.0 authentication.</p>
    */
   oAuth2Defaults?: OAuth2Defaults;
 
   /**
+   * @public
    * <p>Contains information required for custom authentication.</p>
    */
   customAuthConfigs?: CustomAuthConfig[];
@@ -340,11 +373,13 @@ export type AuthenticationType = (typeof AuthenticationType)[keyof typeof Authen
  */
 export interface BasicAuthCredentials {
   /**
+   * @public
    * <p> The username to use to connect to a resource. </p>
    */
   username: string | undefined;
 
   /**
+   * @public
    * <p> The password to use to connect to a resource.</p>
    */
   password: string | undefined;
@@ -355,11 +390,13 @@ export interface BasicAuthCredentials {
  */
 export interface CancelFlowExecutionsRequest {
   /**
+   * @public
    * <p>The name of a flow with active runs that you want to cancel.</p>
    */
   flowName: string | undefined;
 
   /**
+   * @public
    * <p>The ID of each active run to cancel. These runs must belong to the flow you specify in
    *       your request.</p>
    *          <p>If you omit this parameter, your request ends all active runs that belong to the
@@ -373,6 +410,7 @@ export interface CancelFlowExecutionsRequest {
  */
 export interface CancelFlowExecutionsResponse {
   /**
+   * @public
    * <p>The IDs of runs that Amazon AppFlow couldn't cancel. These runs might be ineligible
    *       for canceling because they haven't started yet or have already completed.</p>
    */
@@ -560,6 +598,7 @@ export interface EventBridgeMetadata {}
  */
 export interface GoogleAnalyticsMetadata {
   /**
+   * @public
    * <p> The desired authorization scope for the Google Analytics account. </p>
    */
   oAuthScopes?: string[];
@@ -571,6 +610,7 @@ export interface GoogleAnalyticsMetadata {
  */
 export interface HoneycodeMetadata {
   /**
+   * @public
    * <p> The desired authorization scope for the Amazon Honeycode account. </p>
    */
   oAuthScopes?: string[];
@@ -627,17 +667,20 @@ export type SalesforceDataTransferApi = (typeof SalesforceDataTransferApi)[keyof
  */
 export interface SalesforceMetadata {
   /**
+   * @public
    * <p> The desired authorization scope for the Salesforce account. </p>
    */
   oAuthScopes?: string[];
 
   /**
+   * @public
    * <p>The Salesforce APIs that you can have Amazon AppFlow use when your flows transfers
    *       data to or from Salesforce.</p>
    */
   dataTransferApis?: (SalesforceDataTransferApi | string)[];
 
   /**
+   * @public
    * <p>The OAuth 2.0 grant types that Amazon AppFlow can use when it requests an access
    *       token from Salesforce. Amazon AppFlow requires an access token each time it attempts to
    *       access your Salesforce records.</p>
@@ -691,6 +734,7 @@ export interface SingularMetadata {}
  */
 export interface SlackMetadata {
   /**
+   * @public
    * <p> The desired authorization scope for the Slack account. </p>
    */
   oAuthScopes?: string[];
@@ -702,6 +746,7 @@ export interface SlackMetadata {
  */
 export interface SnowflakeMetadata {
   /**
+   * @public
    * <p> Specifies the supported Amazon Web Services Regions when using Snowflake. </p>
    */
   supportedRegions?: string[];
@@ -731,6 +776,7 @@ export interface VeevaMetadata {}
  */
 export interface ZendeskMetadata {
   /**
+   * @public
    * <p> The desired authorization scope for the Zendesk account. </p>
    */
   oAuthScopes?: string[];
@@ -743,111 +789,133 @@ export interface ZendeskMetadata {
  */
 export interface ConnectorMetadata {
   /**
+   * @public
    * <p> The connector metadata specific to Amplitude. </p>
    */
   Amplitude?: AmplitudeMetadata;
 
   /**
+   * @public
    * <p> The connector metadata specific to Datadog. </p>
    */
   Datadog?: DatadogMetadata;
 
   /**
+   * @public
    * <p> The connector metadata specific to Dynatrace. </p>
    */
   Dynatrace?: DynatraceMetadata;
 
   /**
+   * @public
    * <p> The connector metadata specific to Google Analytics. </p>
    */
   GoogleAnalytics?: GoogleAnalyticsMetadata;
 
   /**
+   * @public
    * <p> The connector metadata specific to Infor Nexus. </p>
    */
   InforNexus?: InforNexusMetadata;
 
   /**
+   * @public
    * <p> The connector metadata specific to Marketo. </p>
    */
   Marketo?: MarketoMetadata;
 
   /**
+   * @public
    * <p> The connector metadata specific to Amazon Redshift. </p>
    */
   Redshift?: RedshiftMetadata;
 
   /**
+   * @public
    * <p> The connector metadata specific to Amazon S3. </p>
    */
   S3?: S3Metadata;
 
   /**
+   * @public
    * <p> The connector metadata specific to Salesforce. </p>
    */
   Salesforce?: SalesforceMetadata;
 
   /**
+   * @public
    * <p> The connector metadata specific to ServiceNow. </p>
    */
   ServiceNow?: ServiceNowMetadata;
 
   /**
+   * @public
    * <p> The connector metadata specific to Singular. </p>
    */
   Singular?: SingularMetadata;
 
   /**
+   * @public
    * <p> The connector metadata specific to Slack. </p>
    */
   Slack?: SlackMetadata;
 
   /**
+   * @public
    * <p> The connector metadata specific to Snowflake. </p>
    */
   Snowflake?: SnowflakeMetadata;
 
   /**
+   * @public
    * <p> The connector metadata specific to Trend Micro. </p>
    */
   Trendmicro?: TrendmicroMetadata;
 
   /**
+   * @public
    * <p> The connector metadata specific to Veeva. </p>
    */
   Veeva?: VeevaMetadata;
 
   /**
+   * @public
    * <p> The connector metadata specific to Zendesk. </p>
    */
   Zendesk?: ZendeskMetadata;
 
   /**
+   * @public
    * <p> The connector metadata specific to Amazon EventBridge. </p>
    */
   EventBridge?: EventBridgeMetadata;
 
   /**
+   * @public
    * <p> The connector metadata specific to Upsolver. </p>
    */
   Upsolver?: UpsolverMetadata;
 
   /**
+   * @public
    * <p> The connector metadata specific to Amazon Connect Customer Profiles. </p>
    */
   CustomerProfiles?: CustomerProfilesMetadata;
 
   /**
+   * @public
    * <p> The connector metadata specific to Amazon Honeycode. </p>
    */
   Honeycode?: HoneycodeMetadata;
 
   /**
+   * @public
    * <p> The connector metadata specific to SAPOData. </p>
    */
   SAPOData?: SAPODataMetadata;
 
   /**
+   * @public
    * <p>The connector metadata specific to Salesforce Pardot.</p>
    */
   Pardot?: PardotMetadata;
@@ -860,6 +928,7 @@ export interface ConnectorMetadata {
  */
 export interface LambdaConnectorProvisioningConfig {
   /**
+   * @public
    * <p>Lambda ARN of the connector being registered.</p>
    */
   lambdaArn: string | undefined;
@@ -871,6 +940,7 @@ export interface LambdaConnectorProvisioningConfig {
  */
 export interface ConnectorProvisioningConfig {
   /**
+   * @public
    * <p>Contains information about the configuration of the lambda which is being registered as
    *       the connector.</p>
    */
@@ -897,36 +967,43 @@ export type ConnectorProvisioningType = (typeof ConnectorProvisioningType)[keyof
  */
 export interface ConnectorRuntimeSetting {
   /**
+   * @public
    * <p>Contains value information about the connector runtime setting.</p>
    */
   key?: string;
 
   /**
+   * @public
    * <p>Data type of the connector runtime setting.</p>
    */
   dataType?: string;
 
   /**
+   * @public
    * <p>Indicates whether this connector runtime setting is required.</p>
    */
   isRequired?: boolean;
 
   /**
+   * @public
    * <p>A label used for connector runtime setting.</p>
    */
   label?: string;
 
   /**
+   * @public
    * <p>A description about the connector runtime setting.</p>
    */
   description?: string;
 
   /**
+   * @public
    * <p>Indicates the scope of the connector runtime setting.</p>
    */
   scope?: string;
 
   /**
+   * @public
    * <p>Contains default values for the connector runtime setting that are supplied by the
    *       connector.</p>
    */
@@ -991,11 +1068,13 @@ export type DataTransferApiType = (typeof DataTransferApiType)[keyof typeof Data
  */
 export interface DataTransferApi {
   /**
+   * @public
    * <p>The name of the connector application API.</p>
    */
   Name?: string;
 
   /**
+   * @public
    * <p>You can specify one of the following types:</p>
    *          <dl>
    *             <dt>AUTOMATIC</dt>
@@ -1120,137 +1199,164 @@ export type WriteOperationType = (typeof WriteOperationType)[keyof typeof WriteO
  */
 export interface ConnectorConfiguration {
   /**
+   * @public
    * <p> Specifies whether the connector can be used as a source. </p>
    */
   canUseAsSource?: boolean;
 
   /**
+   * @public
    * <p> Specifies whether the connector can be used as a destination. </p>
    */
   canUseAsDestination?: boolean;
 
   /**
+   * @public
    * <p> Lists the connectors that are available for use as destinations. </p>
    */
   supportedDestinationConnectors?: (ConnectorType | string)[];
 
   /**
+   * @public
    * <p> Specifies the supported flow frequency for that connector. </p>
    */
   supportedSchedulingFrequencies?: (ScheduleFrequencyType | string)[];
 
   /**
+   * @public
    * <p> Specifies if PrivateLink is enabled for that connector. </p>
    */
   isPrivateLinkEnabled?: boolean;
 
   /**
+   * @public
    * <p> Specifies if a PrivateLink endpoint URL is required. </p>
    */
   isPrivateLinkEndpointUrlRequired?: boolean;
 
   /**
+   * @public
    * <p> Specifies the supported trigger types for the flow. </p>
    */
   supportedTriggerTypes?: (TriggerType | string)[];
 
   /**
+   * @public
    * <p> Specifies connector-specific metadata such as <code>oAuthScopes</code>,
    *         <code>supportedRegions</code>, <code>privateLinkServiceUrl</code>, and so on. </p>
    */
   connectorMetadata?: ConnectorMetadata;
 
   /**
+   * @public
    * <p>The connector type.</p>
    */
   connectorType?: ConnectorType | string;
 
   /**
+   * @public
    * <p>The label used for registering the connector.</p>
    */
   connectorLabel?: string;
 
   /**
+   * @public
    * <p>A description about the connector.</p>
    */
   connectorDescription?: string;
 
   /**
+   * @public
    * <p>The owner who developed the connector.</p>
    */
   connectorOwner?: string;
 
   /**
+   * @public
    * <p>The connector name.</p>
    */
   connectorName?: string;
 
   /**
+   * @public
    * <p>The connector version.</p>
    */
   connectorVersion?: string;
 
   /**
+   * @public
    * <p>The Amazon Resource Name (ARN) for the registered connector.</p>
    */
   connectorArn?: string;
 
   /**
+   * @public
    * <p>The connection modes that the connector supports.</p>
    */
   connectorModes?: string[];
 
   /**
+   * @public
    * <p>The authentication config required for the connector.</p>
    */
   authenticationConfig?: AuthenticationConfig;
 
   /**
+   * @public
    * <p>The required connector runtime settings.</p>
    */
   connectorRuntimeSettings?: ConnectorRuntimeSetting[];
 
   /**
+   * @public
    * <p>A list of API versions that are supported by the connector.</p>
    */
   supportedApiVersions?: string[];
 
   /**
+   * @public
    * <p>A list of operators supported by the connector.</p>
    */
   supportedOperators?: (Operators | string)[];
 
   /**
+   * @public
    * <p>A list of write operations supported by the connector.</p>
    */
   supportedWriteOperations?: (WriteOperationType | string)[];
 
   /**
+   * @public
    * <p>The provisioning type used to register the connector.</p>
    */
   connectorProvisioningType?: ConnectorProvisioningType | string;
 
   /**
+   * @public
    * <p>The configuration required for registering the connector.</p>
    */
   connectorProvisioningConfig?: ConnectorProvisioningConfig;
 
   /**
+   * @public
    * <p>Logo URL of the connector.</p>
    */
   logoURL?: string;
 
   /**
+   * @public
    * <p>The date on which the connector was registered.</p>
    */
   registeredAt?: Date;
 
   /**
+   * @public
    * <p>Information about who registered the connector.</p>
    */
   registeredBy?: string;
 
   /**
+   * @public
    * <p>The data transfer types that the connector supports.</p>
    *          <dl>
    *             <dt>RECORD</dt>
@@ -1266,6 +1372,7 @@ export interface ConnectorConfiguration {
   supportedDataTransferTypes?: (SupportedDataTransferType | string)[];
 
   /**
+   * @public
    * <p>The APIs of the connector application that Amazon AppFlow can use to transfer your
    *       data.</p>
    */
@@ -1278,61 +1385,73 @@ export interface ConnectorConfiguration {
  */
 export interface ConnectorDetail {
   /**
+   * @public
    * <p>A description about the registered connector.</p>
    */
   connectorDescription?: string;
 
   /**
+   * @public
    * <p>The name of the connector.</p>
    */
   connectorName?: string;
 
   /**
+   * @public
    * <p>The owner of the connector.</p>
    */
   connectorOwner?: string;
 
   /**
+   * @public
    * <p>The connector version.</p>
    */
   connectorVersion?: string;
 
   /**
+   * @public
    * <p>The application type of the connector.</p>
    */
   applicationType?: string;
 
   /**
+   * @public
    * <p>The connector type.</p>
    */
   connectorType?: ConnectorType | string;
 
   /**
+   * @public
    * <p>A label used for the connector.</p>
    */
   connectorLabel?: string;
 
   /**
+   * @public
    * <p>The time at which the connector was registered.</p>
    */
   registeredAt?: Date;
 
   /**
+   * @public
    * <p>The user who registered the connector.</p>
    */
   registeredBy?: string;
 
   /**
+   * @public
    * <p>The provisioning type that the connector uses.</p>
    */
   connectorProvisioningType?: ConnectorProvisioningType | string;
 
   /**
+   * @public
    * <p>The connection mode that the connector supports.</p>
    */
   connectorModes?: string[];
 
   /**
+   * @public
    * <p>The data transfer types that the connector supports.</p>
    *          <dl>
    *             <dt>RECORD</dt>
@@ -1357,16 +1476,19 @@ export interface ConnectorDetail {
  */
 export interface ConnectorEntity {
   /**
+   * @public
    * <p> The name of the connector entity. </p>
    */
   name: string | undefined;
 
   /**
+   * @public
    * <p> The label applied to the connector entity. </p>
    */
   label?: string;
 
   /**
+   * @public
    * <p> Specifies whether the connector entity is a parent or a category and has more entities
    *       nested underneath it. If another call is made with <code>entitiesPath =
    *         "the_current_entity_name_with_hasNestedEntities_true"</code>, then it returns the nested
@@ -1383,33 +1505,39 @@ export interface ConnectorEntity {
  */
 export interface DestinationFieldProperties {
   /**
+   * @public
    * <p> Specifies if the destination field can be created by the current user. </p>
    */
   isCreatable?: boolean;
 
   /**
+   * @public
    * <p> Specifies if the destination field can have a null value. </p>
    */
   isNullable?: boolean;
 
   /**
+   * @public
    * <p> Specifies if the flow run can either insert new rows in the destination field if they do
    *       not already exist, or update them if they do. </p>
    */
   isUpsertable?: boolean;
 
   /**
+   * @public
    * <p> Specifies whether the field can be updated during an <code>UPDATE</code> or
    *         <code>UPSERT</code> write operation. </p>
    */
   isUpdatable?: boolean;
 
   /**
+   * @public
    * <p>Specifies whether the field can use the default value during a Create operation.</p>
    */
   isDefaultedOnCreate?: boolean;
 
   /**
+   * @public
    * <p> A list of supported write operations. For each write operation listed, this field can be
    *       used in <code>idFieldNames</code> when that write operation is present as a destination
    *       option. </p>
@@ -1424,16 +1552,19 @@ export interface DestinationFieldProperties {
  */
 export interface SourceFieldProperties {
   /**
+   * @public
    * <p> Indicates whether the field can be returned in a search result. </p>
    */
   isRetrievable?: boolean;
 
   /**
+   * @public
    * <p> Indicates if the field can be queried. </p>
    */
   isQueryable?: boolean;
 
   /**
+   * @public
    * <p>Indicates if this timestamp field can be used for incremental queries.</p>
    */
   isTimestampFieldForIncrementalQueries?: boolean;
@@ -1445,11 +1576,13 @@ export interface SourceFieldProperties {
  */
 export interface Range {
   /**
+   * @public
    * <p>Maximum value supported by the field.</p>
    */
   maximum?: number;
 
   /**
+   * @public
    * <p>Minimum value supported by the field.</p>
    */
   minimum?: number;
@@ -1495,37 +1628,44 @@ export type Operator = (typeof Operator)[keyof typeof Operator];
  */
 export interface FieldTypeDetails {
   /**
+   * @public
    * <p> The type of field, such as string, integer, date, and so on. </p>
    */
   fieldType: string | undefined;
 
   /**
+   * @public
    * <p> The list of operators supported by a field. </p>
    */
   filterOperators: (Operator | string)[] | undefined;
 
   /**
+   * @public
    * <p> The list of values that a field can contain. For example, a Boolean
    *         <code>fieldType</code> can have two values: "true" and "false". </p>
    */
   supportedValues?: string[];
 
   /**
+   * @public
    * <p>The regular expression pattern for the field name.</p>
    */
   valueRegexPattern?: string;
 
   /**
+   * @public
    * <p>The date format that the field supports.</p>
    */
   supportedDateFormat?: string;
 
   /**
+   * @public
    * <p>The range of values this field can hold.</p>
    */
   fieldValueRange?: Range;
 
   /**
+   * @public
    * <p>This is the allowable length range for this field's value.</p>
    */
   fieldLengthRange?: Range;
@@ -1538,6 +1678,7 @@ export interface FieldTypeDetails {
  */
 export interface SupportedFieldTypeDetails {
   /**
+   * @public
    * <p> The initial supported version for <code>fieldType</code>. If this is later changed to a
    *       different version, v2 will be introduced. </p>
    */
@@ -1552,59 +1693,70 @@ export interface SupportedFieldTypeDetails {
  */
 export interface ConnectorEntityField {
   /**
+   * @public
    * <p> The unique identifier of the connector field. </p>
    */
   identifier: string | undefined;
 
   /**
+   * @public
    * <p>The parent identifier of the connector field.</p>
    */
   parentIdentifier?: string;
 
   /**
+   * @public
    * <p> The label applied to a connector entity field. </p>
    */
   label?: string;
 
   /**
+   * @public
    * <p>Booelan value that indicates whether this field can be used as a primary key.</p>
    */
   isPrimaryKey?: boolean;
 
   /**
+   * @public
    * <p>Default value that can be assigned to this field.</p>
    */
   defaultValue?: string;
 
   /**
+   * @public
    * <p>Booelan value that indicates whether this field is deprecated or not.</p>
    */
   isDeprecated?: boolean;
 
   /**
+   * @public
    * <p> Contains details regarding the supported <code>FieldType</code>, including the
    *       corresponding <code>filterOperators</code> and <code>supportedValues</code>. </p>
    */
   supportedFieldTypeDetails?: SupportedFieldTypeDetails;
 
   /**
+   * @public
    * <p> A description of the connector entity field. </p>
    */
   description?: string;
 
   /**
+   * @public
    * <p> The properties that can be applied to a field when the connector is being used as a
    *       source. </p>
    */
   sourceProperties?: SourceFieldProperties;
 
   /**
+   * @public
    * <p> The properties applied to a field when the connector is being used as a destination.
    *     </p>
    */
   destinationProperties?: DestinationFieldProperties;
 
   /**
+   * @public
    * <p>A map that has specific properties related to the ConnectorEntityField.</p>
    */
   customProperties?: Record<string, string>;
@@ -1617,12 +1769,14 @@ export interface ConnectorEntityField {
  */
 export interface ConnectorOAuthRequest {
   /**
+   * @public
    * <p> The code provided by the connector when it has been authenticated via the connected app.
    *     </p>
    */
   authCode?: string;
 
   /**
+   * @public
    * <p> The URL to which the authentication server redirects the browser after authorization has
    *       been granted. </p>
    */
@@ -2062,86 +2216,103 @@ export type ZendeskConnectorOperator = (typeof ZendeskConnectorOperator)[keyof t
  */
 export interface ConnectorOperator {
   /**
+   * @public
    * <p> The operation to be performed on the provided Amplitude source fields. </p>
    */
   Amplitude?: AmplitudeConnectorOperator | string;
 
   /**
+   * @public
    * <p> The operation to be performed on the provided Datadog source fields. </p>
    */
   Datadog?: DatadogConnectorOperator | string;
 
   /**
+   * @public
    * <p> The operation to be performed on the provided Dynatrace source fields. </p>
    */
   Dynatrace?: DynatraceConnectorOperator | string;
 
   /**
+   * @public
    * <p> The operation to be performed on the provided Google Analytics source fields. </p>
    */
   GoogleAnalytics?: GoogleAnalyticsConnectorOperator | string;
 
   /**
+   * @public
    * <p> The operation to be performed on the provided Infor Nexus source fields. </p>
    */
   InforNexus?: InforNexusConnectorOperator | string;
 
   /**
+   * @public
    * <p> The operation to be performed on the provided Marketo source fields. </p>
    */
   Marketo?: MarketoConnectorOperator | string;
 
   /**
+   * @public
    * <p> The operation to be performed on the provided Amazon S3 source fields. </p>
    */
   S3?: S3ConnectorOperator | string;
 
   /**
+   * @public
    * <p> The operation to be performed on the provided Salesforce source fields. </p>
    */
   Salesforce?: SalesforceConnectorOperator | string;
 
   /**
+   * @public
    * <p> The operation to be performed on the provided ServiceNow source fields. </p>
    */
   ServiceNow?: ServiceNowConnectorOperator | string;
 
   /**
+   * @public
    * <p> The operation to be performed on the provided Singular source fields. </p>
    */
   Singular?: SingularConnectorOperator | string;
 
   /**
+   * @public
    * <p> The operation to be performed on the provided Slack source fields. </p>
    */
   Slack?: SlackConnectorOperator | string;
 
   /**
+   * @public
    * <p> The operation to be performed on the provided Trend Micro source fields. </p>
    */
   Trendmicro?: TrendmicroConnectorOperator | string;
 
   /**
+   * @public
    * <p> The operation to be performed on the provided Veeva source fields. </p>
    */
   Veeva?: VeevaConnectorOperator | string;
 
   /**
+   * @public
    * <p> The operation to be performed on the provided Zendesk source fields. </p>
    */
   Zendesk?: ZendeskConnectorOperator | string;
 
   /**
+   * @public
    * <p> The operation to be performed on the provided SAPOData source fields. </p>
    */
   SAPOData?: SAPODataConnectorOperator | string;
 
   /**
+   * @public
    * <p>Operators supported by the custom connector.</p>
    */
   CustomConnector?: Operator | string;
 
   /**
+   * @public
    * <p>The operation to be performed on the provided Salesforce Pardot source fields.</p>
    */
   Pardot?: PardotConnectorOperator | string;
@@ -2153,16 +2324,19 @@ export interface ConnectorOperator {
  */
 export interface OAuth2Properties {
   /**
+   * @public
    * <p>The token URL required for OAuth 2.0 authentication.</p>
    */
   tokenUrl: string | undefined;
 
   /**
+   * @public
    * <p>The OAuth 2.0 grant type used by connector for OAuth 2.0 authentication.</p>
    */
   oAuth2GrantType: OAuth2GrantType | string | undefined;
 
   /**
+   * @public
    * <p>Associates your token URL with a map of properties that you define. Use this parameter to
    *       provide any additional details that the connector requires to authenticate your
    *       request.</p>
@@ -2176,11 +2350,13 @@ export interface OAuth2Properties {
  */
 export interface CustomConnectorProfileProperties {
   /**
+   * @public
    * <p>A map of properties that are required to create a profile for the custom connector.</p>
    */
   profileProperties?: Record<string, string>;
 
   /**
+   * @public
    * <p>The OAuth 2.0 properties required for OAuth 2.0 authentication.</p>
    */
   oAuth2Properties?: OAuth2Properties;
@@ -2192,6 +2368,7 @@ export interface CustomConnectorProfileProperties {
  */
 export interface DatadogConnectorProfileProperties {
   /**
+   * @public
    * <p> The location of the Datadog resource. </p>
    */
   instanceUrl: string | undefined;
@@ -2203,6 +2380,7 @@ export interface DatadogConnectorProfileProperties {
  */
 export interface DynatraceConnectorProfileProperties {
   /**
+   * @public
    * <p> The location of the Dynatrace resource. </p>
    */
   instanceUrl: string | undefined;
@@ -2226,6 +2404,7 @@ export interface HoneycodeConnectorProfileProperties {}
  */
 export interface InforNexusConnectorProfileProperties {
   /**
+   * @public
    * <p> The location of the Infor Nexus resource. </p>
    */
   instanceUrl: string | undefined;
@@ -2237,6 +2416,7 @@ export interface InforNexusConnectorProfileProperties {
  */
 export interface MarketoConnectorProfileProperties {
   /**
+   * @public
    * <p> The location of the Marketo resource. </p>
    */
   instanceUrl: string | undefined;
@@ -2248,17 +2428,20 @@ export interface MarketoConnectorProfileProperties {
  */
 export interface PardotConnectorProfileProperties {
   /**
+   * @public
    * <p>The location of the Salesforce Pardot resource.</p>
    */
   instanceUrl?: string;
 
   /**
+   * @public
    * <p>Indicates whether the connector profile applies to a sandbox or production
    *       environment.</p>
    */
   isSandboxEnvironment?: boolean;
 
   /**
+   * @public
    * <p>The business unit id of Salesforce Pardot instance.</p>
    */
   businessUnitId?: string;
@@ -2270,22 +2453,26 @@ export interface PardotConnectorProfileProperties {
  */
 export interface RedshiftConnectorProfileProperties {
   /**
+   * @public
    * <p> The JDBC URL of the Amazon Redshift cluster. </p>
    */
   databaseUrl?: string;
 
   /**
+   * @public
    * <p> A name for the associated Amazon S3 bucket. </p>
    */
   bucketName: string | undefined;
 
   /**
+   * @public
    * <p> The object key for the destination bucket in which Amazon AppFlow places the files.
    *     </p>
    */
   bucketPrefix?: string;
 
   /**
+   * @public
    * <p> The Amazon Resource Name (ARN) of IAM role that grants Amazon Redshift
    *       read-only access to Amazon S3. For more information, and for the polices that you
    *       attach to this role, see <a href="https://docs.aws.amazon.com/appflow/latest/userguide/security_iam_service-role-policies.html#redshift-access-s3">Allow Amazon Redshift to access your Amazon AppFlow data in Amazon S3</a>.</p>
@@ -2293,6 +2480,7 @@ export interface RedshiftConnectorProfileProperties {
   roleArn: string | undefined;
 
   /**
+   * @public
    * <p>The Amazon Resource Name (ARN) of an IAM role that permits Amazon AppFlow to access your Amazon Redshift database through the Data API. For more
    *       information, and for the polices that you attach to this role, see <a href="https://docs.aws.amazon.com/appflow/latest/userguide/security_iam_service-role-policies.html#access-redshift">Allow Amazon AppFlow to access Amazon Redshift databases with the Data
    *         API</a>.</p>
@@ -2300,22 +2488,26 @@ export interface RedshiftConnectorProfileProperties {
   dataApiRoleArn?: string;
 
   /**
+   * @public
    * <p>Indicates whether the connector profile defines a connection to an Amazon Redshift
    *       Serverless data warehouse.</p>
    */
   isRedshiftServerless?: boolean;
 
   /**
+   * @public
    * <p>The unique ID that's assigned to an Amazon Redshift cluster.</p>
    */
   clusterIdentifier?: string;
 
   /**
+   * @public
    * <p>The name of an Amazon Redshift workgroup.</p>
    */
   workgroupName?: string;
 
   /**
+   * @public
    * <p>The name of an Amazon Redshift database.</p>
    */
   databaseName?: string;
@@ -2327,17 +2519,20 @@ export interface RedshiftConnectorProfileProperties {
  */
 export interface SalesforceConnectorProfileProperties {
   /**
+   * @public
    * <p> The location of the Salesforce resource. </p>
    */
   instanceUrl?: string;
 
   /**
+   * @public
    * <p> Indicates whether the connector profile applies to a sandbox or production environment.
    *     </p>
    */
   isSandboxEnvironment?: boolean;
 
   /**
+   * @public
    * <p>If the connection mode for the connector profile is private, this parameter sets whether
    *         Amazon AppFlow uses the private network to send metadata and authorization calls to
    *       Salesforce. Amazon AppFlow sends private calls through Amazon Web Services PrivateLink. These
@@ -2394,18 +2589,21 @@ export interface SalesforceConnectorProfileProperties {
  */
 export interface OAuthProperties {
   /**
+   * @public
    * <p> The token url required to fetch access/refresh tokens using authorization code and also
    *       to refresh expired access token using refresh token.</p>
    */
   tokenUrl: string | undefined;
 
   /**
+   * @public
    * <p> The authorization code url required to redirect to SAP Login Page to fetch authorization
    *       code for OAuth type authentication. </p>
    */
   authCodeUrl: string | undefined;
 
   /**
+   * @public
    * <p> The OAuth scopes required for OAuth type authentication. </p>
    */
   oAuthScopes: string[] | undefined;
@@ -2417,41 +2615,49 @@ export interface OAuthProperties {
  */
 export interface SAPODataConnectorProfileProperties {
   /**
+   * @public
    * <p> The location of the SAPOData resource. </p>
    */
   applicationHostUrl: string | undefined;
 
   /**
+   * @public
    * <p> The application path to catalog service. </p>
    */
   applicationServicePath: string | undefined;
 
   /**
+   * @public
    * <p> The port number of the SAPOData instance. </p>
    */
   portNumber: number | undefined;
 
   /**
+   * @public
    * <p> The client number for the client creating the connection. </p>
    */
   clientNumber: string | undefined;
 
   /**
+   * @public
    * <p> The logon language of SAPOData instance. </p>
    */
   logonLanguage?: string;
 
   /**
+   * @public
    * <p> The SAPOData Private Link service name to be used for private data transfers. </p>
    */
   privateLinkServiceName?: string;
 
   /**
+   * @public
    * <p> The SAPOData OAuth properties required for OAuth type authentication. </p>
    */
   oAuthProperties?: OAuthProperties;
 
   /**
+   * @public
    * <p>If you set this parameter to <code>true</code>, Amazon AppFlow bypasses the single
    *       sign-on (SSO) settings in your SAP account when it accesses your SAP OData instance.</p>
    *          <p>Whether you need this option depends on the types of credentials that you applied to
@@ -2470,6 +2676,7 @@ export interface SAPODataConnectorProfileProperties {
  */
 export interface ServiceNowConnectorProfileProperties {
   /**
+   * @public
    * <p> The location of the ServiceNow resource. </p>
    */
   instanceUrl: string | undefined;
@@ -2487,6 +2694,7 @@ export interface SingularConnectorProfileProperties {}
  */
 export interface SlackConnectorProfileProperties {
   /**
+   * @public
    * <p> The location of the Slack resource. </p>
    */
   instanceUrl: string | undefined;
@@ -2498,38 +2706,45 @@ export interface SlackConnectorProfileProperties {
  */
 export interface SnowflakeConnectorProfileProperties {
   /**
+   * @public
    * <p> The name of the Snowflake warehouse. </p>
    */
   warehouse: string | undefined;
 
   /**
+   * @public
    * <p> The name of the Amazon S3 stage that was created while setting up an Amazon S3 stage in the Snowflake account. This is written in the following format: <
    *       Database>< Schema><Stage Name>. </p>
    */
   stage: string | undefined;
 
   /**
+   * @public
    * <p> The name of the Amazon S3 bucket associated with Snowflake. </p>
    */
   bucketName: string | undefined;
 
   /**
+   * @public
    * <p> The bucket path that refers to the Amazon S3 bucket associated with Snowflake.
    *     </p>
    */
   bucketPrefix?: string;
 
   /**
+   * @public
    * <p> The Snowflake Private Link service name to be used for private data transfers. </p>
    */
   privateLinkServiceName?: string;
 
   /**
+   * @public
    * <p> The name of the account. </p>
    */
   accountName?: string;
 
   /**
+   * @public
    * <p> The Amazon Web Services Region of the Snowflake account. </p>
    */
   region?: string;
@@ -2547,6 +2762,7 @@ export interface TrendmicroConnectorProfileProperties {}
  */
 export interface VeevaConnectorProfileProperties {
   /**
+   * @public
    * <p> The location of the Veeva resource. </p>
    */
   instanceUrl: string | undefined;
@@ -2558,6 +2774,7 @@ export interface VeevaConnectorProfileProperties {
  */
 export interface ZendeskConnectorProfileProperties {
   /**
+   * @public
    * <p> The location of the Zendesk resource. </p>
    */
   instanceUrl: string | undefined;
@@ -2569,96 +2786,115 @@ export interface ZendeskConnectorProfileProperties {
  */
 export interface ConnectorProfileProperties {
   /**
+   * @public
    * <p> The connector-specific properties required by Amplitude. </p>
    */
   Amplitude?: AmplitudeConnectorProfileProperties;
 
   /**
+   * @public
    * <p> The connector-specific properties required by Datadog. </p>
    */
   Datadog?: DatadogConnectorProfileProperties;
 
   /**
+   * @public
    * <p> The connector-specific properties required by Dynatrace. </p>
    */
   Dynatrace?: DynatraceConnectorProfileProperties;
 
   /**
+   * @public
    * <p> The connector-specific properties required Google Analytics. </p>
    */
   GoogleAnalytics?: GoogleAnalyticsConnectorProfileProperties;
 
   /**
+   * @public
    * <p> The connector-specific properties required by Amazon Honeycode. </p>
    */
   Honeycode?: HoneycodeConnectorProfileProperties;
 
   /**
+   * @public
    * <p> The connector-specific properties required by Infor Nexus. </p>
    */
   InforNexus?: InforNexusConnectorProfileProperties;
 
   /**
+   * @public
    * <p> The connector-specific properties required by Marketo. </p>
    */
   Marketo?: MarketoConnectorProfileProperties;
 
   /**
+   * @public
    * <p> The connector-specific properties required by Amazon Redshift. </p>
    */
   Redshift?: RedshiftConnectorProfileProperties;
 
   /**
+   * @public
    * <p> The connector-specific properties required by Salesforce. </p>
    */
   Salesforce?: SalesforceConnectorProfileProperties;
 
   /**
+   * @public
    * <p> The connector-specific properties required by serviceNow. </p>
    */
   ServiceNow?: ServiceNowConnectorProfileProperties;
 
   /**
+   * @public
    * <p> The connector-specific properties required by Singular. </p>
    */
   Singular?: SingularConnectorProfileProperties;
 
   /**
+   * @public
    * <p> The connector-specific properties required by Slack. </p>
    */
   Slack?: SlackConnectorProfileProperties;
 
   /**
+   * @public
    * <p> The connector-specific properties required by Snowflake. </p>
    */
   Snowflake?: SnowflakeConnectorProfileProperties;
 
   /**
+   * @public
    * <p> The connector-specific properties required by Trend Micro. </p>
    */
   Trendmicro?: TrendmicroConnectorProfileProperties;
 
   /**
+   * @public
    * <p> The connector-specific properties required by Veeva. </p>
    */
   Veeva?: VeevaConnectorProfileProperties;
 
   /**
+   * @public
    * <p> The connector-specific properties required by Zendesk. </p>
    */
   Zendesk?: ZendeskConnectorProfileProperties;
 
   /**
+   * @public
    * <p> The connector-specific profile properties required when using SAPOData. </p>
    */
   SAPOData?: SAPODataConnectorProfileProperties;
 
   /**
+   * @public
    * <p>The properties required by the custom connector.</p>
    */
   CustomConnector?: CustomConnectorProfileProperties;
 
   /**
+   * @public
    * <p>The connector-specific properties required by Salesforce Pardot.</p>
    */
   Pardot?: PardotConnectorProfileProperties;
@@ -2704,16 +2940,19 @@ export type PrivateConnectionProvisioningStatus =
  */
 export interface PrivateConnectionProvisioningState {
   /**
+   * @public
    * <p> Specifies the private connection provisioning status. </p>
    */
   status?: PrivateConnectionProvisioningStatus | string;
 
   /**
+   * @public
    * <p> Specifies the private connection provisioning failure reason. </p>
    */
   failureMessage?: string;
 
   /**
+   * @public
    * <p> Specifies the private connection provisioning failure cause. </p>
    */
   failureCause?: PrivateConnectionProvisioningFailureCause | string;
@@ -2729,52 +2968,62 @@ export interface PrivateConnectionProvisioningState {
  */
 export interface ConnectorProfile {
   /**
+   * @public
    * <p> The Amazon Resource Name (ARN) of the connector profile. </p>
    */
   connectorProfileArn?: string;
 
   /**
+   * @public
    * <p> The name of the connector profile. The name is unique for each
    *         <code>ConnectorProfile</code> in the Amazon Web Services account. </p>
    */
   connectorProfileName?: string;
 
   /**
+   * @public
    * <p> The type of connector, such as Salesforce, Amplitude, and so on. </p>
    */
   connectorType?: ConnectorType | string;
 
   /**
+   * @public
    * <p>The label for the connector profile being created.</p>
    */
   connectorLabel?: string;
 
   /**
+   * @public
    * <p> Indicates the connection mode and if it is public or private. </p>
    */
   connectionMode?: ConnectionMode | string;
 
   /**
+   * @public
    * <p> The Amazon Resource Name (ARN) of the connector profile credentials. </p>
    */
   credentialsArn?: string;
 
   /**
+   * @public
    * <p> The connector-specific properties of the profile configuration. </p>
    */
   connectorProfileProperties?: ConnectorProfileProperties;
 
   /**
+   * @public
    * <p> Specifies when the connector profile was created. </p>
    */
   createdAt?: Date;
 
   /**
+   * @public
    * <p> Specifies when the connector profile was last updated. </p>
    */
   lastUpdatedAt?: Date;
 
   /**
+   * @public
    * <p> Specifies the private connection provisioning state. </p>
    */
   privateConnectionProvisioningState?: PrivateConnectionProvisioningState;
@@ -2786,11 +3035,13 @@ export interface ConnectorProfile {
  */
 export interface CustomAuthCredentials {
   /**
+   * @public
    * <p>The custom authentication type that the connector uses.</p>
    */
   customAuthenticationType: string | undefined;
 
   /**
+   * @public
    * <p>A map that holds custom authentication credentials.</p>
    */
   credentialsMap?: Record<string, string>;
@@ -2802,27 +3053,32 @@ export interface CustomAuthCredentials {
  */
 export interface OAuth2Credentials {
   /**
+   * @public
    * <p>The identifier for the desired client.</p>
    */
   clientId?: string;
 
   /**
+   * @public
    * <p>The client secret used by the OAuth client to authenticate to the authorization
    *       server.</p>
    */
   clientSecret?: string;
 
   /**
+   * @public
    * <p>The access token used to access the connector on your behalf.</p>
    */
   accessToken?: string;
 
   /**
+   * @public
    * <p>The refresh token used to refresh an expired access token.</p>
    */
   refreshToken?: string;
 
   /**
+   * @public
    * <p> Used by select connectors for which the OAuth workflow is supported, such as Salesforce,
    *       Google Analytics, Marketo, Zendesk, and Slack. </p>
    */
@@ -2836,27 +3092,32 @@ export interface OAuth2Credentials {
  */
 export interface CustomConnectorProfileCredentials {
   /**
+   * @public
    * <p>The authentication type that the custom connector uses for authenticating while creating a
    *       connector profile.</p>
    */
   authenticationType: AuthenticationType | string | undefined;
 
   /**
+   * @public
    * <p>The basic credentials that are required for the authentication of the user.</p>
    */
   basic?: BasicAuthCredentials;
 
   /**
+   * @public
    * <p>The OAuth 2.0 credentials required for the authentication of the user.</p>
    */
   oauth2?: OAuth2Credentials;
 
   /**
+   * @public
    * <p>The API keys required for the authentication of the user.</p>
    */
   apiKey?: ApiKeyCredentials;
 
   /**
+   * @public
    * <p>If the connector uses the custom authentication mechanism, this holds the required
    *       credentials.</p>
    */
@@ -2869,12 +3130,14 @@ export interface CustomConnectorProfileCredentials {
  */
 export interface DatadogConnectorProfileCredentials {
   /**
+   * @public
    * <p> A unique alphanumeric identifier used to authenticate a user, developer, or calling
    *       program to your API. </p>
    */
   apiKey: string | undefined;
 
   /**
+   * @public
    * <p> Application keys, in conjunction with your API key, give you full access to Datadog’s
    *       programmatic API. Application keys are associated with the user account that created them. The
    *       application key is used to log all requests made to the API. </p>
@@ -2888,6 +3151,7 @@ export interface DatadogConnectorProfileCredentials {
  */
 export interface DynatraceConnectorProfileCredentials {
   /**
+   * @public
    * <p> The API tokens used by Dynatrace API to authenticate various API calls. </p>
    */
   apiToken: string | undefined;
@@ -2899,28 +3163,33 @@ export interface DynatraceConnectorProfileCredentials {
  */
 export interface GoogleAnalyticsConnectorProfileCredentials {
   /**
+   * @public
    * <p> The identifier for the desired client. </p>
    */
   clientId: string | undefined;
 
   /**
+   * @public
    * <p> The client secret used by the OAuth client to authenticate to the authorization server.
    *     </p>
    */
   clientSecret: string | undefined;
 
   /**
+   * @public
    * <p> The credentials used to access protected Google Analytics resources. </p>
    */
   accessToken?: string;
 
   /**
+   * @public
    * <p> The credentials used to acquire new access tokens. This is required only for OAuth2
    *       access tokens, and is not required for OAuth1 access tokens. </p>
    */
   refreshToken?: string;
 
   /**
+   * @public
    * <p> The OAuth requirement needed to request security tokens from the connector endpoint.
    *     </p>
    */
@@ -2933,16 +3202,19 @@ export interface GoogleAnalyticsConnectorProfileCredentials {
  */
 export interface HoneycodeConnectorProfileCredentials {
   /**
+   * @public
    * <p> The credentials used to access protected Amazon Honeycode resources. </p>
    */
   accessToken?: string;
 
   /**
+   * @public
    * <p> The credentials used to acquire new access tokens. </p>
    */
   refreshToken?: string;
 
   /**
+   * @public
    * <p> Used by select connectors for which the OAuth workflow is supported, such as Salesforce,
    *       Google Analytics, Marketo, Zendesk, and Slack. </p>
    */
@@ -2955,21 +3227,25 @@ export interface HoneycodeConnectorProfileCredentials {
  */
 export interface InforNexusConnectorProfileCredentials {
   /**
+   * @public
    * <p> The Access Key portion of the credentials. </p>
    */
   accessKeyId: string | undefined;
 
   /**
+   * @public
    * <p> The identifier for the user. </p>
    */
   userId: string | undefined;
 
   /**
+   * @public
    * <p> The secret key used to sign requests. </p>
    */
   secretAccessKey: string | undefined;
 
   /**
+   * @public
    * <p> The encryption keys used to encrypt data. </p>
    */
   datakey: string | undefined;
@@ -2981,22 +3257,26 @@ export interface InforNexusConnectorProfileCredentials {
  */
 export interface MarketoConnectorProfileCredentials {
   /**
+   * @public
    * <p> The identifier for the desired client. </p>
    */
   clientId: string | undefined;
 
   /**
+   * @public
    * <p> The client secret used by the OAuth client to authenticate to the authorization server.
    *     </p>
    */
   clientSecret: string | undefined;
 
   /**
+   * @public
    * <p> The credentials used to access protected Marketo resources. </p>
    */
   accessToken?: string;
 
   /**
+   * @public
    * <p> The OAuth requirement needed to request security tokens from the connector endpoint.
    *     </p>
    */
@@ -3009,22 +3289,26 @@ export interface MarketoConnectorProfileCredentials {
  */
 export interface PardotConnectorProfileCredentials {
   /**
+   * @public
    * <p>The credentials used to access protected Salesforce Pardot resources.</p>
    */
   accessToken?: string;
 
   /**
+   * @public
    * <p>The credentials used to acquire new access tokens.</p>
    */
   refreshToken?: string;
 
   /**
+   * @public
    * <p> Used by select connectors for which the OAuth workflow is supported, such as Salesforce,
    *       Google Analytics, Marketo, Zendesk, and Slack. </p>
    */
   oAuthRequest?: ConnectorOAuthRequest;
 
   /**
+   * @public
    * <p>The secret manager ARN, which contains the client ID and client secret of the connected
    *       app.</p>
    */
@@ -3037,11 +3321,13 @@ export interface PardotConnectorProfileCredentials {
  */
 export interface RedshiftConnectorProfileCredentials {
   /**
+   * @public
    * <p> The name of the user. </p>
    */
   username?: string;
 
   /**
+   * @public
    * <p> The password that corresponds to the user name. </p>
    */
   password?: string;
@@ -3053,28 +3339,33 @@ export interface RedshiftConnectorProfileCredentials {
  */
 export interface SalesforceConnectorProfileCredentials {
   /**
+   * @public
    * <p> The credentials used to access protected Salesforce resources. </p>
    */
   accessToken?: string;
 
   /**
+   * @public
    * <p> The credentials used to acquire new access tokens. </p>
    */
   refreshToken?: string;
 
   /**
+   * @public
    * <p> The OAuth requirement needed to request security tokens from the connector endpoint.
    *     </p>
    */
   oAuthRequest?: ConnectorOAuthRequest;
 
   /**
+   * @public
    * <p> The secret manager ARN, which contains the client ID and client secret of the connected
    *       app. </p>
    */
   clientCredentialsArn?: string;
 
   /**
+   * @public
    * <p>Specifies the OAuth 2.0 grant type that Amazon AppFlow uses when it requests an
    *       access token from Salesforce. Amazon AppFlow requires an access token each time it
    *       attempts to access your Salesforce records.</p>
@@ -3105,6 +3396,7 @@ export interface SalesforceConnectorProfileCredentials {
   oAuth2GrantType?: OAuth2GrantType | string;
 
   /**
+   * @public
    * <p>A JSON web token (JWT) that authorizes Amazon AppFlow to access your Salesforce
    *       records.</p>
    */
@@ -3117,27 +3409,32 @@ export interface SalesforceConnectorProfileCredentials {
  */
 export interface OAuthCredentials {
   /**
+   * @public
    * <p> The identifier for the desired client. </p>
    */
   clientId: string | undefined;
 
   /**
+   * @public
    * <p> The client secret used by the OAuth client to authenticate to the authorization server.
    *     </p>
    */
   clientSecret: string | undefined;
 
   /**
+   * @public
    * <p> The access token used to access protected SAPOData resources. </p>
    */
   accessToken?: string;
 
   /**
+   * @public
    * <p> The refresh token used to refresh expired access token. </p>
    */
   refreshToken?: string;
 
   /**
+   * @public
    * <p> The OAuth requirement needed to request security tokens from the connector endpoint.
    *     </p>
    */
@@ -3150,11 +3447,13 @@ export interface OAuthCredentials {
  */
 export interface SAPODataConnectorProfileCredentials {
   /**
+   * @public
    * <p> The SAPOData basic authentication credentials. </p>
    */
   basicAuthCredentials?: BasicAuthCredentials;
 
   /**
+   * @public
    * <p> The SAPOData OAuth type authentication credentials. </p>
    */
   oAuthCredentials?: OAuthCredentials;
@@ -3166,11 +3465,13 @@ export interface SAPODataConnectorProfileCredentials {
  */
 export interface ServiceNowConnectorProfileCredentials {
   /**
+   * @public
    * <p> The name of the user. </p>
    */
   username: string | undefined;
 
   /**
+   * @public
    * <p> The password that corresponds to the user name. </p>
    */
   password: string | undefined;
@@ -3182,6 +3483,7 @@ export interface ServiceNowConnectorProfileCredentials {
  */
 export interface SingularConnectorProfileCredentials {
   /**
+   * @public
    * <p> A unique alphanumeric identifier used to authenticate a user, developer, or calling
    *       program to your API. </p>
    */
@@ -3194,22 +3496,26 @@ export interface SingularConnectorProfileCredentials {
  */
 export interface SlackConnectorProfileCredentials {
   /**
+   * @public
    * <p> The identifier for the client. </p>
    */
   clientId: string | undefined;
 
   /**
+   * @public
    * <p> The client secret used by the OAuth client to authenticate to the authorization server.
    *     </p>
    */
   clientSecret: string | undefined;
 
   /**
+   * @public
    * <p> The credentials used to access protected Slack resources. </p>
    */
   accessToken?: string;
 
   /**
+   * @public
    * <p> The OAuth requirement needed to request security tokens from the connector endpoint.
    *     </p>
    */
@@ -3222,11 +3528,13 @@ export interface SlackConnectorProfileCredentials {
  */
 export interface SnowflakeConnectorProfileCredentials {
   /**
+   * @public
    * <p> The name of the user. </p>
    */
   username: string | undefined;
 
   /**
+   * @public
    * <p> The password that corresponds to the user name. </p>
    */
   password: string | undefined;
@@ -3238,6 +3546,7 @@ export interface SnowflakeConnectorProfileCredentials {
  */
 export interface TrendmicroConnectorProfileCredentials {
   /**
+   * @public
    * <p> The Secret Access Key portion of the credentials. </p>
    */
   apiSecretKey: string | undefined;
@@ -3249,11 +3558,13 @@ export interface TrendmicroConnectorProfileCredentials {
  */
 export interface VeevaConnectorProfileCredentials {
   /**
+   * @public
    * <p> The name of the user. </p>
    */
   username: string | undefined;
 
   /**
+   * @public
    * <p> The password that corresponds to the user name. </p>
    */
   password: string | undefined;
@@ -3265,22 +3576,26 @@ export interface VeevaConnectorProfileCredentials {
  */
 export interface ZendeskConnectorProfileCredentials {
   /**
+   * @public
    * <p> The identifier for the desired client. </p>
    */
   clientId: string | undefined;
 
   /**
+   * @public
    * <p> The client secret used by the OAuth client to authenticate to the authorization server.
    *     </p>
    */
   clientSecret: string | undefined;
 
   /**
+   * @public
    * <p> The credentials used to access protected Zendesk resources. </p>
    */
   accessToken?: string;
 
   /**
+   * @public
    * <p> The OAuth requirement needed to request security tokens from the connector endpoint.
    *     </p>
    */
@@ -3293,97 +3608,116 @@ export interface ZendeskConnectorProfileCredentials {
  */
 export interface ConnectorProfileCredentials {
   /**
+   * @public
    * <p> The connector-specific credentials required when using Amplitude. </p>
    */
   Amplitude?: AmplitudeConnectorProfileCredentials;
 
   /**
+   * @public
    * <p> The connector-specific credentials required when using Datadog. </p>
    */
   Datadog?: DatadogConnectorProfileCredentials;
 
   /**
+   * @public
    * <p> The connector-specific credentials required when using Dynatrace. </p>
    */
   Dynatrace?: DynatraceConnectorProfileCredentials;
 
   /**
+   * @public
    * <p> The connector-specific credentials required when using Google Analytics. </p>
    */
   GoogleAnalytics?: GoogleAnalyticsConnectorProfileCredentials;
 
   /**
+   * @public
    * <p> The connector-specific credentials required when using Amazon Honeycode. </p>
    */
   Honeycode?: HoneycodeConnectorProfileCredentials;
 
   /**
+   * @public
    * <p> The connector-specific credentials required when using Infor Nexus. </p>
    */
   InforNexus?: InforNexusConnectorProfileCredentials;
 
   /**
+   * @public
    * <p> The connector-specific credentials required when using Marketo. </p>
    */
   Marketo?: MarketoConnectorProfileCredentials;
 
   /**
+   * @public
    * <p> The connector-specific credentials required when using Amazon Redshift. </p>
    */
   Redshift?: RedshiftConnectorProfileCredentials;
 
   /**
+   * @public
    * <p> The connector-specific credentials required when using Salesforce. </p>
    */
   Salesforce?: SalesforceConnectorProfileCredentials;
 
   /**
+   * @public
    * <p> The connector-specific credentials required when using ServiceNow. </p>
    */
   ServiceNow?: ServiceNowConnectorProfileCredentials;
 
   /**
+   * @public
    * <p> The connector-specific credentials required when using Singular. </p>
    */
   Singular?: SingularConnectorProfileCredentials;
 
   /**
+   * @public
    * <p> The connector-specific credentials required when using Slack. </p>
    */
   Slack?: SlackConnectorProfileCredentials;
 
   /**
+   * @public
    * <p> The connector-specific credentials required when using Snowflake. </p>
    */
   Snowflake?: SnowflakeConnectorProfileCredentials;
 
   /**
+   * @public
    * <p> The connector-specific credentials required when using Trend Micro. </p>
    */
   Trendmicro?: TrendmicroConnectorProfileCredentials;
 
   /**
+   * @public
    * <p> The connector-specific credentials required when using Veeva. </p>
    */
   Veeva?: VeevaConnectorProfileCredentials;
 
   /**
+   * @public
    * <p> The connector-specific credentials required when using Zendesk. </p>
    */
   Zendesk?: ZendeskConnectorProfileCredentials;
 
   /**
+   * @public
    * <p> The connector-specific profile credentials required when using SAPOData. </p>
    */
   SAPOData?: SAPODataConnectorProfileCredentials;
 
   /**
+   * @public
    * <p>The connector-specific profile credentials that are required when using the custom
    *       connector.</p>
    */
   CustomConnector?: CustomConnectorProfileCredentials;
 
   /**
+   * @public
    * <p>The connector-specific credentials required when using Salesforce Pardot.</p>
    */
   Pardot?: PardotConnectorProfileCredentials;
@@ -3396,11 +3730,13 @@ export interface ConnectorProfileCredentials {
  */
 export interface ConnectorProfileConfig {
   /**
+   * @public
    * <p> The connector-specific properties of the profile configuration. </p>
    */
   connectorProfileProperties: ConnectorProfileProperties | undefined;
 
   /**
+   * @public
    * <p> The connector-specific credentials required by each connector. </p>
    */
   connectorProfileCredentials?: ConnectorProfileCredentials;
@@ -3431,12 +3767,14 @@ export class ConnectorServerException extends __BaseException {
  */
 export interface CreateConnectorProfileRequest {
   /**
+   * @public
    * <p> The name of the connector profile. The name is unique for each
    *         <code>ConnectorProfile</code> in your Amazon Web Services account. </p>
    */
   connectorProfileName: string | undefined;
 
   /**
+   * @public
    * <p> The ARN (Amazon Resource Name) of the Key Management Service (KMS) key you provide for
    *       encryption. This is required if you do not want to use the Amazon AppFlow-managed KMS
    *       key. If you don't provide anything here, Amazon AppFlow uses the Amazon AppFlow-managed KMS key. </p>
@@ -3444,11 +3782,13 @@ export interface CreateConnectorProfileRequest {
   kmsArn?: string;
 
   /**
+   * @public
    * <p> The type of connector, such as Salesforce, Amplitude, and so on. </p>
    */
   connectorType: ConnectorType | string | undefined;
 
   /**
+   * @public
    * <p>The label of the connector. The label is unique for each
    *         <code>ConnectorRegistration</code> in your Amazon Web Services account. Only needed if
    *       calling for CUSTOMCONNECTOR connector type/.</p>
@@ -3456,6 +3796,7 @@ export interface CreateConnectorProfileRequest {
   connectorLabel?: string;
 
   /**
+   * @public
    * <p> Indicates the connection mode and specifies whether it is public or private. Private
    *       flows use Amazon Web Services PrivateLink to route data over Amazon Web Services infrastructure
    *       without exposing it to the public internet. </p>
@@ -3463,11 +3804,13 @@ export interface CreateConnectorProfileRequest {
   connectionMode: ConnectionMode | string | undefined;
 
   /**
+   * @public
    * <p> Defines the connector-specific configuration and credentials. </p>
    */
   connectorProfileConfig: ConnectorProfileConfig | undefined;
 
   /**
+   * @public
    * <p>The <code>clientToken</code> parameter is an idempotency token. It ensures that your
    *         <code>CreateConnectorProfile</code> request completes only once. You choose the value to
    *       pass. For example, if you don't receive a response from your request, you can safely retry the
@@ -3487,6 +3830,7 @@ export interface CreateConnectorProfileRequest {
  */
 export interface CreateConnectorProfileResponse {
   /**
+   * @public
    * <p> The Amazon Resource Name (ARN) of the connector profile. </p>
    */
   connectorProfileArn?: string;
@@ -3523,17 +3867,20 @@ export class ServiceQuotaExceededException extends __BaseException {
  */
 export interface ErrorHandlingConfig {
   /**
+   * @public
    * <p> Specifies if the flow should fail after the first instance of a failure when attempting
    *       to place data in the destination. </p>
    */
   failOnFirstDestinationError?: boolean;
 
   /**
+   * @public
    * <p> Specifies the Amazon S3 bucket prefix. </p>
    */
   bucketPrefix?: string;
 
   /**
+   * @public
    * <p> Specifies the name of the Amazon S3 bucket. </p>
    */
   bucketName?: string;
@@ -3546,29 +3893,34 @@ export interface ErrorHandlingConfig {
  */
 export interface CustomConnectorDestinationProperties {
   /**
+   * @public
    * <p>The entity specified in the custom connector as a destination in the flow.</p>
    */
   entityName: string | undefined;
 
   /**
+   * @public
    * <p>The settings that determine how Amazon AppFlow handles an error when placing data in
    *       the custom connector as destination.</p>
    */
   errorHandlingConfig?: ErrorHandlingConfig;
 
   /**
+   * @public
    * <p>Specifies the type of write operation to be performed in the custom connector when it's
    *       used as destination.</p>
    */
   writeOperationType?: WriteOperationType | string;
 
   /**
+   * @public
    * <p>The name of the field that Amazon AppFlow uses as an ID when performing a write
    *       operation such as update, delete, or upsert.</p>
    */
   idFieldNames?: string[];
 
   /**
+   * @public
    * <p>The custom properties that are specific to the connector when it's used as a destination
    *       in the flow.</p>
    */
@@ -3582,11 +3934,13 @@ export interface CustomConnectorDestinationProperties {
  */
 export interface CustomerProfilesDestinationProperties {
   /**
+   * @public
    * <p> The unique name of the Amazon Connect Customer Profiles domain. </p>
    */
   domainName: string | undefined;
 
   /**
+   * @public
    * <p> The object specified in the Amazon Connect Customer Profiles flow destination.
    *     </p>
    */
@@ -3600,11 +3954,13 @@ export interface CustomerProfilesDestinationProperties {
  */
 export interface EventBridgeDestinationProperties {
   /**
+   * @public
    * <p> The object specified in the Amazon EventBridge flow destination. </p>
    */
   object: string | undefined;
 
   /**
+   * @public
    * <p> The settings that determine how Amazon AppFlow handles an error when placing data in
    *       the destination. For example, this setting would determine if the flow should fail after one
    *       insertion error, or continue and attempt to insert every record regardless of the initial
@@ -3620,11 +3976,13 @@ export interface EventBridgeDestinationProperties {
  */
 export interface HoneycodeDestinationProperties {
   /**
+   * @public
    * <p> The object specified in the Amazon Honeycode flow destination. </p>
    */
   object: string | undefined;
 
   /**
+   * @public
    * <p> The settings that determine how Amazon AppFlow handles an error when placing data in
    *       the destination. For example, this setting would determine if the flow should fail after one
    *       insertion error, or continue and attempt to insert every record regardless of the initial
@@ -3648,11 +4006,13 @@ export interface LookoutMetricsDestinationProperties {}
  */
 export interface MarketoDestinationProperties {
   /**
+   * @public
    * <p>The object specified in the Marketo flow destination.</p>
    */
   object: string | undefined;
 
   /**
+   * @public
    * <p> The settings that determine how Amazon AppFlow handles an error when placing data in
    *       the destination. For example, this setting would determine if the flow should fail after one
    *       insertion error, or continue and attempt to insert every record regardless of the initial
@@ -3669,22 +4029,26 @@ export interface MarketoDestinationProperties {
  */
 export interface RedshiftDestinationProperties {
   /**
+   * @public
    * <p> The object specified in the Amazon Redshift flow destination. </p>
    */
   object: string | undefined;
 
   /**
+   * @public
    * <p> The intermediate bucket that Amazon AppFlow uses when moving data into Amazon Redshift. </p>
    */
   intermediateBucketName: string | undefined;
 
   /**
+   * @public
    * <p> The object key for the bucket in which Amazon AppFlow places the destination files.
    *     </p>
    */
   bucketPrefix?: string;
 
   /**
+   * @public
    * <p> The settings that determine how Amazon AppFlow handles an error when placing data in
    *       the Amazon Redshift destination. For example, this setting would determine if the flow
    *       should fail after one insertion error, or continue and attempt to insert every record
@@ -3762,18 +4126,21 @@ export type PrefixType = (typeof PrefixType)[keyof typeof PrefixType];
  */
 export interface PrefixConfig {
   /**
+   * @public
    * <p>Determines the format of the prefix, and whether it applies to the file name, file path,
    *       or both. </p>
    */
   prefixType?: PrefixType | string;
 
   /**
+   * @public
    * <p>Determines the level of granularity for the date and time that's included in the prefix.
    *     </p>
    */
   prefixFormat?: PrefixFormat | string;
 
   /**
+   * @public
    * <p>Specifies whether the destination file path includes either or both of the following
    *       elements:</p>
    *          <dl>
@@ -3810,23 +4177,27 @@ export interface PrefixConfig {
  */
 export interface S3OutputFormatConfig {
   /**
+   * @public
    * <p> Indicates the file type that Amazon AppFlow places in the Amazon S3 bucket.
    *     </p>
    */
   fileType?: FileType | string;
 
   /**
+   * @public
    * <p> Determines the prefix that Amazon AppFlow applies to the folder name in the Amazon S3 bucket. You can name folders according to the flow frequency and date. </p>
    */
   prefixConfig?: PrefixConfig;
 
   /**
+   * @public
    * <p> The aggregation settings that you can use to customize the output format of your flow
    *       data. </p>
    */
   aggregationConfig?: AggregationConfig;
 
   /**
+   * @public
    * <p>If your file output format is Parquet, use this parameter to set whether Amazon AppFlow preserves the data types in your source data when it writes the output to Amazon S3. </p>
    *          <ul>
    *             <li>
@@ -3852,18 +4223,21 @@ export interface S3OutputFormatConfig {
  */
 export interface S3DestinationProperties {
   /**
+   * @public
    * <p> The Amazon S3 bucket name in which Amazon AppFlow places the transferred
    *       data. </p>
    */
   bucketName: string | undefined;
 
   /**
+   * @public
    * <p> The object key for the destination bucket in which Amazon AppFlow places the files.
    *     </p>
    */
   bucketPrefix?: string;
 
   /**
+   * @public
    * <p> The configuration that determines how Amazon AppFlow should format the flow output
    *       data when Amazon S3 is used as the destination. </p>
    */
@@ -3876,17 +4250,20 @@ export interface S3DestinationProperties {
  */
 export interface SalesforceDestinationProperties {
   /**
+   * @public
    * <p> The object specified in the Salesforce flow destination. </p>
    */
   object: string | undefined;
 
   /**
+   * @public
    * <p> The name of the field that Amazon AppFlow uses as an ID when performing a write
    *       operation such as update or delete. </p>
    */
   idFieldNames?: string[];
 
   /**
+   * @public
    * <p> The settings that determine how Amazon AppFlow handles an error when placing data in
    *       the Salesforce destination. For example, this setting would determine if the flow should fail
    *       after one insertion error, or continue and attempt to insert every record regardless of the
@@ -3896,12 +4273,14 @@ export interface SalesforceDestinationProperties {
   errorHandlingConfig?: ErrorHandlingConfig;
 
   /**
+   * @public
    * <p> This specifies the type of write operation to be performed in Salesforce. When the value
    *       is <code>UPSERT</code>, then <code>idFieldNames</code> is required. </p>
    */
   writeOperationType?: WriteOperationType | string;
 
   /**
+   * @public
    * <p>Specifies which Salesforce API is used by Amazon AppFlow when your flow transfers
    *       data to Salesforce.</p>
    *          <dl>
@@ -3952,11 +4331,13 @@ export interface SalesforceDestinationProperties {
  */
 export interface SuccessResponseHandlingConfig {
   /**
+   * @public
    * <p>The Amazon S3 bucket prefix.</p>
    */
   bucketPrefix?: string;
 
   /**
+   * @public
    * <p>The name of the Amazon S3 bucket.</p>
    */
   bucketName?: string;
@@ -3968,11 +4349,13 @@ export interface SuccessResponseHandlingConfig {
  */
 export interface SAPODataDestinationProperties {
   /**
+   * @public
    * <p>The object path specified in the SAPOData flow destination.</p>
    */
   objectPath: string | undefined;
 
   /**
+   * @public
    * <p>Determines how Amazon AppFlow handles the success response that it gets from the
    *       connector after placing data.</p>
    *          <p>For example, this setting would determine where to write the response from a destination
@@ -3981,12 +4364,14 @@ export interface SAPODataDestinationProperties {
   successResponseHandlingConfig?: SuccessResponseHandlingConfig;
 
   /**
+   * @public
    * <p> A list of field names that can be used as an ID field when performing a write operation.
    *     </p>
    */
   idFieldNames?: string[];
 
   /**
+   * @public
    * <p> The settings that determine how Amazon AppFlow handles an error when placing data in
    *       the destination. For example, this setting would determine if the flow should fail after one
    *       insertion error, or continue and attempt to insert every record regardless of the initial
@@ -3996,6 +4381,7 @@ export interface SAPODataDestinationProperties {
   errorHandlingConfig?: ErrorHandlingConfig;
 
   /**
+   * @public
    * <p> The possible write operations in the destination connector. When this value is not
    *       provided, this defaults to the <code>INSERT</code> operation. </p>
    */
@@ -4008,23 +4394,27 @@ export interface SAPODataDestinationProperties {
  */
 export interface SnowflakeDestinationProperties {
   /**
+   * @public
    * <p> The object specified in the Snowflake flow destination. </p>
    */
   object: string | undefined;
 
   /**
+   * @public
    * <p> The intermediate bucket that Amazon AppFlow uses when moving data into Snowflake.
    *     </p>
    */
   intermediateBucketName: string | undefined;
 
   /**
+   * @public
    * <p> The object key for the destination bucket in which Amazon AppFlow places the files.
    *     </p>
    */
   bucketPrefix?: string;
 
   /**
+   * @public
    * <p> The settings that determine how Amazon AppFlow handles an error when placing data in
    *       the Snowflake destination. For example, this setting would determine if the flow should fail
    *       after one insertion error, or continue and attempt to insert every record regardless of the
@@ -4041,18 +4431,21 @@ export interface SnowflakeDestinationProperties {
  */
 export interface UpsolverS3OutputFormatConfig {
   /**
+   * @public
    * <p> Indicates the file type that Amazon AppFlow places in the Upsolver Amazon S3
    *       bucket. </p>
    */
   fileType?: FileType | string;
 
   /**
+   * @public
    * <p>Specifies elements that Amazon AppFlow includes in the file and folder names in the flow
    *       destination.</p>
    */
   prefixConfig: PrefixConfig | undefined;
 
   /**
+   * @public
    * <p> The aggregation settings that you can use to customize the output format of your flow
    *       data. </p>
    */
@@ -4065,17 +4458,20 @@ export interface UpsolverS3OutputFormatConfig {
  */
 export interface UpsolverDestinationProperties {
   /**
+   * @public
    * <p> The Upsolver Amazon S3 bucket name in which Amazon AppFlow places the
    *       transferred data. </p>
    */
   bucketName: string | undefined;
 
   /**
+   * @public
    * <p> The object key for the destination Upsolver Amazon S3 bucket in which Amazon AppFlow places the files. </p>
    */
   bucketPrefix?: string;
 
   /**
+   * @public
    * <p> The configuration that determines how data is formatted when Upsolver is used as the flow
    *       destination. </p>
    */
@@ -4088,17 +4484,20 @@ export interface UpsolverDestinationProperties {
  */
 export interface ZendeskDestinationProperties {
   /**
+   * @public
    * <p>The object specified in the Zendesk flow destination.</p>
    */
   object: string | undefined;
 
   /**
+   * @public
    * <p> A list of field names that can be used as an ID field when performing a write operation.
    *     </p>
    */
   idFieldNames?: string[];
 
   /**
+   * @public
    * <p> The settings that determine how Amazon AppFlow handles an error when placing data in
    *       the destination. For example, this setting would determine if the flow should fail after one
    *       insertion error, or continue and attempt to insert every record regardless of the initial
@@ -4108,6 +4507,7 @@ export interface ZendeskDestinationProperties {
   errorHandlingConfig?: ErrorHandlingConfig;
 
   /**
+   * @public
    * <p> The possible write operations in the destination connector. When this value is not
    *       provided, this defaults to the <code>INSERT</code> operation. </p>
    */
@@ -4120,66 +4520,79 @@ export interface ZendeskDestinationProperties {
  */
 export interface DestinationConnectorProperties {
   /**
+   * @public
    * <p> The properties required to query Amazon Redshift. </p>
    */
   Redshift?: RedshiftDestinationProperties;
 
   /**
+   * @public
    * <p> The properties required to query Amazon S3. </p>
    */
   S3?: S3DestinationProperties;
 
   /**
+   * @public
    * <p> The properties required to query Salesforce. </p>
    */
   Salesforce?: SalesforceDestinationProperties;
 
   /**
+   * @public
    * <p> The properties required to query Snowflake. </p>
    */
   Snowflake?: SnowflakeDestinationProperties;
 
   /**
+   * @public
    * <p> The properties required to query Amazon EventBridge. </p>
    */
   EventBridge?: EventBridgeDestinationProperties;
 
   /**
+   * @public
    * <p> The properties required to query Amazon Lookout for Metrics. </p>
    */
   LookoutMetrics?: LookoutMetricsDestinationProperties;
 
   /**
+   * @public
    * <p> The properties required to query Upsolver. </p>
    */
   Upsolver?: UpsolverDestinationProperties;
 
   /**
+   * @public
    * <p> The properties required to query Amazon Honeycode. </p>
    */
   Honeycode?: HoneycodeDestinationProperties;
 
   /**
+   * @public
    * <p> The properties required to query Amazon Connect Customer Profiles. </p>
    */
   CustomerProfiles?: CustomerProfilesDestinationProperties;
 
   /**
+   * @public
    * <p>The properties required to query Zendesk.</p>
    */
   Zendesk?: ZendeskDestinationProperties;
 
   /**
+   * @public
    * <p>The properties required to query Marketo.</p>
    */
   Marketo?: MarketoDestinationProperties;
 
   /**
+   * @public
    * <p>The properties that are required to query the custom Connector.</p>
    */
   CustomConnector?: CustomConnectorDestinationProperties;
 
   /**
+   * @public
    * <p>The properties required to query SAPOData.</p>
    */
   SAPOData?: SAPODataDestinationProperties;
@@ -4192,22 +4605,26 @@ export interface DestinationConnectorProperties {
  */
 export interface DestinationFlowConfig {
   /**
+   * @public
    * <p> The type of connector, such as Salesforce, Amplitude, and so on. </p>
    */
   connectorType: ConnectorType | string | undefined;
 
   /**
+   * @public
    * <p>The API version that the destination connector uses.</p>
    */
   apiVersion?: string;
 
   /**
+   * @public
    * <p> The name of the connector profile. This name must be unique for each connector profile in
    *       the Amazon Web Services account. </p>
    */
   connectorProfileName?: string;
 
   /**
+   * @public
    * <p> This stores the information that is required to query a particular connector. </p>
    */
   destinationConnectorProperties: DestinationConnectorProperties | undefined;
@@ -4225,6 +4642,7 @@ export interface DestinationFlowConfig {
  */
 export interface GlueDataCatalogConfig {
   /**
+   * @public
    * <p>The Amazon Resource Name (ARN) of an IAM role that grants Amazon AppFlow the permissions it needs to create Data Catalog tables, databases, and
    *       partitions.</p>
    *          <p>For an example IAM policy that has the required permissions, see <a href="https://docs.aws.amazon.com/appflow/latest/userguide/security_iam_id-based-policy-examples.html">Identity-based
@@ -4233,6 +4651,7 @@ export interface GlueDataCatalogConfig {
   roleArn: string | undefined;
 
   /**
+   * @public
    * <p>The name of the Data Catalog database that stores the metadata tables that Amazon AppFlow creates in your Amazon Web Services account. These tables contain metadata for
    *       the data that's transferred by the flow that you configure with this parameter.</p>
    *          <note>
@@ -4243,6 +4662,7 @@ export interface GlueDataCatalogConfig {
   databaseName: string | undefined;
 
   /**
+   * @public
    * <p>A naming prefix for each Data Catalog table that Amazon AppFlow creates for
    *       the flow that you configure with this setting. Amazon AppFlow adds the prefix to the
    *       beginning of the each table name.</p>
@@ -4257,6 +4677,7 @@ export interface GlueDataCatalogConfig {
  */
 export interface MetadataCatalogConfig {
   /**
+   * @public
    * <p>Specifies the configuration that Amazon AppFlow uses when it catalogs your data with
    *       the Glue Data Catalog.</p>
    */
@@ -4270,6 +4691,7 @@ export interface MetadataCatalogConfig {
  */
 export interface IncrementalPullConfig {
   /**
+   * @public
    * <p> A field that specifies the date time or timestamp field as the criteria to use when
    *       importing incremental records from the source. </p>
    */
@@ -4283,16 +4705,19 @@ export interface IncrementalPullConfig {
  */
 export interface CustomConnectorSourceProperties {
   /**
+   * @public
    * <p>The entity specified in the custom connector as a source in the flow.</p>
    */
   entityName: string | undefined;
 
   /**
+   * @public
    * <p>Custom properties that are required to use the custom connector as a source.</p>
    */
   customProperties?: Record<string, string>;
 
   /**
+   * @public
    * <p>The API of the connector application that Amazon AppFlow uses to transfer your
    *       data.</p>
    */
@@ -4305,6 +4730,7 @@ export interface CustomConnectorSourceProperties {
  */
 export interface DatadogSourceProperties {
   /**
+   * @public
    * <p> The object specified in the Datadog flow source. </p>
    */
   object: string | undefined;
@@ -4316,6 +4742,7 @@ export interface DatadogSourceProperties {
  */
 export interface DynatraceSourceProperties {
   /**
+   * @public
    * <p> The object specified in the Dynatrace flow source. </p>
    */
   object: string | undefined;
@@ -4327,6 +4754,7 @@ export interface DynatraceSourceProperties {
  */
 export interface GoogleAnalyticsSourceProperties {
   /**
+   * @public
    * <p> The object specified in the Google Analytics flow source. </p>
    */
   object: string | undefined;
@@ -4338,6 +4766,7 @@ export interface GoogleAnalyticsSourceProperties {
  */
 export interface InforNexusSourceProperties {
   /**
+   * @public
    * <p> The object specified in the Infor Nexus flow source. </p>
    */
   object: string | undefined;
@@ -4349,6 +4778,7 @@ export interface InforNexusSourceProperties {
  */
 export interface MarketoSourceProperties {
   /**
+   * @public
    * <p> The object specified in the Marketo flow source. </p>
    */
   object: string | undefined;
@@ -4360,6 +4790,7 @@ export interface MarketoSourceProperties {
  */
 export interface PardotSourceProperties {
   /**
+   * @public
    * <p>The object specified in the Salesforce Pardot flow source.</p>
    */
   object: string | undefined;
@@ -4386,6 +4817,7 @@ export type S3InputFileType = (typeof S3InputFileType)[keyof typeof S3InputFileT
  */
 export interface S3InputFormatConfig {
   /**
+   * @public
    * <p> The file type that Amazon AppFlow gets from your Amazon S3 bucket. </p>
    */
   s3InputFileType?: S3InputFileType | string;
@@ -4398,17 +4830,20 @@ export interface S3InputFormatConfig {
  */
 export interface S3SourceProperties {
   /**
+   * @public
    * <p> The Amazon S3 bucket name where the source files are stored. </p>
    */
   bucketName: string | undefined;
 
   /**
+   * @public
    * <p> The object key for the Amazon S3 bucket in which the source files are stored.
    *     </p>
    */
   bucketPrefix?: string;
 
   /**
+   * @public
    * <p> When you use Amazon S3 as the source, the configuration format that you provide
    *       the flow input data. </p>
    */
@@ -4421,22 +4856,26 @@ export interface S3SourceProperties {
  */
 export interface SalesforceSourceProperties {
   /**
+   * @public
    * <p> The object specified in the Salesforce flow source. </p>
    */
   object: string | undefined;
 
   /**
+   * @public
    * <p> The flag that enables dynamic fetching of new (recently added) fields in the Salesforce
    *       objects while running a flow. </p>
    */
   enableDynamicFieldUpdate?: boolean;
 
   /**
+   * @public
    * <p> Indicates whether Amazon AppFlow includes deleted files in the flow run. </p>
    */
   includeDeletedRecords?: boolean;
 
   /**
+   * @public
    * <p>Specifies which Salesforce API is used by Amazon AppFlow when your flow transfers
    *       data from Salesforce.</p>
    *          <dl>
@@ -4484,6 +4923,7 @@ export interface SalesforceSourceProperties {
  */
 export interface SAPODataSourceProperties {
   /**
+   * @public
    * <p> The object path specified in the SAPOData flow source. </p>
    */
   objectPath?: string;
@@ -4495,6 +4935,7 @@ export interface SAPODataSourceProperties {
  */
 export interface ServiceNowSourceProperties {
   /**
+   * @public
    * <p> The object specified in the ServiceNow flow source. </p>
    */
   object: string | undefined;
@@ -4506,6 +4947,7 @@ export interface ServiceNowSourceProperties {
  */
 export interface SingularSourceProperties {
   /**
+   * @public
    * <p> The object specified in the Singular flow source. </p>
    */
   object: string | undefined;
@@ -4517,6 +4959,7 @@ export interface SingularSourceProperties {
  */
 export interface SlackSourceProperties {
   /**
+   * @public
    * <p> The object specified in the Slack flow source. </p>
    */
   object: string | undefined;
@@ -4528,6 +4971,7 @@ export interface SlackSourceProperties {
  */
 export interface TrendmicroSourceProperties {
   /**
+   * @public
    * <p> The object specified in the Trend Micro flow source. </p>
    */
   object: string | undefined;
@@ -4539,26 +4983,31 @@ export interface TrendmicroSourceProperties {
  */
 export interface VeevaSourceProperties {
   /**
+   * @public
    * <p> The object specified in the Veeva flow source. </p>
    */
   object: string | undefined;
 
   /**
+   * @public
    * <p>The document type specified in the Veeva document extract flow.</p>
    */
   documentType?: string;
 
   /**
+   * @public
    * <p>Boolean value to include source files in Veeva document extract flow.</p>
    */
   includeSourceFiles?: boolean;
 
   /**
+   * @public
    * <p>Boolean value to include file renditions in Veeva document extract flow.</p>
    */
   includeRenditions?: boolean;
 
   /**
+   * @public
    * <p>Boolean value to include All Versions of files in Veeva document extract flow.</p>
    */
   includeAllVersions?: boolean;
@@ -4570,6 +5019,7 @@ export interface VeevaSourceProperties {
  */
 export interface ZendeskSourceProperties {
   /**
+   * @public
    * <p> The object specified in the Zendesk flow source. </p>
    */
   object: string | undefined;
@@ -4581,87 +5031,104 @@ export interface ZendeskSourceProperties {
  */
 export interface SourceConnectorProperties {
   /**
+   * @public
    * <p> Specifies the information that is required for querying Amplitude. </p>
    */
   Amplitude?: AmplitudeSourceProperties;
 
   /**
+   * @public
    * <p> Specifies the information that is required for querying Datadog. </p>
    */
   Datadog?: DatadogSourceProperties;
 
   /**
+   * @public
    * <p> Specifies the information that is required for querying Dynatrace. </p>
    */
   Dynatrace?: DynatraceSourceProperties;
 
   /**
+   * @public
    * <p> Specifies the information that is required for querying Google Analytics. </p>
    */
   GoogleAnalytics?: GoogleAnalyticsSourceProperties;
 
   /**
+   * @public
    * <p> Specifies the information that is required for querying Infor Nexus. </p>
    */
   InforNexus?: InforNexusSourceProperties;
 
   /**
+   * @public
    * <p> Specifies the information that is required for querying Marketo. </p>
    */
   Marketo?: MarketoSourceProperties;
 
   /**
+   * @public
    * <p> Specifies the information that is required for querying Amazon S3. </p>
    */
   S3?: S3SourceProperties;
 
   /**
+   * @public
    * <p> Specifies the information that is required for querying Salesforce. </p>
    */
   Salesforce?: SalesforceSourceProperties;
 
   /**
+   * @public
    * <p> Specifies the information that is required for querying ServiceNow. </p>
    */
   ServiceNow?: ServiceNowSourceProperties;
 
   /**
+   * @public
    * <p> Specifies the information that is required for querying Singular. </p>
    */
   Singular?: SingularSourceProperties;
 
   /**
+   * @public
    * <p> Specifies the information that is required for querying Slack. </p>
    */
   Slack?: SlackSourceProperties;
 
   /**
+   * @public
    * <p> Specifies the information that is required for querying Trend Micro. </p>
    */
   Trendmicro?: TrendmicroSourceProperties;
 
   /**
+   * @public
    * <p> Specifies the information that is required for querying Veeva. </p>
    */
   Veeva?: VeevaSourceProperties;
 
   /**
+   * @public
    * <p> Specifies the information that is required for querying Zendesk. </p>
    */
   Zendesk?: ZendeskSourceProperties;
 
   /**
+   * @public
    * <p> The properties that are applied when using SAPOData as a flow source. </p>
    */
   SAPOData?: SAPODataSourceProperties;
 
   /**
+   * @public
    * <p>The properties that are applied when the custom connector is being used as a
    *       source.</p>
    */
   CustomConnector?: CustomConnectorSourceProperties;
 
   /**
+   * @public
    * <p>Specifies the information that is required for querying Salesforce Pardot.</p>
    */
   Pardot?: PardotSourceProperties;
@@ -4674,28 +5141,33 @@ export interface SourceConnectorProperties {
  */
 export interface SourceFlowConfig {
   /**
+   * @public
    * <p> The type of connector, such as Salesforce, Amplitude, and so on. </p>
    */
   connectorType: ConnectorType | string | undefined;
 
   /**
+   * @public
    * <p>The API version of the connector when it's used as a source in the flow.</p>
    */
   apiVersion?: string;
 
   /**
+   * @public
    * <p> The name of the connector profile. This name must be unique for each connector profile in
    *       the Amazon Web Services account. </p>
    */
   connectorProfileName?: string;
 
   /**
+   * @public
    * <p> Specifies the information that is required to query a particular source connector.
    *     </p>
    */
   sourceConnectorProperties: SourceConnectorProperties | undefined;
 
   /**
+   * @public
    * <p> Defines the configuration for a scheduled incremental data pull. If a valid configuration
    *       is provided, the fields specified in the configuration are used when querying for the
    *       incremental data pull. </p>
@@ -4761,27 +5233,32 @@ export type TaskType = (typeof TaskType)[keyof typeof TaskType];
  */
 export interface Task {
   /**
+   * @public
    * <p> The source fields to which a particular task is applied. </p>
    */
   sourceFields: string[] | undefined;
 
   /**
+   * @public
    * <p> The operation to be performed on the provided source fields. </p>
    */
   connectorOperator?: ConnectorOperator;
 
   /**
+   * @public
    * <p> A field in a destination connector, or a field value against which Amazon AppFlow
    *       validates a source field. </p>
    */
   destinationField?: string;
 
   /**
+   * @public
    * <p> Specifies the particular task implementation that Amazon AppFlow performs. </p>
    */
   taskType: TaskType | string | undefined;
 
   /**
+   * @public
    * <p> A map used to store task-related information. The execution service looks for particular
    *       information based on the <code>TaskType</code>. </p>
    */
@@ -4809,30 +5286,35 @@ export type DataPullMode = (typeof DataPullMode)[keyof typeof DataPullMode];
  */
 export interface ScheduledTriggerProperties {
   /**
+   * @public
    * <p> The scheduling expression that determines the rate at which the schedule will run, for
    *       example <code>rate(5minutes)</code>. </p>
    */
   scheduleExpression: string | undefined;
 
   /**
+   * @public
    * <p> Specifies whether a scheduled flow has an incremental data transfer or a complete data
    *       transfer for each flow run. </p>
    */
   dataPullMode?: DataPullMode | string;
 
   /**
+   * @public
    * <p>The time at which the scheduled flow starts. The time is formatted as a timestamp that
    *       follows the ISO 8601 standard, such as <code>2022-04-26T13:00:00-07:00</code>.</p>
    */
   scheduleStartTime?: Date;
 
   /**
+   * @public
    * <p>The time at which the scheduled flow ends. The time is formatted as a timestamp that
    *       follows the ISO 8601 standard, such as <code>2022-04-27T13:00:00-07:00</code>.</p>
    */
   scheduleEndTime?: Date;
 
   /**
+   * @public
    * <p>Specifies the time zone used when referring to the dates and times of a scheduled flow,
    *       such as <code>America/New_York</code>. This time zone is only a descriptive label. It doesn't
    *       affect how Amazon AppFlow interprets the timestamps that you specify to schedule the
@@ -4845,18 +5327,21 @@ export interface ScheduledTriggerProperties {
   timezone?: string;
 
   /**
+   * @public
    * <p> Specifies the optional offset that is added to the time interval for a schedule-triggered
    *       flow. </p>
    */
   scheduleOffset?: number;
 
   /**
+   * @public
    * <p> Specifies the date range for the records to import from the connector in the first flow
    *       run. </p>
    */
   firstExecutionFrom?: Date;
 
   /**
+   * @public
    * <p>Defines how many times a scheduled flow fails consecutively before Amazon AppFlow
    *       deactivates it.</p>
    */
@@ -4870,6 +5355,7 @@ export interface ScheduledTriggerProperties {
  */
 export interface TriggerProperties {
   /**
+   * @public
    * <p> Specifies the configuration details of a schedule-triggered flow as defined by the user.
    *     </p>
    */
@@ -4883,12 +5369,14 @@ export interface TriggerProperties {
  */
 export interface TriggerConfig {
   /**
+   * @public
    * <p> Specifies the type of flow trigger. This can be <code>OnDemand</code>,
    *         <code>Scheduled</code>, or <code>Event</code>. </p>
    */
   triggerType: TriggerType | string | undefined;
 
   /**
+   * @public
    * <p> Specifies the configuration details of a schedule-triggered flow as defined by the user.
    *       Currently, these settings only apply to the <code>Scheduled</code> trigger type. </p>
    */
@@ -4900,17 +5388,20 @@ export interface TriggerConfig {
  */
 export interface CreateFlowRequest {
   /**
+   * @public
    * <p> The specified name of the flow. Spaces are not allowed. Use underscores (_) or hyphens
    *       (-) only. </p>
    */
   flowName: string | undefined;
 
   /**
+   * @public
    * <p> A description of the flow you want to create. </p>
    */
   description?: string;
 
   /**
+   * @public
    * <p> The ARN (Amazon Resource Name) of the Key Management Service (KMS) key you provide for
    *       encryption. This is required if you do not want to use the Amazon AppFlow-managed KMS
    *       key. If you don't provide anything here, Amazon AppFlow uses the Amazon AppFlow-managed KMS key. </p>
@@ -4918,34 +5409,40 @@ export interface CreateFlowRequest {
   kmsArn?: string;
 
   /**
+   * @public
    * <p> The trigger settings that determine how and when the flow runs. </p>
    */
   triggerConfig: TriggerConfig | undefined;
 
   /**
+   * @public
    * <p> The configuration that controls how Amazon AppFlow retrieves data from the source
    *       connector. </p>
    */
   sourceFlowConfig: SourceFlowConfig | undefined;
 
   /**
+   * @public
    * <p> The configuration that controls how Amazon AppFlow places data in the destination
    *       connector. </p>
    */
   destinationFlowConfigList: DestinationFlowConfig[] | undefined;
 
   /**
+   * @public
    * <p> A list of tasks that Amazon AppFlow performs while transferring the data in the flow
    *       run. </p>
    */
   tasks: Task[] | undefined;
 
   /**
+   * @public
    * <p> The tags used to organize, track, or control access for your flow. </p>
    */
   tags?: Record<string, string>;
 
   /**
+   * @public
    * <p>Specifies the configuration that Amazon AppFlow uses when it catalogs the data that's
    *       transferred by the associated flow. When Amazon AppFlow catalogs the data from a flow, it
    *       stores metadata in a data catalog.</p>
@@ -4953,6 +5450,7 @@ export interface CreateFlowRequest {
   metadataCatalogConfig?: MetadataCatalogConfig;
 
   /**
+   * @public
    * <p>The <code>clientToken</code> parameter is an idempotency token. It ensures that your
    *         <code>CreateFlow</code> request completes only once. You choose the value to pass. For
    *       example, if you don't receive a response from your request, you can safely retry the request
@@ -4990,11 +5488,13 @@ export type FlowStatus = (typeof FlowStatus)[keyof typeof FlowStatus];
  */
 export interface CreateFlowResponse {
   /**
+   * @public
    * <p> The flow's Amazon Resource Name (ARN). </p>
    */
   flowArn?: string;
 
   /**
+   * @public
    * <p> Indicates the current status of the flow. </p>
    */
   flowStatus?: FlowStatus | string;
@@ -5005,12 +5505,14 @@ export interface CreateFlowResponse {
  */
 export interface DeleteConnectorProfileRequest {
   /**
+   * @public
    * <p> The name of the connector profile. The name is unique for each
    *         <code>ConnectorProfile</code> in your account. </p>
    */
   connectorProfileName: string | undefined;
 
   /**
+   * @public
    * <p> Indicates whether Amazon AppFlow should delete the profile, even if it is currently
    *       in use in one or more flows. </p>
    */
@@ -5027,12 +5529,14 @@ export interface DeleteConnectorProfileResponse {}
  */
 export interface DeleteFlowRequest {
   /**
+   * @public
    * <p> The specified name of the flow. Spaces are not allowed. Use underscores (_) or hyphens
    *       (-) only. </p>
    */
   flowName: string | undefined;
 
   /**
+   * @public
    * <p> Indicates whether Amazon AppFlow should delete the flow, even if it is currently in
    *       use. </p>
    */
@@ -5049,12 +5553,14 @@ export interface DeleteFlowResponse {}
  */
 export interface DescribeConnectorRequest {
   /**
+   * @public
    * <p>The connector type, such as CUSTOMCONNECTOR, Saleforce, Marketo. Please choose
    *       CUSTOMCONNECTOR for Lambda based custom connectors.</p>
    */
   connectorType: ConnectorType | string | undefined;
 
   /**
+   * @public
    * <p>The label of the connector. The label is unique for each
    *         <code>ConnectorRegistration</code> in your Amazon Web Services account. Only needed if
    *       calling for CUSTOMCONNECTOR connector type/.</p>
@@ -5067,6 +5573,7 @@ export interface DescribeConnectorRequest {
  */
 export interface DescribeConnectorResponse {
   /**
+   * @public
    * <p>Configuration info of all the connectors that the user requested.</p>
    */
   connectorConfiguration?: ConnectorConfiguration;
@@ -5077,22 +5584,26 @@ export interface DescribeConnectorResponse {
  */
 export interface DescribeConnectorEntityRequest {
   /**
+   * @public
    * <p> The entity name for that connector. </p>
    */
   connectorEntityName: string | undefined;
 
   /**
+   * @public
    * <p> The type of connector application, such as Salesforce, Amplitude, and so on. </p>
    */
   connectorType?: ConnectorType | string;
 
   /**
+   * @public
    * <p> The name of the connector profile. The name is unique for each
    *         <code>ConnectorProfile</code> in the Amazon Web Services account. </p>
    */
   connectorProfileName?: string;
 
   /**
+   * @public
    * <p>The version of the API that's used by the connector.</p>
    */
   apiVersion?: string;
@@ -5103,6 +5614,7 @@ export interface DescribeConnectorEntityRequest {
  */
 export interface DescribeConnectorEntityResponse {
   /**
+   * @public
    * <p> Describes the fields for that connector entity. For example, for an
    *         <i>account</i> entity, the fields would be <i>account name</i>,
    *         <i>account ID</i>, and so on. </p>
@@ -5115,17 +5627,20 @@ export interface DescribeConnectorEntityResponse {
  */
 export interface DescribeConnectorProfilesRequest {
   /**
+   * @public
    * <p> The name of the connector profile. The name is unique for each
    *         <code>ConnectorProfile</code> in the Amazon Web Services account. </p>
    */
   connectorProfileNames?: string[];
 
   /**
+   * @public
    * <p> The type of connector, such as Salesforce, Amplitude, and so on. </p>
    */
   connectorType?: ConnectorType | string;
 
   /**
+   * @public
    * <p>The name of the connector. The name is unique for each <code>ConnectorRegistration</code>
    *       in your Amazon Web Services account. Only needed if calling for CUSTOMCONNECTOR connector
    *       type/.</p>
@@ -5133,12 +5648,14 @@ export interface DescribeConnectorProfilesRequest {
   connectorLabel?: string;
 
   /**
+   * @public
    * <p> Specifies the maximum number of items that should be returned in the result set. The
    *       default for <code>maxResults</code> is 20 (for all paginated API operations). </p>
    */
   maxResults?: number;
 
   /**
+   * @public
    * <p> The pagination token for the next page of data. </p>
    */
   nextToken?: string;
@@ -5149,11 +5666,13 @@ export interface DescribeConnectorProfilesRequest {
  */
 export interface DescribeConnectorProfilesResponse {
   /**
+   * @public
    * <p> Returns information about the connector profiles associated with the flow. </p>
    */
   connectorProfileDetails?: ConnectorProfile[];
 
   /**
+   * @public
    * <p> The pagination token for the next page of data. If <code>nextToken=null</code>, this
    *       means that all records have been fetched. </p>
    */
@@ -5165,17 +5684,20 @@ export interface DescribeConnectorProfilesResponse {
  */
 export interface DescribeConnectorsRequest {
   /**
+   * @public
    * <p> The type of connector, such as Salesforce, Amplitude, and so on. </p>
    */
   connectorTypes?: (ConnectorType | string)[];
 
   /**
+   * @public
    * <p>The maximum number of items that should be returned in the result set. The default is
    *       20.</p>
    */
   maxResults?: number;
 
   /**
+   * @public
    * <p> The pagination token for the next page of data. </p>
    */
   nextToken?: string;
@@ -5186,16 +5708,19 @@ export interface DescribeConnectorsRequest {
  */
 export interface DescribeConnectorsResponse {
   /**
+   * @public
    * <p> The configuration that is applied to the connectors used in the flow. </p>
    */
   connectorConfigurations?: Record<string, ConnectorConfiguration>;
 
   /**
+   * @public
    * <p>Information about the connectors supported in Amazon AppFlow.</p>
    */
   connectors?: ConnectorDetail[];
 
   /**
+   * @public
    * <p> The pagination token for the next page of data. </p>
    */
   nextToken?: string;
@@ -5206,6 +5731,7 @@ export interface DescribeConnectorsResponse {
  */
 export interface DescribeFlowRequest {
   /**
+   * @public
    * <p> The specified name of the flow. Spaces are not allowed. Use underscores (_) or hyphens
    *       (-) only. </p>
    */
@@ -5236,16 +5762,19 @@ export type ExecutionStatus = (typeof ExecutionStatus)[keyof typeof ExecutionSta
  */
 export interface ExecutionDetails {
   /**
+   * @public
    * <p> Describes the details of the most recent flow run. </p>
    */
   mostRecentExecutionMessage?: string;
 
   /**
+   * @public
    * <p> Specifies the time of the most recent flow run. </p>
    */
   mostRecentExecutionTime?: Date;
 
   /**
+   * @public
    * <p> Specifies the status of the most recent flow run. </p>
    */
   mostRecentExecutionStatus?: ExecutionStatus | string;
@@ -5261,18 +5790,21 @@ export interface ExecutionDetails {
  */
 export interface RegistrationOutput {
   /**
+   * @public
    * <p>Explains the status of the registration attempt from Amazon AppFlow. If the attempt
    *       fails, the message explains why.</p>
    */
   message?: string;
 
   /**
+   * @public
    * <p>Indicates the number of resources that Amazon AppFlow created or updated. Possible
    *       resources include metadata tables and data partitions.</p>
    */
   result?: string;
 
   /**
+   * @public
    * <p>Indicates the status of the registration attempt from Amazon AppFlow.</p>
    */
   status?: ExecutionStatus | string;
@@ -5284,6 +5816,7 @@ export interface RegistrationOutput {
  */
 export interface MetadataCatalogDetail {
   /**
+   * @public
    * <p>The type of metadata catalog that Amazon AppFlow used for the associated flow run.
    *       This parameter returns the following value:</p>
    *          <dl>
@@ -5297,6 +5830,7 @@ export interface MetadataCatalogDetail {
   catalogType?: CatalogType | string;
 
   /**
+   * @public
    * <p>The name of the table that stores the metadata for the associated flow run. The table
    *       stores metadata that represents the data that the flow transferred. Amazon AppFlow stores
    *       the table in the metadata catalog.</p>
@@ -5304,6 +5838,7 @@ export interface MetadataCatalogDetail {
   tableName?: string;
 
   /**
+   * @public
    * <p>Describes the status of the attempt from Amazon AppFlow to register the metadata
    *       table with the metadata catalog. Amazon AppFlow creates or updates this table for the
    *       associated flow run.</p>
@@ -5311,6 +5846,7 @@ export interface MetadataCatalogDetail {
   tableRegistrationOutput?: RegistrationOutput;
 
   /**
+   * @public
    * <p>Describes the status of the attempt from Amazon AppFlow to register the data
    *       partitions with the metadata catalog. The data partitions organize the flow output into a
    *       hierarchical path, such as a folder path in an S3 bucket. Amazon AppFlow creates the
@@ -5324,22 +5860,26 @@ export interface MetadataCatalogDetail {
  */
 export interface DescribeFlowResponse {
   /**
+   * @public
    * <p> The flow's Amazon Resource Name (ARN). </p>
    */
   flowArn?: string;
 
   /**
+   * @public
    * <p> A description of the flow. </p>
    */
   description?: string;
 
   /**
+   * @public
    * <p> The specified name of the flow. Spaces are not allowed. Use underscores (_) or hyphens
    *       (-) only. </p>
    */
   flowName?: string;
 
   /**
+   * @public
    * <p> The ARN (Amazon Resource Name) of the Key Management Service (KMS) key you provide for
    *       encryption. This is required if you do not want to use the Amazon AppFlow-managed KMS
    *       key. If you don't provide anything here, Amazon AppFlow uses the Amazon AppFlow-managed KMS key. </p>
@@ -5347,70 +5887,83 @@ export interface DescribeFlowResponse {
   kmsArn?: string;
 
   /**
+   * @public
    * <p> Indicates the current status of the flow. </p>
    */
   flowStatus?: FlowStatus | string;
 
   /**
+   * @public
    * <p> Contains an error message if the flow status is in a suspended or error state. This
    *       applies only to scheduled or event-triggered flows. </p>
    */
   flowStatusMessage?: string;
 
   /**
+   * @public
    * <p> The configuration that controls how Amazon AppFlow retrieves data from the source
    *       connector. </p>
    */
   sourceFlowConfig?: SourceFlowConfig;
 
   /**
+   * @public
    * <p> The configuration that controls how Amazon AppFlow transfers data to the destination
    *       connector. </p>
    */
   destinationFlowConfigList?: DestinationFlowConfig[];
 
   /**
+   * @public
    * <p> Describes the details of the most recent flow run. </p>
    */
   lastRunExecutionDetails?: ExecutionDetails;
 
   /**
+   * @public
    * <p> The trigger settings that determine how and when the flow runs. </p>
    */
   triggerConfig?: TriggerConfig;
 
   /**
+   * @public
    * <p> A list of tasks that Amazon AppFlow performs while transferring the data in the flow
    *       run. </p>
    */
   tasks?: Task[];
 
   /**
+   * @public
    * <p> Specifies when the flow was created. </p>
    */
   createdAt?: Date;
 
   /**
+   * @public
    * <p> Specifies when the flow was last updated. </p>
    */
   lastUpdatedAt?: Date;
 
   /**
+   * @public
    * <p> The ARN of the user who created the flow. </p>
    */
   createdBy?: string;
 
   /**
+   * @public
    * <p> Specifies the user name of the account that performed the most recent update. </p>
    */
   lastUpdatedBy?: string;
 
   /**
+   * @public
    * <p> The tags used to organize, track, or control access for your flow. </p>
    */
   tags?: Record<string, string>;
 
   /**
+   * @public
    * <p>Specifies the configuration that Amazon AppFlow uses when it catalogs the data that's
    *       transferred by the associated flow. When Amazon AppFlow catalogs the data from a flow, it
    *       stores metadata in a data catalog.</p>
@@ -5418,11 +5971,13 @@ export interface DescribeFlowResponse {
   metadataCatalogConfig?: MetadataCatalogConfig;
 
   /**
+   * @public
    * <p>Describes the metadata catalog, metadata table, and data partitions that Amazon AppFlow used for the associated flow run.</p>
    */
   lastRunMetadataCatalogDetails?: MetadataCatalogDetail[];
 
   /**
+   * @public
    * <p>The version number of your data schema. Amazon AppFlow assigns this version number.
    *       The version number increases by one when you change any of the following settings in your flow
    *       configuration:</p>
@@ -5446,18 +6001,21 @@ export interface DescribeFlowResponse {
  */
 export interface DescribeFlowExecutionRecordsRequest {
   /**
+   * @public
    * <p> The specified name of the flow. Spaces are not allowed. Use underscores (_) or hyphens
    *       (-) only. </p>
    */
   flowName: string | undefined;
 
   /**
+   * @public
    * <p> Specifies the maximum number of items that should be returned in the result set. The
    *       default for <code>maxResults</code> is 20 (for all paginated API operations). </p>
    */
   maxResults?: number;
 
   /**
+   * @public
    * <p> The pagination token for the next page of data. </p>
    */
   nextToken?: string;
@@ -5470,11 +6028,13 @@ export interface DescribeFlowExecutionRecordsRequest {
  */
 export interface ErrorInfo {
   /**
+   * @public
    * <p> Specifies the failure count for the attempted flow. </p>
    */
   putFailuresCount?: number;
 
   /**
+   * @public
    * <p> Specifies the error message that appears if a flow fails. </p>
    */
   executionMessage?: string;
@@ -5486,21 +6046,25 @@ export interface ErrorInfo {
  */
 export interface ExecutionResult {
   /**
+   * @public
    * <p> Provides any error message information related to the flow run. </p>
    */
   errorInfo?: ErrorInfo;
 
   /**
+   * @public
    * <p> The total number of bytes processed by the flow run. </p>
    */
   bytesProcessed?: number;
 
   /**
+   * @public
    * <p> The total number of bytes written as a result of the flow run. </p>
    */
   bytesWritten?: number;
 
   /**
+   * @public
    * <p> The number of records processed in the flow run. </p>
    */
   recordsProcessed?: number;
@@ -5512,44 +6076,52 @@ export interface ExecutionResult {
  */
 export interface ExecutionRecord {
   /**
+   * @public
    * <p> Specifies the identifier of the given flow run. </p>
    */
   executionId?: string;
 
   /**
+   * @public
    * <p> Specifies the flow run status and whether it is in progress, has completed successfully,
    *       or has failed. </p>
    */
   executionStatus?: ExecutionStatus | string;
 
   /**
+   * @public
    * <p> Describes the result of the given flow run. </p>
    */
   executionResult?: ExecutionResult;
 
   /**
+   * @public
    * <p> Specifies the start time of the flow run. </p>
    */
   startedAt?: Date;
 
   /**
+   * @public
    * <p> Specifies the time of the most recent update. </p>
    */
   lastUpdatedAt?: Date;
 
   /**
+   * @public
    * <p> The timestamp that determines the first new or updated record to be transferred in the
    *       flow run. </p>
    */
   dataPullStartTime?: Date;
 
   /**
+   * @public
    * <p> The timestamp that indicates the last new or updated record to be transferred in the flow
    *       run. </p>
    */
   dataPullEndTime?: Date;
 
   /**
+   * @public
    * <p>Describes the metadata catalog, metadata table, and data partitions that Amazon AppFlow used for the associated flow run.</p>
    */
   metadataCatalogDetails?: MetadataCatalogDetail[];
@@ -5560,11 +6132,13 @@ export interface ExecutionRecord {
  */
 export interface DescribeFlowExecutionRecordsResponse {
   /**
+   * @public
    * <p> Returns a list of all instances when this flow was run. </p>
    */
   flowExecutions?: ExecutionRecord[];
 
   /**
+   * @public
    * <p> The pagination token for the next page of data. </p>
    */
   nextToken?: string;
@@ -5577,80 +6151,95 @@ export interface DescribeFlowExecutionRecordsResponse {
  */
 export interface FlowDefinition {
   /**
+   * @public
    * <p> The flow's Amazon Resource Name (ARN). </p>
    */
   flowArn?: string;
 
   /**
+   * @public
    * <p> A user-entered description of the flow. </p>
    */
   description?: string;
 
   /**
+   * @public
    * <p> The specified name of the flow. Spaces are not allowed. Use underscores (_) or hyphens
    *       (-) only. </p>
    */
   flowName?: string;
 
   /**
+   * @public
    * <p> Indicates the current status of the flow. </p>
    */
   flowStatus?: FlowStatus | string;
 
   /**
+   * @public
    * <p> Specifies the source connector type, such as Salesforce, Amazon S3, Amplitude,
    *       and so on. </p>
    */
   sourceConnectorType?: ConnectorType | string;
 
   /**
+   * @public
    * <p>The label of the source connector in the flow.</p>
    */
   sourceConnectorLabel?: string;
 
   /**
+   * @public
    * <p> Specifies the destination connector type, such as Salesforce, Amazon S3,
    *       Amplitude, and so on. </p>
    */
   destinationConnectorType?: ConnectorType | string;
 
   /**
+   * @public
    * <p>The label of the destination connector in the flow.</p>
    */
   destinationConnectorLabel?: string;
 
   /**
+   * @public
    * <p> Specifies the type of flow trigger. This can be <code>OnDemand</code>,
    *         <code>Scheduled</code>, or <code>Event</code>. </p>
    */
   triggerType?: TriggerType | string;
 
   /**
+   * @public
    * <p> Specifies when the flow was created. </p>
    */
   createdAt?: Date;
 
   /**
+   * @public
    * <p> Specifies when the flow was last updated. </p>
    */
   lastUpdatedAt?: Date;
 
   /**
+   * @public
    * <p> The ARN of the user who created the flow. </p>
    */
   createdBy?: string;
 
   /**
+   * @public
    * <p> Specifies the account user name that most recently updated the flow. </p>
    */
   lastUpdatedBy?: string;
 
   /**
+   * @public
    * <p> The tags used to organize, track, or control access for your flow. </p>
    */
   tags?: Record<string, string>;
 
   /**
+   * @public
    * <p> Describes the details of the most recent flow run. </p>
    */
   lastRunExecutionDetails?: ExecutionDetails;
@@ -5661,6 +6250,7 @@ export interface FlowDefinition {
  */
 export interface ListConnectorEntitiesRequest {
   /**
+   * @public
    * <p> The name of the connector profile. The name is unique for each
    *         <code>ConnectorProfile</code> in the Amazon Web Services account, and is used to query the
    *       downstream connector. </p>
@@ -5668,11 +6258,13 @@ export interface ListConnectorEntitiesRequest {
   connectorProfileName?: string;
 
   /**
+   * @public
    * <p> The type of connector, such as Salesforce, Amplitude, and so on. </p>
    */
   connectorType?: ConnectorType | string;
 
   /**
+   * @public
    * <p> This optional parameter is specific to connector implementation. Some connectors support
    *       multiple levels or categories of entities. You can find out the list of roots for such
    *       providers by sending a request without the <code>entitiesPath</code> parameter. If the
@@ -5682,16 +6274,19 @@ export interface ListConnectorEntitiesRequest {
   entitiesPath?: string;
 
   /**
+   * @public
    * <p>The version of the API that's used by the connector.</p>
    */
   apiVersion?: string;
 
   /**
+   * @public
    * <p>The maximum number of items that the operation returns in the response.</p>
    */
   maxResults?: number;
 
   /**
+   * @public
    * <p>A token that was provided by your prior <code>ListConnectorEntities</code> operation if
    *       the response was too big for the page size. You specify this token to get the next page of
    *       results in paginated response.</p>
@@ -5704,6 +6299,7 @@ export interface ListConnectorEntitiesRequest {
  */
 export interface ListConnectorEntitiesResponse {
   /**
+   * @public
    * <p> The response of <code>ListConnectorEntities</code> lists entities grouped by category.
    *       This map's key represents the group name, and its value contains the list of entities
    *       belonging to that group. </p>
@@ -5711,6 +6307,7 @@ export interface ListConnectorEntitiesResponse {
   connectorEntityMap: Record<string, ConnectorEntity[]> | undefined;
 
   /**
+   * @public
    * <p>A token that you specify in your next <code>ListConnectorEntities</code> operation to get
    *       the next page of results in paginated response. The <code>ListConnectorEntities</code>
    *       operation provides this token if the response is too big for the page size.</p>
@@ -5723,12 +6320,14 @@ export interface ListConnectorEntitiesResponse {
  */
 export interface ListConnectorsRequest {
   /**
+   * @public
    * <p>Specifies the maximum number of items that should be returned in the result set. The
    *       default for <code>maxResults</code> is 20 (for all paginated API operations).</p>
    */
   maxResults?: number;
 
   /**
+   * @public
    * <p>The pagination token for the next page of data.</p>
    */
   nextToken?: string;
@@ -5739,11 +6338,13 @@ export interface ListConnectorsRequest {
  */
 export interface ListConnectorsResponse {
   /**
+   * @public
    * <p>Contains information about the connectors supported by Amazon AppFlow.</p>
    */
   connectors?: ConnectorDetail[];
 
   /**
+   * @public
    * <p>The pagination token for the next page of data. If nextToken=null, this means that all
    *       records have been fetched.</p>
    */
@@ -5755,11 +6356,13 @@ export interface ListConnectorsResponse {
  */
 export interface ListFlowsRequest {
   /**
+   * @public
    * <p> Specifies the maximum number of items that should be returned in the result set. </p>
    */
   maxResults?: number;
 
   /**
+   * @public
    * <p> The pagination token for next page of data. </p>
    */
   nextToken?: string;
@@ -5770,11 +6373,13 @@ export interface ListFlowsRequest {
  */
 export interface ListFlowsResponse {
   /**
+   * @public
    * <p> The list of flows associated with your account. </p>
    */
   flows?: FlowDefinition[];
 
   /**
+   * @public
    * <p> The pagination token for next page of data. </p>
    */
   nextToken?: string;
@@ -5785,6 +6390,7 @@ export interface ListFlowsResponse {
  */
 export interface ListTagsForResourceRequest {
   /**
+   * @public
    * <p> The Amazon Resource Name (ARN) of the specified flow. </p>
    */
   resourceArn: string | undefined;
@@ -5795,6 +6401,7 @@ export interface ListTagsForResourceRequest {
  */
 export interface ListTagsForResourceResponse {
   /**
+   * @public
    * <p> The tags used to organize, track, or control access for your flow. </p>
    */
   tags?: Record<string, string>;
@@ -5805,29 +6412,34 @@ export interface ListTagsForResourceResponse {
  */
 export interface RegisterConnectorRequest {
   /**
+   * @public
    * <p> The name of the connector. The name is unique for each <code>ConnectorRegistration</code>
    *       in your Amazon Web Services account.</p>
    */
   connectorLabel?: string;
 
   /**
+   * @public
    * <p>A description about the connector that's being registered.</p>
    */
   description?: string;
 
   /**
+   * @public
    * <p>The provisioning type of the connector. Currently the only supported value is LAMBDA.
    *     </p>
    */
   connectorProvisioningType?: ConnectorProvisioningType | string;
 
   /**
+   * @public
    * <p>The provisioning type of the connector. Currently the only supported value is
    *       LAMBDA.</p>
    */
   connectorProvisioningConfig?: ConnectorProvisioningConfig;
 
   /**
+   * @public
    * <p>The <code>clientToken</code> parameter is an idempotency token. It ensures that your
    *         <code>RegisterConnector</code> request completes only once. You choose the value to pass.
    *       For example, if you don't receive a response from your request, you can safely retry the
@@ -5847,6 +6459,7 @@ export interface RegisterConnectorRequest {
  */
 export interface RegisterConnectorResponse {
   /**
+   * @public
    * <p>The ARN of the connector being registered.</p>
    */
   connectorArn?: string;
@@ -5857,6 +6470,7 @@ export interface RegisterConnectorResponse {
  */
 export interface ResetConnectorMetadataCacheRequest {
   /**
+   * @public
    * <p>The name of the connector profile that you want to reset cached metadata for.</p>
    *          <p>You can omit this parameter if you're resetting the cache for any of the following
    *       connectors: Amazon Connect, Amazon EventBridge, Amazon Lookout for Metrics, Amazon S3, or Upsolver. If you're resetting the cache for any other connector, you must include this
@@ -5865,6 +6479,7 @@ export interface ResetConnectorMetadataCacheRequest {
   connectorProfileName?: string;
 
   /**
+   * @public
    * <p>The type of connector to reset cached metadata for.</p>
    *          <p>You must include this parameter in your request if you're resetting the cache for any of
    *       the following connectors: Amazon Connect, Amazon EventBridge, Amazon Lookout for Metrics,
@@ -5874,6 +6489,7 @@ export interface ResetConnectorMetadataCacheRequest {
   connectorType?: ConnectorType | string;
 
   /**
+   * @public
    * <p>Use this parameter if you want to reset cached metadata about the details for an
    *       individual entity.</p>
    *          <p>If you don't include this parameter in your request, Amazon AppFlow only resets
@@ -5882,6 +6498,7 @@ export interface ResetConnectorMetadataCacheRequest {
   connectorEntityName?: string;
 
   /**
+   * @public
    * <p>Use this parameter only if you’re resetting the cached metadata about a nested entity.
    *       Only some connectors support nested entities. A nested entity is one that has another entity
    *       as a parent. To use this parameter, specify the name of the parent entity.</p>
@@ -5895,6 +6512,7 @@ export interface ResetConnectorMetadataCacheRequest {
   entitiesPath?: string;
 
   /**
+   * @public
    * <p>The API version that you specified in the connector profile that you’re resetting cached
    *       metadata for. You must use this parameter only if the connector supports multiple API versions
    *       or if the connector type is CustomConnector.</p>
@@ -5919,12 +6537,14 @@ export interface ResetConnectorMetadataCacheResponse {}
  */
 export interface StartFlowRequest {
   /**
+   * @public
    * <p> The specified name of the flow. Spaces are not allowed. Use underscores (_) or hyphens
    *       (-) only. </p>
    */
   flowName: string | undefined;
 
   /**
+   * @public
    * <p>The <code>clientToken</code> parameter is an idempotency token. It ensures that your
    *         <code>StartFlow</code> request completes only once. You choose the value to pass. For
    *       example, if you don't receive a response from your request, you can safely retry the request
@@ -5947,16 +6567,19 @@ export interface StartFlowRequest {
  */
 export interface StartFlowResponse {
   /**
+   * @public
    * <p> The flow's Amazon Resource Name (ARN). </p>
    */
   flowArn?: string;
 
   /**
+   * @public
    * <p> Indicates the current status of the flow. </p>
    */
   flowStatus?: FlowStatus | string;
 
   /**
+   * @public
    * <p> Returns the internal execution ID of an on-demand flow when the flow is started. For
    *       scheduled or event-triggered flows, this value is null. </p>
    */
@@ -5968,6 +6591,7 @@ export interface StartFlowResponse {
  */
 export interface StopFlowRequest {
   /**
+   * @public
    * <p> The specified name of the flow. Spaces are not allowed. Use underscores (_) or hyphens
    *       (-) only. </p>
    */
@@ -5979,11 +6603,13 @@ export interface StopFlowRequest {
  */
 export interface StopFlowResponse {
   /**
+   * @public
    * <p> The flow's Amazon Resource Name (ARN). </p>
    */
   flowArn?: string;
 
   /**
+   * @public
    * <p> Indicates the current status of the flow. </p>
    */
   flowStatus?: FlowStatus | string;
@@ -6014,11 +6640,13 @@ export class UnsupportedOperationException extends __BaseException {
  */
 export interface TagResourceRequest {
   /**
+   * @public
    * <p> The Amazon Resource Name (ARN) of the flow that you want to tag. </p>
    */
   resourceArn: string | undefined;
 
   /**
+   * @public
    * <p> The tags used to organize, track, or control access for your flow. </p>
    */
   tags: Record<string, string> | undefined;
@@ -6034,12 +6662,14 @@ export interface TagResourceResponse {}
  */
 export interface UnregisterConnectorRequest {
   /**
+   * @public
    * <p>The label of the connector. The label is unique for each
    *         <code>ConnectorRegistration</code> in your Amazon Web Services account.</p>
    */
   connectorLabel: string | undefined;
 
   /**
+   * @public
    * <p>Indicates whether Amazon AppFlow should unregister the connector, even if it is
    *       currently in use in one or more connector profiles. The default value is false.</p>
    */
@@ -6056,11 +6686,13 @@ export interface UnregisterConnectorResponse {}
  */
 export interface UntagResourceRequest {
   /**
+   * @public
    * <p> The Amazon Resource Name (ARN) of the flow that you want to untag. </p>
    */
   resourceArn: string | undefined;
 
   /**
+   * @public
    * <p> The tag keys associated with the tag that you want to remove from your flow. </p>
    */
   tagKeys: string[] | undefined;
@@ -6076,22 +6708,26 @@ export interface UntagResourceResponse {}
  */
 export interface UpdateConnectorProfileRequest {
   /**
+   * @public
    * <p> The name of the connector profile and is unique for each <code>ConnectorProfile</code> in
    *       the Amazon Web Services account. </p>
    */
   connectorProfileName: string | undefined;
 
   /**
+   * @public
    * <p> Indicates the connection mode and if it is public or private. </p>
    */
   connectionMode: ConnectionMode | string | undefined;
 
   /**
+   * @public
    * <p> Defines the connector-specific profile configuration and credentials. </p>
    */
   connectorProfileConfig: ConnectorProfileConfig | undefined;
 
   /**
+   * @public
    * <p>The <code>clientToken</code> parameter is an idempotency token. It ensures that your
    *         <code>UpdateConnectorProfile</code> request completes only once. You choose the value to
    *       pass. For example, if you don't receive a response from your request, you can safely retry the
@@ -6111,6 +6747,7 @@ export interface UpdateConnectorProfileRequest {
  */
 export interface UpdateConnectorProfileResponse {
   /**
+   * @public
    * <p> The Amazon Resource Name (ARN) of the connector profile. </p>
    */
   connectorProfileArn?: string;
@@ -6121,22 +6758,26 @@ export interface UpdateConnectorProfileResponse {
  */
 export interface UpdateConnectorRegistrationRequest {
   /**
+   * @public
    * <p>The name of the connector. The name is unique for each connector registration in your AWS
    *       account.</p>
    */
   connectorLabel: string | undefined;
 
   /**
+   * @public
    * <p>A description about the update that you're applying to the connector.</p>
    */
   description?: string;
 
   /**
+   * @public
    * <p>Contains information about the configuration of the connector being registered.</p>
    */
   connectorProvisioningConfig?: ConnectorProvisioningConfig;
 
   /**
+   * @public
    * <p>The <code>clientToken</code> parameter is an idempotency token. It ensures that your
    *         <code>UpdateConnectorRegistration</code> request completes only once. You choose the value
    *       to pass. For example, if you don't receive a response from your request, you can safely retry
@@ -6156,6 +6797,7 @@ export interface UpdateConnectorRegistrationRequest {
  */
 export interface UpdateConnectorRegistrationResponse {
   /**
+   * @public
    * <p>The ARN of the connector being updated.</p>
    */
   connectorArn?: string;
@@ -6166,40 +6808,47 @@ export interface UpdateConnectorRegistrationResponse {
  */
 export interface UpdateFlowRequest {
   /**
+   * @public
    * <p> The specified name of the flow. Spaces are not allowed. Use underscores (_) or hyphens
    *       (-) only. </p>
    */
   flowName: string | undefined;
 
   /**
+   * @public
    * <p> A description of the flow. </p>
    */
   description?: string;
 
   /**
+   * @public
    * <p> The trigger settings that determine how and when the flow runs. </p>
    */
   triggerConfig: TriggerConfig | undefined;
 
   /**
+   * @public
    * <p> Contains information about the configuration of the source connector used in the flow.
    *     </p>
    */
   sourceFlowConfig: SourceFlowConfig | undefined;
 
   /**
+   * @public
    * <p> The configuration that controls how Amazon AppFlow transfers data to the destination
    *       connector. </p>
    */
   destinationFlowConfigList: DestinationFlowConfig[] | undefined;
 
   /**
+   * @public
    * <p> A list of tasks that Amazon AppFlow performs while transferring the data in the flow
    *       run. </p>
    */
   tasks: Task[] | undefined;
 
   /**
+   * @public
    * <p>Specifies the configuration that Amazon AppFlow uses when it catalogs the data that's
    *       transferred by the associated flow. When Amazon AppFlow catalogs the data from a flow, it
    *       stores metadata in a data catalog.</p>
@@ -6207,6 +6856,7 @@ export interface UpdateFlowRequest {
   metadataCatalogConfig?: MetadataCatalogConfig;
 
   /**
+   * @public
    * <p>The <code>clientToken</code> parameter is an idempotency token. It ensures that your
    *         <code>UpdateFlow</code> request completes only once. You choose the value to pass. For
    *       example, if you don't receive a response from your request, you can safely retry the request
@@ -6226,6 +6876,7 @@ export interface UpdateFlowRequest {
  */
 export interface UpdateFlowResponse {
   /**
+   * @public
    * <p>Indicates the current status of the flow. </p>
    */
   flowStatus?: FlowStatus | string;

@@ -24,17 +24,20 @@ export type AssignPublicIp = (typeof AssignPublicIp)[keyof typeof AssignPublicIp
  */
 export interface AwsVpcConfiguration {
   /**
+   * @public
    * <p>Specifies the subnets associated with the task. These subnets must all be in the same VPC. You can specify as many as 16 subnets.</p>
    */
   Subnets: string[] | undefined;
 
   /**
+   * @public
    * <p>Specifies the security groups associated with the task. These security groups must all be in the same VPC. You can specify as many
    *          as five security groups. If you do not specify a security group, the default security group for the VPC is used.</p>
    */
   SecurityGroups?: string[];
 
   /**
+   * @public
    * <p>Specifies whether the task's elastic network interface receives a public IP address. You can specify <code>ENABLED</code> only when
    *          <code>LaunchType</code> in <code>EcsParameters</code> is set to <code>FARGATE</code>.</p>
    */
@@ -48,6 +51,7 @@ export interface AwsVpcConfiguration {
  */
 export interface BatchArrayProperties {
   /**
+   * @public
    * <p>The size of the array, if this is an array batch job.</p>
    */
   Size?: number;
@@ -63,11 +67,13 @@ export interface BatchArrayProperties {
  */
 export interface BatchEnvironmentVariable {
   /**
+   * @public
    * <p>The name of the key-value pair. For environment variables, this is the name of the environment variable.</p>
    */
   Name?: string;
 
   /**
+   * @public
    * <p>The value of the key-value pair. For environment variables, this is the value of the environment variable.</p>
    */
   Value?: string;
@@ -95,11 +101,13 @@ export type BatchResourceRequirementType =
  */
 export interface BatchResourceRequirement {
   /**
+   * @public
    * <p>The type of resource to assign to a container. The supported resources include <code>GPU</code>, <code>MEMORY</code>, and <code>VCPU</code>.</p>
    */
   Type: BatchResourceRequirementType | string | undefined;
 
   /**
+   * @public
    * <p>The quantity of the specified resource to reserve for the container. The values vary based on the
    *          <code>type</code> specified.</p>
    *          <dl>
@@ -271,11 +279,13 @@ export interface BatchResourceRequirement {
  */
 export interface BatchContainerOverrides {
   /**
+   * @public
    * <p>The command to send to the container that overrides the default command from the Docker image or the task definition.</p>
    */
   Command?: string[];
 
   /**
+   * @public
    * <p>The environment variables to send to the container. You can add new environment variables, which are added to the container at launch, or you can override the existing
    *          environment variables from the Docker image or the task definition.</p>
    *          <note>
@@ -285,6 +295,7 @@ export interface BatchContainerOverrides {
   Environment?: BatchEnvironmentVariable[];
 
   /**
+   * @public
    * <p>The instance type to use for a multi-node parallel job.</p>
    *          <note>
    *             <p>This parameter isn't applicable to single-node container jobs or jobs that run on Fargate resources, and shouldn't be provided.</p>
@@ -293,6 +304,7 @@ export interface BatchContainerOverrides {
   InstanceType?: string;
 
   /**
+   * @public
    * <p>The type and amount of resources to assign to a container. This overrides the settings in the job definition. The supported resources include <code>GPU</code>, <code>MEMORY</code>,
    *          and <code>VCPU</code>.</p>
    */
@@ -319,11 +331,13 @@ export type BatchJobDependencyType = (typeof BatchJobDependencyType)[keyof typeo
  */
 export interface BatchJobDependency {
   /**
+   * @public
    * <p>The job ID of the Batch job that's associated with this dependency.</p>
    */
   JobId?: string;
 
   /**
+   * @public
    * <p>The type of the job dependency.</p>
    */
   Type?: BatchJobDependencyType | string;
@@ -336,6 +350,7 @@ export interface BatchJobDependency {
  */
 export interface BatchRetryStrategy {
   /**
+   * @public
    * <p>The number of times to move a job to the <code>RUNNABLE</code> status. If the value of <code>attempts</code> is greater than one, the job is retried on
    *          failure the same number of attempts as the value.</p>
    */
@@ -348,11 +363,13 @@ export interface BatchRetryStrategy {
  */
 export interface CapacityProviderStrategyItem {
   /**
+   * @public
    * <p>The short name of the capacity provider.</p>
    */
   capacityProvider: string | undefined;
 
   /**
+   * @public
    * <p>The weight value designates the relative percentage of the total number of tasks launched
    *          that should use the specified capacity provider. The weight value is taken into consideration
    *          after the base value, if defined, is satisfied.</p>
@@ -360,6 +377,7 @@ export interface CapacityProviderStrategyItem {
   weight?: number;
 
   /**
+   * @public
    * <p>The base value designates how many tasks, at a minimum, to run on the specified capacity
    *          provider. Only one capacity provider in a capacity provider strategy can have a base defined.
    *          If no value is specified, the default value of 0 is used. </p>
@@ -375,11 +393,13 @@ export class ConflictException extends __BaseException {
   readonly name: "ConflictException" = "ConflictException";
   readonly $fault: "client" = "client";
   /**
+   * @public
    * <p>The ID of the resource that caused the exception.</p>
    */
   resourceId: string | undefined;
 
   /**
+   * @public
    * <p>The type of resource that caused the exception.</p>
    */
   resourceType: string | undefined;
@@ -422,18 +442,21 @@ export type RequestedPipeState = (typeof RequestedPipeState)[keyof typeof Reques
  */
 export interface PipeEnrichmentHttpParameters {
   /**
+   * @public
    * <p>The path parameter values to be used to populate API Gateway REST API or EventBridge
    *          ApiDestination path wildcards ("*").</p>
    */
   PathParameterValues?: string[];
 
   /**
+   * @public
    * <p>The headers that need to be sent as part of request invoking the API Gateway REST API or
    *          EventBridge ApiDestination.</p>
    */
   HeaderParameters?: Record<string, string>;
 
   /**
+   * @public
    * <p>The query string keys/values that need to be sent as part of request invoking the API Gateway
    *          REST API or EventBridge ApiDestination.</p>
    */
@@ -446,6 +469,7 @@ export interface PipeEnrichmentHttpParameters {
  */
 export interface PipeEnrichmentParameters {
   /**
+   * @public
    * <p>Valid JSON text passed to the enrichment. In this case, nothing from the event itself is
    *          passed to the enrichment. For more information, see <a href="http://www.rfc-editor.org/rfc/rfc7159.txt">The JavaScript Object Notation (JSON) Data
    *             Interchange Format</a>.</p>
@@ -453,6 +477,7 @@ export interface PipeEnrichmentParameters {
   InputTemplate?: string;
 
   /**
+   * @public
    * <p>Contains the HTTP parameters to use when the target is a API Gateway REST endpoint or
    *          EventBridge ApiDestination.</p>
    *          <p>If you specify an API Gateway REST API or EventBridge ApiDestination as a target, you can
@@ -477,6 +502,7 @@ export type MQBrokerAccessCredentials =
  */
 export namespace MQBrokerAccessCredentials {
   /**
+   * @public
    * <p>The ARN of the Secrets Manager secret.</p>
    */
   export interface BasicAuthMember {
@@ -484,6 +510,9 @@ export namespace MQBrokerAccessCredentials {
     $unknown?: never;
   }
 
+  /**
+   * @public
+   */
   export interface $UnknownMember {
     BasicAuth?: never;
     $unknown: [string, any];
@@ -506,21 +535,25 @@ export namespace MQBrokerAccessCredentials {
  */
 export interface PipeSourceActiveMQBrokerParameters {
   /**
+   * @public
    * <p>The credentials needed to access the resource.</p>
    */
   Credentials: MQBrokerAccessCredentials | undefined;
 
   /**
+   * @public
    * <p>The name of the destination queue to consume.</p>
    */
   QueueName: string | undefined;
 
   /**
+   * @public
    * <p>The maximum number of records to include in each batch.</p>
    */
   BatchSize?: number;
 
   /**
+   * @public
    * <p>The maximum length of a time to wait for events.</p>
    */
   MaximumBatchingWindowInSeconds?: number;
@@ -532,6 +565,7 @@ export interface PipeSourceActiveMQBrokerParameters {
  */
 export interface DeadLetterConfig {
   /**
+   * @public
    * <p>The ARN of the Amazon SQS queue specified as the target for the dead-letter queue.</p>
    */
   Arn?: string;
@@ -572,44 +606,52 @@ export type DynamoDBStreamStartPosition =
  */
 export interface PipeSourceDynamoDBStreamParameters {
   /**
+   * @public
    * <p>The maximum number of records to include in each batch.</p>
    */
   BatchSize?: number;
 
   /**
+   * @public
    * <p>Define the target queue to send dead-letter queue events to.</p>
    */
   DeadLetterConfig?: DeadLetterConfig;
 
   /**
+   * @public
    * <p>(Streams only) Define how to handle item process failures. <code>AUTOMATIC_BISECT</code> halves each batch and retry each half
    * until all the records are processed or there is one failed message left in the batch.</p>
    */
   OnPartialBatchItemFailure?: OnPartialBatchItemFailureStreams | string;
 
   /**
+   * @public
    * <p>The maximum length of a time to wait for events.</p>
    */
   MaximumBatchingWindowInSeconds?: number;
 
   /**
+   * @public
    * <p>(Streams only) Discard records older than the specified age. The default value is -1, which sets the maximum age to infinite.
    * When the value is set to infinite, EventBridge never discards old records. </p>
    */
   MaximumRecordAgeInSeconds?: number;
 
   /**
+   * @public
    * <p>(Streams only) Discard records after the specified number of retries. The default value is -1, which sets the maximum number of
    * retries to infinite. When MaximumRetryAttempts is infinite, EventBridge retries failed records until the record expires in the event source.</p>
    */
   MaximumRetryAttempts?: number;
 
   /**
+   * @public
    * <p>(Streams only) The number of batches to process concurrently from each shard. The default value is 1.</p>
    */
   ParallelizationFactor?: number;
 
   /**
+   * @public
    * <p>(Streams only) The position in a stream from which to start reading.</p>
    */
   StartingPosition: DynamoDBStreamStartPosition | string | undefined;
@@ -622,6 +664,7 @@ export interface PipeSourceDynamoDBStreamParameters {
  */
 export interface Filter {
   /**
+   * @public
    * <p>The event pattern.</p>
    */
   Pattern?: string;
@@ -634,6 +677,7 @@ export interface Filter {
  */
 export interface FilterCriteria {
   /**
+   * @public
    * <p>The event patterns.</p>
    */
   Filters?: Filter[];
@@ -660,49 +704,58 @@ export type KinesisStreamStartPosition = (typeof KinesisStreamStartPosition)[key
  */
 export interface PipeSourceKinesisStreamParameters {
   /**
+   * @public
    * <p>The maximum number of records to include in each batch.</p>
    */
   BatchSize?: number;
 
   /**
+   * @public
    * <p>Define the target queue to send dead-letter queue events to.</p>
    */
   DeadLetterConfig?: DeadLetterConfig;
 
   /**
+   * @public
    * <p>(Streams only) Define how to handle item process failures. <code>AUTOMATIC_BISECT</code> halves each batch and retry each half
    * until all the records are processed or there is one failed message left in the batch.</p>
    */
   OnPartialBatchItemFailure?: OnPartialBatchItemFailureStreams | string;
 
   /**
+   * @public
    * <p>The maximum length of a time to wait for events.</p>
    */
   MaximumBatchingWindowInSeconds?: number;
 
   /**
+   * @public
    * <p>(Streams only) Discard records older than the specified age. The default value is -1, which sets the maximum age to infinite.
    * When the value is set to infinite, EventBridge never discards old records. </p>
    */
   MaximumRecordAgeInSeconds?: number;
 
   /**
+   * @public
    * <p>(Streams only) Discard records after the specified number of retries. The default value is -1, which sets the maximum number of
    * retries to infinite. When MaximumRetryAttempts is infinite, EventBridge retries failed records until the record expires in the event source.</p>
    */
   MaximumRetryAttempts?: number;
 
   /**
+   * @public
    * <p>(Streams only) The number of batches to process concurrently from each shard. The default value is 1.</p>
    */
   ParallelizationFactor?: number;
 
   /**
+   * @public
    * <p>(Streams only) The position in a stream from which to start reading.</p>
    */
   StartingPosition: KinesisStreamStartPosition | string | undefined;
 
   /**
+   * @public
    * <p>With <code>StartingPosition</code> set to <code>AT_TIMESTAMP</code>, the time from which to start reading, in Unix time seconds.</p>
    */
   StartingPositionTimestamp?: Date;
@@ -722,6 +775,7 @@ export type MSKAccessCredentials =
  */
 export namespace MSKAccessCredentials {
   /**
+   * @public
    * <p>The ARN of the Secrets Manager secret.</p>
    */
   export interface SaslScram512AuthMember {
@@ -731,6 +785,7 @@ export namespace MSKAccessCredentials {
   }
 
   /**
+   * @public
    * <p>The ARN of the Secrets Manager secret.</p>
    */
   export interface ClientCertificateTlsAuthMember {
@@ -739,6 +794,9 @@ export namespace MSKAccessCredentials {
     $unknown?: never;
   }
 
+  /**
+   * @public
+   */
   export interface $UnknownMember {
     SaslScram512Auth?: never;
     ClientCertificateTlsAuth?: never;
@@ -779,31 +837,37 @@ export type MSKStartPosition = (typeof MSKStartPosition)[keyof typeof MSKStartPo
  */
 export interface PipeSourceManagedStreamingKafkaParameters {
   /**
+   * @public
    * <p>The name of the topic that the pipe will read from.</p>
    */
   TopicName: string | undefined;
 
   /**
+   * @public
    * <p>(Streams only) The position in a stream from which to start reading.</p>
    */
   StartingPosition?: MSKStartPosition | string;
 
   /**
+   * @public
    * <p>The maximum number of records to include in each batch.</p>
    */
   BatchSize?: number;
 
   /**
+   * @public
    * <p>The maximum length of a time to wait for events.</p>
    */
   MaximumBatchingWindowInSeconds?: number;
 
   /**
+   * @public
    * <p>The name of the destination queue to consume.</p>
    */
   ConsumerGroupID?: string;
 
   /**
+   * @public
    * <p>The credentials needed to access the resource.</p>
    */
   Credentials?: MSKAccessCredentials;
@@ -815,26 +879,31 @@ export interface PipeSourceManagedStreamingKafkaParameters {
  */
 export interface PipeSourceRabbitMQBrokerParameters {
   /**
+   * @public
    * <p>The credentials needed to access the resource.</p>
    */
   Credentials: MQBrokerAccessCredentials | undefined;
 
   /**
+   * @public
    * <p>The name of the destination queue to consume.</p>
    */
   QueueName: string | undefined;
 
   /**
+   * @public
    * <p>The name of the virtual host associated with the source broker.</p>
    */
   VirtualHost?: string;
 
   /**
+   * @public
    * <p>The maximum number of records to include in each batch.</p>
    */
   BatchSize?: number;
 
   /**
+   * @public
    * <p>The maximum length of a time to wait for events.</p>
    */
   MaximumBatchingWindowInSeconds?: number;
@@ -856,6 +925,7 @@ export type SelfManagedKafkaAccessConfigurationCredentials =
  */
 export namespace SelfManagedKafkaAccessConfigurationCredentials {
   /**
+   * @public
    * <p>The ARN of the Secrets Manager secret.</p>
    */
   export interface BasicAuthMember {
@@ -867,6 +937,7 @@ export namespace SelfManagedKafkaAccessConfigurationCredentials {
   }
 
   /**
+   * @public
    * <p>The ARN of the Secrets Manager secret.</p>
    */
   export interface SaslScram512AuthMember {
@@ -878,6 +949,7 @@ export namespace SelfManagedKafkaAccessConfigurationCredentials {
   }
 
   /**
+   * @public
    * <p>The ARN of the Secrets Manager secret.</p>
    */
   export interface SaslScram256AuthMember {
@@ -889,6 +961,7 @@ export namespace SelfManagedKafkaAccessConfigurationCredentials {
   }
 
   /**
+   * @public
    * <p>The ARN of the Secrets Manager secret.</p>
    */
   export interface ClientCertificateTlsAuthMember {
@@ -899,6 +972,9 @@ export namespace SelfManagedKafkaAccessConfigurationCredentials {
     $unknown?: never;
   }
 
+  /**
+   * @public
+   */
   export interface $UnknownMember {
     BasicAuth?: never;
     SaslScram512Auth?: never;
@@ -946,11 +1022,13 @@ export type SelfManagedKafkaStartPosition =
  */
 export interface SelfManagedKafkaAccessConfigurationVpc {
   /**
+   * @public
    * <p>Specifies the subnets associated with the stream. These subnets must all be in the same VPC. You can specify as many as 16 subnets.</p>
    */
   Subnets?: string[];
 
   /**
+   * @public
    * <p>Specifies the security groups associated with the stream. These security groups must all be in the same VPC. You can specify as many
    *          as five security groups. If you do not specify a security group, the default security group for the VPC is used.</p>
    */
@@ -963,46 +1041,55 @@ export interface SelfManagedKafkaAccessConfigurationVpc {
  */
 export interface PipeSourceSelfManagedKafkaParameters {
   /**
+   * @public
    * <p>The name of the topic that the pipe will read from.</p>
    */
   TopicName: string | undefined;
 
   /**
+   * @public
    * <p>(Streams only) The position in a stream from which to start reading.</p>
    */
   StartingPosition?: SelfManagedKafkaStartPosition | string;
 
   /**
+   * @public
    * <p>An array of server URLs.</p>
    */
   AdditionalBootstrapServers?: string[];
 
   /**
+   * @public
    * <p>The maximum number of records to include in each batch.</p>
    */
   BatchSize?: number;
 
   /**
+   * @public
    * <p>The maximum length of a time to wait for events.</p>
    */
   MaximumBatchingWindowInSeconds?: number;
 
   /**
+   * @public
    * <p>The name of the destination queue to consume.</p>
    */
   ConsumerGroupID?: string;
 
   /**
+   * @public
    * <p>The credentials needed to access the resource.</p>
    */
   Credentials?: SelfManagedKafkaAccessConfigurationCredentials;
 
   /**
+   * @public
    * <p>The ARN of the Secrets Manager secret used for certification.</p>
    */
   ServerRootCaCertificate?: string;
 
   /**
+   * @public
    * <p>This structure specifies the VPC subnets and security groups for the stream, and whether a public IP address is to be used.</p>
    */
   Vpc?: SelfManagedKafkaAccessConfigurationVpc;
@@ -1014,11 +1101,13 @@ export interface PipeSourceSelfManagedKafkaParameters {
  */
 export interface PipeSourceSqsQueueParameters {
   /**
+   * @public
    * <p>The maximum number of records to include in each batch.</p>
    */
   BatchSize?: number;
 
   /**
+   * @public
    * <p>The maximum length of a time to wait for events.</p>
    */
   MaximumBatchingWindowInSeconds?: number;
@@ -1030,42 +1119,50 @@ export interface PipeSourceSqsQueueParameters {
  */
 export interface PipeSourceParameters {
   /**
+   * @public
    * <p>The collection of event patterns used to filter events. For more information, see <a href="https://docs.aws.amazon.com/eventbridge/latest/userguide/eventbridge-and-event-patterns.html">Events and Event
    *          Patterns</a> in the <i>Amazon EventBridge User Guide</i>.</p>
    */
   FilterCriteria?: FilterCriteria;
 
   /**
+   * @public
    * <p>The parameters for using a Kinesis stream as a source.</p>
    */
   KinesisStreamParameters?: PipeSourceKinesisStreamParameters;
 
   /**
+   * @public
    * <p>The parameters for using a DynamoDB stream as a source.</p>
    */
   DynamoDBStreamParameters?: PipeSourceDynamoDBStreamParameters;
 
   /**
+   * @public
    * <p>The parameters for using a Amazon SQS stream as a source.</p>
    */
   SqsQueueParameters?: PipeSourceSqsQueueParameters;
 
   /**
+   * @public
    * <p>The parameters for using an Active MQ broker as a source.</p>
    */
   ActiveMQBrokerParameters?: PipeSourceActiveMQBrokerParameters;
 
   /**
+   * @public
    * <p>The parameters for using a Rabbit MQ broker as a source.</p>
    */
   RabbitMQBrokerParameters?: PipeSourceRabbitMQBrokerParameters;
 
   /**
+   * @public
    * <p>The parameters for using an MSK stream as a source.</p>
    */
   ManagedStreamingKafkaParameters?: PipeSourceManagedStreamingKafkaParameters;
 
   /**
+   * @public
    * <p>The parameters for using a self-managed Apache Kafka stream as a source.</p>
    */
   SelfManagedKafkaParameters?: PipeSourceSelfManagedKafkaParameters;
@@ -1077,34 +1174,40 @@ export interface PipeSourceParameters {
  */
 export interface PipeTargetBatchJobParameters {
   /**
+   * @public
    * <p>The job definition used by this job. This value can be one of <code>name</code>, <code>name:revision</code>, or the Amazon Resource Name (ARN) for the job definition.
    *          If name is specified without a revision then the latest active revision is used.</p>
    */
   JobDefinition: string | undefined;
 
   /**
+   * @public
    * <p>The name of the job. It can be up to 128 letters long. The first character must be alphanumeric, can contain uppercase and lowercase letters, numbers, hyphens (-),
    *          and underscores (_).</p>
    */
   JobName: string | undefined;
 
   /**
+   * @public
    * <p>The array properties for the submitted job, such as the size of the array. The array size can be between 2 and 10,000.
    *          If you specify array properties for a job, it becomes an array job. This parameter is used only if the target is an Batch job.</p>
    */
   ArrayProperties?: BatchArrayProperties;
 
   /**
+   * @public
    * <p>The retry strategy to use for failed jobs. When a retry strategy is specified here, it overrides the retry strategy defined in the job definition.</p>
    */
   RetryStrategy?: BatchRetryStrategy;
 
   /**
+   * @public
    * <p>The overrides that are sent to a container.</p>
    */
   ContainerOverrides?: BatchContainerOverrides;
 
   /**
+   * @public
    * <p>A list of dependencies for the job. A job can depend upon a maximum of 20 jobs. You can specify a <code>SEQUENTIAL</code> type dependency without
    *          specifying a job ID for array jobs so that each child array job completes sequentially, starting at index 0. You can also specify an <code>N_TO_N</code>
    *          type dependency with a job ID for array jobs. In that case, each index child of this job must wait for the corresponding index child of each
@@ -1113,6 +1216,7 @@ export interface PipeTargetBatchJobParameters {
   DependsOn?: BatchJobDependency[];
 
   /**
+   * @public
    * <p>Additional parameters passed to the job that replace parameter substitution placeholders that are set in the job definition. Parameters are specified as a key and
    *          value pair mapping. Parameters included here override any corresponding parameter defaults from the job definition.</p>
    */
@@ -1125,11 +1229,13 @@ export interface PipeTargetBatchJobParameters {
  */
 export interface PipeTargetCloudWatchLogsParameters {
   /**
+   * @public
    * <p>The name of the log stream.</p>
    */
   LogStreamName?: string;
 
   /**
+   * @public
    * <p>The time the event occurred, expressed as the number of milliseconds after Jan 1, 1970 00:00:00 UTC.</p>
    */
   Timestamp?: string;
@@ -1156,6 +1262,7 @@ export type LaunchType = (typeof LaunchType)[keyof typeof LaunchType];
  */
 export interface NetworkConfiguration {
   /**
+   * @public
    * <p>Use this structure to specify the VPC subnets and security groups for the task, and
    *          whether a public IP address is to be used. This structure is relevant only for ECS tasks that
    *          use the <code>awsvpc</code> network mode.</p>
@@ -1170,11 +1277,13 @@ export interface NetworkConfiguration {
  */
 export interface EcsEnvironmentVariable {
   /**
+   * @public
    * <p>The name of the key-value pair. For environment variables, this is the name of the environment variable.</p>
    */
   name?: string;
 
   /**
+   * @public
    * <p>The value of the key-value pair. For environment variables, this is the value of the environment variable.</p>
    */
   value?: string;
@@ -1221,11 +1330,13 @@ export type EcsEnvironmentFileType = (typeof EcsEnvironmentFileType)[keyof typeo
  */
 export interface EcsEnvironmentFile {
   /**
+   * @public
    * <p>The file type to use. The only supported value is <code>s3</code>.</p>
    */
   type: EcsEnvironmentFileType | string | undefined;
 
   /**
+   * @public
    * <p>The Amazon Resource Name (ARN) of the Amazon S3 object containing the environment variable file.</p>
    */
   value: string | undefined;
@@ -1256,12 +1367,14 @@ export type EcsResourceRequirementType = (typeof EcsResourceRequirementType)[key
  */
 export interface EcsResourceRequirement {
   /**
+   * @public
    * <p>The type of resource to assign to a container. The supported values are
    *          <code>GPU</code> or <code>InferenceAccelerator</code>.</p>
    */
   type: EcsResourceRequirementType | string | undefined;
 
   /**
+   * @public
    * <p>The value for the specified resource type.</p>
    *          <p>If the <code>GPU</code> type is used, the value is the number of physical
    *          <code>GPUs</code> the Amazon ECS container agent reserves for the container. The number
@@ -1281,44 +1394,52 @@ export interface EcsResourceRequirement {
  */
 export interface EcsContainerOverride {
   /**
+   * @public
    * <p>The command to send to the container that overrides the default command from the Docker image or the task definition. You must also specify a container name.</p>
    */
   Command?: string[];
 
   /**
+   * @public
    * <p>The number of <code>cpu</code> units reserved for the container, instead of the default value from the task definition. You must also specify a container name.</p>
    */
   Cpu?: number;
 
   /**
+   * @public
    * <p>The environment variables to send to the container. You can add new environment variables, which are added to the container at launch, or you can
    *          override the existing environment variables from the Docker image or the task definition. You must also specify a container name.</p>
    */
   Environment?: EcsEnvironmentVariable[];
 
   /**
+   * @public
    * <p>A list of files containing the environment variables to pass to a container, instead of the value from the container definition.</p>
    */
   EnvironmentFiles?: EcsEnvironmentFile[];
 
   /**
+   * @public
    * <p>The hard limit (in MiB) of memory to present to the container, instead of the default value from the task definition.
    *          If your container attempts to exceed the memory specified here, the container is killed. You must also specify a container name.</p>
    */
   Memory?: number;
 
   /**
+   * @public
    * <p>The soft limit (in MiB) of memory to reserve for the container, instead of the default value from the task definition.
    *          You must also specify a container name.</p>
    */
   MemoryReservation?: number;
 
   /**
+   * @public
    * <p>The name of the container that receives the override. This parameter is required if any override is specified.</p>
    */
   Name?: string;
 
   /**
+   * @public
    * <p>The type and amount of a resource to assign to a container, instead of the default value from the task definition. The only supported resource is a GPU.</p>
    */
   ResourceRequirements?: EcsResourceRequirement[];
@@ -1338,6 +1459,7 @@ export interface EcsContainerOverride {
  */
 export interface EcsEphemeralStorage {
   /**
+   * @public
    * <p>The total amount, in GiB, of ephemeral storage to set for the task. The minimum
    *          supported value is <code>21</code> GiB and the maximum supported value is
    *          <code>200</code> GiB.</p>
@@ -1355,11 +1477,13 @@ export interface EcsEphemeralStorage {
  */
 export interface EcsInferenceAcceleratorOverride {
   /**
+   * @public
    * <p>The Elastic Inference accelerator device name to override for the task. This parameter must match a <code>deviceName</code> specified in the task definition.</p>
    */
   deviceName?: string;
 
   /**
+   * @public
    * <p>The Elastic Inference accelerator type to use.</p>
    */
   deviceType?: string;
@@ -1371,16 +1495,19 @@ export interface EcsInferenceAcceleratorOverride {
  */
 export interface EcsTaskOverride {
   /**
+   * @public
    * <p>One or more container overrides that are sent to a task.</p>
    */
   ContainerOverrides?: EcsContainerOverride[];
 
   /**
+   * @public
    * <p>The cpu override for the task.</p>
    */
   Cpu?: string;
 
   /**
+   * @public
    * <p>The ephemeral storage setting override for the task.</p>
    *          <note>
    *             <p>This parameter is only supported for tasks hosted on Fargate that
@@ -1398,6 +1525,7 @@ export interface EcsTaskOverride {
   EphemeralStorage?: EcsEphemeralStorage;
 
   /**
+   * @public
    * <p>The Amazon Resource Name (ARN) of the task execution IAM role override for the task. For more
    *          information, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task_execution_IAM_role.html">Amazon ECS task
    *             execution IAM role</a> in the <i>Amazon Elastic Container Service Developer Guide</i>.</p>
@@ -1405,16 +1533,19 @@ export interface EcsTaskOverride {
   ExecutionRoleArn?: string;
 
   /**
+   * @public
    * <p>The Elastic Inference accelerator override for the task.</p>
    */
   InferenceAcceleratorOverrides?: EcsInferenceAcceleratorOverride[];
 
   /**
+   * @public
    * <p>The memory override for the task.</p>
    */
   Memory?: string;
 
   /**
+   * @public
    * <p>The Amazon Resource Name (ARN) of the IAM role that containers in this task can assume. All containers
    *          in this task are granted the permissions that are specified in this role. For more
    *          information, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task-iam-roles.html">IAM Role for Tasks</a>
@@ -1444,6 +1575,7 @@ export type PlacementConstraintType = (typeof PlacementConstraintType)[keyof typ
  */
 export interface PlacementConstraint {
   /**
+   * @public
    * <p>The type of constraint. Use distinctInstance to ensure that each task in a particular
    *          group is running on a different container instance. Use memberOf to restrict the selection to
    *          a group of valid candidates. </p>
@@ -1451,6 +1583,7 @@ export interface PlacementConstraint {
   type?: PlacementConstraintType | string;
 
   /**
+   * @public
    * <p>A cluster query language expression to apply to the constraint. You cannot specify an
    *          expression if the constraint type is <code>distinctInstance</code>. To learn more, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/cluster-query-language.html">Cluster Query Language</a> in the Amazon Elastic Container Service Developer Guide.
    *       </p>
@@ -1480,6 +1613,7 @@ export type PlacementStrategyType = (typeof PlacementStrategyType)[keyof typeof 
  */
 export interface PlacementStrategy {
   /**
+   * @public
    * <p>The type of placement strategy. The random placement strategy randomly places tasks on
    *          available candidates. The spread placement strategy spreads placement across available
    *          candidates evenly based on the field parameter. The binpack strategy places tasks on available
@@ -1490,6 +1624,7 @@ export interface PlacementStrategy {
   type?: PlacementStrategyType | string;
 
   /**
+   * @public
    * <p>The field to apply the placement strategy against. For the spread placement strategy,
    *          valid values are instanceId (or host, which has the same effect), or any platform or custom
    *          attribute that is applied to a container instance, such as attribute:ecs.availability-zone.
@@ -1519,12 +1654,14 @@ export type PropagateTags = (typeof PropagateTags)[keyof typeof PropagateTags];
  */
 export interface Tag {
   /**
+   * @public
    * <p>A string you can use to assign a value. The combination of tag keys and values can help
    *          you organize and categorize your resources.</p>
    */
   Key: string | undefined;
 
   /**
+   * @public
    * <p>The value for the specified tag key.</p>
    */
   Value: string | undefined;
@@ -1536,16 +1673,19 @@ export interface Tag {
  */
 export interface PipeTargetEcsTaskParameters {
   /**
+   * @public
    * <p>The ARN of the task definition to use if the event target is an Amazon ECS task. </p>
    */
   TaskDefinitionArn: string | undefined;
 
   /**
+   * @public
    * <p>The number of tasks to create based on <code>TaskDefinition</code>. The default is 1.</p>
    */
   TaskCount?: number;
 
   /**
+   * @public
    * <p>Specifies the launch type on which your task is running. The launch type that you specify
    *          here must match one of the launch type (compatibilities) of the target task. The
    *          <code>FARGATE</code> value is supported only in the Regions where Fargate with Amazon ECS
@@ -1555,6 +1695,7 @@ export interface PipeTargetEcsTaskParameters {
   LaunchType?: LaunchType | string;
 
   /**
+   * @public
    * <p>Use this structure if the Amazon ECS task uses the <code>awsvpc</code> network mode. This
    *          structure specifies the VPC subnets and security groups associated with the task, and whether
    *          a public IP address is to be used. This structure is required if <code>LaunchType</code> is
@@ -1566,6 +1707,7 @@ export interface PipeTargetEcsTaskParameters {
   NetworkConfiguration?: NetworkConfiguration;
 
   /**
+   * @public
    * <p>Specifies the platform version for the task. Specify only the numeric portion of the
    *          platform version, such as <code>1.1.0</code>.</p>
    *          <p>This structure is used only if <code>LaunchType</code> is <code>FARGATE</code>. For more
@@ -1576,11 +1718,13 @@ export interface PipeTargetEcsTaskParameters {
   PlatformVersion?: string;
 
   /**
+   * @public
    * <p>Specifies an Amazon ECS task group for the task. The maximum length is 255 characters.</p>
    */
   Group?: string;
 
   /**
+   * @public
    * <p>The capacity provider strategy to use for the task.</p>
    *          <p>If a <code>capacityProviderStrategy</code> is specified, the <code>launchType</code>
    *          parameter must be omitted. If no <code>capacityProviderStrategy</code> or launchType is
@@ -1589,6 +1733,7 @@ export interface PipeTargetEcsTaskParameters {
   CapacityProviderStrategy?: CapacityProviderStrategyItem[];
 
   /**
+   * @public
    * <p>Specifies whether to enable Amazon ECS managed tags for the task. For more information,
    *          see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-using-tags.html">Tagging Your Amazon ECS Resources</a> in the Amazon Elastic Container Service Developer
    *          Guide. </p>
@@ -1596,6 +1741,7 @@ export interface PipeTargetEcsTaskParameters {
   EnableECSManagedTags?: boolean;
 
   /**
+   * @public
    * <p>Whether or not to enable the execute command functionality for the containers in this
    *          task. If true, this enables execute command functionality on all containers in the
    *          task.</p>
@@ -1603,6 +1749,7 @@ export interface PipeTargetEcsTaskParameters {
   EnableExecuteCommand?: boolean;
 
   /**
+   * @public
    * <p>An array of placement constraint objects to use for the task. You can specify up to 10
    *          constraints per task (including constraints in the task definition and those specified at
    *          runtime).</p>
@@ -1610,12 +1757,14 @@ export interface PipeTargetEcsTaskParameters {
   PlacementConstraints?: PlacementConstraint[];
 
   /**
+   * @public
    * <p>The placement strategy objects to use for the task. You can specify a maximum of five
    *          strategy rules per task. </p>
    */
   PlacementStrategy?: PlacementStrategy[];
 
   /**
+   * @public
    * <p>Specifies whether to propagate the tags from the task definition to the task. If no value
    *          is specified, the tags are not propagated. Tags can only be propagated to the task during task
    *          creation. To add tags to a task after task creation, use the <code>TagResource</code> API action. </p>
@@ -1623,16 +1772,19 @@ export interface PipeTargetEcsTaskParameters {
   PropagateTags?: PropagateTags | string;
 
   /**
+   * @public
    * <p>The reference ID to use for the task.</p>
    */
   ReferenceId?: string;
 
   /**
+   * @public
    * <p>The overrides that are associated with a task.</p>
    */
   Overrides?: EcsTaskOverride;
 
   /**
+   * @public
    * <p>The metadata that you apply to the task to help you categorize and organize them. Each tag
    *          consists of a key and an optional value, both of which you define. To learn more, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_RunTask.html#ECS-RunTask-request-tags">RunTask</a> in the Amazon ECS API Reference.</p>
    */
@@ -1645,6 +1797,7 @@ export interface PipeTargetEcsTaskParameters {
  */
 export interface PipeTargetEventBridgeEventBusParameters {
   /**
+   * @public
    * <p>The URL subdomain of the endpoint. For example, if the URL for Endpoint is https://abcde.veo.endpoints.event.amazonaws.com, then the EndpointId is <code>abcde.veo</code>.</p>
    *          <important>
    *             <p>When using Java, you must include <code>auth-crt</code> on the class path.</p>
@@ -1653,22 +1806,26 @@ export interface PipeTargetEventBridgeEventBusParameters {
   EndpointId?: string;
 
   /**
+   * @public
    * <p>A free-form string, with a maximum of 128 characters, used to decide what fields to expect in the event detail.</p>
    */
   DetailType?: string;
 
   /**
+   * @public
    * <p>The source of the event.</p>
    */
   Source?: string;
 
   /**
+   * @public
    * <p>Amazon Web Services resources, identified by Amazon Resource Name (ARN), which the event primarily
    *          concerns. Any number, including zero, may be present.</p>
    */
   Resources?: string[];
 
   /**
+   * @public
    * <p>The time stamp of the event, per <a href="https://www.rfc-editor.org/rfc/rfc3339.txt">RFC3339</a>. If no time stamp is provided, the time stamp of the <a href="https://docs.aws.amazon.com/eventbridge/latest/APIReference/API_PutEvents.html">PutEvents</a> call is used.</p>
    */
   Time?: string;
@@ -1681,18 +1838,21 @@ export interface PipeTargetEventBridgeEventBusParameters {
  */
 export interface PipeTargetHttpParameters {
   /**
+   * @public
    * <p>The path parameter values to be used to populate API Gateway REST API or EventBridge
    *          ApiDestination path wildcards ("*").</p>
    */
   PathParameterValues?: string[];
 
   /**
+   * @public
    * <p>The headers that need to be sent as part of request invoking the API Gateway REST API or
    *          EventBridge ApiDestination.</p>
    */
   HeaderParameters?: Record<string, string>;
 
   /**
+   * @public
    * <p>The query string keys/values that need to be sent as part of request invoking the API Gateway
    *          REST API or EventBridge ApiDestination.</p>
    */
@@ -1705,6 +1865,7 @@ export interface PipeTargetHttpParameters {
  */
 export interface PipeTargetKinesisStreamParameters {
   /**
+   * @public
    * <p>Determines which shard in the stream the data record is assigned to. Partition keys are Unicode strings with a maximum length limit of 256 characters
    *          for each key. Amazon Kinesis Data Streams uses the partition key as input to a hash function that maps the partition key and associated data to a specific shard.
    *          Specifically, an MD5 hash function is used to map partition keys to 128-bit integer values and to map associated data records to shards. As a result of this
@@ -1733,6 +1894,7 @@ export type PipeTargetInvocationType = (typeof PipeTargetInvocationType)[keyof t
  */
 export interface PipeTargetLambdaFunctionParameters {
   /**
+   * @public
    * <p>Choose from the following options.</p>
    *          <ul>
    *             <li>
@@ -1763,34 +1925,40 @@ export interface PipeTargetLambdaFunctionParameters {
  */
 export interface PipeTargetRedshiftDataParameters {
   /**
+   * @public
    * <p>The name or ARN of the secret that enables access to the database. Required when
    *          authenticating using SageMaker.</p>
    */
   SecretManagerArn?: string;
 
   /**
+   * @public
    * <p>The name of the database. Required when authenticating using temporary credentials.</p>
    */
   Database: string | undefined;
 
   /**
+   * @public
    * <p>The database user name. Required when authenticating using temporary credentials.</p>
    */
   DbUser?: string;
 
   /**
+   * @public
    * <p>The name of the SQL statement. You can name the SQL statement when you create it to
    *          identify the query.</p>
    */
   StatementName?: string;
 
   /**
+   * @public
    * <p>Indicates whether to send an event back to EventBridge after the SQL statement
    *          runs.</p>
    */
   WithEvent?: boolean;
 
   /**
+   * @public
    * <p>The SQL statement text to run.</p>
    */
   Sqls: string[] | undefined;
@@ -1803,11 +1971,13 @@ export interface PipeTargetRedshiftDataParameters {
  */
 export interface SageMakerPipelineParameter {
   /**
+   * @public
    * <p>Name of parameter to start execution of a SageMaker Model Building Pipeline.</p>
    */
   Name: string | undefined;
 
   /**
+   * @public
    * <p>Value of parameter to start execution of a SageMaker Model Building Pipeline.</p>
    */
   Value: string | undefined;
@@ -1819,6 +1989,7 @@ export interface SageMakerPipelineParameter {
  */
 export interface PipeTargetSageMakerPipelineParameters {
   /**
+   * @public
    * <p>List of Parameter names and values for SageMaker Model Building Pipeline execution.</p>
    */
   PipelineParameterList?: SageMakerPipelineParameter[];
@@ -1830,11 +2001,13 @@ export interface PipeTargetSageMakerPipelineParameters {
  */
 export interface PipeTargetSqsQueueParameters {
   /**
+   * @public
    * <p>The FIFO message group ID to use as the target.</p>
    */
   MessageGroupId?: string;
 
   /**
+   * @public
    * <p>This parameter applies only to FIFO (first-in-first-out) queues.</p>
    *          <p>The token used for deduplication of sent messages.</p>
    */
@@ -1847,6 +2020,7 @@ export interface PipeTargetSqsQueueParameters {
  */
 export interface PipeTargetStateMachineParameters {
   /**
+   * @public
    * <p>Specify whether to wait for the state machine to finish or not.</p>
    */
   InvocationType?: PipeTargetInvocationType | string;
@@ -1858,6 +2032,7 @@ export interface PipeTargetStateMachineParameters {
  */
 export interface PipeTargetParameters {
   /**
+   * @public
    * <p>Valid JSON text passed to the target. In this case, nothing from the event itself is
    *          passed to the target. For more information, see <a href="http://www.rfc-editor.org/rfc/rfc7159.txt">The JavaScript Object Notation (JSON) Data
    *             Interchange Format</a>.</p>
@@ -1865,58 +2040,69 @@ export interface PipeTargetParameters {
   InputTemplate?: string;
 
   /**
+   * @public
    * <p>The parameters for using a Lambda function as a target.</p>
    */
   LambdaFunctionParameters?: PipeTargetLambdaFunctionParameters;
 
   /**
+   * @public
    * <p>The parameters for using a Step Functions state machine as a target.</p>
    */
   StepFunctionStateMachineParameters?: PipeTargetStateMachineParameters;
 
   /**
+   * @public
    * <p>The parameters for using a Kinesis stream as a source.</p>
    */
   KinesisStreamParameters?: PipeTargetKinesisStreamParameters;
 
   /**
+   * @public
    * <p>The parameters for using an Amazon ECS task as a target.</p>
    */
   EcsTaskParameters?: PipeTargetEcsTaskParameters;
 
   /**
+   * @public
    * <p>The parameters for using an Batch job as a target.</p>
    */
   BatchJobParameters?: PipeTargetBatchJobParameters;
 
   /**
+   * @public
    * <p>The parameters for using a Amazon SQS stream as a source.</p>
    */
   SqsQueueParameters?: PipeTargetSqsQueueParameters;
 
   /**
+   * @public
    * <p>These are custom parameter to be used when the target is an API Gateway REST APIs or
    *       EventBridge ApiDestinations.</p>
    */
   HttpParameters?: PipeTargetHttpParameters;
 
   /**
+   * @public
    * <p>These are custom parameters to be used when the target is a Amazon Redshift cluster to invoke the
    *       Amazon Redshift Data API ExecuteStatement.</p>
    */
   RedshiftDataParameters?: PipeTargetRedshiftDataParameters;
 
   /**
+   * @public
    * <p>The parameters for using a SageMaker pipeline as a target.</p>
    */
   SageMakerPipelineParameters?: PipeTargetSageMakerPipelineParameters;
 
   /**
+   * @public
    * <p>The parameters for using an EventBridge event bus as a target.</p>
    */
   EventBridgeEventBusParameters?: PipeTargetEventBridgeEventBusParameters;
 
   /**
+   * @public
    * <p>The parameters for using an CloudWatch Logs log stream as a target.</p>
    */
   CloudWatchLogsParameters?: PipeTargetCloudWatchLogsParameters;
@@ -1927,56 +2113,67 @@ export interface PipeTargetParameters {
  */
 export interface CreatePipeRequest {
   /**
+   * @public
    * <p>The name of the pipe.</p>
    */
   Name: string | undefined;
 
   /**
+   * @public
    * <p>A description of the pipe.</p>
    */
   Description?: string;
 
   /**
+   * @public
    * <p>The state the pipe should be in.</p>
    */
   DesiredState?: RequestedPipeState | string;
 
   /**
+   * @public
    * <p>The ARN of the source resource.</p>
    */
   Source: string | undefined;
 
   /**
+   * @public
    * <p>The parameters required to set up a source for your pipe.</p>
    */
   SourceParameters?: PipeSourceParameters;
 
   /**
+   * @public
    * <p>The ARN of the enrichment resource.</p>
    */
   Enrichment?: string;
 
   /**
+   * @public
    * <p>The parameters required to set up enrichment on your pipe.</p>
    */
   EnrichmentParameters?: PipeEnrichmentParameters;
 
   /**
+   * @public
    * <p>The ARN of the target resource.</p>
    */
   Target: string | undefined;
 
   /**
+   * @public
    * <p>The parameters required to set up a target for your pipe.</p>
    */
   TargetParameters?: PipeTargetParameters;
 
   /**
+   * @public
    * <p>The ARN of the role that allows the pipe to send data to the target.</p>
    */
   RoleArn: string | undefined;
 
   /**
+   * @public
    * <p>The list of key-value pairs to associate with the pipe.</p>
    */
   Tags?: Record<string, string>;
@@ -2010,31 +2207,37 @@ export type PipeState = (typeof PipeState)[keyof typeof PipeState];
  */
 export interface CreatePipeResponse {
   /**
+   * @public
    * <p>The ARN of the pipe.</p>
    */
   Arn?: string;
 
   /**
+   * @public
    * <p>The name of the pipe.</p>
    */
   Name?: string;
 
   /**
+   * @public
    * <p>The state the pipe should be in.</p>
    */
   DesiredState?: RequestedPipeState | string;
 
   /**
+   * @public
    * <p>The state the pipe is in.</p>
    */
   CurrentState?: PipeState | string;
 
   /**
+   * @public
    * <p>The time the pipe was created.</p>
    */
   CreationTime?: Date;
 
   /**
+   * @public
    * <p>When the pipe was last updated, in <a href="https://www.w3.org/TR/NOTE-datetime">ISO-8601 format</a> (YYYY-MM-DDThh:mm:ss.sTZD).</p>
    */
   LastModifiedTime?: Date;
@@ -2048,6 +2251,7 @@ export class InternalException extends __BaseException {
   readonly name: "InternalException" = "InternalException";
   readonly $fault: "server" = "server";
   /**
+   * @public
    * <p>The number of seconds to wait before retrying the action that caused the exception.</p>
    */
   retryAfterSeconds?: number;
@@ -2094,21 +2298,25 @@ export class ServiceQuotaExceededException extends __BaseException {
   readonly name: "ServiceQuotaExceededException" = "ServiceQuotaExceededException";
   readonly $fault: "client" = "client";
   /**
+   * @public
    * <p>The ID of the resource that caused the exception.</p>
    */
   resourceId: string | undefined;
 
   /**
+   * @public
    * <p>The type of resource that caused the exception.</p>
    */
   resourceType: string | undefined;
 
   /**
+   * @public
    * <p>The identifier of the service that caused the exception.</p>
    */
   serviceCode: string | undefined;
 
   /**
+   * @public
    * <p>The identifier of the quota that caused the exception.</p>
    */
   quotaCode: string | undefined;
@@ -2138,16 +2346,19 @@ export class ThrottlingException extends __BaseException {
   readonly name: "ThrottlingException" = "ThrottlingException";
   readonly $fault: "client" = "client";
   /**
+   * @public
    * <p>The identifier of the service that caused the exception.</p>
    */
   serviceCode?: string;
 
   /**
+   * @public
    * <p>The identifier of the quota that caused the exception.</p>
    */
   quotaCode?: string;
 
   /**
+   * @public
    * <p>The number of seconds to wait before retrying the action that caused the exception.</p>
    */
   retryAfterSeconds?: number;
@@ -2174,11 +2385,13 @@ export class ThrottlingException extends __BaseException {
  */
 export interface ValidationExceptionField {
   /**
+   * @public
    * <p>The name of the exception.</p>
    */
   name: string | undefined;
 
   /**
+   * @public
    * <p>The message of the exception.</p>
    */
   message: string | undefined;
@@ -2192,6 +2405,7 @@ export class ValidationException extends __BaseException {
   readonly name: "ValidationException" = "ValidationException";
   readonly $fault: "client" = "client";
   /**
+   * @public
    * <p>The list of fields for which validation failed and the corresponding failure messages.</p>
    */
   fieldList?: ValidationExceptionField[];
@@ -2215,6 +2429,7 @@ export class ValidationException extends __BaseException {
  */
 export interface DeletePipeRequest {
   /**
+   * @public
    * <p>The name of the pipe.</p>
    */
   Name: string | undefined;
@@ -2241,31 +2456,37 @@ export type RequestedPipeStateDescribeResponse =
  */
 export interface DeletePipeResponse {
   /**
+   * @public
    * <p>The ARN of the pipe.</p>
    */
   Arn?: string;
 
   /**
+   * @public
    * <p>The name of the pipe.</p>
    */
   Name?: string;
 
   /**
+   * @public
    * <p>The state the pipe should be in.</p>
    */
   DesiredState?: RequestedPipeStateDescribeResponse | string;
 
   /**
+   * @public
    * <p>The state the pipe is in.</p>
    */
   CurrentState?: PipeState | string;
 
   /**
+   * @public
    * <p>The time the pipe was created.</p>
    */
   CreationTime?: Date;
 
   /**
+   * @public
    * <p>When the pipe was last updated, in <a href="https://www.w3.org/TR/NOTE-datetime">ISO-8601 format</a> (YYYY-MM-DDThh:mm:ss.sTZD).</p>
    */
   LastModifiedTime?: Date;
@@ -2276,6 +2497,7 @@ export interface DeletePipeResponse {
  */
 export interface DescribePipeRequest {
   /**
+   * @public
    * <p>The name of the pipe.</p>
    */
   Name: string | undefined;
@@ -2286,81 +2508,97 @@ export interface DescribePipeRequest {
  */
 export interface DescribePipeResponse {
   /**
+   * @public
    * <p>The ARN of the pipe.</p>
    */
   Arn?: string;
 
   /**
+   * @public
    * <p>The name of the pipe.</p>
    */
   Name?: string;
 
   /**
+   * @public
    * <p>A description of the pipe.</p>
    */
   Description?: string;
 
   /**
+   * @public
    * <p>The state the pipe should be in.</p>
    */
   DesiredState?: RequestedPipeStateDescribeResponse | string;
 
   /**
+   * @public
    * <p>The state the pipe is in.</p>
    */
   CurrentState?: PipeState | string;
 
   /**
+   * @public
    * <p>The reason the pipe is in its current state.</p>
    */
   StateReason?: string;
 
   /**
+   * @public
    * <p>The ARN of the source resource.</p>
    */
   Source?: string;
 
   /**
+   * @public
    * <p>The parameters required to set up a source for your pipe.</p>
    */
   SourceParameters?: PipeSourceParameters;
 
   /**
+   * @public
    * <p>The ARN of the enrichment resource.</p>
    */
   Enrichment?: string;
 
   /**
+   * @public
    * <p>The parameters required to set up enrichment on your pipe.</p>
    */
   EnrichmentParameters?: PipeEnrichmentParameters;
 
   /**
+   * @public
    * <p>The ARN of the target resource.</p>
    */
   Target?: string;
 
   /**
+   * @public
    * <p>The parameters required to set up a target for your pipe.</p>
    */
   TargetParameters?: PipeTargetParameters;
 
   /**
+   * @public
    * <p>The ARN of the role that allows the pipe to send data to the target.</p>
    */
   RoleArn?: string;
 
   /**
+   * @public
    * <p>The list of key-value pairs to associate with the pipe.</p>
    */
   Tags?: Record<string, string>;
 
   /**
+   * @public
    * <p>The time the pipe was created.</p>
    */
   CreationTime?: Date;
 
   /**
+   * @public
    * <p>When the pipe was last updated, in <a href="https://www.w3.org/TR/NOTE-datetime">ISO-8601 format</a> (YYYY-MM-DDThh:mm:ss.sTZD).</p>
    */
   LastModifiedTime?: Date;
@@ -2371,32 +2609,38 @@ export interface DescribePipeResponse {
  */
 export interface ListPipesRequest {
   /**
+   * @public
    * <p>A value that will return a subset of the pipes associated with this account. For example, <code>"NamePrefix": "ABC"</code> will return
    *          all endpoints with "ABC" in the name.</p>
    */
   NamePrefix?: string;
 
   /**
+   * @public
    * <p>The state the pipe should be in.</p>
    */
   DesiredState?: RequestedPipeState | string;
 
   /**
+   * @public
    * <p>The state the pipe is in.</p>
    */
   CurrentState?: PipeState | string;
 
   /**
+   * @public
    * <p>The prefix matching the pipe source.</p>
    */
   SourcePrefix?: string;
 
   /**
+   * @public
    * <p>The prefix matching the pipe target.</p>
    */
   TargetPrefix?: string;
 
   /**
+   * @public
    * <p>If <code>nextToken</code> is returned, there are more results available. The value of <code>nextToken</code> is a unique pagination token for each page.
    *          Make the call again using the returned token to retrieve the next page. Keep all other arguments unchanged. Each pagination token expires after 24 hours. Using an expired pagination
    *          token will return an HTTP 400 InvalidToken error.</p>
@@ -2404,6 +2648,7 @@ export interface ListPipesRequest {
   NextToken?: string;
 
   /**
+   * @public
    * <p>The maximum number of pipes to include in the response.</p>
    */
   Limit?: number;
@@ -2415,51 +2660,61 @@ export interface ListPipesRequest {
  */
 export interface Pipe {
   /**
+   * @public
    * <p>The name of the pipe.</p>
    */
   Name?: string;
 
   /**
+   * @public
    * <p>The ARN of the pipe.</p>
    */
   Arn?: string;
 
   /**
+   * @public
    * <p>The state the pipe should be in.</p>
    */
   DesiredState?: RequestedPipeState | string;
 
   /**
+   * @public
    * <p>The state the pipe is in.</p>
    */
   CurrentState?: PipeState | string;
 
   /**
+   * @public
    * <p>The reason the pipe is in its current state.</p>
    */
   StateReason?: string;
 
   /**
+   * @public
    * <p>The time the pipe was created.</p>
    */
   CreationTime?: Date;
 
   /**
+   * @public
    * <p>When the pipe was last updated, in <a href="https://www.w3.org/TR/NOTE-datetime">ISO-8601 format</a> (YYYY-MM-DDThh:mm:ss.sTZD).</p>
    */
   LastModifiedTime?: Date;
 
   /**
+   * @public
    * <p>The ARN of the source resource.</p>
    */
   Source?: string;
 
   /**
+   * @public
    * <p>The ARN of the target resource.</p>
    */
   Target?: string;
 
   /**
+   * @public
    * <p>The ARN of the enrichment resource.</p>
    */
   Enrichment?: string;
@@ -2470,11 +2725,13 @@ export interface Pipe {
  */
 export interface ListPipesResponse {
   /**
+   * @public
    * <p>The pipes returned by the call.</p>
    */
   Pipes?: Pipe[];
 
   /**
+   * @public
    * <p>If <code>nextToken</code> is returned, there are more results available. The value of <code>nextToken</code> is a unique pagination token for each page.
    *          Make the call again using the returned token to retrieve the next page. Keep all other arguments unchanged. Each pagination token expires after 24 hours. Using an expired pagination
    *          token will return an HTTP 400 InvalidToken error.</p>
@@ -2487,6 +2744,7 @@ export interface ListPipesResponse {
  */
 export interface ListTagsForResourceRequest {
   /**
+   * @public
    * <p>The ARN of the pipe for which you want to view tags.</p>
    */
   resourceArn: string | undefined;
@@ -2497,6 +2755,7 @@ export interface ListTagsForResourceRequest {
  */
 export interface ListTagsForResourceResponse {
   /**
+   * @public
    * <p>The list of key-value pairs to associate with the pipe.</p>
    */
   tags?: Record<string, string>;
@@ -2507,6 +2766,7 @@ export interface ListTagsForResourceResponse {
  */
 export interface StartPipeRequest {
   /**
+   * @public
    * <p>The name of the pipe.</p>
    */
   Name: string | undefined;
@@ -2517,31 +2777,37 @@ export interface StartPipeRequest {
  */
 export interface StartPipeResponse {
   /**
+   * @public
    * <p>The ARN of the pipe.</p>
    */
   Arn?: string;
 
   /**
+   * @public
    * <p>The name of the pipe.</p>
    */
   Name?: string;
 
   /**
+   * @public
    * <p>The state the pipe should be in.</p>
    */
   DesiredState?: RequestedPipeState | string;
 
   /**
+   * @public
    * <p>The state the pipe is in.</p>
    */
   CurrentState?: PipeState | string;
 
   /**
+   * @public
    * <p>The time the pipe was created.</p>
    */
   CreationTime?: Date;
 
   /**
+   * @public
    * <p>When the pipe was last updated, in <a href="https://www.w3.org/TR/NOTE-datetime">ISO-8601 format</a> (YYYY-MM-DDThh:mm:ss.sTZD).</p>
    */
   LastModifiedTime?: Date;
@@ -2552,6 +2818,7 @@ export interface StartPipeResponse {
  */
 export interface StopPipeRequest {
   /**
+   * @public
    * <p>The name of the pipe.</p>
    */
   Name: string | undefined;
@@ -2562,31 +2829,37 @@ export interface StopPipeRequest {
  */
 export interface StopPipeResponse {
   /**
+   * @public
    * <p>The ARN of the pipe.</p>
    */
   Arn?: string;
 
   /**
+   * @public
    * <p>The name of the pipe.</p>
    */
   Name?: string;
 
   /**
+   * @public
    * <p>The state the pipe should be in.</p>
    */
   DesiredState?: RequestedPipeState | string;
 
   /**
+   * @public
    * <p>The state the pipe is in.</p>
    */
   CurrentState?: PipeState | string;
 
   /**
+   * @public
    * <p>The time the pipe was created.</p>
    */
   CreationTime?: Date;
 
   /**
+   * @public
    * <p>When the pipe was last updated, in <a href="https://www.w3.org/TR/NOTE-datetime">ISO-8601 format</a> (YYYY-MM-DDThh:mm:ss.sTZD).</p>
    */
   LastModifiedTime?: Date;
@@ -2598,16 +2871,19 @@ export interface StopPipeResponse {
  */
 export interface UpdatePipeSourceActiveMQBrokerParameters {
   /**
+   * @public
    * <p>The credentials needed to access the resource.</p>
    */
   Credentials: MQBrokerAccessCredentials | undefined;
 
   /**
+   * @public
    * <p>The maximum number of records to include in each batch.</p>
    */
   BatchSize?: number;
 
   /**
+   * @public
    * <p>The maximum length of a time to wait for events.</p>
    */
   MaximumBatchingWindowInSeconds?: number;
@@ -2619,39 +2895,46 @@ export interface UpdatePipeSourceActiveMQBrokerParameters {
  */
 export interface UpdatePipeSourceDynamoDBStreamParameters {
   /**
+   * @public
    * <p>The maximum number of records to include in each batch.</p>
    */
   BatchSize?: number;
 
   /**
+   * @public
    * <p>Define the target queue to send dead-letter queue events to.</p>
    */
   DeadLetterConfig?: DeadLetterConfig;
 
   /**
+   * @public
    * <p>(Streams only) Define how to handle item process failures. <code>AUTOMATIC_BISECT</code> halves each batch and retry each half
    * until all the records are processed or there is one failed message left in the batch.</p>
    */
   OnPartialBatchItemFailure?: OnPartialBatchItemFailureStreams | string;
 
   /**
+   * @public
    * <p>The maximum length of a time to wait for events.</p>
    */
   MaximumBatchingWindowInSeconds?: number;
 
   /**
+   * @public
    * <p>(Streams only) Discard records older than the specified age. The default value is -1, which sets the maximum age to infinite.
    * When the value is set to infinite, EventBridge never discards old records. </p>
    */
   MaximumRecordAgeInSeconds?: number;
 
   /**
+   * @public
    * <p>(Streams only) Discard records after the specified number of retries. The default value is -1, which sets the maximum number of
    * retries to infinite. When MaximumRetryAttempts is infinite, EventBridge retries failed records until the record expires in the event source.</p>
    */
   MaximumRetryAttempts?: number;
 
   /**
+   * @public
    * <p>(Streams only) The number of batches to process concurrently from each shard. The default value is 1.</p>
    */
   ParallelizationFactor?: number;
@@ -2663,39 +2946,46 @@ export interface UpdatePipeSourceDynamoDBStreamParameters {
  */
 export interface UpdatePipeSourceKinesisStreamParameters {
   /**
+   * @public
    * <p>The maximum number of records to include in each batch.</p>
    */
   BatchSize?: number;
 
   /**
+   * @public
    * <p>Define the target queue to send dead-letter queue events to.</p>
    */
   DeadLetterConfig?: DeadLetterConfig;
 
   /**
+   * @public
    * <p>(Streams only) Define how to handle item process failures. <code>AUTOMATIC_BISECT</code> halves each batch and retry each half
    * until all the records are processed or there is one failed message left in the batch.</p>
    */
   OnPartialBatchItemFailure?: OnPartialBatchItemFailureStreams | string;
 
   /**
+   * @public
    * <p>The maximum length of a time to wait for events.</p>
    */
   MaximumBatchingWindowInSeconds?: number;
 
   /**
+   * @public
    * <p>(Streams only) Discard records older than the specified age. The default value is -1, which sets the maximum age to infinite.
    * When the value is set to infinite, EventBridge never discards old records. </p>
    */
   MaximumRecordAgeInSeconds?: number;
 
   /**
+   * @public
    * <p>(Streams only) Discard records after the specified number of retries. The default value is -1, which sets the maximum number of
    * retries to infinite. When MaximumRetryAttempts is infinite, EventBridge retries failed records until the record expires in the event source.</p>
    */
   MaximumRetryAttempts?: number;
 
   /**
+   * @public
    * <p>(Streams only) The number of batches to process concurrently from each shard. The default value is 1.</p>
    */
   ParallelizationFactor?: number;
@@ -2707,16 +2997,19 @@ export interface UpdatePipeSourceKinesisStreamParameters {
  */
 export interface UpdatePipeSourceManagedStreamingKafkaParameters {
   /**
+   * @public
    * <p>The maximum number of records to include in each batch.</p>
    */
   BatchSize?: number;
 
   /**
+   * @public
    * <p>The credentials needed to access the resource.</p>
    */
   Credentials?: MSKAccessCredentials;
 
   /**
+   * @public
    * <p>The maximum length of a time to wait for events.</p>
    */
   MaximumBatchingWindowInSeconds?: number;
@@ -2728,16 +3021,19 @@ export interface UpdatePipeSourceManagedStreamingKafkaParameters {
  */
 export interface UpdatePipeSourceRabbitMQBrokerParameters {
   /**
+   * @public
    * <p>The credentials needed to access the resource.</p>
    */
   Credentials: MQBrokerAccessCredentials | undefined;
 
   /**
+   * @public
    * <p>The maximum number of records to include in each batch.</p>
    */
   BatchSize?: number;
 
   /**
+   * @public
    * <p>The maximum length of a time to wait for events.</p>
    */
   MaximumBatchingWindowInSeconds?: number;
@@ -2749,26 +3045,31 @@ export interface UpdatePipeSourceRabbitMQBrokerParameters {
  */
 export interface UpdatePipeSourceSelfManagedKafkaParameters {
   /**
+   * @public
    * <p>The maximum number of records to include in each batch.</p>
    */
   BatchSize?: number;
 
   /**
+   * @public
    * <p>The maximum length of a time to wait for events.</p>
    */
   MaximumBatchingWindowInSeconds?: number;
 
   /**
+   * @public
    * <p>The credentials needed to access the resource.</p>
    */
   Credentials?: SelfManagedKafkaAccessConfigurationCredentials;
 
   /**
+   * @public
    * <p>The ARN of the Secrets Manager secret used for certification.</p>
    */
   ServerRootCaCertificate?: string;
 
   /**
+   * @public
    * <p>This structure specifies the VPC subnets and security groups for the stream, and whether a public IP address is to be used.</p>
    */
   Vpc?: SelfManagedKafkaAccessConfigurationVpc;
@@ -2780,11 +3081,13 @@ export interface UpdatePipeSourceSelfManagedKafkaParameters {
  */
 export interface UpdatePipeSourceSqsQueueParameters {
   /**
+   * @public
    * <p>The maximum number of records to include in each batch.</p>
    */
   BatchSize?: number;
 
   /**
+   * @public
    * <p>The maximum length of a time to wait for events.</p>
    */
   MaximumBatchingWindowInSeconds?: number;
@@ -2796,42 +3099,50 @@ export interface UpdatePipeSourceSqsQueueParameters {
  */
 export interface UpdatePipeSourceParameters {
   /**
+   * @public
    * <p>The collection of event patterns used to filter events. For more information, see <a href="https://docs.aws.amazon.com/eventbridge/latest/userguide/eventbridge-and-event-patterns.html">Events and Event
    *          Patterns</a> in the <i>Amazon EventBridge User Guide</i>.</p>
    */
   FilterCriteria?: FilterCriteria;
 
   /**
+   * @public
    * <p>The parameters for using a Kinesis stream as a source.</p>
    */
   KinesisStreamParameters?: UpdatePipeSourceKinesisStreamParameters;
 
   /**
+   * @public
    * <p>The parameters for using a DynamoDB stream as a source.</p>
    */
   DynamoDBStreamParameters?: UpdatePipeSourceDynamoDBStreamParameters;
 
   /**
+   * @public
    * <p>The parameters for using a Amazon SQS stream as a source.</p>
    */
   SqsQueueParameters?: UpdatePipeSourceSqsQueueParameters;
 
   /**
+   * @public
    * <p>The parameters for using an Active MQ broker as a source.</p>
    */
   ActiveMQBrokerParameters?: UpdatePipeSourceActiveMQBrokerParameters;
 
   /**
+   * @public
    * <p>The parameters for using a Rabbit MQ broker as a source.</p>
    */
   RabbitMQBrokerParameters?: UpdatePipeSourceRabbitMQBrokerParameters;
 
   /**
+   * @public
    * <p>The parameters for using an MSK stream as a source.</p>
    */
   ManagedStreamingKafkaParameters?: UpdatePipeSourceManagedStreamingKafkaParameters;
 
   /**
+   * @public
    * <p>The parameters for using a self-managed Apache Kafka stream as a source.</p>
    */
   SelfManagedKafkaParameters?: UpdatePipeSourceSelfManagedKafkaParameters;
@@ -2842,46 +3153,55 @@ export interface UpdatePipeSourceParameters {
  */
 export interface UpdatePipeRequest {
   /**
+   * @public
    * <p>The name of the pipe.</p>
    */
   Name: string | undefined;
 
   /**
+   * @public
    * <p>A description of the pipe.</p>
    */
   Description?: string;
 
   /**
+   * @public
    * <p>The state the pipe should be in.</p>
    */
   DesiredState?: RequestedPipeState | string;
 
   /**
+   * @public
    * <p>The parameters required to set up a source for your pipe.</p>
    */
   SourceParameters?: UpdatePipeSourceParameters;
 
   /**
+   * @public
    * <p>The ARN of the enrichment resource.</p>
    */
   Enrichment?: string;
 
   /**
+   * @public
    * <p>The parameters required to set up enrichment on your pipe.</p>
    */
   EnrichmentParameters?: PipeEnrichmentParameters;
 
   /**
+   * @public
    * <p>The ARN of the target resource.</p>
    */
   Target?: string;
 
   /**
+   * @public
    * <p>The parameters required to set up a target for your pipe.</p>
    */
   TargetParameters?: PipeTargetParameters;
 
   /**
+   * @public
    * <p>The ARN of the role that allows the pipe to send data to the target.</p>
    */
   RoleArn: string | undefined;
@@ -2892,31 +3212,37 @@ export interface UpdatePipeRequest {
  */
 export interface UpdatePipeResponse {
   /**
+   * @public
    * <p>The ARN of the pipe.</p>
    */
   Arn?: string;
 
   /**
+   * @public
    * <p>The name of the pipe.</p>
    */
   Name?: string;
 
   /**
+   * @public
    * <p>The state the pipe should be in.</p>
    */
   DesiredState?: RequestedPipeState | string;
 
   /**
+   * @public
    * <p>The state the pipe is in.</p>
    */
   CurrentState?: PipeState | string;
 
   /**
+   * @public
    * <p>The time the pipe was created.</p>
    */
   CreationTime?: Date;
 
   /**
+   * @public
    * <p>When the pipe was last updated, in <a href="https://www.w3.org/TR/NOTE-datetime">ISO-8601 format</a> (YYYY-MM-DDThh:mm:ss.sTZD).</p>
    */
   LastModifiedTime?: Date;
@@ -2927,11 +3253,13 @@ export interface UpdatePipeResponse {
  */
 export interface TagResourceRequest {
   /**
+   * @public
    * <p>The ARN of the pipe.</p>
    */
   resourceArn: string | undefined;
 
   /**
+   * @public
    * <p>The list of key-value pairs associated with the pipe.</p>
    */
   tags: Record<string, string> | undefined;
@@ -2947,11 +3275,13 @@ export interface TagResourceResponse {}
  */
 export interface UntagResourceRequest {
   /**
+   * @public
    * <p>The ARN of the pipe.</p>
    */
   resourceArn: string | undefined;
 
   /**
+   * @public
    * <p>The list of tag keys to remove from the pipe.</p>
    */
   tagKeys: string[] | undefined;

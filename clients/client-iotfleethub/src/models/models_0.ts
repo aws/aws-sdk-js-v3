@@ -29,36 +29,43 @@ export type ApplicationState = (typeof ApplicationState)[keyof typeof Applicatio
  */
 export interface ApplicationSummary {
   /**
+   * @public
    * <p>The unique Id of the web application.</p>
    */
   applicationId: string | undefined;
 
   /**
+   * @public
    * <p>The name of the web application.</p>
    */
   applicationName: string | undefined;
 
   /**
+   * @public
    * <p>An optional description of the web application.</p>
    */
   applicationDescription?: string;
 
   /**
+   * @public
    * <p>The URL of the web application.</p>
    */
   applicationUrl: string | undefined;
 
   /**
+   * @public
    * <p>The date (in Unix epoch time) when the web application was created.</p>
    */
   applicationCreationDate?: number;
 
   /**
+   * @public
    * <p>The date (in Unix epoch time) when the web application was last updated.</p>
    */
   applicationLastUpdateDate?: number;
 
   /**
+   * @public
    * <p>The current state of the web application.</p>
    */
   applicationState?: ApplicationState | string;
@@ -69,22 +76,26 @@ export interface ApplicationSummary {
  */
 export interface CreateApplicationRequest {
   /**
+   * @public
    * <p>The name of the web application.</p>
    */
   applicationName: string | undefined;
 
   /**
+   * @public
    * <p>An optional description of the web application.</p>
    */
   applicationDescription?: string;
 
   /**
+   * @public
    * <p>A unique case-sensitive identifier that you can provide to ensure the idempotency of the request.
    *       Don't reuse this client token if a new idempotent request is required.</p>
    */
   clientToken?: string;
 
   /**
+   * @public
    * <p>The ARN of the role that the web application assumes when it interacts with AWS IoT Core.</p>
    *          <note>
    *             <p>The name of the role must be in the form <code>AWSIotFleetHub_<i>random_string</i>
@@ -94,6 +105,7 @@ export interface CreateApplicationRequest {
   roleArn: string | undefined;
 
   /**
+   * @public
    * <p>A set of key/value pairs that you can use to manage the web application resource.</p>
    */
   tags?: Record<string, string>;
@@ -104,11 +116,13 @@ export interface CreateApplicationRequest {
  */
 export interface CreateApplicationResponse {
   /**
+   * @public
    * <p>The unique Id of the web application.</p>
    */
   applicationId: string | undefined;
 
   /**
+   * @public
    * <p>The ARN of the web application.</p>
    */
   applicationArn: string | undefined;
@@ -199,11 +213,13 @@ export class ThrottlingException extends __BaseException {
  */
 export interface DeleteApplicationRequest {
   /**
+   * @public
    * <p>The unique Id of the web application.</p>
    */
   applicationId: string | undefined;
 
   /**
+   * @public
    * <p>A unique case-sensitive identifier that you can provide to ensure the idempotency of the request.
    *       Don't reuse this client token if a new idempotent request is required.</p>
    */
@@ -240,6 +256,7 @@ export class ResourceNotFoundException extends __BaseException {
  */
 export interface DescribeApplicationRequest {
   /**
+   * @public
    * <p>The unique Id of the web application.</p>
    */
   applicationId: string | undefined;
@@ -250,61 +267,73 @@ export interface DescribeApplicationRequest {
  */
 export interface DescribeApplicationResponse {
   /**
+   * @public
    * <p>The unique Id of the web application.</p>
    */
   applicationId: string | undefined;
 
   /**
+   * @public
    * <p>The ARN of the web application.</p>
    */
   applicationArn: string | undefined;
 
   /**
+   * @public
    * <p>The name of the web application.</p>
    */
   applicationName: string | undefined;
 
   /**
+   * @public
    * <p>An optional description of the web application.</p>
    */
   applicationDescription?: string;
 
   /**
+   * @public
    * <p>The URL of the web application.</p>
    */
   applicationUrl: string | undefined;
 
   /**
+   * @public
    * <p>The current state of the web application.</p>
    */
   applicationState: ApplicationState | string | undefined;
 
   /**
+   * @public
    * <p>The date (in Unix epoch time) when the application was created.</p>
    */
   applicationCreationDate: number | undefined;
 
   /**
+   * @public
    * <p>The date (in Unix epoch time) when the application was last updated.</p>
    */
   applicationLastUpdateDate: number | undefined;
 
   /**
+   * @public
    * <p>The ARN of the role that the web application assumes when it interacts with AWS IoT Core.</p>
    */
   roleArn: string | undefined;
 
   /**
+   * @public
    * <p>The Id of the single sign-on client that you use to authenticate and authorize users on the web application.</p>
    */
   ssoClientId?: string;
 
   /**
+   * @public
    * <p>A message indicating why the <code>DescribeApplication</code> API failed.</p>
    */
   errorMessage?: string;
 
   /**
+   * @public
    * <p>A set of key/value pairs that you can use to manage the web application resource.</p>
    */
   tags?: Record<string, string>;
@@ -315,6 +344,7 @@ export interface DescribeApplicationResponse {
  */
 export interface ListApplicationsRequest {
   /**
+   * @public
    * <p>A token used to get the next set of results.</p>
    */
   nextToken?: string;
@@ -325,11 +355,13 @@ export interface ListApplicationsRequest {
  */
 export interface ListApplicationsResponse {
   /**
+   * @public
    * <p>An array of objects that provide summaries of information about the web applications in the list.</p>
    */
   applicationSummaries?: ApplicationSummary[];
 
   /**
+   * @public
    * <p>A token used to get the next set of results.</p>
    */
   nextToken?: string;
@@ -340,6 +372,7 @@ export interface ListApplicationsResponse {
  */
 export interface ListTagsForResourceRequest {
   /**
+   * @public
    * <p>The ARN of the resource.</p>
    */
   resourceArn: string | undefined;
@@ -350,6 +383,7 @@ export interface ListTagsForResourceRequest {
  */
 export interface ListTagsForResourceResponse {
   /**
+   * @public
    * <p>The list of tags assigned to the resource.</p>
    */
   tags?: Record<string, string>;
@@ -360,11 +394,13 @@ export interface ListTagsForResourceResponse {
  */
 export interface TagResourceRequest {
   /**
+   * @public
    * <p>The ARN of the resource.</p>
    */
   resourceArn: string | undefined;
 
   /**
+   * @public
    * <p>The new or modified tags for the resource.</p>
    */
   tags: Record<string, string> | undefined;
@@ -380,11 +416,13 @@ export interface TagResourceResponse {}
  */
 export interface UntagResourceRequest {
   /**
+   * @public
    * <p>The ARN of the resource.</p>
    */
   resourceArn: string | undefined;
 
   /**
+   * @public
    * <p>A list of the keys of the tags to be removed from the resource.</p>
    */
   tagKeys: string[] | undefined;
@@ -420,21 +458,25 @@ export class ConflictException extends __BaseException {
  */
 export interface UpdateApplicationRequest {
   /**
+   * @public
    * <p>The unique Id of the web application.</p>
    */
   applicationId: string | undefined;
 
   /**
+   * @public
    * <p>The name of the web application.</p>
    */
   applicationName?: string;
 
   /**
+   * @public
    * <p>An optional description of the web application.</p>
    */
   applicationDescription?: string;
 
   /**
+   * @public
    * <p>A unique case-sensitive identifier that you can provide to ensure the idempotency of the request.
    *       Don't reuse this client token if a new idempotent request is required.</p>
    */

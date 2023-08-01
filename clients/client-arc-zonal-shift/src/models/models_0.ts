@@ -42,6 +42,7 @@ export type AppliedStatus = (typeof AppliedStatus)[keyof typeof AppliedStatus];
  */
 export interface CancelZonalShiftRequest {
   /**
+   * @public
    * <p>The internally-generated identifier of a zonal shift.</p>
    */
   zonalShiftId: string | undefined;
@@ -70,11 +71,13 @@ export class ConflictException extends __BaseException {
   readonly name: "ConflictException" = "ConflictException";
   readonly $fault: "client" = "client";
   /**
+   * @public
    * <p>The reason for the conflict exception.</p>
    */
   reason: ConflictExceptionReason | string | undefined;
 
   /**
+   * @public
    * <p>The zonal shift ID associated with the conflict exception.</p>
    */
   zonalShiftId?: string;
@@ -181,6 +184,7 @@ export class ValidationException extends __BaseException {
   readonly name: "ValidationException" = "ValidationException";
   readonly $fault: "client" = "client";
   /**
+   * @public
    * <p>The reason for the validation exception.</p>
    */
   reason: ValidationExceptionReason | string | undefined;
@@ -219,23 +223,27 @@ export type ZonalShiftStatus = (typeof ZonalShiftStatus)[keyof typeof ZonalShift
  */
 export interface ZonalShift {
   /**
+   * @public
    * <p>The identifier of a zonal shift.</p>
    */
   zonalShiftId: string | undefined;
 
   /**
+   * @public
    * <p>The identifier for the resource to include in a zonal shift. The identifier is the Amazon Resource Name (ARN) for the resource.</p>
    * 		       <p>At this time, you can only start a zonal shift for Network Load Balancers and Application Load Balancers with cross-zone load balancing turned off.</p>
    */
   resourceIdentifier: string | undefined;
 
   /**
+   * @public
    * <p>The Availability Zone that traffic is moved away from for a resource when you start a zonal shift.
    * 			Until the zonal shift expires or you cancel it, traffic for the resource is instead moved to other Availability Zones in the AWS Region.</p>
    */
   awayFrom: string | undefined;
 
   /**
+   * @public
    * <p>The expiry time (expiration time) for the zonal shift. A zonal shift is temporary and must be set to expire when you start the zonal shift.
    * 			You can initially set a zonal shift to expire in a maximum of three days (72 hours). However, you can update a zonal shift
    * 			to set a new expiration at any time. </p>
@@ -246,11 +254,13 @@ export interface ZonalShift {
   expiryTime: Date | undefined;
 
   /**
+   * @public
    * <p>The time (UTC) when the zonal shift is started.</p>
    */
   startTime: Date | undefined;
 
   /**
+   * @public
    * <p>A status for a zonal shift.</p>
    *    	     <p>The <code>Status</code> for a zonal shift can have one of the following values:</p>
    *    	     <ul>
@@ -271,6 +281,7 @@ export interface ZonalShift {
   status: ZonalShiftStatus | string | undefined;
 
   /**
+   * @public
    * <p>A comment that you enter about the zonal shift. Only the latest comment is retained; no comment
    *    		history is maintained. A new comment overwrites any existing comment string.</p>
    */
@@ -282,6 +293,7 @@ export interface ZonalShift {
  */
 export interface GetManagedResourceRequest {
   /**
+   * @public
    * <p>The identifier for the resource to include in a zonal shift. The identifier is the Amazon Resource Name (ARN) for the resource.</p>
    *    	     <p>At this time, you can only start a zonal shift for Network Load Balancers and Application Load Balancers with cross-zone load balancing turned off.</p>
    */
@@ -294,29 +306,34 @@ export interface GetManagedResourceRequest {
  */
 export interface ZonalShiftInResource {
   /**
+   * @public
    * <p>An <code>appliedStatus</code> for a zonal shift for a resource can have one of two values: <code>APPLIED</code>
    *    		or <code>NOT_APPLIED</code>. </p>
    */
   appliedStatus: AppliedStatus | string | undefined;
 
   /**
+   * @public
    * <p>The identifier of a zonal shift.</p>
    */
   zonalShiftId: string | undefined;
 
   /**
+   * @public
    * <p>The identifier for the resource to include in a zonal shift. The identifier is the Amazon Resource Name (ARN) for the resource.</p>
    *    	     <p>At this time, you can only start a zonal shift for Network Load Balancers and Application Load Balancers with cross-zone load balancing turned off.</p>
    */
   resourceIdentifier: string | undefined;
 
   /**
+   * @public
    * <p>The Availability Zone that traffic is moved away from for a resource when you start a zonal shift.
    *    		Until the zonal shift expires or you cancel it, traffic for the resource is instead moved to other Availability Zones in the AWS Region.</p>
    */
   awayFrom: string | undefined;
 
   /**
+   * @public
    * <p>The expiry time (expiration time) for the zonal shift. A zonal shift is temporary and must be set to expire when you start the zonal shift.
    *    		You can initially set a zonal shift to expire in a maximum of three days (72 hours). However, you can update a zonal shift
    *    		to set a new expiration at any time. </p>
@@ -327,11 +344,13 @@ export interface ZonalShiftInResource {
   expiryTime: Date | undefined;
 
   /**
+   * @public
    * <p>The time (UTC) when the zonal shift is started.</p>
    */
   startTime: Date | undefined;
 
   /**
+   * @public
    * <p>A comment that you enter about the zonal shift. Only the latest comment is retained; no comment
    *    		history is maintained. That is, a new comment overwrites any existing comment string.</p>
    */
@@ -343,22 +362,26 @@ export interface ZonalShiftInResource {
  */
 export interface GetManagedResourceResponse {
   /**
+   * @public
    * <p>The Amazon Resource Name (ARN) for the resource.</p>
    */
   arn?: string;
 
   /**
+   * @public
    * <p>The name of the resource.</p>
    */
   name?: string;
 
   /**
+   * @public
    * <p>A collection of key-value pairs that indicate whether resources are active in Availability Zones or not.
    *    		The key name is the Availability Zone where the resource is deployed. The value is 1 or 0.</p>
    */
   appliedWeights: Record<string, number> | undefined;
 
   /**
+   * @public
    * <p>The zonal shifts that are currently active for a resource. </p>
    */
   zonalShifts: ZonalShiftInResource[] | undefined;
@@ -369,6 +392,7 @@ export interface GetManagedResourceResponse {
  */
 export interface ListManagedResourcesRequest {
   /**
+   * @public
    * <p>Specifies that you want to receive the next page of results. Valid only if you received a <code>NextToken</code> response in the
    *    		previous request. If you did, it indicates that more output is available. Set this parameter to the value provided by the previous
    *    		call's <code>NextToken</code> response to request the next page of results.</p>
@@ -376,6 +400,7 @@ export interface ListManagedResourcesRequest {
   nextToken?: string;
 
   /**
+   * @public
    * <p>The number of objects that you want to return with this call.</p>
    */
   maxResults?: number;
@@ -392,16 +417,19 @@ export interface ListManagedResourcesRequest {
  */
 export interface ManagedResourceSummary {
   /**
+   * @public
    * <p>The Amazon Resource Name (ARN) for the managed resource.</p>
    */
   arn?: string;
 
   /**
+   * @public
    * <p>The name of the managed resource.</p>
    */
   name?: string;
 
   /**
+   * @public
    * <p>The Availability Zones that a resource is deployed in.</p>
    */
   availabilityZones: string[] | undefined;
@@ -412,11 +440,13 @@ export interface ManagedResourceSummary {
  */
 export interface ListManagedResourcesResponse {
   /**
+   * @public
    * <p>The items in the response list.</p>
    */
   items: ManagedResourceSummary[] | undefined;
 
   /**
+   * @public
    * <p>Specifies that you want to receive the next page of results. Valid only if you received a <code>NextToken</code> response in the
    *    		previous request. If you did, it indicates that more output is available. Set this parameter to the value provided by the previous
    *    		call's <code>NextToken</code> response to request the next page of results.</p>
@@ -429,6 +459,7 @@ export interface ListManagedResourcesResponse {
  */
 export interface ListZonalShiftsRequest {
   /**
+   * @public
    * <p>Specifies that you want to receive the next page of results. Valid only if you received a <code>NextToken</code> response in the
    *    		previous request. If you did, it indicates that more output is available. Set this parameter to the value provided by the previous
    *    		call's <code>NextToken</code> response to request the next page of results.</p>
@@ -436,6 +467,7 @@ export interface ListZonalShiftsRequest {
   nextToken?: string;
 
   /**
+   * @public
    * <p>A status for a zonal shift.</p>
    *    	     <p>The <code>Status</code> for a zonal shift can have one of the following values:</p>
    *    	     <ul>
@@ -456,6 +488,7 @@ export interface ListZonalShiftsRequest {
   status?: ZonalShiftStatus | string;
 
   /**
+   * @public
    * <p>The number of objects that you want to return with this call.</p>
    */
   maxResults?: number;
@@ -474,23 +507,27 @@ export interface ListZonalShiftsRequest {
  */
 export interface ZonalShiftSummary {
   /**
+   * @public
    * <p>The identifier of a zonal shift.</p>
    */
   zonalShiftId: string | undefined;
 
   /**
+   * @public
    * <p>The identifier for the resource to include in a zonal shift. The identifier is the Amazon Resource Name (ARN) for the resource.</p>
    *    	     <p>At this time, you can only start a zonal shift for Network Load Balancers and Application Load Balancers with cross-zone load balancing turned off.</p>
    */
   resourceIdentifier: string | undefined;
 
   /**
+   * @public
    * <p>The Availability Zone that traffic is moved away from for a resource when you start a zonal shift.
    *    		Until the zonal shift expires or you cancel it, traffic for the resource is instead moved to other Availability Zones in the AWS Region.</p>
    */
   awayFrom: string | undefined;
 
   /**
+   * @public
    * <p>The expiry time (expiration time) for the zonal shift. A zonal shift is temporary and must be set to expire when you start the zonal shift.
    *    		You can initially set a zonal shift to expire in a maximum of three days (72 hours). However, you can update a zonal shift
    *    		to set a new expiration at any time. </p>
@@ -501,11 +538,13 @@ export interface ZonalShiftSummary {
   expiryTime: Date | undefined;
 
   /**
+   * @public
    * <p>The time (UTC) when the zonal shift is started.</p>
    */
   startTime: Date | undefined;
 
   /**
+   * @public
    * <p>A status for a zonal shift.</p>
    *    	     <p>The <code>Status</code> for a zonal shift can have one of the following values:</p>
    *    	     <ul>
@@ -526,6 +565,7 @@ export interface ZonalShiftSummary {
   status: ZonalShiftStatus | string | undefined;
 
   /**
+   * @public
    * <p>A comment that you enter about the zonal shift. Only the latest comment is retained; no comment
    *    		history is maintained. That is, a new comment overwrites any existing comment string.</p>
    */
@@ -537,11 +577,13 @@ export interface ZonalShiftSummary {
  */
 export interface ListZonalShiftsResponse {
   /**
+   * @public
    * <p>The items in the response list.</p>
    */
   items?: ZonalShiftSummary[];
 
   /**
+   * @public
    * <p>Specifies that you want to receive the next page of results. Valid only if you received a <code>NextToken</code> response in the
    *    		previous request. If you did, it indicates that more output is available. Set this parameter to the value provided by the previous
    *    		call's <code>NextToken</code> response to request the next page of results.</p>
@@ -554,17 +596,20 @@ export interface ListZonalShiftsResponse {
  */
 export interface UpdateZonalShiftRequest {
   /**
+   * @public
    * <p>The identifier of a zonal shift.</p>
    */
   zonalShiftId: string | undefined;
 
   /**
+   * @public
    * <p>A comment that you enter about the zonal shift. Only the latest comment is retained; no comment
    *    		history is maintained. A new comment overwrites any existing comment string.</p>
    */
   comment?: string;
 
   /**
+   * @public
    * <p>The length of time that you want a zonal shift to be active, which Route 53 ARC converts to an expiry time (expiration time).
    *    		Zonal shifts are temporary. You can set a zonal shift to be active initially for up to three days (72 hours).</p>
    *    	     <p>If you want to still keep traffic away from an Availability Zone, you can update the
@@ -591,18 +636,21 @@ export interface UpdateZonalShiftRequest {
  */
 export interface StartZonalShiftRequest {
   /**
+   * @public
    * <p>The identifier for the resource to include in a zonal shift. The identifier is the Amazon Resource Name (ARN) for the resource.</p>
    *    	     <p>At this time, you can only start a zonal shift for Network Load Balancers and Application Load Balancers with cross-zone load balancing turned off.</p>
    */
   resourceIdentifier: string | undefined;
 
   /**
+   * @public
    * <p>The Availability Zone that traffic is moved away from for a resource when you start a zonal shift.
    *    		Until the zonal shift expires or you cancel it, traffic for the resource is instead moved to other Availability Zones in the AWS Region.</p>
    */
   awayFrom: string | undefined;
 
   /**
+   * @public
    * <p>The length of time that you want a zonal shift to be active, which Route 53 ARC converts to an expiry time (expiration time).
    *    		Zonal shifts are temporary. You can set a zonal shift to be active initially for up to three days (72 hours).</p>
    *    	     <p>If you want to still keep traffic away from an Availability Zone, you can update the
@@ -625,6 +673,7 @@ export interface StartZonalShiftRequest {
   expiresIn: string | undefined;
 
   /**
+   * @public
    * <p>A comment that you enter about the zonal shift. Only the latest comment is retained; no comment
    *    		history is maintained. A new comment overwrites any existing comment string.</p>
    */

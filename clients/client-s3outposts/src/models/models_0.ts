@@ -66,22 +66,26 @@ export type EndpointAccessType = (typeof EndpointAccessType)[keyof typeof Endpoi
  */
 export interface CreateEndpointRequest {
   /**
+   * @public
    * <p>The ID of the Outposts. </p>
    */
   OutpostId: string | undefined;
 
   /**
+   * @public
    * <p>The ID of the subnet in the selected VPC. The endpoint subnet must belong to the Outpost
    *             that has Amazon S3 on Outposts provisioned.</p>
    */
   SubnetId: string | undefined;
 
   /**
+   * @public
    * <p>The ID of the security group to use with the endpoint.</p>
    */
   SecurityGroupId: string | undefined;
 
   /**
+   * @public
    * <p>The type of access for the network connectivity for the Amazon S3 on Outposts endpoint. To use
    *             the Amazon Web Services VPC, choose <code>Private</code>. To use the endpoint with an on-premises
    *             network, choose <code>CustomerOwnedIp</code>.  If you choose
@@ -95,6 +99,7 @@ export interface CreateEndpointRequest {
   AccessType?: EndpointAccessType | string;
 
   /**
+   * @public
    * <p>The ID of the customer-owned IPv4 address pool (CoIP pool) for the endpoint. IP addresses
    *             are allocated from this pool for the endpoint.</p>
    */
@@ -106,6 +111,7 @@ export interface CreateEndpointRequest {
  */
 export interface CreateEndpointResult {
   /**
+   * @public
    * <p>The Amazon Resource Name (ARN) of the endpoint.</p>
    */
   EndpointArn?: string;
@@ -226,11 +232,13 @@ export class ValidationException extends __BaseException {
  */
 export interface DeleteEndpointRequest {
   /**
+   * @public
    * <p>The ID of the endpoint.</p>
    */
   EndpointId: string | undefined;
 
   /**
+   * @public
    * <p>The ID of the Outposts. </p>
    */
   OutpostId: string | undefined;
@@ -242,11 +250,13 @@ export interface DeleteEndpointRequest {
  */
 export interface FailedReason {
   /**
+   * @public
    * <p>The failure code, if any, for a create or delete endpoint operation.</p>
    */
   ErrorCode?: string;
 
   /**
+   * @public
    * <p>Additional error details describing the endpoint failure and recommended action.</p>
    */
   Message?: string;
@@ -258,6 +268,7 @@ export interface FailedReason {
  */
 export interface NetworkInterface {
   /**
+   * @public
    * <p>The ID for the network interface.</p>
    */
   NetworkInterfaceId?: string;
@@ -289,61 +300,73 @@ export type EndpointStatus = (typeof EndpointStatus)[keyof typeof EndpointStatus
  */
 export interface Endpoint {
   /**
+   * @public
    * <p>The Amazon Resource Name (ARN) of the endpoint.</p>
    */
   EndpointArn?: string;
 
   /**
+   * @public
    * <p>The ID of the Outposts.</p>
    */
   OutpostsId?: string;
 
   /**
+   * @public
    * <p>The VPC CIDR committed by this endpoint.</p>
    */
   CidrBlock?: string;
 
   /**
+   * @public
    * <p>The status of the endpoint.</p>
    */
   Status?: EndpointStatus | string;
 
   /**
+   * @public
    * <p>The time the endpoint was created.</p>
    */
   CreationTime?: Date;
 
   /**
+   * @public
    * <p>The network interface of the endpoint.</p>
    */
   NetworkInterfaces?: NetworkInterface[];
 
   /**
+   * @public
    * <p>The ID of the VPC used for the endpoint.</p>
    */
   VpcId?: string;
 
   /**
+   * @public
    * <p>The ID of the subnet used for the endpoint.</p>
    */
   SubnetId?: string;
 
   /**
+   * @public
    * <p>The ID of the security group used for the endpoint.</p>
    */
   SecurityGroupId?: string;
 
   /**
+   * @public
    * <p>The type of connectivity used to access the Amazon S3 on Outposts endpoint.</p>
    */
   AccessType?: EndpointAccessType | string;
 
   /**
+   * @public
    * <p>The ID of the customer-owned IPv4 address pool used for the endpoint.</p>
    */
   CustomerOwnedIpv4Pool?: string;
 
   /**
+   * @public
    * <p>The failure reason, if any, for a create or delete endpoint operation.</p>
    */
   FailedReason?: FailedReason;
@@ -354,12 +377,14 @@ export interface Endpoint {
  */
 export interface ListEndpointsRequest {
   /**
+   * @public
    * <p>If a previous response from this operation included a <code>NextToken</code> value,
    *             provide that value here to retrieve the next page of results.</p>
    */
   NextToken?: string;
 
   /**
+   * @public
    * <p>The maximum number of endpoints that will be returned in the response.</p>
    */
   MaxResults?: number;
@@ -370,11 +395,13 @@ export interface ListEndpointsRequest {
  */
 export interface ListEndpointsResult {
   /**
+   * @public
    * <p>The list of endpoints associated with the specified Outpost.</p>
    */
   Endpoints?: Endpoint[];
 
   /**
+   * @public
    * <p>If the number of endpoints associated with the specified Outpost exceeds <code>MaxResults</code>,
    *             you can include this value in subsequent calls to this operation to retrieve more results.</p>
    */
@@ -386,6 +413,7 @@ export interface ListEndpointsResult {
  */
 export interface ListOutpostsWithS3Request {
   /**
+   * @public
    * <p>When you can get additional results from the <code>ListOutpostsWithS3</code> call, a
    *                 <code>NextToken</code> parameter is returned in the output. You can then pass in a
    *             subsequent command to the <code>NextToken</code> parameter to continue listing
@@ -394,6 +422,7 @@ export interface ListOutpostsWithS3Request {
   NextToken?: string;
 
   /**
+   * @public
    * <p>The maximum number of Outposts to return. The limit is 100.</p>
    */
   MaxResults?: number;
@@ -405,21 +434,25 @@ export interface ListOutpostsWithS3Request {
  */
 export interface Outpost {
   /**
+   * @public
    * <p>Specifies the unique Amazon Resource Name (ARN) for the outpost.</p>
    */
   OutpostArn?: string;
 
   /**
+   * @public
    * <p>Specifies the unique identifier for the outpost.</p>
    */
   OutpostId?: string;
 
   /**
+   * @public
    * <p>Returns the Amazon Web Services account ID of the outpost owner. Useful for comparing owned versus shared outposts.</p>
    */
   OwnerId?: string;
 
   /**
+   * @public
    * <p>The Amazon S3 capacity of the outpost in bytes.</p>
    */
   CapacityInBytes?: number;
@@ -430,6 +463,7 @@ export interface Outpost {
  */
 export interface ListOutpostsWithS3Result {
   /**
+   * @public
    * <p>Returns the list of Outposts that have the following characteristics:</p>
    *          <ul>
    *             <li>
@@ -446,6 +480,7 @@ export interface ListOutpostsWithS3Result {
   Outposts?: Outpost[];
 
   /**
+   * @public
    * <p>Returns a token that you can use to call <code>ListOutpostsWithS3</code> again and receive additional results, if there are any.</p>
    */
   NextToken?: string;
@@ -456,17 +491,20 @@ export interface ListOutpostsWithS3Result {
  */
 export interface ListSharedEndpointsRequest {
   /**
+   * @public
    * <p>If a previous response from this operation included a <code>NextToken</code> value, you
    *             can provide that value here to retrieve the next page of results.</p>
    */
   NextToken?: string;
 
   /**
+   * @public
    * <p>The maximum number of endpoints that will be returned in the response.</p>
    */
   MaxResults?: number;
 
   /**
+   * @public
    * <p>The ID of the Amazon Web Services Outpost.</p>
    */
   OutpostId: string | undefined;
@@ -477,11 +515,13 @@ export interface ListSharedEndpointsRequest {
  */
 export interface ListSharedEndpointsResult {
   /**
+   * @public
    * <p>The list of endpoints associated with the specified Outpost that have been shared by Amazon Web Services Resource Access Manager (RAM).</p>
    */
   Endpoints?: Endpoint[];
 
   /**
+   * @public
    * <p>If the number of endpoints associated with the specified Outpost exceeds <code>MaxResults</code>,
    *             you can include this value in subsequent calls to this operation to retrieve more results.</p>
    */

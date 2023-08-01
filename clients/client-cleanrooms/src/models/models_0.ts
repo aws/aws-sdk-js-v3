@@ -25,6 +25,7 @@ export class AccessDeniedException extends __BaseException {
   readonly name: "AccessDeniedException" = "AccessDeniedException";
   readonly $fault: "client" = "client";
   /**
+   * @public
    * <p>A reason code for the exception.</p>
    */
   reason?: AccessDeniedExceptionReason | string;
@@ -66,11 +67,13 @@ export type AggregateFunctionName = (typeof AggregateFunctionName)[keyof typeof 
  */
 export interface AggregateColumn {
   /**
+   * @public
    * <p>Column names in configured table of aggregate columns.</p>
    */
   columnNames: string[] | undefined;
 
   /**
+   * @public
    * <p>Aggregation function that can be applied to aggregate column in query.</p>
    */
   function: AggregateFunctionName | string | undefined;
@@ -95,11 +98,13 @@ export type AggregationType = (typeof AggregationType)[keyof typeof AggregationT
  */
 export interface AggregationConstraint {
   /**
+   * @public
    * <p>Column in aggregation constraint for which there must be a minimum number of distinct values in an output row for it to be in the query output.</p>
    */
   columnName: string | undefined;
 
   /**
+   * @public
    * <p>The minimum number of distinct values that an output row must be an aggregation of.
    *          Minimum threshold of distinct values for a specified column that must exist in an output
    *          row for it to be in the query output.</p>
@@ -107,6 +112,7 @@ export interface AggregationConstraint {
   minimum: number | undefined;
 
   /**
+   * @public
    * <p>The type of aggregation the constraint allows. The only valid value is currently
    *          `COUNT_DISTINCT`.</p>
    */
@@ -173,17 +179,20 @@ export type ParameterType = (typeof ParameterType)[keyof typeof ParameterType];
  */
 export interface AnalysisParameter {
   /**
+   * @public
    * <p>The name of the parameter. The name must use only alphanumeric, underscore (_), or hyphen (-)
    *          characters but cannot start or end with a hyphen.</p>
    */
   name: string | undefined;
 
   /**
+   * @public
    * <p>The type of parameter.</p>
    */
   type: ParameterType | string | undefined;
 
   /**
+   * @public
    * <p>Optional. The default value that is applied in the analysis template. The member who can
    *          query can override this value in the query editor.</p>
    */
@@ -248,39 +257,46 @@ export type ScalarFunctions = (typeof ScalarFunctions)[keyof typeof ScalarFuncti
  */
 export interface AnalysisRuleAggregation {
   /**
+   * @public
    * <p>The columns that query runners are allowed to use in aggregation queries.</p>
    */
   aggregateColumns: AggregateColumn[] | undefined;
 
   /**
+   * @public
    * <p>Columns in configured table that can be used in join statements and/or as aggregate
    *          columns. They can never be outputted directly.</p>
    */
   joinColumns: string[] | undefined;
 
   /**
+   * @public
    * <p>Control that requires member who runs query to do a join with their configured table
    *          and/or other configured table in query.</p>
    */
   joinRequired?: JoinRequiredOption | string;
 
   /**
+   * @public
    * <p>Which logical operators (if any) are to be used in an INNER JOIN match condition.
    *          Default is <code>AND</code>.</p>
    */
   allowedJoinOperators?: (JoinOperator | string)[];
 
   /**
+   * @public
    * <p>The columns that query runners are allowed to select, group by, or filter by.</p>
    */
   dimensionColumns: string[] | undefined;
 
   /**
+   * @public
    * <p>Set of scalar functions that are allowed to be used on dimension columns and the output of aggregation of metrics.</p>
    */
   scalarFunctions: (ScalarFunctions | string)[] | undefined;
 
   /**
+   * @public
    * <p>Columns that must meet a specific threshold value (after an aggregation function is applied to it) for each output row to be returned.</p>
    */
   outputConstraints: AggregationConstraint[] | undefined;
@@ -292,11 +308,13 @@ export interface AnalysisRuleAggregation {
  */
 export interface AnalysisRuleCustom {
   /**
+   * @public
    * <p>The analysis templates that are allowed by the custom analysis rule.</p>
    */
   allowedAnalyses: string[] | undefined;
 
   /**
+   * @public
    * <p>The Amazon Web Services accounts that are allowed to query by the custom analysis rule. Required when
    *             <code>allowedAnalyses</code> is <code>ANY_QUERY</code>.</p>
    */
@@ -309,17 +327,20 @@ export interface AnalysisRuleCustom {
  */
 export interface AnalysisRuleList {
   /**
+   * @public
    * <p>Columns that can be used to join a configured table with the table of the member who can query and other members' configured tables.</p>
    */
   joinColumns: string[] | undefined;
 
   /**
+   * @public
    * <p>The logical operators (if any) that are to be used in an INNER JOIN match condition.
    *          Default is <code>AND</code>.</p>
    */
   allowedJoinOperators?: (JoinOperator | string)[];
 
   /**
+   * @public
    * <p>Columns that can be listed in the output.</p>
    */
   listColumns: string[] | undefined;
@@ -340,6 +361,7 @@ export type AnalysisRulePolicyV1 =
  */
 export namespace AnalysisRulePolicyV1 {
   /**
+   * @public
    * <p>Analysis rule type that enables only list queries on a configured table.</p>
    */
   export interface ListMember {
@@ -350,6 +372,7 @@ export namespace AnalysisRulePolicyV1 {
   }
 
   /**
+   * @public
    * <p>Analysis rule type that enables only aggregation queries on a configured table.</p>
    */
   export interface AggregationMember {
@@ -360,6 +383,7 @@ export namespace AnalysisRulePolicyV1 {
   }
 
   /**
+   * @public
    * <p>Analysis rule type that enables custom SQL queries on a configured table.</p>
    */
   export interface CustomMember {
@@ -369,6 +393,9 @@ export namespace AnalysisRulePolicyV1 {
     $unknown?: never;
   }
 
+  /**
+   * @public
+   */
   export interface $UnknownMember {
     list?: never;
     aggregation?: never;
@@ -402,6 +429,7 @@ export type AnalysisRulePolicy = AnalysisRulePolicy.V1Member | AnalysisRulePolic
  */
 export namespace AnalysisRulePolicy {
   /**
+   * @public
    * <p>Controls on the query specifications that can be run on configured table.</p>
    */
   export interface V1Member {
@@ -409,6 +437,9 @@ export namespace AnalysisRulePolicy {
     $unknown?: never;
   }
 
+  /**
+   * @public
+   */
   export interface $UnknownMember {
     v1?: never;
     $unknown: [string, any];
@@ -446,31 +477,37 @@ export type AnalysisRuleType = (typeof AnalysisRuleType)[keyof typeof AnalysisRu
  */
 export interface AnalysisRule {
   /**
+   * @public
    * <p>The unique ID for the associated collaboration.</p>
    */
   collaborationId: string | undefined;
 
   /**
+   * @public
    * <p>The type of analysis rule.</p>
    */
   type: AnalysisRuleType | string | undefined;
 
   /**
+   * @public
    * <p>The name for the analysis rule.</p>
    */
   name: string | undefined;
 
   /**
+   * @public
    * <p>The time the analysis rule was created.</p>
    */
   createTime: Date | undefined;
 
   /**
+   * @public
    * <p>The time the analysis rule was last updated.</p>
    */
   updateTime: Date | undefined;
 
   /**
+   * @public
    * <p>A policy that describes the associated data usage limitations.</p>
    */
   policy: AnalysisRulePolicy | undefined;
@@ -482,6 +519,7 @@ export interface AnalysisRule {
  */
 export interface AnalysisSchema {
   /**
+   * @public
    * <p>The tables referenced in the analysis schema.</p>
    */
   referencedTables?: string[];
@@ -498,6 +536,7 @@ export type AnalysisSource = AnalysisSource.TextMember | AnalysisSource.$Unknown
  */
 export namespace AnalysisSource {
   /**
+   * @public
    * <p>The query text.</p>
    */
   export interface TextMember {
@@ -505,6 +544,9 @@ export namespace AnalysisSource {
     $unknown?: never;
   }
 
+  /**
+   * @public
+   */
   export interface $UnknownMember {
     text?: never;
     $unknown: [string, any];
@@ -527,71 +569,85 @@ export namespace AnalysisSource {
  */
 export interface AnalysisTemplate {
   /**
+   * @public
    * <p>The identifier for the analysis template.</p>
    */
   id: string | undefined;
 
   /**
+   * @public
    * <p>The Amazon Resource Name (ARN) of the analysis template.</p>
    */
   arn: string | undefined;
 
   /**
+   * @public
    * <p>The unique ID for the associated collaboration of the analysis template.</p>
    */
   collaborationId: string | undefined;
 
   /**
+   * @public
    * <p>The unique ARN for the analysis template’s associated collaboration.</p>
    */
   collaborationArn: string | undefined;
 
   /**
+   * @public
    * <p>The identifier of a member who created the analysis template.</p>
    */
   membershipId: string | undefined;
 
   /**
+   * @public
    * <p>The Amazon Resource Name (ARN) of the member who created the analysis template.</p>
    */
   membershipArn: string | undefined;
 
   /**
+   * @public
    * <p>The description of the analysis template.</p>
    */
   description?: string;
 
   /**
+   * @public
    * <p>The name of the analysis template.</p>
    */
   name: string | undefined;
 
   /**
+   * @public
    * <p>The time that the analysis template was created.</p>
    */
   createTime: Date | undefined;
 
   /**
+   * @public
    * <p>The time that the analysis template was last updated.</p>
    */
   updateTime: Date | undefined;
 
   /**
+   * @public
    * <p>The entire schema object.</p>
    */
   schema: AnalysisSchema | undefined;
 
   /**
+   * @public
    * <p>The format of the analysis template.</p>
    */
   format: AnalysisFormat | string | undefined;
 
   /**
+   * @public
    * <p>The source of the analysis template.</p>
    */
   source: AnalysisSource | undefined;
 
   /**
+   * @public
    * <p>The parameters of the analysis template.</p>
    */
   analysisParameters?: AnalysisParameter[];
@@ -636,16 +692,19 @@ export class ConflictException extends __BaseException {
   readonly name: "ConflictException" = "ConflictException";
   readonly $fault: "client" = "client";
   /**
+   * @public
    * <p>The ID of the conflicting resource.</p>
    */
   resourceId?: string;
 
   /**
+   * @public
    * <p>The type of the conflicting resource.</p>
    */
   resourceType?: ResourceType | string;
 
   /**
+   * @public
    * <p>A reason code for the exception.</p>
    */
   reason?: ConflictExceptionReason | string;
@@ -671,37 +730,44 @@ export class ConflictException extends __BaseException {
  */
 export interface CreateAnalysisTemplateInput {
   /**
+   * @public
    * <p>The description of the analysis template.</p>
    */
   description?: string;
 
   /**
+   * @public
    * <p>The identifier for a membership resource.</p>
    */
   membershipIdentifier: string | undefined;
 
   /**
+   * @public
    * <p>The name of the analysis template.</p>
    */
   name: string | undefined;
 
   /**
+   * @public
    * <p>The format of the analysis template.</p>
    */
   format: AnalysisFormat | string | undefined;
 
   /**
+   * @public
    * <p>The information in the analysis template. Currently supports <code>text</code>, the
    *          query text for the analysis template.</p>
    */
   source: AnalysisSource | undefined;
 
   /**
+   * @public
    * <p>An optional label that you can assign to a resource when you create it. Each tag consists of a key and an optional value, both of which you define. When you use tagging, you can also use tag-based access control in IAM policies to control access to this resource.</p>
    */
   tags?: Record<string, string>;
 
   /**
+   * @public
    * <p>The parameters of the analysis template.</p>
    */
   analysisParameters?: AnalysisParameter[];
@@ -712,6 +778,7 @@ export interface CreateAnalysisTemplateInput {
  */
 export interface CreateAnalysisTemplateOutput {
   /**
+   * @public
    * <p>The analysis template.</p>
    */
   analysisTemplate: AnalysisTemplate | undefined;
@@ -745,11 +812,13 @@ export class ResourceNotFoundException extends __BaseException {
   readonly name: "ResourceNotFoundException" = "ResourceNotFoundException";
   readonly $fault: "client" = "client";
   /**
+   * @public
    * <p>The Id of the missing resource.</p>
    */
   resourceId: string | undefined;
 
   /**
+   * @public
    * <p>The type of the missing resource.</p>
    */
   resourceType: ResourceType | string | undefined;
@@ -777,11 +846,13 @@ export class ServiceQuotaExceededException extends __BaseException {
   readonly name: "ServiceQuotaExceededException" = "ServiceQuotaExceededException";
   readonly $fault: "client" = "client";
   /**
+   * @public
    * <p>The name of the quota.</p>
    */
   quotaName: string | undefined;
 
   /**
+   * @public
    * <p>The value of the quota.</p>
    */
   quotaValue: number | undefined;
@@ -827,11 +898,13 @@ export class ThrottlingException extends __BaseException {
  */
 export interface ValidationExceptionField {
   /**
+   * @public
    * <p>The name of the input parameter.</p>
    */
   name: string | undefined;
 
   /**
+   * @public
    * <p>A message for the input validation error.</p>
    */
   message: string | undefined;
@@ -861,11 +934,13 @@ export class ValidationException extends __BaseException {
   readonly name: "ValidationException" = "ValidationException";
   readonly $fault: "client" = "client";
   /**
+   * @public
    * <p>A reason code for the exception.</p>
    */
   reason?: ValidationExceptionReason | string;
 
   /**
+   * @public
    * <p>Validation errors for specific input parameters.</p>
    */
   fieldList?: ValidationExceptionField[];
@@ -890,11 +965,13 @@ export class ValidationException extends __BaseException {
  */
 export interface DeleteAnalysisTemplateInput {
   /**
+   * @public
    * <p>The identifier for a membership resource.</p>
    */
   membershipIdentifier: string | undefined;
 
   /**
+   * @public
    * <p>The identifier for the analysis template resource.</p>
    */
   analysisTemplateIdentifier: string | undefined;
@@ -910,11 +987,13 @@ export interface DeleteAnalysisTemplateOutput {}
  */
 export interface GetAnalysisTemplateInput {
   /**
+   * @public
    * <p>The identifier for a membership resource.</p>
    */
   membershipIdentifier: string | undefined;
 
   /**
+   * @public
    * <p>The identifier for the analysis template resource.</p>
    */
   analysisTemplateIdentifier: string | undefined;
@@ -925,6 +1004,7 @@ export interface GetAnalysisTemplateInput {
  */
 export interface GetAnalysisTemplateOutput {
   /**
+   * @public
    * <p>The analysis template.</p>
    */
   analysisTemplate: AnalysisTemplate | undefined;
@@ -935,16 +1015,19 @@ export interface GetAnalysisTemplateOutput {
  */
 export interface ListAnalysisTemplatesInput {
   /**
+   * @public
    * <p>The identifier for a membership resource.</p>
    */
   membershipIdentifier: string | undefined;
 
   /**
+   * @public
    * <p>The token value retrieved from a previous call to access the next page of results.</p>
    */
   nextToken?: string;
 
   /**
+   * @public
    * <p>The maximum size of the results that is returned per call.</p>
    */
   maxResults?: number;
@@ -956,51 +1039,61 @@ export interface ListAnalysisTemplatesInput {
  */
 export interface AnalysisTemplateSummary {
   /**
+   * @public
    * <p>The Amazon Resource Name (ARN) of the analysis template.</p>
    */
   arn: string | undefined;
 
   /**
+   * @public
    * <p>The time that the analysis template summary was created.</p>
    */
   createTime: Date | undefined;
 
   /**
+   * @public
    * <p>The identifier of the analysis template.</p>
    */
   id: string | undefined;
 
   /**
+   * @public
    * <p>The name of the analysis template. </p>
    */
   name: string | undefined;
 
   /**
+   * @public
    * <p>The time that the analysis template summary was last updated.</p>
    */
   updateTime: Date | undefined;
 
   /**
+   * @public
    * <p>The Amazon Resource Name (ARN) of the member who created the analysis template.</p>
    */
   membershipArn: string | undefined;
 
   /**
+   * @public
    * <p>The identifier for a membership resource.</p>
    */
   membershipId: string | undefined;
 
   /**
+   * @public
    * <p>The unique ARN for the analysis template summary’s associated collaboration.</p>
    */
   collaborationArn: string | undefined;
 
   /**
+   * @public
    * <p>A unique identifier for the collaboration that the analysis template summary belongs to. Currently accepts collaboration ID.</p>
    */
   collaborationId: string | undefined;
 
   /**
+   * @public
    * <p>The description of the analysis template.</p>
    */
   description?: string;
@@ -1011,11 +1104,13 @@ export interface AnalysisTemplateSummary {
  */
 export interface ListAnalysisTemplatesOutput {
   /**
+   * @public
    * <p>The token value retrieved from a previous call to access the next page of results.</p>
    */
   nextToken?: string;
 
   /**
+   * @public
    * <p>Lists analysis template metadata.</p>
    */
   analysisTemplateSummaries: AnalysisTemplateSummary[] | undefined;
@@ -1026,16 +1121,19 @@ export interface ListAnalysisTemplatesOutput {
  */
 export interface UpdateAnalysisTemplateInput {
   /**
+   * @public
    * <p>The identifier for a membership resource.</p>
    */
   membershipIdentifier: string | undefined;
 
   /**
+   * @public
    * <p>The identifier for the analysis template resource.</p>
    */
   analysisTemplateIdentifier: string | undefined;
 
   /**
+   * @public
    * <p>A new description for the analysis template.</p>
    */
   description?: string;
@@ -1046,6 +1144,7 @@ export interface UpdateAnalysisTemplateInput {
  */
 export interface UpdateAnalysisTemplateOutput {
   /**
+   * @public
    * <p>The analysis template.</p>
    */
   analysisTemplate: AnalysisTemplate | undefined;
@@ -1056,11 +1155,13 @@ export interface UpdateAnalysisTemplateOutput {
  */
 export interface BatchGetCollaborationAnalysisTemplateInput {
   /**
+   * @public
    * <p>A unique identifier for the collaboration that the analysis templates belong to. Currently accepts collaboration ID.</p>
    */
   collaborationIdentifier: string | undefined;
 
   /**
+   * @public
    * <p>The Amazon Resource Name (ARN) associated with the analysis template within a collaboration.</p>
    */
   analysisTemplateArns: string[] | undefined;
@@ -1072,66 +1173,79 @@ export interface BatchGetCollaborationAnalysisTemplateInput {
  */
 export interface CollaborationAnalysisTemplate {
   /**
+   * @public
    * <p>The identifier of the analysis template.</p>
    */
   id: string | undefined;
 
   /**
+   * @public
    * <p>The Amazon Resource Name (ARN) of the analysis template.</p>
    */
   arn: string | undefined;
 
   /**
+   * @public
    * <p>A unique identifier for the collaboration that the analysis templates belong to. Currently accepts collaboration ID.</p>
    */
   collaborationId: string | undefined;
 
   /**
+   * @public
    * <p>The unique ARN for the analysis template’s associated collaboration.</p>
    */
   collaborationArn: string | undefined;
 
   /**
+   * @public
    * <p>The description of the analysis template.</p>
    */
   description?: string;
 
   /**
+   * @public
    * <p>The identifier used to reference members of the collaboration. Currently only supports Amazon Web Services account ID.</p>
    */
   creatorAccountId: string | undefined;
 
   /**
+   * @public
    * <p>The name of the analysis template.</p>
    */
   name: string | undefined;
 
   /**
+   * @public
    * <p>The time that the analysis template within a collaboration was created.</p>
    */
   createTime: Date | undefined;
 
   /**
+   * @public
    * <p>The time that the analysis template in the collaboration was last updated.</p>
    */
   updateTime: Date | undefined;
 
   /**
+   * @public
    * <p>The entire schema object.</p>
    */
   schema: AnalysisSchema | undefined;
 
   /**
+   * @public
    * <p>The format of the analysis template in the collaboration.</p>
    */
   format: AnalysisFormat | string | undefined;
 
   /**
+   * @public
    * <p>The source of the analysis template within a collaboration.</p>
    */
   source: AnalysisSource | undefined;
 
   /**
+   * @public
    * <p>The analysis parameters that have been specified in the analysis template.</p>
    */
   analysisParameters?: AnalysisParameter[];
@@ -1143,16 +1257,19 @@ export interface CollaborationAnalysisTemplate {
  */
 export interface BatchGetCollaborationAnalysisTemplateError {
   /**
+   * @public
    * <p>The Amazon Resource Name (ARN) of the analysis template.</p>
    */
   arn: string | undefined;
 
   /**
+   * @public
    * <p>An error code for the error.</p>
    */
   code: string | undefined;
 
   /**
+   * @public
    * <p>A description of why the call failed.</p>
    */
   message: string | undefined;
@@ -1163,11 +1280,13 @@ export interface BatchGetCollaborationAnalysisTemplateError {
  */
 export interface BatchGetCollaborationAnalysisTemplateOutput {
   /**
+   * @public
    * <p>The retrieved list of analysis templates within a collaboration.</p>
    */
   collaborationAnalysisTemplates: CollaborationAnalysisTemplate[] | undefined;
 
   /**
+   * @public
    * <p>Error reasons for collaboration analysis templates that could not be retrieved. One error is returned for every collaboration analysis template that could not be retrieved.</p>
    */
   errors: BatchGetCollaborationAnalysisTemplateError[] | undefined;
@@ -1178,12 +1297,14 @@ export interface BatchGetCollaborationAnalysisTemplateOutput {
  */
 export interface BatchGetSchemaInput {
   /**
+   * @public
    * <p>A unique identifier for the collaboration that the schemas belong to. Currently accepts
    *          collaboration ID.</p>
    */
   collaborationIdentifier: string | undefined;
 
   /**
+   * @public
    * <p>The names for the schema objects to retrieve.&gt;</p>
    */
   names: string[] | undefined;
@@ -1195,16 +1316,19 @@ export interface BatchGetSchemaInput {
  */
 export interface BatchGetSchemaError {
   /**
+   * @public
    * <p>An error name for the error.</p>
    */
   name: string | undefined;
 
   /**
+   * @public
    * <p>An error code for the error. </p>
    */
   code: string | undefined;
 
   /**
+   * @public
    * <p>An error message for the error.</p>
    */
   message: string | undefined;
@@ -1216,11 +1340,13 @@ export interface BatchGetSchemaError {
  */
 export interface Column {
   /**
+   * @public
    * <p>The name of the column.</p>
    */
   name: string | undefined;
 
   /**
+   * @public
    * <p>The type of the column.</p>
    */
   type: string | undefined;
@@ -1245,62 +1371,74 @@ export type SchemaType = (typeof SchemaType)[keyof typeof SchemaType];
  */
 export interface Schema {
   /**
+   * @public
    * <p>The columns for the relation this schema represents.</p>
    */
   columns: Column[] | undefined;
 
   /**
+   * @public
    * <p>The partition keys for the dataset underlying this schema.</p>
    */
   partitionKeys: Column[] | undefined;
 
   /**
+   * @public
    * <p>The analysis rule types associated with the schema. Currently, only one entry is present.</p>
    */
   analysisRuleTypes: (AnalysisRuleType | string)[] | undefined;
 
   /**
+   * @public
    * <p>The analysis method for the schema. The only valid value is currently
    *          DIRECT_QUERY.</p>
    */
   analysisMethod?: AnalysisMethod | string;
 
   /**
+   * @public
    * <p>The unique account ID for the Amazon Web Services account that owns the schema.</p>
    */
   creatorAccountId: string | undefined;
 
   /**
+   * @public
    * <p>A name for the schema. The schema relation is referred to by this name when queried by a protected query.</p>
    */
   name: string | undefined;
 
   /**
+   * @public
    * <p>The unique ID for the collaboration that the schema belongs to.</p>
    */
   collaborationId: string | undefined;
 
   /**
+   * @public
    * <p>The unique ARN for the collaboration that the schema belongs to.</p>
    */
   collaborationArn: string | undefined;
 
   /**
+   * @public
    * <p>A description for the schema.</p>
    */
   description: string | undefined;
 
   /**
+   * @public
    * <p>The time the schema was created.</p>
    */
   createTime: Date | undefined;
 
   /**
+   * @public
    * <p>The time the schema was last updated.</p>
    */
   updateTime: Date | undefined;
 
   /**
+   * @public
    * <p>The type of schema. The only valid value is currently `TABLE`.</p>
    */
   type: SchemaType | string | undefined;
@@ -1311,11 +1449,13 @@ export interface Schema {
  */
 export interface BatchGetSchemaOutput {
   /**
+   * @public
    * <p>The retrieved list of schemas.</p>
    */
   schemas: Schema[] | undefined;
 
   /**
+   * @public
    * <p>Error reasons for schemas that could not be retrieved. One error is returned for every
    *          schema that could not be retrieved.</p>
    */
@@ -1342,21 +1482,25 @@ export type MemberAbility = (typeof MemberAbility)[keyof typeof MemberAbility];
  */
 export interface DataEncryptionMetadata {
   /**
+   * @public
    * <p>Indicates whether encrypted tables can contain cleartext data (true) or are to cryptographically process every column (false).</p>
    */
   allowCleartext: boolean | undefined;
 
   /**
+   * @public
    * <p>Indicates whether Fingerprint columns can contain duplicate entries (true) or are to contain only non-repeated values (false).</p>
    */
   allowDuplicates: boolean | undefined;
 
   /**
+   * @public
    * <p>Indicates whether Fingerprint columns can be joined on any other Fingerprint column with a different name (true) or can only be joined on Fingerprint columns of the same name (false).</p>
    */
   allowJoinsOnColumnsWithDifferentNames: boolean | undefined;
 
   /**
+   * @public
    * <p>Indicates whether NULL values are to be copied as NULL to encrypted tables (true) or cryptographically processed (false).</p>
    */
   preserveNulls: boolean | undefined;
@@ -1368,16 +1512,19 @@ export interface DataEncryptionMetadata {
  */
 export interface MemberSpecification {
   /**
+   * @public
    * <p>The identifier used to reference members of the collaboration. Currently only supports Amazon Web Services account ID.</p>
    */
   accountId: string | undefined;
 
   /**
+   * @public
    * <p>The abilities granted to the collaboration member.</p>
    */
   memberAbilities: (MemberAbility | string)[] | undefined;
 
   /**
+   * @public
    * <p>The member's display name.</p>
    */
   displayName: string | undefined;
@@ -1403,42 +1550,50 @@ export type CollaborationQueryLogStatus =
  */
 export interface CreateCollaborationInput {
   /**
+   * @public
    * <p>A list of initial members, not including the creator. This list is immutable.</p>
    */
   members: MemberSpecification[] | undefined;
 
   /**
+   * @public
    * <p>The display name for a collaboration.</p>
    */
   name: string | undefined;
 
   /**
+   * @public
    * <p>A description of the collaboration provided by the collaboration owner.</p>
    */
   description: string | undefined;
 
   /**
+   * @public
    * <p>The abilities granted to the collaboration creator.</p>
    */
   creatorMemberAbilities: (MemberAbility | string)[] | undefined;
 
   /**
+   * @public
    * <p>The display name of the collaboration creator.</p>
    */
   creatorDisplayName: string | undefined;
 
   /**
+   * @public
    * <p>The settings for client-side encryption with Cryptographic Computing for Clean Rooms.</p>
    */
   dataEncryptionMetadata?: DataEncryptionMetadata;
 
   /**
+   * @public
    * <p>An indicator as to whether query logging has been enabled or disabled for the
    *          collaboration.</p>
    */
   queryLogStatus: CollaborationQueryLogStatus | string | undefined;
 
   /**
+   * @public
    * <p>An optional label that you can assign to a resource when you create it. Each tag
    *          consists of a key and an optional value, both of which you define. When you use tagging,
    *          you can also use tag-based access control in IAM policies to control access to this
@@ -1469,66 +1624,79 @@ export type MemberStatus = (typeof MemberStatus)[keyof typeof MemberStatus];
  */
 export interface Collaboration {
   /**
+   * @public
    * <p>The unique ID for the collaboration.</p>
    */
   id: string | undefined;
 
   /**
+   * @public
    * <p>The unique ARN for the collaboration.</p>
    */
   arn: string | undefined;
 
   /**
+   * @public
    * <p>A human-readable identifier provided by the collaboration owner. Display names are not unique.</p>
    */
   name: string | undefined;
 
   /**
+   * @public
    * <p>A description of the collaboration provided by the collaboration owner.</p>
    */
   description?: string;
 
   /**
+   * @public
    * <p>The identifier used to reference members of the collaboration. Currently only supports Amazon Web Services account ID.</p>
    */
   creatorAccountId: string | undefined;
 
   /**
+   * @public
    * <p>A display name of the collaboration creator.</p>
    */
   creatorDisplayName: string | undefined;
 
   /**
+   * @public
    * <p>The time when the collaboration was created.</p>
    */
   createTime: Date | undefined;
 
   /**
+   * @public
    * <p>The time the collaboration metadata was last updated.</p>
    */
   updateTime: Date | undefined;
 
   /**
+   * @public
    * <p>The status of a member in a collaboration.</p>
    */
   memberStatus: MemberStatus | string | undefined;
 
   /**
+   * @public
    * <p>The unique ID for your membership within the collaboration.</p>
    */
   membershipId?: string;
 
   /**
+   * @public
    * <p>The unique ARN for your membership within the collaboration.</p>
    */
   membershipArn?: string;
 
   /**
+   * @public
    * <p>The settings for client-side encryption for cryptographic computing.</p>
    */
   dataEncryptionMetadata?: DataEncryptionMetadata;
 
   /**
+   * @public
    * <p>An indicator as to whether query logging has been enabled or disabled for the
    *          collaboration.</p>
    */
@@ -1540,6 +1708,7 @@ export interface Collaboration {
  */
 export interface CreateCollaborationOutput {
   /**
+   * @public
    * <p>The entire created collaboration object.</p>
    */
   collaboration: Collaboration | undefined;
@@ -1550,6 +1719,7 @@ export interface CreateCollaborationOutput {
  */
 export interface DeleteCollaborationInput {
   /**
+   * @public
    * <p>The identifier for the collaboration.</p>
    */
   collaborationIdentifier: string | undefined;
@@ -1565,11 +1735,13 @@ export interface DeleteCollaborationOutput {}
  */
 export interface DeleteMemberInput {
   /**
+   * @public
    * <p>The unique identifier for the associated collaboration.</p>
    */
   collaborationIdentifier: string | undefined;
 
   /**
+   * @public
    * <p>The account ID of the member to remove.</p>
    */
   accountId: string | undefined;
@@ -1585,6 +1757,7 @@ export interface DeleteMemberOutput {}
  */
 export interface GetCollaborationInput {
   /**
+   * @public
    * <p>The identifier for the collaboration.</p>
    */
   collaborationIdentifier: string | undefined;
@@ -1595,6 +1768,7 @@ export interface GetCollaborationInput {
  */
 export interface GetCollaborationOutput {
   /**
+   * @public
    * <p>The entire collaboration for this identifier.</p>
    */
   collaboration: Collaboration | undefined;
@@ -1605,11 +1779,13 @@ export interface GetCollaborationOutput {
  */
 export interface GetCollaborationAnalysisTemplateInput {
   /**
+   * @public
    * <p>A unique identifier for the collaboration that the analysis templates belong to. Currently accepts collaboration ID.</p>
    */
   collaborationIdentifier: string | undefined;
 
   /**
+   * @public
    * <p>The Amazon Resource Name (ARN) associated with the analysis template within a collaboration.</p>
    */
   analysisTemplateArn: string | undefined;
@@ -1620,6 +1796,7 @@ export interface GetCollaborationAnalysisTemplateInput {
  */
 export interface GetCollaborationAnalysisTemplateOutput {
   /**
+   * @public
    * <p>The analysis template within a collaboration.</p>
    */
   collaborationAnalysisTemplate: CollaborationAnalysisTemplate | undefined;
@@ -1630,12 +1807,14 @@ export interface GetCollaborationAnalysisTemplateOutput {
  */
 export interface GetSchemaInput {
   /**
+   * @public
    * <p>A unique identifier for the collaboration that the schema belongs to. Currently accepts
    *          a collaboration ID.</p>
    */
   collaborationIdentifier: string | undefined;
 
   /**
+   * @public
    * <p>The name of the relation to retrieve the schema for.</p>
    */
   name: string | undefined;
@@ -1646,6 +1825,7 @@ export interface GetSchemaInput {
  */
 export interface GetSchemaOutput {
   /**
+   * @public
    * <p>The entire schema object.</p>
    */
   schema: Schema | undefined;
@@ -1656,17 +1836,20 @@ export interface GetSchemaOutput {
  */
 export interface GetSchemaAnalysisRuleInput {
   /**
+   * @public
    * <p>A unique identifier for the collaboration that the schema belongs to. Currently accepts
    *          a collaboration ID.</p>
    */
   collaborationIdentifier: string | undefined;
 
   /**
+   * @public
    * <p>The name of the schema to retrieve the analysis rule for.</p>
    */
   name: string | undefined;
 
   /**
+   * @public
    * <p>The type of the schema analysis rule to retrieve. Schema analysis rules are uniquely identified by a combination of the collaboration, the schema name, and their type.</p>
    */
   type: AnalysisRuleType | string | undefined;
@@ -1677,6 +1860,7 @@ export interface GetSchemaAnalysisRuleInput {
  */
 export interface GetSchemaAnalysisRuleOutput {
   /**
+   * @public
    * <p>A specification about how data from the configured table can be used.</p>
    */
   analysisRule: AnalysisRule | undefined;
@@ -1687,16 +1871,19 @@ export interface GetSchemaAnalysisRuleOutput {
  */
 export interface ListCollaborationAnalysisTemplatesInput {
   /**
+   * @public
    * <p>A unique identifier for the collaboration that the analysis templates belong to. Currently accepts collaboration ID.</p>
    */
   collaborationIdentifier: string | undefined;
 
   /**
+   * @public
    * <p>The token value retrieved from a previous call to access the next page of results.</p>
    */
   nextToken?: string;
 
   /**
+   * @public
    * <p>The maximum size of the results that is returned per call.</p>
    */
   maxResults?: number;
@@ -1708,46 +1895,55 @@ export interface ListCollaborationAnalysisTemplatesInput {
  */
 export interface CollaborationAnalysisTemplateSummary {
   /**
+   * @public
    * <p>The Amazon Resource Name (ARN) of the analysis template.</p>
    */
   arn: string | undefined;
 
   /**
+   * @public
    * <p>The time that the summary of the analysis template in a collaboration was created.</p>
    */
   createTime: Date | undefined;
 
   /**
+   * @public
    * <p>The identifier of the analysis template.</p>
    */
   id: string | undefined;
 
   /**
+   * @public
    * <p>The name of the analysis template.</p>
    */
   name: string | undefined;
 
   /**
+   * @public
    * <p>The time that the summary of the analysis template in the collaboration was last updated.</p>
    */
   updateTime: Date | undefined;
 
   /**
+   * @public
    * <p>The unique ARN for the analysis template’s associated collaboration.</p>
    */
   collaborationArn: string | undefined;
 
   /**
+   * @public
    * <p>A unique identifier for the collaboration that the analysis templates belong to. Currently accepts collaboration ID.</p>
    */
   collaborationId: string | undefined;
 
   /**
+   * @public
    * <p>The identifier used to reference members of the collaboration. Currently only supports Amazon Web Services account ID.</p>
    */
   creatorAccountId: string | undefined;
 
   /**
+   * @public
    * <p>The description of the analysis template.</p>
    */
   description?: string;
@@ -1758,11 +1954,13 @@ export interface CollaborationAnalysisTemplateSummary {
  */
 export interface ListCollaborationAnalysisTemplatesOutput {
   /**
+   * @public
    * <p>The token value retrieved from a previous call to access the next page of results.</p>
    */
   nextToken?: string;
 
   /**
+   * @public
    * <p>The metadata of the analysis template within a collaboration.</p>
    */
   collaborationAnalysisTemplateSummaries: CollaborationAnalysisTemplateSummary[] | undefined;
@@ -1787,11 +1985,13 @@ export type FilterableMemberStatus = (typeof FilterableMemberStatus)[keyof typeo
  */
 export interface ListCollaborationsInput {
   /**
+   * @public
    * <p>The token value retrieved from a previous call to access the next page of results.</p>
    */
   nextToken?: string;
 
   /**
+   * @public
    * <p>The maximum size of the results that is returned per call. Service chooses a default if
    *          it has not been set. Service may return a nextToken even if the maximum results has not
    *          been met.</p>
@@ -1799,6 +1999,7 @@ export interface ListCollaborationsInput {
   maxResults?: number;
 
   /**
+   * @public
    * <p>The caller's status in a collaboration.</p>
    */
   memberStatus?: FilterableMemberStatus | string;
@@ -1810,51 +2011,61 @@ export interface ListCollaborationsInput {
  */
 export interface CollaborationSummary {
   /**
+   * @public
    * <p>The identifier for the collaboration.</p>
    */
   id: string | undefined;
 
   /**
+   * @public
    * <p>The ARN of the collaboration.</p>
    */
   arn: string | undefined;
 
   /**
+   * @public
    * <p>A human-readable identifier provided by the collaboration owner. Display names are not unique.</p>
    */
   name: string | undefined;
 
   /**
+   * @public
    * <p>The identifier used to reference members of the collaboration. Currently only supports Amazon Web Services account ID.</p>
    */
   creatorAccountId: string | undefined;
 
   /**
+   * @public
    * <p>The display name of the collaboration creator.</p>
    */
   creatorDisplayName: string | undefined;
 
   /**
+   * @public
    * <p>The time when the collaboration was created.</p>
    */
   createTime: Date | undefined;
 
   /**
+   * @public
    * <p>The time the collaboration metadata was last updated.</p>
    */
   updateTime: Date | undefined;
 
   /**
+   * @public
    * <p>The status of a member in a collaboration.</p>
    */
   memberStatus: MemberStatus | string | undefined;
 
   /**
+   * @public
    * <p>The identifier of a member in a collaboration.</p>
    */
   membershipId?: string;
 
   /**
+   * @public
    * <p>The ARN of a member in a collaboration.</p>
    */
   membershipArn?: string;
@@ -1865,11 +2076,13 @@ export interface CollaborationSummary {
  */
 export interface ListCollaborationsOutput {
   /**
+   * @public
    * <p>The token value retrieved from a previous call to access the next page of results.</p>
    */
   nextToken?: string;
 
   /**
+   * @public
    * <p>The list of collaborations.</p>
    */
   collaborationList: CollaborationSummary[] | undefined;
@@ -1880,16 +2093,19 @@ export interface ListCollaborationsOutput {
  */
 export interface ListMembersInput {
   /**
+   * @public
    * <p>The identifier of the collaboration in which the members are listed.</p>
    */
   collaborationIdentifier: string | undefined;
 
   /**
+   * @public
    * <p>The token value retrieved from a previous call to access the next page of results.</p>
    */
   nextToken?: string;
 
   /**
+   * @public
    * <p>The maximum size of the results that is returned per call.</p>
    */
   maxResults?: number;
@@ -1901,41 +2117,49 @@ export interface ListMembersInput {
  */
 export interface MemberSummary {
   /**
+   * @public
    * <p>The identifier used to reference members of the collaboration. Currently only supports Amazon Web Services account ID.</p>
    */
   accountId: string | undefined;
 
   /**
+   * @public
    * <p>The status of the member. Valid values are `INVITED`, `ACTIVE`, `LEFT`, and `REMOVED`.</p>
    */
   status: MemberStatus | string | undefined;
 
   /**
+   * @public
    * <p>The member's display name.</p>
    */
   displayName: string | undefined;
 
   /**
+   * @public
    * <p>The abilities granted to the collaboration member.</p>
    */
   abilities: (MemberAbility | string)[] | undefined;
 
   /**
+   * @public
    * <p>The time when the member was created.</p>
    */
   createTime: Date | undefined;
 
   /**
+   * @public
    * <p>The time the member metadata was last updated.</p>
    */
   updateTime: Date | undefined;
 
   /**
+   * @public
    * <p>The unique ID for the member's associated membership, if present.</p>
    */
   membershipId?: string;
 
   /**
+   * @public
    * <p>The unique ARN for the member's associated membership, if present.</p>
    */
   membershipArn?: string;
@@ -1946,11 +2170,13 @@ export interface MemberSummary {
  */
 export interface ListMembersOutput {
   /**
+   * @public
    * <p>The token value retrieved from a previous call to access the next page of results.</p>
    */
   nextToken?: string;
 
   /**
+   * @public
    * <p>The list of members returned by the ListMembers operation.</p>
    */
   memberSummaries: MemberSummary[] | undefined;
@@ -1961,22 +2187,26 @@ export interface ListMembersOutput {
  */
 export interface ListSchemasInput {
   /**
+   * @public
    * <p>A unique identifier for the collaboration that the schema belongs to. Currently accepts
    *          a collaboration ID.</p>
    */
   collaborationIdentifier: string | undefined;
 
   /**
+   * @public
    * <p>If present, filter schemas by schema type. The only valid schema type is currently `TABLE`.</p>
    */
   schemaType?: SchemaType | string;
 
   /**
+   * @public
    * <p>The token value retrieved from a previous call to access the next page of results.</p>
    */
   nextToken?: string;
 
   /**
+   * @public
    * <p>The maximum size of the results that is returned per call.</p>
    */
   maxResults?: number;
@@ -1988,46 +2218,55 @@ export interface ListSchemasInput {
  */
 export interface SchemaSummary {
   /**
+   * @public
    * <p>The name for the schema object.</p>
    */
   name: string | undefined;
 
   /**
+   * @public
    * <p>The type of schema object. The only valid schema type is currently `TABLE`.</p>
    */
   type: SchemaType | string | undefined;
 
   /**
+   * @public
    * <p>The unique account ID for the Amazon Web Services account that owns the schema.</p>
    */
   creatorAccountId: string | undefined;
 
   /**
+   * @public
    * <p>The time the schema object was created.</p>
    */
   createTime: Date | undefined;
 
   /**
+   * @public
    * <p>The time the schema object was last updated.</p>
    */
   updateTime: Date | undefined;
 
   /**
+   * @public
    * <p>The unique ID for the collaboration that the schema belongs to.</p>
    */
   collaborationId: string | undefined;
 
   /**
+   * @public
    * <p>The unique ARN for the collaboration that the schema belongs to.</p>
    */
   collaborationArn: string | undefined;
 
   /**
+   * @public
    * <p>The types of analysis rules that are associated with this schema object.</p>
    */
   analysisRuleTypes: (AnalysisRuleType | string)[] | undefined;
 
   /**
+   * @public
    * <p>The analysis method for the associated schema. The only valid value is currently `DIRECT_QUERY`.</p>
    */
   analysisMethod?: AnalysisMethod | string;
@@ -2038,11 +2277,13 @@ export interface SchemaSummary {
  */
 export interface ListSchemasOutput {
   /**
+   * @public
    * <p>The retrieved list of schemas.</p>
    */
   schemaSummaries: SchemaSummary[] | undefined;
 
   /**
+   * @public
    * <p>The token value retrieved from a previous call to access the next page of results.</p>
    */
   nextToken?: string;
@@ -2053,16 +2294,19 @@ export interface ListSchemasOutput {
  */
 export interface UpdateCollaborationInput {
   /**
+   * @public
    * <p>The identifier for the collaboration.</p>
    */
   collaborationIdentifier: string | undefined;
 
   /**
+   * @public
    * <p>A human-readable identifier provided by the collaboration owner. Display names are not unique.</p>
    */
   name?: string;
 
   /**
+   * @public
    * <p>A description of the collaboration.</p>
    */
   description?: string;
@@ -2073,6 +2317,7 @@ export interface UpdateCollaborationInput {
  */
 export interface UpdateCollaborationOutput {
   /**
+   * @public
    * <p>The entire collaboration that has been updated.</p>
    */
   collaboration: Collaboration | undefined;
@@ -2083,17 +2328,20 @@ export interface UpdateCollaborationOutput {
  */
 export interface CreateConfiguredTableAssociationInput {
   /**
+   * @public
    * <p>The name of the configured table association. This name is used to query the underlying
    *          configured table.</p>
    */
   name: string | undefined;
 
   /**
+   * @public
    * <p>A description for the configured table association.</p>
    */
   description?: string;
 
   /**
+   * @public
    * <p>A unique identifier for one of your memberships for a collaboration. The configured
    *          table is associated to the collaboration that this membership belongs to. Currently accepts
    *          a membership ID.</p>
@@ -2101,17 +2349,20 @@ export interface CreateConfiguredTableAssociationInput {
   membershipIdentifier: string | undefined;
 
   /**
+   * @public
    * <p>A unique identifier for the configured table to be associated to. Currently accepts a
    *          configured table ID.</p>
    */
   configuredTableIdentifier: string | undefined;
 
   /**
+   * @public
    * <p>The service will assume this role to access catalog metadata and query the table.</p>
    */
   roleArn: string | undefined;
 
   /**
+   * @public
    * <p>An optional label that you can assign to a resource when you create it. Each tag
    *          consists of a key and an optional value, both of which you define. When you use tagging,
    *          you can also use tag-based access control in IAM policies to control access to this
@@ -2126,56 +2377,67 @@ export interface CreateConfiguredTableAssociationInput {
  */
 export interface ConfiguredTableAssociation {
   /**
+   * @public
    * <p>The unique ARN for the configured table association.</p>
    */
   arn: string | undefined;
 
   /**
+   * @public
    * <p>The unique ID for the configured table association.</p>
    */
   id: string | undefined;
 
   /**
+   * @public
    * <p>The unique ID for the configured table that the association refers to.</p>
    */
   configuredTableId: string | undefined;
 
   /**
+   * @public
    * <p>The unique ARN for the configured table that the association refers to.</p>
    */
   configuredTableArn: string | undefined;
 
   /**
+   * @public
    * <p>The unique ID for the membership this configured table association belongs to.</p>
    */
   membershipId: string | undefined;
 
   /**
+   * @public
    * <p>The unique ARN for the membership this configured table association belongs to.</p>
    */
   membershipArn: string | undefined;
 
   /**
+   * @public
    * <p>The service will assume this role to access catalog metadata and query the table.</p>
    */
   roleArn: string | undefined;
 
   /**
+   * @public
    * <p>The name of the configured table association, in lowercase. The table is identified by this name when running protected queries against the underlying data.</p>
    */
   name: string | undefined;
 
   /**
+   * @public
    * <p>A description of the configured table association.</p>
    */
   description?: string;
 
   /**
+   * @public
    * <p>The time the configured table association was created.</p>
    */
   createTime: Date | undefined;
 
   /**
+   * @public
    * <p>The time the configured table association was last updated.</p>
    */
   updateTime: Date | undefined;
@@ -2186,6 +2448,7 @@ export interface ConfiguredTableAssociation {
  */
 export interface CreateConfiguredTableAssociationOutput {
   /**
+   * @public
    * <p>The entire configured table association object.</p>
    */
   configuredTableAssociation: ConfiguredTableAssociation | undefined;
@@ -2196,11 +2459,13 @@ export interface CreateConfiguredTableAssociationOutput {
  */
 export interface DeleteConfiguredTableAssociationInput {
   /**
+   * @public
    * <p>The unique ID for the configured table association to be deleted. Currently accepts the configured table ID.</p>
    */
   configuredTableAssociationIdentifier: string | undefined;
 
   /**
+   * @public
    * <p>A unique identifier for the membership that the configured table association belongs to.
    *          Currently accepts the membership ID.</p>
    */
@@ -2217,11 +2482,13 @@ export interface DeleteConfiguredTableAssociationOutput {}
  */
 export interface GetConfiguredTableAssociationInput {
   /**
+   * @public
    * <p>The unique ID for the configured table association to retrieve. Currently accepts the configured table ID.</p>
    */
   configuredTableAssociationIdentifier: string | undefined;
 
   /**
+   * @public
    * <p>A unique identifier for the membership that the configured table association belongs to.
    *          Currently accepts the membership ID.</p>
    */
@@ -2233,6 +2500,7 @@ export interface GetConfiguredTableAssociationInput {
  */
 export interface GetConfiguredTableAssociationOutput {
   /**
+   * @public
    * <p>The entire configured table association object.</p>
    */
   configuredTableAssociation: ConfiguredTableAssociation | undefined;
@@ -2243,16 +2511,19 @@ export interface GetConfiguredTableAssociationOutput {
  */
 export interface ListConfiguredTableAssociationsInput {
   /**
+   * @public
    * <p>A unique identifier for the membership to list configured table associations for. Currently accepts the membership ID.</p>
    */
   membershipIdentifier: string | undefined;
 
   /**
+   * @public
    * <p>The token value retrieved from a previous call to access the next page of results.</p>
    */
   nextToken?: string;
 
   /**
+   * @public
    * <p>The maximum size of the results that is returned per call.</p>
    */
   maxResults?: number;
@@ -2264,43 +2535,51 @@ export interface ListConfiguredTableAssociationsInput {
  */
 export interface ConfiguredTableAssociationSummary {
   /**
+   * @public
    * <p>The unique configured table ID that this configured table association refers to.</p>
    */
   configuredTableId: string | undefined;
 
   /**
+   * @public
    * <p>The unique ID for the membership that the configured table association belongs
    *          to.</p>
    */
   membershipId: string | undefined;
 
   /**
+   * @public
    * <p>The unique ARN for the membership that the configured table association belongs
    *          to.</p>
    */
   membershipArn: string | undefined;
 
   /**
+   * @public
    * <p>The name of the configured table association. The table is identified by this name when running Protected Queries against the underlying data.</p>
    */
   name: string | undefined;
 
   /**
+   * @public
    * <p>The time the configured table association was created.</p>
    */
   createTime: Date | undefined;
 
   /**
+   * @public
    * <p>The time the configured table association was last updated.</p>
    */
   updateTime: Date | undefined;
 
   /**
+   * @public
    * <p>The unique ID for the configured table association.</p>
    */
   id: string | undefined;
 
   /**
+   * @public
    * <p>The unique ARN for the configured table association.</p>
    */
   arn: string | undefined;
@@ -2311,11 +2590,13 @@ export interface ConfiguredTableAssociationSummary {
  */
 export interface ListConfiguredTableAssociationsOutput {
   /**
+   * @public
    * <p>The retrieved list of configured table associations.</p>
    */
   configuredTableAssociationSummaries: ConfiguredTableAssociationSummary[] | undefined;
 
   /**
+   * @public
    * <p>The token value retrieved from a previous call to access the next page of results.</p>
    */
   nextToken?: string;
@@ -2326,22 +2607,26 @@ export interface ListConfiguredTableAssociationsOutput {
  */
 export interface UpdateConfiguredTableAssociationInput {
   /**
+   * @public
    * <p>The unique identifier for the configured table association to update. Currently accepts the configured table association ID.</p>
    */
   configuredTableAssociationIdentifier: string | undefined;
 
   /**
+   * @public
    * <p>The unique ID for the membership that the configured table association belongs
    *          to.</p>
    */
   membershipIdentifier: string | undefined;
 
   /**
+   * @public
    * <p>A new description for the configured table association.</p>
    */
   description?: string;
 
   /**
+   * @public
    * <p>The service will assume this role to access catalog metadata and query the table.</p>
    */
   roleArn?: string;
@@ -2352,6 +2637,7 @@ export interface UpdateConfiguredTableAssociationInput {
  */
 export interface UpdateConfiguredTableAssociationOutput {
   /**
+   * @public
    * <p>The entire updated configured table association.</p>
    */
   configuredTableAssociation: ConfiguredTableAssociation | undefined;
@@ -2363,11 +2649,13 @@ export interface UpdateConfiguredTableAssociationOutput {
  */
 export interface GlueTableReference {
   /**
+   * @public
    * <p>The name of the Glue table.</p>
    */
   tableName: string | undefined;
 
   /**
+   * @public
    * <p>The name of the database the Glue table belongs to.</p>
    */
   databaseName: string | undefined;
@@ -2384,6 +2672,7 @@ export type TableReference = TableReference.GlueMember | TableReference.$Unknown
  */
 export namespace TableReference {
   /**
+   * @public
    * <p>If present, a reference to the Glue table referred to by this table
    *          reference.</p>
    */
@@ -2392,6 +2681,9 @@ export namespace TableReference {
     $unknown?: never;
   }
 
+  /**
+   * @public
+   */
   export interface $UnknownMember {
     glue?: never;
     $unknown: [string, any];
@@ -2413,31 +2705,37 @@ export namespace TableReference {
  */
 export interface CreateConfiguredTableInput {
   /**
+   * @public
    * <p>The name of the configured table.</p>
    */
   name: string | undefined;
 
   /**
+   * @public
    * <p>A description for the configured table.</p>
    */
   description?: string;
 
   /**
+   * @public
    * <p>A reference to the Glue table being configured.</p>
    */
   tableReference: TableReference | undefined;
 
   /**
+   * @public
    * <p>The columns of the underlying table that can be used by collaborations or analysis rules.</p>
    */
   allowedColumns: string[] | undefined;
 
   /**
+   * @public
    * <p>The analysis method for the configured tables. The only valid value is currently `DIRECT_QUERY`.</p>
    */
   analysisMethod: AnalysisMethod | string | undefined;
 
   /**
+   * @public
    * <p>An optional label that you can assign to a resource when you create it. Each tag
    *          consists of a key and an optional value, both of which you define. When you use tagging,
    *          you can also use tag-based access control in IAM policies to control access to this
@@ -2468,51 +2766,61 @@ export type ConfiguredTableAnalysisRuleType =
  */
 export interface ConfiguredTable {
   /**
+   * @public
    * <p>The unique ID for the configured table.</p>
    */
   id: string | undefined;
 
   /**
+   * @public
    * <p>The unique ARN for the configured table.</p>
    */
   arn: string | undefined;
 
   /**
+   * @public
    * <p>A name for the configured table.</p>
    */
   name: string | undefined;
 
   /**
+   * @public
    * <p>A description for the configured table.</p>
    */
   description?: string;
 
   /**
+   * @public
    * <p>The Glue table that this configured table represents.</p>
    */
   tableReference: TableReference | undefined;
 
   /**
+   * @public
    * <p>The time the configured table was created.</p>
    */
   createTime: Date | undefined;
 
   /**
+   * @public
    * <p>The time the configured table was last updated</p>
    */
   updateTime: Date | undefined;
 
   /**
+   * @public
    * <p>The types of analysis rules associated with this configured table. Currently, only one analysis rule may be associated with a configured table.</p>
    */
   analysisRuleTypes: (ConfiguredTableAnalysisRuleType | string)[] | undefined;
 
   /**
+   * @public
    * <p>The analysis method for the configured table. The only valid value is currently `DIRECT_QUERY`.</p>
    */
   analysisMethod: AnalysisMethod | string | undefined;
 
   /**
+   * @public
    * <p>The columns within the underlying Glue table that can be utilized within
    *          collaborations.</p>
    */
@@ -2524,6 +2832,7 @@ export interface ConfiguredTable {
  */
 export interface CreateConfiguredTableOutput {
   /**
+   * @public
    * <p>The created configured table.</p>
    */
   configuredTable: ConfiguredTable | undefined;
@@ -2544,6 +2853,7 @@ export type ConfiguredTableAnalysisRulePolicyV1 =
  */
 export namespace ConfiguredTableAnalysisRulePolicyV1 {
   /**
+   * @public
    * <p>Analysis rule type that enables only list queries on a configured table.</p>
    */
   export interface ListMember {
@@ -2554,6 +2864,7 @@ export namespace ConfiguredTableAnalysisRulePolicyV1 {
   }
 
   /**
+   * @public
    * <p>Analysis rule type that enables only aggregation queries on a configured table.</p>
    */
   export interface AggregationMember {
@@ -2564,6 +2875,7 @@ export namespace ConfiguredTableAnalysisRulePolicyV1 {
   }
 
   /**
+   * @public
    * <p>A type of analysis rule that enables the table owner to approve custom SQL queries on their configured tables.</p>
    */
   export interface CustomMember {
@@ -2573,6 +2885,9 @@ export namespace ConfiguredTableAnalysisRulePolicyV1 {
     $unknown?: never;
   }
 
+  /**
+   * @public
+   */
   export interface $UnknownMember {
     list?: never;
     aggregation?: never;
@@ -2608,6 +2923,7 @@ export type ConfiguredTableAnalysisRulePolicy =
  */
 export namespace ConfiguredTableAnalysisRulePolicy {
   /**
+   * @public
    * <p>Controls on the query specifications that can be run on a configured table.</p>
    */
   export interface V1Member {
@@ -2615,6 +2931,9 @@ export namespace ConfiguredTableAnalysisRulePolicy {
     $unknown?: never;
   }
 
+  /**
+   * @public
+   */
   export interface $UnknownMember {
     v1?: never;
     $unknown: [string, any];
@@ -2636,16 +2955,19 @@ export namespace ConfiguredTableAnalysisRulePolicy {
  */
 export interface CreateConfiguredTableAnalysisRuleInput {
   /**
+   * @public
    * <p>The identifier for the configured table to create the analysis rule for. Currently accepts the configured table ID. </p>
    */
   configuredTableIdentifier: string | undefined;
 
   /**
+   * @public
    * <p>The type of analysis rule.</p>
    */
   analysisRuleType: ConfiguredTableAnalysisRuleType | string | undefined;
 
   /**
+   * @public
    * <p>The entire created configured table analysis rule object.</p>
    */
   analysisRulePolicy: ConfiguredTableAnalysisRulePolicy | undefined;
@@ -2657,31 +2979,37 @@ export interface CreateConfiguredTableAnalysisRuleInput {
  */
 export interface ConfiguredTableAnalysisRule {
   /**
+   * @public
    * <p>The unique ID for the configured table.</p>
    */
   configuredTableId: string | undefined;
 
   /**
+   * @public
    * <p>The unique ARN for the configured table.</p>
    */
   configuredTableArn: string | undefined;
 
   /**
+   * @public
    * <p>The policy that controls SQL query rules.</p>
    */
   policy: ConfiguredTableAnalysisRulePolicy | undefined;
 
   /**
+   * @public
    * <p>The type of configured table analysis rule.</p>
    */
   type: ConfiguredTableAnalysisRuleType | string | undefined;
 
   /**
+   * @public
    * <p>The time the configured table analysis rule was created.</p>
    */
   createTime: Date | undefined;
 
   /**
+   * @public
    * <p>The time the configured table analysis rule was last updated.</p>
    */
   updateTime: Date | undefined;
@@ -2692,6 +3020,7 @@ export interface ConfiguredTableAnalysisRule {
  */
 export interface CreateConfiguredTableAnalysisRuleOutput {
   /**
+   * @public
    * <p>The entire created analysis rule.</p>
    */
   analysisRule: ConfiguredTableAnalysisRule | undefined;
@@ -2702,6 +3031,7 @@ export interface CreateConfiguredTableAnalysisRuleOutput {
  */
 export interface DeleteConfiguredTableInput {
   /**
+   * @public
    * <p>The unique ID for the configured table to delete.</p>
    */
   configuredTableIdentifier: string | undefined;
@@ -2718,12 +3048,14 @@ export interface DeleteConfiguredTableOutput {}
  */
 export interface DeleteConfiguredTableAnalysisRuleInput {
   /**
+   * @public
    * <p>The unique identifier for the configured table that the analysis rule applies to.
    *          Currently accepts the configured table ID.</p>
    */
   configuredTableIdentifier: string | undefined;
 
   /**
+   * @public
    * <p>The analysis rule type to be deleted. Configured table analysis rules are uniquely identified by their configured table identifier and analysis rule type.</p>
    */
   analysisRuleType: ConfiguredTableAnalysisRuleType | string | undefined;
@@ -2740,6 +3072,7 @@ export interface DeleteConfiguredTableAnalysisRuleOutput {}
  */
 export interface GetConfiguredTableInput {
   /**
+   * @public
    * <p>The unique ID for the configured table to retrieve.</p>
    */
   configuredTableIdentifier: string | undefined;
@@ -2750,6 +3083,7 @@ export interface GetConfiguredTableInput {
  */
 export interface GetConfiguredTableOutput {
   /**
+   * @public
    * <p>The retrieved configured table.</p>
    */
   configuredTable: ConfiguredTable | undefined;
@@ -2760,11 +3094,13 @@ export interface GetConfiguredTableOutput {
  */
 export interface GetConfiguredTableAnalysisRuleInput {
   /**
+   * @public
    * <p>The unique identifier for the configured table to retrieve. Currently accepts the configured table ID.</p>
    */
   configuredTableIdentifier: string | undefined;
 
   /**
+   * @public
    * <p>The analysis rule to be retrieved. Configured table analysis rules are uniquely identified by their configured table identifier and analysis rule type.</p>
    */
   analysisRuleType: ConfiguredTableAnalysisRuleType | string | undefined;
@@ -2775,6 +3111,7 @@ export interface GetConfiguredTableAnalysisRuleInput {
  */
 export interface GetConfiguredTableAnalysisRuleOutput {
   /**
+   * @public
    * <p>The entire analysis rule output.</p>
    */
   analysisRule: ConfiguredTableAnalysisRule | undefined;
@@ -2785,11 +3122,13 @@ export interface GetConfiguredTableAnalysisRuleOutput {
  */
 export interface ListConfiguredTablesInput {
   /**
+   * @public
    * <p>The token value retrieved from a previous call to access the next page of results.</p>
    */
   nextToken?: string;
 
   /**
+   * @public
    * <p>The maximum size of the results that is returned per call.</p>
    */
   maxResults?: number;
@@ -2801,36 +3140,43 @@ export interface ListConfiguredTablesInput {
  */
 export interface ConfiguredTableSummary {
   /**
+   * @public
    * <p>The unique ID of the configured table.</p>
    */
   id: string | undefined;
 
   /**
+   * @public
    * <p>The unique ARN of the configured table.</p>
    */
   arn: string | undefined;
 
   /**
+   * @public
    * <p>The name of the configured table.</p>
    */
   name: string | undefined;
 
   /**
+   * @public
    * <p>The time the configured table was created.</p>
    */
   createTime: Date | undefined;
 
   /**
+   * @public
    * <p>The time the configured table was last updated.</p>
    */
   updateTime: Date | undefined;
 
   /**
+   * @public
    * <p>The types of analysis rules associated with this configured table.</p>
    */
   analysisRuleTypes: (ConfiguredTableAnalysisRuleType | string)[] | undefined;
 
   /**
+   * @public
    * <p>The analysis method for the configured tables. The only valid value is currently `DIRECT_QUERY`.</p>
    */
   analysisMethod: AnalysisMethod | string | undefined;
@@ -2841,11 +3187,13 @@ export interface ConfiguredTableSummary {
  */
 export interface ListConfiguredTablesOutput {
   /**
+   * @public
    * <p>The configured tables listed by the request.</p>
    */
   configuredTableSummaries: ConfiguredTableSummary[] | undefined;
 
   /**
+   * @public
    * <p>The token value retrieved from a previous call to access the next page of results.</p>
    */
   nextToken?: string;
@@ -2856,16 +3204,19 @@ export interface ListConfiguredTablesOutput {
  */
 export interface UpdateConfiguredTableInput {
   /**
+   * @public
    * <p>The identifier for the configured table to update. Currently accepts the configured table ID.</p>
    */
   configuredTableIdentifier: string | undefined;
 
   /**
+   * @public
    * <p>A new name for the configured table.</p>
    */
   name?: string;
 
   /**
+   * @public
    * <p>A new description for the configured table.</p>
    */
   description?: string;
@@ -2876,6 +3227,7 @@ export interface UpdateConfiguredTableInput {
  */
 export interface UpdateConfiguredTableOutput {
   /**
+   * @public
    * <p>The updated configured table.</p>
    */
   configuredTable: ConfiguredTable | undefined;
@@ -2886,17 +3238,20 @@ export interface UpdateConfiguredTableOutput {
  */
 export interface UpdateConfiguredTableAnalysisRuleInput {
   /**
+   * @public
    * <p>The unique identifier for the configured table that the analysis rule applies to.
    *          Currently accepts the configured table ID.</p>
    */
   configuredTableIdentifier: string | undefined;
 
   /**
+   * @public
    * <p>The analysis rule type to be updated. Configured table analysis rules are uniquely identified by their configured table identifier and analysis rule type.</p>
    */
   analysisRuleType: ConfiguredTableAnalysisRuleType | string | undefined;
 
   /**
+   * @public
    * <p>The new analysis rule policy for the configured table analysis rule.</p>
    */
   analysisRulePolicy: ConfiguredTableAnalysisRulePolicy | undefined;
@@ -2907,6 +3262,7 @@ export interface UpdateConfiguredTableAnalysisRuleInput {
  */
 export interface UpdateConfiguredTableAnalysisRuleOutput {
   /**
+   * @public
    * <p>The entire updated analysis rule.</p>
    */
   analysisRule: ConfiguredTableAnalysisRule | undefined;
@@ -2917,6 +3273,7 @@ export interface UpdateConfiguredTableAnalysisRuleOutput {
  */
 export interface ListTagsForResourceInput {
   /**
+   * @public
    * <p>The Amazon Resource Name (ARN) associated with the resource you want to list tags on.</p>
    */
   resourceArn: string | undefined;
@@ -2927,6 +3284,7 @@ export interface ListTagsForResourceInput {
  */
 export interface ListTagsForResourceOutput {
   /**
+   * @public
    * <p>A map of objects specifying each key name and value.</p>
    */
   tags: Record<string, string> | undefined;
@@ -2951,17 +3309,20 @@ export type MembershipQueryLogStatus = (typeof MembershipQueryLogStatus)[keyof t
  */
 export interface CreateMembershipInput {
   /**
+   * @public
    * <p>The unique ID for the associated collaboration.</p>
    */
   collaborationIdentifier: string | undefined;
 
   /**
+   * @public
    * <p>An indicator as to whether query logging has been enabled or disabled for the
    *          collaboration.</p>
    */
   queryLogStatus: MembershipQueryLogStatus | string | undefined;
 
   /**
+   * @public
    * <p>An optional label that you can assign to a resource when you create it. Each tag
    *          consists of a key and an optional value, both of which you define. When you use tagging,
    *          you can also use tag-based access control in IAM policies to control access to this
@@ -2991,61 +3352,73 @@ export type MembershipStatus = (typeof MembershipStatus)[keyof typeof Membership
  */
 export interface Membership {
   /**
+   * @public
    * <p>The unique ID of the membership.</p>
    */
   id: string | undefined;
 
   /**
+   * @public
    * <p>The unique ARN for the membership.</p>
    */
   arn: string | undefined;
 
   /**
+   * @public
    * <p>The unique ARN for the membership's associated collaboration.</p>
    */
   collaborationArn: string | undefined;
 
   /**
+   * @public
    * <p>The unique ID for the membership's collaboration.</p>
    */
   collaborationId: string | undefined;
 
   /**
+   * @public
    * <p>The identifier used to reference members of the collaboration. Currently only supports Amazon Web Services account ID.</p>
    */
   collaborationCreatorAccountId: string | undefined;
 
   /**
+   * @public
    * <p>The display name of the collaboration creator.</p>
    */
   collaborationCreatorDisplayName: string | undefined;
 
   /**
+   * @public
    * <p>The name of the membership's collaboration.</p>
    */
   collaborationName: string | undefined;
 
   /**
+   * @public
    * <p>The time when the membership was created.</p>
    */
   createTime: Date | undefined;
 
   /**
+   * @public
    * <p>The time the membership metadata was last updated.</p>
    */
   updateTime: Date | undefined;
 
   /**
+   * @public
    * <p>The status of the membership. Valid values are `ACTIVE`, `REMOVED`, and `COLLABORATION_DELETED`.</p>
    */
   status: MembershipStatus | string | undefined;
 
   /**
+   * @public
    * <p>The abilities granted to the collaboration member.</p>
    */
   memberAbilities: (MemberAbility | string)[] | undefined;
 
   /**
+   * @public
    * <p>An indicator as to whether query logging has been enabled or disabled for the
    *          collaboration.</p>
    */
@@ -3057,6 +3430,7 @@ export interface Membership {
  */
 export interface CreateMembershipOutput {
   /**
+   * @public
    * <p>The membership that was created.</p>
    */
   membership: Membership | undefined;
@@ -3067,6 +3441,7 @@ export interface CreateMembershipOutput {
  */
 export interface DeleteMembershipInput {
   /**
+   * @public
    * <p>The identifier for a membership resource.</p>
    */
   membershipIdentifier: string | undefined;
@@ -3082,6 +3457,7 @@ export interface DeleteMembershipOutput {}
  */
 export interface GetMembershipInput {
   /**
+   * @public
    * <p>The identifier for a membership resource.</p>
    */
   membershipIdentifier: string | undefined;
@@ -3092,6 +3468,7 @@ export interface GetMembershipInput {
  */
 export interface GetMembershipOutput {
   /**
+   * @public
    * <p>The membership retrieved for the provided identifier.</p>
    */
   membership: Membership | undefined;
@@ -3102,11 +3479,13 @@ export interface GetMembershipOutput {
  */
 export interface GetProtectedQueryInput {
   /**
+   * @public
    * <p>The identifier for a membership in a protected query instance.</p>
    */
   membershipIdentifier: string | undefined;
 
   /**
+   * @public
    * <p>The identifier for a protected query instance.</p>
    */
   protectedQueryIdentifier: string | undefined;
@@ -3118,11 +3497,13 @@ export interface GetProtectedQueryInput {
  */
 export interface ProtectedQueryError {
   /**
+   * @public
    * <p>A description of why the query failed.</p>
    */
   message: string | undefined;
 
   /**
+   * @public
    * <p>An error code for the error.</p>
    */
   code: string | undefined;
@@ -3134,6 +3515,7 @@ export interface ProtectedQueryError {
  */
 export interface ProtectedQueryS3Output {
   /**
+   * @public
    * <p>The S3 location of the result.</p>
    */
   location: string | undefined;
@@ -3150,6 +3532,7 @@ export type ProtectedQueryOutput = ProtectedQueryOutput.S3Member | ProtectedQuer
  */
 export namespace ProtectedQueryOutput {
   /**
+   * @public
    * <p>If present, the output for a protected query with an `S3` output type.</p>
    */
   export interface S3Member {
@@ -3157,6 +3540,9 @@ export namespace ProtectedQueryOutput {
     $unknown?: never;
   }
 
+  /**
+   * @public
+   */
   export interface $UnknownMember {
     s3?: never;
     $unknown: [string, any];
@@ -3179,6 +3565,7 @@ export namespace ProtectedQueryOutput {
  */
 export interface ProtectedQueryResult {
   /**
+   * @public
    * <p>The output of the protected query.</p>
    */
   output: ProtectedQueryOutput | undefined;
@@ -3204,16 +3591,19 @@ export type ResultFormat = (typeof ResultFormat)[keyof typeof ResultFormat];
  */
 export interface ProtectedQueryS3OutputConfiguration {
   /**
+   * @public
    * <p>Intended file format of the result.</p>
    */
   resultFormat: ResultFormat | string | undefined;
 
   /**
+   * @public
    * <p>The S3 bucket to unload the protected query results.</p>
    */
   bucket: string | undefined;
 
   /**
+   * @public
    * <p>The S3 prefix to unload the protected query results.</p>
    */
   keyPrefix?: string;
@@ -3232,6 +3622,7 @@ export type ProtectedQueryOutputConfiguration =
  */
 export namespace ProtectedQueryOutputConfiguration {
   /**
+   * @public
    * <p>Required configuration for a protected query with an `S3` output type.</p>
    */
   export interface S3Member {
@@ -3239,6 +3630,9 @@ export namespace ProtectedQueryOutputConfiguration {
     $unknown?: never;
   }
 
+  /**
+   * @public
+   */
   export interface $UnknownMember {
     s3?: never;
     $unknown: [string, any];
@@ -3261,6 +3655,7 @@ export namespace ProtectedQueryOutputConfiguration {
  */
 export interface ProtectedQueryResultConfiguration {
   /**
+   * @public
    * <p>Configuration for protected query results.</p>
    */
   outputConfiguration: ProtectedQueryOutputConfiguration | undefined;
@@ -3272,16 +3667,19 @@ export interface ProtectedQueryResultConfiguration {
  */
 export interface ProtectedQuerySQLParameters {
   /**
+   * @public
    * <p>The query string to be submitted.</p>
    */
   queryString?: string;
 
   /**
+   * @public
    * <p>The Amazon Resource Name (ARN) associated with the analysis template within a collaboration.</p>
    */
   analysisTemplateArn?: string;
 
   /**
+   * @public
    * <p>The protected query SQL parameters.</p>
    */
   parameters?: Record<string, string>;
@@ -3293,6 +3691,7 @@ export interface ProtectedQuerySQLParameters {
  */
 export interface ProtectedQueryStatistics {
   /**
+   * @public
    * <p>The duration of the Protected Query, from creation until query completion.</p>
    */
   totalDurationInMillis?: number;
@@ -3323,51 +3722,61 @@ export type ProtectedQueryStatus = (typeof ProtectedQueryStatus)[keyof typeof Pr
  */
 export interface ProtectedQuery {
   /**
+   * @public
    * <p>The identifier for a protected query instance.</p>
    */
   id: string | undefined;
 
   /**
+   * @public
    * <p>The identifier for the membership.</p>
    */
   membershipId: string | undefined;
 
   /**
+   * @public
    * <p>The ARN of the membership.</p>
    */
   membershipArn: string | undefined;
 
   /**
+   * @public
    * <p>The time at which the protected query was created.</p>
    */
   createTime: Date | undefined;
 
   /**
+   * @public
    * <p>The protected query SQL parameters.</p>
    */
   sqlParameters: ProtectedQuerySQLParameters | undefined;
 
   /**
+   * @public
    * <p>The status of the query.</p>
    */
   status: ProtectedQueryStatus | string | undefined;
 
   /**
+   * @public
    * <p>Contains any details needed to write the query results.</p>
    */
   resultConfiguration: ProtectedQueryResultConfiguration | undefined;
 
   /**
+   * @public
    * <p>Statistics about protected query execution.</p>
    */
   statistics?: ProtectedQueryStatistics;
 
   /**
+   * @public
    * <p>The result of the protected query.</p>
    */
   result?: ProtectedQueryResult;
 
   /**
+   * @public
    * <p>An error thrown by the protected query.</p>
    */
   error?: ProtectedQueryError;
@@ -3378,6 +3787,7 @@ export interface ProtectedQuery {
  */
 export interface GetProtectedQueryOutput {
   /**
+   * @public
    * <p>The query processing metadata.</p>
    */
   protectedQuery: ProtectedQuery | undefined;
@@ -3388,16 +3798,19 @@ export interface GetProtectedQueryOutput {
  */
 export interface ListMembershipsInput {
   /**
+   * @public
    * <p>The token value retrieved from a previous call to access the next page of results.</p>
    */
   nextToken?: string;
 
   /**
+   * @public
    * <p>The maximum size of the results that is returned per call.</p>
    */
   maxResults?: number;
 
   /**
+   * @public
    * <p>A filter which will return only memberships in the specified status.</p>
    */
   status?: MembershipStatus | string;
@@ -3409,56 +3822,67 @@ export interface ListMembershipsInput {
  */
 export interface MembershipSummary {
   /**
+   * @public
    * <p>The unique ID for the membership's collaboration.</p>
    */
   id: string | undefined;
 
   /**
+   * @public
    * <p>The unique ARN for the membership.</p>
    */
   arn: string | undefined;
 
   /**
+   * @public
    * <p>The unique ARN for the membership's associated collaboration.</p>
    */
   collaborationArn: string | undefined;
 
   /**
+   * @public
    * <p>The unique ID for the membership's collaboration.</p>
    */
   collaborationId: string | undefined;
 
   /**
+   * @public
    * <p>The identifier of the Amazon Web Services principal that created the collaboration. Currently only supports Amazon Web Services account ID.</p>
    */
   collaborationCreatorAccountId: string | undefined;
 
   /**
+   * @public
    * <p>The display name of the collaboration creator.</p>
    */
   collaborationCreatorDisplayName: string | undefined;
 
   /**
+   * @public
    * <p>The name for the membership's collaboration.</p>
    */
   collaborationName: string | undefined;
 
   /**
+   * @public
    * <p>The time when the membership was created.</p>
    */
   createTime: Date | undefined;
 
   /**
+   * @public
    * <p>The time the membership metadata was last updated.</p>
    */
   updateTime: Date | undefined;
 
   /**
+   * @public
    * <p>The status of the membership. Valid values are `ACTIVE`, `REMOVED`, and `COLLABORATION_DELETED`.</p>
    */
   status: MembershipStatus | string | undefined;
 
   /**
+   * @public
    * <p>The abilities granted to the collaboration member.</p>
    */
   memberAbilities: (MemberAbility | string)[] | undefined;
@@ -3469,11 +3893,13 @@ export interface MembershipSummary {
  */
 export interface ListMembershipsOutput {
   /**
+   * @public
    * <p>The token value retrieved from a previous call to access the next page of results.</p>
    */
   nextToken?: string;
 
   /**
+   * @public
    * <p>The list of memberships returned from the ListMemberships operation.</p>
    */
   membershipSummaries: MembershipSummary[] | undefined;
@@ -3484,21 +3910,25 @@ export interface ListMembershipsOutput {
  */
 export interface ListProtectedQueriesInput {
   /**
+   * @public
    * <p>The identifier for the membership in the collaboration.</p>
    */
   membershipIdentifier: string | undefined;
 
   /**
+   * @public
    * <p>A filter on the status of the protected query.</p>
    */
   status?: ProtectedQueryStatus | string;
 
   /**
+   * @public
    * <p>The token value retrieved from a previous call to access the next page of results.</p>
    */
   nextToken?: string;
 
   /**
+   * @public
    * <p>The maximum size of the results that is returned per call. Service chooses a default if
    *          it has not been set. Service can return a nextToken even if the maximum results has not
    *          been met. </p>
@@ -3512,26 +3942,31 @@ export interface ListProtectedQueriesInput {
  */
 export interface ProtectedQuerySummary {
   /**
+   * @public
    * <p>The unique ID of the protected query.</p>
    */
   id: string | undefined;
 
   /**
+   * @public
    * <p>The unique ID for the membership that initiated the protected query.</p>
    */
   membershipId: string | undefined;
 
   /**
+   * @public
    * <p>The unique ARN for the membership that initiated the protected query.</p>
    */
   membershipArn: string | undefined;
 
   /**
+   * @public
    * <p>The time the protected query was created.</p>
    */
   createTime: Date | undefined;
 
   /**
+   * @public
    * <p>The status of the protected query. Value values are `SUBMITTED`, `STARTED`, `CANCELLED`, `CANCELLING`, `FAILED`, `SUCCESS`, `TIMED_OUT`.</p>
    */
   status: ProtectedQueryStatus | string | undefined;
@@ -3542,11 +3977,13 @@ export interface ProtectedQuerySummary {
  */
 export interface ListProtectedQueriesOutput {
   /**
+   * @public
    * <p>The token value retrieved from a previous call to access the next page of results.</p>
    */
   nextToken?: string;
 
   /**
+   * @public
    * <p>A list of protected queries.</p>
    */
   protectedQueries: ProtectedQuerySummary[] | undefined;
@@ -3570,21 +4007,25 @@ export type ProtectedQueryType = (typeof ProtectedQueryType)[keyof typeof Protec
  */
 export interface StartProtectedQueryInput {
   /**
+   * @public
    * <p>The type of the protected query to be started.</p>
    */
   type: ProtectedQueryType | string | undefined;
 
   /**
+   * @public
    * <p>A unique identifier for the membership to run this query against. Currently accepts a membership ID.</p>
    */
   membershipIdentifier: string | undefined;
 
   /**
+   * @public
    * <p>The protected SQL query parameters.</p>
    */
   sqlParameters: ProtectedQuerySQLParameters | undefined;
 
   /**
+   * @public
    * <p>The details needed to write the query results.</p>
    */
   resultConfiguration: ProtectedQueryResultConfiguration | undefined;
@@ -3595,6 +4036,7 @@ export interface StartProtectedQueryInput {
  */
 export interface StartProtectedQueryOutput {
   /**
+   * @public
    * <p>The protected query.</p>
    */
   protectedQuery: ProtectedQuery | undefined;
@@ -3605,11 +4047,13 @@ export interface StartProtectedQueryOutput {
  */
 export interface UpdateMembershipInput {
   /**
+   * @public
    * <p>The unique identifier of the membership.</p>
    */
   membershipIdentifier: string | undefined;
 
   /**
+   * @public
    * <p>An indicator as to whether query logging has been enabled or disabled for the
    *          collaboration.</p>
    */
@@ -3621,6 +4065,7 @@ export interface UpdateMembershipInput {
  */
 export interface UpdateMembershipOutput {
   /**
+   * @public
    * <p>The membership object.</p>
    */
   membership: Membership | undefined;
@@ -3644,16 +4089,19 @@ export type TargetProtectedQueryStatus = (typeof TargetProtectedQueryStatus)[key
  */
 export interface UpdateProtectedQueryInput {
   /**
+   * @public
    * <p>The identifier for a member of a protected query instance.</p>
    */
   membershipIdentifier: string | undefined;
 
   /**
+   * @public
    * <p>The identifier for a protected query instance.</p>
    */
   protectedQueryIdentifier: string | undefined;
 
   /**
+   * @public
    * <p>The target status of a query. Used to update the execution status of a currently running query.</p>
    */
   targetStatus: TargetProtectedQueryStatus | string | undefined;
@@ -3664,6 +4112,7 @@ export interface UpdateProtectedQueryInput {
  */
 export interface UpdateProtectedQueryOutput {
   /**
+   * @public
    * <p>The protected query output.</p>
    */
   protectedQuery: ProtectedQuery | undefined;
@@ -3674,11 +4123,13 @@ export interface UpdateProtectedQueryOutput {
  */
 export interface TagResourceInput {
   /**
+   * @public
    * <p>The Amazon Resource Name (ARN) associated with the resource you want to tag.</p>
    */
   resourceArn: string | undefined;
 
   /**
+   * @public
    * <p>A map of objects specifying each key name and value.</p>
    */
   tags: Record<string, string> | undefined;
@@ -3694,11 +4145,13 @@ export interface TagResourceOutput {}
  */
 export interface UntagResourceInput {
   /**
+   * @public
    * <p>The Amazon Resource Name (ARN) associated with the resource you want to remove the tag from.</p>
    */
   resourceArn: string | undefined;
 
   /**
+   * @public
    * <p>A list of key names of tags to be removed.</p>
    */
   tagKeys: string[] | undefined;

@@ -29,6 +29,7 @@ export class AccessDeniedException extends __BaseException {
  */
 export interface ActiveDirectoryIdentityProvider {
   /**
+   * @public
    * <p>The directory ID for an Active Directory identity provider.</p>
    */
   DirectoryId?: string;
@@ -45,6 +46,7 @@ export type IdentityProvider = IdentityProvider.ActiveDirectoryIdentityProviderM
  */
 export namespace IdentityProvider {
   /**
+   * @public
    * <p>An object that details an Active Directory identity provider.</p>
    */
   export interface ActiveDirectoryIdentityProviderMember {
@@ -52,6 +54,9 @@ export namespace IdentityProvider {
     $unknown?: never;
   }
 
+  /**
+   * @public
+   */
   export interface $UnknownMember {
     ActiveDirectoryIdentityProvider?: never;
     $unknown: [string, any];
@@ -74,21 +79,25 @@ export namespace IdentityProvider {
  */
 export interface AssociateUserRequest {
   /**
+   * @public
    * <p>The user name from the identity provider for the user.</p>
    */
   Username: string | undefined;
 
   /**
+   * @public
    * <p>The ID of the EC2 instance, which provides user-based subscriptions.</p>
    */
   InstanceId: string | undefined;
 
   /**
+   * @public
    * <p>The identity provider of the user.</p>
    */
   IdentityProvider: IdentityProvider | undefined;
 
   /**
+   * @public
    * <p>The domain name of the user.</p>
    */
   Domain?: string;
@@ -100,41 +109,49 @@ export interface AssociateUserRequest {
  */
 export interface InstanceUserSummary {
   /**
+   * @public
    * <p>The user name from the identity provider for the user.</p>
    */
   Username: string | undefined;
 
   /**
+   * @public
    * <p>The ID of the EC2 instance, which provides user-based subscriptions.</p>
    */
   InstanceId: string | undefined;
 
   /**
+   * @public
    * <p>An object that specifies details for the identity provider.</p>
    */
   IdentityProvider: IdentityProvider | undefined;
 
   /**
+   * @public
    * <p>The status of a user associated with an EC2 instance.</p>
    */
   Status: string | undefined;
 
   /**
+   * @public
    * <p>The status message for users of an EC2 instance.</p>
    */
   StatusMessage?: string;
 
   /**
+   * @public
    * <p>The domain name of the user.</p>
    */
   Domain?: string;
 
   /**
+   * @public
    * <p>The date a user was associated with an EC2 instance.</p>
    */
   AssociationDate?: string;
 
   /**
+   * @public
    * <p>The date a user was disassociated from an EC2 instance.</p>
    */
   DisassociationDate?: string;
@@ -145,6 +162,7 @@ export interface InstanceUserSummary {
  */
 export interface AssociateUserResponse {
   /**
+   * @public
    * <p>Metadata that describes the associate user operation.</p>
    */
   InstanceUserSummary: InstanceUserSummary | undefined;
@@ -276,11 +294,13 @@ export class ValidationException extends __BaseException {
  */
 export interface DeregisterIdentityProviderRequest {
   /**
+   * @public
    * <p>An object that specifies details for the identity provider.</p>
    */
   IdentityProvider: IdentityProvider | undefined;
 
   /**
+   * @public
    * <p>The name of the user-based subscription product.</p>
    */
   Product: string | undefined;
@@ -295,11 +315,13 @@ export interface DeregisterIdentityProviderRequest {
  */
 export interface Settings {
   /**
+   * @public
    * <p>The subnets defined for the registered identity provider.</p>
    */
   Subnets: string[] | undefined;
 
   /**
+   * @public
    * <p>A security group ID that allows inbound TCP port 1688 communication between resources in
    *       your VPC and the VPC endpoint for activation servers.</p>
    */
@@ -312,27 +334,32 @@ export interface Settings {
  */
 export interface IdentityProviderSummary {
   /**
+   * @public
    * <p>An object that specifies details for the identity provider.</p>
    */
   IdentityProvider: IdentityProvider | undefined;
 
   /**
+   * @public
    * <p>An object that details the registered identity provider’s product related configuration
    *       settings such as the subnets to provision VPC endpoints.</p>
    */
   Settings: Settings | undefined;
 
   /**
+   * @public
    * <p>The name of the user-based subscription product.</p>
    */
   Product: string | undefined;
 
   /**
+   * @public
    * <p>The status of an identity provider.</p>
    */
   Status: string | undefined;
 
   /**
+   * @public
    * <p>The failure message associated with an identity provider.</p>
    */
   FailureMessage?: string;
@@ -343,6 +370,7 @@ export interface IdentityProviderSummary {
  */
 export interface DeregisterIdentityProviderResponse {
   /**
+   * @public
    * <p>Metadata that describes the results of an identity provider operation.</p>
    */
   IdentityProviderSummary: IdentityProviderSummary | undefined;
@@ -353,21 +381,25 @@ export interface DeregisterIdentityProviderResponse {
  */
 export interface DisassociateUserRequest {
   /**
+   * @public
    * <p>The user name from the identity provider for the user.</p>
    */
   Username: string | undefined;
 
   /**
+   * @public
    * <p>The ID of the EC2 instance, which provides user-based subscriptions.</p>
    */
   InstanceId: string | undefined;
 
   /**
+   * @public
    * <p>An object that specifies details for the identity provider.</p>
    */
   IdentityProvider: IdentityProvider | undefined;
 
   /**
+   * @public
    * <p>The domain name of the user.</p>
    */
   Domain?: string;
@@ -378,6 +410,7 @@ export interface DisassociateUserRequest {
  */
 export interface DisassociateUserResponse {
   /**
+   * @public
    * <p>Metadata that describes the associate user operation.</p>
    */
   InstanceUserSummary: InstanceUserSummary | undefined;
@@ -391,16 +424,19 @@ export interface DisassociateUserResponse {
  */
 export interface Filter {
   /**
+   * @public
    * <p>The name of an attribute to use as a filter.</p>
    */
   Attribute?: string;
 
   /**
+   * @public
    * <p>The type of search (For example, eq, geq, leq)</p>
    */
   Operation?: string;
 
   /**
+   * @public
    * <p>Value of the filter.</p>
    */
   Value?: string;
@@ -412,26 +448,31 @@ export interface Filter {
  */
 export interface InstanceSummary {
   /**
+   * @public
    * <p>The ID of the EC2 instance, which provides user-based subscriptions.</p>
    */
   InstanceId: string | undefined;
 
   /**
+   * @public
    * <p>The status of an EC2 instance resource.</p>
    */
   Status: string | undefined;
 
   /**
+   * @public
    * <p>A list of provided user-based subscription products.</p>
    */
   Products: string[] | undefined;
 
   /**
+   * @public
    * <p>The date of the last status check.</p>
    */
   LastStatusCheckDate?: string;
 
   /**
+   * @public
    * <p>The status message for an EC2 instance.</p>
    */
   StatusMessage?: string;
@@ -442,11 +483,13 @@ export interface InstanceSummary {
  */
 export interface ListIdentityProvidersRequest {
   /**
+   * @public
    * <p>Maximum number of results to return in a single call.</p>
    */
   MaxResults?: number;
 
   /**
+   * @public
    * <p>Token for the next set of results.</p>
    */
   NextToken?: string;
@@ -457,11 +500,13 @@ export interface ListIdentityProvidersRequest {
  */
 export interface ListIdentityProvidersResponse {
   /**
+   * @public
    * <p>Metadata that describes the list identity providers operation.</p>
    */
   IdentityProviderSummaries: IdentityProviderSummary[] | undefined;
 
   /**
+   * @public
    * <p>Token for the next set of results.</p>
    */
   NextToken?: string;
@@ -472,16 +517,19 @@ export interface ListIdentityProvidersResponse {
  */
 export interface ListInstancesRequest {
   /**
+   * @public
    * <p>Maximum number of results to return in a single call.</p>
    */
   MaxResults?: number;
 
   /**
+   * @public
    * <p>Token for the next set of results.</p>
    */
   NextToken?: string;
 
   /**
+   * @public
    * <p>An array of structures that you can use to filter the results to those that match one or
    *       more sets of key-value pairs that you specify.</p>
    */
@@ -493,11 +541,13 @@ export interface ListInstancesRequest {
  */
 export interface ListInstancesResponse {
   /**
+   * @public
    * <p>Metadata that describes the list instances operation.</p>
    */
   InstanceSummaries?: InstanceSummary[];
 
   /**
+   * @public
    * <p>Token for the next set of results.</p>
    */
   NextToken?: string;
@@ -508,27 +558,32 @@ export interface ListInstancesResponse {
  */
 export interface ListProductSubscriptionsRequest {
   /**
+   * @public
    * <p>The name of the user-based subscription product.</p>
    */
   Product: string | undefined;
 
   /**
+   * @public
    * <p>An object that specifies details for the identity provider.</p>
    */
   IdentityProvider: IdentityProvider | undefined;
 
   /**
+   * @public
    * <p>Maximum number of results to return in a single call.</p>
    */
   MaxResults?: number;
 
   /**
+   * @public
    * <p>An array of structures that you can use to filter the results to those that match one or
    *       more sets of key-value pairs that you specify.</p>
    */
   Filters?: Filter[];
 
   /**
+   * @public
    * <p>Token for the next set of results.</p>
    */
   NextToken?: string;
@@ -540,41 +595,49 @@ export interface ListProductSubscriptionsRequest {
  */
 export interface ProductUserSummary {
   /**
+   * @public
    * <p>The user name from the identity provider of the user.</p>
    */
   Username: string | undefined;
 
   /**
+   * @public
    * <p>The name of the user-based subscription product.</p>
    */
   Product: string | undefined;
 
   /**
+   * @public
    * <p>An object that specifies details for the identity provider.</p>
    */
   IdentityProvider: IdentityProvider | undefined;
 
   /**
+   * @public
    * <p>The status of a product for a user.</p>
    */
   Status: string | undefined;
 
   /**
+   * @public
    * <p>The status message for a product for a user.</p>
    */
   StatusMessage?: string;
 
   /**
+   * @public
    * <p>The domain name of the user.</p>
    */
   Domain?: string;
 
   /**
+   * @public
    * <p>The start date of a subscription.</p>
    */
   SubscriptionStartDate?: string;
 
   /**
+   * @public
    * <p>The end date of a subscription.</p>
    */
   SubscriptionEndDate?: string;
@@ -585,11 +648,13 @@ export interface ProductUserSummary {
  */
 export interface ListProductSubscriptionsResponse {
   /**
+   * @public
    * <p>Metadata that describes the list product subscriptions operation.</p>
    */
   ProductUserSummaries?: ProductUserSummary[];
 
   /**
+   * @public
    * <p>Token for the next set of results.</p>
    */
   NextToken?: string;
@@ -600,27 +665,32 @@ export interface ListProductSubscriptionsResponse {
  */
 export interface ListUserAssociationsRequest {
   /**
+   * @public
    * <p>The ID of the EC2 instance, which provides user-based subscriptions.</p>
    */
   InstanceId: string | undefined;
 
   /**
+   * @public
    * <p>An object that specifies details for the identity provider.</p>
    */
   IdentityProvider: IdentityProvider | undefined;
 
   /**
+   * @public
    * <p>Maximum number of results to return in a single call.</p>
    */
   MaxResults?: number;
 
   /**
+   * @public
    * <p>An array of structures that you can use to filter the results to those that match one or
    *       more sets of key-value pairs that you specify.</p>
    */
   Filters?: Filter[];
 
   /**
+   * @public
    * <p>Token for the next set of results.</p>
    */
   NextToken?: string;
@@ -631,11 +701,13 @@ export interface ListUserAssociationsRequest {
  */
 export interface ListUserAssociationsResponse {
   /**
+   * @public
    * <p>Metadata that describes the list user association operation.</p>
    */
   InstanceUserSummaries?: InstanceUserSummary[];
 
   /**
+   * @public
    * <p>Token for the next set of results.</p>
    */
   NextToken?: string;
@@ -646,16 +718,19 @@ export interface ListUserAssociationsResponse {
  */
 export interface RegisterIdentityProviderRequest {
   /**
+   * @public
    * <p>An object that specifies details for the identity provider.</p>
    */
   IdentityProvider: IdentityProvider | undefined;
 
   /**
+   * @public
    * <p>The name of the user-based subscription product.</p>
    */
   Product: string | undefined;
 
   /**
+   * @public
    * <p>The registered identity provider’s product related configuration settings such as the
    *       subnets to provision VPC endpoints.</p>
    */
@@ -667,6 +742,7 @@ export interface RegisterIdentityProviderRequest {
  */
 export interface RegisterIdentityProviderResponse {
   /**
+   * @public
    * <p>Metadata that describes the results of an identity provider operation.</p>
    */
   IdentityProviderSummary: IdentityProviderSummary | undefined;
@@ -677,21 +753,25 @@ export interface RegisterIdentityProviderResponse {
  */
 export interface StartProductSubscriptionRequest {
   /**
+   * @public
    * <p>The user name from the identity provider of the user.</p>
    */
   Username: string | undefined;
 
   /**
+   * @public
    * <p>An object that specifies details for the identity provider.</p>
    */
   IdentityProvider: IdentityProvider | undefined;
 
   /**
+   * @public
    * <p>The name of the user-based subscription product.</p>
    */
   Product: string | undefined;
 
   /**
+   * @public
    * <p>The domain name of the user.</p>
    */
   Domain?: string;
@@ -702,6 +782,7 @@ export interface StartProductSubscriptionRequest {
  */
 export interface StartProductSubscriptionResponse {
   /**
+   * @public
    * <p>Metadata that describes the start product subscription operation.</p>
    */
   ProductUserSummary: ProductUserSummary | undefined;
@@ -712,21 +793,25 @@ export interface StartProductSubscriptionResponse {
  */
 export interface StopProductSubscriptionRequest {
   /**
+   * @public
    * <p>The user name from the identity provider for the user.</p>
    */
   Username: string | undefined;
 
   /**
+   * @public
    * <p>An object that specifies details for the identity provider.</p>
    */
   IdentityProvider: IdentityProvider | undefined;
 
   /**
+   * @public
    * <p>The name of the user-based subscription product.</p>
    */
   Product: string | undefined;
 
   /**
+   * @public
    * <p>The domain name of the user.</p>
    */
   Domain?: string;
@@ -737,6 +822,7 @@ export interface StopProductSubscriptionRequest {
  */
 export interface StopProductSubscriptionResponse {
   /**
+   * @public
    * <p>Metadata that describes the start product subscription operation.</p>
    */
   ProductUserSummary: ProductUserSummary | undefined;
@@ -749,17 +835,20 @@ export interface StopProductSubscriptionResponse {
  */
 export interface UpdateSettings {
   /**
+   * @public
    * <p>The ID of one or more subnets in which License Manager will create a VPC endpoint for products that
    *       require connectivity to activation servers.</p>
    */
   AddSubnets: string[] | undefined;
 
   /**
+   * @public
    * <p>The ID of one or more subnets to remove.</p>
    */
   RemoveSubnets: string[] | undefined;
 
   /**
+   * @public
    * <p>A security group ID that allows inbound TCP port 1688 communication between resources in
    *       your VPC and the VPC endpoints for activation servers.</p>
    */
@@ -771,16 +860,19 @@ export interface UpdateSettings {
  */
 export interface UpdateIdentityProviderSettingsRequest {
   /**
+   * @public
    * <p>Details about an identity provider.</p>
    */
   IdentityProvider: IdentityProvider | undefined;
 
   /**
+   * @public
    * <p>The name of the user-based subscription product.</p>
    */
   Product: string | undefined;
 
   /**
+   * @public
    * <p>Updates the registered identity provider’s product related configuration settings. You can
    *       update any combination of settings in a single operation such as the:</p>
    *          <ul>
@@ -803,6 +895,7 @@ export interface UpdateIdentityProviderSettingsRequest {
  */
 export interface UpdateIdentityProviderSettingsResponse {
   /**
+   * @public
    * <p>Describes an identity provider.</p>
    */
   IdentityProviderSummary: IdentityProviderSummary | undefined;

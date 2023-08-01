@@ -8,16 +8,19 @@ import { SNSServiceException as __BaseException } from "./SNSServiceException";
  */
 export interface AddPermissionInput {
   /**
+   * @public
    * <p>The ARN of the topic whose access control policy you wish to modify.</p>
    */
   TopicArn: string | undefined;
 
   /**
+   * @public
    * <p>A unique identifier for the new policy statement.</p>
    */
   Label: string | undefined;
 
   /**
+   * @public
    * <p>The Amazon Web Services account IDs of the users (principals) who will be given access to the
    *             specified actions. The users must have Amazon Web Services account, but do not need to be signed up
    *             for this service.</p>
@@ -25,6 +28,7 @@ export interface AddPermissionInput {
   AWSAccountId: string[] | undefined;
 
   /**
+   * @public
    * <p>The action you want to allow for the specified principal(s).</p>
    *          <p>Valid values: Any Amazon SNS action name, for example <code>Publish</code>.</p>
    */
@@ -118,6 +122,7 @@ export class NotFoundException extends __BaseException {
  */
 export interface CheckIfPhoneNumberIsOptedOutInput {
   /**
+   * @public
    * <p>The phone number for which you want to check the opt out status.</p>
    */
   phoneNumber: string | undefined;
@@ -129,6 +134,7 @@ export interface CheckIfPhoneNumberIsOptedOutInput {
  */
 export interface CheckIfPhoneNumberIsOptedOutResponse {
   /**
+   * @public
    * <p>Indicates whether the phone number is opted out:</p>
    *          <ul>
    *             <li>
@@ -172,16 +178,19 @@ export class ThrottledException extends __BaseException {
  */
 export interface ConfirmSubscriptionInput {
   /**
+   * @public
    * <p>The ARN of the topic for which you wish to confirm a subscription.</p>
    */
   TopicArn: string | undefined;
 
   /**
+   * @public
    * <p>Short-lived token sent to an endpoint during the <code>Subscribe</code> action.</p>
    */
   Token: string | undefined;
 
   /**
+   * @public
    * <p>Disallows unauthenticated unsubscribes of the subscription. If the value of this
    *             parameter is <code>true</code> and the request has an Amazon Web Services signature, then only the
    *             topic owner and the subscription owner can unsubscribe the endpoint. The unsubscribe
@@ -196,6 +205,7 @@ export interface ConfirmSubscriptionInput {
  */
 export interface ConfirmSubscriptionResponse {
   /**
+   * @public
    * <p>The ARN of the created subscription.</p>
    */
   SubscriptionArn?: string;
@@ -250,6 +260,7 @@ export class SubscriptionLimitExceededException extends __BaseException {
  */
 export interface CreatePlatformApplicationInput {
   /**
+   * @public
    * <p>Application names must be made up of only uppercase and lowercase ASCII letters,
    *             numbers, underscores, hyphens, and periods, and must be between 1 and 256 characters
    *             long.</p>
@@ -257,12 +268,14 @@ export interface CreatePlatformApplicationInput {
   Name: string | undefined;
 
   /**
+   * @public
    * <p>The following platforms are supported: ADM (Amazon Device Messaging), APNS (Apple Push
    *             Notification Service), APNS_SANDBOX, and GCM (Firebase Cloud Messaging).</p>
    */
   Platform: string | undefined;
 
   /**
+   * @public
    * <p>For a list of attributes, see <a href="https://docs.aws.amazon.com/sns/latest/api/API_SetPlatformApplicationAttributes.html">SetPlatformApplicationAttributes</a>.</p>
    */
   Attributes: Record<string, string> | undefined;
@@ -274,6 +287,7 @@ export interface CreatePlatformApplicationInput {
  */
 export interface CreatePlatformApplicationResponse {
   /**
+   * @public
    * <p>PlatformApplicationArn is returned.</p>
    */
   PlatformApplicationArn?: string;
@@ -285,6 +299,7 @@ export interface CreatePlatformApplicationResponse {
  */
 export interface CreateEndpointResponse {
   /**
+   * @public
    * <p>EndpointArn returned from CreateEndpoint action.</p>
    */
   EndpointArn?: string;
@@ -296,12 +311,14 @@ export interface CreateEndpointResponse {
  */
 export interface CreatePlatformEndpointInput {
   /**
+   * @public
    * <p>PlatformApplicationArn returned from CreatePlatformApplication is used to create a an
    *             endpoint.</p>
    */
   PlatformApplicationArn: string | undefined;
 
   /**
+   * @public
    * <p>Unique identifier created by the notification service for an app on a device. The
    *             specific name for Token will vary, depending on which notification service is being
    *             used. For example, when using APNS as the notification service, you need the device
@@ -311,12 +328,14 @@ export interface CreatePlatformEndpointInput {
   Token: string | undefined;
 
   /**
+   * @public
    * <p>Arbitrary user data to associate with the endpoint. Amazon SNS does not use this data. The
    *             data must be in UTF-8 format and less than 2KB.</p>
    */
   CustomUserData?: string;
 
   /**
+   * @public
    * <p>For a list of attributes, see <a href="https://docs.aws.amazon.com/sns/latest/api/API_SetEndpointAttributes.html">SetEndpointAttributes</a>.</p>
    */
   Attributes?: Record<string, string>;
@@ -352,12 +371,14 @@ export type LanguageCodeString = (typeof LanguageCodeString)[keyof typeof Langua
  */
 export interface CreateSMSSandboxPhoneNumberInput {
   /**
+   * @public
    * <p>The destination phone number to verify. On verification, Amazon SNS adds this phone number
    *             to the list of verified phone numbers that you can send SMS messages to.</p>
    */
   PhoneNumber: string | undefined;
 
   /**
+   * @public
    * <p>The language to use for sending the OTP. The default value is
    *             <code>en-US</code>.</p>
    */
@@ -438,11 +459,13 @@ export class ConcurrentAccessException extends __BaseException {
  */
 export interface Tag {
   /**
+   * @public
    * <p>The required key portion of the tag.</p>
    */
   Key: string | undefined;
 
   /**
+   * @public
    * <p>The optional value portion of the tag.</p>
    */
   Value: string | undefined;
@@ -454,6 +477,7 @@ export interface Tag {
  */
 export interface CreateTopicInput {
   /**
+   * @public
    * <p>The name of the topic you want to create.</p>
    *          <p>Constraints: Topic names must be made up of only uppercase and lowercase ASCII
    *             letters, numbers, underscores, and hyphens, and must be between 1 and 256 characters
@@ -464,6 +488,7 @@ export interface CreateTopicInput {
   Name: string | undefined;
 
   /**
+   * @public
    * <p>A map of attributes with their corresponding values.</p>
    *          <p>The following lists the names, descriptions, and values of the special request
    *             parameters that the <code>CreateTopic</code> action uses:</p>
@@ -548,6 +573,7 @@ export interface CreateTopicInput {
   Attributes?: Record<string, string>;
 
   /**
+   * @public
    * <p>The list of tags to add to a new topic.</p>
    *          <note>
    *             <p>To be able to tag a topic on creation, you must have the
@@ -558,6 +584,7 @@ export interface CreateTopicInput {
   Tags?: Tag[];
 
   /**
+   * @public
    * <p>The body of the policy document you want to use for this topic.</p>
    *          <p>You can only add one policy per topic.</p>
    *          <p>The policy must be in JSON string format.</p>
@@ -572,6 +599,7 @@ export interface CreateTopicInput {
  */
 export interface CreateTopicResponse {
   /**
+   * @public
    * <p>The Amazon Resource Name (ARN) assigned to the created topic.</p>
    */
   TopicArn?: string;
@@ -686,6 +714,7 @@ export class TopicLimitExceededException extends __BaseException {
  */
 export interface DeleteEndpointInput {
   /**
+   * @public
    * <p>EndpointArn of endpoint to delete.</p>
    */
   EndpointArn: string | undefined;
@@ -697,6 +726,7 @@ export interface DeleteEndpointInput {
  */
 export interface DeletePlatformApplicationInput {
   /**
+   * @public
    * <p>PlatformApplicationArn of platform application object to delete.</p>
    */
   PlatformApplicationArn: string | undefined;
@@ -707,6 +737,7 @@ export interface DeletePlatformApplicationInput {
  */
 export interface DeleteSMSSandboxPhoneNumberInput {
   /**
+   * @public
    * <p>The destination phone number to delete.</p>
    */
   PhoneNumber: string | undefined;
@@ -743,6 +774,7 @@ export class ResourceNotFoundException extends __BaseException {
  */
 export interface DeleteTopicInput {
   /**
+   * @public
    * <p>The ARN of the topic you want to delete.</p>
    */
   TopicArn: string | undefined;
@@ -753,6 +785,7 @@ export interface DeleteTopicInput {
  */
 export interface GetDataProtectionPolicyInput {
   /**
+   * @public
    * <p>The ARN of the topic whose <code>DataProtectionPolicy</code> you want to get.</p>
    *          <p>For more information about ARNs, see <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource Names
    *                 (ARNs)</a> in the Amazon Web Services General Reference.</p>
@@ -765,6 +798,7 @@ export interface GetDataProtectionPolicyInput {
  */
 export interface GetDataProtectionPolicyResponse {
   /**
+   * @public
    * <p>Retrieves the <code>DataProtectionPolicy</code> in JSON string format.</p>
    */
   DataProtectionPolicy?: string;
@@ -776,6 +810,7 @@ export interface GetDataProtectionPolicyResponse {
  */
 export interface GetEndpointAttributesInput {
   /**
+   * @public
    * <p>EndpointArn for GetEndpointAttributes input.</p>
    */
   EndpointArn: string | undefined;
@@ -787,6 +822,7 @@ export interface GetEndpointAttributesInput {
  */
 export interface GetEndpointAttributesResponse {
   /**
+   * @public
    * <p>Attributes include the following:</p>
    *          <ul>
    *             <li>
@@ -823,6 +859,7 @@ export interface GetEndpointAttributesResponse {
  */
 export interface GetPlatformApplicationAttributesInput {
   /**
+   * @public
    * <p>PlatformApplicationArn for GetPlatformApplicationAttributesInput.</p>
    */
   PlatformApplicationArn: string | undefined;
@@ -834,6 +871,7 @@ export interface GetPlatformApplicationAttributesInput {
  */
 export interface GetPlatformApplicationAttributesResponse {
   /**
+   * @public
    * <p>Attributes include the following:</p>
    *          <ul>
    *             <li>
@@ -883,6 +921,7 @@ export interface GetPlatformApplicationAttributesResponse {
  */
 export interface GetSMSAttributesInput {
   /**
+   * @public
    * <p>A list of the individual attribute names, such as <code>MonthlySpendLimit</code>, for
    *             which you want values.</p>
    *          <p>For all attribute names, see <a href="https://docs.aws.amazon.com/sns/latest/api/API_SetSMSAttributes.html">SetSMSAttributes</a>.</p>
@@ -897,6 +936,7 @@ export interface GetSMSAttributesInput {
  */
 export interface GetSMSAttributesResponse {
   /**
+   * @public
    * <p>The SMS attribute names and their values.</p>
    */
   attributes?: Record<string, string>;
@@ -912,6 +952,7 @@ export interface GetSMSSandboxAccountStatusInput {}
  */
 export interface GetSMSSandboxAccountStatusResult {
   /**
+   * @public
    * <p>Indicates whether the calling Amazon Web Services account is in the SMS sandbox.</p>
    */
   IsInSandbox: boolean | undefined;
@@ -923,6 +964,7 @@ export interface GetSMSSandboxAccountStatusResult {
  */
 export interface GetSubscriptionAttributesInput {
   /**
+   * @public
    * <p>The ARN of the subscription whose properties you want to get.</p>
    */
   SubscriptionArn: string | undefined;
@@ -934,6 +976,7 @@ export interface GetSubscriptionAttributesInput {
  */
 export interface GetSubscriptionAttributesResponse {
   /**
+   * @public
    * <p>A map of the subscription's attributes. Attributes in this map include the
    *             following:</p>
    *          <ul>
@@ -1038,6 +1081,7 @@ export interface GetSubscriptionAttributesResponse {
  */
 export interface GetTopicAttributesInput {
   /**
+   * @public
    * <p>The ARN of the topic whose properties you want to get.</p>
    */
   TopicArn: string | undefined;
@@ -1049,6 +1093,7 @@ export interface GetTopicAttributesInput {
  */
 export interface GetTopicAttributesResponse {
   /**
+   * @public
    * <p>A map of the topic's attributes. Attributes in this map include the following:</p>
    *          <ul>
    *             <li>
@@ -1174,11 +1219,13 @@ export interface GetTopicAttributesResponse {
  */
 export interface ListEndpointsByPlatformApplicationInput {
   /**
+   * @public
    * <p>PlatformApplicationArn for ListEndpointsByPlatformApplicationInput action.</p>
    */
   PlatformApplicationArn: string | undefined;
 
   /**
+   * @public
    * <p>NextToken string is used when calling ListEndpointsByPlatformApplication action to
    *             retrieve additional records that are available after the first page results.</p>
    */
@@ -1191,11 +1238,13 @@ export interface ListEndpointsByPlatformApplicationInput {
  */
 export interface Endpoint {
   /**
+   * @public
    * <p>The <code>EndpointArn</code> for mobile app and device.</p>
    */
   EndpointArn?: string;
 
   /**
+   * @public
    * <p>Attributes for endpoint.</p>
    */
   Attributes?: Record<string, string>;
@@ -1207,11 +1256,13 @@ export interface Endpoint {
  */
 export interface ListEndpointsByPlatformApplicationResponse {
   /**
+   * @public
    * <p>Endpoints returned for ListEndpointsByPlatformApplication action.</p>
    */
   Endpoints?: Endpoint[];
 
   /**
+   * @public
    * <p>NextToken string is returned when calling ListEndpointsByPlatformApplication action if
    *             additional records are available after the first page results.</p>
    */
@@ -1223,11 +1274,13 @@ export interface ListEndpointsByPlatformApplicationResponse {
  */
 export interface ListOriginationNumbersRequest {
   /**
+   * @public
    * <p>Token that the previous <code>ListOriginationNumbers</code> request returns.</p>
    */
   NextToken?: string;
 
   /**
+   * @public
    * <p>The maximum number of origination numbers to return.</p>
    */
   MaxResults?: number;
@@ -1269,31 +1322,37 @@ export type RouteType = (typeof RouteType)[keyof typeof RouteType];
  */
 export interface PhoneNumberInformation {
   /**
+   * @public
    * <p>The date and time when the phone number was created.</p>
    */
   CreatedAt?: Date;
 
   /**
+   * @public
    * <p>The phone number.</p>
    */
   PhoneNumber?: string;
 
   /**
+   * @public
    * <p>The status of the phone number.</p>
    */
   Status?: string;
 
   /**
+   * @public
    * <p>The two-character code for the country or region, in ISO 3166-1 alpha-2 format.</p>
    */
   Iso2CountryCode?: string;
 
   /**
+   * @public
    * <p>The list of supported routes.</p>
    */
   RouteType?: RouteType | string;
 
   /**
+   * @public
    * <p>The capabilities of each phone number.</p>
    */
   NumberCapabilities?: (NumberCapability | string)[];
@@ -1304,6 +1363,7 @@ export interface PhoneNumberInformation {
  */
 export interface ListOriginationNumbersResult {
   /**
+   * @public
    * <p>A <code>NextToken</code> string is returned when you call the
    *                 <code>ListOriginationNumbers</code> operation if additional pages of records are
    *             available.</p>
@@ -1311,6 +1371,7 @@ export interface ListOriginationNumbersResult {
   NextToken?: string;
 
   /**
+   * @public
    * <p>A list of the calling account's verified and pending origination numbers.</p>
    */
   PhoneNumbers?: PhoneNumberInformation[];
@@ -1344,6 +1405,7 @@ export class ValidationException extends __BaseException {
  */
 export interface ListPhoneNumbersOptedOutInput {
   /**
+   * @public
    * <p>A <code>NextToken</code> string is used when you call the
    *                 <code>ListPhoneNumbersOptedOut</code> action to retrieve additional records that are
    *             available after the first page of results.</p>
@@ -1357,12 +1419,14 @@ export interface ListPhoneNumbersOptedOutInput {
  */
 export interface ListPhoneNumbersOptedOutResponse {
   /**
+   * @public
    * <p>A list of phone numbers that are opted out of receiving SMS messages. The list is
    *             paginated, and each page can contain up to 100 phone numbers.</p>
    */
   phoneNumbers?: string[];
 
   /**
+   * @public
    * <p>A <code>NextToken</code> string is returned when you call the
    *                 <code>ListPhoneNumbersOptedOut</code> action if additional records are available
    *             after the first page of results.</p>
@@ -1376,6 +1440,7 @@ export interface ListPhoneNumbersOptedOutResponse {
  */
 export interface ListPlatformApplicationsInput {
   /**
+   * @public
    * <p>NextToken string is used when calling ListPlatformApplications action to retrieve
    *             additional records that are available after the first page results.</p>
    */
@@ -1388,11 +1453,13 @@ export interface ListPlatformApplicationsInput {
  */
 export interface PlatformApplication {
   /**
+   * @public
    * <p>PlatformApplicationArn for platform application object.</p>
    */
   PlatformApplicationArn?: string;
 
   /**
+   * @public
    * <p>Attributes for platform application object.</p>
    */
   Attributes?: Record<string, string>;
@@ -1404,11 +1471,13 @@ export interface PlatformApplication {
  */
 export interface ListPlatformApplicationsResponse {
   /**
+   * @public
    * <p>Platform applications returned when calling ListPlatformApplications action.</p>
    */
   PlatformApplications?: PlatformApplication[];
 
   /**
+   * @public
    * <p>NextToken string is returned when calling ListPlatformApplications action if
    *             additional records are available after the first page results.</p>
    */
@@ -1420,12 +1489,14 @@ export interface ListPlatformApplicationsResponse {
  */
 export interface ListSMSSandboxPhoneNumbersInput {
   /**
+   * @public
    * <p>Token that the previous <code>ListSMSSandboxPhoneNumbersInput</code> request
    *             returns.</p>
    */
   NextToken?: string;
 
   /**
+   * @public
    * <p>The maximum number of phone numbers to return.</p>
    */
   MaxResults?: number;
@@ -1460,11 +1531,13 @@ export type SMSSandboxPhoneNumberVerificationStatus =
  */
 export interface SMSSandboxPhoneNumber {
   /**
+   * @public
    * <p>The destination phone number.</p>
    */
   PhoneNumber?: string;
 
   /**
+   * @public
    * <p>The destination phone number's verification status.</p>
    */
   Status?: SMSSandboxPhoneNumberVerificationStatus | string;
@@ -1475,11 +1548,13 @@ export interface SMSSandboxPhoneNumber {
  */
 export interface ListSMSSandboxPhoneNumbersResult {
   /**
+   * @public
    * <p>A list of the calling account's pending and verified phone numbers.</p>
    */
   PhoneNumbers: SMSSandboxPhoneNumber[] | undefined;
 
   /**
+   * @public
    * <p>A <code>NextToken</code> string is returned when you call the
    *                 <code>ListSMSSandboxPhoneNumbersInput</code> operation if additional pages of
    *             records are available.</p>
@@ -1493,6 +1568,7 @@ export interface ListSMSSandboxPhoneNumbersResult {
  */
 export interface ListSubscriptionsInput {
   /**
+   * @public
    * <p>Token returned by the previous <code>ListSubscriptions</code> request.</p>
    */
   NextToken?: string;
@@ -1504,26 +1580,31 @@ export interface ListSubscriptionsInput {
  */
 export interface Subscription {
   /**
+   * @public
    * <p>The subscription's ARN.</p>
    */
   SubscriptionArn?: string;
 
   /**
+   * @public
    * <p>The subscription's owner.</p>
    */
   Owner?: string;
 
   /**
+   * @public
    * <p>The subscription's protocol.</p>
    */
   Protocol?: string;
 
   /**
+   * @public
    * <p>The subscription's endpoint (format depends on the protocol).</p>
    */
   Endpoint?: string;
 
   /**
+   * @public
    * <p>The ARN of the subscription's topic.</p>
    */
   TopicArn?: string;
@@ -1535,11 +1616,13 @@ export interface Subscription {
  */
 export interface ListSubscriptionsResponse {
   /**
+   * @public
    * <p>A list of subscriptions.</p>
    */
   Subscriptions?: Subscription[];
 
   /**
+   * @public
    * <p>Token to pass along to the next <code>ListSubscriptions</code> request. This element
    *             is returned if there are more subscriptions to retrieve.</p>
    */
@@ -1552,11 +1635,13 @@ export interface ListSubscriptionsResponse {
  */
 export interface ListSubscriptionsByTopicInput {
   /**
+   * @public
    * <p>The ARN of the topic for which you wish to find subscriptions.</p>
    */
   TopicArn: string | undefined;
 
   /**
+   * @public
    * <p>Token returned by the previous <code>ListSubscriptionsByTopic</code> request.</p>
    */
   NextToken?: string;
@@ -1568,11 +1653,13 @@ export interface ListSubscriptionsByTopicInput {
  */
 export interface ListSubscriptionsByTopicResponse {
   /**
+   * @public
    * <p>A list of subscriptions.</p>
    */
   Subscriptions?: Subscription[];
 
   /**
+   * @public
    * <p>Token to pass along to the next <code>ListSubscriptionsByTopic</code> request. This
    *             element is returned if there are more subscriptions to retrieve.</p>
    */
@@ -1584,6 +1671,7 @@ export interface ListSubscriptionsByTopicResponse {
  */
 export interface ListTagsForResourceRequest {
   /**
+   * @public
    * <p>The ARN of the topic for which to list tags.</p>
    */
   ResourceArn: string | undefined;
@@ -1594,6 +1682,7 @@ export interface ListTagsForResourceRequest {
  */
 export interface ListTagsForResourceResponse {
   /**
+   * @public
    * <p>The tags associated with the specified topic.</p>
    */
   Tags?: Tag[];
@@ -1604,6 +1693,7 @@ export interface ListTagsForResourceResponse {
  */
 export interface ListTopicsInput {
   /**
+   * @public
    * <p>Token returned by the previous <code>ListTopics</code> request.</p>
    */
   NextToken?: string;
@@ -1616,6 +1706,7 @@ export interface ListTopicsInput {
  */
 export interface Topic {
   /**
+   * @public
    * <p>The topic's ARN.</p>
    */
   TopicArn?: string;
@@ -1627,11 +1718,13 @@ export interface Topic {
  */
 export interface ListTopicsResponse {
   /**
+   * @public
    * <p>A list of topic ARNs.</p>
    */
   Topics?: Topic[];
 
   /**
+   * @public
    * <p>Token to pass along to the next <code>ListTopics</code> request. This element is
    *             returned if there are additional topics to retrieve.</p>
    */
@@ -1644,6 +1737,7 @@ export interface ListTopicsResponse {
  */
 export interface OptInPhoneNumberInput {
   /**
+   * @public
    * <p>The phone number to opt in. Use E.164 format.</p>
    */
   phoneNumber: string | undefined;
@@ -1859,6 +1953,7 @@ export class PlatformApplicationDisabledException extends __BaseException {
  */
 export interface MessageAttributeValue {
   /**
+   * @public
    * <p>Amazon SNS supports the following logical data types: String, String.Array, Number, and
    *             Binary. For more information, see <a href="https://docs.aws.amazon.com/sns/latest/dg/SNSMessageAttributes.html#SNSMessageAttributes.DataTypes">Message
    *                 Attribute Data Types</a>.</p>
@@ -1866,12 +1961,14 @@ export interface MessageAttributeValue {
   DataType: string | undefined;
 
   /**
+   * @public
    * <p>Strings are Unicode with UTF8 binary encoding. For a list of code values, see <a href="https://en.wikipedia.org/wiki/ASCII#ASCII_printable_characters">ASCII Printable
    *                 Characters</a>.</p>
    */
   StringValue?: string;
 
   /**
+   * @public
    * <p>Binary type attributes can store any binary data, for example, compressed data,
    *             encrypted data, or images.</p>
    */
@@ -1884,6 +1981,7 @@ export interface MessageAttributeValue {
  */
 export interface PublishInput {
   /**
+   * @public
    * <p>The topic you want to publish to.</p>
    *          <p>If you don't specify a value for the <code>TopicArn</code> parameter, you must specify
    *             a value for the <code>PhoneNumber</code> or <code>TargetArn</code> parameters.</p>
@@ -1891,6 +1989,7 @@ export interface PublishInput {
   TopicArn?: string;
 
   /**
+   * @public
    * <p>If you don't specify a value for the <code>TargetArn</code> parameter, you must
    *             specify a value for the <code>PhoneNumber</code> or <code>TopicArn</code>
    *             parameters.</p>
@@ -1898,6 +1997,7 @@ export interface PublishInput {
   TargetArn?: string;
 
   /**
+   * @public
    * <p>The phone number to which you want to deliver an SMS message. Use E.164 format.</p>
    *          <p>If you don't specify a value for the <code>PhoneNumber</code> parameter, you must
    *             specify a value for the <code>TargetArn</code> or <code>TopicArn</code>
@@ -1906,6 +2006,7 @@ export interface PublishInput {
   PhoneNumber?: string;
 
   /**
+   * @public
    * <p>The message you want to send.</p>
    *          <p>If you are publishing to a topic and you want to send the same message to all
    *             transport protocols, include the text of the message as a String value. If you want to
@@ -1971,6 +2072,7 @@ export interface PublishInput {
   Message: string | undefined;
 
   /**
+   * @public
    * <p>Optional parameter to be used as the "Subject" line when the message is delivered to
    *             email endpoints. This field will also be included, if present, in the standard JSON
    *             messages delivered to other endpoints.</p>
@@ -1981,6 +2083,7 @@ export interface PublishInput {
   Subject?: string;
 
   /**
+   * @public
    * <p>Set <code>MessageStructure</code> to <code>json</code> if you want to send a different
    *             message for each protocol. For example, using one publish action, you can send a short
    *             message to your SMS subscribers and a longer message to your email subscribers. If you
@@ -2003,11 +2106,13 @@ export interface PublishInput {
   MessageStructure?: string;
 
   /**
+   * @public
    * <p>Message attributes for Publish action.</p>
    */
   MessageAttributes?: Record<string, MessageAttributeValue>;
 
   /**
+   * @public
    * <p>This parameter applies only to FIFO (first-in-first-out) topics. The
    *                 <code>MessageDeduplicationId</code> can contain up to 128 alphanumeric characters
    *                 <code>(a-z, A-Z, 0-9)</code> and punctuation
@@ -2024,6 +2129,7 @@ export interface PublishInput {
   MessageDeduplicationId?: string;
 
   /**
+   * @public
    * <p>This parameter applies only to FIFO (first-in-first-out) topics. The
    *                 <code>MessageGroupId</code> can contain up to 128 alphanumeric characters
    *                 <code>(a-z, A-Z, 0-9)</code> and punctuation
@@ -2042,12 +2148,14 @@ export interface PublishInput {
  */
 export interface PublishResponse {
   /**
+   * @public
    * <p>Unique identifier assigned to the published message.</p>
    *          <p>Length Constraint: Maximum 100 characters</p>
    */
   MessageId?: string;
 
   /**
+   * @public
    * <p>This response element applies only to FIFO (first-in-first-out) topics. </p>
    *          <p>The sequence number is a large, non-consecutive number that Amazon SNS assigns to each
    *             message. The length of <code>SequenceNumber</code> is 128 bits.
@@ -2144,6 +2252,7 @@ export class InvalidBatchEntryIdException extends __BaseException {
  */
 export interface PublishBatchRequestEntry {
   /**
+   * @public
    * <p>An identifier for the message in this batch.</p>
    *          <note>
    *             <p>The <code>Ids</code> of a batch request must be unique within a request. </p>
@@ -2154,16 +2263,19 @@ export interface PublishBatchRequestEntry {
   Id: string | undefined;
 
   /**
+   * @public
    * <p>The body of the message.</p>
    */
   Message: string | undefined;
 
   /**
+   * @public
    * <p>The subject of the batch message.</p>
    */
   Subject?: string;
 
   /**
+   * @public
    * <p>Set <code>MessageStructure</code> to <code>json</code> if you want to send a different
    *             message for each protocol. For example, using one publish action, you can send a short
    *             message to your SMS subscribers and a longer message to your email subscribers. If you
@@ -2184,6 +2296,7 @@ export interface PublishBatchRequestEntry {
   MessageStructure?: string;
 
   /**
+   * @public
    * <p>Each message attribute consists of a <code>Name</code>, <code>Type</code>, and
    *                 <code>Value</code>. For more information, see <a href="https://docs.aws.amazon.com/sns/latest/dg/sns-message-attributes.html">Amazon SNS message attributes</a> in
    *             the Amazon SNS Developer Guide.</p>
@@ -2191,6 +2304,7 @@ export interface PublishBatchRequestEntry {
   MessageAttributes?: Record<string, MessageAttributeValue>;
 
   /**
+   * @public
    * <p>This parameter applies only to FIFO (first-in-first-out) topics.</p>
    *          <p>The token used for deduplication of messages within a 5-minute minimum deduplication
    *             interval. If a message with a particular <code>MessageDeduplicationId</code> is sent
@@ -2254,6 +2368,7 @@ export interface PublishBatchRequestEntry {
   MessageDeduplicationId?: string;
 
   /**
+   * @public
    * <p>This parameter applies only to FIFO (first-in-first-out) topics.</p>
    *          <p>The tag that specifies that a message belongs to a specific message group. Messages
    *             that belong to the same message group are processed in a FIFO manner (however, messages
@@ -2282,11 +2397,13 @@ export interface PublishBatchRequestEntry {
  */
 export interface PublishBatchInput {
   /**
+   * @public
    * <p>The Amazon resource name (ARN) of the topic you want to batch publish to.</p>
    */
   TopicArn: string | undefined;
 
   /**
+   * @public
    * <p>A list of <code>PublishBatch</code> request entries to be sent to the SNS
    *             topic.</p>
    */
@@ -2299,21 +2416,25 @@ export interface PublishBatchInput {
  */
 export interface BatchResultErrorEntry {
   /**
+   * @public
    * <p>The <code>Id</code> of an entry in a batch request</p>
    */
   Id: string | undefined;
 
   /**
+   * @public
    * <p>An error code representing why the action failed on this entry.</p>
    */
   Code: string | undefined;
 
   /**
+   * @public
    * <p>A message explaining why the action failed on this entry.</p>
    */
   Message?: string;
 
   /**
+   * @public
    * <p>Specifies whether the error happened due to the caller of the batch API action.</p>
    */
   SenderFault: boolean | undefined;
@@ -2325,16 +2446,19 @@ export interface BatchResultErrorEntry {
  */
 export interface PublishBatchResultEntry {
   /**
+   * @public
    * <p>The <code>Id</code> of an entry in a batch request.</p>
    */
   Id?: string;
 
   /**
+   * @public
    * <p>An identifier for the message.</p>
    */
   MessageId?: string;
 
   /**
+   * @public
    * <p>This parameter applies only to FIFO (first-in-first-out) topics.</p>
    *          <p>The large, non-consecutive number that Amazon SNS assigns to each message.</p>
    *          <p>The length of <code>SequenceNumber</code> is 128 bits. <code>SequenceNumber</code>
@@ -2348,11 +2472,13 @@ export interface PublishBatchResultEntry {
  */
 export interface PublishBatchResponse {
   /**
+   * @public
    * <p>A list of successful <code>PublishBatch</code> responses.</p>
    */
   Successful?: PublishBatchResultEntry[];
 
   /**
+   * @public
    * <p>A list of failed <code>PublishBatch</code> responses. </p>
    */
   Failed?: BatchResultErrorEntry[];
@@ -2383,6 +2509,7 @@ export class TooManyEntriesInBatchRequestException extends __BaseException {
  */
 export interface PutDataProtectionPolicyInput {
   /**
+   * @public
    * <p>The ARN of the topic whose <code>DataProtectionPolicy</code> you want to add or
    *             update.</p>
    *          <p>For more information about ARNs, see <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource Names
@@ -2391,6 +2518,7 @@ export interface PutDataProtectionPolicyInput {
   ResourceArn: string | undefined;
 
   /**
+   * @public
    * <p>The JSON serialization of the topic's <code>DataProtectionPolicy</code>.</p>
    *          <p>The <code>DataProtectionPolicy</code> must be in JSON string format.</p>
    *          <p>Length Constraints: Maximum length of 30,720.</p>
@@ -2404,11 +2532,13 @@ export interface PutDataProtectionPolicyInput {
  */
 export interface RemovePermissionInput {
   /**
+   * @public
    * <p>The ARN of the topic whose access control policy you wish to modify.</p>
    */
   TopicArn: string | undefined;
 
   /**
+   * @public
    * <p>The unique label of the statement you want to remove.</p>
    */
   Label: string | undefined;
@@ -2420,11 +2550,13 @@ export interface RemovePermissionInput {
  */
 export interface SetEndpointAttributesInput {
   /**
+   * @public
    * <p>EndpointArn used for SetEndpointAttributes action.</p>
    */
   EndpointArn: string | undefined;
 
   /**
+   * @public
    * <p>A map of the endpoint attributes. Attributes in this map include the following:</p>
    *          <ul>
    *             <li>
@@ -2458,11 +2590,13 @@ export interface SetEndpointAttributesInput {
  */
 export interface SetPlatformApplicationAttributesInput {
   /**
+   * @public
    * <p>PlatformApplicationArn for SetPlatformApplicationAttributes action.</p>
    */
   PlatformApplicationArn: string | undefined;
 
   /**
+   * @public
    * <p>A map of the platform application attributes. Attributes in this map include the
    *             following:</p>
    *          <ul>
@@ -2576,6 +2710,7 @@ export interface SetPlatformApplicationAttributesInput {
  */
 export interface SetSMSAttributesInput {
   /**
+   * @public
    * <p>The default settings for sending SMS messages from your Amazon Web Services account. You can set
    *             values for the following attribute names:</p>
    *          <p>
@@ -2678,11 +2813,13 @@ export interface SetSMSAttributesResponse {}
  */
 export interface SetSubscriptionAttributesInput {
   /**
+   * @public
    * <p>The ARN of the subscription to modify.</p>
    */
   SubscriptionArn: string | undefined;
 
   /**
+   * @public
    * <p>A map of attributes with their corresponding values.</p>
    *          <p>The following lists the names, descriptions, and values of the special request
    *             parameters that this action uses:</p>
@@ -2752,6 +2889,7 @@ export interface SetSubscriptionAttributesInput {
   AttributeName: string | undefined;
 
   /**
+   * @public
    * <p>The new value for the attribute in JSON format.</p>
    */
   AttributeValue?: string;
@@ -2763,11 +2901,13 @@ export interface SetSubscriptionAttributesInput {
  */
 export interface SetTopicAttributesInput {
   /**
+   * @public
    * <p>The ARN of the topic to modify.</p>
    */
   TopicArn: string | undefined;
 
   /**
+   * @public
    * <p>A map of attributes with their corresponding values.</p>
    *          <p>The following lists the names, descriptions, and values of the special request
    *             parameters that the <code>SetTopicAttributes</code> action uses:</p>
@@ -2980,6 +3120,7 @@ export interface SetTopicAttributesInput {
   AttributeName: string | undefined;
 
   /**
+   * @public
    * <p>The new value for the attribute.</p>
    */
   AttributeValue?: string;
@@ -2991,11 +3132,13 @@ export interface SetTopicAttributesInput {
  */
 export interface SubscribeInput {
   /**
+   * @public
    * <p>The ARN of the topic you want to subscribe to.</p>
    */
   TopicArn: string | undefined;
 
   /**
+   * @public
    * <p>The protocol that you want to use. Supported protocols include:</p>
    *          <ul>
    *             <li>
@@ -3046,6 +3189,7 @@ export interface SubscribeInput {
   Protocol: string | undefined;
 
   /**
+   * @public
    * <p>The endpoint that you want to receive notifications. Endpoints vary by
    *             protocol:</p>
    *          <ul>
@@ -3089,6 +3233,7 @@ export interface SubscribeInput {
   Endpoint?: string;
 
   /**
+   * @public
    * <p>A map of attributes with their corresponding values.</p>
    *          <p>The following lists the names, descriptions, and values of the special request
    *             parameters that the <code>Subscribe</code> action uses:</p>
@@ -3158,6 +3303,7 @@ export interface SubscribeInput {
   Attributes?: Record<string, string>;
 
   /**
+   * @public
    * <p>Sets whether the response from the <code>Subscribe</code> request includes the
    *             subscription ARN, even if the subscription is not yet confirmed.</p>
    *          <p>If you set this parameter to <code>true</code>, the response includes the ARN in all
@@ -3178,6 +3324,7 @@ export interface SubscribeInput {
  */
 export interface SubscribeResponse {
   /**
+   * @public
    * <p>The ARN of the subscription if it is confirmed, or the string "pending confirmation"
    *             if the subscription requires confirmation. However, if the API request parameter
    *                 <code>ReturnSubscriptionArn</code> is true, then the value is always the
@@ -3191,11 +3338,13 @@ export interface SubscribeResponse {
  */
 export interface TagResourceRequest {
   /**
+   * @public
    * <p>The ARN of the topic to which to add tags.</p>
    */
   ResourceArn: string | undefined;
 
   /**
+   * @public
    * <p>The tags to be added to the specified topic. A tag consists of a required key and an
    *             optional value.</p>
    */
@@ -3213,6 +3362,7 @@ export interface TagResourceResponse {}
  */
 export interface UnsubscribeInput {
   /**
+   * @public
    * <p>The ARN of the subscription to be deleted.</p>
    */
   SubscriptionArn: string | undefined;
@@ -3223,11 +3373,13 @@ export interface UnsubscribeInput {
  */
 export interface UntagResourceRequest {
   /**
+   * @public
    * <p>The ARN of the topic from which to remove tags.</p>
    */
   ResourceArn: string | undefined;
 
   /**
+   * @public
    * <p>The list of tag keys to remove from the specified topic.</p>
    */
   TagKeys: string[] | undefined;
@@ -3247,6 +3399,7 @@ export class VerificationException extends __BaseException {
   readonly $fault: "client" = "client";
   Message: string | undefined;
   /**
+   * @public
    * <p>The status of the verification error.</p>
    */
   Status: string | undefined;
@@ -3270,11 +3423,13 @@ export class VerificationException extends __BaseException {
  */
 export interface VerifySMSSandboxPhoneNumberInput {
   /**
+   * @public
    * <p>The destination phone number to verify.</p>
    */
   PhoneNumber: string | undefined;
 
   /**
+   * @public
    * <p>The OTP sent to the destination number from the
    *                 <code>CreateSMSSandBoxPhoneNumber</code> call.</p>
    */

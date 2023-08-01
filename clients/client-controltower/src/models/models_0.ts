@@ -49,12 +49,14 @@ export class ConflictException extends __BaseException {
  */
 export interface DisableControlInput {
   /**
+   * @public
    * <p>The ARN of the control. Only <b>Strongly recommended</b> and <b>Elective</b> controls are permitted,
    *       with the exception of the <b>Region deny</b> guardrail.</p>
    */
   controlIdentifier: string | undefined;
 
   /**
+   * @public
    * <p>The ARN of the organizational unit.</p>
    */
   targetIdentifier: string | undefined;
@@ -65,6 +67,7 @@ export interface DisableControlInput {
  */
 export interface DisableControlOutput {
   /**
+   * @public
    * <p>The ID of the asynchronous operation, which is used to track status. The operation is
    *       available for 90 days.</p>
    */
@@ -143,16 +146,19 @@ export class ThrottlingException extends __BaseException {
     throttling: true,
   };
   /**
+   * @public
    * <p>The ID of the service that is associated with the error.</p>
    */
   serviceCode?: string;
 
   /**
+   * @public
    * <p>The ID of the service quota that was exceeded.</p>
    */
   quotaCode?: string;
 
   /**
+   * @public
    * <p>The number of seconds the caller should wait before retrying.</p>
    */
   retryAfterSeconds?: number;
@@ -198,12 +204,14 @@ export class ValidationException extends __BaseException {
  */
 export interface EnableControlInput {
   /**
+   * @public
    * <p>The ARN of the control. Only <b>Strongly recommended</b> and <b>Elective</b> controls are permitted,
    *         with the exception of the <b>Region deny</b> guardrail.</p>
    */
   controlIdentifier: string | undefined;
 
   /**
+   * @public
    * <p>The ARN of the organizational unit.</p>
    */
   targetIdentifier: string | undefined;
@@ -214,6 +222,7 @@ export interface EnableControlInput {
  */
 export interface EnableControlOutput {
   /**
+   * @public
    * <p>The ID of the asynchronous operation, which is used to track status. The operation is
    *       available for 90 days.</p>
    */
@@ -225,6 +234,7 @@ export interface EnableControlOutput {
  */
 export interface GetControlOperationInput {
   /**
+   * @public
    * <p>The ID of the asynchronous operation, which is used to track status. The operation is
    *       available for 90 days.</p>
    */
@@ -266,26 +276,31 @@ export type ControlOperationStatus = (typeof ControlOperationStatus)[keyof typeo
  */
 export interface ControlOperation {
   /**
+   * @public
    * <p>One of <code>ENABLE_CONTROL</code> or <code>DISABLE_CONTROL</code>.</p>
    */
   operationType?: ControlOperationType | string;
 
   /**
+   * @public
    * <p>The time that the operation began.</p>
    */
   startTime?: Date;
 
   /**
+   * @public
    * <p>The time that the operation finished.</p>
    */
   endTime?: Date;
 
   /**
+   * @public
    * <p>One of <code>IN_PROGRESS</code>, <code>SUCEEDED</code>, or <code>FAILED</code>.</p>
    */
   status?: ControlOperationStatus | string;
 
   /**
+   * @public
    * <p>If the operation result is <code>FAILED</code>, this string contains a message explaining why the operation failed.</p>
    */
   statusMessage?: string;
@@ -296,6 +311,7 @@ export interface ControlOperation {
  */
 export interface GetControlOperationOutput {
   /**
+   * @public
    * <p/>
    */
   controlOperation: ControlOperation | undefined;
@@ -306,16 +322,19 @@ export interface GetControlOperationOutput {
  */
 export interface ListEnabledControlsInput {
   /**
+   * @public
    * <p>The ARN of the organizational unit.</p>
    */
   targetIdentifier: string | undefined;
 
   /**
+   * @public
    * <p>The token to continue the list from a previous API call with the same parameters.</p>
    */
   nextToken?: string;
 
   /**
+   * @public
    * <p>How many results to return per API call.</p>
    */
   maxResults?: number;
@@ -327,6 +346,7 @@ export interface ListEnabledControlsInput {
  */
 export interface EnabledControlSummary {
   /**
+   * @public
    * <p>The ARN of the control. Only <b>Strongly recommended</b> and <b>Elective</b> controls are permitted,
    *         with the exception of the <b>Region deny</b> guardrail.</p>
    */
@@ -338,12 +358,14 @@ export interface EnabledControlSummary {
  */
 export interface ListEnabledControlsOutput {
   /**
+   * @public
    * <p>Lists the controls enabled by AWS Control Tower on the specified organizational unit and
    *       the accounts it contains.</p>
    */
   enabledControls: EnabledControlSummary[] | undefined;
 
   /**
+   * @public
    * <p>Retrieves the next page of results. If the string is empty, the current response is the
    *       end of the results.</p>
    */

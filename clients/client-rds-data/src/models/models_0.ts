@@ -130,6 +130,7 @@ export class StatementTimeoutException extends __BaseException {
   readonly name: "StatementTimeoutException" = "StatementTimeoutException";
   readonly $fault: "client" = "client";
   /**
+   * @public
    * <p>The database connection ID that executed the SQL statement.</p>
    */
   dbConnectionId?: number;
@@ -155,21 +156,25 @@ export class StatementTimeoutException extends __BaseException {
  */
 export interface BeginTransactionRequest {
   /**
+   * @public
    * <p>The Amazon Resource Name (ARN) of the Aurora Serverless DB cluster.</p>
    */
   resourceArn: string | undefined;
 
   /**
+   * @public
    * <p>The name or ARN of the secret that enables access to the DB cluster.</p>
    */
   secretArn: string | undefined;
 
   /**
+   * @public
    * <p>The name of the database.</p>
    */
   database?: string;
 
   /**
+   * @public
    * <p>The name of the database schema.</p>
    */
   schema?: string;
@@ -182,6 +187,7 @@ export interface BeginTransactionRequest {
  */
 export interface BeginTransactionResponse {
   /**
+   * @public
    * <p>The transaction ID of the transaction started by the call.</p>
    */
   transactionId?: string;
@@ -193,71 +199,85 @@ export interface BeginTransactionResponse {
  */
 export interface ColumnMetadata {
   /**
+   * @public
    * <p>The name of the column.</p>
    */
   name?: string;
 
   /**
+   * @public
    * <p>The type of the column.</p>
    */
   type?: number;
 
   /**
+   * @public
    * <p>The database-specific data type of the column.</p>
    */
   typeName?: string;
 
   /**
+   * @public
    * <p>The label for the column.</p>
    */
   label?: string;
 
   /**
+   * @public
    * <p>The name of the schema that owns the table that includes the column.</p>
    */
   schemaName?: string;
 
   /**
+   * @public
    * <p>The name of the table that includes the column.</p>
    */
   tableName?: string;
 
   /**
+   * @public
    * <p>A value that indicates whether the column increments automatically.</p>
    */
   isAutoIncrement?: boolean;
 
   /**
+   * @public
    * <p>A value that indicates whether an integer column is signed.</p>
    */
   isSigned?: boolean;
 
   /**
+   * @public
    * <p>A value that indicates whether the column contains currency values.</p>
    */
   isCurrency?: boolean;
 
   /**
+   * @public
    * <p>A value that indicates whether the column is case-sensitive.</p>
    */
   isCaseSensitive?: boolean;
 
   /**
+   * @public
    * <p>A value that indicates whether the column is nullable.</p>
    */
   nullable?: number;
 
   /**
+   * @public
    * <p>The precision value of a decimal number column.</p>
    */
   precision?: number;
 
   /**
+   * @public
    * <p>The scale value of a decimal number column.</p>
    */
   scale?: number;
 
   /**
+   * @public
    * <p>The type of the column.</p>
    */
   arrayBaseColumnType?: number;
@@ -269,16 +289,19 @@ export interface ColumnMetadata {
  */
 export interface CommitTransactionRequest {
   /**
+   * @public
    * <p>The Amazon Resource Name (ARN) of the Aurora Serverless DB cluster.</p>
    */
   resourceArn: string | undefined;
 
   /**
+   * @public
    * <p>The name or ARN of the secret that enables access to the DB cluster.</p>
    */
   secretArn: string | undefined;
 
   /**
+   * @public
    * <p>The identifier of the transaction to end and commit.</p>
    */
   transactionId: string | undefined;
@@ -290,6 +313,7 @@ export interface CommitTransactionRequest {
  */
 export interface CommitTransactionResponse {
   /**
+   * @public
    * <p>The status of the commit operation.</p>
    */
   transactionStatus?: string;
@@ -336,11 +360,13 @@ export type DecimalReturnType = (typeof DecimalReturnType)[keyof typeof DecimalR
  */
 export interface ExecuteSqlRequest {
   /**
+   * @public
    * <p>The ARN of the Aurora Serverless DB cluster.</p>
    */
   dbClusterOrInstanceArn: string | undefined;
 
   /**
+   * @public
    * <p>The Amazon Resource Name (ARN) of the secret that enables access to the DB cluster. Enter the database user name and password
    *             for the credentials in the secret.</p>
    *         <p>For information about creating the secret, see <a href="https://docs.aws.amazon.com/secretsmanager/latest/userguide/create_database_secret.html">Create a database secret</a>.</p>
@@ -348,6 +374,7 @@ export interface ExecuteSqlRequest {
   awsSecretStoreArn: string | undefined;
 
   /**
+   * @public
    * <p>One or more SQL statements to run on the DB cluster.</p>
    *         <p>You can separate SQL statements from each other with a semicolon (;). Any valid SQL
    *             statement is permitted, including data definition, data manipulation, and commit
@@ -356,11 +383,13 @@ export interface ExecuteSqlRequest {
   sqlStatements: string | undefined;
 
   /**
+   * @public
    * <p>The name of the database.</p>
    */
   database?: string;
 
   /**
+   * @public
    * <p>The name of the database schema.</p>
    */
   schema?: string;
@@ -372,11 +401,13 @@ export interface ExecuteSqlRequest {
  */
 export interface ResultSetMetadata {
   /**
+   * @public
    * <p>The number of columns in the result set.</p>
    */
   columnCount?: number;
 
   /**
+   * @public
    * <p>The metadata of the columns in the result set.</p>
    */
   columnMetadata?: ColumnMetadata[];
@@ -416,6 +447,7 @@ export type LongReturnType = (typeof LongReturnType)[keyof typeof LongReturnType
  */
 export interface ResultSetOptions {
   /**
+   * @public
    * <p>A value that indicates how a field of <code>DECIMAL</code> type is represented
    *             in the response. The value of <code>STRING</code>, the default, specifies that
    *             it is converted to a String value. The value of <code>DOUBLE_OR_LONG</code>
@@ -429,6 +461,7 @@ export interface ResultSetOptions {
   decimalReturnType?: DecimalReturnType | string;
 
   /**
+   * @public
    * <p>A value that indicates how a field of <code>LONG</code> type is represented.
    *         Allowed values are <code>LONG</code> and <code>STRING</code>. The default
    *         is <code>LONG</code>. Specify <code>STRING</code> if the length or
@@ -445,16 +478,19 @@ export interface ResultSetOptions {
  */
 export interface RollbackTransactionRequest {
   /**
+   * @public
    * <p>The Amazon Resource Name (ARN) of the Aurora Serverless DB cluster.</p>
    */
   resourceArn: string | undefined;
 
   /**
+   * @public
    * <p>The name or ARN of the secret that enables access to the DB cluster.</p>
    */
   secretArn: string | undefined;
 
   /**
+   * @public
    * <p>The identifier of the transaction to roll back.</p>
    */
   transactionId: string | undefined;
@@ -467,6 +503,7 @@ export interface RollbackTransactionRequest {
  */
 export interface RollbackTransactionResponse {
   /**
+   * @public
    * <p>The status of the rollback operation.</p>
    */
   transactionStatus?: string;
@@ -489,6 +526,7 @@ export type ArrayValue =
  */
 export namespace ArrayValue {
   /**
+   * @public
    * <p>An array of Boolean values.</p>
    */
   export interface BooleanValuesMember {
@@ -501,6 +539,7 @@ export namespace ArrayValue {
   }
 
   /**
+   * @public
    * <p>An array of integers.</p>
    */
   export interface LongValuesMember {
@@ -513,6 +552,7 @@ export namespace ArrayValue {
   }
 
   /**
+   * @public
    * <p>An array of floating-point numbers.</p>
    */
   export interface DoubleValuesMember {
@@ -525,6 +565,7 @@ export namespace ArrayValue {
   }
 
   /**
+   * @public
    * <p>An array of strings.</p>
    */
   export interface StringValuesMember {
@@ -537,6 +578,7 @@ export namespace ArrayValue {
   }
 
   /**
+   * @public
    * <p>An array of arrays.</p>
    */
   export interface ArrayValuesMember {
@@ -548,6 +590,9 @@ export namespace ArrayValue {
     $unknown?: never;
   }
 
+  /**
+   * @public
+   */
   export interface $UnknownMember {
     booleanValues?: never;
     longValues?: never;
@@ -595,6 +640,7 @@ export type Field =
  */
 export namespace Field {
   /**
+   * @public
    * <p>A NULL value.</p>
    */
   export interface IsNullMember {
@@ -609,6 +655,7 @@ export namespace Field {
   }
 
   /**
+   * @public
    * <p>A value of Boolean data type.</p>
    */
   export interface BooleanValueMember {
@@ -623,6 +670,7 @@ export namespace Field {
   }
 
   /**
+   * @public
    * <p>A value of long data type.</p>
    */
   export interface LongValueMember {
@@ -637,6 +685,7 @@ export namespace Field {
   }
 
   /**
+   * @public
    * <p>A value of double data type.</p>
    */
   export interface DoubleValueMember {
@@ -651,6 +700,7 @@ export namespace Field {
   }
 
   /**
+   * @public
    * <p>A value of string data type.</p>
    */
   export interface StringValueMember {
@@ -665,6 +715,7 @@ export namespace Field {
   }
 
   /**
+   * @public
    * <p>A value of BLOB data type.</p>
    */
   export interface BlobValueMember {
@@ -679,6 +730,7 @@ export namespace Field {
   }
 
   /**
+   * @public
    * <p>An array of values.</p>
    */
   export interface ArrayValueMember {
@@ -692,6 +744,9 @@ export namespace Field {
     $unknown?: never;
   }
 
+  /**
+   * @public
+   */
   export interface $UnknownMember {
     isNull?: never;
     booleanValue?: never;
@@ -732,16 +787,19 @@ export namespace Field {
  */
 export interface SqlParameter {
   /**
+   * @public
    * <p>The name of the parameter.</p>
    */
   name?: string;
 
   /**
+   * @public
    * <p>The value of the parameter.</p>
    */
   value?: Field;
 
   /**
+   * @public
    * <p>A hint that specifies the correct object type for data type mapping. Possible values
    *             are as follows:</p>
    *         <ul>
@@ -787,6 +845,7 @@ export interface SqlParameter {
  */
 export interface UpdateResult {
   /**
+   * @public
    * <p>Values for fields generated during the request.</p>
    */
   generatedFields?: Field[];
@@ -819,6 +878,7 @@ export type Value =
  */
 export namespace Value {
   /**
+   * @public
    * <p>A NULL value.</p>
    */
   export interface IsNullMember {
@@ -836,6 +896,7 @@ export namespace Value {
   }
 
   /**
+   * @public
    * <p>A value for a column of BIT data type.</p>
    */
   export interface BitValueMember {
@@ -853,6 +914,7 @@ export namespace Value {
   }
 
   /**
+   * @public
    * <p>A value for a column of big integer data type.</p>
    */
   export interface BigIntValueMember {
@@ -870,6 +932,7 @@ export namespace Value {
   }
 
   /**
+   * @public
    * <p>A value for a column of integer data type.</p>
    */
   export interface IntValueMember {
@@ -887,6 +950,7 @@ export namespace Value {
   }
 
   /**
+   * @public
    * <p>A value for a column of double data type.</p>
    */
   export interface DoubleValueMember {
@@ -904,6 +968,7 @@ export namespace Value {
   }
 
   /**
+   * @public
    * <p>A value for a column of real data type.</p>
    */
   export interface RealValueMember {
@@ -921,6 +986,7 @@ export namespace Value {
   }
 
   /**
+   * @public
    * <p>A value for a column of string data type.</p>
    */
   export interface StringValueMember {
@@ -938,6 +1004,7 @@ export namespace Value {
   }
 
   /**
+   * @public
    * <p>A value for a column of BLOB data type.</p>
    */
   export interface BlobValueMember {
@@ -955,6 +1022,7 @@ export namespace Value {
   }
 
   /**
+   * @public
    * <p>An array of column values.</p>
    */
   export interface ArrayValuesMember {
@@ -972,6 +1040,7 @@ export namespace Value {
   }
 
   /**
+   * @public
    * <p>A value for a column of STRUCT data type.</p>
    */
   export interface StructValueMember {
@@ -988,6 +1057,9 @@ export namespace Value {
     $unknown?: never;
   }
 
+  /**
+   * @public
+   */
   export interface $UnknownMember {
     isNull?: never;
     bitValue?: never;
@@ -1038,11 +1110,13 @@ export namespace Value {
  */
 export interface ExecuteStatementRequest {
   /**
+   * @public
    * <p>The Amazon Resource Name (ARN) of the Aurora Serverless DB cluster.</p>
    */
   resourceArn: string | undefined;
 
   /**
+   * @public
    * <p>The ARN of the secret that enables access to the DB cluster. Enter the database user name and password for the credentials in
    *             the secret.</p>
    *         <p>For information about creating the secret, see <a href="https://docs.aws.amazon.com/secretsmanager/latest/userguide/create_database_secret.html">Create a database secret</a>.</p>
@@ -1050,16 +1124,19 @@ export interface ExecuteStatementRequest {
   secretArn: string | undefined;
 
   /**
+   * @public
    * <p>The SQL statement to run.</p>
    */
   sql: string | undefined;
 
   /**
+   * @public
    * <p>The name of the database.</p>
    */
   database?: string;
 
   /**
+   * @public
    * <p>The name of the database schema.</p>
    *         <note>
    *             <p>Currently, the <code>schema</code> parameter isn't supported.</p>
@@ -1068,6 +1145,7 @@ export interface ExecuteStatementRequest {
   schema?: string;
 
   /**
+   * @public
    * <p>The parameters for the SQL statement.</p>
    *         <note>
    *             <p>Array parameters are not supported.</p>
@@ -1076,6 +1154,7 @@ export interface ExecuteStatementRequest {
   parameters?: SqlParameter[];
 
   /**
+   * @public
    * <p>The identifier of a transaction that was started by using the
    *                 <code>BeginTransaction</code> operation. Specify the transaction ID of the
    *             transaction that you want to include the SQL statement in.</p>
@@ -1084,11 +1163,13 @@ export interface ExecuteStatementRequest {
   transactionId?: string;
 
   /**
+   * @public
    * <p>A value that indicates whether to include metadata in the results.</p>
    */
   includeResultMetadata?: boolean;
 
   /**
+   * @public
    * <p>A value that indicates whether to continue running the statement after
    *             the call times out. By default, the statement stops running when the call
    *             times out.</p>
@@ -1101,11 +1182,13 @@ export interface ExecuteStatementRequest {
   continueAfterTimeout?: boolean;
 
   /**
+   * @public
    * <p>Options that control how the result set is returned.</p>
    */
   resultSetOptions?: ResultSetOptions;
 
   /**
+   * @public
    * <p>A value that indicates whether to format the result set as a single JSON string.
    *         This parameter only applies to <code>SELECT</code> statements and is ignored for
    *         other types of statements. Allowed values are <code>NONE</code> and <code>JSON</code>.
@@ -1127,6 +1210,7 @@ export interface ExecuteStatementRequest {
  */
 export interface StructValue {
   /**
+   * @public
    * <p>The attributes returned in the record.</p>
    */
   attributes?: Value[];
@@ -1139,11 +1223,13 @@ export interface StructValue {
  */
 export interface BatchExecuteStatementRequest {
   /**
+   * @public
    * <p>The Amazon Resource Name (ARN) of the Aurora Serverless DB cluster.</p>
    */
   resourceArn: string | undefined;
 
   /**
+   * @public
    * <p>The ARN of the secret that enables access to the DB cluster. Enter the database user name and password for the credentials in
    *             the secret.</p>
    *         <p>For information about creating the secret, see <a href="https://docs.aws.amazon.com/secretsmanager/latest/userguide/create_database_secret.html">Create a database secret</a>.</p>
@@ -1151,16 +1237,19 @@ export interface BatchExecuteStatementRequest {
   secretArn: string | undefined;
 
   /**
+   * @public
    * <p>The SQL statement to run. Don't include a semicolon (;) at the end of the SQL statement.</p>
    */
   sql: string | undefined;
 
   /**
+   * @public
    * <p>The name of the database.</p>
    */
   database?: string;
 
   /**
+   * @public
    * <p>The name of the database schema.</p>
    *         <note>
    *             <p>Currently, the <code>schema</code> parameter isn't supported.</p>
@@ -1169,6 +1258,7 @@ export interface BatchExecuteStatementRequest {
   schema?: string;
 
   /**
+   * @public
    * <p>The parameter set for the batch operation.</p>
    *         <p>The SQL statement is executed as many times as the number of parameter sets provided.
    *           To execute a SQL statement with no parameters, use one of the following options:</p>
@@ -1187,6 +1277,7 @@ export interface BatchExecuteStatementRequest {
   parameterSets?: SqlParameter[][];
 
   /**
+   * @public
    * <p>The identifier of a transaction that was started by using the
    *                 <code>BeginTransaction</code> operation. Specify the transaction ID of the
    *             transaction that you want to include the SQL statement in.</p>
@@ -1203,6 +1294,7 @@ export interface BatchExecuteStatementRequest {
  */
 export interface BatchExecuteStatementResponse {
   /**
+   * @public
    * <p>The execution results of each batch entry.</p>
    */
   updateResults?: UpdateResult[];
@@ -1218,6 +1310,7 @@ export interface BatchExecuteStatementResponse {
  */
 export interface _Record {
   /**
+   * @public
    * <p>The values returned in the record.</p>
    */
   values?: Value[];
@@ -1230,23 +1323,27 @@ export interface _Record {
  */
 export interface ExecuteStatementResponse {
   /**
+   * @public
    * <p>The records returned by the SQL statement. This field is blank if the
    *         <code>formatRecordsAs</code> parameter is set to <code>JSON</code>.</p>
    */
   records?: Field[][];
 
   /**
+   * @public
    * <p>Metadata for the columns included in the results. This field is blank if the
    *         <code>formatRecordsAs</code> parameter is set to <code>JSON</code>.</p>
    */
   columnMetadata?: ColumnMetadata[];
 
   /**
+   * @public
    * <p>The number of records updated by the request.</p>
    */
   numberOfRecordsUpdated?: number;
 
   /**
+   * @public
    * <p>Values for fields generated during a DML request.</p>
    *
    *         <note>
@@ -1259,6 +1356,7 @@ export interface ExecuteStatementResponse {
   generatedFields?: Field[];
 
   /**
+   * @public
    * <p>A string value that represents the result set of a <code>SELECT</code> statement
    *         in JSON format. This value is only present when the <code>formatRecordsAs</code>
    *         parameter is set to <code>JSON</code>.</p>
@@ -1278,11 +1376,13 @@ export interface ExecuteStatementResponse {
  */
 export interface ResultFrame {
   /**
+   * @public
    * <p>The result-set metadata in the result set.</p>
    */
   resultSetMetadata?: ResultSetMetadata;
 
   /**
+   * @public
    * <p>The records in the result set.</p>
    */
   records?: _Record[];
@@ -1299,11 +1399,13 @@ export interface ResultFrame {
  */
 export interface SqlStatementResult {
   /**
+   * @public
    * <p>The result set of the SQL statement.</p>
    */
   resultFrame?: ResultFrame;
 
   /**
+   * @public
    * <p>The number of records updated by a SQL statement.</p>
    */
   numberOfRecordsUpdated?: number;
@@ -1316,6 +1418,7 @@ export interface SqlStatementResult {
  */
 export interface ExecuteSqlResponse {
   /**
+   * @public
    * <p>The results of the SQL statement or statements.</p>
    */
   sqlStatementResults?: SqlStatementResult[];

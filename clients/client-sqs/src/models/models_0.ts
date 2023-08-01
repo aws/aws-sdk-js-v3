@@ -9,12 +9,14 @@ import { SQSServiceException as __BaseException } from "./SQSServiceException";
  */
 export interface AddPermissionRequest {
   /**
+   * @public
    * <p>The URL of the Amazon SQS queue to which permissions are added.</p>
    *          <p>Queue URLs and names are case-sensitive.</p>
    */
   QueueUrl: string | undefined;
 
   /**
+   * @public
    * <p>The unique identification of the permission you're setting (for example,
    *                 <code>AliceSendMessage</code>). Maximum 80 characters. Allowed characters include
    *             alphanumeric characters, hyphens (<code>-</code>), and underscores
@@ -23,6 +25,7 @@ export interface AddPermissionRequest {
   Label: string | undefined;
 
   /**
+   * @public
    * <p>The Amazon Web Services account numbers of the <a href="https://docs.aws.amazon.com/general/latest/gr/glos-chap.html#P">principals</a> who are to receive
    *             permission. For information about locating the Amazon Web Services account identification, see <a href="https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-making-api-requests.html#sqs-api-request-authentication">Your Amazon Web Services Identifiers</a> in the <i>Amazon SQS Developer
    *             Guide</i>.</p>
@@ -30,6 +33,7 @@ export interface AddPermissionRequest {
   AWSAccountIds: string[] | undefined;
 
   /**
+   * @public
    * <p>The action the client wants to allow for the specified principal. Valid values: the
    *             name of any action or <code>*</code>.</p>
    *          <p>For more information about these actions, see <a href="https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-overview-of-managing-access.html">Overview of Managing Access Permissions to Your Amazon Simple Queue Service
@@ -71,6 +75,7 @@ export class OverLimit extends __BaseException {
  */
 export interface CancelMessageMoveTaskRequest {
   /**
+   * @public
    * <p>An identifier associated with a message movement task.</p>
    */
   TaskHandle: string | undefined;
@@ -81,6 +86,7 @@ export interface CancelMessageMoveTaskRequest {
  */
 export interface CancelMessageMoveTaskResult {
   /**
+   * @public
    * <p>The approximate number of messages already moved to the destination queue.</p>
    */
   ApproximateNumberOfMessagesMoved?: number;
@@ -131,12 +137,14 @@ export class UnsupportedOperation extends __BaseException {
  */
 export interface ChangeMessageVisibilityRequest {
   /**
+   * @public
    * <p>The URL of the Amazon SQS queue whose message's visibility is changed.</p>
    *          <p>Queue URLs and names are case-sensitive.</p>
    */
   QueueUrl: string | undefined;
 
   /**
+   * @public
    * <p>The receipt handle associated with the message, whose visibility timeout is changed.
    *             This parameter is returned by the <code>
    *                <a>ReceiveMessage</a>
@@ -146,6 +154,7 @@ export interface ChangeMessageVisibilityRequest {
   ReceiptHandle: string | undefined;
 
   /**
+   * @public
    * <p>The new value for the message's visibility timeout (in seconds). Values range:
    *                 <code>0</code> to <code>43200</code>. Maximum: 12 hours.</p>
    */
@@ -220,6 +229,7 @@ export class BatchEntryIdsNotDistinct extends __BaseException {
  */
 export interface ChangeMessageVisibilityBatchRequestEntry {
   /**
+   * @public
    * <p>An identifier for this particular receipt handle used to communicate the
    *             result.</p>
    *          <note>
@@ -230,11 +240,13 @@ export interface ChangeMessageVisibilityBatchRequestEntry {
   Id: string | undefined;
 
   /**
+   * @public
    * <p>A receipt handle.</p>
    */
   ReceiptHandle: string | undefined;
 
   /**
+   * @public
    * <p>The new value (in seconds) for the message's visibility timeout.</p>
    */
   VisibilityTimeout?: number;
@@ -246,12 +258,14 @@ export interface ChangeMessageVisibilityBatchRequestEntry {
  */
 export interface ChangeMessageVisibilityBatchRequest {
   /**
+   * @public
    * <p>The URL of the Amazon SQS queue whose messages' visibility is changed.</p>
    *          <p>Queue URLs and names are case-sensitive.</p>
    */
   QueueUrl: string | undefined;
 
   /**
+   * @public
    * <p>Lists the receipt handles of the messages for which the visibility timeout must be
    *             changed.</p>
    */
@@ -265,21 +279,25 @@ export interface ChangeMessageVisibilityBatchRequest {
  */
 export interface BatchResultErrorEntry {
   /**
+   * @public
    * <p>The <code>Id</code> of an entry in a batch request.</p>
    */
   Id: string | undefined;
 
   /**
+   * @public
    * <p>Specifies whether the error happened due to the caller of the batch API action.</p>
    */
   SenderFault: boolean | undefined;
 
   /**
+   * @public
    * <p>An error code representing why the action failed on this entry.</p>
    */
   Code: string | undefined;
 
   /**
+   * @public
    * <p>A message explaining why the action failed on this entry.</p>
    */
   Message?: string;
@@ -293,6 +311,7 @@ export interface BatchResultErrorEntry {
  */
 export interface ChangeMessageVisibilityBatchResultEntry {
   /**
+   * @public
    * <p>Represents a message whose visibility timeout has been changed successfully.</p>
    */
   Id: string | undefined;
@@ -310,6 +329,7 @@ export interface ChangeMessageVisibilityBatchResultEntry {
  */
 export interface ChangeMessageVisibilityBatchResult {
   /**
+   * @public
    * <p>A list of <code>
    *                <a>ChangeMessageVisibilityBatchResultEntry</a>
    *             </code>
@@ -318,6 +338,7 @@ export interface ChangeMessageVisibilityBatchResult {
   Successful: ChangeMessageVisibilityBatchResultEntry[] | undefined;
 
   /**
+   * @public
    * <p>A list of <code>
    *                <a>BatchResultErrorEntry</a>
    *             </code> items.</p>
@@ -426,6 +447,7 @@ export type QueueAttributeName = (typeof QueueAttributeName)[keyof typeof QueueA
  */
 export interface CreateQueueRequest {
   /**
+   * @public
    * <p>The name of the new queue. The following limits apply to this name:</p>
    *          <ul>
    *             <li>
@@ -444,6 +466,7 @@ export interface CreateQueueRequest {
   QueueName: string | undefined;
 
   /**
+   * @public
    * <p>Add cost allocation tags to the specified Amazon SQS queue. For an overview, see <a href="https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-queue-tags.html">Tagging
    * Your Amazon SQS Queues</a> in the <i>Amazon SQS Developer Guide</i>.</p>
    *          <p>When you use queue tags, keep the following guidelines in mind:</p>
@@ -475,6 +498,7 @@ export interface CreateQueueRequest {
   tags?: Record<string, string>;
 
   /**
+   * @public
    * <p>A map of attributes with their corresponding values.</p>
    *          <p>The following lists the names, descriptions, and values of the special request
    *             parameters that the <code>CreateQueue</code> action uses:</p>
@@ -725,6 +749,7 @@ export interface CreateQueueRequest {
  */
 export interface CreateQueueResult {
   /**
+   * @public
    * <p>The URL of the created Amazon SQS queue.</p>
    */
   QueueUrl?: string;
@@ -778,12 +803,14 @@ export class QueueNameExists extends __BaseException {
  */
 export interface DeleteMessageRequest {
   /**
+   * @public
    * <p>The URL of the Amazon SQS queue from which messages are deleted.</p>
    *          <p>Queue URLs and names are case-sensitive.</p>
    */
   QueueUrl: string | undefined;
 
   /**
+   * @public
    * <p>The receipt handle associated with the message to delete.</p>
    */
   ReceiptHandle: string | undefined;
@@ -815,6 +842,7 @@ export class InvalidIdFormat extends __BaseException {
  */
 export interface DeleteMessageBatchRequestEntry {
   /**
+   * @public
    * <p>The identifier for this particular receipt handle. This is used to communicate the
    *             result.</p>
    *          <note>
@@ -825,6 +853,7 @@ export interface DeleteMessageBatchRequestEntry {
   Id: string | undefined;
 
   /**
+   * @public
    * <p>A receipt handle.</p>
    */
   ReceiptHandle: string | undefined;
@@ -836,12 +865,14 @@ export interface DeleteMessageBatchRequestEntry {
  */
 export interface DeleteMessageBatchRequest {
   /**
+   * @public
    * <p>The URL of the Amazon SQS queue from which messages are deleted.</p>
    *          <p>Queue URLs and names are case-sensitive.</p>
    */
   QueueUrl: string | undefined;
 
   /**
+   * @public
    * <p>Lists the receipt handles for the messages to be deleted.</p>
    */
   Entries: DeleteMessageBatchRequestEntry[] | undefined;
@@ -855,6 +886,7 @@ export interface DeleteMessageBatchRequest {
  */
 export interface DeleteMessageBatchResultEntry {
   /**
+   * @public
    * <p>Represents a successfully deleted message.</p>
    */
   Id: string | undefined;
@@ -872,6 +904,7 @@ export interface DeleteMessageBatchResultEntry {
  */
 export interface DeleteMessageBatchResult {
   /**
+   * @public
    * <p>A list of <code>
    *                <a>DeleteMessageBatchResultEntry</a>
    *             </code> items.</p>
@@ -879,6 +912,7 @@ export interface DeleteMessageBatchResult {
   Successful: DeleteMessageBatchResultEntry[] | undefined;
 
   /**
+   * @public
    * <p>A list of <code>
    *                <a>BatchResultErrorEntry</a>
    *             </code> items.</p>
@@ -892,6 +926,7 @@ export interface DeleteMessageBatchResult {
  */
 export interface DeleteQueueRequest {
   /**
+   * @public
    * <p>The URL of the Amazon SQS queue to delete.</p>
    *          <p>Queue URLs and names are case-sensitive.</p>
    */
@@ -904,12 +939,14 @@ export interface DeleteQueueRequest {
  */
 export interface GetQueueAttributesRequest {
   /**
+   * @public
    * <p>The URL of the Amazon SQS queue whose attribute information is retrieved.</p>
    *          <p>Queue URLs and names are case-sensitive.</p>
    */
   QueueUrl: string | undefined;
 
   /**
+   * @public
    * <p>A list of attributes for which to retrieve information.</p>
    *          <p>The <code>AttributeNames</code> parameter is optional, but if you don't specify values
    *             for this parameter, the request returns empty results.</p>
@@ -1147,6 +1184,7 @@ export interface GetQueueAttributesRequest {
  */
 export interface GetQueueAttributesResult {
   /**
+   * @public
    * <p>A map of attributes to their respective values.</p>
    */
   Attributes?: Record<string, string>;
@@ -1178,6 +1216,7 @@ export class InvalidAttributeName extends __BaseException {
  */
 export interface GetQueueUrlRequest {
   /**
+   * @public
    * <p>The name of the queue whose URL must be fetched. Maximum 80 characters. Valid values:
    *             alphanumeric characters, hyphens (<code>-</code>), and underscores
    *             (<code>_</code>).</p>
@@ -1186,6 +1225,7 @@ export interface GetQueueUrlRequest {
   QueueName: string | undefined;
 
   /**
+   * @public
    * <p>The Amazon Web Services account ID of the account that created the queue.</p>
    */
   QueueOwnerAWSAccountId?: string;
@@ -1198,6 +1238,7 @@ export interface GetQueueUrlRequest {
  */
 export interface GetQueueUrlResult {
   /**
+   * @public
    * <p>The URL of the queue.</p>
    */
   QueueUrl?: string;
@@ -1229,17 +1270,20 @@ export class QueueDoesNotExist extends __BaseException {
  */
 export interface ListDeadLetterSourceQueuesRequest {
   /**
+   * @public
    * <p>The URL of a dead-letter queue.</p>
    *          <p>Queue URLs and names are case-sensitive.</p>
    */
   QueueUrl: string | undefined;
 
   /**
+   * @public
    * <p>Pagination token to request the next set of results.</p>
    */
   NextToken?: string;
 
   /**
+   * @public
    * <p>Maximum number of results to include in the response. Value range is 1 to 1000. You
    *             must set <code>MaxResults</code> to receive a value for <code>NextToken</code> in the
    *             response.</p>
@@ -1253,12 +1297,14 @@ export interface ListDeadLetterSourceQueuesRequest {
  */
 export interface ListDeadLetterSourceQueuesResult {
   /**
+   * @public
    * <p>A list of source queue URLs that have the <code>RedrivePolicy</code> queue attribute
    *             configured with a dead-letter queue.</p>
    */
   queueUrls: string[] | undefined;
 
   /**
+   * @public
    * <p>Pagination token to include in the next request. Token value is <code>null</code> if
    *             there are no additional results to request, or if you did not set
    *                 <code>MaxResults</code> in the request.</p>
@@ -1271,11 +1317,13 @@ export interface ListDeadLetterSourceQueuesResult {
  */
 export interface ListMessageMoveTasksRequest {
   /**
+   * @public
    * <p>The ARN of the queue whose message movement tasks are to be listed.</p>
    */
   SourceArn: string | undefined;
 
   /**
+   * @public
    * <p>The maximum number of results to include in the response. The default is 1, which
    *             provides the most recent message movement task. The upper limit is 10.</p>
    */
@@ -1288,6 +1336,7 @@ export interface ListMessageMoveTasksRequest {
  */
 export interface ListMessageMoveTasksResultEntry {
   /**
+   * @public
    * <p>An identifier associated with a message movement task. When this field is returned in
    *             the response of the <code>ListMessageMoveTasks</code> action, it is only populated for
    *             tasks that are in RUNNING status.</p>
@@ -1295,17 +1344,20 @@ export interface ListMessageMoveTasksResultEntry {
   TaskHandle?: string;
 
   /**
+   * @public
    * <p>The status of the message movement task. Possible values are: RUNNING, COMPLETED,
    *             CANCELLING, CANCELLED, and FAILED.</p>
    */
   Status?: string;
 
   /**
+   * @public
    * <p>The ARN of the queue that contains the messages to be moved to another queue.</p>
    */
   SourceArn?: string;
 
   /**
+   * @public
    * <p>The ARN of the destination queue if it has been specified in the
    *                 <code>StartMessageMoveTask</code> request. If a <code>DestinationArn</code> has not
    *             been specified in the <code>StartMessageMoveTask</code> request, this field value will
@@ -1314,6 +1366,7 @@ export interface ListMessageMoveTasksResultEntry {
   DestinationArn?: string;
 
   /**
+   * @public
    * <p>The number of messages to be moved per second (the message movement rate), if it has
    *             been specified in the <code>StartMessageMoveTask</code> request. If a
    *                 <code>MaxNumberOfMessagesPerSecond</code> has not been specified in the
@@ -1322,22 +1375,26 @@ export interface ListMessageMoveTasksResultEntry {
   MaxNumberOfMessagesPerSecond?: number;
 
   /**
+   * @public
    * <p>The approximate number of messages already moved to the destination queue.</p>
    */
   ApproximateNumberOfMessagesMoved?: number;
 
   /**
+   * @public
    * <p>The number of messages to be moved from the source queue. This number is obtained at
    *             the time of starting the message movement task.</p>
    */
   ApproximateNumberOfMessagesToMove?: number;
 
   /**
+   * @public
    * <p>The task failure reason (only included if the task status is FAILED).</p>
    */
   FailureReason?: string;
 
   /**
+   * @public
    * <p>The timestamp of starting the message movement task.</p>
    */
   StartedTimestamp?: number;
@@ -1348,6 +1405,7 @@ export interface ListMessageMoveTasksResultEntry {
  */
 export interface ListMessageMoveTasksResult {
   /**
+   * @public
    * <p>A list of message movement tasks and their attributes.</p>
    */
   Results?: ListMessageMoveTasksResultEntry[];
@@ -1359,6 +1417,7 @@ export interface ListMessageMoveTasksResult {
  */
 export interface ListQueuesRequest {
   /**
+   * @public
    * <p>A string to use for filtering the list results. Only those queues whose name begins
    *             with the specified string are returned.</p>
    *          <p>Queue URLs and names are case-sensitive.</p>
@@ -1366,11 +1425,13 @@ export interface ListQueuesRequest {
   QueueNamePrefix?: string;
 
   /**
+   * @public
    * <p>Pagination token to request the next set of results.</p>
    */
   NextToken?: string;
 
   /**
+   * @public
    * <p>Maximum number of results to include in the response. Value range is 1 to 1000. You
    *             must set <code>MaxResults</code> to receive a value for <code>NextToken</code> in the
    *             response.</p>
@@ -1384,6 +1445,7 @@ export interface ListQueuesRequest {
  */
 export interface ListQueuesResult {
   /**
+   * @public
    * <p>Pagination token to include in the next request. Token value is <code>null</code> if
    *             there are no additional results to request, or if you did not set
    *                 <code>MaxResults</code> in the request.</p>
@@ -1391,6 +1453,7 @@ export interface ListQueuesResult {
   NextToken?: string;
 
   /**
+   * @public
    * <p>A list of queue URLs, up to 1,000 entries, or the value of <code>MaxResults</code>
    *             that you sent in the request.</p>
    */
@@ -1402,6 +1465,7 @@ export interface ListQueuesResult {
  */
 export interface ListQueueTagsRequest {
   /**
+   * @public
    * <p>The URL of the queue.</p>
    */
   QueueUrl: string | undefined;
@@ -1412,6 +1476,7 @@ export interface ListQueueTagsRequest {
  */
 export interface ListQueueTagsResult {
   /**
+   * @public
    * <p>The list of all tags added to the specified queue.</p>
    */
   Tags?: Record<string, string>;
@@ -1445,6 +1510,7 @@ export class PurgeQueueInProgress extends __BaseException {
  */
 export interface PurgeQueueRequest {
   /**
+   * @public
    * <p>The URL of the queue from which the <code>PurgeQueue</code> action deletes
    *             messages.</p>
    *          <p>Queue URLs and names are case-sensitive.</p>
@@ -1458,12 +1524,14 @@ export interface PurgeQueueRequest {
  */
 export interface ReceiveMessageRequest {
   /**
+   * @public
    * <p>The URL of the Amazon SQS queue from which messages are received.</p>
    *          <p>Queue URLs and names are case-sensitive.</p>
    */
   QueueUrl: string | undefined;
 
   /**
+   * @public
    * <p>A list of attributes that need to be returned along with each message. These
    *             attributes include:</p>
    *          <ul>
@@ -1541,6 +1609,7 @@ export interface ReceiveMessageRequest {
   AttributeNames?: (QueueAttributeName | string)[];
 
   /**
+   * @public
    * <p>The name of the message attribute, where <i>N</i> is the index.</p>
    *          <ul>
    *             <li>
@@ -1572,6 +1641,7 @@ export interface ReceiveMessageRequest {
   MessageAttributeNames?: string[];
 
   /**
+   * @public
    * <p>The maximum number of messages to return. Amazon SQS never returns more messages than this
    *             value (however, fewer messages might be returned). Valid values: 1 to 10. Default:
    *             1.</p>
@@ -1579,12 +1649,14 @@ export interface ReceiveMessageRequest {
   MaxNumberOfMessages?: number;
 
   /**
+   * @public
    * <p>The duration (in seconds) that the received messages are hidden from subsequent
    *             retrieve requests after being retrieved by a <code>ReceiveMessage</code> request.</p>
    */
   VisibilityTimeout?: number;
 
   /**
+   * @public
    * <p>The duration (in seconds) for which the call waits for a message to arrive in the
    *             queue before returning. If a message is available, the call returns sooner than
    *                 <code>WaitTimeSeconds</code>. If no messages are available and the wait time
@@ -1599,6 +1671,7 @@ export interface ReceiveMessageRequest {
   WaitTimeSeconds?: number;
 
   /**
+   * @public
    * <p>This parameter applies only to FIFO (first-in-first-out) queues.</p>
    *          <p>The token used for deduplication of <code>ReceiveMessage</code> calls. If a networking
    *             issue occurs after a <code>ReceiveMessage</code> action, and instead of a response you
@@ -1702,28 +1775,33 @@ export type MessageSystemAttributeName = (typeof MessageSystemAttributeName)[key
  */
 export interface MessageAttributeValue {
   /**
+   * @public
    * <p>Strings are Unicode with UTF-8 binary encoding. For a list of code values, see <a href="http://en.wikipedia.org/wiki/ASCII#ASCII_printable_characters">ASCII Printable
    *                 Characters</a>.</p>
    */
   StringValue?: string;
 
   /**
+   * @public
    * <p>Binary type attributes can store any binary data, such as compressed data, encrypted
    *             data, or images.</p>
    */
   BinaryValue?: Uint8Array;
 
   /**
+   * @public
    * <p>Not implemented. Reserved for future use.</p>
    */
   StringListValues?: string[];
 
   /**
+   * @public
    * <p>Not implemented. Reserved for future use.</p>
    */
   BinaryListValues?: Uint8Array[];
 
   /**
+   * @public
    * <p>Amazon SQS supports the following logical data types: <code>String</code>,
    *                 <code>Number</code>, and <code>Binary</code>. For the <code>Number</code> data type,
    *             you must use <code>StringValue</code>.</p>
@@ -1739,12 +1817,14 @@ export interface MessageAttributeValue {
  */
 export interface Message {
   /**
+   * @public
    * <p>A unique identifier for the message. A <code>MessageId</code>is considered unique
    *             across all Amazon Web Services accounts for an extended period of time.</p>
    */
   MessageId?: string;
 
   /**
+   * @public
    * <p>An identifier associated with the act of receiving the message. A new receipt handle
    *             is returned every time you receive a message. When deleting a message, you provide the
    *             last received receipt handle to delete the message.</p>
@@ -1752,16 +1832,19 @@ export interface Message {
   ReceiptHandle?: string;
 
   /**
+   * @public
    * <p>An MD5 digest of the non-URL-encoded message body string.</p>
    */
   MD5OfBody?: string;
 
   /**
+   * @public
    * <p>The message's contents (not URL-encoded).</p>
    */
   Body?: string;
 
   /**
+   * @public
    * <p>A map of the attributes requested in <code>
    *                <a>ReceiveMessage</a>
    *             </code> to
@@ -1811,11 +1894,13 @@ export interface Message {
   Attributes?: Record<string, string>;
 
   /**
+   * @public
    * <p>An MD5 digest of the non-URL-encoded message attribute string. You can use this attribute to verify that Amazon SQS received the message correctly. Amazon SQS URL-decodes the message before creating the MD5 digest. For information about MD5, see <a href="https://www.ietf.org/rfc/rfc1321.txt">RFC1321</a>.</p>
    */
   MD5OfMessageAttributes?: string;
 
   /**
+   * @public
    * <p>Each message attribute consists of a <code>Name</code>, <code>Type</code>,
    * and <code>Value</code>. For more information, see
    * <a href="https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-message-metadata.html#sqs-message-attributes">Amazon SQS
@@ -1830,6 +1915,7 @@ export interface Message {
  */
 export interface ReceiveMessageResult {
   /**
+   * @public
    * <p>A list of messages.</p>
    */
   Messages?: Message[];
@@ -1841,12 +1927,14 @@ export interface ReceiveMessageResult {
  */
 export interface RemovePermissionRequest {
   /**
+   * @public
    * <p>The URL of the Amazon SQS queue from which permissions are removed.</p>
    *          <p>Queue URLs and names are case-sensitive.</p>
    */
   QueueUrl: string | undefined;
 
   /**
+   * @public
    * <p>The identification of the permission to remove. This is the label added using the
    *                     <code>
    *                <a>AddPermission</a>
@@ -1902,28 +1990,33 @@ export type MessageSystemAttributeNameForSends =
  */
 export interface MessageSystemAttributeValue {
   /**
+   * @public
    * <p>Strings are Unicode with UTF-8 binary encoding. For a list of code values, see <a href="http://en.wikipedia.org/wiki/ASCII#ASCII_printable_characters">ASCII Printable
    *                 Characters</a>.</p>
    */
   StringValue?: string;
 
   /**
+   * @public
    * <p>Binary type attributes can store any binary data, such as compressed data, encrypted
    *             data, or images.</p>
    */
   BinaryValue?: Uint8Array;
 
   /**
+   * @public
    * <p>Not implemented. Reserved for future use.</p>
    */
   StringListValues?: string[];
 
   /**
+   * @public
    * <p>Not implemented. Reserved for future use.</p>
    */
   BinaryListValues?: Uint8Array[];
 
   /**
+   * @public
    * <p>Amazon SQS supports the following logical data types: <code>String</code>,
    *                 <code>Number</code>, and <code>Binary</code>. For the <code>Number</code> data type,
    *             you must use <code>StringValue</code>.</p>
@@ -1939,12 +2032,14 @@ export interface MessageSystemAttributeValue {
  */
 export interface SendMessageRequest {
   /**
+   * @public
    * <p>The URL of the Amazon SQS queue to which a message is sent.</p>
    *          <p>Queue URLs and names are case-sensitive.</p>
    */
   QueueUrl: string | undefined;
 
   /**
+   * @public
    * <p>The message to send. The minimum size is one character. The maximum size is 256
    *             KiB.</p>
    *          <important>
@@ -1958,6 +2053,7 @@ export interface SendMessageRequest {
   MessageBody: string | undefined;
 
   /**
+   * @public
    * <p> The length of time, in seconds, for which to delay a specific message. Valid values:
    *             0 to 900. Maximum: 15 minutes. Messages with a positive <code>DelaySeconds</code> value
    *             become available for processing after the delay period is finished. If you don't specify
@@ -1969,6 +2065,7 @@ export interface SendMessageRequest {
   DelaySeconds?: number;
 
   /**
+   * @public
    * <p>Each message attribute consists of a <code>Name</code>, <code>Type</code>,
    * and <code>Value</code>. For more information, see
    * <a href="https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-message-metadata.html#sqs-message-attributes">Amazon SQS
@@ -1977,6 +2074,7 @@ export interface SendMessageRequest {
   MessageAttributes?: Record<string, MessageAttributeValue>;
 
   /**
+   * @public
    * <p>The message system attribute to send. Each message system attribute consists of a <code>Name</code>, <code>Type</code>, and <code>Value</code>.</p>
    *          <important>
    *             <ul>
@@ -1994,6 +2092,7 @@ export interface SendMessageRequest {
   MessageSystemAttributes?: Record<string, MessageSystemAttributeValue>;
 
   /**
+   * @public
    * <p>This parameter applies only to FIFO (first-in-first-out) queues.</p>
    *          <p>The token used for deduplication of sent messages. If a message with a particular
    *                 <code>MessageDeduplicationId</code> is sent successfully, any messages sent with the
@@ -2058,6 +2157,7 @@ export interface SendMessageRequest {
   MessageDeduplicationId?: string;
 
   /**
+   * @public
    * <p>This parameter applies only to FIFO (first-in-first-out) queues.</p>
    *          <p>The tag that specifies that a message belongs to a specific message group. Messages
    *             that belong to the same message group are processed in a FIFO manner (however,
@@ -2099,22 +2199,26 @@ export interface SendMessageRequest {
  */
 export interface SendMessageResult {
   /**
+   * @public
    * <p>An MD5 digest of the non-URL-encoded message body string. You can use this attribute to verify that Amazon SQS received the message correctly. Amazon SQS URL-decodes the message before creating the MD5 digest. For information about MD5, see <a href="https://www.ietf.org/rfc/rfc1321.txt">RFC1321</a>.</p>
    */
   MD5OfMessageBody?: string;
 
   /**
+   * @public
    * <p>An MD5 digest of the non-URL-encoded message attribute string. You can use this attribute to verify that Amazon SQS received the message correctly. Amazon SQS URL-decodes the message before creating the MD5 digest. For information about MD5, see <a href="https://www.ietf.org/rfc/rfc1321.txt">RFC1321</a>.</p>
    */
   MD5OfMessageAttributes?: string;
 
   /**
+   * @public
    * <p>An MD5 digest of the non-URL-encoded message system attribute string. You can use this
    * attribute to verify that Amazon SQS received the message correctly. Amazon SQS URL-decodes the message before creating the MD5 digest.</p>
    */
   MD5OfMessageSystemAttributes?: string;
 
   /**
+   * @public
    * <p>An attribute containing the <code>MessageId</code> of the message sent to the queue.
    *             For more information, see <a href="https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-queue-message-identifiers.html">Queue and Message Identifiers</a> in the <i>Amazon SQS Developer
    *                 Guide</i>. </p>
@@ -2122,6 +2226,7 @@ export interface SendMessageResult {
   MessageId?: string;
 
   /**
+   * @public
    * <p>This parameter applies only to FIFO (first-in-first-out) queues.</p>
    *          <p>The large, non-consecutive number that Amazon SQS assigns to each message.</p>
    *          <p>The length of <code>SequenceNumber</code> is 128 bits. <code>SequenceNumber</code>
@@ -2156,6 +2261,7 @@ export class BatchRequestTooLong extends __BaseException {
  */
 export interface SendMessageBatchRequestEntry {
   /**
+   * @public
    * <p>An identifier for a message in this batch used to communicate the result.</p>
    *          <note>
    *             <p>The <code>Id</code>s of a batch request need to be unique within a request.</p>
@@ -2165,11 +2271,13 @@ export interface SendMessageBatchRequestEntry {
   Id: string | undefined;
 
   /**
+   * @public
    * <p>The body of the message.</p>
    */
   MessageBody: string | undefined;
 
   /**
+   * @public
    * <p>The length of time, in seconds, for which a specific message is delayed. Valid values:
    *             0 to 900. Maximum: 15 minutes. Messages with a positive <code>DelaySeconds</code> value
    *             become available for processing after the delay period is finished. If you don't specify
@@ -2181,6 +2289,7 @@ export interface SendMessageBatchRequestEntry {
   DelaySeconds?: number;
 
   /**
+   * @public
    * <p>Each message attribute consists of a <code>Name</code>, <code>Type</code>,
    * and <code>Value</code>. For more information, see
    * <a href="https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-message-metadata.html#sqs-message-attributes">Amazon SQS
@@ -2189,6 +2298,7 @@ export interface SendMessageBatchRequestEntry {
   MessageAttributes?: Record<string, MessageAttributeValue>;
 
   /**
+   * @public
    * <p>The message system attribute to send Each message system attribute consists of a <code>Name</code>, <code>Type</code>, and <code>Value</code>.</p>
    *          <important>
    *             <ul>
@@ -2206,6 +2316,7 @@ export interface SendMessageBatchRequestEntry {
   MessageSystemAttributes?: Record<string, MessageSystemAttributeValue>;
 
   /**
+   * @public
    * <p>This parameter applies only to FIFO (first-in-first-out) queues.</p>
    *          <p>The token used for deduplication of messages within a 5-minute minimum deduplication
    *             interval. If a message with a particular <code>MessageDeduplicationId</code> is sent
@@ -2270,6 +2381,7 @@ export interface SendMessageBatchRequestEntry {
   MessageDeduplicationId?: string;
 
   /**
+   * @public
    * <p>This parameter applies only to FIFO (first-in-first-out) queues.</p>
    *          <p>The tag that specifies that a message belongs to a specific message group. Messages
    *             that belong to the same message group are processed in a FIFO manner (however,
@@ -2311,12 +2423,14 @@ export interface SendMessageBatchRequestEntry {
  */
 export interface SendMessageBatchRequest {
   /**
+   * @public
    * <p>The URL of the Amazon SQS queue to which batched messages are sent.</p>
    *          <p>Queue URLs and names are case-sensitive.</p>
    */
   QueueUrl: string | undefined;
 
   /**
+   * @public
    * <p>A list of <code>
    *                <a>SendMessageBatchRequestEntry</a>
    *             </code> items.</p>
@@ -2332,32 +2446,38 @@ export interface SendMessageBatchRequest {
  */
 export interface SendMessageBatchResultEntry {
   /**
+   * @public
    * <p>An identifier for the message in this batch.</p>
    */
   Id: string | undefined;
 
   /**
+   * @public
    * <p>An identifier for the message.</p>
    */
   MessageId: string | undefined;
 
   /**
+   * @public
    * <p>An MD5 digest of the non-URL-encoded message body string. You can use this attribute to verify that Amazon SQS received the message correctly. Amazon SQS URL-decodes the message before creating the MD5 digest. For information about MD5, see <a href="https://www.ietf.org/rfc/rfc1321.txt">RFC1321</a>.</p>
    */
   MD5OfMessageBody: string | undefined;
 
   /**
+   * @public
    * <p>An MD5 digest of the non-URL-encoded message attribute string. You can use this attribute to verify that Amazon SQS received the message correctly. Amazon SQS URL-decodes the message before creating the MD5 digest. For information about MD5, see <a href="https://www.ietf.org/rfc/rfc1321.txt">RFC1321</a>.</p>
    */
   MD5OfMessageAttributes?: string;
 
   /**
+   * @public
    * <p>An MD5 digest of the non-URL-encoded message system attribute string. You can use this
    * attribute to verify that Amazon SQS received the message correctly. Amazon SQS URL-decodes the message before creating the MD5 digest. For information about MD5, see <a href="https://www.ietf.org/rfc/rfc1321.txt">RFC1321</a>.</p>
    */
   MD5OfMessageSystemAttributes?: string;
 
   /**
+   * @public
    * <p>This parameter applies only to FIFO (first-in-first-out) queues.</p>
    *          <p>The large, non-consecutive number that Amazon SQS assigns to each message.</p>
    *          <p>The length of <code>SequenceNumber</code> is 128 bits. As <code>SequenceNumber</code>
@@ -2378,6 +2498,7 @@ export interface SendMessageBatchResultEntry {
  */
 export interface SendMessageBatchResult {
   /**
+   * @public
    * <p>A list of <code>
    *                <a>SendMessageBatchResultEntry</a>
    *             </code> items.</p>
@@ -2385,6 +2506,7 @@ export interface SendMessageBatchResult {
   Successful: SendMessageBatchResultEntry[] | undefined;
 
   /**
+   * @public
    * <p>A list of <code>
    *                <a>BatchResultErrorEntry</a>
    *             </code> items with error
@@ -2399,12 +2521,14 @@ export interface SendMessageBatchResult {
  */
 export interface SetQueueAttributesRequest {
   /**
+   * @public
    * <p>The URL of the Amazon SQS queue whose attributes are set.</p>
    *          <p>Queue URLs and names are case-sensitive.</p>
    */
   QueueUrl: string | undefined;
 
   /**
+   * @public
    * <p>A map of attributes to set.</p>
    *          <p>The following lists the names, descriptions, and values of the special request
    *             parameters that the <code>SetQueueAttributes</code> action uses:</p>
@@ -2643,6 +2767,7 @@ export interface SetQueueAttributesRequest {
  */
 export interface StartMessageMoveTaskRequest {
   /**
+   * @public
    * <p>The ARN of the queue that contains the messages to be moved to another queue.
    *             Currently, only ARNs of dead-letter queues (DLQs) whose sources are other Amazon SQS queues
    *             are accepted. DLQs whose sources are non-SQS queues, such as Lambda or Amazon SNS topics, are
@@ -2651,6 +2776,7 @@ export interface StartMessageMoveTaskRequest {
   SourceArn: string | undefined;
 
   /**
+   * @public
    * <p>The ARN of the queue that receives the moved messages. You can use this field to
    *             specify the destination queue where you would like to redrive messages. If this field is
    *             left blank, the messages will be redriven back to their respective original source
@@ -2659,6 +2785,7 @@ export interface StartMessageMoveTaskRequest {
   DestinationArn?: string;
 
   /**
+   * @public
    * <p>The number of messages to be moved per second (the message movement rate). You can use
    *             this field to define a fixed message movement rate. The maximum value for messages per
    *             second is 500. If this field is left blank, the system will optimize the rate based on
@@ -2673,6 +2800,7 @@ export interface StartMessageMoveTaskRequest {
  */
 export interface StartMessageMoveTaskResult {
   /**
+   * @public
    * <p>An identifier associated with a message movement task. You can use this identifier to
    *             cancel a specified message movement task using the <code>CancelMessageMoveTask</code>
    *             action.</p>
@@ -2685,11 +2813,13 @@ export interface StartMessageMoveTaskResult {
  */
 export interface TagQueueRequest {
   /**
+   * @public
    * <p>The URL of the queue.</p>
    */
   QueueUrl: string | undefined;
 
   /**
+   * @public
    * <p>The list of tags to be added to the specified queue.</p>
    */
   Tags: Record<string, string> | undefined;
@@ -2700,11 +2830,13 @@ export interface TagQueueRequest {
  */
 export interface UntagQueueRequest {
   /**
+   * @public
    * <p>The URL of the queue.</p>
    */
   QueueUrl: string | undefined;
 
   /**
+   * @public
    * <p>The list of tags to be removed from the specified queue.</p>
    */
   TagKeys: string[] | undefined;

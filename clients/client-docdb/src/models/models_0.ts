@@ -10,12 +10,14 @@ import { DocDBServiceException as __BaseException } from "./DocDBServiceExceptio
  */
 export interface AddSourceIdentifierToSubscriptionMessage {
   /**
+   * @public
    * <p>The name of the Amazon DocumentDB event notification subscription that you
    *             want to add a source identifier to.</p>
    */
   SubscriptionName: string | undefined;
 
   /**
+   * @public
    * <p>The identifier of the event source to be added:</p>
    *          <ul>
    *             <li>
@@ -45,22 +47,26 @@ export interface AddSourceIdentifierToSubscriptionMessage {
  */
 export interface EventSubscription {
   /**
+   * @public
    * <p>The Amazon Web Services customer account that is associated with the Amazon DocumentDB event notification
    *             subscription.</p>
    */
   CustomerAwsId?: string;
 
   /**
+   * @public
    * <p>The Amazon DocumentDB event notification subscription ID.</p>
    */
   CustSubscriptionId?: string;
 
   /**
+   * @public
    * <p>The topic ARN of the Amazon DocumentDB event notification subscription.</p>
    */
   SnsTopicArn?: string;
 
   /**
+   * @public
    * <p>The status of the Amazon DocumentDB event notification subscription.</p>
    *          <p>Constraints:</p>
    *          <p>Can be one of the following: <code>creating</code>, <code>modifying</code>,
@@ -74,32 +80,38 @@ export interface EventSubscription {
   Status?: string;
 
   /**
+   * @public
    * <p>The time at which the Amazon DocumentDB event notification subscription was created.</p>
    */
   SubscriptionCreationTime?: string;
 
   /**
+   * @public
    * <p>The source type for the Amazon DocumentDB event notification subscription.</p>
    */
   SourceType?: string;
 
   /**
+   * @public
    * <p>A list of source IDs for the Amazon DocumentDB event notification subscription.</p>
    */
   SourceIdsList?: string[];
 
   /**
+   * @public
    * <p>A list of event categories for the Amazon DocumentDB event notification subscription.</p>
    */
   EventCategoriesList?: string[];
 
   /**
+   * @public
    * <p>A Boolean value indicating whether the subscription is enabled. A value of
    *                 <code>true</code> indicates that the subscription is enabled.</p>
    */
   Enabled?: boolean;
 
   /**
+   * @public
    * <p>The Amazon Resource Name (ARN) for the event subscription.</p>
    */
   EventSubscriptionArn?: string;
@@ -110,6 +122,7 @@ export interface EventSubscription {
  */
 export interface AddSourceIdentifierToSubscriptionResult {
   /**
+   * @public
    * <p>Detailed information about an event to which you have subscribed.</p>
    */
   EventSubscription?: EventSubscription;
@@ -161,11 +174,13 @@ export class SubscriptionNotFoundFault extends __BaseException {
  */
 export interface Tag {
   /**
+   * @public
    * <p>The required name of the tag. The string value can be from 1 to 128 Unicode characters in length and can't be prefixed with "<code>aws:</code>" or "<code>rds:</code>". The string can contain only the set of Unicode letters, digits, white space, '_', '.', '/', '=', '+', '-' (Java regex: "^([\\p\{L\}\\p\{Z\}\\p\{N\}_.:/=+\\-]*)$").</p>
    */
   Key?: string;
 
   /**
+   * @public
    * <p>The optional value of the tag. The string value can be from 1 to 256 Unicode characters in length and can't be prefixed with "<code>aws:</code>" or "<code>rds:</code>". The string can contain only the set of Unicode letters, digits, white space, '_', '.', '/', '=', '+', '-' (Java regex: "^([\\p\{L\}\\p\{Z\}\\p\{N\}_.:/=+\\-]*)$").</p>
    */
   Value?: string;
@@ -178,12 +193,14 @@ export interface Tag {
  */
 export interface AddTagsToResourceMessage {
   /**
+   * @public
    * <p>The Amazon DocumentDB resource that the tags are added to. This value is an
    *             Amazon Resource Name .</p>
    */
   ResourceName: string | undefined;
 
   /**
+   * @public
    * <p>The tags to be assigned to the Amazon DocumentDB resource.</p>
    */
   Tags: Tag[] | undefined;
@@ -259,12 +276,14 @@ export class DBSnapshotNotFoundFault extends __BaseException {
  */
 export interface ApplyPendingMaintenanceActionMessage {
   /**
+   * @public
    * <p>The Amazon Resource Name (ARN) of the resource that the pending
    *             maintenance action applies to.</p>
    */
   ResourceIdentifier: string | undefined;
 
   /**
+   * @public
    * <p>The pending maintenance action to apply to this resource.</p>
    *          <p>Valid values: <code>system-update</code>, <code>db-upgrade</code>
    *          </p>
@@ -272,6 +291,7 @@ export interface ApplyPendingMaintenanceActionMessage {
   ApplyAction: string | undefined;
 
   /**
+   * @public
    * <p>A value that specifies the type of opt-in request or undoes an
    *             opt-in request. An opt-in request of type <code>immediate</code>
    *             can't be undone.</p>
@@ -304,11 +324,13 @@ export interface ApplyPendingMaintenanceActionMessage {
  */
 export interface PendingMaintenanceAction {
   /**
+   * @public
    * <p>The type of pending maintenance action that is available for the resource.</p>
    */
   Action?: string;
 
   /**
+   * @public
    * <p>The date of the maintenance window when the action is applied. The maintenance action
    *             is applied to the resource during its first maintenance window after this date. If this
    *             date is specified, any <code>next-maintenance</code> opt-in requests are ignored.</p>
@@ -316,6 +338,7 @@ export interface PendingMaintenanceAction {
   AutoAppliedAfterDate?: Date;
 
   /**
+   * @public
    * <p>The date when the maintenance action is automatically applied. The maintenance action
    *             is applied to the resource on this date regardless of the maintenance window for the
    *             resource. If this date is specified, any <code>immediate</code> opt-in requests are
@@ -324,17 +347,20 @@ export interface PendingMaintenanceAction {
   ForcedApplyDate?: Date;
 
   /**
+   * @public
    * <p>Indicates the type of opt-in request that has been received for the resource.</p>
    */
   OptInStatus?: string;
 
   /**
+   * @public
    * <p>The effective date when the pending maintenance action is applied to the
    *             resource.</p>
    */
   CurrentApplyDate?: Date;
 
   /**
+   * @public
    * <p>A description providing more detail about the maintenance action.</p>
    */
   Description?: string;
@@ -347,12 +373,14 @@ export interface PendingMaintenanceAction {
  */
 export interface ResourcePendingMaintenanceActions {
   /**
+   * @public
    * <p>The Amazon Resource Name (ARN) of the resource that has pending
    *             maintenance actions.</p>
    */
   ResourceIdentifier?: string;
 
   /**
+   * @public
    * <p>A list that provides details about the pending maintenance actions
    *             for the resource.</p>
    */
@@ -364,6 +392,7 @@ export interface ResourcePendingMaintenanceActions {
  */
 export interface ApplyPendingMaintenanceActionResult {
   /**
+   * @public
    * <p>Represents the output of <a>ApplyPendingMaintenanceAction</a>.
    *         </p>
    */
@@ -438,6 +467,7 @@ export class ResourceNotFoundFault extends __BaseException {
  */
 export interface CopyDBClusterParameterGroupMessage {
   /**
+   * @public
    * <p>The identifier or Amazon Resource Name (ARN) for the source cluster parameter group.</p>
    *          <p>Constraints:</p>
    *          <ul>
@@ -455,6 +485,7 @@ export interface CopyDBClusterParameterGroupMessage {
   SourceDBClusterParameterGroupIdentifier: string | undefined;
 
   /**
+   * @public
    * <p>The identifier for the copied cluster parameter group.</p>
    *          <p>Constraints:</p>
    *          <ul>
@@ -479,11 +510,13 @@ export interface CopyDBClusterParameterGroupMessage {
   TargetDBClusterParameterGroupIdentifier: string | undefined;
 
   /**
+   * @public
    * <p>A description for the copied cluster parameter group.</p>
    */
   TargetDBClusterParameterGroupDescription: string | undefined;
 
   /**
+   * @public
    * <p>The tags that are to be assigned to the parameter group.</p>
    */
   Tags?: Tag[];
@@ -495,23 +528,27 @@ export interface CopyDBClusterParameterGroupMessage {
  */
 export interface DBClusterParameterGroup {
   /**
+   * @public
    * <p>Provides the name of the cluster parameter group.</p>
    */
   DBClusterParameterGroupName?: string;
 
   /**
+   * @public
    * <p>Provides the name of the parameter group family that this cluster parameter
    *             group is compatible with.</p>
    */
   DBParameterGroupFamily?: string;
 
   /**
+   * @public
    * <p>Provides the customer-specified description for this cluster parameter
    *             group.</p>
    */
   Description?: string;
 
   /**
+   * @public
    * <p>The Amazon Resource Name (ARN) for the cluster parameter group.</p>
    */
   DBClusterParameterGroupArn?: string;
@@ -522,6 +559,7 @@ export interface DBClusterParameterGroup {
  */
 export interface CopyDBClusterParameterGroupResult {
   /**
+   * @public
    * <p>Detailed information about a cluster parameter group. </p>
    */
   DBClusterParameterGroup?: DBClusterParameterGroup;
@@ -595,6 +633,7 @@ export class DBParameterGroupQuotaExceededFault extends __BaseException {
  */
 export interface CopyDBClusterSnapshotMessage {
   /**
+   * @public
    * <p>The identifier of the cluster snapshot to copy. This parameter is
    *             not case sensitive.</p>
    *          <p>Constraints:</p>
@@ -616,6 +655,7 @@ export interface CopyDBClusterSnapshotMessage {
   SourceDBClusterSnapshotIdentifier: string | undefined;
 
   /**
+   * @public
    * <p>The identifier of the new cluster snapshot to create from the
    *             source cluster snapshot. This parameter is not case sensitive.</p>
    *          <p>Constraints:</p>
@@ -638,6 +678,7 @@ export interface CopyDBClusterSnapshotMessage {
   TargetDBClusterSnapshotIdentifier: string | undefined;
 
   /**
+   * @public
    * <p>The KMS key ID for an encrypted cluster snapshot. The KMS
    *             key ID is the Amazon Resource Name (ARN), KMS key identifier, or
    *             the KMS key alias for the KMS encryption key. </p>
@@ -649,6 +690,7 @@ export interface CopyDBClusterSnapshotMessage {
   KmsKeyId?: string;
 
   /**
+   * @public
    * <p>The URL that contains a Signature Version 4 signed request for the<code>CopyDBClusterSnapshot</code> API action in the Amazon Web Services Region that contains the source cluster snapshot to copy. You must use the <code>PreSignedUrl</code> parameter when copying a cluster snapshot from another Amazon Web Services Region.</p>
    *          <p>If you are using an Amazon Web Services SDK tool or the CLI, you can specify
    *             <code>SourceRegion</code> (or <code>--source-region</code> for the
@@ -690,6 +732,7 @@ export interface CopyDBClusterSnapshotMessage {
   PreSignedUrl?: string;
 
   /**
+   * @public
    * <p>Set to <code>true</code> to copy all tags from the source cluster
    *             snapshot to the target cluster snapshot, and otherwise
    *             <code>false</code>. The default is <code>false</code>.</p>
@@ -697,6 +740,7 @@ export interface CopyDBClusterSnapshotMessage {
   CopyTags?: boolean;
 
   /**
+   * @public
    * <p>The tags to be assigned to the cluster snapshot.</p>
    */
   Tags?: Tag[];
@@ -708,91 +752,108 @@ export interface CopyDBClusterSnapshotMessage {
  */
 export interface DBClusterSnapshot {
   /**
+   * @public
    * <p>Provides the list of Amazon EC2 Availability Zones that instances in the cluster
    *             snapshot can be restored in.</p>
    */
   AvailabilityZones?: string[];
 
   /**
+   * @public
    * <p>Specifies the identifier for the cluster snapshot.</p>
    */
   DBClusterSnapshotIdentifier?: string;
 
   /**
+   * @public
    * <p>Specifies the cluster identifier of the cluster that this cluster snapshot
    *             was created from.</p>
    */
   DBClusterIdentifier?: string;
 
   /**
+   * @public
    * <p>Provides the time when the snapshot was taken, in UTC.</p>
    */
   SnapshotCreateTime?: Date;
 
   /**
+   * @public
    * <p>Specifies the name of the database engine.</p>
    */
   Engine?: string;
 
   /**
+   * @public
    * <p>Specifies the status of this cluster snapshot.</p>
    */
   Status?: string;
 
   /**
+   * @public
    * <p>Specifies the port that the cluster was listening on at the time of the
    *             snapshot.</p>
    */
   Port?: number;
 
   /**
+   * @public
    * <p>Provides the virtual private cloud (VPC) ID that is associated with the cluster
    *             snapshot.</p>
    */
   VpcId?: string;
 
   /**
+   * @public
    * <p>Specifies the time when the cluster was created, in Universal Coordinated Time
    *             (UTC).</p>
    */
   ClusterCreateTime?: Date;
 
   /**
+   * @public
    * <p>Provides the master user name for the cluster snapshot.</p>
    */
   MasterUsername?: string;
 
   /**
+   * @public
    * <p>Provides the version of the database engine for this cluster snapshot.</p>
    */
   EngineVersion?: string;
 
   /**
+   * @public
    * <p>Provides the type of the cluster snapshot.</p>
    */
   SnapshotType?: string;
 
   /**
+   * @public
    * <p>Specifies the percentage of the estimated data that has been transferred.</p>
    */
   PercentProgress?: number;
 
   /**
+   * @public
    * <p>Specifies whether the cluster snapshot is encrypted.</p>
    */
   StorageEncrypted?: boolean;
 
   /**
+   * @public
    * <p>If <code>StorageEncrypted</code> is <code>true</code>, the KMS key identifier for the encrypted cluster snapshot.</p>
    */
   KmsKeyId?: string;
 
   /**
+   * @public
    * <p>The Amazon Resource Name (ARN) for the cluster snapshot.</p>
    */
   DBClusterSnapshotArn?: string;
 
   /**
+   * @public
    * <p>If the cluster snapshot was copied from a source cluster snapshot, the ARN for
    *             the source cluster snapshot; otherwise, a null value.</p>
    */
@@ -804,6 +865,7 @@ export interface DBClusterSnapshot {
  */
 export interface CopyDBClusterSnapshotResult {
   /**
+   * @public
    * <p>Detailed information about a cluster snapshot. </p>
    */
   DBClusterSnapshot?: DBClusterSnapshot;
@@ -917,12 +979,14 @@ export class SnapshotQuotaExceededFault extends __BaseException {
  */
 export interface CreateDBClusterMessage {
   /**
+   * @public
    * <p>A list of Amazon EC2 Availability Zones that instances in the
    *             cluster can be created in.</p>
    */
   AvailabilityZones?: string[];
 
   /**
+   * @public
    * <p>The number of days for which automated backups are retained. You
    *             must specify a minimum value of 1.</p>
    *          <p>Default: 1</p>
@@ -936,6 +1000,7 @@ export interface CreateDBClusterMessage {
   BackupRetentionPeriod?: number;
 
   /**
+   * @public
    * <p>The cluster identifier. This parameter is stored as a lowercase
    *             string.</p>
    *          <p>Constraints:</p>
@@ -958,18 +1023,21 @@ export interface CreateDBClusterMessage {
   DBClusterIdentifier: string | undefined;
 
   /**
+   * @public
    * <p>The name of the cluster parameter group to associate with this
    *             cluster.</p>
    */
   DBClusterParameterGroupName?: string;
 
   /**
+   * @public
    * <p>A list of EC2 VPC security groups to associate with this cluster.
    *             </p>
    */
   VpcSecurityGroupIds?: string[];
 
   /**
+   * @public
    * <p>A subnet group to associate with this cluster.</p>
    *          <p>Constraints: Must match the name of an existing
    *             <code>DBSubnetGroup</code>. Must not be default.</p>
@@ -979,6 +1047,7 @@ export interface CreateDBClusterMessage {
   DBSubnetGroupName?: string;
 
   /**
+   * @public
    * <p>The name of the database engine to be used for this cluster.</p>
    *          <p>Valid values: <code>docdb</code>
    *          </p>
@@ -986,17 +1055,20 @@ export interface CreateDBClusterMessage {
   Engine: string | undefined;
 
   /**
+   * @public
    * <p>The version number of the database engine to use. The <code>--engine-version</code> will default to the latest major engine version. For production workloads, we recommend explicitly declaring this parameter with the intended major engine version.</p>
    */
   EngineVersion?: string;
 
   /**
+   * @public
    * <p>The port number on which the instances in the cluster accept
    *             connections.</p>
    */
   Port?: number;
 
   /**
+   * @public
    * <p>The name of the master user for the cluster.</p>
    *          <p>Constraints:</p>
    *          <ul>
@@ -1015,6 +1087,7 @@ export interface CreateDBClusterMessage {
   MasterUsername?: string;
 
   /**
+   * @public
    * <p>The password for the master database user. This password can
    *             contain any printable ASCII character except forward slash (/),
    *             double quote ("), or the "at" symbol (@).</p>
@@ -1023,6 +1096,7 @@ export interface CreateDBClusterMessage {
   MasterUserPassword?: string;
 
   /**
+   * @public
    * <p>The daily time range during which automated backups are created if
    *             automated backups are enabled using the <code>BackupRetentionPeriod</code> parameter. </p>
    *          <p>The default is a 30-minute window selected at random from an 8-hour block of time for each Amazon Web Services Region. </p>
@@ -1046,6 +1120,7 @@ export interface CreateDBClusterMessage {
   PreferredBackupWindow?: string;
 
   /**
+   * @public
    * <p>The weekly time range during which system maintenance can occur,
    *             in Universal Coordinated Time (UTC).</p>
    *          <p>Format: <code>ddd:hh24:mi-ddd:hh24:mi</code>
@@ -1057,16 +1132,19 @@ export interface CreateDBClusterMessage {
   PreferredMaintenanceWindow?: string;
 
   /**
+   * @public
    * <p>The tags to be assigned to the cluster.</p>
    */
   Tags?: Tag[];
 
   /**
+   * @public
    * <p>Specifies whether the cluster is encrypted.</p>
    */
   StorageEncrypted?: boolean;
 
   /**
+   * @public
    * <p>The KMS key identifier for an encrypted cluster.</p>
    *          <p>The KMS key identifier is the Amazon Resource Name (ARN) for the KMS encryption key. If you are creating a cluster using the same Amazon Web Services account that owns the KMS encryption key that is used to encrypt the new cluster, you can use the KMS key alias instead of the ARN for the KMS encryption key.</p>
    *          <p>If an encryption key is not specified in <code>KmsKeyId</code>:
@@ -1083,12 +1161,14 @@ export interface CreateDBClusterMessage {
   KmsKeyId?: string;
 
   /**
+   * @public
    * <p>Not currently supported.
    *             </p>
    */
   PreSignedUrl?: string;
 
   /**
+   * @public
    * <p>A list of log types that need to be enabled for exporting to Amazon
    *             CloudWatch Logs. You can enable audit logs or profiler logs. For more
    *             information, see <a href="https://docs.aws.amazon.com/documentdb/latest/developerguide/event-auditing.html">
@@ -1100,6 +1180,7 @@ export interface CreateDBClusterMessage {
   EnableCloudwatchLogsExports?: string[];
 
   /**
+   * @public
    * <p>Specifies whether this cluster can be deleted. If
    *             <code>DeletionProtection</code> is enabled, the cluster cannot be
    *             deleted unless it is modified and <code>DeletionProtection</code> is
@@ -1109,6 +1190,7 @@ export interface CreateDBClusterMessage {
   DeletionProtection?: boolean;
 
   /**
+   * @public
    * <p>The cluster identifier of the new global cluster.</p>
    */
   GlobalClusterIdentifier?: string;
@@ -1121,12 +1203,14 @@ export interface CreateDBClusterMessage {
  */
 export interface DBClusterRole {
   /**
+   * @public
    * <p>The Amazon Resource Name (ARN) of the IAMrole that is associated with the DB
    *             cluster.</p>
    */
   RoleArn?: string;
 
   /**
+   * @public
    * <p>Describes the state of association between the IAMrole and the cluster. The <code>Status</code> property returns one of the following values:</p>
    *          <ul>
    *             <li>
@@ -1152,23 +1236,27 @@ export interface DBClusterRole {
  */
 export interface DBClusterMember {
   /**
+   * @public
    * <p>Specifies the instance identifier for this member of the cluster.</p>
    */
   DBInstanceIdentifier?: string;
 
   /**
+   * @public
    * <p>A value that is <code>true</code> if the cluster member is the primary instance for
    *             the cluster and <code>false</code> otherwise.</p>
    */
   IsClusterWriter?: boolean;
 
   /**
+   * @public
    * <p>Specifies the status of the cluster parameter group for this member of the DB
    *             cluster.</p>
    */
   DBClusterParameterGroupStatus?: string;
 
   /**
+   * @public
    * <p>A value that specifies the order in which an Amazon DocumentDB replica is promoted to the
    *             primary instance after a failure of the existing primary instance. </p>
    */
@@ -1182,11 +1270,13 @@ export interface DBClusterMember {
  */
 export interface VpcSecurityGroupMembership {
   /**
+   * @public
    * <p>The name of the VPC security group.</p>
    */
   VpcSecurityGroupId?: string;
 
   /**
+   * @public
    * <p>The status of the VPC security group.</p>
    */
   Status?: string;
@@ -1198,173 +1288,205 @@ export interface VpcSecurityGroupMembership {
  */
 export interface DBCluster {
   /**
+   * @public
    * <p>Provides the list of Amazon EC2 Availability Zones that instances in the cluster
    *             can be created in.</p>
    */
   AvailabilityZones?: string[];
 
   /**
+   * @public
    * <p>Specifies the number of days for which automatic snapshots are retained.</p>
    */
   BackupRetentionPeriod?: number;
 
   /**
+   * @public
    * <p>Contains a user-supplied cluster identifier. This identifier is the unique key that
    *             identifies a cluster.</p>
    */
   DBClusterIdentifier?: string;
 
   /**
+   * @public
    * <p>Specifies the name of the cluster parameter group for the cluster.</p>
    */
   DBClusterParameterGroup?: string;
 
   /**
+   * @public
    * <p>Specifies information on the subnet group that is associated with the cluster, including the name, description, and subnets in the subnet group.</p>
    */
   DBSubnetGroup?: string;
 
   /**
+   * @public
    * <p>Specifies the current state of this cluster.</p>
    */
   Status?: string;
 
   /**
+   * @public
    * <p>Specifies the progress of the operation as a percentage.</p>
    */
   PercentProgress?: string;
 
   /**
+   * @public
    * <p>The earliest time to which a database can be restored with point-in-time
    *             restore.</p>
    */
   EarliestRestorableTime?: Date;
 
   /**
+   * @public
    * <p>Specifies the connection endpoint for the primary instance of the cluster.</p>
    */
   Endpoint?: string;
 
   /**
+   * @public
    * <p>The reader endpoint for the cluster. The reader endpoint for a cluster load balances connections across the Amazon DocumentDB replicas that are available in a cluster. As clients request new connections to the reader endpoint, Amazon DocumentDB distributes the connection requests among the Amazon DocumentDB replicas in the cluster. This functionality can help balance your read workload across multiple Amazon DocumentDB replicas in your cluster. </p>
    *          <p>If a failover occurs, and the Amazon DocumentDB replica that you are connected to is promoted to be the primary instance, your connection is dropped. To continue sending your read workload to other Amazon DocumentDB replicas in the cluster, you can then reconnect to the reader endpoint.</p>
    */
   ReaderEndpoint?: string;
 
   /**
+   * @public
    * <p>Specifies whether the cluster has instances in multiple Availability Zones.</p>
    */
   MultiAZ?: boolean;
 
   /**
+   * @public
    * <p>Provides the name of the database engine to be used for this cluster.</p>
    */
   Engine?: string;
 
   /**
+   * @public
    * <p>Indicates the database engine version.</p>
    */
   EngineVersion?: string;
 
   /**
+   * @public
    * <p>Specifies the latest time to which a database can be restored with point-in-time
    *             restore.</p>
    */
   LatestRestorableTime?: Date;
 
   /**
+   * @public
    * <p>Specifies the port that the database engine is listening on.</p>
    */
   Port?: number;
 
   /**
+   * @public
    * <p>Contains the master user name for the cluster.</p>
    */
   MasterUsername?: string;
 
   /**
+   * @public
    * <p>Specifies the daily time range during which automated backups are created if automated
    *             backups are enabled, as determined by the <code>BackupRetentionPeriod</code>. </p>
    */
   PreferredBackupWindow?: string;
 
   /**
+   * @public
    * <p>Specifies the weekly time range during which system maintenance can occur, in
    *             Universal Coordinated Time (UTC).</p>
    */
   PreferredMaintenanceWindow?: string;
 
   /**
+   * @public
    * <p>Contains the identifier of the source cluster if this cluster is a secondary cluster.</p>
    */
   ReplicationSourceIdentifier?: string;
 
   /**
+   * @public
    * <p>Contains one or more identifiers of the secondary clusters that are associated with this cluster.</p>
    */
   ReadReplicaIdentifiers?: string[];
 
   /**
+   * @public
    * <p>Provides the list of instances that make up the cluster.</p>
    */
   DBClusterMembers?: DBClusterMember[];
 
   /**
+   * @public
    * <p>Provides a list of virtual private cloud (VPC) security groups that the cluster
    *             belongs to.</p>
    */
   VpcSecurityGroups?: VpcSecurityGroupMembership[];
 
   /**
+   * @public
    * <p>Specifies the ID that Amazon Route 53 assigns when you create a hosted zone.</p>
    */
   HostedZoneId?: string;
 
   /**
+   * @public
    * <p>Specifies whether the cluster is encrypted.</p>
    */
   StorageEncrypted?: boolean;
 
   /**
+   * @public
    * <p>If <code>StorageEncrypted</code> is <code>true</code>, the KMS key identifier for
    *             the encrypted cluster.</p>
    */
   KmsKeyId?: string;
 
   /**
+   * @public
    * <p>The Amazon Web Services Region-unique, immutable identifier for the cluster. This identifier is
    *             found in CloudTrail log entries whenever the KMS key for the cluster is accessed.</p>
    */
   DbClusterResourceId?: string;
 
   /**
+   * @public
    * <p>The Amazon Resource Name (ARN) for the cluster.</p>
    */
   DBClusterArn?: string;
 
   /**
+   * @public
    * <p>Provides a list of the Identity and Access Management (IAM) roles that are associated with the cluster. (IAM) roles that are associated with a cluster grant permission for the cluster to access other Amazon Web Services services on your behalf.</p>
    */
   AssociatedRoles?: DBClusterRole[];
 
   /**
+   * @public
    * <p>Identifies the clone group to which the DB cluster is associated.</p>
    */
   CloneGroupId?: string;
 
   /**
+   * @public
    * <p>Specifies the time when the cluster was created, in Universal Coordinated Time
    *             (UTC).</p>
    */
   ClusterCreateTime?: Date;
 
   /**
+   * @public
    * <p>A list of log types that this cluster is configured to export to Amazon CloudWatch
    *             Logs.</p>
    */
   EnabledCloudwatchLogsExports?: string[];
 
   /**
+   * @public
    * <p>Specifies whether this cluster can be deleted. If <code>DeletionProtection</code> is
    *             enabled, the cluster cannot be deleted unless it is modified and
    *                 <code>DeletionProtection</code> is disabled. <code>DeletionProtection</code>
@@ -1378,6 +1500,7 @@ export interface DBCluster {
  */
 export interface CreateDBClusterResult {
   /**
+   * @public
    * <p>Detailed information about a cluster. </p>
    */
   DBCluster?: DBCluster;
@@ -1634,6 +1757,7 @@ export class StorageQuotaExceededFault extends __BaseException {
  */
 export interface CreateDBClusterParameterGroupMessage {
   /**
+   * @public
    * <p>The name of the cluster parameter group.</p>
    *          <p>Constraints:</p>
    *          <ul>
@@ -1649,16 +1773,19 @@ export interface CreateDBClusterParameterGroupMessage {
   DBClusterParameterGroupName: string | undefined;
 
   /**
+   * @public
    * <p>The cluster parameter group family name.</p>
    */
   DBParameterGroupFamily: string | undefined;
 
   /**
+   * @public
    * <p>The description for the cluster parameter group.</p>
    */
   Description: string | undefined;
 
   /**
+   * @public
    * <p>The tags to be assigned to the cluster parameter group.</p>
    */
   Tags?: Tag[];
@@ -1669,6 +1796,7 @@ export interface CreateDBClusterParameterGroupMessage {
  */
 export interface CreateDBClusterParameterGroupResult {
   /**
+   * @public
    * <p>Detailed information about a cluster parameter group. </p>
    */
   DBClusterParameterGroup?: DBClusterParameterGroup;
@@ -1680,6 +1808,7 @@ export interface CreateDBClusterParameterGroupResult {
  */
 export interface CreateDBClusterSnapshotMessage {
   /**
+   * @public
    * <p>The identifier of the cluster snapshot. This parameter is stored
    *             as a lowercase string.</p>
    *          <p>Constraints:</p>
@@ -1701,6 +1830,7 @@ export interface CreateDBClusterSnapshotMessage {
   DBClusterSnapshotIdentifier: string | undefined;
 
   /**
+   * @public
    * <p>The identifier of the cluster to create a snapshot for. This
    *             parameter is not case sensitive.</p>
    *          <p>Constraints:</p>
@@ -1716,6 +1846,7 @@ export interface CreateDBClusterSnapshotMessage {
   DBClusterIdentifier: string | undefined;
 
   /**
+   * @public
    * <p>The tags to be assigned to the cluster snapshot.</p>
    */
   Tags?: Tag[];
@@ -1726,6 +1857,7 @@ export interface CreateDBClusterSnapshotMessage {
  */
 export interface CreateDBClusterSnapshotResult {
   /**
+   * @public
    * <p>Detailed information about a cluster snapshot. </p>
    */
   DBClusterSnapshot?: DBClusterSnapshot;
@@ -1758,6 +1890,7 @@ export class AuthorizationNotFoundFault extends __BaseException {
  */
 export interface CreateDBInstanceMessage {
   /**
+   * @public
    * <p>The instance identifier. This parameter is stored as a lowercase string.</p>
    *          <p>Constraints:</p>
    *          <ul>
@@ -1777,12 +1910,14 @@ export interface CreateDBInstanceMessage {
   DBInstanceIdentifier: string | undefined;
 
   /**
+   * @public
    * <p>The compute and memory capacity of the instance; for example,
    *                 <code>db.r5.large</code>. </p>
    */
   DBInstanceClass: string | undefined;
 
   /**
+   * @public
    * <p>The name of the database engine to be used for this instance.</p>
    *          <p>Valid value: <code>docdb</code>
    *          </p>
@@ -1790,6 +1925,7 @@ export interface CreateDBInstanceMessage {
   Engine: string | undefined;
 
   /**
+   * @public
    * <p>The Amazon EC2 Availability Zone that the instance is created in. </p>
    *          <p>Default: A random, system-chosen Availability Zone in the endpoint's Amazon Web Services Region.</p>
    *          <p>Example: <code>us-east-1d</code>
@@ -1798,6 +1934,7 @@ export interface CreateDBInstanceMessage {
   AvailabilityZone?: string;
 
   /**
+   * @public
    * <p>The time range each week during which system maintenance can occur, in Universal
    *             Coordinated Time (UTC).</p>
    *          <p> Format: <code>ddd:hh24:mi-ddd:hh24:mi</code>
@@ -1810,6 +1947,7 @@ export interface CreateDBInstanceMessage {
   PreferredMaintenanceWindow?: string;
 
   /**
+   * @public
    * <p>This parameter does not apply to Amazon DocumentDB. Amazon DocumentDB does not perform minor version upgrades regardless of the value set.</p>
    *          <p>Default: <code>false</code>
    *          </p>
@@ -1817,22 +1955,26 @@ export interface CreateDBInstanceMessage {
   AutoMinorVersionUpgrade?: boolean;
 
   /**
+   * @public
    * <p>The tags to be assigned to the instance. You can assign up to
    *            10 tags to an instance.</p>
    */
   Tags?: Tag[];
 
   /**
+   * @public
    * <p>The identifier of the cluster that the instance will belong to.</p>
    */
   DBClusterIdentifier: string | undefined;
 
   /**
+   * @public
    * <p>A value that indicates whether to copy tags from the DB instance to snapshots of the DB instance. By default, tags are not copied.</p>
    */
   CopyTagsToSnapshot?: boolean;
 
   /**
+   * @public
    * <p>A value that specifies the order in which an Amazon DocumentDB replica is promoted to the
    *             primary instance after a failure of the existing primary instance.</p>
    *          <p>Default: 1</p>
@@ -1841,6 +1983,7 @@ export interface CreateDBInstanceMessage {
   PromotionTier?: number;
 
   /**
+   * @public
    * <p>A value that indicates whether to enable Performance Insights for the DB Instance. For
    *             more information, see <a href="https://docs.aws.amazon.com/documentdb/latest/developerguide/performance-insights.html">Using Amazon
    *                 Performance Insights</a>.</p>
@@ -1848,6 +1991,7 @@ export interface CreateDBInstanceMessage {
   EnablePerformanceInsights?: boolean;
 
   /**
+   * @public
    * <p>The KMS key identifier for encryption of Performance Insights
    *             data.</p>
    *          <p>The KMS key identifier is the key ARN, key ID, alias ARN, or alias name
@@ -1866,6 +2010,7 @@ export interface CreateDBInstanceMessage {
  */
 export interface AvailabilityZone {
   /**
+   * @public
    * <p>The name of the Availability Zone.</p>
    */
   Name?: string;
@@ -1877,16 +2022,19 @@ export interface AvailabilityZone {
  */
 export interface Subnet {
   /**
+   * @public
    * <p>Specifies the identifier of the subnet.</p>
    */
   SubnetIdentifier?: string;
 
   /**
+   * @public
    * <p>Specifies the Availability Zone for the subnet.</p>
    */
   SubnetAvailabilityZone?: AvailabilityZone;
 
   /**
+   * @public
    * <p>Specifies the status of the subnet.</p>
    */
   SubnetStatus?: string;
@@ -1898,31 +2046,37 @@ export interface Subnet {
  */
 export interface DBSubnetGroup {
   /**
+   * @public
    * <p>The name of the subnet group.</p>
    */
   DBSubnetGroupName?: string;
 
   /**
+   * @public
    * <p>Provides the description of the subnet group.</p>
    */
   DBSubnetGroupDescription?: string;
 
   /**
+   * @public
    * <p>Provides the virtual private cloud (VPC) ID of the subnet group.</p>
    */
   VpcId?: string;
 
   /**
+   * @public
    * <p>Provides the status of the subnet group.</p>
    */
   SubnetGroupStatus?: string;
 
   /**
+   * @public
    * <p>Detailed information about one or more subnets within a subnet group.</p>
    */
   Subnets?: Subnet[];
 
   /**
+   * @public
    * <p>The Amazon Resource Name (ARN) for the DB subnet group.</p>
    */
   DBSubnetGroupArn?: string;
@@ -1935,16 +2089,19 @@ export interface DBSubnetGroup {
  */
 export interface Endpoint {
   /**
+   * @public
    * <p>Specifies the DNS address of the instance.</p>
    */
   Address?: string;
 
   /**
+   * @public
    * <p>Specifies the port that the database engine is listening on.</p>
    */
   Port?: number;
 
   /**
+   * @public
    * <p>Specifies the ID that Amazon Route 53 assigns when you create a hosted zone.</p>
    */
   HostedZoneId?: string;
@@ -1957,12 +2114,14 @@ export interface Endpoint {
  */
 export interface PendingCloudwatchLogsExports {
   /**
+   * @public
    * <p>Log types that are in the process of being deactivated. After they are deactivated,
    *             these log types aren't exported to CloudWatch Logs.</p>
    */
   LogTypesToEnable?: string[];
 
   /**
+   * @public
    * <p>Log types that are in the process of being enabled. After they are enabled, these log
    *             types are exported to Amazon CloudWatch Logs.</p>
    */
@@ -1976,44 +2135,52 @@ export interface PendingCloudwatchLogsExports {
  */
 export interface PendingModifiedValues {
   /**
+   * @public
    * <p> Contains the new <code>DBInstanceClass</code> for the instance that will be
    *             applied or is currently being applied. </p>
    */
   DBInstanceClass?: string;
 
   /**
+   * @public
    * <p> Contains the new <code>AllocatedStorage</code> size for then instance that will be
    *             applied or is currently being applied. </p>
    */
   AllocatedStorage?: number;
 
   /**
+   * @public
    * <p>Contains the pending or currently in-progress change of the master credentials for the
    *             instance.</p>
    */
   MasterUserPassword?: string;
 
   /**
+   * @public
    * <p>Specifies the pending port for the instance.</p>
    */
   Port?: number;
 
   /**
+   * @public
    * <p>Specifies the pending number of days for which automated backups are retained.</p>
    */
   BackupRetentionPeriod?: number;
 
   /**
+   * @public
    * <p>Indicates that the Single-AZ instance is to change to a Multi-AZ deployment.</p>
    */
   MultiAZ?: boolean;
 
   /**
+   * @public
    * <p>Indicates the database engine version.</p>
    */
   EngineVersion?: string;
 
   /**
+   * @public
    * <p>The license model for the instance.</p>
    *          <p>Valid values: <code>license-included</code>, <code>bring-your-own-license</code>,
    *                 <code>general-public-license</code>
@@ -2022,34 +2189,40 @@ export interface PendingModifiedValues {
   LicenseModel?: string;
 
   /**
+   * @public
    * <p>Specifies the new Provisioned IOPS value for the instance that will be applied or
    *             is currently being applied.</p>
    */
   Iops?: number;
 
   /**
+   * @public
    * <p> Contains the new <code>DBInstanceIdentifier</code> for the instance that will be
    *             applied or is currently being applied. </p>
    */
   DBInstanceIdentifier?: string;
 
   /**
+   * @public
    * <p>Specifies the storage type to be associated with the instance.</p>
    */
   StorageType?: string;
 
   /**
+   * @public
    * <p>Specifies the identifier of the certificate authority (CA) certificate for the DB
    *             instance.</p>
    */
   CACertificateIdentifier?: string;
 
   /**
+   * @public
    * <p>The new subnet group for the instance. </p>
    */
   DBSubnetGroupName?: string;
 
   /**
+   * @public
    * <p>A list of the log types whose configuration is still pending. These log types are in
    *             the process of being activated or deactivated.</p>
    */
@@ -2062,17 +2235,20 @@ export interface PendingModifiedValues {
  */
 export interface DBInstanceStatusInfo {
   /**
+   * @public
    * <p>This value is currently "<code>read replication</code>."</p>
    */
   StatusType?: string;
 
   /**
+   * @public
    * <p>A Boolean value that is <code>true</code> if the instance is operating normally, or
    *                 <code>false</code> if the instance is in an error state.</p>
    */
   Normal?: boolean;
 
   /**
+   * @public
    * <p>Status of the instance. For a <code>StatusType</code> of read replica, the values
    *             can be <code>replicating</code>, error, <code>stopped</code>, or
    *             <code>terminated</code>.</p>
@@ -2080,6 +2256,7 @@ export interface DBInstanceStatusInfo {
   Status?: string;
 
   /**
+   * @public
    * <p>Details of the error if there is an error for the instance. If the instance is not in
    *             an error state, this value is blank.</p>
    */
@@ -2092,37 +2269,44 @@ export interface DBInstanceStatusInfo {
  */
 export interface DBInstance {
   /**
+   * @public
    * <p>Contains a user-provided database identifier. This identifier is the unique key that
    *             identifies an instance.</p>
    */
   DBInstanceIdentifier?: string;
 
   /**
+   * @public
    * <p>Contains the name of the compute and memory capacity class of the instance.</p>
    */
   DBInstanceClass?: string;
 
   /**
+   * @public
    * <p>Provides the name of the database engine to be used for this instance.</p>
    */
   Engine?: string;
 
   /**
+   * @public
    * <p>Specifies the current state of this database.</p>
    */
   DBInstanceStatus?: string;
 
   /**
+   * @public
    * <p>Specifies the connection endpoint.</p>
    */
   Endpoint?: Endpoint;
 
   /**
+   * @public
    * <p>Provides the date and time that the instance was created.</p>
    */
   InstanceCreateTime?: Date;
 
   /**
+   * @public
    * <p> Specifies the daily time range during which automated backups are created if
    *             automated backups are enabled, as determined by the <code>BackupRetentionPeriod</code>.
    *         </p>
@@ -2130,109 +2314,129 @@ export interface DBInstance {
   PreferredBackupWindow?: string;
 
   /**
+   * @public
    * <p>Specifies the number of days for which automatic snapshots are retained.</p>
    */
   BackupRetentionPeriod?: number;
 
   /**
+   * @public
    * <p>Provides a list of VPC security group elements that the instance belongs to.</p>
    */
   VpcSecurityGroups?: VpcSecurityGroupMembership[];
 
   /**
+   * @public
    * <p>Specifies the name of the Availability Zone that the instance is located in.</p>
    */
   AvailabilityZone?: string;
 
   /**
+   * @public
    * <p>Specifies information on the subnet group that is associated with the instance, including the name, description, and subnets in the subnet group.</p>
    */
   DBSubnetGroup?: DBSubnetGroup;
 
   /**
+   * @public
    * <p>Specifies the weekly time range during which system maintenance can occur, in
    *             Universal Coordinated Time (UTC).</p>
    */
   PreferredMaintenanceWindow?: string;
 
   /**
+   * @public
    * <p>Specifies that changes to the instance are pending. This element is included only when changes are pending. Specific changes are identified by subelements.</p>
    */
   PendingModifiedValues?: PendingModifiedValues;
 
   /**
+   * @public
    * <p>Specifies the latest time to which a database can be restored with point-in-time
    *             restore.</p>
    */
   LatestRestorableTime?: Date;
 
   /**
+   * @public
    * <p>Indicates the database engine version.</p>
    */
   EngineVersion?: string;
 
   /**
+   * @public
    * <p>Does not apply. This parameter does not apply to Amazon DocumentDB. Amazon DocumentDB does not perform minor version upgrades regardless of the value set.</p>
    */
   AutoMinorVersionUpgrade?: boolean;
 
   /**
+   * @public
    * <p>Not supported. Amazon DocumentDB does not currently support public endpoints. The value
    *           of <code>PubliclyAccessible</code> is always <code>false</code>.</p>
    */
   PubliclyAccessible?: boolean;
 
   /**
+   * @public
    * <p>The status of a read replica. If the instance is not a read replica, this is
    *             blank.</p>
    */
   StatusInfos?: DBInstanceStatusInfo[];
 
   /**
+   * @public
    * <p>Contains the name of the cluster that the instance is a member of if the
    *             instance is a member of a cluster.</p>
    */
   DBClusterIdentifier?: string;
 
   /**
+   * @public
    * <p>Specifies whether or not the instance is encrypted.</p>
    */
   StorageEncrypted?: boolean;
 
   /**
+   * @public
    * <p> If <code>StorageEncrypted</code> is <code>true</code>, the KMS key identifier for
    *             the encrypted instance. </p>
    */
   KmsKeyId?: string;
 
   /**
+   * @public
    * <p>The Amazon Web Services Region-unique, immutable identifier for the instance. This identifier is found in CloudTrail log entries whenever the KMS key for the instance is
    *             accessed.</p>
    */
   DbiResourceId?: string;
 
   /**
+   * @public
    * <p>The identifier of the CA certificate for this DB instance.</p>
    */
   CACertificateIdentifier?: string;
 
   /**
+   * @public
    * <p>A value that indicates whether to copy tags from the DB instance to snapshots of the DB instance. By default, tags are not copied.</p>
    */
   CopyTagsToSnapshot?: boolean;
 
   /**
+   * @public
    * <p>A value that specifies the order in which an Amazon DocumentDB replica is promoted to the
    *             primary instance after a failure of the existing primary instance.</p>
    */
   PromotionTier?: number;
 
   /**
+   * @public
    * <p>The Amazon Resource Name (ARN) for the instance.</p>
    */
   DBInstanceArn?: string;
 
   /**
+   * @public
    * <p>A list of log types that this instance is configured to export to CloudWatch Logs.</p>
    */
   EnabledCloudwatchLogsExports?: string[];
@@ -2243,6 +2447,7 @@ export interface DBInstance {
  */
 export interface CreateDBInstanceResult {
   /**
+   * @public
    * <p>Detailed information about an instance. </p>
    */
   DBInstance?: DBInstance;
@@ -2356,6 +2561,7 @@ export class StorageTypeNotSupportedFault extends __BaseException {
  */
 export interface CreateDBSubnetGroupMessage {
   /**
+   * @public
    * <p>The name for the subnet group. This value is stored as a lowercase string.</p>
    *          <p>Constraints: Must contain no more than 255 letters, numbers, periods, underscores,
    *             spaces, or hyphens. Must not be default.</p>
@@ -2365,16 +2571,19 @@ export interface CreateDBSubnetGroupMessage {
   DBSubnetGroupName: string | undefined;
 
   /**
+   * @public
    * <p>The description for the subnet group.</p>
    */
   DBSubnetGroupDescription: string | undefined;
 
   /**
+   * @public
    * <p>The Amazon EC2 subnet IDs for the subnet group.</p>
    */
   SubnetIds: string[] | undefined;
 
   /**
+   * @public
    * <p>The tags to be assigned to the subnet group.</p>
    */
   Tags?: Tag[];
@@ -2385,6 +2594,7 @@ export interface CreateDBSubnetGroupMessage {
  */
 export interface CreateDBSubnetGroupResult {
   /**
+   * @public
    * <p>Detailed information about a subnet group. </p>
    */
   DBSubnetGroup?: DBSubnetGroup;
@@ -2457,17 +2667,20 @@ export class DBSubnetQuotaExceededFault extends __BaseException {
  */
 export interface CreateEventSubscriptionMessage {
   /**
+   * @public
    * <p>The name of the subscription.</p>
    *          <p>Constraints: The name must be fewer than 255 characters.</p>
    */
   SubscriptionName: string | undefined;
 
   /**
+   * @public
    * <p>The Amazon Resource Name (ARN) of the SNS topic created for event notification. Amazon SNS creates the ARN when you create a topic and subscribe to it.</p>
    */
   SnsTopicArn: string | undefined;
 
   /**
+   * @public
    * <p>The type of source that is generating the events. For example, if you want to be notified of events generated by an instance, you would set this parameter to <code>db-instance</code>. If this value is not specified, all events are returned.</p>
    *          <p>Valid values: <code>db-instance</code>, <code>db-cluster</code>,
    *                 <code>db-parameter-group</code>, <code>db-security-group</code>,
@@ -2477,11 +2690,13 @@ export interface CreateEventSubscriptionMessage {
   SourceType?: string;
 
   /**
+   * @public
    * <p> A list of event categories for a <code>SourceType</code> that you want to subscribe to. </p>
    */
   EventCategories?: string[];
 
   /**
+   * @public
    * <p>The list of identifiers of the event sources for which events are returned. If not specified, then all sources are included in the response. An identifier must begin with a letter and must contain only ASCII letters, digits, and hyphens; it can't end with a
    *             hyphen or contain two consecutive hyphens.</p>
    *          <p>Constraints:</p>
@@ -2511,11 +2726,13 @@ export interface CreateEventSubscriptionMessage {
   SourceIds?: string[];
 
   /**
+   * @public
    * <p> A Boolean value; set to <code>true</code> to activate the subscription, set to <code>false</code> to create the subscription but not active it. </p>
    */
   Enabled?: boolean;
 
   /**
+   * @public
    * <p>The tags to be assigned to the event subscription.</p>
    */
   Tags?: Tag[];
@@ -2526,6 +2743,7 @@ export interface CreateEventSubscriptionMessage {
  */
 export interface CreateEventSubscriptionResult {
   /**
+   * @public
    * <p>Detailed information about an event to which you have subscribed.</p>
    */
   EventSubscription?: EventSubscription;
@@ -2657,36 +2875,43 @@ export class SubscriptionCategoryNotFoundFault extends __BaseException {
  */
 export interface CreateGlobalClusterMessage {
   /**
+   * @public
    * <p>The cluster identifier of the new global cluster.</p>
    */
   GlobalClusterIdentifier: string | undefined;
 
   /**
+   * @public
    * <p>The Amazon Resource Name (ARN) to use as the primary cluster of the global cluster. This parameter is optional.</p>
    */
   SourceDBClusterIdentifier?: string;
 
   /**
+   * @public
    * <p>The name of the database engine to be used for this cluster.</p>
    */
   Engine?: string;
 
   /**
+   * @public
    * <p>The engine version of the global cluster.</p>
    */
   EngineVersion?: string;
 
   /**
+   * @public
    * <p>The deletion protection setting for the new global cluster. The global cluster can't be deleted when deletion protection is enabled. </p>
    */
   DeletionProtection?: boolean;
 
   /**
+   * @public
    * <p>The name for your database of up to 64 alpha-numeric characters. If you do not provide a name, Amazon DocumentDB will not create a database in the global cluster you are creating.</p>
    */
   DatabaseName?: string;
 
   /**
+   * @public
    * <p>The storage encryption setting for the new global cluster. </p>
    */
   StorageEncrypted?: boolean;
@@ -2698,16 +2923,19 @@ export interface CreateGlobalClusterMessage {
  */
 export interface GlobalClusterMember {
   /**
+   * @public
    * <p>The Amazon Resource Name (ARN) for each Amazon DocumentDB cluster.</p>
    */
   DBClusterArn?: string;
 
   /**
+   * @public
    * <p>The Amazon Resource Name (ARN) for each read-only secondary cluster associated with the Aurora global cluster.</p>
    */
   Readers?: string[];
 
   /**
+   * @public
    * <p> Specifies whether the Amazon DocumentDB cluster is the primary cluster (that is, has read-write capability) for the Amazon DocumentDB global cluster with which it is associated. </p>
    */
   IsWriter?: boolean;
@@ -2719,51 +2947,61 @@ export interface GlobalClusterMember {
  */
 export interface GlobalCluster {
   /**
+   * @public
    * <p>Contains a user-supplied global  cluster identifier. This identifier is the unique key that identifies a global cluster. </p>
    */
   GlobalClusterIdentifier?: string;
 
   /**
+   * @public
    * <p>The Amazon Web Services Region-unique, immutable identifier for the global database cluster. This identifier is found in CloudTrail log entries whenever the KMS customer master key (CMK) for the cluster is accessed. </p>
    */
   GlobalClusterResourceId?: string;
 
   /**
+   * @public
    * <p>The Amazon Resource Name (ARN) for the global cluster.</p>
    */
   GlobalClusterArn?: string;
 
   /**
+   * @public
    * <p>Specifies the current state of this global cluster.</p>
    */
   Status?: string;
 
   /**
+   * @public
    * <p>The Amazon DocumentDB database engine used by the global cluster. </p>
    */
   Engine?: string;
 
   /**
+   * @public
    * <p>Indicates the database engine version.</p>
    */
   EngineVersion?: string;
 
   /**
+   * @public
    * <p>The default database name within the new global cluster.</p>
    */
   DatabaseName?: string;
 
   /**
+   * @public
    * <p>The storage encryption setting for the global cluster.</p>
    */
   StorageEncrypted?: boolean;
 
   /**
+   * @public
    * <p>The deletion protection setting for the new global cluster.</p>
    */
   DeletionProtection?: boolean;
 
   /**
+   * @public
    * <p>The list of cluster IDs for secondary clusters within the global cluster. Currently limited to one item. </p>
    */
   GlobalClusterMembers?: GlobalClusterMember[];
@@ -2774,6 +3012,7 @@ export interface GlobalCluster {
  */
 export interface CreateGlobalClusterResult {
   /**
+   * @public
    * <p>A data type representing an Amazon DocumentDB global cluster.</p>
    */
   GlobalCluster?: GlobalCluster;
@@ -2825,6 +3064,7 @@ export class GlobalClusterQuotaExceededFault extends __BaseException {
  */
 export interface DeleteDBClusterMessage {
   /**
+   * @public
    * <p>The cluster identifier for the cluster to be deleted. This parameter isn't case sensitive.</p>
    *          <p>Constraints:</p>
    *          <ul>
@@ -2836,6 +3076,7 @@ export interface DeleteDBClusterMessage {
   DBClusterIdentifier: string | undefined;
 
   /**
+   * @public
    * <p> Determines whether a final cluster snapshot is created before the cluster is deleted. If <code>true</code> is specified, no cluster snapshot is created. If <code>false</code> is specified, a cluster snapshot is created before the DB cluster is deleted. </p>
    *          <note>
    *             <p>If <code>SkipFinalSnapshot</code> is <code>false</code>, you must specify a <code>FinalDBSnapshotIdentifier</code> parameter.</p>
@@ -2846,6 +3087,7 @@ export interface DeleteDBClusterMessage {
   SkipFinalSnapshot?: boolean;
 
   /**
+   * @public
    * <p> The cluster snapshot identifier of the new cluster snapshot created when <code>SkipFinalSnapshot</code> is set to <code>false</code>. </p>
    *          <note>
    *             <p> Specifying this parameter and also setting the <code>SkipFinalShapshot</code> parameter to <code>true</code> results in an error. </p>
@@ -2871,6 +3113,7 @@ export interface DeleteDBClusterMessage {
  */
 export interface DeleteDBClusterResult {
   /**
+   * @public
    * <p>Detailed information about a cluster. </p>
    */
   DBCluster?: DBCluster;
@@ -2882,6 +3125,7 @@ export interface DeleteDBClusterResult {
  */
 export interface DeleteDBClusterParameterGroupMessage {
   /**
+   * @public
    * <p>The name of the cluster parameter group.</p>
    *          <p>Constraints:</p>
    *          <ul>
@@ -2925,6 +3169,7 @@ export class InvalidDBParameterGroupStateFault extends __BaseException {
  */
 export interface DeleteDBClusterSnapshotMessage {
   /**
+   * @public
    * <p>The identifier of the cluster snapshot to delete.</p>
    *          <p>Constraints: Must be the name of an existing cluster snapshot in the <code>available</code> state.</p>
    */
@@ -2936,6 +3181,7 @@ export interface DeleteDBClusterSnapshotMessage {
  */
 export interface DeleteDBClusterSnapshotResult {
   /**
+   * @public
    * <p>Detailed information about a cluster snapshot. </p>
    */
   DBClusterSnapshot?: DBClusterSnapshot;
@@ -2968,6 +3214,7 @@ export class DBSnapshotAlreadyExistsFault extends __BaseException {
  */
 export interface DeleteDBInstanceMessage {
   /**
+   * @public
    * <p>The instance identifier for the instance to be deleted. This parameter isn't
    *             case sensitive.</p>
    *          <p>Constraints:</p>
@@ -2985,6 +3232,7 @@ export interface DeleteDBInstanceMessage {
  */
 export interface DeleteDBInstanceResult {
   /**
+   * @public
    * <p>Detailed information about an instance. </p>
    */
   DBInstance?: DBInstance;
@@ -2996,6 +3244,7 @@ export interface DeleteDBInstanceResult {
  */
 export interface DeleteDBSubnetGroupMessage {
   /**
+   * @public
    * <p>The name of the database subnet group to delete.</p>
    *          <note>
    *             <p>You can't delete the default subnet group.</p>
@@ -3034,6 +3283,7 @@ export class InvalidDBSubnetStateFault extends __BaseException {
  */
 export interface DeleteEventSubscriptionMessage {
   /**
+   * @public
    * <p>The name of the Amazon DocumentDB event notification subscription that you want to delete.</p>
    */
   SubscriptionName: string | undefined;
@@ -3044,6 +3294,7 @@ export interface DeleteEventSubscriptionMessage {
  */
 export interface DeleteEventSubscriptionResult {
   /**
+   * @public
    * <p>Detailed information about an event to which you have subscribed.</p>
    */
   EventSubscription?: EventSubscription;
@@ -3076,6 +3327,7 @@ export class InvalidEventSubscriptionStateFault extends __BaseException {
  */
 export interface DeleteGlobalClusterMessage {
   /**
+   * @public
    * <p>The cluster identifier of the global cluster being deleted.</p>
    */
   GlobalClusterIdentifier: string | undefined;
@@ -3086,6 +3338,7 @@ export interface DeleteGlobalClusterMessage {
  */
 export interface DeleteGlobalClusterResult {
   /**
+   * @public
    * <p>A data type representing an Amazon DocumentDB global cluster.</p>
    */
   GlobalCluster?: GlobalCluster;
@@ -3097,6 +3350,7 @@ export interface DeleteGlobalClusterResult {
  */
 export interface Certificate {
   /**
+   * @public
    * <p>The unique key that identifies a certificate.</p>
    *          <p>Example: <code>rds-ca-2019</code>
    *          </p>
@@ -3104,6 +3358,7 @@ export interface Certificate {
   CertificateIdentifier?: string;
 
   /**
+   * @public
    * <p>The type of the certificate.</p>
    *          <p>Example: <code>CA</code>
    *          </p>
@@ -3111,11 +3366,13 @@ export interface Certificate {
   CertificateType?: string;
 
   /**
+   * @public
    * <p>The thumbprint of the certificate.</p>
    */
   Thumbprint?: string;
 
   /**
+   * @public
    * <p>The starting date-time from which the certificate is valid.</p>
    *          <p>Example: <code>2019-07-31T17:57:09Z</code>
    *          </p>
@@ -3123,6 +3380,7 @@ export interface Certificate {
   ValidFrom?: Date;
 
   /**
+   * @public
    * <p>The date-time after which the certificate is no longer valid.</p>
    *          <p>Example: <code>2024-07-31T17:57:09Z</code>
    *          </p>
@@ -3130,6 +3388,7 @@ export interface Certificate {
   ValidTill?: Date;
 
   /**
+   * @public
    * <p>The Amazon Resource Name (ARN) for the certificate.</p>
    *          <p>Example: <code>arn:aws:rds:us-east-1::cert:rds-ca-2019</code>
    *          </p>
@@ -3142,11 +3401,13 @@ export interface Certificate {
  */
 export interface CertificateMessage {
   /**
+   * @public
    * <p>A list of certificates for this Amazon Web Services account.</p>
    */
   Certificates?: Certificate[];
 
   /**
+   * @public
    * <p>An optional pagination token provided if the number of records retrieved is greater than <code>MaxRecords</code>. If this parameter is specified, the marker specifies the next record in the list. Including the value of <code>Marker</code> in the next call to <code>DescribeCertificates</code> results in the next page of certificates.</p>
    */
   Marker?: string;
@@ -3181,11 +3442,13 @@ export class CertificateNotFoundFault extends __BaseException {
  */
 export interface Filter {
   /**
+   * @public
    * <p>The name of the filter. Filter names are case sensitive.</p>
    */
   Name: string | undefined;
 
   /**
+   * @public
    * <p>One or more filter values. Filter values are case sensitive.</p>
    */
   Values: string[] | undefined;
@@ -3196,6 +3459,7 @@ export interface Filter {
  */
 export interface DescribeCertificatesMessage {
   /**
+   * @public
    * <p>The user-supplied certificate identifier. If this parameter is specified, information for only the specified certificate is returned. If this parameter is omitted, a list of up to <code>MaxRecords</code> certificates is returned. This parameter is not case sensitive.</p>
    *          <p>Constraints</p>
    *          <ul>
@@ -3207,11 +3471,13 @@ export interface DescribeCertificatesMessage {
   CertificateIdentifier?: string;
 
   /**
+   * @public
    * <p>This parameter is not currently supported.</p>
    */
   Filters?: Filter[];
 
   /**
+   * @public
    * <p>The maximum number of records to include in the response. If more records exist than the specified <code>MaxRecords</code> value, a pagination token called a marker is included in the response so that the remaining results can be retrieved.</p>
    *          <p>Default: 100</p>
    *          <p>Constraints:</p>
@@ -3227,6 +3493,7 @@ export interface DescribeCertificatesMessage {
   MaxRecords?: number;
 
   /**
+   * @public
    * <p>An optional pagination token provided by a previous <code>DescribeCertificates</code> request. If this parameter is specified, the response includes only records beyond the marker, up to the value specified by <code>MaxRecords</code>.</p>
    */
   Marker?: string;
@@ -3238,6 +3505,7 @@ export interface DescribeCertificatesMessage {
  */
 export interface DBClusterParameterGroupsMessage {
   /**
+   * @public
    * <p>An optional pagination token provided by a previous request. If this parameter is specified, the response
    *          includes only records beyond the marker, up to the value specified by
    *          <code>MaxRecords</code>.</p>
@@ -3245,6 +3513,7 @@ export interface DBClusterParameterGroupsMessage {
   Marker?: string;
 
   /**
+   * @public
    * <p>A list of cluster parameter groups.</p>
    */
   DBClusterParameterGroups?: DBClusterParameterGroup[];
@@ -3256,6 +3525,7 @@ export interface DBClusterParameterGroupsMessage {
  */
 export interface DescribeDBClusterParameterGroupsMessage {
   /**
+   * @public
    * <p>The name of a specific cluster parameter group to return details for.</p>
    *          <p>Constraints:</p>
    *          <ul>
@@ -3268,11 +3538,13 @@ export interface DescribeDBClusterParameterGroupsMessage {
   DBClusterParameterGroupName?: string;
 
   /**
+   * @public
    * <p>This parameter is not currently supported.</p>
    */
   Filters?: Filter[];
 
   /**
+   * @public
    * <p> The maximum number of records to include in the response. If more records exist than
    *          the specified <code>MaxRecords</code> value, a pagination token (marker) is included
    *          in the response so that the remaining results can be retrieved.</p>
@@ -3282,6 +3554,7 @@ export interface DescribeDBClusterParameterGroupsMessage {
   MaxRecords?: number;
 
   /**
+   * @public
    * <p>An optional pagination token provided by a previous request. If this parameter is specified, the response
    *          includes only records beyond the marker, up to the value specified by
    *          <code>MaxRecords</code>.</p>
@@ -3309,41 +3582,49 @@ export type ApplyMethod = (typeof ApplyMethod)[keyof typeof ApplyMethod];
  */
 export interface Parameter {
   /**
+   * @public
    * <p>Specifies the name of the parameter.</p>
    */
   ParameterName?: string;
 
   /**
+   * @public
    * <p>Specifies the value of the parameter.</p>
    */
   ParameterValue?: string;
 
   /**
+   * @public
    * <p>Provides a description of the parameter.</p>
    */
   Description?: string;
 
   /**
+   * @public
    * <p>Indicates the source of the parameter value.</p>
    */
   Source?: string;
 
   /**
+   * @public
    * <p>Specifies the engine-specific parameters type.</p>
    */
   ApplyType?: string;
 
   /**
+   * @public
    * <p>Specifies the valid data type for the parameter.</p>
    */
   DataType?: string;
 
   /**
+   * @public
    * <p>Specifies the valid range of values for the parameter.</p>
    */
   AllowedValues?: string;
 
   /**
+   * @public
    * <p> Indicates whether (<code>true</code>) or not (<code>false</code>) the parameter can
    *             be modified. Some parameters have security or operational implications that prevent them
    *             from being changed. </p>
@@ -3351,11 +3632,13 @@ export interface Parameter {
   IsModifiable?: boolean;
 
   /**
+   * @public
    * <p>The earliest engine version to which the parameter can apply.</p>
    */
   MinimumEngineVersion?: string;
 
   /**
+   * @public
    * <p>Indicates when to apply parameter updates.</p>
    */
   ApplyMethod?: ApplyMethod | string;
@@ -3367,11 +3650,13 @@ export interface Parameter {
  */
 export interface DBClusterParameterGroupDetails {
   /**
+   * @public
    * <p>Provides a list of parameters for the cluster parameter group.</p>
    */
   Parameters?: Parameter[];
 
   /**
+   * @public
    * <p>An optional pagination token provided by a previous request. If this parameter is specified, the response
    *          includes only records beyond the marker, up to the value specified by
    *          <code>MaxRecords</code>.</p>
@@ -3385,6 +3670,7 @@ export interface DBClusterParameterGroupDetails {
  */
 export interface DescribeDBClusterParametersMessage {
   /**
+   * @public
    * <p>The name of a specific cluster parameter group to return parameter details for.</p>
    *          <p>Constraints:</p>
    *          <ul>
@@ -3396,17 +3682,20 @@ export interface DescribeDBClusterParametersMessage {
   DBClusterParameterGroupName: string | undefined;
 
   /**
+   * @public
    * <p> A value that indicates to return only parameters for a specific source. Parameter sources can be <code>engine</code>, <code>service</code>, or <code>customer</code>.
    *         </p>
    */
   Source?: string;
 
   /**
+   * @public
    * <p>This parameter is not currently supported.</p>
    */
   Filters?: Filter[];
 
   /**
+   * @public
    * <p> The maximum number of records to include in the response. If more records exist than
    *          the specified <code>MaxRecords</code> value, a pagination token (marker) is included
    *          in the response so that the remaining results can be retrieved.</p>
@@ -3416,6 +3705,7 @@ export interface DescribeDBClusterParametersMessage {
   MaxRecords?: number;
 
   /**
+   * @public
    * <p>An optional pagination token provided by a previous request. If this parameter is specified, the response
    *          includes only records beyond the marker, up to the value specified by
    *          <code>MaxRecords</code>.</p>
@@ -3429,6 +3719,7 @@ export interface DescribeDBClusterParametersMessage {
  */
 export interface DBClusterMessage {
   /**
+   * @public
    * <p>An optional pagination token provided by a previous request. If this parameter is specified, the response
    *          includes only records beyond the marker, up to the value specified by
    *          <code>MaxRecords</code>.</p>
@@ -3436,6 +3727,7 @@ export interface DBClusterMessage {
   Marker?: string;
 
   /**
+   * @public
    * <p>A list of clusters.</p>
    */
   DBClusters?: DBCluster[];
@@ -3447,6 +3739,7 @@ export interface DBClusterMessage {
  */
 export interface DescribeDBClustersMessage {
   /**
+   * @public
    * <p>The user-provided cluster identifier. If this parameter is specified, information from only the specific cluster is returned. This parameter isn't case sensitive.</p>
    *          <p>Constraints:</p>
    *          <ul>
@@ -3458,6 +3751,7 @@ export interface DescribeDBClustersMessage {
   DBClusterIdentifier?: string;
 
   /**
+   * @public
    * <p>A filter that specifies one or more clusters to describe.</p>
    *          <p>Supported filters:</p>
    *          <ul>
@@ -3470,6 +3764,7 @@ export interface DescribeDBClustersMessage {
   Filters?: Filter[];
 
   /**
+   * @public
    * <p> The maximum number of records to include in the response. If more records exist than
    *          the specified <code>MaxRecords</code> value, a pagination token (marker) is included
    *          in the response so that the remaining results can be retrieved.</p>
@@ -3479,6 +3774,7 @@ export interface DescribeDBClustersMessage {
   MaxRecords?: number;
 
   /**
+   * @public
    * <p>An optional pagination token provided by a previous request. If this parameter is specified, the response
    *          includes only records beyond the marker, up to the value specified by
    *          <code>MaxRecords</code>.</p>
@@ -3492,6 +3788,7 @@ export interface DescribeDBClustersMessage {
  */
 export interface DescribeDBClusterSnapshotAttributesMessage {
   /**
+   * @public
    * <p>The identifier for the cluster snapshot to describe the attributes for.</p>
    */
   DBClusterSnapshotIdentifier: string | undefined;
@@ -3504,12 +3801,14 @@ export interface DescribeDBClusterSnapshotAttributesMessage {
  */
 export interface DBClusterSnapshotAttribute {
   /**
+   * @public
    * <p>The name of the manual cluster snapshot attribute.</p>
    *          <p>The attribute named <code>restore</code> refers to the list of Amazon Web Services accounts that have permission to copy or restore the manual cluster snapshot.</p>
    */
   AttributeName?: string;
 
   /**
+   * @public
    * <p>The values for the manual cluster snapshot attribute.</p>
    *          <p>If the <code>AttributeName</code> field is set to <code>restore</code>, then this element returns a list of IDs of the Amazon Web Services accounts that are authorized to copy or restore the manual cluster snapshot. If a value of <code>all</code> is in the list, then the manual cluster snapshot is public and available for any Amazon Web Services account to copy or restore.</p>
    */
@@ -3523,11 +3822,13 @@ export interface DBClusterSnapshotAttribute {
  */
 export interface DBClusterSnapshotAttributesResult {
   /**
+   * @public
    * <p>The identifier of the cluster snapshot that the attributes apply to.</p>
    */
   DBClusterSnapshotIdentifier?: string;
 
   /**
+   * @public
    * <p>The list of attributes and values for the cluster snapshot.</p>
    */
   DBClusterSnapshotAttributes?: DBClusterSnapshotAttribute[];
@@ -3538,6 +3839,7 @@ export interface DBClusterSnapshotAttributesResult {
  */
 export interface DescribeDBClusterSnapshotAttributesResult {
   /**
+   * @public
    * <p>Detailed information about the attributes that are associated with a cluster
    *             snapshot.</p>
    */
@@ -3550,6 +3852,7 @@ export interface DescribeDBClusterSnapshotAttributesResult {
  */
 export interface DBClusterSnapshotMessage {
   /**
+   * @public
    * <p>An optional pagination token provided by a previous request. If this parameter is specified, the response
    *          includes only records beyond the marker, up to the value specified by
    *          <code>MaxRecords</code>.</p>
@@ -3557,6 +3860,7 @@ export interface DBClusterSnapshotMessage {
   Marker?: string;
 
   /**
+   * @public
    * <p>Provides a list of cluster snapshots.</p>
    */
   DBClusterSnapshots?: DBClusterSnapshot[];
@@ -3568,6 +3872,7 @@ export interface DBClusterSnapshotMessage {
  */
 export interface DescribeDBClusterSnapshotsMessage {
   /**
+   * @public
    * <p>The ID of the cluster to retrieve the list of cluster snapshots for. This parameter can't be used with the <code>DBClusterSnapshotIdentifier</code> parameter. This parameter is not case sensitive. </p>
    *          <p>Constraints:</p>
    *          <ul>
@@ -3580,6 +3885,7 @@ export interface DescribeDBClusterSnapshotsMessage {
   DBClusterIdentifier?: string;
 
   /**
+   * @public
    * <p>A specific cluster snapshot identifier to describe. This parameter can't be used with the <code>DBClusterIdentifier</code> parameter. This value is stored as a lowercase string. </p>
    *          <p>Constraints:</p>
    *          <ul>
@@ -3596,6 +3902,7 @@ export interface DescribeDBClusterSnapshotsMessage {
   DBClusterSnapshotIdentifier?: string;
 
   /**
+   * @public
    * <p>The type of cluster snapshots to be returned. You can specify one of the following values:</p>
    *          <ul>
    *             <li>
@@ -3621,11 +3928,13 @@ export interface DescribeDBClusterSnapshotsMessage {
   SnapshotType?: string;
 
   /**
+   * @public
    * <p>This parameter is not currently supported.</p>
    */
   Filters?: Filter[];
 
   /**
+   * @public
    * <p> The maximum number of records to include in the response. If more records exist than
    *          the specified <code>MaxRecords</code> value, a pagination token (marker) is included
    *          in the response so that the remaining results can be retrieved.</p>
@@ -3635,6 +3944,7 @@ export interface DescribeDBClusterSnapshotsMessage {
   MaxRecords?: number;
 
   /**
+   * @public
    * <p>An optional pagination token provided by a previous request. If this parameter is specified, the response
    *          includes only records beyond the marker, up to the value specified by
    *          <code>MaxRecords</code>.</p>
@@ -3642,11 +3952,13 @@ export interface DescribeDBClusterSnapshotsMessage {
   Marker?: string;
 
   /**
+   * @public
    * <p>Set to <code>true</code> to include shared manual cluster snapshots from other Amazon Web Services accounts that this Amazon Web Services account has been given permission to copy or restore, and otherwise <code>false</code>. The default is <code>false</code>.</p>
    */
   IncludeShared?: boolean;
 
   /**
+   * @public
    * <p>Set to <code>true</code> to include manual cluster snapshots that are public and can be copied or restored by any Amazon Web Services account, and otherwise <code>false</code>. The default is <code>false</code>.</p>
    */
   IncludePublic?: boolean;
@@ -3658,26 +3970,31 @@ export interface DescribeDBClusterSnapshotsMessage {
  */
 export interface UpgradeTarget {
   /**
+   * @public
    * <p>The name of the upgrade target database engine.</p>
    */
   Engine?: string;
 
   /**
+   * @public
    * <p>The version number of the upgrade target database engine.</p>
    */
   EngineVersion?: string;
 
   /**
+   * @public
    * <p>The version of the database engine that an instance can be upgraded to.</p>
    */
   Description?: string;
 
   /**
+   * @public
    * <p>A value that indicates whether the target version is applied to any source DB instances that have <code>AutoMinorVersionUpgrade</code> set to <code>true</code>.</p>
    */
   AutoUpgrade?: boolean;
 
   /**
+   * @public
    * <p>A value that indicates whether a database engine is upgraded to a major
    *             version.</p>
    */
@@ -3690,42 +4007,50 @@ export interface UpgradeTarget {
  */
 export interface DBEngineVersion {
   /**
+   * @public
    * <p>The name of the database engine.</p>
    */
   Engine?: string;
 
   /**
+   * @public
    * <p>The version number of the database engine.</p>
    */
   EngineVersion?: string;
 
   /**
+   * @public
    * <p>The name of the parameter group family for the database engine.</p>
    */
   DBParameterGroupFamily?: string;
 
   /**
+   * @public
    * <p>The description of the database engine.</p>
    */
   DBEngineDescription?: string;
 
   /**
+   * @public
    * <p>The description of the database engine version.</p>
    */
   DBEngineVersionDescription?: string;
 
   /**
+   * @public
    * <p>A list of engine versions that this database engine version can be upgraded to.</p>
    */
   ValidUpgradeTarget?: UpgradeTarget[];
 
   /**
+   * @public
    * <p>The types of logs that the database engine has available for export to Amazon
    *             CloudWatch Logs.</p>
    */
   ExportableLogTypes?: string[];
 
   /**
+   * @public
    * <p>A value that indicates whether the engine version supports exporting the log types
    *             specified by <code>ExportableLogTypes</code> to CloudWatch Logs.</p>
    */
@@ -3738,6 +4063,7 @@ export interface DBEngineVersion {
  */
 export interface DBEngineVersionMessage {
   /**
+   * @public
    * <p>An optional pagination token provided by a previous request. If this parameter is specified, the response
    *          includes only records beyond the marker, up to the value specified by
    *          <code>MaxRecords</code>.</p>
@@ -3745,6 +4071,7 @@ export interface DBEngineVersionMessage {
   Marker?: string;
 
   /**
+   * @public
    * <p>Detailed information about one or more engine versions.</p>
    */
   DBEngineVersions?: DBEngineVersion[];
@@ -3756,11 +4083,13 @@ export interface DBEngineVersionMessage {
  */
 export interface DescribeDBEngineVersionsMessage {
   /**
+   * @public
    * <p>The database engine to return.</p>
    */
   Engine?: string;
 
   /**
+   * @public
    * <p>The database engine version to return.</p>
    *          <p>Example: <code>3.6.0</code>
    *          </p>
@@ -3768,6 +4097,7 @@ export interface DescribeDBEngineVersionsMessage {
   EngineVersion?: string;
 
   /**
+   * @public
    * <p>The name of a specific parameter group family to return details for.</p>
    *          <p>Constraints:</p>
    *          <ul>
@@ -3780,11 +4110,13 @@ export interface DescribeDBEngineVersionsMessage {
   DBParameterGroupFamily?: string;
 
   /**
+   * @public
    * <p>This parameter is not currently supported.</p>
    */
   Filters?: Filter[];
 
   /**
+   * @public
    * <p> The maximum number of records to include in the response. If more records exist than
    *          the specified <code>MaxRecords</code> value, a pagination token (marker) is included
    *          in the response so that the remaining results can be retrieved.</p>
@@ -3794,6 +4126,7 @@ export interface DescribeDBEngineVersionsMessage {
   MaxRecords?: number;
 
   /**
+   * @public
    * <p>An optional pagination token provided by a previous request. If this parameter is specified, the response
    *          includes only records beyond the marker, up to the value specified by
    *          <code>MaxRecords</code>.</p>
@@ -3801,17 +4134,20 @@ export interface DescribeDBEngineVersionsMessage {
   Marker?: string;
 
   /**
+   * @public
    * <p>Indicates that only the default version of the specified engine or engine and major
    *             version combination is returned.</p>
    */
   DefaultOnly?: boolean;
 
   /**
+   * @public
    * <p>If this parameter is specified and the requested engine supports the <code>CharacterSetName</code> parameter for <code>CreateDBInstance</code>, the response includes a list of supported character sets for each engine version. </p>
    */
   ListSupportedCharacterSets?: boolean;
 
   /**
+   * @public
    * <p>If this parameter is specified and the requested engine supports the <code>TimeZone</code> parameter for <code>CreateDBInstance</code>, the response includes a list of supported time zones for each engine version. </p>
    */
   ListSupportedTimezones?: boolean;
@@ -3823,6 +4159,7 @@ export interface DescribeDBEngineVersionsMessage {
  */
 export interface DBInstanceMessage {
   /**
+   * @public
    * <p>An optional pagination token provided by a previous request. If this parameter is specified, the response
    *          includes only records beyond the marker, up to the value specified by
    *          <code>MaxRecords</code>.</p>
@@ -3830,6 +4167,7 @@ export interface DBInstanceMessage {
   Marker?: string;
 
   /**
+   * @public
    * <p>Detailed information about one or more instances. </p>
    */
   DBInstances?: DBInstance[];
@@ -3841,6 +4179,7 @@ export interface DBInstanceMessage {
  */
 export interface DescribeDBInstancesMessage {
   /**
+   * @public
    * <p>The user-provided instance identifier. If this parameter is specified, information from only the specific instance is returned. This parameter isn't case sensitive.</p>
    *          <p>Constraints:</p>
    *          <ul>
@@ -3853,6 +4192,7 @@ export interface DescribeDBInstancesMessage {
   DBInstanceIdentifier?: string;
 
   /**
+   * @public
    * <p>A filter that specifies one or more instances to describe.</p>
    *          <p>Supported filters:</p>
    *          <ul>
@@ -3869,6 +4209,7 @@ export interface DescribeDBInstancesMessage {
   Filters?: Filter[];
 
   /**
+   * @public
    * <p> The maximum number of records to include in the response. If more records exist than
    *          the specified <code>MaxRecords</code> value, a pagination token (marker) is included
    *          in the response so that the remaining results can be retrieved.</p>
@@ -3878,6 +4219,7 @@ export interface DescribeDBInstancesMessage {
   MaxRecords?: number;
 
   /**
+   * @public
    * <p>An optional pagination token provided by a previous request. If this parameter is specified, the response
    *          includes only records beyond the marker, up to the value specified by
    *          <code>MaxRecords</code>.</p>
@@ -3891,6 +4233,7 @@ export interface DescribeDBInstancesMessage {
  */
 export interface DBSubnetGroupMessage {
   /**
+   * @public
    * <p>An optional pagination token provided by a previous request. If this parameter is specified, the response
    *          includes only records beyond the marker, up to the value specified by
    *          <code>MaxRecords</code>.</p>
@@ -3898,6 +4241,7 @@ export interface DBSubnetGroupMessage {
   Marker?: string;
 
   /**
+   * @public
    * <p>Detailed information about one or more subnet groups.</p>
    */
   DBSubnetGroups?: DBSubnetGroup[];
@@ -3909,16 +4253,19 @@ export interface DBSubnetGroupMessage {
  */
 export interface DescribeDBSubnetGroupsMessage {
   /**
+   * @public
    * <p>The name of the subnet group to return details for.</p>
    */
   DBSubnetGroupName?: string;
 
   /**
+   * @public
    * <p>This parameter is not currently supported.</p>
    */
   Filters?: Filter[];
 
   /**
+   * @public
    * <p> The maximum number of records to include in the response. If more records exist than
    *          the specified <code>MaxRecords</code> value, a pagination token (marker) is included
    *          in the response so that the remaining results can be retrieved.</p>
@@ -3928,6 +4275,7 @@ export interface DescribeDBSubnetGroupsMessage {
   MaxRecords?: number;
 
   /**
+   * @public
    * <p>An optional pagination token provided by a previous request. If this parameter is specified, the response
    *          includes only records beyond the marker, up to the value specified by
    *          <code>MaxRecords</code>.</p>
@@ -3941,17 +4289,20 @@ export interface DescribeDBSubnetGroupsMessage {
  */
 export interface DescribeEngineDefaultClusterParametersMessage {
   /**
+   * @public
    * <p>The name of the cluster parameter group family to return the engine parameter
    *             information for.</p>
    */
   DBParameterGroupFamily: string | undefined;
 
   /**
+   * @public
    * <p>This parameter is not currently supported.</p>
    */
   Filters?: Filter[];
 
   /**
+   * @public
    * <p> The maximum number of records to include in the response. If more records exist than
    *          the specified <code>MaxRecords</code> value, a pagination token (marker) is included
    *          in the response so that the remaining results can be retrieved.</p>
@@ -3961,6 +4312,7 @@ export interface DescribeEngineDefaultClusterParametersMessage {
   MaxRecords?: number;
 
   /**
+   * @public
    * <p>An optional pagination token provided by a previous request. If this parameter is specified, the response
    *          includes only records beyond the marker, up to the value specified by
    *          <code>MaxRecords</code>.</p>
@@ -3975,11 +4327,13 @@ export interface DescribeEngineDefaultClusterParametersMessage {
  */
 export interface EngineDefaults {
   /**
+   * @public
    * <p>The name of the cluster parameter group family to return the engine parameter information for.</p>
    */
   DBParameterGroupFamily?: string;
 
   /**
+   * @public
    * <p>An optional pagination token provided by a previous request. If this parameter is specified, the response
    *          includes only records beyond the marker, up to the value specified by
    *          <code>MaxRecords</code>.</p>
@@ -3987,6 +4341,7 @@ export interface EngineDefaults {
   Marker?: string;
 
   /**
+   * @public
    * <p>The parameters of a particular cluster parameter group family.</p>
    */
   Parameters?: Parameter[];
@@ -3997,6 +4352,7 @@ export interface EngineDefaults {
  */
 export interface DescribeEngineDefaultClusterParametersResult {
   /**
+   * @public
    * <p>Contains the result of a successful invocation of the
    *                 <code>DescribeEngineDefaultClusterParameters</code> operation. </p>
    */
@@ -4009,6 +4365,7 @@ export interface DescribeEngineDefaultClusterParametersResult {
  */
 export interface DescribeEventCategoriesMessage {
   /**
+   * @public
    * <p>The type of source that is generating the events.</p>
    *          <p>Valid values: <code>db-instance</code>, <code>db-parameter-group</code>, <code>db-security-group</code>
    *          </p>
@@ -4016,6 +4373,7 @@ export interface DescribeEventCategoriesMessage {
   SourceType?: string;
 
   /**
+   * @public
    * <p>This parameter is not currently supported.</p>
    */
   Filters?: Filter[];
@@ -4027,11 +4385,13 @@ export interface DescribeEventCategoriesMessage {
  */
 export interface EventCategoriesMap {
   /**
+   * @public
    * <p>The source type that the returned categories belong to.</p>
    */
   SourceType?: string;
 
   /**
+   * @public
    * <p>The event categories for the specified source type.</p>
    */
   EventCategories?: string[];
@@ -4043,6 +4403,7 @@ export interface EventCategoriesMap {
  */
 export interface EventCategoriesMessage {
   /**
+   * @public
    * <p>A list of event category maps.</p>
    */
   EventCategoriesMapList?: EventCategoriesMap[];
@@ -4072,6 +4433,7 @@ export type SourceType = (typeof SourceType)[keyof typeof SourceType];
  */
 export interface DescribeEventsMessage {
   /**
+   * @public
    * <p>The identifier of the event source for which events are returned. If not specified, then all sources are included in the response.</p>
    *          <p>Constraints:</p>
    *          <ul>
@@ -4102,17 +4464,20 @@ export interface DescribeEventsMessage {
   SourceIdentifier?: string;
 
   /**
+   * @public
    * <p>The event source to retrieve events for. If no value is specified, all events are returned.</p>
    */
   SourceType?: SourceType | string;
 
   /**
+   * @public
    * <p> The beginning of the time interval to retrieve events for, specified in ISO 8601 format. </p>
    *          <p>Example: 2009-07-08T18:00Z</p>
    */
   StartTime?: Date;
 
   /**
+   * @public
    * <p> The end of the time interval for which to retrieve events, specified in ISO 8601
    *             format. </p>
    *          <p>Example: 2009-07-08T18:00Z</p>
@@ -4120,23 +4485,27 @@ export interface DescribeEventsMessage {
   EndTime?: Date;
 
   /**
+   * @public
    * <p>The number of minutes to retrieve events for.</p>
    *          <p>Default: 60</p>
    */
   Duration?: number;
 
   /**
+   * @public
    * <p>A list of event categories that trigger notifications for an event notification
    *             subscription.</p>
    */
   EventCategories?: string[];
 
   /**
+   * @public
    * <p>This parameter is not currently supported.</p>
    */
   Filters?: Filter[];
 
   /**
+   * @public
    * <p> The maximum number of records to include in the response. If more records exist than
    *          the specified <code>MaxRecords</code> value, a pagination token (marker) is included
    *          in the response so that the remaining results can be retrieved.</p>
@@ -4146,6 +4515,7 @@ export interface DescribeEventsMessage {
   MaxRecords?: number;
 
   /**
+   * @public
    * <p>An optional pagination token provided by a previous request. If this parameter is specified, the response
    *          includes only records beyond the marker, up to the value specified by
    *          <code>MaxRecords</code>.</p>
@@ -4159,31 +4529,37 @@ export interface DescribeEventsMessage {
  */
 export interface Event {
   /**
+   * @public
    * <p>Provides the identifier for the source of the event.</p>
    */
   SourceIdentifier?: string;
 
   /**
+   * @public
    * <p>Specifies the source type for this event.</p>
    */
   SourceType?: SourceType | string;
 
   /**
+   * @public
    * <p>Provides the text of this event.</p>
    */
   Message?: string;
 
   /**
+   * @public
    * <p>Specifies the category for the event.</p>
    */
   EventCategories?: string[];
 
   /**
+   * @public
    * <p>Specifies the date and time of the event.</p>
    */
   Date?: Date;
 
   /**
+   * @public
    * <p>The Amazon Resource Name (ARN) for the event.</p>
    */
   SourceArn?: string;
@@ -4195,6 +4571,7 @@ export interface Event {
  */
 export interface EventsMessage {
   /**
+   * @public
    * <p>An optional pagination token provided by a previous request. If this parameter is specified, the response
    *          includes only records beyond the marker, up to the value specified by
    *          <code>MaxRecords</code>.</p>
@@ -4202,6 +4579,7 @@ export interface EventsMessage {
   Marker?: string;
 
   /**
+   * @public
    * <p>Detailed information about one or more events. </p>
    */
   Events?: Event[];
@@ -4213,17 +4591,20 @@ export interface EventsMessage {
  */
 export interface DescribeEventSubscriptionsMessage {
   /**
+   * @public
    * <p>The name of the Amazon DocumentDB event notification subscription that you want to
    *             describe.</p>
    */
   SubscriptionName?: string;
 
   /**
+   * @public
    * <p>This parameter is not currently supported.</p>
    */
   Filters?: Filter[];
 
   /**
+   * @public
    * <p> The maximum number of records to include in the response. If more records exist than
    *          the specified <code>MaxRecords</code> value, a pagination token (marker) is included
    *          in the response so that the remaining results can be retrieved.</p>
@@ -4233,6 +4614,7 @@ export interface DescribeEventSubscriptionsMessage {
   MaxRecords?: number;
 
   /**
+   * @public
    * <p>An optional pagination token provided by a previous request. If this parameter is specified, the response
    *          includes only records beyond the marker, up to the value specified by
    *          <code>MaxRecords</code>.</p>
@@ -4246,6 +4628,7 @@ export interface DescribeEventSubscriptionsMessage {
  */
 export interface EventSubscriptionsMessage {
   /**
+   * @public
    * <p>An optional pagination token provided by a previous request. If this parameter is specified, the response
    *          includes only records beyond the marker, up to the value specified by
    *          <code>MaxRecords</code>.</p>
@@ -4253,6 +4636,7 @@ export interface EventSubscriptionsMessage {
   Marker?: string;
 
   /**
+   * @public
    * <p>A list of event subscriptions.</p>
    */
   EventSubscriptionsList?: EventSubscription[];
@@ -4263,22 +4647,26 @@ export interface EventSubscriptionsMessage {
  */
 export interface DescribeGlobalClustersMessage {
   /**
+   * @public
    * <p>The user-supplied  cluster identifier. If this parameter is specified, information from only the specific cluster is returned. This parameter isn't case-sensitive.</p>
    */
   GlobalClusterIdentifier?: string;
 
   /**
+   * @public
    * <p>A filter that specifies one or more global DB clusters to describe.</p>
    *          <p>Supported filters: <code>db-cluster-id</code> accepts  cluster identifiers and  cluster Amazon Resource Names (ARNs). The results list will only include information about the clusters identified by these ARNs.</p>
    */
   Filters?: Filter[];
 
   /**
+   * @public
    * <p>The maximum number of records to include in the response. If more records exist than the specified <code>MaxRecords</code> value, a pagination token called a marker is included in the response so that you can retrieve the remaining results. </p>
    */
   MaxRecords?: number;
 
   /**
+   * @public
    * <p>An optional pagination token provided by a previous <code>DescribeGlobalClusters</code> request. If this parameter is specified, the response includes only records beyond the marker, up to the value specified by <code>MaxRecords</code>.</p>
    */
   Marker?: string;
@@ -4289,11 +4677,13 @@ export interface DescribeGlobalClustersMessage {
  */
 export interface GlobalClustersMessage {
   /**
+   * @public
    * <p></p>
    */
   Marker?: string;
 
   /**
+   * @public
    * <p></p>
    */
   GlobalClusters?: GlobalCluster[];
@@ -4305,40 +4695,47 @@ export interface GlobalClustersMessage {
  */
 export interface DescribeOrderableDBInstanceOptionsMessage {
   /**
+   * @public
    * <p>The name of the engine to retrieve instance options for.</p>
    */
   Engine: string | undefined;
 
   /**
+   * @public
    * <p>The engine version filter value. Specify this parameter to show only the available
    *             offerings that match the specified engine version.</p>
    */
   EngineVersion?: string;
 
   /**
+   * @public
    * <p>The instance class filter value. Specify this parameter to show only the available
    *             offerings that match the specified instance class.</p>
    */
   DBInstanceClass?: string;
 
   /**
+   * @public
    * <p>The license model filter value. Specify this parameter to show only the available
    *             offerings that match the specified license model.</p>
    */
   LicenseModel?: string;
 
   /**
+   * @public
    * <p>The virtual private cloud (VPC) filter value. Specify this parameter to show only the
    *             available VPC or non-VPC offerings.</p>
    */
   Vpc?: boolean;
 
   /**
+   * @public
    * <p>This parameter is not currently supported.</p>
    */
   Filters?: Filter[];
 
   /**
+   * @public
    * <p> The maximum number of records to include in the response. If more records exist than
    *          the specified <code>MaxRecords</code> value, a pagination token (marker) is included
    *          in the response so that the remaining results can be retrieved.</p>
@@ -4348,6 +4745,7 @@ export interface DescribeOrderableDBInstanceOptionsMessage {
   MaxRecords?: number;
 
   /**
+   * @public
    * <p>An optional pagination token provided by a previous request. If this parameter is specified, the response
    *          includes only records beyond the marker, up to the value specified by
    *          <code>MaxRecords</code>.</p>
@@ -4361,31 +4759,37 @@ export interface DescribeOrderableDBInstanceOptionsMessage {
  */
 export interface OrderableDBInstanceOption {
   /**
+   * @public
    * <p>The engine type of an instance.</p>
    */
   Engine?: string;
 
   /**
+   * @public
    * <p>The engine version of an instance.</p>
    */
   EngineVersion?: string;
 
   /**
+   * @public
    * <p>The instance class for an instance.</p>
    */
   DBInstanceClass?: string;
 
   /**
+   * @public
    * <p>The license model for an instance.</p>
    */
   LicenseModel?: string;
 
   /**
+   * @public
    * <p>A list of Availability Zones for an instance.</p>
    */
   AvailabilityZones?: AvailabilityZone[];
 
   /**
+   * @public
    * <p>Indicates whether an instance is in a virtual private cloud (VPC).</p>
    */
   Vpc?: boolean;
@@ -4397,11 +4801,13 @@ export interface OrderableDBInstanceOption {
  */
 export interface OrderableDBInstanceOptionsMessage {
   /**
+   * @public
    * <p>The options that are available for a particular orderable instance.</p>
    */
   OrderableDBInstanceOptions?: OrderableDBInstanceOption[];
 
   /**
+   * @public
    * <p>An optional pagination token provided by a previous request. If this parameter is specified, the response
    *          includes only records beyond the marker, up to the value specified by
    *          <code>MaxRecords</code>.</p>
@@ -4415,11 +4821,13 @@ export interface OrderableDBInstanceOptionsMessage {
  */
 export interface DescribePendingMaintenanceActionsMessage {
   /**
+   * @public
    * <p>The ARN of a resource to return pending maintenance actions for.</p>
    */
   ResourceIdentifier?: string;
 
   /**
+   * @public
    * <p>A filter that specifies one or more resources to return pending maintenance actions
    *             for.</p>
    *          <p>Supported filters:</p>
@@ -4441,6 +4849,7 @@ export interface DescribePendingMaintenanceActionsMessage {
   Filters?: Filter[];
 
   /**
+   * @public
    * <p>An optional pagination token provided by a previous request. If this parameter is specified, the response
    *          includes only records beyond the marker, up to the value specified by
    *          <code>MaxRecords</code>.</p>
@@ -4448,6 +4857,7 @@ export interface DescribePendingMaintenanceActionsMessage {
   Marker?: string;
 
   /**
+   * @public
    * <p> The maximum number of records to include in the response. If more records exist than
    *          the specified <code>MaxRecords</code> value, a pagination token (marker) is included
    *          in the response so that the remaining results can be retrieved.</p>
@@ -4463,11 +4873,13 @@ export interface DescribePendingMaintenanceActionsMessage {
  */
 export interface PendingMaintenanceActionsMessage {
   /**
+   * @public
    * <p>The maintenance actions to be applied.</p>
    */
   PendingMaintenanceActions?: ResourcePendingMaintenanceActions[];
 
   /**
+   * @public
    * <p>An optional pagination token provided by a previous request. If this parameter is specified, the response
    *          includes only records beyond the marker, up to the value specified by
    *          <code>MaxRecords</code>.</p>
@@ -4481,6 +4893,7 @@ export interface PendingMaintenanceActionsMessage {
  */
 export interface FailoverDBClusterMessage {
   /**
+   * @public
    * <p>A cluster identifier to force a failover for. This parameter is not case sensitive.</p>
    *          <p>Constraints:</p>
    *          <ul>
@@ -4492,6 +4905,7 @@ export interface FailoverDBClusterMessage {
   DBClusterIdentifier?: string;
 
   /**
+   * @public
    * <p>The name of the instance to promote to the primary instance.</p>
    *          <p>You must specify the instance identifier for an Amazon DocumentDB replica in the cluster. For
    *             example, <code>mydbcluster-replica1</code>.</p>
@@ -4504,6 +4918,7 @@ export interface FailoverDBClusterMessage {
  */
 export interface FailoverDBClusterResult {
   /**
+   * @public
    * <p>Detailed information about a cluster. </p>
    */
   DBCluster?: DBCluster;
@@ -4515,12 +4930,14 @@ export interface FailoverDBClusterResult {
  */
 export interface ListTagsForResourceMessage {
   /**
+   * @public
    * <p>The Amazon DocumentDB resource with tags to be listed. This value is an Amazon Resource Name
    *             (ARN).</p>
    */
   ResourceName: string | undefined;
 
   /**
+   * @public
    * <p>This parameter is not currently supported.</p>
    */
   Filters?: Filter[];
@@ -4532,6 +4949,7 @@ export interface ListTagsForResourceMessage {
  */
 export interface TagListMessage {
   /**
+   * @public
    * <p>A list of one or more tags.</p>
    */
   TagList?: Tag[];
@@ -4567,11 +4985,13 @@ export class InvalidDBSecurityGroupStateFault extends __BaseException {
  */
 export interface CloudwatchLogsExportConfiguration {
   /**
+   * @public
    * <p>The list of log types to enable.</p>
    */
   EnableLogTypes?: string[];
 
   /**
+   * @public
    * <p>The list of log types to disable.</p>
    */
   DisableLogTypes?: string[];
@@ -4583,6 +5003,7 @@ export interface CloudwatchLogsExportConfiguration {
  */
 export interface ModifyDBClusterMessage {
   /**
+   * @public
    * <p>The cluster identifier for the cluster that is being modified. This parameter is
    *             not case sensitive.</p>
    *          <p>Constraints:</p>
@@ -4595,6 +5016,7 @@ export interface ModifyDBClusterMessage {
   DBClusterIdentifier: string | undefined;
 
   /**
+   * @public
    * <p>The new cluster identifier for the cluster when renaming a cluster. This
    *             value is stored as a lowercase string.</p>
    *          <p>Constraints:</p>
@@ -4615,6 +5037,7 @@ export interface ModifyDBClusterMessage {
   NewDBClusterIdentifier?: string;
 
   /**
+   * @public
    * <p>A value that specifies whether the changes in this request and any pending changes are
    *             asynchronously applied as soon as possible, regardless of the
    *                 <code>PreferredMaintenanceWindow</code> setting for the cluster. If this
@@ -4632,6 +5055,7 @@ export interface ModifyDBClusterMessage {
   ApplyImmediately?: boolean;
 
   /**
+   * @public
    * <p>The number of days for which automated backups are retained. You must specify a
    *             minimum value of 1.</p>
    *          <p>Default: 1</p>
@@ -4645,17 +5069,20 @@ export interface ModifyDBClusterMessage {
   BackupRetentionPeriod?: number;
 
   /**
+   * @public
    * <p>The name of the cluster parameter group to use for the cluster.</p>
    */
   DBClusterParameterGroupName?: string;
 
   /**
+   * @public
    * <p>A list of virtual private cloud (VPC) security groups that the cluster will belong
    *             to.</p>
    */
   VpcSecurityGroupIds?: string[];
 
   /**
+   * @public
    * <p>The port number on which the cluster accepts connections.</p>
    *          <p>Constraints: Must be a value from <code>1150</code> to <code>65535</code>. </p>
    *          <p>Default: The same port as the original cluster.</p>
@@ -4663,6 +5090,7 @@ export interface ModifyDBClusterMessage {
   Port?: number;
 
   /**
+   * @public
    * <p>The password for the master database user. This password can contain any printable
    *             ASCII character except forward slash (/), double quote ("), or the "at" symbol
    *             (@).</p>
@@ -4671,6 +5099,7 @@ export interface ModifyDBClusterMessage {
   MasterUserPassword?: string;
 
   /**
+   * @public
    * <p>The daily time range during which automated backups are created if automated backups
    *             are enabled, using the <code>BackupRetentionPeriod</code> parameter. </p>
    *          <p>The default is a 30-minute window selected at random from an 8-hour block of time for
@@ -4694,6 +5123,7 @@ export interface ModifyDBClusterMessage {
   PreferredBackupWindow?: string;
 
   /**
+   * @public
    * <p>The weekly time range during which system maintenance can occur, in Universal
    *             Coordinated Time (UTC).</p>
    *          <p>Format: <code>ddd:hh24:mi-ddd:hh24:mi</code>
@@ -4706,6 +5136,7 @@ export interface ModifyDBClusterMessage {
   PreferredMaintenanceWindow?: string;
 
   /**
+   * @public
    * <p>The configuration setting for the log types to be enabled for export to Amazon
    *             CloudWatch Logs for a specific instance or cluster. The
    *                 <code>EnableLogTypes</code> and <code>DisableLogTypes</code> arrays determine which
@@ -4714,6 +5145,7 @@ export interface ModifyDBClusterMessage {
   CloudwatchLogsExportConfiguration?: CloudwatchLogsExportConfiguration;
 
   /**
+   * @public
    * <p>The version number of the database engine to which you want to upgrade.
    *              Changing this parameter results in an outage. The change is applied during
    *              the next maintenance window unless <code>ApplyImmediately</code> is enabled.</p>
@@ -4725,6 +5157,7 @@ export interface ModifyDBClusterMessage {
   EngineVersion?: string;
 
   /**
+   * @public
    * <p>A value that indicates whether major version upgrades are allowed.</p>
    *          <p>Constraints: You must allow major version upgrades when specifying a value for the
    *              <code>EngineVersion</code> parameter that is a different major version than the DB
@@ -4733,6 +5166,7 @@ export interface ModifyDBClusterMessage {
   AllowMajorVersionUpgrade?: boolean;
 
   /**
+   * @public
    * <p>Specifies whether this cluster can be deleted. If <code>DeletionProtection</code> is
    *             enabled, the cluster cannot be deleted unless it is modified and
    *                 <code>DeletionProtection</code> is disabled. <code>DeletionProtection</code>
@@ -4746,6 +5180,7 @@ export interface ModifyDBClusterMessage {
  */
 export interface ModifyDBClusterResult {
   /**
+   * @public
    * <p>Detailed information about a cluster. </p>
    */
   DBCluster?: DBCluster;
@@ -4757,6 +5192,7 @@ export interface ModifyDBClusterResult {
  */
 export interface DBClusterParameterGroupNameMessage {
   /**
+   * @public
    * <p>The name of a cluster parameter group.</p>
    *          <p>Constraints:</p>
    *          <ul>
@@ -4783,11 +5219,13 @@ export interface DBClusterParameterGroupNameMessage {
  */
 export interface ModifyDBClusterParameterGroupMessage {
   /**
+   * @public
    * <p>The name of the cluster parameter group to modify.</p>
    */
   DBClusterParameterGroupName: string | undefined;
 
   /**
+   * @public
    * <p>A list of parameters in the cluster parameter group to modify.</p>
    */
   Parameters: Parameter[] | undefined;
@@ -4799,11 +5237,13 @@ export interface ModifyDBClusterParameterGroupMessage {
  */
 export interface ModifyDBClusterSnapshotAttributeMessage {
   /**
+   * @public
    * <p>The identifier for the cluster snapshot to modify the attributes for.</p>
    */
   DBClusterSnapshotIdentifier: string | undefined;
 
   /**
+   * @public
    * <p>The name of the cluster snapshot attribute to modify.</p>
    *          <p>To manage authorization for other Amazon Web Services accounts to copy or restore a manual cluster
    *             snapshot, set this value to <code>restore</code>.</p>
@@ -4811,12 +5251,14 @@ export interface ModifyDBClusterSnapshotAttributeMessage {
   AttributeName: string | undefined;
 
   /**
+   * @public
    * <p>A list of cluster snapshot attributes to add to the attribute specified by <code>AttributeName</code>.</p>
    *          <p>To authorize other Amazon Web Services accounts to copy or restore a manual cluster snapshot, set this list to include one or more Amazon Web Services account IDs. To make the manual cluster snapshot restorable by any Amazon Web Services account, set it to <code>all</code>. Do not add the <code>all</code> value for any manual cluster snapshots that contain private information that you don't want to be available to all Amazon Web Services accounts.</p>
    */
   ValuesToAdd?: string[];
 
   /**
+   * @public
    * <p>A list of cluster snapshot attributes to remove from the attribute specified by <code>AttributeName</code>.</p>
    *          <p>To remove authorization for other Amazon Web Services accounts to copy or restore a manual cluster snapshot, set this list to include one or more Amazon Web Services account identifiers. To remove authorization for any Amazon Web Services account to copy or restore the cluster snapshot, set it to <code>all</code> . If you specify <code>all</code>, an Amazon Web Services account whose account ID is explicitly added to the <code>restore</code> attribute can still copy or restore a manual cluster snapshot.</p>
    */
@@ -4828,6 +5270,7 @@ export interface ModifyDBClusterSnapshotAttributeMessage {
  */
 export interface ModifyDBClusterSnapshotAttributeResult {
   /**
+   * @public
    * <p>Detailed information about the attributes that are associated with a cluster
    *             snapshot.</p>
    */
@@ -4882,6 +5325,7 @@ export class DBUpgradeDependencyFailureFault extends __BaseException {
  */
 export interface ModifyDBInstanceMessage {
   /**
+   * @public
    * <p>The instance identifier. This value is stored as a lowercase string.</p>
    *          <p>Constraints:</p>
    *          <ul>
@@ -4893,6 +5337,7 @@ export interface ModifyDBInstanceMessage {
   DBInstanceIdentifier: string | undefined;
 
   /**
+   * @public
    * <p>The new compute and memory capacity of the instance; for example, <code>db.r5.large</code>. Not all instance classes are available in all Amazon Web Services Regions. </p>
    *          <p>If you modify the instance class, an outage occurs during the change. The change is
    *             applied during the next maintenance window, unless <code>ApplyImmediately</code> is
@@ -4902,6 +5347,7 @@ export interface ModifyDBInstanceMessage {
   DBInstanceClass?: string;
 
   /**
+   * @public
    * <p>Specifies whether the modifications in this request and any pending modifications are
    *             asynchronously applied as soon as possible, regardless of the
    *                 <code>PreferredMaintenanceWindow</code> setting for the instance. </p>
@@ -4914,6 +5360,7 @@ export interface ModifyDBInstanceMessage {
   ApplyImmediately?: boolean;
 
   /**
+   * @public
    * <p>The weekly time range (in UTC) during which system maintenance can occur, which might
    *             result in an outage. Changing this parameter doesn't result in an outage except in the
    *             following situation, and the change is asynchronously applied as soon as possible. If
@@ -4931,11 +5378,13 @@ export interface ModifyDBInstanceMessage {
   PreferredMaintenanceWindow?: string;
 
   /**
+   * @public
    * <p>This parameter does not apply to Amazon DocumentDB. Amazon DocumentDB does not perform minor version upgrades regardless of the value set.</p>
    */
   AutoMinorVersionUpgrade?: boolean;
 
   /**
+   * @public
    * <p> The new instance identifier for the instance when renaming an instance. When you change the instance identifier, an instance reboot occurs immediately if you set <code>Apply Immediately</code> to <code>true</code>. It occurs during the next maintenance window if you set <code>Apply Immediately</code> to <code>false</code>. This value is stored as a lowercase string. </p>
    *          <p>Constraints:</p>
    *          <ul>
@@ -4955,16 +5404,19 @@ export interface ModifyDBInstanceMessage {
   NewDBInstanceIdentifier?: string;
 
   /**
+   * @public
    * <p>Indicates the certificate that needs to be associated with the instance.</p>
    */
   CACertificateIdentifier?: string;
 
   /**
+   * @public
    * <p>A value that indicates whether to copy all tags from the DB instance to snapshots of the DB instance. By default, tags are not copied.</p>
    */
   CopyTagsToSnapshot?: boolean;
 
   /**
+   * @public
    * <p>A value that specifies the order in which an Amazon DocumentDB replica is promoted to the primary instance after a failure of the existing primary instance.</p>
    *          <p>Default: 1</p>
    *          <p>Valid values: 0-15</p>
@@ -4972,6 +5424,7 @@ export interface ModifyDBInstanceMessage {
   PromotionTier?: number;
 
   /**
+   * @public
    * <p>A value that indicates whether to enable Performance Insights for the DB Instance. For
    *             more information, see <a href="https://docs.aws.amazon.com/documentdb/latest/developerguide/performance-insights.html">Using Amazon
    *                 Performance Insights</a>.</p>
@@ -4979,6 +5432,7 @@ export interface ModifyDBInstanceMessage {
   EnablePerformanceInsights?: boolean;
 
   /**
+   * @public
    * <p>The KMS key identifier for encryption of Performance Insights
    *             data.</p>
    *          <p>The KMS key identifier is the key ARN, key ID, alias ARN, or alias name
@@ -4996,6 +5450,7 @@ export interface ModifyDBInstanceMessage {
  */
 export interface ModifyDBInstanceResult {
   /**
+   * @public
    * <p>Detailed information about an instance. </p>
    */
   DBInstance?: DBInstance;
@@ -5007,6 +5462,7 @@ export interface ModifyDBInstanceResult {
  */
 export interface ModifyDBSubnetGroupMessage {
   /**
+   * @public
    * <p>The name for the subnet group. This value is stored as a lowercase string. You can't modify the default subnet group. </p>
    *          <p>Constraints: Must match the name of an existing <code>DBSubnetGroup</code>. Must not be default.</p>
    *          <p>Example: <code>mySubnetgroup</code>
@@ -5015,11 +5471,13 @@ export interface ModifyDBSubnetGroupMessage {
   DBSubnetGroupName: string | undefined;
 
   /**
+   * @public
    * <p>The description for the subnet group.</p>
    */
   DBSubnetGroupDescription?: string;
 
   /**
+   * @public
    * <p>The Amazon EC2 subnet IDs for the subnet group.</p>
    */
   SubnetIds: string[] | undefined;
@@ -5030,6 +5488,7 @@ export interface ModifyDBSubnetGroupMessage {
  */
 export interface ModifyDBSubnetGroupResult {
   /**
+   * @public
    * <p>Detailed information about a subnet group. </p>
    */
   DBSubnetGroup?: DBSubnetGroup;
@@ -5061,17 +5520,20 @@ export class SubnetAlreadyInUse extends __BaseException {
  */
 export interface ModifyEventSubscriptionMessage {
   /**
+   * @public
    * <p>The name of the Amazon DocumentDB event notification subscription.</p>
    */
   SubscriptionName: string | undefined;
 
   /**
+   * @public
    * <p>The Amazon Resource Name (ARN) of the SNS topic created for event notification. The
    *             ARN is created by Amazon SNS when you create a topic and subscribe to it.</p>
    */
   SnsTopicArn?: string;
 
   /**
+   * @public
    * <p>The type of source that is generating the events. For example, if you want to be notified of events generated by an instance, set this parameter to <code>db-instance</code>. If this value is not specified, all events are returned.</p>
    *          <p>Valid values: <code>db-instance</code>, <code>db-parameter-group</code>, <code>db-security-group</code>
    *          </p>
@@ -5079,12 +5541,14 @@ export interface ModifyEventSubscriptionMessage {
   SourceType?: string;
 
   /**
+   * @public
    * <p> A list of event categories for a <code>SourceType</code> that you want to subscribe
    *             to.</p>
    */
   EventCategories?: string[];
 
   /**
+   * @public
    * <p> A Boolean value; set to <code>true</code> to activate the subscription. </p>
    */
   Enabled?: boolean;
@@ -5095,6 +5559,7 @@ export interface ModifyEventSubscriptionMessage {
  */
 export interface ModifyEventSubscriptionResult {
   /**
+   * @public
    * <p>Detailed information about an event to which you have subscribed.</p>
    */
   EventSubscription?: EventSubscription;
@@ -5106,6 +5571,7 @@ export interface ModifyEventSubscriptionResult {
  */
 export interface ModifyGlobalClusterMessage {
   /**
+   * @public
    * <p>The identifier for the global cluster being modified. This parameter isn't case-sensitive.</p>
    *          <p>Constraints:</p>
    *          <ul>
@@ -5117,6 +5583,7 @@ export interface ModifyGlobalClusterMessage {
   GlobalClusterIdentifier: string | undefined;
 
   /**
+   * @public
    * <p>The new identifier for a global cluster when you modify a global cluster. This value is stored as a lowercase string.</p>
    *          <ul>
    *             <li>
@@ -5131,6 +5598,7 @@ export interface ModifyGlobalClusterMessage {
   NewGlobalClusterIdentifier?: string;
 
   /**
+   * @public
    * <p>Indicates if the global cluster has deletion protection enabled. The global cluster can't be deleted when deletion protection is enabled. </p>
    */
   DeletionProtection?: boolean;
@@ -5141,6 +5609,7 @@ export interface ModifyGlobalClusterMessage {
  */
 export interface ModifyGlobalClusterResult {
   /**
+   * @public
    * <p>A data type representing an Amazon DocumentDB global cluster.</p>
    */
   GlobalCluster?: GlobalCluster;
@@ -5152,6 +5621,7 @@ export interface ModifyGlobalClusterResult {
  */
 export interface RebootDBInstanceMessage {
   /**
+   * @public
    * <p>The instance identifier. This parameter is stored as a lowercase string.</p>
    *          <p>Constraints:</p>
    *          <ul>
@@ -5163,6 +5633,7 @@ export interface RebootDBInstanceMessage {
   DBInstanceIdentifier: string | undefined;
 
   /**
+   * @public
    * <p> When <code>true</code>, the reboot is conducted through a Multi-AZ failover. </p>
    *          <p>Constraint: You can't specify <code>true</code> if the instance is not configured for
    *             Multi-AZ.</p>
@@ -5175,6 +5646,7 @@ export interface RebootDBInstanceMessage {
  */
 export interface RebootDBInstanceResult {
   /**
+   * @public
    * <p>Detailed information about an instance. </p>
    */
   DBInstance?: DBInstance;
@@ -5186,11 +5658,13 @@ export interface RebootDBInstanceResult {
  */
 export interface RemoveFromGlobalClusterMessage {
   /**
+   * @public
    * <p>The cluster identifier to detach from the Amazon DocumentDB global cluster. </p>
    */
   GlobalClusterIdentifier: string | undefined;
 
   /**
+   * @public
    * <p>The Amazon Resource Name (ARN) identifying the cluster that was detached from the Amazon DocumentDB global cluster. </p>
    */
   DbClusterIdentifier: string | undefined;
@@ -5201,6 +5675,7 @@ export interface RemoveFromGlobalClusterMessage {
  */
 export interface RemoveFromGlobalClusterResult {
   /**
+   * @public
    * <p>A data type representing an Amazon DocumentDB global cluster.</p>
    */
   GlobalCluster?: GlobalCluster;
@@ -5212,12 +5687,14 @@ export interface RemoveFromGlobalClusterResult {
  */
 export interface RemoveSourceIdentifierFromSubscriptionMessage {
   /**
+   * @public
    * <p>The name of the Amazon DocumentDB event notification subscription that you want to remove a
    *             source identifier from.</p>
    */
   SubscriptionName: string | undefined;
 
   /**
+   * @public
    * <p> The source identifier to be removed from the subscription, such as the instance
    *             identifier for an instance, or the name of a security group. </p>
    */
@@ -5229,6 +5706,7 @@ export interface RemoveSourceIdentifierFromSubscriptionMessage {
  */
 export interface RemoveSourceIdentifierFromSubscriptionResult {
   /**
+   * @public
    * <p>Detailed information about an event to which you have subscribed.</p>
    */
   EventSubscription?: EventSubscription;
@@ -5240,12 +5718,14 @@ export interface RemoveSourceIdentifierFromSubscriptionResult {
  */
 export interface RemoveTagsFromResourceMessage {
   /**
+   * @public
    * <p>The Amazon DocumentDB resource that the tags are removed from. This value is an Amazon Resource
    *             Name (ARN).</p>
    */
   ResourceName: string | undefined;
 
   /**
+   * @public
    * <p>The tag key (name) of the tag to be removed.</p>
    */
   TagKeys: string[] | undefined;
@@ -5257,11 +5737,13 @@ export interface RemoveTagsFromResourceMessage {
  */
 export interface ResetDBClusterParameterGroupMessage {
   /**
+   * @public
    * <p>The name of the cluster parameter group to reset.</p>
    */
   DBClusterParameterGroupName: string | undefined;
 
   /**
+   * @public
    * <p>A value that is set to <code>true</code> to reset all parameters in the cluster
    *             parameter group to their default values, and <code>false</code> otherwise. You can't use
    *             this parameter if there is a list of parameter names specified for the
@@ -5270,6 +5752,7 @@ export interface ResetDBClusterParameterGroupMessage {
   ResetAllParameters?: boolean;
 
   /**
+   * @public
    * <p>A list of parameter names in the cluster parameter group to reset to the default
    *             values. You can't use this parameter if the <code>ResetAllParameters</code> parameter is
    *             set to <code>true</code>.</p>
@@ -5344,12 +5827,14 @@ export class InvalidRestoreFault extends __BaseException {
  */
 export interface RestoreDBClusterFromSnapshotMessage {
   /**
+   * @public
    * <p>Provides the list of Amazon EC2 Availability Zones that instances in the restored DB
    *             cluster can be created in.</p>
    */
   AvailabilityZones?: string[];
 
   /**
+   * @public
    * <p>The name of the cluster to create from the snapshot or cluster snapshot. This
    *             parameter isn't case sensitive.</p>
    *          <p>Constraints:</p>
@@ -5370,6 +5855,7 @@ export interface RestoreDBClusterFromSnapshotMessage {
   DBClusterIdentifier: string | undefined;
 
   /**
+   * @public
    * <p>The identifier for the snapshot or cluster snapshot to restore from.</p>
    *          <p>You can use either the name or the Amazon Resource Name (ARN) to specify a cluster
    *             snapshot. However, you can use only the ARN to specify a snapshot.</p>
@@ -5383,6 +5869,7 @@ export interface RestoreDBClusterFromSnapshotMessage {
   SnapshotIdentifier: string | undefined;
 
   /**
+   * @public
    * <p>The database engine to use for the new cluster.</p>
    *          <p>Default: The same as source.</p>
    *          <p>Constraint: Must be compatible with the engine of the source.</p>
@@ -5390,11 +5877,13 @@ export interface RestoreDBClusterFromSnapshotMessage {
   Engine: string | undefined;
 
   /**
+   * @public
    * <p>The version of the database engine to use for the new cluster.</p>
    */
   EngineVersion?: string;
 
   /**
+   * @public
    * <p>The port number on which the new cluster accepts connections.</p>
    *          <p>Constraints: Must be a value from <code>1150</code> to <code>65535</code>.</p>
    *          <p>Default: The same port as the original cluster.</p>
@@ -5402,6 +5891,7 @@ export interface RestoreDBClusterFromSnapshotMessage {
   Port?: number;
 
   /**
+   * @public
    * <p>The name of the subnet group to use for the new cluster.</p>
    *          <p>Constraints: If provided, must match the name of an existing
    *                 <code>DBSubnetGroup</code>.</p>
@@ -5411,17 +5901,20 @@ export interface RestoreDBClusterFromSnapshotMessage {
   DBSubnetGroupName?: string;
 
   /**
+   * @public
    * <p>A list of virtual private cloud (VPC) security groups that the new cluster will
    *             belong to.</p>
    */
   VpcSecurityGroupIds?: string[];
 
   /**
+   * @public
    * <p>The tags to be assigned to the restored cluster.</p>
    */
   Tags?: Tag[];
 
   /**
+   * @public
    * <p>The KMS key identifier to use when restoring an encrypted cluster from a DB snapshot or cluster snapshot.</p>
    *          <p>The KMS key identifier is the Amazon Resource Name (ARN) for the KMS encryption key. If you are restoring a cluster with the same Amazon Web Services account that owns the KMS encryption key used to encrypt the new cluster, then you can use the KMS key alias instead of the ARN for the KMS encryption key.</p>
    *          <p>If you do not specify a value for the <code>KmsKeyId</code> parameter, then the
@@ -5440,16 +5933,19 @@ export interface RestoreDBClusterFromSnapshotMessage {
   KmsKeyId?: string;
 
   /**
+   * @public
    * <p>A list of log types that must be enabled for exporting to Amazon CloudWatch Logs.</p>
    */
   EnableCloudwatchLogsExports?: string[];
 
   /**
+   * @public
    * <p>Specifies whether this cluster can be deleted. If <code>DeletionProtection</code> is enabled, the cluster cannot be deleted unless it is modified and <code>DeletionProtection</code> is disabled. <code>DeletionProtection</code> protects clusters from being accidentally deleted.</p>
    */
   DeletionProtection?: boolean;
 
   /**
+   * @public
    * <p>The name of the DB cluster parameter group to associate with this DB cluster.</p>
    *          <p>
    *             <i>Type:</i> String.         <i>Required:</i> No.</p>
@@ -5467,6 +5963,7 @@ export interface RestoreDBClusterFromSnapshotMessage {
  */
 export interface RestoreDBClusterFromSnapshotResult {
   /**
+   * @public
    * <p>Detailed information about a cluster. </p>
    */
   DBCluster?: DBCluster;
@@ -5478,6 +5975,7 @@ export interface RestoreDBClusterFromSnapshotResult {
  */
 export interface RestoreDBClusterToPointInTimeMessage {
   /**
+   * @public
    * <p>The name of the new cluster to be created.</p>
    *          <p>Constraints:</p>
    *          <ul>
@@ -5495,6 +5993,7 @@ export interface RestoreDBClusterToPointInTimeMessage {
   DBClusterIdentifier: string | undefined;
 
   /**
+   * @public
    * <p>The type of restore to be performed. You can specify one of the following values:</p>
    *          <ul>
    *             <li>
@@ -5515,6 +6014,7 @@ export interface RestoreDBClusterToPointInTimeMessage {
   RestoreType?: string;
 
   /**
+   * @public
    * <p>The identifier of the source cluster from which to restore.</p>
    *          <p>Constraints:</p>
    *          <ul>
@@ -5526,6 +6026,7 @@ export interface RestoreDBClusterToPointInTimeMessage {
   SourceDBClusterIdentifier: string | undefined;
 
   /**
+   * @public
    * <p>The date and time to restore the cluster to.</p>
    *          <p>Valid values: A time in Universal Coordinated Time (UTC) format.</p>
    *          <p>Constraints:</p>
@@ -5549,6 +6050,7 @@ export interface RestoreDBClusterToPointInTimeMessage {
   RestoreToTime?: Date;
 
   /**
+   * @public
    * <p>A value that is set to <code>true</code> to restore the cluster to the latest
    *             restorable backup time, and <code>false</code> otherwise. </p>
    *          <p>Default: <code>false</code>
@@ -5559,6 +6061,7 @@ export interface RestoreDBClusterToPointInTimeMessage {
   UseLatestRestorableTime?: boolean;
 
   /**
+   * @public
    * <p>The port number on which the new cluster accepts connections.</p>
    *          <p>Constraints: Must be a value from <code>1150</code> to <code>65535</code>. </p>
    *          <p>Default: The default port for the engine.</p>
@@ -5566,6 +6069,7 @@ export interface RestoreDBClusterToPointInTimeMessage {
   Port?: number;
 
   /**
+   * @public
    * <p>The subnet group name to use for the new cluster.</p>
    *          <p>Constraints: If provided, must match the name of an existing
    *                 <code>DBSubnetGroup</code>.</p>
@@ -5575,16 +6079,19 @@ export interface RestoreDBClusterToPointInTimeMessage {
   DBSubnetGroupName?: string;
 
   /**
+   * @public
    * <p>A list of VPC security groups that the new cluster belongs to.</p>
    */
   VpcSecurityGroupIds?: string[];
 
   /**
+   * @public
    * <p>The tags to be assigned to the restored cluster.</p>
    */
   Tags?: Tag[];
 
   /**
+   * @public
    * <p>The KMS key identifier to use when restoring an encrypted cluster from an encrypted cluster.</p>
    *          <p>The KMS key identifier is the Amazon Resource Name (ARN) for the KMS encryption key. If you are restoring a cluster with the same Amazon Web Services account that owns the KMS encryption key used to encrypt the new cluster, then you can use the KMS key alias instead of the ARN for the KMS encryption key.</p>
    *          <p>You can restore to a new cluster and encrypt the new cluster with an KMS key that is different from the KMS key used to encrypt the source cluster. The new DB cluster is encrypted with the KMS key identified by the <code>KmsKeyId</code> parameter.</p>
@@ -5603,12 +6110,14 @@ export interface RestoreDBClusterToPointInTimeMessage {
   KmsKeyId?: string;
 
   /**
+   * @public
    * <p>A list of log types that must be enabled for exporting to Amazon CloudWatch
    *             Logs.</p>
    */
   EnableCloudwatchLogsExports?: string[];
 
   /**
+   * @public
    * <p>Specifies whether this cluster can be deleted. If <code>DeletionProtection</code> is enabled, the cluster cannot be deleted unless it is modified and <code>DeletionProtection</code> is disabled. <code>DeletionProtection</code> protects clusters from being accidentally deleted.</p>
    */
   DeletionProtection?: boolean;
@@ -5619,6 +6128,7 @@ export interface RestoreDBClusterToPointInTimeMessage {
  */
 export interface RestoreDBClusterToPointInTimeResult {
   /**
+   * @public
    * <p>Detailed information about a cluster. </p>
    */
   DBCluster?: DBCluster;
@@ -5629,6 +6139,7 @@ export interface RestoreDBClusterToPointInTimeResult {
  */
 export interface StartDBClusterMessage {
   /**
+   * @public
    * <p>The identifier of the cluster to restart. Example:
    *                 <code>docdb-2019-05-28-15-24-52</code>
    *          </p>
@@ -5641,6 +6152,7 @@ export interface StartDBClusterMessage {
  */
 export interface StartDBClusterResult {
   /**
+   * @public
    * <p>Detailed information about a cluster. </p>
    */
   DBCluster?: DBCluster;
@@ -5651,6 +6163,7 @@ export interface StartDBClusterResult {
  */
 export interface StopDBClusterMessage {
   /**
+   * @public
    * <p>The identifier of the cluster to stop. Example:
    *             <code>docdb-2019-05-28-15-24-52</code>
    *          </p>
@@ -5663,6 +6176,7 @@ export interface StopDBClusterMessage {
  */
 export interface StopDBClusterResult {
   /**
+   * @public
    * <p>Detailed information about a cluster. </p>
    */
   DBCluster?: DBCluster;

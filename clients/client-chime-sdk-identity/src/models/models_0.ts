@@ -24,26 +24,31 @@ export type AllowMessages = (typeof AllowMessages)[keyof typeof AllowMessages];
  */
 export interface AppInstance {
   /**
+   * @public
    * <p>The ARN of the messaging instance.</p>
    */
   AppInstanceArn?: string;
 
   /**
+   * @public
    * <p>The name of an <code>AppInstance</code>.</p>
    */
   Name?: string;
 
   /**
+   * @public
    * <p>The time at which an <code>AppInstance</code> was created. In epoch milliseconds.</p>
    */
   CreatedTimestamp?: Date;
 
   /**
+   * @public
    * <p>The time an <code>AppInstance</code> was last updated. In epoch milliseconds.</p>
    */
   LastUpdatedTimestamp?: Date;
 
   /**
+   * @public
    * <p>The metadata of an <code>AppInstance</code>.</p>
    */
   Metadata?: string;
@@ -55,11 +60,13 @@ export interface AppInstance {
  */
 export interface Identity {
   /**
+   * @public
    * <p>The ARN in an Identity.</p>
    */
   Arn?: string;
 
   /**
+   * @public
    * <p>The name in an Identity.</p>
    */
   Name?: string;
@@ -71,16 +78,19 @@ export interface Identity {
  */
 export interface AppInstanceAdmin {
   /**
+   * @public
    * <p>The <code>AppInstanceAdmin</code> data.</p>
    */
   Admin?: Identity;
 
   /**
+   * @public
    * <p>The ARN of the <code>AppInstance</code> for which the user is an administrator.</p>
    */
   AppInstanceArn?: string;
 
   /**
+   * @public
    * <p>The time at which an administrator was created.</p>
    */
   CreatedTimestamp?: Date;
@@ -92,6 +102,7 @@ export interface AppInstanceAdmin {
  */
 export interface AppInstanceAdminSummary {
   /**
+   * @public
    * <p>The details of the <code>AppInstanceAdmin</code>.</p>
    */
   Admin?: Identity;
@@ -133,6 +144,7 @@ export type TargetedMessages = (typeof TargetedMessages)[keyof typeof TargetedMe
  */
 export interface InvokedBy {
   /**
+   * @public
    * <p>Sets standard messages as the bot trigger. For standard messages:</p>
    *          <ul>
    *             <li>
@@ -158,6 +170,7 @@ export interface InvokedBy {
   StandardMessages: StandardMessages | string | undefined;
 
   /**
+   * @public
    * <p>Sets targeted messages as the bot trigger. For targeted messages:</p>
    *          <ul>
    *             <li>
@@ -193,6 +206,7 @@ export type RespondsTo = (typeof RespondsTo)[keyof typeof RespondsTo];
  */
 export interface LexConfiguration {
   /**
+   * @public
    * <important>
    *             <p>
    *                <b>Deprecated</b>. Use <code>InvokedBy</code> instead.</p>
@@ -202,11 +216,13 @@ export interface LexConfiguration {
   RespondsTo?: RespondsTo | string;
 
   /**
+   * @public
    * <p>Specifies the type of message that triggers a bot.</p>
    */
   InvokedBy?: InvokedBy;
 
   /**
+   * @public
    * <p>The ARN of the Amazon Lex V2 bot's alias. The ARN uses this format:
    *          <code>arn:aws:lex:REGION:ACCOUNT:bot-alias/MYBOTID/MYBOTALIAS</code>
    *          </p>
@@ -214,6 +230,7 @@ export interface LexConfiguration {
   LexBotAliasArn: string | undefined;
 
   /**
+   * @public
    * <p>Identifies the Amazon Lex V2 bot's language and locale. The string must match one of the
    *          supported locales in Amazon Lex V2. All of the intents, slot types, and slots used in the bot must have the same
    *          locale. For more information, see <a href="https://docs.aws.amazon.com/lexv2/latest/dg/how-languages.html">Supported languages</a> in the <i>Amazon Lex V2 Developer Guide</i>.</p>
@@ -221,6 +238,7 @@ export interface LexConfiguration {
   LocaleId: string | undefined;
 
   /**
+   * @public
    * <p>The name of the welcome intent configured in the Amazon Lex V2 bot.</p>
    */
   WelcomeIntent?: string;
@@ -232,6 +250,7 @@ export interface LexConfiguration {
  */
 export interface Configuration {
   /**
+   * @public
    * <p>The configuration for an Amazon Lex V2 bot.</p>
    */
   Lex: LexConfiguration | undefined;
@@ -243,31 +262,37 @@ export interface Configuration {
  */
 export interface AppInstanceBot {
   /**
+   * @public
    * <p>The ARN of the AppInstanceBot.</p>
    */
   AppInstanceBotArn?: string;
 
   /**
+   * @public
    * <p>The name of the AppInstanceBot.</p>
    */
   Name?: string;
 
   /**
+   * @public
    * <p>The data processing instructions for an AppInstanceBot.</p>
    */
   Configuration?: Configuration;
 
   /**
+   * @public
    * <p>The time at which the <code>AppInstanceBot</code> was created.</p>
    */
   CreatedTimestamp?: Date;
 
   /**
+   * @public
    * <p>The time at which the <code>AppInstanceBot</code> was last updated.</p>
    */
   LastUpdatedTimestamp?: Date;
 
   /**
+   * @public
    * <p>The metadata for an AppInstanceBot.</p>
    */
   Metadata?: string;
@@ -279,16 +304,19 @@ export interface AppInstanceBot {
  */
 export interface AppInstanceBotSummary {
   /**
+   * @public
    * <p>The ARN of the AppInstanceBot.</p>
    */
   AppInstanceBotArn?: string;
 
   /**
+   * @public
    * <p>The name of the AppInstanceBox.</p>
    */
   Name?: string;
 
   /**
+   * @public
    * <p>The metadata of the AppInstanceBot.</p>
    */
   Metadata?: string;
@@ -300,16 +328,19 @@ export interface AppInstanceBotSummary {
  */
 export interface AppInstanceSummary {
   /**
+   * @public
    * <p>The <code>AppInstance</code> ARN.</p>
    */
   AppInstanceArn?: string;
 
   /**
+   * @public
    * <p>The name of the <code>AppInstance</code>.</p>
    */
   Name?: string;
 
   /**
+   * @public
    * <p>The metadata of the <code>AppInstance</code>.</p>
    */
   Metadata?: string;
@@ -321,6 +352,7 @@ export interface AppInstanceSummary {
  */
 export interface ChannelRetentionSettings {
   /**
+   * @public
    * <p>The time in days to retain the messages in a channel.</p>
    */
   RetentionDays?: number;
@@ -332,6 +364,7 @@ export interface ChannelRetentionSettings {
  */
 export interface AppInstanceRetentionSettings {
   /**
+   * @public
    * <p>The length of time in days to retain the messages in a channel.</p>
    */
   ChannelRetentionSettings?: ChannelRetentionSettings;
@@ -356,11 +389,13 @@ export type ExpirationCriterion = (typeof ExpirationCriterion)[keyof typeof Expi
  */
 export interface ExpirationSettings {
   /**
+   * @public
    * <p>The period in days after which an <code>AppInstanceUser</code> will be automatically deleted.</p>
    */
   ExpirationDays: number | undefined;
 
   /**
+   * @public
    * <p>Specifies the conditions under which an <code>AppInstanceUser</code> will expire.</p>
    */
   ExpirationCriterion: ExpirationCriterion | string | undefined;
@@ -372,31 +407,37 @@ export interface ExpirationSettings {
  */
 export interface AppInstanceUser {
   /**
+   * @public
    * <p>The ARN of the <code>AppInstanceUser</code>.</p>
    */
   AppInstanceUserArn?: string;
 
   /**
+   * @public
    * <p>The name of the <code>AppInstanceUser</code>.</p>
    */
   Name?: string;
 
   /**
+   * @public
    * <p>The metadata of the <code>AppInstanceUser</code>.</p>
    */
   Metadata?: string;
 
   /**
+   * @public
    * <p>The time at which the <code>AppInstanceUser</code> was created.</p>
    */
   CreatedTimestamp?: Date;
 
   /**
+   * @public
    * <p>The time at which the <code>AppInstanceUser</code> was last updated.</p>
    */
   LastUpdatedTimestamp?: Date;
 
   /**
+   * @public
    * <p>The interval after which an <code>AppInstanceUser</code> is automatically deleted.</p>
    */
   ExpirationSettings?: ExpirationSettings;
@@ -408,11 +449,13 @@ export interface AppInstanceUser {
  */
 export interface EndpointAttributes {
   /**
+   * @public
    * <p>The device token for the GCM, APNS, and APNS_SANDBOX endpoint types.</p>
    */
   DeviceToken: string | undefined;
 
   /**
+   * @public
    * <p>The VOIP device token for the APNS and APNS_SANDBOX endpoint types.</p>
    */
   VoipDeviceToken?: string;
@@ -472,11 +515,13 @@ export type EndpointStatusReason = (typeof EndpointStatusReason)[keyof typeof En
  */
 export interface EndpointState {
   /**
+   * @public
    * <p>Enum that indicates the Status of an <code>AppInstanceUserEndpoint</code>.</p>
    */
   Status: EndpointStatus | string | undefined;
 
   /**
+   * @public
    * <p>The reason for the <code>EndpointStatus</code>.</p>
    */
   StatusReason?: EndpointStatusReason | string;
@@ -504,52 +549,62 @@ export type AppInstanceUserEndpointType =
  */
 export interface AppInstanceUserEndpoint {
   /**
+   * @public
    * <p>The ARN of the <code>AppInstanceUser</code>.</p>
    */
   AppInstanceUserArn?: string;
 
   /**
+   * @public
    * <p>The unique identifier of the <code>AppInstanceUserEndpoint</code>.</p>
    */
   EndpointId?: string;
 
   /**
+   * @public
    * <p>The name of the <code>AppInstanceUserEndpoint</code>.</p>
    */
   Name?: string;
 
   /**
+   * @public
    * <p>The type of the <code>AppInstanceUserEndpoint</code>.</p>
    */
   Type?: AppInstanceUserEndpointType | string;
 
   /**
+   * @public
    * <p>The ARN of the resource to which the endpoint belongs.</p>
    */
   ResourceArn?: string;
 
   /**
+   * @public
    * <p>The attributes of an <code>Endpoint</code>.</p>
    */
   EndpointAttributes?: EndpointAttributes;
 
   /**
+   * @public
    * <p>The time at which an <code>AppInstanceUserEndpoint</code> was created.</p>
    */
   CreatedTimestamp?: Date;
 
   /**
+   * @public
    * <p>The time at which an <code>AppInstanceUserEndpoint</code> was last updated.</p>
    */
   LastUpdatedTimestamp?: Date;
 
   /**
+   * @public
    * <p>Boolean that controls whether the <code>AppInstanceUserEndpoint</code> is opted in to receive messages. <code>ALL</code> indicates the endpoint will receive all messages.
    *          <code>NONE</code> indicates the endpoint will receive no messages.</p>
    */
   AllowMessages?: AllowMessages | string;
 
   /**
+   * @public
    * <p>A read-only field that represents the state of an <code>AppInstanceUserEndpoint</code>. Supported values:</p>
    *          <ul>
    *             <li>
@@ -581,32 +636,38 @@ export interface AppInstanceUserEndpoint {
  */
 export interface AppInstanceUserEndpointSummary {
   /**
+   * @public
    * <p>The ARN of the <code>AppInstanceUser</code>.</p>
    */
   AppInstanceUserArn?: string;
 
   /**
+   * @public
    * <p>The unique identifier of the <code>AppInstanceUserEndpoint</code>.</p>
    */
   EndpointId?: string;
 
   /**
+   * @public
    * <p>The name of the <code>AppInstanceUserEndpoint</code>.</p>
    */
   Name?: string;
 
   /**
+   * @public
    * <p>The type of the <code>AppInstanceUserEndpoint</code>.</p>
    */
   Type?: AppInstanceUserEndpointType | string;
 
   /**
+   * @public
    * <p>BBoolean that controls whether the <code>AppInstanceUserEndpoint</code> is opted in to receive messages. <code>ALL</code> indicates the endpoint will receive all messages.
    *          <code>NONE</code> indicates the endpoint will receive no messages.</p>
    */
   AllowMessages?: AllowMessages | string;
 
   /**
+   * @public
    * <p>A read-only field that represent the state of an <code>AppInstanceUserEndpoint</code>.</p>
    */
   EndpointState?: EndpointState;
@@ -618,16 +679,19 @@ export interface AppInstanceUserEndpointSummary {
  */
 export interface AppInstanceUserSummary {
   /**
+   * @public
    * <p>The ARN of the <code>AppInstanceUser</code>.</p>
    */
   AppInstanceUserArn?: string;
 
   /**
+   * @public
    * <p>The name of an <code>AppInstanceUser</code>.</p>
    */
   Name?: string;
 
   /**
+   * @public
    * <p>The metadata of the <code>AppInstanceUser</code>.</p>
    */
   Metadata?: string;
@@ -715,11 +779,13 @@ export class ConflictException extends __BaseException {
  */
 export interface Tag {
   /**
+   * @public
    * <p>The key in a tag.</p>
    */
   Key: string | undefined;
 
   /**
+   * @public
    * <p>The value in a tag.</p>
    */
   Value: string | undefined;
@@ -730,21 +796,25 @@ export interface Tag {
  */
 export interface CreateAppInstanceRequest {
   /**
+   * @public
    * <p>The name of the <code>AppInstance</code>.</p>
    */
   Name: string | undefined;
 
   /**
+   * @public
    * <p>The metadata of the <code>AppInstance</code>. Limited to a 1KB string in UTF-8.</p>
    */
   Metadata?: string;
 
   /**
+   * @public
    * <p>The unique ID of the request. Use different tokens to create different <code>AppInstances</code>.</p>
    */
   ClientRequestToken?: string;
 
   /**
+   * @public
    * <p>Tags assigned to the <code>AppInstance</code>.</p>
    */
   Tags?: Tag[];
@@ -755,6 +825,7 @@ export interface CreateAppInstanceRequest {
  */
 export interface CreateAppInstanceResponse {
   /**
+   * @public
    * <p>The Amazon Resource Number (ARN) of the <code>AppInstance</code>.</p>
    */
   AppInstanceArn?: string;
@@ -909,11 +980,13 @@ export class UnauthorizedClientException extends __BaseException {
  */
 export interface CreateAppInstanceAdminRequest {
   /**
+   * @public
    * <p>The ARN of the administrator of the current <code>AppInstance</code>.</p>
    */
   AppInstanceAdminArn: string | undefined;
 
   /**
+   * @public
    * <p>The ARN of the <code>AppInstance</code>.</p>
    */
   AppInstanceArn: string | undefined;
@@ -924,12 +997,14 @@ export interface CreateAppInstanceAdminRequest {
  */
 export interface CreateAppInstanceAdminResponse {
   /**
+   * @public
    * <p>The ARN and name of the administrator, the ARN of the <code>AppInstance</code>, and the created and
    *          last-updated timestamps. All timestamps use epoch milliseconds.</p>
    */
   AppInstanceAdmin?: Identity;
 
   /**
+   * @public
    * <p>The ARN of the of the admin for the <code>AppInstance</code>.</p>
    */
   AppInstanceArn?: string;
@@ -940,31 +1015,37 @@ export interface CreateAppInstanceAdminResponse {
  */
 export interface CreateAppInstanceBotRequest {
   /**
+   * @public
    * <p>The ARN of the <code>AppInstance</code> request.</p>
    */
   AppInstanceArn: string | undefined;
 
   /**
+   * @public
    * <p>The user's name.</p>
    */
   Name?: string;
 
   /**
+   * @public
    * <p>The request metadata. Limited to a 1KB string in UTF-8.</p>
    */
   Metadata?: string;
 
   /**
+   * @public
    * <p>The unique ID for the client making the request. Use different tokens for different <code>AppInstanceBots</code>.</p>
    */
   ClientRequestToken?: string;
 
   /**
+   * @public
    * <p>The tags assigned to the <code>AppInstanceBot</code>.</p>
    */
   Tags?: Tag[];
 
   /**
+   * @public
    * <p>Configuration information about the Amazon Lex V2 V2 bot.</p>
    */
   Configuration: Configuration | undefined;
@@ -975,6 +1056,7 @@ export interface CreateAppInstanceBotRequest {
  */
 export interface CreateAppInstanceBotResponse {
   /**
+   * @public
    * <p>The ARN of the <code>AppinstanceBot</code>.</p>
    */
   AppInstanceBotArn?: string;
@@ -985,36 +1067,43 @@ export interface CreateAppInstanceBotResponse {
  */
 export interface CreateAppInstanceUserRequest {
   /**
+   * @public
    * <p>The ARN of the <code>AppInstance</code> request.</p>
    */
   AppInstanceArn: string | undefined;
 
   /**
+   * @public
    * <p>The user ID of the <code>AppInstance</code>.</p>
    */
   AppInstanceUserId: string | undefined;
 
   /**
+   * @public
    * <p>The user's name.</p>
    */
   Name: string | undefined;
 
   /**
+   * @public
    * <p>The request's metadata. Limited to a 1KB string in UTF-8.</p>
    */
   Metadata?: string;
 
   /**
+   * @public
    * <p>The unique ID of the request. Use different tokens to request additional <code>AppInstances</code>.</p>
    */
   ClientRequestToken?: string;
 
   /**
+   * @public
    * <p>Tags assigned to the <code>AppInstanceUser</code>.</p>
    */
   Tags?: Tag[];
 
   /**
+   * @public
    * <p>Settings that control the interval after which the <code>AppInstanceUser</code> is automatically deleted.</p>
    */
   ExpirationSettings?: ExpirationSettings;
@@ -1025,6 +1114,7 @@ export interface CreateAppInstanceUserRequest {
  */
 export interface CreateAppInstanceUserResponse {
   /**
+   * @public
    * <p>The user's ARN.</p>
    */
   AppInstanceUserArn?: string;
@@ -1035,6 +1125,7 @@ export interface CreateAppInstanceUserResponse {
  */
 export interface DeleteAppInstanceRequest {
   /**
+   * @public
    * <p>The ARN of the <code>AppInstance</code>.</p>
    */
   AppInstanceArn: string | undefined;
@@ -1045,11 +1136,13 @@ export interface DeleteAppInstanceRequest {
  */
 export interface DeleteAppInstanceAdminRequest {
   /**
+   * @public
    * <p>The ARN of the <code>AppInstance</code>'s administrator.</p>
    */
   AppInstanceAdminArn: string | undefined;
 
   /**
+   * @public
    * <p>The ARN of the <code>AppInstance</code>.</p>
    */
   AppInstanceArn: string | undefined;
@@ -1060,6 +1153,7 @@ export interface DeleteAppInstanceAdminRequest {
  */
 export interface DeleteAppInstanceBotRequest {
   /**
+   * @public
    * <p>The ARN of the <code>AppInstanceBot</code> being deleted.</p>
    */
   AppInstanceBotArn: string | undefined;
@@ -1070,6 +1164,7 @@ export interface DeleteAppInstanceBotRequest {
  */
 export interface DeleteAppInstanceUserRequest {
   /**
+   * @public
    * <p>The ARN of the user request being deleted.</p>
    */
   AppInstanceUserArn: string | undefined;
@@ -1080,11 +1175,13 @@ export interface DeleteAppInstanceUserRequest {
  */
 export interface DeregisterAppInstanceUserEndpointRequest {
   /**
+   * @public
    * <p>The ARN of the <code>AppInstanceUser</code>.</p>
    */
   AppInstanceUserArn: string | undefined;
 
   /**
+   * @public
    * <p>The unique identifier of the <code>AppInstanceUserEndpoint</code>.</p>
    */
   EndpointId: string | undefined;
@@ -1095,6 +1192,7 @@ export interface DeregisterAppInstanceUserEndpointRequest {
  */
 export interface DescribeAppInstanceRequest {
   /**
+   * @public
    * <p>The ARN of the <code>AppInstance</code>.</p>
    */
   AppInstanceArn: string | undefined;
@@ -1105,6 +1203,7 @@ export interface DescribeAppInstanceRequest {
  */
 export interface DescribeAppInstanceResponse {
   /**
+   * @public
    * <p>The ARN, metadata, created and last-updated timestamps, and the name of the
    *             <code>AppInstance</code>. All timestamps use epoch milliseconds.</p>
    */
@@ -1116,11 +1215,13 @@ export interface DescribeAppInstanceResponse {
  */
 export interface DescribeAppInstanceAdminRequest {
   /**
+   * @public
    * <p>The ARN of the <code>AppInstanceAdmin</code>.</p>
    */
   AppInstanceAdminArn: string | undefined;
 
   /**
+   * @public
    * <p>The ARN of the <code>AppInstance</code>.</p>
    */
   AppInstanceArn: string | undefined;
@@ -1131,6 +1232,7 @@ export interface DescribeAppInstanceAdminRequest {
  */
 export interface DescribeAppInstanceAdminResponse {
   /**
+   * @public
    * <p>The ARN and name of the <code>AppInstanceUser</code>, the ARN of the
    *             <code>AppInstance</code>, and the created and last-updated timestamps. All timestamps
    *          use epoch milliseconds.</p>
@@ -1143,6 +1245,7 @@ export interface DescribeAppInstanceAdminResponse {
  */
 export interface DescribeAppInstanceBotRequest {
   /**
+   * @public
    * <p>The ARN of the <code>AppInstanceBot</code>.</p>
    */
   AppInstanceBotArn: string | undefined;
@@ -1153,6 +1256,7 @@ export interface DescribeAppInstanceBotRequest {
  */
 export interface DescribeAppInstanceBotResponse {
   /**
+   * @public
    * <p>The detials of the <code>AppInstanceBot</code>.</p>
    */
   AppInstanceBot?: AppInstanceBot;
@@ -1187,6 +1291,7 @@ export class NotFoundException extends __BaseException {
  */
 export interface DescribeAppInstanceUserRequest {
   /**
+   * @public
    * <p>The ARN of the <code>AppInstanceUser</code>.</p>
    */
   AppInstanceUserArn: string | undefined;
@@ -1197,6 +1302,7 @@ export interface DescribeAppInstanceUserRequest {
  */
 export interface DescribeAppInstanceUserResponse {
   /**
+   * @public
    * <p>The name of the <code>AppInstanceUser</code>.</p>
    */
   AppInstanceUser?: AppInstanceUser;
@@ -1207,11 +1313,13 @@ export interface DescribeAppInstanceUserResponse {
  */
 export interface DescribeAppInstanceUserEndpointRequest {
   /**
+   * @public
    * <p>The ARN of the <code>AppInstanceUser</code>.</p>
    */
   AppInstanceUserArn: string | undefined;
 
   /**
+   * @public
    * <p>The unique identifier of the <code>AppInstanceUserEndpoint</code>.</p>
    */
   EndpointId: string | undefined;
@@ -1222,6 +1330,7 @@ export interface DescribeAppInstanceUserEndpointRequest {
  */
 export interface DescribeAppInstanceUserEndpointResponse {
   /**
+   * @public
    * <p>The full details of an <code>AppInstanceUserEndpoint</code>: the <code>AppInstanceUserArn</code>, ID, name, type, resource ARN, attributes,
    *          allow messages, state, and created and last updated timestamps. All timestamps use epoch milliseconds.</p>
    */
@@ -1233,6 +1342,7 @@ export interface DescribeAppInstanceUserEndpointResponse {
  */
 export interface GetAppInstanceRetentionSettingsRequest {
   /**
+   * @public
    * <p>The ARN of the <code>AppInstance</code>.</p>
    */
   AppInstanceArn: string | undefined;
@@ -1243,11 +1353,13 @@ export interface GetAppInstanceRetentionSettingsRequest {
  */
 export interface GetAppInstanceRetentionSettingsResponse {
   /**
+   * @public
    * <p>The retention settings for the <code>AppInstance</code>.</p>
    */
   AppInstanceRetentionSettings?: AppInstanceRetentionSettings;
 
   /**
+   * @public
    * <p>The timestamp representing the time at which the specified items are retained, in Epoch
    *          Seconds.</p>
    */
@@ -1259,16 +1371,19 @@ export interface GetAppInstanceRetentionSettingsResponse {
  */
 export interface ListAppInstanceAdminsRequest {
   /**
+   * @public
    * <p>The ARN of the <code>AppInstance</code>.</p>
    */
   AppInstanceArn: string | undefined;
 
   /**
+   * @public
    * <p>The maximum number of administrators that you want to return.</p>
    */
   MaxResults?: number;
 
   /**
+   * @public
    * <p>The token returned from previous API requests until the number of administrators is
    *          reached.</p>
    */
@@ -1280,16 +1395,19 @@ export interface ListAppInstanceAdminsRequest {
  */
 export interface ListAppInstanceAdminsResponse {
   /**
+   * @public
    * <p>The ARN of the <code>AppInstance</code>.</p>
    */
   AppInstanceArn?: string;
 
   /**
+   * @public
    * <p>The information for each administrator.</p>
    */
   AppInstanceAdmins?: AppInstanceAdminSummary[];
 
   /**
+   * @public
    * <p>The token returned from previous API requests until the number of administrators is
    *          reached.</p>
    */
@@ -1301,16 +1419,19 @@ export interface ListAppInstanceAdminsResponse {
  */
 export interface ListAppInstanceBotsRequest {
   /**
+   * @public
    * <p>The ARN of the <code>AppInstance</code>.</p>
    */
   AppInstanceArn: string | undefined;
 
   /**
+   * @public
    * <p>The maximum number of requests to return.</p>
    */
   MaxResults?: number;
 
   /**
+   * @public
    * <p>The token passed by previous API calls until all requested bots are returned.</p>
    */
   NextToken?: string;
@@ -1321,16 +1442,19 @@ export interface ListAppInstanceBotsRequest {
  */
 export interface ListAppInstanceBotsResponse {
   /**
+   * @public
    * <p>The ARN of the AppInstance.</p>
    */
   AppInstanceArn?: string;
 
   /**
+   * @public
    * <p>The information for each requested <code>AppInstanceBot</code>.</p>
    */
   AppInstanceBots?: AppInstanceBotSummary[];
 
   /**
+   * @public
    * <p>The token passed by previous API calls until all requested bots are returned.</p>
    */
   NextToken?: string;
@@ -1341,11 +1465,13 @@ export interface ListAppInstanceBotsResponse {
  */
 export interface ListAppInstancesRequest {
   /**
+   * @public
    * <p>The maximum number of <code>AppInstance</code>s that you want to return.</p>
    */
   MaxResults?: number;
 
   /**
+   * @public
    * <p>The token passed by previous API requests until you reach the maximum number of
    *             <code>AppInstances</code>.</p>
    */
@@ -1357,11 +1483,13 @@ export interface ListAppInstancesRequest {
  */
 export interface ListAppInstancesResponse {
   /**
+   * @public
    * <p>The information for each <code>AppInstance</code>.</p>
    */
   AppInstances?: AppInstanceSummary[];
 
   /**
+   * @public
    * <p>The token passed by previous API requests until the maximum number of
    *             <code>AppInstance</code>s is reached.</p>
    */
@@ -1373,16 +1501,19 @@ export interface ListAppInstancesResponse {
  */
 export interface ListAppInstanceUserEndpointsRequest {
   /**
+   * @public
    * <p>The ARN of the <code>AppInstanceUser</code>.</p>
    */
   AppInstanceUserArn: string | undefined;
 
   /**
+   * @public
    * <p>The maximum number of endpoints that you want to return.</p>
    */
   MaxResults?: number;
 
   /**
+   * @public
    * <p>The token passed by previous API calls until all requested endpoints are returned.</p>
    */
   NextToken?: string;
@@ -1393,11 +1524,13 @@ export interface ListAppInstanceUserEndpointsRequest {
  */
 export interface ListAppInstanceUserEndpointsResponse {
   /**
+   * @public
    * <p>The information for each requested <code>AppInstanceUserEndpoint</code>.</p>
    */
   AppInstanceUserEndpoints?: AppInstanceUserEndpointSummary[];
 
   /**
+   * @public
    * <p>The token passed by previous API calls until all requested endpoints are returned.</p>
    */
   NextToken?: string;
@@ -1408,16 +1541,19 @@ export interface ListAppInstanceUserEndpointsResponse {
  */
 export interface ListAppInstanceUsersRequest {
   /**
+   * @public
    * <p>The ARN of the <code>AppInstance</code>.</p>
    */
   AppInstanceArn: string | undefined;
 
   /**
+   * @public
    * <p>The maximum number of requests that you want returned.</p>
    */
   MaxResults?: number;
 
   /**
+   * @public
    * <p>The token passed by previous API calls until all requested users are returned.</p>
    */
   NextToken?: string;
@@ -1428,16 +1564,19 @@ export interface ListAppInstanceUsersRequest {
  */
 export interface ListAppInstanceUsersResponse {
   /**
+   * @public
    * <p>The ARN of the <code>AppInstance</code>.</p>
    */
   AppInstanceArn?: string;
 
   /**
+   * @public
    * <p>The information for each requested <code>AppInstanceUser</code>.</p>
    */
   AppInstanceUsers?: AppInstanceUserSummary[];
 
   /**
+   * @public
    * <p>The token passed by previous API calls until all requested users are returned.</p>
    */
   NextToken?: string;
@@ -1448,6 +1587,7 @@ export interface ListAppInstanceUsersResponse {
  */
 export interface ListTagsForResourceRequest {
   /**
+   * @public
    * <p>The ARN of the resource.</p>
    */
   ResourceARN: string | undefined;
@@ -1458,6 +1598,7 @@ export interface ListTagsForResourceRequest {
  */
 export interface ListTagsForResourceResponse {
   /**
+   * @public
    * <p>The tag key-value pairs.</p>
    */
   Tags?: Tag[];
@@ -1468,11 +1609,13 @@ export interface ListTagsForResourceResponse {
  */
 export interface PutAppInstanceRetentionSettingsRequest {
   /**
+   * @public
    * <p>The ARN of the <code>AppInstance</code>.</p>
    */
   AppInstanceArn: string | undefined;
 
   /**
+   * @public
    * <p>The time in days to retain data. Data type: number.</p>
    */
   AppInstanceRetentionSettings: AppInstanceRetentionSettings | undefined;
@@ -1483,11 +1626,13 @@ export interface PutAppInstanceRetentionSettingsRequest {
  */
 export interface PutAppInstanceRetentionSettingsResponse {
   /**
+   * @public
    * <p>The time in days to retain data. Data type: number.</p>
    */
   AppInstanceRetentionSettings?: AppInstanceRetentionSettings;
 
   /**
+   * @public
    * <p>The time at which the API deletes data.</p>
    */
   InitiateDeletionTimestamp?: Date;
@@ -1498,11 +1643,13 @@ export interface PutAppInstanceRetentionSettingsResponse {
  */
 export interface PutAppInstanceUserExpirationSettingsRequest {
   /**
+   * @public
    * <p>The ARN of the <code>AppInstanceUser</code>.</p>
    */
   AppInstanceUserArn: string | undefined;
 
   /**
+   * @public
    * <p>Settings that control the interval after which an <code>AppInstanceUser</code> is automatically deleted.</p>
    */
   ExpirationSettings?: ExpirationSettings;
@@ -1513,11 +1660,13 @@ export interface PutAppInstanceUserExpirationSettingsRequest {
  */
 export interface PutAppInstanceUserExpirationSettingsResponse {
   /**
+   * @public
    * <p>The ARN of the <code>AppInstanceUser</code>.</p>
    */
   AppInstanceUserArn?: string;
 
   /**
+   * @public
    * <p>Settings that control the interval after which an <code>AppInstanceUser</code> is automatically deleted.</p>
    */
   ExpirationSettings?: ExpirationSettings;
@@ -1528,16 +1677,19 @@ export interface PutAppInstanceUserExpirationSettingsResponse {
  */
 export interface RegisterAppInstanceUserEndpointRequest {
   /**
+   * @public
    * <p>The ARN of the <code>AppInstanceUser</code>.</p>
    */
   AppInstanceUserArn: string | undefined;
 
   /**
+   * @public
    * <p>The name of the <code>AppInstanceUserEndpoint</code>.</p>
    */
   Name?: string;
 
   /**
+   * @public
    * <p>The type of the <code>AppInstanceUserEndpoint</code>. Supported types:</p>
    *          <ul>
    *             <li>
@@ -1558,21 +1710,25 @@ export interface RegisterAppInstanceUserEndpointRequest {
   Type: AppInstanceUserEndpointType | string | undefined;
 
   /**
+   * @public
    * <p>The ARN of the resource to which the endpoint belongs.</p>
    */
   ResourceArn: string | undefined;
 
   /**
+   * @public
    * <p>The attributes of an <code>Endpoint</code>.</p>
    */
   EndpointAttributes: EndpointAttributes | undefined;
 
   /**
+   * @public
    * <p>The unique ID assigned to the request. Use different tokens to register other endpoints.</p>
    */
   ClientRequestToken?: string;
 
   /**
+   * @public
    * <p>Boolean that controls whether the AppInstanceUserEndpoint is opted in to receive messages. <code>ALL</code> indicates the endpoint receives all messages.
    *          <code>NONE</code> indicates the endpoint receives no messages.</p>
    */
@@ -1584,11 +1740,13 @@ export interface RegisterAppInstanceUserEndpointRequest {
  */
 export interface RegisterAppInstanceUserEndpointResponse {
   /**
+   * @public
    * <p>The ARN of the <code>AppInstanceUser</code>.</p>
    */
   AppInstanceUserArn?: string;
 
   /**
+   * @public
    * <p>The unique identifier of the <code>AppInstanceUserEndpoint</code>.</p>
    */
   EndpointId?: string;
@@ -1599,11 +1757,13 @@ export interface RegisterAppInstanceUserEndpointResponse {
  */
 export interface TagResourceRequest {
   /**
+   * @public
    * <p>The resource ARN.</p>
    */
   ResourceARN: string | undefined;
 
   /**
+   * @public
    * <p>The tag key-value pairs.</p>
    */
   Tags: Tag[] | undefined;
@@ -1614,11 +1774,13 @@ export interface TagResourceRequest {
  */
 export interface UntagResourceRequest {
   /**
+   * @public
    * <p>The resource ARN.</p>
    */
   ResourceARN: string | undefined;
 
   /**
+   * @public
    * <p>The tag keys.</p>
    */
   TagKeys: string[] | undefined;
@@ -1629,16 +1791,19 @@ export interface UntagResourceRequest {
  */
 export interface UpdateAppInstanceRequest {
   /**
+   * @public
    * <p>The ARN of the <code>AppInstance</code>.</p>
    */
   AppInstanceArn: string | undefined;
 
   /**
+   * @public
    * <p>The name that you want to change.</p>
    */
   Name: string | undefined;
 
   /**
+   * @public
    * <p>The metadata that you want to change.</p>
    */
   Metadata: string | undefined;
@@ -1649,6 +1814,7 @@ export interface UpdateAppInstanceRequest {
  */
 export interface UpdateAppInstanceResponse {
   /**
+   * @public
    * <p>The ARN of the <code>AppInstance</code>.</p>
    */
   AppInstanceArn?: string;
@@ -1659,21 +1825,25 @@ export interface UpdateAppInstanceResponse {
  */
 export interface UpdateAppInstanceBotRequest {
   /**
+   * @public
    * <p>The ARN of the <code>AppInstanceBot</code>.</p>
    */
   AppInstanceBotArn: string | undefined;
 
   /**
+   * @public
    * <p>The name of the <code>AppInstanceBot</code>.</p>
    */
   Name: string | undefined;
 
   /**
+   * @public
    * <p>The metadata of the <code>AppInstanceBot</code>.</p>
    */
   Metadata: string | undefined;
 
   /**
+   * @public
    * <p>The configuration for the bot update.</p>
    */
   Configuration?: Configuration;
@@ -1684,6 +1854,7 @@ export interface UpdateAppInstanceBotRequest {
  */
 export interface UpdateAppInstanceBotResponse {
   /**
+   * @public
    * <p>The ARN of the <code>AppInstanceBot</code>.</p>
    */
   AppInstanceBotArn?: string;
@@ -1694,16 +1865,19 @@ export interface UpdateAppInstanceBotResponse {
  */
 export interface UpdateAppInstanceUserRequest {
   /**
+   * @public
    * <p>The ARN of the <code>AppInstanceUser</code>.</p>
    */
   AppInstanceUserArn: string | undefined;
 
   /**
+   * @public
    * <p>The name of the <code>AppInstanceUser</code>.</p>
    */
   Name: string | undefined;
 
   /**
+   * @public
    * <p>The metadata of the <code>AppInstanceUser</code>.</p>
    */
   Metadata: string | undefined;
@@ -1714,6 +1888,7 @@ export interface UpdateAppInstanceUserRequest {
  */
 export interface UpdateAppInstanceUserResponse {
   /**
+   * @public
    * <p>The ARN of the <code>AppInstanceUser</code>.</p>
    */
   AppInstanceUserArn?: string;
@@ -1724,21 +1899,25 @@ export interface UpdateAppInstanceUserResponse {
  */
 export interface UpdateAppInstanceUserEndpointRequest {
   /**
+   * @public
    * <p>The ARN of the <code>AppInstanceUser</code>.</p>
    */
   AppInstanceUserArn: string | undefined;
 
   /**
+   * @public
    * <p>The unique identifier of the <code>AppInstanceUserEndpoint</code>.</p>
    */
   EndpointId: string | undefined;
 
   /**
+   * @public
    * <p>The name of the <code>AppInstanceUserEndpoint</code>.</p>
    */
   Name?: string;
 
   /**
+   * @public
    * <p>Boolean that controls whether the <code>AppInstanceUserEndpoint</code> is opted in to receive messages. <code>ALL</code> indicates the endpoint will receive all messages.
    *          <code>NONE</code> indicates the endpoint will receive no messages.</p>
    */
@@ -1750,11 +1929,13 @@ export interface UpdateAppInstanceUserEndpointRequest {
  */
 export interface UpdateAppInstanceUserEndpointResponse {
   /**
+   * @public
    * <p>The ARN of the <code>AppInstanceUser</code>.</p>
    */
   AppInstanceUserArn?: string;
 
   /**
+   * @public
    * <p>The unique identifier of the <code>AppInstanceUserEndpoint</code>.</p>
    */
   EndpointId?: string;

@@ -9,16 +9,19 @@ import { SSOServiceException as __BaseException } from "./SSOServiceException";
  */
 export interface AccountInfo {
   /**
+   * @public
    * <p>The identifier of the AWS account that is assigned to the user.</p>
    */
   accountId?: string;
 
   /**
+   * @public
    * <p>The display name of the AWS account that is assigned to the user.</p>
    */
   accountName?: string;
 
   /**
+   * @public
    * <p>The email address of the AWS account that is assigned to the user.</p>
    */
   emailAddress?: string;
@@ -29,16 +32,19 @@ export interface AccountInfo {
  */
 export interface GetRoleCredentialsRequest {
   /**
+   * @public
    * <p>The friendly name of the role that is assigned to the user.</p>
    */
   roleName: string | undefined;
 
   /**
+   * @public
    * <p>The identifier for the AWS account that is assigned to the user.</p>
    */
   accountId: string | undefined;
 
   /**
+   * @public
    * <p>The token issued by the <code>CreateToken</code> API call. For more information, see
    *         <a href="https://docs.aws.amazon.com/singlesignon/latest/OIDCAPIReference/API_CreateToken.html">CreateToken</a> in the <i>IAM Identity Center OIDC API Reference Guide</i>.</p>
    */
@@ -51,6 +57,7 @@ export interface GetRoleCredentialsRequest {
  */
 export interface RoleCredentials {
   /**
+   * @public
    * <p>The identifier used for the temporary security credentials. For more information, see
    *         <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_temp_use-resources.html">Using Temporary Security Credentials to Request Access to AWS Resources</a> in the
    *         <i>AWS IAM User Guide</i>.</p>
@@ -58,18 +65,21 @@ export interface RoleCredentials {
   accessKeyId?: string;
 
   /**
+   * @public
    * <p>The key that is used to sign the request. For more information, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_temp_use-resources.html">Using Temporary Security Credentials to Request Access to AWS Resources</a> in the
    *         <i>AWS IAM User Guide</i>.</p>
    */
   secretAccessKey?: string;
 
   /**
+   * @public
    * <p>The token used for temporary credentials. For more information, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_temp_use-resources.html">Using Temporary Security Credentials to Request Access to AWS Resources</a> in the
    *         <i>AWS IAM User Guide</i>.</p>
    */
   sessionToken?: string;
 
   /**
+   * @public
    * <p>The date on which temporary security credentials expire.</p>
    */
   expiration?: number;
@@ -80,6 +90,7 @@ export interface RoleCredentials {
  */
 export interface GetRoleCredentialsResponse {
   /**
+   * @public
    * <p>The credentials for the role that is assigned to the user.</p>
    */
   roleCredentials?: RoleCredentials;
@@ -173,22 +184,26 @@ export class UnauthorizedException extends __BaseException {
  */
 export interface ListAccountRolesRequest {
   /**
+   * @public
    * <p>The page token from the previous response output when you request subsequent pages.</p>
    */
   nextToken?: string;
 
   /**
+   * @public
    * <p>The number of items that clients can request per page.</p>
    */
   maxResults?: number;
 
   /**
+   * @public
    * <p>The token issued by the <code>CreateToken</code> API call. For more information, see
    *         <a href="https://docs.aws.amazon.com/singlesignon/latest/OIDCAPIReference/API_CreateToken.html">CreateToken</a> in the <i>IAM Identity Center OIDC API Reference Guide</i>.</p>
    */
   accessToken: string | undefined;
 
   /**
+   * @public
    * <p>The identifier for the AWS account that is assigned to the user.</p>
    */
   accountId: string | undefined;
@@ -200,11 +215,13 @@ export interface ListAccountRolesRequest {
  */
 export interface RoleInfo {
   /**
+   * @public
    * <p>The friendly name of the role that is assigned to the user.</p>
    */
   roleName?: string;
 
   /**
+   * @public
    * <p>The identifier of the AWS account assigned to the user.</p>
    */
   accountId?: string;
@@ -215,11 +232,13 @@ export interface RoleInfo {
  */
 export interface ListAccountRolesResponse {
   /**
+   * @public
    * <p>The page token client that is used to retrieve the list of accounts.</p>
    */
   nextToken?: string;
 
   /**
+   * @public
    * <p>A paginated response with the list of roles and the next token if more results are
    *       available.</p>
    */
@@ -231,17 +250,20 @@ export interface ListAccountRolesResponse {
  */
 export interface ListAccountsRequest {
   /**
+   * @public
    * <p>(Optional) When requesting subsequent pages, this is the page token from the previous
    *       response output.</p>
    */
   nextToken?: string;
 
   /**
+   * @public
    * <p>This is the number of items clients can request per page.</p>
    */
   maxResults?: number;
 
   /**
+   * @public
    * <p>The token issued by the <code>CreateToken</code> API call. For more information, see
    *         <a href="https://docs.aws.amazon.com/singlesignon/latest/OIDCAPIReference/API_CreateToken.html">CreateToken</a> in the <i>IAM Identity Center OIDC API Reference Guide</i>.</p>
    */
@@ -253,11 +275,13 @@ export interface ListAccountsRequest {
  */
 export interface ListAccountsResponse {
   /**
+   * @public
    * <p>The page token client that is used to retrieve the list of accounts.</p>
    */
   nextToken?: string;
 
   /**
+   * @public
    * <p>A paginated response with the list of account information and the next token if more
    *       results are available.</p>
    */
@@ -269,6 +293,7 @@ export interface ListAccountsResponse {
  */
 export interface LogoutRequest {
   /**
+   * @public
    * <p>The token issued by the <code>CreateToken</code> API call. For more information, see
    *         <a href="https://docs.aws.amazon.com/singlesignon/latest/OIDCAPIReference/API_CreateToken.html">CreateToken</a> in the <i>IAM Identity Center OIDC API Reference Guide</i>.</p>
    */

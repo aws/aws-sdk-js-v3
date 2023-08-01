@@ -31,6 +31,7 @@ export class AccessDeniedException extends __BaseException {
  */
 export interface Alias {
   /**
+   * @public
    * <p>A friendly name that you can use to refer to a key. The value must begin with <code>alias/</code>.</p>
    *          <important>
    *             <p>Do not include confidential or sensitive information in this field. This field may be displayed in plaintext in CloudTrail logs and other output.</p>
@@ -39,6 +40,7 @@ export interface Alias {
   AliasName: string | undefined;
 
   /**
+   * @public
    * <p>The <code>KeyARN</code> of the key associated with the alias.</p>
    */
   KeyArn?: string;
@@ -71,6 +73,7 @@ export class ConflictException extends __BaseException {
  */
 export interface CreateAliasInput {
   /**
+   * @public
    * <p>A friendly name that you can use to refer a key. An alias must begin with <code>alias/</code> followed by a name, for example <code>alias/ExampleAlias</code>. It can contain only alphanumeric characters, forward slashes (/), underscores (_), and dashes (-).</p>
    *          <important>
    *             <p>Don't include confidential or sensitive information in this field. This field may be displayed in plaintext in CloudTrail logs and other output.</p>
@@ -79,6 +82,7 @@ export interface CreateAliasInput {
   AliasName: string | undefined;
 
   /**
+   * @public
    * <p>The <code>KeyARN</code> of the key to associate with the alias.</p>
    */
   KeyArn?: string;
@@ -89,6 +93,7 @@ export interface CreateAliasInput {
  */
 export interface CreateAliasOutput {
   /**
+   * @public
    * <p>The alias for the key.</p>
    */
   Alias: Alias | undefined;
@@ -124,6 +129,7 @@ export class ResourceNotFoundException extends __BaseException {
   readonly name: "ResourceNotFoundException" = "ResourceNotFoundException";
   readonly $fault: "client" = "client";
   /**
+   * @public
    * <p>The string for the exception.</p>
    */
   ResourceId?: string;
@@ -271,46 +277,55 @@ export type KeyClass = (typeof KeyClass)[keyof typeof KeyClass];
  */
 export interface KeyModesOfUse {
   /**
+   * @public
    * <p>Speciﬁes whether an Amazon Web Services Payment Cryptography key can be used to encrypt data.</p>
    */
   Encrypt?: boolean;
 
   /**
+   * @public
    * <p>Speciﬁes whether an Amazon Web Services Payment Cryptography key can be used to decrypt data.</p>
    */
   Decrypt?: boolean;
 
   /**
+   * @public
    * <p>Speciﬁes whether an Amazon Web Services Payment Cryptography key can be used to wrap other keys.</p>
    */
   Wrap?: boolean;
 
   /**
+   * @public
    * <p>Speciﬁes whether an Amazon Web Services Payment Cryptography key can be used to unwrap other keys.</p>
    */
   Unwrap?: boolean;
 
   /**
+   * @public
    * <p>Speciﬁes whether an Amazon Web Services Payment Cryptography key can be used to generate and verify other card and PIN verification keys.</p>
    */
   Generate?: boolean;
 
   /**
+   * @public
    * <p>Speciﬁes whether an Amazon Web Services Payment Cryptography key can be used for signing.</p>
    */
   Sign?: boolean;
 
   /**
+   * @public
    * <p>Speciﬁes whether an Amazon Web Services Payment Cryptography key can be used to verify signatures.</p>
    */
   Verify?: boolean;
 
   /**
+   * @public
    * <p>Speciﬁes whether an Amazon Web Services Payment Cryptography key can be used to derive new keys.</p>
    */
   DeriveKey?: boolean;
 
   /**
+   * @public
    * <p>Speciﬁes whether an Amazon Web Services Payment Cryptography key has no special restrictions other than the restrictions implied by <code>KeyUsage</code>.</p>
    */
   NoRestrictions?: boolean;
@@ -356,22 +371,26 @@ export type KeyUsage = (typeof KeyUsage)[keyof typeof KeyUsage];
  */
 export interface KeyAttributes {
   /**
+   * @public
    * <p>The cryptographic usage of an Amazon Web Services Payment Cryptography key as deﬁned in section A.5.2 of the TR-31 spec.</p>
    */
   KeyUsage: KeyUsage | string | undefined;
 
   /**
+   * @public
    * <p>The type of Amazon Web Services Payment Cryptography key to create, which determines the classiﬁcation of the cryptographic method and whether Amazon Web Services Payment Cryptography key contains a symmetric key or an asymmetric key pair.</p>
    */
   KeyClass: KeyClass | string | undefined;
 
   /**
+   * @public
    * <p>The key algorithm to be use during creation of an Amazon Web Services Payment Cryptography key.</p>
    *          <p>For symmetric keys, Amazon Web Services Payment Cryptography supports <code>AES</code> and <code>TDES</code> algorithms. For asymmetric keys, Amazon Web Services Payment Cryptography supports <code>RSA</code> and <code>ECC_NIST</code> algorithms.</p>
    */
   KeyAlgorithm: KeyAlgorithm | string | undefined;
 
   /**
+   * @public
    * <p>The list of cryptographic operations that you can perform using the key.</p>
    */
   KeyModesOfUse: KeyModesOfUse | undefined;
@@ -397,11 +416,13 @@ export type KeyCheckValueAlgorithm = (typeof KeyCheckValueAlgorithm)[keyof typeo
  */
 export interface Tag {
   /**
+   * @public
    * <p>The key of the tag.</p>
    */
   Key: string | undefined;
 
   /**
+   * @public
    * <p>The value of the tag.</p>
    */
   Value?: string;
@@ -412,27 +433,32 @@ export interface Tag {
  */
 export interface CreateKeyInput {
   /**
+   * @public
    * <p>The role of the key, the algorithm it supports, and the cryptographic operations allowed with the key. This data is immutable after the key is created.</p>
    */
   KeyAttributes: KeyAttributes | undefined;
 
   /**
+   * @public
    * <p>The algorithm that Amazon Web Services Payment Cryptography uses to calculate the key check value (KCV) for DES and AES keys.</p>
    *          <p>For DES key, the KCV is computed by encrypting 8 bytes, each with value '00', with the key to be checked and retaining the 3 highest order bytes of the encrypted result. For AES key, the KCV is computed by encrypting 8 bytes, each with value '01', with the key to be checked and retaining the 3 highest order bytes of the encrypted result.</p>
    */
   KeyCheckValueAlgorithm?: KeyCheckValueAlgorithm | string;
 
   /**
+   * @public
    * <p>Specifies whether the key is exportable from the service.</p>
    */
   Exportable: boolean | undefined;
 
   /**
+   * @public
    * <p>Specifies whether to enable the key. If the key is enabled, it is activated for use within the service. If the key not enabled, then it is created but not activated. The default value is enabled.</p>
    */
   Enabled?: boolean;
 
   /**
+   * @public
    * <p>The tags to attach to the key. Each tag consists of a tag key and a tag value. Both the tag key and the tag value are required, but the tag value can be an empty (null) string. You can't have more than one tag on an Amazon Web Services Payment Cryptography key with the same tag key. </p>
    *          <p>To use this parameter, you must have <code>TagResource</code> permission.</p>
    *          <important>
@@ -481,66 +507,79 @@ export type KeyState = (typeof KeyState)[keyof typeof KeyState];
  */
 export interface Key {
   /**
+   * @public
    * <p>The Amazon Resource Name (ARN) of the key.</p>
    */
   KeyArn: string | undefined;
 
   /**
+   * @public
    * <p>The role of the key, the algorithm it supports, and the cryptographic operations allowed with the key. This data is immutable after the key is created.</p>
    */
   KeyAttributes: KeyAttributes | undefined;
 
   /**
+   * @public
    * <p>The key check value (KCV) is used to check if all parties holding a given key have the same key or to detect that a key has changed. Amazon Web Services Payment Cryptography calculates the KCV by using standard algorithms, typically by encrypting 8 or 16 bytes or "00" or "01" and then truncating the result to the first 3 bytes, or 6 hex digits, of the resulting cryptogram.</p>
    */
   KeyCheckValue: string | undefined;
 
   /**
+   * @public
    * <p>The algorithm used for calculating key check value (KCV) for DES and AES keys. For a DES key, Amazon Web Services Payment Cryptography computes the KCV by encrypting 8 bytes, each with value '00', with the key to be checked and retaining the 3 highest order bytes of the encrypted result. For an AES key, Amazon Web Services Payment Cryptography computes the KCV by encrypting 8 bytes, each with value '01', with the key to be checked and retaining the 3 highest order bytes of the encrypted result.</p>
    */
   KeyCheckValueAlgorithm: KeyCheckValueAlgorithm | string | undefined;
 
   /**
+   * @public
    * <p>Specifies whether the key is enabled. </p>
    */
   Enabled: boolean | undefined;
 
   /**
+   * @public
    * <p>Specifies whether the key is exportable. This data is immutable after the key is created.</p>
    */
   Exportable: boolean | undefined;
 
   /**
+   * @public
    * <p>The state of key that is being created or deleted.</p>
    */
   KeyState: KeyState | string | undefined;
 
   /**
+   * @public
    * <p>The source of the key material. For keys created within Amazon Web Services Payment Cryptography, the value is <code>AWS_PAYMENT_CRYPTOGRAPHY</code>. For keys imported into Amazon Web Services Payment Cryptography, the value is <code>EXTERNAL</code>.</p>
    */
   KeyOrigin: KeyOrigin | string | undefined;
 
   /**
+   * @public
    * <p>The date and time when the key was created.</p>
    */
   CreateTimestamp: Date | undefined;
 
   /**
+   * @public
    * <p>The date and time after which Amazon Web Services Payment Cryptography will start using the key material for cryptographic operations.</p>
    */
   UsageStartTimestamp?: Date;
 
   /**
+   * @public
    * <p>The date and time after which Amazon Web Services Payment Cryptography will stop using the key material for cryptographic operations.</p>
    */
   UsageStopTimestamp?: Date;
 
   /**
+   * @public
    * <p>The date and time after which Amazon Web Services Payment Cryptography will delete the key. This value is present only when <code>KeyState</code> is <code>DELETE_PENDING</code> and the key is scheduled for deletion.</p>
    */
   DeletePendingTimestamp?: Date;
 
   /**
+   * @public
    * <p>The date and time after which Amazon Web Services Payment Cryptography will delete the key. This value is present only when when the <code>KeyState</code> is <code>DELETE_COMPLETE</code> and the Amazon Web Services Payment Cryptography key is deleted.</p>
    */
   DeleteTimestamp?: Date;
@@ -551,6 +590,7 @@ export interface Key {
  */
 export interface CreateKeyOutput {
   /**
+   * @public
    * <p>The key material that contains all the key attributes.</p>
    */
   Key: Key | undefined;
@@ -561,6 +601,7 @@ export interface CreateKeyOutput {
  */
 export interface DeleteAliasInput {
   /**
+   * @public
    * <p>A friendly name that you can use to refer Amazon Web Services Payment Cryptography key. This value must begin with <code>alias/</code> followed by a name, such as <code>alias/ExampleAlias</code>.</p>
    */
   AliasName: string | undefined;
@@ -576,11 +617,13 @@ export interface DeleteAliasOutput {}
  */
 export interface DeleteKeyInput {
   /**
+   * @public
    * <p>The <code>KeyARN</code> of the key that is scheduled for deletion.</p>
    */
   KeyIdentifier: string | undefined;
 
   /**
+   * @public
    * <p>The waiting period for key deletion. The default value is seven days.</p>
    */
   DeleteKeyInDays?: number;
@@ -591,6 +634,7 @@ export interface DeleteKeyInput {
  */
 export interface DeleteKeyOutput {
   /**
+   * @public
    * <p>The <code>KeyARN</code> of the key that is scheduled for deletion.</p>
    */
   Key: Key | undefined;
@@ -602,6 +646,7 @@ export interface DeleteKeyOutput {
  */
 export interface ExportTr31KeyBlock {
   /**
+   * @public
    * <p>The <code>KeyARN</code> of the the wrapping key. This key encrypts or wraps the key under export for TR-31 key block generation.</p>
    */
   WrappingKeyIdentifier: string | undefined;
@@ -626,26 +671,31 @@ export type Tr34KeyBlockFormat = (typeof Tr34KeyBlockFormat)[keyof typeof Tr34Ke
  */
 export interface ExportTr34KeyBlock {
   /**
+   * @public
    * <p>The <code>KeyARN</code> of the certificate chain that signs the wrapping key certificate during TR-34 key export.</p>
    */
   CertificateAuthorityPublicKeyIdentifier: string | undefined;
 
   /**
+   * @public
    * <p>The <code>KeyARN</code> of the wrapping key certificate. Amazon Web Services Payment Cryptography uses this certificate to wrap the key under export.</p>
    */
   WrappingKeyCertificate: string | undefined;
 
   /**
+   * @public
    * <p>The export token to initiate key export from Amazon Web Services Payment Cryptography. It also contains the signing key certificate that will sign the wrapped key during TR-34 key block generation. Call <a>GetParametersForExport</a> to receive an export token. It expires after 7 days. You can use the same export token to export multiple keys from the same service account.</p>
    */
   ExportToken: string | undefined;
 
   /**
+   * @public
    * <p>The format of key block that Amazon Web Services Payment Cryptography will use during key export.</p>
    */
   KeyBlockFormat: Tr34KeyBlockFormat | string | undefined;
 
   /**
+   * @public
    * <p>A random number value that is unique to the TR-34 key block generated using 2 pass. The operation will fail, if a random nonce value is not provided for a TR-34 key block generated using 2 pass.</p>
    */
   RandomNonce?: string;
@@ -665,6 +715,7 @@ export type ExportKeyMaterial =
  */
 export namespace ExportKeyMaterial {
   /**
+   * @public
    * <p>Parameter information for key material export using TR-31 standard.</p>
    */
   export interface Tr31KeyBlockMember {
@@ -674,6 +725,7 @@ export namespace ExportKeyMaterial {
   }
 
   /**
+   * @public
    * <p>Parameter information for key material export using TR-34 standard.</p>
    */
   export interface Tr34KeyBlockMember {
@@ -682,6 +734,9 @@ export namespace ExportKeyMaterial {
     $unknown?: never;
   }
 
+  /**
+   * @public
+   */
   export interface $UnknownMember {
     Tr31KeyBlock?: never;
     Tr34KeyBlock?: never;
@@ -706,11 +761,13 @@ export namespace ExportKeyMaterial {
  */
 export interface ExportKeyInput {
   /**
+   * @public
    * <p>The key block format type, for example, TR-34 or TR-31, to use during key material export.</p>
    */
   KeyMaterial: ExportKeyMaterial | undefined;
 
   /**
+   * @public
    * <p>The <code>KeyARN</code> of the key under export from Amazon Web Services Payment Cryptography.</p>
    */
   ExportKeyIdentifier: string | undefined;
@@ -737,16 +794,19 @@ export type WrappedKeyMaterialFormat = (typeof WrappedKeyMaterialFormat)[keyof t
  */
 export interface WrappedKey {
   /**
+   * @public
    * <p>The <code>KeyARN</code> of the wrapped key.</p>
    */
   WrappingKeyArn: string | undefined;
 
   /**
+   * @public
    * <p>The key block format of a wrapped key.</p>
    */
   WrappedKeyMaterialFormat: WrappedKeyMaterialFormat | string | undefined;
 
   /**
+   * @public
    * <p>Parameter information for generating a wrapped key using TR-31 or TR-34 standard.</p>
    */
   KeyMaterial: string | undefined;
@@ -757,6 +817,7 @@ export interface WrappedKey {
  */
 export interface ExportKeyOutput {
   /**
+   * @public
    * <p>The key material under export as a TR-34 or TR-31 wrapped key block.</p>
    */
   WrappedKey?: WrappedKey;
@@ -767,6 +828,7 @@ export interface ExportKeyOutput {
  */
 export interface GetAliasInput {
   /**
+   * @public
    * <p>The alias of the Amazon Web Services Payment Cryptography key.</p>
    */
   AliasName: string | undefined;
@@ -777,6 +839,7 @@ export interface GetAliasInput {
  */
 export interface GetAliasOutput {
   /**
+   * @public
    * <p>The alias of the Amazon Web Services Payment Cryptography key.</p>
    */
   Alias: Alias | undefined;
@@ -787,6 +850,7 @@ export interface GetAliasOutput {
  */
 export interface GetKeyInput {
   /**
+   * @public
    * <p>The <code>KeyARN</code> of the Amazon Web Services Payment Cryptography key.</p>
    */
   KeyIdentifier: string | undefined;
@@ -797,6 +861,7 @@ export interface GetKeyInput {
  */
 export interface GetKeyOutput {
   /**
+   * @public
    * <p>The key material, including the immutable and mutable data for the key.</p>
    */
   Key: Key | undefined;
@@ -823,11 +888,13 @@ export type KeyMaterialType = (typeof KeyMaterialType)[keyof typeof KeyMaterialT
  */
 export interface GetParametersForExportInput {
   /**
+   * @public
    * <p>The key block format type (for example, TR-34 or TR-31) to use during key material export. Export token is only required for a TR-34 key export, <code>TR34_KEY_BLOCK</code>. Export token is not required for TR-31 key export.</p>
    */
   KeyMaterialType: KeyMaterialType | string | undefined;
 
   /**
+   * @public
    * <p>The signing key algorithm to generate a signing key certificate. This certificate signs the wrapped key under export within the TR-34 key block cryptogram. <code>RSA_2048</code> is the only signing key algorithm allowed.</p>
    */
   SigningKeyAlgorithm: KeyAlgorithm | string | undefined;
@@ -838,26 +905,31 @@ export interface GetParametersForExportInput {
  */
 export interface GetParametersForExportOutput {
   /**
+   * @public
    * <p>The signing key certificate of the public key for signature within the TR-34 key block cryptogram. The certificate expires after 7 days.</p>
    */
   SigningKeyCertificate: string | undefined;
 
   /**
+   * @public
    * <p>The certificate chain that signed the signing key certificate. This is the root certificate authority (CA) within your service account.</p>
    */
   SigningKeyCertificateChain: string | undefined;
 
   /**
+   * @public
    * <p>The algorithm of the signing key certificate for use in TR-34 key block generation. <code>RSA_2048</code> is the only signing key algorithm allowed.</p>
    */
   SigningKeyAlgorithm: KeyAlgorithm | string | undefined;
 
   /**
+   * @public
    * <p>The export token to initiate key export from Amazon Web Services Payment Cryptography. The export token expires after 7 days. You can use the same export token to export multiple keys from the same service account.</p>
    */
   ExportToken: string | undefined;
 
   /**
+   * @public
    * <p>The validity period of the export token.</p>
    */
   ParametersValidUntilTimestamp: Date | undefined;
@@ -868,11 +940,13 @@ export interface GetParametersForExportOutput {
  */
 export interface GetParametersForImportInput {
   /**
+   * @public
    * <p>The key block format type such as TR-34 or TR-31 to use during key material import. Import token is only required for TR-34 key import <code>TR34_KEY_BLOCK</code>. Import token is not required for TR-31 key import.</p>
    */
   KeyMaterialType: KeyMaterialType | string | undefined;
 
   /**
+   * @public
    * <p>The wrapping key algorithm to generate a wrapping key certificate. This certificate wraps the key under import within the TR-34 key block cryptogram. <code>RSA_2048</code> is the only wrapping key algorithm allowed.</p>
    */
   WrappingKeyAlgorithm: KeyAlgorithm | string | undefined;
@@ -883,26 +957,31 @@ export interface GetParametersForImportInput {
  */
 export interface GetParametersForImportOutput {
   /**
+   * @public
    * <p>The wrapping key certificate of the wrapping key for use within the TR-34 key block. The certificate expires in 7 days.</p>
    */
   WrappingKeyCertificate: string | undefined;
 
   /**
+   * @public
    * <p>The Amazon Web Services Payment Cryptography certificate chain that signed the wrapping key certificate. This is the root certificate authority (CA) within your service account.</p>
    */
   WrappingKeyCertificateChain: string | undefined;
 
   /**
+   * @public
    * <p>The algorithm of the wrapping key for use within TR-34 key block. <code>RSA_2048</code> is the only wrapping key algorithm allowed.</p>
    */
   WrappingKeyAlgorithm: KeyAlgorithm | string | undefined;
 
   /**
+   * @public
    * <p>The import token to initiate key import into Amazon Web Services Payment Cryptography. The import token expires after 7 days. You can use the same import token to import multiple keys to the same service account.</p>
    */
   ImportToken: string | undefined;
 
   /**
+   * @public
    * <p>The validity period of the import token.</p>
    */
   ParametersValidUntilTimestamp: Date | undefined;
@@ -913,6 +992,7 @@ export interface GetParametersForImportOutput {
  */
 export interface GetPublicKeyCertificateInput {
   /**
+   * @public
    * <p>The <code>KeyARN</code> of the asymmetric key pair.</p>
    */
   KeyIdentifier: string | undefined;
@@ -923,11 +1003,13 @@ export interface GetPublicKeyCertificateInput {
  */
 export interface GetPublicKeyCertificateOutput {
   /**
+   * @public
    * <p>The public key component of the asymmetric key pair in a certificate (PEM) format. It is signed by the root certificate authority (CA) within your service account. The certificate expires in 90 days.</p>
    */
   KeyCertificate: string | undefined;
 
   /**
+   * @public
    * <p>The certificate chain that signed the public key certificate of the asymmetric key pair. This is the root certificate authority (CA) within your service account.</p>
    */
   KeyCertificateChain: string | undefined;
@@ -939,11 +1021,13 @@ export interface GetPublicKeyCertificateOutput {
  */
 export interface RootCertificatePublicKey {
   /**
+   * @public
    * <p>The role of the key, the algorithm it supports, and the cryptographic operations allowed with the key. This data is immutable after the root public key is imported.</p>
    */
   KeyAttributes: KeyAttributes | undefined;
 
   /**
+   * @public
    * <p>Parameter information for root public key certificate import.</p>
    */
   PublicKeyCertificate: string | undefined;
@@ -955,11 +1039,13 @@ export interface RootCertificatePublicKey {
  */
 export interface ImportTr31KeyBlock {
   /**
+   * @public
    * <p>The <code>KeyARN</code> of the key that will decrypt or unwrap a TR-31 key block during import.</p>
    */
   WrappingKeyIdentifier: string | undefined;
 
   /**
+   * @public
    * <p>The TR-34 wrapped key block to import.</p>
    */
   WrappedKeyBlock: string | undefined;
@@ -971,31 +1057,37 @@ export interface ImportTr31KeyBlock {
  */
 export interface ImportTr34KeyBlock {
   /**
+   * @public
    * <p>The <code>KeyARN</code> of the certificate chain that signs the signing key certificate during TR-34 key import.</p>
    */
   CertificateAuthorityPublicKeyIdentifier: string | undefined;
 
   /**
+   * @public
    * <p>The public key component in PEM certificate format of the private key that signs the KDH TR-34 wrapped key block.</p>
    */
   SigningKeyCertificate: string | undefined;
 
   /**
+   * @public
    * <p>The import token that initiates key import into Amazon Web Services Payment Cryptography. It expires after 7 days. You can use the same import token to import multiple keys to the same service account.</p>
    */
   ImportToken: string | undefined;
 
   /**
+   * @public
    * <p>The TR-34 wrapped key block to import.</p>
    */
   WrappedKeyBlock: string | undefined;
 
   /**
+   * @public
    * <p>The key block format to use during key import. The only value allowed is <code>X9_TR34_2012</code>.</p>
    */
   KeyBlockFormat: Tr34KeyBlockFormat | string | undefined;
 
   /**
+   * @public
    * <p>A random number value that is unique to the TR-34 key block generated using 2 pass. The operation will fail, if a random nonce value is not provided for a TR-34 key block generated using 2 pass.</p>
    */
   RandomNonce?: string;
@@ -1007,16 +1099,19 @@ export interface ImportTr34KeyBlock {
  */
 export interface TrustedCertificatePublicKey {
   /**
+   * @public
    * <p>The role of the key, the algorithm it supports, and the cryptographic operations allowed with the key. This data is immutable after a trusted public key is imported.</p>
    */
   KeyAttributes: KeyAttributes | undefined;
 
   /**
+   * @public
    * <p>Parameter information for trusted public key certificate import.</p>
    */
   PublicKeyCertificate: string | undefined;
 
   /**
+   * @public
    * <p>The <code>KeyARN</code> of the root public key certificate or certificate chain that signs the trusted public key certificate import.</p>
    */
   CertificateAuthorityPublicKeyIdentifier: string | undefined;
@@ -1038,6 +1133,7 @@ export type ImportKeyMaterial =
  */
 export namespace ImportKeyMaterial {
   /**
+   * @public
    * <p>Parameter information for root public key certificate import.</p>
    */
   export interface RootCertificatePublicKeyMember {
@@ -1049,6 +1145,7 @@ export namespace ImportKeyMaterial {
   }
 
   /**
+   * @public
    * <p>Parameter information for trusted public key certificate import.</p>
    */
   export interface TrustedCertificatePublicKeyMember {
@@ -1060,6 +1157,7 @@ export namespace ImportKeyMaterial {
   }
 
   /**
+   * @public
    * <p>Parameter information for key material import using TR-31 standard.</p>
    */
   export interface Tr31KeyBlockMember {
@@ -1071,6 +1169,7 @@ export namespace ImportKeyMaterial {
   }
 
   /**
+   * @public
    * <p>Parameter information for key material import using TR-34 standard.</p>
    */
   export interface Tr34KeyBlockMember {
@@ -1081,6 +1180,9 @@ export namespace ImportKeyMaterial {
     $unknown?: never;
   }
 
+  /**
+   * @public
+   */
   export interface $UnknownMember {
     RootCertificatePublicKey?: never;
     TrustedCertificatePublicKey?: never;
@@ -1113,22 +1215,26 @@ export namespace ImportKeyMaterial {
  */
 export interface ImportKeyInput {
   /**
+   * @public
    * <p>The key or public key certificate type to use during key material import, for example TR-34 or RootCertificatePublicKey.</p>
    */
   KeyMaterial: ImportKeyMaterial | undefined;
 
   /**
+   * @public
    * <p>The algorithm that Amazon Web Services Payment Cryptography uses to calculate the key check value (KCV) for DES and AES keys.</p>
    *          <p>For DES key, the KCV is computed by encrypting 8 bytes, each with value '00', with the key to be checked and retaining the 3 highest order bytes of the encrypted result. For AES key, the KCV is computed by encrypting 8 bytes, each with value '01', with the key to be checked and retaining the 3 highest order bytes of the encrypted result.</p>
    */
   KeyCheckValueAlgorithm?: KeyCheckValueAlgorithm | string;
 
   /**
+   * @public
    * <p>Specifies whether import key is enabled.</p>
    */
   Enabled?: boolean;
 
   /**
+   * @public
    * <p>The tags to attach to the key. Each tag consists of a tag key and a tag value. Both the tag key and the tag value are required, but the tag value can be an empty (null) string. You can't have more than one tag on an Amazon Web Services Payment Cryptography key with the same tag key. </p>
    *          <p>You can't have more than one tag on an Amazon Web Services Payment Cryptography key with the same tag key. If you specify an existing tag key with a different tag value, Amazon Web Services Payment Cryptography replaces the current tag value with the specified one.</p>
    *          <p>To use this parameter, you must have <code>TagResource</code> permission.</p>
@@ -1147,6 +1253,7 @@ export interface ImportKeyInput {
  */
 export interface ImportKeyOutput {
   /**
+   * @public
    * <p>The <code>KeyARN</code> of the key material imported within Amazon Web Services Payment Cryptography.</p>
    */
   Key: Key | undefined;
@@ -1158,31 +1265,37 @@ export interface ImportKeyOutput {
  */
 export interface KeySummary {
   /**
+   * @public
    * <p>The Amazon Resource Name (ARN) of the key.</p>
    */
   KeyArn: string | undefined;
 
   /**
+   * @public
    * <p>The state of an Amazon Web Services Payment Cryptography that is being created or deleted.</p>
    */
   KeyState: KeyState | string | undefined;
 
   /**
+   * @public
    * <p>The role of the key, the algorithm it supports, and the cryptographic operations allowed with the key. This data is immutable after the key is created.</p>
    */
   KeyAttributes: KeyAttributes | undefined;
 
   /**
+   * @public
    * <p>The key check value (KCV) is used to check if all parties holding a given key have the same key or to detect that a key has changed. Amazon Web Services Payment Cryptography calculates the KCV by using standard algorithms, typically by encrypting 8 or 16 bytes or "00" or "01" and then truncating the result to the first 3 bytes, or 6 hex digits, of the resulting cryptogram.</p>
    */
   KeyCheckValue: string | undefined;
 
   /**
+   * @public
    * <p>Specifies whether the key is exportable. This data is immutable after the key is created.</p>
    */
   Exportable: boolean | undefined;
 
   /**
+   * @public
    * <p>Specifies whether the key is enabled. </p>
    */
   Enabled: boolean | undefined;
@@ -1193,11 +1306,13 @@ export interface KeySummary {
  */
 export interface ListAliasesInput {
   /**
+   * @public
    * <p>Use this parameter in a subsequent request after you receive a response with truncated results. Set it to the value of <code>NextToken</code> from the truncated response you just received.</p>
    */
   NextToken?: string;
 
   /**
+   * @public
    * <p>Use this parameter to specify the maximum number of items to return. When this value is present, Amazon Web Services Payment Cryptography does not return more than the specified number of items, but it might return fewer.</p>
    *          <p>This value is optional. If you include a value, it must be between 1 and 100, inclusive. If you do not include a value, it defaults to 50.</p>
    */
@@ -1209,11 +1324,13 @@ export interface ListAliasesInput {
  */
 export interface ListAliasesOutput {
   /**
+   * @public
    * <p>The list of aliases. Each alias describes the <code>KeyArn</code> contained within.</p>
    */
   Aliases: Alias[] | undefined;
 
   /**
+   * @public
    * <p>The token for the next set of results, or an empty or null value if there are no more results.</p>
    */
   NextToken?: string;
@@ -1224,16 +1341,19 @@ export interface ListAliasesOutput {
  */
 export interface ListKeysInput {
   /**
+   * @public
    * <p>The key state of the keys you want to list.</p>
    */
   KeyState?: KeyState | string;
 
   /**
+   * @public
    * <p>Use this parameter in a subsequent request after you receive a response with truncated results. Set it to the value of <code>NextToken</code> from the truncated response you just received.</p>
    */
   NextToken?: string;
 
   /**
+   * @public
    * <p>Use this parameter to specify the maximum number of items to return. When this value is present, Amazon Web Services Payment Cryptography does not return more than the specified number of items, but it might return fewer.</p>
    */
   MaxResults?: number;
@@ -1244,11 +1364,13 @@ export interface ListKeysInput {
  */
 export interface ListKeysOutput {
   /**
+   * @public
    * <p>The list of keys created within the caller's Amazon Web Services account and Amazon Web Services Region.</p>
    */
   Keys: KeySummary[] | undefined;
 
   /**
+   * @public
    * <p>The token for the next set of results, or an empty or null value if there are no more results.</p>
    */
   NextToken?: string;
@@ -1259,16 +1381,19 @@ export interface ListKeysOutput {
  */
 export interface ListTagsForResourceInput {
   /**
+   * @public
    * <p>The <code>KeyARN</code> of the key whose tags you are getting.</p>
    */
   ResourceArn: string | undefined;
 
   /**
+   * @public
    * <p>Use this parameter in a subsequent request after you receive a response with truncated results. Set it to the value of <code>NextToken</code> from the truncated response you just received.</p>
    */
   NextToken?: string;
 
   /**
+   * @public
    * <p>Use this parameter to specify the maximum number of items to return. When this value is present, Amazon Web Services Payment Cryptography does not return more than the specified number of items, but it might return fewer.</p>
    */
   MaxResults?: number;
@@ -1279,11 +1404,13 @@ export interface ListTagsForResourceInput {
  */
 export interface ListTagsForResourceOutput {
   /**
+   * @public
    * <p>The list of tags associated with a <code>ResourceArn</code>. Each tag will list the key-value pair contained within that tag.</p>
    */
   Tags: Tag[] | undefined;
 
   /**
+   * @public
    * <p>The token for the next set of results, or an empty or null value if there are no more results.</p>
    */
   NextToken?: string;
@@ -1294,6 +1421,7 @@ export interface ListTagsForResourceOutput {
  */
 export interface RestoreKeyInput {
   /**
+   * @public
    * <p>The <code>KeyARN</code> of the key to be restored within Amazon Web Services Payment Cryptography.</p>
    */
   KeyIdentifier: string | undefined;
@@ -1304,6 +1432,7 @@ export interface RestoreKeyInput {
  */
 export interface RestoreKeyOutput {
   /**
+   * @public
    * <p>The key material of the restored key. The <code>KeyState</code> will change to <code>CREATE_COMPLETE</code> and value for <code>DeletePendingTimestamp</code> gets removed. </p>
    */
   Key: Key | undefined;
@@ -1314,6 +1443,7 @@ export interface RestoreKeyOutput {
  */
 export interface StartKeyUsageInput {
   /**
+   * @public
    * <p>The <code>KeyArn</code> of the key.</p>
    */
   KeyIdentifier: string | undefined;
@@ -1324,6 +1454,7 @@ export interface StartKeyUsageInput {
  */
 export interface StartKeyUsageOutput {
   /**
+   * @public
    * <p>The <code>KeyARN</code> of the Amazon Web Services Payment Cryptography key activated for use.</p>
    */
   Key: Key | undefined;
@@ -1334,6 +1465,7 @@ export interface StartKeyUsageOutput {
  */
 export interface StopKeyUsageInput {
   /**
+   * @public
    * <p>The <code>KeyArn</code> of the key.</p>
    */
   KeyIdentifier: string | undefined;
@@ -1344,6 +1476,7 @@ export interface StopKeyUsageInput {
  */
 export interface StopKeyUsageOutput {
   /**
+   * @public
    * <p>The <code>KeyARN</code> of the key.</p>
    */
   Key: Key | undefined;
@@ -1354,11 +1487,13 @@ export interface StopKeyUsageOutput {
  */
 export interface TagResourceInput {
   /**
+   * @public
    * <p>The <code>KeyARN</code> of the key whose tags are being updated.</p>
    */
   ResourceArn: string | undefined;
 
   /**
+   * @public
    * <p>One or more tags. Each tag consists of a tag key and a tag value. The tag value can be an empty (null) string. You can't have more than one tag on an Amazon Web Services Payment Cryptography key with the same tag key. If you specify an existing tag key with a different tag value, Amazon Web Services Payment Cryptography replaces the current tag value with the new one.</p>
    *          <important>
    *             <p>Don't include confidential or sensitive information in this field. This field may be displayed in plaintext in CloudTrail logs and other output.</p>
@@ -1381,11 +1516,13 @@ export interface TagResourceOutput {}
  */
 export interface UntagResourceInput {
   /**
+   * @public
    * <p>The <code>KeyARN</code> of the key whose tags are being removed.</p>
    */
   ResourceArn: string | undefined;
 
   /**
+   * @public
    * <p>One or more tag keys. Don't include the tag values.</p>
    *          <p>If the Amazon Web Services Payment Cryptography key doesn't have the specified tag key, Amazon Web Services Payment Cryptography doesn't throw an exception or return a response. To confirm that the operation succeeded, use the <a>ListTagsForResource</a> operation.</p>
    */
@@ -1402,11 +1539,13 @@ export interface UntagResourceOutput {}
  */
 export interface UpdateAliasInput {
   /**
+   * @public
    * <p>The alias whose associated key is changing.</p>
    */
   AliasName: string | undefined;
 
   /**
+   * @public
    * <p>The <code>KeyARN</code> for the key that you are updating or removing from the alias.</p>
    */
   KeyArn?: string;
@@ -1417,6 +1556,7 @@ export interface UpdateAliasInput {
  */
 export interface UpdateAliasOutput {
   /**
+   * @public
    * <p>The alias name.</p>
    */
   Alias: Alias | undefined;

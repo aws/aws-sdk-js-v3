@@ -8,6 +8,7 @@ import { NimbleServiceException as __BaseException } from "./NimbleServiceExcept
  */
 export interface AcceptEulasRequest {
   /**
+   * @public
    * <p>Unique, case-sensitive identifier that you provide to ensure the idempotency of the
    *             request. If you don’t specify a client token, the Amazon Web Services SDK automatically
    *             generates a client token and uses it for the request to ensure idempotency.</p>
@@ -15,11 +16,13 @@ export interface AcceptEulasRequest {
   clientToken?: string;
 
   /**
+   * @public
    * <p>The EULA ID.</p>
    */
   eulaIds?: string[];
 
   /**
+   * @public
    * <p>The studio ID.</p>
    */
   studioId: string | undefined;
@@ -31,26 +34,31 @@ export interface AcceptEulasRequest {
  */
 export interface EulaAcceptance {
   /**
+   * @public
    * <p>The ISO timestamp in seconds for when the EULA was accepted.</p>
    */
   acceptedAt?: Date;
 
   /**
+   * @public
    * <p>The ID of the person who accepted the EULA.</p>
    */
   acceptedBy?: string;
 
   /**
+   * @public
    * <p>The ID of the acceptee.</p>
    */
   accepteeId?: string;
 
   /**
+   * @public
    * <p>The EULA acceptance ID.</p>
    */
   eulaAcceptanceId?: string;
 
   /**
+   * @public
    * <p>The EULA ID.</p>
    */
   eulaId?: string;
@@ -61,6 +69,7 @@ export interface EulaAcceptance {
  */
 export interface AcceptEulasResponse {
   /**
+   * @public
    * <p>A collection of EULA acceptances.</p>
    */
   eulaAcceptances?: EulaAcceptance[];
@@ -75,11 +84,13 @@ export class AccessDeniedException extends __BaseException {
   readonly name: "AccessDeniedException" = "AccessDeniedException";
   readonly $fault: "client" = "client";
   /**
+   * @public
    * <p>A more specific error code.</p>
    */
   code?: string;
 
   /**
+   * @public
    * <p>The exception context.</p>
    */
   context?: Record<string, string>;
@@ -107,11 +118,13 @@ export class ConflictException extends __BaseException {
   readonly name: "ConflictException" = "ConflictException";
   readonly $fault: "client" = "client";
   /**
+   * @public
    * <p>A more specific error code.</p>
    */
   code?: string;
 
   /**
+   * @public
    * <p>The exception context.</p>
    */
   context?: Record<string, string>;
@@ -140,11 +153,13 @@ export class InternalServerErrorException extends __BaseException {
   readonly $fault: "server" = "server";
   $retryable = {};
   /**
+   * @public
    * <p>A more specific error code.</p>
    */
   code?: string;
 
   /**
+   * @public
    * <p>The exception context.</p>
    */
   context?: Record<string, string>;
@@ -172,11 +187,13 @@ export class ResourceNotFoundException extends __BaseException {
   readonly name: "ResourceNotFoundException" = "ResourceNotFoundException";
   readonly $fault: "client" = "client";
   /**
+   * @public
    * <p>A more specific error code.</p>
    */
   code?: string;
 
   /**
+   * @public
    * <p>The exception context.</p>
    */
   context?: Record<string, string>;
@@ -206,11 +223,13 @@ export class ServiceQuotaExceededException extends __BaseException {
   readonly name: "ServiceQuotaExceededException" = "ServiceQuotaExceededException";
   readonly $fault: "client" = "client";
   /**
+   * @public
    * <p>A more specific error code.</p>
    */
   code?: string;
 
   /**
+   * @public
    * <p>The exception context.</p>
    */
   context?: Record<string, string>;
@@ -239,11 +258,13 @@ export class ThrottlingException extends __BaseException {
   readonly $fault: "client" = "client";
   $retryable = {};
   /**
+   * @public
    * <p>A more specific error code.</p>
    */
   code?: string;
 
   /**
+   * @public
    * <p>The exception context.</p>
    */
   context?: Record<string, string>;
@@ -271,11 +292,13 @@ export class ValidationException extends __BaseException {
   readonly name: "ValidationException" = "ValidationException";
   readonly $fault: "client" = "client";
   /**
+   * @public
    * <p>A more specific error code.</p>
    */
   code?: string;
 
   /**
+   * @public
    * <p>The exception context.</p>
    */
   context?: Record<string, string>;
@@ -302,11 +325,13 @@ export class ValidationException extends __BaseException {
  */
 export interface ActiveDirectoryComputerAttribute {
   /**
+   * @public
    * <p>The name for the LDAP attribute.</p>
    */
   name?: string;
 
   /**
+   * @public
    * <p>The value for the LDAP attribute.</p>
    */
   value?: string;
@@ -318,17 +343,20 @@ export interface ActiveDirectoryComputerAttribute {
  */
 export interface ActiveDirectoryConfiguration {
   /**
+   * @public
    * <p>A collection of custom attributes for an Active Directory computer.</p>
    */
   computerAttributes?: ActiveDirectoryComputerAttribute[];
 
   /**
+   * @public
    * <p>The directory ID of the Directory Service for Microsoft Active Directory to access using this studio
    *             component.</p>
    */
   directoryId?: string;
 
   /**
+   * @public
    * <p>The distinguished name (DN) and organizational unit (OU) of an Active Directory
    *             computer.</p>
    */
@@ -355,12 +383,14 @@ export type AutomaticTerminationMode = (typeof AutomaticTerminationMode)[keyof t
  */
 export interface ComputeFarmConfiguration {
   /**
+   * @public
    * <p>The name of an Active Directory user that is used on ComputeFarm worker
    *             instances.</p>
    */
   activeDirectoryUser?: string;
 
   /**
+   * @public
    * <p>The endpoint of the ComputeFarm that is accessed by the studio component
    *             resource.</p>
    */
@@ -427,6 +457,7 @@ export type SessionBackupMode = (typeof SessionBackupMode)[keyof typeof SessionB
  */
 export interface StreamConfigurationSessionBackup {
   /**
+   * @public
    * <p>Specifies how artists sessions are backed up.</p>
    *         <p>Configures backups for streaming sessions launched with this launch profile. The
    *             default value is <code>DEACTIVATED</code>, which means that backups are deactivated. To
@@ -435,6 +466,7 @@ export interface StreamConfigurationSessionBackup {
   mode?: SessionBackupMode | string;
 
   /**
+   * @public
    * <p>The maximum number of backups that each streaming session created from this launch
    *             profile can have.</p>
    */
@@ -476,11 +508,13 @@ export type StreamingSessionStorageMode =
  */
 export interface StreamingSessionStorageRoot {
   /**
+   * @public
    * <p>The folder path in Linux workstations where files are uploaded.</p>
    */
   linux?: string;
 
   /**
+   * @public
    * <p>The folder path in Windows workstations where files are uploaded.</p>
    */
   windows?: string;
@@ -492,11 +526,13 @@ export interface StreamingSessionStorageRoot {
  */
 export interface StreamConfigurationSessionStorage {
   /**
+   * @public
    * <p>The configuration for the upload storage root of the streaming session.</p>
    */
   root?: StreamingSessionStorageRoot;
 
   /**
+   * @public
    * <p>Allows artists to upload files to their workstations. The only valid option is
    *                 <code>UPLOAD</code>.</p>
    */
@@ -512,18 +548,21 @@ export interface StreamConfigurationSessionStorage {
  */
 export interface VolumeConfiguration {
   /**
+   * @public
    * <p>The size of the root volume that is attached to the streaming session. The root volume
    *             size is measured in GiBs.</p>
    */
   size?: number;
 
   /**
+   * @public
    * <p>The throughput to provision for the root volume that is attached to the streaming
    *             session. The throughput is measured in MiB/s.</p>
    */
   throughput?: number;
 
   /**
+   * @public
    * <p>The number of I/O operations per second for the root volume that is attached to
    *             streaming session.</p>
    */
@@ -536,18 +575,21 @@ export interface VolumeConfiguration {
  */
 export interface StreamConfigurationCreate {
   /**
+   * @public
    * <p>Allows or deactivates the use of the system clipboard to copy and paste between the
    *             streaming session and streaming client.</p>
    */
   clipboardMode: StreamingClipboardMode | string | undefined;
 
   /**
+   * @public
    * <p>The EC2 instance types that users can select from when launching a streaming session
    *             with this launch profile.</p>
    */
   ec2InstanceTypes: (StreamingInstanceType | string)[] | undefined;
 
   /**
+   * @public
    * <p>The length of time, in minutes, that a streaming session can be active before it is
    *             stopped or terminated. After this point, Nimble Studio automatically terminates or
    *             stops the session. The default length of time is 690 minutes, and the maximum length of
@@ -556,12 +598,14 @@ export interface StreamConfigurationCreate {
   maxSessionLengthInMinutes?: number;
 
   /**
+   * @public
    * <p>The streaming images that users can select from when launching a streaming session
    *             with this launch profile.</p>
    */
   streamingImageIds: string[] | undefined;
 
   /**
+   * @public
    * <p>Integer that determines if you can start and stop your sessions and how long a session
    *             can stay in the <code>STOPPED</code> state. The default value is 0. The maximum value is
    *             5760.</p>
@@ -582,18 +626,21 @@ export interface StreamConfigurationCreate {
   maxStoppedSessionLengthInMinutes?: number;
 
   /**
+   * @public
    * <p>The upload storage for a streaming workstation that is created using this launch
    *             profile.</p>
    */
   sessionStorage?: StreamConfigurationSessionStorage;
 
   /**
+   * @public
    * <p>Configures how streaming sessions are backed up when launched from this launch
    *             profile.</p>
    */
   sessionBackup?: StreamConfigurationSessionBackup;
 
   /**
+   * @public
    * <p>Determine if a streaming session created from this launch profile can configure
    *             persistent storage. This means that <code>volumeConfiguration</code> and
    *                 <code>automaticTerminationMode</code> are configured.</p>
@@ -601,6 +648,7 @@ export interface StreamConfigurationCreate {
   sessionPersistenceMode?: SessionPersistenceMode | string;
 
   /**
+   * @public
    * <p>Custom volume configuration for the root volumes that are attached to streaming
    *             sessions.</p>
    *         <p>This parameter is only allowed when <code>sessionPersistenceMode</code> is
@@ -609,6 +657,7 @@ export interface StreamConfigurationCreate {
   volumeConfiguration?: VolumeConfiguration;
 
   /**
+   * @public
    * <p>Indicates if a streaming session created from this launch profile should be terminated
    *             automatically or retained without termination after being in a <code>STOPPED</code>
    *             state.</p>
@@ -635,6 +684,7 @@ export interface StreamConfigurationCreate {
  */
 export interface CreateLaunchProfileRequest {
   /**
+   * @public
    * <p>Unique, case-sensitive identifier that you provide to ensure the idempotency of the
    *             request. If you don’t specify a client token, the Amazon Web Services SDK automatically
    *             generates a client token and uses it for the request to ensure idempotency.</p>
@@ -642,44 +692,52 @@ export interface CreateLaunchProfileRequest {
   clientToken?: string;
 
   /**
+   * @public
    * <p>The description.</p>
    */
   description?: string;
 
   /**
+   * @public
    * <p>Specifies the IDs of the EC2 subnets where streaming sessions will be accessible from.
    *             These subnets must support the specified instance types. </p>
    */
   ec2SubnetIds: string[] | undefined;
 
   /**
+   * @public
    * <p>The version number of the protocol that is used by the launch profile. The only valid
    *             version is "2021-03-31".</p>
    */
   launchProfileProtocolVersions: string[] | undefined;
 
   /**
+   * @public
    * <p>The name for the launch profile.</p>
    */
   name: string | undefined;
 
   /**
+   * @public
    * <p>A configuration for a streaming session.</p>
    */
   streamConfiguration: StreamConfigurationCreate | undefined;
 
   /**
+   * @public
    * <p>Unique identifiers for a collection of studio components that can be used with this
    *             launch profile.</p>
    */
   studioComponentIds: string[] | undefined;
 
   /**
+   * @public
    * <p>The studio ID. </p>
    */
   studioId: string | undefined;
 
   /**
+   * @public
    * <p>A collection of labels, in the form of key-value pairs, that apply to this
    *             resource.</p>
    */
@@ -739,18 +797,21 @@ export type LaunchProfileStatusCode = (typeof LaunchProfileStatusCode)[keyof typ
  */
 export interface StreamConfiguration {
   /**
+   * @public
    * <p>Allows or deactivates the use of the system clipboard to copy and paste between the
    *             streaming session and streaming client.</p>
    */
   clipboardMode: StreamingClipboardMode | string | undefined;
 
   /**
+   * @public
    * <p>The EC2 instance types that users can select from when launching a streaming session
    *             with this launch profile.</p>
    */
   ec2InstanceTypes: (StreamingInstanceType | string)[] | undefined;
 
   /**
+   * @public
    * <p>The length of time, in minutes, that a streaming session can be active before it is
    *             stopped or terminated. After this point, Nimble Studio automatically terminates or
    *             stops the session. The default length of time is 690 minutes, and the maximum length of
@@ -759,12 +820,14 @@ export interface StreamConfiguration {
   maxSessionLengthInMinutes?: number;
 
   /**
+   * @public
    * <p>The streaming images that users can select from when launching a streaming session
    *             with this launch profile.</p>
    */
   streamingImageIds: string[] | undefined;
 
   /**
+   * @public
    * <p>Integer that determines if you can start and stop your sessions and how long a session
    *             can stay in the <code>STOPPED</code> state. The default value is 0. The maximum value is
    *             5760.</p>
@@ -785,16 +848,19 @@ export interface StreamConfiguration {
   maxStoppedSessionLengthInMinutes?: number;
 
   /**
+   * @public
    * <p>The upload storage for a streaming session.</p>
    */
   sessionStorage?: StreamConfigurationSessionStorage;
 
   /**
+   * @public
    * <p>Information about the streaming session backup.</p>
    */
   sessionBackup?: StreamConfigurationSessionBackup;
 
   /**
+   * @public
    * <p>Determine if a streaming session created from this launch profile can configure
    *             persistent storage. This means that <code>volumeConfiguration</code> and
    *                 <code>automaticTerminationMode</code> are configured.</p>
@@ -802,6 +868,7 @@ export interface StreamConfiguration {
   sessionPersistenceMode?: SessionPersistenceMode | string;
 
   /**
+   * @public
    * <p>Custom volume configuration for the root volumes that are attached to streaming
    *             sessions.</p>
    *         <p>This parameter is only allowed when <code>sessionPersistenceMode</code> is
@@ -810,6 +877,7 @@ export interface StreamConfiguration {
   volumeConfiguration?: VolumeConfiguration;
 
   /**
+   * @public
    * <p>Indicates if a streaming session created from this launch profile should be terminated
    *             automatically or retained without termination after being in a <code>STOPPED</code>
    *             state.</p>
@@ -894,22 +962,26 @@ export type LaunchProfileValidationType =
  */
 export interface ValidationResult {
   /**
+   * @public
    * <p>The type of the validation result.</p>
    */
   type: LaunchProfileValidationType | string | undefined;
 
   /**
+   * @public
    * <p>The current state.</p>
    */
   state: LaunchProfileValidationState | string | undefined;
 
   /**
+   * @public
    * <p>The status code. This will contain the failure reason if the state is
    *                 <code>VALIDATION_FAILED</code>.</p>
    */
   statusCode: LaunchProfileValidationStatusCode | string | undefined;
 
   /**
+   * @public
    * <p>The status message for the validation result.</p>
    */
   statusMessage: string | undefined;
@@ -927,90 +999,107 @@ export interface ValidationResult {
  */
 export interface LaunchProfile {
   /**
+   * @public
    * <p>The Amazon Resource Name (ARN) that is assigned to a studio resource and uniquely
    *             identifies it. ARNs are unique across all Regions.</p>
    */
   arn?: string;
 
   /**
+   * @public
    * <p>The ISO timestamp in seconds for when the resource was created.</p>
    */
   createdAt?: Date;
 
   /**
+   * @public
    * <p>The user ID of the user that created the launch profile.</p>
    */
   createdBy?: string;
 
   /**
+   * @public
    * <p>A human-readable description of the launch profile.</p>
    */
   description?: string;
 
   /**
+   * @public
    * <p>Unique identifiers for a collection of EC2 subnets.</p>
    */
   ec2SubnetIds?: string[];
 
   /**
+   * @public
    * <p>The ID of the launch profile used to control access from the streaming session.</p>
    */
   launchProfileId?: string;
 
   /**
+   * @public
    * <p>The version number of the protocol that is used by the launch profile. The only valid
    *             version is "2021-03-31".</p>
    */
   launchProfileProtocolVersions?: string[];
 
   /**
+   * @public
    * <p>A friendly name for the launch profile.</p>
    */
   name?: string;
 
   /**
+   * @public
    * <p>The current state.</p>
    */
   state?: LaunchProfileState | string;
 
   /**
+   * @public
    * <p>The status code.</p>
    */
   statusCode?: LaunchProfileStatusCode | string;
 
   /**
+   * @public
    * <p>The status message for the launch profile.</p>
    */
   statusMessage?: string;
 
   /**
+   * @public
    * <p>A configuration for a streaming session.</p>
    */
   streamConfiguration?: StreamConfiguration;
 
   /**
+   * @public
    * <p>Unique identifiers for a collection of studio components that can be used with this
    *             launch profile.</p>
    */
   studioComponentIds?: string[];
 
   /**
+   * @public
    * <p>A collection of labels, in the form of key-value pairs, that apply to this
    *             resource.</p>
    */
   tags?: Record<string, string>;
 
   /**
+   * @public
    * <p>The ISO timestamp in seconds for when the resource was updated.</p>
    */
   updatedAt?: Date;
 
   /**
+   * @public
    * <p>The user ID of the user that most recently updated the resource.</p>
    */
   updatedBy?: string;
 
   /**
+   * @public
    * <p>The list of the latest validation results.</p>
    */
   validationResults?: ValidationResult[];
@@ -1021,6 +1110,7 @@ export interface LaunchProfile {
  */
 export interface CreateLaunchProfileResponse {
   /**
+   * @public
    * <p>The launch profile.</p>
    */
   launchProfile?: LaunchProfile;
@@ -1031,6 +1121,7 @@ export interface CreateLaunchProfileResponse {
  */
 export interface CreateStreamingImageRequest {
   /**
+   * @public
    * <p>Unique, case-sensitive identifier that you provide to ensure the idempotency of the
    *             request. If you don’t specify a client token, the Amazon Web Services SDK automatically
    *             generates a client token and uses it for the request to ensure idempotency.</p>
@@ -1038,26 +1129,31 @@ export interface CreateStreamingImageRequest {
   clientToken?: string;
 
   /**
+   * @public
    * <p>A human-readable description of the streaming image.</p>
    */
   description?: string;
 
   /**
+   * @public
    * <p>The ID of an EC2 machine image with which to create this streaming image.</p>
    */
   ec2ImageId: string | undefined;
 
   /**
+   * @public
    * <p>A friendly name for a streaming image resource.</p>
    */
   name: string | undefined;
 
   /**
+   * @public
    * <p>The studio ID. </p>
    */
   studioId: string | undefined;
 
   /**
+   * @public
    * <p>A collection of labels, in the form of key-value pairs, that apply to this
    *             resource.</p>
    */
@@ -1084,11 +1180,13 @@ export type StreamingImageEncryptionConfigurationKeyType =
  */
 export interface StreamingImageEncryptionConfiguration {
   /**
+   * @public
    * <p>The ARN for a KMS key that is used to encrypt studio data.</p>
    */
   keyArn?: string;
 
   /**
+   * @public
    * <p>The type of KMS key that is used to encrypt studio data.</p>
    */
   keyType: StreamingImageEncryptionConfigurationKeyType | string | undefined;
@@ -1146,69 +1244,82 @@ export type StreamingImageStatusCode = (typeof StreamingImageStatusCode)[keyof t
  */
 export interface StreamingImage {
   /**
+   * @public
    * <p>The Amazon Resource Name (ARN) that is assigned to a studio resource and uniquely
    *             identifies it. ARNs are unique across all Regions.</p>
    */
   arn?: string;
 
   /**
+   * @public
    * <p>A human-readable description of the streaming image.</p>
    */
   description?: string;
 
   /**
+   * @public
    * <p>The ID of an EC2 machine image with which to create the streaming image.</p>
    */
   ec2ImageId?: string;
 
   /**
+   * @public
    * <p>The encryption configuration.</p>
    */
   encryptionConfiguration?: StreamingImageEncryptionConfiguration;
 
   /**
+   * @public
    * <p>The list of EULAs that must be accepted before a Streaming Session can be started
    *             using this streaming image.</p>
    */
   eulaIds?: string[];
 
   /**
+   * @public
    * <p>A friendly name for a streaming image resource.</p>
    */
   name?: string;
 
   /**
+   * @public
    * <p>The owner of the streaming image, either the <code>studioId</code> that contains the
    *             streaming image, or <code>amazon</code> for images that are provided by Amazon Nimble Studio.</p>
    */
   owner?: string;
 
   /**
+   * @public
    * <p>The platform of the streaming image, either Windows or Linux.</p>
    */
   platform?: string;
 
   /**
+   * @public
    * <p>The current state.</p>
    */
   state?: StreamingImageState | string;
 
   /**
+   * @public
    * <p>The status code.</p>
    */
   statusCode?: StreamingImageStatusCode | string;
 
   /**
+   * @public
    * <p>The status message for the streaming image.</p>
    */
   statusMessage?: string;
 
   /**
+   * @public
    * <p>The ID of the streaming image.</p>
    */
   streamingImageId?: string;
 
   /**
+   * @public
    * <p>A collection of labels, in the form of key-value pairs, that apply to this
    *             resource.</p>
    */
@@ -1220,6 +1331,7 @@ export interface StreamingImage {
  */
 export interface CreateStreamingImageResponse {
   /**
+   * @public
    * <p>The streaming image.</p>
    */
   streamingImage?: StreamingImage;
@@ -1230,6 +1342,7 @@ export interface CreateStreamingImageResponse {
  */
 export interface CreateStreamingSessionRequest {
   /**
+   * @public
    * <p>Unique, case-sensitive identifier that you provide to ensure the idempotency of the
    *             request. If you don’t specify a client token, the Amazon Web Services SDK automatically
    *             generates a client token and uses it for the request to ensure idempotency.</p>
@@ -1237,16 +1350,19 @@ export interface CreateStreamingSessionRequest {
   clientToken?: string;
 
   /**
+   * @public
    * <p>The EC2 Instance type used for the streaming session.</p>
    */
   ec2InstanceType?: StreamingInstanceType | string;
 
   /**
+   * @public
    * <p>The ID of the launch profile used to control access from the streaming session.</p>
    */
   launchProfileId: string | undefined;
 
   /**
+   * @public
    * <p>The user ID of the user that owns the streaming session. The user that owns the
    *             session will be logging into the session and interacting with the virtual
    *             workstation.</p>
@@ -1254,16 +1370,19 @@ export interface CreateStreamingSessionRequest {
   ownedBy?: string;
 
   /**
+   * @public
    * <p>The ID of the streaming image.</p>
    */
   streamingImageId?: string;
 
   /**
+   * @public
    * <p>The studio ID. </p>
    */
   studioId: string | undefined;
 
   /**
+   * @public
    * <p>A collection of labels, in the form of key-value pairs, that apply to this
    *             resource.</p>
    */
@@ -1342,32 +1461,38 @@ export type VolumeRetentionMode = (typeof VolumeRetentionMode)[keyof typeof Volu
  */
 export interface StreamingSession {
   /**
+   * @public
    * <p>The Amazon Resource Name (ARN) that is assigned to a studio resource and uniquely
    *             identifies it. ARNs are unique across all Regions.</p>
    */
   arn?: string;
 
   /**
+   * @public
    * <p>The ISO timestamp in seconds for when the resource was created.</p>
    */
   createdAt?: Date;
 
   /**
+   * @public
    * <p>The user ID of the user that created the streaming session.</p>
    */
   createdBy?: string;
 
   /**
+   * @public
    * <p>The EC2 Instance type used for the streaming session.</p>
    */
   ec2InstanceType?: string;
 
   /**
+   * @public
    * <p>The ID of the launch profile used to control access from the streaming session.</p>
    */
   launchProfileId?: string;
 
   /**
+   * @public
    * <p>The user ID of the user that owns the streaming session. The user that owns the
    *             session will be logging into the session and interacting with the virtual
    *             workstation.</p>
@@ -1375,101 +1500,120 @@ export interface StreamingSession {
   ownedBy?: string;
 
   /**
+   * @public
    * <p>The session ID.</p>
    */
   sessionId?: string;
 
   /**
+   * @public
    * <p>The current state.</p>
    */
   state?: StreamingSessionState | string;
 
   /**
+   * @public
    * <p>The status code.</p>
    */
   statusCode?: StreamingSessionStatusCode | string;
 
   /**
+   * @public
    * <p>The status message for the streaming session.</p>
    */
   statusMessage?: string;
 
   /**
+   * @public
    * <p>The ID of the streaming image.</p>
    */
   streamingImageId?: string;
 
   /**
+   * @public
    * <p>A collection of labels, in the form of key-value pairs, that apply to this
    *             resource.</p>
    */
   tags?: Record<string, string>;
 
   /**
+   * @public
    * <p>The time the streaming session will automatically terminate if not terminated by the
    *             user.</p>
    */
   terminateAt?: Date;
 
   /**
+   * @public
    * <p>The ISO timestamp in seconds for when the resource was updated.</p>
    */
   updatedAt?: Date;
 
   /**
+   * @public
    * <p>The user ID of the user that most recently updated the resource.</p>
    */
   updatedBy?: string;
 
   /**
+   * @public
    * <p>The time the session entered <code>STOP_IN_PROGRESS</code> state.</p>
    */
   stoppedAt?: Date;
 
   /**
+   * @public
    * <p>The user ID of the user that stopped the streaming session.</p>
    */
   stoppedBy?: string;
 
   /**
+   * @public
    * <p>The time the session entered <code>START_IN_PROGRESS</code> state.</p>
    */
   startedAt?: Date;
 
   /**
+   * @public
    * <p>The user ID of the user that started the streaming session.</p>
    */
   startedBy?: string;
 
   /**
+   * @public
    * <p>The time the streaming session will automatically be stopped if the user doesn’t stop
    *             the session themselves. </p>
    */
   stopAt?: Date;
 
   /**
+   * @public
    * <p>The backup ID used to restore a streaming session.</p>
    */
   startedFromBackupId?: string;
 
   /**
+   * @public
    * <p>Shows the current backup setting of the session.</p>
    */
   backupMode?: SessionBackupMode | string;
 
   /**
+   * @public
    * <p>The maximum number of backups of a streaming session that you can have. When the
    *             maximum number of backups is reached, the oldest backup is deleted.</p>
    */
   maxBackupsToRetain?: number;
 
   /**
+   * @public
    * <p>Determine if an EBS volume created from this streaming session will be backed
    *             up.</p>
    */
   volumeRetentionMode?: VolumeRetentionMode | string;
 
   /**
+   * @public
    * <p>Determine if a streaming session created from this launch profile can configure
    *             persistent storage. This means that <code>volumeConfiguration</code> and
    *                 <code>automaticTerminationMode</code> are configured.</p>
@@ -1477,6 +1621,7 @@ export interface StreamingSession {
   sessionPersistenceMode?: SessionPersistenceMode | string;
 
   /**
+   * @public
    * <p>Custom volume configuration for the root volumes that are attached to streaming
    *             sessions.</p>
    *         <p>This parameter is only allowed when <code>sessionPersistenceMode</code> is
@@ -1485,6 +1630,7 @@ export interface StreamingSession {
   volumeConfiguration?: VolumeConfiguration;
 
   /**
+   * @public
    * <p>Indicates if a streaming session created from this launch profile should be terminated
    *             automatically or retained without termination after being in a <code>STOPPED</code>
    *             state.</p>
@@ -1511,6 +1657,7 @@ export interface StreamingSession {
  */
 export interface CreateStreamingSessionResponse {
   /**
+   * @public
    * <p>The session.</p>
    */
   session?: StreamingSession;
@@ -1521,6 +1668,7 @@ export interface CreateStreamingSessionResponse {
  */
 export interface CreateStreamingSessionStreamRequest {
   /**
+   * @public
    * <p>Unique, case-sensitive identifier that you provide to ensure the idempotency of the
    *             request. If you don’t specify a client token, the Amazon Web Services SDK automatically
    *             generates a client token and uses it for the request to ensure idempotency.</p>
@@ -1528,16 +1676,19 @@ export interface CreateStreamingSessionStreamRequest {
   clientToken?: string;
 
   /**
+   * @public
    * <p>The expiration time in seconds.</p>
    */
   expirationInSeconds?: number;
 
   /**
+   * @public
    * <p>The streaming session ID.</p>
    */
   sessionId: string | undefined;
 
   /**
+   * @public
    * <p>The studio ID. </p>
    */
   studioId: string | undefined;
@@ -1590,21 +1741,25 @@ export type StreamingSessionStreamStatusCode =
  */
 export interface StreamingSessionStream {
   /**
+   * @public
    * <p>The ISO timestamp in seconds for when the resource was created.</p>
    */
   createdAt?: Date;
 
   /**
+   * @public
    * <p>The user ID of the user that created the streaming session stream.</p>
    */
   createdBy?: string;
 
   /**
+   * @public
    * <p>The ISO timestamp in seconds for when the resource expires.</p>
    */
   expiresAt?: Date;
 
   /**
+   * @public
    * <p>The user ID of the user that owns the streaming session. The user that owns the
    *             session will be logging into the session and interacting with the virtual
    *             workstation.</p>
@@ -1612,21 +1767,25 @@ export interface StreamingSessionStream {
   ownedBy?: string;
 
   /**
+   * @public
    * <p>The current state.</p>
    */
   state?: StreamingSessionStreamState | string;
 
   /**
+   * @public
    * <p>The streaming session stream status code.</p>
    */
   statusCode?: StreamingSessionStreamStatusCode | string;
 
   /**
+   * @public
    * <p>The stream ID.</p>
    */
   streamId?: string;
 
   /**
+   * @public
    * <p>The URL to connect to this stream using the DCV client.</p>
    */
   url?: string;
@@ -1637,6 +1796,7 @@ export interface StreamingSessionStream {
  */
 export interface CreateStreamingSessionStreamResponse {
   /**
+   * @public
    * <p>The stream.</p>
    */
   stream?: StreamingSessionStream;
@@ -1663,11 +1823,13 @@ export type StudioEncryptionConfigurationKeyType =
  */
 export interface StudioEncryptionConfiguration {
   /**
+   * @public
    * <p>The ARN for a KMS key that is used to encrypt studio data.</p>
    */
   keyArn?: string;
 
   /**
+   * @public
    * <p>The type of KMS key that is used to encrypt studio data.</p>
    */
   keyType: StudioEncryptionConfigurationKeyType | string | undefined;
@@ -1678,12 +1840,14 @@ export interface StudioEncryptionConfiguration {
  */
 export interface CreateStudioRequest {
   /**
+   * @public
    * <p>The IAM role that studio admins will assume when logging in to the
    *                 Nimble Studio portal.</p>
    */
   adminRoleArn: string | undefined;
 
   /**
+   * @public
    * <p>Unique, case-sensitive identifier that you provide to ensure the idempotency of the
    *             request. If you don’t specify a client token, the Amazon Web Services SDK automatically
    *             generates a client token and uses it for the request to ensure idempotency.</p>
@@ -1691,28 +1855,33 @@ export interface CreateStudioRequest {
   clientToken?: string;
 
   /**
+   * @public
    * <p>A friendly name for the studio.</p>
    */
   displayName: string | undefined;
 
   /**
+   * @public
    * <p>The studio encryption configuration.</p>
    */
   studioEncryptionConfiguration?: StudioEncryptionConfiguration;
 
   /**
+   * @public
    * <p>The studio name that is used in the URL of the Nimble Studio portal when accessed
    *             by Nimble Studio users.</p>
    */
   studioName: string | undefined;
 
   /**
+   * @public
    * <p>A collection of labels, in the form of key-value pairs, that apply to this
    *             resource.</p>
    */
   tags?: Record<string, string>;
 
   /**
+   * @public
    * <p>The IAM role that studio users will assume when logging in to the
    *                 Nimble Studio portal.</p>
    */
@@ -1788,85 +1957,101 @@ export type StudioStatusCode = (typeof StudioStatusCode)[keyof typeof StudioStat
  */
 export interface Studio {
   /**
+   * @public
    * <p>The IAM role that studio admins assume when logging in to the Nimble Studio portal.</p>
    */
   adminRoleArn?: string;
 
   /**
+   * @public
    * <p>The Amazon Resource Name (ARN) that is assigned to a studio resource and uniquely
    *             identifies it. ARNs are unique across all Regions.</p>
    */
   arn?: string;
 
   /**
+   * @public
    * <p>The ISO timestamp in seconds for when the resource was created.</p>
    */
   createdAt?: Date;
 
   /**
+   * @public
    * <p>A friendly name for the studio.</p>
    */
   displayName?: string;
 
   /**
+   * @public
    * <p>The Amazon Web Services Region where the studio resource is located.</p>
    */
   homeRegion?: string;
 
   /**
+   * @public
    * <p>The IAM Identity Center application client ID used to integrate with IAM Identity Center. This ID allows IAM Identity Center users to log in to Nimble Studio
    *             portal.</p>
    */
   ssoClientId?: string;
 
   /**
+   * @public
    * <p>The current state of the studio resource.</p>
    */
   state?: StudioState | string;
 
   /**
+   * @public
    * <p>Status codes that provide additional detail on the studio state.</p>
    */
   statusCode?: StudioStatusCode | string;
 
   /**
+   * @public
    * <p>Additional detail on the studio state.</p>
    */
   statusMessage?: string;
 
   /**
+   * @public
    * <p>Configuration of the encryption method that is used for the studio.</p>
    */
   studioEncryptionConfiguration?: StudioEncryptionConfiguration;
 
   /**
+   * @public
    * <p>The unique identifier for a studio resource. In Nimble Studio, all other
    *             resources are contained in a studio resource.</p>
    */
   studioId?: string;
 
   /**
+   * @public
    * <p>The name of the studio, as included in the URL when accessing it in the Nimble Studio portal.</p>
    */
   studioName?: string;
 
   /**
+   * @public
    * <p>The address of the web page for the studio.</p>
    */
   studioUrl?: string;
 
   /**
+   * @public
    * <p>A collection of labels, in the form of key-value pairs, that apply to this
    *             resource.</p>
    */
   tags?: Record<string, string>;
 
   /**
+   * @public
    * <p>The ISO timestamp in seconds for when the resource was updated.</p>
    */
   updatedAt?: Date;
 
   /**
+   * @public
    * <p>The IAM role that studio users assume when logging in to the Nimble Studio portal.</p>
    */
   userRoleArn?: string;
@@ -1877,6 +2062,7 @@ export interface Studio {
  */
 export interface CreateStudioResponse {
   /**
+   * @public
    * <p>Information about a studio.</p>
    */
   studio?: Studio;
@@ -1889,6 +2075,7 @@ export interface CreateStudioResponse {
  */
 export interface LicenseServiceConfiguration {
   /**
+   * @public
    * <p>The endpoint of the license service that is accessed by the studio component
    *             resource.</p>
    */
@@ -1902,27 +2089,32 @@ export interface LicenseServiceConfiguration {
  */
 export interface SharedFileSystemConfiguration {
   /**
+   * @public
    * <p>The endpoint of the shared file system that is accessed by the studio component
    *             resource.</p>
    */
   endpoint?: string;
 
   /**
+   * @public
    * <p>The unique identifier for a file system.</p>
    */
   fileSystemId?: string;
 
   /**
+   * @public
    * <p>The mount location for a shared file system on a Linux virtual workstation.</p>
    */
   linuxMountPoint?: string;
 
   /**
+   * @public
    * <p>The name of the file share.</p>
    */
   shareName?: string;
 
   /**
+   * @public
    * <p>The mount location for a shared file system on a Windows virtual workstation.</p>
    */
   windowsMountDrive?: string;
@@ -1934,22 +2126,26 @@ export interface SharedFileSystemConfiguration {
  */
 export interface StudioComponentConfiguration {
   /**
+   * @public
    * <p>The configuration for a Directory Service for Microsoft Active Directory studio resource.</p>
    */
   activeDirectoryConfiguration?: ActiveDirectoryConfiguration;
 
   /**
+   * @public
    * <p>The configuration for a render farm that is associated with a studio resource.</p>
    */
   computeFarmConfiguration?: ComputeFarmConfiguration;
 
   /**
+   * @public
    * <p>The configuration for a license service that is associated with a studio
    *             resource.</p>
    */
   licenseServiceConfiguration?: LicenseServiceConfiguration;
 
   /**
+   * @public
    * <p>The configuration for a shared file storage system that is associated with a studio
    *             resource.</p>
    */
@@ -1991,22 +2187,26 @@ export type StudioComponentInitializationScriptRunContext =
  */
 export interface StudioComponentInitializationScript {
   /**
+   * @public
    * <p>The version number of the protocol that is used by the launch profile. The only valid
    *             version is "2021-03-31".</p>
    */
   launchProfileProtocolVersion?: string;
 
   /**
+   * @public
    * <p>The platform of the initialization script, either Windows or Linux.</p>
    */
   platform?: LaunchProfilePlatform | string;
 
   /**
+   * @public
    * <p>The method to use when running the initialization script.</p>
    */
   runContext?: StudioComponentInitializationScriptRunContext | string;
 
   /**
+   * @public
    * <p>The initialization script.</p>
    */
   script?: string;
@@ -2018,11 +2218,13 @@ export interface StudioComponentInitializationScript {
  */
 export interface ScriptParameterKeyValue {
   /**
+   * @public
    * <p>A script parameter key.</p>
    */
   key?: string;
 
   /**
+   * @public
    * <p>A script parameter value.</p>
    */
   value?: string;
@@ -2066,6 +2268,7 @@ export type StudioComponentType = (typeof StudioComponentType)[keyof typeof Stud
  */
 export interface CreateStudioComponentRequest {
   /**
+   * @public
    * <p>Unique, case-sensitive identifier that you provide to ensure the idempotency of the
    *             request. If you don’t specify a client token, the Amazon Web Services SDK automatically
    *             generates a client token and uses it for the request to ensure idempotency.</p>
@@ -2073,57 +2276,68 @@ export interface CreateStudioComponentRequest {
   clientToken?: string;
 
   /**
+   * @public
    * <p>The configuration of the studio component, based on component type.</p>
    */
   configuration?: StudioComponentConfiguration;
 
   /**
+   * @public
    * <p>The description.</p>
    */
   description?: string;
 
   /**
+   * @public
    * <p>The EC2 security groups that control access to the studio component.</p>
    */
   ec2SecurityGroupIds?: string[];
 
   /**
+   * @public
    * <p>Initialization scripts for studio components.</p>
    */
   initializationScripts?: StudioComponentInitializationScript[];
 
   /**
+   * @public
    * <p>The name for the studio component.</p>
    */
   name: string | undefined;
 
   /**
+   * @public
    * <p>Parameters for the studio component scripts.</p>
    */
   scriptParameters?: ScriptParameterKeyValue[];
 
   /**
+   * @public
    * <p>The studio ID. </p>
    */
   studioId: string | undefined;
 
   /**
+   * @public
    * <p>The specific subtype of a studio component.</p>
    */
   subtype?: StudioComponentSubtype | string;
 
   /**
+   * @public
    * <p>A collection of labels, in the form of key-value pairs, that apply to this
    *             resource.</p>
    */
   tags?: Record<string, string>;
 
   /**
+   * @public
    * <p>The type of the studio component.</p>
    */
   type: StudioComponentType | string | undefined;
 
   /**
+   * @public
    * <p>An IAM role attached to Studio Component when the system initialization
    *             script runs which give the studio component access to Amazon Web Services resources when
    *             the system initialization script runs.</p>
@@ -2131,6 +2345,7 @@ export interface CreateStudioComponentRequest {
   secureInitializationRoleArn?: string;
 
   /**
+   * @public
    * <p>An IAM role attached to a Studio Component that gives the studio
    *             component access to Amazon Web Services resources at anytime while the instance is
    *             running. </p>
@@ -2194,98 +2409,117 @@ export type StudioComponentStatusCode = (typeof StudioComponentStatusCode)[keyof
  */
 export interface StudioComponent {
   /**
+   * @public
    * <p>The Amazon Resource Name (ARN) that is assigned to a studio resource and uniquely
    *             identifies it. ARNs are unique across all Regions.</p>
    */
   arn?: string;
 
   /**
+   * @public
    * <p>The configuration of the studio component, based on component type.</p>
    */
   configuration?: StudioComponentConfiguration;
 
   /**
+   * @public
    * <p>The ISO timestamp in seconds for when the resource was created.</p>
    */
   createdAt?: Date;
 
   /**
+   * @public
    * <p>The user ID of the user that created the studio component.</p>
    */
   createdBy?: string;
 
   /**
+   * @public
    * <p>A human-readable description for the studio component resource.</p>
    */
   description?: string;
 
   /**
+   * @public
    * <p>The EC2 security groups that control access to the studio component.</p>
    */
   ec2SecurityGroupIds?: string[];
 
   /**
+   * @public
    * <p>Initialization scripts for studio components.</p>
    */
   initializationScripts?: StudioComponentInitializationScript[];
 
   /**
+   * @public
    * <p>A friendly name for the studio component resource.</p>
    */
   name?: string;
 
   /**
+   * @public
    * <p>Parameters for the studio component scripts.</p>
    */
   scriptParameters?: ScriptParameterKeyValue[];
 
   /**
+   * @public
    * <p>The current state.</p>
    */
   state?: StudioComponentState | string;
 
   /**
+   * @public
    * <p>The status code.</p>
    */
   statusCode?: StudioComponentStatusCode | string;
 
   /**
+   * @public
    * <p>The status message for the studio component.</p>
    */
   statusMessage?: string;
 
   /**
+   * @public
    * <p>The unique identifier for a studio component resource.</p>
    */
   studioComponentId?: string;
 
   /**
+   * @public
    * <p>The specific subtype of a studio component.</p>
    */
   subtype?: StudioComponentSubtype | string;
 
   /**
+   * @public
    * <p>A collection of labels, in the form of key-value pairs, that apply to this
    *             resource.</p>
    */
   tags?: Record<string, string>;
 
   /**
+   * @public
    * <p>The type of the studio component.</p>
    */
   type?: StudioComponentType | string;
 
   /**
+   * @public
    * <p>The ISO timestamp in seconds for when the resource was updated.</p>
    */
   updatedAt?: Date;
 
   /**
+   * @public
    * <p>The user ID of the user that most recently updated the resource.</p>
    */
   updatedBy?: string;
 
   /**
+   * @public
    * <p>An IAM role attached to Studio Component when the system initialization
    *             script runs which give the studio component access to Amazon Web Services resources when
    *             the system initialization script runs.</p>
@@ -2293,6 +2527,7 @@ export interface StudioComponent {
   secureInitializationRoleArn?: string;
 
   /**
+   * @public
    * <p>An IAM role attached to a Studio Component that gives the studio
    *             component access to Amazon Web Services resources at anytime while the instance is
    *             running. </p>
@@ -2305,6 +2540,7 @@ export interface StudioComponent {
  */
 export interface CreateStudioComponentResponse {
   /**
+   * @public
    * <p>Information about the studio component.</p>
    */
   studioComponent?: StudioComponent;
@@ -2315,6 +2551,7 @@ export interface CreateStudioComponentResponse {
  */
 export interface DeleteLaunchProfileRequest {
   /**
+   * @public
    * <p>Unique, case-sensitive identifier that you provide to ensure the idempotency of the
    *             request. If you don’t specify a client token, the Amazon Web Services SDK automatically
    *             generates a client token and uses it for the request to ensure idempotency.</p>
@@ -2322,11 +2559,13 @@ export interface DeleteLaunchProfileRequest {
   clientToken?: string;
 
   /**
+   * @public
    * <p>The ID of the launch profile used to control access from the streaming session.</p>
    */
   launchProfileId: string | undefined;
 
   /**
+   * @public
    * <p>The studio ID. </p>
    */
   studioId: string | undefined;
@@ -2337,6 +2576,7 @@ export interface DeleteLaunchProfileRequest {
  */
 export interface DeleteLaunchProfileResponse {
   /**
+   * @public
    * <p>The launch profile.</p>
    */
   launchProfile?: LaunchProfile;
@@ -2347,6 +2587,7 @@ export interface DeleteLaunchProfileResponse {
  */
 export interface DeleteLaunchProfileMemberRequest {
   /**
+   * @public
    * <p>Unique, case-sensitive identifier that you provide to ensure the idempotency of the
    *             request. If you don’t specify a client token, the Amazon Web Services SDK automatically
    *             generates a client token and uses it for the request to ensure idempotency.</p>
@@ -2354,16 +2595,19 @@ export interface DeleteLaunchProfileMemberRequest {
   clientToken?: string;
 
   /**
+   * @public
    * <p>The ID of the launch profile used to control access from the streaming session.</p>
    */
   launchProfileId: string | undefined;
 
   /**
+   * @public
    * <p>The principal ID. This currently supports a IAM Identity Center UserId. </p>
    */
   principalId: string | undefined;
 
   /**
+   * @public
    * <p>The studio ID. </p>
    */
   studioId: string | undefined;
@@ -2379,6 +2623,7 @@ export interface DeleteLaunchProfileMemberResponse {}
  */
 export interface DeleteStreamingImageRequest {
   /**
+   * @public
    * <p>Unique, case-sensitive identifier that you provide to ensure the idempotency of the
    *             request. If you don’t specify a client token, the Amazon Web Services SDK automatically
    *             generates a client token and uses it for the request to ensure idempotency.</p>
@@ -2386,11 +2631,13 @@ export interface DeleteStreamingImageRequest {
   clientToken?: string;
 
   /**
+   * @public
    * <p>The streaming image ID.</p>
    */
   streamingImageId: string | undefined;
 
   /**
+   * @public
    * <p>The studio ID. </p>
    */
   studioId: string | undefined;
@@ -2401,6 +2648,7 @@ export interface DeleteStreamingImageRequest {
  */
 export interface DeleteStreamingImageResponse {
   /**
+   * @public
    * <p>The streaming image.</p>
    */
   streamingImage?: StreamingImage;
@@ -2411,6 +2659,7 @@ export interface DeleteStreamingImageResponse {
  */
 export interface DeleteStreamingSessionRequest {
   /**
+   * @public
    * <p>Unique, case-sensitive identifier that you provide to ensure the idempotency of the
    *             request. If you don’t specify a client token, the Amazon Web Services SDK automatically
    *             generates a client token and uses it for the request to ensure idempotency.</p>
@@ -2418,11 +2667,13 @@ export interface DeleteStreamingSessionRequest {
   clientToken?: string;
 
   /**
+   * @public
    * <p>The streaming session ID.</p>
    */
   sessionId: string | undefined;
 
   /**
+   * @public
    * <p>The studio ID. </p>
    */
   studioId: string | undefined;
@@ -2433,6 +2684,7 @@ export interface DeleteStreamingSessionRequest {
  */
 export interface DeleteStreamingSessionResponse {
   /**
+   * @public
    * <p>The session.</p>
    */
   session?: StreamingSession;
@@ -2443,6 +2695,7 @@ export interface DeleteStreamingSessionResponse {
  */
 export interface DeleteStudioRequest {
   /**
+   * @public
    * <p>Unique, case-sensitive identifier that you provide to ensure the idempotency of the
    *             request. If you don’t specify a client token, the Amazon Web Services SDK automatically
    *             generates a client token and uses it for the request to ensure idempotency.</p>
@@ -2450,6 +2703,7 @@ export interface DeleteStudioRequest {
   clientToken?: string;
 
   /**
+   * @public
    * <p>The studio ID. </p>
    */
   studioId: string | undefined;
@@ -2460,6 +2714,7 @@ export interface DeleteStudioRequest {
  */
 export interface DeleteStudioResponse {
   /**
+   * @public
    * <p>Information about a studio.</p>
    */
   studio: Studio | undefined;
@@ -2470,6 +2725,7 @@ export interface DeleteStudioResponse {
  */
 export interface DeleteStudioComponentRequest {
   /**
+   * @public
    * <p>Unique, case-sensitive identifier that you provide to ensure the idempotency of the
    *             request. If you don’t specify a client token, the Amazon Web Services SDK automatically
    *             generates a client token and uses it for the request to ensure idempotency.</p>
@@ -2477,11 +2733,13 @@ export interface DeleteStudioComponentRequest {
   clientToken?: string;
 
   /**
+   * @public
    * <p>The studio component ID.</p>
    */
   studioComponentId: string | undefined;
 
   /**
+   * @public
    * <p>The studio ID. </p>
    */
   studioId: string | undefined;
@@ -2492,6 +2750,7 @@ export interface DeleteStudioComponentRequest {
  */
 export interface DeleteStudioComponentResponse {
   /**
+   * @public
    * <p>Information about the studio component.</p>
    */
   studioComponent?: StudioComponent;
@@ -2502,6 +2761,7 @@ export interface DeleteStudioComponentResponse {
  */
 export interface DeleteStudioMemberRequest {
   /**
+   * @public
    * <p>Unique, case-sensitive identifier that you provide to ensure the idempotency of the
    *             request. If you don’t specify a client token, the Amazon Web Services SDK automatically
    *             generates a client token and uses it for the request to ensure idempotency.</p>
@@ -2509,11 +2769,13 @@ export interface DeleteStudioMemberRequest {
   clientToken?: string;
 
   /**
+   * @public
    * <p>The principal ID. This currently supports a IAM Identity Center UserId. </p>
    */
   principalId: string | undefined;
 
   /**
+   * @public
    * <p>The studio ID. </p>
    */
   studioId: string | undefined;
@@ -2530,26 +2792,31 @@ export interface DeleteStudioMemberResponse {}
  */
 export interface Eula {
   /**
+   * @public
    * <p>The EULA content.</p>
    */
   content?: string;
 
   /**
+   * @public
    * <p>The ISO timestamp in seconds for when the resource was created.</p>
    */
   createdAt?: Date;
 
   /**
+   * @public
    * <p>The EULA ID.</p>
    */
   eulaId?: string;
 
   /**
+   * @public
    * <p>The name for the EULA.</p>
    */
   name?: string;
 
   /**
+   * @public
    * <p>The ISO timestamp in seconds for when the resource was updated.</p>
    */
   updatedAt?: Date;
@@ -2560,16 +2827,19 @@ export interface Eula {
  */
 export interface ListEulaAcceptancesRequest {
   /**
+   * @public
    * <p>The list of EULA IDs that have been previously accepted.</p>
    */
   eulaIds?: string[];
 
   /**
+   * @public
    * <p>The token for the next set of results, or null if there are no more results.</p>
    */
   nextToken?: string;
 
   /**
+   * @public
    * <p>The studio ID. </p>
    */
   studioId: string | undefined;
@@ -2580,11 +2850,13 @@ export interface ListEulaAcceptancesRequest {
  */
 export interface ListEulaAcceptancesResponse {
   /**
+   * @public
    * <p>A collection of EULA acceptances.</p>
    */
   eulaAcceptances?: EulaAcceptance[];
 
   /**
+   * @public
    * <p>The token for the next set of results, or null if there are no more results.</p>
    */
   nextToken?: string;
@@ -2595,6 +2867,7 @@ export interface ListEulaAcceptancesResponse {
  */
 export interface GetEulaRequest {
   /**
+   * @public
    * <p>The EULA ID.</p>
    */
   eulaId: string | undefined;
@@ -2605,6 +2878,7 @@ export interface GetEulaRequest {
  */
 export interface GetEulaResponse {
   /**
+   * @public
    * <p>The EULA.</p>
    */
   eula?: Eula;
@@ -2615,11 +2889,13 @@ export interface GetEulaResponse {
  */
 export interface ListEulasRequest {
   /**
+   * @public
    * <p>The list of EULA IDs that should be returned</p>
    */
   eulaIds?: string[];
 
   /**
+   * @public
    * <p>The token for the next set of results, or null if there are no more results.</p>
    */
   nextToken?: string;
@@ -2630,11 +2906,13 @@ export interface ListEulasRequest {
  */
 export interface ListEulasResponse {
   /**
+   * @public
    * <p>A collection of EULA resources.</p>
    */
   eulas?: Eula[];
 
   /**
+   * @public
    * <p>The token for the next set of results, or null if there are no more results.</p>
    */
   nextToken?: string;
@@ -2645,11 +2923,13 @@ export interface ListEulasResponse {
  */
 export interface GetLaunchProfileRequest {
   /**
+   * @public
    * <p>The ID of the launch profile used to control access from the streaming session.</p>
    */
   launchProfileId: string | undefined;
 
   /**
+   * @public
    * <p>The studio ID. </p>
    */
   studioId: string | undefined;
@@ -2660,6 +2940,7 @@ export interface GetLaunchProfileRequest {
  */
 export interface GetLaunchProfileResponse {
   /**
+   * @public
    * <p>The launch profile.</p>
    */
   launchProfile?: LaunchProfile;
@@ -2670,11 +2951,13 @@ export interface GetLaunchProfileResponse {
  */
 export interface GetLaunchProfileDetailsRequest {
   /**
+   * @public
    * <p>The ID of the launch profile used to control access from the streaming session.</p>
    */
   launchProfileId: string | undefined;
 
   /**
+   * @public
    * <p>The studio ID. </p>
    */
   studioId: string | undefined;
@@ -2686,46 +2969,55 @@ export interface GetLaunchProfileDetailsRequest {
  */
 export interface StudioComponentSummary {
   /**
+   * @public
    * <p>The ISO timestamp in seconds for when the resource was created.</p>
    */
   createdAt?: Date;
 
   /**
+   * @public
    * <p>The user ID of the user that created the studio component.</p>
    */
   createdBy?: string;
 
   /**
+   * @public
    * <p>The description.</p>
    */
   description?: string;
 
   /**
+   * @public
    * <p>The name for the studio component.</p>
    */
   name?: string;
 
   /**
+   * @public
    * <p>The unique identifier for a studio component resource.</p>
    */
   studioComponentId?: string;
 
   /**
+   * @public
    * <p>The specific subtype of a studio component.</p>
    */
   subtype?: StudioComponentSubtype | string;
 
   /**
+   * @public
    * <p>The type of the studio component.</p>
    */
   type?: StudioComponentType | string;
 
   /**
+   * @public
    * <p>The ISO timestamp in seconds for when the resource was updated.</p>
    */
   updatedAt?: Date;
 
   /**
+   * @public
    * <p>The user ID of the user that most recently updated the resource.</p>
    */
   updatedBy?: string;
@@ -2736,16 +3028,19 @@ export interface StudioComponentSummary {
  */
 export interface GetLaunchProfileDetailsResponse {
   /**
+   * @public
    * <p>The launch profile.</p>
    */
   launchProfile?: LaunchProfile;
 
   /**
+   * @public
    * <p>A collection of streaming images.</p>
    */
   streamingImages?: StreamingImage[];
 
   /**
+   * @public
    * <p>A collection of studio component summaries.</p>
    */
   studioComponentSummaries?: StudioComponentSummary[];
@@ -2756,26 +3051,31 @@ export interface GetLaunchProfileDetailsResponse {
  */
 export interface GetLaunchProfileInitializationRequest {
   /**
+   * @public
    * <p>The ID of the launch profile used to control access from the streaming session.</p>
    */
   launchProfileId: string | undefined;
 
   /**
+   * @public
    * <p>The launch profile protocol versions supported by the client.</p>
    */
   launchProfileProtocolVersions: string[] | undefined;
 
   /**
+   * @public
    * <p>The launch purpose.</p>
    */
   launchPurpose: string | undefined;
 
   /**
+   * @public
    * <p>The platform where this Launch Profile will be used, either Windows or Linux.</p>
    */
   platform: string | undefined;
 
   /**
+   * @public
    * <p>The studio ID. </p>
    */
   studioId: string | undefined;
@@ -2788,37 +3088,44 @@ export interface GetLaunchProfileInitializationRequest {
  */
 export interface LaunchProfileInitializationActiveDirectory {
   /**
+   * @public
    * <p>A collection of custom attributes for an Active Directory computer.</p>
    */
   computerAttributes?: ActiveDirectoryComputerAttribute[];
 
   /**
+   * @public
    * <p>The directory ID of the Directory Service for Microsoft Active Directory to access using this launch
    *             profile.</p>
    */
   directoryId?: string;
 
   /**
+   * @public
    * <p>The directory name.</p>
    */
   directoryName?: string;
 
   /**
+   * @public
    * <p>The DNS IP address.</p>
    */
   dnsIpAddresses?: string[];
 
   /**
+   * @public
    * <p>The name for the organizational unit distinguished name.</p>
    */
   organizationalUnitDistinguishedName?: string;
 
   /**
+   * @public
    * <p>The unique identifier for a studio component resource.</p>
    */
   studioComponentId?: string;
 
   /**
+   * @public
    * <p>The name for the studio component.</p>
    */
   studioComponentName?: string;
@@ -2831,21 +3138,25 @@ export interface LaunchProfileInitializationActiveDirectory {
  */
 export interface LaunchProfileInitializationScript {
   /**
+   * @public
    * <p>The initialization script.</p>
    */
   script?: string;
 
   /**
+   * @public
    * <p>The unique identifier for a studio component resource.</p>
    */
   studioComponentId?: string;
 
   /**
+   * @public
    * <p>The name for the studio component.</p>
    */
   studioComponentName?: string;
 
   /**
+   * @public
    * <p>An IAM role attached to Studio Component when the system initialization
    *             script runs which give the studio component access to Amazon Web Services resources when
    *             the system initialization script runs.</p>
@@ -2853,6 +3164,7 @@ export interface LaunchProfileInitializationScript {
   secureInitializationRoleArn?: string;
 
   /**
+   * @public
    * <p>An IAM role attached to a Studio Component that gives the studio
    *             component access to Amazon Web Services resources at anytime while the instance is
    *             running. </p>
@@ -2869,47 +3181,56 @@ export interface LaunchProfileInitializationScript {
  */
 export interface LaunchProfileInitialization {
   /**
+   * @public
    * <p>A <code>LaunchProfileInitializationActiveDirectory</code> resource.</p>
    */
   activeDirectory?: LaunchProfileInitializationActiveDirectory;
 
   /**
+   * @public
    * <p>The EC2 security groups that control access to the studio component.</p>
    */
   ec2SecurityGroupIds?: string[];
 
   /**
+   * @public
    * <p>The ID of the launch profile used to control access from the streaming session.</p>
    */
   launchProfileId?: string;
 
   /**
+   * @public
    * <p>The version number of the protocol that is used by the launch profile. The only valid
    *             version is "2021-03-31".</p>
    */
   launchProfileProtocolVersion?: string;
 
   /**
+   * @public
    * <p>The launch purpose.</p>
    */
   launchPurpose?: string;
 
   /**
+   * @public
    * <p>The name for the launch profile.</p>
    */
   name?: string;
 
   /**
+   * @public
    * <p>The platform of the launch platform, either Windows or Linux.</p>
    */
   platform?: LaunchProfilePlatform | string;
 
   /**
+   * @public
    * <p>The system initializtion scripts.</p>
    */
   systemInitializationScripts?: LaunchProfileInitializationScript[];
 
   /**
+   * @public
    * <p>The user initializtion scripts.</p>
    */
   userInitializationScripts?: LaunchProfileInitializationScript[];
@@ -2920,6 +3241,7 @@ export interface LaunchProfileInitialization {
  */
 export interface GetLaunchProfileInitializationResponse {
   /**
+   * @public
    * <p>The launch profile initialization.</p>
    */
   launchProfileInitialization?: LaunchProfileInitialization;
@@ -2930,16 +3252,19 @@ export interface GetLaunchProfileInitializationResponse {
  */
 export interface GetLaunchProfileMemberRequest {
   /**
+   * @public
    * <p>The ID of the launch profile used to control access from the streaming session.</p>
    */
   launchProfileId: string | undefined;
 
   /**
+   * @public
    * <p>The principal ID. This currently supports a IAM Identity Center UserId. </p>
    */
   principalId: string | undefined;
 
   /**
+   * @public
    * <p>The studio ID. </p>
    */
   studioId: string | undefined;
@@ -2989,21 +3314,25 @@ export type LaunchProfilePersona = (typeof LaunchProfilePersona)[keyof typeof La
  */
 export interface LaunchProfileMembership {
   /**
+   * @public
    * <p>The ID of the identity store.</p>
    */
   identityStoreId?: string;
 
   /**
+   * @public
    * <p>The persona.</p>
    */
   persona?: LaunchProfilePersona | string;
 
   /**
+   * @public
    * <p>The principal ID.</p>
    */
   principalId?: string;
 
   /**
+   * @public
    * <p>The Active Directory Security Identifier for this user, if available.</p>
    */
   sid?: string;
@@ -3014,6 +3343,7 @@ export interface LaunchProfileMembership {
  */
 export interface GetLaunchProfileMemberResponse {
   /**
+   * @public
    * <p>The member.</p>
    */
   member?: LaunchProfileMembership;
@@ -3024,11 +3354,13 @@ export interface GetLaunchProfileMemberResponse {
  */
 export interface GetStreamingImageRequest {
   /**
+   * @public
    * <p>The streaming image ID.</p>
    */
   streamingImageId: string | undefined;
 
   /**
+   * @public
    * <p>The studio ID. </p>
    */
   studioId: string | undefined;
@@ -3039,6 +3371,7 @@ export interface GetStreamingImageRequest {
  */
 export interface GetStreamingImageResponse {
   /**
+   * @public
    * <p>The streaming image.</p>
    */
   streamingImage?: StreamingImage;
@@ -3049,11 +3382,13 @@ export interface GetStreamingImageResponse {
  */
 export interface GetStreamingSessionRequest {
   /**
+   * @public
    * <p>The streaming session ID.</p>
    */
   sessionId: string | undefined;
 
   /**
+   * @public
    * <p>The studio ID. </p>
    */
   studioId: string | undefined;
@@ -3064,6 +3399,7 @@ export interface GetStreamingSessionRequest {
  */
 export interface GetStreamingSessionResponse {
   /**
+   * @public
    * <p>The session.</p>
    */
   session?: StreamingSession;
@@ -3074,11 +3410,13 @@ export interface GetStreamingSessionResponse {
  */
 export interface GetStreamingSessionBackupRequest {
   /**
+   * @public
    * <p>The ID of the backup.</p>
    */
   backupId: string | undefined;
 
   /**
+   * @public
    * <p>The studio ID. </p>
    */
   studioId: string | undefined;
@@ -3090,53 +3428,63 @@ export interface GetStreamingSessionBackupRequest {
  */
 export interface StreamingSessionBackup {
   /**
+   * @public
    * <p>The Amazon Resource Name (ARN) that is assigned to a studio resource and uniquely
    *             identifies it. ARNs are unique across all Regions.</p>
    */
   arn?: string;
 
   /**
+   * @public
    * <p>The ISO timestamp in for when the resource was created.</p>
    */
   createdAt?: Date;
 
   /**
+   * @public
    * <p>The ID of the launch profile which allowed the backups for the streaming
    *             session.</p>
    */
   launchProfileId?: string;
 
   /**
+   * @public
    * <p>The user ID of the user that owns the streaming session.</p>
    */
   ownedBy?: string;
 
   /**
+   * @public
    * <p>The streaming session ID for the <code>StreamingSessionBackup</code>.</p>
    */
   sessionId?: string;
 
   /**
+   * @public
    * <p>The streaming session state.</p>
    */
   state?: StreamingSessionState | string;
 
   /**
+   * @public
    * <p>The status code.</p>
    */
   statusCode?: StreamingSessionStatusCode | string;
 
   /**
+   * @public
    * <p>The status message for the streaming session backup.</p>
    */
   statusMessage?: string;
 
   /**
+   * @public
    * <p>The ID of the backup.</p>
    */
   backupId?: string;
 
   /**
+   * @public
    * <p>A collection of labels, in the form of key-value pairs, that apply to this
    *             resource.</p>
    */
@@ -3148,6 +3496,7 @@ export interface StreamingSessionBackup {
  */
 export interface GetStreamingSessionBackupResponse {
   /**
+   * @public
    * <p>Information about the streaming session backup.</p>
    */
   streamingSessionBackup?: StreamingSessionBackup;
@@ -3158,16 +3507,19 @@ export interface GetStreamingSessionBackupResponse {
  */
 export interface GetStreamingSessionStreamRequest {
   /**
+   * @public
    * <p>The streaming session ID.</p>
    */
   sessionId: string | undefined;
 
   /**
+   * @public
    * <p>The streaming session stream ID.</p>
    */
   streamId: string | undefined;
 
   /**
+   * @public
    * <p>The studio ID. </p>
    */
   studioId: string | undefined;
@@ -3178,6 +3530,7 @@ export interface GetStreamingSessionStreamRequest {
  */
 export interface GetStreamingSessionStreamResponse {
   /**
+   * @public
    * <p>The stream.</p>
    */
   stream?: StreamingSessionStream;
@@ -3188,6 +3541,7 @@ export interface GetStreamingSessionStreamResponse {
  */
 export interface GetStudioRequest {
   /**
+   * @public
    * <p>The studio ID. </p>
    */
   studioId: string | undefined;
@@ -3198,6 +3552,7 @@ export interface GetStudioRequest {
  */
 export interface GetStudioResponse {
   /**
+   * @public
    * <p>Information about a studio.</p>
    */
   studio: Studio | undefined;
@@ -3208,11 +3563,13 @@ export interface GetStudioResponse {
  */
 export interface GetStudioComponentRequest {
   /**
+   * @public
    * <p>The studio component ID.</p>
    */
   studioComponentId: string | undefined;
 
   /**
+   * @public
    * <p>The studio ID. </p>
    */
   studioId: string | undefined;
@@ -3223,6 +3580,7 @@ export interface GetStudioComponentRequest {
  */
 export interface GetStudioComponentResponse {
   /**
+   * @public
    * <p>Information about the studio component.</p>
    */
   studioComponent?: StudioComponent;
@@ -3233,11 +3591,13 @@ export interface GetStudioComponentResponse {
  */
 export interface GetStudioMemberRequest {
   /**
+   * @public
    * <p>The principal ID. This currently supports a IAM Identity Center UserId. </p>
    */
   principalId: string | undefined;
 
   /**
+   * @public
    * <p>The studio ID. </p>
    */
   studioId: string | undefined;
@@ -3271,21 +3631,25 @@ export type StudioPersona = (typeof StudioPersona)[keyof typeof StudioPersona];
  */
 export interface StudioMembership {
   /**
+   * @public
    * <p>The ID of the identity store.</p>
    */
   identityStoreId?: string;
 
   /**
+   * @public
    * <p>The persona.</p>
    */
   persona?: StudioPersona | string;
 
   /**
+   * @public
    * <p>The principal ID.</p>
    */
   principalId?: string;
 
   /**
+   * @public
    * <p>The Active Directory Security Identifier for this user, if available.</p>
    */
   sid?: string;
@@ -3296,6 +3660,7 @@ export interface StudioMembership {
  */
 export interface GetStudioMemberResponse {
   /**
+   * @public
    * <p>The member.</p>
    */
   member?: StudioMembership;
@@ -3306,21 +3671,25 @@ export interface GetStudioMemberResponse {
  */
 export interface ListLaunchProfileMembersRequest {
   /**
+   * @public
    * <p>The ID of the launch profile used to control access from the streaming session.</p>
    */
   launchProfileId: string | undefined;
 
   /**
+   * @public
    * <p>The max number of results to return in the response.</p>
    */
   maxResults?: number;
 
   /**
+   * @public
    * <p>The token for the next set of results, or null if there are no more results.</p>
    */
   nextToken?: string;
 
   /**
+   * @public
    * <p>The studio ID. </p>
    */
   studioId: string | undefined;
@@ -3331,11 +3700,13 @@ export interface ListLaunchProfileMembersRequest {
  */
 export interface ListLaunchProfileMembersResponse {
   /**
+   * @public
    * <p>A list of members.</p>
    */
   members?: LaunchProfileMembership[];
 
   /**
+   * @public
    * <p>The token for the next set of results, or null if there are no more results.</p>
    */
   nextToken?: string;
@@ -3346,26 +3717,31 @@ export interface ListLaunchProfileMembersResponse {
  */
 export interface ListLaunchProfilesRequest {
   /**
+   * @public
    * <p>The max number of results to return in the response.</p>
    */
   maxResults?: number;
 
   /**
+   * @public
    * <p>The token for the next set of results, or null if there are no more results.</p>
    */
   nextToken?: string;
 
   /**
+   * @public
    * <p>The principal ID. This currently supports a IAM Identity Center UserId. </p>
    */
   principalId?: string;
 
   /**
+   * @public
    * <p>Filter this request to launch profiles in any of the given states.</p>
    */
   states?: (LaunchProfileState | string)[];
 
   /**
+   * @public
    * <p>The studio ID. </p>
    */
   studioId: string | undefined;
@@ -3376,11 +3752,13 @@ export interface ListLaunchProfilesRequest {
  */
 export interface ListLaunchProfilesResponse {
   /**
+   * @public
    * <p>A collection of launch profiles.</p>
    */
   launchProfiles?: LaunchProfile[];
 
   /**
+   * @public
    * <p>The token for the next set of results, or null if there are no more results.</p>
    */
   nextToken?: string;
@@ -3392,11 +3770,13 @@ export interface ListLaunchProfilesResponse {
  */
 export interface NewLaunchProfileMember {
   /**
+   * @public
    * <p>The persona.</p>
    */
   persona: LaunchProfilePersona | string | undefined;
 
   /**
+   * @public
    * <p>The principal ID.</p>
    */
   principalId: string | undefined;
@@ -3407,6 +3787,7 @@ export interface NewLaunchProfileMember {
  */
 export interface PutLaunchProfileMembersRequest {
   /**
+   * @public
    * <p>Unique, case-sensitive identifier that you provide to ensure the idempotency of the
    *             request. If you don’t specify a client token, the Amazon Web Services SDK automatically
    *             generates a client token and uses it for the request to ensure idempotency.</p>
@@ -3414,21 +3795,25 @@ export interface PutLaunchProfileMembersRequest {
   clientToken?: string;
 
   /**
+   * @public
    * <p>The ID of the identity store.</p>
    */
   identityStoreId: string | undefined;
 
   /**
+   * @public
    * <p>The ID of the launch profile used to control access from the streaming session.</p>
    */
   launchProfileId: string | undefined;
 
   /**
+   * @public
    * <p>A list of members.</p>
    */
   members: NewLaunchProfileMember[] | undefined;
 
   /**
+   * @public
    * <p>The studio ID. </p>
    */
   studioId: string | undefined;
@@ -3444,6 +3829,7 @@ export interface PutLaunchProfileMembersResponse {}
  */
 export interface UpdateLaunchProfileRequest {
   /**
+   * @public
    * <p>Unique, case-sensitive identifier that you provide to ensure the idempotency of the
    *             request. If you don’t specify a client token, the Amazon Web Services SDK automatically
    *             generates a client token and uses it for the request to ensure idempotency.</p>
@@ -3451,38 +3837,45 @@ export interface UpdateLaunchProfileRequest {
   clientToken?: string;
 
   /**
+   * @public
    * <p>The description.</p>
    */
   description?: string;
 
   /**
+   * @public
    * <p>The ID of the launch profile used to control access from the streaming session.</p>
    */
   launchProfileId: string | undefined;
 
   /**
+   * @public
    * <p>The version number of the protocol that is used by the launch profile. The only valid
    *             version is "2021-03-31".</p>
    */
   launchProfileProtocolVersions?: string[];
 
   /**
+   * @public
    * <p>The name for the launch profile.</p>
    */
   name?: string;
 
   /**
+   * @public
    * <p>A configuration for a streaming session.</p>
    */
   streamConfiguration?: StreamConfigurationCreate;
 
   /**
+   * @public
    * <p>Unique identifiers for a collection of studio components that can be used with this
    *             launch profile.</p>
    */
   studioComponentIds?: string[];
 
   /**
+   * @public
    * <p>The studio ID. </p>
    */
   studioId: string | undefined;
@@ -3493,6 +3886,7 @@ export interface UpdateLaunchProfileRequest {
  */
 export interface UpdateLaunchProfileResponse {
   /**
+   * @public
    * <p>The launch profile.</p>
    */
   launchProfile?: LaunchProfile;
@@ -3503,6 +3897,7 @@ export interface UpdateLaunchProfileResponse {
  */
 export interface UpdateLaunchProfileMemberRequest {
   /**
+   * @public
    * <p>Unique, case-sensitive identifier that you provide to ensure the idempotency of the
    *             request. If you don’t specify a client token, the Amazon Web Services SDK automatically
    *             generates a client token and uses it for the request to ensure idempotency.</p>
@@ -3510,21 +3905,25 @@ export interface UpdateLaunchProfileMemberRequest {
   clientToken?: string;
 
   /**
+   * @public
    * <p>The ID of the launch profile used to control access from the streaming session.</p>
    */
   launchProfileId: string | undefined;
 
   /**
+   * @public
    * <p>The persona.</p>
    */
   persona: LaunchProfilePersona | string | undefined;
 
   /**
+   * @public
    * <p>The principal ID. This currently supports a IAM Identity Center UserId. </p>
    */
   principalId: string | undefined;
 
   /**
+   * @public
    * <p>The studio ID. </p>
    */
   studioId: string | undefined;
@@ -3535,6 +3934,7 @@ export interface UpdateLaunchProfileMemberRequest {
  */
 export interface UpdateLaunchProfileMemberResponse {
   /**
+   * @public
    * <p>The updated member. </p>
    */
   member?: LaunchProfileMembership;
@@ -3545,16 +3945,19 @@ export interface UpdateLaunchProfileMemberResponse {
  */
 export interface ListStreamingImagesRequest {
   /**
+   * @public
    * <p>The token for the next set of results, or null if there are no more results.</p>
    */
   nextToken?: string;
 
   /**
+   * @public
    * <p>Filter this request to streaming images with the given owner</p>
    */
   owner?: string;
 
   /**
+   * @public
    * <p>The studio ID. </p>
    */
   studioId: string | undefined;
@@ -3565,11 +3968,13 @@ export interface ListStreamingImagesRequest {
  */
 export interface ListStreamingImagesResponse {
   /**
+   * @public
    * <p>The token for the next set of results, or null if there are no more results.</p>
    */
   nextToken?: string;
 
   /**
+   * @public
    * <p>A collection of streaming images.</p>
    */
   streamingImages?: StreamingImage[];
@@ -3580,16 +3985,19 @@ export interface ListStreamingImagesResponse {
  */
 export interface ListStreamingSessionBackupsRequest {
   /**
+   * @public
    * <p>The token for the next set of results, or null if there are no more results.</p>
    */
   nextToken?: string;
 
   /**
+   * @public
    * <p>The user ID of the user that owns the streaming session.</p>
    */
   ownedBy?: string;
 
   /**
+   * @public
    * <p>The studio ID. </p>
    */
   studioId: string | undefined;
@@ -3600,11 +4008,13 @@ export interface ListStreamingSessionBackupsRequest {
  */
 export interface ListStreamingSessionBackupsResponse {
   /**
+   * @public
    * <p>The token for the next set of results, or null if there are no more results.</p>
    */
   nextToken?: string;
 
   /**
+   * @public
    * <p>Information about the streaming session backups.</p>
    */
   streamingSessionBackups?: StreamingSessionBackup[];
@@ -3615,26 +4025,31 @@ export interface ListStreamingSessionBackupsResponse {
  */
 export interface ListStreamingSessionsRequest {
   /**
+   * @public
    * <p>Filters the request to streaming sessions created by the given user.</p>
    */
   createdBy?: string;
 
   /**
+   * @public
    * <p>The token for the next set of results, or null if there are no more results.</p>
    */
   nextToken?: string;
 
   /**
+   * @public
    * <p>Filters the request to streaming session owned by the given user</p>
    */
   ownedBy?: string;
 
   /**
+   * @public
    * <p>Filters the request to only the provided session IDs.</p>
    */
   sessionIds?: string;
 
   /**
+   * @public
    * <p>The studio ID. </p>
    */
   studioId: string | undefined;
@@ -3645,11 +4060,13 @@ export interface ListStreamingSessionsRequest {
  */
 export interface ListStreamingSessionsResponse {
   /**
+   * @public
    * <p>The token for the next set of results, or null if there are no more results.</p>
    */
   nextToken?: string;
 
   /**
+   * @public
    * <p>A collection of streaming sessions.</p>
    */
   sessions?: StreamingSession[];
@@ -3660,26 +4077,31 @@ export interface ListStreamingSessionsResponse {
  */
 export interface ListStudioComponentsRequest {
   /**
+   * @public
    * <p>The max number of results to return in the response.</p>
    */
   maxResults?: number;
 
   /**
+   * @public
    * <p>The token for the next set of results, or null if there are no more results.</p>
    */
   nextToken?: string;
 
   /**
+   * @public
    * <p>Filters the request to studio components that are in one of the given states. </p>
    */
   states?: (StudioComponentState | string)[];
 
   /**
+   * @public
    * <p>The studio ID. </p>
    */
   studioId: string | undefined;
 
   /**
+   * @public
    * <p>Filters the request to studio components that are of one of the given types.</p>
    */
   types?: (StudioComponentType | string)[];
@@ -3690,11 +4112,13 @@ export interface ListStudioComponentsRequest {
  */
 export interface ListStudioComponentsResponse {
   /**
+   * @public
    * <p>The token for the next set of results, or null if there are no more results.</p>
    */
   nextToken?: string;
 
   /**
+   * @public
    * <p>A collection of studio components.</p>
    */
   studioComponents?: StudioComponent[];
@@ -3705,16 +4129,19 @@ export interface ListStudioComponentsResponse {
  */
 export interface ListStudioMembersRequest {
   /**
+   * @public
    * <p>The max number of results to return in the response.</p>
    */
   maxResults?: number;
 
   /**
+   * @public
    * <p>The token for the next set of results, or null if there are no more results.</p>
    */
   nextToken?: string;
 
   /**
+   * @public
    * <p>The studio ID. </p>
    */
   studioId: string | undefined;
@@ -3725,11 +4152,13 @@ export interface ListStudioMembersRequest {
  */
 export interface ListStudioMembersResponse {
   /**
+   * @public
    * <p>A list of admin members.</p>
    */
   members?: StudioMembership[];
 
   /**
+   * @public
    * <p>The token for the next set of results, or null if there are no more results.</p>
    */
   nextToken?: string;
@@ -3740,6 +4169,7 @@ export interface ListStudioMembersResponse {
  */
 export interface ListStudiosRequest {
   /**
+   * @public
    * <p>The token for the next set of results, or null if there are no more results.</p>
    */
   nextToken?: string;
@@ -3750,11 +4180,13 @@ export interface ListStudiosRequest {
  */
 export interface ListStudiosResponse {
   /**
+   * @public
    * <p>The token for the next set of results, or null if there are no more results.</p>
    */
   nextToken?: string;
 
   /**
+   * @public
    * <p>A collection of studios.</p>
    */
   studios: Studio[] | undefined;
@@ -3765,6 +4197,7 @@ export interface ListStudiosResponse {
  */
 export interface ListTagsForResourceRequest {
   /**
+   * @public
    * <p>The Amazon Resource Name (ARN) of the resource for which you want to list tags.</p>
    */
   resourceArn: string | undefined;
@@ -3775,6 +4208,7 @@ export interface ListTagsForResourceRequest {
  */
 export interface ListTagsForResourceResponse {
   /**
+   * @public
    * <p>A collection of labels, in the form of key-value pairs, that apply to this
    *             resource.</p>
    */
@@ -3787,11 +4221,13 @@ export interface ListTagsForResourceResponse {
  */
 export interface NewStudioMember {
   /**
+   * @public
    * <p>The persona.</p>
    */
   persona: StudioPersona | string | undefined;
 
   /**
+   * @public
    * <p>The principal ID.</p>
    */
   principalId: string | undefined;
@@ -3802,6 +4238,7 @@ export interface NewStudioMember {
  */
 export interface UpdateStreamingImageRequest {
   /**
+   * @public
    * <p>Unique, case-sensitive identifier that you provide to ensure the idempotency of the
    *             request. If you don’t specify a client token, the Amazon Web Services SDK automatically
    *             generates a client token and uses it for the request to ensure idempotency.</p>
@@ -3809,21 +4246,25 @@ export interface UpdateStreamingImageRequest {
   clientToken?: string;
 
   /**
+   * @public
    * <p>The description.</p>
    */
   description?: string;
 
   /**
+   * @public
    * <p>The name for the streaming image.</p>
    */
   name?: string;
 
   /**
+   * @public
    * <p>The streaming image ID.</p>
    */
   streamingImageId: string | undefined;
 
   /**
+   * @public
    * <p>The studio ID. </p>
    */
   studioId: string | undefined;
@@ -3834,6 +4275,7 @@ export interface UpdateStreamingImageRequest {
  */
 export interface UpdateStreamingImageResponse {
   /**
+   * @public
    * <p>Represents a streaming image resource.</p>
    *         <p>Streaming images are used by studio users to select which operating system and
    *             software they want to use in a Nimble Studio streaming session.</p>
@@ -3851,6 +4293,7 @@ export interface UpdateStreamingImageResponse {
  */
 export interface StartStreamingSessionRequest {
   /**
+   * @public
    * <p>Unique, case-sensitive identifier that you provide to ensure the idempotency of the
    *             request. If you don’t specify a client token, the Amazon Web Services SDK automatically
    *             generates a client token and uses it for the request to ensure idempotency.</p>
@@ -3858,16 +4301,19 @@ export interface StartStreamingSessionRequest {
   clientToken?: string;
 
   /**
+   * @public
    * <p>The streaming session ID for the <code>StartStreamingSessionRequest</code>.</p>
    */
   sessionId: string | undefined;
 
   /**
+   * @public
    * <p>The studio ID for the StartStreamingSessionRequest.</p>
    */
   studioId: string | undefined;
 
   /**
+   * @public
    * <p>The ID of the backup.</p>
    */
   backupId?: string;
@@ -3878,6 +4324,7 @@ export interface StartStreamingSessionRequest {
  */
 export interface StartStreamingSessionResponse {
   /**
+   * @public
    * <p>A streaming session is a virtual workstation created using a particular launch
    *             profile.</p>
    */
@@ -3889,6 +4336,7 @@ export interface StartStreamingSessionResponse {
  */
 export interface StopStreamingSessionRequest {
   /**
+   * @public
    * <p>Unique, case-sensitive identifier that you provide to ensure the idempotency of the
    *             request. If you don’t specify a client token, the Amazon Web Services SDK automatically
    *             generates a client token and uses it for the request to ensure idempotency.</p>
@@ -3896,16 +4344,19 @@ export interface StopStreamingSessionRequest {
   clientToken?: string;
 
   /**
+   * @public
    * <p>The streaming session ID for the <code>StopStreamingSessionRequest</code>.</p>
    */
   sessionId: string | undefined;
 
   /**
+   * @public
    * <p>The studioId for the StopStreamingSessionRequest.</p>
    */
   studioId: string | undefined;
 
   /**
+   * @public
    * <p>Adds additional instructions to a streaming session stop action to either retain the
    *             EBS volumes or delete the EBS volumes.</p>
    */
@@ -3917,6 +4368,7 @@ export interface StopStreamingSessionRequest {
  */
 export interface StopStreamingSessionResponse {
   /**
+   * @public
    * <p>A streaming session is a virtual workstation created using a particular launch
    *             profile.</p>
    */
@@ -3928,6 +4380,7 @@ export interface StopStreamingSessionResponse {
  */
 export interface UpdateStudioComponentRequest {
   /**
+   * @public
    * <p>Unique, case-sensitive identifier that you provide to ensure the idempotency of the
    *             request. If you don’t specify a client token, the Amazon Web Services SDK automatically
    *             generates a client token and uses it for the request to ensure idempotency.</p>
@@ -3935,56 +4388,67 @@ export interface UpdateStudioComponentRequest {
   clientToken?: string;
 
   /**
+   * @public
    * <p>The configuration of the studio component, based on component type.</p>
    */
   configuration?: StudioComponentConfiguration;
 
   /**
+   * @public
    * <p>The description.</p>
    */
   description?: string;
 
   /**
+   * @public
    * <p>The EC2 security groups that control access to the studio component.</p>
    */
   ec2SecurityGroupIds?: string[];
 
   /**
+   * @public
    * <p>Initialization scripts for studio components.</p>
    */
   initializationScripts?: StudioComponentInitializationScript[];
 
   /**
+   * @public
    * <p>The name for the studio component.</p>
    */
   name?: string;
 
   /**
+   * @public
    * <p>Parameters for the studio component scripts.</p>
    */
   scriptParameters?: ScriptParameterKeyValue[];
 
   /**
+   * @public
    * <p>The studio component ID.</p>
    */
   studioComponentId: string | undefined;
 
   /**
+   * @public
    * <p>The studio ID. </p>
    */
   studioId: string | undefined;
 
   /**
+   * @public
    * <p>The specific subtype of a studio component.</p>
    */
   subtype?: StudioComponentSubtype | string;
 
   /**
+   * @public
    * <p>The type of the studio component.</p>
    */
   type?: StudioComponentType | string;
 
   /**
+   * @public
    * <p>An IAM role attached to Studio Component when the system initialization
    *             script runs which give the studio component access to Amazon Web Services resources when
    *             the system initialization script runs.</p>
@@ -3992,6 +4456,7 @@ export interface UpdateStudioComponentRequest {
   secureInitializationRoleArn?: string;
 
   /**
+   * @public
    * <p>An IAM role attached to a Studio Component that gives the studio
    *             component access to Amazon Web Services resources at anytime while the instance is
    *             running. </p>
@@ -4004,6 +4469,7 @@ export interface UpdateStudioComponentRequest {
  */
 export interface UpdateStudioComponentResponse {
   /**
+   * @public
    * <p>Information about the studio component.</p>
    */
   studioComponent?: StudioComponent;
@@ -4014,6 +4480,7 @@ export interface UpdateStudioComponentResponse {
  */
 export interface PutStudioMembersRequest {
   /**
+   * @public
    * <p>Unique, case-sensitive identifier that you provide to ensure the idempotency of the
    *             request. If you don’t specify a client token, the Amazon Web Services SDK automatically
    *             generates a client token and uses it for the request to ensure idempotency.</p>
@@ -4021,16 +4488,19 @@ export interface PutStudioMembersRequest {
   clientToken?: string;
 
   /**
+   * @public
    * <p>The ID of the identity store.</p>
    */
   identityStoreId: string | undefined;
 
   /**
+   * @public
    * <p>A list of members.</p>
    */
   members: NewStudioMember[] | undefined;
 
   /**
+   * @public
    * <p>The studio ID. </p>
    */
   studioId: string | undefined;
@@ -4046,6 +4516,7 @@ export interface PutStudioMembersResponse {}
  */
 export interface StartStudioSSOConfigurationRepairRequest {
   /**
+   * @public
    * <p>Unique, case-sensitive identifier that you provide to ensure the idempotency of the
    *             request. If you don’t specify a client token, the Amazon Web Services SDK automatically
    *             generates a client token and uses it for the request to ensure idempotency.</p>
@@ -4053,6 +4524,7 @@ export interface StartStudioSSOConfigurationRepairRequest {
   clientToken?: string;
 
   /**
+   * @public
    * <p>The studio ID. </p>
    */
   studioId: string | undefined;
@@ -4063,6 +4535,7 @@ export interface StartStudioSSOConfigurationRepairRequest {
  */
 export interface StartStudioSSOConfigurationRepairResponse {
   /**
+   * @public
    * <p>Information about a studio.</p>
    */
   studio: Studio | undefined;
@@ -4073,12 +4546,14 @@ export interface StartStudioSSOConfigurationRepairResponse {
  */
 export interface UpdateStudioRequest {
   /**
+   * @public
    * <p>The IAM role that Studio Admins will assume when logging in to the
    *                 Nimble Studio portal.</p>
    */
   adminRoleArn?: string;
 
   /**
+   * @public
    * <p>Unique, case-sensitive identifier that you provide to ensure the idempotency of the
    *             request. If you don’t specify a client token, the Amazon Web Services SDK automatically
    *             generates a client token and uses it for the request to ensure idempotency.</p>
@@ -4086,16 +4561,19 @@ export interface UpdateStudioRequest {
   clientToken?: string;
 
   /**
+   * @public
    * <p>A friendly name for the studio.</p>
    */
   displayName?: string;
 
   /**
+   * @public
    * <p>The studio ID. </p>
    */
   studioId: string | undefined;
 
   /**
+   * @public
    * <p>The IAM role that Studio Users will assume when logging in to the
    *                 Nimble Studio portal.</p>
    */
@@ -4107,6 +4585,7 @@ export interface UpdateStudioRequest {
  */
 export interface UpdateStudioResponse {
   /**
+   * @public
    * <p>Information about a studio.</p>
    */
   studio: Studio | undefined;
@@ -4117,11 +4596,13 @@ export interface UpdateStudioResponse {
  */
 export interface TagResourceRequest {
   /**
+   * @public
    * <p>The Amazon Resource Name (ARN) of the resource you want to add tags to. </p>
    */
   resourceArn: string | undefined;
 
   /**
+   * @public
    * <p>A collection of labels, in the form of key-value pairs, that apply to this
    *             resource.</p>
    */
@@ -4138,11 +4619,13 @@ export interface TagResourceResponse {}
  */
 export interface UntagResourceRequest {
   /**
+   * @public
    * <p>Identifies the Amazon Resource Name(ARN) key from which you are removing tags. </p>
    */
   resourceArn: string | undefined;
 
   /**
+   * @public
    * <p>One or more tag keys. Specify only the tag keys, not the tag values.</p>
    */
   tagKeys: string[] | undefined;

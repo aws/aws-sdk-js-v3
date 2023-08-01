@@ -24,6 +24,7 @@ import { RekognitionServiceException as __BaseException } from "./RekognitionSer
  */
 export interface StartCelebrityRecognitionResponse {
   /**
+   * @public
    * <p>The identifier for the celebrity recognition analysis job. Use <code>JobId</code> to identify the job in
    *       a subsequent call to <code>GetCelebrityRecognition</code>.</p>
    */
@@ -41,6 +42,7 @@ export class VideoTooLargeException extends __BaseException {
   Message?: string;
   Code?: string;
   /**
+   * @public
    * <p>A universally unique identifier (UUID) for the request.</p>
    */
   Logref?: string;
@@ -65,12 +67,14 @@ export class VideoTooLargeException extends __BaseException {
  */
 export interface StartContentModerationRequest {
   /**
+   * @public
    * <p>The video in which you want to detect inappropriate, unwanted, or offensive content. The video must be stored
    *       in an Amazon S3 bucket.</p>
    */
   Video: Video | undefined;
 
   /**
+   * @public
    * <p>Specifies the minimum confidence that Amazon Rekognition must have in order to return a moderated content label. Confidence
    *       represents how certain Amazon Rekognition is that the moderated content is correctly identified. 0 is the lowest confidence.
    *       100 is the highest confidence.  Amazon Rekognition doesn't return any moderated content labels with a confidence level
@@ -80,6 +84,7 @@ export interface StartContentModerationRequest {
   MinConfidence?: number;
 
   /**
+   * @public
    * <p>Idempotent token used to identify the start request. If you use the same token with multiple
    *       <code>StartContentModeration</code> requests, the same <code>JobId</code> is returned. Use
    *       <code>ClientRequestToken</code> to prevent the same job from being accidently started more than once. </p>
@@ -87,12 +92,14 @@ export interface StartContentModerationRequest {
   ClientRequestToken?: string;
 
   /**
+   * @public
    * <p>The Amazon SNS topic ARN that you want Amazon Rekognition Video to publish the completion status of the
    *       content analysis to. The Amazon SNS topic must have a topic name that begins with <i>AmazonRekognition</i> if you are using the AmazonRekognitionServiceRole permissions policy to access the topic.</p>
    */
   NotificationChannel?: NotificationChannel;
 
   /**
+   * @public
    * <p>An identifier you specify that's returned in the completion notification that's published to your Amazon Simple Notification Service topic.
    *       For example, you can use <code>JobTag</code> to group related jobs and identify them in the completion notification.</p>
    */
@@ -104,6 +111,7 @@ export interface StartContentModerationRequest {
  */
 export interface StartContentModerationResponse {
   /**
+   * @public
    * <p>The identifier for the content analysis job. Use <code>JobId</code> to identify the job in
    *       a subsequent call to <code>GetContentModeration</code>.</p>
    */
@@ -115,12 +123,14 @@ export interface StartContentModerationResponse {
  */
 export interface StartFaceDetectionRequest {
   /**
+   * @public
    * <p>The video in which you want to detect faces. The video must be stored
    *       in an Amazon S3 bucket.</p>
    */
   Video: Video | undefined;
 
   /**
+   * @public
    * <p>Idempotent token used to identify the start request. If you use the same token with multiple
    *       <code>StartFaceDetection</code> requests, the same <code>JobId</code> is returned. Use
    *       <code>ClientRequestToken</code> to prevent the same job from being accidently started more than once. </p>
@@ -128,12 +138,14 @@ export interface StartFaceDetectionRequest {
   ClientRequestToken?: string;
 
   /**
+   * @public
    * <p>The ARN of the Amazon SNS topic to which you want Amazon Rekognition Video to publish the completion status of the
    *          face detection operation. The Amazon SNS topic must have a topic name that begins with <i>AmazonRekognition</i> if you are using the AmazonRekognitionServiceRole permissions policy.</p>
    */
   NotificationChannel?: NotificationChannel;
 
   /**
+   * @public
    * <p>The face attributes you want returned.</p>
    *          <p>
    *             <code>DEFAULT</code> - The following subset of facial attributes are returned: BoundingBox, Confidence, Pose, Quality and Landmarks. </p>
@@ -143,6 +155,7 @@ export interface StartFaceDetectionRequest {
   FaceAttributes?: FaceAttributes | string;
 
   /**
+   * @public
    * <p>An identifier you specify that's returned in the completion notification that's published to your Amazon Simple Notification Service topic.
    *       For example, you can use <code>JobTag</code> to group related jobs and identify them in the completion notification.</p>
    */
@@ -154,6 +167,7 @@ export interface StartFaceDetectionRequest {
  */
 export interface StartFaceDetectionResponse {
   /**
+   * @public
    * <p>The identifier for the face detection job. Use <code>JobId</code> to identify the job in
    *     a subsequent call to <code>GetFaceDetection</code>.</p>
    */
@@ -165,11 +179,13 @@ export interface StartFaceDetectionResponse {
  */
 export interface StartFaceSearchRequest {
   /**
+   * @public
    * <p>The video you want to search. The video must be stored in an Amazon S3 bucket. </p>
    */
   Video: Video | undefined;
 
   /**
+   * @public
    * <p>Idempotent token used to identify the start request. If you use the same token with multiple
    *       <code>StartFaceSearch</code> requests, the same <code>JobId</code> is returned. Use
    *       <code>ClientRequestToken</code> to prevent the same job from being accidently started more than once. </p>
@@ -177,22 +193,26 @@ export interface StartFaceSearchRequest {
   ClientRequestToken?: string;
 
   /**
+   * @public
    * <p>The minimum confidence in the person match to return. For example, don't return any matches where confidence in matches is less than 70%.
    *       The default value is 80%.</p>
    */
   FaceMatchThreshold?: number;
 
   /**
+   * @public
    * <p>ID of the collection that contains the faces you want to search for.</p>
    */
   CollectionId: string | undefined;
 
   /**
+   * @public
    * <p>The ARN of the Amazon SNS topic to which you want Amazon Rekognition Video to publish the completion status of the search. The Amazon SNS topic must have a topic name that begins with <i>AmazonRekognition</i> if you are using the AmazonRekognitionServiceRole permissions policy to access the topic.</p>
    */
   NotificationChannel?: NotificationChannel;
 
   /**
+   * @public
    * <p>An identifier you specify that's returned in the completion notification that's published to your Amazon Simple Notification Service topic.
    *       For example, you can use <code>JobTag</code> to group related jobs and identify them in the completion notification.</p>
    */
@@ -204,6 +224,7 @@ export interface StartFaceSearchRequest {
  */
 export interface StartFaceSearchResponse {
   /**
+   * @public
    * <p>The identifier for the search job. Use <code>JobId</code> to identify the job in a subsequent call to <code>GetFaceSearch</code>. </p>
    */
   JobId?: string;
@@ -214,12 +235,14 @@ export interface StartFaceSearchResponse {
  */
 export interface StartLabelDetectionRequest {
   /**
+   * @public
    * <p>The video in which you want to detect labels. The video must be stored
    *       in an Amazon S3 bucket.</p>
    */
   Video: Video | undefined;
 
   /**
+   * @public
    * <p>Idempotent token used to identify the start request. If you use the same token with multiple
    *       <code>StartLabelDetection</code> requests, the same <code>JobId</code> is returned. Use
    *       <code>ClientRequestToken</code> to prevent the same job from being accidently started more than once. </p>
@@ -227,6 +250,7 @@ export interface StartLabelDetectionRequest {
   ClientRequestToken?: string;
 
   /**
+   * @public
    * <p>Specifies the minimum confidence that Amazon Rekognition Video must have in order to return a detected label. Confidence
    *        represents how certain Amazon Rekognition is that a label is correctly identified.0 is the lowest confidence.
    *        100 is the highest confidence.  Amazon Rekognition Video doesn't return any labels with a confidence level
@@ -238,23 +262,27 @@ export interface StartLabelDetectionRequest {
   MinConfidence?: number;
 
   /**
+   * @public
    * <p>The Amazon SNS topic ARN you want Amazon Rekognition Video to publish the completion status of the label detection
    *         operation to. The Amazon SNS topic must have a topic name that begins with <i>AmazonRekognition</i> if you are using the AmazonRekognitionServiceRole permissions policy.</p>
    */
   NotificationChannel?: NotificationChannel;
 
   /**
+   * @public
    * <p>An identifier you specify that's returned in the completion notification that's published to your Amazon Simple Notification Service topic.
    *       For example, you can use <code>JobTag</code> to group related jobs and identify them in the completion notification.</p>
    */
   JobTag?: string;
 
   /**
+   * @public
    * <p>The features to return after video analysis. You can specify that GENERAL_LABELS are returned.</p>
    */
   Features?: (LabelDetectionFeatureName | string)[];
 
   /**
+   * @public
    * <p>The settings for a StartLabelDetection request.Contains the specified parameters for the label detection request of an asynchronous label analysis operation.
    *       Settings can include filters for GENERAL_LABELS.</p>
    */
@@ -266,6 +294,7 @@ export interface StartLabelDetectionRequest {
  */
 export interface StartLabelDetectionResponse {
   /**
+   * @public
    * <p>The identifier for the label detection job. Use <code>JobId</code> to identify the job in
    *     a subsequent call to <code>GetLabelDetection</code>. </p>
    */
@@ -277,12 +306,14 @@ export interface StartLabelDetectionResponse {
  */
 export interface StartPersonTrackingRequest {
   /**
+   * @public
    * <p>The video in which you want to detect people. The video must be stored
    *       in an Amazon S3 bucket.</p>
    */
   Video: Video | undefined;
 
   /**
+   * @public
    * <p>Idempotent token used to identify the start request. If you use the same token with multiple
    *       <code>StartPersonTracking</code> requests, the same <code>JobId</code> is returned. Use
    *       <code>ClientRequestToken</code> to prevent the same job from being accidently started more than once. </p>
@@ -290,12 +321,14 @@ export interface StartPersonTrackingRequest {
   ClientRequestToken?: string;
 
   /**
+   * @public
    * <p>The Amazon SNS topic ARN you want Amazon Rekognition Video to publish the completion status of the people detection
    *         operation to. The Amazon SNS topic must have a topic name that begins with <i>AmazonRekognition</i> if you are using the AmazonRekognitionServiceRole permissions policy.</p>
    */
   NotificationChannel?: NotificationChannel;
 
   /**
+   * @public
    * <p>An identifier you specify that's returned in the completion notification that's published to your Amazon Simple Notification Service topic.
    *       For example, you can use <code>JobTag</code> to group related jobs and identify them in the completion notification.</p>
    */
@@ -307,6 +340,7 @@ export interface StartPersonTrackingRequest {
  */
 export interface StartPersonTrackingResponse {
   /**
+   * @public
    * <p>The identifier for the person detection job. Use <code>JobId</code> to identify the job in
    *     a subsequent call to <code>GetPersonTracking</code>.</p>
    */
@@ -318,11 +352,13 @@ export interface StartPersonTrackingResponse {
  */
 export interface StartProjectVersionRequest {
   /**
+   * @public
    * <p>The Amazon Resource Name(ARN) of the model version that you want to start.</p>
    */
   ProjectVersionArn: string | undefined;
 
   /**
+   * @public
    * <p>The minimum number of inference units to use. A single
    *       inference unit represents 1 hour of processing. </p>
    *          <p>For information about the number
@@ -337,6 +373,7 @@ export interface StartProjectVersionRequest {
   MinInferenceUnits: number | undefined;
 
   /**
+   * @public
    * <p>The maximum number of inference units to use for auto-scaling the model. If you don't
    *          specify a value, Amazon Rekognition Custom Labels doesn't auto-scale the model.</p>
    */
@@ -348,6 +385,7 @@ export interface StartProjectVersionRequest {
  */
 export interface StartProjectVersionResponse {
   /**
+   * @public
    * <p>The current running status of the model. </p>
    */
   Status?: ProjectVersionStatus | string;
@@ -360,6 +398,7 @@ export interface StartProjectVersionResponse {
  */
 export interface StartShotDetectionFilter {
   /**
+   * @public
    * <p>Specifies the minimum confidence that Amazon Rekognition Video must have in order to return a detected segment. Confidence
    *       represents how certain Amazon Rekognition is that a segment is correctly identified. 0 is the lowest confidence.
    *       100 is the highest confidence.  Amazon Rekognition Video doesn't return any segments with a confidence level
@@ -377,6 +416,7 @@ export interface StartShotDetectionFilter {
  */
 export interface StartTechnicalCueDetectionFilter {
   /**
+   * @public
    * <p>Specifies the minimum confidence that Amazon Rekognition Video must have in order to return a detected segment. Confidence
    *       represents how certain Amazon Rekognition is that a segment is correctly identified. 0 is the lowest confidence.
    *       100 is the highest confidence.  Amazon Rekognition Video doesn't return any segments with a confidence level
@@ -387,6 +427,7 @@ export interface StartTechnicalCueDetectionFilter {
   MinSegmentConfidence?: number;
 
   /**
+   * @public
    * <p>
    *       A filter that allows you to control the black frame detection by specifying the black levels and pixel coverage of black pixels in a frame.
    *       Videos can come from multiple sources, formats, and time periods, with different standards and varying noise levels for black frames that need to be accounted for.
@@ -403,11 +444,13 @@ export interface StartTechnicalCueDetectionFilter {
  */
 export interface StartSegmentDetectionFilters {
   /**
+   * @public
    * <p>Filters that are specific to technical cues.</p>
    */
   TechnicalCueFilter?: StartTechnicalCueDetectionFilter;
 
   /**
+   * @public
    * <p>Filters that are specific to shot detections.</p>
    */
   ShotFilter?: StartShotDetectionFilter;
@@ -418,12 +461,14 @@ export interface StartSegmentDetectionFilters {
  */
 export interface StartSegmentDetectionRequest {
   /**
+   * @public
    * <p>Video file stored in an Amazon S3 bucket. Amazon Rekognition video start operations such as <a>StartLabelDetection</a> use <code>Video</code> to
    *             specify a video for analysis. The supported file formats are .mp4, .mov and .avi.</p>
    */
   Video: Video | undefined;
 
   /**
+   * @public
    * <p>Idempotent token used to identify the start request. If you use the same token with multiple
    *       <code>StartSegmentDetection</code> requests, the same <code>JobId</code> is returned. Use
    *       <code>ClientRequestToken</code> to prevent the same job from being accidently started more than once. </p>
@@ -431,23 +476,27 @@ export interface StartSegmentDetectionRequest {
   ClientRequestToken?: string;
 
   /**
+   * @public
    * <p>The ARN of the Amazon SNS topic to which you want Amazon Rekognition Video to publish the completion status of the
    *       segment detection operation. Note that the Amazon SNS topic must have a topic name that begins with <i>AmazonRekognition</i> if you are using the AmazonRekognitionServiceRole permissions policy to access the topic.</p>
    */
   NotificationChannel?: NotificationChannel;
 
   /**
+   * @public
    * <p>An identifier you specify that's returned in the completion notification that's published to your Amazon Simple Notification Service topic.
    *       For example, you can use <code>JobTag</code> to group related jobs and identify them in the completion notification.</p>
    */
   JobTag?: string;
 
   /**
+   * @public
    * <p>Filters for technical cue or shot detection.</p>
    */
   Filters?: StartSegmentDetectionFilters;
 
   /**
+   * @public
    * <p>An array of segment types to detect in the video. Valid values are TECHNICAL_CUE and SHOT.</p>
    */
   SegmentTypes: (SegmentType | string)[] | undefined;
@@ -458,6 +507,7 @@ export interface StartSegmentDetectionRequest {
  */
 export interface StartSegmentDetectionResponse {
   /**
+   * @public
    * <p>Unique identifier for the segment detection job. The <code>JobId</code> is returned from <code>StartSegmentDetection</code>.
    *     </p>
    */
@@ -471,6 +521,7 @@ export interface StartSegmentDetectionResponse {
  */
 export interface StreamProcessingStartSelector {
   /**
+   * @public
    * <p>
    *             Specifies the starting point in the stream to start processing. This can be done with a producer timestamp or a fragment number in a Kinesis stream.
    *         </p>
@@ -487,6 +538,7 @@ export interface StreamProcessingStartSelector {
  */
 export interface StreamProcessingStopSelector {
   /**
+   * @public
    * <p>
    *             Specifies the maximum amount of time in seconds that you want the stream to be processed. The largest amount of time is 2 minutes. The default is 10 seconds.
    *         </p>
@@ -499,11 +551,13 @@ export interface StreamProcessingStopSelector {
  */
 export interface StartStreamProcessorRequest {
   /**
+   * @public
    * <p>The name of the stream processor to start processing.</p>
    */
   Name: string | undefined;
 
   /**
+   * @public
    * <p>
    *             Specifies the starting point in the Kinesis stream to start processing.
    *             You can use the producer timestamp or the fragment number. If you use the producer timestamp, you must put the time in milliseconds.
@@ -514,6 +568,7 @@ export interface StartStreamProcessorRequest {
   StartSelector?: StreamProcessingStartSelector;
 
   /**
+   * @public
    * <p>
    *             Specifies when to stop processing the stream. You can specify a
    *             maximum amount of time to process the video.
@@ -528,6 +583,7 @@ export interface StartStreamProcessorRequest {
  */
 export interface StartStreamProcessorResponse {
   /**
+   * @public
    * <p>
    *             A unique identifier for the stream processing session.
    *         </p>
@@ -543,11 +599,13 @@ export interface StartStreamProcessorResponse {
  */
 export interface StartTextDetectionFilters {
   /**
+   * @public
    * <p>Filters focusing on qualities of the text, such as confidence or size.</p>
    */
   WordFilter?: DetectionFilter;
 
   /**
+   * @public
    * <p>Filter focusing on a certain area of the frame. Uses a <code>BoundingBox</code> object to set the region
    *       of the screen.</p>
    */
@@ -559,12 +617,14 @@ export interface StartTextDetectionFilters {
  */
 export interface StartTextDetectionRequest {
   /**
+   * @public
    * <p>Video file stored in an Amazon S3 bucket. Amazon Rekognition video start operations such as <a>StartLabelDetection</a> use <code>Video</code> to
    *             specify a video for analysis. The supported file formats are .mp4, .mov and .avi.</p>
    */
   Video: Video | undefined;
 
   /**
+   * @public
    * <p>Idempotent token used to identify the start request. If you use the same token with multiple <code>StartTextDetection</code>
    *       requests, the same <code>JobId</code> is returned. Use <code>ClientRequestToken</code> to prevent the same job
    *         from being accidentaly started more than once.</p>
@@ -572,6 +632,7 @@ export interface StartTextDetectionRequest {
   ClientRequestToken?: string;
 
   /**
+   * @public
    * <p>The Amazon Simple Notification Service topic to which Amazon Rekognition publishes the completion status of a video analysis operation. For more information, see
    *           <a href="https://docs.aws.amazon.com/rekognition/latest/dg/api-video.html">Calling Amazon Rekognition Video operations</a>. Note that the Amazon SNS topic must have a topic name that begins with <i>AmazonRekognition</i> if you are using the AmazonRekognitionServiceRole permissions policy to access the topic.
    *           For more information, see <a href="https://docs.aws.amazon.com/rekognition/latest/dg/api-video-roles.html#api-video-roles-all-topics">Giving access to multiple Amazon SNS topics</a>.</p>
@@ -579,12 +640,14 @@ export interface StartTextDetectionRequest {
   NotificationChannel?: NotificationChannel;
 
   /**
+   * @public
    * <p>An identifier returned in the completion status published by your Amazon Simple Notification Service topic.  For example, you can use <code>JobTag</code> to group related jobs
    *       and identify them in the completion notification.</p>
    */
   JobTag?: string;
 
   /**
+   * @public
    * <p>Optional parameters that let you set criteria the text must meet to be included in your response.</p>
    */
   Filters?: StartTextDetectionFilters;
@@ -595,6 +658,7 @@ export interface StartTextDetectionRequest {
  */
 export interface StartTextDetectionResponse {
   /**
+   * @public
    * <p>Identifier for the text detection job.  Use <code>JobId</code> to identify the job in a subsequent call to <code>GetTextDetection</code>.</p>
    */
   JobId?: string;
@@ -605,6 +669,7 @@ export interface StartTextDetectionResponse {
  */
 export interface StopProjectVersionRequest {
   /**
+   * @public
    * <p>The Amazon Resource Name (ARN) of the model version that you want to delete.</p>
    *          <p>This operation requires permissions to perform the <code>rekognition:StopProjectVersion</code> action.</p>
    */
@@ -616,6 +681,7 @@ export interface StopProjectVersionRequest {
  */
 export interface StopProjectVersionResponse {
   /**
+   * @public
    * <p>The current status of the stop operation. </p>
    */
   Status?: ProjectVersionStatus | string;
@@ -626,6 +692,7 @@ export interface StopProjectVersionResponse {
  */
 export interface StopStreamProcessorRequest {
   /**
+   * @public
    * <p>The name of a stream processor created by <a>CreateStreamProcessor</a>.</p>
    */
   Name: string | undefined;
@@ -641,12 +708,14 @@ export interface StopStreamProcessorResponse {}
  */
 export interface TagResourceRequest {
   /**
+   * @public
    * <p> Amazon Resource Name (ARN) of the model, collection, or stream processor that you want to
    *       assign the tags to. </p>
    */
   ResourceArn: string | undefined;
 
   /**
+   * @public
    * <p> The key-value tags to assign to the resource. </p>
    */
   Tags: Record<string, string> | undefined;
@@ -662,12 +731,14 @@ export interface TagResourceResponse {}
  */
 export interface UntagResourceRequest {
   /**
+   * @public
    * <p> Amazon Resource Name (ARN) of the model, collection, or stream processor that you want to
    *       remove the tags from. </p>
    */
   ResourceArn: string | undefined;
 
   /**
+   * @public
    * <p> A list of the tags that you want to remove. </p>
    */
   TagKeys: string[] | undefined;
@@ -683,6 +754,7 @@ export interface UntagResourceResponse {}
  */
 export interface UpdateDatasetEntriesRequest {
   /**
+   * @public
    * <p>
    * The Amazon Resource Name (ARN) of the dataset that you want to update.
    * </p>
@@ -690,6 +762,7 @@ export interface UpdateDatasetEntriesRequest {
   DatasetArn: string | undefined;
 
   /**
+   * @public
    * <p>
    *    The changes that you want to make to the dataset.
    * </p>
@@ -725,6 +798,7 @@ export type StreamProcessorParameterToDelete =
  */
 export interface StreamProcessorSettingsForUpdate {
   /**
+   * @public
    * <p>
    *             The label detection settings you want to use for your stream processor.
    *         </p>
@@ -737,6 +811,7 @@ export interface StreamProcessorSettingsForUpdate {
  */
 export interface UpdateStreamProcessorRequest {
   /**
+   * @public
    * <p>
    *             Name of the stream processor that you want to update.
    *         </p>
@@ -744,6 +819,7 @@ export interface UpdateStreamProcessorRequest {
   Name: string | undefined;
 
   /**
+   * @public
    * <p>
    *             The stream processor settings that you want to update. Label detection settings can be updated to detect different labels with a different minimum confidence.
    *         </p>
@@ -751,6 +827,7 @@ export interface UpdateStreamProcessorRequest {
   SettingsForUpdate?: StreamProcessorSettingsForUpdate;
 
   /**
+   * @public
    * <p>
    *             Specifies locations in the frames where Amazon Rekognition checks for objects or people. This is an optional parameter for label detection stream processors.
    *         </p>
@@ -758,6 +835,7 @@ export interface UpdateStreamProcessorRequest {
   RegionsOfInterestForUpdate?: RegionOfInterest[];
 
   /**
+   * @public
    * <p>
    *             Shows whether you are sharing data with Rekognition to improve model performance. You can choose this option at the account level or on a per-stream basis.
    *             Note that if you opt out at the account level this setting is ignored on individual streams.
@@ -766,6 +844,7 @@ export interface UpdateStreamProcessorRequest {
   DataSharingPreferenceForUpdate?: StreamProcessorDataSharingPreference;
 
   /**
+   * @public
    * <p>
    *             A list of parameters you want to delete from the stream processor.
    *         </p>

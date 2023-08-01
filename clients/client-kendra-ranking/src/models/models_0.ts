@@ -60,6 +60,7 @@ export class ConflictException extends __BaseException {
  */
 export interface CapacityUnitsConfiguration {
   /**
+   * @public
    * <p>The amount of extra capacity for your rescore execution
    *             plan.</p>
    *          <p>A single extra capacity unit for a rescore execution
@@ -81,12 +82,14 @@ export interface CapacityUnitsConfiguration {
  */
 export interface Tag {
   /**
+   * @public
    * <p>The key for the tag. Keys are not case sensitive and must
    *             be unique.</p>
    */
   Key: string | undefined;
 
   /**
+   * @public
    * <p>The value associated with the tag. The value can be an
    *             empty string but it can't be null.</p>
    */
@@ -98,16 +101,19 @@ export interface Tag {
  */
 export interface CreateRescoreExecutionPlanRequest {
   /**
+   * @public
    * <p>A name for the rescore execution plan.</p>
    */
   Name: string | undefined;
 
   /**
+   * @public
    * <p>A description for the rescore execution plan.</p>
    */
   Description?: string;
 
   /**
+   * @public
    * <p>You can set additional capacity units to meet the
    *             needs of your rescore execution plan. You are given a single
    *             capacity unit by default. If you want to use the default
@@ -119,6 +125,7 @@ export interface CreateRescoreExecutionPlanRequest {
   CapacityUnits?: CapacityUnitsConfiguration;
 
   /**
+   * @public
    * <p>A list of key-value pairs that identify or categorize your
    *             rescore execution plan. You can also use tags to help control
    *             access to the rescore execution plan. Tag keys and values can
@@ -128,6 +135,7 @@ export interface CreateRescoreExecutionPlanRequest {
   Tags?: Tag[];
 
   /**
+   * @public
    * <p>A token that you provide to identify the request to create
    *             a rescore execution plan. Multiple calls to the
    *             <code>CreateRescoreExecutionPlanRequest</code> API with the
@@ -141,11 +149,13 @@ export interface CreateRescoreExecutionPlanRequest {
  */
 export interface CreateRescoreExecutionPlanResponse {
   /**
+   * @public
    * <p>The identifier of the rescore execution plan.</p>
    */
   Id: string | undefined;
 
   /**
+   * @public
    * <p>The Amazon Resource Name (ARN) of the rescore
    *             execution plan.</p>
    */
@@ -256,6 +266,7 @@ export class ValidationException extends __BaseException {
  */
 export interface DeleteRescoreExecutionPlanRequest {
   /**
+   * @public
    * <p>The identifier of the rescore execution plan that you
    *             want to delete.</p>
    */
@@ -291,6 +302,7 @@ export class ResourceNotFoundException extends __BaseException {
  */
 export interface DescribeRescoreExecutionPlanRequest {
   /**
+   * @public
    * <p>The identifier of the rescore execution plan that you want
    *             to get information on.</p>
    */
@@ -319,27 +331,32 @@ export type RescoreExecutionPlanStatus = (typeof RescoreExecutionPlanStatus)[key
  */
 export interface DescribeRescoreExecutionPlanResponse {
   /**
+   * @public
    * <p>The identifier of the rescore execution plan.</p>
    */
   Id?: string;
 
   /**
+   * @public
    * <p>The Amazon Resource Name (ARN) of the rescore execution
    *             plan.</p>
    */
   Arn?: string;
 
   /**
+   * @public
    * <p>The name for the rescore execution plan.</p>
    */
   Name?: string;
 
   /**
+   * @public
    * <p>The description for the rescore execution plan.</p>
    */
   Description?: string;
 
   /**
+   * @public
    * <p>The capacity units set for the rescore execution plan.
    *             A capacity of zero indicates that the rescore execution
    *             plan is using the default capacity. For more information on the
@@ -349,18 +366,21 @@ export interface DescribeRescoreExecutionPlanResponse {
   CapacityUnits?: CapacityUnitsConfiguration;
 
   /**
+   * @public
    * <p>The Unix timestamp of when the rescore execution plan was
    *             created.</p>
    */
   CreatedAt?: Date;
 
   /**
+   * @public
    * <p>The Unix timestamp of when the rescore execution plan was
    *             last updated.</p>
    */
   UpdatedAt?: Date;
 
   /**
+   * @public
    * <p>The current status of the rescore execution plan. When the
    *             value is <code>ACTIVE</code>, the rescore execution plan is
    *             ready for use. If the <code>Status</code> field value is
@@ -370,6 +390,7 @@ export interface DescribeRescoreExecutionPlanResponse {
   Status?: RescoreExecutionPlanStatus | string;
 
   /**
+   * @public
    * <p>When the <code>Status</code> field value is
    *             <code>FAILED</code>, the <code>ErrorMessage</code> field
    *             contains a message that explains why.</p>
@@ -382,6 +403,7 @@ export interface DescribeRescoreExecutionPlanResponse {
  */
 export interface ListRescoreExecutionPlansRequest {
   /**
+   * @public
    * <p>If the response is truncated, Amazon Kendra Intelligent
    *             Ranking returns a pagination token in the response. You can use
    *             this pagination token to retrieve the next set of rescore
@@ -390,6 +412,7 @@ export interface ListRescoreExecutionPlansRequest {
   NextToken?: string;
 
   /**
+   * @public
    * <p>The maximum number of rescore execution plans to return.</p>
    */
   MaxResults?: number;
@@ -403,28 +426,33 @@ export interface ListRescoreExecutionPlansRequest {
  */
 export interface RescoreExecutionPlanSummary {
   /**
+   * @public
    * <p>The name of the rescore execution plan.</p>
    */
   Name?: string;
 
   /**
+   * @public
    * <p>The identifier of the rescore execution plan.</p>
    */
   Id?: string;
 
   /**
+   * @public
    * <p>The Unix timestamp when the rescore execution plan
    *             was created.</p>
    */
   CreatedAt?: Date;
 
   /**
+   * @public
    * <p>The Unix timestamp when the rescore execution plan
    *             was last updated.</p>
    */
   UpdatedAt?: Date;
 
   /**
+   * @public
    * <p>The current status of the rescore execution plan. When
    *             the value is <code>ACTIVE</code>, the rescore execution
    *             plan is ready for use.</p>
@@ -437,12 +465,14 @@ export interface RescoreExecutionPlanSummary {
  */
 export interface ListRescoreExecutionPlansResponse {
   /**
+   * @public
    * <p>An array of summary information for one or more rescore
    *             execution plans.</p>
    */
   SummaryItems?: RescoreExecutionPlanSummary[];
 
   /**
+   * @public
    * <p>If the response is truncated, Amazon Kendra Intelligent
    *             Ranking returns a pagination token in the response.</p>
    */
@@ -458,6 +488,7 @@ export interface ListRescoreExecutionPlansResponse {
  */
 export interface ListTagsForResourceRequest {
   /**
+   * @public
    * <p>The Amazon Resource Name (ARN) of the rescore execution
    *             plan to get a list of tags for.</p>
    */
@@ -471,6 +502,7 @@ export interface ListTagsForResourceRequest {
  */
 export interface ListTagsForResourceResponse {
   /**
+   * @public
    * <p>A list of tags associated with the rescore execution
    *             plan.</p>
    */
@@ -509,11 +541,13 @@ export class ResourceUnavailableException extends __BaseException {
  */
 export interface Document {
   /**
+   * @public
    * <p>The identifier of the document from the search service.</p>
    */
   Id: string | undefined;
 
   /**
+   * @public
    * <p>The optional group identifier of the document from the search
    *             service. Documents with the same group identifier are grouped
    *             together and processed as one document within the service.</p>
@@ -521,16 +555,19 @@ export interface Document {
   GroupId?: string;
 
   /**
+   * @public
    * <p>The title of the search service's document.</p>
    */
   Title?: string;
 
   /**
+   * @public
    * <p>The body text of the search service's document.</p>
    */
   Body?: string;
 
   /**
+   * @public
    * <p>The title of the search service's document represented as
    *             a list of tokens or words. You must choose to provide
    *             <code>Title</code> or <code>TokenizedTitle</code>. You cannot
@@ -539,6 +576,7 @@ export interface Document {
   TokenizedTitle?: string[];
 
   /**
+   * @public
    * <p>The body text of the search service's document represented
    *             as a list of tokens or words. You must choose to provide
    *             <code>Body</code> or <code>TokenizedBody</code>. You cannot
@@ -547,6 +585,7 @@ export interface Document {
   TokenizedBody?: string[];
 
   /**
+   * @public
    * <p>The original document score or rank from the search service.
    *             Amazon Kendra Intelligent Ranking gives the document a new
    *             score or rank based on its intelligent search algorithms.</p>
@@ -559,6 +598,7 @@ export interface Document {
  */
 export interface RescoreRequest {
   /**
+   * @public
    * <p>The identifier of the rescore execution plan. A rescore
    *             execution plan is an Amazon Kendra Intelligent Ranking
    *             resource used for provisioning the <code>Rescore</code> API.</p>
@@ -566,11 +606,13 @@ export interface RescoreRequest {
   RescoreExecutionPlanId: string | undefined;
 
   /**
+   * @public
    * <p>The input query from the search service.</p>
    */
   SearchQuery: string | undefined;
 
   /**
+   * @public
    * <p>The list of documents for Amazon Kendra Intelligent
    *             Ranking to rescore or rank on.</p>
    */
@@ -583,11 +625,13 @@ export interface RescoreRequest {
  */
 export interface RescoreResultItem {
   /**
+   * @public
    * <p>The identifier of the document from the search service.</p>
    */
   DocumentId?: string;
 
   /**
+   * @public
    * <p>The relevancy score or rank that Amazon Kendra
    *             Intelligent Ranking gives to the result.</p>
    */
@@ -599,6 +643,7 @@ export interface RescoreResultItem {
  */
 export interface RescoreResult {
   /**
+   * @public
    * <p>The identifier associated with the scores that
    *             Amazon Kendra Intelligent Ranking gives to the
    *             results. Amazon Kendra Intelligent Ranking
@@ -607,6 +652,7 @@ export interface RescoreResult {
   RescoreId?: string;
 
   /**
+   * @public
    * <p>A list of result items for documents with new relevancy
    *             scores. The results are in descending order.</p>
    */
@@ -622,12 +668,14 @@ export interface RescoreResult {
  */
 export interface TagResourceRequest {
   /**
+   * @public
    * <p>The Amazon Resource Name (ARN) of the rescore execution
    *             plan to tag.</p>
    */
   ResourceARN: string | undefined;
 
   /**
+   * @public
    * <p>A list of tag keys to add to a rescore execution plan.
    *             If a tag already exists, the existing value is replaced
    *             with the new value.</p>
@@ -651,12 +699,14 @@ export interface TagResourceResponse {}
  */
 export interface UntagResourceRequest {
   /**
+   * @public
    * <p>The Amazon Resource Name (ARN) of the rescore execution
    *             plan to remove the tag.</p>
    */
   ResourceARN: string | undefined;
 
   /**
+   * @public
    * <p>A list of tag keys to remove from the rescore execution
    *             plan. If a tag key does not exist on the resource, it is
    *             ignored.</p>
@@ -676,22 +726,26 @@ export interface UntagResourceResponse {}
  */
 export interface UpdateRescoreExecutionPlanRequest {
   /**
+   * @public
    * <p>The identifier of the rescore execution plan that you want
    *             to update.</p>
    */
   Id: string | undefined;
 
   /**
+   * @public
    * <p>A new name for the rescore execution plan.</p>
    */
   Name?: string;
 
   /**
+   * @public
    * <p>A new description for the rescore execution plan.</p>
    */
   Description?: string;
 
   /**
+   * @public
    * <p>You can set additional capacity units to meet the needs
    *             of your rescore execution plan. You are given a single capacity
    *             unit by default. If you want to use the default capacity, you

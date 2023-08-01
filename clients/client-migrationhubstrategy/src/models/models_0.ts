@@ -73,6 +73,7 @@ export type AnalysisStatusUnion =
  */
 export namespace AnalysisStatusUnion {
   /**
+   * @public
    * <p>The status of the analysis.</p>
    */
   export interface RuntimeAnalysisStatusMember {
@@ -82,6 +83,7 @@ export namespace AnalysisStatusUnion {
   }
 
   /**
+   * @public
    * <p>The status of the source code or database analysis.</p>
    */
   export interface SrcCodeOrDbAnalysisStatusMember {
@@ -90,6 +92,9 @@ export namespace AnalysisStatusUnion {
     $unknown?: never;
   }
 
+  /**
+   * @public
+   */
   export interface $UnknownMember {
     runtimeAnalysisStatus?: never;
     srcCodeOrDbAnalysisStatus?: never;
@@ -188,6 +193,7 @@ export type AnalyzerNameUnion =
  */
 export namespace AnalyzerNameUnion {
   /**
+   * @public
    * <p>The binary analyzer names.</p>
    */
   export interface BinaryAnalyzerNameMember {
@@ -198,6 +204,7 @@ export namespace AnalyzerNameUnion {
   }
 
   /**
+   * @public
    * <p>The assessment analyzer names.</p>
    */
   export interface RunTimeAnalyzerNameMember {
@@ -208,6 +215,7 @@ export namespace AnalyzerNameUnion {
   }
 
   /**
+   * @public
    * <p>The source code analyzer names.</p>
    */
   export interface SourceCodeAnalyzerNameMember {
@@ -217,6 +225,9 @@ export namespace AnalyzerNameUnion {
     $unknown?: never;
   }
 
+  /**
+   * @public
+   */
   export interface $UnknownMember {
     binaryAnalyzerName?: never;
     runTimeAnalyzerName?: never;
@@ -245,11 +256,13 @@ export namespace AnalyzerNameUnion {
  */
 export interface S3Object {
   /**
+   * @public
    * <p> The S3 bucket name. </p>
    */
   s3Bucket?: string;
 
   /**
+   * @public
    * <p> The Amazon S3 key name. </p>
    */
   s3key?: string;
@@ -276,21 +289,25 @@ export type AntipatternReportStatus = (typeof AntipatternReportStatus)[keyof typ
  */
 export interface AntipatternReportResult {
   /**
+   * @public
    * <p>The analyzer name.</p>
    */
   analyzerName?: AnalyzerNameUnion;
 
   /**
+   * @public
    * <p> Contains the S3 bucket name and the Amazon S3 key name. </p>
    */
   antiPatternReportS3Object?: S3Object;
 
   /**
+   * @public
    * <p>The status of the anti-pattern report generation.</p>
    */
   antipatternReportStatus?: AntipatternReportStatus | string;
 
   /**
+   * @public
    * <p>The status message for the anti-pattern.</p>
    */
   antipatternReportStatusMessage?: string;
@@ -317,11 +334,13 @@ export type Severity = (typeof Severity)[keyof typeof Severity];
  */
 export interface AntipatternSeveritySummary {
   /**
+   * @public
    * <p> Contains the severity of anti-patterns. </p>
    */
   severity?: Severity | string;
 
   /**
+   * @public
    * <p> Contains the count of anti-patterns. </p>
    */
   count?: number;
@@ -405,6 +424,7 @@ export type AppUnitErrorCategory = (typeof AppUnitErrorCategory)[keyof typeof Ap
  */
 export interface AppUnitError {
   /**
+   * @public
    * <p>The category of the error.</p>
    */
   appUnitErrorCategory?: AppUnitErrorCategory | string;
@@ -416,6 +436,7 @@ export interface AppUnitError {
  */
 export interface DatabaseConfigDetail {
   /**
+   * @public
    * <p> AWS Secrets Manager key that holds the credentials that you use to connect to a database.
    *     </p>
    */
@@ -510,16 +531,19 @@ export type TransformationToolName = (typeof TransformationToolName)[keyof typeo
  */
 export interface TransformationTool {
   /**
+   * @public
    * <p> Name of the tool. </p>
    */
   name?: TransformationToolName | string;
 
   /**
+   * @public
    * <p> Description of the tool. </p>
    */
   description?: string;
 
   /**
+   * @public
    * <p> URL for installing the tool. </p>
    */
   tranformationToolInstallationLink?: string;
@@ -531,16 +555,19 @@ export interface TransformationTool {
  */
 export interface RecommendationSet {
   /**
+   * @public
    * <p> The target destination for the recommendation set. </p>
    */
   transformationTool?: TransformationTool;
 
   /**
+   * @public
    * <p> The recommended target destination. </p>
    */
   targetDestination?: TargetDestination | string;
 
   /**
+   * @public
    * <p> The recommended strategy. </p>
    */
   strategy?: Strategy | string;
@@ -567,21 +594,25 @@ export type ResourceSubType = (typeof ResourceSubType)[keyof typeof ResourceSubT
  */
 export interface Result {
   /**
+   * @public
    * <p>The error in server analysis.</p>
    */
   analysisType?: AnalysisType | string;
 
   /**
+   * @public
    * <p>The error in server analysis.</p>
    */
   analysisStatus?: AnalysisStatusUnion;
 
   /**
+   * @public
    * <p>The error in server analysis.</p>
    */
   statusMessage?: string;
 
   /**
+   * @public
    * <p>The error in server analysis.</p>
    */
   antipatternReportResultList?: AntipatternReportResult[];
@@ -594,21 +625,25 @@ export interface Result {
  */
 export interface SourceCodeRepository {
   /**
+   * @public
    * <p> The repository name for the source code. </p>
    */
   repository?: string;
 
   /**
+   * @public
    * <p> The branch of the source code. </p>
    */
   branch?: string;
 
   /**
+   * @public
    * <p> The type of repository to use for the source code. </p>
    */
   versionControlType?: string;
 
   /**
+   * @public
    * <p>The name of the project.</p>
    */
   projectName?: string;
@@ -620,119 +655,142 @@ export interface SourceCodeRepository {
  */
 export interface ApplicationComponentDetail {
   /**
+   * @public
    * <p> The ID of the application component. </p>
    */
   id?: string;
 
   /**
+   * @public
    * <p> The name of application component. </p>
    */
   name?: string;
 
   /**
+   * @public
    * <p> The top recommendation set for the application component. </p>
    */
   recommendationSet?: RecommendationSet;
 
   /**
+   * @public
    * <p> The status of analysis, if the application component has source code or an associated
    *       database. </p>
    */
   analysisStatus?: SrcCodeOrDbAnalysisStatus | string;
 
   /**
+   * @public
    * <p> A detailed description of the analysis status and any failure message. </p>
    */
   statusMessage?: string;
 
   /**
+   * @public
    * <p> A list of anti-pattern severity summaries. </p>
    */
   listAntipatternSeveritySummary?: AntipatternSeveritySummary[];
 
   /**
+   * @public
    * <p> Configuration details for the database associated with the application component. </p>
    */
   databaseConfigDetail?: DatabaseConfigDetail;
 
   /**
+   * @public
    * <p> Details about the source code repository associated with the application component.
    *     </p>
    */
   sourceCodeRepositories?: SourceCodeRepository[];
 
   /**
+   * @public
    * <p> The type of application component. </p>
    */
   appType?: AppType | string;
 
   /**
+   * @public
    * <p> The application component subtype.</p>
    */
   resourceSubType?: ResourceSubType | string;
 
   /**
+   * @public
    * <p> Indicates whether the application component has been included for server recommendation
    *       or not. </p>
    */
   inclusionStatus?: InclusionStatus | string;
 
   /**
+   * @public
    * <p> The S3 bucket name and the Amazon S3 key name for the anti-pattern report. </p>
    */
   antipatternReportS3Object?: S3Object;
 
   /**
+   * @public
    * <p> The status of the anti-pattern report generation.</p>
    */
   antipatternReportStatus?: AntipatternReportStatus | string;
 
   /**
+   * @public
    * <p> The status message for the anti-pattern. </p>
    */
   antipatternReportStatusMessage?: string;
 
   /**
+   * @public
    * <p> OS version. </p>
    */
   osVersion?: string;
 
   /**
+   * @public
    * <p> OS driver. </p>
    */
   osDriver?: string;
 
   /**
+   * @public
    * <p> The timestamp of when the application component was assessed. </p>
    */
   lastAnalyzedTimestamp?: Date;
 
   /**
+   * @public
    * <p> The ID of the server that the application component is running on. </p>
    */
   associatedServerId?: string;
 
   /**
+   * @public
    * <p> Set to true if the application component is running on multiple servers.</p>
    */
   moreServerAssociationExists?: boolean;
 
   /**
+   * @public
    * <p>The status of the application unit.</p>
    */
   runtimeStatus?: RuntimeAnalysisStatus | string;
 
   /**
+   * @public
    * <p>The status message for the application unit.</p>
    */
   runtimeStatusMessage?: string;
 
   /**
+   * @public
    * <p>The error in the analysis of the source code or database.</p>
    */
   appUnitError?: AppUnitError;
 
   /**
+   * @public
    * <p>A list of the analysis results.</p>
    */
   resultList?: Result[];
@@ -744,11 +802,13 @@ export interface ApplicationComponentDetail {
  */
 export interface ApplicationComponentStatusSummary {
   /**
+   * @public
    * <p>The status of database analysis.</p>
    */
   srcCodeOrDbAnalysisStatus?: SrcCodeOrDbAnalysisStatus | string;
 
   /**
+   * @public
    * <p>The number of application components successfully analyzed, partially successful or failed
    *       analysis.</p>
    */
@@ -778,16 +838,19 @@ export type StrategyRecommendation = (typeof StrategyRecommendation)[keyof typeo
  */
 export interface ApplicationComponentStrategy {
   /**
+   * @public
    * <p> Strategy recommendation for the application component. </p>
    */
   recommendation?: RecommendationSet;
 
   /**
+   * @public
    * <p> The recommendation status of a strategy for an application component. </p>
    */
   status?: StrategyRecommendation | string;
 
   /**
+   * @public
    * <p> Set to true if the recommendation is set as preferred. </p>
    */
   isPreferred?: boolean;
@@ -799,11 +862,13 @@ export interface ApplicationComponentStrategy {
  */
 export interface ApplicationComponentSummary {
   /**
+   * @public
    * <p> Contains the name of application types. </p>
    */
   appType?: AppType | string;
 
   /**
+   * @public
    * <p> Contains the count of application type. </p>
    */
   count?: number;
@@ -846,6 +911,7 @@ export type AwsManagedTargetDestination =
  */
 export interface AwsManagedResources {
   /**
+   * @public
    * <p> The choice of application destination that you specify. </p>
    */
   targetDestination: (AwsManagedTargetDestination | string)[] | undefined;
@@ -876,6 +942,7 @@ export type NoPreferenceTargetDestination =
  */
 export interface NoManagementPreference {
   /**
+   * @public
    * <p> The choice of application destination that you specify. </p>
    */
   targetDestination: (NoPreferenceTargetDestination | string)[] | undefined;
@@ -904,6 +971,7 @@ export type SelfManageTargetDestination =
  */
 export interface SelfManageResources {
   /**
+   * @public
    * <p> Self-managed resources target destination. </p>
    */
   targetDestination: (SelfManageTargetDestination | string)[] | undefined;
@@ -924,6 +992,7 @@ export type ManagementPreference =
  */
 export namespace ManagementPreference {
   /**
+   * @public
    * <p> Indicates interest in solutions that are managed by AWS. </p>
    */
   export interface AwsManagedResourcesMember {
@@ -934,6 +1003,7 @@ export namespace ManagementPreference {
   }
 
   /**
+   * @public
    * <p> Indicates interest in managing your own resources on AWS. </p>
    */
   export interface SelfManageResourcesMember {
@@ -944,6 +1014,7 @@ export namespace ManagementPreference {
   }
 
   /**
+   * @public
    * <p> No specific preference. </p>
    */
   export interface NoPreferenceMember {
@@ -953,6 +1024,9 @@ export namespace ManagementPreference {
     $unknown?: never;
   }
 
+  /**
+   * @public
+   */
   export interface $UnknownMember {
     awsManagedResources?: never;
     selfManageResources?: never;
@@ -981,6 +1055,7 @@ export namespace ManagementPreference {
  */
 export interface ApplicationPreferences {
   /**
+   * @public
    * <p> Application preferences that you specify to prefer managed environment. </p>
    */
   managementPreference?: ManagementPreference;
@@ -1008,11 +1083,13 @@ export type AssessmentStatus = (typeof AssessmentStatus)[keyof typeof Assessment
  */
 export interface StrategySummary {
   /**
+   * @public
    * <p> The name of recommended strategy. </p>
    */
   strategy?: Strategy | string;
 
   /**
+   * @public
    * <p> The count of recommendations per strategy. </p>
    */
   count?: number;
@@ -1043,11 +1120,13 @@ export type RunTimeAssessmentStatus = (typeof RunTimeAssessmentStatus)[keyof typ
  */
 export interface ServerStatusSummary {
   /**
+   * @public
    * <p>The status of the run time.</p>
    */
   runTimeAssessmentStatus?: RunTimeAssessmentStatus | string;
 
   /**
+   * @public
    * <p>The number of servers successfully analyzed, partially successful or failed
    *       analysis.</p>
    */
@@ -1077,11 +1156,13 @@ export type ServerOsType = (typeof ServerOsType)[keyof typeof ServerOsType];
  */
 export interface ServerSummary {
   /**
+   * @public
    * <p> Type of operating system for the servers. </p>
    */
   ServerOsType?: ServerOsType | string;
 
   /**
+   * @public
    * <p> Number of servers. </p>
    */
   count?: number;
@@ -1093,56 +1174,67 @@ export interface ServerSummary {
  */
 export interface AssessmentSummary {
   /**
+   * @public
    * <p> List of ServerStrategySummary. </p>
    */
   listServerStrategySummary?: StrategySummary[];
 
   /**
+   * @public
    * <p> List of ApplicationComponentStrategySummary. </p>
    */
   listApplicationComponentStrategySummary?: StrategySummary[];
 
   /**
+   * @public
    * <p> List of AntipatternSeveritySummary. </p>
    */
   listAntipatternSeveritySummary?: AntipatternSeveritySummary[];
 
   /**
+   * @public
    * <p> List of ApplicationComponentSummary. </p>
    */
   listApplicationComponentSummary?: ApplicationComponentSummary[];
 
   /**
+   * @public
    * <p> List of ServerSummary. </p>
    */
   listServerSummary?: ServerSummary[];
 
   /**
+   * @public
    * <p> The Amazon S3 object containing the anti-pattern report. </p>
    */
   antipatternReportS3Object?: S3Object;
 
   /**
+   * @public
    * <p> The status of the anti-pattern report. </p>
    */
   antipatternReportStatus?: AntipatternReportStatus | string;
 
   /**
+   * @public
    * <p> The status message of the anti-pattern report. </p>
    */
   antipatternReportStatusMessage?: string;
 
   /**
+   * @public
    * <p> The time the assessment was performed. </p>
    */
   lastAnalyzedTimestamp?: Date;
 
   /**
+   * @public
    * <p>List of status summaries of the analyzed application components.</p>
    */
   listApplicationComponentStatusSummary?: ApplicationComponentStatusSummary[];
 
   /**
+   * @public
    * <p>List of status summaries of the analyzed servers.</p>
    */
   listServerStatusSummary?: ServerStatusSummary[];
@@ -1170,16 +1262,19 @@ export type Condition = (typeof Condition)[keyof typeof Condition];
  */
 export interface AssessmentTarget {
   /**
+   * @public
    * <p>Condition of an assessment.</p>
    */
   condition: Condition | string | undefined;
 
   /**
+   * @public
    * <p>Name of an assessment.</p>
    */
   name: string | undefined;
 
   /**
+   * @public
    * <p>Values of an assessment.</p>
    */
   values: string[] | undefined;
@@ -1191,11 +1286,13 @@ export interface AssessmentTarget {
  */
 export interface AssociatedApplication {
   /**
+   * @public
    * <p> Name of the application as defined in Application Discovery Service. </p>
    */
   name?: string;
 
   /**
+   * @public
    * <p> ID of the application as defined in Application Discovery Service. </p>
    */
   id?: string;
@@ -1221,6 +1318,7 @@ export type AuthType = (typeof AuthType)[keyof typeof AuthType];
  */
 export interface GetApplicationComponentDetailsRequest {
   /**
+   * @public
    * <p> The ID of the application component. The ID is unique within an AWS account.</p>
    */
   applicationComponentId: string | undefined;
@@ -1231,22 +1329,26 @@ export interface GetApplicationComponentDetailsRequest {
  */
 export interface GetApplicationComponentDetailsResponse {
   /**
+   * @public
    * <p> Detailed information about an application component. </p>
    */
   applicationComponentDetail?: ApplicationComponentDetail;
 
   /**
+   * @public
    * <p> The associated application group as defined in AWS Application Discovery Service. </p>
    */
   associatedApplications?: AssociatedApplication[];
 
   /**
+   * @public
    * <p> Set to true if the application component belongs to more than one application group.
    *     </p>
    */
   moreApplicationResource?: boolean;
 
   /**
+   * @public
    * <p> A list of the IDs of the servers on which the application component is running. </p>
    */
   associatedServerIds?: string[];
@@ -1317,6 +1419,7 @@ export class ThrottlingException extends __BaseException {
  */
 export interface GetApplicationComponentStrategiesRequest {
   /**
+   * @public
    * <p> The ID of the application component. The ID is unique within an AWS account.</p>
    */
   applicationComponentId: string | undefined;
@@ -1327,6 +1430,7 @@ export interface GetApplicationComponentStrategiesRequest {
  */
 export interface GetApplicationComponentStrategiesResponse {
   /**
+   * @public
    * <p> A list of application component strategy recommendations. </p>
    */
   applicationComponentStrategies?: ApplicationComponentStrategy[];
@@ -1337,6 +1441,7 @@ export interface GetApplicationComponentStrategiesResponse {
  */
 export interface GetAssessmentRequest {
   /**
+   * @public
    * <p> The <code>assessmentid</code> returned by <a>StartAssessment</a>.</p>
    */
   id: string | undefined;
@@ -1348,41 +1453,49 @@ export interface GetAssessmentRequest {
  */
 export interface DataCollectionDetails {
   /**
+   * @public
    * <p> The status of the assessment. </p>
    */
   status?: AssessmentStatus | string;
 
   /**
+   * @public
    * <p> The total number of servers in the assessment. </p>
    */
   servers?: number;
 
   /**
+   * @public
    * <p> The number of failed servers in the assessment. </p>
    */
   failed?: number;
 
   /**
+   * @public
    * <p> The number of successful servers in the assessment. </p>
    */
   success?: number;
 
   /**
+   * @public
    * <p> The number of servers with the assessment status <code>IN_PROGESS</code>. </p>
    */
   inProgress?: number;
 
   /**
+   * @public
    * <p> The start time of assessment. </p>
    */
   startTime?: Date;
 
   /**
+   * @public
    * <p> The time the assessment completes. </p>
    */
   completionTime?: Date;
 
   /**
+   * @public
    * <p>The status message of the assessment.</p>
    */
   statusMessage?: string;
@@ -1393,16 +1506,19 @@ export interface DataCollectionDetails {
  */
 export interface GetAssessmentResponse {
   /**
+   * @public
    * <p> The ID for the specific assessment task. </p>
    */
   id?: string;
 
   /**
+   * @public
    * <p> Detailed information about the assessment. </p>
    */
   dataCollectionDetails?: DataCollectionDetails;
 
   /**
+   * @public
    * <p>List of criteria for assessment.</p>
    */
   assessmentTargets?: AssessmentTarget[];
@@ -1413,6 +1529,7 @@ export interface GetAssessmentResponse {
  */
 export interface GetImportFileTaskRequest {
   /**
+   * @public
    * <p> The ID of the import file task. This ID is returned in the response of <a>StartImportFileTask</a>. </p>
    */
   id: string | undefined;
@@ -1443,57 +1560,68 @@ export type ImportFileTaskStatus = (typeof ImportFileTaskStatus)[keyof typeof Im
  */
 export interface GetImportFileTaskResponse {
   /**
+   * @public
    * <p> The import file task <code>id</code> returned in the response of <a>StartImportFileTask</a>. </p>
    */
   id?: string;
 
   /**
+   * @public
    * <p> Status of import file task. </p>
    */
   status?: ImportFileTaskStatus | string;
 
   /**
+   * @public
    * <p> Start time of the import task. </p>
    */
   startTime?: Date;
 
   /**
+   * @public
    * <p> The S3 bucket where import file is located. </p>
    */
   inputS3Bucket?: string;
 
   /**
+   * @public
    * <p> The Amazon S3 key name of the import file. </p>
    */
   inputS3Key?: string;
 
   /**
+   * @public
    * <p> The S3 bucket name for status report of import task. </p>
    */
   statusReportS3Bucket?: string;
 
   /**
+   * @public
    * <p> The Amazon S3 key name for status report of import task. The report contains details about
    *       whether each record imported successfully or why it did not.</p>
    */
   statusReportS3Key?: string;
 
   /**
+   * @public
    * <p> The time that the import task completed. </p>
    */
   completionTime?: Date;
 
   /**
+   * @public
    * <p> The number of records successfully imported. </p>
    */
   numberOfRecordsSuccess?: number;
 
   /**
+   * @public
    * <p> The number of records that failed to be imported. </p>
    */
   numberOfRecordsFailed?: number;
 
   /**
+   * @public
    * <p> The name of the import task given in <a>StartImportFileTask</a>. </p>
    */
   importName?: string;
@@ -1549,6 +1677,7 @@ export interface GetLatestAssessmentIdRequest {}
  */
 export interface GetLatestAssessmentIdResponse {
   /**
+   * @public
    * <p>The latest ID for the specific assessment task.</p>
    */
   id?: string;
@@ -1604,6 +1733,7 @@ export type HeterogeneousTargetDatabaseEngine =
  */
 export interface Heterogeneous {
   /**
+   * @public
    * <p> The target database engine for heterogeneous database migration preference. </p>
    */
   targetDatabaseEngine: (HeterogeneousTargetDatabaseEngine | string)[] | undefined;
@@ -1629,6 +1759,7 @@ export type HomogeneousTargetDatabaseEngine =
  */
 export interface Homogeneous {
   /**
+   * @public
    * <p> The target database engine for homogeneous database migration preferences. </p>
    */
   targetDatabaseEngine?: (HomogeneousTargetDatabaseEngine | string)[];
@@ -1663,6 +1794,7 @@ export type TargetDatabaseEngine = (typeof TargetDatabaseEngine)[keyof typeof Ta
  */
 export interface NoDatabaseMigrationPreference {
   /**
+   * @public
    * <p> The target database engine for database migration preference that you specify. </p>
    */
   targetDatabaseEngine: (TargetDatabaseEngine | string)[] | undefined;
@@ -1683,6 +1815,7 @@ export type DatabaseMigrationPreference =
  */
 export namespace DatabaseMigrationPreference {
   /**
+   * @public
    * <p> Indicates whether you are interested in moving from one type of database to another. For
    *       example, from SQL Server to Amazon Aurora MySQL-Compatible Edition. </p>
    */
@@ -1694,6 +1827,7 @@ export namespace DatabaseMigrationPreference {
   }
 
   /**
+   * @public
    * <p> Indicates whether you are interested in moving to the same type of database into AWS.
    *       For example, from SQL Server in your environment to SQL Server on AWS. </p>
    */
@@ -1705,6 +1839,7 @@ export namespace DatabaseMigrationPreference {
   }
 
   /**
+   * @public
    * <p> Indicated that you do not prefer heterogeneous or homogeneous. </p>
    */
   export interface NoPreferenceMember {
@@ -1714,6 +1849,9 @@ export namespace DatabaseMigrationPreference {
     $unknown?: never;
   }
 
+  /**
+   * @public
+   */
   export interface $UnknownMember {
     heterogeneous?: never;
     homogeneous?: never;
@@ -1742,12 +1880,14 @@ export namespace DatabaseMigrationPreference {
  */
 export interface DatabasePreferences {
   /**
+   * @public
    * <p> Specifies whether you're interested in self-managed databases or databases managed by
    *       AWS. </p>
    */
   databaseManagementPreference?: DatabaseManagementPreference | string;
 
   /**
+   * @public
    * <p> Specifies your preferred migration path. </p>
    */
   databaseMigrationPreference?: DatabaseMigrationPreference;
@@ -1759,22 +1899,26 @@ export interface DatabasePreferences {
  */
 export interface BusinessGoals {
   /**
+   * @public
    * <p> Business goal to achieve migration at a fast pace. </p>
    */
   speedOfMigration?: number;
 
   /**
+   * @public
    * <p> Business goal to reduce the operational overhead on the team by moving into managed
    *       services. </p>
    */
   reduceOperationalOverheadWithManagedServices?: number;
 
   /**
+   * @public
    * <p> Business goal to modernize infrastructure by moving to cloud native technologies. </p>
    */
   modernizeInfrastructureWithCloudNativeTechnologies?: number;
 
   /**
+   * @public
    * <p> Business goal to reduce license costs. </p>
    */
   licenseCostReduction?: number;
@@ -1786,6 +1930,7 @@ export interface BusinessGoals {
  */
 export interface PrioritizeBusinessGoals {
   /**
+   * @public
    * <p> Rank of business goals based on priority. </p>
    */
   businessGoals?: BusinessGoals;
@@ -1796,21 +1941,25 @@ export interface PrioritizeBusinessGoals {
  */
 export interface GetPortfolioPreferencesResponse {
   /**
+   * @public
    * <p> The rank of business goals based on priority. </p>
    */
   prioritizeBusinessGoals?: PrioritizeBusinessGoals;
 
   /**
+   * @public
    * <p> The transformation preferences for non-database applications. </p>
    */
   applicationPreferences?: ApplicationPreferences;
 
   /**
+   * @public
    * <p> The transformation preferences for database applications. </p>
    */
   databasePreferences?: DatabasePreferences;
 
   /**
+   * @public
    * <p>The classification for application component types.</p>
    */
   applicationMode?: ApplicationMode | string;
@@ -1826,6 +1975,7 @@ export interface GetPortfolioSummaryRequest {}
  */
 export interface GetPortfolioSummaryResponse {
   /**
+   * @public
    * <p> An assessment summary for the portfolio including the number of servers to rehost and the
    *       overall number of anti-patterns. </p>
    */
@@ -1837,6 +1987,7 @@ export interface GetPortfolioSummaryResponse {
  */
 export interface GetRecommendationReportDetailsRequest {
   /**
+   * @public
    * <p> The recommendation report generation task <code>id</code> returned by <a>StartRecommendationReportGeneration</a>. </p>
    */
   id: string | undefined;
@@ -1863,31 +2014,37 @@ export type RecommendationReportStatus = (typeof RecommendationReportStatus)[key
  */
 export interface RecommendationReportDetails {
   /**
+   * @public
    * <p> The status of the recommendation report generation task. </p>
    */
   status?: RecommendationReportStatus | string;
 
   /**
+   * @public
    * <p> The status message for recommendation report generation. </p>
    */
   statusMessage?: string;
 
   /**
+   * @public
    * <p> The time that the recommendation report generation task starts. </p>
    */
   startTime?: Date;
 
   /**
+   * @public
    * <p> The time that the recommendation report generation task completes. </p>
    */
   completionTime?: Date;
 
   /**
+   * @public
    * <p> The S3 bucket where the report file is located. </p>
    */
   s3Bucket?: string;
 
   /**
+   * @public
    * <p> The Amazon S3 key name of the report file. </p>
    */
   s3Keys?: string[];
@@ -1898,11 +2055,13 @@ export interface RecommendationReportDetails {
  */
 export interface GetRecommendationReportDetailsResponse {
   /**
+   * @public
    * <p> The ID of the recommendation report generation task. See the response of <a>StartRecommendationReportGeneration</a>. </p>
    */
   id?: string;
 
   /**
+   * @public
    * <p> Detailed information about the recommendation report. </p>
    */
   recommendationReportDetails?: RecommendationReportDetails;
@@ -1913,11 +2072,13 @@ export interface GetRecommendationReportDetailsResponse {
  */
 export interface GetServerDetailsRequest {
   /**
+   * @public
    * <p> The ID of the server. </p>
    */
   serverId: string | undefined;
 
   /**
+   * @public
    * <p> The token from a previous call that you use to retrieve the next set of results. For example,
    * if a previous call to this action returned 100 items, but you set <code>maxResults</code> to 10. You'll receive a set of 10 results along
    *       with a token. You then use the returned token to retrieve the next set of 10. </p>
@@ -1925,6 +2086,7 @@ export interface GetServerDetailsRequest {
   nextToken?: string;
 
   /**
+   * @public
    * <p> The maximum number of items to include in the response. The maximum value is 100. </p>
    */
   maxResults?: number;
@@ -1953,6 +2115,7 @@ export type ServerErrorCategory = (typeof ServerErrorCategory)[keyof typeof Serv
  */
 export interface ServerError {
   /**
+   * @public
    * <p>The error category of server analysis.</p>
    */
   serverErrorCategory?: ServerErrorCategory | string;
@@ -1964,22 +2127,26 @@ export interface ServerError {
  */
 export interface NetworkInfo {
   /**
+   * @public
    * <p> Information about the name of the interface of the server for which the assessment was
    *       run. </p>
    */
   interfaceName: string | undefined;
 
   /**
+   * @public
    * <p> Information about the IP address of the server for which the assessment was run. </p>
    */
   ipAddress: string | undefined;
 
   /**
+   * @public
    * <p> Information about the MAC address of the server for which the assessment was run. </p>
    */
   macAddress: string | undefined;
 
   /**
+   * @public
    * <p> Information about the subnet mask of the server for which the assessment was run. </p>
    */
   netMask: string | undefined;
@@ -2005,11 +2172,13 @@ export type OSType = (typeof OSType)[keyof typeof OSType];
  */
 export interface OSInfo {
   /**
+   * @public
    * <p> Information about the type of operating system. </p>
    */
   type?: OSType | string;
 
   /**
+   * @public
    * <p> Information about the version of operating system. </p>
    */
   version?: string;
@@ -2021,21 +2190,25 @@ export interface OSInfo {
  */
 export interface SystemInfo {
   /**
+   * @public
    * <p> Operating system corresponding to a server. </p>
    */
   osInfo?: OSInfo;
 
   /**
+   * @public
    * <p> File system type for the server. </p>
    */
   fileSystemType?: string;
 
   /**
+   * @public
    * <p> Networking information related to a server. </p>
    */
   networkInfoList?: NetworkInfo[];
 
   /**
+   * @public
    * <p> CPU architecture type for the server. </p>
    */
   cpuArchitecture?: string;
@@ -2047,72 +2220,86 @@ export interface SystemInfo {
  */
 export interface ServerDetail {
   /**
+   * @public
    * <p> The server ID. </p>
    */
   id?: string;
 
   /**
+   * @public
    * <p> The name of the server. </p>
    */
   name?: string;
 
   /**
+   * @public
    * <p> A set of recommendations. </p>
    */
   recommendationSet?: RecommendationSet;
 
   /**
+   * @public
    * <p> The status of assessment for the server. </p>
    */
   dataCollectionStatus?: RunTimeAssessmentStatus | string;
 
   /**
+   * @public
    * <p> A message about the status of data collection, which contains detailed descriptions of
    *       any error messages. </p>
    */
   statusMessage?: string;
 
   /**
+   * @public
    * <p> A list of anti-pattern severity summaries. </p>
    */
   listAntipatternSeveritySummary?: AntipatternSeveritySummary[];
 
   /**
+   * @public
    * <p> System information about the server. </p>
    */
   systemInfo?: SystemInfo;
 
   /**
+   * @public
    * <p> A list of strategy summaries. </p>
    */
   applicationComponentStrategySummary?: StrategySummary[];
 
   /**
+   * @public
    * <p> The S3 bucket name and Amazon S3 key name for anti-pattern report. </p>
    */
   antipatternReportS3Object?: S3Object;
 
   /**
+   * @public
    * <p> The status of the anti-pattern report generation. </p>
    */
   antipatternReportStatus?: AntipatternReportStatus | string;
 
   /**
+   * @public
    * <p> A message about the status of the anti-pattern report generation. </p>
    */
   antipatternReportStatusMessage?: string;
 
   /**
+   * @public
    * <p> The type of server. </p>
    */
   serverType?: string;
 
   /**
+   * @public
    * <p> The timestamp of when the server was assessed. </p>
    */
   lastAnalyzedTimestamp?: Date;
 
   /**
+   * @public
    * <p>The error in server analysis.</p>
    */
   serverError?: ServerError;
@@ -2123,16 +2310,19 @@ export interface ServerDetail {
  */
 export interface GetServerDetailsResponse {
   /**
+   * @public
    * <p> The token you use to retrieve the next set of results, or null if there are no more results. </p>
    */
   nextToken?: string;
 
   /**
+   * @public
    * <p> Detailed information about the server. </p>
    */
   serverDetail?: ServerDetail;
 
   /**
+   * @public
    * <p> The associated application group the server belongs to, as defined in AWS Application Discovery Service.
    *     </p>
    */
@@ -2144,6 +2334,7 @@ export interface GetServerDetailsResponse {
  */
 export interface GetServerStrategiesRequest {
   /**
+   * @public
    * <p> The ID of the server. </p>
    */
   serverId: string | undefined;
@@ -2155,22 +2346,26 @@ export interface GetServerStrategiesRequest {
  */
 export interface ServerStrategy {
   /**
+   * @public
    * <p> Strategy recommendation for the server. </p>
    */
   recommendation?: RecommendationSet;
 
   /**
+   * @public
    * <p> The recommendation status of the strategy for the server. </p>
    */
   status?: StrategyRecommendation | string;
 
   /**
+   * @public
    * <p> The number of application components with this strategy recommendation running on the
    *       server. </p>
    */
   numberOfApplicationComponents?: number;
 
   /**
+   * @public
    * <p> Set to true if the recommendation is set as preferred. </p>
    */
   isPreferred?: boolean;
@@ -2181,6 +2376,7 @@ export interface ServerStrategy {
  */
 export interface GetServerStrategiesResponse {
   /**
+   * @public
    * <p> A list of strategy recommendations for the server. </p>
    */
   serverStrategies?: ServerStrategy[];
@@ -2206,11 +2402,13 @@ export type GroupName = (typeof GroupName)[keyof typeof GroupName];
  */
 export interface Group {
   /**
+   * @public
    * <p> The key of the specific import group. </p>
    */
   name?: GroupName | string;
 
   /**
+   * @public
    * <p> The value of the specific import group. </p>
    */
   value?: string;
@@ -2235,11 +2433,13 @@ export type SortOrder = (typeof SortOrder)[keyof typeof SortOrder];
  */
 export interface ListApplicationComponentsRequest {
   /**
+   * @public
    * <p> Criteria for filtering the list of application components. </p>
    */
   applicationComponentCriteria?: ApplicationComponentCriteria | string;
 
   /**
+   * @public
    * <p> Specify the value based on the application component criteria type. For example, if
    *         <code>applicationComponentCriteria</code> is set to <code>SERVER_ID</code> and
    *         <code>filterValue</code> is set to <code>server1</code>, then <a>ListApplicationComponents</a> returns all the application components running on
@@ -2248,17 +2448,20 @@ export interface ListApplicationComponentsRequest {
   filterValue?: string;
 
   /**
+   * @public
    * <p> Specifies whether to sort by ascending (<code>ASC</code>) or descending
    *         (<code>DESC</code>) order. </p>
    */
   sort?: SortOrder | string;
 
   /**
+   * @public
    * <p> The group ID specified in to filter on. </p>
    */
   groupIdFilter?: Group[];
 
   /**
+   * @public
    * <p> The token from a previous call that you use to retrieve the next set of results. For example,
    * if a previous call to this action returned 100 items, but you set <code>maxResults</code> to 10. You'll receive a set of 10 results along
    *       with a token. You then use the returned token to retrieve the next set of 10. </p>
@@ -2266,6 +2469,7 @@ export interface ListApplicationComponentsRequest {
   nextToken?: string;
 
   /**
+   * @public
    * <p> The maximum number of items to include in the response. The maximum value is 100. </p>
    */
   maxResults?: number;
@@ -2276,12 +2480,14 @@ export interface ListApplicationComponentsRequest {
  */
 export interface ListApplicationComponentsResponse {
   /**
+   * @public
    * <p> The list of application components with detailed information about each component.
    *     </p>
    */
   applicationComponentInfos?: ApplicationComponentDetail[];
 
   /**
+   * @public
    * <p> The token you use to retrieve the next set of results, or null if there are no more results. </p>
    */
   nextToken?: string;
@@ -2312,6 +2518,7 @@ export class ServiceLinkedRoleLockClientException extends __BaseException {
  */
 export interface ListCollectorsRequest {
   /**
+   * @public
    * <p> The token from a previous call that you use to retrieve the next set of results. For example,
    * if a previous call to this action returned 100 items, but you set <code>maxResults</code> to 10. You'll receive a set of 10 results along
    *       with a token. You then use the returned token to retrieve the next set of 10. </p>
@@ -2319,6 +2526,7 @@ export interface ListCollectorsRequest {
   nextToken?: string;
 
   /**
+   * @public
    * <p> The maximum number of items to include in the response. The maximum value is 100. </p>
    */
   maxResults?: number;
@@ -2344,16 +2552,19 @@ export type CollectorHealth = (typeof CollectorHealth)[keyof typeof CollectorHea
  */
 export interface IPAddressBasedRemoteInfo {
   /**
+   * @public
    * <p>The time stamp of the configuration.</p>
    */
   ipAddressConfigurationTimeStamp?: string;
 
   /**
+   * @public
    * <p>The type of authorization.</p>
    */
   authType?: AuthType | string;
 
   /**
+   * @public
    * <p>The type of the operating system.</p>
    */
   osType?: OSType | string;
@@ -2378,11 +2589,13 @@ export type PipelineType = (typeof PipelineType)[keyof typeof PipelineType];
  */
 export interface PipelineInfo {
   /**
+   * @public
    * <p>The type of pipeline.</p>
    */
   pipelineType?: PipelineType | string;
 
   /**
+   * @public
    * <p>The time when the pipeline info was configured.</p>
    */
   pipelineConfigurationTimeStamp?: string;
@@ -2394,6 +2607,7 @@ export interface PipelineInfo {
  */
 export interface RemoteSourceCodeAnalysisServerInfo {
   /**
+   * @public
    * <p>The time when the remote source code server was configured.</p>
    */
   remoteSourceCodeAnalysisServerConfigurationTimestamp?: string;
@@ -2405,11 +2619,13 @@ export interface RemoteSourceCodeAnalysisServerInfo {
  */
 export interface VcenterBasedRemoteInfo {
   /**
+   * @public
    * <p>The time when the remote server based on vCenter was last configured.</p>
    */
   vcenterConfigurationTimeStamp?: string;
 
   /**
+   * @public
    * <p>The type of the operating system.</p>
    */
   osType?: OSType | string;
@@ -2436,11 +2652,13 @@ export type VersionControlType = (typeof VersionControlType)[keyof typeof Versio
  */
 export interface VersionControlInfo {
   /**
+   * @public
    * <p>The type of version control.</p>
    */
   versionControlType?: VersionControlType | string;
 
   /**
+   * @public
    * <p>The time when the version control system was last configured.</p>
    */
   versionControlConfigurationTimeStamp?: string;
@@ -2452,26 +2670,31 @@ export interface VersionControlInfo {
  */
 export interface ConfigurationSummary {
   /**
+   * @public
    * <p>The list of vCenter configurations.</p>
    */
   vcenterBasedRemoteInfoList?: VcenterBasedRemoteInfo[];
 
   /**
+   * @public
    * <p>IP address based configurations.</p>
    */
   ipAddressBasedRemoteInfoList?: IPAddressBasedRemoteInfo[];
 
   /**
+   * @public
    * <p>The list of the version control configurations.</p>
    */
   versionControlInfoList?: VersionControlInfo[];
 
   /**
+   * @public
    * <p>The list of pipeline info configurations.</p>
    */
   pipelineInfoList?: PipelineInfo[];
 
   /**
+   * @public
    * <p>Info about the remote server source code configuration.</p>
    */
   remoteSourceCodeAnalysisServerInfo?: RemoteSourceCodeAnalysisServerInfo;
@@ -2483,42 +2706,50 @@ export interface ConfigurationSummary {
  */
 export interface Collector {
   /**
+   * @public
    * <p> The ID of the collector. </p>
    */
   collectorId?: string;
 
   /**
+   * @public
    * <p> IP address of the server that is hosting the collector. </p>
    */
   ipAddress?: string;
 
   /**
+   * @public
    * <p> Hostname of the server that is hosting the collector. </p>
    */
   hostName?: string;
 
   /**
+   * @public
    * <p> Indicates the health of a collector. </p>
    */
   collectorHealth?: CollectorHealth | string;
 
   /**
+   * @public
    * <p> Current version of the collector that is running in the environment that you specify.
    *     </p>
    */
   collectorVersion?: string;
 
   /**
+   * @public
    * <p> Time when the collector registered with the service. </p>
    */
   registeredTimeStamp?: string;
 
   /**
+   * @public
    * <p> Time when the collector last pinged the service. </p>
    */
   lastActivityTimeStamp?: string;
 
   /**
+   * @public
    * <p>Summary of the collector configuration.</p>
    */
   configurationSummary?: ConfigurationSummary;
@@ -2529,11 +2760,13 @@ export interface Collector {
  */
 export interface ListCollectorsResponse {
   /**
+   * @public
    * <p> The list of all the installed collectors. </p>
    */
   Collectors?: Collector[];
 
   /**
+   * @public
    * <p> The token you use to retrieve the next set of results, or null if there are no more results. </p>
    */
   nextToken?: string;
@@ -2544,6 +2777,7 @@ export interface ListCollectorsResponse {
  */
 export interface ListImportFileTaskRequest {
   /**
+   * @public
    * <p> The token from a previous call that you use to retrieve the next set of results. For example,
    * if a previous call to this action returned 100 items, but you set <code>maxResults</code> to 10. You'll receive a set of 10 results along
    *       with a token. You then use the returned token to retrieve the next set of 10. </p>
@@ -2551,6 +2785,7 @@ export interface ListImportFileTaskRequest {
   nextToken?: string;
 
   /**
+   * @public
    * <p> The total number of items to return. The maximum value is 100. </p>
    */
   maxResults?: number;
@@ -2562,57 +2797,68 @@ export interface ListImportFileTaskRequest {
  */
 export interface ImportFileTaskInformation {
   /**
+   * @public
    * <p> The ID of the import file task. </p>
    */
   id?: string;
 
   /**
+   * @public
    * <p> Status of import file task. </p>
    */
   status?: ImportFileTaskStatus | string;
 
   /**
+   * @public
    * <p> Start time of the import task. </p>
    */
   startTime?: Date;
 
   /**
+   * @public
    * <p> The S3 bucket where the import file is located. </p>
    */
   inputS3Bucket?: string;
 
   /**
+   * @public
    * <p> The Amazon S3 key name of the import file. </p>
    */
   inputS3Key?: string;
 
   /**
+   * @public
    * <p> The S3 bucket name for status report of import task. </p>
    */
   statusReportS3Bucket?: string;
 
   /**
+   * @public
    * <p> The Amazon S3 key name for status report of import task. The report contains details about
    *       whether each record imported successfully or why it did not. </p>
    */
   statusReportS3Key?: string;
 
   /**
+   * @public
    * <p> The time that the import task completes. </p>
    */
   completionTime?: Date;
 
   /**
+   * @public
    * <p> The number of records successfully imported. </p>
    */
   numberOfRecordsSuccess?: number;
 
   /**
+   * @public
    * <p> The number of records that failed to be imported. </p>
    */
   numberOfRecordsFailed?: number;
 
   /**
+   * @public
    * <p> The name of the import task given in <code>StartImportFileTask</code>. </p>
    */
   importName?: string;
@@ -2623,11 +2869,13 @@ export interface ImportFileTaskInformation {
  */
 export interface ListImportFileTaskResponse {
   /**
+   * @public
    * <p> Lists information about the files you import.</p>
    */
   taskInfos?: ImportFileTaskInformation[];
 
   /**
+   * @public
    * <p> The token you use to retrieve the next set of results, or null if there are no more results. </p>
    */
   nextToken?: string;
@@ -2657,11 +2905,13 @@ export type ServerCriteria = (typeof ServerCriteria)[keyof typeof ServerCriteria
  */
 export interface ListServersRequest {
   /**
+   * @public
    * <p> Criteria for filtering servers. </p>
    */
   serverCriteria?: ServerCriteria | string;
 
   /**
+   * @public
    * <p> Specifies the filter value, which is based on the type of server criteria. For example,
    *       if <code>serverCriteria</code> is <code>OS_NAME</code>, and the <code>filterValue</code> is
    *       equal to <code>WindowsServer</code>, then <code>ListServers</code> returns all of the servers
@@ -2670,17 +2920,20 @@ export interface ListServersRequest {
   filterValue?: string;
 
   /**
+   * @public
    * <p> Specifies whether to sort by ascending (<code>ASC</code>) or descending
    *         (<code>DESC</code>) order. </p>
    */
   sort?: SortOrder | string;
 
   /**
+   * @public
    * <p> Specifies the group ID to filter on. </p>
    */
   groupIdFilter?: Group[];
 
   /**
+   * @public
    * <p> The token from a previous call that you use to retrieve the next set of results. For example,
    * if a previous call to this action returned 100 items, but you set <code>maxResults</code> to 10. You'll receive a set of 10 results along
    *       with a token. You then use the returned token to retrieve the next set of 10. </p>
@@ -2688,6 +2941,7 @@ export interface ListServersRequest {
   nextToken?: string;
 
   /**
+   * @public
    * <p> The maximum number of items to include in the response. The maximum value is 100. </p>
    */
   maxResults?: number;
@@ -2698,11 +2952,13 @@ export interface ListServersRequest {
  */
 export interface ListServersResponse {
   /**
+   * @public
    * <p> The list of servers with detailed information about each server. </p>
    */
   serverInfos?: ServerDetail[];
 
   /**
+   * @public
    * <p> The token you use to retrieve the next set of results, or null if there are no more results. </p>
    */
   nextToken?: string;
@@ -2734,21 +2990,25 @@ export class ConflictException extends __BaseException {
  */
 export interface PutPortfolioPreferencesRequest {
   /**
+   * @public
    * <p> The rank of the business goals based on priority. </p>
    */
   prioritizeBusinessGoals?: PrioritizeBusinessGoals;
 
   /**
+   * @public
    * <p> The transformation preferences for non-database applications. </p>
    */
   applicationPreferences?: ApplicationPreferences;
 
   /**
+   * @public
    * <p> The transformation preferences for database applications. </p>
    */
   databasePreferences?: DatabasePreferences;
 
   /**
+   * @public
    * <p>The classification for application component types.</p>
    */
   applicationMode?: ApplicationMode | string;
@@ -2785,18 +3045,21 @@ export class ServiceQuotaExceededException extends __BaseException {
  */
 export interface StartAssessmentRequest {
   /**
+   * @public
    * <p> The S3 bucket used by the collectors to send analysis data to the service. The bucket
    *       name must begin with <code>migrationhub-strategy-</code>. </p>
    */
   s3bucketForAnalysisData?: string;
 
   /**
+   * @public
    * <p> The S3 bucket where all the reports generated by the service are stored. The bucket name
    *       must begin with <code>migrationhub-strategy-</code>. </p>
    */
   s3bucketForReportData?: string;
 
   /**
+   * @public
    * <p>List of criteria for assessment.</p>
    */
   assessmentTargets?: AssessmentTarget[];
@@ -2807,6 +3070,7 @@ export interface StartAssessmentRequest {
  */
 export interface StartAssessmentResponse {
   /**
+   * @public
    * <p> The ID of the assessment. </p>
    */
   assessmentId?: string;
@@ -2832,34 +3096,40 @@ export type DataSourceType = (typeof DataSourceType)[keyof typeof DataSourceType
  */
 export interface StartImportFileTaskRequest {
   /**
+   * @public
    * <p> A descriptive name for the request. </p>
    */
   name: string | undefined;
 
   /**
+   * @public
    * <p> The S3 bucket where the import file is located. The bucket name is required to begin with
    *         <code>migrationhub-strategy-</code>.</p>
    */
   S3Bucket: string | undefined;
 
   /**
+   * @public
    * <p> The Amazon S3 key name of the import file. </p>
    */
   s3key: string | undefined;
 
   /**
+   * @public
    * <p>Specifies the source that the servers are coming from. By default, Strategy Recommendations assumes that
    *       the servers specified in the import file are available in AWS Application Discovery Service. </p>
    */
   dataSourceType?: DataSourceType | string;
 
   /**
+   * @public
    * <p>Groups the resources in the import file together with a unique name. This ID can be as
    *       filter in <code>ListApplicationComponents</code> and <code>ListServers</code>. </p>
    */
   groupId?: Group[];
 
   /**
+   * @public
    * <p> The S3 bucket where Strategy Recommendations uploads import results. The bucket name is required to
    *       begin with migrationhub-strategy-. </p>
    */
@@ -2871,6 +3141,7 @@ export interface StartImportFileTaskRequest {
  */
 export interface StartImportFileTaskResponse {
   /**
+   * @public
    * <p> The ID for a specific import task. The ID is unique within an AWS account. </p>
    */
   id?: string;
@@ -2895,12 +3166,14 @@ export type OutputFormat = (typeof OutputFormat)[keyof typeof OutputFormat];
  */
 export interface StartRecommendationReportGenerationRequest {
   /**
+   * @public
    * <p> The output format for the recommendation report file. The default format is Microsoft
    *       Excel. </p>
    */
   outputFormat?: OutputFormat | string;
 
   /**
+   * @public
    * <p> Groups the resources in the recommendation report with a unique name. </p>
    */
   groupIdFilter?: Group[];
@@ -2911,6 +3184,7 @@ export interface StartRecommendationReportGenerationRequest {
  */
 export interface StartRecommendationReportGenerationResponse {
   /**
+   * @public
    * <p> The ID of the recommendation report generation task. </p>
    */
   id?: string;
@@ -2921,6 +3195,7 @@ export interface StartRecommendationReportGenerationResponse {
  */
 export interface StopAssessmentRequest {
   /**
+   * @public
    * <p> The <code>assessmentId</code> returned by <a>StartAssessment</a>. </p>
    */
   assessmentId: string | undefined;
@@ -2953,21 +3228,25 @@ export type VersionControl = (typeof VersionControl)[keyof typeof VersionControl
  */
 export interface SourceCode {
   /**
+   * @public
    * <p> The type of repository to use for the source code. </p>
    */
   versionControl?: VersionControl | string;
 
   /**
+   * @public
    * <p> The branch of the source code. </p>
    */
   sourceVersion?: string;
 
   /**
+   * @public
    * <p> The repository name for the source code. </p>
    */
   location?: string;
 
   /**
+   * @public
    * <p>The name of the project.</p>
    */
   projectName?: string;
@@ -2980,23 +3259,27 @@ export interface SourceCode {
  */
 export interface StrategyOption {
   /**
+   * @public
    * <p> Type of transformation. For example, Rehost, Replatform, and so on. </p>
    */
   strategy?: Strategy | string;
 
   /**
+   * @public
    * <p> The name of the tool that can be used to transform an application component using this
    *       strategy. </p>
    */
   toolName?: TransformationToolName | string;
 
   /**
+   * @public
    * <p> Destination information about where the application component can migrate to. For
    *       example, <code>EC2</code>, <code>ECS</code>, and so on. </p>
    */
   targetDestination?: TargetDestination | string;
 
   /**
+   * @public
    * <p> Indicates if a specific strategy is preferred for the application component. </p>
    */
   isPreferred?: boolean;
@@ -3007,32 +3290,38 @@ export interface StrategyOption {
  */
 export interface UpdateApplicationComponentConfigRequest {
   /**
+   * @public
    * <p> The ID of the application component. The ID is unique within an AWS account. </p>
    */
   applicationComponentId: string | undefined;
 
   /**
+   * @public
    * <p> Indicates whether the application component has been included for server recommendation
    *       or not. </p>
    */
   inclusionStatus?: InclusionStatus | string;
 
   /**
+   * @public
    * <p> The preferred strategy options for the application component. Use values from the <a>GetApplicationComponentStrategies</a> response. </p>
    */
   strategyOption?: StrategyOption;
 
   /**
+   * @public
    * <p> The list of source code configurations to update for the application component. </p>
    */
   sourceCodeList?: SourceCode[];
 
   /**
+   * @public
    * <p> Database credentials. </p>
    */
   secretsManagerKey?: string;
 
   /**
+   * @public
    * <p>Update the configuration request of an application component. If it is set to true, the
    *       source code and/or database credentials are updated. If it is set to false, the source code
    *       and/or database credentials are updated and an analysis is initiated.</p>
@@ -3040,6 +3329,7 @@ export interface UpdateApplicationComponentConfigRequest {
   configureOnly?: boolean;
 
   /**
+   * @public
    * <p>The type of known component.</p>
    */
   appType?: AppType | string;
@@ -3055,11 +3345,13 @@ export interface UpdateApplicationComponentConfigResponse {}
  */
 export interface UpdateServerConfigRequest {
   /**
+   * @public
    * <p> The ID of the server. </p>
    */
   serverId: string | undefined;
 
   /**
+   * @public
    * <p> The preferred strategy options for the application component. See the response from <a>GetServerStrategies</a>.</p>
    */
   strategyOption?: StrategyOption;

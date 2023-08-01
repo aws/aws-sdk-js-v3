@@ -12,12 +12,14 @@ import { GlobalAcceleratorServiceException as __BaseException } from "./GlobalAc
  */
 export interface AcceleratorEvent {
   /**
+   * @public
    * <p>A string that contains an <code>Event</code> message describing changes or errors
    * 			when you update an accelerator in Global Accelerator from IPv4 to dual-stack, or dual-stack to IPv4.</p>
    */
   Message?: string;
 
   /**
+   * @public
    * <p>A timestamp for when you update an accelerator in Global Accelerator from IPv4 to dual-stack, or dual-stack to IPv4.</p>
    */
   Timestamp?: Date;
@@ -57,6 +59,7 @@ export type IpAddressFamily = (typeof IpAddressFamily)[keyof typeof IpAddressFam
  */
 export interface IpSet {
   /**
+   * @public
    * @deprecated
    *
    * <p>IpFamily is deprecated and has been replaced by IpAddressFamily.</p>
@@ -64,11 +67,13 @@ export interface IpSet {
   IpFamily?: string;
 
   /**
+   * @public
    * <p>The array of IP addresses in the IP address set. An IP address set can have a maximum of two IP addresses.</p>
    */
   IpAddresses?: string[];
 
   /**
+   * @public
    * <p>The types of IP addresses included in this IP set. </p>
    */
   IpAddressFamily?: IpAddressFamily | string;
@@ -95,33 +100,39 @@ export type AcceleratorStatus = (typeof AcceleratorStatus)[keyof typeof Accelera
  */
 export interface Accelerator {
   /**
+   * @public
    * <p>The Amazon Resource Name (ARN) of the accelerator.</p>
    */
   AcceleratorArn?: string;
 
   /**
+   * @public
    * <p>The name of the accelerator. The name must contain only alphanumeric characters or
    * 			hyphens (-), and must not begin or end with a hyphen.</p>
    */
   Name?: string;
 
   /**
+   * @public
    * <p>The IP address type that an accelerator supports. For a standard accelerator, the value can be IPV4 or DUAL_STACK.</p>
    */
   IpAddressType?: IpAddressType | string;
 
   /**
+   * @public
    * <p>Indicates whether the accelerator is enabled. The value is true or false. The default value is true. </p>
    * 		       <p>If the value is set to true, the accelerator cannot be deleted. If set to false, accelerator can be deleted.</p>
    */
   Enabled?: boolean;
 
   /**
+   * @public
    * <p>The static IP addresses that Global Accelerator associates with the accelerator.</p>
    */
   IpSets?: IpSet[];
 
   /**
+   * @public
    * <p>The Domain Name System (DNS) name that Global Accelerator creates that points to an accelerator's static IPv4 addresses.</p>
    * 		       <p>The naming convention for the DNS name for an accelerator is the following: A lowercase letter a,
    * 			followed by a 16-bit random hex string, followed by .awsglobalaccelerator.com. For example:
@@ -134,21 +145,25 @@ export interface Accelerator {
   DnsName?: string;
 
   /**
+   * @public
    * <p>Describes the deployment status of the accelerator.</p>
    */
   Status?: AcceleratorStatus | string;
 
   /**
+   * @public
    * <p>The date and time that the accelerator was created.</p>
    */
   CreatedTime?: Date;
 
   /**
+   * @public
    * <p>The date and time that the accelerator was last modified.</p>
    */
   LastModifiedTime?: Date;
 
   /**
+   * @public
    * <p>The Domain Name System (DNS) name that Global Accelerator creates that points to a dual-stack accelerator's four static IP addresses:
    * 			two IPv4 addresses and two IPv6 addresses.</p>
    * 		       <p>The naming convention for the dual-stack DNS name is the following: A lowercase letter a,
@@ -161,6 +176,7 @@ export interface Accelerator {
   DualStackDnsName?: string;
 
   /**
+   * @public
    * <p>A history of changes that you make to an accelerator in Global Accelerator.</p>
    */
   Events?: AcceleratorEvent[];
@@ -172,6 +188,7 @@ export interface Accelerator {
  */
 export interface AcceleratorAttributes {
   /**
+   * @public
    * <p>Indicates whether flow logs are enabled. The default value is false. If the value is true,
    * 				<code>FlowLogsS3Bucket</code> and <code>FlowLogsS3Prefix</code> must be specified.</p>
    * 		       <p>For more information, see <a href="https://docs.aws.amazon.com/global-accelerator/latest/dg/monitoring-global-accelerator.flow-logs.html">Flow logs</a> in
@@ -180,6 +197,7 @@ export interface AcceleratorAttributes {
   FlowLogsEnabled?: boolean;
 
   /**
+   * @public
    * <p>The name of the Amazon S3 bucket for the flow logs. Attribute is required if <code>FlowLogsEnabled</code> is
    * 		    <code>true</code>. The bucket must exist and have a bucket policy that grants Global Accelerator permission to write to the
    * 			bucket.</p>
@@ -187,6 +205,7 @@ export interface AcceleratorAttributes {
   FlowLogsS3Bucket?: string;
 
   /**
+   * @public
    * <p>The prefix for the location in the Amazon S3 bucket for the flow logs. Attribute is required if
    * 				<code>FlowLogsEnabled</code> is <code>true</code>.</p>
    * 		       <p>If you specify slash (/) for the S3 bucket prefix, the log file bucket folder structure will include a double slash (//), like the following:</p>
@@ -267,6 +286,7 @@ export class AccessDeniedException extends __BaseException {
  */
 export interface CustomRoutingEndpointConfiguration {
   /**
+   * @public
    * <p>An ID for the endpoint. For custom routing accelerators, this is the virtual private cloud (VPC)
    * 			subnet ID. </p>
    */
@@ -278,11 +298,13 @@ export interface CustomRoutingEndpointConfiguration {
  */
 export interface AddCustomRoutingEndpointsRequest {
   /**
+   * @public
    * <p>The list of endpoint objects to add to a custom routing accelerator.</p>
    */
   EndpointConfigurations: CustomRoutingEndpointConfiguration[] | undefined;
 
   /**
+   * @public
    * <p>The Amazon Resource Name (ARN) of the endpoint group for the custom routing endpoint.</p>
    */
   EndpointGroupArn: string | undefined;
@@ -295,6 +317,7 @@ export interface AddCustomRoutingEndpointsRequest {
  */
 export interface CustomRoutingEndpointDescription {
   /**
+   * @public
    * <p>An ID for the endpoint. For custom routing accelerators, this is the virtual private cloud (VPC)
    * 			subnet ID. </p>
    */
@@ -306,11 +329,13 @@ export interface CustomRoutingEndpointDescription {
  */
 export interface AddCustomRoutingEndpointsResponse {
   /**
+   * @public
    * <p>The endpoint objects added to the custom routing accelerator.</p>
    */
   EndpointDescriptions?: CustomRoutingEndpointDescription[];
 
   /**
+   * @public
    * <p>The Amazon Resource Name (ARN) of the endpoint group for the custom routing endpoint.</p>
    */
   EndpointGroupArn?: string;
@@ -454,6 +479,7 @@ export class LimitExceededException extends __BaseException {
  */
 export interface EndpointConfiguration {
   /**
+   * @public
    * <p>An ID for the endpoint. If the endpoint is a Network Load Balancer or Application Load Balancer, this is the Amazon
    * 			Resource Name (ARN) of the resource. If the endpoint is an Elastic IP address, this is the Elastic IP address
    * 			allocation ID. For Amazon EC2 instances, this is the EC2 instance ID. A resource must be valid and active
@@ -463,6 +489,7 @@ export interface EndpointConfiguration {
   EndpointId?: string;
 
   /**
+   * @public
    * <p>The weight associated with the endpoint. When you add weights to endpoints, you configure Global Accelerator to route traffic
    * 			based on proportions that you specify. For example, you might specify endpoint weights of 4, 5, 5, and 6 (sum=20). The
    * 			result is that 4/20 of your traffic, on average, is routed to the first endpoint, 5/20 is routed both to the second
@@ -472,6 +499,7 @@ export interface EndpointConfiguration {
   Weight?: number;
 
   /**
+   * @public
    * <p>Indicates whether client IP address preservation is enabled for an endpoint.
    * 			The value is true or false. The default value is true for new accelerators. </p>
    * 		       <p>If the value is set to true, the client's IP address is preserved in the <code>X-Forwarded-For</code> request header as
@@ -492,11 +520,13 @@ export interface EndpointConfiguration {
  */
 export interface AddEndpointsRequest {
   /**
+   * @public
    * <p>The list of endpoint objects.</p>
    */
   EndpointConfigurations: EndpointConfiguration[] | undefined;
 
   /**
+   * @public
    * <p>The Amazon Resource Name (ARN) of the endpoint group.</p>
    */
   EndpointGroupArn: string | undefined;
@@ -524,6 +554,7 @@ export type HealthState = (typeof HealthState)[keyof typeof HealthState];
  */
 export interface EndpointDescription {
   /**
+   * @public
    * <p>An ID for the endpoint. If the endpoint is a Network Load Balancer or Application Load Balancer, this is the Amazon
    * 			Resource Name (ARN) of the resource. If the endpoint is an Elastic IP address, this is the Elastic IP address
    * 			allocation ID. For Amazon EC2 instances, this is the EC2 instance ID. </p>
@@ -532,6 +563,7 @@ export interface EndpointDescription {
   EndpointId?: string;
 
   /**
+   * @public
    * <p>The weight associated with the endpoint. When you add weights to endpoints, you configure Global Accelerator to route traffic
    * 			based on proportions that you specify. For example, you might specify endpoint weights of 4, 5, 5, and 6 (sum=20). The
    * 			result is that 4/20 of your traffic, on average, is routed to the first endpoint, 5/20 is routed both to the second
@@ -541,16 +573,19 @@ export interface EndpointDescription {
   Weight?: number;
 
   /**
+   * @public
    * <p>The health status of the endpoint.</p>
    */
   HealthState?: HealthState | string;
 
   /**
+   * @public
    * <p>Returns a null result.</p>
    */
   HealthReason?: string;
 
   /**
+   * @public
    * <p>Indicates whether client IP address preservation is enabled for an endpoint.
    * 			The value is true or false. The default value is true for new accelerators. </p>
    * 		       <p>If the value is set to true, the client's IP address is preserved in the <code>X-Forwarded-For</code> request header as
@@ -570,11 +605,13 @@ export interface EndpointDescription {
  */
 export interface AddEndpointsResponse {
   /**
+   * @public
    * <p>The list of endpoint objects.</p>
    */
   EndpointDescriptions?: EndpointDescription[];
 
   /**
+   * @public
    * <p>The Amazon Resource Name (ARN) of the endpoint group.</p>
    */
   EndpointGroupArn?: string;
@@ -607,6 +644,7 @@ export class TransactionInProgressException extends __BaseException {
  */
 export interface AdvertiseByoipCidrRequest {
   /**
+   * @public
    * <p>The address range, in CIDR notation. This must be the exact range that you provisioned.
    * 			You can't advertise only a portion of the provisioned range.</p>
    */
@@ -621,12 +659,14 @@ export interface AdvertiseByoipCidrRequest {
  */
 export interface ByoipCidrEvent {
   /**
+   * @public
    * <p>A string that contains an <code>Event</code> message describing changes that you make in the status
    * 			of an IP address range that you bring to Global Accelerator through bring your own IP address (BYOIP).</p>
    */
   Message?: string;
 
   /**
+   * @public
    * <p>A timestamp for when you make a status change for an IP address range that you bring to Global Accelerator through
    * 			bring your own IP address (BYOIP).</p>
    */
@@ -731,16 +771,19 @@ export type ByoipCidrState = (typeof ByoipCidrState)[keyof typeof ByoipCidrState
  */
 export interface ByoipCidr {
   /**
+   * @public
    * <p>The address range, in CIDR notation.</p>
    */
   Cidr?: string;
 
   /**
+   * @public
    * <p>The state of the address pool.</p>
    */
   State?: ByoipCidrState | string;
 
   /**
+   * @public
    * <p>A history of status changes for an IP address range that you bring to Global Accelerator
    * 			through bring your own IP address (BYOIP).</p>
    */
@@ -752,6 +795,7 @@ export interface ByoipCidr {
  */
 export interface AdvertiseByoipCidrResponse {
   /**
+   * @public
    * <p>Information about the address range.</p>
    */
   ByoipCidr?: ByoipCidr;
@@ -807,16 +851,19 @@ export class IncorrectCidrStateException extends __BaseException {
  */
 export interface AllowCustomRoutingTrafficRequest {
   /**
+   * @public
    * <p>The Amazon Resource Name (ARN) of the endpoint group.</p>
    */
   EndpointGroupArn: string | undefined;
 
   /**
+   * @public
    * <p>An ID for the endpoint. For custom routing accelerators, this is the virtual private cloud (VPC) subnet ID.</p>
    */
   EndpointId: string | undefined;
 
   /**
+   * @public
    * <p>A list of specific Amazon EC2 instance IP addresses (destination addresses) in a subnet that you want to allow to receive
    * 			traffic. The IP addresses must be a subset of the IP addresses that you specified for the endpoint group.</p>
    * 		       <p>
@@ -826,11 +873,13 @@ export interface AllowCustomRoutingTrafficRequest {
   DestinationAddresses?: string[];
 
   /**
+   * @public
    * <p>A list of specific Amazon EC2 instance ports (destination ports) that you want to allow to receive traffic.</p>
    */
   DestinationPorts?: number[];
 
   /**
+   * @public
    * <p>Indicates whether all destination IP addresses and ports for a specified VPC subnet endpoint can receive traffic
    * 			from a custom routing accelerator. The value is TRUE or FALSE. </p>
    * 		       <p>When set to TRUE, <i>all</i> destinations in the custom routing VPC subnet can receive traffic. Note
@@ -898,11 +947,13 @@ export class AssociatedListenerFoundException extends __BaseException {
  */
 export interface CidrAuthorizationContext {
   /**
+   * @public
    * <p>The plain-text authorization message for the prefix and account.</p>
    */
   Message: string | undefined;
 
   /**
+   * @public
    * <p>The signed authorization message for the prefix and account.</p>
    */
   Signature: string | undefined;
@@ -928,11 +979,13 @@ export type ClientAffinity = (typeof ClientAffinity)[keyof typeof ClientAffinity
  */
 export interface Tag {
   /**
+   * @public
    * <p>A string that contains a <code>Tag</code> key.</p>
    */
   Key: string | undefined;
 
   /**
+   * @public
    * <p>A string that contains a <code>Tag</code> value.</p>
    */
   Value: string | undefined;
@@ -943,17 +996,20 @@ export interface Tag {
  */
 export interface CreateAcceleratorRequest {
   /**
+   * @public
    * <p>The name of the accelerator. The name can have a maximum of 64 characters, must contain only alphanumeric characters,
    * 			periods (.), or hyphens (-), and must not begin or end with a hyphen or period.</p>
    */
   Name: string | undefined;
 
   /**
+   * @public
    * <p>The IP address type that an accelerator supports. For a standard accelerator, the value can be IPV4 or DUAL_STACK.</p>
    */
   IpAddressType?: IpAddressType | string;
 
   /**
+   * @public
    * <p>Optionally, if you've added your own IP address pool to Global Accelerator (BYOIP), you can choose an IPv4 address
    * 			from your own pool to use for the accelerator's static IPv4 address when you create an accelerator. </p>
    * 	        <p>After you bring an address range to Amazon Web Services, it appears in your account as an address pool.
@@ -970,18 +1026,21 @@ export interface CreateAcceleratorRequest {
   IpAddresses?: string[];
 
   /**
+   * @public
    * <p>Indicates whether an accelerator is enabled. The value is true or false. The default value is true. </p>
    * 		       <p>If the value is set to true, an accelerator cannot be deleted. If set to false, the accelerator can be deleted.</p>
    */
   Enabled?: boolean;
 
   /**
+   * @public
    * <p>A unique, case-sensitive identifier that you provide to ensure the idempotency—that is, the
    * 			uniqueness—of an accelerator.</p>
    */
   IdempotencyToken?: string;
 
   /**
+   * @public
    * <p>Create tags for an accelerator.</p>
    * 		       <p>For more information, see <a href="https://docs.aws.amazon.com/global-accelerator/latest/dg/tagging-in-global-accelerator.html">Tagging
    * 		    in Global Accelerator</a> in the <i>Global Accelerator Developer Guide</i>.</p>
@@ -994,6 +1053,7 @@ export interface CreateAcceleratorRequest {
  */
 export interface CreateAcceleratorResponse {
   /**
+   * @public
    * <p>The accelerator that is created by specifying a listener and the supported IP address types.</p>
    */
   Accelerator?: Accelerator;
@@ -1004,17 +1064,20 @@ export interface CreateAcceleratorResponse {
  */
 export interface CreateCustomRoutingAcceleratorRequest {
   /**
+   * @public
    * <p>The name of a custom routing accelerator. The name can have a maximum of 64 characters, must contain
    * 		only alphanumeric characters or hyphens (-), and must not begin or end with a hyphen.</p>
    */
   Name: string | undefined;
 
   /**
+   * @public
    * <p>The IP address type that an accelerator supports. For a custom routing accelerator, the value must be IPV4.</p>
    */
   IpAddressType?: IpAddressType | string;
 
   /**
+   * @public
    * <p>Optionally, if you've added your own IP address pool to Global Accelerator (BYOIP), you can choose an IPv4 address
    * 			from your own pool to use for the accelerator's static IPv4 address when you create an accelerator. </p>
    * 		       <p>After you bring an address range to Amazon Web Services, it appears in your account as an address pool.
@@ -1031,18 +1094,21 @@ export interface CreateCustomRoutingAcceleratorRequest {
   IpAddresses?: string[];
 
   /**
+   * @public
    * <p>Indicates whether an accelerator is enabled. The value is true or false. The default value is true. </p>
    * 	        <p>If the value is set to true, an accelerator cannot be deleted. If set to false, the accelerator can be deleted.</p>
    */
   Enabled?: boolean;
 
   /**
+   * @public
    * <p>A unique, case-sensitive identifier that you provide to ensure the idempotency—that
    * 			is, the uniqueness—of the request.</p>
    */
   IdempotencyToken?: string;
 
   /**
+   * @public
    * <p>Create tags for an accelerator.</p>
    * 	        <p>For more information, see <a href="https://docs.aws.amazon.com/global-accelerator/latest/dg/tagging-in-global-accelerator.html">Tagging
    * 	    in Global Accelerator</a> in the <i>Global Accelerator Developer Guide</i>.</p>
@@ -1071,33 +1137,39 @@ export type CustomRoutingAcceleratorStatus =
  */
 export interface CustomRoutingAccelerator {
   /**
+   * @public
    * <p>The Amazon Resource Name (ARN) of the custom routing accelerator.</p>
    */
   AcceleratorArn?: string;
 
   /**
+   * @public
    * <p>The name of the accelerator. The name must contain only alphanumeric characters or
    * 			hyphens (-), and must not begin or end with a hyphen.</p>
    */
   Name?: string;
 
   /**
+   * @public
    * <p>The IP address type that an accelerator supports. For a custom routing accelerator, the value must be IPV4.</p>
    */
   IpAddressType?: IpAddressType | string;
 
   /**
+   * @public
    * <p>Indicates whether the accelerator is enabled. The value is true or false. The default value is true. </p>
    * 		       <p>If the value is set to true, the accelerator cannot be deleted. If set to false, accelerator can be deleted.</p>
    */
   Enabled?: boolean;
 
   /**
+   * @public
    * <p>The static IP addresses that Global Accelerator associates with the accelerator.</p>
    */
   IpSets?: IpSet[];
 
   /**
+   * @public
    * <p>The Domain Name System (DNS) name that Global Accelerator creates that points to an accelerator's static IPv4 addresses. </p>
    * 		       <p>The naming convention for the DNS name is the following: A lowercase letter a,
    * 			followed by a 16-bit random hex string, followed by .awsglobalaccelerator.com. For example:
@@ -1111,16 +1183,19 @@ export interface CustomRoutingAccelerator {
   DnsName?: string;
 
   /**
+   * @public
    * <p>Describes the deployment status of the accelerator.</p>
    */
   Status?: CustomRoutingAcceleratorStatus | string;
 
   /**
+   * @public
    * <p>The date and time that the accelerator was created.</p>
    */
   CreatedTime?: Date;
 
   /**
+   * @public
    * <p>The date and time that the accelerator was last modified.</p>
    */
   LastModifiedTime?: Date;
@@ -1131,6 +1206,7 @@ export interface CustomRoutingAccelerator {
  */
 export interface CreateCustomRoutingAcceleratorResponse {
   /**
+   * @public
    * <p>The accelerator that is created.</p>
    */
   Accelerator?: CustomRoutingAccelerator;
@@ -1157,16 +1233,19 @@ export type CustomRoutingProtocol = (typeof CustomRoutingProtocol)[keyof typeof 
  */
 export interface CustomRoutingDestinationConfiguration {
   /**
+   * @public
    * <p>The first port, inclusive, in the range of ports for the endpoint group that is associated with a custom routing accelerator.</p>
    */
   FromPort: number | undefined;
 
   /**
+   * @public
    * <p>The last port, inclusive, in the range of ports for the endpoint group that is associated with a custom routing accelerator.</p>
    */
   ToPort: number | undefined;
 
   /**
+   * @public
    * <p>The protocol for the endpoint group that is associated with a custom routing accelerator. The protocol can be either TCP or UDP.</p>
    */
   Protocols: (CustomRoutingProtocol | string)[] | undefined;
@@ -1177,23 +1256,27 @@ export interface CustomRoutingDestinationConfiguration {
  */
 export interface CreateCustomRoutingEndpointGroupRequest {
   /**
+   * @public
    * <p>The Amazon Resource Name (ARN) of the listener for a custom routing endpoint.</p>
    */
   ListenerArn: string | undefined;
 
   /**
+   * @public
    * <p>The Amazon Web Services Region where the endpoint group is located. A listener can have only one endpoint group in a
    * 		specific Region.</p>
    */
   EndpointGroupRegion: string | undefined;
 
   /**
+   * @public
    * <p>Sets the port range and protocol for all endpoints (virtual private cloud subnets) in a custom routing endpoint group to accept
    * 		client traffic on.</p>
    */
   DestinationConfigurations: CustomRoutingDestinationConfiguration[] | undefined;
 
   /**
+   * @public
    * <p>A unique, case-sensitive identifier that you provide to ensure the idempotency—that is, the
    * 		uniqueness—of the request.</p>
    */
@@ -1221,16 +1304,19 @@ export type Protocol = (typeof Protocol)[keyof typeof Protocol];
  */
 export interface CustomRoutingDestinationDescription {
   /**
+   * @public
    * <p>The first port, inclusive, in the range of ports for the endpoint group that is associated with a custom routing accelerator.</p>
    */
   FromPort?: number;
 
   /**
+   * @public
    * <p>The last port, inclusive, in the range of ports for the endpoint group that is associated with a custom routing accelerator.</p>
    */
   ToPort?: number;
 
   /**
+   * @public
    * <p>The protocol for the endpoint group that is associated with a custom routing accelerator. The protocol can be either TCP or UDP.</p>
    */
   Protocols?: (Protocol | string)[];
@@ -1243,22 +1329,26 @@ export interface CustomRoutingDestinationDescription {
  */
 export interface CustomRoutingEndpointGroup {
   /**
+   * @public
    * <p>The Amazon Resource Name (ARN) of the endpoint group.</p>
    */
   EndpointGroupArn?: string;
 
   /**
+   * @public
    * <p>The Amazon Web Services Region where the endpoint group is located.</p>
    */
   EndpointGroupRegion?: string;
 
   /**
+   * @public
    * <p>For a custom routing accelerator, describes the port range and protocol for all endpoints
    * 			(virtual private cloud subnets) in an endpoint group to accept client traffic on.</p>
    */
   DestinationDescriptions?: CustomRoutingDestinationDescription[];
 
   /**
+   * @public
    * <p>For a custom routing accelerator, describes the endpoints (virtual private cloud subnets) in an
    * 			endpoint group to accept client traffic on.</p>
    */
@@ -1270,6 +1360,7 @@ export interface CustomRoutingEndpointGroup {
  */
 export interface CreateCustomRoutingEndpointGroupResponse {
   /**
+   * @public
    * <p>The information about the endpoint group created for a custom routing accelerator.</p>
    */
   EndpointGroup?: CustomRoutingEndpointGroup;
@@ -1347,11 +1438,13 @@ export class ListenerNotFoundException extends __BaseException {
  */
 export interface PortRange {
   /**
+   * @public
    * <p>The first port in the range of ports, inclusive.</p>
    */
   FromPort?: number;
 
   /**
+   * @public
    * <p>The last port in the range of ports, inclusive.</p>
    */
   ToPort?: number;
@@ -1362,11 +1455,13 @@ export interface PortRange {
  */
 export interface CreateCustomRoutingListenerRequest {
   /**
+   * @public
    * <p>The Amazon Resource Name (ARN) of the accelerator for a custom routing listener.</p>
    */
   AcceleratorArn: string | undefined;
 
   /**
+   * @public
    * <p>The port range to support for connections from clients to your accelerator.</p>
    * 	        <p>Separately, you set port ranges for endpoints. For more information, see <a href="https://docs.aws.amazon.com/global-accelerator/latest/dg/about-custom-routing-endpoints.html">About
    * 		endpoints for custom routing accelerators</a>.</p>
@@ -1374,6 +1469,7 @@ export interface CreateCustomRoutingListenerRequest {
   PortRanges: PortRange[] | undefined;
 
   /**
+   * @public
    * <p>A unique, case-sensitive identifier that you provide to ensure the idempotency—that is, the
    * 		uniqueness—of the request.</p>
    */
@@ -1386,11 +1482,13 @@ export interface CreateCustomRoutingListenerRequest {
  */
 export interface CustomRoutingListener {
   /**
+   * @public
    * <p>The Amazon Resource Name (ARN) of the listener.</p>
    */
   ListenerArn?: string;
 
   /**
+   * @public
    * <p>The port range to support for connections from clients to your accelerator.</p>
    * 		       <p>Separately, you set port ranges for endpoints. For more information, see <a href="https://docs.aws.amazon.com/global-accelerator/latest/dg/about-custom-routing-endpoints.html">About
    * 				endpoints for custom routing accelerators</a>.</p>
@@ -1403,6 +1501,7 @@ export interface CustomRoutingListener {
  */
 export interface CreateCustomRoutingListenerResponse {
   /**
+   * @public
    * <p>The listener that you've created for a custom routing accelerator.</p>
    */
   Listener?: CustomRoutingListener;
@@ -1434,12 +1533,14 @@ export type HealthCheckProtocol = (typeof HealthCheckProtocol)[keyof typeof Heal
  */
 export interface PortOverride {
   /**
+   * @public
    * <p>The listener port that you want to map to a specific endpoint port. This is the port that user traffic
    * 		    arrives to the Global Accelerator on.</p>
    */
   ListenerPort?: number;
 
   /**
+   * @public
    * <p>The endpoint port that you want a listener port to be mapped to. This is the port on the endpoint,
    * 		    such as the Application Load Balancer or Amazon EC2 instance.</p>
    */
@@ -1451,22 +1552,26 @@ export interface PortOverride {
  */
 export interface CreateEndpointGroupRequest {
   /**
+   * @public
    * <p>The Amazon Resource Name (ARN) of the listener.</p>
    */
   ListenerArn: string | undefined;
 
   /**
+   * @public
    * <p>The Amazon Web Services Region where the endpoint group is located. A listener can have only one endpoint group in a
    * 			specific Region.</p>
    */
   EndpointGroupRegion: string | undefined;
 
   /**
+   * @public
    * <p>The list of endpoint objects.</p>
    */
   EndpointConfigurations?: EndpointConfiguration[];
 
   /**
+   * @public
    * <p>The percentage of traffic to send to an Amazon Web Services Region. Additional traffic is distributed to other endpoint groups for
    * 			this listener. </p>
    * 		       <p>Use this action to increase (dial up) or decrease (dial down) traffic to a specific Region. The percentage is
@@ -1476,6 +1581,7 @@ export interface CreateEndpointGroupRequest {
   TrafficDialPercentage?: number;
 
   /**
+   * @public
    * <p>The port that Global Accelerator uses to check the health of endpoints that are part of this endpoint group. The default port
    * 	        is the listener port that this endpoint group is associated with. If listener port is a list of ports, Global Accelerator uses the
    * 			first port in the list.</p>
@@ -1483,35 +1589,41 @@ export interface CreateEndpointGroupRequest {
   HealthCheckPort?: number;
 
   /**
+   * @public
    * <p>The protocol that Global Accelerator uses to check the health of endpoints that are part of this endpoint group. The default
    * 			value is TCP.</p>
    */
   HealthCheckProtocol?: HealthCheckProtocol | string;
 
   /**
+   * @public
    * <p>If the protocol is HTTP/S, then this specifies the path that is the destination for health check targets. The
    * 			default value is slash (/).</p>
    */
   HealthCheckPath?: string;
 
   /**
+   * @public
    * <p>The time—10 seconds or 30 seconds—between each health check for an endpoint. The default value is 30.</p>
    */
   HealthCheckIntervalSeconds?: number;
 
   /**
+   * @public
    * <p>The number of consecutive health checks required to set the state of a healthy endpoint to unhealthy, or to set an
    * 			unhealthy endpoint to healthy. The default value is 3.</p>
    */
   ThresholdCount?: number;
 
   /**
+   * @public
    * <p>A unique, case-sensitive identifier that you provide to ensure the idempotency—that is, the
    * 			uniqueness—of the request.</p>
    */
   IdempotencyToken?: string;
 
   /**
+   * @public
    * <p>Override specific listener ports used to route traffic to endpoints that are part of this endpoint group.
    * 			For example, you can create a port override in which the listener
    * 			receives user traffic on ports 80 and 443, but your accelerator routes that traffic to ports 1080
@@ -1529,21 +1641,25 @@ export interface CreateEndpointGroupRequest {
  */
 export interface EndpointGroup {
   /**
+   * @public
    * <p>The Amazon Resource Name (ARN) of the endpoint group.</p>
    */
   EndpointGroupArn?: string;
 
   /**
+   * @public
    * <p>The Amazon Web Services Region where the endpoint group is located.</p>
    */
   EndpointGroupRegion?: string;
 
   /**
+   * @public
    * <p>The list of endpoint objects.</p>
    */
   EndpointDescriptions?: EndpointDescription[];
 
   /**
+   * @public
    * <p>The percentage of traffic to send to an Amazon Web Services Region. Additional traffic is distributed to other endpoint groups for
    * 			this listener. </p>
    * 		       <p>Use this action to increase (dial up) or decrease (dial down) traffic to a specific Region. The percentage is
@@ -1553,6 +1669,7 @@ export interface EndpointGroup {
   TrafficDialPercentage?: number;
 
   /**
+   * @public
    * <p>The port that Global Accelerator uses to perform health checks on endpoints that are part of this endpoint group. </p>
    *
    * 		       <p>The default port is the port for the listener that this endpoint group is associated with. If the listener port is a
@@ -1561,29 +1678,34 @@ export interface EndpointGroup {
   HealthCheckPort?: number;
 
   /**
+   * @public
    * <p>The protocol that Global Accelerator uses to perform health checks on endpoints that are part of this endpoint group. The default
    * 			value is TCP.</p>
    */
   HealthCheckProtocol?: HealthCheckProtocol | string;
 
   /**
+   * @public
    * <p>If the protocol is HTTP/S, then this value provides the ping path that Global Accelerator uses for the destination on the
    * 			endpoints for health checks. The default is slash (/).</p>
    */
   HealthCheckPath?: string;
 
   /**
+   * @public
    * <p>The time—10 seconds or 30 seconds—between health checks for each endpoint. The default value is 30.</p>
    */
   HealthCheckIntervalSeconds?: number;
 
   /**
+   * @public
    * <p>The number of consecutive health checks required to set the state of a healthy endpoint to unhealthy, or to set an
    * 			unhealthy endpoint to healthy. The default value is 3.</p>
    */
   ThresholdCount?: number;
 
   /**
+   * @public
    * <p>Allows you to override the destination ports used to route traffic to an endpoint.
    * 			Using a port override lets you map a list of external destination ports (that your
    * 			users send traffic to) to a list of internal destination ports that you want an application
@@ -1597,6 +1719,7 @@ export interface EndpointGroup {
  */
 export interface CreateEndpointGroupResponse {
   /**
+   * @public
    * <p>The information about the endpoint group that was created.</p>
    */
   EndpointGroup?: EndpointGroup;
@@ -1607,21 +1730,25 @@ export interface CreateEndpointGroupResponse {
  */
 export interface CreateListenerRequest {
   /**
+   * @public
    * <p>The Amazon Resource Name (ARN) of your accelerator.</p>
    */
   AcceleratorArn: string | undefined;
 
   /**
+   * @public
    * <p>The list of port ranges to support for connections from clients to your accelerator.</p>
    */
   PortRanges: PortRange[] | undefined;
 
   /**
+   * @public
    * <p>The protocol for connections from clients to your accelerator.</p>
    */
   Protocol: Protocol | string | undefined;
 
   /**
+   * @public
    * <p>Client affinity lets you direct all requests from a user to the same endpoint, if you have stateful applications,
    * 			regardless of the port and protocol of the client request. Client affinity gives you control over whether to always
    * 			route each client to the same specific endpoint.</p>
@@ -1638,6 +1765,7 @@ export interface CreateListenerRequest {
   ClientAffinity?: ClientAffinity | string;
 
   /**
+   * @public
    * <p>A unique, case-sensitive identifier that you provide to ensure the idempotency—that is, the
    * 			uniqueness—of the request.</p>
    */
@@ -1650,21 +1778,25 @@ export interface CreateListenerRequest {
  */
 export interface Listener {
   /**
+   * @public
    * <p>The Amazon Resource Name (ARN) of the listener.</p>
    */
   ListenerArn?: string;
 
   /**
+   * @public
    * <p>The list of port ranges for the connections from clients to the accelerator.</p>
    */
   PortRanges?: PortRange[];
 
   /**
+   * @public
    * <p>The protocol for the connections from clients to the accelerator.</p>
    */
   Protocol?: Protocol | string;
 
   /**
+   * @public
    * <p>Client affinity lets you direct all requests from a user to the same endpoint, if you have stateful applications,
    * 			regardless of the port and protocol of the client request. Client affinity gives you control over whether to always
    * 			route each client to the same specific endpoint.</p>
@@ -1686,6 +1818,7 @@ export interface Listener {
  */
 export interface CreateListenerResponse {
   /**
+   * @public
    * <p>The listener that you've created.</p>
    */
   Listener?: Listener;
@@ -1697,6 +1830,7 @@ export interface CreateListenerResponse {
  */
 export interface CustomRoutingAcceleratorAttributes {
   /**
+   * @public
    * <p>Indicates whether flow logs are enabled. The default value is false. If the value is true,
    * 			<code>FlowLogsS3Bucket</code> and <code>FlowLogsS3Prefix</code> must be specified.</p>
    * 		       <p>For more information, see <a href="https://docs.aws.amazon.com/global-accelerator/latest/dg/monitoring-global-accelerator.flow-logs.html">Flow logs</a> in
@@ -1705,6 +1839,7 @@ export interface CustomRoutingAcceleratorAttributes {
   FlowLogsEnabled?: boolean;
 
   /**
+   * @public
    * <p>The name of the Amazon S3 bucket for the flow logs. Attribute is required if <code>FlowLogsEnabled</code> is
    * 		    <code>true</code>. The bucket must exist and have a bucket policy that grants Global Accelerator permission to write to the
    * 			bucket.</p>
@@ -1712,6 +1847,7 @@ export interface CustomRoutingAcceleratorAttributes {
   FlowLogsS3Bucket?: string;
 
   /**
+   * @public
    * <p>The prefix for the location in the Amazon S3 bucket for the flow logs. Attribute is required if
    * 			<code>FlowLogsEnabled</code> is <code>true</code>.</p>
    * 		       <p>If you don’t specify a prefix, the flow logs are stored in the
@@ -1741,6 +1877,7 @@ export type CustomRoutingDestinationTrafficState =
  */
 export interface DeleteAcceleratorRequest {
   /**
+   * @public
    * <p>The Amazon Resource Name (ARN) of an accelerator.</p>
    */
   AcceleratorArn: string | undefined;
@@ -1751,6 +1888,7 @@ export interface DeleteAcceleratorRequest {
  */
 export interface DeleteCustomRoutingAcceleratorRequest {
   /**
+   * @public
    * <p>The Amazon Resource Name (ARN) of the custom routing accelerator to delete.</p>
    */
   AcceleratorArn: string | undefined;
@@ -1761,6 +1899,7 @@ export interface DeleteCustomRoutingAcceleratorRequest {
  */
 export interface DeleteCustomRoutingEndpointGroupRequest {
   /**
+   * @public
    * <p>The Amazon Resource Name (ARN) of the endpoint group to delete.</p>
    */
   EndpointGroupArn: string | undefined;
@@ -1771,6 +1910,7 @@ export interface DeleteCustomRoutingEndpointGroupRequest {
  */
 export interface DeleteCustomRoutingListenerRequest {
   /**
+   * @public
    * <p>The Amazon Resource Name (ARN) of the listener to delete.</p>
    */
   ListenerArn: string | undefined;
@@ -1781,6 +1921,7 @@ export interface DeleteCustomRoutingListenerRequest {
  */
 export interface DeleteEndpointGroupRequest {
   /**
+   * @public
    * <p>The Amazon Resource Name (ARN) of the endpoint group to delete.</p>
    */
   EndpointGroupArn: string | undefined;
@@ -1791,6 +1932,7 @@ export interface DeleteEndpointGroupRequest {
  */
 export interface DeleteListenerRequest {
   /**
+   * @public
    * <p>The Amazon Resource Name (ARN) of the listener.</p>
    */
   ListenerArn: string | undefined;
@@ -1801,16 +1943,19 @@ export interface DeleteListenerRequest {
  */
 export interface DenyCustomRoutingTrafficRequest {
   /**
+   * @public
    * <p>The Amazon Resource Name (ARN) of the endpoint group.</p>
    */
   EndpointGroupArn: string | undefined;
 
   /**
+   * @public
    * <p>An ID for the endpoint. For custom routing accelerators, this is the virtual private cloud (VPC) subnet ID.</p>
    */
   EndpointId: string | undefined;
 
   /**
+   * @public
    * <p>A list of specific Amazon EC2 instance IP addresses (destination addresses) in a subnet that you want to prevent from receiving
    * 			traffic. The IP addresses must be a subset of the IP addresses allowed for the VPC subnet associated with the
    * 			endpoint group.</p>
@@ -1818,12 +1963,14 @@ export interface DenyCustomRoutingTrafficRequest {
   DestinationAddresses?: string[];
 
   /**
+   * @public
    * <p>A list of specific Amazon EC2 instance ports (destination ports) in a subnet endpoint that you want to prevent from
    * 			receiving traffic.</p>
    */
   DestinationPorts?: number[];
 
   /**
+   * @public
    * <p>Indicates whether all destination IP addresses and ports for a specified VPC subnet endpoint <i>cannot</i>
    * 			receive traffic from a custom routing accelerator. The value is TRUE or FALSE. </p>
    * 		       <p>When set to TRUE, <i>no</i> destinations in the custom routing VPC subnet can receive traffic. Note
@@ -1841,6 +1988,7 @@ export interface DenyCustomRoutingTrafficRequest {
  */
 export interface DeprovisionByoipCidrRequest {
   /**
+   * @public
    * <p>The address range, in CIDR notation. The prefix must be the same prefix that you specified
    * 			when you provisioned the address range.</p>
    */
@@ -1852,6 +2000,7 @@ export interface DeprovisionByoipCidrRequest {
  */
 export interface DeprovisionByoipCidrResponse {
   /**
+   * @public
    * <p>Information about the address range.</p>
    */
   ByoipCidr?: ByoipCidr;
@@ -1862,6 +2011,7 @@ export interface DeprovisionByoipCidrResponse {
  */
 export interface DescribeAcceleratorRequest {
   /**
+   * @public
    * <p>The Amazon Resource Name (ARN) of the accelerator to describe.</p>
    */
   AcceleratorArn: string | undefined;
@@ -1872,6 +2022,7 @@ export interface DescribeAcceleratorRequest {
  */
 export interface DescribeAcceleratorResponse {
   /**
+   * @public
    * <p>The description of the accelerator.</p>
    */
   Accelerator?: Accelerator;
@@ -1882,6 +2033,7 @@ export interface DescribeAcceleratorResponse {
  */
 export interface DescribeAcceleratorAttributesRequest {
   /**
+   * @public
    * <p>The Amazon Resource Name (ARN) of the accelerator with the attributes that you want to describe.</p>
    */
   AcceleratorArn: string | undefined;
@@ -1892,6 +2044,7 @@ export interface DescribeAcceleratorAttributesRequest {
  */
 export interface DescribeAcceleratorAttributesResponse {
   /**
+   * @public
    * <p>The attributes of the accelerator.</p>
    */
   AcceleratorAttributes?: AcceleratorAttributes;
@@ -1902,6 +2055,7 @@ export interface DescribeAcceleratorAttributesResponse {
  */
 export interface DescribeCustomRoutingAcceleratorRequest {
   /**
+   * @public
    * <p>The Amazon Resource Name (ARN) of the accelerator to describe.</p>
    */
   AcceleratorArn: string | undefined;
@@ -1912,6 +2066,7 @@ export interface DescribeCustomRoutingAcceleratorRequest {
  */
 export interface DescribeCustomRoutingAcceleratorResponse {
   /**
+   * @public
    * <p>The description of the custom routing accelerator.</p>
    */
   Accelerator?: CustomRoutingAccelerator;
@@ -1922,6 +2077,7 @@ export interface DescribeCustomRoutingAcceleratorResponse {
  */
 export interface DescribeCustomRoutingAcceleratorAttributesRequest {
   /**
+   * @public
    * <p>The Amazon Resource Name (ARN) of the custom routing accelerator to describe the attributes for.</p>
    */
   AcceleratorArn: string | undefined;
@@ -1932,6 +2088,7 @@ export interface DescribeCustomRoutingAcceleratorAttributesRequest {
  */
 export interface DescribeCustomRoutingAcceleratorAttributesResponse {
   /**
+   * @public
    * <p>The attributes of the custom routing accelerator.</p>
    */
   AcceleratorAttributes?: CustomRoutingAcceleratorAttributes;
@@ -1942,6 +2099,7 @@ export interface DescribeCustomRoutingAcceleratorAttributesResponse {
  */
 export interface DescribeCustomRoutingEndpointGroupRequest {
   /**
+   * @public
    * <p>The Amazon Resource Name (ARN) of the endpoint group to describe.</p>
    */
   EndpointGroupArn: string | undefined;
@@ -1952,6 +2110,7 @@ export interface DescribeCustomRoutingEndpointGroupRequest {
  */
 export interface DescribeCustomRoutingEndpointGroupResponse {
   /**
+   * @public
    * <p>The description of an endpoint group for a custom routing accelerator.</p>
    */
   EndpointGroup?: CustomRoutingEndpointGroup;
@@ -1962,6 +2121,7 @@ export interface DescribeCustomRoutingEndpointGroupResponse {
  */
 export interface DescribeCustomRoutingListenerRequest {
   /**
+   * @public
    * <p>The Amazon Resource Name (ARN) of the listener to describe.</p>
    */
   ListenerArn: string | undefined;
@@ -1972,6 +2132,7 @@ export interface DescribeCustomRoutingListenerRequest {
  */
 export interface DescribeCustomRoutingListenerResponse {
   /**
+   * @public
    * <p>The description of a listener for a custom routing accelerator.</p>
    */
   Listener?: CustomRoutingListener;
@@ -1982,6 +2143,7 @@ export interface DescribeCustomRoutingListenerResponse {
  */
 export interface DescribeEndpointGroupRequest {
   /**
+   * @public
    * <p>The Amazon Resource Name (ARN) of the endpoint group to describe.</p>
    */
   EndpointGroupArn: string | undefined;
@@ -1992,6 +2154,7 @@ export interface DescribeEndpointGroupRequest {
  */
 export interface DescribeEndpointGroupResponse {
   /**
+   * @public
    * <p>The description of an endpoint group.</p>
    */
   EndpointGroup?: EndpointGroup;
@@ -2002,6 +2165,7 @@ export interface DescribeEndpointGroupResponse {
  */
 export interface DescribeListenerRequest {
   /**
+   * @public
    * <p>The Amazon Resource Name (ARN) of the listener to describe.</p>
    */
   ListenerArn: string | undefined;
@@ -2012,6 +2176,7 @@ export interface DescribeListenerRequest {
  */
 export interface DescribeListenerResponse {
   /**
+   * @public
    * <p>The description of a listener.</p>
    */
   Listener?: Listener;
@@ -2023,11 +2188,13 @@ export interface DescribeListenerResponse {
  */
 export interface SocketAddress {
   /**
+   * @public
    * <p>The IP address for the socket address.</p>
    */
   IpAddress?: string;
 
   /**
+   * @public
    * <p>The port for the socket address.</p>
    */
   Port?: number;
@@ -2039,43 +2206,51 @@ export interface SocketAddress {
  */
 export interface DestinationPortMapping {
   /**
+   * @public
    * <p>The Amazon Resource Name (ARN) of the custom routing accelerator
    * 			that you have port mappings for.</p>
    */
   AcceleratorArn?: string;
 
   /**
+   * @public
    * <p>The IP address/port combinations (sockets) that map to a given destination socket
    * 			address.</p>
    */
   AcceleratorSocketAddresses?: SocketAddress[];
 
   /**
+   * @public
    * <p>The Amazon Resource Name (ARN) of the endpoint group.</p>
    */
   EndpointGroupArn?: string;
 
   /**
+   * @public
    * <p>The ID for the virtual private cloud (VPC) subnet.</p>
    */
   EndpointId?: string;
 
   /**
+   * @public
    * <p>The Amazon Web Services Region for the endpoint group.</p>
    */
   EndpointGroupRegion?: string;
 
   /**
+   * @public
    * <p>The endpoint IP address/port combination for traffic received on the accelerator socket address.</p>
    */
   DestinationSocketAddress?: SocketAddress;
 
   /**
+   * @public
    * <p>The IP address type that an accelerator supports. For a custom routing accelerator, the value must be IPV4.</p>
    */
   IpAddressType?: IpAddressType | string;
 
   /**
+   * @public
    * <p>Indicates whether or not a port mapping destination can receive traffic. The value is either ALLOW, if
    * 			traffic is allowed to the destination, or DENY, if traffic is not allowed to the destination.</p>
    */
@@ -2088,6 +2263,7 @@ export interface DestinationPortMapping {
  */
 export interface EndpointIdentifier {
   /**
+   * @public
    * <p>An ID for the endpoint. If the endpoint is a Network Load Balancer or Application Load Balancer, this is the Amazon
    * 			Resource Name (ARN) of the resource. If the endpoint is an Elastic IP address, this is the Elastic IP address
    * 			allocation ID. For Amazon EC2 instances, this is the EC2 instance ID. </p>
@@ -2096,6 +2272,7 @@ export interface EndpointIdentifier {
   EndpointId: string | undefined;
 
   /**
+   * @public
    * <p>Indicates whether client IP address preservation is enabled for an endpoint. The value is true or false. </p>
    * 		       <p>If the value is set to true, the client's IP address is preserved in the <code>X-Forwarded-For</code> request header as
    * 			traffic travels to applications on the endpoint fronted by the accelerator.</p>
@@ -2152,11 +2329,13 @@ export class InvalidNextTokenException extends __BaseException {
  */
 export interface ListAcceleratorsRequest {
   /**
+   * @public
    * <p>The number of Global Accelerator objects that you want to return with this call. The default value is 10.</p>
    */
   MaxResults?: number;
 
   /**
+   * @public
    * <p>The token for the next set of results. You receive this token from a previous call.</p>
    */
   NextToken?: string;
@@ -2167,11 +2346,13 @@ export interface ListAcceleratorsRequest {
  */
 export interface ListAcceleratorsResponse {
   /**
+   * @public
    * <p>The list of accelerators for a customer account.</p>
    */
   Accelerators?: Accelerator[];
 
   /**
+   * @public
    * <p>The token for the next set of results. You receive this token from a previous call.</p>
    */
   NextToken?: string;
@@ -2182,12 +2363,14 @@ export interface ListAcceleratorsResponse {
  */
 export interface ListByoipCidrsRequest {
   /**
+   * @public
    * <p>The maximum number of results to return with a single call. To retrieve the remaining results, make
    * 			another call with the returned <code>nextToken</code> value.</p>
    */
   MaxResults?: number;
 
   /**
+   * @public
    * <p>The token for the next page of results.</p>
    */
   NextToken?: string;
@@ -2198,11 +2381,13 @@ export interface ListByoipCidrsRequest {
  */
 export interface ListByoipCidrsResponse {
   /**
+   * @public
    * <p>Information about your address ranges.</p>
    */
   ByoipCidrs?: ByoipCidr[];
 
   /**
+   * @public
    * <p>The token for the next page of results.</p>
    */
   NextToken?: string;
@@ -2213,11 +2398,13 @@ export interface ListByoipCidrsResponse {
  */
 export interface ListCustomRoutingAcceleratorsRequest {
   /**
+   * @public
    * <p>The number of custom routing Global Accelerator objects that you want to return with this call. The default value is 10.</p>
    */
   MaxResults?: number;
 
   /**
+   * @public
    * <p>The token for the next set of results. You receive this token from a previous call.</p>
    */
   NextToken?: string;
@@ -2228,11 +2415,13 @@ export interface ListCustomRoutingAcceleratorsRequest {
  */
 export interface ListCustomRoutingAcceleratorsResponse {
   /**
+   * @public
    * <p>The list of custom routing accelerators for a customer account.</p>
    */
   Accelerators?: CustomRoutingAccelerator[];
 
   /**
+   * @public
    * <p>The token for the next set of results. You receive this token from a previous call.</p>
    */
   NextToken?: string;
@@ -2243,16 +2432,19 @@ export interface ListCustomRoutingAcceleratorsResponse {
  */
 export interface ListCustomRoutingEndpointGroupsRequest {
   /**
+   * @public
    * <p>The Amazon Resource Name (ARN) of the listener to list endpoint groups for.</p>
    */
   ListenerArn: string | undefined;
 
   /**
+   * @public
    * <p>The number of endpoint group objects that you want to return with this call. The default value is 10.</p>
    */
   MaxResults?: number;
 
   /**
+   * @public
    * <p>The token for the next set of results. You receive this token from a previous call.</p>
    */
   NextToken?: string;
@@ -2263,11 +2455,13 @@ export interface ListCustomRoutingEndpointGroupsRequest {
  */
 export interface ListCustomRoutingEndpointGroupsResponse {
   /**
+   * @public
    * <p>The list of the endpoint groups associated with a listener for a custom routing accelerator.</p>
    */
   EndpointGroups?: CustomRoutingEndpointGroup[];
 
   /**
+   * @public
    * <p>The token for the next set of results. You receive this token from a previous call.</p>
    */
   NextToken?: string;
@@ -2278,16 +2472,19 @@ export interface ListCustomRoutingEndpointGroupsResponse {
  */
 export interface ListCustomRoutingListenersRequest {
   /**
+   * @public
    * <p>The Amazon Resource Name (ARN) of the accelerator to list listeners for.</p>
    */
   AcceleratorArn: string | undefined;
 
   /**
+   * @public
    * <p>The number of listener objects that you want to return with this call. The default value is 10.</p>
    */
   MaxResults?: number;
 
   /**
+   * @public
    * <p>The token for the next set of results. You receive this token from a previous call.</p>
    */
   NextToken?: string;
@@ -2298,11 +2495,13 @@ export interface ListCustomRoutingListenersRequest {
  */
 export interface ListCustomRoutingListenersResponse {
   /**
+   * @public
    * <p>The list of listeners for a custom routing accelerator.</p>
    */
   Listeners?: CustomRoutingListener[];
 
   /**
+   * @public
    * <p>The token for the next set of results. You receive this token from a previous call.</p>
    */
   NextToken?: string;
@@ -2313,21 +2512,25 @@ export interface ListCustomRoutingListenersResponse {
  */
 export interface ListCustomRoutingPortMappingsRequest {
   /**
+   * @public
    * <p>The Amazon Resource Name (ARN) of the accelerator to list the custom routing port mappings for.</p>
    */
   AcceleratorArn: string | undefined;
 
   /**
+   * @public
    * <p>The Amazon Resource Name (ARN) of the endpoint group to list the custom routing port mappings for.</p>
    */
   EndpointGroupArn?: string;
 
   /**
+   * @public
    * <p>The number of destination port mappings that you want to return with this call. The default value is 10.</p>
    */
   MaxResults?: number;
 
   /**
+   * @public
    * <p>The token for the next set of results. You receive this token from a previous call.</p>
    */
   NextToken?: string;
@@ -2342,31 +2545,37 @@ export interface ListCustomRoutingPortMappingsRequest {
  */
 export interface PortMapping {
   /**
+   * @public
    * <p>The accelerator port.</p>
    */
   AcceleratorPort?: number;
 
   /**
+   * @public
    * <p>The Amazon Resource Name (ARN) of the endpoint group.</p>
    */
   EndpointGroupArn?: string;
 
   /**
+   * @public
    * <p>The IP address of the VPC subnet (the subnet ID).</p>
    */
   EndpointId?: string;
 
   /**
+   * @public
    * <p>The EC2 instance IP address and port number in the virtual private cloud (VPC) subnet.</p>
    */
   DestinationSocketAddress?: SocketAddress;
 
   /**
+   * @public
    * <p>The protocols supported by the endpoint group.</p>
    */
   Protocols?: (CustomRoutingProtocol | string)[];
 
   /**
+   * @public
    * <p>Indicates whether or not a port mapping destination can receive traffic. The value is either ALLOW, if
    * 			traffic is allowed to the destination, or DENY, if traffic is not allowed to the destination.</p>
    */
@@ -2378,11 +2587,13 @@ export interface PortMapping {
  */
 export interface ListCustomRoutingPortMappingsResponse {
   /**
+   * @public
    * <p>The port mappings for a custom routing accelerator.</p>
    */
   PortMappings?: PortMapping[];
 
   /**
+   * @public
    * <p>The token for the next set of results. You receive this token from a previous call.</p>
    */
   NextToken?: string;
@@ -2393,22 +2604,26 @@ export interface ListCustomRoutingPortMappingsResponse {
  */
 export interface ListCustomRoutingPortMappingsByDestinationRequest {
   /**
+   * @public
    * <p>The ID for the virtual private cloud (VPC) subnet.</p>
    */
   EndpointId: string | undefined;
 
   /**
+   * @public
    * <p>The endpoint IP address in a virtual private cloud (VPC) subnet for which you want to receive back port
    * 		mappings.</p>
    */
   DestinationAddress: string | undefined;
 
   /**
+   * @public
    * <p>The number of destination port mappings that you want to return with this call. The default value is 10.</p>
    */
   MaxResults?: number;
 
   /**
+   * @public
    * <p>The token for the next set of results. You receive this token from a previous call.</p>
    */
   NextToken?: string;
@@ -2419,11 +2634,13 @@ export interface ListCustomRoutingPortMappingsByDestinationRequest {
  */
 export interface ListCustomRoutingPortMappingsByDestinationResponse {
   /**
+   * @public
    * <p>The port mappings for the endpoint IP address that you specified in the request.</p>
    */
   DestinationPortMappings?: DestinationPortMapping[];
 
   /**
+   * @public
    * <p>The token for the next set of results. You receive this token from a previous call.</p>
    */
   NextToken?: string;
@@ -2434,16 +2651,19 @@ export interface ListCustomRoutingPortMappingsByDestinationResponse {
  */
 export interface ListEndpointGroupsRequest {
   /**
+   * @public
    * <p>The Amazon Resource Name (ARN) of the listener.</p>
    */
   ListenerArn: string | undefined;
 
   /**
+   * @public
    * <p>The number of endpoint group objects that you want to return with this call. The default value is 10.</p>
    */
   MaxResults?: number;
 
   /**
+   * @public
    * <p>The token for the next set of results. You receive this token from a previous call.</p>
    */
   NextToken?: string;
@@ -2454,11 +2674,13 @@ export interface ListEndpointGroupsRequest {
  */
 export interface ListEndpointGroupsResponse {
   /**
+   * @public
    * <p>The list of the endpoint groups associated with a listener.</p>
    */
   EndpointGroups?: EndpointGroup[];
 
   /**
+   * @public
    * <p>The token for the next set of results. You receive this token from a previous call.</p>
    */
   NextToken?: string;
@@ -2469,16 +2691,19 @@ export interface ListEndpointGroupsResponse {
  */
 export interface ListListenersRequest {
   /**
+   * @public
    * <p>The Amazon Resource Name (ARN) of the accelerator for which you want to list listener objects.</p>
    */
   AcceleratorArn: string | undefined;
 
   /**
+   * @public
    * <p>The number of listener objects that you want to return with this call. The default value is 10.</p>
    */
   MaxResults?: number;
 
   /**
+   * @public
    * <p>The token for the next set of results. You receive this token from a previous call.</p>
    */
   NextToken?: string;
@@ -2489,11 +2714,13 @@ export interface ListListenersRequest {
  */
 export interface ListListenersResponse {
   /**
+   * @public
    * <p>The list of listeners for an accelerator.</p>
    */
   Listeners?: Listener[];
 
   /**
+   * @public
    * <p>The token for the next set of results. You receive this token from a previous call.</p>
    */
   NextToken?: string;
@@ -2504,6 +2731,7 @@ export interface ListListenersResponse {
  */
 export interface ListTagsForResourceRequest {
   /**
+   * @public
    * <p>The Amazon Resource Name (ARN) of the accelerator to list tags for. An ARN uniquely identifies an accelerator.</p>
    */
   ResourceArn: string | undefined;
@@ -2514,6 +2742,7 @@ export interface ListTagsForResourceRequest {
  */
 export interface ListTagsForResourceResponse {
   /**
+   * @public
    * <p>Root level tag for the Tags parameters.</p>
    */
   Tags?: Tag[];
@@ -2524,6 +2753,7 @@ export interface ListTagsForResourceResponse {
  */
 export interface ProvisionByoipCidrRequest {
   /**
+   * @public
    * <p>The public IPv4 address range, in CIDR notation. The most specific IP prefix that you can
    * 			specify is /24. The address range cannot overlap with another address range that you've brought
    * 			to this or another Region.</p>
@@ -2531,6 +2761,7 @@ export interface ProvisionByoipCidrRequest {
   Cidr: string | undefined;
 
   /**
+   * @public
    * <p>A signed document that proves that you are authorized to bring the specified IP address range to
    * 			Amazon using BYOIP.
    * 		</p>
@@ -2543,6 +2774,7 @@ export interface ProvisionByoipCidrRequest {
  */
 export interface ProvisionByoipCidrResponse {
   /**
+   * @public
    * <p>Information about the address range.</p>
    */
   ByoipCidr?: ByoipCidr;
@@ -2553,12 +2785,14 @@ export interface ProvisionByoipCidrResponse {
  */
 export interface RemoveCustomRoutingEndpointsRequest {
   /**
+   * @public
    * <p>The IDs for the endpoints. For custom routing accelerators, endpoint IDs are the virtual private cloud (VPC)
    * 		subnet IDs. </p>
    */
   EndpointIds: string[] | undefined;
 
   /**
+   * @public
    * <p>The Amazon Resource Name (ARN) of the endpoint group to remove endpoints from.</p>
    */
   EndpointGroupArn: string | undefined;
@@ -2569,11 +2803,13 @@ export interface RemoveCustomRoutingEndpointsRequest {
  */
 export interface RemoveEndpointsRequest {
   /**
+   * @public
    * <p>The identifiers of the endpoints that you want to remove.</p>
    */
   EndpointIdentifiers: EndpointIdentifier[] | undefined;
 
   /**
+   * @public
    * <p>The Amazon Resource Name (ARN) of the endpoint group.</p>
    */
   EndpointGroupArn: string | undefined;
@@ -2584,11 +2820,13 @@ export interface RemoveEndpointsRequest {
  */
 export interface TagResourceRequest {
   /**
+   * @public
    * <p>The Amazon Resource Name (ARN) of the Global Accelerator resource to add tags to. An ARN uniquely identifies a resource.</p>
    */
   ResourceArn: string | undefined;
 
   /**
+   * @public
    * <p>The tags to add to a resource. A tag consists of a key and a value that you define.</p>
    */
   Tags: Tag[] | undefined;
@@ -2604,11 +2842,13 @@ export interface TagResourceResponse {}
  */
 export interface UntagResourceRequest {
   /**
+   * @public
    * <p>The Amazon Resource Name (ARN) of the Global Accelerator resource to remove tags from. An ARN uniquely identifies a resource.</p>
    */
   ResourceArn: string | undefined;
 
   /**
+   * @public
    * <p>The tag key pairs that you want to remove from the specified resources.</p>
    */
   TagKeys: string[] | undefined;
@@ -2624,22 +2864,26 @@ export interface UntagResourceResponse {}
  */
 export interface UpdateAcceleratorRequest {
   /**
+   * @public
    * <p>The Amazon Resource Name (ARN) of the accelerator to update.</p>
    */
   AcceleratorArn: string | undefined;
 
   /**
+   * @public
    * <p>The name of the accelerator. The name can have a maximum of 64 characters, must contain only alphanumeric characters,
    * 			periods (.), or hyphens (-), and must not begin or end with a hyphen or period.</p>
    */
   Name?: string;
 
   /**
+   * @public
    * <p>The IP address type that an accelerator supports. For a standard accelerator, the value can be IPV4 or DUAL_STACK.</p>
    */
   IpAddressType?: IpAddressType | string;
 
   /**
+   * @public
    * <p>Indicates whether an accelerator is enabled. The value is true or false. The default value is true. </p>
    * 		       <p>If the value is set to true, the accelerator cannot be deleted. If set to false, the accelerator can be deleted.</p>
    */
@@ -2651,6 +2895,7 @@ export interface UpdateAcceleratorRequest {
  */
 export interface UpdateAcceleratorResponse {
   /**
+   * @public
    * <p>Information about the updated accelerator.</p>
    */
   Accelerator?: Accelerator;
@@ -2661,11 +2906,13 @@ export interface UpdateAcceleratorResponse {
  */
 export interface UpdateAcceleratorAttributesRequest {
   /**
+   * @public
    * <p>The Amazon Resource Name (ARN) of the accelerator that you want to update.</p>
    */
   AcceleratorArn: string | undefined;
 
   /**
+   * @public
    * <p>Update whether flow logs are enabled. The default value is false. If the value is true,
    * 				<code>FlowLogsS3Bucket</code> and <code>FlowLogsS3Prefix</code> must be specified.</p>
    * 		       <p>For more information, see <a href="https://docs.aws.amazon.com/global-accelerator/latest/dg/monitoring-global-accelerator.flow-logs.html">Flow Logs</a> in
@@ -2674,6 +2921,7 @@ export interface UpdateAcceleratorAttributesRequest {
   FlowLogsEnabled?: boolean;
 
   /**
+   * @public
    * <p>The name of the Amazon S3 bucket for the flow logs. Attribute is required if <code>FlowLogsEnabled</code> is
    * 		    <code>true</code>. The bucket must exist and have a bucket policy that grants Global Accelerator permission to write to the
    * 			bucket.</p>
@@ -2681,6 +2929,7 @@ export interface UpdateAcceleratorAttributesRequest {
   FlowLogsS3Bucket?: string;
 
   /**
+   * @public
    * <p>Update the prefix for the location in the Amazon S3 bucket for the flow logs. Attribute is required if
    * 				<code>FlowLogsEnabled</code> is <code>true</code>. </p>
    * 		       <p>If you specify slash (/) for the S3 bucket prefix, the log file bucket folder structure will include a double slash (//),
@@ -2695,6 +2944,7 @@ export interface UpdateAcceleratorAttributesRequest {
  */
 export interface UpdateAcceleratorAttributesResponse {
   /**
+   * @public
    * <p>Updated attributes for the accelerator.</p>
    */
   AcceleratorAttributes?: AcceleratorAttributes;
@@ -2705,22 +2955,26 @@ export interface UpdateAcceleratorAttributesResponse {
  */
 export interface UpdateCustomRoutingAcceleratorRequest {
   /**
+   * @public
    * <p>The Amazon Resource Name (ARN) of the accelerator to update.</p>
    */
   AcceleratorArn: string | undefined;
 
   /**
+   * @public
    * <p>The name of the accelerator. The name can have a maximum of 64 characters, must contain only alphanumeric characters,
    * 		periods (.), or hyphens (-), and must not begin or end with a hyphen or period.</p>
    */
   Name?: string;
 
   /**
+   * @public
    * <p>The IP address type that an accelerator supports. For a custom routing accelerator, the value must be IPV4.</p>
    */
   IpAddressType?: IpAddressType | string;
 
   /**
+   * @public
    * <p>Indicates whether an accelerator is enabled. The value is true or false. The default value is true. </p>
    * 	        <p>If the value is set to true, the accelerator cannot be deleted. If set to false, the accelerator can be deleted.</p>
    */
@@ -2732,6 +2986,7 @@ export interface UpdateCustomRoutingAcceleratorRequest {
  */
 export interface UpdateCustomRoutingAcceleratorResponse {
   /**
+   * @public
    * <p>Information about the updated custom routing accelerator.</p>
    */
   Accelerator?: CustomRoutingAccelerator;
@@ -2742,11 +2997,13 @@ export interface UpdateCustomRoutingAcceleratorResponse {
  */
 export interface UpdateCustomRoutingAcceleratorAttributesRequest {
   /**
+   * @public
    * <p>The Amazon Resource Name (ARN) of the custom routing accelerator to update attributes for.</p>
    */
   AcceleratorArn: string | undefined;
 
   /**
+   * @public
    * <p>Update whether flow logs are enabled. The default value is false. If the value is true,
    * 		<code>FlowLogsS3Bucket</code> and <code>FlowLogsS3Prefix</code> must be specified.</p>
    * 	        <p>For more information, see <a href="https://docs.aws.amazon.com/global-accelerator/latest/dg/monitoring-global-accelerator.flow-logs.html">Flow logs</a> in
@@ -2755,6 +3012,7 @@ export interface UpdateCustomRoutingAcceleratorAttributesRequest {
   FlowLogsEnabled?: boolean;
 
   /**
+   * @public
    * <p>The name of the Amazon S3 bucket for the flow logs. Attribute is required if <code>FlowLogsEnabled</code> is
    * 	    <code>true</code>. The bucket must exist and have a bucket policy that grants Global Accelerator permission to write to the
    * 		bucket.</p>
@@ -2762,6 +3020,7 @@ export interface UpdateCustomRoutingAcceleratorAttributesRequest {
   FlowLogsS3Bucket?: string;
 
   /**
+   * @public
    * <p>Update the prefix for the location in the Amazon S3 bucket for the flow logs. Attribute is required if
    * 		<code>FlowLogsEnabled</code> is <code>true</code>. </p>
    * 	        <p>If you don’t specify a prefix, the flow logs are stored in the
@@ -2776,6 +3035,7 @@ export interface UpdateCustomRoutingAcceleratorAttributesRequest {
  */
 export interface UpdateCustomRoutingAcceleratorAttributesResponse {
   /**
+   * @public
    * <p>Updated custom routing accelerator.</p>
    */
   AcceleratorAttributes?: CustomRoutingAcceleratorAttributes;
@@ -2786,11 +3046,13 @@ export interface UpdateCustomRoutingAcceleratorAttributesResponse {
  */
 export interface UpdateCustomRoutingListenerRequest {
   /**
+   * @public
    * <p>The Amazon Resource Name (ARN) of the listener to update.</p>
    */
   ListenerArn: string | undefined;
 
   /**
+   * @public
    * <p>The updated port range to support for connections from clients to your accelerator. If you remove ports that are
    * 	currently being used by a subnet endpoint, the call fails.</p>
    * 	        <p>Separately, you set port ranges for endpoints. For more information, see <a href="https://docs.aws.amazon.com/global-accelerator/latest/dg/about-custom-routing-endpoints.html">About
@@ -2804,6 +3066,7 @@ export interface UpdateCustomRoutingListenerRequest {
  */
 export interface UpdateCustomRoutingListenerResponse {
   /**
+   * @public
    * <p>Information for the updated listener for a custom routing accelerator.</p>
    */
   Listener?: CustomRoutingListener;
@@ -2814,16 +3077,19 @@ export interface UpdateCustomRoutingListenerResponse {
  */
 export interface UpdateEndpointGroupRequest {
   /**
+   * @public
    * <p>The Amazon Resource Name (ARN) of the endpoint group.</p>
    */
   EndpointGroupArn: string | undefined;
 
   /**
+   * @public
    * <p>The list of endpoint objects. A resource must be valid and active when you add it as an endpoint.</p>
    */
   EndpointConfigurations?: EndpointConfiguration[];
 
   /**
+   * @public
    * <p>The percentage of traffic to send to an Amazon Web Services Region. Additional traffic is distributed to other endpoint groups for
    * 			this listener. </p>
    * 		       <p>Use this action to increase (dial up) or decrease (dial down) traffic to a specific Region. The percentage is
@@ -2833,6 +3099,7 @@ export interface UpdateEndpointGroupRequest {
   TrafficDialPercentage?: number;
 
   /**
+   * @public
    * <p>The port that Global Accelerator uses to check the health of endpoints that are part of this endpoint group. The default port
    * 	        is the listener port that this endpoint group is associated with. If the listener port is a list of ports, Global Accelerator uses
    * 			the first port in the list.</p>
@@ -2840,29 +3107,34 @@ export interface UpdateEndpointGroupRequest {
   HealthCheckPort?: number;
 
   /**
+   * @public
    * <p>The protocol that Global Accelerator uses to check the health of endpoints that are part of this endpoint group. The default
    * 			value is TCP.</p>
    */
   HealthCheckProtocol?: HealthCheckProtocol | string;
 
   /**
+   * @public
    * <p>If the protocol is HTTP/S, then this specifies the path that is the destination for health check targets. The
    * 			default value is slash (/).</p>
    */
   HealthCheckPath?: string;
 
   /**
+   * @public
    * <p>The time—10 seconds or 30 seconds—between each health check for an endpoint. The default value is 30.</p>
    */
   HealthCheckIntervalSeconds?: number;
 
   /**
+   * @public
    * <p>The number of consecutive health checks required to set the state of a healthy endpoint to unhealthy, or to set an
    * 			unhealthy endpoint to healthy. The default value is 3.</p>
    */
   ThresholdCount?: number;
 
   /**
+   * @public
    * <p>Override specific listener ports used to route traffic to endpoints that are part of this endpoint group.
    * 			For example, you can create a port override in which the listener
    * 			receives user traffic on ports 80 and 443, but your accelerator routes that traffic to ports 1080
@@ -2878,6 +3150,7 @@ export interface UpdateEndpointGroupRequest {
  */
 export interface UpdateEndpointGroupResponse {
   /**
+   * @public
    * <p>The information about the endpoint group that was updated.</p>
    */
   EndpointGroup?: EndpointGroup;
@@ -2888,21 +3161,25 @@ export interface UpdateEndpointGroupResponse {
  */
 export interface UpdateListenerRequest {
   /**
+   * @public
    * <p>The Amazon Resource Name (ARN) of the listener to update.</p>
    */
   ListenerArn: string | undefined;
 
   /**
+   * @public
    * <p>The updated list of port ranges for the connections from clients to the accelerator.</p>
    */
   PortRanges?: PortRange[];
 
   /**
+   * @public
    * <p>The updated protocol for the connections from clients to the accelerator.</p>
    */
   Protocol?: Protocol | string;
 
   /**
+   * @public
    * <p>Client affinity lets you direct all requests from a user to the same endpoint, if you have stateful applications,
    * 			regardless of the port and protocol of the client request. Client affinity gives you control over whether to always
    * 			route each client to the same specific endpoint.</p>
@@ -2924,6 +3201,7 @@ export interface UpdateListenerRequest {
  */
 export interface UpdateListenerResponse {
   /**
+   * @public
    * <p>Information for the updated listener.</p>
    */
   Listener?: Listener;
@@ -2934,6 +3212,7 @@ export interface UpdateListenerResponse {
  */
 export interface WithdrawByoipCidrRequest {
   /**
+   * @public
    * <p>The address range, in CIDR notation.</p>
    */
   Cidr: string | undefined;
@@ -2944,6 +3223,7 @@ export interface WithdrawByoipCidrRequest {
  */
 export interface WithdrawByoipCidrResponse {
   /**
+   * @public
    * <p>Information about the address pool.</p>
    */
   ByoipCidr?: ByoipCidr;

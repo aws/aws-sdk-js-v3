@@ -58,11 +58,13 @@ export type AssetBundleExportJobThemePropertyToOverride =
  */
 export interface AssetBundleExportJobThemeOverrideProperties {
   /**
+   * @public
    * <p>The ARN of the specific <code>Theme</code> resource whose override properties are configured in this structure.</p>
    */
   Arn?: string;
 
   /**
+   * @public
    * <p>A list of <code>Theme</code> resource properties to generate variables for in the returned CloudFormation template.</p>
    */
   Properties: (AssetBundleExportJobThemePropertyToOverride | string)[] | undefined;
@@ -90,11 +92,13 @@ export type AssetBundleExportJobVPCConnectionPropertyToOverride =
  */
 export interface AssetBundleExportJobVPCConnectionOverrideProperties {
   /**
+   * @public
    * <p>The ARN of the specific <code>VPCConnection</code> resource whose override properties are configured in this structure.</p>
    */
   Arn?: string;
 
   /**
+   * @public
    * <p>A list of <code>VPCConnection</code> resource properties to generate variables for in the returned CloudFormation template.</p>
    */
   Properties: (AssetBundleExportJobVPCConnectionPropertyToOverride | string)[] | undefined;
@@ -106,41 +110,49 @@ export interface AssetBundleExportJobVPCConnectionOverrideProperties {
  */
 export interface AssetBundleCloudFormationOverridePropertyConfiguration {
   /**
+   * @public
    * <p>An optional list of structures that control how resource IDs are parameterized in the returned CloudFormation template.</p>
    */
   ResourceIdOverrideConfiguration?: AssetBundleExportJobResourceIdOverrideConfiguration;
 
   /**
+   * @public
    * <p>An optional list of structures that control how <code>VPCConnection</code> resources are parameterized in the returned CloudFormation template.</p>
    */
   VPCConnections?: AssetBundleExportJobVPCConnectionOverrideProperties[];
 
   /**
+   * @public
    * <p>An optional list of structures that control how <code>RefreshSchedule</code> resources are parameterized in the returned CloudFormation template.</p>
    */
   RefreshSchedules?: AssetBundleExportJobRefreshScheduleOverrideProperties[];
 
   /**
+   * @public
    * <p>An optional list of structures that control how <code>DataSource</code> resources are parameterized in the returned CloudFormation template.</p>
    */
   DataSources?: AssetBundleExportJobDataSourceOverrideProperties[];
 
   /**
+   * @public
    * <p>An optional list of structures that control how <code>DataSet</code> resources are parameterized in the returned CloudFormation template.</p>
    */
   DataSets?: AssetBundleExportJobDataSetOverrideProperties[];
 
   /**
+   * @public
    * <p>An optional list of structures that control how <code>Theme</code> resources are parameterized in the returned CloudFormation template.</p>
    */
   Themes?: AssetBundleExportJobThemeOverrideProperties[];
 
   /**
+   * @public
    * <p>An optional list of structures that control how <code>Analysis</code> resources are parameterized in the returned CloudFormation template.</p>
    */
   Analyses?: AssetBundleExportJobAnalysisOverrideProperties[];
 
   /**
+   * @public
    * <p>An optional list of structures that control how <code>Dashboard</code> resources are parameterized in the returned CloudFormation template.</p>
    */
   Dashboards?: AssetBundleExportJobDashboardOverrideProperties[];
@@ -166,16 +178,19 @@ export type AssetBundleExportFormat = (typeof AssetBundleExportFormat)[keyof typ
  */
 export interface AssetBundleExportJobError {
   /**
+   * @public
    * <p>The ARN of the resource whose processing caused an error.</p>
    */
   Arn?: string;
 
   /**
+   * @public
    * <p>The specific error type of the error that occurred.</p>
    */
   Type?: string;
 
   /**
+   * @public
    * <p>A description of the error.</p>
    */
   Message?: string;
@@ -203,31 +218,37 @@ export type AssetBundleExportJobStatus = (typeof AssetBundleExportJobStatus)[key
  */
 export interface AssetBundleExportJobSummary {
   /**
+   * @public
    * <p>The current status of the export job.</p>
    */
   JobStatus?: AssetBundleExportJobStatus | string;
 
   /**
+   * @public
    * <p>The ARN of the export job.</p>
    */
   Arn?: string;
 
   /**
+   * @public
    * <p>The time that the export job was created.</p>
    */
   CreatedTime?: Date;
 
   /**
+   * @public
    * <p>The ID of the export job.</p>
    */
   AssetBundleExportJobId?: string;
 
   /**
+   * @public
    * <p>The flag that determines the inclusion of resource dependencies in the returned asset bundle.</p>
    */
   IncludeAllDependencies?: boolean;
 
   /**
+   * @public
    * <p>The format for the export job.</p>
    */
   ExportFormat?: AssetBundleExportFormat | string;
@@ -254,11 +275,13 @@ export type AssetBundleImportFailureAction =
  */
 export interface AssetBundleImportJobAnalysisOverrideParameters {
   /**
+   * @public
    * <p>The ID of the analysis that you ant to apply overrides to.</p>
    */
   AnalysisId: string | undefined;
 
   /**
+   * @public
    * <p>A new name for the analysis.</p>
    */
   Name?: string;
@@ -270,11 +293,13 @@ export interface AssetBundleImportJobAnalysisOverrideParameters {
  */
 export interface AssetBundleImportJobDashboardOverrideParameters {
   /**
+   * @public
    * <p>The ID of the dashboard that you want to apply overrides to.</p>
    */
   DashboardId: string | undefined;
 
   /**
+   * @public
    * <p>A new name for the dashboard.</p>
    */
   Name?: string;
@@ -286,11 +311,13 @@ export interface AssetBundleImportJobDashboardOverrideParameters {
  */
 export interface AssetBundleImportJobDataSetOverrideParameters {
   /**
+   * @public
    * <p>The ID of the dataset to apply overrides to.</p>
    */
   DataSetId: string | undefined;
 
   /**
+   * @public
    * <p>A new name for the dataset.</p>
    */
   Name?: string;
@@ -302,11 +329,13 @@ export interface AssetBundleImportJobDataSetOverrideParameters {
  */
 export interface AssetBundleImportJobDataSourceCredentialPair {
   /**
+   * @public
    * <p>The username for the data source connection.</p>
    */
   Username: string | undefined;
 
   /**
+   * @public
    * <p>The password for the data source connection.</p>
    */
   Password: string | undefined;
@@ -318,11 +347,13 @@ export interface AssetBundleImportJobDataSourceCredentialPair {
  */
 export interface AssetBundleImportJobDataSourceCredentials {
   /**
+   * @public
    * <p>A username and password credential pair to be used to create the imported data source. Keep this field blank if you are using a Secrets Manager secret to provide credentials.</p>
    */
   CredentialPair?: AssetBundleImportJobDataSourceCredentialPair;
 
   /**
+   * @public
    * <p>The ARN of the Secrets Manager secret that's used to create the imported data source. Keep this field blank, unless you are using a secret in place of a credential pair.</p>
    */
   SecretArn?: string;
@@ -334,11 +365,13 @@ export interface AssetBundleImportJobDataSourceCredentials {
  */
 export interface AthenaParameters {
   /**
+   * @public
    * <p>The workgroup that Amazon Athena uses.</p>
    */
   WorkGroup?: string;
 
   /**
+   * @public
    * <p>Use the <code>RoleArn</code> structure to override an account-wide role for a specific Athena data source. For example, say an account administrator has turned off all Athena access with an account-wide role. The administrator can then use <code>RoleArn</code> to bypass the account-wide role and allow Athena access for the single Athena data source that is specified in the structure, even if the account-wide role forbidding Athena access is still active.</p>
    */
   RoleArn?: string;
@@ -350,16 +383,19 @@ export interface AthenaParameters {
  */
 export interface AuroraParameters {
   /**
+   * @public
    * <p>Host.</p>
    */
   Host: string | undefined;
 
   /**
+   * @public
    * <p>Port.</p>
    */
   Port: number | undefined;
 
   /**
+   * @public
    * <p>Database.</p>
    */
   Database: string | undefined;
@@ -371,16 +407,19 @@ export interface AuroraParameters {
  */
 export interface AuroraPostgreSqlParameters {
   /**
+   * @public
    * <p>The Amazon Aurora PostgreSQL-Compatible host to connect to.</p>
    */
   Host: string | undefined;
 
   /**
+   * @public
    * <p>The port that Amazon Aurora PostgreSQL is listening on.</p>
    */
   Port: number | undefined;
 
   /**
+   * @public
    * <p>The Amazon Aurora PostgreSQL database to connect to.</p>
    */
   Database: string | undefined;
@@ -392,6 +431,7 @@ export interface AuroraPostgreSqlParameters {
  */
 export interface AwsIotAnalyticsParameters {
   /**
+   * @public
    * <p>Dataset name.</p>
    */
   DataSetName: string | undefined;
@@ -403,16 +443,19 @@ export interface AwsIotAnalyticsParameters {
  */
 export interface DatabricksParameters {
   /**
+   * @public
    * <p>The host name of the Databricks data source.</p>
    */
   Host: string | undefined;
 
   /**
+   * @public
    * <p>The port for the Databricks data source.</p>
    */
   Port: number | undefined;
 
   /**
+   * @public
    * <p>The HTTP path of the Databricks data source.</p>
    */
   SqlEndpointPath: string | undefined;
@@ -424,11 +467,13 @@ export interface DatabricksParameters {
  */
 export interface ExasolParameters {
   /**
+   * @public
    * <p>The hostname or IP address of the Exasol data source.</p>
    */
   Host: string | undefined;
 
   /**
+   * @public
    * <p>The port for the Exasol data source.</p>
    */
   Port: number | undefined;
@@ -440,6 +485,7 @@ export interface ExasolParameters {
  */
 export interface JiraParameters {
   /**
+   * @public
    * <p>The base URL of the Jira site.</p>
    */
   SiteBaseUrl: string | undefined;
@@ -451,16 +497,19 @@ export interface JiraParameters {
  */
 export interface MariaDbParameters {
   /**
+   * @public
    * <p>Host.</p>
    */
   Host: string | undefined;
 
   /**
+   * @public
    * <p>Port.</p>
    */
   Port: number | undefined;
 
   /**
+   * @public
    * <p>Database.</p>
    */
   Database: string | undefined;
@@ -472,16 +521,19 @@ export interface MariaDbParameters {
  */
 export interface MySqlParameters {
   /**
+   * @public
    * <p>Host.</p>
    */
   Host: string | undefined;
 
   /**
+   * @public
    * <p>Port.</p>
    */
   Port: number | undefined;
 
   /**
+   * @public
    * <p>Database.</p>
    */
   Database: string | undefined;
@@ -493,16 +545,19 @@ export interface MySqlParameters {
  */
 export interface OracleParameters {
   /**
+   * @public
    * <p>An Oracle host.</p>
    */
   Host: string | undefined;
 
   /**
+   * @public
    * <p>The port.</p>
    */
   Port: number | undefined;
 
   /**
+   * @public
    * <p>The database.</p>
    */
   Database: string | undefined;
@@ -514,16 +569,19 @@ export interface OracleParameters {
  */
 export interface PostgreSqlParameters {
   /**
+   * @public
    * <p>Host.</p>
    */
   Host: string | undefined;
 
   /**
+   * @public
    * <p>Port.</p>
    */
   Port: number | undefined;
 
   /**
+   * @public
    * <p>Database.</p>
    */
   Database: string | undefined;
@@ -535,16 +593,19 @@ export interface PostgreSqlParameters {
  */
 export interface PrestoParameters {
   /**
+   * @public
    * <p>Host.</p>
    */
   Host: string | undefined;
 
   /**
+   * @public
    * <p>Port.</p>
    */
   Port: number | undefined;
 
   /**
+   * @public
    * <p>Catalog.</p>
    */
   Catalog: string | undefined;
@@ -556,11 +617,13 @@ export interface PrestoParameters {
  */
 export interface RdsParameters {
   /**
+   * @public
    * <p>Instance ID.</p>
    */
   InstanceId: string | undefined;
 
   /**
+   * @public
    * <p>Database.</p>
    */
   Database: string | undefined;
@@ -574,21 +637,25 @@ export interface RdsParameters {
  */
 export interface RedshiftParameters {
   /**
+   * @public
    * <p>Host. This field can be blank if <code>ClusterId</code> is provided.</p>
    */
   Host?: string;
 
   /**
+   * @public
    * <p>Port. This field can be blank if the <code>ClusterId</code> is provided.</p>
    */
   Port?: number;
 
   /**
+   * @public
    * <p>Database.</p>
    */
   Database: string | undefined;
 
   /**
+   * @public
    * <p>Cluster ID. This field can be blank if the <code>Host</code> and <code>Port</code> are
    *             provided.</p>
    */
@@ -601,11 +668,13 @@ export interface RedshiftParameters {
  */
 export interface ManifestFileLocation {
   /**
+   * @public
    * <p>Amazon S3 bucket.</p>
    */
   Bucket: string | undefined;
 
   /**
+   * @public
    * <p>Amazon S3 key that identifies an object.</p>
    */
   Key: string | undefined;
@@ -617,12 +686,14 @@ export interface ManifestFileLocation {
  */
 export interface S3Parameters {
   /**
+   * @public
    * <p>Location of the Amazon S3 manifest file. This is NULL if the manifest file was
    *             uploaded into Amazon QuickSight.</p>
    */
   ManifestFileLocation: ManifestFileLocation | undefined;
 
   /**
+   * @public
    * <p>Use the <code>RoleArn</code> structure to override an account-wide role for a specific S3 data source. For example, say an account administrator has turned off all S3 access with an account-wide role. The administrator can then use <code>RoleArn</code> to bypass the account-wide role and allow S3 access for the single S3 data source that is specified in the structure, even if the account-wide role forbidding S3 access is still active.</p>
    */
   RoleArn?: string;
@@ -634,6 +705,7 @@ export interface S3Parameters {
  */
 export interface ServiceNowParameters {
   /**
+   * @public
    * <p>URL of the base site.</p>
    */
   SiteBaseUrl: string | undefined;
@@ -645,16 +717,19 @@ export interface ServiceNowParameters {
  */
 export interface SnowflakeParameters {
   /**
+   * @public
    * <p>Host.</p>
    */
   Host: string | undefined;
 
   /**
+   * @public
    * <p>Database.</p>
    */
   Database: string | undefined;
 
   /**
+   * @public
    * <p>Warehouse.</p>
    */
   Warehouse: string | undefined;
@@ -666,11 +741,13 @@ export interface SnowflakeParameters {
  */
 export interface SparkParameters {
   /**
+   * @public
    * <p>Host.</p>
    */
   Host: string | undefined;
 
   /**
+   * @public
    * <p>Port.</p>
    */
   Port: number | undefined;
@@ -682,16 +759,19 @@ export interface SparkParameters {
  */
 export interface SqlServerParameters {
   /**
+   * @public
    * <p>Host.</p>
    */
   Host: string | undefined;
 
   /**
+   * @public
    * <p>Port.</p>
    */
   Port: number | undefined;
 
   /**
+   * @public
    * <p>Database.</p>
    */
   Database: string | undefined;
@@ -703,16 +783,19 @@ export interface SqlServerParameters {
  */
 export interface TeradataParameters {
   /**
+   * @public
    * <p>Host.</p>
    */
   Host: string | undefined;
 
   /**
+   * @public
    * <p>Port.</p>
    */
   Port: number | undefined;
 
   /**
+   * @public
    * <p>Database.</p>
    */
   Database: string | undefined;
@@ -724,11 +807,13 @@ export interface TeradataParameters {
  */
 export interface TwitterParameters {
   /**
+   * @public
    * <p>Twitter query string.</p>
    */
   Query: string | undefined;
 
   /**
+   * @public
    * <p>Maximum number of rows to query Twitter.</p>
    */
   MaxRows: number | undefined;
@@ -771,6 +856,7 @@ export type DataSourceParameters =
  */
 export namespace DataSourceParameters {
   /**
+   * @public
    * <p>The parameters for OpenSearch.</p>
    */
   export interface AmazonElasticsearchParametersMember {
@@ -801,6 +887,7 @@ export namespace DataSourceParameters {
   }
 
   /**
+   * @public
    * <p>The parameters for Amazon Athena.</p>
    */
   export interface AthenaParametersMember {
@@ -831,6 +918,7 @@ export namespace DataSourceParameters {
   }
 
   /**
+   * @public
    * <p>The parameters for Amazon Aurora MySQL.</p>
    */
   export interface AuroraParametersMember {
@@ -861,6 +949,7 @@ export namespace DataSourceParameters {
   }
 
   /**
+   * @public
    * <p>The parameters for Amazon Aurora.</p>
    */
   export interface AuroraPostgreSqlParametersMember {
@@ -891,6 +980,7 @@ export namespace DataSourceParameters {
   }
 
   /**
+   * @public
    * <p>The parameters for IoT Analytics.</p>
    */
   export interface AwsIotAnalyticsParametersMember {
@@ -921,6 +1011,7 @@ export namespace DataSourceParameters {
   }
 
   /**
+   * @public
    * <p>The parameters for Jira.</p>
    */
   export interface JiraParametersMember {
@@ -951,6 +1042,7 @@ export namespace DataSourceParameters {
   }
 
   /**
+   * @public
    * <p>The parameters for MariaDB.</p>
    */
   export interface MariaDbParametersMember {
@@ -981,6 +1073,7 @@ export namespace DataSourceParameters {
   }
 
   /**
+   * @public
    * <p>The parameters for MySQL.</p>
    */
   export interface MySqlParametersMember {
@@ -1011,6 +1104,7 @@ export namespace DataSourceParameters {
   }
 
   /**
+   * @public
    * <p>The parameters for Oracle.</p>
    */
   export interface OracleParametersMember {
@@ -1041,6 +1135,7 @@ export namespace DataSourceParameters {
   }
 
   /**
+   * @public
    * <p>The parameters for PostgreSQL.</p>
    */
   export interface PostgreSqlParametersMember {
@@ -1071,6 +1166,7 @@ export namespace DataSourceParameters {
   }
 
   /**
+   * @public
    * <p>The parameters for Presto.</p>
    */
   export interface PrestoParametersMember {
@@ -1101,6 +1197,7 @@ export namespace DataSourceParameters {
   }
 
   /**
+   * @public
    * <p>The parameters for Amazon RDS.</p>
    */
   export interface RdsParametersMember {
@@ -1131,6 +1228,7 @@ export namespace DataSourceParameters {
   }
 
   /**
+   * @public
    * <p>The parameters for Amazon Redshift.</p>
    */
   export interface RedshiftParametersMember {
@@ -1161,6 +1259,7 @@ export namespace DataSourceParameters {
   }
 
   /**
+   * @public
    * <p>The parameters for S3.</p>
    */
   export interface S3ParametersMember {
@@ -1191,6 +1290,7 @@ export namespace DataSourceParameters {
   }
 
   /**
+   * @public
    * <p>The parameters for ServiceNow.</p>
    */
   export interface ServiceNowParametersMember {
@@ -1221,6 +1321,7 @@ export namespace DataSourceParameters {
   }
 
   /**
+   * @public
    * <p>The parameters for Snowflake.</p>
    */
   export interface SnowflakeParametersMember {
@@ -1251,6 +1352,7 @@ export namespace DataSourceParameters {
   }
 
   /**
+   * @public
    * <p>The parameters for Spark.</p>
    */
   export interface SparkParametersMember {
@@ -1281,6 +1383,7 @@ export namespace DataSourceParameters {
   }
 
   /**
+   * @public
    * <p>The parameters for SQL Server.</p>
    */
   export interface SqlServerParametersMember {
@@ -1311,6 +1414,7 @@ export namespace DataSourceParameters {
   }
 
   /**
+   * @public
    * <p>The parameters for Teradata.</p>
    */
   export interface TeradataParametersMember {
@@ -1341,6 +1445,7 @@ export namespace DataSourceParameters {
   }
 
   /**
+   * @public
    * <p>The parameters for Twitter.</p>
    */
   export interface TwitterParametersMember {
@@ -1371,6 +1476,7 @@ export namespace DataSourceParameters {
   }
 
   /**
+   * @public
    * <p>The parameters for OpenSearch.</p>
    */
   export interface AmazonOpenSearchParametersMember {
@@ -1401,6 +1507,7 @@ export namespace DataSourceParameters {
   }
 
   /**
+   * @public
    * <p>The parameters for Exasol.</p>
    */
   export interface ExasolParametersMember {
@@ -1431,6 +1538,7 @@ export namespace DataSourceParameters {
   }
 
   /**
+   * @public
    * <p>The required parameters that are needed to connect to a Databricks data source.</p>
    */
   export interface DatabricksParametersMember {
@@ -1460,6 +1568,9 @@ export namespace DataSourceParameters {
     $unknown?: never;
   }
 
+  /**
+   * @public
+   */
   export interface $UnknownMember {
     AmazonElasticsearchParameters?: never;
     AthenaParameters?: never;
@@ -1553,6 +1664,7 @@ export namespace DataSourceParameters {
  */
 export interface SslProperties {
   /**
+   * @public
    * <p>A Boolean option to control whether SSL should be disabled.</p>
    */
   DisableSsl?: boolean;
@@ -1564,6 +1676,7 @@ export interface SslProperties {
  */
 export interface VpcConnectionProperties {
   /**
+   * @public
    * <p>The Amazon Resource Name (ARN) for the VPC connection.</p>
    */
   VpcConnectionArn: string | undefined;
@@ -1575,16 +1688,19 @@ export interface VpcConnectionProperties {
  */
 export interface AssetBundleImportJobDataSourceOverrideParameters {
   /**
+   * @public
    * <p>The ID of the data source to apply overrides to.</p>
    */
   DataSourceId: string | undefined;
 
   /**
+   * @public
    * <p>A new name for the data source.</p>
    */
   Name?: string;
 
   /**
+   * @public
    * <p>The parameters that Amazon QuickSight uses to connect to your underlying data source.
    *             This is a variant type structure. For this structure to be valid, only one of the
    *             attributes can be non-null.</p>
@@ -1592,17 +1708,20 @@ export interface AssetBundleImportJobDataSourceOverrideParameters {
   DataSourceParameters?: DataSourceParameters;
 
   /**
+   * @public
    * <p>VPC connection properties.</p>
    */
   VpcConnectionProperties?: VpcConnectionProperties;
 
   /**
+   * @public
    * <p>Secure Socket Layer (SSL) properties that apply when Amazon QuickSight connects to your
    *             underlying data source.</p>
    */
   SslProperties?: SslProperties;
 
   /**
+   * @public
    * <p>An optional structure that provides the credentials to be used to create the imported data source.</p>
    */
   Credentials?: AssetBundleImportJobDataSourceCredentials;
@@ -1614,16 +1733,19 @@ export interface AssetBundleImportJobDataSourceOverrideParameters {
  */
 export interface AssetBundleImportJobError {
   /**
+   * @public
    * <p>The ARN of the resource whose processing caused an error.</p>
    */
   Arn?: string;
 
   /**
+   * @public
    * <p>The specific error type or the error that occurred.</p>
    */
   Type?: string;
 
   /**
+   * @public
    * <p>A description of the error.</p>
    */
   Message?: string;
@@ -1635,16 +1757,19 @@ export interface AssetBundleImportJobError {
  */
 export interface AssetBundleImportJobRefreshScheduleOverrideParameters {
   /**
+   * @public
    * <p>A partial identifier for the specific <code>RefreshSchedule</code> resource that is being overridden. This structure is used together with the <code>ScheduleID</code> structure.</p>
    */
   DataSetId: string | undefined;
 
   /**
+   * @public
    * <p>A partial identifier for the specific <code>RefreshSchedule</code> resource being overridden. This structure is used together with the <code>DataSetId</code> structure.</p>
    */
   ScheduleId: string | undefined;
 
   /**
+   * @public
    * <p>An override for the <code>StartAfterDateTime</code> of a <code>RefreshSchedule</code>. Make
    *          sure that the <code>StartAfterDateTime</code> is set to a time that takes
    *          place in the future.</p>
@@ -1658,6 +1783,7 @@ export interface AssetBundleImportJobRefreshScheduleOverrideParameters {
  */
 export interface AssetBundleImportJobResourceIdOverrideConfiguration {
   /**
+   * @public
    * <p>An option to request a CloudFormation variable for a prefix to be prepended to each resource's ID before import. The prefix is only added to the asset IDs and does not change the name of the asset.</p>
    */
   PrefixForAllResources?: string;
@@ -1669,11 +1795,13 @@ export interface AssetBundleImportJobResourceIdOverrideConfiguration {
  */
 export interface AssetBundleImportJobThemeOverrideParameters {
   /**
+   * @public
    * <p>The ID of the theme to apply overrides to.</p>
    */
   ThemeId: string | undefined;
 
   /**
+   * @public
    * <p>A new name for the theme.</p>
    */
   Name?: string;
@@ -1685,33 +1813,39 @@ export interface AssetBundleImportJobThemeOverrideParameters {
  */
 export interface AssetBundleImportJobVPCConnectionOverrideParameters {
   /**
+   * @public
    * <p>The ID of the VPC Connection to apply overrides to.</p>
    */
   VPCConnectionId: string | undefined;
 
   /**
+   * @public
    * <p>A new name for the VPC connection.</p>
    */
   Name?: string;
 
   /**
+   * @public
    * <p>A list of new subnet IDs for the VPC connection you are importing. This field is
    *          required if you are importing the VPC connection from another Amazon Web Services account or Region.</p>
    */
   SubnetIds?: string[];
 
   /**
+   * @public
    * <p>A new security group ID for the VPC connection you are importing. This field is required
    *          if you are importing the VPC connection from another Amazon Web Services account or Region.</p>
    */
   SecurityGroupIds?: string[];
 
   /**
+   * @public
    * <p>An optional override of DNS resolvers to be used by the VPC connection.</p>
    */
   DnsResolvers?: string[];
 
   /**
+   * @public
    * <p>An optional override of the role ARN to be used by the VPC connection.</p>
    */
   RoleArn?: string;
@@ -1723,41 +1857,49 @@ export interface AssetBundleImportJobVPCConnectionOverrideParameters {
  */
 export interface AssetBundleImportJobOverrideParameters {
   /**
+   * @public
    * <p>An optional structure that configures resource ID overrides to be applied within the import job.</p>
    */
   ResourceIdOverrideConfiguration?: AssetBundleImportJobResourceIdOverrideConfiguration;
 
   /**
+   * @public
    * <p>A list of overrides for any <code>VPCConnection</code> resources that are present in the asset bundle that is imported.</p>
    */
   VPCConnections?: AssetBundleImportJobVPCConnectionOverrideParameters[];
 
   /**
+   * @public
    * <p>A list of overrides for any <code>RefreshSchedule</code> resources that are present in the asset bundle that is imported.</p>
    */
   RefreshSchedules?: AssetBundleImportJobRefreshScheduleOverrideParameters[];
 
   /**
+   * @public
    * <p> A list of overrides for any <code>DataSource</code> resources that are present in the asset bundle that is imported.</p>
    */
   DataSources?: AssetBundleImportJobDataSourceOverrideParameters[];
 
   /**
+   * @public
    * <p>A list of overrides for any <code>DataSet</code> resources that are present in the asset bundle that is imported.</p>
    */
   DataSets?: AssetBundleImportJobDataSetOverrideParameters[];
 
   /**
+   * @public
    * <p>A list of overrides for any <code>Theme</code> resources that are present in the asset bundle that is imported.</p>
    */
   Themes?: AssetBundleImportJobThemeOverrideParameters[];
 
   /**
+   * @public
    * <p>A list of overrides for any <code>Analysis</code> resources that are present in the asset bundle that is imported.</p>
    */
   Analyses?: AssetBundleImportJobAnalysisOverrideParameters[];
 
   /**
+   * @public
    * <p>A list of overrides for any <code>Dashboard</code> resources that are present in the asset bundle that is imported.</p>
    */
   Dashboards?: AssetBundleImportJobDashboardOverrideParameters[];
@@ -1788,26 +1930,31 @@ export type AssetBundleImportJobStatus = (typeof AssetBundleImportJobStatus)[key
  */
 export interface AssetBundleImportJobSummary {
   /**
+   * @public
    * <p>The current status of the import job.</p>
    */
   JobStatus?: AssetBundleImportJobStatus | string;
 
   /**
+   * @public
    * <p>The ARN of the import job.</p>
    */
   Arn?: string;
 
   /**
+   * @public
    * <p>The time that the import job was created.</p>
    */
   CreatedTime?: Date;
 
   /**
+   * @public
    * <p>The ID of the job. This ID is unique while the job is running. After the job is completed, you can reuse this ID for another job.</p>
    */
   AssetBundleImportJobId?: string;
 
   /**
+   * @public
    * <p>The failure action for the import job.</p>
    */
   FailureAction?: AssetBundleImportFailureAction | string;
@@ -1819,6 +1966,7 @@ export interface AssetBundleImportJobSummary {
  */
 export interface AssetBundleImportSource {
   /**
+   * @public
    * <p>The bytes of the base64 encoded asset bundle import zip file. This file can't exceed 20 MB.</p>
    *          <p>If you are calling the API operations from the Amazon Web Services SDK for Java, JavaScript, Python, or
    *          PHP, the SDK encodes base64 automatically to allow the direct setting of the zip file's bytes. If you are using
@@ -1827,6 +1975,7 @@ export interface AssetBundleImportSource {
   Body?: Uint8Array;
 
   /**
+   * @public
    * <p>The Amazon S3 URI for an asset bundle import file that exists in an Amazon S3 bucket that the caller
    *          has read access to. The file must be a zip format file and can't exceed 20 MB.</p>
    */
@@ -1839,11 +1988,13 @@ export interface AssetBundleImportSource {
  */
 export interface AssetBundleImportSourceDescription {
   /**
+   * @public
    * <p>An HTTPS download URL for the provided asset bundle that you optionally provided at the start of the import job. This URL is valid for five minutes after issuance. Call <code>DescribeAssetBundleExportJob</code> again for a fresh URL if needed. The downloaded asset bundle is a <code>.qs</code> zip file.</p>
    */
   Body?: string;
 
   /**
+   * @public
    * <p>The Amazon S3 URI that you provided at the start of the import job.</p>
    */
   S3Uri?: string;
@@ -1909,6 +2060,7 @@ export type AuthorSpecifiedAggregation = (typeof AuthorSpecifiedAggregation)[key
  */
 export interface BookmarksConfigurations {
   /**
+   * @public
    * <p>A Boolean value that determines whether a user
    *             can bookmark an embedded dashboard.</p>
    */
@@ -1921,6 +2073,7 @@ export interface BookmarksConfigurations {
  */
 export interface BorderStyle {
   /**
+   * @public
    * <p>The option to enable display of borders for visuals.</p>
    */
   Show?: boolean;
@@ -1932,11 +2085,13 @@ export interface BorderStyle {
  */
 export interface CalculatedColumn {
   /**
+   * @public
    * <p>Column name.</p>
    */
   ColumnName: string | undefined;
 
   /**
+   * @public
    * <p>A unique ID to identify a calculated column. During a dataset update, if the column ID
    *             of a calculated column matches that of an existing calculated column, Amazon QuickSight
    *             preserves the existing calculated column.</p>
@@ -1944,6 +2099,7 @@ export interface CalculatedColumn {
   ColumnId: string | undefined;
 
   /**
+   * @public
    * <p>An expression that defines the calculated column.</p>
    */
   Expression: string | undefined;
@@ -1954,16 +2110,19 @@ export interface CalculatedColumn {
  */
 export interface CancelIngestionRequest {
   /**
+   * @public
    * <p>The Amazon Web Services account ID.</p>
    */
   AwsAccountId: string | undefined;
 
   /**
+   * @public
    * <p>The ID of the dataset used in the ingestion.</p>
    */
   DataSetId: string | undefined;
 
   /**
+   * @public
    * <p>An ID for the ingestion.</p>
    */
   IngestionId: string | undefined;
@@ -1974,21 +2133,25 @@ export interface CancelIngestionRequest {
  */
 export interface CancelIngestionResponse {
   /**
+   * @public
    * <p>The Amazon Resource Name (ARN) for the data ingestion.</p>
    */
   Arn?: string;
 
   /**
+   * @public
    * <p>An ID for the ingestion.</p>
    */
   IngestionId?: string;
 
   /**
+   * @public
    * <p>The Amazon Web Services request ID for this operation.</p>
    */
   RequestId?: string;
 
   /**
+   * @public
    * <p>The HTTP status of the request.</p>
    */
   Status?: number;
@@ -2003,6 +2166,7 @@ export class InternalFailureException extends __BaseException {
   readonly $fault: "server" = "server";
   Message?: string;
   /**
+   * @public
    * <p>The Amazon Web Services request ID for this request.</p>
    */
   RequestId?: string;
@@ -2030,6 +2194,7 @@ export class InvalidParameterValueException extends __BaseException {
   readonly $fault: "client" = "client";
   Message?: string;
   /**
+   * @public
    * <p>The Amazon Web Services request ID for this request.</p>
    */
   RequestId?: string;
@@ -2078,11 +2243,13 @@ export class ResourceExistsException extends __BaseException {
   readonly $fault: "client" = "client";
   Message?: string;
   /**
+   * @public
    * <p>The resource type for this request.</p>
    */
   ResourceType?: ExceptionResourceType | string;
 
   /**
+   * @public
    * <p>The Amazon Web Services request ID for this request.</p>
    */
   RequestId?: string;
@@ -2111,11 +2278,13 @@ export class ResourceNotFoundException extends __BaseException {
   readonly $fault: "client" = "client";
   Message?: string;
   /**
+   * @public
    * <p>The resource type for this request.</p>
    */
   ResourceType?: ExceptionResourceType | string;
 
   /**
+   * @public
    * <p>The Amazon Web Services request ID for this request.</p>
    */
   RequestId?: string;
@@ -2144,6 +2313,7 @@ export class ThrottlingException extends __BaseException {
   readonly $fault: "client" = "client";
   Message?: string;
   /**
+   * @public
    * <p>The Amazon Web Services request ID for this request.</p>
    */
   RequestId?: string;
@@ -2184,16 +2354,19 @@ export type ColumnDataType = (typeof ColumnDataType)[keyof typeof ColumnDataType
  */
 export interface CastColumnTypeOperation {
   /**
+   * @public
    * <p>Column name.</p>
    */
   ColumnName: string | undefined;
 
   /**
+   * @public
    * <p>New column data type.</p>
    */
   NewColumnType: ColumnDataType | string | undefined;
 
   /**
+   * @public
    * <p>When casting a column from string to datetime type, you can supply a string in a
    *             format supported by Amazon QuickSight to denote the source data format.</p>
    */
@@ -2235,11 +2408,13 @@ export type CategoryFilterType = (typeof CategoryFilterType)[keyof typeof Catego
  */
 export interface CellValueSynonym {
   /**
+   * @public
    * <p>The cell value.</p>
    */
   CellValue?: string;
 
   /**
+   * @public
    * <p>Other names or aliases for the cell value.</p>
    */
   Synonyms?: string[];
@@ -2251,6 +2426,7 @@ export interface CellValueSynonym {
  */
 export interface CollectiveConstant {
   /**
+   * @public
    * <p>A list of values for the collective constant.</p>
    */
   ValueList?: string[];
@@ -2276,6 +2452,7 @@ export type ColumnDataRole = (typeof ColumnDataRole)[keyof typeof ColumnDataRole
  */
 export interface ColumnDescription {
   /**
+   * @public
    * <p>The text of a description for a column.</p>
    */
   Text?: string;
@@ -2300,16 +2477,19 @@ export type GeoSpatialCountryCode = (typeof GeoSpatialCountryCode)[keyof typeof 
  */
 export interface GeoSpatialColumnGroup {
   /**
+   * @public
    * <p>A display name for the hierarchy.</p>
    */
   Name: string | undefined;
 
   /**
+   * @public
    * <p>Country code.</p>
    */
   CountryCode?: GeoSpatialCountryCode | string;
 
   /**
+   * @public
    * <p>Columns in this hierarchy.</p>
    */
   Columns: string[] | undefined;
@@ -2323,6 +2503,7 @@ export interface GeoSpatialColumnGroup {
  */
 export interface ColumnGroup {
   /**
+   * @public
    * <p>Geospatial column group that denotes a hierarchy.</p>
    */
   GeoSpatialColumnGroup?: GeoSpatialColumnGroup;
@@ -2334,6 +2515,7 @@ export interface ColumnGroup {
  */
 export interface ColumnGroupColumnSchema {
   /**
+   * @public
    * <p>The name of the column group's column schema.</p>
    */
   Name?: string;
@@ -2345,11 +2527,13 @@ export interface ColumnGroupColumnSchema {
  */
 export interface ColumnGroupSchema {
   /**
+   * @public
    * <p>The name of the column group schema.</p>
    */
   Name?: string;
 
   /**
+   * @public
    * <p>A structure containing the list of schemas for column group columns.</p>
    */
   ColumnGroupColumnSchemaList?: ColumnGroupColumnSchema[];
@@ -2366,11 +2550,13 @@ export interface ColumnGroupSchema {
  */
 export interface ColumnLevelPermissionRule {
   /**
+   * @public
    * <p>An array of Amazon Resource Names (ARNs) for Amazon QuickSight users or groups.</p>
    */
   Principals?: string[];
 
   /**
+   * @public
    * <p>An array of column names.</p>
    */
   ColumnNames?: string[];
@@ -2397,16 +2583,19 @@ export type ColumnOrderingType = (typeof ColumnOrderingType)[keyof typeof Column
  */
 export interface ColumnSchema {
   /**
+   * @public
    * <p>The name of the column schema.</p>
    */
   Name?: string;
 
   /**
+   * @public
    * <p>The data type of the column schema.</p>
    */
   DataType?: string;
 
   /**
+   * @public
    * <p>The geographic role of the column schema.</p>
    */
   GeographicRole?: string;
@@ -2443,11 +2632,13 @@ export type GeoSpatialDataRole = (typeof GeoSpatialDataRole)[keyof typeof GeoSpa
  */
 export interface ColumnTag {
   /**
+   * @public
    * <p>A geospatial role for a column.</p>
    */
   ColumnGeographicRole?: GeoSpatialDataRole | string;
 
   /**
+   * @public
    * <p>A description for a column.</p>
    */
   ColumnDescription?: ColumnDescription;
@@ -2488,16 +2679,19 @@ export type UndefinedSpecifiedValueType =
  */
 export interface ComparativeOrder {
   /**
+   * @public
    * <p>The ordering type for a column. Valid values for this structure are <code>GREATER_IS_BETTER</code>, <code>LESSER_IS_BETTER</code> and <code>SPECIFIED</code>.</p>
    */
   UseOrdering?: ColumnOrderingType | string;
 
   /**
+   * @public
    * <p>The list of columns to be used in the ordering.</p>
    */
   SpecifedOrder?: string[];
 
   /**
+   * @public
    * <p>The treat of undefined specified values. Valid values for this structure are <code>LEAST</code> and <code>MOST</code>.</p>
    */
   TreatUndefinedSpecifiedValues?: UndefinedSpecifiedValueType | string;
@@ -2537,6 +2731,7 @@ export class ConflictException extends __BaseException {
   readonly $fault: "client" = "client";
   Message?: string;
   /**
+   * @public
    * <p>The Amazon Web Services request ID for this request.</p>
    */
   RequestId?: string;
@@ -2577,11 +2772,13 @@ export type ConstantType = (typeof ConstantType)[keyof typeof ConstantType];
  */
 export interface Tag {
   /**
+   * @public
    * <p>Tag key.</p>
    */
   Key: string | undefined;
 
   /**
+   * @public
    * <p>Tag value.</p>
    */
   Value: string | undefined;
@@ -2592,16 +2789,19 @@ export interface Tag {
  */
 export interface CreateAccountCustomizationRequest {
   /**
+   * @public
    * <p>The ID for the Amazon Web Services account that you want to customize Amazon QuickSight for.</p>
    */
   AwsAccountId: string | undefined;
 
   /**
+   * @public
    * <p>The Amazon QuickSight namespace that you want to add customizations to.</p>
    */
   Namespace?: string;
 
   /**
+   * @public
    * <p>The Amazon QuickSight customizations you're adding in the current Amazon Web Services Region. You can add
    *             these to an Amazon Web Services account and a QuickSight namespace. </p>
    *          <p>For example, you can add a default theme by setting <code>AccountCustomization</code>
@@ -2614,6 +2814,7 @@ export interface CreateAccountCustomizationRequest {
   AccountCustomization: AccountCustomization | undefined;
 
   /**
+   * @public
    * <p>A list of the tags that you want to attach to this resource.</p>
    */
   Tags?: Tag[];
@@ -2624,31 +2825,37 @@ export interface CreateAccountCustomizationRequest {
  */
 export interface CreateAccountCustomizationResponse {
   /**
+   * @public
    * <p>The Amazon Resource Name (ARN) for the customization that you created for this Amazon Web Services account.</p>
    */
   Arn?: string;
 
   /**
+   * @public
    * <p>The ID for the Amazon Web Services account that you want to customize Amazon QuickSight for.</p>
    */
   AwsAccountId?: string;
 
   /**
+   * @public
    * <p>The namespace associated with the customization you're creating. </p>
    */
   Namespace?: string;
 
   /**
+   * @public
    * <p>The Amazon QuickSight customizations you're adding in the current Amazon Web Services Region. </p>
    */
   AccountCustomization?: AccountCustomization;
 
   /**
+   * @public
    * <p>The Amazon Web Services request ID for this operation.</p>
    */
   RequestId?: string;
 
   /**
+   * @public
    * <p>The HTTP status of the request.</p>
    */
   Status?: number;
@@ -2663,11 +2870,13 @@ export class ResourceUnavailableException extends __BaseException {
   readonly $fault: "server" = "server";
   Message?: string;
   /**
+   * @public
    * <p>The resource type for this request.</p>
    */
   ResourceType?: ExceptionResourceType | string;
 
   /**
+   * @public
    * <p>The Amazon Web Services request ID for this request.</p>
    */
   RequestId?: string;
@@ -2692,6 +2901,7 @@ export class ResourceUnavailableException extends __BaseException {
  */
 export interface CreateAccountSubscriptionRequest {
   /**
+   * @public
    * <p>The edition of Amazon QuickSight that you want your account to have. Currently, you can
    *             choose from <code>ENTERPRISE</code> or
    *                 <code>ENTERPRISE_AND_Q</code>.</p>
@@ -2723,6 +2933,7 @@ export interface CreateAccountSubscriptionRequest {
   Edition: Edition | string | undefined;
 
   /**
+   * @public
    * <p>The method that you want to use to authenticate your Amazon QuickSight account. Currently, the valid values for this parameter are <code>IAM_AND_QUICKSIGHT</code>, <code>IAM_ONLY</code>, and <code>ACTIVE_DIRECTORY</code>.</p>
    *          <p>If you choose <code>ACTIVE_DIRECTORY</code>, provide an <code>ActiveDirectoryName</code>
    *             and an <code>AdminGroup</code> associated with your Active Directory.</p>
@@ -2730,11 +2941,13 @@ export interface CreateAccountSubscriptionRequest {
   AuthenticationMethod: AuthenticationMethodOption | string | undefined;
 
   /**
+   * @public
    * <p>The Amazon Web Services account ID of the account that you're using to create your Amazon QuickSight account.</p>
    */
   AwsAccountId: string | undefined;
 
   /**
+   * @public
    * <p>The name of your Amazon QuickSight account. This name is unique over all of Amazon Web Services, and it appears only when users sign in. You can't change
    *                 <code>AccountName</code> value after the Amazon QuickSight account is
    *             created.</p>
@@ -2742,26 +2955,31 @@ export interface CreateAccountSubscriptionRequest {
   AccountName: string | undefined;
 
   /**
+   * @public
    * <p>The email address that you want Amazon QuickSight to send notifications to regarding your Amazon QuickSight account or Amazon QuickSight subscription.</p>
    */
   NotificationEmail: string | undefined;
 
   /**
+   * @public
    * <p>The name of your Active Directory. This field is required if <code>ACTIVE_DIRECTORY</code> is the selected authentication method of the new Amazon QuickSight account.</p>
    */
   ActiveDirectoryName?: string;
 
   /**
+   * @public
    * <p>The realm of the Active Directory that is associated with your Amazon QuickSight account. This field is required if <code>ACTIVE_DIRECTORY</code> is the selected authentication method of the new Amazon QuickSight account.</p>
    */
   Realm?: string;
 
   /**
+   * @public
    * <p>The ID of the Active Directory that is associated with your Amazon QuickSight account.</p>
    */
   DirectoryId?: string;
 
   /**
+   * @public
    * <p>The admin group associated with your Active Directory. This field is required if <code>ACTIVE_DIRECTORY</code> is the selected authentication method of the new Amazon QuickSight account. For more information about using
    *             Active Directory in Amazon QuickSight, see <a href="https://docs.aws.amazon.com/quicksight/latest/user/aws-directory-service.html">Using Active Directory with
    *                     Amazon QuickSight Enterprise Edition</a> in the Amazon QuickSight
@@ -2770,6 +2988,7 @@ export interface CreateAccountSubscriptionRequest {
   AdminGroup?: string[];
 
   /**
+   * @public
    * <p>The author group associated with your Active Directory. For more information about using
    *             Active Directory in Amazon QuickSight, see <a href="https://docs.aws.amazon.com/quicksight/latest/user/aws-directory-service.html">Using Active Directory with
    *                     Amazon QuickSight Enterprise Edition</a> in the Amazon QuickSight
@@ -2778,6 +2997,7 @@ export interface CreateAccountSubscriptionRequest {
   AuthorGroup?: string[];
 
   /**
+   * @public
    * <p>The reader group associated with your Active Direcrtory. For more information about
    *             using Active Directory in Amazon QuickSight, see <a href="https://docs.aws.amazon.com/quicksight/latest/user/aws-directory-service.html">Using Active Directory with
    *                     Amazon QuickSight Enterprise Edition</a> in the <i>Amazon QuickSight
@@ -2786,6 +3006,7 @@ export interface CreateAccountSubscriptionRequest {
   ReaderGroup?: string[];
 
   /**
+   * @public
    * <p>The first name of the author of the Amazon QuickSight account to use for future
    *             communications. This field is required if <code>ENTERPPRISE_AND_Q</code> is the selected
    *             edition of the new Amazon QuickSight account.</p>
@@ -2793,6 +3014,7 @@ export interface CreateAccountSubscriptionRequest {
   FirstName?: string;
 
   /**
+   * @public
    * <p>The last name of the author of the Amazon QuickSight account to use for future
    *             communications. This field is required if <code>ENTERPPRISE_AND_Q</code> is the selected
    *             edition of the new Amazon QuickSight account.</p>
@@ -2800,6 +3022,7 @@ export interface CreateAccountSubscriptionRequest {
   LastName?: string;
 
   /**
+   * @public
    * <p>The email address of the author of the Amazon QuickSight account to use for future
    *             communications. This field is required if <code>ENTERPPRISE_AND_Q</code> is the selected
    *             edition of the new Amazon QuickSight account.</p>
@@ -2807,6 +3030,7 @@ export interface CreateAccountSubscriptionRequest {
   EmailAddress?: string;
 
   /**
+   * @public
    * <p>A 10-digit phone number for the author of the Amazon QuickSight account to use for
    *             future communications. This field is required if <code>ENTERPPRISE_AND_Q</code> is the
    *             selected edition of the new Amazon QuickSight account.</p>
@@ -2820,22 +3044,26 @@ export interface CreateAccountSubscriptionRequest {
  */
 export interface SignupResponse {
   /**
+   * @public
    * <p>A Boolean that is <code>TRUE</code> if the Amazon QuickSight uses IAM as an
    *             authentication method.</p>
    */
   IAMUser?: boolean;
 
   /**
+   * @public
    * <p>The user login name for your Amazon QuickSight account.</p>
    */
   userLoginName?: string;
 
   /**
+   * @public
    * <p>The name of your Amazon QuickSight account.</p>
    */
   accountName?: string;
 
   /**
+   * @public
    * <p>The type of Active Directory that is being used to authenticate the Amazon QuickSight
    *             account. Valid values are <code>SIMPLE_AD</code>, <code>AD_CONNECTOR</code>, and
    *                 <code>MICROSOFT_AD</code>.</p>
@@ -2848,16 +3076,19 @@ export interface SignupResponse {
  */
 export interface CreateAccountSubscriptionResponse {
   /**
+   * @public
    * <p>A <code>SignupResponse</code> object that returns information about a newly created Amazon QuickSight account.</p>
    */
   SignupResponse?: SignupResponse;
 
   /**
+   * @public
    * <p>The HTTP status of the request.</p>
    */
   Status?: number;
 
   /**
+   * @public
    * <p>The Amazon Web Services request ID for this operation.</p>
    */
   RequestId?: string;
@@ -2872,6 +3103,7 @@ export class PreconditionNotMetException extends __BaseException {
   readonly $fault: "client" = "client";
   Message?: string;
   /**
+   * @public
    * <p>The Amazon Web Services request ID for this request.</p>
    */
   RequestId?: string;
@@ -2896,11 +3128,13 @@ export class PreconditionNotMetException extends __BaseException {
  */
 export interface DateTimeParameter {
   /**
+   * @public
    * <p>A display name for the date-time parameter.</p>
    */
   Name: string | undefined;
 
   /**
+   * @public
    * <p>The values for the date-time parameter.</p>
    */
   Values: Date[] | undefined;
@@ -2912,11 +3146,13 @@ export interface DateTimeParameter {
  */
 export interface DecimalParameter {
   /**
+   * @public
    * <p>A display name for the decimal parameter.</p>
    */
   Name: string | undefined;
 
   /**
+   * @public
    * <p>The values for the decimal parameter.</p>
    */
   Values: number[] | undefined;
@@ -2928,11 +3164,13 @@ export interface DecimalParameter {
  */
 export interface IntegerParameter {
   /**
+   * @public
    * <p>The name of the integer parameter.</p>
    */
   Name: string | undefined;
 
   /**
+   * @public
    * <p>The values for the integer parameter.</p>
    */
   Values: number[] | undefined;
@@ -2944,11 +3182,13 @@ export interface IntegerParameter {
  */
 export interface StringParameter {
   /**
+   * @public
    * <p>A display name for a string parameter.</p>
    */
   Name: string | undefined;
 
   /**
+   * @public
    * <p>The values of a string parameter.</p>
    */
   Values: string[] | undefined;
@@ -2960,21 +3200,25 @@ export interface StringParameter {
  */
 export interface _Parameters {
   /**
+   * @public
    * <p>The parameters that have a data type of string.</p>
    */
   StringParameters?: StringParameter[];
 
   /**
+   * @public
    * <p>The parameters that have a data type of integer.</p>
    */
   IntegerParameters?: IntegerParameter[];
 
   /**
+   * @public
    * <p>The parameters that have a data type of decimal.</p>
    */
   DecimalParameters?: DecimalParameter[];
 
   /**
+   * @public
    * <p>The parameters that have a data type of date-time.</p>
    */
   DateTimeParameters?: DateTimeParameter[];
@@ -2986,6 +3230,7 @@ export interface _Parameters {
  */
 export interface ResourcePermission {
   /**
+   * @public
    * <p>The Amazon Resource Name (ARN) of the principal. This can be one of the
    *             following:</p>
    *          <ul>
@@ -3005,6 +3250,7 @@ export interface ResourcePermission {
   Principal: string | undefined;
 
   /**
+   * @public
    * <p>The IAM action to grant or revoke permissions on.</p>
    */
   Actions: string[] | undefined;
@@ -3015,29 +3261,34 @@ export interface ResourcePermission {
  */
 export interface CreateAnalysisRequest {
   /**
+   * @public
    * <p>The ID of the Amazon Web Services account where you are creating an analysis.</p>
    */
   AwsAccountId: string | undefined;
 
   /**
+   * @public
    * <p>The ID for the analysis that you're creating. This ID displays in the URL of the
    *             analysis.</p>
    */
   AnalysisId: string | undefined;
 
   /**
+   * @public
    * <p>A descriptive name for the analysis that you're creating. This name displays for the
    *             analysis in the Amazon QuickSight console. </p>
    */
   Name: string | undefined;
 
   /**
+   * @public
    * <p>The parameter names and override values that you want to use. An analysis can have
    *             any parameter type, and some parameters might accept multiple values. </p>
    */
   Parameters?: _Parameters;
 
   /**
+   * @public
    * <p>A structure that describes the principals and the resource-level permissions on an
    *             analysis. You can use the <code>Permissions</code> structure to grant permissions by
    *             providing a list of Identity and Access Management (IAM) action information for each
@@ -3047,6 +3298,7 @@ export interface CreateAnalysisRequest {
   Permissions?: ResourcePermission[];
 
   /**
+   * @public
    * <p>A source entity to use for the analysis that you're creating. This metadata structure
    *             contains details that describe a source template and one or more datasets.</p>
    *          <p>Either a <code>SourceEntity</code> or a <code>Definition</code> must be provided in
@@ -3055,18 +3307,21 @@ export interface CreateAnalysisRequest {
   SourceEntity?: AnalysisSourceEntity;
 
   /**
+   * @public
    * <p>The ARN for the theme to apply to the analysis that you're creating. To see the theme
    *             in the Amazon QuickSight console, make sure that you have access to it.</p>
    */
   ThemeArn?: string;
 
   /**
+   * @public
    * <p>Contains a map of the key-value pairs for the resource tag or tags assigned to the
    *             analysis.</p>
    */
   Tags?: Tag[];
 
   /**
+   * @public
    * <p>The definition of an analysis.</p>
    *          <p>A definition is the data model of all features in a Dashboard, Template, or Analysis.</p>
    *          <p>Either a <code>SourceEntity</code> or a <code>Definition</code> must be provided in
@@ -3080,26 +3335,31 @@ export interface CreateAnalysisRequest {
  */
 export interface CreateAnalysisResponse {
   /**
+   * @public
    * <p>The ARN for the analysis.</p>
    */
   Arn?: string;
 
   /**
+   * @public
    * <p>The ID of the analysis.</p>
    */
   AnalysisId?: string;
 
   /**
+   * @public
    * <p>The status of the creation of the analysis. </p>
    */
   CreationStatus?: ResourceStatus | string;
 
   /**
+   * @public
    * <p>The HTTP status of the request.</p>
    */
   Status?: number;
 
   /**
+   * @public
    * <p>The Amazon Web Services request ID for this operation.</p>
    */
   RequestId?: string;
@@ -3114,11 +3374,13 @@ export class LimitExceededException extends __BaseException {
   readonly $fault: "client" = "client";
   Message?: string;
   /**
+   * @public
    * <p>Limit exceeded.</p>
    */
   ResourceType?: ExceptionResourceType | string;
 
   /**
+   * @public
    * <p>The Amazon Web Services request ID for this request.</p>
    */
   RequestId?: string;
@@ -3150,6 +3412,7 @@ export class UnsupportedUserEditionException extends __BaseException {
   readonly $fault: "client" = "client";
   Message?: string;
   /**
+   * @public
    * <p>The Amazon Web Services request ID for this request.</p>
    */
   RequestId?: string;
@@ -3175,6 +3438,7 @@ export class UnsupportedUserEditionException extends __BaseException {
  */
 export interface CreateColumnsOperation {
   /**
+   * @public
    * <p>Calculated columns to create.</p>
    */
   Columns: CalculatedColumn[] | undefined;
@@ -3186,6 +3450,7 @@ export interface CreateColumnsOperation {
  */
 export interface DataPointDrillUpDownOption {
   /**
+   * @public
    * <p>The status of the drill down options of data points.</p>
    */
   AvailabilityStatus?: DashboardBehavior | string;
@@ -3197,6 +3462,7 @@ export interface DataPointDrillUpDownOption {
  */
 export interface DataPointMenuLabelOption {
   /**
+   * @public
    * <p>The status of the data point menu options.</p>
    */
   AvailabilityStatus?: DashboardBehavior | string;
@@ -3208,6 +3474,7 @@ export interface DataPointMenuLabelOption {
  */
 export interface DataPointTooltipOption {
   /**
+   * @public
    * <p>The status of the data point tool tip options.</p>
    */
   AvailabilityStatus?: DashboardBehavior | string;
@@ -3219,6 +3486,7 @@ export interface DataPointTooltipOption {
  */
 export interface ExportToCSVOption {
   /**
+   * @public
    * <p>Availability status.</p>
    */
   AvailabilityStatus?: DashboardBehavior | string;
@@ -3230,6 +3498,7 @@ export interface ExportToCSVOption {
  */
 export interface ExportWithHiddenFieldsOption {
   /**
+   * @public
    * <p>The status of the export with hidden fields options.</p>
    */
   AvailabilityStatus?: DashboardBehavior | string;
@@ -3255,6 +3524,7 @@ export type DashboardUIState = (typeof DashboardUIState)[keyof typeof DashboardU
  */
 export interface SheetControlsOption {
   /**
+   * @public
    * <p>Visibility state.</p>
    */
   VisibilityState?: DashboardUIState | string;
@@ -3266,6 +3536,7 @@ export interface SheetControlsOption {
  */
 export interface SheetLayoutElementMaximizationOption {
   /**
+   * @public
    * <p>The status of the sheet layout maximization options of a dashbaord.</p>
    */
   AvailabilityStatus?: DashboardBehavior | string;
@@ -3277,6 +3548,7 @@ export interface SheetLayoutElementMaximizationOption {
  */
 export interface VisualAxisSortOption {
   /**
+   * @public
    * <p>The availaiblity status of a visual's axis sort options.</p>
    */
   AvailabilityStatus?: DashboardBehavior | string;
@@ -3288,6 +3560,7 @@ export interface VisualAxisSortOption {
  */
 export interface VisualMenuOption {
   /**
+   * @public
    * <p>The availaiblity status of a visual's menu options.</p>
    */
   AvailabilityStatus?: DashboardBehavior | string;
@@ -3299,6 +3572,7 @@ export interface VisualMenuOption {
  */
 export interface ExportHiddenFieldsOption {
   /**
+   * @public
    * <p>The status of the export hidden fields options of a dashbaord.</p>
    */
   AvailabilityStatus?: DashboardBehavior | string;
@@ -3310,6 +3584,7 @@ export interface ExportHiddenFieldsOption {
  */
 export interface DashboardVisualPublishOptions {
   /**
+   * @public
    * <p>Determines if hidden fields are included in an exported dashboard.</p>
    */
   ExportHiddenFieldsOption?: ExportHiddenFieldsOption;
@@ -3321,21 +3596,25 @@ export interface DashboardVisualPublishOptions {
  */
 export interface DashboardPublishOptions {
   /**
+   * @public
    * <p>Ad hoc (one-time) filtering option.</p>
    */
   AdHocFilteringOption?: AdHocFilteringOption;
 
   /**
+   * @public
    * <p>Export to .csv option.</p>
    */
   ExportToCSVOption?: ExportToCSVOption;
 
   /**
+   * @public
    * <p>Sheet controls option.</p>
    */
   SheetControlsOption?: SheetControlsOption;
 
   /**
+   * @public
    * @deprecated
    *
    * <p>The visual publish options of a visual in a dashboard.</p>
@@ -3343,36 +3622,43 @@ export interface DashboardPublishOptions {
   VisualPublishOptions?: DashboardVisualPublishOptions;
 
   /**
+   * @public
    * <p>The sheet layout maximization options of a dashbaord.</p>
    */
   SheetLayoutElementMaximizationOption?: SheetLayoutElementMaximizationOption;
 
   /**
+   * @public
    * <p>The menu options of a visual in a dashboard.</p>
    */
   VisualMenuOption?: VisualMenuOption;
 
   /**
+   * @public
    * <p>The axis sort options of a dashboard.</p>
    */
   VisualAxisSortOption?: VisualAxisSortOption;
 
   /**
+   * @public
    * <p>Determines if hidden fields are exported with a dashboard.</p>
    */
   ExportWithHiddenFieldsOption?: ExportWithHiddenFieldsOption;
 
   /**
+   * @public
    * <p>The drill-down options of data points in a dashboard.</p>
    */
   DataPointDrillUpDownOption?: DataPointDrillUpDownOption;
 
   /**
+   * @public
    * <p>The data point menu label options of a dashboard.</p>
    */
   DataPointMenuLabelOption?: DataPointMenuLabelOption;
 
   /**
+   * @public
    * <p>The data point tool tip options of a dashboard.</p>
    */
   DataPointTooltipOption?: DataPointTooltipOption;
@@ -3384,34 +3670,40 @@ export interface DashboardPublishOptions {
  */
 export interface DashboardVersionDefinition {
   /**
+   * @public
    * <p>An array of dataset identifier declarations. With
    *             this mapping,you can use dataset identifiers instead of dataset Amazon Resource Names (ARNs) throughout the dashboard's sub-structures.</p>
    */
   DataSetIdentifierDeclarations: DataSetIdentifierDeclaration[] | undefined;
 
   /**
+   * @public
    * <p>An array of sheet definitions for a dashboard.</p>
    */
   Sheets?: SheetDefinition[];
 
   /**
+   * @public
    * <p>An array of calculated field definitions for the dashboard.</p>
    */
   CalculatedFields?: CalculatedField[];
 
   /**
+   * @public
    * <p>The parameter declarations for a dashboard. Parameters are named variables that can transfer a value for use by an action or an object.</p>
    *          <p>For more information, see <a href="https://docs.aws.amazon.com/quicksight/latest/user/parameters-in-quicksight.html">Parameters in Amazon QuickSight</a> in the <i>Amazon QuickSight User Guide</i>.</p>
    */
   ParameterDeclarations?: ParameterDeclaration[];
 
   /**
+   * @public
    * <p>The filter definitions for a dashboard.</p>
    *          <p>For more information, see <a href="https://docs.aws.amazon.com/quicksight/latest/user/adding-a-filter.html">Filtering Data in Amazon QuickSight</a> in the <i>Amazon QuickSight User Guide</i>.</p>
    */
   FilterGroups?: FilterGroup[];
 
   /**
+   * @public
    * <p>An array of dashboard-level column configurations. Column configurations
    *             are used to set the default formatting for a column that
    *             is used throughout a dashboard. </p>
@@ -3419,6 +3711,7 @@ export interface DashboardVersionDefinition {
   ColumnConfigurations?: ColumnConfiguration[];
 
   /**
+   * @public
    * <p>The configuration for default analysis settings.</p>
    */
   AnalysisDefaults?: AnalysisDefaults;
@@ -3430,11 +3723,13 @@ export interface DashboardVersionDefinition {
  */
 export interface DashboardSourceTemplate {
   /**
+   * @public
    * <p>Dataset references.</p>
    */
   DataSetReferences: DataSetReference[] | undefined;
 
   /**
+   * @public
    * <p>The Amazon Resource Name (ARN) of the resource.</p>
    */
   Arn: string | undefined;
@@ -3446,6 +3741,7 @@ export interface DashboardSourceTemplate {
  */
 export interface DashboardSourceEntity {
   /**
+   * @public
    * <p>Source template.</p>
    */
   SourceTemplate?: DashboardSourceTemplate;
@@ -3456,21 +3752,25 @@ export interface DashboardSourceEntity {
  */
 export interface CreateDashboardRequest {
   /**
+   * @public
    * <p>The ID of the Amazon Web Services account where you want to create the dashboard.</p>
    */
   AwsAccountId: string | undefined;
 
   /**
+   * @public
    * <p>The ID for the dashboard, also added to the IAM policy.</p>
    */
   DashboardId: string | undefined;
 
   /**
+   * @public
    * <p>The display name of the dashboard.</p>
    */
   Name: string | undefined;
 
   /**
+   * @public
    * <p>The parameters for the creation of the dashboard, which you want to use to override
    *             the default settings. A dashboard can have any type of parameters, and some parameters
    *             might accept multiple values. </p>
@@ -3478,6 +3778,7 @@ export interface CreateDashboardRequest {
   Parameters?: _Parameters;
 
   /**
+   * @public
    * <p>A structure that contains the permissions of the dashboard. You can use this structure
    *             for granting permissions by providing a list of IAM action information for each
    *             principal ARN. </p>
@@ -3486,6 +3787,7 @@ export interface CreateDashboardRequest {
   Permissions?: ResourcePermission[];
 
   /**
+   * @public
    * <p>The entity that you are using as a source when you create the dashboard. In
    *             <code>SourceEntity</code>, you specify the type of object you're using as source. You
    *             can only create a dashboard from a template, so you use a <code>SourceTemplate</code>
@@ -3506,17 +3808,20 @@ export interface CreateDashboardRequest {
   SourceEntity?: DashboardSourceEntity;
 
   /**
+   * @public
    * <p>Contains a map of the key-value pairs for the resource tag or tags assigned to the
    *             dashboard.</p>
    */
   Tags?: Tag[];
 
   /**
+   * @public
    * <p>A description for the first version of the dashboard being created.</p>
    */
   VersionDescription?: string;
 
   /**
+   * @public
    * <p>Options for publishing the dashboard when you create it:</p>
    *          <ul>
    *             <li>
@@ -3545,6 +3850,7 @@ export interface CreateDashboardRequest {
   DashboardPublishOptions?: DashboardPublishOptions;
 
   /**
+   * @public
    * <p>The Amazon Resource Name (ARN) of the theme that is being used for this dashboard. If
    *             you add a value for this field, it overrides the value that is used in the source
    *             entity. The theme ARN must exist in the same Amazon Web Services account where you create the
@@ -3553,6 +3859,7 @@ export interface CreateDashboardRequest {
   ThemeArn?: string;
 
   /**
+   * @public
    * <p>The definition of a dashboard.</p>
    *          <p>A definition is the data model of all features in a Dashboard, Template, or Analysis.</p>
    *          <p>Either a <code>SourceEntity</code> or a <code>Definition</code> must be provided in
@@ -3566,32 +3873,38 @@ export interface CreateDashboardRequest {
  */
 export interface CreateDashboardResponse {
   /**
+   * @public
    * <p>The ARN of the dashboard.</p>
    */
   Arn?: string;
 
   /**
+   * @public
    * <p>The ARN of the dashboard, including the version number of the first version that is
    *             created.</p>
    */
   VersionArn?: string;
 
   /**
+   * @public
    * <p>The ID for the dashboard.</p>
    */
   DashboardId?: string;
 
   /**
+   * @public
    * <p>The status of the dashboard creation request.</p>
    */
   CreationStatus?: ResourceStatus | string;
 
   /**
+   * @public
    * <p>The HTTP status of the request.</p>
    */
   Status?: number;
 
   /**
+   * @public
    * <p>The Amazon Web Services request ID for this operation.</p>
    */
   RequestId?: string;
@@ -3603,6 +3916,7 @@ export interface CreateDashboardResponse {
  */
 export interface DateTimeDatasetParameterDefaultValues {
   /**
+   * @public
    * <p>A list of static default values for a given date time parameter.</p>
    */
   StaticValues?: Date[];
@@ -3628,26 +3942,31 @@ export type DatasetParameterValueType = (typeof DatasetParameterValueType)[keyof
  */
 export interface DateTimeDatasetParameter {
   /**
+   * @public
    * <p>An identifier for the parameter that is created in the dataset.</p>
    */
   Id: string | undefined;
 
   /**
+   * @public
    * <p>The name of the date time parameter that is created in the dataset.</p>
    */
   Name: string | undefined;
 
   /**
+   * @public
    * <p>The value type of the dataset parameter. Valid values are <code>single value</code> or <code>multi value</code>.</p>
    */
   ValueType: DatasetParameterValueType | string | undefined;
 
   /**
+   * @public
    * <p>The time granularity of the date time parameter.</p>
    */
   TimeGranularity?: TimeGranularity | string;
 
   /**
+   * @public
    * <p>A list of default values for a given date time parameter. This structure only accepts static values.</p>
    */
   DefaultValues?: DateTimeDatasetParameterDefaultValues;
@@ -3659,6 +3978,7 @@ export interface DateTimeDatasetParameter {
  */
 export interface DecimalDatasetParameterDefaultValues {
   /**
+   * @public
    * <p>A list of static default values for a given decimal parameter.</p>
    */
   StaticValues?: number[];
@@ -3670,21 +3990,25 @@ export interface DecimalDatasetParameterDefaultValues {
  */
 export interface DecimalDatasetParameter {
   /**
+   * @public
    * <p>An identifier for the decimal parameter created in the dataset.</p>
    */
   Id: string | undefined;
 
   /**
+   * @public
    * <p>The name of the decimal parameter that is created in the dataset.</p>
    */
   Name: string | undefined;
 
   /**
+   * @public
    * <p>The value type of the dataset parameter. Valid values are <code>single value</code> or <code>multi value</code>.</p>
    */
   ValueType: DatasetParameterValueType | string | undefined;
 
   /**
+   * @public
    * <p>A list of default values for a given decimal parameter. This structure only accepts static values.</p>
    */
   DefaultValues?: DecimalDatasetParameterDefaultValues;
@@ -3696,6 +4020,7 @@ export interface DecimalDatasetParameter {
  */
 export interface IntegerDatasetParameterDefaultValues {
   /**
+   * @public
    * <p>A list of static default values for a given integer parameter.</p>
    */
   StaticValues?: number[];
@@ -3707,21 +4032,25 @@ export interface IntegerDatasetParameterDefaultValues {
  */
 export interface IntegerDatasetParameter {
   /**
+   * @public
    * <p>An identifier for the integer parameter created in the dataset.</p>
    */
   Id: string | undefined;
 
   /**
+   * @public
    * <p>The name of the integer parameter that is created in the dataset.</p>
    */
   Name: string | undefined;
 
   /**
+   * @public
    * <p>The value type of the dataset parameter. Valid values are <code>single value</code> or <code>multi value</code>.</p>
    */
   ValueType: DatasetParameterValueType | string | undefined;
 
   /**
+   * @public
    * <p>A list of default values for a given integer parameter. This structure only accepts static values.</p>
    */
   DefaultValues?: IntegerDatasetParameterDefaultValues;
@@ -3733,6 +4062,7 @@ export interface IntegerDatasetParameter {
  */
 export interface StringDatasetParameterDefaultValues {
   /**
+   * @public
    * <p>A list of static default values for a given string parameter.</p>
    */
   StaticValues?: string[];
@@ -3744,21 +4074,25 @@ export interface StringDatasetParameterDefaultValues {
  */
 export interface StringDatasetParameter {
   /**
+   * @public
    * <p>An identifier for the string parameter that is created in the dataset.</p>
    */
   Id: string | undefined;
 
   /**
+   * @public
    * <p>The name of the string parameter that is created in the dataset.</p>
    */
   Name: string | undefined;
 
   /**
+   * @public
    * <p>The value type of the dataset parameter. Valid values are <code>single value</code> or <code>multi value</code>.</p>
    */
   ValueType: DatasetParameterValueType | string | undefined;
 
   /**
+   * @public
    * <p>A list of default values for a given string dataset parameter type. This structure only accepts static values.</p>
    */
   DefaultValues?: StringDatasetParameterDefaultValues;
@@ -3770,21 +4104,25 @@ export interface StringDatasetParameter {
  */
 export interface DatasetParameter {
   /**
+   * @public
    * <p>A string parameter that is created in the dataset.</p>
    */
   StringDatasetParameter?: StringDatasetParameter;
 
   /**
+   * @public
    * <p>A decimal parameter that is created in the dataset.</p>
    */
   DecimalDatasetParameter?: DecimalDatasetParameter;
 
   /**
+   * @public
    * <p>An integer parameter that is created in the dataset.</p>
    */
   IntegerDatasetParameter?: IntegerDatasetParameter;
 
   /**
+   * @public
    * <p>A date time parameter that is created in the dataset.</p>
    */
   DateTimeDatasetParameter?: DateTimeDatasetParameter;
@@ -3796,11 +4134,13 @@ export interface DatasetParameter {
  */
 export interface DataSetUsageConfiguration {
   /**
+   * @public
    * <p>An option that controls whether a child dataset of a direct query can use this dataset as a source.</p>
    */
   DisableUseAsDirectQuerySource?: boolean;
 
   /**
+   * @public
    * <p>An option that controls whether a child dataset that's stored in QuickSight can use this dataset as a source.</p>
    */
   DisableUseAsImportedSource?: boolean;
@@ -3812,11 +4152,13 @@ export interface DataSetUsageConfiguration {
  */
 export interface FieldFolder {
   /**
+   * @public
    * <p>The description for a field folder.</p>
    */
   description?: string;
 
   /**
+   * @public
    * <p>A folder has a list of columns. A column can only be in one folder.</p>
    */
   columns?: string[];
@@ -3842,6 +4184,7 @@ export type DataSetImportMode = (typeof DataSetImportMode)[keyof typeof DataSetI
  */
 export interface FilterOperation {
   /**
+   * @public
    * <p>An expression that must evaluate to a Boolean value. Rows for which the expression
    *             evaluates to true are kept in the dataset.</p>
    */
@@ -3854,21 +4197,25 @@ export interface FilterOperation {
  */
 export interface NewDefaultValues {
   /**
+   * @public
    * <p>A list of static default values for a given string parameter.</p>
    */
   StringStaticValues?: string[];
 
   /**
+   * @public
    * <p>A list of static default values for a given decimal parameter.</p>
    */
   DecimalStaticValues?: number[];
 
   /**
+   * @public
    * <p>A list of static default values for a given date time parameter.</p>
    */
   DateTimeStaticValues?: Date[];
 
   /**
+   * @public
    * <p>A list of static default values for a given integer parameter.</p>
    */
   IntegerStaticValues?: number[];
@@ -3880,16 +4227,19 @@ export interface NewDefaultValues {
  */
 export interface OverrideDatasetParameterOperation {
   /**
+   * @public
    * <p>The name of the parameter to be overridden with different values.</p>
    */
   ParameterName: string | undefined;
 
   /**
+   * @public
    * <p>The new name for the parameter.</p>
    */
   NewParameterName?: string;
 
   /**
+   * @public
    * <p>The new default values for the parameter.</p>
    */
   NewDefaultValues?: NewDefaultValues;
@@ -3902,6 +4252,7 @@ export interface OverrideDatasetParameterOperation {
  */
 export interface ProjectOperation {
   /**
+   * @public
    * <p>Projected columns.</p>
    */
   ProjectedColumns: string[] | undefined;
@@ -3913,11 +4264,13 @@ export interface ProjectOperation {
  */
 export interface RenameColumnOperation {
   /**
+   * @public
    * <p>The name of the column to be renamed.</p>
    */
   ColumnName: string | undefined;
 
   /**
+   * @public
    * <p>The new name for the column.</p>
    */
   NewColumnName: string | undefined;
@@ -3929,11 +4282,13 @@ export interface RenameColumnOperation {
  */
 export interface TagColumnOperation {
   /**
+   * @public
    * <p>The column that this operation acts on.</p>
    */
   ColumnName: string | undefined;
 
   /**
+   * @public
    * <p>The dataset column tag, currently only used for geospatial type tagging.</p>
    *          <note>
    *             <p>This is not tags for the Amazon Web Services tagging feature.</p>
@@ -3948,11 +4303,13 @@ export interface TagColumnOperation {
  */
 export interface UntagColumnOperation {
   /**
+   * @public
    * <p>The column that this operation acts on.</p>
    */
   ColumnName: string | undefined;
 
   /**
+   * @public
    * <p>The column tags to remove from this column.</p>
    */
   TagNames: (ColumnTagName | string)[] | undefined;
@@ -3979,6 +4336,7 @@ export type TransformOperation =
  */
 export namespace TransformOperation {
   /**
+   * @public
    * <p>An operation that projects columns. Operations that come after a projection can only
    *             refer to projected columns.</p>
    */
@@ -3995,6 +4353,7 @@ export namespace TransformOperation {
   }
 
   /**
+   * @public
    * <p>An operation that filters rows based on some condition.</p>
    */
   export interface FilterOperationMember {
@@ -4010,6 +4369,7 @@ export namespace TransformOperation {
   }
 
   /**
+   * @public
    * <p>An operation that creates calculated columns. Columns created in one such operation
    *             form a lexical closure.</p>
    */
@@ -4026,6 +4386,7 @@ export namespace TransformOperation {
   }
 
   /**
+   * @public
    * <p>An operation that renames a column.</p>
    */
   export interface RenameColumnOperationMember {
@@ -4041,6 +4402,7 @@ export namespace TransformOperation {
   }
 
   /**
+   * @public
    * <p>A transform operation that casts a column to a different type.</p>
    */
   export interface CastColumnTypeOperationMember {
@@ -4056,6 +4418,7 @@ export namespace TransformOperation {
   }
 
   /**
+   * @public
    * <p>An operation that tags a column with additional information.</p>
    */
   export interface TagColumnOperationMember {
@@ -4071,6 +4434,7 @@ export namespace TransformOperation {
   }
 
   /**
+   * @public
    * <p>A transform operation that removes tags associated with a column.</p>
    */
   export interface UntagColumnOperationMember {
@@ -4086,6 +4450,7 @@ export namespace TransformOperation {
   }
 
   /**
+   * @public
    * <p>A transform operation that overrides the dataset parameter values that are defined in another dataset.</p>
    */
   export interface OverrideDatasetParameterOperationMember {
@@ -4100,6 +4465,9 @@ export namespace TransformOperation {
     $unknown?: never;
   }
 
+  /**
+   * @public
+   */
   export interface $UnknownMember {
     ProjectOperation?: never;
     FilterOperation?: never;
@@ -4145,6 +4513,7 @@ export namespace TransformOperation {
  */
 export interface JoinKeyProperties {
   /**
+   * @public
    * <p>A value that indicates that a row in a table is uniquely identified by the columns in
    *             a join key. This is used by Amazon QuickSight to optimize query performance.</p>
    */
@@ -4173,31 +4542,37 @@ export type JoinType = (typeof JoinType)[keyof typeof JoinType];
  */
 export interface JoinInstruction {
   /**
+   * @public
    * <p>The operand on the left side of a join.</p>
    */
   LeftOperand: string | undefined;
 
   /**
+   * @public
    * <p>The operand on the right side of a join.</p>
    */
   RightOperand: string | undefined;
 
   /**
+   * @public
    * <p>Join key properties of the left operand.</p>
    */
   LeftJoinKeyProperties?: JoinKeyProperties;
 
   /**
+   * @public
    * <p>Join key properties of the right operand.</p>
    */
   RightJoinKeyProperties?: JoinKeyProperties;
 
   /**
+   * @public
    * <p>The type of join that it is.</p>
    */
   Type: JoinType | string | undefined;
 
   /**
+   * @public
    * <p>The join instructions provided in the <code>ON</code> clause of a join.</p>
    */
   OnClause: string | undefined;
@@ -4210,16 +4585,19 @@ export interface JoinInstruction {
  */
 export interface LogicalTableSource {
   /**
+   * @public
    * <p>Specifies the result of a join of two logical tables.</p>
    */
   JoinInstruction?: JoinInstruction;
 
   /**
+   * @public
    * <p>Physical table ID.</p>
    */
   PhysicalTableId?: string;
 
   /**
+   * @public
    * <p>The Amazon Resource Number (ARN) of the parent dataset.</p>
    */
   DataSetArn?: string;
@@ -4234,16 +4612,19 @@ export interface LogicalTableSource {
  */
 export interface LogicalTable {
   /**
+   * @public
    * <p>A display name for the logical table.</p>
    */
   Alias: string | undefined;
 
   /**
+   * @public
    * <p>Transform operations that act on this logical table. For this structure to be valid, only one of the attributes can be non-null. </p>
    */
   DataTransforms?: TransformOperation[];
 
   /**
+   * @public
    * <p>Source of this logical table.</p>
    */
   Source: LogicalTableSource | undefined;
@@ -4274,11 +4655,13 @@ export type InputColumnDataType = (typeof InputColumnDataType)[keyof typeof Inpu
  */
 export interface InputColumn {
   /**
+   * @public
    * <p>The name of this column in the underlying data source.</p>
    */
   Name: string | undefined;
 
   /**
+   * @public
    * <p>The data type of the column.</p>
    */
   Type: InputColumnDataType | string | undefined;
@@ -4290,21 +4673,25 @@ export interface InputColumn {
  */
 export interface CustomSql {
   /**
+   * @public
    * <p>The Amazon Resource Name (ARN) of the data source.</p>
    */
   DataSourceArn: string | undefined;
 
   /**
+   * @public
    * <p>A display name for the SQL query result.</p>
    */
   Name: string | undefined;
 
   /**
+   * @public
    * <p>The SQL query.</p>
    */
   SqlQuery: string | undefined;
 
   /**
+   * @public
    * <p>The column schema from the SQL query result set.</p>
    */
   Columns?: InputColumn[];
@@ -4316,26 +4703,31 @@ export interface CustomSql {
  */
 export interface RelationalTable {
   /**
+   * @public
    * <p>The Amazon Resource Name (ARN) for the data source.</p>
    */
   DataSourceArn: string | undefined;
 
   /**
+   * @public
    * <p>The catalog associated with a table.</p>
    */
   Catalog?: string;
 
   /**
+   * @public
    * <p>The schema name. This name applies to certain relational database engines.</p>
    */
   Schema?: string;
 
   /**
+   * @public
    * <p>The name of the relational table.</p>
    */
   Name: string | undefined;
 
   /**
+   * @public
    * <p>The column schema of the table.</p>
    */
   InputColumns: InputColumn[] | undefined;
@@ -4379,26 +4771,31 @@ export type TextQualifier = (typeof TextQualifier)[keyof typeof TextQualifier];
  */
 export interface UploadSettings {
   /**
+   * @public
    * <p>File format.</p>
    */
   Format?: FileFormat | string;
 
   /**
+   * @public
    * <p>A row number to start reading data from.</p>
    */
   StartFromRow?: number;
 
   /**
+   * @public
    * <p>Whether the file has a header row, or the files each have a header row.</p>
    */
   ContainsHeader?: boolean;
 
   /**
+   * @public
    * <p>Text qualifier.</p>
    */
   TextQualifier?: TextQualifier | string;
 
   /**
+   * @public
    * <p>The delimiter between values in the file.</p>
    */
   Delimiter?: string;
@@ -4410,16 +4807,19 @@ export interface UploadSettings {
  */
 export interface S3Source {
   /**
+   * @public
    * <p>The Amazon Resource Name (ARN) for the data source.</p>
    */
   DataSourceArn: string | undefined;
 
   /**
+   * @public
    * <p>Information about the format for the S3 source file or files.</p>
    */
   UploadSettings?: UploadSettings;
 
   /**
+   * @public
    * <p>A physical table type for an S3 data source.</p>
    *          <note>
    *             <p>For files that aren't JSON, only <code>STRING</code> data types are supported in input columns.</p>
@@ -4445,6 +4845,7 @@ export type PhysicalTable =
  */
 export namespace PhysicalTable {
   /**
+   * @public
    * <p>A physical table type for relational data sources.</p>
    */
   export interface RelationalTableMember {
@@ -4455,6 +4856,7 @@ export namespace PhysicalTable {
   }
 
   /**
+   * @public
    * <p>A physical table type built from the results of the custom SQL query.</p>
    */
   export interface CustomSqlMember {
@@ -4465,6 +4867,7 @@ export namespace PhysicalTable {
   }
 
   /**
+   * @public
    * <p>A physical table type for as S3 data source.</p>
    */
   export interface S3SourceMember {
@@ -4474,6 +4877,9 @@ export namespace PhysicalTable {
     $unknown?: never;
   }
 
+  /**
+   * @public
+   */
   export interface $UnknownMember {
     RelationalTable?: never;
     CustomSql?: never;
@@ -4550,28 +4956,33 @@ export type Status = (typeof Status)[keyof typeof Status];
  */
 export interface RowLevelPermissionDataSet {
   /**
+   * @public
    * <p>The namespace associated with the dataset that contains permissions for RLS.</p>
    */
   Namespace?: string;
 
   /**
+   * @public
    * <p>The Amazon Resource Name (ARN) of the dataset that contains permissions for RLS.</p>
    */
   Arn: string | undefined;
 
   /**
+   * @public
    * <p>The type of permissions to use when interpreting the permissions for RLS. <code>DENY_ACCESS</code>
    *         is included for backward compatibility only.</p>
    */
   PermissionPolicy: RowLevelPermissionPolicy | string | undefined;
 
   /**
+   * @public
    * <p>The user or group rules associated with the dataset that contains permissions for RLS.</p>
    *          <p>By default, <code>FormatVersion</code> is <code>VERSION_1</code>. When <code>FormatVersion</code> is <code>VERSION_1</code>, <code>UserName</code> and <code>GroupName</code> are required. When <code>FormatVersion</code> is <code>VERSION_2</code>, <code>UserARN</code> and <code>GroupARN</code> are required, and <code>Namespace</code> must not exist.</p>
    */
   FormatVersion?: RowLevelPermissionFormatVersion | string;
 
   /**
+   * @public
    * <p>The status of the row-level security permission dataset. If enabled, the status is <code>ENABLED</code>. If disabled, the status is <code>DISABLED</code>.</p>
    */
   Status?: Status | string;
@@ -4583,21 +4994,25 @@ export interface RowLevelPermissionDataSet {
  */
 export interface RowLevelPermissionTagRule {
   /**
+   * @public
    * <p>The unique key for a tag.</p>
    */
   TagKey: string | undefined;
 
   /**
+   * @public
    * <p>The column name that a tag key is assigned to.</p>
    */
   ColumnName: string | undefined;
 
   /**
+   * @public
    * <p>A string that you want to use to delimit the values when you pass the values at run time. For example, you can delimit the values with a comma.</p>
    */
   TagMultiValueDelimiter?: string;
 
   /**
+   * @public
    * <p>A string that you want to use to filter by all the values in a column in the dataset and don’t want to list the values one by one. For example, you can use an asterisk as your match all value.</p>
    */
   MatchAllValue?: string;
@@ -4609,16 +5024,19 @@ export interface RowLevelPermissionTagRule {
  */
 export interface RowLevelPermissionTagConfiguration {
   /**
+   * @public
    * <p>The status of row-level security tags. If enabled, the status is <code>ENABLED</code>. If disabled, the status is <code>DISABLED</code>.</p>
    */
   Status?: Status | string;
 
   /**
+   * @public
    * <p>A set of rules associated with row-level security, such as the tag names and columns that they are assigned to.</p>
    */
   TagRules: RowLevelPermissionTagRule[] | undefined;
 
   /**
+   * @public
    * <p>A list of tag configuration rules to apply to a dataset. All tag configurations have the OR condition. Tags within each tile will be joined (AND). At least one rule in this structure must have all tag values assigned to it to apply Row-level security (RLS) to the dataset.</p>
    */
   TagRuleConfigurations?: string[][];
@@ -4629,61 +5047,73 @@ export interface RowLevelPermissionTagConfiguration {
  */
 export interface CreateDataSetRequest {
   /**
+   * @public
    * <p>The Amazon Web Services account ID.</p>
    */
   AwsAccountId: string | undefined;
 
   /**
+   * @public
    * <p>An ID for the dataset that you want to create. This ID is unique per Amazon Web Services Region for each Amazon Web Services account.</p>
    */
   DataSetId: string | undefined;
 
   /**
+   * @public
    * <p>The display name for the dataset.</p>
    */
   Name: string | undefined;
 
   /**
+   * @public
    * <p>Declares the physical tables that are available in the underlying data sources.</p>
    */
   PhysicalTableMap: Record<string, PhysicalTable> | undefined;
 
   /**
+   * @public
    * <p>Configures the combination and transformation of the data from the physical tables.</p>
    */
   LogicalTableMap?: Record<string, LogicalTable>;
 
   /**
+   * @public
    * <p>Indicates whether you want to import the data into SPICE.</p>
    */
   ImportMode: DataSetImportMode | string | undefined;
 
   /**
+   * @public
    * <p>Groupings of columns that work together in certain Amazon QuickSight features. Currently, only geospatial hierarchy is supported.</p>
    */
   ColumnGroups?: ColumnGroup[];
 
   /**
+   * @public
    * <p>The folder that contains fields and nested subfolders for your dataset.</p>
    */
   FieldFolders?: Record<string, FieldFolder>;
 
   /**
+   * @public
    * <p>A list of resource permissions on the dataset.</p>
    */
   Permissions?: ResourcePermission[];
 
   /**
+   * @public
    * <p>The row-level security configuration for the data that you want to create.</p>
    */
   RowLevelPermissionDataSet?: RowLevelPermissionDataSet;
 
   /**
+   * @public
    * <p>The configuration of tags on a dataset to set row-level security. Row-level security tags are currently supported for anonymous embedding only.</p>
    */
   RowLevelPermissionTagConfiguration?: RowLevelPermissionTagConfiguration;
 
   /**
+   * @public
    * <p>A set of one or more definitions of a <code>
    *                <a href="https://docs.aws.amazon.com/quicksight/latest/APIReference/API_ColumnLevelPermissionRule.html">ColumnLevelPermissionRule</a>
    *             </code>.</p>
@@ -4691,16 +5121,19 @@ export interface CreateDataSetRequest {
   ColumnLevelPermissionRules?: ColumnLevelPermissionRule[];
 
   /**
+   * @public
    * <p>Contains a map of the key-value pairs for the resource tag or tags assigned to the dataset.</p>
    */
   Tags?: Tag[];
 
   /**
+   * @public
    * <p>The usage configuration to apply to child datasets that reference this dataset as a source.</p>
    */
   DataSetUsageConfiguration?: DataSetUsageConfiguration;
 
   /**
+   * @public
    * <p>The parameter declarations of the dataset.</p>
    */
   DatasetParameters?: DatasetParameter[];
@@ -4711,33 +5144,39 @@ export interface CreateDataSetRequest {
  */
 export interface CreateDataSetResponse {
   /**
+   * @public
    * <p>The Amazon Resource Name (ARN) of the dataset.</p>
    */
   Arn?: string;
 
   /**
+   * @public
    * <p>The ID for the dataset that you want to create. This ID is unique per Amazon Web Services Region for each Amazon Web Services account.</p>
    */
   DataSetId?: string;
 
   /**
+   * @public
    * <p>The ARN for the ingestion, which is triggered as a result of dataset creation if the import
    * 			mode is SPICE.</p>
    */
   IngestionArn?: string;
 
   /**
+   * @public
    * <p>The ID of the ingestion, which is triggered as a result of dataset creation if the import
    * 			mode is SPICE.</p>
    */
   IngestionId?: string;
 
   /**
+   * @public
    * <p>The Amazon Web Services request ID for this operation.</p>
    */
   RequestId?: string;
 
   /**
+   * @public
    * <p>The HTTP status of the request.</p>
    */
   Status?: number;
@@ -4749,16 +5188,19 @@ export interface CreateDataSetResponse {
  */
 export interface CredentialPair {
   /**
+   * @public
    * <p>User name.</p>
    */
   Username: string | undefined;
 
   /**
+   * @public
    * <p>Password.</p>
    */
   Password: string | undefined;
 
   /**
+   * @public
    * <p>A set of alternate data source parameters that you want to share for these
    *             credentials. The credentials are applied in tandem with the data source parameters when
    *             you copy a data source by using a create or update request. The API operation compares
@@ -4779,6 +5221,7 @@ export interface CredentialPair {
  */
 export interface DataSourceCredentials {
   /**
+   * @public
    * <p>Credential pair. For more information, see
    *             <code>
    *                <a href="https://docs.aws.amazon.com/quicksight/latest/APIReference/API_CredentialPair.html">CredentialPair</a>
@@ -4787,6 +5230,7 @@ export interface DataSourceCredentials {
   CredentialPair?: CredentialPair;
 
   /**
+   * @public
    * <p>The Amazon Resource Name (ARN) of a data source that has the credential pair that you
    *             want to use. When <code>CopySourceArn</code> is not null, the credential pair from the
    *             data source in the ARN is used as the credentials for the
@@ -4795,6 +5239,7 @@ export interface DataSourceCredentials {
   CopySourceArn?: string;
 
   /**
+   * @public
    * <p>The Amazon Resource Name (ARN) of the secret associated with the data source in Amazon Secrets Manager.</p>
    */
   SecretArn?: string;
@@ -4843,21 +5288,25 @@ export type DataSourceType = (typeof DataSourceType)[keyof typeof DataSourceType
  */
 export interface CreateDataSourceRequest {
   /**
+   * @public
    * <p>The Amazon Web Services account ID.</p>
    */
   AwsAccountId: string | undefined;
 
   /**
+   * @public
    * <p>An ID for the data source. This ID is unique per Amazon Web Services Region for each Amazon Web Services account. </p>
    */
   DataSourceId: string | undefined;
 
   /**
+   * @public
    * <p>A display name for the data source.</p>
    */
   Name: string | undefined;
 
   /**
+   * @public
    * <p>The type of the data source. To return a
    * 			list of all data sources, use <code>ListDataSources</code>.</p>
    *          <p>Use <code>AMAZON_ELASTICSEARCH</code> for Amazon OpenSearch Service.</p>
@@ -4865,33 +5314,39 @@ export interface CreateDataSourceRequest {
   Type: DataSourceType | string | undefined;
 
   /**
+   * @public
    * <p>The parameters that Amazon QuickSight uses to connect to your underlying source.</p>
    */
   DataSourceParameters?: DataSourceParameters;
 
   /**
+   * @public
    * <p>The credentials Amazon QuickSight that uses to connect to your underlying source. Currently, only
    * 			credentials based on user name and password are supported.</p>
    */
   Credentials?: DataSourceCredentials;
 
   /**
+   * @public
    * <p>A list of resource permissions on the data source.</p>
    */
   Permissions?: ResourcePermission[];
 
   /**
+   * @public
    * <p>Use this parameter only when you want Amazon QuickSight to use a VPC connection when connecting to
    * 			your underlying source.</p>
    */
   VpcConnectionProperties?: VpcConnectionProperties;
 
   /**
+   * @public
    * <p>Secure Socket Layer (SSL) properties that apply when Amazon QuickSight connects to your underlying source.</p>
    */
   SslProperties?: SslProperties;
 
   /**
+   * @public
    * <p>Contains a map of the key-value pairs for the resource tag or tags assigned to the data source.</p>
    */
   Tags?: Tag[];
@@ -4902,26 +5357,31 @@ export interface CreateDataSourceRequest {
  */
 export interface CreateDataSourceResponse {
   /**
+   * @public
    * <p>The Amazon Resource Name (ARN) of the data source.</p>
    */
   Arn?: string;
 
   /**
+   * @public
    * <p>The ID of the data source. This ID is unique per Amazon Web Services Region for each Amazon Web Services account.</p>
    */
   DataSourceId?: string;
 
   /**
+   * @public
    * <p>The status of creating the data source.</p>
    */
   CreationStatus?: ResourceStatus | string;
 
   /**
+   * @public
    * <p>The Amazon Web Services request ID for this operation.</p>
    */
   RequestId?: string;
 
   /**
+   * @public
    * <p>The HTTP status of the request.</p>
    */
   Status?: number;
@@ -4945,26 +5405,31 @@ export type FolderType = (typeof FolderType)[keyof typeof FolderType];
  */
 export interface CreateFolderRequest {
   /**
+   * @public
    * <p>The ID for the Amazon Web Services account where you want to create the folder.</p>
    */
   AwsAccountId: string | undefined;
 
   /**
+   * @public
    * <p>The ID of the folder.</p>
    */
   FolderId: string | undefined;
 
   /**
+   * @public
    * <p>The name of the folder.</p>
    */
   Name?: string;
 
   /**
+   * @public
    * <p>The type of folder. By default, <code>folderType</code> is <code>SHARED</code>.</p>
    */
   FolderType?: FolderType | string;
 
   /**
+   * @public
    * <p>The Amazon Resource Name (ARN) for the parent folder.</p>
    *          <p>
    *             <code>ParentFolderArn</code> can be null. An empty <code>parentFolderArn</code> creates a root-level folder.</p>
@@ -4972,12 +5437,14 @@ export interface CreateFolderRequest {
   ParentFolderArn?: string;
 
   /**
+   * @public
    * <p>A structure that describes the principals and the resource-level permissions of a folder.</p>
    *          <p>To specify no permissions, omit <code>Permissions</code>.</p>
    */
   Permissions?: ResourcePermission[];
 
   /**
+   * @public
    * <p>Tags for the folder.</p>
    */
   Tags?: Tag[];
@@ -4988,21 +5455,25 @@ export interface CreateFolderRequest {
  */
 export interface CreateFolderResponse {
   /**
+   * @public
    * <p>The HTTP status of the request.</p>
    */
   Status?: number;
 
   /**
+   * @public
    * <p>The Amazon Resource Name (ARN) for the newly created folder.</p>
    */
   Arn?: string;
 
   /**
+   * @public
    * <p>The folder ID for the newly created folder.</p>
    */
   FolderId?: string;
 
   /**
+   * @public
    * <p>The request ID for the newly created folder.</p>
    */
   RequestId?: string;
@@ -5028,21 +5499,25 @@ export type MemberType = (typeof MemberType)[keyof typeof MemberType];
  */
 export interface CreateFolderMembershipRequest {
   /**
+   * @public
    * <p>The ID for the Amazon Web Services account that contains the folder.</p>
    */
   AwsAccountId: string | undefined;
 
   /**
+   * @public
    * <p>The ID of the folder.</p>
    */
   FolderId: string | undefined;
 
   /**
+   * @public
    * <p>The ID of the asset (the dashboard, analysis, or dataset).</p>
    */
   MemberId: string | undefined;
 
   /**
+   * @public
    * <p>The type of the member, including <code>DASHBOARD</code>, <code>ANALYSIS</code>, and <code>DATASET</code>.</p>
    */
   MemberType: MemberType | string | undefined;
@@ -5054,11 +5529,13 @@ export interface CreateFolderMembershipRequest {
  */
 export interface FolderMember {
   /**
+   * @public
    * <p>The ID of an asset in the folder.</p>
    */
   MemberId?: string;
 
   /**
+   * @public
    * <p>The type of asset that it is.</p>
    */
   MemberType?: MemberType | string;
@@ -5069,16 +5546,19 @@ export interface FolderMember {
  */
 export interface CreateFolderMembershipResponse {
   /**
+   * @public
    * <p>The HTTP status of the request.</p>
    */
   Status?: number;
 
   /**
+   * @public
    * <p>Information about the member in the folder.</p>
    */
   FolderMember?: FolderMember;
 
   /**
+   * @public
    * <p>The Amazon Web Services request ID for this operation.</p>
    */
   RequestId?: string;
@@ -5090,22 +5570,26 @@ export interface CreateFolderMembershipResponse {
  */
 export interface CreateGroupRequest {
   /**
+   * @public
    * <p>A name for the group that you want to create.</p>
    */
   GroupName: string | undefined;
 
   /**
+   * @public
    * <p>A description for the group that you want to create.</p>
    */
   Description?: string;
 
   /**
+   * @public
    * <p>The ID for the Amazon Web Services account that the group is in. Currently, you use the ID for the
    * 			Amazon Web Services account that contains your Amazon QuickSight account.</p>
    */
   AwsAccountId: string | undefined;
 
   /**
+   * @public
    * <p>The namespace that you want the group to be a part of.</p>
    */
   Namespace: string | undefined;
@@ -5118,21 +5602,25 @@ export interface CreateGroupRequest {
  */
 export interface Group {
   /**
+   * @public
    * <p>The Amazon Resource Name (ARN) for the group.</p>
    */
   Arn?: string;
 
   /**
+   * @public
    * <p>The name of the group.</p>
    */
   GroupName?: string;
 
   /**
+   * @public
    * <p>The group description.</p>
    */
   Description?: string;
 
   /**
+   * @public
    * <p>The principal ID of the group.</p>
    */
   PrincipalId?: string;
@@ -5144,16 +5632,19 @@ export interface Group {
  */
 export interface CreateGroupResponse {
   /**
+   * @public
    * <p>The name of the group.</p>
    */
   Group?: Group;
 
   /**
+   * @public
    * <p>The Amazon Web Services request ID for this operation.</p>
    */
   RequestId?: string;
 
   /**
+   * @public
    * <p>The HTTP status of the request.</p>
    */
   Status?: number;
@@ -5164,22 +5655,26 @@ export interface CreateGroupResponse {
  */
 export interface CreateGroupMembershipRequest {
   /**
+   * @public
    * <p>The name of the user that you want to add to the group membership.</p>
    */
   MemberName: string | undefined;
 
   /**
+   * @public
    * <p>The name of the group that you want to add the user to.</p>
    */
   GroupName: string | undefined;
 
   /**
+   * @public
    * <p>The ID for the Amazon Web Services account that the group is in. Currently, you use the ID for the
    * 			Amazon Web Services account that contains your Amazon QuickSight account.</p>
    */
   AwsAccountId: string | undefined;
 
   /**
+   * @public
    * <p>The namespace that you want the user to be a part of.</p>
    */
   Namespace: string | undefined;
@@ -5192,11 +5687,13 @@ export interface CreateGroupMembershipRequest {
  */
 export interface GroupMember {
   /**
+   * @public
    * <p>The Amazon Resource Name (ARN) for the group member (user).</p>
    */
   Arn?: string;
 
   /**
+   * @public
    * <p>The name of the group member (user).</p>
    */
   MemberName?: string;
@@ -5207,16 +5704,19 @@ export interface GroupMember {
  */
 export interface CreateGroupMembershipResponse {
   /**
+   * @public
    * <p>The group member.</p>
    */
   GroupMember?: GroupMember;
 
   /**
+   * @public
    * <p>The Amazon Web Services request ID for this operation.</p>
    */
   RequestId?: string;
 
   /**
+   * @public
    * <p>The HTTP status of the request.</p>
    */
   Status?: number;
@@ -5227,11 +5727,13 @@ export interface CreateGroupMembershipResponse {
  */
 export interface CreateIAMPolicyAssignmentRequest {
   /**
+   * @public
    * <p>The ID of the Amazon Web Services account where you want to assign an IAM policy to Amazon QuickSight users or groups.</p>
    */
   AwsAccountId: string | undefined;
 
   /**
+   * @public
    * <p>The name of the assignment, also called a rule.
    * 			The
    * 			name
@@ -5241,6 +5743,7 @@ export interface CreateIAMPolicyAssignmentRequest {
   AssignmentName: string | undefined;
 
   /**
+   * @public
    * <p>The status of the assignment. Possible values are as follows:</p>
    *          <ul>
    *             <li>
@@ -5263,18 +5766,21 @@ export interface CreateIAMPolicyAssignmentRequest {
   AssignmentStatus: AssignmentStatus | string | undefined;
 
   /**
+   * @public
    * <p>The ARN for the IAM policy to apply to the Amazon QuickSight users and
    * 			groups specified in this assignment.</p>
    */
   PolicyArn?: string;
 
   /**
+   * @public
    * <p>The Amazon QuickSight users, groups, or both that you want to assign the policy
    * 			to.</p>
    */
   Identities?: Record<string, string[]>;
 
   /**
+   * @public
    * <p>The namespace that contains the assignment.</p>
    */
   Namespace: string | undefined;
@@ -5285,6 +5791,7 @@ export interface CreateIAMPolicyAssignmentRequest {
  */
 export interface CreateIAMPolicyAssignmentResponse {
   /**
+   * @public
    * <p>The name of the assignment.
    * 			The
    * 			name must be unique within the Amazon Web Services account.</p>
@@ -5292,11 +5799,13 @@ export interface CreateIAMPolicyAssignmentResponse {
   AssignmentName?: string;
 
   /**
+   * @public
    * <p>The ID for the assignment.</p>
    */
   AssignmentId?: string;
 
   /**
+   * @public
    * <p>The status of the assignment. Possible values are as follows:</p>
    *          <ul>
    *             <li>
@@ -5319,23 +5828,27 @@ export interface CreateIAMPolicyAssignmentResponse {
   AssignmentStatus?: AssignmentStatus | string;
 
   /**
+   * @public
    * <p>The ARN for the IAM policy that is applied to the Amazon QuickSight
    * 			users and groups specified in this assignment.</p>
    */
   PolicyArn?: string;
 
   /**
+   * @public
    * <p>The Amazon QuickSight users, groups, or both that the IAM policy is
    * 			assigned to.</p>
    */
   Identities?: Record<string, string[]>;
 
   /**
+   * @public
    * <p>The Amazon Web Services request ID for this operation.</p>
    */
   RequestId?: string;
 
   /**
+   * @public
    * <p>The HTTP status of the request.</p>
    */
   Status?: number;
@@ -5360,21 +5873,25 @@ export type IngestionType = (typeof IngestionType)[keyof typeof IngestionType];
  */
 export interface CreateIngestionRequest {
   /**
+   * @public
    * <p>The ID of the dataset used in the ingestion.</p>
    */
   DataSetId: string | undefined;
 
   /**
+   * @public
    * <p>An ID for the ingestion.</p>
    */
   IngestionId: string | undefined;
 
   /**
+   * @public
    * <p>The Amazon Web Services account ID.</p>
    */
   AwsAccountId: string | undefined;
 
   /**
+   * @public
    * <p>The type of ingestion that you want to create.</p>
    */
   IngestionType?: IngestionType | string;
@@ -5403,26 +5920,31 @@ export type IngestionStatus = (typeof IngestionStatus)[keyof typeof IngestionSta
  */
 export interface CreateIngestionResponse {
   /**
+   * @public
    * <p>The Amazon Resource Name (ARN) for the data ingestion.</p>
    */
   Arn?: string;
 
   /**
+   * @public
    * <p>An ID for the ingestion.</p>
    */
   IngestionId?: string;
 
   /**
+   * @public
    * <p>The ingestion status.</p>
    */
   IngestionStatus?: IngestionStatus | string;
 
   /**
+   * @public
    * <p>The Amazon Web Services request ID for this operation.</p>
    */
   RequestId?: string;
 
   /**
+   * @public
    * <p>The HTTP status of the request.</p>
    */
   Status?: number;
@@ -5446,22 +5968,26 @@ export type IdentityStore = (typeof IdentityStore)[keyof typeof IdentityStore];
  */
 export interface CreateNamespaceRequest {
   /**
+   * @public
    * <p>The ID for the Amazon Web Services account that you want to create the Amazon QuickSight namespace in.</p>
    */
   AwsAccountId: string | undefined;
 
   /**
+   * @public
    * <p>The name that you want to use to describe the new namespace.</p>
    */
   Namespace: string | undefined;
 
   /**
+   * @public
    * <p>Specifies the type of your user identity directory. Currently, this supports users
    *             with an identity type of <code>QUICKSIGHT</code>.</p>
    */
   IdentityStore: IdentityStore | string | undefined;
 
   /**
+   * @public
    * <p>The tags that you want to associate with the namespace that you're creating.</p>
    */
   Tags?: Tag[];
@@ -5489,22 +6015,26 @@ export type NamespaceStatus = (typeof NamespaceStatus)[keyof typeof NamespaceSta
  */
 export interface CreateNamespaceResponse {
   /**
+   * @public
    * <p>The ARN of the Amazon QuickSight namespace you created. </p>
    */
   Arn?: string;
 
   /**
+   * @public
    * <p>The name of the new namespace that you created.</p>
    */
   Name?: string;
 
   /**
+   * @public
    * <p>The Amazon Web Services Region; that you want to use for the free SPICE capacity for the new namespace.
    *             This is set to the region that you run CreateNamespace in. </p>
    */
   CapacityRegion?: string;
 
   /**
+   * @public
    * <p>The status of the creation of the namespace. This is an asynchronous process. A status
    *             of <code>CREATED</code> means that your namespace is ready to use. If an error occurs,
    *             it indicates if the process is <code>retryable</code> or <code>non-retryable</code>. In
@@ -5514,17 +6044,20 @@ export interface CreateNamespaceResponse {
   CreationStatus?: NamespaceStatus | string;
 
   /**
+   * @public
    * <p>Specifies the type of your user identity directory. Currently, this supports users
    *             with an identity type of <code>QUICKSIGHT</code>.</p>
    */
   IdentityStore?: IdentityStore | string;
 
   /**
+   * @public
    * <p>The Amazon Web Services request ID for this operation.</p>
    */
   RequestId?: string;
 
   /**
+   * @public
    * <p>The HTTP status of the request.</p>
    */
   Status?: number;
@@ -5573,11 +6106,13 @@ export type DayOfWeek = (typeof DayOfWeek)[keyof typeof DayOfWeek];
  */
 export interface ScheduleRefreshOnEntity {
   /**
+   * @public
    * <p>The day of the week that you want to schedule a refresh on.</p>
    */
   DayOfWeek?: DayOfWeek | string;
 
   /**
+   * @public
    * <p>The day of the month that you want to schedule refresh on.</p>
    */
   DayOfMonth?: string;
@@ -5589,6 +6124,7 @@ export interface ScheduleRefreshOnEntity {
  */
 export interface RefreshFrequency {
   /**
+   * @public
    * <p>The interval between scheduled refreshes. Valid values are as follows:</p>
    *          <ul>
    *             <li>
@@ -5620,16 +6156,19 @@ export interface RefreshFrequency {
   Interval: RefreshInterval | string | undefined;
 
   /**
+   * @public
    * <p>The day of the week that you want to schedule the refresh on. This value is required for weekly and monthly refresh intervals.</p>
    */
   RefreshOnDay?: ScheduleRefreshOnEntity;
 
   /**
+   * @public
    * <p>The timezone that you want the refresh schedule to use. The timezone ID must match a corresponding ID found on <code>java.util.time.getAvailableIDs()</code>.</p>
    */
   Timezone?: string;
 
   /**
+   * @public
    * <p>The time of day that you want the datset to refresh. This value is expressed in HH:MM format. This field is not required for schedules that refresh hourly.</p>
    */
   TimeOfTheDay?: string;
@@ -5641,21 +6180,25 @@ export interface RefreshFrequency {
  */
 export interface RefreshSchedule {
   /**
+   * @public
    * <p>An identifier for the refresh schedule.</p>
    */
   ScheduleId: string | undefined;
 
   /**
+   * @public
    * <p>The frequency for the refresh schedule.</p>
    */
   ScheduleFrequency: RefreshFrequency | undefined;
 
   /**
+   * @public
    * <p>Time after which the refresh schedule can be started, expressed in <code>YYYY-MM-DDTHH:MM:SS</code> format.</p>
    */
   StartAfterDateTime?: Date;
 
   /**
+   * @public
    * <p>The type of refresh that a datset undergoes. Valid values are as follows:</p>
    *          <ul>
    *             <li>
@@ -5672,6 +6215,7 @@ export interface RefreshSchedule {
   RefreshType: IngestionType | string | undefined;
 
   /**
+   * @public
    * <p>The Amazon Resource Name (ARN) for the refresh schedule.</p>
    */
   Arn?: string;
@@ -5682,16 +6226,19 @@ export interface RefreshSchedule {
  */
 export interface CreateRefreshScheduleRequest {
   /**
+   * @public
    * <p>The ID of the dataset.</p>
    */
   DataSetId: string | undefined;
 
   /**
+   * @public
    * <p>The Amazon Web Services account ID.</p>
    */
   AwsAccountId: string | undefined;
 
   /**
+   * @public
    * <p>The refresh schedule.</p>
    */
   Schedule: RefreshSchedule | undefined;
@@ -5702,21 +6249,25 @@ export interface CreateRefreshScheduleRequest {
  */
 export interface CreateRefreshScheduleResponse {
   /**
+   * @public
    * <p>The HTTP status of the request.</p>
    */
   Status?: number;
 
   /**
+   * @public
    * <p>The Amazon Web Services request ID for this operation.</p>
    */
   RequestId?: string;
 
   /**
+   * @public
    * <p>The ID of the refresh schedule.</p>
    */
   ScheduleId?: string;
 
   /**
+   * @public
    * <p>The Amazon Resource Name (ARN) for the refresh schedule.</p>
    */
   Arn?: string;
@@ -5728,6 +6279,7 @@ export interface CreateRefreshScheduleResponse {
  */
 export interface DataSetSchema {
   /**
+   * @public
    * <p>A structure containing the list of column schemas.</p>
    */
   ColumnSchemaList?: ColumnSchema[];
@@ -5739,16 +6291,19 @@ export interface DataSetSchema {
  */
 export interface DataSetConfiguration {
   /**
+   * @public
    * <p>Placeholder.</p>
    */
   Placeholder?: string;
 
   /**
+   * @public
    * <p>Dataset schema.</p>
    */
   DataSetSchema?: DataSetSchema;
 
   /**
+   * @public
    * <p>A structure containing the list of column group schemas.</p>
    */
   ColumnGroupSchemaList?: ColumnGroupSchema[];
@@ -5760,21 +6315,25 @@ export interface DataSetConfiguration {
  */
 export interface TemplateVersionDefinition {
   /**
+   * @public
    * <p>An array of dataset configurations. These configurations define the required columns for each dataset used within a template.</p>
    */
   DataSetConfigurations: DataSetConfiguration[] | undefined;
 
   /**
+   * @public
    * <p>An array of sheet definitions for a template.</p>
    */
   Sheets?: SheetDefinition[];
 
   /**
+   * @public
    * <p>An array of calculated field definitions for the template.</p>
    */
   CalculatedFields?: CalculatedField[];
 
   /**
+   * @public
    * <p>An array of parameter declarations for a template.</p>
    *          <p>
    *             <i>Parameters</i> are named variables that can transfer a value for use by an action or an object.</p>
@@ -5785,6 +6344,7 @@ export interface TemplateVersionDefinition {
   ParameterDeclarations?: ParameterDeclaration[];
 
   /**
+   * @public
    * <p>Filter definitions for a template.</p>
    *          <p>For more information, see <a href="https://docs.aws.amazon.com/quicksight/latest/user/filtering-visual-data.html">Filtering Data</a> in the <i>Amazon QuickSight User Guide</i>.
    *         </p>
@@ -5792,12 +6352,14 @@ export interface TemplateVersionDefinition {
   FilterGroups?: FilterGroup[];
 
   /**
+   * @public
    * <p> An array of template-level column
    *             configurations. Column configurations are used to set default formatting for a column that's used throughout a template. </p>
    */
   ColumnConfigurations?: ColumnConfiguration[];
 
   /**
+   * @public
    * <p>The configuration for default analysis settings.</p>
    */
   AnalysisDefaults?: AnalysisDefaults;
@@ -5809,11 +6371,13 @@ export interface TemplateVersionDefinition {
  */
 export interface TemplateSourceAnalysis {
   /**
+   * @public
    * <p>The Amazon Resource Name (ARN) of the resource.</p>
    */
   Arn: string | undefined;
 
   /**
+   * @public
    * <p>A structure containing information about the dataset references used as placeholders
    *             in the template.</p>
    */
@@ -5826,6 +6390,7 @@ export interface TemplateSourceAnalysis {
  */
 export interface TemplateSourceTemplate {
   /**
+   * @public
    * <p>The Amazon Resource Name (ARN) of the resource.</p>
    */
   Arn: string | undefined;
@@ -5837,11 +6402,13 @@ export interface TemplateSourceTemplate {
  */
 export interface TemplateSourceEntity {
   /**
+   * @public
    * <p>The source analysis, if it is based on an analysis.</p>
    */
   SourceAnalysis?: TemplateSourceAnalysis;
 
   /**
+   * @public
    * <p>The source template, if it is based on an template.</p>
    */
   SourceTemplate?: TemplateSourceTemplate;
@@ -5852,27 +6419,32 @@ export interface TemplateSourceEntity {
  */
 export interface CreateTemplateRequest {
   /**
+   * @public
    * <p>The ID for the Amazon Web Services account that the group is in. You use the ID for the Amazon Web Services account that contains your Amazon QuickSight account.</p>
    */
   AwsAccountId: string | undefined;
 
   /**
+   * @public
    * <p>An ID for the template that you want to create. This template is unique per Amazon Web Services Region; in
    * 			each Amazon Web Services account.</p>
    */
   TemplateId: string | undefined;
 
   /**
+   * @public
    * <p>A display name for the template.</p>
    */
   Name?: string;
 
   /**
+   * @public
    * <p>A list of resource permissions to be set on the template. </p>
    */
   Permissions?: ResourcePermission[];
 
   /**
+   * @public
    * <p>The entity that you are using as a source when you create the template. In
    * 			<code>SourceEntity</code>, you specify the type of object you're using as source:
    * 			<code>SourceTemplate</code> for a template or <code>SourceAnalysis</code> for an
@@ -5889,11 +6461,13 @@ export interface CreateTemplateRequest {
   SourceEntity?: TemplateSourceEntity;
 
   /**
+   * @public
    * <p>Contains a map of the key-value pairs for the resource tag or tags assigned to the resource.</p>
    */
   Tags?: Tag[];
 
   /**
+   * @public
    * <p>A description of the current template version being created. This API operation creates the
    * 			first version of the template. Every time <code>UpdateTemplate</code> is called, a new
    * 			version is created. Each version of the template maintains a description of the version
@@ -5902,6 +6476,7 @@ export interface CreateTemplateRequest {
   VersionDescription?: string;
 
   /**
+   * @public
    * <p>The definition of a template.</p>
    *          <p>A definition is the data model of all features in a Dashboard, Template, or Analysis.</p>
    *          <p>Either a <code>SourceEntity</code> or a <code>Definition</code> must be provided in
@@ -5915,32 +6490,38 @@ export interface CreateTemplateRequest {
  */
 export interface CreateTemplateResponse {
   /**
+   * @public
    * <p>The ARN for the template.</p>
    */
   Arn?: string;
 
   /**
+   * @public
    * <p>The ARN for the template, including the version information of
    * 			the first version.</p>
    */
   VersionArn?: string;
 
   /**
+   * @public
    * <p>The ID of the template.</p>
    */
   TemplateId?: string;
 
   /**
+   * @public
    * <p>The template creation status.</p>
    */
   CreationStatus?: ResourceStatus | string;
 
   /**
+   * @public
    * <p>The HTTP status of the request.</p>
    */
   Status?: number;
 
   /**
+   * @public
    * <p>The Amazon Web Services request ID for this operation.</p>
    */
   RequestId?: string;
@@ -5951,16 +6532,19 @@ export interface CreateTemplateResponse {
  */
 export interface CreateTemplateAliasRequest {
   /**
+   * @public
    * <p>The ID of the Amazon Web Services account that contains the template that you creating an alias for.</p>
    */
   AwsAccountId: string | undefined;
 
   /**
+   * @public
    * <p>An ID for the template.</p>
    */
   TemplateId: string | undefined;
 
   /**
+   * @public
    * <p>The name that you want to give to the template alias that you're creating. Don't start the
    * 			alias name with the <code>$</code> character. Alias names that start with <code>$</code>
    * 			are reserved by Amazon QuickSight. </p>
@@ -5968,6 +6552,7 @@ export interface CreateTemplateAliasRequest {
   AliasName: string | undefined;
 
   /**
+   * @public
    * <p>The version number of the template.</p>
    */
   TemplateVersionNumber: number | undefined;
@@ -5979,16 +6564,19 @@ export interface CreateTemplateAliasRequest {
  */
 export interface TemplateAlias {
   /**
+   * @public
    * <p>The display name of the template alias.</p>
    */
   AliasName?: string;
 
   /**
+   * @public
    * <p>The Amazon Resource Name (ARN) of the template alias.</p>
    */
   Arn?: string;
 
   /**
+   * @public
    * <p>The version number of the template alias.</p>
    */
   TemplateVersionNumber?: number;
@@ -5999,16 +6587,19 @@ export interface TemplateAlias {
  */
 export interface CreateTemplateAliasResponse {
   /**
+   * @public
    * <p>Information about the template alias.</p>
    */
   TemplateAlias?: TemplateAlias;
 
   /**
+   * @public
    * <p>The HTTP status of the request.</p>
    */
   Status?: number;
 
   /**
+   * @public
    * <p>The Amazon Web Services request ID for this operation.</p>
    */
   RequestId?: string;
@@ -6022,16 +6613,19 @@ export interface CreateTemplateAliasResponse {
  */
 export interface DataColorPalette {
   /**
+   * @public
    * <p>The hexadecimal codes for the colors.</p>
    */
   Colors?: string[];
 
   /**
+   * @public
    * <p>The minimum and maximum hexadecimal codes that describe a color gradient. </p>
    */
   MinMaxGradient?: string[];
 
   /**
+   * @public
    * <p>The hexadecimal code of a color that applies to charts where a lack of data is
    *             highlighted.</p>
    */
@@ -6044,6 +6638,7 @@ export interface DataColorPalette {
  */
 export interface TileStyle {
   /**
+   * @public
    * <p>The border around a tile.</p>
    */
   Border?: BorderStyle;
@@ -6055,6 +6650,7 @@ export interface TileStyle {
  */
 export interface GutterStyle {
   /**
+   * @public
    * <p>This Boolean value controls whether to display a gutter space between sheet tiles.
    *         </p>
    */
@@ -6067,6 +6663,7 @@ export interface GutterStyle {
  */
 export interface MarginStyle {
   /**
+   * @public
    * <p>This Boolean value controls whether to display sheet margins.</p>
    */
   Show?: boolean;
@@ -6078,11 +6675,13 @@ export interface MarginStyle {
  */
 export interface TileLayoutStyle {
   /**
+   * @public
    * <p>The gutter settings that apply between tiles. </p>
    */
   Gutter?: GutterStyle;
 
   /**
+   * @public
    * <p>The margin settings that apply around the outside edge of sheets.</p>
    */
   Margin?: MarginStyle;
@@ -6094,11 +6693,13 @@ export interface TileLayoutStyle {
  */
 export interface SheetStyle {
   /**
+   * @public
    * <p>The display options for tiles.</p>
    */
   Tile?: TileStyle;
 
   /**
+   * @public
    * <p>The layout options for tiles.</p>
    */
   TileLayout?: TileLayoutStyle;
@@ -6110,6 +6711,7 @@ export interface SheetStyle {
  */
 export interface Font {
   /**
+   * @public
    * <p>Determines the font family settings.</p>
    */
   FontFamily?: string;
@@ -6121,6 +6723,7 @@ export interface Font {
  */
 export interface Typography {
   /**
+   * @public
    * <p>Determines the list of font families.</p>
    */
   FontFamilies?: Font[];
@@ -6136,90 +6739,106 @@ export interface Typography {
  */
 export interface UIColorPalette {
   /**
+   * @public
    * <p>The color of text and other foreground elements that appear over the primary
    *             background regions, such as grid lines, borders, table banding, icons, and so on.</p>
    */
   PrimaryForeground?: string;
 
   /**
+   * @public
    * <p>The background color that applies to visuals and other high emphasis UI.</p>
    */
   PrimaryBackground?: string;
 
   /**
+   * @public
    * <p>The foreground color that applies to any sheet title, sheet control text, or UI that
    *             appears over the secondary background.</p>
    */
   SecondaryForeground?: string;
 
   /**
+   * @public
    * <p>The background color that applies to the sheet background and sheet controls.</p>
    */
   SecondaryBackground?: string;
 
   /**
+   * @public
    * <p>This color is that applies to selected states and buttons.</p>
    */
   Accent?: string;
 
   /**
+   * @public
    * <p>The foreground color that applies to any text or other elements that appear over the
    *             accent color.</p>
    */
   AccentForeground?: string;
 
   /**
+   * @public
    * <p>The color that applies to error messages.</p>
    */
   Danger?: string;
 
   /**
+   * @public
    * <p>The foreground color that applies to any text or other elements that appear over the
    *             error color.</p>
    */
   DangerForeground?: string;
 
   /**
+   * @public
    * <p>This color that applies to warning and informational messages.</p>
    */
   Warning?: string;
 
   /**
+   * @public
    * <p>The foreground color that applies to any text or other elements that appear over the
    *             warning color.</p>
    */
   WarningForeground?: string;
 
   /**
+   * @public
    * <p>The color that applies to success messages, for example the check mark for a
    *             successful download.</p>
    */
   Success?: string;
 
   /**
+   * @public
    * <p>The foreground color that applies to any text or other elements that appear over the
    *             success color.</p>
    */
   SuccessForeground?: string;
 
   /**
+   * @public
    * <p>The color that applies to the names of fields that are identified as
    *             dimensions.</p>
    */
   Dimension?: string;
 
   /**
+   * @public
    * <p>The foreground color that applies to any text or other elements that appear over the
    *             dimension color.</p>
    */
   DimensionForeground?: string;
 
   /**
+   * @public
    * <p>The color that applies to the names of fields that are identified as measures.</p>
    */
   Measure?: string;
 
   /**
+   * @public
    * <p>The foreground color that applies to any text or other elements that appear over the
    *             measure color.</p>
    */
@@ -6233,22 +6852,26 @@ export interface UIColorPalette {
  */
 export interface ThemeConfiguration {
   /**
+   * @public
    * <p>Color properties that apply to chart data colors.</p>
    */
   DataColorPalette?: DataColorPalette;
 
   /**
+   * @public
    * <p>Color properties that apply to the UI and to charts, excluding the colors that apply
    *             to data. </p>
    */
   UIColorPalette?: UIColorPalette;
 
   /**
+   * @public
    * <p>Display options related to sheets.</p>
    */
   Sheet?: SheetStyle;
 
   /**
+   * @public
    * <p>Determines the typography options.</p>
    */
   Typography?: Typography;
@@ -6259,22 +6882,26 @@ export interface ThemeConfiguration {
  */
 export interface CreateThemeRequest {
   /**
+   * @public
    * <p>The ID of the Amazon Web Services account where you want to store the new theme. </p>
    */
   AwsAccountId: string | undefined;
 
   /**
+   * @public
    * <p>An ID for the theme that you want to create. The theme ID is unique per Amazon Web Services Region in
    * 			each Amazon Web Services account.</p>
    */
   ThemeId: string | undefined;
 
   /**
+   * @public
    * <p>A display name for the theme.</p>
    */
   Name: string | undefined;
 
   /**
+   * @public
    * <p>The ID of the theme that a custom theme will inherit from. All themes inherit from one of
    * 			the starting themes defined by Amazon QuickSight. For a list of the starting themes, use
    * 				<code>ListThemes</code> or choose <b>Themes</b> from
@@ -6283,6 +6910,7 @@ export interface CreateThemeRequest {
   BaseThemeId: string | undefined;
 
   /**
+   * @public
    * <p>A description of the first version of the theme that you're creating. Every time
    * 				<code>UpdateTheme</code> is called, a new version is created. Each version of the
    * 			theme has a description of the version in the <code>VersionDescription</code>
@@ -6291,17 +6919,20 @@ export interface CreateThemeRequest {
   VersionDescription?: string;
 
   /**
+   * @public
    * <p>The theme configuration, which contains the theme display properties.</p>
    */
   Configuration: ThemeConfiguration | undefined;
 
   /**
+   * @public
    * <p>A valid grouping of resource permissions to apply to the new theme.
    * 			</p>
    */
   Permissions?: ResourcePermission[];
 
   /**
+   * @public
    * <p>A map of the key-value pairs for the resource tag or tags that you want to add to the
    * 			resource.</p>
    */
@@ -6313,31 +6944,37 @@ export interface CreateThemeRequest {
  */
 export interface CreateThemeResponse {
   /**
+   * @public
    * <p>The Amazon Resource Name (ARN) for the theme.</p>
    */
   Arn?: string;
 
   /**
+   * @public
    * <p>The Amazon Resource Name (ARN) for the new theme.</p>
    */
   VersionArn?: string;
 
   /**
+   * @public
    * <p>The ID of the theme.</p>
    */
   ThemeId?: string;
 
   /**
+   * @public
    * <p>The theme creation status.</p>
    */
   CreationStatus?: ResourceStatus | string;
 
   /**
+   * @public
    * <p>The HTTP status of the request.</p>
    */
   Status?: number;
 
   /**
+   * @public
    * <p>The Amazon Web Services request ID for this operation.</p>
    */
   RequestId?: string;
@@ -6348,16 +6985,19 @@ export interface CreateThemeResponse {
  */
 export interface CreateThemeAliasRequest {
   /**
+   * @public
    * <p>The ID of the Amazon Web Services account that contains the theme for the new theme alias.</p>
    */
   AwsAccountId: string | undefined;
 
   /**
+   * @public
    * <p>An ID for the theme alias.</p>
    */
   ThemeId: string | undefined;
 
   /**
+   * @public
    * <p>The name that you want to give to the theme alias that you are creating. The
    * 			alias name can't begin with a <code>$</code>. Alias names that start with <code>$</code>
    * 			are reserved by Amazon QuickSight. </p>
@@ -6365,6 +7005,7 @@ export interface CreateThemeAliasRequest {
   AliasName: string | undefined;
 
   /**
+   * @public
    * <p>The version number of the theme.</p>
    */
   ThemeVersionNumber: number | undefined;
@@ -6376,16 +7017,19 @@ export interface CreateThemeAliasRequest {
  */
 export interface ThemeAlias {
   /**
+   * @public
    * <p>The Amazon Resource Name (ARN) of the theme alias.</p>
    */
   Arn?: string;
 
   /**
+   * @public
    * <p>The display name of the theme alias.</p>
    */
   AliasName?: string;
 
   /**
+   * @public
    * <p>The version number of the theme alias.</p>
    */
   ThemeVersionNumber?: number;
@@ -6396,16 +7040,19 @@ export interface ThemeAlias {
  */
 export interface CreateThemeAliasResponse {
   /**
+   * @public
    * <p>Information about the theme alias.</p>
    */
   ThemeAlias?: ThemeAlias;
 
   /**
+   * @public
    * <p>The HTTP status of the request.</p>
    */
   Status?: number;
 
   /**
+   * @public
    * <p>The Amazon Web Services request ID for this operation.</p>
    */
   RequestId?: string;
@@ -6468,11 +7115,13 @@ export type TopicNumericSeparatorSymbol =
  */
 export interface NegativeFormat {
   /**
+   * @public
    * <p>The prefix for a negative format.</p>
    */
   Prefix?: string;
 
   /**
+   * @public
    * <p>The suffix for a negative format.</p>
    */
   Suffix?: string;
@@ -6484,51 +7133,61 @@ export interface NegativeFormat {
  */
 export interface DisplayFormatOptions {
   /**
+   * @public
    * <p>A Boolean value that indicates whether to use blank cell format.</p>
    */
   UseBlankCellFormat?: boolean;
 
   /**
+   * @public
    * <p>Determines the blank cell format.</p>
    */
   BlankCellFormat?: string;
 
   /**
+   * @public
    * <p>Determines the <code>DateTime</code> format.</p>
    */
   DateFormat?: string;
 
   /**
+   * @public
    * <p>Determines the decimal separator.</p>
    */
   DecimalSeparator?: TopicNumericSeparatorSymbol | string;
 
   /**
+   * @public
    * <p>Determines the grouping separator.</p>
    */
   GroupingSeparator?: string;
 
   /**
+   * @public
    * <p>A Boolean value that indicates whether to use grouping.</p>
    */
   UseGrouping?: boolean;
 
   /**
+   * @public
    * <p>Determines the number of fraction digits.</p>
    */
   FractionDigits?: number;
 
   /**
+   * @public
    * <p>The prefix value for a display format.</p>
    */
   Prefix?: string;
 
   /**
+   * @public
    * <p>The suffix value for a display format.</p>
    */
   Suffix?: string;
 
   /**
+   * @public
    * <p>The unit scaler. Valid values for this structure are: <code>NONE</code>,
    *             <code>AUTO</code>, <code>THOUSANDS</code>, <code>MILLIONS</code>,
    *          <code>BILLIONS</code>,
@@ -6537,11 +7196,13 @@ export interface DisplayFormatOptions {
   UnitScaler?: NumberScale | string;
 
   /**
+   * @public
    * <p>The negative format.</p>
    */
   NegativeFormat?: NegativeFormat;
 
   /**
+   * @public
    * <p>The currency symbol, such as <code>USD</code>.</p>
    */
   CurrencySymbol?: string;
@@ -6553,6 +7214,7 @@ export interface DisplayFormatOptions {
  */
 export interface DefaultFormatting {
   /**
+   * @public
    * <p>The display format. Valid values for this structure are <code>AUTO</code>,
    *             <code>PERCENT</code>, <code>CURRENCY</code>, <code>NUMBER</code>, <code>DATE</code>, and
    *             <code>STRING</code>.</p>
@@ -6560,6 +7222,7 @@ export interface DefaultFormatting {
   DisplayFormat?: DisplayFormat | string;
 
   /**
+   * @public
    * <p>The additional options for display formatting.</p>
    */
   DisplayFormatOptions?: DisplayFormatOptions;
@@ -6571,36 +7234,43 @@ export interface DefaultFormatting {
  */
 export interface SemanticType {
   /**
+   * @public
    * <p>The semantic type name.</p>
    */
   TypeName?: string;
 
   /**
+   * @public
    * <p>The semantic type sub type name.</p>
    */
   SubTypeName?: string;
 
   /**
+   * @public
    * <p>The semantic type parameters.</p>
    */
   TypeParameters?: Record<string, string>;
 
   /**
+   * @public
    * <p>The semantic type truthy cell value.</p>
    */
   TruthyCellValue?: string;
 
   /**
+   * @public
    * <p>The other names or aliases for the true cell value.</p>
    */
   TruthyCellValueSynonyms?: string[];
 
   /**
+   * @public
    * <p>The semantic type falsey cell value.</p>
    */
   FalseyCellValue?: string;
 
   /**
+   * @public
    * <p>The other names or aliases for the false cell value.</p>
    */
   FalseyCellValueSynonyms?: string[];
@@ -6632,51 +7302,61 @@ export type TopicTimeGranularity = (typeof TopicTimeGranularity)[keyof typeof To
  */
 export interface TopicCalculatedField {
   /**
+   * @public
    * <p>The calculated field name.</p>
    */
   CalculatedFieldName: string | undefined;
 
   /**
+   * @public
    * <p>The calculated field description.</p>
    */
   CalculatedFieldDescription?: string;
 
   /**
+   * @public
    * <p>The calculated field expression.</p>
    */
   Expression: string | undefined;
 
   /**
+   * @public
    * <p>The other names or aliases for the calculated field.</p>
    */
   CalculatedFieldSynonyms?: string[];
 
   /**
+   * @public
    * <p>A boolean value that indicates if a calculated field is included in the topic.</p>
    */
   IsIncludedInTopic?: boolean;
 
   /**
+   * @public
    * <p>A Boolean value that indicates if a calculated field is visible in the autocomplete.</p>
    */
   DisableIndexing?: boolean;
 
   /**
+   * @public
    * <p>The column data role for a calculated field. Valid values for this structure are <code>DIMENSION</code> and <code>MEASURE</code>.</p>
    */
   ColumnDataRole?: ColumnDataRole | string;
 
   /**
+   * @public
    * <p>The level of time precision that is used to aggregate <code>DateTime</code> values.</p>
    */
   TimeGranularity?: TopicTimeGranularity | string;
 
   /**
+   * @public
    * <p>The default formatting definition.</p>
    */
   DefaultFormatting?: DefaultFormatting;
 
   /**
+   * @public
    * <p>The default aggregation. Valid values for this structure are <code>SUM</code>,
    *             <code>MAX</code>, <code>MIN</code>, <code>COUNT</code>,
    *          <code>DISTINCT_COUNT</code>,
@@ -6685,17 +7365,20 @@ export interface TopicCalculatedField {
   Aggregation?: DefaultAggregation | string;
 
   /**
+   * @public
    * <p>The order in which data is displayed for the calculated field when
    *          it's used in a comparative context.</p>
    */
   ComparativeOrder?: ComparativeOrder;
 
   /**
+   * @public
    * <p>The semantic type.</p>
    */
   SemanticType?: SemanticType;
 
   /**
+   * @public
    * <p>The list of aggregation types that are allowed for the calculated field. Valid values
    *          for this structure are <code>COUNT</code>, <code>DISTINCT_COUNT</code>, <code>MIN</code>,
    *             <code>MAX</code>, <code>MEDIAN</code>, <code>SUM</code>, <code>AVERAGE</code>,
@@ -6705,6 +7388,7 @@ export interface TopicCalculatedField {
   AllowedAggregations?: (AuthorSpecifiedAggregation | string)[];
 
   /**
+   * @public
    * <p>The list of aggregation types that are not allowed for the calculated field. Valid
    *          values for this structure are <code>COUNT</code>, <code>DISTINCT_COUNT</code>,
    *             <code>MIN</code>, <code>MAX</code>, <code>MEDIAN</code>, <code>SUM</code>,
@@ -6714,11 +7398,13 @@ export interface TopicCalculatedField {
   NotAllowedAggregations?: (AuthorSpecifiedAggregation | string)[];
 
   /**
+   * @public
    * <p>A Boolean value that indicates whether to never aggregate calculated field in filters.</p>
    */
   NeverAggregateInFilter?: boolean;
 
   /**
+   * @public
    * <p>The other
    *          names or aliases for the calculated field cell value.</p>
    */
@@ -6731,31 +7417,37 @@ export interface TopicCalculatedField {
  */
 export interface TopicColumn {
   /**
+   * @public
    * <p>The name of the column.</p>
    */
   ColumnName: string | undefined;
 
   /**
+   * @public
    * <p>A user-friendly name for the column.</p>
    */
   ColumnFriendlyName?: string;
 
   /**
+   * @public
    * <p>A description of the column and its contents.</p>
    */
   ColumnDescription?: string;
 
   /**
+   * @public
    * <p>The other names or aliases for the column.</p>
    */
   ColumnSynonyms?: string[];
 
   /**
+   * @public
    * <p>The role of the column in the data. Valid values are <code>DIMENSION</code> and <code>MEASURE</code>.</p>
    */
   ColumnDataRole?: ColumnDataRole | string;
 
   /**
+   * @public
    * <p>The type of aggregation that is performed on the column data when
    *          it's queried. Valid values for this structure are <code>SUM</code>, <code>MAX</code>,
    *             <code>MIN</code>, <code>COUNT</code>,
@@ -6764,32 +7456,38 @@ export interface TopicColumn {
   Aggregation?: DefaultAggregation | string;
 
   /**
+   * @public
    * <p>A Boolean value that indicates whether the column is included in the query results.</p>
    */
   IsIncludedInTopic?: boolean;
 
   /**
+   * @public
    * <p>A Boolean value that indicates whether the column shows in the autocomplete functionality.</p>
    */
   DisableIndexing?: boolean;
 
   /**
+   * @public
    * <p>The order in which data is displayed for the column when
    *          it's used in a comparative context.</p>
    */
   ComparativeOrder?: ComparativeOrder;
 
   /**
+   * @public
    * <p>The semantic type of data contained in the column.</p>
    */
   SemanticType?: SemanticType;
 
   /**
+   * @public
    * <p>The level of time precision that is used to aggregate <code>DateTime</code> values.</p>
    */
   TimeGranularity?: TopicTimeGranularity | string;
 
   /**
+   * @public
    * <p>The list of aggregation types that are allowed for the column. Valid values for this
    *          structure are <code>COUNT</code>, <code>DISTINCT_COUNT</code>, <code>MIN</code>,
    *             <code>MAX</code>, <code>MEDIAN</code>, <code>SUM</code>, <code>AVERAGE</code>,
@@ -6800,6 +7498,7 @@ export interface TopicColumn {
   AllowedAggregations?: (AuthorSpecifiedAggregation | string)[];
 
   /**
+   * @public
    * <p>The list of aggregation types that are not allowed for the column. Valid values for this
    *          structure are <code>COUNT</code>, <code>DISTINCT_COUNT</code>, <code>MIN</code>,
    *             <code>MAX</code>, <code>MEDIAN</code>, <code>SUM</code>, <code>AVERAGE</code>,
@@ -6810,11 +7509,13 @@ export interface TopicColumn {
   NotAllowedAggregations?: (AuthorSpecifiedAggregation | string)[];
 
   /**
+   * @public
    * <p>The default formatting used for values in the column.</p>
    */
   DefaultFormatting?: DefaultFormatting;
 
   /**
+   * @public
    * <p>A Boolean
    *          value that indicates whether to aggregate the column data when
    *          it's used in a filter context.</p>
@@ -6822,6 +7523,7 @@ export interface TopicColumn {
   NeverAggregateInFilter?: boolean;
 
   /**
+   * @public
    * <p>The other names or aliases for the column cell value.</p>
    */
   CellValueSynonyms?: CellValueSynonym[];
@@ -6833,11 +7535,13 @@ export interface TopicColumn {
  */
 export interface DataAggregation {
   /**
+   * @public
    * <p>The level of time precision that is used to aggregate <code>DateTime</code> values.</p>
    */
   DatasetRowDateGranularity?: TopicTimeGranularity | string;
 
   /**
+   * @public
    * <p>The column name for the default date.</p>
    */
   DefaultDateColumnName?: string;
@@ -6849,16 +7553,19 @@ export interface DataAggregation {
  */
 export interface TopicCategoryFilterConstant {
   /**
+   * @public
    * <p>The type of category filter constant. This element is used to specify whether a constant is a singular or collective. Valid values are <code>SINGULAR</code> and <code>COLLECTIVE</code>.</p>
    */
   ConstantType?: ConstantType | string;
 
   /**
+   * @public
    * <p>A singular constant used in a category filter. This element is used to specify a single value for the constant.</p>
    */
   SingularConstant?: string;
 
   /**
+   * @public
    * <p>A collective constant used in a category filter. This element is used to specify a list of values for the constant.</p>
    */
   CollectiveConstant?: CollectiveConstant;
@@ -6870,21 +7577,25 @@ export interface TopicCategoryFilterConstant {
  */
 export interface TopicCategoryFilter {
   /**
+   * @public
    * <p>The category filter function. Valid values for this structure are <code>EXACT</code> and <code>CONTAINS</code>.</p>
    */
   CategoryFilterFunction?: CategoryFilterFunction | string;
 
   /**
+   * @public
    * <p>The category filter type. This element is used to specify whether a filter is a simple category filter or an inverse category filter.</p>
    */
   CategoryFilterType?: CategoryFilterType | string;
 
   /**
+   * @public
    * <p>The constant used in a category filter.</p>
    */
   Constant?: TopicCategoryFilterConstant;
 
   /**
+   * @public
    * <p>A Boolean value that indicates if the filter is inverse.</p>
    */
   Inverse?: boolean;
@@ -6896,11 +7607,13 @@ export interface TopicCategoryFilter {
  */
 export interface RangeConstant {
   /**
+   * @public
    * <p>The minimum value for a range constant.</p>
    */
   Minimum?: string;
 
   /**
+   * @public
    * <p>The maximum value for a range constant.</p>
    */
   Maximum?: string;
@@ -6912,11 +7625,13 @@ export interface RangeConstant {
  */
 export interface TopicRangeFilterConstant {
   /**
+   * @public
    * <p>The data type of the constant value that is used in a range filter. Valid values for this structure are <code>RANGE</code>.</p>
    */
   ConstantType?: ConstantType | string;
 
   /**
+   * @public
    * <p>The value of the constant that is used to specify the endpoints of a range filter.</p>
    */
   RangeConstant?: RangeConstant;
@@ -6928,6 +7643,7 @@ export interface TopicRangeFilterConstant {
  */
 export interface TopicDateRangeFilter {
   /**
+   * @public
    * <p>A Boolean value that indicates whether the date range filter should include the boundary values. If
    *          set to true, the filter includes the start and end dates. If set to false, the filter
    *          excludes them.</p>
@@ -6935,6 +7651,7 @@ export interface TopicDateRangeFilter {
   Inclusive?: boolean;
 
   /**
+   * @public
    * <p>The constant used in a date range filter.</p>
    */
   Constant?: TopicRangeFilterConstant;
@@ -7002,11 +7719,13 @@ export type NamedFilterAggType = (typeof NamedFilterAggType)[keyof typeof NamedF
  */
 export interface TopicSingularFilterConstant {
   /**
+   * @public
    * <p>The type of the singular filter constant. Valid values for this structure are <code>SINGULAR</code>.</p>
    */
   ConstantType?: ConstantType | string;
 
   /**
+   * @public
    * <p>The value of the singular filter constant.</p>
    */
   SingularConstant?: string;
@@ -7018,11 +7737,13 @@ export interface TopicSingularFilterConstant {
  */
 export interface TopicNumericEqualityFilter {
   /**
+   * @public
    * <p>The constant used in a numeric equality filter.</p>
    */
   Constant?: TopicSingularFilterConstant;
 
   /**
+   * @public
    * <p>An aggregation function that specifies how to calculate the value of a numeric field for
    *          a topic. Valid values for this structure are <code>NO_AGGREGATION</code>, <code>SUM</code>,
    *             <code>AVERAGE</code>, <code>COUNT</code>, <code>DISTINCT_COUNT</code>, <code>MAX</code>,
@@ -7039,6 +7760,7 @@ export interface TopicNumericEqualityFilter {
  */
 export interface TopicNumericRangeFilter {
   /**
+   * @public
    * <p>A Boolean value that indicates whether the endpoints of the numeric range are included in the filter.
    *          If set to true, topics whose numeric field value is equal to the endpoint values will be
    *          included in the filter. If set to false, topics whose numeric field value is equal to the
@@ -7047,12 +7769,14 @@ export interface TopicNumericRangeFilter {
   Inclusive?: boolean;
 
   /**
+   * @public
    * <p>The constant used in a
    *          numeric range filter.</p>
    */
   Constant?: TopicRangeFilterConstant;
 
   /**
+   * @public
    * <p>An aggregation function that specifies how to calculate the value of a numeric field for
    *          a topic, Valid values for this structure are <code>NO_AGGREGATION</code>, <code>SUM</code>,
    *             <code>AVERAGE</code>, <code>COUNT</code>, <code>DISTINCT_COUNT</code>, <code>MAX</code>,
@@ -7087,16 +7811,19 @@ export type TopicRelativeDateFilterFunction =
  */
 export interface TopicRelativeDateFilter {
   /**
+   * @public
    * <p>The level of time precision that is used to aggregate <code>DateTime</code> values.</p>
    */
   TimeGranularity?: TopicTimeGranularity | string;
 
   /**
+   * @public
    * <p>The function to be used in a relative date filter to determine the range of dates to include in the results. Valid values for this structure are <code>BEFORE</code>, <code>AFTER</code>, and <code>BETWEEN</code>.</p>
    */
   RelativeDateFilterFunction?: TopicRelativeDateFilterFunction | string;
 
   /**
+   * @public
    * <p>The constant used in a
    *          relative date filter.</p>
    */
@@ -7109,11 +7836,13 @@ export interface TopicRelativeDateFilter {
  */
 export interface TopicFilter {
   /**
+   * @public
    * <p>A description of the filter used to select items for a topic.</p>
    */
   FilterDescription?: string;
 
   /**
+   * @public
    * <p>The class of the filter. Valid values for this structure are
    *             <code>ENFORCED_VALUE_FILTER</code>,
    *          <code>CONDITIONAL_VALUE_FILTER</code>,
@@ -7122,21 +7851,25 @@ export interface TopicFilter {
   FilterClass?: FilterClass | string;
 
   /**
+   * @public
    * <p>The name of the filter.</p>
    */
   FilterName: string | undefined;
 
   /**
+   * @public
    * <p>The other names or aliases for the filter.</p>
    */
   FilterSynonyms?: string[];
 
   /**
+   * @public
    * <p>The name of the field that the filter operates on.</p>
    */
   OperandFieldName: string | undefined;
 
   /**
+   * @public
    * <p>The type of the filter. Valid values for this structure are
    *          <code>CATEGORY_FILTER</code>, <code>NUMERIC_EQUALITY_FILTER</code>,
    *             <code>NUMERIC_RANGE_FILTER</code>,
@@ -7146,26 +7879,31 @@ export interface TopicFilter {
   FilterType?: NamedFilterType | string;
 
   /**
+   * @public
    * <p>The category filter that is associated with this filter.</p>
    */
   CategoryFilter?: TopicCategoryFilter;
 
   /**
+   * @public
    * <p>The numeric equality filter.</p>
    */
   NumericEqualityFilter?: TopicNumericEqualityFilter;
 
   /**
+   * @public
    * <p>The numeric range filter.</p>
    */
   NumericRangeFilter?: TopicNumericRangeFilter;
 
   /**
+   * @public
    * <p>The date range filter.</p>
    */
   DateRangeFilter?: TopicDateRangeFilter;
 
   /**
+   * @public
    * <p>The relative date filter.</p>
    */
   RelativeDateFilter?: TopicRelativeDateFilter;
@@ -7202,6 +7940,7 @@ export type NamedEntityAggType = (typeof NamedEntityAggType)[keyof typeof NamedE
  */
 export interface NamedEntityDefinitionMetric {
   /**
+   * @public
    * <p>The aggregation of a named entity. Valid values for this structure are <code>SUM</code>,
    *             <code>MIN</code>, <code>MAX</code>, <code>COUNT</code>, <code>AVERAGE</code>,
    *             <code>DISTINCT_COUNT</code>, <code>STDEV</code>, <code>STDEVP</code>, <code>VAR</code>,
@@ -7212,6 +7951,7 @@ export interface NamedEntityDefinitionMetric {
   Aggregation?: NamedEntityAggType | string;
 
   /**
+   * @public
    * <p>The additional parameters for an aggregation function.</p>
    */
   AggregationFunctionParameters?: Record<string, string>;
@@ -7252,21 +7992,25 @@ export type PropertyUsage = (typeof PropertyUsage)[keyof typeof PropertyUsage];
  */
 export interface NamedEntityDefinition {
   /**
+   * @public
    * <p>The name of the entity.</p>
    */
   FieldName?: string;
 
   /**
+   * @public
    * <p>The property name to be used for the named entity.</p>
    */
   PropertyName?: string;
 
   /**
+   * @public
    * <p>The property role. Valid values for this structure are <code>PRIMARY</code> and <code>ID</code>.</p>
    */
   PropertyRole?: PropertyRole | string;
 
   /**
+   * @public
    * <p>The property usage. Valid values for this structure are <code>INHERIT</code>,
    *             <code>DIMENSION</code>,
    *          and <code>MEASURE</code>.</p>
@@ -7274,6 +8018,7 @@ export interface NamedEntityDefinition {
   PropertyUsage?: PropertyUsage | string;
 
   /**
+   * @public
    * <p>The definition of a metric.</p>
    */
   Metric?: NamedEntityDefinitionMetric;
@@ -7285,16 +8030,19 @@ export interface NamedEntityDefinition {
  */
 export interface SemanticEntityType {
   /**
+   * @public
    * <p>The semantic entity type name.</p>
    */
   TypeName?: string;
 
   /**
+   * @public
    * <p>The semantic entity sub type name.</p>
    */
   SubTypeName?: string;
 
   /**
+   * @public
    * <p>The semantic entity type parameters.</p>
    */
   TypeParameters?: Record<string, string>;
@@ -7306,27 +8054,32 @@ export interface SemanticEntityType {
  */
 export interface TopicNamedEntity {
   /**
+   * @public
    * <p>The name of the named entity.</p>
    */
   EntityName: string | undefined;
 
   /**
+   * @public
    * <p>The description of the named entity.</p>
    */
   EntityDescription?: string;
 
   /**
+   * @public
    * <p>The other
    *          names or aliases for the named entity.</p>
    */
   EntitySynonyms?: string[];
 
   /**
+   * @public
    * <p>The type of named entity that a topic represents.</p>
    */
   SemanticEntityType?: SemanticEntityType;
 
   /**
+   * @public
    * <p>The definition of a named entity.</p>
    */
   Definition?: NamedEntityDefinition[];
@@ -7338,41 +8091,49 @@ export interface TopicNamedEntity {
  */
 export interface DatasetMetadata {
   /**
+   * @public
    * <p>The Amazon Resource Name (ARN) of the dataset.</p>
    */
   DatasetArn: string | undefined;
 
   /**
+   * @public
    * <p>The name of the dataset.</p>
    */
   DatasetName?: string;
 
   /**
+   * @public
    * <p>The description of the dataset.</p>
    */
   DatasetDescription?: string;
 
   /**
+   * @public
    * <p>The definition of a data aggregation.</p>
    */
   DataAggregation?: DataAggregation;
 
   /**
+   * @public
    * <p>The list of filter definitions.</p>
    */
   Filters?: TopicFilter[];
 
   /**
+   * @public
    * <p>The list of column definitions.</p>
    */
   Columns?: TopicColumn[];
 
   /**
+   * @public
    * <p>The list of calculated field definitions.</p>
    */
   CalculatedFields?: TopicCalculatedField[];
 
   /**
+   * @public
    * <p>The list of named entities definitions.</p>
    */
   NamedEntities?: TopicNamedEntity[];
@@ -7384,16 +8145,19 @@ export interface DatasetMetadata {
  */
 export interface TopicDetails {
   /**
+   * @public
    * <p>The name of the topic.</p>
    */
   Name?: string;
 
   /**
+   * @public
    * <p>The description of the topic.</p>
    */
   Description?: string;
 
   /**
+   * @public
    * <p>The data sets that the topic is associated with.</p>
    */
   DataSets?: DatasetMetadata[];
@@ -7404,21 +8168,25 @@ export interface TopicDetails {
  */
 export interface CreateTopicRequest {
   /**
+   * @public
    * <p>The ID of the Amazon Web Services account that you want to create a topic in.</p>
    */
   AwsAccountId: string | undefined;
 
   /**
+   * @public
    * <p>The ID for the topic that you want to create. This ID is unique per Amazon Web Services Region for each Amazon Web Services account.</p>
    */
   TopicId: string | undefined;
 
   /**
+   * @public
    * <p>The definition of a topic to create.</p>
    */
   Topic: TopicDetails | undefined;
 
   /**
+   * @public
    * <p>Contains a map of the key-value pairs for the resource tag or tags that are assigned to
    *          the dataset.</p>
    */
@@ -7430,27 +8198,32 @@ export interface CreateTopicRequest {
  */
 export interface CreateTopicResponse {
   /**
+   * @public
    * <p>The Amazon Resource Name (ARN) of the topic.</p>
    */
   Arn?: string;
 
   /**
+   * @public
    * <p>The ID for the topic that you want to create. This ID is unique per Amazon Web Services Region
    *          for each Amazon Web Services account.</p>
    */
   TopicId?: string;
 
   /**
+   * @public
    * <p>The Amazon Resource Name (ARN) of the topic refresh.</p>
    */
   RefreshArn?: string;
 
   /**
+   * @public
    * <p>The Amazon Web Services request ID for this operation.</p>
    */
   RequestId?: string;
 
   /**
+   * @public
    * <p>The HTTP status of the request.</p>
    */
   Status?: number;
@@ -7478,33 +8251,39 @@ export type TopicScheduleType = (typeof TopicScheduleType)[keyof typeof TopicSch
  */
 export interface TopicRefreshSchedule {
   /**
+   * @public
    * <p>A Boolean value that controls whether to schedule is enabled.</p>
    */
   IsEnabled: boolean | undefined;
 
   /**
+   * @public
    * <p>A Boolean value that controls whether to schedule runs at the same schedule that is specified in
    *          SPICE dataset.</p>
    */
   BasedOnSpiceSchedule: boolean | undefined;
 
   /**
+   * @public
    * <p>The starting date and time for the refresh schedule.</p>
    */
   StartingAt?: Date;
 
   /**
+   * @public
    * <p>The timezone that you want the refresh schedule to use.</p>
    */
   Timezone?: string;
 
   /**
+   * @public
    * <p>The time of day when the refresh should run, for
    *          example, Monday-Sunday.</p>
    */
   RepeatAt?: string;
 
   /**
+   * @public
    * <p>The type of refresh schedule. Valid values for this structure are <code>HOURLY</code>,
    *             <code>DAILY</code>,
    *          <code>WEEKLY</code>,
@@ -7518,27 +8297,32 @@ export interface TopicRefreshSchedule {
  */
 export interface CreateTopicRefreshScheduleRequest {
   /**
+   * @public
    * <p>The ID of the Amazon Web Services account that contains the topic
    *          you're creating a refresh schedule for.</p>
    */
   AwsAccountId: string | undefined;
 
   /**
+   * @public
    * <p>The ID of the topic that you want to modify. This ID is unique per Amazon Web Services Region for each Amazon Web Services account.</p>
    */
   TopicId: string | undefined;
 
   /**
+   * @public
    * <p>The Amazon Resource Name (ARN) of the dataset.</p>
    */
   DatasetArn: string | undefined;
 
   /**
+   * @public
    * <p>The name of the dataset.</p>
    */
   DatasetName?: string;
 
   /**
+   * @public
    * <p>The definition of a refresh schedule.</p>
    */
   RefreshSchedule: TopicRefreshSchedule | undefined;
@@ -7549,26 +8333,31 @@ export interface CreateTopicRefreshScheduleRequest {
  */
 export interface CreateTopicRefreshScheduleResponse {
   /**
+   * @public
    * <p>The ID of the topic that you want to modify. This ID is unique per Amazon Web Services Region for each Amazon Web Services account.</p>
    */
   TopicId?: string;
 
   /**
+   * @public
    * <p>The Amazon Resource Name (ARN) of the topic.</p>
    */
   TopicArn?: string;
 
   /**
+   * @public
    * <p>The Amazon Resource Name (ARN) of the dataset.</p>
    */
   DatasetArn?: string;
 
   /**
+   * @public
    * <p>The HTTP status of the request.</p>
    */
   Status?: number;
 
   /**
+   * @public
    * <p>The Amazon Web Services request ID for this operation.</p>
    */
   RequestId?: string;
@@ -7579,12 +8368,14 @@ export interface CreateTopicRefreshScheduleResponse {
  */
 export interface CreateVPCConnectionRequest {
   /**
+   * @public
    * <p>The Amazon Web Services account ID of the account where you want to create a new VPC
    * 			connection.</p>
    */
   AwsAccountId: string | undefined;
 
   /**
+   * @public
    * <p>The ID of the VPC connection that
    * 			you're creating. This ID is a unique identifier for each Amazon Web Services Region in an
    * 				Amazon Web Services account.</p>
@@ -7592,31 +8383,37 @@ export interface CreateVPCConnectionRequest {
   VPCConnectionId: string | undefined;
 
   /**
+   * @public
    * <p>The display name for the VPC connection.</p>
    */
   Name: string | undefined;
 
   /**
+   * @public
    * <p>A list of subnet IDs for the VPC connection.</p>
    */
   SubnetIds: string[] | undefined;
 
   /**
+   * @public
    * <p>A list of security group IDs for the VPC connection.</p>
    */
   SecurityGroupIds: string[] | undefined;
 
   /**
+   * @public
    * <p>A list of IP addresses of DNS resolver endpoints for the VPC connection.</p>
    */
   DnsResolvers?: string[];
 
   /**
+   * @public
    * <p>The IAM role to associate with the VPC connection.</p>
    */
   RoleArn: string | undefined;
 
   /**
+   * @public
    * <p>A map of the key-value pairs for the resource tag or tags assigned to the VPC
    * 			connection.</p>
    */
@@ -7666,11 +8463,13 @@ export type VPCConnectionResourceStatus =
  */
 export interface CreateVPCConnectionResponse {
   /**
+   * @public
    * <p>The Amazon Resource Name (ARN) of the VPC connection.</p>
    */
   Arn?: string;
 
   /**
+   * @public
    * <p>The ID for the VPC connection that
    * 			you're creating. This ID is unique per Amazon Web Services Region for each Amazon Web Services
    * 			account.</p>
@@ -7678,21 +8477,25 @@ export interface CreateVPCConnectionResponse {
   VPCConnectionId?: string;
 
   /**
+   * @public
    * <p>The status of the creation of the VPC connection.</p>
    */
   CreationStatus?: VPCConnectionResourceStatus | string;
 
   /**
+   * @public
    * <p>The availability status of the VPC connection.</p>
    */
   AvailabilityStatus?: VPCConnectionAvailabilityStatus | string;
 
   /**
+   * @public
    * <p>The Amazon Web Services request ID for this operation.</p>
    */
   RequestId?: string;
 
   /**
+   * @public
    * <p>The HTTP status of the request.</p>
    */
   Status?: number;
@@ -7726,16 +8529,19 @@ export type DashboardErrorType = (typeof DashboardErrorType)[keyof typeof Dashbo
  */
 export interface DashboardError {
   /**
+   * @public
    * <p>Type.</p>
    */
   Type?: DashboardErrorType | string;
 
   /**
+   * @public
    * <p>Message.</p>
    */
   Message?: string;
 
   /**
+   * @public
    * <p>Lists the violated entities that caused the dashboard error.</p>
    */
   ViolatedEntities?: Entity[];
@@ -7747,52 +8553,62 @@ export interface DashboardError {
  */
 export interface DashboardVersion {
   /**
+   * @public
    * <p>The time that this dashboard version was created.</p>
    */
   CreatedTime?: Date;
 
   /**
+   * @public
    * <p>Errors associated with this dashboard version.</p>
    */
   Errors?: DashboardError[];
 
   /**
+   * @public
    * <p>Version number for this version of the dashboard.</p>
    */
   VersionNumber?: number;
 
   /**
+   * @public
    * <p>The HTTP status of the request.</p>
    */
   Status?: ResourceStatus | string;
 
   /**
+   * @public
    * <p>The Amazon Resource Name (ARN) of the resource.</p>
    */
   Arn?: string;
 
   /**
+   * @public
    * <p>Source entity ARN.</p>
    */
   SourceEntityArn?: string;
 
   /**
+   * @public
    * <p>The Amazon Resource Numbers (ARNs) for the datasets that are associated with this
    *             version of the dashboard.</p>
    */
   DataSetArns?: string[];
 
   /**
+   * @public
    * <p>Description.</p>
    */
   Description?: string;
 
   /**
+   * @public
    * <p>The ARN of the theme associated with a version of the dashboard.</p>
    */
   ThemeArn?: string;
 
   /**
+   * @public
    * <p>A list of the associated sheets with the unique identifier and name of each sheet.</p>
    */
   Sheets?: Sheet[];
@@ -7804,36 +8620,43 @@ export interface DashboardVersion {
  */
 export interface Dashboard {
   /**
+   * @public
    * <p>Dashboard ID.</p>
    */
   DashboardId?: string;
 
   /**
+   * @public
    * <p>The Amazon Resource Name (ARN) of the resource.</p>
    */
   Arn?: string;
 
   /**
+   * @public
    * <p>A display name for the dashboard.</p>
    */
   Name?: string;
 
   /**
+   * @public
    * <p>Version.</p>
    */
   Version?: DashboardVersion;
 
   /**
+   * @public
    * <p>The time that this dashboard was created.</p>
    */
   CreatedTime?: Date;
 
   /**
+   * @public
    * <p>The last time that this dashboard was published.</p>
    */
   LastPublishedTime?: Date;
 
   /**
+   * @public
    * <p>The last time that this dashboard was updated.</p>
    */
   LastUpdatedTime?: Date;
@@ -7864,6 +8687,7 @@ export type DashboardFilterAttribute = (typeof DashboardFilterAttribute)[keyof t
  */
 export interface DashboardSearchFilter {
   /**
+   * @public
    * <p>The comparison operator that you want to use as a filter, for example  <code>"Operator": "StringEquals"</code>. Valid values are <code>"StringEquals"</code> and  <code>"StringLike"</code>.</p>
    *          <p>If you set the operator value to <code>"StringEquals"</code>, you need to provide an ownership related filter in the <code>"NAME"</code> field and the arn of the user or group whose folders you want to search in the <code>"Value"</code> field. For example,  <code>"Name":"DIRECT_QUICKSIGHT_OWNER", "Operator": "StringEquals", "Value": "arn:aws:quicksight:us-east-1:1:user/default/UserName1"</code>.</p>
    *          <p>If you set the value to <code>"StringLike"</code>, you need to provide the name of the folders you are searching for. For example, <code>"Name":"DASHBOARD_NAME", "Operator": "StringLike", "Value": "Test"</code>. The <code>"StringLike"</code> operator only supports the <code>NAME</code> value <code>DASHBOARD_NAME</code>.</p>
@@ -7871,6 +8695,7 @@ export interface DashboardSearchFilter {
   Operator: FilterOperator | string | undefined;
 
   /**
+   * @public
    * <p>The name of the value that you want to use as a filter, for example, <code>"Name":
    *             "QUICKSIGHT_OWNER"</code>.</p>
    *          <p>Valid values are defined as follows:</p>
@@ -7904,6 +8729,7 @@ export interface DashboardSearchFilter {
   Name?: DashboardFilterAttribute | string;
 
   /**
+   * @public
    * <p>The value of the named item, in this case <code>QUICKSIGHT_USER</code>, that you want
    *             to use as a filter, for example, <code>"Value":
    *             "arn:aws:quicksight:us-east-1:1:user/default/UserName1"</code>. </p>
@@ -7917,36 +8743,43 @@ export interface DashboardSearchFilter {
  */
 export interface DashboardSummary {
   /**
+   * @public
    * <p>The Amazon Resource Name (ARN) of the resource.</p>
    */
   Arn?: string;
 
   /**
+   * @public
    * <p>Dashboard ID.</p>
    */
   DashboardId?: string;
 
   /**
+   * @public
    * <p>A display name for the dashboard.</p>
    */
   Name?: string;
 
   /**
+   * @public
    * <p>The time that this dashboard was created.</p>
    */
   CreatedTime?: Date;
 
   /**
+   * @public
    * <p>The last time that this dashboard was updated.</p>
    */
   LastUpdatedTime?: Date;
 
   /**
+   * @public
    * <p>Published version number.</p>
    */
   PublishedVersionNumber?: number;
 
   /**
+   * @public
    * <p>The last time that this dashboard was published.</p>
    */
   LastPublishedTime?: Date;
@@ -7958,31 +8791,37 @@ export interface DashboardSummary {
  */
 export interface DashboardVersionSummary {
   /**
+   * @public
    * <p>The Amazon Resource Name (ARN) of the resource.</p>
    */
   Arn?: string;
 
   /**
+   * @public
    * <p>The time that this dashboard version was created.</p>
    */
   CreatedTime?: Date;
 
   /**
+   * @public
    * <p>Version number.</p>
    */
   VersionNumber?: number;
 
   /**
+   * @public
    * <p>The HTTP status of the request.</p>
    */
   Status?: ResourceStatus | string;
 
   /**
+   * @public
    * <p>Source entity ARN.</p>
    */
   SourceEntityArn?: string;
 
   /**
+   * @public
    * <p>Description.</p>
    */
   Description?: string;
@@ -7994,16 +8833,19 @@ export interface DashboardVersionSummary {
  */
 export interface OutputColumn {
   /**
+   * @public
    * <p>A display name for the dataset.</p>
    */
   Name?: string;
 
   /**
+   * @public
    * <p>A description for a column.</p>
    */
   Description?: string;
 
   /**
+   * @public
    * <p>The type.</p>
    */
   Type?: ColumnDataType | string;
@@ -8015,80 +8857,95 @@ export interface OutputColumn {
  */
 export interface DataSet {
   /**
+   * @public
    * <p>The Amazon Resource Name (ARN) of the resource.</p>
    */
   Arn?: string;
 
   /**
+   * @public
    * <p>The ID of the dataset.</p>
    */
   DataSetId?: string;
 
   /**
+   * @public
    * <p>A display name for the dataset.</p>
    */
   Name?: string;
 
   /**
+   * @public
    * <p>The time that this dataset was created.</p>
    */
   CreatedTime?: Date;
 
   /**
+   * @public
    * <p>The last time that this dataset was updated.</p>
    */
   LastUpdatedTime?: Date;
 
   /**
+   * @public
    * <p>Declares the physical tables that are available in the underlying data sources.</p>
    */
   PhysicalTableMap?: Record<string, PhysicalTable>;
 
   /**
+   * @public
    * <p>Configures the combination and transformation of the data from the physical
    *             tables.</p>
    */
   LogicalTableMap?: Record<string, LogicalTable>;
 
   /**
+   * @public
    * <p>The list of columns after all transforms. These columns are available in templates,
    *             analyses, and dashboards.</p>
    */
   OutputColumns?: OutputColumn[];
 
   /**
+   * @public
    * <p>A value that indicates whether you want to import the data into SPICE.</p>
    */
   ImportMode?: DataSetImportMode | string;
 
   /**
+   * @public
    * <p>The amount of SPICE capacity used by this dataset. This is 0 if the dataset isn't
    *             imported into SPICE.</p>
    */
   ConsumedSpiceCapacityInBytes?: number;
 
   /**
+   * @public
    * <p>Groupings of columns that work together in certain Amazon QuickSight features.
    *             Currently, only geospatial hierarchy is supported.</p>
    */
   ColumnGroups?: ColumnGroup[];
 
   /**
+   * @public
    * <p>The folder that contains fields and nested subfolders for your dataset.</p>
    */
   FieldFolders?: Record<string, FieldFolder>;
 
   /**
+   * @public
    * <p>The row-level security configuration for the dataset.</p>
    */
   RowLevelPermissionDataSet?: RowLevelPermissionDataSet;
 
   /**
+   * @public
    * <p>The element you can use to define tags for row-level security.</p>
    */
   RowLevelPermissionTagConfiguration?: RowLevelPermissionTagConfiguration;
 
   /**
+   * @public
    * <p>A set of one or more definitions of a <code>
    *                <a href="https://docs.aws.amazon.com/quicksight/latest/APIReference/API_ColumnLevelPermissionRule.html">ColumnLevelPermissionRule</a>
    *             </code>.</p>
@@ -8096,11 +8953,13 @@ export interface DataSet {
   ColumnLevelPermissionRules?: ColumnLevelPermissionRule[];
 
   /**
+   * @public
    * <p>The usage configuration to apply to child datasets that reference this dataset as a source.</p>
    */
   DataSetUsageConfiguration?: DataSetUsageConfiguration;
 
   /**
+   * @public
    * <p>The parameters that are declared in a dataset.</p>
    */
   DatasetParameters?: DatasetParameter[];
@@ -8145,16 +9004,19 @@ export type LookbackWindowSizeUnit = (typeof LookbackWindowSizeUnit)[keyof typeo
  */
 export interface LookbackWindow {
   /**
+   * @public
    * <p>The name of the lookback window column.</p>
    */
   ColumnName: string | undefined;
 
   /**
+   * @public
    * <p>The lookback window column size.</p>
    */
   Size: number | undefined;
 
   /**
+   * @public
    * <p>The size unit that is used for the lookback window column. Valid values for this structure are <code>HOUR</code>, <code>DAY</code>, and <code>WEEK</code>.</p>
    */
   SizeUnit: LookbackWindowSizeUnit | string | undefined;
@@ -8166,6 +9028,7 @@ export interface LookbackWindow {
  */
 export interface IncrementalRefresh {
   /**
+   * @public
    * <p>The lookback window setup for an incremental refresh configuration.</p>
    */
   LookbackWindow: LookbackWindow | undefined;
@@ -8177,6 +9040,7 @@ export interface IncrementalRefresh {
  */
 export interface RefreshConfiguration {
   /**
+   * @public
    * <p>The incremental refresh for the dataset.</p>
    */
   IncrementalRefresh: IncrementalRefresh | undefined;
@@ -8188,6 +9052,7 @@ export interface RefreshConfiguration {
  */
 export interface DataSetRefreshProperties {
   /**
+   * @public
    * <p>The refresh configuration for a dataset.</p>
    */
   RefreshConfiguration: RefreshConfiguration | undefined;
@@ -8199,6 +9064,7 @@ export interface DataSetRefreshProperties {
  */
 export interface DataSetSearchFilter {
   /**
+   * @public
    * <p>The comparison operator that you want to use as a filter, for example <code>"Operator": "StringEquals"</code>. Valid values are <code>"StringEquals"</code> and <code>"StringLike"</code>.</p>
    *          <p>If you set the operator value to <code>"StringEquals"</code>, you need to provide an ownership related filter in the <code>"NAME"</code> field and the arn of the user or group whose datasets you want to search in the <code>"Value"</code> field. For example, <code>"Name":"QUICKSIGHT_OWNER", "Operator": "StringEquals", "Value": "arn:aws:quicksight:us-east- 1:1:user/default/UserName1"</code>.</p>
    *          <p>If you set the value to <code>"StringLike"</code>, you need to provide the name of the datasets you are searching for. For example, <code>"Name":"DATASET_NAME", "Operator": "StringLike", "Value": "Test"</code>. The <code>"StringLike"</code> operator only supports the <code>NAME</code> value <code>DATASET_NAME</code>.</p>
@@ -8206,6 +9072,7 @@ export interface DataSetSearchFilter {
   Operator: FilterOperator | string | undefined;
 
   /**
+   * @public
    * <p>The name of the value that you want to use as a filter, for example, <code>"Name":
    *             "QUICKSIGHT_OWNER"</code>.</p>
    *          <p>Valid values are defined as follows:</p>
@@ -8239,6 +9106,7 @@ export interface DataSetSearchFilter {
   Name: DataSetFilterAttribute | string | undefined;
 
   /**
+   * @public
    * <p>The value of the named item, in this case <code>QUICKSIGHT_OWNER</code>, that you want
    *             to use as a filter, for example, <code>"Value":
    *             "arn:aws:quicksight:us-east-1:1:user/default/UserName1"</code>.</p>
@@ -8252,46 +9120,55 @@ export interface DataSetSearchFilter {
  */
 export interface DataSetSummary {
   /**
+   * @public
    * <p>The Amazon Resource Name (ARN) of the dataset.</p>
    */
   Arn?: string;
 
   /**
+   * @public
    * <p>The ID of the dataset.</p>
    */
   DataSetId?: string;
 
   /**
+   * @public
    * <p>A display name for the dataset.</p>
    */
   Name?: string;
 
   /**
+   * @public
    * <p>The time that this dataset was created.</p>
    */
   CreatedTime?: Date;
 
   /**
+   * @public
    * <p>The last time that this dataset was updated.</p>
    */
   LastUpdatedTime?: Date;
 
   /**
+   * @public
    * <p>A value that indicates whether you want to import the data into SPICE.</p>
    */
   ImportMode?: DataSetImportMode | string;
 
   /**
+   * @public
    * <p>The row-level security configuration for the dataset.</p>
    */
   RowLevelPermissionDataSet?: RowLevelPermissionDataSet;
 
   /**
+   * @public
    * <p>Whether or not the row level permission tags are applied.</p>
    */
   RowLevelPermissionTagConfigurationApplied?: boolean;
 
   /**
+   * @public
    * <p>A value that indicates if the dataset has column level permission configured.</p>
    */
   ColumnLevelPermissionRulesApplied?: boolean;
@@ -8323,11 +9200,13 @@ export type DataSourceErrorInfoType = (typeof DataSourceErrorInfoType)[keyof typ
  */
 export interface DataSourceErrorInfo {
   /**
+   * @public
    * <p>Error type.</p>
    */
   Type?: DataSourceErrorInfoType | string;
 
   /**
+   * @public
    * <p>Error message.</p>
    */
   Message?: string;
@@ -8339,43 +9218,51 @@ export interface DataSourceErrorInfo {
  */
 export interface DataSource {
   /**
+   * @public
    * <p>The Amazon Resource Name (ARN) of the data source.</p>
    */
   Arn?: string;
 
   /**
+   * @public
    * <p>The ID of the data source. This ID is unique per Amazon Web Services Region for each
    *             Amazon Web Services account.</p>
    */
   DataSourceId?: string;
 
   /**
+   * @public
    * <p>A display name for the data source.</p>
    */
   Name?: string;
 
   /**
+   * @public
    * <p>The type of the data source. This type indicates which database engine the data source
    *             connects to.</p>
    */
   Type?: DataSourceType | string;
 
   /**
+   * @public
    * <p>The HTTP status of the request.</p>
    */
   Status?: ResourceStatus | string;
 
   /**
+   * @public
    * <p>The time that this data source was created.</p>
    */
   CreatedTime?: Date;
 
   /**
+   * @public
    * <p>The last time that this data source was updated.</p>
    */
   LastUpdatedTime?: Date;
 
   /**
+   * @public
    * <p>The parameters that Amazon QuickSight uses to connect to your underlying source. This
    *             is a variant type structure. For this structure to be valid, only one of the attributes
    *             can be non-null.</p>
@@ -8383,6 +9270,7 @@ export interface DataSource {
   DataSourceParameters?: DataSourceParameters;
 
   /**
+   * @public
    * <p>A set of alternate data source parameters that you want to share for the credentials
    *             stored with this data source. The credentials are applied in tandem with the data source
    *             parameters when you copy a data source by using a create or update request. The API
@@ -8396,23 +9284,27 @@ export interface DataSource {
   AlternateDataSourceParameters?: DataSourceParameters[];
 
   /**
+   * @public
    * <p>The VPC connection information. You need to use this parameter only when you want
    *             Amazon QuickSight to use a VPC connection when connecting to your underlying source.</p>
    */
   VpcConnectionProperties?: VpcConnectionProperties;
 
   /**
+   * @public
    * <p>Secure Socket Layer (SSL) properties that apply when Amazon QuickSight connects to your
    *             underlying source.</p>
    */
   SslProperties?: SslProperties;
 
   /**
+   * @public
    * <p>Error information from the last update or the creation of the data source.</p>
    */
   ErrorInfo?: DataSourceErrorInfo;
 
   /**
+   * @public
    * <p>The Amazon Resource Name (ARN) of the secret associated with the data source in Amazon Secrets Manager.</p>
    */
   SecretArn?: string;
@@ -8440,6 +9332,7 @@ export type DataSourceFilterAttribute = (typeof DataSourceFilterAttribute)[keyof
  */
 export interface DataSourceSearchFilter {
   /**
+   * @public
    * <p>The comparison operator that you want to use as a filter, for example <code>"Operator": "StringEquals"</code>. Valid values are <code>"StringEquals"</code> and <code>"StringLike"</code>.</p>
    *          <p>If you set the operator value to <code>"StringEquals"</code>, you need to provide an ownership related filter in the <code>"NAME"</code> field and the arn of the user or group whose data sources you want to search in the <code>"Value"</code> field. For example, <code>"Name":"DIRECT_QUICKSIGHT_OWNER", "Operator": "StringEquals", "Value": "arn:aws:quicksight:us-east-1:1:user/default/UserName1"</code>.</p>
    *          <p>If you set the value to <code>"StringLike"</code>, you need to provide the name of the data sources you are searching for. For example, <code>"Name":"DATASOURCE_NAME", "Operator": "StringLike", "Value": "Test"</code>. The <code>"StringLike"</code> operator only supports the <code>NAME</code> value <code>DATASOURCE_NAME</code>.</p>
@@ -8447,6 +9340,7 @@ export interface DataSourceSearchFilter {
   Operator: FilterOperator | string | undefined;
 
   /**
+   * @public
    * <p>The name of the value that you want to use as a filter, for example, <code>"Name":
    *             "DIRECT_QUICKSIGHT_OWNER"</code>.</p>
    *          <p>Valid values are defined as follows:</p>
@@ -8472,6 +9366,7 @@ export interface DataSourceSearchFilter {
   Name: DataSourceFilterAttribute | string | undefined;
 
   /**
+   * @public
    * <p>The value of the named item, for example <code>DIRECT_QUICKSIGHT_OWNER</code>, that you want
    *             to use as a filter, for example, <code>"Value":
    *             "arn:aws:quicksight:us-east-1:1:user/default/UserName1"</code>.</p>
@@ -8485,31 +9380,37 @@ export interface DataSourceSearchFilter {
  */
 export interface DataSourceSummary {
   /**
+   * @public
    * <p>The arn of the datasource.</p>
    */
   Arn?: string;
 
   /**
+   * @public
    * <p>The unique ID of the data source.</p>
    */
   DataSourceId?: string;
 
   /**
+   * @public
    * <p>The name of the data source.</p>
    */
   Name?: string;
 
   /**
+   * @public
    * <p>The type of the data source.</p>
    */
   Type?: DataSourceType | string;
 
   /**
+   * @public
    * <p>The date and time that the data source was created. This value is expressed in MM-DD-YYYY HH:MM:SS format.</p>
    */
   CreatedTime?: Date;
 
   /**
+   * @public
    * <p>The date and time the data source was last updated. This value is expressed in MM-DD-YYYY HH:MM:SS format.</p>
    */
   LastUpdatedTime?: Date;
@@ -8520,12 +9421,14 @@ export interface DataSourceSummary {
  */
 export interface DeleteAccountCustomizationRequest {
   /**
+   * @public
    * <p>The ID for the Amazon Web Services account that you want to delete Amazon QuickSight customizations from in
    *             this Amazon Web Services Region.</p>
    */
   AwsAccountId: string | undefined;
 
   /**
+   * @public
    * <p>The Amazon QuickSight namespace that you're deleting the customizations from.</p>
    */
   Namespace?: string;
@@ -8536,11 +9439,13 @@ export interface DeleteAccountCustomizationRequest {
  */
 export interface DeleteAccountCustomizationResponse {
   /**
+   * @public
    * <p>The Amazon Web Services request ID for this operation.</p>
    */
   RequestId?: string;
 
   /**
+   * @public
    * <p>The HTTP status of the request.</p>
    */
   Status?: number;

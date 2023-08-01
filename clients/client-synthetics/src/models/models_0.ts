@@ -27,6 +27,7 @@ export type EncryptionMode = (typeof EncryptionMode)[keyof typeof EncryptionMode
  */
 export interface S3EncryptionConfig {
   /**
+   * @public
    * <p> The encryption method to use for artifacts created by this canary. Specify <code>SSE_S3</code> to use
    *          server-side encryption (SSE) with an Amazon S3-managed
    *          key. Specify <code>SSE-KMS</code> to use server-side encryption with a customer-managed KMS key.</p>
@@ -37,6 +38,7 @@ export interface S3EncryptionConfig {
   EncryptionMode?: EncryptionMode | string;
 
   /**
+   * @public
    * <p>The ARN of the customer-managed KMS key to use, if you specify <code>SSE-KMS</code>
    *          for <code>EncryptionMode</code>
    *          </p>
@@ -51,6 +53,7 @@ export interface S3EncryptionConfig {
  */
 export interface ArtifactConfigInput {
   /**
+   * @public
    * <p>A structure that contains the configuration of the encryption-at-rest settings for artifacts that the canary uploads
    *          to Amazon S3.
    *          Artifact encryption functionality is available only for canaries that use Synthetics runtime version
@@ -68,6 +71,7 @@ export interface ArtifactConfigInput {
  */
 export interface ArtifactConfigOutput {
   /**
+   * @public
    * <p>A structure that contains the configuration of encryption settings for canary artifacts that are stored in Amazon S3. </p>
    */
   S3Encryption?: S3EncryptionConfig;
@@ -78,12 +82,14 @@ export interface ArtifactConfigOutput {
  */
 export interface AssociateResourceRequest {
   /**
+   * @public
    * <p>Specifies the group. You can specify the group name, the ARN, or the
    *          group ID as the <code>GroupIdentifier</code>.</p>
    */
   GroupIdentifier: string | undefined;
 
   /**
+   * @public
    * <p>The ARN of the canary that you want to associate with the specified group.</p>
    */
   ResourceArn: string | undefined;
@@ -232,12 +238,14 @@ export class BadRequestException extends __BaseException {
  */
 export interface BaseScreenshot {
   /**
+   * @public
    * <p>The name of the screenshot. This is generated the first time the canary is run after the <code>UpdateCanary</code> operation that
    *       specified for this canary to perform visual monitoring.</p>
    */
   ScreenshotName: string | undefined;
 
   /**
+   * @public
    * <p>Coordinates that define the part of a screen to ignore during screenshot comparisons. To obtain the
    *          coordinates to use here, use the
    *          CloudWatch console to draw the boundaries on the screen. For more information, see
@@ -255,11 +263,13 @@ export interface BaseScreenshot {
  */
 export interface CanaryCodeOutput {
   /**
+   * @public
    * <p>The ARN of the Lambda layer where Synthetics stores the canary script code.</p>
    */
   SourceLocationArn?: string;
 
   /**
+   * @public
    * <p>The entry point to use for the source code when running the canary.</p>
    */
   Handler?: string;
@@ -271,17 +281,20 @@ export interface CanaryCodeOutput {
  */
 export interface CanaryRunConfigOutput {
   /**
+   * @public
    * <p>How long the canary is allowed to run before it must stop.</p>
    */
   TimeoutInSeconds?: number;
 
   /**
+   * @public
    * <p>The maximum amount of memory available to the canary while it is running, in MB. This value
    *          must be a multiple of 64.</p>
    */
   MemoryInMB?: number;
 
   /**
+   * @public
    * <p>Displays whether this canary run used active X-Ray tracing. </p>
    */
   ActiveTracing?: boolean;
@@ -294,6 +307,7 @@ export interface CanaryRunConfigOutput {
  */
 export interface CanaryScheduleOutput {
   /**
+   * @public
    * <p>A <code>rate</code> expression or a <code>cron</code> expression that defines how often the canary is to run.</p>
    *          <p>For a rate expression, The syntax is
    *          <code>rate(<i>number unit</i>)</code>. <i>unit</i>
@@ -312,6 +326,7 @@ export interface CanaryScheduleOutput {
   Expression?: string;
 
   /**
+   * @public
    * <p>How long, in seconds, for the canary to continue making regular runs after it
    *          was created. The runs are performed according to the schedule in the
    *          <code>Expression</code> value.</p>
@@ -370,16 +385,19 @@ export type CanaryStateReasonCode = (typeof CanaryStateReasonCode)[keyof typeof 
  */
 export interface CanaryStatus {
   /**
+   * @public
    * <p>The current state of the canary.</p>
    */
   State?: CanaryState | string;
 
   /**
+   * @public
    * <p>If the canary has insufficient permissions to run, this field provides more details.</p>
    */
   StateReason?: string;
 
   /**
+   * @public
    * <p>If the canary cannot run or has failed, this field displays the reason.</p>
    */
   StateReasonCode?: CanaryStateReasonCode | string;
@@ -391,21 +409,25 @@ export interface CanaryStatus {
  */
 export interface CanaryTimeline {
   /**
+   * @public
    * <p>The date and time the canary was created.</p>
    */
   Created?: Date;
 
   /**
+   * @public
    * <p>The date and time the canary was most recently modified.</p>
    */
   LastModified?: Date;
 
   /**
+   * @public
    * <p>The date and time that the canary's most recent run started.</p>
    */
   LastStarted?: Date;
 
   /**
+   * @public
    * <p>The date and time that the canary's most recent run ended.</p>
    */
   LastStopped?: Date;
@@ -419,11 +441,13 @@ export interface CanaryTimeline {
  */
 export interface VisualReferenceOutput {
   /**
+   * @public
    * <p>An array of screenshots that are used as the baseline for comparisons during visual monitoring.</p>
    */
   BaseScreenshots?: BaseScreenshot[];
 
   /**
+   * @public
    * <p>The ID of the canary run that produced the baseline screenshots
    *          that are used for visual monitoring comparisons by this canary.</p>
    */
@@ -439,16 +463,19 @@ export interface VisualReferenceOutput {
  */
 export interface VpcConfigOutput {
   /**
+   * @public
    * <p>The IDs of the VPC where this canary is to run.</p>
    */
   VpcId?: string;
 
   /**
+   * @public
    * <p>The IDs of the subnets where this canary is to run.</p>
    */
   SubnetIds?: string[];
 
   /**
+   * @public
    * <p>The IDs of the security groups for this canary.</p>
    */
   SecurityGroupIds?: string[];
@@ -460,72 +487,85 @@ export interface VpcConfigOutput {
  */
 export interface Canary {
   /**
+   * @public
    * <p>The unique ID of this canary.</p>
    */
   Id?: string;
 
   /**
+   * @public
    * <p>The name of the canary.</p>
    */
   Name?: string;
 
   /**
+   * @public
    * <p>This structure contains information about the canary's Lambda handler and
    *       where its code is stored by CloudWatch Synthetics.</p>
    */
   Code?: CanaryCodeOutput;
 
   /**
+   * @public
    * <p>The ARN of the IAM role used to run the canary. This role must include <code>lambda.amazonaws.com</code> as a principal in the trust
    *          policy.</p>
    */
   ExecutionRoleArn?: string;
 
   /**
+   * @public
    * <p>A structure that contains information about how often the canary is to run, and when
    *          these runs are to stop.</p>
    */
   Schedule?: CanaryScheduleOutput;
 
   /**
+   * @public
    * <p>A structure that contains information about a canary run.</p>
    */
   RunConfig?: CanaryRunConfigOutput;
 
   /**
+   * @public
    * <p>The number of days to retain data about successful runs of this canary.</p>
    */
   SuccessRetentionPeriodInDays?: number;
 
   /**
+   * @public
    * <p>The number of days to retain data about failed runs of this canary.</p>
    */
   FailureRetentionPeriodInDays?: number;
 
   /**
+   * @public
    * <p>A structure that contains information about the canary's status.</p>
    */
   Status?: CanaryStatus;
 
   /**
+   * @public
    * <p>A structure that contains information about when the canary was created, modified, and
    *          most recently run.</p>
    */
   Timeline?: CanaryTimeline;
 
   /**
+   * @public
    * <p>The location in Amazon S3 where Synthetics stores artifacts from the runs of this
    *          canary. Artifacts include the log file, screenshots, and HAR files.</p>
    */
   ArtifactS3Location?: string;
 
   /**
+   * @public
    * <p>The ARN of the Lambda function that is used as your canary's engine. For more information
    *          about Lambda ARN format, see <a href="https://docs.aws.amazon.com/lambda/latest/dg/lambda-api-permissions-ref.html">Resources and Conditions for Lambda Actions</a>.</p>
    */
   EngineArn?: string;
 
   /**
+   * @public
    * <p>Specifies the runtime version to use for the canary. For more information about
    *          runtime versions, see <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch_Synthetics_Canaries_Library.html">
    *             Canary Runtime Versions</a>.</p>
@@ -533,6 +573,7 @@ export interface Canary {
   RuntimeVersion?: string;
 
   /**
+   * @public
    * <p>If this canary is to test an endpoint in a VPC, this structure contains
    *          information about the subnets and security groups of the VPC endpoint.
    *          For more information, see <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch_Synthetics_Canaries_VPC.html">
@@ -541,17 +582,20 @@ export interface Canary {
   VpcConfig?: VpcConfigOutput;
 
   /**
+   * @public
    * <p>If this canary performs visual monitoring by comparing screenshots, this structure contains the ID of the canary run to use as the baseline for screenshots, and the coordinates
    *       of any parts of the screen to ignore during the visual monitoring comparison.</p>
    */
   VisualReference?: VisualReferenceOutput;
 
   /**
+   * @public
    * <p>The list of key-value pairs that are associated with the canary.</p>
    */
   Tags?: Record<string, string>;
 
   /**
+   * @public
    * <p>A structure that contains the configuration for canary artifacts, including
    *          the encryption-at-rest settings for artifacts that the canary uploads to Amazon S3.</p>
    */
@@ -593,16 +637,19 @@ export type CanaryRunStateReasonCode = (typeof CanaryRunStateReasonCode)[keyof t
  */
 export interface CanaryRunStatus {
   /**
+   * @public
    * <p>The current state of the run.</p>
    */
   State?: CanaryRunState | string;
 
   /**
+   * @public
    * <p>If run of the canary failed, this field contains the reason for the error.</p>
    */
   StateReason?: string;
 
   /**
+   * @public
    * <p>If this value is <code>CANARY_FAILURE</code>, an exception occurred in the
    *          canary code. If this value is <code>EXECUTION_FAILURE</code>, an exception occurred in
    *          CloudWatch Synthetics.</p>
@@ -616,11 +663,13 @@ export interface CanaryRunStatus {
  */
 export interface CanaryRunTimeline {
   /**
+   * @public
    * <p>The start time of the run.</p>
    */
   Started?: Date;
 
   /**
+   * @public
    * <p>The end time of the run.</p>
    */
   Completed?: Date;
@@ -632,26 +681,31 @@ export interface CanaryRunTimeline {
  */
 export interface CanaryRun {
   /**
+   * @public
    * <p>A unique ID that identifies this canary run.</p>
    */
   Id?: string;
 
   /**
+   * @public
    * <p>The name of the canary.</p>
    */
   Name?: string;
 
   /**
+   * @public
    * <p>The status of this run.</p>
    */
   Status?: CanaryRunStatus;
 
   /**
+   * @public
    * <p>A structure that contains the start and end times of this run.</p>
    */
   Timeline?: CanaryRunTimeline;
 
   /**
+   * @public
    * <p>The location where the canary stored artifacts from the run. Artifacts include
    *          the log file, screenshots, and HAR files.</p>
    */
@@ -664,11 +718,13 @@ export interface CanaryRun {
  */
 export interface CanaryLastRun {
   /**
+   * @public
    * <p>The name of the canary.</p>
    */
   CanaryName?: string;
 
   /**
+   * @public
    * <p>The results from this canary's most recent run.</p>
    */
   LastRun?: CanaryRun;
@@ -684,22 +740,26 @@ export interface CanaryLastRun {
  */
 export interface CanaryCodeInput {
   /**
+   * @public
    * <p>If your canary script is located in S3, specify the bucket name here. Do not include <code>s3://</code> as the
    *          start of the bucket name.</p>
    */
   S3Bucket?: string;
 
   /**
+   * @public
    * <p>The S3 key of your script. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/UsingObjects.html">Working with Amazon S3 Objects</a>.</p>
    */
   S3Key?: string;
 
   /**
+   * @public
    * <p>The S3 version ID of your script.</p>
    */
   S3Version?: string;
 
   /**
+   * @public
    * <p>If you input your canary script directly into the canary instead of referring to an S3
    *          location, the value of this parameter is the base64-encoded contents of the .zip file that
    *          contains the script. It must be smaller than 225 Kb.</p>
@@ -709,6 +769,7 @@ export interface CanaryCodeInput {
   ZipFile?: Uint8Array;
 
   /**
+   * @public
    * <p>The entry point to use for the source code when running the canary. For canaries that use the
    *          <code>syn-python-selenium-1.0</code> runtime
    *          or a <code>syn-nodejs.puppeteer</code> runtime earlier than <code>syn-nodejs.puppeteer-3.4</code>,
@@ -732,6 +793,7 @@ export interface CanaryCodeInput {
  */
 export interface CanaryRunConfigInput {
   /**
+   * @public
    * <p>How long the canary is allowed to run before it must stop. You can't set this time to be longer
    *          than the frequency of the runs of this canary.</p>
    *          <p>If you omit this field, the
@@ -740,11 +802,13 @@ export interface CanaryRunConfigInput {
   TimeoutInSeconds?: number;
 
   /**
+   * @public
    * <p>The maximum amount of memory available to the canary while it is running, in MB. This value must be a multiple of 64.</p>
    */
   MemoryInMB?: number;
 
   /**
+   * @public
    * <p>Specifies whether this canary is to use active X-Ray tracing when it runs. Active tracing
    *          enables
    *          this canary run to be displayed in the ServiceLens and X-Ray service maps even if the canary does
@@ -757,6 +821,7 @@ export interface CanaryRunConfigInput {
   ActiveTracing?: boolean;
 
   /**
+   * @public
    * <p>Specifies the keys and values to use for any environment variables
    *       used in the canary script. Use the following format:</p>
    *          <p>\{ "key1" : "value1", "key2" : "value2", ...\}</p>
@@ -780,6 +845,7 @@ export interface CanaryRunConfigInput {
  */
 export interface CanaryScheduleInput {
   /**
+   * @public
    * <p>A <code>rate</code> expression or a <code>cron</code> expression that defines how often the canary is to run.</p>
    *          <p>For a rate expression, The syntax is
    *                <code>rate(<i>number unit</i>)</code>. <i>unit</i>
@@ -798,6 +864,7 @@ export interface CanaryScheduleInput {
   Expression: string | undefined;
 
   /**
+   * @public
    * <p>How long, in seconds, for the canary to continue making regular runs according to
    *          the schedule in the <code>Expression</code> value. If you specify 0, the canary continues
    *          making runs until you stop it. If you omit this field, the default of 0 is used.</p>
@@ -814,11 +881,13 @@ export interface CanaryScheduleInput {
  */
 export interface VpcConfigInput {
   /**
+   * @public
    * <p>The IDs of the subnets where this canary is to run.</p>
    */
   SubnetIds?: string[];
 
   /**
+   * @public
    * <p>The IDs of the security groups for this canary.</p>
    */
   SecurityGroupIds?: string[];
@@ -829,6 +898,7 @@ export interface VpcConfigInput {
  */
 export interface CreateCanaryRequest {
   /**
+   * @public
    * <p>The name for this canary. Be sure to give it a descriptive name
    *          that distinguishes it from other canaries in your account.</p>
    *          <p>Do not include secrets or proprietary information in your canary names. The canary name
@@ -839,6 +909,7 @@ export interface CreateCanaryRequest {
   Name: string | undefined;
 
   /**
+   * @public
    * <p>A structure that includes the entry point from which the canary should start
    *          running your script. If the script is stored in
    *          an S3 bucket, the bucket name, key, and version are also included.
@@ -847,6 +918,7 @@ export interface CreateCanaryRequest {
   Code: CanaryCodeInput | undefined;
 
   /**
+   * @public
    * <p>The location in Amazon S3 where Synthetics stores artifacts from the test runs of this
    *          canary. Artifacts include the log file, screenshots, and HAR files.  The name of the
    *          S3 bucket can't include a period (.).</p>
@@ -854,6 +926,7 @@ export interface CreateCanaryRequest {
   ArtifactS3Location: string | undefined;
 
   /**
+   * @public
    * <p>The ARN of the IAM role to be used to run the canary. This role must already exist,
    *          and must include <code>lambda.amazonaws.com</code> as a principal in the trust
    *          policy. The role must also have the following permissions:</p>
@@ -898,12 +971,14 @@ export interface CreateCanaryRequest {
   ExecutionRoleArn: string | undefined;
 
   /**
+   * @public
    * <p>A structure that contains information about how often the canary is to run and when
    *          these test runs are to stop.</p>
    */
   Schedule: CanaryScheduleInput | undefined;
 
   /**
+   * @public
    * <p>A structure that contains the configuration for individual canary runs,
    *          such as timeout value and environment variables.</p>
    *          <important>
@@ -914,18 +989,21 @@ export interface CreateCanaryRequest {
   RunConfig?: CanaryRunConfigInput;
 
   /**
+   * @public
    * <p>The number of days to retain data about successful runs of this canary. If you omit
    *          this field, the default of 31 days is used. The valid range is 1 to 455 days.</p>
    */
   SuccessRetentionPeriodInDays?: number;
 
   /**
+   * @public
    * <p>The number of days to retain data about failed runs of this canary. If you omit
    *          this field, the default of 31 days is used. The valid range is 1 to 455 days.</p>
    */
   FailureRetentionPeriodInDays?: number;
 
   /**
+   * @public
    * <p>Specifies the runtime version to use for the canary. For a list of valid
    *          runtime versions and more information about
    *          runtime versions, see <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch_Synthetics_Canaries_Library.html">
@@ -934,6 +1012,7 @@ export interface CreateCanaryRequest {
   RuntimeVersion: string | undefined;
 
   /**
+   * @public
    * <p>If this canary is to test an endpoint in a VPC, this structure contains
    *       information about the subnet and security groups of the VPC endpoint.
    *       For more information, see <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch_Synthetics_Canaries_VPC.html">
@@ -942,6 +1021,7 @@ export interface CreateCanaryRequest {
   VpcConfig?: VpcConfigInput;
 
   /**
+   * @public
    * <p>A list of key-value pairs to associate with the canary.
    *          You can associate as many as 50 tags with a canary.</p>
    *          <p>Tags can help you organize and categorize your
@@ -952,6 +1032,7 @@ export interface CreateCanaryRequest {
   Tags?: Record<string, string>;
 
   /**
+   * @public
    * <p>A structure that contains the configuration for canary artifacts, including
    *          the encryption-at-rest settings for artifacts that the canary uploads to Amazon S3.</p>
    */
@@ -963,6 +1044,7 @@ export interface CreateCanaryRequest {
  */
 export interface CreateCanaryResponse {
   /**
+   * @public
    * <p>The full details about the canary you have created.</p>
    */
   Canary?: Canary;
@@ -995,12 +1077,14 @@ export class RequestEntityTooLargeException extends __BaseException {
  */
 export interface CreateGroupRequest {
   /**
+   * @public
    * <p>The name for the group. It can include any Unicode characters.</p>
    *          <p>The names for all groups in your account, across all Regions, must be unique.</p>
    */
   Name: string | undefined;
 
   /**
+   * @public
    * <p>A list of key-value pairs to associate with the group.
    *          You can associate as many as 50 tags with a group.</p>
    *          <p>Tags can help you organize and categorize your
@@ -1017,31 +1101,37 @@ export interface CreateGroupRequest {
  */
 export interface Group {
   /**
+   * @public
    * <p>The unique ID of the group.</p>
    */
   Id?: string;
 
   /**
+   * @public
    * <p>The name of the group.</p>
    */
   Name?: string;
 
   /**
+   * @public
    * <p>The ARN of the group.</p>
    */
   Arn?: string;
 
   /**
+   * @public
    * <p>The list of key-value pairs that are associated with the canary.</p>
    */
   Tags?: Record<string, string>;
 
   /**
+   * @public
    * <p>The date and time that the group was created.</p>
    */
   CreatedTime?: Date;
 
   /**
+   * @public
    * <p>The date and time that the group was most recently updated.</p>
    */
   LastModifiedTime?: Date;
@@ -1052,6 +1142,7 @@ export interface Group {
  */
 export interface CreateGroupResponse {
   /**
+   * @public
    * <p>A structure that contains information about the group that was just created.</p>
    */
   Group?: Group;
@@ -1062,11 +1153,13 @@ export interface CreateGroupResponse {
  */
 export interface DeleteCanaryRequest {
   /**
+   * @public
    * <p>The name of the canary that you want to delete. To find the names of your canaries, use <a href="https://docs.aws.amazon.com/AmazonSynthetics/latest/APIReference/API_DescribeCanaries.html">DescribeCanaries</a>.</p>
    */
   Name: string | undefined;
 
   /**
+   * @public
    * <p>Specifies whether to also delete the Lambda functions and layers used by this canary. The default
    *       is false.</p>
    *          <p>Type: Boolean</p>
@@ -1084,6 +1177,7 @@ export interface DeleteCanaryResponse {}
  */
 export interface DeleteGroupRequest {
   /**
+   * @public
    * <p>Specifies which group to delete. You can specify the group name, the ARN, or the
    *       group ID as the <code>GroupIdentifier</code>.</p>
    */
@@ -1100,6 +1194,7 @@ export interface DeleteGroupResponse {}
  */
 export interface DescribeCanariesRequest {
   /**
+   * @public
    * <p>A token that indicates that there is more data
    *          available. You can use this token in a subsequent operation to retrieve the next
    *          set of results.</p>
@@ -1107,12 +1202,14 @@ export interface DescribeCanariesRequest {
   NextToken?: string;
 
   /**
+   * @public
    * <p>Specify this parameter to limit how many canaries are returned each time you use
    *       the <code>DescribeCanaries</code> operation. If you omit this parameter, the default of 100 is used.</p>
    */
   MaxResults?: number;
 
   /**
+   * @public
    * <p>Use this parameter to return only canaries that match the names that you specify here. You can
    *          specify as many as five canary names.</p>
    *          <p>If you specify this parameter, the operation is successful only if you have authorization to view
@@ -1131,12 +1228,14 @@ export interface DescribeCanariesRequest {
  */
 export interface DescribeCanariesResponse {
   /**
+   * @public
    * <p>Returns an array. Each item in the array contains the full information about
    *          one canary.</p>
    */
   Canaries?: Canary[];
 
   /**
+   * @public
    * <p>A token that indicates that there is more data
    *          available. You can use this token in a subsequent <code>DescribeCanaries</code> operation to retrieve the next
    *          set of results.</p>
@@ -1149,6 +1248,7 @@ export interface DescribeCanariesResponse {
  */
 export interface DescribeCanariesLastRunRequest {
   /**
+   * @public
    * <p>A token that indicates that there is more data
    *          available. You can use this token in a subsequent <code>DescribeCanariesLastRun</code> operation to retrieve the next
    *          set of results.</p>
@@ -1156,12 +1256,14 @@ export interface DescribeCanariesLastRunRequest {
   NextToken?: string;
 
   /**
+   * @public
    * <p>Specify this parameter to limit how many runs are returned each time you use
    *          the <code>DescribeLastRun</code> operation. If you omit this parameter, the default of 100 is used.</p>
    */
   MaxResults?: number;
 
   /**
+   * @public
    * <p>Use this parameter to return only canaries that match the names that you specify here. You can
    *          specify as many as five canary names.</p>
    *          <p>If you specify this parameter, the operation is successful only if you have authorization to view
@@ -1180,12 +1282,14 @@ export interface DescribeCanariesLastRunRequest {
  */
 export interface DescribeCanariesLastRunResponse {
   /**
+   * @public
    * <p>An array that contains the information from the most recent run of each
    *          canary.</p>
    */
   CanariesLastRun?: CanaryLastRun[];
 
   /**
+   * @public
    * <p>A token that indicates that there is more data
    *          available. You can use this token in a subsequent <code>DescribeCanariesLastRun</code> operation to retrieve the next
    *          set of results.</p>
@@ -1198,6 +1302,7 @@ export interface DescribeCanariesLastRunResponse {
  */
 export interface DescribeRuntimeVersionsRequest {
   /**
+   * @public
    * <p>A token that indicates that there is more data
    *          available. You can use this token in a subsequent <code>DescribeRuntimeVersions</code> operation to retrieve the next
    *          set of results.</p>
@@ -1205,6 +1310,7 @@ export interface DescribeRuntimeVersionsRequest {
   NextToken?: string;
 
   /**
+   * @public
    * <p>Specify this parameter to limit how many runs are returned each time you use
    *          the <code>DescribeRuntimeVersions</code> operation. If you omit this parameter, the default of 100 is used.</p>
    */
@@ -1219,6 +1325,7 @@ export interface DescribeRuntimeVersionsRequest {
  */
 export interface RuntimeVersion {
   /**
+   * @public
    * <p>The name of the runtime version. For a list of valid runtime versions,
    *          see <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch_Synthetics_Canaries_Library.html">
    *             Canary Runtime Versions</a>.</p>
@@ -1226,16 +1333,19 @@ export interface RuntimeVersion {
   VersionName?: string;
 
   /**
+   * @public
    * <p>A description of the runtime version, created by Amazon.</p>
    */
   Description?: string;
 
   /**
+   * @public
    * <p>The date that the runtime version was released.</p>
    */
   ReleaseDate?: Date;
 
   /**
+   * @public
    * <p>If this runtime version is deprecated, this value is the date of deprecation.</p>
    */
   DeprecationDate?: Date;
@@ -1246,12 +1356,14 @@ export interface RuntimeVersion {
  */
 export interface DescribeRuntimeVersionsResponse {
   /**
+   * @public
    * <p>An array of objects that display the details about each Synthetics canary runtime
    *          version.</p>
    */
   RuntimeVersions?: RuntimeVersion[];
 
   /**
+   * @public
    * <p>A token that indicates that there is more data
    *          available. You can use this token in a subsequent <code>DescribeRuntimeVersions</code> operation to retrieve the next
    *          set of results.</p>
@@ -1264,12 +1376,14 @@ export interface DescribeRuntimeVersionsResponse {
  */
 export interface DisassociateResourceRequest {
   /**
+   * @public
    * <p>Specifies the group. You can specify the group name, the ARN, or the
    *          group ID as the <code>GroupIdentifier</code>.</p>
    */
   GroupIdentifier: string | undefined;
 
   /**
+   * @public
    * <p>The ARN of the canary that you want to remove from the specified group.</p>
    */
   ResourceArn: string | undefined;
@@ -1285,6 +1399,7 @@ export interface DisassociateResourceResponse {}
  */
 export interface GetCanaryRequest {
   /**
+   * @public
    * <p>The name of the canary that you want details for.</p>
    */
   Name: string | undefined;
@@ -1295,6 +1410,7 @@ export interface GetCanaryRequest {
  */
 export interface GetCanaryResponse {
   /**
+   * @public
    * <p>A structure that contains the full information about the canary.</p>
    */
   Canary?: Canary;
@@ -1305,11 +1421,13 @@ export interface GetCanaryResponse {
  */
 export interface GetCanaryRunsRequest {
   /**
+   * @public
    * <p>The name of the canary that you want to see runs for.</p>
    */
   Name: string | undefined;
 
   /**
+   * @public
    * <p>A token that indicates that there is more data
    *          available. You can use this token in a subsequent <code>GetCanaryRuns</code> operation to retrieve the next
    *          set of results.</p>
@@ -1317,6 +1435,7 @@ export interface GetCanaryRunsRequest {
   NextToken?: string;
 
   /**
+   * @public
    * <p>Specify this parameter to limit how many runs are returned each time you use
    *          the <code>GetCanaryRuns</code> operation. If you omit this parameter, the default of 100 is used.</p>
    */
@@ -1328,12 +1447,14 @@ export interface GetCanaryRunsRequest {
  */
 export interface GetCanaryRunsResponse {
   /**
+   * @public
    * <p>An array of structures. Each structure contains the details of one of the
    *          retrieved canary runs.</p>
    */
   CanaryRuns?: CanaryRun[];
 
   /**
+   * @public
    * <p>A token that indicates that there is more data
    *          available. You can use this token in a subsequent <code>GetCanaryRuns</code>
    *          operation to retrieve the next
@@ -1347,6 +1468,7 @@ export interface GetCanaryRunsResponse {
  */
 export interface GetGroupRequest {
   /**
+   * @public
    * <p>Specifies the group to return information for. You can specify the group name, the ARN, or the
    *          group ID as the <code>GroupIdentifier</code>.</p>
    */
@@ -1358,6 +1480,7 @@ export interface GetGroupRequest {
  */
 export interface GetGroupResponse {
   /**
+   * @public
    * <p>A structure that contains information about the group.</p>
    */
   Group?: Group;
@@ -1369,16 +1492,19 @@ export interface GetGroupResponse {
  */
 export interface GroupSummary {
   /**
+   * @public
    * <p>The unique ID of the group.</p>
    */
   Id?: string;
 
   /**
+   * @public
    * <p>The name of the group.</p>
    */
   Name?: string;
 
   /**
+   * @public
    * <p>The ARN of the group.</p>
    */
   Arn?: string;
@@ -1411,6 +1537,7 @@ export class InternalFailureException extends __BaseException {
  */
 export interface ListAssociatedGroupsRequest {
   /**
+   * @public
    * <p>A token that indicates that there is more data
    *          available. You can use this token in a subsequent operation to retrieve the next
    *          set of results.</p>
@@ -1418,12 +1545,14 @@ export interface ListAssociatedGroupsRequest {
   NextToken?: string;
 
   /**
+   * @public
    * <p>Specify this parameter to limit how many groups are returned each time you use
    *          the <code>ListAssociatedGroups</code> operation. If you omit this parameter, the default of 20 is used.</p>
    */
   MaxResults?: number;
 
   /**
+   * @public
    * <p>The ARN of the canary that you want to view groups for.</p>
    */
   ResourceArn: string | undefined;
@@ -1434,11 +1563,13 @@ export interface ListAssociatedGroupsRequest {
  */
 export interface ListAssociatedGroupsResponse {
   /**
+   * @public
    * <p>An array of structures that contain information about the groups that this canary is associated with.</p>
    */
   Groups?: GroupSummary[];
 
   /**
+   * @public
    * <p>A token that indicates that there is more data
    *          available. You can use this token in a subsequent <code>ListAssociatedGroups</code> operation to retrieve the next
    *          set of results.</p>
@@ -1451,6 +1582,7 @@ export interface ListAssociatedGroupsResponse {
  */
 export interface ListGroupResourcesRequest {
   /**
+   * @public
    * <p>A token that indicates that there is more data
    *          available. You can use this token in a subsequent operation to retrieve the next
    *          set of results.</p>
@@ -1458,12 +1590,14 @@ export interface ListGroupResourcesRequest {
   NextToken?: string;
 
   /**
+   * @public
    * <p>Specify this parameter to limit how many canary ARNs are returned each time you use
    *          the <code>ListGroupResources</code> operation. If you omit this parameter, the default of 20 is used.</p>
    */
   MaxResults?: number;
 
   /**
+   * @public
    * <p>Specifies the group to return information for. You can specify the group name, the ARN, or the
    *          group ID as the <code>GroupIdentifier</code>.</p>
    */
@@ -1475,11 +1609,13 @@ export interface ListGroupResourcesRequest {
  */
 export interface ListGroupResourcesResponse {
   /**
+   * @public
    * <p>An array of ARNs. These ARNs are for the canaries that are associated with the group.</p>
    */
   Resources?: string[];
 
   /**
+   * @public
    * <p>A token that indicates that there is more data
    *          available. You can use this token in a subsequent <code>ListGroupResources</code> operation to retrieve the next
    *          set of results.</p>
@@ -1492,6 +1628,7 @@ export interface ListGroupResourcesResponse {
  */
 export interface ListGroupsRequest {
   /**
+   * @public
    * <p>A token that indicates that there is more data
    *          available. You can use this token in a subsequent operation to retrieve the next
    *          set of results.</p>
@@ -1499,6 +1636,7 @@ export interface ListGroupsRequest {
   NextToken?: string;
 
   /**
+   * @public
    * <p>Specify this parameter to limit how many groups are returned each time you use
    *          the <code>ListGroups</code> operation. If you omit this parameter, the default of 20 is used.</p>
    */
@@ -1510,11 +1648,13 @@ export interface ListGroupsRequest {
  */
 export interface ListGroupsResponse {
   /**
+   * @public
    * <p>An array of structures that each contain information about one group.</p>
    */
   Groups?: GroupSummary[];
 
   /**
+   * @public
    * <p>A token that indicates that there is more data
    *          available. You can use this token in a subsequent <code>ListGroups</code> operation to retrieve the next
    *          set of results.</p>
@@ -1527,6 +1667,7 @@ export interface ListGroupsResponse {
  */
 export interface ListTagsForResourceRequest {
   /**
+   * @public
    * <p>The ARN of the canary or group that you want to view tags for.</p>
    *          <p>The ARN format of a canary is
    *                <code>arn:aws:synthetics:<i>Region</i>:<i>account-id</i>:canary:<i>canary-name</i>
@@ -1544,6 +1685,7 @@ export interface ListTagsForResourceRequest {
  */
 export interface ListTagsForResourceResponse {
   /**
+   * @public
    * <p>The list of tag keys and values associated with the resource that you specified.</p>
    */
   Tags?: Record<string, string>;
@@ -1598,6 +1740,7 @@ export class TooManyRequestsException extends __BaseException {
  */
 export interface StartCanaryRequest {
   /**
+   * @public
    * <p>The name of the canary that you want to run. To find
    *          canary names, use <a href="https://docs.aws.amazon.com/AmazonSynthetics/latest/APIReference/API_DescribeCanaries.html">DescribeCanaries</a>.</p>
    */
@@ -1614,6 +1757,7 @@ export interface StartCanaryResponse {}
  */
 export interface StopCanaryRequest {
   /**
+   * @public
    * <p>The name of the canary that you want to stop. To find the names of your
    *          canaries, use <a href="https://docs.aws.amazon.com/AmazonSynthetics/latest/APIReference/API_DescribeCanaries.html">ListCanaries</a>.</p>
    */
@@ -1630,6 +1774,7 @@ export interface StopCanaryResponse {}
  */
 export interface TagResourceRequest {
   /**
+   * @public
    * <p>The ARN of the canary or group that you're adding tags to.</p>
    *          <p>The ARN format of a canary is
    * <code>arn:aws:synthetics:<i>Region</i>:<i>account-id</i>:canary:<i>canary-name</i>
@@ -1642,6 +1787,7 @@ export interface TagResourceRequest {
   ResourceArn: string | undefined;
 
   /**
+   * @public
    * <p>The list of key-value pairs to associate with the resource.</p>
    */
   Tags: Record<string, string> | undefined;
@@ -1657,6 +1803,7 @@ export interface TagResourceResponse {}
  */
 export interface UntagResourceRequest {
   /**
+   * @public
    * <p>The ARN of the canary or group that you're removing tags from.</p>
    *          <p>The ARN format of a canary is
    *                <code>arn:aws:synthetics:<i>Region</i>:<i>account-id</i>:canary:<i>canary-name</i>
@@ -1669,6 +1816,7 @@ export interface UntagResourceRequest {
   ResourceArn: string | undefined;
 
   /**
+   * @public
    * <p>The list of tag keys to remove from the resource.</p>
    */
   TagKeys: string[] | undefined;
@@ -1692,12 +1840,14 @@ export interface UntagResourceResponse {}
  */
 export interface VisualReferenceInput {
   /**
+   * @public
    * <p>An array of screenshots that will be used as the baseline for visual monitoring in future runs of this canary. If there is a screenshot that you don't want to be used for
    *       visual monitoring, remove it from this array.</p>
    */
   BaseScreenshots?: BaseScreenshot[];
 
   /**
+   * @public
    * <p>Specifies which canary run to use the screenshots from as the baseline for future visual monitoring with this canary. Valid values are
    *          <code>nextrun</code> to use the screenshots from the next run after this update is made, <code>lastrun</code> to use the screenshots from the most recent run
    *          before this update was made, or the value of <code>Id</code> in the <a href="https://docs.aws.amazon.com/AmazonSynthetics/latest/APIReference/API_CanaryRun.html">
@@ -1711,6 +1861,7 @@ export interface VisualReferenceInput {
  */
 export interface UpdateCanaryRequest {
   /**
+   * @public
    * <p>The name of the canary that you want to update. To find the names of your
    *          canaries, use <a href="https://docs.aws.amazon.com/AmazonSynthetics/latest/APIReference/API_DescribeCanaries.html">DescribeCanaries</a>.</p>
    *          <p>You cannot change the name of a canary that has already been created.</p>
@@ -1718,6 +1869,7 @@ export interface UpdateCanaryRequest {
   Name: string | undefined;
 
   /**
+   * @public
    * <p>A structure that includes the entry point from which the canary should start
    *          running your script. If the script is stored in
    *          an S3 bucket, the bucket name, key, and version are also included.
@@ -1726,6 +1878,7 @@ export interface UpdateCanaryRequest {
   Code?: CanaryCodeInput;
 
   /**
+   * @public
    * <p>The ARN of the IAM role to be used to run the canary. This role must already exist,
    *          and must include <code>lambda.amazonaws.com</code> as a principal in the trust
    *          policy. The role must also have the following permissions:</p>
@@ -1770,6 +1923,7 @@ export interface UpdateCanaryRequest {
   ExecutionRoleArn?: string;
 
   /**
+   * @public
    * <p>Specifies the runtime version to use for the canary.
    *          For a list of valid runtime versions and for more information about
    *          runtime versions, see <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch_Synthetics_Canaries_Library.html">
@@ -1778,12 +1932,14 @@ export interface UpdateCanaryRequest {
   RuntimeVersion?: string;
 
   /**
+   * @public
    * <p>A structure that contains information about how often the canary is to run, and when
    *          these runs are to stop.</p>
    */
   Schedule?: CanaryScheduleInput;
 
   /**
+   * @public
    * <p>A structure that contains the timeout value that is used for each individual run of the
    *          canary.</p>
    *          <important>
@@ -1794,16 +1950,19 @@ export interface UpdateCanaryRequest {
   RunConfig?: CanaryRunConfigInput;
 
   /**
+   * @public
    * <p>The number of days to retain data about successful runs of this canary.</p>
    */
   SuccessRetentionPeriodInDays?: number;
 
   /**
+   * @public
    * <p>The number of days to retain data about failed runs of this canary.</p>
    */
   FailureRetentionPeriodInDays?: number;
 
   /**
+   * @public
    * <p>If this canary is to test an endpoint in a VPC, this structure contains
    *          information about the subnet and security groups of the VPC endpoint.
    *          For more information, see <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch_Synthetics_Canaries_VPC.html">
@@ -1812,6 +1971,7 @@ export interface UpdateCanaryRequest {
   VpcConfig?: VpcConfigInput;
 
   /**
+   * @public
    * <p>Defines the screenshots to use as the baseline for comparisons during visual monitoring comparisons during future runs of this canary. If you omit this
    *       parameter, no changes are made to any baseline screenshots that the canary might be using already.</p>
    *          <p>Visual monitoring is supported only on canaries running the <b>syn-puppeteer-node-3.2</b>
@@ -1823,6 +1983,7 @@ export interface UpdateCanaryRequest {
   VisualReference?: VisualReferenceInput;
 
   /**
+   * @public
    * <p>The location in Amazon S3 where Synthetics stores artifacts from the test runs of this canary.
    *          Artifacts include the log file, screenshots, and HAR files. The name of the
    *          S3 bucket can't include a period (.).</p>
@@ -1830,6 +1991,7 @@ export interface UpdateCanaryRequest {
   ArtifactS3Location?: string;
 
   /**
+   * @public
    * <p>A structure that contains the configuration for canary artifacts,
    *          including the encryption-at-rest settings for artifacts that
    *          the canary uploads to Amazon S3.</p>

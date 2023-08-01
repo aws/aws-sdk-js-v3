@@ -196,16 +196,19 @@ export class TooManyRequestsException extends __BaseException {
  */
 export interface DeleteServiceQuotaIncreaseRequestFromTemplateRequest {
   /**
+   * @public
    * <p>The service identifier.</p>
    */
   ServiceCode: string | undefined;
 
   /**
+   * @public
    * <p>The quota identifier.</p>
    */
   QuotaCode: string | undefined;
 
   /**
+   * @public
    * <p>The AWS Region.</p>
    */
   AwsRegion: string | undefined;
@@ -314,6 +317,7 @@ export type ErrorCode = (typeof ErrorCode)[keyof typeof ErrorCode];
  */
 export interface ErrorReason {
   /**
+   * @public
    * <p>Service Quotas returns the following error values:</p>
    *          <ul>
    *             <li>
@@ -341,6 +345,7 @@ export interface ErrorReason {
   ErrorCode?: ErrorCode | string;
 
   /**
+   * @public
    * <p>The error message.</p>
    */
   ErrorMessage?: string;
@@ -371,6 +376,7 @@ export type ServiceQuotaTemplateAssociationStatus =
  */
 export interface GetAssociationForServiceQuotaTemplateResponse {
   /**
+   * @public
    * <p>The association status. If the status is <code>ASSOCIATED</code>, the quota increase
    *       requests in the template are automatically applied to new accounts in your
    *       organization.</p>
@@ -383,11 +389,13 @@ export interface GetAssociationForServiceQuotaTemplateResponse {
  */
 export interface GetAWSDefaultServiceQuotaRequest {
   /**
+   * @public
    * <p>The service identifier.</p>
    */
   ServiceCode: string | undefined;
 
   /**
+   * @public
    * <p>The quota identifier.</p>
    */
   QuotaCode: string | undefined;
@@ -418,11 +426,13 @@ export type PeriodUnit = (typeof PeriodUnit)[keyof typeof PeriodUnit];
  */
 export interface QuotaPeriod {
   /**
+   * @public
    * <p>The value.</p>
    */
   PeriodValue?: number;
 
   /**
+   * @public
    * <p>The time unit.</p>
    */
   PeriodUnit?: PeriodUnit | string;
@@ -434,22 +444,26 @@ export interface QuotaPeriod {
  */
 export interface MetricInfo {
   /**
+   * @public
    * <p>The namespace of the metric.</p>
    */
   MetricNamespace?: string;
 
   /**
+   * @public
    * <p>The name of the metric.</p>
    */
   MetricName?: string;
 
   /**
+   * @public
    * <p>The metric dimension. This is a name/value pair that is part of the identity of a
    *       metric.</p>
    */
   MetricDimensions?: Record<string, string>;
 
   /**
+   * @public
    * <p>The metric statistic that we recommend you use when determining quota usage.</p>
    */
   MetricStatisticRecommendation?: string;
@@ -461,61 +475,73 @@ export interface MetricInfo {
  */
 export interface ServiceQuota {
   /**
+   * @public
    * <p>The service identifier.</p>
    */
   ServiceCode?: string;
 
   /**
+   * @public
    * <p>The service name.</p>
    */
   ServiceName?: string;
 
   /**
+   * @public
    * <p>The Amazon Resource Name (ARN) of the quota.</p>
    */
   QuotaArn?: string;
 
   /**
+   * @public
    * <p>The quota identifier.</p>
    */
   QuotaCode?: string;
 
   /**
+   * @public
    * <p>The quota name.</p>
    */
   QuotaName?: string;
 
   /**
+   * @public
    * <p>The quota value.</p>
    */
   Value?: number;
 
   /**
+   * @public
    * <p>The unit of measurement.</p>
    */
   Unit?: string;
 
   /**
+   * @public
    * <p>Indicates whether the quota value can be increased.</p>
    */
   Adjustable?: boolean;
 
   /**
+   * @public
    * <p>Indicates whether the quota is global.</p>
    */
   GlobalQuota?: boolean;
 
   /**
+   * @public
    * <p>Information about the measurement.</p>
    */
   UsageMetric?: MetricInfo;
 
   /**
+   * @public
    * <p>The period of time.</p>
    */
   Period?: QuotaPeriod;
 
   /**
+   * @public
    * <p>The error code and error reason.</p>
    */
   ErrorReason?: ErrorReason;
@@ -526,6 +552,7 @@ export interface ServiceQuota {
  */
 export interface GetAWSDefaultServiceQuotaResponse {
   /**
+   * @public
    * <p>Information about the quota.</p>
    */
   Quota?: ServiceQuota;
@@ -536,6 +563,7 @@ export interface GetAWSDefaultServiceQuotaResponse {
  */
 export interface GetRequestedServiceQuotaChangeRequest {
   /**
+   * @public
    * <p>The ID of the quota increase request.</p>
    */
   RequestId: string | undefined;
@@ -564,72 +592,86 @@ export type RequestStatus = (typeof RequestStatus)[keyof typeof RequestStatus];
  */
 export interface RequestedServiceQuotaChange {
   /**
+   * @public
    * <p>The unique identifier.</p>
    */
   Id?: string;
 
   /**
+   * @public
    * <p>The case ID.</p>
    */
   CaseId?: string;
 
   /**
+   * @public
    * <p>The service identifier.</p>
    */
   ServiceCode?: string;
 
   /**
+   * @public
    * <p>The service name.</p>
    */
   ServiceName?: string;
 
   /**
+   * @public
    * <p>The quota identifier.</p>
    */
   QuotaCode?: string;
 
   /**
+   * @public
    * <p>The quota name.</p>
    */
   QuotaName?: string;
 
   /**
+   * @public
    * <p>The new, increased value for the quota.</p>
    */
   DesiredValue?: number;
 
   /**
+   * @public
    * <p>The state of the quota increase request.</p>
    */
   Status?: RequestStatus | string;
 
   /**
+   * @public
    * <p>The date and time when the quota increase request was received and the case ID was
    *       created.</p>
    */
   Created?: Date;
 
   /**
+   * @public
    * <p>The date and time of the most recent change.</p>
    */
   LastUpdated?: Date;
 
   /**
+   * @public
    * <p>The IAM identity of the requester.</p>
    */
   Requester?: string;
 
   /**
+   * @public
    * <p>The Amazon Resource Name (ARN) of the quota.</p>
    */
   QuotaArn?: string;
 
   /**
+   * @public
    * <p>Indicates whether the quota is global.</p>
    */
   GlobalQuota?: boolean;
 
   /**
+   * @public
    * <p>The unit of measurement.</p>
    */
   Unit?: string;
@@ -640,6 +682,7 @@ export interface RequestedServiceQuotaChange {
  */
 export interface GetRequestedServiceQuotaChangeResponse {
   /**
+   * @public
    * <p>Information about the quota increase request.</p>
    */
   RequestedQuota?: RequestedServiceQuotaChange;
@@ -650,11 +693,13 @@ export interface GetRequestedServiceQuotaChangeResponse {
  */
 export interface GetServiceQuotaRequest {
   /**
+   * @public
    * <p>The service identifier.</p>
    */
   ServiceCode: string | undefined;
 
   /**
+   * @public
    * <p>The quota identifier.</p>
    */
   QuotaCode: string | undefined;
@@ -665,6 +710,7 @@ export interface GetServiceQuotaRequest {
  */
 export interface GetServiceQuotaResponse {
   /**
+   * @public
    * <p>Information about the quota.</p>
    */
   Quota?: ServiceQuota;
@@ -675,16 +721,19 @@ export interface GetServiceQuotaResponse {
  */
 export interface GetServiceQuotaIncreaseRequestFromTemplateRequest {
   /**
+   * @public
    * <p>The service identifier.</p>
    */
   ServiceCode: string | undefined;
 
   /**
+   * @public
    * <p>The quota identifier.</p>
    */
   QuotaCode: string | undefined;
 
   /**
+   * @public
    * <p>The AWS Region.</p>
    */
   AwsRegion: string | undefined;
@@ -696,41 +745,49 @@ export interface GetServiceQuotaIncreaseRequestFromTemplateRequest {
  */
 export interface ServiceQuotaIncreaseRequestInTemplate {
   /**
+   * @public
    * <p>The service identifier.</p>
    */
   ServiceCode?: string;
 
   /**
+   * @public
    * <p>The service name.</p>
    */
   ServiceName?: string;
 
   /**
+   * @public
    * <p>The quota identifier.</p>
    */
   QuotaCode?: string;
 
   /**
+   * @public
    * <p>The quota name.</p>
    */
   QuotaName?: string;
 
   /**
+   * @public
    * <p>The new, increased value of the quota.</p>
    */
   DesiredValue?: number;
 
   /**
+   * @public
    * <p>The AWS Region.</p>
    */
   AwsRegion?: string;
 
   /**
+   * @public
    * <p>The unit of measurement.</p>
    */
   Unit?: string;
 
   /**
+   * @public
    * <p>Indicates whether the quota is global.</p>
    */
   GlobalQuota?: boolean;
@@ -741,6 +798,7 @@ export interface ServiceQuotaIncreaseRequestInTemplate {
  */
 export interface GetServiceQuotaIncreaseRequestFromTemplateResponse {
   /**
+   * @public
    * <p>Information about the quota increase request.</p>
    */
   ServiceQuotaIncreaseRequestInTemplate?: ServiceQuotaIncreaseRequestInTemplate;
@@ -752,6 +810,7 @@ export interface GetServiceQuotaIncreaseRequestFromTemplateResponse {
  */
 export interface Tag {
   /**
+   * @public
    * <p>A string that contains a tag key. The string length should be between 1 and 128
    *       characters. Valid characters include a-z, A-Z, 0-9, space, and the special characters _ - . :
    *       / = + @.</p>
@@ -759,6 +818,7 @@ export interface Tag {
   Key: string | undefined;
 
   /**
+   * @public
    * <p>A string that contains an optional tag value. The string length should be between 0 and
    *       256 characters. Valid characters include a-z, A-Z, 0-9, space, and the special characters _ -
    *       . : / = + @.</p>
@@ -815,16 +875,19 @@ export class InvalidResourceStateException extends __BaseException {
  */
 export interface ListAWSDefaultServiceQuotasRequest {
   /**
+   * @public
    * <p>The service identifier.</p>
    */
   ServiceCode: string | undefined;
 
   /**
+   * @public
    * <p>The token for the next page of results.</p>
    */
   NextToken?: string;
 
   /**
+   * @public
    * <p>The maximum number of results to return with a single call. To retrieve the remaining
    *       results, if any, make another call with the token returned from this call.</p>
    */
@@ -836,12 +899,14 @@ export interface ListAWSDefaultServiceQuotasRequest {
  */
 export interface ListAWSDefaultServiceQuotasResponse {
   /**
+   * @public
    * <p>The token to use to retrieve the next page of results. This value is null when there are
    *       no more results to return.</p>
    */
   NextToken?: string;
 
   /**
+   * @public
    * <p>Information about the quotas.</p>
    */
   Quotas?: ServiceQuota[];
@@ -852,21 +917,25 @@ export interface ListAWSDefaultServiceQuotasResponse {
  */
 export interface ListRequestedServiceQuotaChangeHistoryRequest {
   /**
+   * @public
    * <p>The service identifier.</p>
    */
   ServiceCode?: string;
 
   /**
+   * @public
    * <p>The status of the quota increase request.</p>
    */
   Status?: RequestStatus | string;
 
   /**
+   * @public
    * <p>The token for the next page of results.</p>
    */
   NextToken?: string;
 
   /**
+   * @public
    * <p>The maximum number of results to return with a single call. To retrieve the remaining
    *       results, if any, make another call with the token returned from this call.</p>
    */
@@ -878,12 +947,14 @@ export interface ListRequestedServiceQuotaChangeHistoryRequest {
  */
 export interface ListRequestedServiceQuotaChangeHistoryResponse {
   /**
+   * @public
    * <p>The token to use to retrieve the next page of results. This value is null when there are
    *       no more results to return.</p>
    */
   NextToken?: string;
 
   /**
+   * @public
    * <p>Information about the quota increase requests.</p>
    */
   RequestedQuotas?: RequestedServiceQuotaChange[];
@@ -894,26 +965,31 @@ export interface ListRequestedServiceQuotaChangeHistoryResponse {
  */
 export interface ListRequestedServiceQuotaChangeHistoryByQuotaRequest {
   /**
+   * @public
    * <p>The service identifier.</p>
    */
   ServiceCode: string | undefined;
 
   /**
+   * @public
    * <p>The quota identifier.</p>
    */
   QuotaCode: string | undefined;
 
   /**
+   * @public
    * <p>The status value of the quota increase request.</p>
    */
   Status?: RequestStatus | string;
 
   /**
+   * @public
    * <p>The token for the next page of results.</p>
    */
   NextToken?: string;
 
   /**
+   * @public
    * <p>The maximum number of results to return with a single call. To retrieve the remaining
    *       results, if any, make another call with the token returned from this call.</p>
    */
@@ -925,12 +1001,14 @@ export interface ListRequestedServiceQuotaChangeHistoryByQuotaRequest {
  */
 export interface ListRequestedServiceQuotaChangeHistoryByQuotaResponse {
   /**
+   * @public
    * <p>The token to use to retrieve the next page of results. This value is null when there are
    *       no more results to return.</p>
    */
   NextToken?: string;
 
   /**
+   * @public
    * <p>Information about the quota increase requests.</p>
    */
   RequestedQuotas?: RequestedServiceQuotaChange[];
@@ -941,21 +1019,25 @@ export interface ListRequestedServiceQuotaChangeHistoryByQuotaResponse {
  */
 export interface ListServiceQuotaIncreaseRequestsInTemplateRequest {
   /**
+   * @public
    * <p>The service identifier.</p>
    */
   ServiceCode?: string;
 
   /**
+   * @public
    * <p>The AWS Region.</p>
    */
   AwsRegion?: string;
 
   /**
+   * @public
    * <p>The token for the next page of results.</p>
    */
   NextToken?: string;
 
   /**
+   * @public
    * <p>The maximum number of results to return with a single call. To retrieve the remaining
    *       results, if any, make another call with the token returned from this call.</p>
    */
@@ -967,11 +1049,13 @@ export interface ListServiceQuotaIncreaseRequestsInTemplateRequest {
  */
 export interface ListServiceQuotaIncreaseRequestsInTemplateResponse {
   /**
+   * @public
    * <p>Information about the quota increase requests.</p>
    */
   ServiceQuotaIncreaseRequestInTemplateList?: ServiceQuotaIncreaseRequestInTemplate[];
 
   /**
+   * @public
    * <p>The token to use to retrieve the next page of results. This value is null when there are
    *       no more results to return.</p>
    */
@@ -983,16 +1067,19 @@ export interface ListServiceQuotaIncreaseRequestsInTemplateResponse {
  */
 export interface ListServiceQuotasRequest {
   /**
+   * @public
    * <p>The service identifier.</p>
    */
   ServiceCode: string | undefined;
 
   /**
+   * @public
    * <p>The token for the next page of results.</p>
    */
   NextToken?: string;
 
   /**
+   * @public
    * <p>The maximum number of results to return with a single call. To retrieve the remaining
    *       results, if any, make another call with the token returned from this call.</p>
    */
@@ -1004,12 +1091,14 @@ export interface ListServiceQuotasRequest {
  */
 export interface ListServiceQuotasResponse {
   /**
+   * @public
    * <p>The token to use to retrieve the next page of results. This value is null when there are
    *       no more results to return.</p>
    */
   NextToken?: string;
 
   /**
+   * @public
    * <p>Information about the quotas.</p>
    */
   Quotas?: ServiceQuota[];
@@ -1020,11 +1109,13 @@ export interface ListServiceQuotasResponse {
  */
 export interface ListServicesRequest {
   /**
+   * @public
    * <p>The token for the next page of results.</p>
    */
   NextToken?: string;
 
   /**
+   * @public
    * <p>The maximum number of results to return with a single call. To retrieve the remaining
    *       results, if any, make another call with the token returned from this call.</p>
    */
@@ -1037,11 +1128,13 @@ export interface ListServicesRequest {
  */
 export interface ServiceInfo {
   /**
+   * @public
    * <p>The service identifier.</p>
    */
   ServiceCode?: string;
 
   /**
+   * @public
    * <p>The service name.</p>
    */
   ServiceName?: string;
@@ -1052,12 +1145,14 @@ export interface ServiceInfo {
  */
 export interface ListServicesResponse {
   /**
+   * @public
    * <p>The token to use to retrieve the next page of results. This value is null when there are
    *       no more results to return.</p>
    */
   NextToken?: string;
 
   /**
+   * @public
    * <p>Information about the services.</p>
    */
   Services?: ServiceInfo[];
@@ -1068,6 +1163,7 @@ export interface ListServicesResponse {
  */
 export interface ListTagsForResourceRequest {
   /**
+   * @public
    * <p>The Amazon Resource Name (ARN) for the applied quota for which you want to list tags. You
    *       can get this information by using the Service Quotas console, or by listing the quotas using the
    *         <a href="https://docs.aws.amazon.com/cli/latest/reference/service-quotas/list-service-quotas.html">list-service-quotas</a> AWS CLI command or the <a href="https://docs.aws.amazon.com/servicequotas/2019-06-24/apireference/API_ListServiceQuotas.html">ListServiceQuotas</a> AWS API operation.</p>
@@ -1080,6 +1176,7 @@ export interface ListTagsForResourceRequest {
  */
 export interface ListTagsForResourceResponse {
   /**
+   * @public
    * <p>A complex data type that contains zero or more tag elements.</p>
    */
   Tags?: Tag[];
@@ -1090,21 +1187,25 @@ export interface ListTagsForResourceResponse {
  */
 export interface PutServiceQuotaIncreaseRequestIntoTemplateRequest {
   /**
+   * @public
    * <p>The quota identifier.</p>
    */
   QuotaCode: string | undefined;
 
   /**
+   * @public
    * <p>The service identifier.</p>
    */
   ServiceCode: string | undefined;
 
   /**
+   * @public
    * <p>The AWS Region.</p>
    */
   AwsRegion: string | undefined;
 
   /**
+   * @public
    * <p>The new, increased value for the quota.</p>
    */
   DesiredValue: number | undefined;
@@ -1115,6 +1216,7 @@ export interface PutServiceQuotaIncreaseRequestIntoTemplateRequest {
  */
 export interface PutServiceQuotaIncreaseRequestIntoTemplateResponse {
   /**
+   * @public
    * <p>Information about the quota increase request.</p>
    */
   ServiceQuotaIncreaseRequestInTemplate?: ServiceQuotaIncreaseRequestInTemplate;
@@ -1148,16 +1250,19 @@ export class QuotaExceededException extends __BaseException {
  */
 export interface RequestServiceQuotaIncreaseRequest {
   /**
+   * @public
    * <p>The service identifier.</p>
    */
   ServiceCode: string | undefined;
 
   /**
+   * @public
    * <p>The quota identifier.</p>
    */
   QuotaCode: string | undefined;
 
   /**
+   * @public
    * <p>The new, increased value for the quota.</p>
    */
   DesiredValue: number | undefined;
@@ -1168,6 +1273,7 @@ export interface RequestServiceQuotaIncreaseRequest {
  */
 export interface RequestServiceQuotaIncreaseResponse {
   /**
+   * @public
    * <p>Information about the quota increase request.</p>
    */
   RequestedQuota?: RequestedServiceQuotaChange;
@@ -1222,12 +1328,14 @@ export class TagPolicyViolationException extends __BaseException {
  */
 export interface TagResourceRequest {
   /**
+   * @public
    * <p>The Amazon Resource Name (ARN) for the applied quota. You can get this information by
    *       using the Service Quotas console, or by listing the quotas using the <a href="https://docs.aws.amazon.com/cli/latest/reference/service-quotas/list-service-quotas.html">list-service-quotas</a> AWS CLI command or the <a href="https://docs.aws.amazon.com/servicequotas/2019-06-24/apireference/API_ListServiceQuotas.html">ListServiceQuotas</a> AWS API operation.</p>
    */
   ResourceARN: string | undefined;
 
   /**
+   * @public
    * <p>The tags that you want to add to the resource.</p>
    */
   Tags: Tag[] | undefined;
@@ -1267,12 +1375,14 @@ export class TooManyTagsException extends __BaseException {
  */
 export interface UntagResourceRequest {
   /**
+   * @public
    * <p>The Amazon Resource Name (ARN) for the applied quota that you want to untag. You can get
    *       this information by using the Service Quotas console, or by listing the quotas using the <a href="https://docs.aws.amazon.com/cli/latest/reference/service-quotas/list-service-quotas.html">list-service-quotas</a> AWS CLI command or the <a href="https://docs.aws.amazon.com/servicequotas/2019-06-24/apireference/API_ListServiceQuotas.html">ListServiceQuotas</a> AWS API operation.</p>
    */
   ResourceARN: string | undefined;
 
   /**
+   * @public
    * <p>The keys of the tags that you want to remove from the resource.</p>
    */
   TagKeys: string[] | undefined;

@@ -70,6 +70,7 @@ export class InvalidArgumentException extends __BaseException {
  */
 export interface JoinStorageSessionInput {
   /**
+   * @public
    * <p>
    *       The Amazon Resource Name (ARN) of the signaling channel.
    *     </p>
