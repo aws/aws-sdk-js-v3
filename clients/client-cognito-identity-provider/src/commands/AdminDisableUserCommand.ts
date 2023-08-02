@@ -45,9 +45,29 @@ export interface AdminDisableUserCommandOutput extends AdminDisableUserResponse,
 
 /**
  * @public
- * <p>Deactivates a user and revokes all access tokens for the user. A deactivated user can't sign in,
- *             but still appears in the responses to <code>GetUser</code> and <code>ListUsers</code> API requests.</p>
- *          <p>You must make this API request with Amazon Web Services credentials that have <code>cognito-idp:AdminDisableUser</code> permissions.</p>
+ * <p>Deactivates a user and revokes all access tokens for the user. A deactivated user
+ *             can't sign in, but still appears in the responses to <code>GetUser</code> and
+ *                 <code>ListUsers</code> API requests.</p>
+ *          <note>
+ *             <p>Amazon Cognito evaluates Identity and Access Management (IAM) policies in requests for this API operation. For
+ *             this operation, you must use IAM credentials to authorize requests, and you must
+ *             grant yourself the corresponding IAM permission in a policy.</p>
+ *             <p class="title">
+ *                <b>Learn more</b>
+ *             </p>
+ *             <ul>
+ *                <li>
+ *                   <p>
+ *                      <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_aws-signing.html">Signing Amazon Web Services API Requests</a>
+ *                   </p>
+ *                </li>
+ *                <li>
+ *                   <p>
+ *                      <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/user-pools-API-operations.html">Using the Amazon Cognito user pools API and user pool endpoints</a>
+ *                   </p>
+ *                </li>
+ *             </ul>
+ *          </note>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

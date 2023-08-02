@@ -190,6 +190,10 @@ import {
   GetIdentityProviderByIdentifierCommandOutput,
 } from "../commands/GetIdentityProviderByIdentifierCommand";
 import {
+  GetLogDeliveryConfigurationCommandInput,
+  GetLogDeliveryConfigurationCommandOutput,
+} from "../commands/GetLogDeliveryConfigurationCommand";
+import {
   GetSigningCertificateCommandInput,
   GetSigningCertificateCommandOutput,
 } from "../commands/GetSigningCertificateCommand";
@@ -236,6 +240,10 @@ import {
   RespondToAuthChallengeCommandOutput,
 } from "../commands/RespondToAuthChallengeCommand";
 import { RevokeTokenCommandInput, RevokeTokenCommandOutput } from "../commands/RevokeTokenCommand";
+import {
+  SetLogDeliveryConfigurationCommandInput,
+  SetLogDeliveryConfigurationCommandOutput,
+} from "../commands/SetLogDeliveryConfigurationCommand";
 import {
   SetRiskConfigurationCommandInput,
   SetRiskConfigurationCommandOutput,
@@ -338,6 +346,7 @@ import {
   AttributeType,
   AuthEventType,
   ChangePasswordRequest,
+  CloudWatchLogsConfigurationType,
   CodeDeliveryFailureException,
   CodeMismatchException,
   CompromisedCredentialsActionsType,
@@ -402,6 +411,7 @@ import {
   GetGroupResponse,
   GetIdentityProviderByIdentifierRequest,
   GetIdentityProviderByIdentifierResponse,
+  GetLogDeliveryConfigurationRequest,
   GetSigningCertificateRequest,
   GetUICustomizationRequest,
   GetUICustomizationResponse,
@@ -442,6 +452,7 @@ import {
   ListUsersInGroupResponse,
   ListUsersRequest,
   ListUsersResponse,
+  LogConfigurationType,
   MessageTemplateType,
   MFAMethodNotFoundException,
   MFAOptionType,
@@ -465,13 +476,8 @@ import {
   RiskExceptionConfigurationType,
   SchemaAttributeType,
   ScopeDoesNotExistException,
+  SetLogDeliveryConfigurationRequest,
   SetRiskConfigurationRequest,
-  SetRiskConfigurationResponse,
-  SetUICustomizationRequest,
-  SetUICustomizationResponse,
-  SetUserMFAPreferenceRequest,
-  SetUserPoolMfaConfigRequest,
-  SetUserSettingsRequest,
   SmsConfigurationType,
   SmsMfaConfigType,
   SMSMfaSettingsType,
@@ -512,6 +518,12 @@ import {
 } from "../models/models_0";
 import {
   EnableSoftwareTokenMFAException,
+  SetRiskConfigurationResponse,
+  SetUICustomizationRequest,
+  SetUICustomizationResponse,
+  SetUserMFAPreferenceRequest,
+  SetUserPoolMfaConfigRequest,
+  SetUserSettingsRequest,
   SignUpRequest,
   StartUserImportJobRequest,
   StartUserImportJobResponse,
@@ -1316,6 +1328,19 @@ export const se_GetIdentityProviderByIdentifierCommand = async (
 };
 
 /**
+ * serializeAws_json1_1GetLogDeliveryConfigurationCommand
+ */
+export const se_GetLogDeliveryConfigurationCommand = async (
+  input: GetLogDeliveryConfigurationCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = sharedHeaders("GetLogDeliveryConfiguration");
+  let body: any;
+  body = JSON.stringify(_json(input));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+/**
  * serializeAws_json1_1GetSigningCertificateCommand
  */
 export const se_GetSigningCertificateCommand = async (
@@ -1570,6 +1595,19 @@ export const se_RevokeTokenCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("RevokeToken");
+  let body: any;
+  body = JSON.stringify(_json(input));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+/**
+ * serializeAws_json1_1SetLogDeliveryConfigurationCommand
+ */
+export const se_SetLogDeliveryConfigurationCommand = async (
+  input: SetLogDeliveryConfigurationCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = sharedHeaders("SetLogDeliveryConfiguration");
   let body: any;
   body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -5803,6 +5841,64 @@ const de_GetIdentityProviderByIdentifierCommandError = async (
 };
 
 /**
+ * deserializeAws_json1_1GetLogDeliveryConfigurationCommand
+ */
+export const de_GetLogDeliveryConfigurationCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetLogDeliveryConfigurationCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_GetLogDeliveryConfigurationCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = _json(data);
+  const response: GetLogDeliveryConfigurationCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1GetLogDeliveryConfigurationCommandError
+ */
+const de_GetLogDeliveryConfigurationCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetLogDeliveryConfigurationCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "InternalErrorException":
+    case "com.amazonaws.cognitoidentityprovider#InternalErrorException":
+      throw await de_InternalErrorExceptionRes(parsedOutput, context);
+    case "InvalidParameterException":
+    case "com.amazonaws.cognitoidentityprovider#InvalidParameterException":
+      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
+    case "NotAuthorizedException":
+    case "com.amazonaws.cognitoidentityprovider#NotAuthorizedException":
+      throw await de_NotAuthorizedExceptionRes(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.cognitoidentityprovider#ResourceNotFoundException":
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
+    case "TooManyRequestsException":
+    case "com.amazonaws.cognitoidentityprovider#TooManyRequestsException":
+      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
  * deserializeAws_json1_1GetSigningCertificateCommand
  */
 export const de_GetSigningCertificateCommand = async (
@@ -7129,6 +7225,64 @@ const de_RevokeTokenCommandError = async (
     case "UnsupportedTokenTypeException":
     case "com.amazonaws.cognitoidentityprovider#UnsupportedTokenTypeException":
       throw await de_UnsupportedTokenTypeExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
+ * deserializeAws_json1_1SetLogDeliveryConfigurationCommand
+ */
+export const de_SetLogDeliveryConfigurationCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<SetLogDeliveryConfigurationCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_SetLogDeliveryConfigurationCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = _json(data);
+  const response: SetLogDeliveryConfigurationCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1SetLogDeliveryConfigurationCommandError
+ */
+const de_SetLogDeliveryConfigurationCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<SetLogDeliveryConfigurationCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "InternalErrorException":
+    case "com.amazonaws.cognitoidentityprovider#InternalErrorException":
+      throw await de_InternalErrorExceptionRes(parsedOutput, context);
+    case "InvalidParameterException":
+    case "com.amazonaws.cognitoidentityprovider#InvalidParameterException":
+      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
+    case "NotAuthorizedException":
+    case "com.amazonaws.cognitoidentityprovider#NotAuthorizedException":
+      throw await de_NotAuthorizedExceptionRes(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.cognitoidentityprovider#ResourceNotFoundException":
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
+    case "TooManyRequestsException":
+    case "com.amazonaws.cognitoidentityprovider#TooManyRequestsException":
+      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       return throwDefaultError({
@@ -9316,6 +9470,8 @@ const de_UserPoolTaggingExceptionRes = async (
 
 // se_ClientPermissionListType omitted.
 
+// se_CloudWatchLogsConfigurationType omitted.
+
 // se_CompromisedCredentialsActionsType omitted.
 
 // se_CompromisedCredentialsRiskConfigurationType omitted.
@@ -9404,6 +9560,8 @@ const de_UserPoolTaggingExceptionRes = async (
 
 // se_GetIdentityProviderByIdentifierRequest omitted.
 
+// se_GetLogDeliveryConfigurationRequest omitted.
+
 // se_GetSigningCertificateRequest omitted.
 
 // se_GetUICustomizationRequest omitted.
@@ -9445,6 +9603,10 @@ const de_UserPoolTaggingExceptionRes = async (
 // se_ListUsersInGroupRequest omitted.
 
 // se_ListUsersRequest omitted.
+
+// se_LogConfigurationListType omitted.
+
+// se_LogConfigurationType omitted.
 
 // se_LogoutURLsListType omitted.
 
@@ -9491,6 +9653,8 @@ const de_UserPoolTaggingExceptionRes = async (
 // se_ScopeListType omitted.
 
 // se_SearchedAttributeNamesListType omitted.
+
+// se_SetLogDeliveryConfigurationRequest omitted.
 
 // se_SetRiskConfigurationRequest omitted.
 
@@ -9751,6 +9915,8 @@ const de_AuthEventType = (output: any, context: __SerdeContext): AuthEventType =
 
 // de_ClientPermissionListType omitted.
 
+// de_CloudWatchLogsConfigurationType omitted.
+
 // de_CodeDeliveryDetailsListType omitted.
 
 // de_CodeDeliveryDetailsType omitted.
@@ -9977,6 +10143,8 @@ const de_GetIdentityProviderByIdentifierResponse = (
   }) as any;
 };
 
+// de_GetLogDeliveryConfigurationResponse omitted.
+
 // de_GetSigningCertificateResponse omitted.
 
 /**
@@ -10145,6 +10313,12 @@ const de_ListUsersResponse = (output: any, context: __SerdeContext): ListUsersRe
   }) as any;
 };
 
+// de_LogConfigurationListType omitted.
+
+// de_LogConfigurationType omitted.
+
+// de_LogDeliveryConfigurationType omitted.
+
 // de_LogoutURLsListType omitted.
 
 // de_MessageTemplateType omitted.
@@ -10242,6 +10416,8 @@ const de_RiskConfigurationType = (output: any, context: __SerdeContext): RiskCon
 // de_ScopeDoesNotExistException omitted.
 
 // de_ScopeListType omitted.
+
+// de_SetLogDeliveryConfigurationResponse omitted.
 
 /**
  * deserializeAws_json1_1SetRiskConfigurationResponse

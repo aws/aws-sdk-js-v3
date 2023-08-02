@@ -24,7 +24,7 @@ import {
   SetUICustomizationRequestFilterSensitiveLog,
   SetUICustomizationResponse,
   SetUICustomizationResponseFilterSensitiveLog,
-} from "../models/models_0";
+} from "../models/models_1";
 import { de_SetUICustomizationCommand, se_SetUICustomizationCommand } from "../protocols/Aws_json1_1";
 
 /**

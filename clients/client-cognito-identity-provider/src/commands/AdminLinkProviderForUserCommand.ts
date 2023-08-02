@@ -58,7 +58,26 @@ export interface AdminLinkProviderForUserCommandOutput extends AdminLinkProvider
  *                 an existing user in the user pool, it is critical that it only be used with external
  *                 IdPs and provider attributes that have been trusted by the application owner.</p>
  *          </important>
- *          <p>This action is administrative and requires developer credentials.</p>
+ *          <note>
+ *             <p>Amazon Cognito evaluates Identity and Access Management (IAM) policies in requests for this API operation. For
+ *             this operation, you must use IAM credentials to authorize requests, and you must
+ *             grant yourself the corresponding IAM permission in a policy.</p>
+ *             <p class="title">
+ *                <b>Learn more</b>
+ *             </p>
+ *             <ul>
+ *                <li>
+ *                   <p>
+ *                      <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_aws-signing.html">Signing Amazon Web Services API Requests</a>
+ *                   </p>
+ *                </li>
+ *                <li>
+ *                   <p>
+ *                      <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/user-pools-API-operations.html">Using the Amazon Cognito user pools API and user pool endpoints</a>
+ *                   </p>
+ *                </li>
+ *             </ul>
+ *          </note>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -92,8 +111,8 @@ export interface AdminLinkProviderForUserCommandOutput extends AdminLinkProvider
  *
  * @throws {@link AliasExistsException} (client fault)
  *  <p>This exception is thrown when a user tries to confirm the account with an email
- *             address or phone number that has already been supplied as an alias for a different
- *             user profile. This exception indicates that an account with this email address or phone
+ *             address or phone number that has already been supplied as an alias for a different user
+ *             profile. This exception indicates that an account with this email address or phone
  *             already exists in a user pool that you've configured to use email address or phone
  *             number as a sign-in alias.</p>
  *

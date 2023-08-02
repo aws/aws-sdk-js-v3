@@ -45,9 +45,20 @@ export interface GlobalSignOutCommandOutput extends GlobalSignOutResponse, __Met
 
 /**
  * @public
- * <p>Signs out users from all devices. It also invalidates all refresh tokens that Amazon Cognito
- *             has issued to a user. A user can still use a hosted UI cookie to retrieve new tokens
- *             for the duration of the 1-hour cookie validity period.</p>
+ * <p>Signs out a user from all devices. <code>GlobalSignOut</code> invalidates all
+ *             identity, access and refresh tokens that Amazon Cognito has issued to a user. A user can still
+ *             use a hosted UI cookie to retrieve new tokens for the duration of the 1-hour cookie
+ *             validity period.</p>
+ *          <p>Your app isn't aware that a user's access token is revoked unless it attempts to
+ *             authorize a user pools API request with an access token that contains the scope
+ *                 <code>aws.cognito.signin.user.admin</code>. Your app might otherwise accept access
+ *             tokens until they expire.</p>
+ *          <note>
+ *             <p>Amazon Cognito doesn't evaluate Identity and Access Management (IAM) policies in requests for this API operation. For
+ *             this operation, you can't use IAM credentials to authorize requests, and you can't
+ *             grant IAM permissions in policies. For more information about authorization models in
+ *             Amazon Cognito, see <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/user-pools-API-operations.html">Using the Amazon Cognito native and OIDC APIs</a>.</p>
+ *          </note>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -70,7 +81,8 @@ export interface GlobalSignOutCommandOutput extends GlobalSignOutResponse, __Met
  * @see {@link CognitoIdentityProviderClientResolvedConfig | config} for CognitoIdentityProviderClient's `config` shape.
  *
  * @throws {@link ForbiddenException} (client fault)
- *  <p>This exception is thrown when WAF doesn't allow your request based on a web ACL that's associated with your user pool.</p>
+ *  <p>This exception is thrown when WAF doesn't allow your request based on a web
+ *             ACL that's associated with your user pool.</p>
  *
  * @throws {@link InternalErrorException} (server fault)
  *  <p>This exception is thrown when Amazon Cognito encounters an internal error.</p>

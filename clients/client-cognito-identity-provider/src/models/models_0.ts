@@ -272,18 +272,26 @@ export interface StringAttributeConstraintsType {
 
 /**
  * @public
- * <p>Contains information about the schema attribute.</p>
+ * <p>A list of the user attributes and their properties in your user pool. The attribute
+ *             schema contains standard attributes, custom attributes with a <code>custom:</code>
+ *             prefix, and developer attributes with a <code>dev:</code> prefix. For more information,
+ *             see <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/user-pool-settings-attributes.html">User pool
+ *                 attributes</a>.</p>
+ *          <p>Developer-only attributes are a legacy feature of user pools, are read-only to all app
+ *             clients. You can create and update developer-only attributes only with IAM-authenticated
+ *             API operations. Use app client read/write permissions instead.</p>
  */
 export interface SchemaAttributeType {
   /**
    * @public
-   * <p>A schema attribute of the name type.</p>
+   * <p>The name of your user pool attribute, for example <code>username</code> or
+   *                 <code>custom:costcenter</code>.</p>
    */
   Name?: string;
 
   /**
    * @public
-   * <p>The attribute data type.</p>
+   * <p>The data format of the values for your attribute.</p>
    */
   AttributeDataType?: AttributeDataType | string;
 
@@ -304,10 +312,10 @@ export interface SchemaAttributeType {
   /**
    * @public
    * <p>Specifies whether the value of the attribute can be changed.</p>
-   *          <p>For any user pool attribute that is mapped to an IdP attribute, you must set this
-   *             parameter to <code>true</code>. Amazon Cognito updates mapped attributes when users sign in to
-   *             your application through an IdP. If an attribute is immutable, Amazon Cognito throws an error
-   *             when it attempts to update the attribute. For more information, see <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-pools-specifying-attribute-mapping.html">Specifying Identity Provider Attribute Mappings for Your User
+   *          <p>Any user pool attribute whose value you map from an IdP attribute must be mutable,
+   *             with a parameter value of <code>true</code>. Amazon Cognito updates mapped attributes when users
+   *             sign in to your application through an IdP. If an attribute is immutable, Amazon Cognito throws
+   *             an error when it attempts to update the attribute. For more information, see <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-pools-specifying-attribute-mapping.html">Specifying Identity Provider Attribute Mappings for Your User
    *                 Pool</a>.</p>
    */
   Mutable?: boolean;
@@ -526,7 +534,7 @@ export class UserNotFoundException extends __BaseException {
 
 /**
  * @public
- * <p>Represents the request to confirm user registration.</p>
+ * <p>Confirm a user's registration as a user pool administrator.</p>
  */
 export interface AdminConfirmSignUpRequest {
   /**
@@ -816,9 +824,9 @@ export interface AdminCreateUserRequest {
    *          <p>This parameter isn't required. If you don't specify a value, Amazon Cognito generates one for
    *             you.</p>
    *          <p>The temporary password can only be used until the user account expiration limit that
-   *             you specified when you created the user pool. To reset the account after that time
-   *             limit, you must call <code>AdminCreateUser</code> again, specifying
-   *                 <code>"RESEND"</code> for the <code>MessageAction</code> parameter.</p>
+   *             you set for your user pool. To reset the account after that time limit, you must call
+   *                 <code>AdminCreateUser</code> again and specify <code>RESEND</code> for the
+   *                 <code>MessageAction</code> parameter.</p>
    */
   TemporaryPassword?: string;
 
@@ -958,7 +966,7 @@ export interface UserType {
 
   /**
    * @public
-   * <p>The last modified date of the user.</p>
+   * <p>The date and time, in <a href="https://www.iso.org/iso-8601-date-and-time-format.html">ISO 8601</a> format, when the item was modified.</p>
    */
   UserLastModifiedDate?: Date;
 
@@ -980,9 +988,6 @@ export interface UserType {
    *             </li>
    *             <li>
    *                <p>EXTERNAL_PROVIDER - User signed in with a third-party IdP.</p>
-   *             </li>
-   *             <li>
-   *                <p>ARCHIVED - User is no longer active.</p>
    *             </li>
    *             <li>
    *                <p>UNKNOWN - User status isn't known.</p>
@@ -1085,7 +1090,7 @@ export class InvalidSmsRoleAccessPolicyException extends __BaseException {
  * @public
  * <p>This exception is thrown when the trust relationship is not valid for the role
  *             provided for SMS configuration. This can happen if you don't trust
- *             <code>cognito-idp.amazonaws.com</code> or the external ID provided in the role does
+ *                 <code>cognito-idp.amazonaws.com</code> or the external ID provided in the role does
  *             not match what is provided in the SMS configuration for the user pool.</p>
  */
 export class InvalidSmsRoleTrustRelationshipException extends __BaseException {
@@ -1325,8 +1330,8 @@ export interface AdminDisableProviderForUserResponse {}
 /**
  * @public
  * <p>This exception is thrown when a user tries to confirm the account with an email
- *             address or phone number that has already been supplied as an alias for a different
- *             user profile. This exception indicates that an account with this email address or phone
+ *             address or phone number that has already been supplied as an alias for a different user
+ *             profile. This exception indicates that an account with this email address or phone
  *             already exists in a user pool that you've configured to use email address or phone
  *             number as a sign-in alias.</p>
  */
@@ -1489,7 +1494,7 @@ export interface DeviceType {
 
   /**
    * @public
-   * <p>The last modified date of the device.</p>
+   * <p>The date and time, in <a href="https://www.iso.org/iso-8601-date-and-time-format.html">ISO 8601</a> format, when the item was modified.</p>
    */
   DeviceLastModifiedDate?: Date;
 
@@ -1539,7 +1544,7 @@ export interface AdminGetUserRequest {
 export interface AdminGetUserResponse {
   /**
    * @public
-   * <p>The user name of the user about whom you're receiving information.</p>
+   * <p>The username of the user that you requested.</p>
    */
   Username: string | undefined;
 
@@ -1557,7 +1562,7 @@ export interface AdminGetUserResponse {
 
   /**
    * @public
-   * <p>The date the user was last modified.</p>
+   * <p>The date and time, in <a href="https://www.iso.org/iso-8601-date-and-time-format.html">ISO 8601</a> format, when the item was modified.</p>
    */
   UserLastModifiedDate?: Date;
 
@@ -1576,9 +1581,6 @@ export interface AdminGetUserResponse {
    *             </li>
    *             <li>
    *                <p>CONFIRMED - User has been confirmed.</p>
-   *             </li>
-   *             <li>
-   *                <p>ARCHIVED - User is no longer active.</p>
    *             </li>
    *             <li>
    *                <p>UNKNOWN - User status isn't known.</p>
@@ -1796,14 +1798,14 @@ export interface AdminInitiateAuthRequest {
    *                     client is configured with a client secret), <code>DEVICE_KEY</code>.</p>
    *             </li>
    *             <li>
+   *                <p>For <code>ADMIN_USER_PASSWORD_AUTH</code>: <code>USERNAME</code> (required),
+   *                         <code>PASSWORD</code> (required), <code>SECRET_HASH</code> (required if the
+   *                     app client is configured with a client secret), <code>DEVICE_KEY</code>.</p>
+   *             </li>
+   *             <li>
    *                <p>For <code>REFRESH_TOKEN_AUTH/REFRESH_TOKEN</code>: <code>REFRESH_TOKEN</code>
    *                     (required), <code>SECRET_HASH</code> (required if the app client is configured
    *                     with a client secret), <code>DEVICE_KEY</code>.</p>
-   *             </li>
-   *             <li>
-   *                <p>For <code>ADMIN_NO_SRP_AUTH</code>: <code>USERNAME</code> (required),
-   *                         <code>SECRET_HASH</code> (if app client is configured with client secret),
-   *                         <code>PASSWORD</code> (required), <code>DEVICE_KEY</code>.</p>
    *             </li>
    *             <li>
    *                <p>For <code>CUSTOM_AUTH</code>: <code>USERNAME</code> (required),
@@ -1813,6 +1815,8 @@ export interface AdminInitiateAuthRequest {
    *                         SRP_A Value)</code>.</p>
    *             </li>
    *          </ul>
+   *          <p>For more information about <code>SECRET_HASH</code>, see <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/signing-up-users-in-your-app.html#cognito-user-pools-computing-secret-hash">Computing secret hash values</a>. For information about
+   *             <code>DEVICE_KEY</code>, see <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/amazon-cognito-user-pools-device-tracking.html">Working with user devices in your user pool</a>.</p>
    */
   AuthParameters?: Record<string, string>;
 
@@ -2187,7 +2191,7 @@ export interface AdminLinkProviderForUserRequest {
   /**
    * @public
    * <p>The existing user in the user pool that you want to assign to the external IdP user
-   *             account. This user can be a native (Username + Password) Amazon Cognito user pools user or a
+   *             account. This user can be a local (Username + Password) Amazon Cognito user pools user or a
    *             federated user (for example, a SAML or Facebook user). If the user doesn't exist, Amazon Cognito
    *             generates an exception. Amazon Cognito returns this user when the new user (with the linked IdP
    *             attribute) signs in.</p>
@@ -2221,13 +2225,19 @@ export interface AdminLinkProviderForUserRequest {
    *                 <code>id</code>, <code>sub</code>, or <code>user_id</code> value found in the social
    *             IdP token.</p>
    *          <p></p>
+   *          <p>For OIDC, the <code>ProviderAttributeName</code> can be any value that matches a claim
+   *             in the ID token, or that your app retrieves from the <code>userInfo</code> endpoint. You
+   *             must map the claim to a user pool attribute in your IdP configuration, and set the user
+   *             pool attribute name as the value of <code>ProviderAttributeName</code> in your
+   *                 <code>AdminLinkProviderForUser</code> request.</p>
    *          <p>For SAML, the <code>ProviderAttributeName</code> can be any value that matches a claim
-   *             in the SAML assertion. If you want to link SAML users based on the subject of the SAML
-   *             assertion, you should map the subject to a claim through the SAML IdP and submit that
-   *             claim name as the <code>ProviderAttributeName</code>. If you set
-   *                 <code>ProviderAttributeName</code> to <code>Cognito_Subject</code>, Amazon Cognito will
-   *             automatically parse the default unique identifier found in the subject from the SAML
-   *             token.</p>
+   *             in the SAML assertion. To link SAML users based on the subject of the SAML assertion,
+   *             map the subject to a claim through the SAML IdP and set that claim name as the value of
+   *                 <code>ProviderAttributeName</code> in your <code>AdminLinkProviderForUser</code>
+   *             request.</p>
+   *          <p>For both OIDC and SAML users, when you set <code>ProviderAttributeName</code> to
+   *                 <code>Cognito_Subject</code>, Amazon Cognito will automatically parse the default unique
+   *             identifier found in the subject from the IdP token.</p>
    */
   SourceUser: ProviderUserIdentifierType | undefined;
 }
@@ -2365,13 +2375,13 @@ export interface GroupType {
 
   /**
    * @public
-   * <p>The date the group was last modified.</p>
+   * <p>The date and time, in <a href="https://www.iso.org/iso-8601-date-and-time-format.html">ISO 8601</a> format, when the item was modified.</p>
    */
   LastModifiedDate?: Date;
 
   /**
    * @public
-   * <p>The date the group was created.</p>
+   * <p>The date and time, in <a href="https://www.iso.org/iso-8601-date-and-time-format.html">ISO 8601</a> format, when the item was created.</p>
    */
   CreationDate?: Date;
 }
@@ -2528,7 +2538,11 @@ export type FeedbackValueType = (typeof FeedbackValueType)[keyof typeof Feedback
 export interface EventFeedbackType {
   /**
    * @public
-   * <p>The event feedback value.</p>
+   * <p>The authentication event feedback value. When you provide a <code>FeedbackValue</code>
+   *             value of <code>valid</code>, you tell Amazon Cognito that you trust a user session where Amazon Cognito
+   *             has evaluated some level of risk. When you provide a <code>FeedbackValue</code> value of
+   *             <code>invalid</code>, you tell Amazon Cognito that you don't trust a user session, or you
+   *             don't believe that Amazon Cognito evaluated a high-enough risk level.</p>
    */
   FeedbackValue: FeedbackValueType | string | undefined;
 
@@ -2651,7 +2665,7 @@ export interface AuthEventType {
 
   /**
    * @public
-   * <p>The creation date</p>
+   * <p>The date and time, in <a href="https://www.iso.org/iso-8601-date-and-time-format.html">ISO 8601</a> format, when the item was created.</p>
    */
   CreationDate?: Date;
 
@@ -2912,6 +2926,8 @@ export interface AdminRespondToAuthChallengeRequest {
    *                 <code>AdminInitiateAuth</code> response includes the actual username value in the
    *                 <code>USERNAMEUSER_ID_FOR_SRP</code> attribute. This happens even if you specified
    *             an alias in your call to <code>AdminInitiateAuth</code>.</p>
+   *          <p>For more information about <code>SECRET_HASH</code>, see <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/signing-up-users-in-your-app.html#cognito-user-pools-computing-secret-hash">Computing secret hash values</a>. For information about
+   *             <code>DEVICE_KEY</code>, see <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/amazon-cognito-user-pools-device-tracking.html">Working with user devices in your user pool</a>.</p>
    */
   ChallengeResponses?: Record<string, string>;
 
@@ -3275,7 +3291,11 @@ export interface AdminUpdateAuthEventFeedbackRequest {
 
   /**
    * @public
-   * <p>The authentication event feedback value.</p>
+   * <p>The authentication event feedback value. When you provide a <code>FeedbackValue</code>
+   *             value of <code>valid</code>, you tell Amazon Cognito that you trust a user session where Amazon Cognito
+   *             has evaluated some level of risk. When you provide a <code>FeedbackValue</code> value of
+   *             <code>invalid</code>, you tell Amazon Cognito that you don't trust a user session, or you
+   *             don't believe that Amazon Cognito evaluated a high-enough risk level.</p>
    */
   FeedbackValue: FeedbackValueType | string | undefined;
 }
@@ -3475,9 +3495,9 @@ export type AliasAttributeType = (typeof AliasAttributeType)[keyof typeof AliasA
  * <p>The Amazon Pinpoint analytics configuration necessary to collect metrics for a user
  *             pool.</p>
  *          <note>
- *             <p>In Regions where Amazon Pinpointisn't available, user pools only support sending events to
- *                 Amazon Pinpoint projects in us-east-1. In Regions where Amazon Pinpoint is available, user pools
- *                 support sending events to Amazon Pinpoint projects within that same Region.</p>
+ *             <p>In Regions where Amazon Pinpoint isn't available, user pools only support sending
+ *                 events to Amazon Pinpoint projects in us-east-1. In Regions where Amazon Pinpoint is available, user
+ *                 pools support sending events to Amazon Pinpoint projects within that same Region.</p>
  *          </note>
  */
 export interface AnalyticsConfigurationType {
@@ -3541,8 +3561,8 @@ export interface AssociateSoftwareTokenRequest {
 export interface AssociateSoftwareTokenResponse {
   /**
    * @public
-   * <p>A unique generated shared secret code that is used in the
-   *             TOTP algorithm to generate a one-time code.</p>
+   * <p>A unique generated shared secret code that is used in the TOTP algorithm to generate a
+   *             one-time code.</p>
    */
   SecretCode?: string;
 
@@ -3577,7 +3597,8 @@ export class ConcurrentModificationException extends __BaseException {
 
 /**
  * @public
- * <p>This exception is thrown when WAF doesn't allow your request based on a web ACL that's associated with your user pool.</p>
+ * <p>This exception is thrown when WAF doesn't allow your request based on a web
+ *             ACL that's associated with your user pool.</p>
  */
 export class ForbiddenException extends __BaseException {
   readonly name: "ForbiddenException" = "ForbiddenException";
@@ -3705,8 +3726,7 @@ export interface ConfirmDeviceResponse {
 /**
  * @public
  * <p>Contextual data, such as the user's device fingerprint, IP address, or location, used
- *             for evaluating the risk of an unexpected event by Amazon Cognito advanced
- *         security.</p>
+ *             for evaluating the risk of an unexpected event by Amazon Cognito advanced security.</p>
  */
 export interface UserContextDataType {
   /**
@@ -3737,7 +3757,8 @@ export interface ConfirmForgotPasswordRequest {
   /**
    * @public
    * <p>A keyed-hash message authentication code (HMAC) calculated using the secret key of a
-   *             user pool client and username plus the client ID in the message.</p>
+   *             user pool client and username plus the client ID in the message. For more information
+   *             about <code>SecretHash</code>, see <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/signing-up-users-in-your-app.html#cognito-user-pools-computing-secret-hash">Computing secret hash values</a>.</p>
    */
   SecretHash?: string;
 
@@ -3750,8 +3771,8 @@ export interface ConfirmForgotPasswordRequest {
 
   /**
    * @public
-   * <p>The confirmation code from your user's request to reset their password. For
-   *             more information, see <a href="https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_ForgotPassword.html">ForgotPassword</a>.</p>
+   * <p>The confirmation code from your user's request to reset their password. For more
+   *             information, see <a href="https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_ForgotPassword.html">ForgotPassword</a>.</p>
    */
   ConfirmationCode: string | undefined;
 
@@ -4332,13 +4353,13 @@ export interface IdentityProviderType {
 
   /**
    * @public
-   * <p>The date the IdP was last modified.</p>
+   * <p>The date and time, in <a href="https://www.iso.org/iso-8601-date-and-time-format.html">ISO 8601</a> format, when the item was modified.</p>
    */
   LastModifiedDate?: Date;
 
   /**
    * @public
-   * <p>The date the IdP was created.</p>
+   * <p>The date and time, in <a href="https://www.iso.org/iso-8601-date-and-time-format.html">ISO 8601</a> format, when the item was created.</p>
    */
   CreationDate?: Date;
 }
@@ -4541,7 +4562,7 @@ export interface UserImportJobType {
 
   /**
    * @public
-   * <p>The date the user import job was created.</p>
+   * <p>The date and time, in <a href="https://www.iso.org/iso-8601-date-and-time-format.html">ISO 8601</a> format, when the item was created.</p>
    */
   CreationDate?: Date;
 
@@ -4690,9 +4711,9 @@ export interface DeviceConfigurationType {
    *             and time-based one-time password (TOTP) factors for multi-factor authentication
    *             (MFA).</p>
    *          <note>
-   *             <p>Whether or not <code>ChallengeRequiredOnNewDevice</code> is true, users who sign in
-   *                 with devices that have not been confirmed or remembered must still provide a second
-   *                 factor in a user pool that requires MFA.</p>
+   *             <p>Whether or not <code>ChallengeRequiredOnNewDevice</code> is true, users who sign
+   *                 in with devices that have not been confirmed or remembered must still provide a
+   *                 second factor in a user pool that requires MFA.</p>
    *          </note>
    */
   ChallengeRequiredOnNewDevice?: boolean;
@@ -4700,11 +4721,10 @@ export interface DeviceConfigurationType {
   /**
    * @public
    * <p>When true, Amazon Cognito doesn't automatically remember a user's device when your app sends a
-   *             <a href="https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_ConfirmDevice.html">
-   *             ConfirmDevice</a> API request. In your app, create a prompt for
-   *             your user to choose whether they want to remember their device. Return the user's choice
-   *             in an <a href="https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_UpdateDeviceStatus.html">
-   *             UpdateDeviceStatus</a> API request.</p>
+   *                 <a href="https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_ConfirmDevice.html">
+   *                 ConfirmDevice</a> API request. In your app, create a prompt for your user to
+   *             choose whether they want to remember their device. Return the user's choice in an <a href="https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_UpdateDeviceStatus.html">
+   *                 UpdateDeviceStatus</a> API request.</p>
    *          <p>When <code>DeviceOnlyRememberedOnUserPrompt</code> is <code>false</code>, Amazon
    *             Cognito immediately remembers devices that you register in a <code>ConfirmDevice</code>
    *             API request.</p>
@@ -4740,9 +4760,12 @@ export type EmailSendingAccountType = (typeof EmailSendingAccountType)[keyof typ
 export interface EmailConfigurationType {
   /**
    * @public
-   * <p>The ARN of a verified email address in Amazon SES. Amazon Cognito uses this email address in one of
-   *             the following ways, depending on the value that you specify for the
-   *                 <code>EmailSendingAccount</code> parameter:</p>
+   * <p>The ARN of a verified email address or an address from a verified domain in Amazon SES. You
+   *             can set a <code>SourceArn</code> email from a verified domain only with an API request.
+   *             You can set a verified email address, but not an address in a verified domain, in the
+   *             Amazon Cognito console. Amazon Cognito uses the email address that you provide in one of the following
+   *             ways, depending on the value that you specify for the <code>EmailSendingAccount</code>
+   *             parameter:</p>
    *          <ul>
    *             <li>
    *                <p>If you specify <code>COGNITO_DEFAULT</code>, Amazon Cognito uses this address as the
@@ -4781,7 +4804,8 @@ export interface EmailConfigurationType {
    *                         default email limit is less than the required delivery volume. To achieve a
    *                         higher delivery volume, specify DEVELOPER to use your Amazon SES email
    *                         configuration.</p>
-   *                <p>To look up the email delivery limit for the default option, see <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/limits.html">Limits</a> in the <i>Amazon Cognito Developer Guide</i>.</p>
+   *                <p>To look up the email delivery limit for the default option, see <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/limits.html">Limits</a> in the <i>Amazon Cognito Developer
+   *                         Guide</i>.</p>
    *                <p>The default FROM address is <code>no-reply@verificationemail.com</code>.
    *                         To customize the FROM address, provide the Amazon Resource Name (ARN) of an
    *                         Amazon SES verified email address for the <code>SourceArn</code>
@@ -4799,9 +4823,9 @@ export interface EmailConfigurationType {
    *                         call Amazon SES on your behalf. When you update your user pool with this option,
    *                         Amazon Cognito creates a <i>service-linked role</i>, which is a type of
    *                         role in your Amazon Web Services account. This role contains the permissions
-   *                         that allow you to access Amazon SES and send email messages from your email address. For
-   *                         more information about the service-linked role that Amazon Cognito creates, see
-   *                             <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/using-service-linked-roles.html">Using Service-Linked Roles for Amazon Cognito</a> in the
+   *                         that allow you to access Amazon SES and send email messages from your email
+   *                         address. For more information about the service-linked role that Amazon Cognito
+   *                         creates, see <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/using-service-linked-roles.html">Using Service-Linked Roles for Amazon Cognito</a> in the
    *                             <i>Amazon Cognito Developer Guide</i>.</p>
    *             </dd>
    *          </dl>
@@ -5138,7 +5162,7 @@ export interface UserAttributeUpdateSettingsType {
    *             this option activated, Amazon Cognito sends a verification message to the new phone number or
    *             email address. Amazon Cognito doesn’t change the value of the attribute until your user responds
    *             to the verification message and confirms the new value.</p>
-   *          <p>You can verify an updated email address or phone number with a <a href="https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_VerifyUserAttribute.html">VerifyUserAttribute</a> API request. You can also call the <a href="https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_UpdateUserAttributes.html">UpdateUserAttributes</a> or <a href="https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_AdminUpdateUserAttributes.html">AdminUpdateUserAttributes</a> API and set <code>email_verified</code> or
+   *          <p>You can verify an updated email address or phone number with a <a href="https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_VerifyUserAttribute.html">VerifyUserAttribute</a> API request. You can also call the <a href="https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_AdminUpdateUserAttributes.html">AdminUpdateUserAttributes</a> API and set <code>email_verified</code> or
    *                 <code>phone_number_verified</code> to true.</p>
    *          <p>When <code>AttributesRequireVerificationBeforeUpdate</code> is false, your user pool
    *             doesn't require that your users verify attribute changes before Amazon Cognito updates them. In a
@@ -5171,7 +5195,10 @@ export interface UsernameConfigurationType {
   /**
    * @public
    * <p>Specifies whether user name case sensitivity will be applied for all users in the user
-   *             pool through Amazon Cognito APIs.</p>
+   *             pool through Amazon Cognito APIs. For most use cases, set case sensitivity to <code>False</code>
+   *             (case insensitive) as a best practice. When usernames and email addresses are case
+   *             insensitive, users can sign in as the same user when they enter a different
+   *             capitalization of their user name.</p>
    *          <p>Valid values include:</p>
    *          <dl>
    *             <dt>True</dt>
@@ -5183,10 +5210,11 @@ export interface UsernameConfigurationType {
    *             <dt>False</dt>
    *             <dd>
    *                <p>Enables case insensitivity for all username input. For example, when this
-   *                         option is set to <code>False</code>, users can sign in using either
-   *                         "username" or "Username". This option also enables both
-   *                             <code>preferred_username</code> and <code>email</code> alias to be case
-   *                         insensitive, in addition to the <code>username</code> attribute.</p>
+   *                         option is set to <code>False</code>, users can sign in using
+   *                             <code>username</code>, <code>USERNAME</code>, or <code>UserName</code>.
+   *                         This option also enables both <code>preferred_username</code> and
+   *                             <code>email</code> alias to be case insensitive, in addition to the
+   *                             <code>username</code> attribute.</p>
    *             </dd>
    *          </dl>
    */
@@ -5195,12 +5223,16 @@ export interface UsernameConfigurationType {
 
 /**
  * @public
- * <p>The user pool add-ons type.</p>
+ * <p>User pool add-ons. Contains settings for activation of advanced security features. To
+ *             log user security information but take no action, set to <code>AUDIT</code>. To
+ *             configure automatic security responses to risky traffic to your user pool, set to
+ *                 <code>ENFORCED</code>.</p>
+ *          <p>For more information, see <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-pool-settings-advanced-security.html">Adding advanced security to a user pool</a>.</p>
  */
 export interface UserPoolAddOnsType {
   /**
    * @public
-   * <p>The advanced security mode.</p>
+   * <p>The operating mode of advanced security features in your user pool.</p>
    */
   AdvancedSecurityMode: AdvancedSecurityModeType | string | undefined;
 }
@@ -5383,9 +5415,11 @@ export interface CreateUserPoolRequest {
 
   /**
    * @public
-   * <p>The device-remembering configuration for a user pool. A null value indicates that you have deactivated device remembering in your user pool.</p>
+   * <p>The device-remembering configuration for a user pool. A null value indicates that you
+   *             have deactivated device remembering in your user pool.</p>
    *          <note>
-   *             <p>When you provide a value for any <code>DeviceConfiguration</code> field, you activate the Amazon Cognito device-remembering feature.</p>
+   *             <p>When you provide a value for any <code>DeviceConfiguration</code> field, you
+   *                 activate the Amazon Cognito device-remembering feature.</p>
    *          </note>
    */
   DeviceConfiguration?: DeviceConfigurationType;
@@ -5430,17 +5464,26 @@ export interface CreateUserPoolRequest {
 
   /**
    * @public
-   * <p>Enables advanced security risk detection. Set the key
-   *                 <code>AdvancedSecurityMode</code> to the value "AUDIT".</p>
+   * <p>User pool add-ons. Contains settings for activation of advanced security features. To
+   *             log user security information but take no action, set to <code>AUDIT</code>. To
+   *             configure automatic security responses to risky traffic to your user pool, set to
+   *                 <code>ENFORCED</code>.</p>
+   *          <p>For more information, see <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-pool-settings-advanced-security.html">Adding advanced security to a user pool</a>.</p>
    */
   UserPoolAddOns?: UserPoolAddOnsType;
 
   /**
    * @public
-   * <p>Case sensitivity on the username input for the selected sign-in option. For example,
-   *             when case sensitivity is set to <code>False</code>, users can sign in using either
-   *             "username" or "Username". This configuration is immutable once it has been set. For more
-   *             information, see <a href="https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_UsernameConfigurationType.html">UsernameConfigurationType</a>.</p>
+   * <p>Case sensitivity on the username input for the selected sign-in option. When case
+   *             sensitivity is set to <code>False</code> (case insensitive), users can sign in with any
+   *             combination of capital and lowercase letters. For example, <code>username</code>,
+   *                 <code>USERNAME</code>, or <code>UserName</code>, or for email,
+   *                 <code>email@example.com</code> or <code>EMaiL@eXamplE.Com</code>. For most use
+   *             cases, set case sensitivity to <code>False</code> (case insensitive) as a best practice.
+   *             When usernames and email addresses are case insensitive, Amazon Cognito treats any variation in
+   *             case as the same user, and prevents a case variation from being assigned to the same
+   *             attribute for a different user.</p>
+   *          <p>This configuration is immutable after you set it. For more information, see <a href="https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_UsernameConfigurationType.html">UsernameConfigurationType</a>.</p>
    */
   UsernameConfiguration?: UsernameConfigurationType;
 
@@ -5519,19 +5562,26 @@ export interface UserPoolType {
 
   /**
    * @public
-   * <p>The date the user pool was last modified.</p>
+   * <p>The date and time, in <a href="https://www.iso.org/iso-8601-date-and-time-format.html">ISO 8601</a> format, when the item was modified.</p>
    */
   LastModifiedDate?: Date;
 
   /**
    * @public
-   * <p>The date the user pool was created.</p>
+   * <p>The date and time, in <a href="https://www.iso.org/iso-8601-date-and-time-format.html">ISO 8601</a> format, when the item was created.</p>
    */
   CreationDate?: Date;
 
   /**
    * @public
-   * <p>A container with the schema attributes of a user pool.</p>
+   * <p>A list of the user attributes and their properties in your user pool. The attribute
+   *             schema contains standard attributes, custom attributes with a <code>custom:</code>
+   *             prefix, and developer attributes with a <code>dev:</code> prefix. For more information,
+   *             see <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/user-pool-settings-attributes.html">User pool
+   *                 attributes</a>.</p>
+   *          <p>Developer-only attributes are a legacy feature of user pools, are read-only to all app
+   *             clients. You can create and update developer-only attributes only with IAM-authenticated
+   *             API operations. Use app client read/write permissions instead.</p>
    */
   SchemaAttributes?: SchemaAttributeType[];
 
@@ -5618,9 +5668,11 @@ export interface UserPoolType {
 
   /**
    * @public
-   * <p>The device-remembering configuration for a user pool. A null value indicates that you have deactivated device remembering in your user pool.</p>
+   * <p>The device-remembering configuration for a user pool. A null value indicates that you
+   *             have deactivated device remembering in your user pool.</p>
    *          <note>
-   *             <p>When you provide a value for any <code>DeviceConfiguration</code> field, you activate the Amazon Cognito device-remembering feature.</p>
+   *             <p>When you provide a value for any <code>DeviceConfiguration</code> field, you
+   *                 activate the Amazon Cognito device-remembering feature.</p>
    *          </note>
    */
   DeviceConfiguration?: DeviceConfigurationType;
@@ -5634,7 +5686,7 @@ export interface UserPoolType {
   /**
    * @public
    * <p>The email configuration of your user pool. The email configuration type sets your
-   *             preferred sending method, Amazon Web Services Region, and sender for messages tfrom your user
+   *             preferred sending method, Amazon Web Services Region, and sender for messages from your user
    *             pool.</p>
    */
   EmailConfiguration?: EmailConfigurationType;
@@ -5671,9 +5723,9 @@ export interface UserPoolType {
    *             <dd>
    *                <p>The Amazon Web Services account is in the SNS SMS Sandbox and messages will
    *                         only reach verified end users. This parameter won’t get populated with
-   *                         SNSSandbox if the IAM user creating the user pool doesn’t have SNS
-   *                         permissions. To learn how to move your Amazon Web Services account out of the
-   *                         sandbox, see <a href="https://docs.aws.amazon.com/sns/latest/dg/sns-sms-sandbox-moving-to-production.html">Moving out
+   *                         SNSSandbox if the user creating the user pool doesn’t have SNS permissions.
+   *                         To learn how to move your Amazon Web Services account out of the sandbox, see
+   *                             <a href="https://docs.aws.amazon.com/sns/latest/dg/sns-sms-sandbox-moving-to-production.html">Moving out
    *                             of the SMS sandbox</a>.</p>
    *             </dd>
    *          </dl>
@@ -5711,7 +5763,11 @@ export interface UserPoolType {
 
   /**
    * @public
-   * <p>The user pool add-ons.</p>
+   * <p>User pool add-ons. Contains settings for activation of advanced security features. To
+   *             log user security information but take no action, set to <code>AUDIT</code>. To
+   *             configure automatic security responses to risky traffic to your user pool, set to
+   *                 <code>ENFORCED</code>.</p>
+   *          <p>For more information, see <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-pool-settings-advanced-security.html">Adding advanced security to a user pool</a>.</p>
    */
   UserPoolAddOns?: UserPoolAddOnsType;
 
@@ -5850,7 +5906,9 @@ export interface TokenValidityUnitsType {
    * @public
    * <p> A time unit of <code>seconds</code>, <code>minutes</code>, <code>hours</code>, or
    *                 <code>days</code> for the value that you set in the <code>AccessTokenValidity</code>
-   *             parameter. The default <code>AccessTokenValidity</code> time unit is hours.</p>
+   *             parameter. The default <code>AccessTokenValidity</code> time unit is hours.
+   *                 <code>AccessTokenValidity</code> duration can range from five minutes to one
+   *             day.</p>
    */
   AccessToken?: TimeUnitsType | string;
 
@@ -5858,7 +5916,8 @@ export interface TokenValidityUnitsType {
    * @public
    * <p>A time unit of <code>seconds</code>, <code>minutes</code>, <code>hours</code>, or
    *                 <code>days</code> for the value that you set in the <code>IdTokenValidity</code>
-   *             parameter. The default <code>IdTokenValidity</code> time unit is hours.</p>
+   *             parameter. The default <code>IdTokenValidity</code> time unit is hours.
+   *                 <code>IdTokenValidity</code> duration can range from five minutes to one day.</p>
    */
   IdToken?: TimeUnitsType | string;
 
@@ -5867,7 +5926,9 @@ export interface TokenValidityUnitsType {
    * <p>A time unit of <code>seconds</code>, <code>minutes</code>, <code>hours</code>, or
    *                 <code>days</code> for the value that you set in the
    *                 <code>RefreshTokenValidity</code> parameter. The default
-   *                 <code>RefreshTokenValidity</code> time unit is days.</p>
+   *                 <code>RefreshTokenValidity</code> time unit is days.
+   *                 <code>RefreshTokenValidity</code> duration can range from 60 minutes to 10
+   *             years.</p>
    */
   RefreshToken?: TimeUnitsType | string;
 }
@@ -5939,7 +6000,7 @@ export interface CreateUserPoolClientRequest {
    *          <p>For example, when you set <code>IdTokenValidity</code> as <code>10</code> and
    *         <code>TokenValidityUnits</code> as <code>hours</code>, your user can authenticate their
    *         session with their ID token for 10 hours.</p>
-   *          <p>The default time unit for <code>AccessTokenValidity</code> in an API request is hours.
+   *          <p>The default time unit for <code>IdTokenValidity</code> in an API request is hours.
    *         <i>Valid range</i> is displayed below in seconds.</p>
    *          <p>If you don't specify otherwise in the configuration of your app client, your ID
    *         tokens are valid for one hour.</p>
@@ -6020,9 +6081,9 @@ export interface CreateUserPoolClientRequest {
    * @public
    * <p>A list of provider names for the identity providers (IdPs) that are supported on this
    *             client. The following are supported: <code>COGNITO</code>, <code>Facebook</code>,
-   *             <code>Google</code>, <code>SignInWithApple</code>, and <code>LoginWithAmazon</code>. You can also specify the names
-   *             that you configured for the SAML and OIDC IdPs in your user pool, for example
-   *                 <code>MySAMLIdP</code> or <code>MyOIDCIdP</code>.</p>
+   *                 <code>Google</code>, <code>SignInWithApple</code>, and <code>LoginWithAmazon</code>.
+   *             You can also specify the names that you configured for the SAML and OIDC IdPs in your
+   *             user pool, for example <code>MySAMLIdP</code> or <code>MyOIDCIdP</code>.</p>
    */
   SupportedIdentityProviders?: string[];
 
@@ -6114,8 +6175,33 @@ export interface CreateUserPoolClientRequest {
 
   /**
    * @public
-   * <p>Set to true if the client is allowed to follow the OAuth protocol when interacting
-   *             with Amazon Cognito user pools.</p>
+   * <p>Set to <code>true</code> to use OAuth 2.0 features in your user pool app client.</p>
+   *          <p>
+   *             <code>AllowedOAuthFlowsUserPoolClient</code> must be <code>true</code> before you can configure
+   *         the following features in your app client.</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>CallBackURLs</code>: Callback URLs.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>LogoutURLs</code>: Sign-out redirect URLs.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>AllowedOAuthScopes</code>: OAuth 2.0 scopes.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>AllowedOAuthFlows</code>: Support for authorization code, implicit, and client credentials OAuth 2.0 grants.</p>
+   *             </li>
+   *          </ul>
+   *          <p>To use OAuth 2.0 features, configure one of these features in the Amazon Cognito console or set
+   *         <code>AllowedOAuthFlowsUserPoolClient</code> to <code>true</code> in a <code>CreateUserPoolClient</code> or
+   *         <code>UpdateUserPoolClient</code> API request. If you don't set a value for
+   *         <code>AllowedOAuthFlowsUserPoolClient</code> in a request with the CLI or SDKs, it defaults
+   *         to <code>false</code>.</p>
    */
   AllowedOAuthFlowsUserPoolClient?: boolean;
 
@@ -6172,7 +6258,7 @@ export interface CreateUserPoolClientRequest {
    *             propagation of user context data, see <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-pool-settings-advanced-security.html"> Adding advanced security to a user pool</a>. If you don’t include this
    *             parameter, you can't send device fingerprint information, including source IP address,
    *             to Amazon Cognito advanced security. You can only activate
-   *             <code>EnablePropagateAdditionalUserContextData</code> in an app client that has a
+   *                 <code>EnablePropagateAdditionalUserContextData</code> in an app client that has a
    *             client secret.</p>
    */
   EnablePropagateAdditionalUserContextData?: boolean;
@@ -6216,13 +6302,13 @@ export interface UserPoolClientType {
 
   /**
    * @public
-   * <p>The date the user pool client was last modified.</p>
+   * <p>The date and time, in <a href="https://www.iso.org/iso-8601-date-and-time-format.html">ISO 8601</a> format, when the item was modified.</p>
    */
   LastModifiedDate?: Date;
 
   /**
    * @public
-   * <p>The date the user pool client was created.</p>
+   * <p>The date and time, in <a href="https://www.iso.org/iso-8601-date-and-time-format.html">ISO 8601</a> format, when the item was created.</p>
    */
   CreationDate?: Date;
 
@@ -6269,7 +6355,7 @@ export interface UserPoolClientType {
    *          <p>For example, when you set <code>IdTokenValidity</code> as <code>10</code> and
    *         <code>TokenValidityUnits</code> as <code>hours</code>, your user can authenticate their
    *         session with their ID token for 10 hours.</p>
-   *          <p>The default time unit for <code>AccessTokenValidity</code> in an API request is hours.
+   *          <p>The default time unit for <code>IdTokenValidity</code> in an API request is hours.
    *         <i>Valid range</i> is displayed below in seconds.</p>
    *          <p>If you don't specify otherwise in the configuration of your app client, your ID
    *         tokens are valid for one hour.</p>
@@ -6343,8 +6429,9 @@ export interface UserPoolClientType {
   /**
    * @public
    * <p>A list of provider names for the IdPs that this client supports. The following are
-   *             supported: <code>COGNITO</code>, <code>Facebook</code>, <code>Google</code>, <code>SignInWithApple</code>,
-   *             <code>LoginWithAmazon</code>, and the names of your own SAML and OIDC providers.</p>
+   *             supported: <code>COGNITO</code>, <code>Facebook</code>, <code>Google</code>,
+   *                 <code>SignInWithApple</code>, <code>LoginWithAmazon</code>, and the names of your
+   *             own SAML and OIDC providers.</p>
    */
   SupportedIdentityProviders?: string[];
 
@@ -6437,8 +6524,33 @@ export interface UserPoolClientType {
 
   /**
    * @public
-   * <p>Set to true if the client is allowed to follow the OAuth protocol when interacting
-   *             with Amazon Cognito user pools.</p>
+   * <p>Set to <code>true</code> to use OAuth 2.0 features in your user pool app client.</p>
+   *          <p>
+   *             <code>AllowedOAuthFlowsUserPoolClient</code> must be <code>true</code> before you can configure
+   *         the following features in your app client.</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>CallBackURLs</code>: Callback URLs.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>LogoutURLs</code>: Sign-out redirect URLs.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>AllowedOAuthScopes</code>: OAuth 2.0 scopes.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>AllowedOAuthFlows</code>: Support for authorization code, implicit, and client credentials OAuth 2.0 grants.</p>
+   *             </li>
+   *          </ul>
+   *          <p>To use OAuth 2.0 features, configure one of these features in the Amazon Cognito console or set
+   *         <code>AllowedOAuthFlowsUserPoolClient</code> to <code>true</code> in a <code>CreateUserPoolClient</code> or
+   *         <code>UpdateUserPoolClient</code> API request. If you don't set a value for
+   *         <code>AllowedOAuthFlowsUserPoolClient</code> in a request with the CLI or SDKs, it defaults
+   *         to <code>false</code>.</p>
    */
   AllowedOAuthFlowsUserPoolClient?: boolean;
 
@@ -6982,7 +7094,7 @@ export interface RiskConfigurationType {
 
   /**
    * @public
-   * <p>The last modified date.</p>
+   * <p>The date and time, in <a href="https://www.iso.org/iso-8601-date-and-time-format.html">ISO 8601</a> format, when the item was modified.</p>
    */
   LastModifiedDate?: Date;
 }
@@ -7147,7 +7259,8 @@ export interface DomainDescriptionType {
 
   /**
    * @public
-   * <p>The Amazon Resource Name (ARN) of the Amazon CloudFront distribution.</p>
+   * <p>The Amazon CloudFront endpoint that you use as the target of the alias that you set up with
+   *             your Domain Name Service (DNS) provider.</p>
    */
   CloudFrontDistribution?: string;
 
@@ -7439,6 +7552,110 @@ export interface GetIdentityProviderByIdentifierResponse {
 
 /**
  * @public
+ */
+export interface GetLogDeliveryConfigurationRequest {
+  /**
+   * @public
+   * <p>The ID of the user pool where you want to view detailed activity logging configuration.</p>
+   */
+  UserPoolId: string | undefined;
+}
+
+/**
+ * @public
+ * <p>The CloudWatch logging destination of a user pool detailed activity logging configuration.</p>
+ */
+export interface CloudWatchLogsConfigurationType {
+  /**
+   * @public
+   * <p>The Amazon Resource Name (arn) of a CloudWatch Logs log group where your user pool sends logs.
+   *             The log group must not be encrypted with Key Management Service and must be in the same Amazon Web Services account
+   *             as your user pool.</p>
+   */
+  LogGroupArn?: string;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const EventSourceName = {
+  USER_NOTIFICATION: "userNotification",
+} as const;
+
+/**
+ * @public
+ */
+export type EventSourceName = (typeof EventSourceName)[keyof typeof EventSourceName];
+
+/**
+ * @public
+ * @enum
+ */
+export const LogLevel = {
+  ERROR: "ERROR",
+} as const;
+
+/**
+ * @public
+ */
+export type LogLevel = (typeof LogLevel)[keyof typeof LogLevel];
+
+/**
+ * @public
+ * <p>The logging parameters of a user pool.</p>
+ */
+export interface LogConfigurationType {
+  /**
+   * @public
+   * <p>The <code>errorlevel</code> selection of logs that a user pool sends for detailed activity logging.</p>
+   */
+  LogLevel: LogLevel | string | undefined;
+
+  /**
+   * @public
+   * <p>The source of events that your user pool sends for detailed activity logging.</p>
+   */
+  EventSource: EventSourceName | string | undefined;
+
+  /**
+   * @public
+   * <p>The CloudWatch logging destination of a user pool.</p>
+   */
+  CloudWatchLogsConfiguration?: CloudWatchLogsConfigurationType;
+}
+
+/**
+ * @public
+ * <p>The logging parameters of a user pool.</p>
+ */
+export interface LogDeliveryConfigurationType {
+  /**
+   * @public
+   * <p>The ID of the user pool where you configured detailed activity logging.</p>
+   */
+  UserPoolId: string | undefined;
+
+  /**
+   * @public
+   * <p>The detailed activity logging destination of a user pool.</p>
+   */
+  LogConfigurations: LogConfigurationType[] | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetLogDeliveryConfigurationResponse {
+  /**
+   * @public
+   * <p>The detailed activity logging configuration of the requested user pool.</p>
+   */
+  LogDeliveryConfiguration?: LogDeliveryConfigurationType;
+}
+
+/**
+ * @public
  * <p>Request to get a signing certificate from Amazon Cognito.</p>
  */
 export interface GetSigningCertificateRequest {
@@ -7516,13 +7733,13 @@ export interface UICustomizationType {
 
   /**
    * @public
-   * <p>The last-modified date for the UI customization.</p>
+   * <p>The date and time, in <a href="https://www.iso.org/iso-8601-date-and-time-format.html">ISO 8601</a> format, when the item was modified.</p>
    */
   LastModifiedDate?: Date;
 
   /**
    * @public
-   * <p>The creation date for the UI customization.</p>
+   * <p>The date and time, in <a href="https://www.iso.org/iso-8601-date-and-time-format.html">ISO 8601</a> format, when the item was created.</p>
    */
   CreationDate?: Date;
 }
@@ -7558,7 +7775,7 @@ export interface GetUserRequest {
 export interface GetUserResponse {
   /**
    * @public
-   * <p>The user name of the user you want to retrieve from the get user request.</p>
+   * <p>The username of the user that you requested.</p>
    */
   Username: string | undefined;
 
@@ -7836,6 +8053,11 @@ export interface InitiateAuthRequest {
    *                     client is configured with a client secret), <code>DEVICE_KEY</code>.</p>
    *             </li>
    *             <li>
+   *                <p>For <code>USER_PASSWORD_AUTH</code>: <code>USERNAME</code> (required),
+   *                         <code>PASSWORD</code> (required), <code>SECRET_HASH</code> (required if the
+   *                     app client is configured with a client secret), <code>DEVICE_KEY</code>.</p>
+   *             </li>
+   *             <li>
    *                <p>For <code>REFRESH_TOKEN_AUTH/REFRESH_TOKEN</code>: <code>REFRESH_TOKEN</code>
    *                     (required), <code>SECRET_HASH</code> (required if the app client is configured
    *                     with a client secret), <code>DEVICE_KEY</code>.</p>
@@ -7848,6 +8070,8 @@ export interface InitiateAuthRequest {
    *                         SRP_A Value)</code>.</p>
    *             </li>
    *          </ul>
+   *          <p>For more information about <code>SECRET_HASH</code>, see <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/signing-up-users-in-your-app.html#cognito-user-pools-computing-secret-hash">Computing secret hash values</a>. For information about
+   *             <code>DEVICE_KEY</code>, see <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/amazon-cognito-user-pools-device-tracking.html">Working with user devices in your user pool</a>.</p>
    */
   AuthParameters?: Record<string, string>;
 
@@ -8184,7 +8408,7 @@ export interface ProviderDescription {
 
   /**
    * @public
-   * <p>The date the provider was added to the user pool.</p>
+   * <p>The date and time, in <a href="https://www.iso.org/iso-8601-date-and-time-format.html">ISO 8601</a> format, when the item was created.</p>
    */
   CreationDate?: Date;
 }
@@ -8435,13 +8659,13 @@ export interface UserPoolDescriptionType {
 
   /**
    * @public
-   * <p>The date the user pool description was last modified.</p>
+   * <p>The date and time, in <a href="https://www.iso.org/iso-8601-date-and-time-format.html">ISO 8601</a> format, when the item was modified.</p>
    */
   LastModifiedDate?: Date;
 
   /**
    * @public
-   * <p>The date the user pool description was created.</p>
+   * <p>The date and time, in <a href="https://www.iso.org/iso-8601-date-and-time-format.html">ISO 8601</a> format, when the item was created.</p>
    */
   CreationDate?: Date;
 }
@@ -8478,9 +8702,10 @@ export interface ListUsersRequest {
 
   /**
    * @public
-   * <p>An array of strings, where each string is the name of a user attribute to be returned
-   *             for each user in the search results. If the array is null, all attributes are
-   *             returned.</p>
+   * <p>A JSON array of user attribute names, for example <code>given_name</code>, that you
+   *             want Amazon Cognito to include in the response for each user. When you don't provide an
+   *                 <code>AttributesToGet</code> parameter, Amazon Cognito returns all attributes for each
+   *             user.</p>
    */
   AttributesToGet?: string[];
 
@@ -8600,7 +8825,15 @@ export interface ListUsersRequest {
 export interface ListUsersResponse {
   /**
    * @public
-   * <p>The users returned in the request to list users.</p>
+   * <p>A list of the user pool users, and their attributes, that match your query.</p>
+   *          <note>
+   *             <p>Amazon Cognito creates a profile in your user pool for each native user in your user pool,
+   *                 and each unique user ID from your third-party identity providers (IdPs). When you
+   *                 link users with the <a href="https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_AdminLinkProviderForUser.html">AdminLinkProviderForUser</a> API operation, the output of
+   *                     <code>ListUsers</code> displays both the IdP user and the native user that you
+   *                 linked. You can identify IdP users in the <code>Users</code> object of this API
+   *                 response by the IdP prefix that Amazon Cognito appends to <code>Username</code>.</p>
+   *          </note>
    */
   Users?: UserType[];
 
@@ -8808,9 +9041,9 @@ export interface RespondToAuthChallengeRequest {
    *             <li>
    *                <p>
    *                   <code>NEW_PASSWORD_REQUIRED</code>: <code>NEW_PASSWORD</code>,
-   *                     <code>USERNAME</code>, <code>SECRET_HASH</code> (if app client is configured
+   *                         <code>USERNAME</code>, <code>SECRET_HASH</code> (if app client is configured
    *                     with client secret). To set any required attributes that Amazon Cognito returned as
-   *                     <code>requiredAttributes</code> in the <code>InitiateAuth</code> response,
+   *                         <code>requiredAttributes</code> in the <code>InitiateAuth</code> response,
    *                     add a <code>userAttributes.<i>attributename</i>
    *                   </code> parameter.
    *                     This parameter can also set values for writable attributes that aren't required
@@ -8845,6 +9078,8 @@ export interface RespondToAuthChallengeRequest {
    *                         <code>Session</code> parameter.</p>
    *             </li>
    *          </ul>
+   *          <p>For more information about <code>SECRET_HASH</code>, see <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/signing-up-users-in-your-app.html#cognito-user-pools-computing-secret-hash">Computing secret hash values</a>. For information about
+   *             <code>DEVICE_KEY</code>, see <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/amazon-cognito-user-pools-device-tracking.html">Working with user devices in your user pool</a>.</p>
    */
   ChallengeResponses?: Record<string, string>;
 
@@ -9032,6 +9267,34 @@ export class UnsupportedTokenTypeException extends __BaseException {
 /**
  * @public
  */
+export interface SetLogDeliveryConfigurationRequest {
+  /**
+   * @public
+   * <p>The ID of the user pool where you want to configure detailed activity logging .</p>
+   */
+  UserPoolId: string | undefined;
+
+  /**
+   * @public
+   * <p>A collection of all of the detailed activity logging configurations for a user pool.</p>
+   */
+  LogConfigurations: LogConfigurationType[] | undefined;
+}
+
+/**
+ * @public
+ */
+export interface SetLogDeliveryConfigurationResponse {
+  /**
+   * @public
+   * <p>The detailed activity logging configuration that you applied to the requested user pool.</p>
+   */
+  LogDeliveryConfiguration?: LogDeliveryConfigurationType;
+}
+
+/**
+ * @public
+ */
 export interface SetRiskConfigurationRequest {
   /**
    * @public
@@ -9068,196 +9331,6 @@ export interface SetRiskConfigurationRequest {
    */
   RiskExceptionConfiguration?: RiskExceptionConfigurationType;
 }
-
-/**
- * @public
- */
-export interface SetRiskConfigurationResponse {
-  /**
-   * @public
-   * <p>The risk configuration.</p>
-   */
-  RiskConfiguration: RiskConfigurationType | undefined;
-}
-
-/**
- * @public
- */
-export interface SetUICustomizationRequest {
-  /**
-   * @public
-   * <p>The user pool ID for the user pool.</p>
-   */
-  UserPoolId: string | undefined;
-
-  /**
-   * @public
-   * <p>The client ID for the client app.</p>
-   */
-  ClientId?: string;
-
-  /**
-   * @public
-   * <p>The CSS values in the UI customization.</p>
-   */
-  CSS?: string;
-
-  /**
-   * @public
-   * <p>The uploaded logo image for the UI customization.</p>
-   */
-  ImageFile?: Uint8Array;
-}
-
-/**
- * @public
- */
-export interface SetUICustomizationResponse {
-  /**
-   * @public
-   * <p>The UI customization information.</p>
-   */
-  UICustomization: UICustomizationType | undefined;
-}
-
-/**
- * @public
- */
-export interface SetUserMFAPreferenceRequest {
-  /**
-   * @public
-   * <p>The SMS text message multi-factor authentication (MFA) settings.</p>
-   */
-  SMSMfaSettings?: SMSMfaSettingsType;
-
-  /**
-   * @public
-   * <p>The time-based one-time password (TOTP) software token MFA settings.</p>
-   */
-  SoftwareTokenMfaSettings?: SoftwareTokenMfaSettingsType;
-
-  /**
-   * @public
-   * <p>A valid access token that Amazon Cognito issued to the user whose MFA preference you want to
-   *             set.</p>
-   */
-  AccessToken: string | undefined;
-}
-
-/**
- * @public
- */
-export interface SetUserMFAPreferenceResponse {}
-
-/**
- * @public
- */
-export interface SetUserPoolMfaConfigRequest {
-  /**
-   * @public
-   * <p>The user pool ID.</p>
-   */
-  UserPoolId: string | undefined;
-
-  /**
-   * @public
-   * <p>The SMS text message MFA configuration.</p>
-   */
-  SmsMfaConfiguration?: SmsMfaConfigType;
-
-  /**
-   * @public
-   * <p>The software token MFA configuration.</p>
-   */
-  SoftwareTokenMfaConfiguration?: SoftwareTokenMfaConfigType;
-
-  /**
-   * @public
-   * <p>The MFA configuration. If you set the MfaConfiguration value to ‘ON’, only users who
-   *             have set up an MFA factor can sign in. To learn more, see <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/user-pool-settings-mfa.html">Adding Multi-Factor
-   *                 Authentication (MFA) to a user pool</a>. Valid values include:</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>OFF</code> MFA won't be used for any users.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>ON</code> MFA is required for all users to sign in.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>OPTIONAL</code> MFA will be required only for individual users who have
-   *                     an MFA factor activated.</p>
-   *             </li>
-   *          </ul>
-   */
-  MfaConfiguration?: UserPoolMfaType | string;
-}
-
-/**
- * @public
- */
-export interface SetUserPoolMfaConfigResponse {
-  /**
-   * @public
-   * <p>The SMS text message MFA configuration.</p>
-   */
-  SmsMfaConfiguration?: SmsMfaConfigType;
-
-  /**
-   * @public
-   * <p>The software token MFA configuration.</p>
-   */
-  SoftwareTokenMfaConfiguration?: SoftwareTokenMfaConfigType;
-
-  /**
-   * @public
-   * <p>The MFA configuration. Valid values include:</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>OFF</code> MFA won't be used for any users.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>ON</code> MFA is required for all users to sign in.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>OPTIONAL</code> MFA will be required only for individual users who have
-   *                     an MFA factor enabled.</p>
-   *             </li>
-   *          </ul>
-   */
-  MfaConfiguration?: UserPoolMfaType | string;
-}
-
-/**
- * @public
- * <p>Represents the request to set user settings.</p>
- */
-export interface SetUserSettingsRequest {
-  /**
-   * @public
-   * <p>A valid access token that Amazon Cognito issued to the user whose user settings you want to
-   *             configure.</p>
-   */
-  AccessToken: string | undefined;
-
-  /**
-   * @public
-   * <p>You can use this parameter only to set an SMS configuration that uses SMS for
-   *             delivery.</p>
-   */
-  MFAOptions: MFAOptionType[] | undefined;
-}
-
-/**
- * @public
- * <p>The response from the server for a set user settings request.</p>
- */
-export interface SetUserSettingsResponse {}
 
 /**
  * @internal
@@ -9424,7 +9497,6 @@ export const AuthenticationResultTypeFilterSensitiveLog = (obj: AuthenticationRe
  */
 export const AdminInitiateAuthResponseFilterSensitiveLog = (obj: AdminInitiateAuthResponse): any => ({
   ...obj,
-  ...(obj.Session && { Session: SENSITIVE_STRING }),
   ...(obj.AuthenticationResult && {
     AuthenticationResult: AuthenticationResultTypeFilterSensitiveLog(obj.AuthenticationResult),
   }),
@@ -9483,8 +9555,6 @@ export const AdminResetUserPasswordRequestFilterSensitiveLog = (obj: AdminResetU
 export const AdminRespondToAuthChallengeRequestFilterSensitiveLog = (obj: AdminRespondToAuthChallengeRequest): any => ({
   ...obj,
   ...(obj.ClientId && { ClientId: SENSITIVE_STRING }),
-  ...(obj.ChallengeResponses && { ChallengeResponses: SENSITIVE_STRING }),
-  ...(obj.Session && { Session: SENSITIVE_STRING }),
 });
 
 /**
@@ -9494,7 +9564,6 @@ export const AdminRespondToAuthChallengeResponseFilterSensitiveLog = (
   obj: AdminRespondToAuthChallengeResponse
 ): any => ({
   ...obj,
-  ...(obj.Session && { Session: SENSITIVE_STRING }),
   ...(obj.AuthenticationResult && {
     AuthenticationResult: AuthenticationResultTypeFilterSensitiveLog(obj.AuthenticationResult),
   }),
@@ -9568,7 +9637,6 @@ export const AdminUserGlobalSignOutRequestFilterSensitiveLog = (obj: AdminUserGl
 export const AssociateSoftwareTokenRequestFilterSensitiveLog = (obj: AssociateSoftwareTokenRequest): any => ({
   ...obj,
   ...(obj.AccessToken && { AccessToken: SENSITIVE_STRING }),
-  ...(obj.Session && { Session: SENSITIVE_STRING }),
 });
 
 /**
@@ -9577,7 +9645,6 @@ export const AssociateSoftwareTokenRequestFilterSensitiveLog = (obj: AssociateSo
 export const AssociateSoftwareTokenResponseFilterSensitiveLog = (obj: AssociateSoftwareTokenResponse): any => ({
   ...obj,
   ...(obj.SecretCode && { SecretCode: SENSITIVE_STRING }),
-  ...(obj.Session && { Session: SENSITIVE_STRING }),
 });
 
 /**
@@ -9601,20 +9668,12 @@ export const ConfirmDeviceRequestFilterSensitiveLog = (obj: ConfirmDeviceRequest
 /**
  * @internal
  */
-export const UserContextDataTypeFilterSensitiveLog = (obj: UserContextDataType): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
 export const ConfirmForgotPasswordRequestFilterSensitiveLog = (obj: ConfirmForgotPasswordRequest): any => ({
   ...obj,
   ...(obj.ClientId && { ClientId: SENSITIVE_STRING }),
   ...(obj.SecretHash && { SecretHash: SENSITIVE_STRING }),
   ...(obj.Username && { Username: SENSITIVE_STRING }),
   ...(obj.Password && { Password: SENSITIVE_STRING }),
-  ...(obj.UserContextData && { UserContextData: SENSITIVE_STRING }),
 });
 
 /**
@@ -9625,7 +9684,6 @@ export const ConfirmSignUpRequestFilterSensitiveLog = (obj: ConfirmSignUpRequest
   ...(obj.ClientId && { ClientId: SENSITIVE_STRING }),
   ...(obj.SecretHash && { SecretHash: SENSITIVE_STRING }),
   ...(obj.Username && { Username: SENSITIVE_STRING }),
-  ...(obj.UserContextData && { UserContextData: SENSITIVE_STRING }),
 });
 
 /**
@@ -9724,7 +9782,6 @@ export const ForgotPasswordRequestFilterSensitiveLog = (obj: ForgotPasswordReque
   ...obj,
   ...(obj.ClientId && { ClientId: SENSITIVE_STRING }),
   ...(obj.SecretHash && { SecretHash: SENSITIVE_STRING }),
-  ...(obj.UserContextData && { UserContextData: SENSITIVE_STRING }),
   ...(obj.Username && { Username: SENSITIVE_STRING }),
 });
 
@@ -9812,7 +9869,6 @@ export const InitiateAuthRequestFilterSensitiveLog = (obj: InitiateAuthRequest):
   ...obj,
   ...(obj.AuthParameters && { AuthParameters: SENSITIVE_STRING }),
   ...(obj.ClientId && { ClientId: SENSITIVE_STRING }),
-  ...(obj.UserContextData && { UserContextData: SENSITIVE_STRING }),
 });
 
 /**
@@ -9820,7 +9876,6 @@ export const InitiateAuthRequestFilterSensitiveLog = (obj: InitiateAuthRequest):
  */
 export const InitiateAuthResponseFilterSensitiveLog = (obj: InitiateAuthResponse): any => ({
   ...obj,
-  ...(obj.Session && { Session: SENSITIVE_STRING }),
   ...(obj.AuthenticationResult && {
     AuthenticationResult: AuthenticationResultTypeFilterSensitiveLog(obj.AuthenticationResult),
   }),
@@ -9882,7 +9937,6 @@ export const ResendConfirmationCodeRequestFilterSensitiveLog = (obj: ResendConfi
   ...obj,
   ...(obj.ClientId && { ClientId: SENSITIVE_STRING }),
   ...(obj.SecretHash && { SecretHash: SENSITIVE_STRING }),
-  ...(obj.UserContextData && { UserContextData: SENSITIVE_STRING }),
   ...(obj.Username && { Username: SENSITIVE_STRING }),
 });
 
@@ -9892,9 +9946,6 @@ export const ResendConfirmationCodeRequestFilterSensitiveLog = (obj: ResendConfi
 export const RespondToAuthChallengeRequestFilterSensitiveLog = (obj: RespondToAuthChallengeRequest): any => ({
   ...obj,
   ...(obj.ClientId && { ClientId: SENSITIVE_STRING }),
-  ...(obj.Session && { Session: SENSITIVE_STRING }),
-  ...(obj.ChallengeResponses && { ChallengeResponses: SENSITIVE_STRING }),
-  ...(obj.UserContextData && { UserContextData: SENSITIVE_STRING }),
 });
 
 /**
@@ -9902,7 +9953,6 @@ export const RespondToAuthChallengeRequestFilterSensitiveLog = (obj: RespondToAu
  */
 export const RespondToAuthChallengeResponseFilterSensitiveLog = (obj: RespondToAuthChallengeResponse): any => ({
   ...obj,
-  ...(obj.Session && { Session: SENSITIVE_STRING }),
   ...(obj.AuthenticationResult && {
     AuthenticationResult: AuthenticationResultTypeFilterSensitiveLog(obj.AuthenticationResult),
   }),
@@ -9924,44 +9974,4 @@ export const RevokeTokenRequestFilterSensitiveLog = (obj: RevokeTokenRequest): a
 export const SetRiskConfigurationRequestFilterSensitiveLog = (obj: SetRiskConfigurationRequest): any => ({
   ...obj,
   ...(obj.ClientId && { ClientId: SENSITIVE_STRING }),
-});
-
-/**
- * @internal
- */
-export const SetRiskConfigurationResponseFilterSensitiveLog = (obj: SetRiskConfigurationResponse): any => ({
-  ...obj,
-  ...(obj.RiskConfiguration && { RiskConfiguration: RiskConfigurationTypeFilterSensitiveLog(obj.RiskConfiguration) }),
-});
-
-/**
- * @internal
- */
-export const SetUICustomizationRequestFilterSensitiveLog = (obj: SetUICustomizationRequest): any => ({
-  ...obj,
-  ...(obj.ClientId && { ClientId: SENSITIVE_STRING }),
-});
-
-/**
- * @internal
- */
-export const SetUICustomizationResponseFilterSensitiveLog = (obj: SetUICustomizationResponse): any => ({
-  ...obj,
-  ...(obj.UICustomization && { UICustomization: UICustomizationTypeFilterSensitiveLog(obj.UICustomization) }),
-});
-
-/**
- * @internal
- */
-export const SetUserMFAPreferenceRequestFilterSensitiveLog = (obj: SetUserMFAPreferenceRequest): any => ({
-  ...obj,
-  ...(obj.AccessToken && { AccessToken: SENSITIVE_STRING }),
-});
-
-/**
- * @internal
- */
-export const SetUserSettingsRequestFilterSensitiveLog = (obj: SetUserSettingsRequest): any => ({
-  ...obj,
-  ...(obj.AccessToken && { AccessToken: SENSITIVE_STRING }),
 });

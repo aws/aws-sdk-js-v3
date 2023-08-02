@@ -19,8 +19,8 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../CognitoIdentityProviderClient";
-import { ListUserImportJobsRequest, ListUserImportJobsResponse } from "../models/models_0";
-import { de_ListUserImportJobsCommand, se_ListUserImportJobsCommand } from "../protocols/Aws_json1_1";
+import { GetLogDeliveryConfigurationRequest, GetLogDeliveryConfigurationResponse } from "../models/models_0";
+import { de_GetLogDeliveryConfigurationCommand, se_GetLogDeliveryConfigurationCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -29,79 +29,53 @@ export { __MetadataBearer, $Command };
 /**
  * @public
  *
- * The input for {@link ListUserImportJobsCommand}.
+ * The input for {@link GetLogDeliveryConfigurationCommand}.
  */
-export interface ListUserImportJobsCommandInput extends ListUserImportJobsRequest {}
+export interface GetLogDeliveryConfigurationCommandInput extends GetLogDeliveryConfigurationRequest {}
 /**
  * @public
  *
- * The output of {@link ListUserImportJobsCommand}.
+ * The output of {@link GetLogDeliveryConfigurationCommand}.
  */
-export interface ListUserImportJobsCommandOutput extends ListUserImportJobsResponse, __MetadataBearer {}
+export interface GetLogDeliveryConfigurationCommandOutput
+  extends GetLogDeliveryConfigurationResponse,
+    __MetadataBearer {}
 
 /**
  * @public
- * <p>Lists user import jobs for a user pool.</p>
- *          <note>
- *             <p>Amazon Cognito evaluates Identity and Access Management (IAM) policies in requests for this API operation. For
- *             this operation, you must use IAM credentials to authorize requests, and you must
- *             grant yourself the corresponding IAM permission in a policy.</p>
- *             <p class="title">
- *                <b>Learn more</b>
- *             </p>
- *             <ul>
- *                <li>
- *                   <p>
- *                      <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_aws-signing.html">Signing Amazon Web Services API Requests</a>
- *                   </p>
- *                </li>
- *                <li>
- *                   <p>
- *                      <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/user-pools-API-operations.html">Using the Amazon Cognito user pools API and user pool endpoints</a>
- *                   </p>
- *                </li>
- *             </ul>
- *          </note>
+ * <p>Gets the detailed activity logging configuration for a user pool.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { CognitoIdentityProviderClient, ListUserImportJobsCommand } from "@aws-sdk/client-cognito-identity-provider"; // ES Modules import
- * // const { CognitoIdentityProviderClient, ListUserImportJobsCommand } = require("@aws-sdk/client-cognito-identity-provider"); // CommonJS import
+ * import { CognitoIdentityProviderClient, GetLogDeliveryConfigurationCommand } from "@aws-sdk/client-cognito-identity-provider"; // ES Modules import
+ * // const { CognitoIdentityProviderClient, GetLogDeliveryConfigurationCommand } = require("@aws-sdk/client-cognito-identity-provider"); // CommonJS import
  * const client = new CognitoIdentityProviderClient(config);
- * const input = { // ListUserImportJobsRequest
+ * const input = { // GetLogDeliveryConfigurationRequest
  *   UserPoolId: "STRING_VALUE", // required
- *   MaxResults: Number("int"), // required
- *   PaginationToken: "STRING_VALUE",
  * };
- * const command = new ListUserImportJobsCommand(input);
+ * const command = new GetLogDeliveryConfigurationCommand(input);
  * const response = await client.send(command);
- * // { // ListUserImportJobsResponse
- * //   UserImportJobs: [ // UserImportJobsListType
- * //     { // UserImportJobType
- * //       JobName: "STRING_VALUE",
- * //       JobId: "STRING_VALUE",
- * //       UserPoolId: "STRING_VALUE",
- * //       PreSignedUrl: "STRING_VALUE",
- * //       CreationDate: new Date("TIMESTAMP"),
- * //       StartDate: new Date("TIMESTAMP"),
- * //       CompletionDate: new Date("TIMESTAMP"),
- * //       Status: "Created" || "Pending" || "InProgress" || "Stopping" || "Expired" || "Stopped" || "Failed" || "Succeeded",
- * //       CloudWatchLogsRoleArn: "STRING_VALUE",
- * //       ImportedUsers: Number("long"),
- * //       SkippedUsers: Number("long"),
- * //       FailedUsers: Number("long"),
- * //       CompletionMessage: "STRING_VALUE",
- * //     },
- * //   ],
- * //   PaginationToken: "STRING_VALUE",
+ * // { // GetLogDeliveryConfigurationResponse
+ * //   LogDeliveryConfiguration: { // LogDeliveryConfigurationType
+ * //     UserPoolId: "STRING_VALUE", // required
+ * //     LogConfigurations: [ // LogConfigurationListType // required
+ * //       { // LogConfigurationType
+ * //         LogLevel: "ERROR", // required
+ * //         EventSource: "userNotification", // required
+ * //         CloudWatchLogsConfiguration: { // CloudWatchLogsConfigurationType
+ * //           LogGroupArn: "STRING_VALUE",
+ * //         },
+ * //       },
+ * //     ],
+ * //   },
  * // };
  *
  * ```
  *
- * @param ListUserImportJobsCommandInput - {@link ListUserImportJobsCommandInput}
- * @returns {@link ListUserImportJobsCommandOutput}
- * @see {@link ListUserImportJobsCommandInput} for command's `input` shape.
- * @see {@link ListUserImportJobsCommandOutput} for command's `response` shape.
+ * @param GetLogDeliveryConfigurationCommandInput - {@link GetLogDeliveryConfigurationCommandInput}
+ * @returns {@link GetLogDeliveryConfigurationCommandOutput}
+ * @see {@link GetLogDeliveryConfigurationCommandInput} for command's `input` shape.
+ * @see {@link GetLogDeliveryConfigurationCommandOutput} for command's `response` shape.
  * @see {@link CognitoIdentityProviderClientResolvedConfig | config} for CognitoIdentityProviderClient's `config` shape.
  *
  * @throws {@link InternalErrorException} (server fault)
@@ -126,9 +100,9 @@ export interface ListUserImportJobsCommandOutput extends ListUserImportJobsRespo
  * <p>Base exception class for all service exceptions from CognitoIdentityProvider service.</p>
  *
  */
-export class ListUserImportJobsCommand extends $Command<
-  ListUserImportJobsCommandInput,
-  ListUserImportJobsCommandOutput,
+export class GetLogDeliveryConfigurationCommand extends $Command<
+  GetLogDeliveryConfigurationCommandInput,
+  GetLogDeliveryConfigurationCommandOutput,
   CognitoIdentityProviderClientResolvedConfig
 > {
   // Start section: command_properties
@@ -146,7 +120,7 @@ export class ListUserImportJobsCommand extends $Command<
   /**
    * @public
    */
-  constructor(readonly input: ListUserImportJobsCommandInput) {
+  constructor(readonly input: GetLogDeliveryConfigurationCommandInput) {
     // Start section: command_constructor
     super();
     // End section: command_constructor
@@ -159,10 +133,10 @@ export class ListUserImportJobsCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: CognitoIdentityProviderClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<ListUserImportJobsCommandInput, ListUserImportJobsCommandOutput> {
+  ): Handler<GetLogDeliveryConfigurationCommandInput, GetLogDeliveryConfigurationCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
     this.middlewareStack.use(
-      getEndpointPlugin(configuration, ListUserImportJobsCommand.getEndpointParameterInstructions())
+      getEndpointPlugin(configuration, GetLogDeliveryConfigurationCommand.getEndpointParameterInstructions())
     );
     this.middlewareStack.use(getAwsAuthPlugin(configuration));
 
@@ -170,7 +144,7 @@ export class ListUserImportJobsCommand extends $Command<
 
     const { logger } = configuration;
     const clientName = "CognitoIdentityProviderClient";
-    const commandName = "ListUserImportJobsCommand";
+    const commandName = "GetLogDeliveryConfigurationCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
       clientName,
@@ -189,15 +163,18 @@ export class ListUserImportJobsCommand extends $Command<
   /**
    * @internal
    */
-  private serialize(input: ListUserImportJobsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return se_ListUserImportJobsCommand(input, context);
+  private serialize(input: GetLogDeliveryConfigurationCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
+    return se_GetLogDeliveryConfigurationCommand(input, context);
   }
 
   /**
    * @internal
    */
-  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListUserImportJobsCommandOutput> {
-    return de_ListUserImportJobsCommand(output, context);
+  private deserialize(
+    output: __HttpResponse,
+    context: __SerdeContext
+  ): Promise<GetLogDeliveryConfigurationCommandOutput> {
+    return de_GetLogDeliveryConfigurationCommand(output, context);
   }
 
   // Start section: command_body_extra

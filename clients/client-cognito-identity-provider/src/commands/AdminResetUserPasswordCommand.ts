@@ -47,14 +47,6 @@ export interface AdminResetUserPasswordCommandOutput extends AdminResetUserPassw
  * @public
  * <p>Resets the specified user's password in a user pool as an administrator. Works on any
  *             user.</p>
- *          <p>When a developer calls this API, the current password is invalidated, so it must be
- *             changed. If a user tries to sign in after the API is called, the app will get a
- *             PasswordResetRequiredException exception back and should direct the user down the flow
- *             to reset the password, which is the same as the forgot password flow. In addition, if
- *             the user pool has phone verification selected and a verified phone number exists for the
- *             user, or if email verification is selected and a verified email exists for the user,
- *             calling this API will also result in sending a message to the end user with the code to
- *             change their password.</p>
  *          <note>
  *             <p>This action might generate an SMS text message. Starting June 1, 2021, US telecom carriers
  *                 require you to register an origination phone number before you can send SMS messages
@@ -69,10 +61,37 @@ export interface AdminResetUserPasswordCommandOutput extends AdminResetUserPassw
  *                         mode</a>
  *                </i>, you can send messages only to verified phone
  *                 numbers. After you test your app while in the sandbox environment, you can move out
- *                 of the sandbox and into production. For more information, see <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-identity-pools-sms-userpool-settings.html"> SMS message settings for Amazon Cognito user pools</a> in the <i>Amazon Cognito
+ *                 of the sandbox and into production. For more information, see <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/user-pool-sms-settings.html"> SMS message settings for Amazon Cognito user pools</a> in the <i>Amazon Cognito
  *                     Developer Guide</i>.</p>
  *          </note>
- *          <p>Calling this action requires developer credentials.</p>
+ *          <p>Deactivates a user's password, requiring them to change it. If a user tries to sign in
+ *             after the API is called, Amazon Cognito responds with a
+ *                 <code>PasswordResetRequiredException</code> error. Your app must then perform the
+ *             actions that reset your user's password: the forgot-password flow. In addition, if the
+ *             user pool has phone verification selected and a verified phone number exists for the
+ *             user, or if email verification is selected and a verified email exists for the user,
+ *             calling this API will also result in sending a message to the end user with the code to
+ *             change their password.</p>
+ *          <note>
+ *             <p>Amazon Cognito evaluates Identity and Access Management (IAM) policies in requests for this API operation. For
+ *             this operation, you must use IAM credentials to authorize requests, and you must
+ *             grant yourself the corresponding IAM permission in a policy.</p>
+ *             <p class="title">
+ *                <b>Learn more</b>
+ *             </p>
+ *             <ul>
+ *                <li>
+ *                   <p>
+ *                      <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_aws-signing.html">Signing Amazon Web Services API Requests</a>
+ *                   </p>
+ *                </li>
+ *                <li>
+ *                   <p>
+ *                      <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/user-pools-API-operations.html">Using the Amazon Cognito user pools API and user pool endpoints</a>
+ *                   </p>
+ *                </li>
+ *             </ul>
+ *          </note>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -119,7 +138,7 @@ export interface AdminResetUserPasswordCommandOutput extends AdminResetUserPassw
  * @throws {@link InvalidSmsRoleTrustRelationshipException} (client fault)
  *  <p>This exception is thrown when the trust relationship is not valid for the role
  *             provided for SMS configuration. This can happen if you don't trust
- *             <code>cognito-idp.amazonaws.com</code> or the external ID provided in the role does
+ *                 <code>cognito-idp.amazonaws.com</code> or the external ID provided in the role does
  *             not match what is provided in the SMS configuration for the user pool.</p>
  *
  * @throws {@link LimitExceededException} (client fault)

@@ -63,6 +63,12 @@ export interface AssociateSoftwareTokenCommandOutput extends AssociateSoftwareTo
  *                     <code>SOFTWARE_TOKEN_MFA</code> challenge when they authenticate. Respond to
  *                 this challenge with your user's TOTP.</p>
  *          </note>
+ *          <note>
+ *             <p>Amazon Cognito doesn't evaluate Identity and Access Management (IAM) policies in requests for this API operation. For
+ *             this operation, you can't use IAM credentials to authorize requests, and you can't
+ *             grant IAM permissions in policies. For more information about authorization models in
+ *             Amazon Cognito, see <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/user-pools-API-operations.html">Using the Amazon Cognito native and OIDC APIs</a>.</p>
+ *          </note>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -93,7 +99,8 @@ export interface AssociateSoftwareTokenCommandOutput extends AssociateSoftwareTo
  *             concurrently.</p>
  *
  * @throws {@link ForbiddenException} (client fault)
- *  <p>This exception is thrown when WAF doesn't allow your request based on a web ACL that's associated with your user pool.</p>
+ *  <p>This exception is thrown when WAF doesn't allow your request based on a web
+ *             ACL that's associated with your user pool.</p>
  *
  * @throws {@link InternalErrorException} (server fault)
  *  <p>This exception is thrown when Amazon Cognito encounters an internal error.</p>

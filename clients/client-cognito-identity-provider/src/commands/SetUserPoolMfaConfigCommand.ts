@@ -19,7 +19,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../CognitoIdentityProviderClient";
-import { SetUserPoolMfaConfigRequest, SetUserPoolMfaConfigResponse } from "../models/models_0";
+import { SetUserPoolMfaConfigRequest, SetUserPoolMfaConfigResponse } from "../models/models_1";
 import { de_SetUserPoolMfaConfigCommand, se_SetUserPoolMfaConfigCommand } from "../protocols/Aws_json1_1";
 
 /**
@@ -56,7 +56,7 @@ export interface SetUserPoolMfaConfigCommandOutput extends SetUserPoolMfaConfigR
  *                         mode</a>
  *                </i>, you can send messages only to verified phone
  *                 numbers. After you test your app while in the sandbox environment, you can move out
- *                 of the sandbox and into production. For more information, see <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-identity-pools-sms-userpool-settings.html"> SMS message settings for Amazon Cognito user pools</a> in the <i>Amazon Cognito
+ *                 of the sandbox and into production. For more information, see <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/user-pool-sms-settings.html"> SMS message settings for Amazon Cognito user pools</a> in the <i>Amazon Cognito
  *                     Developer Guide</i>.</p>
  *          </note>
  * @example
@@ -119,7 +119,7 @@ export interface SetUserPoolMfaConfigCommandOutput extends SetUserPoolMfaConfigR
  * @throws {@link InvalidSmsRoleTrustRelationshipException} (client fault)
  *  <p>This exception is thrown when the trust relationship is not valid for the role
  *             provided for SMS configuration. This can happen if you don't trust
- *             <code>cognito-idp.amazonaws.com</code> or the external ID provided in the role does
+ *                 <code>cognito-idp.amazonaws.com</code> or the external ID provided in the role does
  *             not match what is provided in the SMS configuration for the user pool.</p>
  *
  * @throws {@link NotAuthorizedException} (client fault)

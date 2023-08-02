@@ -48,6 +48,12 @@ export interface UpdateAuthEventFeedbackCommandOutput extends UpdateAuthEventFee
  * <p>Provides the feedback for an authentication event, whether it was from a valid user or
  *             not. This feedback is used for improving the risk evaluation decision for the user pool
  *             as part of Amazon Cognito advanced security.</p>
+ *          <note>
+ *             <p>Amazon Cognito doesn't evaluate Identity and Access Management (IAM) policies in requests for this API operation. For
+ *             this operation, you can't use IAM credentials to authorize requests, and you can't
+ *             grant IAM permissions in policies. For more information about authorization models in
+ *             Amazon Cognito, see <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/user-pools-API-operations.html">Using the Amazon Cognito native and OIDC APIs</a>.</p>
+ *          </note>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

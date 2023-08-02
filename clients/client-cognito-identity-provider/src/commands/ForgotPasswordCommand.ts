@@ -48,10 +48,18 @@ export interface ForgotPasswordCommandOutput extends ForgotPasswordResponse, __M
  *             that is required to change the user's password. For the <code>Username</code> parameter,
  *             you can use the username or user alias. The method used to send the confirmation code is
  *             sent according to the specified AccountRecoverySetting. For more information, see <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/how-to-recover-a-user-account.html">Recovering
- *                 User Accounts</a> in the <i>Amazon Cognito Developer Guide</i>. If
- *             neither a verified phone number nor a verified email exists, an
- *                 <code>InvalidParameterException</code> is thrown. To use the confirmation code for
- *             resetting the password, call <a href="https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_ConfirmForgotPassword.html">ConfirmForgotPassword</a>. </p>
+ *                 User Accounts</a> in the <i>Amazon Cognito Developer Guide</i>. To
+ *             use the confirmation code for resetting the password, call <a href="https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_ConfirmForgotPassword.html">ConfirmForgotPassword</a>. </p>
+ *          <p>If neither a verified phone number nor a verified email exists, this API returns
+ *                 <code>InvalidParameterException</code>. If your app client has a client secret and
+ *             you don't provide a <code>SECRET_HASH</code> parameter, this API returns
+ *                 <code>NotAuthorizedException</code>.</p>
+ *          <note>
+ *             <p>Amazon Cognito doesn't evaluate Identity and Access Management (IAM) policies in requests for this API operation. For
+ *             this operation, you can't use IAM credentials to authorize requests, and you can't
+ *             grant IAM permissions in policies. For more information about authorization models in
+ *             Amazon Cognito, see <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/user-pools-API-operations.html">Using the Amazon Cognito native and OIDC APIs</a>.</p>
+ *          </note>
  *          <note>
  *             <p>This action might generate an SMS text message. Starting June 1, 2021, US telecom carriers
  *                 require you to register an origination phone number before you can send SMS messages
@@ -66,7 +74,7 @@ export interface ForgotPasswordCommandOutput extends ForgotPasswordResponse, __M
  *                         mode</a>
  *                </i>, you can send messages only to verified phone
  *                 numbers. After you test your app while in the sandbox environment, you can move out
- *                 of the sandbox and into production. For more information, see <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-identity-pools-sms-userpool-settings.html"> SMS message settings for Amazon Cognito user pools</a> in the <i>Amazon Cognito
+ *                 of the sandbox and into production. For more information, see <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/user-pool-sms-settings.html"> SMS message settings for Amazon Cognito user pools</a> in the <i>Amazon Cognito
  *                     Developer Guide</i>.</p>
  *          </note>
  * @example
@@ -113,7 +121,8 @@ export interface ForgotPasswordCommandOutput extends ForgotPasswordResponse, __M
  *             successfully.</p>
  *
  * @throws {@link ForbiddenException} (client fault)
- *  <p>This exception is thrown when WAF doesn't allow your request based on a web ACL that's associated with your user pool.</p>
+ *  <p>This exception is thrown when WAF doesn't allow your request based on a web
+ *             ACL that's associated with your user pool.</p>
  *
  * @throws {@link InternalErrorException} (server fault)
  *  <p>This exception is thrown when Amazon Cognito encounters an internal error.</p>
@@ -136,7 +145,7 @@ export interface ForgotPasswordCommandOutput extends ForgotPasswordResponse, __M
  * @throws {@link InvalidSmsRoleTrustRelationshipException} (client fault)
  *  <p>This exception is thrown when the trust relationship is not valid for the role
  *             provided for SMS configuration. This can happen if you don't trust
- *             <code>cognito-idp.amazonaws.com</code> or the external ID provided in the role does
+ *                 <code>cognito-idp.amazonaws.com</code> or the external ID provided in the role does
  *             not match what is provided in the SMS configuration for the user pool.</p>
  *
  * @throws {@link LimitExceededException} (client fault)

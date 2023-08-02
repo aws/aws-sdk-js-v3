@@ -55,6 +55,37 @@ export interface AdminSetUserPasswordCommandOutput extends AdminSetUserPasswordR
  *             password. </p>
  *          <p>Once the user has set a new password, or the password is permanent, the user status is
  *             set to <code>Confirmed</code>.</p>
+ *          <p>
+ *             <code>AdminSetUserPassword</code> can set a password for the user profile that Amazon Cognito
+ *             creates for third-party federated users. When you set a password, the federated user's
+ *             status changes from <code>EXTERNAL_PROVIDER</code> to <code>CONFIRMED</code>. A user in
+ *             this state can sign in as a federated user, and initiate authentication flows in the API
+ *             like a linked native user. They can also modify their password and attributes in
+ *             token-authenticated API requests like <code>ChangePassword</code> and
+ *                 <code>UpdateUserAttributes</code>. As a best security practice and to keep users in
+ *             sync with your external IdP, don't set passwords on federated user profiles. To set up a
+ *             federated user for native sign-in with a linked native user, refer to <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-pools-identity-federation-consolidate-users.html">Linking federated users to an existing user
+ *             profile</a>.</p>
+ *          <note>
+ *             <p>Amazon Cognito evaluates Identity and Access Management (IAM) policies in requests for this API operation. For
+ *             this operation, you must use IAM credentials to authorize requests, and you must
+ *             grant yourself the corresponding IAM permission in a policy.</p>
+ *             <p class="title">
+ *                <b>Learn more</b>
+ *             </p>
+ *             <ul>
+ *                <li>
+ *                   <p>
+ *                      <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_aws-signing.html">Signing Amazon Web Services API Requests</a>
+ *                   </p>
+ *                </li>
+ *                <li>
+ *                   <p>
+ *                      <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/user-pools-API-operations.html">Using the Amazon Cognito user pools API and user pool endpoints</a>
+ *                   </p>
+ *                </li>
+ *             </ul>
+ *          </note>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
