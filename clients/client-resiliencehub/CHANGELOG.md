@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.383.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.382.0...v3.383.0) (2023-08-02)
+
+
+### Features
+
+* **client-resiliencehub:** Drift Detection capability added when applications policy has moved from a meet to breach state. Customers will be able to exclude operational recommendations and receive credit in their resilience score. Customers can now add ARH permissions to an existing or new role. ([8b83e9a](https://github.com/aws/aws-sdk-js-v3/commit/8b83e9aa74824e9773a9ba48953f08e39742e0a8))
+
+
+
+
+
 # [3.382.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.381.0...v3.382.0) (2023-08-01)
 
 **Note:** Version bump only for package @aws-sdk/client-resiliencehub

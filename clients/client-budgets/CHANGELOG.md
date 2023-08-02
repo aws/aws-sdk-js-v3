@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.383.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.382.0...v3.383.0) (2023-08-02)
+
+
+### Features
+
+* **client-budgets:** As part of CAE tagging integration we need to update our budget names regex filter to prevent customers from using "/action/" in their budget names. ([e96bea8](https://github.com/aws/aws-sdk-js-v3/commit/e96bea818208a47f5819effc4819802b5cea27bc))
+
+
+
+
+
 # [3.382.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.381.0...v3.382.0) (2023-08-01)
 
 **Note:** Version bump only for package @aws-sdk/client-budgets

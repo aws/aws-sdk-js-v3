@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.383.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.382.0...v3.383.0) (2023-08-02)
+
+
+### Features
+
+* **client-sagemaker:** SageMaker Inference Recommender introduces a new API GetScalingConfigurationRecommendation to recommend auto scaling policies based on completed Inference Recommender jobs. ([54b8be8](https://github.com/aws/aws-sdk-js-v3/commit/54b8be8a49e7061cd89bdc79609bb5dc87c72e07))
+
+
+
+
+
 # [3.382.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.381.0...v3.382.0) (2023-08-01)
 
 

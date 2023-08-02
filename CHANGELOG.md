@@ -3,6 +3,27 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.383.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.382.0...v3.383.0) (2023-08-02)
+
+
+### Bug Fixes
+
+* **middleware-flexible-checksums:** await validateChecksumFromResponse call ([#5043](https://github.com/aws/aws-sdk-js-v3/issues/5043)) ([a11ad5f](https://github.com/aws/aws-sdk-js-v3/commit/a11ad5f215f4ba6905a3825db55c6e972c4bfecb))
+
+
+### Features
+
+* **client-budgets:** As part of CAE tagging integration we need to update our budget names regex filter to prevent customers from using "/action/" in their budget names. ([e96bea8](https://github.com/aws/aws-sdk-js-v3/commit/e96bea818208a47f5819effc4819802b5cea27bc))
+* **client-cognito-identity-provider:** New feature that logs Cognito user pool error messages to CloudWatch logs. ([e4fee3f](https://github.com/aws/aws-sdk-js-v3/commit/e4fee3fa7d3096dc12b76a2ca47cfb910a0ea4d6))
+* **client-glue:** This release includes additional Glue Streaming KAKFA SASL property types. ([44dde88](https://github.com/aws/aws-sdk-js-v3/commit/44dde88d2b6cba8be6782c8bac277f734849f97e))
+* **client-resiliencehub:** Drift Detection capability added when applications policy has moved from a meet to breach state. Customers will be able to exclude operational recommendations and receive credit in their resilience score. Customers can now add ARH permissions to an existing or new role. ([8b83e9a](https://github.com/aws/aws-sdk-js-v3/commit/8b83e9aa74824e9773a9ba48953f08e39742e0a8))
+* **client-sagemaker:** SageMaker Inference Recommender introduces a new API GetScalingConfigurationRecommendation to recommend auto scaling policies based on completed Inference Recommender jobs. ([54b8be8](https://github.com/aws/aws-sdk-js-v3/commit/54b8be8a49e7061cd89bdc79609bb5dc87c72e07))
+* **clients:** update client endpoints as of 2023-08-02 ([4d83158](https://github.com/aws/aws-sdk-js-v3/commit/4d8315856a5a126247251c57e8c2273333b24f3e))
+
+
+
+
+
 # [3.382.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.381.0...v3.382.0) (2023-08-01)
 
 

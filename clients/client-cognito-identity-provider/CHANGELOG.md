@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.383.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.382.0...v3.383.0) (2023-08-02)
+
+
+### Features
+
+* **client-cognito-identity-provider:** New feature that logs Cognito user pool error messages to CloudWatch logs. ([e4fee3f](https://github.com/aws/aws-sdk-js-v3/commit/e4fee3fa7d3096dc12b76a2ca47cfb910a0ea4d6))
+
+
+
+
+
 # [3.382.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.381.0...v3.382.0) (2023-08-01)
 
 **Note:** Version bump only for package @aws-sdk/client-cognito-identity-provider

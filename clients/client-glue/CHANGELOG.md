@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.383.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.382.0...v3.383.0) (2023-08-02)
+
+
+### Features
+
+* **client-glue:** This release includes additional Glue Streaming KAKFA SASL property types. ([44dde88](https://github.com/aws/aws-sdk-js-v3/commit/44dde88d2b6cba8be6782c8bac277f734849f97e))
+
+
+
+
+
 # [3.382.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.381.0...v3.382.0) (2023-08-01)
 
 **Note:** Version bump only for package @aws-sdk/client-glue
