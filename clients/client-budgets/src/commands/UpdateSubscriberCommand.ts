@@ -51,18 +51,18 @@ export interface UpdateSubscriberCommandOutput extends UpdateSubscriberResponse,
  *   AccountId: "STRING_VALUE", // required
  *   BudgetName: "STRING_VALUE", // required
  *   Notification: { // Notification
- *     NotificationType: "STRING_VALUE", // required
- *     ComparisonOperator: "STRING_VALUE", // required
+ *     NotificationType: "ACTUAL" || "FORECASTED", // required
+ *     ComparisonOperator: "GREATER_THAN" || "LESS_THAN" || "EQUAL_TO", // required
  *     Threshold: Number("double"), // required
- *     ThresholdType: "STRING_VALUE",
- *     NotificationState: "STRING_VALUE",
+ *     ThresholdType: "PERCENTAGE" || "ABSOLUTE_VALUE",
+ *     NotificationState: "OK" || "ALARM",
  *   },
  *   OldSubscriber: { // Subscriber
- *     SubscriptionType: "STRING_VALUE", // required
+ *     SubscriptionType: "SNS" || "EMAIL", // required
  *     Address: "STRING_VALUE", // required
  *   },
  *   NewSubscriber: {
- *     SubscriptionType: "STRING_VALUE", // required
+ *     SubscriptionType: "SNS" || "EMAIL", // required
  *     Address: "STRING_VALUE", // required
  *   },
  * };
@@ -94,9 +94,8 @@ export interface UpdateSubscriberCommandOutput extends UpdateSubscriberResponse,
  *  <p>We can’t locate the resource that you specified.</p>
  *
  * @throws {@link ThrottlingException} (client fault)
- *  <p>
- *       The number of API requests has exceeded the maximum allowed API request throttling limit for the account.
- *     </p>
+ *  <p>The number of API requests has exceeded the maximum allowed API request throttling limit
+ *       for the account.</p>
  *
  * @throws {@link BudgetsServiceException}
  * <p>Base exception class for all service exceptions from Budgets service.</p>

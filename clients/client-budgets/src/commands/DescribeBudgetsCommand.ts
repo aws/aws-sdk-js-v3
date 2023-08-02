@@ -37,9 +37,9 @@ export interface DescribeBudgetsCommandOutput extends DescribeBudgetsResponse, _
 /**
  * @public
  * <p>Lists the budgets that are associated with an account.</p>
- * 		       <important>
- * 			         <p>The Request Syntax section shows the <code>BudgetLimit</code> syntax. For <code>PlannedBudgetLimits</code>, see the <a href="https://docs.aws.amazon.com/aws-cost-management/latest/APIReference/API_budgets_DescribeBudgets.html#API_DescribeBudgets_Examples">Examples</a> section. </p>
- * 		       </important>
+ *          <important>
+ *             <p>The Request Syntax section shows the <code>BudgetLimit</code> syntax. For <code>PlannedBudgetLimits</code>, see the <a href="https://docs.aws.amazon.com/aws-cost-management/latest/APIReference/API_budgets_DescribeBudgets.html#API_DescribeBudgets_Examples">Examples</a> section. </p>
+ *          </important>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -85,7 +85,7 @@ export interface DescribeBudgetsCommandOutput extends DescribeBudgetsResponse, _
  * //         IncludeDiscount: true || false,
  * //         UseAmortized: true || false,
  * //       },
- * //       TimeUnit: "STRING_VALUE", // required
+ * //       TimeUnit: "DAILY" || "MONTHLY" || "QUARTERLY" || "ANNUALLY", // required
  * //       TimePeriod: { // TimePeriod
  * //         Start: new Date("TIMESTAMP"),
  * //         End: new Date("TIMESTAMP"),
@@ -100,10 +100,10 @@ export interface DescribeBudgetsCommandOutput extends DescribeBudgetsResponse, _
  * //           Unit: "STRING_VALUE", // required
  * //         },
  * //       },
- * //       BudgetType: "STRING_VALUE", // required
+ * //       BudgetType: "USAGE" || "COST" || "RI_UTILIZATION" || "RI_COVERAGE" || "SAVINGS_PLANS_UTILIZATION" || "SAVINGS_PLANS_COVERAGE", // required
  * //       LastUpdatedTime: new Date("TIMESTAMP"),
  * //       AutoAdjustData: { // AutoAdjustData
- * //         AutoAdjustType: "STRING_VALUE", // required
+ * //         AutoAdjustType: "HISTORICAL" || "FORECAST", // required
  * //         HistoricalOptions: { // HistoricalOptions
  * //           BudgetAdjustmentPeriod: Number("int"), // required
  * //           LookBackAvailablePeriods: Number("int"),
@@ -142,9 +142,8 @@ export interface DescribeBudgetsCommandOutput extends DescribeBudgetsResponse, _
  *  <p>We can’t locate the resource that you specified.</p>
  *
  * @throws {@link ThrottlingException} (client fault)
- *  <p>
- *       The number of API requests has exceeded the maximum allowed API request throttling limit for the account.
- *     </p>
+ *  <p>The number of API requests has exceeded the maximum allowed API request throttling limit
+ *       for the account.</p>
  *
  * @throws {@link BudgetsServiceException}
  * <p>Base exception class for all service exceptions from Budgets service.</p>

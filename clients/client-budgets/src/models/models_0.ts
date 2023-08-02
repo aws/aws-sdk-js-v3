@@ -253,16 +253,16 @@ export type SubscriptionType = (typeof SubscriptionType)[keyof typeof Subscripti
 /**
  * @public
  * <p>The subscriber to a budget notification. The subscriber consists of a subscription type and either an Amazon SNS topic or an email address.</p>
- * 		       <p>For example, an email subscriber has the following parameters:</p>
- * 		       <ul>
+ *          <p>For example, an email subscriber has the following parameters:</p>
+ *          <ul>
  *             <li>
- * 				           <p>A <code>subscriptionType</code> of <code>EMAIL</code>
+ *                <p>A <code>subscriptionType</code> of <code>EMAIL</code>
  *                </p>
- * 			         </li>
+ *             </li>
  *             <li>
- * 				           <p>An <code>address</code> of <code>example@example.com</code>
+ *                <p>An <code>address</code> of <code>example@example.com</code>
  *                </p>
- * 			         </li>
+ *             </li>
  *          </ul>
  */
 export interface Subscriber {
@@ -275,7 +275,7 @@ export interface Subscriber {
   /**
    * @public
    * <p>The address that Amazon Web Services sends budget notifications to, either an SNS topic or an email.</p>
-   * 		       <p>When you create a subscriber, the value of <code>Address</code> can't contain line breaks.</p>
+   *          <p>When you create a subscriber, the value of <code>Address</code> can't contain line breaks.</p>
    */
   Address: string | undefined;
 }
@@ -293,7 +293,8 @@ export interface Action {
 
   /**
    * @public
-   * <p> A string that represents the budget name. The ":" and "\" characters aren't allowed.</p>
+   * <p> A string that represents the budget name. The ":" and "\" characters, and the "/action/"
+   * 			substring, aren't allowed.</p>
    */
   BudgetName: string | undefined;
 
@@ -436,7 +437,7 @@ export interface HistoricalOptions {
   /**
    * @public
    * <p>The number of budget periods included in the moving-average calculation that determines your auto-adjusted budget amount. The maximum value depends on the <code>TimeUnit</code> granularity of the budget:</p>
-   * 		       <ul>
+   *          <ul>
    *             <li>
    *                <p>For the <code>DAILY</code> granularity, the maximum value is <code>60</code>.</p>
    *             </li>
@@ -456,8 +457,8 @@ export interface HistoricalOptions {
   /**
    * @public
    * <p>The integer that describes how many budget periods in your <code>BudgetAdjustmentPeriod</code> are included in the calculation of your current <code>BudgetLimit</code>. If the first budget period in your <code>BudgetAdjustmentPeriod</code> has no cost data, then that budget period isn’t included in the average that determines your budget limit. </p>
-   * 		       <p>For example, if you set <code>BudgetAdjustmentPeriod</code> as <code>4</code> quarters, but your account had no cost data in the first quarter, then only the last three quarters are included in the calculation. In this scenario, <code>LookBackAvailablePeriods</code> returns <code>3</code>. </p>
-   * 		       <p>You can’t set your own <code>LookBackAvailablePeriods</code>. The value is automatically calculated from the <code>BudgetAdjustmentPeriod</code> and your historical cost data.</p>
+   *          <p>For example, if you set <code>BudgetAdjustmentPeriod</code> as <code>4</code> quarters, but your account had no cost data in the first quarter, then only the last three quarters are included in the calculation. In this scenario, <code>LookBackAvailablePeriods</code> returns <code>3</code>. </p>
+   *          <p>You can’t set your own <code>LookBackAvailablePeriods</code>. The value is automatically calculated from the <code>BudgetAdjustmentPeriod</code> and your historical cost data.</p>
    */
   LookBackAvailablePeriods?: number;
 }
@@ -489,17 +490,17 @@ export interface AutoAdjustData {
 /**
  * @public
  * <p>The amount of cost or usage that's measured for a budget.</p>
- * 		       <p>For example, a <code>Spend</code> for <code>3 GB</code> of S3 usage has the following
+ *          <p>For example, a <code>Spend</code> for <code>3 GB</code> of S3 usage has the following
  * 			parameters:</p>
- * 		       <ul>
+ *          <ul>
  *             <li>
- * 				           <p>An <code>Amount</code> of <code>3</code>
+ *                <p>An <code>Amount</code> of <code>3</code>
  *                </p>
- * 			         </li>
+ *             </li>
  *             <li>
- * 				           <p>A <code>unit</code> of <code>GB</code>
+ *                <p>A <code>unit</code> of <code>GB</code>
  *                </p>
- * 			         </li>
+ *             </li>
  *          </ul>
  */
 export interface Spend {
@@ -542,7 +543,7 @@ export type BudgetType = (typeof BudgetType)[keyof typeof BudgetType];
  * 			how much you've used, cost, usage, RI units, or Savings Plans units and the
  * 				<code>forecastedSpend</code> tracks how much that you're predicted to spend based on
  * 			your historical usage profile.</p>
- * 		       <p>For example, if it's the 20th of the month and you have spent <code>50</code> dollars on
+ *          <p>For example, if it's the 20th of the month and you have spent <code>50</code> dollars on
  * 			Amazon EC2, your <code>actualSpend</code> is <code>50 USD</code>, and your
  * 				<code>forecastedSpend</code> is <code>75 USD</code>.</p>
  */
@@ -564,7 +565,7 @@ export interface CalculatedSpend {
 /**
  * @public
  * <p>The types of cost that are included in a <code>COST</code> budget, such as tax and subscriptions.</p>
- * 		       <p>
+ *          <p>
  *             <code>USAGE</code>, <code>RI_UTILIZATION</code>, <code>RI_COVERAGE</code>,
  * 				<code>SAVINGS_PLANS_UTILIZATION</code>, and <code>SAVINGS_PLANS_COVERAGE</code>
  * 			budgets don't have <code>CostTypes</code>.</p>
@@ -573,77 +574,77 @@ export interface CostTypes {
   /**
    * @public
    * <p>Specifies whether a budget includes taxes.</p>
-   * 		       <p>The default value is <code>true</code>.</p>
+   *          <p>The default value is <code>true</code>.</p>
    */
   IncludeTax?: boolean;
 
   /**
    * @public
    * <p>Specifies whether a budget includes subscriptions.</p>
-   * 		       <p>The default value is <code>true</code>.</p>
+   *          <p>The default value is <code>true</code>.</p>
    */
   IncludeSubscription?: boolean;
 
   /**
    * @public
    * <p>Specifies whether a budget uses a blended rate.</p>
-   * 		       <p>The default value is <code>false</code>.</p>
+   *          <p>The default value is <code>false</code>.</p>
    */
   UseBlended?: boolean;
 
   /**
    * @public
    * <p>Specifies whether a budget includes refunds.</p>
-   * 		       <p>The default value is <code>true</code>.</p>
+   *          <p>The default value is <code>true</code>.</p>
    */
   IncludeRefund?: boolean;
 
   /**
    * @public
    * <p>Specifies whether a budget includes credits.</p>
-   * 		       <p>The default value is <code>true</code>.</p>
+   *          <p>The default value is <code>true</code>.</p>
    */
   IncludeCredit?: boolean;
 
   /**
    * @public
    * <p>Specifies whether a budget includes upfront RI costs.</p>
-   * 		       <p>The default value is <code>true</code>.</p>
+   *          <p>The default value is <code>true</code>.</p>
    */
   IncludeUpfront?: boolean;
 
   /**
    * @public
    * <p>Specifies whether a budget includes recurring fees such as monthly RI fees.</p>
-   * 		       <p>The default value is <code>true</code>.</p>
+   *          <p>The default value is <code>true</code>.</p>
    */
   IncludeRecurring?: boolean;
 
   /**
    * @public
    * <p>Specifies whether a budget includes non-RI subscription costs.</p>
-   * 		       <p>The default value is <code>true</code>.</p>
+   *          <p>The default value is <code>true</code>.</p>
    */
   IncludeOtherSubscription?: boolean;
 
   /**
    * @public
    * <p>Specifies whether a budget includes support subscription fees.</p>
-   * 		       <p>The default value is <code>true</code>.</p>
+   *          <p>The default value is <code>true</code>.</p>
    */
   IncludeSupport?: boolean;
 
   /**
    * @public
    * <p>Specifies whether a budget includes discounts.</p>
-   * 		       <p>The default value is <code>true</code>.</p>
+   *          <p>The default value is <code>true</code>.</p>
    */
   IncludeDiscount?: boolean;
 
   /**
    * @public
    * <p>Specifies whether a budget uses the amortized rate.</p>
-   * 		       <p>The default value is <code>false</code>.</p>
+   *          <p>The default value is <code>false</code>.</p>
    */
   UseAmortized?: boolean;
 }
@@ -657,14 +658,14 @@ export interface TimePeriod {
   /**
    * @public
    * <p>The start date for a budget. If you created your budget and didn't specify a start date, Amazon Web Services defaults to the start of your chosen time period (DAILY, MONTHLY, QUARTERLY, or ANNUALLY). For example, if you created your budget on January 24, 2018, chose <code>DAILY</code>, and didn't set a start date, Amazon Web Services set your start date to <code>01/24/18 00:00 UTC</code>. If you chose <code>MONTHLY</code>, Amazon Web Services set your start date to <code>01/01/18 00:00 UTC</code>. The defaults are the same for the Billing and Cost Management console and the API.</p>
-   * 		       <p>You can change your start date with the <code>UpdateBudget</code> operation.</p>
+   *          <p>You can change your start date with the <code>UpdateBudget</code> operation.</p>
    */
   Start?: Date;
 
   /**
    * @public
    * <p>The end date for a budget. If you didn't specify an end date, Amazon Web Services set your end date to <code>06/15/87 00:00 UTC</code>. The defaults are the same for the Billing and Cost Management console and the API.</p>
-   * 		       <p>After the end date, Amazon Web Services deletes the budget and all the associated
+   *          <p>After the end date, Amazon Web Services deletes the budget and all the associated
    * 			notifications and subscribers. You can change your end date with the
    * 				<code>UpdateBudget</code> operation.</p>
    */
@@ -690,15 +691,17 @@ export type TimeUnit = (typeof TimeUnit)[keyof typeof TimeUnit];
 /**
  * @public
  * <p>Represents the output of the <code>CreateBudget</code> operation. The content consists of the detailed metadata and data file information, and the current status of the <code>budget</code> object.</p>
- * 		       <p>This is the Amazon Resource Name (ARN) pattern for a budget: </p>
- * 		       <p>
+ *          <p>This is the Amazon Resource Name (ARN) pattern for a budget: </p>
+ *          <p>
  *             <code>arn:aws:budgets::AccountId:budget/budgetName</code>
  *          </p>
  */
 export interface Budget {
   /**
    * @public
-   * <p>The name of a budget. The name must be unique within an account. The <code>:</code> and <code>\</code> characters aren't allowed in <code>BudgetName</code>.</p>
+   * <p>The name of a budget. The name must be unique within an account. The <code>:</code> and
+   * 				<code>\</code> characters, and the "/action/" substring, aren't allowed in
+   * 				<code>BudgetName</code>.</p>
    */
   BudgetName: string | undefined;
 
@@ -706,7 +709,7 @@ export interface Budget {
    * @public
    * <p>The total amount of cost, usage, RI utilization, RI coverage, Savings Plans utilization, or
    * 			Savings Plans coverage that you want to track with your budget.</p>
-   * 		       <p>
+   *          <p>
    *             <code>BudgetLimit</code> is required for cost or usage budgets, but optional for RI or
    * 			Savings Plans utilization or coverage budgets. RI and Savings Plans utilization or
    * 			coverage budgets default to <code>100</code>. This is the only valid value for RI or
@@ -719,20 +722,20 @@ export interface Budget {
   /**
    * @public
    * <p>A map containing multiple <code>BudgetLimit</code>, including current or future limits.</p>
-   * 		       <p>
+   *          <p>
    *             <code>PlannedBudgetLimits</code> is available for cost or usage budget and supports both
    * 			monthly and quarterly <code>TimeUnit</code>. </p>
-   * 		       <p>For monthly budgets, provide 12 months of <code>PlannedBudgetLimits</code> values. This must start from the current month and include the next 11 months. The <code>key</code> is the start of the month, <code>UTC</code> in epoch seconds. </p>
-   * 		       <p>For quarterly budgets, provide four quarters of <code>PlannedBudgetLimits</code> value
+   *          <p>For monthly budgets, provide 12 months of <code>PlannedBudgetLimits</code> values. This must start from the current month and include the next 11 months. The <code>key</code> is the start of the month, <code>UTC</code> in epoch seconds. </p>
+   *          <p>For quarterly budgets, provide four quarters of <code>PlannedBudgetLimits</code> value
    * 			entries in standard calendar quarter increments. This must start from the current
    * 			quarter and include the next three quarters. The <code>key</code> is the start of the
    * 			quarter, <code>UTC</code> in epoch seconds. </p>
-   * 		       <p>If the planned budget expires before 12 months for monthly or four quarters for quarterly,
+   *          <p>If the planned budget expires before 12 months for monthly or four quarters for quarterly,
    * 			provide the <code>PlannedBudgetLimits</code> values only for the remaining
    * 			periods.</p>
-   * 		       <p>If the budget begins at a date in the future, provide <code>PlannedBudgetLimits</code> values from the start date of the budget. </p>
-   * 		       <p>After all of the <code>BudgetLimit</code> values in <code>PlannedBudgetLimits</code> are used, the budget continues to use the last limit as the <code>BudgetLimit</code>. At that point, the planned budget provides the same experience as a fixed budget. </p>
-   * 		       <p>
+   *          <p>If the budget begins at a date in the future, provide <code>PlannedBudgetLimits</code> values from the start date of the budget. </p>
+   *          <p>After all of the <code>BudgetLimit</code> values in <code>PlannedBudgetLimits</code> are used, the budget continues to use the last limit as the <code>BudgetLimit</code>. At that point, the planned budget provides the same experience as a fixed budget. </p>
+   *          <p>
    *             <code>DescribeBudget</code> and <code>DescribeBudgets</code> response along with
    * 				<code>PlannedBudgetLimits</code> also contain <code>BudgetLimit</code> representing
    * 			the current month or quarter limit present in <code>PlannedBudgetLimits</code>. This
@@ -746,23 +749,23 @@ export interface Budget {
   /**
    * @public
    * <p>The cost filters, such as <code>Region</code>, <code>Service</code>, <code>member account</code>, <code>Tag</code>, or <code>Cost Category</code>, that are applied to a budget.</p>
-   * 		       <p>Amazon Web Services Budgets supports the following services as a <code>Service</code> filter for RI budgets:</p>
-   * 		       <ul>
+   *          <p>Amazon Web Services Budgets supports the following services as a <code>Service</code> filter for RI budgets:</p>
+   *          <ul>
    *             <li>
-   * 				           <p>Amazon EC2</p>
-   * 			         </li>
+   *                <p>Amazon EC2</p>
+   *             </li>
    *             <li>
-   * 				           <p>Amazon Redshift</p>
-   * 			         </li>
+   *                <p>Amazon Redshift</p>
+   *             </li>
    *             <li>
-   * 				           <p>Amazon Relational Database Service</p>
-   * 			         </li>
+   *                <p>Amazon Relational Database Service</p>
+   *             </li>
    *             <li>
-   * 				           <p>Amazon ElastiCache</p>
-   * 			         </li>
+   *                <p>Amazon ElastiCache</p>
+   *             </li>
    *             <li>
-   * 				           <p>Amazon OpenSearch Service</p>
-   * 			         </li>
+   *                <p>Amazon OpenSearch Service</p>
+   *             </li>
    *          </ul>
    */
   CostFilters?: Record<string, string[]>;
@@ -770,7 +773,7 @@ export interface Budget {
   /**
    * @public
    * <p>The types of costs that are included in this <code>COST</code> budget.</p>
-   * 		       <p>
+   *          <p>
    *             <code>USAGE</code>, <code>RI_UTILIZATION</code>, <code>RI_COVERAGE</code>, <code>SAVINGS_PLANS_UTILIZATION</code>, and <code>SAVINGS_PLANS_COVERAGE</code> budgets do not have <code>CostTypes</code>.</p>
    */
   CostTypes?: CostTypes;
@@ -786,15 +789,15 @@ export interface Budget {
    * <p>The period of time that's covered by a budget. You setthe start date and end date. The start
    * 			date must come before the end date. The end date must come before <code>06/15/87 00:00
    * 				UTC</code>. </p>
-   * 		       <p>If you create your budget and don't specify a start date, Amazon Web Services defaults to the
+   *          <p>If you create your budget and don't specify a start date, Amazon Web Services defaults to the
    * 			start of your chosen time period (DAILY, MONTHLY, QUARTERLY, or ANNUALLY). For example,
    * 			if you created your budget on January 24, 2018, chose <code>DAILY</code>, and didn't set
    * 			a start date, Amazon Web Services set your start date to <code>01/24/18 00:00 UTC</code>.
    * 			If you chose <code>MONTHLY</code>, Amazon Web Services set your start date to
    * 				<code>01/01/18 00:00 UTC</code>. If you didn't specify an end date, Amazon Web Services set your end date to <code>06/15/87 00:00 UTC</code>. The defaults are the same for
    * 			the Billing and Cost Management console and the API. </p>
-   * 		       <p>You can change either date with the <code>UpdateBudget</code> operation.</p>
-   * 		       <p>After the end date, Amazon Web Services deletes the budget and all the associated
+   *          <p>You can change either date with the <code>UpdateBudget</code> operation.</p>
+   *          <p>After the end date, Amazon Web Services deletes the budget and all the associated
    * 			notifications and subscribers.</p>
    */
   TimePeriod?: TimePeriod;
@@ -857,25 +860,25 @@ export type NotificationState = (typeof NotificationState)[keyof typeof Notifica
 /**
  * @public
  * <p>A notification that's associated with a budget. A budget can have up to ten notifications. </p>
- * 		       <p>Each notification must have at least one subscriber. A notification can have one SNS subscriber and up to 10 email subscribers, for a total of 11 subscribers.</p>
- * 		       <p>For example, if you have a budget for 200 dollars and you want to be notified when you go over 160 dollars, create a notification with the following parameters:</p>
- * 		       <ul>
+ *          <p>Each notification must have at least one subscriber. A notification can have one SNS subscriber and up to 10 email subscribers, for a total of 11 subscribers.</p>
+ *          <p>For example, if you have a budget for 200 dollars and you want to be notified when you go over 160 dollars, create a notification with the following parameters:</p>
+ *          <ul>
  *             <li>
- * 				           <p>A notificationType of <code>ACTUAL</code>
+ *                <p>A notificationType of <code>ACTUAL</code>
  *                </p>
- * 			         </li>
+ *             </li>
  *             <li>
- * 				           <p>A <code>thresholdType</code> of <code>PERCENTAGE</code>
+ *                <p>A <code>thresholdType</code> of <code>PERCENTAGE</code>
  *                </p>
- * 			         </li>
+ *             </li>
  *             <li>
- * 				           <p>A <code>comparisonOperator</code> of <code>GREATER_THAN</code>
+ *                <p>A <code>comparisonOperator</code> of <code>GREATER_THAN</code>
  *                </p>
- * 			         </li>
+ *             </li>
  *             <li>
- * 				           <p>A notification <code>threshold</code> of <code>80</code>
+ *                <p>A notification <code>threshold</code> of <code>80</code>
  *                </p>
- * 			         </li>
+ *             </li>
  *          </ul>
  */
 export interface Notification {
@@ -1068,9 +1071,8 @@ export class InvalidParameterException extends __BaseException {
 
 /**
  * @public
- * <p>
- *       The number of API requests has exceeded the maximum allowed API request throttling limit for the account.
- *     </p>
+ * <p>The number of API requests has exceeded the maximum allowed API request throttling limit
+ *       for the account.</p>
  */
 export class ThrottlingException extends __BaseException {
   readonly name: "ThrottlingException" = "ThrottlingException";
@@ -1106,7 +1108,8 @@ export interface CreateBudgetActionRequest {
 
   /**
    * @public
-   * <p> A string that represents the budget name. The ":" and "\" characters aren't allowed.</p>
+   * <p> A string that represents the budget name. The ":" and "\" characters, and the "/action/"
+   * 			substring, aren't allowed.</p>
    */
   BudgetName: string | undefined;
 
@@ -1171,7 +1174,8 @@ export interface CreateBudgetActionResponse {
 
   /**
    * @public
-   * <p> A string that represents the budget name. The ":" and "\" characters aren't allowed.</p>
+   * <p> A string that represents the budget name. The ":" and "\" characters, and the "/action/"
+   * 			substring, aren't allowed.</p>
    */
   BudgetName: string | undefined;
 
@@ -1318,7 +1322,8 @@ export interface DeleteBudgetActionRequest {
 
   /**
    * @public
-   * <p> A string that represents the budget name. The ":" and "\" characters aren't allowed.</p>
+   * <p> A string that represents the budget name. The ":" and "\" characters, and the "/action/"
+   * 			substring, aren't allowed.</p>
    */
   BudgetName: string | undefined;
 
@@ -1343,7 +1348,8 @@ export interface DeleteBudgetActionResponse {
 
   /**
    * @public
-   * <p> A string that represents the budget name. The ":" and "\" characters aren't allowed.</p>
+   * <p> A string that represents the budget name. The ":" and "\" characters, and the "/action/"
+   * 			substring, aren't allowed.</p>
    */
   BudgetName: string | undefined;
 
@@ -1489,7 +1495,8 @@ export interface DescribeBudgetActionRequest {
 
   /**
    * @public
-   * <p> A string that represents the budget name. The ":" and "\" characters aren't allowed.</p>
+   * <p> A string that represents the budget name. The ":" and "\" characters, and the "/action/"
+   * 			substring, aren't allowed.</p>
    */
   BudgetName: string | undefined;
 
@@ -1514,7 +1521,8 @@ export interface DescribeBudgetActionResponse {
 
   /**
    * @public
-   * <p> A string that represents the budget name. The ":" and "\" characters aren't allowed.</p>
+   * <p> A string that represents the budget name. The ":" and "\" characters, and the "/action/"
+   * 			substring, aren't allowed.</p>
    */
   BudgetName: string | undefined;
 
@@ -1539,7 +1547,8 @@ export interface DescribeBudgetActionHistoriesRequest {
 
   /**
    * @public
-   * <p> A string that represents the budget name. The ":" and "\" characters aren't allowed.</p>
+   * <p> A string that represents the budget name. The ":" and "\" characters, and the "/action/"
+   * 			substring, aren't allowed.</p>
    */
   BudgetName: string | undefined;
 
@@ -1670,7 +1679,8 @@ export interface DescribeBudgetActionsForBudgetRequest {
 
   /**
    * @public
-   * <p> A string that represents the budget name. The ":" and "\" characters aren't allowed.</p>
+   * <p> A string that represents the budget name. The ":" and "\" characters, and the "/action/"
+   * 			substring, aren't allowed.</p>
    */
   BudgetName: string | undefined;
 
@@ -1746,7 +1756,8 @@ export interface BudgetNotificationsForAccount {
 
   /**
    * @public
-   * <p> A string that represents the budget name. The ":" and "\" characters aren't allowed.</p>
+   * <p> A string that represents the budget name. The ":" and "\" characters, and the "/action/"
+   * 			substring, aren't allowed.</p>
    */
   BudgetName?: string;
 }
@@ -1808,7 +1819,8 @@ export interface DescribeBudgetPerformanceHistoryRequest {
 
   /**
    * @public
-   * <p> A string that represents the budget name. The ":" and "\" characters aren't allowed.</p>
+   * <p> A string that represents the budget name. The ":" and "\" characters, and the "/action/"
+   * 			substring, aren't allowed.</p>
    */
   BudgetName: string | undefined;
 
@@ -1862,14 +1874,15 @@ export interface BudgetedAndActualAmounts {
 export interface BudgetPerformanceHistory {
   /**
    * @public
-   * <p> A string that represents the budget name. The ":" and "\" characters aren't allowed.</p>
+   * <p> A string that represents the budget name. The ":" and "\" characters, and the "/action/"
+   * 			substring, aren't allowed.</p>
    */
   BudgetName?: string;
 
   /**
    * @public
    * <p> The type of a budget. It must be one of the following types: </p>
-   * 		       <p>
+   *          <p>
    *             <code>COST</code>, <code>USAGE</code>, <code>RI_UTILIZATION</code>, <code>RI_COVERAGE</code>, <code>SAVINGS_PLANS_UTILIZATION</code>, or <code>SAVINGS_PLANS_COVERAGE</code>.</p>
    */
   BudgetType?: BudgetType | string;
@@ -2090,7 +2103,8 @@ export interface ExecuteBudgetActionRequest {
 
   /**
    * @public
-   * <p> A string that represents the budget name. The ":" and "\" characters aren't allowed.</p>
+   * <p> A string that represents the budget name. The ":" and "\" characters, and the "/action/"
+   * 			substring, aren't allowed.</p>
    */
   BudgetName: string | undefined;
 
@@ -2123,7 +2137,8 @@ export interface ExecuteBudgetActionResponse {
 
   /**
    * @public
-   * <p> A string that represents the budget name. The ":" and "\" characters aren't allowed.</p>
+   * <p> A string that represents the budget name. The ":" and "\" characters, and the "/action/"
+   * 			substring, aren't allowed.</p>
    */
   BudgetName: string | undefined;
 
@@ -2180,7 +2195,8 @@ export interface UpdateBudgetActionRequest {
 
   /**
    * @public
-   * <p> A string that represents the budget name. The ":" and "\" characters aren't allowed.</p>
+   * <p> A string that represents the budget name. The ":" and "\" characters, and the "/action/"
+   * 			substring, aren't allowed.</p>
    */
   BudgetName: string | undefined;
 
@@ -2245,7 +2261,8 @@ export interface UpdateBudgetActionResponse {
 
   /**
    * @public
-   * <p> A string that represents the budget name. The ":" and "\" characters aren't allowed.</p>
+   * <p> A string that represents the budget name. The ":" and "\" characters, and the "/action/"
+   * 			substring, aren't allowed.</p>
    */
   BudgetName: string | undefined;
 

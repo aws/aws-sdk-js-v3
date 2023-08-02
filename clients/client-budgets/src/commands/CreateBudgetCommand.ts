@@ -37,9 +37,9 @@ export interface CreateBudgetCommandOutput extends CreateBudgetResponse, __Metad
 /**
  * @public
  * <p>Creates a budget and, if included, notifications and subscribers. </p>
- * 		       <important>
- * 			         <p>Only one of <code>BudgetLimit</code> or <code>PlannedBudgetLimits</code> can be present in the syntax at one time. Use the syntax that matches your case. The Request Syntax section shows the <code>BudgetLimit</code> syntax. For <code>PlannedBudgetLimits</code>, see the <a href="https://docs.aws.amazon.com/aws-cost-management/latest/APIReference/API_budgets_CreateBudget.html#API_CreateBudget_Examples">Examples</a> section. </p>
- * 		       </important>
+ *          <important>
+ *             <p>Only one of <code>BudgetLimit</code> or <code>PlannedBudgetLimits</code> can be present in the syntax at one time. Use the syntax that matches your case. The Request Syntax section shows the <code>BudgetLimit</code> syntax. For <code>PlannedBudgetLimits</code>, see the <a href="https://docs.aws.amazon.com/aws-cost-management/latest/APIReference/API_budgets_CreateBudget.html#API_CreateBudget_Examples">Examples</a> section. </p>
+ *          </important>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -78,7 +78,7 @@ export interface CreateBudgetCommandOutput extends CreateBudgetResponse, __Metad
  *       IncludeDiscount: true || false,
  *       UseAmortized: true || false,
  *     },
- *     TimeUnit: "STRING_VALUE", // required
+ *     TimeUnit: "DAILY" || "MONTHLY" || "QUARTERLY" || "ANNUALLY", // required
  *     TimePeriod: { // TimePeriod
  *       Start: new Date("TIMESTAMP"),
  *       End: new Date("TIMESTAMP"),
@@ -93,10 +93,10 @@ export interface CreateBudgetCommandOutput extends CreateBudgetResponse, __Metad
  *         Unit: "STRING_VALUE", // required
  *       },
  *     },
- *     BudgetType: "STRING_VALUE", // required
+ *     BudgetType: "USAGE" || "COST" || "RI_UTILIZATION" || "RI_COVERAGE" || "SAVINGS_PLANS_UTILIZATION" || "SAVINGS_PLANS_COVERAGE", // required
  *     LastUpdatedTime: new Date("TIMESTAMP"),
  *     AutoAdjustData: { // AutoAdjustData
- *       AutoAdjustType: "STRING_VALUE", // required
+ *       AutoAdjustType: "HISTORICAL" || "FORECAST", // required
  *       HistoricalOptions: { // HistoricalOptions
  *         BudgetAdjustmentPeriod: Number("int"), // required
  *         LookBackAvailablePeriods: Number("int"),
@@ -107,15 +107,15 @@ export interface CreateBudgetCommandOutput extends CreateBudgetResponse, __Metad
  *   NotificationsWithSubscribers: [ // NotificationWithSubscribersList
  *     { // NotificationWithSubscribers
  *       Notification: { // Notification
- *         NotificationType: "STRING_VALUE", // required
- *         ComparisonOperator: "STRING_VALUE", // required
+ *         NotificationType: "ACTUAL" || "FORECASTED", // required
+ *         ComparisonOperator: "GREATER_THAN" || "LESS_THAN" || "EQUAL_TO", // required
  *         Threshold: Number("double"), // required
- *         ThresholdType: "STRING_VALUE",
- *         NotificationState: "STRING_VALUE",
+ *         ThresholdType: "PERCENTAGE" || "ABSOLUTE_VALUE",
+ *         NotificationState: "OK" || "ALARM",
  *       },
  *       Subscribers: [ // Subscribers // required
  *         { // Subscriber
- *           SubscriptionType: "STRING_VALUE", // required
+ *           SubscriptionType: "SNS" || "EMAIL", // required
  *           Address: "STRING_VALUE", // required
  *         },
  *       ],
@@ -150,9 +150,8 @@ export interface CreateBudgetCommandOutput extends CreateBudgetResponse, __Metad
  *  <p>An error on the client occurred. Typically, the cause is an invalid input value.</p>
  *
  * @throws {@link ThrottlingException} (client fault)
- *  <p>
- *       The number of API requests has exceeded the maximum allowed API request throttling limit for the account.
- *     </p>
+ *  <p>The number of API requests has exceeded the maximum allowed API request throttling limit
+ *       for the account.</p>
  *
  * @throws {@link BudgetsServiceException}
  * <p>Base exception class for all service exceptions from Budgets service.</p>

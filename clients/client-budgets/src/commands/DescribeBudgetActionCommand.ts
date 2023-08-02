@@ -62,11 +62,11 @@ export interface DescribeBudgetActionCommandOutput extends DescribeBudgetActionR
  * //   Action: { // Action
  * //     ActionId: "STRING_VALUE", // required
  * //     BudgetName: "STRING_VALUE", // required
- * //     NotificationType: "STRING_VALUE", // required
- * //     ActionType: "STRING_VALUE", // required
+ * //     NotificationType: "ACTUAL" || "FORECASTED", // required
+ * //     ActionType: "APPLY_IAM_POLICY" || "APPLY_SCP_POLICY" || "RUN_SSM_DOCUMENTS", // required
  * //     ActionThreshold: { // ActionThreshold
  * //       ActionThresholdValue: Number("double"), // required
- * //       ActionThresholdType: "STRING_VALUE", // required
+ * //       ActionThresholdType: "PERCENTAGE" || "ABSOLUTE_VALUE", // required
  * //     },
  * //     Definition: { // Definition
  * //       IamActionDefinition: { // IamActionDefinition
@@ -88,7 +88,7 @@ export interface DescribeBudgetActionCommandOutput extends DescribeBudgetActionR
  * //         ],
  * //       },
  * //       SsmActionDefinition: { // SsmActionDefinition
- * //         ActionSubType: "STRING_VALUE", // required
+ * //         ActionSubType: "STOP_EC2_INSTANCES" || "STOP_RDS_INSTANCES", // required
  * //         Region: "STRING_VALUE", // required
  * //         InstanceIds: [ // InstanceIds // required
  * //           "STRING_VALUE",
@@ -96,11 +96,11 @@ export interface DescribeBudgetActionCommandOutput extends DescribeBudgetActionR
  * //       },
  * //     },
  * //     ExecutionRoleArn: "STRING_VALUE", // required
- * //     ApprovalModel: "STRING_VALUE", // required
- * //     Status: "STRING_VALUE", // required
+ * //     ApprovalModel: "AUTOMATIC" || "MANUAL", // required
+ * //     Status: "STANDBY" || "PENDING" || "EXECUTION_IN_PROGRESS" || "EXECUTION_SUCCESS" || "EXECUTION_FAILURE" || "REVERSE_IN_PROGRESS" || "REVERSE_SUCCESS" || "REVERSE_FAILURE" || "RESET_IN_PROGRESS" || "RESET_FAILURE", // required
  * //     Subscribers: [ // Subscribers // required
  * //       { // Subscriber
- * //         SubscriptionType: "STRING_VALUE", // required
+ * //         SubscriptionType: "SNS" || "EMAIL", // required
  * //         Address: "STRING_VALUE", // required
  * //       },
  * //     ],
@@ -128,9 +128,8 @@ export interface DescribeBudgetActionCommandOutput extends DescribeBudgetActionR
  *  <p>We can’t locate the resource that you specified.</p>
  *
  * @throws {@link ThrottlingException} (client fault)
- *  <p>
- *       The number of API requests has exceeded the maximum allowed API request throttling limit for the account.
- *     </p>
+ *  <p>The number of API requests has exceeded the maximum allowed API request throttling limit
+ *       for the account.</p>
  *
  * @throws {@link BudgetsServiceException}
  * <p>Base exception class for all service exceptions from Budgets service.</p>

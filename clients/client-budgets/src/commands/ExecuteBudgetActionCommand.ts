@@ -49,7 +49,7 @@ export interface ExecuteBudgetActionCommandOutput extends ExecuteBudgetActionRes
  *   AccountId: "STRING_VALUE", // required
  *   BudgetName: "STRING_VALUE", // required
  *   ActionId: "STRING_VALUE", // required
- *   ExecutionType: "STRING_VALUE", // required
+ *   ExecutionType: "APPROVE_BUDGET_ACTION" || "RETRY_BUDGET_ACTION" || "REVERSE_BUDGET_ACTION" || "RESET_BUDGET_ACTION", // required
  * };
  * const command = new ExecuteBudgetActionCommand(input);
  * const response = await client.send(command);
@@ -57,7 +57,7 @@ export interface ExecuteBudgetActionCommandOutput extends ExecuteBudgetActionRes
  * //   AccountId: "STRING_VALUE", // required
  * //   BudgetName: "STRING_VALUE", // required
  * //   ActionId: "STRING_VALUE", // required
- * //   ExecutionType: "STRING_VALUE", // required
+ * //   ExecutionType: "APPROVE_BUDGET_ACTION" || "RETRY_BUDGET_ACTION" || "REVERSE_BUDGET_ACTION" || "RESET_BUDGET_ACTION", // required
  * // };
  *
  * ```
@@ -85,9 +85,8 @@ export interface ExecuteBudgetActionCommandOutput extends ExecuteBudgetActionRes
  *       particular method for the requested resource. </p>
  *
  * @throws {@link ThrottlingException} (client fault)
- *  <p>
- *       The number of API requests has exceeded the maximum allowed API request throttling limit for the account.
- *     </p>
+ *  <p>The number of API requests has exceeded the maximum allowed API request throttling limit
+ *       for the account.</p>
  *
  * @throws {@link BudgetsServiceException}
  * <p>Base exception class for all service exceptions from Budgets service.</p>

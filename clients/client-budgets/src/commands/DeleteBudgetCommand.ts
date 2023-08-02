@@ -37,9 +37,9 @@ export interface DeleteBudgetCommandOutput extends DeleteBudgetResponse, __Metad
 /**
  * @public
  * <p>Deletes a budget. You can delete your budget at any time.</p>
- * 		       <important>
- * 			         <p>Deleting a budget also deletes the notifications and subscribers that are associated with that budget.</p>
- * 		       </important>
+ *          <important>
+ *             <p>Deleting a budget also deletes the notifications and subscribers that are associated with that budget.</p>
+ *          </important>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -75,9 +75,8 @@ export interface DeleteBudgetCommandOutput extends DeleteBudgetResponse, __Metad
  *  <p>We can’t locate the resource that you specified.</p>
  *
  * @throws {@link ThrottlingException} (client fault)
- *  <p>
- *       The number of API requests has exceeded the maximum allowed API request throttling limit for the account.
- *     </p>
+ *  <p>The number of API requests has exceeded the maximum allowed API request throttling limit
+ *       for the account.</p>
  *
  * @throws {@link BudgetsServiceException}
  * <p>Base exception class for all service exceptions from Budgets service.</p>

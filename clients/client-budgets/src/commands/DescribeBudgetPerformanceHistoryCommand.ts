@@ -63,7 +63,7 @@ export interface DescribeBudgetPerformanceHistoryCommandOutput
  * // { // DescribeBudgetPerformanceHistoryResponse
  * //   BudgetPerformanceHistory: { // BudgetPerformanceHistory
  * //     BudgetName: "STRING_VALUE",
- * //     BudgetType: "STRING_VALUE",
+ * //     BudgetType: "USAGE" || "COST" || "RI_UTILIZATION" || "RI_COVERAGE" || "SAVINGS_PLANS_UTILIZATION" || "SAVINGS_PLANS_COVERAGE",
  * //     CostFilters: { // CostFilters
  * //       "<keys>": [ // DimensionValues
  * //         "STRING_VALUE",
@@ -82,7 +82,7 @@ export interface DescribeBudgetPerformanceHistoryCommandOutput
  * //       IncludeDiscount: true || false,
  * //       UseAmortized: true || false,
  * //     },
- * //     TimeUnit: "STRING_VALUE",
+ * //     TimeUnit: "DAILY" || "MONTHLY" || "QUARTERLY" || "ANNUALLY",
  * //     BudgetedAndActualAmountsList: [ // BudgetedAndActualAmountsList
  * //       { // BudgetedAndActualAmounts
  * //         BudgetedAmount: { // Spend
@@ -130,9 +130,8 @@ export interface DescribeBudgetPerformanceHistoryCommandOutput
  *  <p>We can’t locate the resource that you specified.</p>
  *
  * @throws {@link ThrottlingException} (client fault)
- *  <p>
- *       The number of API requests has exceeded the maximum allowed API request throttling limit for the account.
- *     </p>
+ *  <p>The number of API requests has exceeded the maximum allowed API request throttling limit
+ *       for the account.</p>
  *
  * @throws {@link BudgetsServiceException}
  * <p>Base exception class for all service exceptions from Budgets service.</p>
