@@ -13,7 +13,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@smithy/types";
 
-import { QueryLineageRequest, QueryLineageResponse } from "../models/models_3";
+import { QueryLineageRequest, QueryLineageResponse } from "../models/models_4";
 import { de_QueryLineageCommand, se_QueryLineageCommand } from "../protocols/Aws_json1_1";
 import { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
 

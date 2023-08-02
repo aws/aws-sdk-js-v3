@@ -11271,6 +11271,47 @@ export type CrossAccountFilterOption = (typeof CrossAccountFilterOption)[keyof t
 
 /**
  * @public
+ * @enum
+ */
+export const Statistic = {
+  AVERAGE: "Average",
+  MAXIMUM: "Maximum",
+  MINIMUM: "Minimum",
+  SAMPLE_COUNT: "SampleCount",
+  SUM: "Sum",
+} as const;
+
+/**
+ * @public
+ */
+export type Statistic = (typeof Statistic)[keyof typeof Statistic];
+
+/**
+ * @public
+ * <p>A customized metric.</p>
+ */
+export interface CustomizedMetricSpecification {
+  /**
+   * @public
+   * <p>The name of the customized metric.</p>
+   */
+  MetricName?: string;
+
+  /**
+   * @public
+   * <p>The namespace of the customized metric.</p>
+   */
+  Namespace?: string;
+
+  /**
+   * @public
+   * <p>The statistic of the customized metric.</p>
+   */
+  Statistic?: Statistic | string;
+}
+
+/**
+ * @public
  * <p>The currently active data capture configuration used by your Endpoint.</p>
  */
 export interface DataCaptureConfigSummary {
@@ -11684,22 +11725,6 @@ export interface DeleteFeatureGroupRequest {
    */
   FeatureGroupName: string | undefined;
 }
-
-/**
- * @public
- */
-export interface DeleteFlowDefinitionRequest {
-  /**
-   * @public
-   * <p>The name of the flow definition you are deleting.</p>
-   */
-  FlowDefinitionName: string | undefined;
-}
-
-/**
- * @public
- */
-export interface DeleteFlowDefinitionResponse {}
 
 /**
  * @internal

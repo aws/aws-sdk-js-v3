@@ -5,7 +5,6 @@ import {
   ActionSource,
   ActionStatus,
   AdditionalInferenceSpecificationDefinition,
-  AgentVersion,
   AlgorithmSpecification,
   AlgorithmStatus,
   AlgorithmStatusDetails,
@@ -82,6 +81,7 @@ import {
 } from "./models_0";
 import {
   _InstanceType,
+  CustomizedMetricSpecification,
   DataCaptureConfig,
   DataCaptureConfigSummary,
   DataProcessing,
@@ -175,6 +175,22 @@ import {
   UserSettings,
   VendorGuidance,
 } from "./models_1";
+
+/**
+ * @public
+ */
+export interface DeleteFlowDefinitionRequest {
+  /**
+   * @public
+   * <p>The name of the flow definition you are deleting.</p>
+   */
+  FlowDefinitionName: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DeleteFlowDefinitionResponse {}
 
 /**
  * @public
@@ -10082,6 +10098,167 @@ export interface DomainSettingsForUpdate {
 
 /**
  * @public
+ * <p>A specification for a predefined metric.</p>
+ */
+export interface PredefinedMetricSpecification {
+  /**
+   * @public
+   * <p>The metric type. You can only apply SageMaker metric types to SageMaker endpoints.</p>
+   */
+  PredefinedMetricType?: string;
+}
+
+/**
+ * @public
+ * <p>An object containing information about a metric.</p>
+ */
+export type MetricSpecification =
+  | MetricSpecification.CustomizedMember
+  | MetricSpecification.PredefinedMember
+  | MetricSpecification.$UnknownMember;
+
+/**
+ * @public
+ */
+export namespace MetricSpecification {
+  /**
+   * @public
+   * <p>Information about a predefined metric.</p>
+   */
+  export interface PredefinedMember {
+    Predefined: PredefinedMetricSpecification;
+    Customized?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * @public
+   * <p>Information about a customized metric.</p>
+   */
+  export interface CustomizedMember {
+    Predefined?: never;
+    Customized: CustomizedMetricSpecification;
+    $unknown?: never;
+  }
+
+  /**
+   * @public
+   */
+  export interface $UnknownMember {
+    Predefined?: never;
+    Customized?: never;
+    $unknown: [string, any];
+  }
+
+  export interface Visitor<T> {
+    Predefined: (value: PredefinedMetricSpecification) => T;
+    Customized: (value: CustomizedMetricSpecification) => T;
+    _: (name: string, value: any) => T;
+  }
+
+  export const visit = <T>(value: MetricSpecification, visitor: Visitor<T>): T => {
+    if (value.Predefined !== undefined) return visitor.Predefined(value.Predefined);
+    if (value.Customized !== undefined) return visitor.Customized(value.Customized);
+    return visitor._(value.$unknown[0], value.$unknown[1]);
+  };
+}
+
+/**
+ * @public
+ * <p>A target tracking scaling policy. Includes support for predefined or customized metrics.</p>
+ *          <p>When using the <a href="https://docs.aws.amazon.com/autoscaling/application/APIReference/API_PutScalingPolicy.html">PutScalingPolicy</a> API,
+ *          this parameter is required when you are creating a policy with the policy type <code>TargetTrackingScaling</code>.</p>
+ */
+export interface TargetTrackingScalingPolicyConfiguration {
+  /**
+   * @public
+   * <p>An object containing information about a metric.</p>
+   */
+  MetricSpecification?: MetricSpecification;
+
+  /**
+   * @public
+   * <p>The recommended target value to specify for the metric when creating a scaling policy.</p>
+   */
+  TargetValue?: number;
+}
+
+/**
+ * @public
+ * <p>An object containing a recommended scaling policy.</p>
+ */
+export type ScalingPolicy = ScalingPolicy.TargetTrackingMember | ScalingPolicy.$UnknownMember;
+
+/**
+ * @public
+ */
+export namespace ScalingPolicy {
+  /**
+   * @public
+   * <p>A target tracking scaling policy. Includes support for predefined or customized metrics.</p>
+   */
+  export interface TargetTrackingMember {
+    TargetTracking: TargetTrackingScalingPolicyConfiguration;
+    $unknown?: never;
+  }
+
+  /**
+   * @public
+   */
+  export interface $UnknownMember {
+    TargetTracking?: never;
+    $unknown: [string, any];
+  }
+
+  export interface Visitor<T> {
+    TargetTracking: (value: TargetTrackingScalingPolicyConfiguration) => T;
+    _: (name: string, value: any) => T;
+  }
+
+  export const visit = <T>(value: ScalingPolicy, visitor: Visitor<T>): T => {
+    if (value.TargetTracking !== undefined) return visitor.TargetTracking(value.TargetTracking);
+    return visitor._(value.$unknown[0], value.$unknown[1]);
+  };
+}
+
+/**
+ * @public
+ * <p>An object with the recommended values for you to specify when creating an autoscaling policy.</p>
+ */
+export interface DynamicScalingConfiguration {
+  /**
+   * @public
+   * <p>The recommended minimum capacity to specify for your autoscaling policy.</p>
+   */
+  MinCapacity?: number;
+
+  /**
+   * @public
+   * <p>The recommended maximum capacity to specify for your autoscaling policy.</p>
+   */
+  MaxCapacity?: number;
+
+  /**
+   * @public
+   * <p>The recommended scale in cooldown time for your autoscaling policy.</p>
+   */
+  ScaleInCooldown?: number;
+
+  /**
+   * @public
+   * <p>The recommended scale out cooldown time for your autoscaling policy.</p>
+   */
+  ScaleOutCooldown?: number;
+
+  /**
+   * @public
+   * <p>An object of the scaling policies for each metric.</p>
+   */
+  ScalingPolicies?: ScalingPolicy[];
+}
+
+/**
+ * @public
  * <p>A directed edge connecting two lineage entities.</p>
  */
 export interface Edge {
@@ -11219,156 +11396,6 @@ export interface Filter {
    *         <code>YYYY-mm-dd'T'HH:MM:SS</code>.</p>
    */
   Value?: string;
-}
-
-/**
- * @public
- * <p>Contains summary information about the flow definition.</p>
- */
-export interface FlowDefinitionSummary {
-  /**
-   * @public
-   * <p>The name of the flow definition.</p>
-   */
-  FlowDefinitionName: string | undefined;
-
-  /**
-   * @public
-   * <p>The Amazon Resource Name (ARN) of the flow definition.</p>
-   */
-  FlowDefinitionArn: string | undefined;
-
-  /**
-   * @public
-   * <p>The status of the flow definition. Valid values:</p>
-   */
-  FlowDefinitionStatus: FlowDefinitionStatus | string | undefined;
-
-  /**
-   * @public
-   * <p>The timestamp when SageMaker created the flow definition.</p>
-   */
-  CreationTime: Date | undefined;
-
-  /**
-   * @public
-   * <p>The reason why the flow definition creation failed. A failure reason is returned only when the flow definition status is <code>Failed</code>.</p>
-   */
-  FailureReason?: string;
-}
-
-/**
- * @public
- */
-export interface GetDeviceFleetReportRequest {
-  /**
-   * @public
-   * <p>The name of the fleet.</p>
-   */
-  DeviceFleetName: string | undefined;
-}
-
-/**
- * @public
- */
-export interface GetDeviceFleetReportResponse {
-  /**
-   * @public
-   * <p>The Amazon Resource Name (ARN) of the device.</p>
-   */
-  DeviceFleetArn: string | undefined;
-
-  /**
-   * @public
-   * <p>The name of the fleet.</p>
-   */
-  DeviceFleetName: string | undefined;
-
-  /**
-   * @public
-   * <p>The output configuration for storing sample data collected by the fleet.</p>
-   */
-  OutputConfig?: EdgeOutputConfig;
-
-  /**
-   * @public
-   * <p>Description of the fleet.</p>
-   */
-  Description?: string;
-
-  /**
-   * @public
-   * <p>Timestamp of when the report was generated.</p>
-   */
-  ReportGenerated?: Date;
-
-  /**
-   * @public
-   * <p>Status of devices.</p>
-   */
-  DeviceStats?: DeviceStats;
-
-  /**
-   * @public
-   * <p>The versions of Edge Manager agent deployed on the fleet.</p>
-   */
-  AgentVersions?: AgentVersion[];
-
-  /**
-   * @public
-   * <p>Status of model on device.</p>
-   */
-  ModelStats?: EdgeModelStat[];
-}
-
-/**
- * @public
- */
-export interface GetLineageGroupPolicyRequest {
-  /**
-   * @public
-   * <p>The name or Amazon Resource Name (ARN) of the lineage group.</p>
-   */
-  LineageGroupName: string | undefined;
-}
-
-/**
- * @public
- */
-export interface GetLineageGroupPolicyResponse {
-  /**
-   * @public
-   * <p>The Amazon Resource Name (ARN) of the lineage group.</p>
-   */
-  LineageGroupArn?: string;
-
-  /**
-   * @public
-   * <p>The resource policy that gives access to the lineage group in another account.</p>
-   */
-  ResourcePolicy?: string;
-}
-
-/**
- * @public
- */
-export interface GetModelPackageGroupPolicyInput {
-  /**
-   * @public
-   * <p>The name of the model group for which to get the resource policy.</p>
-   */
-  ModelPackageGroupName: string | undefined;
-}
-
-/**
- * @public
- */
-export interface GetModelPackageGroupPolicyOutput {
-  /**
-   * @public
-   * <p>The resource policy for the model group.</p>
-   */
-  ResourcePolicy: string | undefined;
 }
 
 /**

@@ -13,7 +13,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@smithy/types";
 
-import { GetDeviceFleetReportRequest, GetDeviceFleetReportResponse } from "../models/models_2";
+import { GetDeviceFleetReportRequest, GetDeviceFleetReportResponse } from "../models/models_3";
 import { de_GetDeviceFleetReportCommand, se_GetDeviceFleetReportCommand } from "../protocols/Aws_json1_1";
 import { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
 

@@ -13,8 +13,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@smithy/types";
 
-import { RenderUiTemplateRequest } from "../models/models_3";
-import { RenderUiTemplateResponse } from "../models/models_4";
+import { RenderUiTemplateRequest, RenderUiTemplateResponse } from "../models/models_4";
 import { de_RenderUiTemplateCommand, se_RenderUiTemplateCommand } from "../protocols/Aws_json1_1";
 import { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
 

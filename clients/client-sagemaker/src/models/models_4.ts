@@ -52,6 +52,7 @@ import {
   ProvisioningParameter,
   RetryStrategy,
   RootAccess,
+  ServiceCatalogProvisioningDetails,
   ShadowModeConfig,
   SourceIpConfig,
   SpaceSettings,
@@ -59,6 +60,7 @@ import {
   TrialComponentArtifact,
   TrialComponentParameterValue,
   TrialComponentStatus,
+  UiTemplate,
   UserSettings,
   VendorGuidance,
   WorkforceVpcConfigRequest,
@@ -66,7 +68,9 @@ import {
 import {
   DesiredWeightAndCapacity,
   Device,
+  Direction,
   DomainSettingsForUpdate,
+  Edge,
   Endpoint,
   Experiment,
   FeatureGroup,
@@ -75,9 +79,11 @@ import {
   Filter,
   MetricData,
   ModelArtifacts,
+  ProjectStatus,
   SecondaryStatus,
   SecondaryStatusTransition,
   SelectiveExecutionConfig,
+  ServiceCatalogProvisionedProductDetails,
   TrainingJobStatus,
   TrialComponentMetricSummary,
   TrialComponentSource,
@@ -89,6 +95,7 @@ import {
   GitConfigForUpdate,
   HyperParameterTuningJobSearchEntity,
   InferenceExperimentStopDesiredState,
+  LineageType,
   ModelCard,
   ModelCardFilterSensitiveLog,
   ModelDashboardModel,
@@ -103,11 +110,380 @@ import {
   PipelineExecution,
   ProcessingJob,
   ProfilerConfigForUpdate,
-  Project,
-  RenderingError,
   ResourceType,
   TransformJob,
 } from "./models_3";
+
+/**
+ * @public
+ * <p>The properties of a project as returned by the Search API.</p>
+ */
+export interface Project {
+  /**
+   * @public
+   * <p>The Amazon Resource Name (ARN) of the project.</p>
+   */
+  ProjectArn?: string;
+
+  /**
+   * @public
+   * <p>The name of the project.</p>
+   */
+  ProjectName?: string;
+
+  /**
+   * @public
+   * <p>The ID of the project.</p>
+   */
+  ProjectId?: string;
+
+  /**
+   * @public
+   * <p>The description of the project.</p>
+   */
+  ProjectDescription?: string;
+
+  /**
+   * @public
+   * <p>Details that you specify to provision a service catalog product. For information about
+   *             service catalog, see <a href="https://docs.aws.amazon.com/servicecatalog/latest/adminguide/introduction.html">What is Amazon Web Services Service
+   *                 Catalog</a>.</p>
+   */
+  ServiceCatalogProvisioningDetails?: ServiceCatalogProvisioningDetails;
+
+  /**
+   * @public
+   * <p>Details of a provisioned service catalog product. For information about service catalog,
+   *             see <a href="https://docs.aws.amazon.com/servicecatalog/latest/adminguide/introduction.html">What is Amazon Web Services Service
+   *                 Catalog</a>.</p>
+   */
+  ServiceCatalogProvisionedProductDetails?: ServiceCatalogProvisionedProductDetails;
+
+  /**
+   * @public
+   * <p>The status of the project.</p>
+   */
+  ProjectStatus?: ProjectStatus | string;
+
+  /**
+   * @public
+   * <p>Who created the project.</p>
+   */
+  CreatedBy?: UserContext;
+
+  /**
+   * @public
+   * <p>A timestamp specifying when the project was created.</p>
+   */
+  CreationTime?: Date;
+
+  /**
+   * @public
+   * <p>An array of key-value pairs. You can use tags to categorize your Amazon Web Services
+   *             resources in different ways, for example, by purpose, owner, or environment. For more
+   *             information, see <a href="https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html">Tagging Amazon Web Services Resources</a>.</p>
+   */
+  Tags?: Tag[];
+
+  /**
+   * @public
+   * <p>A timestamp container for when the project was last modified.</p>
+   */
+  LastModifiedTime?: Date;
+
+  /**
+   * @public
+   * <p>Information about the user who created or modified an experiment, trial, trial
+   *       component, lineage group, project, or model card.</p>
+   */
+  LastModifiedBy?: UserContext;
+}
+
+/**
+ * @public
+ */
+export interface PutModelPackageGroupPolicyInput {
+  /**
+   * @public
+   * <p>The name of the model group to add a resource policy to.</p>
+   */
+  ModelPackageGroupName: string | undefined;
+
+  /**
+   * @public
+   * <p>The resource policy for the model group.</p>
+   */
+  ResourcePolicy: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface PutModelPackageGroupPolicyOutput {
+  /**
+   * @public
+   * <p>The Amazon Resource Name (ARN) of the model package group.</p>
+   */
+  ModelPackageGroupArn: string | undefined;
+}
+
+/**
+ * @public
+ * <p>A set of filters to narrow the set of lineage entities connected to the <code>StartArn</code>(s) returned by the
+ *          <code>QueryLineage</code> API action.</p>
+ */
+export interface QueryFilters {
+  /**
+   * @public
+   * <p>Filter the lineage entities connected to the <code>StartArn</code> by type. For example: <code>DataSet</code>,
+   *          <code>Model</code>, <code>Endpoint</code>, or <code>ModelDeployment</code>.</p>
+   */
+  Types?: string[];
+
+  /**
+   * @public
+   * <p>Filter the lineage entities connected to the <code>StartArn</code>(s) by the type of the lineage entity.</p>
+   */
+  LineageTypes?: (LineageType | string)[];
+
+  /**
+   * @public
+   * <p>Filter the lineage entities connected to the <code>StartArn</code>(s) by created date.</p>
+   */
+  CreatedBefore?: Date;
+
+  /**
+   * @public
+   * <p>Filter the lineage entities connected to the <code>StartArn</code>(s) after the create date.</p>
+   */
+  CreatedAfter?: Date;
+
+  /**
+   * @public
+   * <p>Filter the lineage entities connected to the <code>StartArn</code>(s) before the last modified date.</p>
+   */
+  ModifiedBefore?: Date;
+
+  /**
+   * @public
+   * <p>Filter the lineage entities connected to the <code>StartArn</code>(s) after the last modified date.</p>
+   */
+  ModifiedAfter?: Date;
+
+  /**
+   * @public
+   * <p>Filter the lineage entities connected to the <code>StartArn</code>(s) by a set if property key value pairs.
+   *          If multiple pairs are provided, an entity is included in the results if it matches any of the provided pairs.</p>
+   */
+  Properties?: Record<string, string>;
+}
+
+/**
+ * @public
+ */
+export interface QueryLineageRequest {
+  /**
+   * @public
+   * <p>A list of resource Amazon Resource Name (ARN) that represent the starting point for your lineage query.</p>
+   */
+  StartArns?: string[];
+
+  /**
+   * @public
+   * <p>Associations between lineage entities have a direction.  This parameter determines the direction from the
+   *          StartArn(s) that the query traverses.</p>
+   */
+  Direction?: Direction | string;
+
+  /**
+   * @public
+   * <p> Setting this value to <code>True</code> retrieves not only the entities of interest but also the
+   *          <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/lineage-tracking-entities.html">Associations</a> and
+   *          lineage entities on the path. Set to <code>False</code> to only return lineage entities that match your query.</p>
+   */
+  IncludeEdges?: boolean;
+
+  /**
+   * @public
+   * <p>A set of filtering parameters that allow you to specify which entities should be returned.</p>
+   *          <ul>
+   *             <li>
+   *                <p>Properties - Key-value pairs to match on the lineage entities' properties.</p>
+   *             </li>
+   *             <li>
+   *                <p>LineageTypes - A set of lineage entity types to match on. For example: <code>TrialComponent</code>,
+   *             <code>Artifact</code>, or <code>Context</code>.</p>
+   *             </li>
+   *             <li>
+   *                <p>CreatedBefore - Filter entities created before this date.</p>
+   *             </li>
+   *             <li>
+   *                <p>ModifiedBefore - Filter entities modified before this date.</p>
+   *             </li>
+   *             <li>
+   *                <p>ModifiedAfter - Filter entities modified after this date.</p>
+   *             </li>
+   *          </ul>
+   */
+  Filters?: QueryFilters;
+
+  /**
+   * @public
+   * <p>The maximum depth in lineage relationships from the <code>StartArns</code> that are traversed. Depth is a measure of the number
+   *          of <code>Associations</code> from the <code>StartArn</code> entity to the matched results.</p>
+   */
+  MaxDepth?: number;
+
+  /**
+   * @public
+   * <p>Limits the number of vertices in the results. Use the <code>NextToken</code> in a response to to retrieve the next page of results.</p>
+   */
+  MaxResults?: number;
+
+  /**
+   * @public
+   * <p>Limits the number of vertices in the request. Use the <code>NextToken</code> in a response to to retrieve the next page of results.</p>
+   */
+  NextToken?: string;
+}
+
+/**
+ * @public
+ * <p>A lineage entity connected to the starting entity(ies).</p>
+ */
+export interface Vertex {
+  /**
+   * @public
+   * <p>The Amazon Resource Name (ARN) of the lineage entity resource.</p>
+   */
+  Arn?: string;
+
+  /**
+   * @public
+   * <p>The type of the lineage entity resource. For example: <code>DataSet</code>, <code>Model</code>, <code>Endpoint</code>,
+   *          etc...</p>
+   */
+  Type?: string;
+
+  /**
+   * @public
+   * <p>The type of resource of the lineage entity.</p>
+   */
+  LineageType?: LineageType | string;
+}
+
+/**
+ * @public
+ */
+export interface QueryLineageResponse {
+  /**
+   * @public
+   * <p>A list of vertices connected to the start entity(ies) in the lineage graph.</p>
+   */
+  Vertices?: Vertex[];
+
+  /**
+   * @public
+   * <p>A list of edges that connect vertices in the response.</p>
+   */
+  Edges?: Edge[];
+
+  /**
+   * @public
+   * <p>Limits the number of vertices in the response. Use the <code>NextToken</code> in a response to to retrieve the next page of results.</p>
+   */
+  NextToken?: string;
+}
+
+/**
+ * @public
+ */
+export interface RegisterDevicesRequest {
+  /**
+   * @public
+   * <p>The name of the fleet.</p>
+   */
+  DeviceFleetName: string | undefined;
+
+  /**
+   * @public
+   * <p>A list of devices to register with SageMaker Edge Manager.</p>
+   */
+  Devices: Device[] | undefined;
+
+  /**
+   * @public
+   * <p>The tags associated with devices.</p>
+   */
+  Tags?: Tag[];
+}
+
+/**
+ * @public
+ * <p>Contains input values for a task.</p>
+ */
+export interface RenderableTask {
+  /**
+   * @public
+   * <p>A JSON object that contains values for the variables defined in the template. It is
+   *             made available to the template under the substitution variable <code>task.input</code>.
+   *             For example, if you define a variable <code>task.input.text</code> in your template, you
+   *             can supply the variable in the JSON object as <code>"text": "sample text"</code>.</p>
+   */
+  Input: string | undefined;
+}
+
+/**
+ * @public
+ * <p>A description of an error that occurred while rendering the template.</p>
+ */
+export interface RenderingError {
+  /**
+   * @public
+   * <p>A unique identifier for a specific class of errors.</p>
+   */
+  Code: string | undefined;
+
+  /**
+   * @public
+   * <p>A human-readable message describing the error.</p>
+   */
+  Message: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface RenderUiTemplateRequest {
+  /**
+   * @public
+   * <p>A <code>Template</code> object containing the worker UI template to render.</p>
+   */
+  UiTemplate?: UiTemplate;
+
+  /**
+   * @public
+   * <p>A <code>RenderableTask</code> object containing a representative task to
+   *             render.</p>
+   */
+  Task: RenderableTask | undefined;
+
+  /**
+   * @public
+   * <p>The Amazon Resource Name (ARN) that has access to the S3 objects that are used by the
+   *             template.</p>
+   */
+  RoleArn: string | undefined;
+
+  /**
+   * @public
+   * <p>The <code>HumanTaskUiArn</code> of the worker UI that you want to render. Do not
+   *             provide a <code>HumanTaskUiArn</code> if you use the <code>UiTemplate</code>
+   *             parameter.</p>
+   *          <p>See a list of available Human Ui Amazon Resource Names (ARNs) in <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_UiConfig.html">UiConfig</a>.</p>
+   */
+  HumanTaskUiArn?: string;
+}
 
 /**
  * @public

@@ -1572,6 +1572,14 @@ GetSagemakerServicecatalogPortfolioStatus
 </details>
 <details>
 <summary>
+GetScalingConfigurationRecommendation
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-sagemaker/classes/getscalingconfigurationrecommendationcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-sagemaker/interfaces/getscalingconfigurationrecommendationcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-sagemaker/interfaces/getscalingconfigurationrecommendationcommandoutput.html)
+
+</details>
+<details>
+<summary>
 GetSearchSuggestions
 </summary>
 

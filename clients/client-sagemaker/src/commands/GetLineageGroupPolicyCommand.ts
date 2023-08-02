@@ -13,7 +13,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@smithy/types";
 
-import { GetLineageGroupPolicyRequest, GetLineageGroupPolicyResponse } from "../models/models_2";
+import { GetLineageGroupPolicyRequest, GetLineageGroupPolicyResponse } from "../models/models_3";
 import { de_GetLineageGroupPolicyCommand, se_GetLineageGroupPolicyCommand } from "../protocols/Aws_json1_1";
 import { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
 

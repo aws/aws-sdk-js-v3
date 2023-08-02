@@ -168,6 +168,7 @@ export * from "./GetDeviceFleetReportCommand";
 export * from "./GetLineageGroupPolicyCommand";
 export * from "./GetModelPackageGroupPolicyCommand";
 export * from "./GetSagemakerServicecatalogPortfolioStatusCommand";
+export * from "./GetScalingConfigurationRecommendationCommand";
 export * from "./GetSearchSuggestionsCommand";
 export * from "./ImportHubContentCommand";
 export * from "./ListActionsCommand";

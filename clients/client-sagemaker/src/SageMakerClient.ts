@@ -486,6 +486,10 @@ import {
   GetSagemakerServicecatalogPortfolioStatusCommandOutput,
 } from "./commands/GetSagemakerServicecatalogPortfolioStatusCommand";
 import {
+  GetScalingConfigurationRecommendationCommandInput,
+  GetScalingConfigurationRecommendationCommandOutput,
+} from "./commands/GetScalingConfigurationRecommendationCommand";
+import {
   GetSearchSuggestionsCommandInput,
   GetSearchSuggestionsCommandOutput,
 } from "./commands/GetSearchSuggestionsCommand";
@@ -994,6 +998,7 @@ export type ServiceInputTypes =
   | GetLineageGroupPolicyCommandInput
   | GetModelPackageGroupPolicyCommandInput
   | GetSagemakerServicecatalogPortfolioStatusCommandInput
+  | GetScalingConfigurationRecommendationCommandInput
   | GetSearchSuggestionsCommandInput
   | ImportHubContentCommandInput
   | ListActionsCommandInput
@@ -1302,6 +1307,7 @@ export type ServiceOutputTypes =
   | GetLineageGroupPolicyCommandOutput
   | GetModelPackageGroupPolicyCommandOutput
   | GetSagemakerServicecatalogPortfolioStatusCommandOutput
+  | GetScalingConfigurationRecommendationCommandOutput
   | GetSearchSuggestionsCommandOutput
   | ImportHubContentCommandOutput
   | ListActionsCommandOutput

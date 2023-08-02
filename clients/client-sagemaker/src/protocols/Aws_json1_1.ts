@@ -464,6 +464,10 @@ import {
   GetSagemakerServicecatalogPortfolioStatusCommandOutput,
 } from "../commands/GetSagemakerServicecatalogPortfolioStatusCommand";
 import {
+  GetScalingConfigurationRecommendationCommandInput,
+  GetScalingConfigurationRecommendationCommandOutput,
+} from "../commands/GetScalingConfigurationRecommendationCommand";
+import {
   GetSearchSuggestionsCommandInput,
   GetSearchSuggestionsCommandOutput,
 } from "../commands/GetSearchSuggestionsCommand";
@@ -1044,7 +1048,6 @@ import {
   DeleteEndpointInput,
   DeleteExperimentRequest,
   DeleteFeatureGroupRequest,
-  DeleteFlowDefinitionRequest,
   DeploymentConfig,
   DeploymentStage,
   DeviceSelectionConfig,
@@ -1192,6 +1195,7 @@ import {
   WorkforceVpcConfigRequest,
 } from "../models/models_1";
 import {
+  DeleteFlowDefinitionRequest,
   DeleteHubContentRequest,
   DeleteHubRequest,
   DeleteHumanTaskUiRequest,
@@ -1346,6 +1350,7 @@ import {
   DisassociateTrialComponentRequest,
   DomainDetails,
   DomainSettingsForUpdate,
+  DynamicScalingConfiguration,
   EdgeDeploymentPlanSummary,
   EdgeDeploymentStatus,
   EdgeModel,
@@ -1362,11 +1367,6 @@ import {
   FeatureParameter,
   Filter,
   FinalHyperParameterTuningJobObjectiveMetric,
-  FlowDefinitionSummary,
-  GetDeviceFleetReportRequest,
-  GetDeviceFleetReportResponse,
-  GetLineageGroupPolicyRequest,
-  GetModelPackageGroupPolicyInput,
   HyperParameterTrainingJobSummary,
   HyperParameterTuningJobCompletionDetails,
   InferenceRecommendation,
@@ -1381,15 +1381,24 @@ import {
   ProfilerRuleEvaluationStatus,
   RecommendationMetrics,
   RStudioServerProDomainSettingsForUpdate,
+  ScalingPolicy,
   SecondaryStatusTransition,
   SelectedStep,
   SelectiveExecutionConfig,
+  TargetTrackingScalingPolicyConfiguration,
   TrialComponentMetricSummary,
   Workforce,
   Workteam,
 } from "../models/models_2";
 import {
+  FlowDefinitionSummary,
+  GetDeviceFleetReportRequest,
+  GetDeviceFleetReportResponse,
+  GetLineageGroupPolicyRequest,
+  GetModelPackageGroupPolicyInput,
   GetSagemakerServicecatalogPortfolioStatusInput,
+  GetScalingConfigurationRecommendationRequest,
+  GetScalingConfigurationRecommendationResponse,
   GetSearchSuggestionsRequest,
   GitConfigForUpdate,
   HubContentInfo,
@@ -1580,17 +1589,11 @@ import {
   ProcessingJob,
   ProcessingJobSummary,
   ProfilerConfigForUpdate,
-  Project,
   ProjectSummary,
   PropertyNameQuery,
-  PutModelPackageGroupPolicyInput,
-  QueryFilters,
-  QueryLineageRequest,
   RecommendationJobInferenceBenchmark,
-  RegisterDevicesRequest,
-  RenderableTask,
-  RenderUiTemplateRequest,
   ResourceCatalog,
+  ScalingPolicyObjective,
   SpaceDetails,
   StudioLifecycleConfigDetails,
   SuggestionQuery,
@@ -1602,6 +1605,13 @@ import {
   UserProfileDetails,
 } from "../models/models_3";
 import {
+  Project,
+  PutModelPackageGroupPolicyInput,
+  QueryFilters,
+  QueryLineageRequest,
+  RegisterDevicesRequest,
+  RenderableTask,
+  RenderUiTemplateRequest,
   ResourceConfigForUpdate,
   RetryPipelineExecutionRequest,
   SearchExpression,
@@ -3866,6 +3876,19 @@ export const se_GetSagemakerServicecatalogPortfolioStatusCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("GetSagemakerServicecatalogPortfolioStatus");
+  let body: any;
+  body = JSON.stringify(_json(input));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+/**
+ * serializeAws_json1_1GetScalingConfigurationRecommendationCommand
+ */
+export const se_GetScalingConfigurationRecommendationCommand = async (
+  input: GetScalingConfigurationRecommendationCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = sharedHeaders("GetScalingConfigurationRecommendation");
   let body: any;
   body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -13229,6 +13252,52 @@ const de_GetSagemakerServicecatalogPortfolioStatusCommandError = async (
 };
 
 /**
+ * deserializeAws_json1_1GetScalingConfigurationRecommendationCommand
+ */
+export const de_GetScalingConfigurationRecommendationCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetScalingConfigurationRecommendationCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_GetScalingConfigurationRecommendationCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_GetScalingConfigurationRecommendationResponse(data, context);
+  const response: GetScalingConfigurationRecommendationCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1GetScalingConfigurationRecommendationCommandError
+ */
+const de_GetScalingConfigurationRecommendationCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetScalingConfigurationRecommendationCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "ResourceNotFound":
+    case "com.amazonaws.sagemaker#ResourceNotFound":
+      throw await de_ResourceNotFoundRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
  * deserializeAws_json1_1GetSearchSuggestionsCommand
  */
 export const de_GetSearchSuggestionsCommand = async (
@@ -20086,6 +20155,8 @@ const se_EndpointInput = (input: EndpointInput, context: __SerdeContext): any =>
 
 // se_GetSagemakerServicecatalogPortfolioStatusInput omitted.
 
+// se_GetScalingConfigurationRecommendationRequest omitted.
+
 // se_GetSearchSuggestionsRequest omitted.
 
 // se_GitConfig omitted.
@@ -21712,6 +21783,8 @@ const se_RetryPipelineExecutionRequest = (input: RetryPipelineExecutionRequest, 
 
 // se_SageMakerImageVersionAliases omitted.
 
+// se_ScalingPolicyObjective omitted.
+
 // se_ScheduleConfig omitted.
 
 /**
@@ -22850,6 +22923,8 @@ const de_ContextSummary = (output: any, context: __SerdeContext): ContextSummary
 // de_CustomImage omitted.
 
 // de_CustomImages omitted.
+
+// de_CustomizedMetricSpecification omitted.
 
 // de_DataCaptureConfig omitted.
 
@@ -24344,6 +24419,19 @@ const de_DomainList = (output: any, context: __SerdeContext): DomainDetails[] =>
 
 // de_DriftCheckModelQuality omitted.
 
+/**
+ * deserializeAws_json1_1DynamicScalingConfiguration
+ */
+const de_DynamicScalingConfiguration = (output: any, context: __SerdeContext): DynamicScalingConfiguration => {
+  return take(output, {
+    MaxCapacity: __expectInt32,
+    MinCapacity: __expectInt32,
+    ScaleInCooldown: __expectInt32,
+    ScaleOutCooldown: __expectInt32,
+    ScalingPolicies: (_: any) => de_ScalingPolicies(_, context),
+  }) as any;
+};
+
 // de_Edge omitted.
 
 // de_EdgeDeploymentConfig omitted.
@@ -24801,6 +24889,24 @@ const de_GetDeviceFleetReportResponse = (output: any, context: __SerdeContext): 
 // de_GetModelPackageGroupPolicyOutput omitted.
 
 // de_GetSagemakerServicecatalogPortfolioStatusOutput omitted.
+
+/**
+ * deserializeAws_json1_1GetScalingConfigurationRecommendationResponse
+ */
+const de_GetScalingConfigurationRecommendationResponse = (
+  output: any,
+  context: __SerdeContext
+): GetScalingConfigurationRecommendationResponse => {
+  return take(output, {
+    DynamicScalingConfiguration: (_: any) => de_DynamicScalingConfiguration(_, context),
+    EndpointName: __expectString,
+    InferenceRecommendationsJobName: __expectString,
+    Metric: _json,
+    RecommendationId: __expectString,
+    ScalingPolicyObjective: _json,
+    TargetCpuUtilizationPerCore: __expectInt32,
+  }) as any;
+};
 
 // de_GetSearchSuggestionsResponse omitted.
 
@@ -26211,6 +26317,8 @@ const de_MetricDatum = (output: any, context: __SerdeContext): MetricDatum => {
 
 // de_MetricDefinitionList omitted.
 
+// de_MetricSpecification omitted.
+
 // de_MetricsSource omitted.
 
 /**
@@ -27239,6 +27347,8 @@ const de_PipelineSummaryList = (output: any, context: __SerdeContext): PipelineS
   return retVal;
 };
 
+// de_PredefinedMetricSpecification omitted.
+
 // de_ProcessingClusterConfig omitted.
 
 // de_ProcessingEnvironmentMap omitted.
@@ -27643,6 +27753,34 @@ const de_ResourceCatalogList = (output: any, context: __SerdeContext): ResourceC
 
 // de_SageMakerImageVersionAliases omitted.
 
+/**
+ * deserializeAws_json1_1ScalingPolicies
+ */
+const de_ScalingPolicies = (output: any, context: __SerdeContext): ScalingPolicy[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      return de_ScalingPolicy(__expectUnion(entry), context);
+    });
+  return retVal;
+};
+
+/**
+ * deserializeAws_json1_1ScalingPolicy
+ */
+const de_ScalingPolicy = (output: any, context: __SerdeContext): ScalingPolicy => {
+  if (output.TargetTracking != null) {
+    return {
+      TargetTracking: de_TargetTrackingScalingPolicyConfiguration(output.TargetTracking, context),
+    };
+  }
+  return { $unknown: Object.entries(output)[0] };
+};
+
+// de_ScalingPolicyMetric omitted.
+
+// de_ScalingPolicyObjective omitted.
+
 // de_ScheduleConfig omitted.
 
 /**
@@ -27829,6 +27967,19 @@ const de_StudioLifecycleConfigsList = (output: any, context: __SerdeContext): St
 // de_TagList omitted.
 
 // de_TargetPlatform omitted.
+
+/**
+ * deserializeAws_json1_1TargetTrackingScalingPolicyConfiguration
+ */
+const de_TargetTrackingScalingPolicyConfiguration = (
+  output: any,
+  context: __SerdeContext
+): TargetTrackingScalingPolicyConfiguration => {
+  return take(output, {
+    MetricSpecification: (_: any) => _json(__expectUnion(_)),
+    TargetValue: __limitedParseDouble,
+  }) as any;
+};
 
 // de_TaskKeywords omitted.
 

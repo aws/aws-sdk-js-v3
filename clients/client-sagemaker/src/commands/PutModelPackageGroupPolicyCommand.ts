@@ -13,7 +13,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@smithy/types";
 
-import { PutModelPackageGroupPolicyInput, PutModelPackageGroupPolicyOutput } from "../models/models_3";
+import { PutModelPackageGroupPolicyInput, PutModelPackageGroupPolicyOutput } from "../models/models_4";
 import { de_PutModelPackageGroupPolicyCommand, se_PutModelPackageGroupPolicyCommand } from "../protocols/Aws_json1_1";
 import { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
 

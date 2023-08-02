@@ -4,6 +4,7 @@ import { SENSITIVE_STRING } from "@smithy/smithy-client";
 import {
   ActionSummary,
   AdditionalInferenceSpecificationDefinition,
+  AgentVersion,
   AlgorithmSortBy,
   AlgorithmSummary,
   AppDetails,
@@ -34,6 +35,7 @@ import {
   ConditionStepMetadata,
   ContainerDefinition,
   ContextSummary,
+  EdgeOutputConfig,
   InferenceSpecification,
   MetadataProperties,
   ModelApprovalStatus,
@@ -74,23 +76,21 @@ import {
   ProcessingStoppingCondition,
   RecommendationJobType,
   ResourceLimits,
-  ServiceCatalogProvisioningDetails,
   SourceAlgorithmSpecification,
   StudioLifecycleConfigAppType,
   TrialComponentStatus,
   TtlDuration,
-  UiTemplate,
 } from "./models_1";
 import {
   DeploymentRecommendation,
-  Device,
   DeviceDeploymentSummary,
   DeviceFleetSummary,
+  DeviceStats,
   DeviceSummary,
-  Direction,
   DomainDetails,
-  Edge,
+  DynamicScalingConfiguration,
   EdgeDeploymentPlanSummary,
+  EdgeModelStat,
   EdgePackagingJobStatus,
   EdgePackagingJobSummary,
   EMRStepMetadata,
@@ -108,7 +108,7 @@ import {
   FeatureGroupStatus,
   FeatureGroupSummary,
   Filter,
-  FlowDefinitionSummary,
+  FlowDefinitionStatus,
   HubContentStatus,
   HubContentType,
   HubStatus,
@@ -140,7 +140,6 @@ import {
   RecommendationMetrics,
   ScheduleStatus,
   SelectiveExecutionConfig,
-  ServiceCatalogProvisionedProductDetails,
   SpaceStatus,
   SubscribedWorkteam,
   TrainingJobStatus,
@@ -154,6 +153,156 @@ import {
   Workforce,
   Workteam,
 } from "./models_2";
+
+/**
+ * @public
+ * <p>Contains summary information about the flow definition.</p>
+ */
+export interface FlowDefinitionSummary {
+  /**
+   * @public
+   * <p>The name of the flow definition.</p>
+   */
+  FlowDefinitionName: string | undefined;
+
+  /**
+   * @public
+   * <p>The Amazon Resource Name (ARN) of the flow definition.</p>
+   */
+  FlowDefinitionArn: string | undefined;
+
+  /**
+   * @public
+   * <p>The status of the flow definition. Valid values:</p>
+   */
+  FlowDefinitionStatus: FlowDefinitionStatus | string | undefined;
+
+  /**
+   * @public
+   * <p>The timestamp when SageMaker created the flow definition.</p>
+   */
+  CreationTime: Date | undefined;
+
+  /**
+   * @public
+   * <p>The reason why the flow definition creation failed. A failure reason is returned only when the flow definition status is <code>Failed</code>.</p>
+   */
+  FailureReason?: string;
+}
+
+/**
+ * @public
+ */
+export interface GetDeviceFleetReportRequest {
+  /**
+   * @public
+   * <p>The name of the fleet.</p>
+   */
+  DeviceFleetName: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetDeviceFleetReportResponse {
+  /**
+   * @public
+   * <p>The Amazon Resource Name (ARN) of the device.</p>
+   */
+  DeviceFleetArn: string | undefined;
+
+  /**
+   * @public
+   * <p>The name of the fleet.</p>
+   */
+  DeviceFleetName: string | undefined;
+
+  /**
+   * @public
+   * <p>The output configuration for storing sample data collected by the fleet.</p>
+   */
+  OutputConfig?: EdgeOutputConfig;
+
+  /**
+   * @public
+   * <p>Description of the fleet.</p>
+   */
+  Description?: string;
+
+  /**
+   * @public
+   * <p>Timestamp of when the report was generated.</p>
+   */
+  ReportGenerated?: Date;
+
+  /**
+   * @public
+   * <p>Status of devices.</p>
+   */
+  DeviceStats?: DeviceStats;
+
+  /**
+   * @public
+   * <p>The versions of Edge Manager agent deployed on the fleet.</p>
+   */
+  AgentVersions?: AgentVersion[];
+
+  /**
+   * @public
+   * <p>Status of model on device.</p>
+   */
+  ModelStats?: EdgeModelStat[];
+}
+
+/**
+ * @public
+ */
+export interface GetLineageGroupPolicyRequest {
+  /**
+   * @public
+   * <p>The name or Amazon Resource Name (ARN) of the lineage group.</p>
+   */
+  LineageGroupName: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetLineageGroupPolicyResponse {
+  /**
+   * @public
+   * <p>The Amazon Resource Name (ARN) of the lineage group.</p>
+   */
+  LineageGroupArn?: string;
+
+  /**
+   * @public
+   * <p>The resource policy that gives access to the lineage group in another account.</p>
+   */
+  ResourcePolicy?: string;
+}
+
+/**
+ * @public
+ */
+export interface GetModelPackageGroupPolicyInput {
+  /**
+   * @public
+   * <p>The name of the model group for which to get the resource policy.</p>
+   */
+  ModelPackageGroupName: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetModelPackageGroupPolicyOutput {
+  /**
+   * @public
+   * <p>The resource policy for the model group.</p>
+   */
+  ResourcePolicy: string | undefined;
+}
 
 /**
  * @public
@@ -184,6 +333,134 @@ export interface GetSagemakerServicecatalogPortfolioStatusOutput {
    * <p>Whether Service Catalog is enabled or disabled in SageMaker.</p>
    */
   Status?: SagemakerServicecatalogStatus | string;
+}
+
+/**
+ * @public
+ * <p>An object where you specify the anticipated traffic pattern for an endpoint.</p>
+ */
+export interface ScalingPolicyObjective {
+  /**
+   * @public
+   * <p>The minimum number of expected requests to your endpoint per minute.</p>
+   */
+  MinInvocationsPerMinute?: number;
+
+  /**
+   * @public
+   * <p>The maximum number of expected requests to your endpoint per minute.</p>
+   */
+  MaxInvocationsPerMinute?: number;
+}
+
+/**
+ * @public
+ */
+export interface GetScalingConfigurationRecommendationRequest {
+  /**
+   * @public
+   * <p>The name of a previously completed Inference Recommender job.</p>
+   */
+  InferenceRecommendationsJobName: string | undefined;
+
+  /**
+   * @public
+   * <p>The recommendation ID of a previously completed inference recommendation. This ID should come from one of the
+   *          recommendations returned by the job specified in the <code>InferenceRecommendationsJobName</code> field.</p>
+   *          <p>Specify either this field or the <code>EndpointName</code> field.</p>
+   */
+  RecommendationId?: string;
+
+  /**
+   * @public
+   * <p>The name of an endpoint benchmarked during a previously completed inference recommendation job. This name should come from one of the
+   *          recommendations returned by the job specified in the <code>InferenceRecommendationsJobName</code> field.</p>
+   *          <p>Specify either this field or the <code>RecommendationId</code> field.</p>
+   */
+  EndpointName?: string;
+
+  /**
+   * @public
+   * <p>The percentage of how much utilization you want an instance to use before autoscaling. The default value is 50%.</p>
+   */
+  TargetCpuUtilizationPerCore?: number;
+
+  /**
+   * @public
+   * <p>An object where you specify the anticipated traffic pattern for an endpoint.</p>
+   */
+  ScalingPolicyObjective?: ScalingPolicyObjective;
+}
+
+/**
+ * @public
+ * <p>The metric for a scaling policy.</p>
+ */
+export interface ScalingPolicyMetric {
+  /**
+   * @public
+   * <p>The number of invocations sent to a model, normalized by <code>InstanceCount</code>
+   *          in each ProductionVariant. <code>1/numberOfInstances</code> is sent as the value on each
+   *          request, where <code>numberOfInstances</code> is the number of active instances for the
+   *          ProductionVariant behind the endpoint at the time of the request.</p>
+   */
+  InvocationsPerInstance?: number;
+
+  /**
+   * @public
+   * <p>The interval of time taken by a model to respond as viewed from SageMaker.
+   *          This interval includes the local communication times taken to send the request
+   *          and to fetch the response from the container of a model and the time taken to
+   *          complete the inference in the container.</p>
+   */
+  ModelLatency?: number;
+}
+
+/**
+ * @public
+ */
+export interface GetScalingConfigurationRecommendationResponse {
+  /**
+   * @public
+   * <p>The name of a previously completed Inference Recommender job.</p>
+   */
+  InferenceRecommendationsJobName?: string;
+
+  /**
+   * @public
+   * <p>The recommendation ID of a previously completed inference recommendation.</p>
+   */
+  RecommendationId?: string;
+
+  /**
+   * @public
+   * <p>The name of an endpoint benchmarked during a previously completed Inference Recommender job.</p>
+   */
+  EndpointName?: string;
+
+  /**
+   * @public
+   * <p>The percentage of how much utilization you want an instance to use before autoscaling, which you specified in the request. The default value is 50%.</p>
+   */
+  TargetCpuUtilizationPerCore?: number;
+
+  /**
+   * @public
+   * <p>An object representing the anticipated traffic pattern for an endpoint that you specified in the request.</p>
+   */
+  ScalingPolicyObjective?: ScalingPolicyObjective;
+
+  /**
+   * @public
+   * <p>An object with a list of metrics that were benchmarked during the previously completed Inference Recommender job.</p>
+   */
+  Metric?: ScalingPolicyMetric;
+
+  /**
+   * @public
+   * <p>An object with the recommended values for you to specify when creating an autoscaling policy.</p>
+   */
+  DynamicScalingConfiguration?: DynamicScalingConfiguration;
 }
 
 /**
@@ -10532,377 +10809,6 @@ export interface ProfilerConfigForUpdate {
    * <p>To turn off Amazon SageMaker Debugger monitoring and profiling while a training job is in progress, set to <code>True</code>.</p>
    */
   DisableProfiler?: boolean;
-}
-
-/**
- * @public
- * <p>The properties of a project as returned by the Search API.</p>
- */
-export interface Project {
-  /**
-   * @public
-   * <p>The Amazon Resource Name (ARN) of the project.</p>
-   */
-  ProjectArn?: string;
-
-  /**
-   * @public
-   * <p>The name of the project.</p>
-   */
-  ProjectName?: string;
-
-  /**
-   * @public
-   * <p>The ID of the project.</p>
-   */
-  ProjectId?: string;
-
-  /**
-   * @public
-   * <p>The description of the project.</p>
-   */
-  ProjectDescription?: string;
-
-  /**
-   * @public
-   * <p>Details that you specify to provision a service catalog product. For information about
-   *             service catalog, see <a href="https://docs.aws.amazon.com/servicecatalog/latest/adminguide/introduction.html">What is Amazon Web Services Service
-   *                 Catalog</a>.</p>
-   */
-  ServiceCatalogProvisioningDetails?: ServiceCatalogProvisioningDetails;
-
-  /**
-   * @public
-   * <p>Details of a provisioned service catalog product. For information about service catalog,
-   *             see <a href="https://docs.aws.amazon.com/servicecatalog/latest/adminguide/introduction.html">What is Amazon Web Services Service
-   *                 Catalog</a>.</p>
-   */
-  ServiceCatalogProvisionedProductDetails?: ServiceCatalogProvisionedProductDetails;
-
-  /**
-   * @public
-   * <p>The status of the project.</p>
-   */
-  ProjectStatus?: ProjectStatus | string;
-
-  /**
-   * @public
-   * <p>Who created the project.</p>
-   */
-  CreatedBy?: UserContext;
-
-  /**
-   * @public
-   * <p>A timestamp specifying when the project was created.</p>
-   */
-  CreationTime?: Date;
-
-  /**
-   * @public
-   * <p>An array of key-value pairs. You can use tags to categorize your Amazon Web Services
-   *             resources in different ways, for example, by purpose, owner, or environment. For more
-   *             information, see <a href="https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html">Tagging Amazon Web Services Resources</a>.</p>
-   */
-  Tags?: Tag[];
-
-  /**
-   * @public
-   * <p>A timestamp container for when the project was last modified.</p>
-   */
-  LastModifiedTime?: Date;
-
-  /**
-   * @public
-   * <p>Information about the user who created or modified an experiment, trial, trial
-   *       component, lineage group, project, or model card.</p>
-   */
-  LastModifiedBy?: UserContext;
-}
-
-/**
- * @public
- */
-export interface PutModelPackageGroupPolicyInput {
-  /**
-   * @public
-   * <p>The name of the model group to add a resource policy to.</p>
-   */
-  ModelPackageGroupName: string | undefined;
-
-  /**
-   * @public
-   * <p>The resource policy for the model group.</p>
-   */
-  ResourcePolicy: string | undefined;
-}
-
-/**
- * @public
- */
-export interface PutModelPackageGroupPolicyOutput {
-  /**
-   * @public
-   * <p>The Amazon Resource Name (ARN) of the model package group.</p>
-   */
-  ModelPackageGroupArn: string | undefined;
-}
-
-/**
- * @public
- * <p>A set of filters to narrow the set of lineage entities connected to the <code>StartArn</code>(s) returned by the
- *          <code>QueryLineage</code> API action.</p>
- */
-export interface QueryFilters {
-  /**
-   * @public
-   * <p>Filter the lineage entities connected to the <code>StartArn</code> by type. For example: <code>DataSet</code>,
-   *          <code>Model</code>, <code>Endpoint</code>, or <code>ModelDeployment</code>.</p>
-   */
-  Types?: string[];
-
-  /**
-   * @public
-   * <p>Filter the lineage entities connected to the <code>StartArn</code>(s) by the type of the lineage entity.</p>
-   */
-  LineageTypes?: (LineageType | string)[];
-
-  /**
-   * @public
-   * <p>Filter the lineage entities connected to the <code>StartArn</code>(s) by created date.</p>
-   */
-  CreatedBefore?: Date;
-
-  /**
-   * @public
-   * <p>Filter the lineage entities connected to the <code>StartArn</code>(s) after the create date.</p>
-   */
-  CreatedAfter?: Date;
-
-  /**
-   * @public
-   * <p>Filter the lineage entities connected to the <code>StartArn</code>(s) before the last modified date.</p>
-   */
-  ModifiedBefore?: Date;
-
-  /**
-   * @public
-   * <p>Filter the lineage entities connected to the <code>StartArn</code>(s) after the last modified date.</p>
-   */
-  ModifiedAfter?: Date;
-
-  /**
-   * @public
-   * <p>Filter the lineage entities connected to the <code>StartArn</code>(s) by a set if property key value pairs.
-   *          If multiple pairs are provided, an entity is included in the results if it matches any of the provided pairs.</p>
-   */
-  Properties?: Record<string, string>;
-}
-
-/**
- * @public
- */
-export interface QueryLineageRequest {
-  /**
-   * @public
-   * <p>A list of resource Amazon Resource Name (ARN) that represent the starting point for your lineage query.</p>
-   */
-  StartArns?: string[];
-
-  /**
-   * @public
-   * <p>Associations between lineage entities have a direction.  This parameter determines the direction from the
-   *          StartArn(s) that the query traverses.</p>
-   */
-  Direction?: Direction | string;
-
-  /**
-   * @public
-   * <p> Setting this value to <code>True</code> retrieves not only the entities of interest but also the
-   *          <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/lineage-tracking-entities.html">Associations</a> and
-   *          lineage entities on the path. Set to <code>False</code> to only return lineage entities that match your query.</p>
-   */
-  IncludeEdges?: boolean;
-
-  /**
-   * @public
-   * <p>A set of filtering parameters that allow you to specify which entities should be returned.</p>
-   *          <ul>
-   *             <li>
-   *                <p>Properties - Key-value pairs to match on the lineage entities' properties.</p>
-   *             </li>
-   *             <li>
-   *                <p>LineageTypes - A set of lineage entity types to match on. For example: <code>TrialComponent</code>,
-   *             <code>Artifact</code>, or <code>Context</code>.</p>
-   *             </li>
-   *             <li>
-   *                <p>CreatedBefore - Filter entities created before this date.</p>
-   *             </li>
-   *             <li>
-   *                <p>ModifiedBefore - Filter entities modified before this date.</p>
-   *             </li>
-   *             <li>
-   *                <p>ModifiedAfter - Filter entities modified after this date.</p>
-   *             </li>
-   *          </ul>
-   */
-  Filters?: QueryFilters;
-
-  /**
-   * @public
-   * <p>The maximum depth in lineage relationships from the <code>StartArns</code> that are traversed. Depth is a measure of the number
-   *          of <code>Associations</code> from the <code>StartArn</code> entity to the matched results.</p>
-   */
-  MaxDepth?: number;
-
-  /**
-   * @public
-   * <p>Limits the number of vertices in the results. Use the <code>NextToken</code> in a response to to retrieve the next page of results.</p>
-   */
-  MaxResults?: number;
-
-  /**
-   * @public
-   * <p>Limits the number of vertices in the request. Use the <code>NextToken</code> in a response to to retrieve the next page of results.</p>
-   */
-  NextToken?: string;
-}
-
-/**
- * @public
- * <p>A lineage entity connected to the starting entity(ies).</p>
- */
-export interface Vertex {
-  /**
-   * @public
-   * <p>The Amazon Resource Name (ARN) of the lineage entity resource.</p>
-   */
-  Arn?: string;
-
-  /**
-   * @public
-   * <p>The type of the lineage entity resource. For example: <code>DataSet</code>, <code>Model</code>, <code>Endpoint</code>,
-   *          etc...</p>
-   */
-  Type?: string;
-
-  /**
-   * @public
-   * <p>The type of resource of the lineage entity.</p>
-   */
-  LineageType?: LineageType | string;
-}
-
-/**
- * @public
- */
-export interface QueryLineageResponse {
-  /**
-   * @public
-   * <p>A list of vertices connected to the start entity(ies) in the lineage graph.</p>
-   */
-  Vertices?: Vertex[];
-
-  /**
-   * @public
-   * <p>A list of edges that connect vertices in the response.</p>
-   */
-  Edges?: Edge[];
-
-  /**
-   * @public
-   * <p>Limits the number of vertices in the response. Use the <code>NextToken</code> in a response to to retrieve the next page of results.</p>
-   */
-  NextToken?: string;
-}
-
-/**
- * @public
- */
-export interface RegisterDevicesRequest {
-  /**
-   * @public
-   * <p>The name of the fleet.</p>
-   */
-  DeviceFleetName: string | undefined;
-
-  /**
-   * @public
-   * <p>A list of devices to register with SageMaker Edge Manager.</p>
-   */
-  Devices: Device[] | undefined;
-
-  /**
-   * @public
-   * <p>The tags associated with devices.</p>
-   */
-  Tags?: Tag[];
-}
-
-/**
- * @public
- * <p>Contains input values for a task.</p>
- */
-export interface RenderableTask {
-  /**
-   * @public
-   * <p>A JSON object that contains values for the variables defined in the template. It is
-   *             made available to the template under the substitution variable <code>task.input</code>.
-   *             For example, if you define a variable <code>task.input.text</code> in your template, you
-   *             can supply the variable in the JSON object as <code>"text": "sample text"</code>.</p>
-   */
-  Input: string | undefined;
-}
-
-/**
- * @public
- * <p>A description of an error that occurred while rendering the template.</p>
- */
-export interface RenderingError {
-  /**
-   * @public
-   * <p>A unique identifier for a specific class of errors.</p>
-   */
-  Code: string | undefined;
-
-  /**
-   * @public
-   * <p>A human-readable message describing the error.</p>
-   */
-  Message: string | undefined;
-}
-
-/**
- * @public
- */
-export interface RenderUiTemplateRequest {
-  /**
-   * @public
-   * <p>A <code>Template</code> object containing the worker UI template to render.</p>
-   */
-  UiTemplate?: UiTemplate;
-
-  /**
-   * @public
-   * <p>A <code>RenderableTask</code> object containing a representative task to
-   *             render.</p>
-   */
-  Task: RenderableTask | undefined;
-
-  /**
-   * @public
-   * <p>The Amazon Resource Name (ARN) that has access to the S3 objects that are used by the
-   *             template.</p>
-   */
-  RoleArn: string | undefined;
-
-  /**
-   * @public
-   * <p>The <code>HumanTaskUiArn</code> of the worker UI that you want to render. Do not
-   *             provide a <code>HumanTaskUiArn</code> if you use the <code>UiTemplate</code>
-   *             parameter.</p>
-   *          <p>See a list of available Human Ui Amazon Resource Names (ARNs) in <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_UiConfig.html">UiConfig</a>.</p>
-   */
-  HumanTaskUiArn?: string;
 }
 
 /**

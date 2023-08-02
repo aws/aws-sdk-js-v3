@@ -784,6 +784,11 @@ import {
   GetSagemakerServicecatalogPortfolioStatusCommandOutput,
 } from "./commands/GetSagemakerServicecatalogPortfolioStatusCommand";
 import {
+  GetScalingConfigurationRecommendationCommand,
+  GetScalingConfigurationRecommendationCommandInput,
+  GetScalingConfigurationRecommendationCommandOutput,
+} from "./commands/GetScalingConfigurationRecommendationCommand";
+import {
   GetSearchSuggestionsCommand,
   GetSearchSuggestionsCommandInput,
   GetSearchSuggestionsCommandOutput,
@@ -1561,6 +1566,7 @@ const commands = {
   GetLineageGroupPolicyCommand,
   GetModelPackageGroupPolicyCommand,
   GetSagemakerServicecatalogPortfolioStatusCommand,
+  GetScalingConfigurationRecommendationCommand,
   GetSearchSuggestionsCommand,
   ImportHubContentCommand,
   ListActionsCommand,
@@ -4338,6 +4344,23 @@ export interface SageMaker {
     args: GetSagemakerServicecatalogPortfolioStatusCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: GetSagemakerServicecatalogPortfolioStatusCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link GetScalingConfigurationRecommendationCommand}
+   */
+  getScalingConfigurationRecommendation(
+    args: GetScalingConfigurationRecommendationCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetScalingConfigurationRecommendationCommandOutput>;
+  getScalingConfigurationRecommendation(
+    args: GetScalingConfigurationRecommendationCommandInput,
+    cb: (err: any, data?: GetScalingConfigurationRecommendationCommandOutput) => void
+  ): void;
+  getScalingConfigurationRecommendation(
+    args: GetScalingConfigurationRecommendationCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetScalingConfigurationRecommendationCommandOutput) => void
   ): void;
 
   /**
