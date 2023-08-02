@@ -6,6 +6,7 @@ import {
   decorateServiceException as __decorateServiceException,
   expectBoolean as __expectBoolean,
   expectInt32 as __expectInt32,
+  expectLong as __expectLong,
   expectNonNull as __expectNonNull,
   expectNumber as __expectNumber,
   expectObject as __expectObject,
@@ -29,6 +30,10 @@ import {
   AddDraftAppVersionResourceMappingsCommandInput,
   AddDraftAppVersionResourceMappingsCommandOutput,
 } from "../commands/AddDraftAppVersionResourceMappingsCommand";
+import {
+  BatchUpdateRecommendationStatusCommandInput,
+  BatchUpdateRecommendationStatusCommandOutput,
+} from "../commands/BatchUpdateRecommendationStatusCommand";
 import { CreateAppCommandInput, CreateAppCommandOutput } from "../commands/CreateAppCommand";
 import {
   CreateAppVersionAppComponentCommandInput,
@@ -109,6 +114,10 @@ import {
   ListAlarmRecommendationsCommandInput,
   ListAlarmRecommendationsCommandOutput,
 } from "../commands/ListAlarmRecommendationsCommand";
+import {
+  ListAppAssessmentComplianceDriftsCommandInput,
+  ListAppAssessmentComplianceDriftsCommandOutput,
+} from "../commands/ListAppAssessmentComplianceDriftsCommand";
 import { ListAppAssessmentsCommandInput, ListAppAssessmentsCommandOutput } from "../commands/ListAppAssessmentsCommand";
 import {
   ListAppComponentCompliancesCommandInput,
@@ -201,6 +210,7 @@ import {
   AppAssessmentSummary,
   AppComponentCompliance,
   AppSummary,
+  AppVersionSummary,
   ComponentRecommendation,
   ConfigRecommendation,
   ConflictException,
@@ -208,9 +218,11 @@ import {
   DisruptionType,
   EksSource,
   EksSourceClusterNamespace,
+  EventSubscription,
   FailurePolicy,
   InternalServerException,
   LogicalResourceId,
+  PermissionModel,
   PhysicalResourceId,
   RecommendationTemplate,
   RenderRecommendationType,
@@ -221,6 +233,8 @@ import {
   ServiceQuotaExceededException,
   TerraformSource,
   ThrottlingException,
+  UpdateRecommendationStatusItem,
+  UpdateRecommendationStatusRequestEntry,
   ValidationException,
 } from "../models/models_0";
 import { ResiliencehubServiceException as __BaseException } from "../models/ResiliencehubServiceException";
@@ -257,6 +271,37 @@ export const se_AddDraftAppVersionResourceMappingsCommand = async (
 };
 
 /**
+ * serializeAws_restJson1BatchUpdateRecommendationStatusCommand
+ */
+export const se_BatchUpdateRecommendationStatusCommand = async (
+  input: BatchUpdateRecommendationStatusCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  const resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/batch-update-recommendation-status";
+  let body: any;
+  body = JSON.stringify(
+    take(input, {
+      appArn: [],
+      requestEntries: (_) => _json(_),
+    })
+  );
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "POST",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
+/**
  * serializeAws_restJson1CreateAppCommand
  */
 export const se_CreateAppCommand = async (
@@ -274,7 +319,9 @@ export const se_CreateAppCommand = async (
       assessmentSchedule: [],
       clientToken: [true, (_) => _ ?? generateIdempotencyToken()],
       description: [],
+      eventSubscriptions: (_) => _json(_),
       name: [],
+      permissionModel: (_) => _json(_),
       policyArn: [],
       tags: (_) => _json(_),
     })
@@ -1011,6 +1058,38 @@ export const se_ListAlarmRecommendationsCommand = async (
 };
 
 /**
+ * serializeAws_restJson1ListAppAssessmentComplianceDriftsCommand
+ */
+export const se_ListAppAssessmentComplianceDriftsCommand = async (
+  input: ListAppAssessmentComplianceDriftsCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  const resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/list-app-assessment-compliance-drifts";
+  let body: any;
+  body = JSON.stringify(
+    take(input, {
+      assessmentArn: [],
+      maxResults: [],
+      nextToken: [],
+    })
+  );
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "POST",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
+/**
  * serializeAws_restJson1ListAppAssessmentsCommand
  */
 export const se_ListAppAssessmentsCommand = async (
@@ -1288,8 +1367,10 @@ export const se_ListAppVersionsCommand = async (
   body = JSON.stringify(
     take(input, {
       appArn: [],
+      endTime: (_) => Math.round(_.getTime() / 1000),
       maxResults: [],
       nextToken: [],
+      startTime: (_) => Math.round(_.getTime() / 1000),
     })
   );
   return new __HttpRequest({
@@ -1530,6 +1611,7 @@ export const se_PublishAppVersionCommand = async (
   body = JSON.stringify(
     take(input, {
       appArn: [],
+      versionName: [],
     })
   );
   return new __HttpRequest({
@@ -1754,6 +1836,8 @@ export const se_UpdateAppCommand = async (
       assessmentSchedule: [],
       clearResiliencyPolicyArn: [],
       description: [],
+      eventSubscriptions: (_) => _json(_),
+      permissionModel: (_) => _json(_),
       policyArn: [],
     })
   );
@@ -1948,6 +2032,67 @@ const de_AddDraftAppVersionResourceMappingsCommandError = async (
     case "ConflictException":
     case "com.amazonaws.resiliencehub#ConflictException":
       throw await de_ConflictExceptionRes(parsedOutput, context);
+    case "InternalServerException":
+    case "com.amazonaws.resiliencehub#InternalServerException":
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.resiliencehub#ResourceNotFoundException":
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
+    case "ThrottlingException":
+    case "com.amazonaws.resiliencehub#ThrottlingException":
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
+    case "ValidationException":
+    case "com.amazonaws.resiliencehub#ValidationException":
+      throw await de_ValidationExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
+ * deserializeAws_restJson1BatchUpdateRecommendationStatusCommand
+ */
+export const de_BatchUpdateRecommendationStatusCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<BatchUpdateRecommendationStatusCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_BatchUpdateRecommendationStatusCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    appArn: __expectString,
+    failedEntries: _json,
+    successfulEntries: _json,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1BatchUpdateRecommendationStatusCommandError
+ */
+const de_BatchUpdateRecommendationStatusCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<BatchUpdateRecommendationStatusCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.resiliencehub#AccessDeniedException":
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
     case "InternalServerException":
     case "com.amazonaws.resiliencehub#InternalServerException":
       throw await de_InternalServerExceptionRes(parsedOutput, context);
@@ -3335,6 +3480,9 @@ const de_ImportResourcesToDraftAppVersionCommandError = async (
     case "ResourceNotFoundException":
     case "com.amazonaws.resiliencehub#ResourceNotFoundException":
       throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
+    case "ServiceQuotaExceededException":
+    case "com.amazonaws.resiliencehub#ServiceQuotaExceededException":
+      throw await de_ServiceQuotaExceededExceptionRes(parsedOutput, context);
     case "ThrottlingException":
     case "com.amazonaws.resiliencehub#ThrottlingException":
       throw await de_ThrottlingExceptionRes(parsedOutput, context);
@@ -3395,6 +3543,63 @@ const de_ListAlarmRecommendationsCommandError = async (
     case "ResourceNotFoundException":
     case "com.amazonaws.resiliencehub#ResourceNotFoundException":
       throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
+    case "ThrottlingException":
+    case "com.amazonaws.resiliencehub#ThrottlingException":
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
+    case "ValidationException":
+    case "com.amazonaws.resiliencehub#ValidationException":
+      throw await de_ValidationExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
+ * deserializeAws_restJson1ListAppAssessmentComplianceDriftsCommand
+ */
+export const de_ListAppAssessmentComplianceDriftsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListAppAssessmentComplianceDriftsCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_ListAppAssessmentComplianceDriftsCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    complianceDrifts: _json,
+    nextToken: __expectString,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1ListAppAssessmentComplianceDriftsCommandError
+ */
+const de_ListAppAssessmentComplianceDriftsCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListAppAssessmentComplianceDriftsCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.resiliencehub#AccessDeniedException":
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
+    case "InternalServerException":
+    case "com.amazonaws.resiliencehub#InternalServerException":
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
     case "ThrottlingException":
     case "com.amazonaws.resiliencehub#ThrottlingException":
       throw await de_ThrottlingExceptionRes(parsedOutput, context);
@@ -3912,7 +4117,7 @@ export const de_ListAppVersionsCommand = async (
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   const doc = take(data, {
-    appVersions: _json,
+    appVersions: (_) => de_AppVersionList(_, context),
     nextToken: __expectString,
   });
   Object.assign(contents, doc);
@@ -4397,6 +4602,8 @@ export const de_PublishAppVersionCommand = async (
   const doc = take(data, {
     appArn: __expectString,
     appVersion: __expectString,
+    identifier: __expectLong,
+    versionName: __expectString,
   });
   Object.assign(contents, doc);
   return contents;
@@ -5285,9 +5492,17 @@ const de_ValidationExceptionRes = async (parsedOutput: any, context: __SerdeCont
 
 // se_EntityNameList omitted.
 
+// se_EventSubscription omitted.
+
+// se_EventSubscriptionList omitted.
+
 // se_FailurePolicy omitted.
 
+// se_IamRoleArnList omitted.
+
 // se_LogicalResourceId omitted.
+
+// se_PermissionModel omitted.
 
 // se_PhysicalResourceId omitted.
 
@@ -5306,6 +5521,12 @@ const de_ValidationExceptionRes = async (parsedOutput: any, context: __SerdeCont
 // se_TerraformSource omitted.
 
 // se_TerraformSourceList omitted.
+
+// se_UpdateRecommendationStatusItem omitted.
+
+// se_UpdateRecommendationStatusRequestEntries omitted.
+
+// se_UpdateRecommendationStatusRequestEntry omitted.
 
 // de_AdditionalInfoMap omitted.
 
@@ -5327,9 +5548,13 @@ const de_App = (output: any, context: __SerdeContext): App => {
     complianceStatus: __expectString,
     creationTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
     description: __expectString,
+    driftStatus: __expectString,
+    eventSubscriptions: _json,
     lastAppComplianceEvaluationTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    lastDriftEvaluationTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
     lastResiliencyScoreEvaluationTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
     name: __expectString,
+    permissionModel: _json,
     policyArn: __expectString,
     resiliencyScore: __limitedParseDouble,
     status: __expectString,
@@ -5350,6 +5575,7 @@ const de_AppAssessment = (output: any, context: __SerdeContext): AppAssessment =
     compliance: _json,
     complianceStatus: __expectString,
     cost: (_: any) => de_Cost(_, context),
+    driftStatus: __expectString,
     endTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
     invoker: __expectString,
     message: __expectString,
@@ -5358,6 +5584,7 @@ const de_AppAssessment = (output: any, context: __SerdeContext): AppAssessment =
     resourceErrorsDetails: _json,
     startTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
     tags: _json,
+    versionName: __expectString,
   }) as any;
 };
 
@@ -5373,11 +5600,13 @@ const de_AppAssessmentSummary = (output: any, context: __SerdeContext): AppAsses
     assessmentStatus: __expectString,
     complianceStatus: __expectString,
     cost: (_: any) => de_Cost(_, context),
+    driftStatus: __expectString,
     endTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
     invoker: __expectString,
     message: __expectString,
     resiliencyScore: __limitedParseDouble,
     startTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    versionName: __expectString,
   }) as any;
 };
 
@@ -5411,6 +5640,8 @@ const de_AppComponentCompliance = (output: any, context: __SerdeContext): AppCom
 
 // de_AppComponentList omitted.
 
+// de_AppComponentNameList omitted.
+
 // de_AppInputSource omitted.
 
 // de_AppInputSourceList omitted.
@@ -5425,6 +5656,7 @@ const de_AppSummary = (output: any, context: __SerdeContext): AppSummary => {
     complianceStatus: __expectString,
     creationTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
     description: __expectString,
+    driftStatus: __expectString,
     name: __expectString,
     resiliencyScore: __limitedParseDouble,
     status: __expectString,
@@ -5443,13 +5675,45 @@ const de_AppSummaryList = (output: any, context: __SerdeContext): AppSummary[] =
   return retVal;
 };
 
-// de_AppVersionList omitted.
+/**
+ * deserializeAws_restJson1AppVersionList
+ */
+const de_AppVersionList = (output: any, context: __SerdeContext): AppVersionSummary[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      return de_AppVersionSummary(entry, context);
+    });
+  return retVal;
+};
 
-// de_AppVersionSummary omitted.
+/**
+ * deserializeAws_restJson1AppVersionSummary
+ */
+const de_AppVersionSummary = (output: any, context: __SerdeContext): AppVersionSummary => {
+  return take(output, {
+    appVersion: __expectString,
+    creationTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    identifier: __expectLong,
+    versionName: __expectString,
+  }) as any;
+};
 
 // de_ArnList omitted.
 
 // de_AssessmentCompliance omitted.
+
+// de_BatchUpdateRecommendationStatusFailedEntries omitted.
+
+// de_BatchUpdateRecommendationStatusFailedEntry omitted.
+
+// de_BatchUpdateRecommendationStatusSuccessfulEntries omitted.
+
+// de_BatchUpdateRecommendationStatusSuccessfulEntry omitted.
+
+// de_ComplianceDrift omitted.
+
+// de_ComplianceDriftList omitted.
 
 /**
  * deserializeAws_restJson1ComponentCompliancesList
@@ -5552,9 +5816,17 @@ const de_DisruptionResiliencyScore = (output: any, context: __SerdeContext): Rec
 
 // de_EksSourceList omitted.
 
+// de_EventSubscription omitted.
+
+// de_EventSubscriptionList omitted.
+
 // de_FailurePolicy omitted.
 
+// de_IamRoleArnList omitted.
+
 // de_LogicalResourceId omitted.
+
+// de_PermissionModel omitted.
 
 // de_PhysicalResource omitted.
 
@@ -5678,6 +5950,8 @@ const de_ResiliencyScore = (output: any, context: __SerdeContext): ResiliencySco
 // de_UnsupportedResource omitted.
 
 // de_UnsupportedResourceList omitted.
+
+// de_UpdateRecommendationStatusItem omitted.
 
 const deserializeMetadata = (output: __HttpResponse): __ResponseMetadata => ({
   httpStatusCode: output.statusCode,

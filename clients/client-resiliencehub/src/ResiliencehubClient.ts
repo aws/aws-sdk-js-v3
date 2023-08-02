@@ -53,6 +53,10 @@ import {
   AddDraftAppVersionResourceMappingsCommandInput,
   AddDraftAppVersionResourceMappingsCommandOutput,
 } from "./commands/AddDraftAppVersionResourceMappingsCommand";
+import {
+  BatchUpdateRecommendationStatusCommandInput,
+  BatchUpdateRecommendationStatusCommandOutput,
+} from "./commands/BatchUpdateRecommendationStatusCommand";
 import { CreateAppCommandInput, CreateAppCommandOutput } from "./commands/CreateAppCommand";
 import {
   CreateAppVersionAppComponentCommandInput,
@@ -133,6 +137,10 @@ import {
   ListAlarmRecommendationsCommandInput,
   ListAlarmRecommendationsCommandOutput,
 } from "./commands/ListAlarmRecommendationsCommand";
+import {
+  ListAppAssessmentComplianceDriftsCommandInput,
+  ListAppAssessmentComplianceDriftsCommandOutput,
+} from "./commands/ListAppAssessmentComplianceDriftsCommand";
 import { ListAppAssessmentsCommandInput, ListAppAssessmentsCommandOutput } from "./commands/ListAppAssessmentsCommand";
 import {
   ListAppComponentCompliancesCommandInput,
@@ -233,6 +241,7 @@ export { __Client };
  */
 export type ServiceInputTypes =
   | AddDraftAppVersionResourceMappingsCommandInput
+  | BatchUpdateRecommendationStatusCommandInput
   | CreateAppCommandInput
   | CreateAppVersionAppComponentCommandInput
   | CreateAppVersionResourceCommandInput
@@ -256,6 +265,7 @@ export type ServiceInputTypes =
   | DescribeResiliencyPolicyCommandInput
   | ImportResourcesToDraftAppVersionCommandInput
   | ListAlarmRecommendationsCommandInput
+  | ListAppAssessmentComplianceDriftsCommandInput
   | ListAppAssessmentsCommandInput
   | ListAppComponentCompliancesCommandInput
   | ListAppComponentRecommendationsCommandInput
@@ -290,6 +300,7 @@ export type ServiceInputTypes =
  */
 export type ServiceOutputTypes =
   | AddDraftAppVersionResourceMappingsCommandOutput
+  | BatchUpdateRecommendationStatusCommandOutput
   | CreateAppCommandOutput
   | CreateAppVersionAppComponentCommandOutput
   | CreateAppVersionResourceCommandOutput
@@ -313,6 +324,7 @@ export type ServiceOutputTypes =
   | DescribeResiliencyPolicyCommandOutput
   | ImportResourcesToDraftAppVersionCommandOutput
   | ListAlarmRecommendationsCommandOutput
+  | ListAppAssessmentComplianceDriftsCommandOutput
   | ListAppAssessmentsCommandOutput
   | ListAppComponentCompliancesCommandOutput
   | ListAppComponentRecommendationsCommandOutput

@@ -78,6 +78,8 @@ export interface ListAppAssessmentsCommandOutput extends ListAppAssessmentsRespo
  * //         frequency: "STRING_VALUE", // required
  * //       },
  * //       resiliencyScore: Number("double"),
+ * //       versionName: "STRING_VALUE",
+ * //       driftStatus: "STRING_VALUE",
  * //     },
  * //   ],
  * // };

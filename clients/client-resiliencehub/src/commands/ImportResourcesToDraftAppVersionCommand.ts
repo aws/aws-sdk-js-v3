@@ -119,6 +119,10 @@ export interface ImportResourcesToDraftAppVersionCommandOutput
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>This exception occurs when the specified resource could not be found.</p>
  *
+ * @throws {@link ServiceQuotaExceededException} (client fault)
+ *  <p>This exception occurs when you have exceeded your service quota. To perform the requested action, remove some of the
+ *       relevant resources, or use Service Quotas to request a service quota increase.</p>
+ *
  * @throws {@link ThrottlingException} (client fault)
  *  <p>This exception occurs when you have exceeded the limit on the number of requests per second.</p>
  *

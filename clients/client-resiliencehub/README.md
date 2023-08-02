@@ -217,6 +217,14 @@ AddDraftAppVersionResourceMappings
 </details>
 <details>
 <summary>
+BatchUpdateRecommendationStatus
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-resiliencehub/classes/batchupdaterecommendationstatuscommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-resiliencehub/interfaces/batchupdaterecommendationstatuscommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-resiliencehub/interfaces/batchupdaterecommendationstatuscommandoutput.html)
+
+</details>
+<details>
+<summary>
 CreateApp
 </summary>
 
@@ -397,6 +405,14 @@ ListAlarmRecommendations
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-resiliencehub/classes/listalarmrecommendationscommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-resiliencehub/interfaces/listalarmrecommendationscommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-resiliencehub/interfaces/listalarmrecommendationscommandoutput.html)
+
+</details>
+<details>
+<summary>
+ListAppAssessmentComplianceDrifts
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-resiliencehub/classes/listappassessmentcompliancedriftscommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-resiliencehub/interfaces/listappassessmentcompliancedriftscommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-resiliencehub/interfaces/listappassessmentcompliancedriftscommandoutput.html)
 
 </details>
 <details>

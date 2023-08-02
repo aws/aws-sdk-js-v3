@@ -71,6 +71,7 @@ export interface ListAppsCommandOutput extends ListAppsResponse, __MetadataBeare
  * //       resiliencyScore: Number("double"),
  * //       assessmentSchedule: "STRING_VALUE",
  * //       status: "STRING_VALUE",
+ * //       driftStatus: "STRING_VALUE",
  * //     },
  * //   ],
  * //   nextToken: "STRING_VALUE",

@@ -7,6 +7,11 @@ import {
   AddDraftAppVersionResourceMappingsCommandInput,
   AddDraftAppVersionResourceMappingsCommandOutput,
 } from "./commands/AddDraftAppVersionResourceMappingsCommand";
+import {
+  BatchUpdateRecommendationStatusCommand,
+  BatchUpdateRecommendationStatusCommandInput,
+  BatchUpdateRecommendationStatusCommandOutput,
+} from "./commands/BatchUpdateRecommendationStatusCommand";
 import { CreateAppCommand, CreateAppCommandInput, CreateAppCommandOutput } from "./commands/CreateAppCommand";
 import {
   CreateAppVersionAppComponentCommand,
@@ -110,6 +115,11 @@ import {
   ListAlarmRecommendationsCommandInput,
   ListAlarmRecommendationsCommandOutput,
 } from "./commands/ListAlarmRecommendationsCommand";
+import {
+  ListAppAssessmentComplianceDriftsCommand,
+  ListAppAssessmentComplianceDriftsCommandInput,
+  ListAppAssessmentComplianceDriftsCommandOutput,
+} from "./commands/ListAppAssessmentComplianceDriftsCommand";
 import {
   ListAppAssessmentsCommand,
   ListAppAssessmentsCommandInput,
@@ -242,6 +252,7 @@ import { ResiliencehubClient, ResiliencehubClientConfig } from "./ResiliencehubC
 
 const commands = {
   AddDraftAppVersionResourceMappingsCommand,
+  BatchUpdateRecommendationStatusCommand,
   CreateAppCommand,
   CreateAppVersionAppComponentCommand,
   CreateAppVersionResourceCommand,
@@ -265,6 +276,7 @@ const commands = {
   DescribeResiliencyPolicyCommand,
   ImportResourcesToDraftAppVersionCommand,
   ListAlarmRecommendationsCommand,
+  ListAppAssessmentComplianceDriftsCommand,
   ListAppAssessmentsCommand,
   ListAppComponentCompliancesCommand,
   ListAppComponentRecommendationsCommand,
@@ -311,6 +323,23 @@ export interface Resiliencehub {
     args: AddDraftAppVersionResourceMappingsCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: AddDraftAppVersionResourceMappingsCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link BatchUpdateRecommendationStatusCommand}
+   */
+  batchUpdateRecommendationStatus(
+    args: BatchUpdateRecommendationStatusCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<BatchUpdateRecommendationStatusCommandOutput>;
+  batchUpdateRecommendationStatus(
+    args: BatchUpdateRecommendationStatusCommandInput,
+    cb: (err: any, data?: BatchUpdateRecommendationStatusCommandOutput) => void
+  ): void;
+  batchUpdateRecommendationStatus(
+    args: BatchUpdateRecommendationStatusCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: BatchUpdateRecommendationStatusCommandOutput) => void
   ): void;
 
   /**
@@ -684,6 +713,23 @@ export interface Resiliencehub {
     args: ListAlarmRecommendationsCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: ListAlarmRecommendationsCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ListAppAssessmentComplianceDriftsCommand}
+   */
+  listAppAssessmentComplianceDrifts(
+    args: ListAppAssessmentComplianceDriftsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListAppAssessmentComplianceDriftsCommandOutput>;
+  listAppAssessmentComplianceDrifts(
+    args: ListAppAssessmentComplianceDriftsCommandInput,
+    cb: (err: any, data?: ListAppAssessmentComplianceDriftsCommandOutput) => void
+  ): void;
+  listAppAssessmentComplianceDrifts(
+    args: ListAppAssessmentComplianceDriftsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListAppAssessmentComplianceDriftsCommandOutput) => void
   ): void;
 
   /**

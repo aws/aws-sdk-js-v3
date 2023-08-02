@@ -49,6 +49,20 @@ export interface UpdateAppCommandOutput extends UpdateAppResponse, __MetadataBea
  *   policyArn: "STRING_VALUE",
  *   clearResiliencyPolicyArn: true || false,
  *   assessmentSchedule: "STRING_VALUE",
+ *   permissionModel: { // PermissionModel
+ *     type: "STRING_VALUE", // required
+ *     invokerRoleName: "STRING_VALUE",
+ *     crossAccountRoleArns: [ // IamRoleArnList
+ *       "STRING_VALUE",
+ *     ],
+ *   },
+ *   eventSubscriptions: [ // EventSubscriptionList
+ *     { // EventSubscription
+ *       name: "STRING_VALUE", // required
+ *       eventType: "STRING_VALUE", // required
+ *       snsTopicArn: "STRING_VALUE",
+ *     },
+ *   ],
  * };
  * const command = new UpdateAppCommand(input);
  * const response = await client.send(command);
@@ -68,6 +82,22 @@ export interface UpdateAppCommandOutput extends UpdateAppResponse, __MetadataBea
  * //       "<keys>": "STRING_VALUE",
  * //     },
  * //     assessmentSchedule: "STRING_VALUE",
+ * //     permissionModel: { // PermissionModel
+ * //       type: "STRING_VALUE", // required
+ * //       invokerRoleName: "STRING_VALUE",
+ * //       crossAccountRoleArns: [ // IamRoleArnList
+ * //         "STRING_VALUE",
+ * //       ],
+ * //     },
+ * //     eventSubscriptions: [ // EventSubscriptionList
+ * //       { // EventSubscription
+ * //         name: "STRING_VALUE", // required
+ * //         eventType: "STRING_VALUE", // required
+ * //         snsTopicArn: "STRING_VALUE",
+ * //       },
+ * //     ],
+ * //     driftStatus: "STRING_VALUE",
+ * //     lastDriftEvaluationTime: new Date("TIMESTAMP"),
  * //   },
  * // };
  *

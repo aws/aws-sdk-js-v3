@@ -13,8 +13,11 @@ import {
   SerdeContext as __SerdeContext,
 } from "@smithy/types";
 
-import { ListSopRecommendationsRequest, ListSopRecommendationsResponse } from "../models/models_0";
-import { de_ListSopRecommendationsCommand, se_ListSopRecommendationsCommand } from "../protocols/Aws_restJson1";
+import { BatchUpdateRecommendationStatusRequest, BatchUpdateRecommendationStatusResponse } from "../models/models_0";
+import {
+  de_BatchUpdateRecommendationStatusCommand,
+  se_BatchUpdateRecommendationStatusCommand,
+} from "../protocols/Aws_restJson1";
 import { ResiliencehubClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ResiliencehubClient";
 
 /**
@@ -24,76 +27,80 @@ export { __MetadataBearer, $Command };
 /**
  * @public
  *
- * The input for {@link ListSopRecommendationsCommand}.
+ * The input for {@link BatchUpdateRecommendationStatusCommand}.
  */
-export interface ListSopRecommendationsCommandInput extends ListSopRecommendationsRequest {}
+export interface BatchUpdateRecommendationStatusCommandInput extends BatchUpdateRecommendationStatusRequest {}
 /**
  * @public
  *
- * The output of {@link ListSopRecommendationsCommand}.
+ * The output of {@link BatchUpdateRecommendationStatusCommand}.
  */
-export interface ListSopRecommendationsCommandOutput extends ListSopRecommendationsResponse, __MetadataBearer {}
+export interface BatchUpdateRecommendationStatusCommandOutput
+  extends BatchUpdateRecommendationStatusResponse,
+    __MetadataBearer {}
 
 /**
  * @public
- * <p>Lists the standard operating procedure (SOP) recommendations for the Resilience Hub
- *       applications.</p>
+ * <p>Enables you to include or exclude one or more operational recommendations.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ResiliencehubClient, ListSopRecommendationsCommand } from "@aws-sdk/client-resiliencehub"; // ES Modules import
- * // const { ResiliencehubClient, ListSopRecommendationsCommand } = require("@aws-sdk/client-resiliencehub"); // CommonJS import
+ * import { ResiliencehubClient, BatchUpdateRecommendationStatusCommand } from "@aws-sdk/client-resiliencehub"; // ES Modules import
+ * // const { ResiliencehubClient, BatchUpdateRecommendationStatusCommand } = require("@aws-sdk/client-resiliencehub"); // CommonJS import
  * const client = new ResiliencehubClient(config);
- * const input = { // ListSopRecommendationsRequest
- *   nextToken: "STRING_VALUE",
- *   maxResults: Number("int"),
- *   assessmentArn: "STRING_VALUE", // required
+ * const input = { // BatchUpdateRecommendationStatusRequest
+ *   appArn: "STRING_VALUE", // required
+ *   requestEntries: [ // UpdateRecommendationStatusRequestEntries // required
+ *     { // UpdateRecommendationStatusRequestEntry
+ *       entryId: "STRING_VALUE", // required
+ *       referenceId: "STRING_VALUE", // required
+ *       item: { // UpdateRecommendationStatusItem
+ *         resourceId: "STRING_VALUE",
+ *         targetAccountId: "STRING_VALUE",
+ *         targetRegion: "STRING_VALUE",
+ *       },
+ *       excluded: true || false, // required
+ *       excludeReason: "STRING_VALUE",
+ *     },
+ *   ],
  * };
- * const command = new ListSopRecommendationsCommand(input);
+ * const command = new BatchUpdateRecommendationStatusCommand(input);
  * const response = await client.send(command);
- * // { // ListSopRecommendationsResponse
- * //   nextToken: "STRING_VALUE",
- * //   sopRecommendations: [ // SopRecommendationList // required
- * //     { // SopRecommendation
- * //       serviceType: "STRING_VALUE", // required
- * //       appComponentName: "STRING_VALUE",
- * //       description: "STRING_VALUE",
- * //       recommendationId: "STRING_VALUE", // required
- * //       name: "STRING_VALUE",
- * //       items: [ // RecommendationItemList
- * //         { // RecommendationItem
- * //           resourceId: "STRING_VALUE",
- * //           targetAccountId: "STRING_VALUE",
- * //           targetRegion: "STRING_VALUE",
- * //           alreadyImplemented: true || false,
- * //           excluded: true || false,
- * //           excludeReason: "STRING_VALUE",
- * //         },
- * //       ],
+ * // { // BatchUpdateRecommendationStatusResponse
+ * //   appArn: "STRING_VALUE", // required
+ * //   successfulEntries: [ // BatchUpdateRecommendationStatusSuccessfulEntries // required
+ * //     { // BatchUpdateRecommendationStatusSuccessfulEntry
+ * //       entryId: "STRING_VALUE", // required
  * //       referenceId: "STRING_VALUE", // required
- * //       prerequisite: "STRING_VALUE",
+ * //       item: { // UpdateRecommendationStatusItem
+ * //         resourceId: "STRING_VALUE",
+ * //         targetAccountId: "STRING_VALUE",
+ * //         targetRegion: "STRING_VALUE",
+ * //       },
+ * //       excluded: true || false, // required
+ * //       excludeReason: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * //   failedEntries: [ // BatchUpdateRecommendationStatusFailedEntries // required
+ * //     { // BatchUpdateRecommendationStatusFailedEntry
+ * //       entryId: "STRING_VALUE", // required
+ * //       errorMessage: "STRING_VALUE", // required
  * //     },
  * //   ],
  * // };
  *
  * ```
  *
- * @param ListSopRecommendationsCommandInput - {@link ListSopRecommendationsCommandInput}
- * @returns {@link ListSopRecommendationsCommandOutput}
- * @see {@link ListSopRecommendationsCommandInput} for command's `input` shape.
- * @see {@link ListSopRecommendationsCommandOutput} for command's `response` shape.
+ * @param BatchUpdateRecommendationStatusCommandInput - {@link BatchUpdateRecommendationStatusCommandInput}
+ * @returns {@link BatchUpdateRecommendationStatusCommandOutput}
+ * @see {@link BatchUpdateRecommendationStatusCommandInput} for command's `input` shape.
+ * @see {@link BatchUpdateRecommendationStatusCommandOutput} for command's `response` shape.
  * @see {@link ResiliencehubClientResolvedConfig | config} for ResiliencehubClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
  *  <p>You don't have permissions to perform the requested operation. The user or role that is
  *       making the request must have at least one IAM permissions policy attached that grants the
  *       required permissions.</p>
- *
- * @throws {@link ConflictException} (client fault)
- *  <p>This exception occurs when a conflict with a previous successful write is detected. This generally occurs
- *       when the previous write did not have time to propagate to the host serving the current
- *       request. A retry (with appropriate backoff logic) is the recommended response to this
- *       exception.</p>
  *
  * @throws {@link InternalServerException} (server fault)
  *  <p>This exception occurs when there is an internal failure in the Resilience Hub
@@ -112,9 +119,9 @@ export interface ListSopRecommendationsCommandOutput extends ListSopRecommendati
  * <p>Base exception class for all service exceptions from Resiliencehub service.</p>
  *
  */
-export class ListSopRecommendationsCommand extends $Command<
-  ListSopRecommendationsCommandInput,
-  ListSopRecommendationsCommandOutput,
+export class BatchUpdateRecommendationStatusCommand extends $Command<
+  BatchUpdateRecommendationStatusCommandInput,
+  BatchUpdateRecommendationStatusCommandOutput,
   ResiliencehubClientResolvedConfig
 > {
   // Start section: command_properties
@@ -132,7 +139,7 @@ export class ListSopRecommendationsCommand extends $Command<
   /**
    * @public
    */
-  constructor(readonly input: ListSopRecommendationsCommandInput) {
+  constructor(readonly input: BatchUpdateRecommendationStatusCommandInput) {
     // Start section: command_constructor
     super();
     // End section: command_constructor
@@ -145,17 +152,17 @@ export class ListSopRecommendationsCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ResiliencehubClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<ListSopRecommendationsCommandInput, ListSopRecommendationsCommandOutput> {
+  ): Handler<BatchUpdateRecommendationStatusCommandInput, BatchUpdateRecommendationStatusCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
     this.middlewareStack.use(
-      getEndpointPlugin(configuration, ListSopRecommendationsCommand.getEndpointParameterInstructions())
+      getEndpointPlugin(configuration, BatchUpdateRecommendationStatusCommand.getEndpointParameterInstructions())
     );
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
     const clientName = "ResiliencehubClient";
-    const commandName = "ListSopRecommendationsCommand";
+    const commandName = "BatchUpdateRecommendationStatusCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
       clientName,
@@ -174,15 +181,21 @@ export class ListSopRecommendationsCommand extends $Command<
   /**
    * @internal
    */
-  private serialize(input: ListSopRecommendationsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return se_ListSopRecommendationsCommand(input, context);
+  private serialize(
+    input: BatchUpdateRecommendationStatusCommandInput,
+    context: __SerdeContext
+  ): Promise<__HttpRequest> {
+    return se_BatchUpdateRecommendationStatusCommand(input, context);
   }
 
   /**
    * @internal
    */
-  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListSopRecommendationsCommandOutput> {
-    return de_ListSopRecommendationsCommand(output, context);
+  private deserialize(
+    output: __HttpResponse,
+    context: __SerdeContext
+  ): Promise<BatchUpdateRecommendationStatusCommandOutput> {
+    return de_BatchUpdateRecommendationStatusCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -1,5 +1,6 @@
 // smithy-typescript generated code
 export * from "./AddDraftAppVersionResourceMappingsCommand";
+export * from "./BatchUpdateRecommendationStatusCommand";
 export * from "./CreateAppCommand";
 export * from "./CreateAppVersionAppComponentCommand";
 export * from "./CreateAppVersionResourceCommand";
@@ -23,6 +24,7 @@ export * from "./DescribeDraftAppVersionResourcesImportStatusCommand";
 export * from "./DescribeResiliencyPolicyCommand";
 export * from "./ImportResourcesToDraftAppVersionCommand";
 export * from "./ListAlarmRecommendationsCommand";
+export * from "./ListAppAssessmentComplianceDriftsCommand";
 export * from "./ListAppAssessmentsCommand";
 export * from "./ListAppComponentCompliancesCommand";
 export * from "./ListAppComponentRecommendationsCommand";

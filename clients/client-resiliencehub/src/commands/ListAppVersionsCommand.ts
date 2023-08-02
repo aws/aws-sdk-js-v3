@@ -47,6 +47,8 @@ export interface ListAppVersionsCommandOutput extends ListAppVersionsResponse, _
  *   appArn: "STRING_VALUE", // required
  *   nextToken: "STRING_VALUE",
  *   maxResults: Number("int"),
+ *   startTime: new Date("TIMESTAMP"),
+ *   endTime: new Date("TIMESTAMP"),
  * };
  * const command = new ListAppVersionsCommand(input);
  * const response = await client.send(command);
@@ -54,6 +56,9 @@ export interface ListAppVersionsCommandOutput extends ListAppVersionsResponse, _
  * //   appVersions: [ // AppVersionList // required
  * //     { // AppVersionSummary
  * //       appVersion: "STRING_VALUE", // required
+ * //       identifier: Number("long"),
+ * //       creationTime: new Date("TIMESTAMP"),
+ * //       versionName: "STRING_VALUE",
  * //     },
  * //   ],
  * //   nextToken: "STRING_VALUE",

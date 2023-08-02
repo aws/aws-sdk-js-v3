@@ -64,6 +64,22 @@ export interface DescribeAppCommandOutput extends DescribeAppResponse, __Metadat
  * //       "<keys>": "STRING_VALUE",
  * //     },
  * //     assessmentSchedule: "STRING_VALUE",
+ * //     permissionModel: { // PermissionModel
+ * //       type: "STRING_VALUE", // required
+ * //       invokerRoleName: "STRING_VALUE",
+ * //       crossAccountRoleArns: [ // IamRoleArnList
+ * //         "STRING_VALUE",
+ * //       ],
+ * //     },
+ * //     eventSubscriptions: [ // EventSubscriptionList
+ * //       { // EventSubscription
+ * //         name: "STRING_VALUE", // required
+ * //         eventType: "STRING_VALUE", // required
+ * //         snsTopicArn: "STRING_VALUE",
+ * //       },
+ * //     ],
+ * //     driftStatus: "STRING_VALUE",
+ * //     lastDriftEvaluationTime: new Date("TIMESTAMP"),
  * //   },
  * // };
  *

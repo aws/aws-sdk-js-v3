@@ -45,12 +45,15 @@ export interface PublishAppVersionCommandOutput extends PublishAppVersionRespons
  * const client = new ResiliencehubClient(config);
  * const input = { // PublishAppVersionRequest
  *   appArn: "STRING_VALUE", // required
+ *   versionName: "STRING_VALUE",
  * };
  * const command = new PublishAppVersionCommand(input);
  * const response = await client.send(command);
  * // { // PublishAppVersionResponse
  * //   appArn: "STRING_VALUE", // required
  * //   appVersion: "STRING_VALUE",
+ * //   identifier: Number("long"),
+ * //   versionName: "STRING_VALUE",
  * // };
  *
  * ```

@@ -68,6 +68,8 @@ export interface ListTestRecommendationsCommandOutput extends ListTestRecommenda
  * //           targetAccountId: "STRING_VALUE",
  * //           targetRegion: "STRING_VALUE",
  * //           alreadyImplemented: true || false,
+ * //           excluded: true || false,
+ * //           excludeReason: "STRING_VALUE",
  * //         },
  * //       ],
  * //       prerequisite: "STRING_VALUE",

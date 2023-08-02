@@ -127,6 +127,8 @@ export interface StartAppAssessmentCommandOutput extends StartAppAssessmentRespo
  * //       ],
  * //       hasMoreErrors: true || false,
  * //     },
+ * //     versionName: "STRING_VALUE",
+ * //     driftStatus: "STRING_VALUE",
  * //   },
  * // };
  *

@@ -120,6 +120,8 @@ export interface DescribeAppAssessmentCommandOutput extends DescribeAppAssessmen
  * //       ],
  * //       hasMoreErrors: true || false,
  * //     },
+ * //     versionName: "STRING_VALUE",
+ * //     driftStatus: "STRING_VALUE",
  * //   },
  * // };
  *
