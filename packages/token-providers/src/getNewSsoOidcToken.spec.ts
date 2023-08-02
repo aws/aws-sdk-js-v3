@@ -1,9 +1,8 @@
-import { CreateTokenCommand } from "@aws-sdk/client-sso-oidc";
-
+import { CreateTokenCommand } from "./client-sso-oidc-bundle/dist-node";
 import { getNewSsoOidcToken } from "./getNewSsoOidcToken";
 import { getSsoOidcClient } from "./getSsoOidcClient";
 
-jest.mock("@aws-sdk/client-sso-oidc");
+jest.mock("./client-sso-oidc-bundle/dist-node");
 jest.mock("./getSsoOidcClient");
 
 describe(getNewSsoOidcToken.name, () => {

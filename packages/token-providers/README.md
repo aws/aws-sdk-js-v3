@@ -15,7 +15,7 @@ import { fromStatic } from "@aws-sdk/token-providers"
 const token = { token: "TOKEN" };
 const staticTokenProvider = fromStatic(token);
 
-cont staticToken = await staticTokenProvider(); // returns { token: "TOKEN" }
+const staticToken = await staticTokenProvider(); // returns { token: "TOKEN" }
 ```
 
 ## SSO Token Provider
@@ -24,7 +24,7 @@ cont staticToken = await staticTokenProvider(); // returns { token: "TOKEN" }
 import { fromSso } from "@aws-sdk/token-providers"
 
 // returns token from SSO token cache or ssoOidc.createToken() call.
-cont ssoToken = await fromSso();
+const ssoToken = await fromSso();
 ```
 
 ## Token Provider Chain
@@ -33,7 +33,7 @@ cont ssoToken = await fromSso();
 import { nodeProvider } from "@aws-sdk/token-providers"
 
 // returns token from default providers.
-cont token = await nodeProvider();
+const token = await nodeProvider();
 ```
 
 [http-bearer-auth-trait]: https://smithy.io/2.0/spec/authentication-traits.html#smithy-api-httpbearerauth-trait
