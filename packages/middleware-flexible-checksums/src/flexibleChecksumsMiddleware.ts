@@ -81,7 +81,7 @@ export const flexibleChecksumsMiddleware =
     const { requestValidationModeMember, responseAlgorithms } = middlewareConfig;
     // @ts-ignore Element implicitly has an 'any' type for input[requestValidationModeMember]
     if (requestValidationModeMember && input[requestValidationModeMember] === "ENABLED") {
-      await validateChecksumFromResponse(result.response as HttpResponse, {
+      validateChecksumFromResponse(result.response as HttpResponse, {
         config,
         responseAlgorithms,
       });
