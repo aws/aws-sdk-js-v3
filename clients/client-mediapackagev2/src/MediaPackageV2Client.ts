@@ -356,7 +356,7 @@ export class MediaPackageV2Client extends __Client<
    */
   readonly config: MediaPackageV2ClientResolvedConfig;
 
-  constructor(configuration: MediaPackageV2ClientConfig) {
+  constructor(configuration: MediaPackageV2ClientConfig = {}) {
     const _config_0 = __getRuntimeConfig(configuration);
     const _config_1 = resolveClientEndpointParameters(_config_0);
     const _config_2 = resolveRegionConfig(_config_1);

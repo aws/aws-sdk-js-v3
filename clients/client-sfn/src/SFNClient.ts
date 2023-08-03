@@ -399,7 +399,7 @@ export class SFNClient extends __Client<
    */
   readonly config: SFNClientResolvedConfig;
 
-  constructor(configuration: SFNClientConfig) {
+  constructor(configuration: SFNClientConfig = {}) {
     const _config_0 = __getRuntimeConfig(configuration);
     const _config_1 = resolveClientEndpointParameters(_config_0);
     const _config_2 = resolveRegionConfig(_config_1);

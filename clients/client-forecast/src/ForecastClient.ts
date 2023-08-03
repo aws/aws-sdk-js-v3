@@ -543,7 +543,7 @@ export class ForecastClient extends __Client<
    */
   readonly config: ForecastClientResolvedConfig;
 
-  constructor(configuration: ForecastClientConfig) {
+  constructor(configuration: ForecastClientConfig = {}) {
     const _config_0 = __getRuntimeConfig(configuration);
     const _config_1 = resolveClientEndpointParameters(_config_0);
     const _config_2 = resolveRegionConfig(_config_1);

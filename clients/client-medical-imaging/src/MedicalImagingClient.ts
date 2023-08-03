@@ -474,7 +474,7 @@ export class MedicalImagingClient extends __Client<
    */
   readonly config: MedicalImagingClientResolvedConfig;
 
-  constructor(configuration: MedicalImagingClientConfig) {
+  constructor(configuration: MedicalImagingClientConfig = {}) {
     const _config_0 = __getRuntimeConfig(configuration);
     const _config_1 = resolveClientEndpointParameters(_config_0);
     const _config_2 = resolveRegionConfig(_config_1);

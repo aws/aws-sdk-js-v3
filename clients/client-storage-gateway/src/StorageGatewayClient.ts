@@ -736,7 +736,7 @@ export class StorageGatewayClient extends __Client<
    */
   readonly config: StorageGatewayClientResolvedConfig;
 
-  constructor(configuration: StorageGatewayClientConfig) {
+  constructor(configuration: StorageGatewayClientConfig = {}) {
     const _config_0 = __getRuntimeConfig(configuration);
     const _config_1 = resolveClientEndpointParameters(_config_0);
     const _config_2 = resolveRegionConfig(_config_1);

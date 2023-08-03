@@ -378,7 +378,7 @@ export class GroundStationClient extends __Client<
    */
   readonly config: GroundStationClientResolvedConfig;
 
-  constructor(configuration: GroundStationClientConfig) {
+  constructor(configuration: GroundStationClientConfig = {}) {
     const _config_0 = __getRuntimeConfig(configuration);
     const _config_1 = resolveClientEndpointParameters(_config_0);
     const _config_2 = resolveRegionConfig(_config_1);

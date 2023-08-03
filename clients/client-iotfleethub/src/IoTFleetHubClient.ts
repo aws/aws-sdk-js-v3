@@ -279,7 +279,7 @@ export class IoTFleetHubClient extends __Client<
    */
   readonly config: IoTFleetHubClientResolvedConfig;
 
-  constructor(configuration: IoTFleetHubClientConfig) {
+  constructor(configuration: IoTFleetHubClientConfig = {}) {
     const _config_0 = __getRuntimeConfig(configuration);
     const _config_1 = resolveClientEndpointParameters(_config_0);
     const _config_2 = resolveRegionConfig(_config_1);

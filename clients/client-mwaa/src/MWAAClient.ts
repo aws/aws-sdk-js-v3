@@ -368,7 +368,7 @@ export class MWAAClient extends __Client<
    */
   readonly config: MWAAClientResolvedConfig;
 
-  constructor(configuration: MWAAClientConfig) {
+  constructor(configuration: MWAAClientConfig = {}) {
     const _config_0 = __getRuntimeConfig(configuration);
     const _config_1 = resolveClientEndpointParameters(_config_0);
     const _config_2 = resolveRegionConfig(_config_1);

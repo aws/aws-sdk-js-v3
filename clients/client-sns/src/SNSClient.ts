@@ -456,7 +456,7 @@ export class SNSClient extends __Client<
    */
   readonly config: SNSClientResolvedConfig;
 
-  constructor(configuration: SNSClientConfig) {
+  constructor(configuration: SNSClientConfig = {}) {
     const _config_0 = __getRuntimeConfig(configuration);
     const _config_1 = resolveClientEndpointParameters(_config_0);
     const _config_2 = resolveRegionConfig(_config_1);

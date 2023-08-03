@@ -286,7 +286,7 @@ export class MigrationHubConfigClient extends __Client<
    */
   readonly config: MigrationHubConfigClientResolvedConfig;
 
-  constructor(configuration: MigrationHubConfigClientConfig) {
+  constructor(configuration: MigrationHubConfigClientConfig = {}) {
     const _config_0 = __getRuntimeConfig(configuration);
     const _config_1 = resolveClientEndpointParameters(_config_0);
     const _config_2 = resolveRegionConfig(_config_1);

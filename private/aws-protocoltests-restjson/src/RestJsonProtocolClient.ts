@@ -679,7 +679,7 @@ export class RestJsonProtocolClient extends __Client<
    */
   readonly config: RestJsonProtocolClientResolvedConfig;
 
-  constructor(configuration: RestJsonProtocolClientConfig) {
+  constructor(configuration: RestJsonProtocolClientConfig = {}) {
     const _config_0 = __getRuntimeConfig(configuration);
     const _config_1 = resolveRegionConfig(_config_0);
     const _config_2 = resolveEndpointsConfig(_config_1);

@@ -315,7 +315,7 @@ export class JsonProtocolClient extends __Client<
    */
   readonly config: JsonProtocolClientResolvedConfig;
 
-  constructor(configuration: JsonProtocolClientConfig) {
+  constructor(configuration: JsonProtocolClientConfig = {}) {
     const _config_0 = __getRuntimeConfig(configuration);
     const _config_1 = resolveRegionConfig(_config_0);
     const _config_2 = resolveEndpointsConfig(_config_1);

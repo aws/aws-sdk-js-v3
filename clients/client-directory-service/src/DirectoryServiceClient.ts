@@ -550,7 +550,7 @@ export class DirectoryServiceClient extends __Client<
    */
   readonly config: DirectoryServiceClientResolvedConfig;
 
-  constructor(configuration: DirectoryServiceClientConfig) {
+  constructor(configuration: DirectoryServiceClientConfig = {}) {
     const _config_0 = __getRuntimeConfig(configuration);
     const _config_1 = resolveClientEndpointParameters(_config_0);
     const _config_2 = resolveRegionConfig(_config_1);

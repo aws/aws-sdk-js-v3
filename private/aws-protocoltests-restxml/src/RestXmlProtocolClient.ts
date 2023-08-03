@@ -488,7 +488,7 @@ export class RestXmlProtocolClient extends __Client<
    */
   readonly config: RestXmlProtocolClientResolvedConfig;
 
-  constructor(configuration: RestXmlProtocolClientConfig) {
+  constructor(configuration: RestXmlProtocolClientConfig = {}) {
     const _config_0 = __getRuntimeConfig(configuration);
     const _config_1 = resolveRegionConfig(_config_0);
     const _config_2 = resolveEndpointsConfig(_config_1);

@@ -285,7 +285,7 @@ export class MacieClient extends __Client<
    */
   readonly config: MacieClientResolvedConfig;
 
-  constructor(configuration: MacieClientConfig) {
+  constructor(configuration: MacieClientConfig = {}) {
     const _config_0 = __getRuntimeConfig(configuration);
     const _config_1 = resolveClientEndpointParameters(_config_0);
     const _config_2 = resolveRegionConfig(_config_1);

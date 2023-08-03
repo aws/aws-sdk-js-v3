@@ -249,7 +249,7 @@ export class KinesisVideoWebRTCStorageClient extends __Client<
    */
   readonly config: KinesisVideoWebRTCStorageClientResolvedConfig;
 
-  constructor(configuration: KinesisVideoWebRTCStorageClientConfig) {
+  constructor(configuration: KinesisVideoWebRTCStorageClientConfig = {}) {
     const _config_0 = __getRuntimeConfig(configuration);
     const _config_1 = resolveClientEndpointParameters(_config_0);
     const _config_2 = resolveRegionConfig(_config_1);

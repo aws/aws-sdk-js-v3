@@ -322,7 +322,7 @@ export class PaymentCryptographyClient extends __Client<
    */
   readonly config: PaymentCryptographyClientResolvedConfig;
 
-  constructor(configuration: PaymentCryptographyClientConfig) {
+  constructor(configuration: PaymentCryptographyClientConfig = {}) {
     const _config_0 = __getRuntimeConfig(configuration);
     const _config_1 = resolveClientEndpointParameters(_config_0);
     const _config_2 = resolveRegionConfig(_config_1);

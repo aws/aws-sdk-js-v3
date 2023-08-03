@@ -750,7 +750,7 @@ export class GreengrassClient extends __Client<
    */
   readonly config: GreengrassClientResolvedConfig;
 
-  constructor(configuration: GreengrassClientConfig) {
+  constructor(configuration: GreengrassClientConfig = {}) {
     const _config_0 = __getRuntimeConfig(configuration);
     const _config_1 = resolveClientEndpointParameters(_config_0);
     const _config_2 = resolveRegionConfig(_config_1);

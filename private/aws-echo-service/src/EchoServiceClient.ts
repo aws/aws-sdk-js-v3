@@ -202,7 +202,7 @@ export class EchoServiceClient extends __Client<
    */
   readonly config: EchoServiceClientResolvedConfig;
 
-  constructor(configuration: EchoServiceClientConfig) {
+  constructor(configuration: EchoServiceClientConfig = {}) {
     let _config_0 = __getRuntimeConfig(configuration);
     let _config_1 = resolveCustomEndpointsConfig(_config_0);
     let _config_2 = resolveRetryConfig(_config_1);

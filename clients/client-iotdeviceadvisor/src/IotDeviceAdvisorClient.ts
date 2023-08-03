@@ -311,7 +311,7 @@ export class IotDeviceAdvisorClient extends __Client<
    */
   readonly config: IotDeviceAdvisorClientResolvedConfig;
 
-  constructor(configuration: IotDeviceAdvisorClientConfig) {
+  constructor(configuration: IotDeviceAdvisorClientConfig = {}) {
     const _config_0 = __getRuntimeConfig(configuration);
     const _config_1 = resolveClientEndpointParameters(_config_0);
     const _config_2 = resolveRegionConfig(_config_1);

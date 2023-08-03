@@ -251,7 +251,7 @@ export class SageMakerRuntimeClient extends __Client<
    */
   readonly config: SageMakerRuntimeClientResolvedConfig;
 
-  constructor(configuration: SageMakerRuntimeClientConfig) {
+  constructor(configuration: SageMakerRuntimeClientConfig = {}) {
     const _config_0 = __getRuntimeConfig(configuration);
     const _config_1 = resolveClientEndpointParameters(_config_0);
     const _config_2 = resolveRegionConfig(_config_1);

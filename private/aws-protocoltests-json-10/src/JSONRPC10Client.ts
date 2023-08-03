@@ -274,7 +274,7 @@ export class JSONRPC10Client extends __Client<
    */
   readonly config: JSONRPC10ClientResolvedConfig;
 
-  constructor(configuration: JSONRPC10ClientConfig) {
+  constructor(configuration: JSONRPC10ClientConfig = {}) {
     const _config_0 = __getRuntimeConfig(configuration);
     const _config_1 = resolveRegionConfig(_config_0);
     const _config_2 = resolveEndpointsConfig(_config_1);

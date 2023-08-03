@@ -294,7 +294,7 @@ export class PollyClient extends __Client<
    */
   readonly config: PollyClientResolvedConfig;
 
-  constructor(configuration: PollyClientConfig) {
+  constructor(configuration: PollyClientConfig = {}) {
     const _config_0 = __getRuntimeConfig(configuration);
     const _config_1 = resolveClientEndpointParameters(_config_0);
     const _config_2 = resolveRegionConfig(_config_1);

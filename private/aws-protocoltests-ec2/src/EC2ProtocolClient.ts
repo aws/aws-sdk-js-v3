@@ -326,7 +326,7 @@ export class EC2ProtocolClient extends __Client<
    */
   readonly config: EC2ProtocolClientResolvedConfig;
 
-  constructor(configuration: EC2ProtocolClientConfig) {
+  constructor(configuration: EC2ProtocolClientConfig = {}) {
     const _config_0 = __getRuntimeConfig(configuration);
     const _config_1 = resolveRegionConfig(_config_0);
     const _config_2 = resolveEndpointsConfig(_config_1);

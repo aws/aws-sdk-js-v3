@@ -366,7 +366,7 @@ export class AmplifyBackendClient extends __Client<
    */
   readonly config: AmplifyBackendClientResolvedConfig;
 
-  constructor(configuration: AmplifyBackendClientConfig) {
+  constructor(configuration: AmplifyBackendClientConfig = {}) {
     const _config_0 = __getRuntimeConfig(configuration);
     const _config_1 = resolveClientEndpointParameters(_config_0);
     const _config_2 = resolveRegionConfig(_config_1);

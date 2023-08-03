@@ -347,7 +347,7 @@ export class ServiceQuotasClient extends __Client<
    */
   readonly config: ServiceQuotasClientResolvedConfig;
 
-  constructor(configuration: ServiceQuotasClientConfig) {
+  constructor(configuration: ServiceQuotasClientConfig = {}) {
     const _config_0 = __getRuntimeConfig(configuration);
     const _config_1 = resolveClientEndpointParameters(_config_0);
     const _config_2 = resolveRegionConfig(_config_1);

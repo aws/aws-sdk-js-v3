@@ -278,7 +278,7 @@ export class RDSDataClient extends __Client<
    */
   readonly config: RDSDataClientResolvedConfig;
 
-  constructor(configuration: RDSDataClientConfig) {
+  constructor(configuration: RDSDataClientConfig = {}) {
     const _config_0 = __getRuntimeConfig(configuration);
     const _config_1 = resolveClientEndpointParameters(_config_0);
     const _config_2 = resolveRegionConfig(_config_1);

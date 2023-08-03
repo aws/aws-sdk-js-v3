@@ -815,7 +815,7 @@ export class ProtonClient extends __Client<
    */
   readonly config: ProtonClientResolvedConfig;
 
-  constructor(configuration: ProtonClientConfig) {
+  constructor(configuration: ProtonClientConfig = {}) {
     const _config_0 = __getRuntimeConfig(configuration);
     const _config_1 = resolveClientEndpointParameters(_config_0);
     const _config_2 = resolveRegionConfig(_config_1);
