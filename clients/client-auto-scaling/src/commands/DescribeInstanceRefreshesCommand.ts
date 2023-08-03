@@ -255,8 +255,13 @@ export interface DescribeInstanceRefreshesCommandOutput extends DescribeInstance
  *       "InstancesToUpdate": 0,
  *       "PercentageComplete": 50,
  *       "Preferences": {
+ *         "AlarmSpecification": {
+ *           "Alarms": [
+ *             "my-alarm"
+ *           ]
+ *         },
  *         "AutoRollback": true,
- *         "InstanceWarmup": 60,
+ *         "InstanceWarmup": 200,
  *         "MinHealthyPercentage": 90,
  *         "ScaleInProtectedInstances": "Ignore",
  *         "SkipMatching": false,
@@ -273,8 +278,13 @@ export interface DescribeInstanceRefreshesCommandOutput extends DescribeInstance
  *       "InstancesToUpdate": 0,
  *       "PercentageComplete": 100,
  *       "Preferences": {
+ *         "AlarmSpecification": {
+ *           "Alarms": [
+ *             "my-alarm"
+ *           ]
+ *         },
  *         "AutoRollback": true,
- *         "InstanceWarmup": 60,
+ *         "InstanceWarmup": 200,
  *         "MinHealthyPercentage": 90,
  *         "ScaleInProtectedInstances": "Ignore",
  *         "SkipMatching": false,

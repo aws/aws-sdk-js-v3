@@ -251,9 +251,10 @@ export interface CreateAutoScalingGroupCommandOutput extends __MetadataBearer {}
  * // This example creates an Auto Scaling group.
  * const input = {
  *   "AutoScalingGroupName": "my-auto-scaling-group",
+ *   "DefaultInstanceWarmup": 120,
  *   "LaunchTemplate": {
  *     "LaunchTemplateName": "my-template-for-auto-scaling",
- *     "Version": "$Latest"
+ *     "Version": "$Default"
  *   },
  *   "MaxInstanceLifetime": 2592000,
  *   "MaxSize": 3,
@@ -274,7 +275,7 @@ export interface CreateAutoScalingGroupCommandOutput extends __MetadataBearer {}
  *   "HealthCheckType": "ELB",
  *   "LaunchTemplate": {
  *     "LaunchTemplateName": "my-template-for-auto-scaling",
- *     "Version": "$Latest"
+ *     "Version": "$Default"
  *   },
  *   "MaxSize": 3,
  *   "MinSize": 1,
@@ -300,19 +301,19 @@ export interface CreateAutoScalingGroupCommandOutput extends __MetadataBearer {}
  *     "InstancesDistribution": {
  *       "OnDemandBaseCapacity": 1,
  *       "OnDemandPercentageAboveBaseCapacity": 50,
- *       "SpotAllocationStrategy": "capacity-optimized"
+ *       "SpotAllocationStrategy": "price-capacity-optimized"
  *     },
  *     "LaunchTemplate": {
  *       "LaunchTemplateSpecification": {
  *         "LaunchTemplateName": "my-launch-template-for-x86",
- *         "Version": "$Latest"
+ *         "Version": "$Default"
  *       },
  *       "Overrides": [
  *         {
  *           "InstanceType": "c6g.large",
  *           "LaunchTemplateSpecification": {
  *             "LaunchTemplateName": "my-launch-template-for-arm",
- *             "Version": "$Latest"
+ *             "Version": "$Default"
  *           }
  *         },
  *         {

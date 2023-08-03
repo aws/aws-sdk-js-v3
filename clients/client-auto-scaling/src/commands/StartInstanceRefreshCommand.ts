@@ -229,9 +229,14 @@ export interface StartInstanceRefreshCommandOutput extends StartInstanceRefreshA
  *     }
  *   },
  *   "Preferences": {
- *     "InstanceWarmup": 400,
- *     "MinHealthyPercentage": 90,
- *     "SkipMatching": true
+ *     "AlarmSpecification": {
+ *       "Alarms": [
+ *         "my-alarm"
+ *       ]
+ *     },
+ *     "AutoRollback": true,
+ *     "InstanceWarmup": 200,
+ *     "MinHealthyPercentage": 90
  *   }
  * };
  * const command = new StartInstanceRefreshCommand(input);

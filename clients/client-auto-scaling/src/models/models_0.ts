@@ -287,7 +287,7 @@ export interface Alarm {
 export interface AlarmSpecification {
   /**
    * @public
-   * <p>The names of one or more CloudWatch alarms to monitor for the instance refresh.</p>
+   * <p>The names of one or more CloudWatch alarms to monitor for the instance refresh. You can specify up to 10 alarms.</p>
    */
   Alarms?: string[];
 }
