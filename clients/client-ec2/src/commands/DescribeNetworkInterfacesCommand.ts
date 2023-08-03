@@ -101,6 +101,7 @@ export interface DescribeNetworkInterfacesCommandOutput extends DescribeNetworkI
  * //       Ipv6Addresses: [ // NetworkInterfaceIpv6AddressesList
  * //         { // NetworkInterfaceIpv6Address
  * //           Ipv6Address: "STRING_VALUE",
+ * //           IsPrimaryIpv6: true || false,
  * //         },
  * //       ],
  * //       MacAddress: "STRING_VALUE",

@@ -70,6 +70,7 @@ export interface ModifyNetworkInterfaceAttributeCommandOutput extends __Metadata
  *       EnaSrdUdpEnabled: true || false,
  *     },
  *   },
+ *   EnablePrimaryIpv6: true || false,
  * };
  * const command = new ModifyNetworkInterfaceAttributeCommand(input);
  * const response = await client.send(command);

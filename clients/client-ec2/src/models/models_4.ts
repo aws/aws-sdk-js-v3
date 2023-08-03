@@ -8901,6 +8901,12 @@ export interface InstanceNetworkInterfaceSpecification {
    *             You cannot use this option if you use the <code>Ipv6Prefix</code> option.</p>
    */
   Ipv6PrefixCount?: number;
+
+  /**
+   * @public
+   * <p>The primary IPv6 address of the network interface. When you enable an IPv6 GUA address to be a primary IPv6, the first IPv6 GUA will be made the primary IPv6 address until the instance is terminated or the network interface is detached. For more information about primary IPv6 addresses, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_RunInstances.html">RunInstances</a>.</p>
+   */
+  PrimaryIpv6?: boolean;
 }
 
 /**

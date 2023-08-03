@@ -58,6 +58,7 @@ export interface CreateNetworkInterfaceCommandOutput extends CreateNetworkInterf
  *   Ipv6Addresses: [ // InstanceIpv6AddressList
  *     { // InstanceIpv6Address
  *       Ipv6Address: "STRING_VALUE",
+ *       IsPrimaryIpv6: true || false,
  *     },
  *   ],
  *   PrivateIpAddress: "STRING_VALUE",
@@ -94,6 +95,7 @@ export interface CreateNetworkInterfaceCommandOutput extends CreateNetworkInterf
  *     },
  *   ],
  *   ClientToken: "STRING_VALUE",
+ *   EnablePrimaryIpv6: true || false,
  * };
  * const command = new CreateNetworkInterfaceCommand(input);
  * const response = await client.send(command);
@@ -136,6 +138,7 @@ export interface CreateNetworkInterfaceCommandOutput extends CreateNetworkInterf
  * //     Ipv6Addresses: [ // NetworkInterfaceIpv6AddressesList
  * //       { // NetworkInterfaceIpv6Address
  * //         Ipv6Address: "STRING_VALUE",
+ * //         IsPrimaryIpv6: true || false,
  * //       },
  * //     ],
  * //     MacAddress: "STRING_VALUE",

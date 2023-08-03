@@ -41649,6 +41649,9 @@ const se_CreateNetworkInterfaceRequest = (input: CreateNetworkInterfaceRequest, 
   if (input.ClientToken != null) {
     entries["ClientToken"] = input.ClientToken;
   }
+  if (input.EnablePrimaryIpv6 != null) {
+    entries["EnablePrimaryIpv6"] = input.EnablePrimaryIpv6;
+  }
   return entries;
 };
 
@@ -54154,6 +54157,9 @@ const se_InstanceIpv6Address = (input: InstanceIpv6Address, context: __SerdeCont
   if (input.Ipv6Address != null) {
     entries["Ipv6Address"] = input.Ipv6Address;
   }
+  if (input.IsPrimaryIpv6 != null) {
+    entries["IsPrimaryIpv6"] = input.IsPrimaryIpv6;
+  }
   return entries;
 };
 
@@ -54360,6 +54366,9 @@ const se_InstanceNetworkInterfaceSpecification = (
   }
   if (input.Ipv6PrefixCount != null) {
     entries["Ipv6PrefixCount"] = input.Ipv6PrefixCount;
+  }
+  if (input.PrimaryIpv6 != null) {
+    entries["PrimaryIpv6"] = input.PrimaryIpv6;
   }
   return entries;
 };
@@ -55708,6 +55717,9 @@ const se_LaunchTemplateInstanceNetworkInterfaceSpecificationRequest = (
   }
   if (input.Ipv6PrefixCount != null) {
     entries["Ipv6PrefixCount"] = input.Ipv6PrefixCount;
+  }
+  if (input.PrimaryIpv6 != null) {
+    entries["PrimaryIpv6"] = input.PrimaryIpv6;
   }
   return entries;
 };
@@ -57411,6 +57423,9 @@ const se_ModifyNetworkInterfaceAttributeRequest = (
       const loc = `EnaSrdSpecification.${key}`;
       entries[loc] = value;
     });
+  }
+  if (input.EnablePrimaryIpv6 != null) {
+    entries["EnablePrimaryIpv6"] = input.EnablePrimaryIpv6;
   }
   return entries;
 };
@@ -62333,6 +62348,9 @@ const se_RunInstancesRequest = (input: RunInstancesRequest, context: __SerdeCont
   }
   if (input.DisableApiStop != null) {
     entries["DisableApiStop"] = input.DisableApiStop;
+  }
+  if (input.EnablePrimaryIpv6 != null) {
+    entries["EnablePrimaryIpv6"] = input.EnablePrimaryIpv6;
   }
   return entries;
 };
@@ -79413,6 +79431,9 @@ const de_InstanceIpv6Address = (output: any, context: __SerdeContext): InstanceI
   if (output["ipv6Address"] !== undefined) {
     contents.Ipv6Address = __expectString(output["ipv6Address"]);
   }
+  if (output["isPrimaryIpv6"] !== undefined) {
+    contents.IsPrimaryIpv6 = __parseBoolean(output["isPrimaryIpv6"]);
+  }
   return contents;
 };
 
@@ -79749,6 +79770,9 @@ const de_InstanceNetworkInterfaceSpecification = (
   }
   if (output["Ipv6PrefixCount"] !== undefined) {
     contents.Ipv6PrefixCount = __strictParseInt32(output["Ipv6PrefixCount"]) as number;
+  }
+  if (output["PrimaryIpv6"] !== undefined) {
+    contents.PrimaryIpv6 = __parseBoolean(output["PrimaryIpv6"]);
   }
   return contents;
 };
@@ -82061,6 +82085,9 @@ const de_LaunchTemplateInstanceNetworkInterfaceSpecification = (
   }
   if (output["ipv6PrefixCount"] !== undefined) {
     contents.Ipv6PrefixCount = __strictParseInt32(output["ipv6PrefixCount"]) as number;
+  }
+  if (output["primaryIpv6"] !== undefined) {
+    contents.PrimaryIpv6 = __parseBoolean(output["primaryIpv6"]);
   }
   return contents;
 };
@@ -84557,6 +84584,9 @@ const de_NetworkInterfaceIpv6Address = (output: any, context: __SerdeContext): N
   const contents: any = {};
   if (output["ipv6Address"] !== undefined) {
     contents.Ipv6Address = __expectString(output["ipv6Address"]);
+  }
+  if (output["isPrimaryIpv6"] !== undefined) {
+    contents.IsPrimaryIpv6 = __parseBoolean(output["isPrimaryIpv6"]);
   }
   return contents;
 };

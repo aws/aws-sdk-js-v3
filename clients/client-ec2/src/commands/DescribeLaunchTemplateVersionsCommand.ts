@@ -127,6 +127,7 @@ export interface DescribeLaunchTemplateVersionsCommandOutput
  * //             Ipv6Addresses: [ // InstanceIpv6AddressList
  * //               { // InstanceIpv6Address
  * //                 Ipv6Address: "STRING_VALUE",
+ * //                 IsPrimaryIpv6: true || false,
  * //               },
  * //             ],
  * //             NetworkInterfaceId: "STRING_VALUE",
@@ -152,6 +153,7 @@ export interface DescribeLaunchTemplateVersionsCommandOutput
  * //               },
  * //             ],
  * //             Ipv6PrefixCount: Number("int"),
+ * //             PrimaryIpv6: true || false,
  * //           },
  * //         ],
  * //         ImageId: "STRING_VALUE",

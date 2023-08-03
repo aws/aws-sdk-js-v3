@@ -192,6 +192,7 @@ export interface DescribeInstancesCommandOutput extends DescribeInstancesResult,
  * //               Ipv6Addresses: [ // InstanceIpv6AddressList
  * //                 { // InstanceIpv6Address
  * //                   Ipv6Address: "STRING_VALUE",
+ * //                   IsPrimaryIpv6: true || false,
  * //                 },
  * //               ],
  * //               MacAddress: "STRING_VALUE",

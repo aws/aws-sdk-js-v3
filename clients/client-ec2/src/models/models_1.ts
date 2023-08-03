@@ -4038,9 +4038,7 @@ export interface EbsBlockDevice {
   /**
    * @public
    * <p>The ARN of the Outpost on which the snapshot is stored.</p>
-   *          <p>This parameter is only supported on <code>BlockDeviceMapping</code> objects called by
-   *                 <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateImage.html">
-   *                 CreateImage</a>.</p>
+   *          <p>This parameter is not supported when using <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateImage.html">CreateImage</a>.</p>
    */
   OutpostArn?: string;
 
@@ -6701,6 +6699,12 @@ export interface LaunchTemplateInstanceNetworkInterfaceSpecificationRequest {
    *             cannot use this option if you use the <code>Ipv6Prefix</code> option.</p>
    */
   Ipv6PrefixCount?: number;
+
+  /**
+   * @public
+   * <p>The primary IPv6 address of the network interface. When you enable an IPv6 GUA address to be a primary IPv6, the first IPv6 GUA will be made the primary IPv6 address until the instance is terminated or the network interface is detached. For more information about primary IPv6 addresses, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_RunInstances.html">RunInstances</a>.</p>
+   */
+  PrimaryIpv6?: boolean;
 }
 
 /**
@@ -7848,6 +7852,13 @@ export interface InstanceIpv6Address {
    * <p>The IPv6 address.</p>
    */
   Ipv6Address?: string;
+
+  /**
+   * @public
+   * <p>Determines if an IPv6 address associated with a network interface is the primary IPv6 address. When you enable an IPv6 GUA address to be a primary IPv6, the first IPv6 GUA will be made the primary IPv6 address until the instance is terminated or the network interface is detached.
+   *             For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_RunInstances.html">RunInstances</a>.</p>
+   */
+  IsPrimaryIpv6?: boolean;
 }
 
 /**
@@ -7990,6 +8001,12 @@ export interface LaunchTemplateInstanceNetworkInterfaceSpecification {
    *             interface.</p>
    */
   Ipv6PrefixCount?: number;
+
+  /**
+   * @public
+   * <p>The primary IPv6 address of the network interface. When you enable an IPv6 GUA address to be a primary IPv6, the first IPv6 GUA will be made the primary IPv6 address until the instance is terminated or the network interface is detached. For more information about primary IPv6 addresses, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_RunInstances.html">RunInstances</a>.</p>
+   */
+  PrimaryIpv6?: boolean;
 }
 
 /**
@@ -10213,6 +10230,23 @@ export interface CreateNetworkInterfaceRequest {
    * <p>Unique, case-sensitive identifier that you provide to ensure the idempotency of the request. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html">Ensuring Idempotency</a>.</p>
    */
   ClientToken?: string;
+
+  /**
+   * @public
+   * <p>If you’re creating a network interface in a dual-stack or IPv6-only subnet, you have
+   *             the option to assign a primary IPv6 IP address. A primary IPv6 address is an IPv6 GUA
+   *             address associated with an ENI that you have enabled to use a primary IPv6 address. Use this option if the instance that
+   *             this ENI will be attached to relies on its IPv6 address not changing. Amazon Web Services
+   *             will automatically assign an IPv6 address associated with the ENI attached to your
+   *             instance to be the primary IPv6 address. Once you enable an IPv6 GUA address to be a
+   *             primary IPv6, you cannot disable it. When you enable an IPv6 GUA address to be a primary
+   *             IPv6, the first IPv6 GUA will be made the primary IPv6 address until the instance is
+   *             terminated or the network interface is detached. If you have multiple IPv6 addresses
+   *             associated with an ENI attached to your instance and you enable a primary IPv6 address,
+   *             the first IPv6 GUA address associated with the ENI becomes the primary IPv6
+   *             address.</p>
+   */
+  EnablePrimaryIpv6?: boolean;
 }
 
 /**
@@ -10417,6 +10451,12 @@ export interface NetworkInterfaceIpv6Address {
    * <p>The IPv6 address.</p>
    */
   Ipv6Address?: string;
+
+  /**
+   * @public
+   * <p>Determines if an IPv6 address associated with a network interface is the primary IPv6 address. When you enable an IPv6 GUA address to be a primary IPv6, the first IPv6 GUA will be made the primary IPv6 address until the instance is terminated or the network interface is detached. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_ModifyNetworkInterfaceAttribute.html">ModifyNetworkInterfaceAttribute</a>.</p>
+   */
+  IsPrimaryIpv6?: boolean;
 }
 
 /**

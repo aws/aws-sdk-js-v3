@@ -125,6 +125,7 @@ export interface CreateLaunchTemplateCommandOutput extends CreateLaunchTemplateR
  *           },
  *         ],
  *         Ipv6PrefixCount: Number("int"),
+ *         PrimaryIpv6: true || false,
  *       },
  *     ],
  *     ImageId: "STRING_VALUE",
