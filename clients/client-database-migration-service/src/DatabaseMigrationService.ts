@@ -23,6 +23,11 @@ import {
   CancelReplicationTaskAssessmentRunCommandOutput,
 } from "./commands/CancelReplicationTaskAssessmentRunCommand";
 import {
+  CreateDataProviderCommand,
+  CreateDataProviderCommandInput,
+  CreateDataProviderCommandOutput,
+} from "./commands/CreateDataProviderCommand";
+import {
   CreateEndpointCommand,
   CreateEndpointCommandInput,
   CreateEndpointCommandOutput,
@@ -37,6 +42,16 @@ import {
   CreateFleetAdvisorCollectorCommandInput,
   CreateFleetAdvisorCollectorCommandOutput,
 } from "./commands/CreateFleetAdvisorCollectorCommand";
+import {
+  CreateInstanceProfileCommand,
+  CreateInstanceProfileCommandInput,
+  CreateInstanceProfileCommandOutput,
+} from "./commands/CreateInstanceProfileCommand";
+import {
+  CreateMigrationProjectCommand,
+  CreateMigrationProjectCommandInput,
+  CreateMigrationProjectCommandOutput,
+} from "./commands/CreateMigrationProjectCommand";
 import {
   CreateReplicationConfigCommand,
   CreateReplicationConfigCommandInput,
@@ -68,6 +83,11 @@ import {
   DeleteConnectionCommandOutput,
 } from "./commands/DeleteConnectionCommand";
 import {
+  DeleteDataProviderCommand,
+  DeleteDataProviderCommandInput,
+  DeleteDataProviderCommandOutput,
+} from "./commands/DeleteDataProviderCommand";
+import {
   DeleteEndpointCommand,
   DeleteEndpointCommandInput,
   DeleteEndpointCommandOutput,
@@ -87,6 +107,16 @@ import {
   DeleteFleetAdvisorDatabasesCommandInput,
   DeleteFleetAdvisorDatabasesCommandOutput,
 } from "./commands/DeleteFleetAdvisorDatabasesCommand";
+import {
+  DeleteInstanceProfileCommand,
+  DeleteInstanceProfileCommandInput,
+  DeleteInstanceProfileCommandOutput,
+} from "./commands/DeleteInstanceProfileCommand";
+import {
+  DeleteMigrationProjectCommand,
+  DeleteMigrationProjectCommandInput,
+  DeleteMigrationProjectCommandOutput,
+} from "./commands/DeleteMigrationProjectCommand";
 import {
   DeleteReplicationConfigCommand,
   DeleteReplicationConfigCommandInput,
@@ -133,6 +163,16 @@ import {
   DescribeConnectionsCommandOutput,
 } from "./commands/DescribeConnectionsCommand";
 import {
+  DescribeConversionConfigurationCommand,
+  DescribeConversionConfigurationCommandInput,
+  DescribeConversionConfigurationCommandOutput,
+} from "./commands/DescribeConversionConfigurationCommand";
+import {
+  DescribeDataProvidersCommand,
+  DescribeDataProvidersCommandInput,
+  DescribeDataProvidersCommandOutput,
+} from "./commands/DescribeDataProvidersCommand";
+import {
   DescribeEndpointsCommand,
   DescribeEndpointsCommandInput,
   DescribeEndpointsCommandOutput,
@@ -168,6 +208,11 @@ import {
   DescribeEventSubscriptionsCommandOutput,
 } from "./commands/DescribeEventSubscriptionsCommand";
 import {
+  DescribeExtensionPackAssociationsCommand,
+  DescribeExtensionPackAssociationsCommandInput,
+  DescribeExtensionPackAssociationsCommandOutput,
+} from "./commands/DescribeExtensionPackAssociationsCommand";
+import {
   DescribeFleetAdvisorCollectorsCommand,
   DescribeFleetAdvisorCollectorsCommandInput,
   DescribeFleetAdvisorCollectorsCommandOutput,
@@ -192,6 +237,41 @@ import {
   DescribeFleetAdvisorSchemasCommandInput,
   DescribeFleetAdvisorSchemasCommandOutput,
 } from "./commands/DescribeFleetAdvisorSchemasCommand";
+import {
+  DescribeInstanceProfilesCommand,
+  DescribeInstanceProfilesCommandInput,
+  DescribeInstanceProfilesCommandOutput,
+} from "./commands/DescribeInstanceProfilesCommand";
+import {
+  DescribeMetadataModelAssessmentsCommand,
+  DescribeMetadataModelAssessmentsCommandInput,
+  DescribeMetadataModelAssessmentsCommandOutput,
+} from "./commands/DescribeMetadataModelAssessmentsCommand";
+import {
+  DescribeMetadataModelConversionsCommand,
+  DescribeMetadataModelConversionsCommandInput,
+  DescribeMetadataModelConversionsCommandOutput,
+} from "./commands/DescribeMetadataModelConversionsCommand";
+import {
+  DescribeMetadataModelExportsAsScriptCommand,
+  DescribeMetadataModelExportsAsScriptCommandInput,
+  DescribeMetadataModelExportsAsScriptCommandOutput,
+} from "./commands/DescribeMetadataModelExportsAsScriptCommand";
+import {
+  DescribeMetadataModelExportsToTargetCommand,
+  DescribeMetadataModelExportsToTargetCommandInput,
+  DescribeMetadataModelExportsToTargetCommandOutput,
+} from "./commands/DescribeMetadataModelExportsToTargetCommand";
+import {
+  DescribeMetadataModelImportsCommand,
+  DescribeMetadataModelImportsCommandInput,
+  DescribeMetadataModelImportsCommandOutput,
+} from "./commands/DescribeMetadataModelImportsCommand";
+import {
+  DescribeMigrationProjectsCommand,
+  DescribeMigrationProjectsCommandInput,
+  DescribeMigrationProjectsCommandOutput,
+} from "./commands/DescribeMigrationProjectsCommand";
 import {
   DescribeOrderableReplicationInstancesCommand,
   DescribeOrderableReplicationInstancesCommandInput,
@@ -278,6 +358,11 @@ import {
   DescribeTableStatisticsCommandOutput,
 } from "./commands/DescribeTableStatisticsCommand";
 import {
+  ExportMetadataModelAssessmentCommand,
+  ExportMetadataModelAssessmentCommandInput,
+  ExportMetadataModelAssessmentCommandOutput,
+} from "./commands/ExportMetadataModelAssessmentCommand";
+import {
   ImportCertificateCommand,
   ImportCertificateCommandInput,
   ImportCertificateCommandOutput,
@@ -288,6 +373,16 @@ import {
   ListTagsForResourceCommandOutput,
 } from "./commands/ListTagsForResourceCommand";
 import {
+  ModifyConversionConfigurationCommand,
+  ModifyConversionConfigurationCommandInput,
+  ModifyConversionConfigurationCommandOutput,
+} from "./commands/ModifyConversionConfigurationCommand";
+import {
+  ModifyDataProviderCommand,
+  ModifyDataProviderCommandInput,
+  ModifyDataProviderCommandOutput,
+} from "./commands/ModifyDataProviderCommand";
+import {
   ModifyEndpointCommand,
   ModifyEndpointCommandInput,
   ModifyEndpointCommandOutput,
@@ -297,6 +392,16 @@ import {
   ModifyEventSubscriptionCommandInput,
   ModifyEventSubscriptionCommandOutput,
 } from "./commands/ModifyEventSubscriptionCommand";
+import {
+  ModifyInstanceProfileCommand,
+  ModifyInstanceProfileCommandInput,
+  ModifyInstanceProfileCommandOutput,
+} from "./commands/ModifyInstanceProfileCommand";
+import {
+  ModifyMigrationProjectCommand,
+  ModifyMigrationProjectCommandInput,
+  ModifyMigrationProjectCommandOutput,
+} from "./commands/ModifyMigrationProjectCommand";
 import {
   ModifyReplicationConfigCommand,
   ModifyReplicationConfigCommandInput,
@@ -353,6 +458,36 @@ import {
   RunFleetAdvisorLsaAnalysisCommandOutput,
 } from "./commands/RunFleetAdvisorLsaAnalysisCommand";
 import {
+  StartExtensionPackAssociationCommand,
+  StartExtensionPackAssociationCommandInput,
+  StartExtensionPackAssociationCommandOutput,
+} from "./commands/StartExtensionPackAssociationCommand";
+import {
+  StartMetadataModelAssessmentCommand,
+  StartMetadataModelAssessmentCommandInput,
+  StartMetadataModelAssessmentCommandOutput,
+} from "./commands/StartMetadataModelAssessmentCommand";
+import {
+  StartMetadataModelConversionCommand,
+  StartMetadataModelConversionCommandInput,
+  StartMetadataModelConversionCommandOutput,
+} from "./commands/StartMetadataModelConversionCommand";
+import {
+  StartMetadataModelExportAsScriptCommand,
+  StartMetadataModelExportAsScriptCommandInput,
+  StartMetadataModelExportAsScriptCommandOutput,
+} from "./commands/StartMetadataModelExportAsScriptCommand";
+import {
+  StartMetadataModelExportToTargetCommand,
+  StartMetadataModelExportToTargetCommandInput,
+  StartMetadataModelExportToTargetCommandOutput,
+} from "./commands/StartMetadataModelExportToTargetCommand";
+import {
+  StartMetadataModelImportCommand,
+  StartMetadataModelImportCommandInput,
+  StartMetadataModelImportCommandOutput,
+} from "./commands/StartMetadataModelImportCommand";
+import {
   StartRecommendationsCommand,
   StartRecommendationsCommandInput,
   StartRecommendationsCommandOutput,
@@ -404,19 +539,25 @@ const commands = {
   ApplyPendingMaintenanceActionCommand,
   BatchStartRecommendationsCommand,
   CancelReplicationTaskAssessmentRunCommand,
+  CreateDataProviderCommand,
   CreateEndpointCommand,
   CreateEventSubscriptionCommand,
   CreateFleetAdvisorCollectorCommand,
+  CreateInstanceProfileCommand,
+  CreateMigrationProjectCommand,
   CreateReplicationConfigCommand,
   CreateReplicationInstanceCommand,
   CreateReplicationSubnetGroupCommand,
   CreateReplicationTaskCommand,
   DeleteCertificateCommand,
   DeleteConnectionCommand,
+  DeleteDataProviderCommand,
   DeleteEndpointCommand,
   DeleteEventSubscriptionCommand,
   DeleteFleetAdvisorCollectorCommand,
   DeleteFleetAdvisorDatabasesCommand,
+  DeleteInstanceProfileCommand,
+  DeleteMigrationProjectCommand,
   DeleteReplicationConfigCommand,
   DeleteReplicationInstanceCommand,
   DeleteReplicationSubnetGroupCommand,
@@ -426,6 +567,8 @@ const commands = {
   DescribeApplicableIndividualAssessmentsCommand,
   DescribeCertificatesCommand,
   DescribeConnectionsCommand,
+  DescribeConversionConfigurationCommand,
+  DescribeDataProvidersCommand,
   DescribeEndpointsCommand,
   DescribeEndpointSettingsCommand,
   DescribeEndpointTypesCommand,
@@ -433,11 +576,19 @@ const commands = {
   DescribeEventCategoriesCommand,
   DescribeEventsCommand,
   DescribeEventSubscriptionsCommand,
+  DescribeExtensionPackAssociationsCommand,
   DescribeFleetAdvisorCollectorsCommand,
   DescribeFleetAdvisorDatabasesCommand,
   DescribeFleetAdvisorLsaAnalysisCommand,
   DescribeFleetAdvisorSchemaObjectSummaryCommand,
   DescribeFleetAdvisorSchemasCommand,
+  DescribeInstanceProfilesCommand,
+  DescribeMetadataModelAssessmentsCommand,
+  DescribeMetadataModelConversionsCommand,
+  DescribeMetadataModelExportsAsScriptCommand,
+  DescribeMetadataModelExportsToTargetCommand,
+  DescribeMetadataModelImportsCommand,
+  DescribeMigrationProjectsCommand,
   DescribeOrderableReplicationInstancesCommand,
   DescribePendingMaintenanceActionsCommand,
   DescribeRecommendationLimitationsCommand,
@@ -455,10 +606,15 @@ const commands = {
   DescribeReplicationTasksCommand,
   DescribeSchemasCommand,
   DescribeTableStatisticsCommand,
+  ExportMetadataModelAssessmentCommand,
   ImportCertificateCommand,
   ListTagsForResourceCommand,
+  ModifyConversionConfigurationCommand,
+  ModifyDataProviderCommand,
   ModifyEndpointCommand,
   ModifyEventSubscriptionCommand,
+  ModifyInstanceProfileCommand,
+  ModifyMigrationProjectCommand,
   ModifyReplicationConfigCommand,
   ModifyReplicationInstanceCommand,
   ModifyReplicationSubnetGroupCommand,
@@ -470,6 +626,12 @@ const commands = {
   ReloadTablesCommand,
   RemoveTagsFromResourceCommand,
   RunFleetAdvisorLsaAnalysisCommand,
+  StartExtensionPackAssociationCommand,
+  StartMetadataModelAssessmentCommand,
+  StartMetadataModelConversionCommand,
+  StartMetadataModelExportAsScriptCommand,
+  StartMetadataModelExportToTargetCommand,
+  StartMetadataModelImportCommand,
   StartRecommendationsCommand,
   StartReplicationCommand,
   StartReplicationTaskCommand,
@@ -551,6 +713,23 @@ export interface DatabaseMigrationService {
   ): void;
 
   /**
+   * @see {@link CreateDataProviderCommand}
+   */
+  createDataProvider(
+    args: CreateDataProviderCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateDataProviderCommandOutput>;
+  createDataProvider(
+    args: CreateDataProviderCommandInput,
+    cb: (err: any, data?: CreateDataProviderCommandOutput) => void
+  ): void;
+  createDataProvider(
+    args: CreateDataProviderCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CreateDataProviderCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link CreateEndpointCommand}
    */
   createEndpoint(
@@ -596,6 +775,40 @@ export interface DatabaseMigrationService {
     args: CreateFleetAdvisorCollectorCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: CreateFleetAdvisorCollectorCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link CreateInstanceProfileCommand}
+   */
+  createInstanceProfile(
+    args: CreateInstanceProfileCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateInstanceProfileCommandOutput>;
+  createInstanceProfile(
+    args: CreateInstanceProfileCommandInput,
+    cb: (err: any, data?: CreateInstanceProfileCommandOutput) => void
+  ): void;
+  createInstanceProfile(
+    args: CreateInstanceProfileCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CreateInstanceProfileCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link CreateMigrationProjectCommand}
+   */
+  createMigrationProject(
+    args: CreateMigrationProjectCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateMigrationProjectCommandOutput>;
+  createMigrationProject(
+    args: CreateMigrationProjectCommandInput,
+    cb: (err: any, data?: CreateMigrationProjectCommandOutput) => void
+  ): void;
+  createMigrationProject(
+    args: CreateMigrationProjectCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CreateMigrationProjectCommandOutput) => void
   ): void;
 
   /**
@@ -701,6 +914,23 @@ export interface DatabaseMigrationService {
   ): void;
 
   /**
+   * @see {@link DeleteDataProviderCommand}
+   */
+  deleteDataProvider(
+    args: DeleteDataProviderCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteDataProviderCommandOutput>;
+  deleteDataProvider(
+    args: DeleteDataProviderCommandInput,
+    cb: (err: any, data?: DeleteDataProviderCommandOutput) => void
+  ): void;
+  deleteDataProvider(
+    args: DeleteDataProviderCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteDataProviderCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link DeleteEndpointCommand}
    */
   deleteEndpoint(
@@ -763,6 +993,40 @@ export interface DatabaseMigrationService {
     args: DeleteFleetAdvisorDatabasesCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: DeleteFleetAdvisorDatabasesCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DeleteInstanceProfileCommand}
+   */
+  deleteInstanceProfile(
+    args: DeleteInstanceProfileCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteInstanceProfileCommandOutput>;
+  deleteInstanceProfile(
+    args: DeleteInstanceProfileCommandInput,
+    cb: (err: any, data?: DeleteInstanceProfileCommandOutput) => void
+  ): void;
+  deleteInstanceProfile(
+    args: DeleteInstanceProfileCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteInstanceProfileCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DeleteMigrationProjectCommand}
+   */
+  deleteMigrationProject(
+    args: DeleteMigrationProjectCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteMigrationProjectCommandOutput>;
+  deleteMigrationProject(
+    args: DeleteMigrationProjectCommandInput,
+    cb: (err: any, data?: DeleteMigrationProjectCommandOutput) => void
+  ): void;
+  deleteMigrationProject(
+    args: DeleteMigrationProjectCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteMigrationProjectCommandOutput) => void
   ): void;
 
   /**
@@ -919,6 +1183,40 @@ export interface DatabaseMigrationService {
   ): void;
 
   /**
+   * @see {@link DescribeConversionConfigurationCommand}
+   */
+  describeConversionConfiguration(
+    args: DescribeConversionConfigurationCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DescribeConversionConfigurationCommandOutput>;
+  describeConversionConfiguration(
+    args: DescribeConversionConfigurationCommandInput,
+    cb: (err: any, data?: DescribeConversionConfigurationCommandOutput) => void
+  ): void;
+  describeConversionConfiguration(
+    args: DescribeConversionConfigurationCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DescribeConversionConfigurationCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DescribeDataProvidersCommand}
+   */
+  describeDataProviders(
+    args: DescribeDataProvidersCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DescribeDataProvidersCommandOutput>;
+  describeDataProviders(
+    args: DescribeDataProvidersCommandInput,
+    cb: (err: any, data?: DescribeDataProvidersCommandOutput) => void
+  ): void;
+  describeDataProviders(
+    args: DescribeDataProvidersCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DescribeDataProvidersCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link DescribeEndpointsCommand}
    */
   describeEndpoints(
@@ -1035,6 +1333,23 @@ export interface DatabaseMigrationService {
   ): void;
 
   /**
+   * @see {@link DescribeExtensionPackAssociationsCommand}
+   */
+  describeExtensionPackAssociations(
+    args: DescribeExtensionPackAssociationsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DescribeExtensionPackAssociationsCommandOutput>;
+  describeExtensionPackAssociations(
+    args: DescribeExtensionPackAssociationsCommandInput,
+    cb: (err: any, data?: DescribeExtensionPackAssociationsCommandOutput) => void
+  ): void;
+  describeExtensionPackAssociations(
+    args: DescribeExtensionPackAssociationsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DescribeExtensionPackAssociationsCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link DescribeFleetAdvisorCollectorsCommand}
    */
   describeFleetAdvisorCollectors(
@@ -1117,6 +1432,125 @@ export interface DatabaseMigrationService {
     args: DescribeFleetAdvisorSchemasCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: DescribeFleetAdvisorSchemasCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DescribeInstanceProfilesCommand}
+   */
+  describeInstanceProfiles(
+    args: DescribeInstanceProfilesCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DescribeInstanceProfilesCommandOutput>;
+  describeInstanceProfiles(
+    args: DescribeInstanceProfilesCommandInput,
+    cb: (err: any, data?: DescribeInstanceProfilesCommandOutput) => void
+  ): void;
+  describeInstanceProfiles(
+    args: DescribeInstanceProfilesCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DescribeInstanceProfilesCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DescribeMetadataModelAssessmentsCommand}
+   */
+  describeMetadataModelAssessments(
+    args: DescribeMetadataModelAssessmentsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DescribeMetadataModelAssessmentsCommandOutput>;
+  describeMetadataModelAssessments(
+    args: DescribeMetadataModelAssessmentsCommandInput,
+    cb: (err: any, data?: DescribeMetadataModelAssessmentsCommandOutput) => void
+  ): void;
+  describeMetadataModelAssessments(
+    args: DescribeMetadataModelAssessmentsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DescribeMetadataModelAssessmentsCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DescribeMetadataModelConversionsCommand}
+   */
+  describeMetadataModelConversions(
+    args: DescribeMetadataModelConversionsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DescribeMetadataModelConversionsCommandOutput>;
+  describeMetadataModelConversions(
+    args: DescribeMetadataModelConversionsCommandInput,
+    cb: (err: any, data?: DescribeMetadataModelConversionsCommandOutput) => void
+  ): void;
+  describeMetadataModelConversions(
+    args: DescribeMetadataModelConversionsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DescribeMetadataModelConversionsCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DescribeMetadataModelExportsAsScriptCommand}
+   */
+  describeMetadataModelExportsAsScript(
+    args: DescribeMetadataModelExportsAsScriptCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DescribeMetadataModelExportsAsScriptCommandOutput>;
+  describeMetadataModelExportsAsScript(
+    args: DescribeMetadataModelExportsAsScriptCommandInput,
+    cb: (err: any, data?: DescribeMetadataModelExportsAsScriptCommandOutput) => void
+  ): void;
+  describeMetadataModelExportsAsScript(
+    args: DescribeMetadataModelExportsAsScriptCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DescribeMetadataModelExportsAsScriptCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DescribeMetadataModelExportsToTargetCommand}
+   */
+  describeMetadataModelExportsToTarget(
+    args: DescribeMetadataModelExportsToTargetCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DescribeMetadataModelExportsToTargetCommandOutput>;
+  describeMetadataModelExportsToTarget(
+    args: DescribeMetadataModelExportsToTargetCommandInput,
+    cb: (err: any, data?: DescribeMetadataModelExportsToTargetCommandOutput) => void
+  ): void;
+  describeMetadataModelExportsToTarget(
+    args: DescribeMetadataModelExportsToTargetCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DescribeMetadataModelExportsToTargetCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DescribeMetadataModelImportsCommand}
+   */
+  describeMetadataModelImports(
+    args: DescribeMetadataModelImportsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DescribeMetadataModelImportsCommandOutput>;
+  describeMetadataModelImports(
+    args: DescribeMetadataModelImportsCommandInput,
+    cb: (err: any, data?: DescribeMetadataModelImportsCommandOutput) => void
+  ): void;
+  describeMetadataModelImports(
+    args: DescribeMetadataModelImportsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DescribeMetadataModelImportsCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DescribeMigrationProjectsCommand}
+   */
+  describeMigrationProjects(
+    args: DescribeMigrationProjectsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DescribeMigrationProjectsCommandOutput>;
+  describeMigrationProjects(
+    args: DescribeMigrationProjectsCommandInput,
+    cb: (err: any, data?: DescribeMigrationProjectsCommandOutput) => void
+  ): void;
+  describeMigrationProjects(
+    args: DescribeMigrationProjectsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DescribeMigrationProjectsCommandOutput) => void
   ): void;
 
   /**
@@ -1406,6 +1840,23 @@ export interface DatabaseMigrationService {
   ): void;
 
   /**
+   * @see {@link ExportMetadataModelAssessmentCommand}
+   */
+  exportMetadataModelAssessment(
+    args: ExportMetadataModelAssessmentCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ExportMetadataModelAssessmentCommandOutput>;
+  exportMetadataModelAssessment(
+    args: ExportMetadataModelAssessmentCommandInput,
+    cb: (err: any, data?: ExportMetadataModelAssessmentCommandOutput) => void
+  ): void;
+  exportMetadataModelAssessment(
+    args: ExportMetadataModelAssessmentCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ExportMetadataModelAssessmentCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link ImportCertificateCommand}
    */
   importCertificate(
@@ -1440,6 +1891,40 @@ export interface DatabaseMigrationService {
   ): void;
 
   /**
+   * @see {@link ModifyConversionConfigurationCommand}
+   */
+  modifyConversionConfiguration(
+    args: ModifyConversionConfigurationCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ModifyConversionConfigurationCommandOutput>;
+  modifyConversionConfiguration(
+    args: ModifyConversionConfigurationCommandInput,
+    cb: (err: any, data?: ModifyConversionConfigurationCommandOutput) => void
+  ): void;
+  modifyConversionConfiguration(
+    args: ModifyConversionConfigurationCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ModifyConversionConfigurationCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ModifyDataProviderCommand}
+   */
+  modifyDataProvider(
+    args: ModifyDataProviderCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ModifyDataProviderCommandOutput>;
+  modifyDataProvider(
+    args: ModifyDataProviderCommandInput,
+    cb: (err: any, data?: ModifyDataProviderCommandOutput) => void
+  ): void;
+  modifyDataProvider(
+    args: ModifyDataProviderCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ModifyDataProviderCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link ModifyEndpointCommand}
    */
   modifyEndpoint(
@@ -1468,6 +1953,40 @@ export interface DatabaseMigrationService {
     args: ModifyEventSubscriptionCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: ModifyEventSubscriptionCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ModifyInstanceProfileCommand}
+   */
+  modifyInstanceProfile(
+    args: ModifyInstanceProfileCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ModifyInstanceProfileCommandOutput>;
+  modifyInstanceProfile(
+    args: ModifyInstanceProfileCommandInput,
+    cb: (err: any, data?: ModifyInstanceProfileCommandOutput) => void
+  ): void;
+  modifyInstanceProfile(
+    args: ModifyInstanceProfileCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ModifyInstanceProfileCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ModifyMigrationProjectCommand}
+   */
+  modifyMigrationProject(
+    args: ModifyMigrationProjectCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ModifyMigrationProjectCommandOutput>;
+  modifyMigrationProject(
+    args: ModifyMigrationProjectCommandInput,
+    cb: (err: any, data?: ModifyMigrationProjectCommandOutput) => void
+  ): void;
+  modifyMigrationProject(
+    args: ModifyMigrationProjectCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ModifyMigrationProjectCommandOutput) => void
   ): void;
 
   /**
@@ -1646,6 +2165,108 @@ export interface DatabaseMigrationService {
     args: RunFleetAdvisorLsaAnalysisCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: RunFleetAdvisorLsaAnalysisCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link StartExtensionPackAssociationCommand}
+   */
+  startExtensionPackAssociation(
+    args: StartExtensionPackAssociationCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<StartExtensionPackAssociationCommandOutput>;
+  startExtensionPackAssociation(
+    args: StartExtensionPackAssociationCommandInput,
+    cb: (err: any, data?: StartExtensionPackAssociationCommandOutput) => void
+  ): void;
+  startExtensionPackAssociation(
+    args: StartExtensionPackAssociationCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: StartExtensionPackAssociationCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link StartMetadataModelAssessmentCommand}
+   */
+  startMetadataModelAssessment(
+    args: StartMetadataModelAssessmentCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<StartMetadataModelAssessmentCommandOutput>;
+  startMetadataModelAssessment(
+    args: StartMetadataModelAssessmentCommandInput,
+    cb: (err: any, data?: StartMetadataModelAssessmentCommandOutput) => void
+  ): void;
+  startMetadataModelAssessment(
+    args: StartMetadataModelAssessmentCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: StartMetadataModelAssessmentCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link StartMetadataModelConversionCommand}
+   */
+  startMetadataModelConversion(
+    args: StartMetadataModelConversionCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<StartMetadataModelConversionCommandOutput>;
+  startMetadataModelConversion(
+    args: StartMetadataModelConversionCommandInput,
+    cb: (err: any, data?: StartMetadataModelConversionCommandOutput) => void
+  ): void;
+  startMetadataModelConversion(
+    args: StartMetadataModelConversionCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: StartMetadataModelConversionCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link StartMetadataModelExportAsScriptCommand}
+   */
+  startMetadataModelExportAsScript(
+    args: StartMetadataModelExportAsScriptCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<StartMetadataModelExportAsScriptCommandOutput>;
+  startMetadataModelExportAsScript(
+    args: StartMetadataModelExportAsScriptCommandInput,
+    cb: (err: any, data?: StartMetadataModelExportAsScriptCommandOutput) => void
+  ): void;
+  startMetadataModelExportAsScript(
+    args: StartMetadataModelExportAsScriptCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: StartMetadataModelExportAsScriptCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link StartMetadataModelExportToTargetCommand}
+   */
+  startMetadataModelExportToTarget(
+    args: StartMetadataModelExportToTargetCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<StartMetadataModelExportToTargetCommandOutput>;
+  startMetadataModelExportToTarget(
+    args: StartMetadataModelExportToTargetCommandInput,
+    cb: (err: any, data?: StartMetadataModelExportToTargetCommandOutput) => void
+  ): void;
+  startMetadataModelExportToTarget(
+    args: StartMetadataModelExportToTargetCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: StartMetadataModelExportToTargetCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link StartMetadataModelImportCommand}
+   */
+  startMetadataModelImport(
+    args: StartMetadataModelImportCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<StartMetadataModelImportCommandOutput>;
+  startMetadataModelImport(
+    args: StartMetadataModelImportCommandInput,
+    cb: (err: any, data?: StartMetadataModelImportCommandOutput) => void
+  ): void;
+  startMetadataModelImport(
+    args: StartMetadataModelImportCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: StartMetadataModelImportCommandOutput) => void
   ): void;
 
   /**

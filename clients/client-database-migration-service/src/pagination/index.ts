@@ -4,6 +4,8 @@ export * from "./DescribeCertificatesPaginator";
 
 export * from "./DescribeConnectionsPaginator";
 
+export * from "./DescribeDataProvidersPaginator";
+
 export * from "./DescribeEndpointSettingsPaginator";
 
 export * from "./DescribeEndpointTypesPaginator";
@@ -15,14 +17,21 @@ export * from "./DescribeEngineVersionsPaginator";
 export * from "./DescribeEventSubscriptionsPaginator";
 
 export * from "./DescribeEventsPaginator";
-
-export * from "./DescribeFleetAdvisorCollectorsPaginator";
 // smithy-typescript generated code
 export * from "./Interfaces";
+export * from "./DescribeExtensionPackAssociationsPaginator";
+export * from "./DescribeFleetAdvisorCollectorsPaginator";
 export * from "./DescribeFleetAdvisorDatabasesPaginator";
 export * from "./DescribeFleetAdvisorLsaAnalysisPaginator";
 export * from "./DescribeFleetAdvisorSchemaObjectSummaryPaginator";
 export * from "./DescribeFleetAdvisorSchemasPaginator";
+export * from "./DescribeInstanceProfilesPaginator";
+export * from "./DescribeMetadataModelAssessmentsPaginator";
+export * from "./DescribeMetadataModelConversionsPaginator";
+export * from "./DescribeMetadataModelExportsAsScriptPaginator";
+export * from "./DescribeMetadataModelExportsToTargetPaginator";
+export * from "./DescribeMetadataModelImportsPaginator";
+export * from "./DescribeMigrationProjectsPaginator";
 export * from "./DescribeOrderableReplicationInstancesPaginator";
 export * from "./DescribePendingMaintenanceActionsPaginator";
 export * from "./DescribeRecommendationLimitationsPaginator";

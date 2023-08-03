@@ -18,7 +18,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../DatabaseMigrationServiceClient";
-import { ModifyEventSubscriptionMessage, ModifyEventSubscriptionResponse } from "../models/models_0";
+import { ModifyEventSubscriptionMessage, ModifyEventSubscriptionResponse } from "../models/models_1";
 import { de_ModifyEventSubscriptionCommand, se_ModifyEventSubscriptionCommand } from "../protocols/Aws_json1_1";
 
 /**

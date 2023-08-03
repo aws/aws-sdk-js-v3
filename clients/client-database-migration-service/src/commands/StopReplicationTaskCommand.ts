@@ -18,7 +18,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../DatabaseMigrationServiceClient";
-import { StopReplicationTaskMessage, StopReplicationTaskResponse } from "../models/models_0";
+import { StopReplicationTaskMessage, StopReplicationTaskResponse } from "../models/models_1";
 import { de_StopReplicationTaskCommand, se_StopReplicationTaskCommand } from "../protocols/Aws_json1_1";
 
 /**

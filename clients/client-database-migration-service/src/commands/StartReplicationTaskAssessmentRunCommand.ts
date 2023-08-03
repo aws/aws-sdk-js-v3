@@ -21,7 +21,7 @@ import {
 import {
   StartReplicationTaskAssessmentRunMessage,
   StartReplicationTaskAssessmentRunResponse,
-} from "../models/models_0";
+} from "../models/models_1";
 import {
   de_StartReplicationTaskAssessmentRunCommand,
   se_StartReplicationTaskAssessmentRunCommand,

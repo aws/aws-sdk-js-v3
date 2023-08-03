@@ -18,7 +18,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../DatabaseMigrationServiceClient";
-import { RemoveTagsFromResourceMessage, RemoveTagsFromResourceResponse } from "../models/models_0";
+import { RemoveTagsFromResourceMessage, RemoveTagsFromResourceResponse } from "../models/models_1";
 import { de_RemoveTagsFromResourceCommand, se_RemoveTagsFromResourceCommand } from "../protocols/Aws_json1_1";
 
 /**

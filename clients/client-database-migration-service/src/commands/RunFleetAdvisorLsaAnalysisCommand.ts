@@ -18,7 +18,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../DatabaseMigrationServiceClient";
-import { RunFleetAdvisorLsaAnalysisResponse } from "../models/models_0";
+import { RunFleetAdvisorLsaAnalysisResponse } from "../models/models_1";
 import { de_RunFleetAdvisorLsaAnalysisCommand, se_RunFleetAdvisorLsaAnalysisCommand } from "../protocols/Aws_json1_1";
 
 /**

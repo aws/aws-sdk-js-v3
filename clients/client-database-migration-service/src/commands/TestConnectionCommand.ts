@@ -18,7 +18,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../DatabaseMigrationServiceClient";
-import { TestConnectionMessage, TestConnectionResponse } from "../models/models_0";
+import { TestConnectionMessage, TestConnectionResponse } from "../models/models_1";
 import { de_TestConnectionCommand, se_TestConnectionCommand } from "../protocols/Aws_json1_1";
 
 /**

@@ -18,7 +18,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../DatabaseMigrationServiceClient";
-import { ModifyReplicationInstanceMessage, ModifyReplicationInstanceResponse } from "../models/models_0";
+import { ModifyReplicationInstanceMessage, ModifyReplicationInstanceResponse } from "../models/models_1";
 import { de_ModifyReplicationInstanceCommand, se_ModifyReplicationInstanceCommand } from "../protocols/Aws_json1_1";
 
 /**

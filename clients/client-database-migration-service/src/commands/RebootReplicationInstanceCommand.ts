@@ -18,7 +18,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../DatabaseMigrationServiceClient";
-import { RebootReplicationInstanceMessage, RebootReplicationInstanceResponse } from "../models/models_0";
+import { RebootReplicationInstanceMessage, RebootReplicationInstanceResponse } from "../models/models_1";
 import { de_RebootReplicationInstanceCommand, se_RebootReplicationInstanceCommand } from "../protocols/Aws_json1_1";
 
 /**

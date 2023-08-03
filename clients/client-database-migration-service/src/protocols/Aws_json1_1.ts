@@ -10,8 +10,10 @@ import {
   expectNonNull as __expectNonNull,
   expectNumber as __expectNumber,
   expectString as __expectString,
+  expectUnion as __expectUnion,
   limitedParseDouble as __limitedParseDouble,
   parseEpochTimestamp as __parseEpochTimestamp,
+  parseRfc3339DateTimeWithOffset as __parseRfc3339DateTimeWithOffset,
   take,
   withBaseException,
 } from "@smithy/smithy-client";
@@ -35,6 +37,7 @@ import {
   CancelReplicationTaskAssessmentRunCommandInput,
   CancelReplicationTaskAssessmentRunCommandOutput,
 } from "../commands/CancelReplicationTaskAssessmentRunCommand";
+import { CreateDataProviderCommandInput, CreateDataProviderCommandOutput } from "../commands/CreateDataProviderCommand";
 import { CreateEndpointCommandInput, CreateEndpointCommandOutput } from "../commands/CreateEndpointCommand";
 import {
   CreateEventSubscriptionCommandInput,
@@ -44,6 +47,14 @@ import {
   CreateFleetAdvisorCollectorCommandInput,
   CreateFleetAdvisorCollectorCommandOutput,
 } from "../commands/CreateFleetAdvisorCollectorCommand";
+import {
+  CreateInstanceProfileCommandInput,
+  CreateInstanceProfileCommandOutput,
+} from "../commands/CreateInstanceProfileCommand";
+import {
+  CreateMigrationProjectCommandInput,
+  CreateMigrationProjectCommandOutput,
+} from "../commands/CreateMigrationProjectCommand";
 import {
   CreateReplicationConfigCommandInput,
   CreateReplicationConfigCommandOutput,
@@ -62,6 +73,7 @@ import {
 } from "../commands/CreateReplicationTaskCommand";
 import { DeleteCertificateCommandInput, DeleteCertificateCommandOutput } from "../commands/DeleteCertificateCommand";
 import { DeleteConnectionCommandInput, DeleteConnectionCommandOutput } from "../commands/DeleteConnectionCommand";
+import { DeleteDataProviderCommandInput, DeleteDataProviderCommandOutput } from "../commands/DeleteDataProviderCommand";
 import { DeleteEndpointCommandInput, DeleteEndpointCommandOutput } from "../commands/DeleteEndpointCommand";
 import {
   DeleteEventSubscriptionCommandInput,
@@ -75,6 +87,14 @@ import {
   DeleteFleetAdvisorDatabasesCommandInput,
   DeleteFleetAdvisorDatabasesCommandOutput,
 } from "../commands/DeleteFleetAdvisorDatabasesCommand";
+import {
+  DeleteInstanceProfileCommandInput,
+  DeleteInstanceProfileCommandOutput,
+} from "../commands/DeleteInstanceProfileCommand";
+import {
+  DeleteMigrationProjectCommandInput,
+  DeleteMigrationProjectCommandOutput,
+} from "../commands/DeleteMigrationProjectCommand";
 import {
   DeleteReplicationConfigCommandInput,
   DeleteReplicationConfigCommandOutput,
@@ -111,6 +131,14 @@ import {
   DescribeConnectionsCommandInput,
   DescribeConnectionsCommandOutput,
 } from "../commands/DescribeConnectionsCommand";
+import {
+  DescribeConversionConfigurationCommandInput,
+  DescribeConversionConfigurationCommandOutput,
+} from "../commands/DescribeConversionConfigurationCommand";
+import {
+  DescribeDataProvidersCommandInput,
+  DescribeDataProvidersCommandOutput,
+} from "../commands/DescribeDataProvidersCommand";
 import { DescribeEndpointsCommandInput, DescribeEndpointsCommandOutput } from "../commands/DescribeEndpointsCommand";
 import {
   DescribeEndpointSettingsCommandInput,
@@ -134,6 +162,10 @@ import {
   DescribeEventSubscriptionsCommandOutput,
 } from "../commands/DescribeEventSubscriptionsCommand";
 import {
+  DescribeExtensionPackAssociationsCommandInput,
+  DescribeExtensionPackAssociationsCommandOutput,
+} from "../commands/DescribeExtensionPackAssociationsCommand";
+import {
   DescribeFleetAdvisorCollectorsCommandInput,
   DescribeFleetAdvisorCollectorsCommandOutput,
 } from "../commands/DescribeFleetAdvisorCollectorsCommand";
@@ -153,6 +185,34 @@ import {
   DescribeFleetAdvisorSchemasCommandInput,
   DescribeFleetAdvisorSchemasCommandOutput,
 } from "../commands/DescribeFleetAdvisorSchemasCommand";
+import {
+  DescribeInstanceProfilesCommandInput,
+  DescribeInstanceProfilesCommandOutput,
+} from "../commands/DescribeInstanceProfilesCommand";
+import {
+  DescribeMetadataModelAssessmentsCommandInput,
+  DescribeMetadataModelAssessmentsCommandOutput,
+} from "../commands/DescribeMetadataModelAssessmentsCommand";
+import {
+  DescribeMetadataModelConversionsCommandInput,
+  DescribeMetadataModelConversionsCommandOutput,
+} from "../commands/DescribeMetadataModelConversionsCommand";
+import {
+  DescribeMetadataModelExportsAsScriptCommandInput,
+  DescribeMetadataModelExportsAsScriptCommandOutput,
+} from "../commands/DescribeMetadataModelExportsAsScriptCommand";
+import {
+  DescribeMetadataModelExportsToTargetCommandInput,
+  DescribeMetadataModelExportsToTargetCommandOutput,
+} from "../commands/DescribeMetadataModelExportsToTargetCommand";
+import {
+  DescribeMetadataModelImportsCommandInput,
+  DescribeMetadataModelImportsCommandOutput,
+} from "../commands/DescribeMetadataModelImportsCommand";
+import {
+  DescribeMigrationProjectsCommandInput,
+  DescribeMigrationProjectsCommandOutput,
+} from "../commands/DescribeMigrationProjectsCommand";
 import {
   DescribeOrderableReplicationInstancesCommandInput,
   DescribeOrderableReplicationInstancesCommandOutput,
@@ -218,16 +278,33 @@ import {
   DescribeTableStatisticsCommandInput,
   DescribeTableStatisticsCommandOutput,
 } from "../commands/DescribeTableStatisticsCommand";
+import {
+  ExportMetadataModelAssessmentCommandInput,
+  ExportMetadataModelAssessmentCommandOutput,
+} from "../commands/ExportMetadataModelAssessmentCommand";
 import { ImportCertificateCommandInput, ImportCertificateCommandOutput } from "../commands/ImportCertificateCommand";
 import {
   ListTagsForResourceCommandInput,
   ListTagsForResourceCommandOutput,
 } from "../commands/ListTagsForResourceCommand";
+import {
+  ModifyConversionConfigurationCommandInput,
+  ModifyConversionConfigurationCommandOutput,
+} from "../commands/ModifyConversionConfigurationCommand";
+import { ModifyDataProviderCommandInput, ModifyDataProviderCommandOutput } from "../commands/ModifyDataProviderCommand";
 import { ModifyEndpointCommandInput, ModifyEndpointCommandOutput } from "../commands/ModifyEndpointCommand";
 import {
   ModifyEventSubscriptionCommandInput,
   ModifyEventSubscriptionCommandOutput,
 } from "../commands/ModifyEventSubscriptionCommand";
+import {
+  ModifyInstanceProfileCommandInput,
+  ModifyInstanceProfileCommandOutput,
+} from "../commands/ModifyInstanceProfileCommand";
+import {
+  ModifyMigrationProjectCommandInput,
+  ModifyMigrationProjectCommandOutput,
+} from "../commands/ModifyMigrationProjectCommand";
 import {
   ModifyReplicationConfigCommandInput,
   ModifyReplicationConfigCommandOutput,
@@ -267,6 +344,30 @@ import {
   RunFleetAdvisorLsaAnalysisCommandOutput,
 } from "../commands/RunFleetAdvisorLsaAnalysisCommand";
 import {
+  StartExtensionPackAssociationCommandInput,
+  StartExtensionPackAssociationCommandOutput,
+} from "../commands/StartExtensionPackAssociationCommand";
+import {
+  StartMetadataModelAssessmentCommandInput,
+  StartMetadataModelAssessmentCommandOutput,
+} from "../commands/StartMetadataModelAssessmentCommand";
+import {
+  StartMetadataModelConversionCommandInput,
+  StartMetadataModelConversionCommandOutput,
+} from "../commands/StartMetadataModelConversionCommand";
+import {
+  StartMetadataModelExportAsScriptCommandInput,
+  StartMetadataModelExportAsScriptCommandOutput,
+} from "../commands/StartMetadataModelExportAsScriptCommand";
+import {
+  StartMetadataModelExportToTargetCommandInput,
+  StartMetadataModelExportToTargetCommandOutput,
+} from "../commands/StartMetadataModelExportToTargetCommand";
+import {
+  StartMetadataModelImportCommandInput,
+  StartMetadataModelImportCommandOutput,
+} from "../commands/StartMetadataModelImportCommand";
+import {
   StartRecommendationsCommandInput,
   StartRecommendationsCommandOutput,
 } from "../commands/StartRecommendationsCommand";
@@ -299,15 +400,22 @@ import {
   AddTagsToResourceMessage,
   ApplyPendingMaintenanceActionMessage,
   ApplyPendingMaintenanceActionResponse,
+  AssessmentReportType,
   BatchStartRecommendationsRequest,
   CancelReplicationTaskAssessmentRunMessage,
   CancelReplicationTaskAssessmentRunResponse,
   Certificate,
   CollectorNotFoundFault,
   ComputeConfig,
+  CreateDataProviderMessage,
+  CreateDataProviderResponse,
   CreateEndpointMessage,
   CreateEventSubscriptionMessage,
   CreateFleetAdvisorCollectorRequest,
+  CreateInstanceProfileMessage,
+  CreateInstanceProfileResponse,
+  CreateMigrationProjectMessage,
+  CreateMigrationProjectResponse,
   CreateReplicationConfigMessage,
   CreateReplicationConfigResponse,
   CreateReplicationInstanceMessage,
@@ -315,13 +423,22 @@ import {
   CreateReplicationSubnetGroupMessage,
   CreateReplicationTaskMessage,
   CreateReplicationTaskResponse,
+  DataProvider,
+  DataProviderDescriptorDefinition,
+  DataProviderSettings,
   DeleteCertificateMessage,
   DeleteCertificateResponse,
   DeleteCollectorRequest,
   DeleteConnectionMessage,
+  DeleteDataProviderMessage,
+  DeleteDataProviderResponse,
   DeleteEndpointMessage,
   DeleteEventSubscriptionMessage,
   DeleteFleetAdvisorDatabasesRequest,
+  DeleteInstanceProfileMessage,
+  DeleteInstanceProfileResponse,
+  DeleteMigrationProjectMessage,
+  DeleteMigrationProjectResponse,
   DeleteReplicationConfigMessage,
   DeleteReplicationConfigResponse,
   DeleteReplicationInstanceMessage,
@@ -336,6 +453,9 @@ import {
   DescribeCertificatesMessage,
   DescribeCertificatesResponse,
   DescribeConnectionsMessage,
+  DescribeConversionConfigurationMessage,
+  DescribeDataProvidersMessage,
+  DescribeDataProvidersResponse,
   DescribeEndpointSettingsMessage,
   DescribeEndpointsMessage,
   DescribeEndpointTypesMessage,
@@ -345,12 +465,22 @@ import {
   DescribeEventsMessage,
   DescribeEventsResponse,
   DescribeEventSubscriptionsMessage,
+  DescribeExtensionPackAssociationsMessage,
   DescribeFleetAdvisorCollectorsRequest,
   DescribeFleetAdvisorDatabasesRequest,
   DescribeFleetAdvisorLsaAnalysisRequest,
   DescribeFleetAdvisorSchemaObjectSummaryRequest,
   DescribeFleetAdvisorSchemasRequest,
   DescribeFleetAdvisorSchemasResponse,
+  DescribeInstanceProfilesMessage,
+  DescribeInstanceProfilesResponse,
+  DescribeMetadataModelAssessmentsMessage,
+  DescribeMetadataModelConversionsMessage,
+  DescribeMetadataModelExportsAsScriptMessage,
+  DescribeMetadataModelExportsToTargetMessage,
+  DescribeMetadataModelImportsMessage,
+  DescribeMigrationProjectsMessage,
+  DescribeMigrationProjectsResponse,
   DescribeOrderableReplicationInstancesMessage,
   DescribePendingMaintenanceActionsMessage,
   DescribePendingMaintenanceActionsResponse,
@@ -386,11 +516,13 @@ import {
   ElasticsearchSettings,
   EngineVersion,
   Event,
+  ExportMetadataModelAssessmentMessage,
   Filter,
   GcpMySQLSettings,
   IBMDb2Settings,
   ImportCertificateMessage,
   ImportCertificateResponse,
+  InstanceProfile,
   InsufficientResourceCapacityFault,
   InvalidCertificateFault,
   InvalidOperationFault,
@@ -400,47 +532,37 @@ import {
   KinesisSettings,
   KMSAccessDeniedFault,
   KMSDisabledFault,
-  KMSFault,
   KMSInvalidStateFault,
   KMSKeyNotAccessibleFault,
   KMSNotFoundFault,
   KMSThrottlingFault,
   ListTagsForResourceMessage,
+  MicrosoftSqlServerDataProviderSettings,
   MicrosoftSQLServerSettings,
+  MigrationProject,
+  ModifyConversionConfigurationMessage,
+  ModifyDataProviderMessage,
+  ModifyDataProviderResponse,
   ModifyEndpointMessage,
-  ModifyEventSubscriptionMessage,
-  ModifyReplicationConfigMessage,
-  ModifyReplicationConfigResponse,
-  ModifyReplicationInstanceMessage,
-  ModifyReplicationInstanceResponse,
-  ModifyReplicationSubnetGroupMessage,
-  ModifyReplicationTaskMessage,
-  ModifyReplicationTaskResponse,
   MongoDbSettings,
-  MoveReplicationTaskMessage,
-  MoveReplicationTaskResponse,
+  MySqlDataProviderSettings,
   MySQLSettings,
   NeptuneSettings,
+  OracleDataProviderSettings,
   OracleSettings,
   PendingMaintenanceAction,
+  PostgreSqlDataProviderSettings,
   PostgreSQLSettings,
   ProvisionData,
   RdsConfiguration,
   RdsRecommendation,
   RdsRequirements,
-  RebootReplicationInstanceMessage,
-  RebootReplicationInstanceResponse,
   Recommendation,
   RecommendationData,
   RecommendationSettings,
   RedisSettings,
   RedshiftSettings,
-  RefreshSchemasMessage,
-  RefreshSchemasResponse,
   RefreshSchemasStatus,
-  ReloadReplicationTablesMessage,
-  ReloadTablesMessage,
-  RemoveTagsFromResourceMessage,
   Replication,
   ReplicationConfig,
   ReplicationInstance,
@@ -458,11 +580,47 @@ import {
   S3AccessDeniedFault,
   S3ResourceNotFoundFault,
   S3Settings,
+  SCApplicationAttributes,
   SchemaResponse,
   SNSInvalidTopicFault,
   SNSNoAuthorizationFault,
-  StartRecommendationsRequest,
   StartRecommendationsRequestEntry,
+  StorageQuotaExceededFault,
+  SybaseSettings,
+  TableStatistics,
+  Tag,
+  TimestreamSettings,
+} from "../models/models_0";
+import {
+  KMSFault,
+  ModifyEventSubscriptionMessage,
+  ModifyInstanceProfileMessage,
+  ModifyInstanceProfileResponse,
+  ModifyMigrationProjectMessage,
+  ModifyMigrationProjectResponse,
+  ModifyReplicationConfigMessage,
+  ModifyReplicationConfigResponse,
+  ModifyReplicationInstanceMessage,
+  ModifyReplicationInstanceResponse,
+  ModifyReplicationSubnetGroupMessage,
+  ModifyReplicationTaskMessage,
+  ModifyReplicationTaskResponse,
+  MoveReplicationTaskMessage,
+  MoveReplicationTaskResponse,
+  RebootReplicationInstanceMessage,
+  RebootReplicationInstanceResponse,
+  RefreshSchemasMessage,
+  RefreshSchemasResponse,
+  ReloadReplicationTablesMessage,
+  ReloadTablesMessage,
+  RemoveTagsFromResourceMessage,
+  StartExtensionPackAssociationMessage,
+  StartMetadataModelAssessmentMessage,
+  StartMetadataModelConversionMessage,
+  StartMetadataModelExportAsScriptMessage,
+  StartMetadataModelExportToTargetMessage,
+  StartMetadataModelImportMessage,
+  StartRecommendationsRequest,
   StartReplicationMessage,
   StartReplicationResponse,
   StartReplicationTaskAssessmentMessage,
@@ -475,17 +633,12 @@ import {
   StopReplicationResponse,
   StopReplicationTaskMessage,
   StopReplicationTaskResponse,
-  StorageQuotaExceededFault,
   SubnetAlreadyInUse,
-  SybaseSettings,
-  TableStatistics,
   TableToReload,
-  Tag,
   TestConnectionMessage,
-  TimestreamSettings,
   UpdateSubscriptionsToEventBridgeMessage,
   UpgradeDependencyFailureFault,
-} from "../models/models_0";
+} from "../models/models_1";
 
 /**
  * serializeAws_json1_1AddTagsToResourceCommand
@@ -540,6 +693,19 @@ export const se_CancelReplicationTaskAssessmentRunCommand = async (
 };
 
 /**
+ * serializeAws_json1_1CreateDataProviderCommand
+ */
+export const se_CreateDataProviderCommand = async (
+  input: CreateDataProviderCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = sharedHeaders("CreateDataProvider");
+  let body: any;
+  body = JSON.stringify(_json(input));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+/**
  * serializeAws_json1_1CreateEndpointCommand
  */
 export const se_CreateEndpointCommand = async (
@@ -573,6 +739,32 @@ export const se_CreateFleetAdvisorCollectorCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("CreateFleetAdvisorCollector");
+  let body: any;
+  body = JSON.stringify(_json(input));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+/**
+ * serializeAws_json1_1CreateInstanceProfileCommand
+ */
+export const se_CreateInstanceProfileCommand = async (
+  input: CreateInstanceProfileCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = sharedHeaders("CreateInstanceProfile");
+  let body: any;
+  body = JSON.stringify(_json(input));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+/**
+ * serializeAws_json1_1CreateMigrationProjectCommand
+ */
+export const se_CreateMigrationProjectCommand = async (
+  input: CreateMigrationProjectCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = sharedHeaders("CreateMigrationProject");
   let body: any;
   body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -657,6 +849,19 @@ export const se_DeleteConnectionCommand = async (
 };
 
 /**
+ * serializeAws_json1_1DeleteDataProviderCommand
+ */
+export const se_DeleteDataProviderCommand = async (
+  input: DeleteDataProviderCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = sharedHeaders("DeleteDataProvider");
+  let body: any;
+  body = JSON.stringify(_json(input));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+/**
  * serializeAws_json1_1DeleteEndpointCommand
  */
 export const se_DeleteEndpointCommand = async (
@@ -703,6 +908,32 @@ export const se_DeleteFleetAdvisorDatabasesCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("DeleteFleetAdvisorDatabases");
+  let body: any;
+  body = JSON.stringify(_json(input));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+/**
+ * serializeAws_json1_1DeleteInstanceProfileCommand
+ */
+export const se_DeleteInstanceProfileCommand = async (
+  input: DeleteInstanceProfileCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = sharedHeaders("DeleteInstanceProfile");
+  let body: any;
+  body = JSON.stringify(_json(input));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+/**
+ * serializeAws_json1_1DeleteMigrationProjectCommand
+ */
+export const se_DeleteMigrationProjectCommand = async (
+  input: DeleteMigrationProjectCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = sharedHeaders("DeleteMigrationProject");
   let body: any;
   body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -826,6 +1057,32 @@ export const se_DescribeConnectionsCommand = async (
 };
 
 /**
+ * serializeAws_json1_1DescribeConversionConfigurationCommand
+ */
+export const se_DescribeConversionConfigurationCommand = async (
+  input: DescribeConversionConfigurationCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = sharedHeaders("DescribeConversionConfiguration");
+  let body: any;
+  body = JSON.stringify(_json(input));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+/**
+ * serializeAws_json1_1DescribeDataProvidersCommand
+ */
+export const se_DescribeDataProvidersCommand = async (
+  input: DescribeDataProvidersCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = sharedHeaders("DescribeDataProviders");
+  let body: any;
+  body = JSON.stringify(_json(input));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+/**
  * serializeAws_json1_1DescribeEndpointsCommand
  */
 export const se_DescribeEndpointsCommand = async (
@@ -917,6 +1174,19 @@ export const se_DescribeEventSubscriptionsCommand = async (
 };
 
 /**
+ * serializeAws_json1_1DescribeExtensionPackAssociationsCommand
+ */
+export const se_DescribeExtensionPackAssociationsCommand = async (
+  input: DescribeExtensionPackAssociationsCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = sharedHeaders("DescribeExtensionPackAssociations");
+  let body: any;
+  body = JSON.stringify(_json(input));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+/**
  * serializeAws_json1_1DescribeFleetAdvisorCollectorsCommand
  */
 export const se_DescribeFleetAdvisorCollectorsCommand = async (
@@ -976,6 +1246,97 @@ export const se_DescribeFleetAdvisorSchemasCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("DescribeFleetAdvisorSchemas");
+  let body: any;
+  body = JSON.stringify(_json(input));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+/**
+ * serializeAws_json1_1DescribeInstanceProfilesCommand
+ */
+export const se_DescribeInstanceProfilesCommand = async (
+  input: DescribeInstanceProfilesCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = sharedHeaders("DescribeInstanceProfiles");
+  let body: any;
+  body = JSON.stringify(_json(input));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+/**
+ * serializeAws_json1_1DescribeMetadataModelAssessmentsCommand
+ */
+export const se_DescribeMetadataModelAssessmentsCommand = async (
+  input: DescribeMetadataModelAssessmentsCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = sharedHeaders("DescribeMetadataModelAssessments");
+  let body: any;
+  body = JSON.stringify(_json(input));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+/**
+ * serializeAws_json1_1DescribeMetadataModelConversionsCommand
+ */
+export const se_DescribeMetadataModelConversionsCommand = async (
+  input: DescribeMetadataModelConversionsCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = sharedHeaders("DescribeMetadataModelConversions");
+  let body: any;
+  body = JSON.stringify(_json(input));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+/**
+ * serializeAws_json1_1DescribeMetadataModelExportsAsScriptCommand
+ */
+export const se_DescribeMetadataModelExportsAsScriptCommand = async (
+  input: DescribeMetadataModelExportsAsScriptCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = sharedHeaders("DescribeMetadataModelExportsAsScript");
+  let body: any;
+  body = JSON.stringify(_json(input));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+/**
+ * serializeAws_json1_1DescribeMetadataModelExportsToTargetCommand
+ */
+export const se_DescribeMetadataModelExportsToTargetCommand = async (
+  input: DescribeMetadataModelExportsToTargetCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = sharedHeaders("DescribeMetadataModelExportsToTarget");
+  let body: any;
+  body = JSON.stringify(_json(input));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+/**
+ * serializeAws_json1_1DescribeMetadataModelImportsCommand
+ */
+export const se_DescribeMetadataModelImportsCommand = async (
+  input: DescribeMetadataModelImportsCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = sharedHeaders("DescribeMetadataModelImports");
+  let body: any;
+  body = JSON.stringify(_json(input));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+/**
+ * serializeAws_json1_1DescribeMigrationProjectsCommand
+ */
+export const se_DescribeMigrationProjectsCommand = async (
+  input: DescribeMigrationProjectsCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = sharedHeaders("DescribeMigrationProjects");
   let body: any;
   body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1203,6 +1564,19 @@ export const se_DescribeTableStatisticsCommand = async (
 };
 
 /**
+ * serializeAws_json1_1ExportMetadataModelAssessmentCommand
+ */
+export const se_ExportMetadataModelAssessmentCommand = async (
+  input: ExportMetadataModelAssessmentCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = sharedHeaders("ExportMetadataModelAssessment");
+  let body: any;
+  body = JSON.stringify(_json(input));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+/**
  * serializeAws_json1_1ImportCertificateCommand
  */
 export const se_ImportCertificateCommand = async (
@@ -1229,6 +1603,32 @@ export const se_ListTagsForResourceCommand = async (
 };
 
 /**
+ * serializeAws_json1_1ModifyConversionConfigurationCommand
+ */
+export const se_ModifyConversionConfigurationCommand = async (
+  input: ModifyConversionConfigurationCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = sharedHeaders("ModifyConversionConfiguration");
+  let body: any;
+  body = JSON.stringify(_json(input));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+/**
+ * serializeAws_json1_1ModifyDataProviderCommand
+ */
+export const se_ModifyDataProviderCommand = async (
+  input: ModifyDataProviderCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = sharedHeaders("ModifyDataProvider");
+  let body: any;
+  body = JSON.stringify(_json(input));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+/**
  * serializeAws_json1_1ModifyEndpointCommand
  */
 export const se_ModifyEndpointCommand = async (
@@ -1249,6 +1649,32 @@ export const se_ModifyEventSubscriptionCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("ModifyEventSubscription");
+  let body: any;
+  body = JSON.stringify(_json(input));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+/**
+ * serializeAws_json1_1ModifyInstanceProfileCommand
+ */
+export const se_ModifyInstanceProfileCommand = async (
+  input: ModifyInstanceProfileCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = sharedHeaders("ModifyInstanceProfile");
+  let body: any;
+  body = JSON.stringify(_json(input));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+/**
+ * serializeAws_json1_1ModifyMigrationProjectCommand
+ */
+export const se_ModifyMigrationProjectCommand = async (
+  input: ModifyMigrationProjectCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = sharedHeaders("ModifyMigrationProject");
   let body: any;
   body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1393,6 +1819,84 @@ export const se_RunFleetAdvisorLsaAnalysisCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("RunFleetAdvisorLsaAnalysis");
   const body = "{}";
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+/**
+ * serializeAws_json1_1StartExtensionPackAssociationCommand
+ */
+export const se_StartExtensionPackAssociationCommand = async (
+  input: StartExtensionPackAssociationCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = sharedHeaders("StartExtensionPackAssociation");
+  let body: any;
+  body = JSON.stringify(_json(input));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+/**
+ * serializeAws_json1_1StartMetadataModelAssessmentCommand
+ */
+export const se_StartMetadataModelAssessmentCommand = async (
+  input: StartMetadataModelAssessmentCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = sharedHeaders("StartMetadataModelAssessment");
+  let body: any;
+  body = JSON.stringify(_json(input));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+/**
+ * serializeAws_json1_1StartMetadataModelConversionCommand
+ */
+export const se_StartMetadataModelConversionCommand = async (
+  input: StartMetadataModelConversionCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = sharedHeaders("StartMetadataModelConversion");
+  let body: any;
+  body = JSON.stringify(_json(input));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+/**
+ * serializeAws_json1_1StartMetadataModelExportAsScriptCommand
+ */
+export const se_StartMetadataModelExportAsScriptCommand = async (
+  input: StartMetadataModelExportAsScriptCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = sharedHeaders("StartMetadataModelExportAsScript");
+  let body: any;
+  body = JSON.stringify(_json(input));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+/**
+ * serializeAws_json1_1StartMetadataModelExportToTargetCommand
+ */
+export const se_StartMetadataModelExportToTargetCommand = async (
+  input: StartMetadataModelExportToTargetCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = sharedHeaders("StartMetadataModelExportToTarget");
+  let body: any;
+  body = JSON.stringify(_json(input));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+/**
+ * serializeAws_json1_1StartMetadataModelImportCommand
+ */
+export const se_StartMetadataModelImportCommand = async (
+  input: StartMetadataModelImportCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = sharedHeaders("StartMetadataModelImport");
+  let body: any;
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -1710,6 +2214,58 @@ const de_CancelReplicationTaskAssessmentRunCommandError = async (
 };
 
 /**
+ * deserializeAws_json1_1CreateDataProviderCommand
+ */
+export const de_CreateDataProviderCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CreateDataProviderCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CreateDataProviderCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_CreateDataProviderResponse(data, context);
+  const response: CreateDataProviderCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1CreateDataProviderCommandError
+ */
+const de_CreateDataProviderCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CreateDataProviderCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedFault":
+    case "com.amazonaws.databasemigrationservice#AccessDeniedFault":
+      throw await de_AccessDeniedFaultRes(parsedOutput, context);
+    case "ResourceAlreadyExistsFault":
+    case "com.amazonaws.databasemigrationservice#ResourceAlreadyExistsFault":
+      throw await de_ResourceAlreadyExistsFaultRes(parsedOutput, context);
+    case "ResourceQuotaExceededFault":
+    case "com.amazonaws.databasemigrationservice#ResourceQuotaExceededFault":
+      throw await de_ResourceQuotaExceededFaultRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
  * deserializeAws_json1_1CreateEndpointCommand
  */
 export const de_CreateEndpointCommand = async (
@@ -1885,6 +2441,134 @@ const de_CreateFleetAdvisorCollectorCommandError = async (
     case "InvalidResourceStateFault":
     case "com.amazonaws.databasemigrationservice#InvalidResourceStateFault":
       throw await de_InvalidResourceStateFaultRes(parsedOutput, context);
+    case "ResourceQuotaExceededFault":
+    case "com.amazonaws.databasemigrationservice#ResourceQuotaExceededFault":
+      throw await de_ResourceQuotaExceededFaultRes(parsedOutput, context);
+    case "S3AccessDeniedFault":
+    case "com.amazonaws.databasemigrationservice#S3AccessDeniedFault":
+      throw await de_S3AccessDeniedFaultRes(parsedOutput, context);
+    case "S3ResourceNotFoundFault":
+    case "com.amazonaws.databasemigrationservice#S3ResourceNotFoundFault":
+      throw await de_S3ResourceNotFoundFaultRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
+ * deserializeAws_json1_1CreateInstanceProfileCommand
+ */
+export const de_CreateInstanceProfileCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CreateInstanceProfileCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CreateInstanceProfileCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_CreateInstanceProfileResponse(data, context);
+  const response: CreateInstanceProfileCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1CreateInstanceProfileCommandError
+ */
+const de_CreateInstanceProfileCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CreateInstanceProfileCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedFault":
+    case "com.amazonaws.databasemigrationservice#AccessDeniedFault":
+      throw await de_AccessDeniedFaultRes(parsedOutput, context);
+    case "InvalidResourceStateFault":
+    case "com.amazonaws.databasemigrationservice#InvalidResourceStateFault":
+      throw await de_InvalidResourceStateFaultRes(parsedOutput, context);
+    case "KMSKeyNotAccessibleFault":
+    case "com.amazonaws.databasemigrationservice#KMSKeyNotAccessibleFault":
+      throw await de_KMSKeyNotAccessibleFaultRes(parsedOutput, context);
+    case "ResourceAlreadyExistsFault":
+    case "com.amazonaws.databasemigrationservice#ResourceAlreadyExistsFault":
+      throw await de_ResourceAlreadyExistsFaultRes(parsedOutput, context);
+    case "ResourceNotFoundFault":
+    case "com.amazonaws.databasemigrationservice#ResourceNotFoundFault":
+      throw await de_ResourceNotFoundFaultRes(parsedOutput, context);
+    case "ResourceQuotaExceededFault":
+    case "com.amazonaws.databasemigrationservice#ResourceQuotaExceededFault":
+      throw await de_ResourceQuotaExceededFaultRes(parsedOutput, context);
+    case "S3AccessDeniedFault":
+    case "com.amazonaws.databasemigrationservice#S3AccessDeniedFault":
+      throw await de_S3AccessDeniedFaultRes(parsedOutput, context);
+    case "S3ResourceNotFoundFault":
+    case "com.amazonaws.databasemigrationservice#S3ResourceNotFoundFault":
+      throw await de_S3ResourceNotFoundFaultRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
+ * deserializeAws_json1_1CreateMigrationProjectCommand
+ */
+export const de_CreateMigrationProjectCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CreateMigrationProjectCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CreateMigrationProjectCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_CreateMigrationProjectResponse(data, context);
+  const response: CreateMigrationProjectCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1CreateMigrationProjectCommandError
+ */
+const de_CreateMigrationProjectCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CreateMigrationProjectCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedFault":
+    case "com.amazonaws.databasemigrationservice#AccessDeniedFault":
+      throw await de_AccessDeniedFaultRes(parsedOutput, context);
+    case "ResourceAlreadyExistsFault":
+    case "com.amazonaws.databasemigrationservice#ResourceAlreadyExistsFault":
+      throw await de_ResourceAlreadyExistsFaultRes(parsedOutput, context);
+    case "ResourceNotFoundFault":
+    case "com.amazonaws.databasemigrationservice#ResourceNotFoundFault":
+      throw await de_ResourceNotFoundFaultRes(parsedOutput, context);
     case "ResourceQuotaExceededFault":
     case "com.amazonaws.databasemigrationservice#ResourceQuotaExceededFault":
       throw await de_ResourceQuotaExceededFaultRes(parsedOutput, context);
@@ -2268,6 +2952,58 @@ const de_DeleteConnectionCommandError = async (
 };
 
 /**
+ * deserializeAws_json1_1DeleteDataProviderCommand
+ */
+export const de_DeleteDataProviderCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteDataProviderCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_DeleteDataProviderCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_DeleteDataProviderResponse(data, context);
+  const response: DeleteDataProviderCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1DeleteDataProviderCommandError
+ */
+const de_DeleteDataProviderCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteDataProviderCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedFault":
+    case "com.amazonaws.databasemigrationservice#AccessDeniedFault":
+      throw await de_AccessDeniedFaultRes(parsedOutput, context);
+    case "InvalidResourceStateFault":
+    case "com.amazonaws.databasemigrationservice#InvalidResourceStateFault":
+      throw await de_InvalidResourceStateFaultRes(parsedOutput, context);
+    case "ResourceNotFoundFault":
+    case "com.amazonaws.databasemigrationservice#ResourceNotFoundFault":
+      throw await de_ResourceNotFoundFaultRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
  * deserializeAws_json1_1DeleteEndpointCommand
  */
 export const de_DeleteEndpointCommand = async (
@@ -2447,6 +3183,110 @@ const de_DeleteFleetAdvisorDatabasesCommandError = async (
     case "InvalidOperationFault":
     case "com.amazonaws.databasemigrationservice#InvalidOperationFault":
       throw await de_InvalidOperationFaultRes(parsedOutput, context);
+    case "ResourceNotFoundFault":
+    case "com.amazonaws.databasemigrationservice#ResourceNotFoundFault":
+      throw await de_ResourceNotFoundFaultRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
+ * deserializeAws_json1_1DeleteInstanceProfileCommand
+ */
+export const de_DeleteInstanceProfileCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteInstanceProfileCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_DeleteInstanceProfileCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_DeleteInstanceProfileResponse(data, context);
+  const response: DeleteInstanceProfileCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1DeleteInstanceProfileCommandError
+ */
+const de_DeleteInstanceProfileCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteInstanceProfileCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedFault":
+    case "com.amazonaws.databasemigrationservice#AccessDeniedFault":
+      throw await de_AccessDeniedFaultRes(parsedOutput, context);
+    case "InvalidResourceStateFault":
+    case "com.amazonaws.databasemigrationservice#InvalidResourceStateFault":
+      throw await de_InvalidResourceStateFaultRes(parsedOutput, context);
+    case "ResourceNotFoundFault":
+    case "com.amazonaws.databasemigrationservice#ResourceNotFoundFault":
+      throw await de_ResourceNotFoundFaultRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
+ * deserializeAws_json1_1DeleteMigrationProjectCommand
+ */
+export const de_DeleteMigrationProjectCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteMigrationProjectCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_DeleteMigrationProjectCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_DeleteMigrationProjectResponse(data, context);
+  const response: DeleteMigrationProjectCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1DeleteMigrationProjectCommandError
+ */
+const de_DeleteMigrationProjectCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteMigrationProjectCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedFault":
+    case "com.amazonaws.databasemigrationservice#AccessDeniedFault":
+      throw await de_AccessDeniedFaultRes(parsedOutput, context);
+    case "InvalidResourceStateFault":
+    case "com.amazonaws.databasemigrationservice#InvalidResourceStateFault":
+      throw await de_InvalidResourceStateFaultRes(parsedOutput, context);
     case "ResourceNotFoundFault":
     case "com.amazonaws.databasemigrationservice#ResourceNotFoundFault":
       throw await de_ResourceNotFoundFaultRes(parsedOutput, context);
@@ -2896,6 +3736,101 @@ const de_DescribeConnectionsCommandError = async (
 };
 
 /**
+ * deserializeAws_json1_1DescribeConversionConfigurationCommand
+ */
+export const de_DescribeConversionConfigurationCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeConversionConfigurationCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_DescribeConversionConfigurationCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = _json(data);
+  const response: DescribeConversionConfigurationCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1DescribeConversionConfigurationCommandError
+ */
+const de_DescribeConversionConfigurationCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeConversionConfigurationCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "ResourceNotFoundFault":
+    case "com.amazonaws.databasemigrationservice#ResourceNotFoundFault":
+      throw await de_ResourceNotFoundFaultRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
+ * deserializeAws_json1_1DescribeDataProvidersCommand
+ */
+export const de_DescribeDataProvidersCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeDataProvidersCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_DescribeDataProvidersCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_DescribeDataProvidersResponse(data, context);
+  const response: DescribeDataProvidersCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1DescribeDataProvidersCommandError
+ */
+const de_DescribeDataProvidersCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeDataProvidersCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedFault":
+    case "com.amazonaws.databasemigrationservice#AccessDeniedFault":
+      throw await de_AccessDeniedFaultRes(parsedOutput, context);
+    case "ResourceNotFoundFault":
+    case "com.amazonaws.databasemigrationservice#ResourceNotFoundFault":
+      throw await de_ResourceNotFoundFaultRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
  * deserializeAws_json1_1DescribeEndpointsCommand
  */
 export const de_DescribeEndpointsCommand = async (
@@ -3188,6 +4123,46 @@ const de_DescribeEventSubscriptionsCommandError = async (
 };
 
 /**
+ * deserializeAws_json1_1DescribeExtensionPackAssociationsCommand
+ */
+export const de_DescribeExtensionPackAssociationsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeExtensionPackAssociationsCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_DescribeExtensionPackAssociationsCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = _json(data);
+  const response: DescribeExtensionPackAssociationsCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1DescribeExtensionPackAssociationsCommandError
+ */
+const de_DescribeExtensionPackAssociationsCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeExtensionPackAssociationsCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  const parsedBody = parsedOutput.body;
+  return throwDefaultError({
+    output,
+    parsedBody,
+    errorCode,
+  });
+};
+
+/**
  * deserializeAws_json1_1DescribeFleetAdvisorCollectorsCommand
  */
 export const de_DescribeFleetAdvisorCollectorsCommand = async (
@@ -3407,6 +4382,334 @@ const de_DescribeFleetAdvisorSchemasCommandError = async (
     case "InvalidResourceStateFault":
     case "com.amazonaws.databasemigrationservice#InvalidResourceStateFault":
       throw await de_InvalidResourceStateFaultRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
+ * deserializeAws_json1_1DescribeInstanceProfilesCommand
+ */
+export const de_DescribeInstanceProfilesCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeInstanceProfilesCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_DescribeInstanceProfilesCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_DescribeInstanceProfilesResponse(data, context);
+  const response: DescribeInstanceProfilesCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1DescribeInstanceProfilesCommandError
+ */
+const de_DescribeInstanceProfilesCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeInstanceProfilesCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedFault":
+    case "com.amazonaws.databasemigrationservice#AccessDeniedFault":
+      throw await de_AccessDeniedFaultRes(parsedOutput, context);
+    case "ResourceNotFoundFault":
+    case "com.amazonaws.databasemigrationservice#ResourceNotFoundFault":
+      throw await de_ResourceNotFoundFaultRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
+ * deserializeAws_json1_1DescribeMetadataModelAssessmentsCommand
+ */
+export const de_DescribeMetadataModelAssessmentsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeMetadataModelAssessmentsCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_DescribeMetadataModelAssessmentsCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = _json(data);
+  const response: DescribeMetadataModelAssessmentsCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1DescribeMetadataModelAssessmentsCommandError
+ */
+const de_DescribeMetadataModelAssessmentsCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeMetadataModelAssessmentsCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "ResourceNotFoundFault":
+    case "com.amazonaws.databasemigrationservice#ResourceNotFoundFault":
+      throw await de_ResourceNotFoundFaultRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
+ * deserializeAws_json1_1DescribeMetadataModelConversionsCommand
+ */
+export const de_DescribeMetadataModelConversionsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeMetadataModelConversionsCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_DescribeMetadataModelConversionsCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = _json(data);
+  const response: DescribeMetadataModelConversionsCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1DescribeMetadataModelConversionsCommandError
+ */
+const de_DescribeMetadataModelConversionsCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeMetadataModelConversionsCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "ResourceNotFoundFault":
+    case "com.amazonaws.databasemigrationservice#ResourceNotFoundFault":
+      throw await de_ResourceNotFoundFaultRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
+ * deserializeAws_json1_1DescribeMetadataModelExportsAsScriptCommand
+ */
+export const de_DescribeMetadataModelExportsAsScriptCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeMetadataModelExportsAsScriptCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_DescribeMetadataModelExportsAsScriptCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = _json(data);
+  const response: DescribeMetadataModelExportsAsScriptCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1DescribeMetadataModelExportsAsScriptCommandError
+ */
+const de_DescribeMetadataModelExportsAsScriptCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeMetadataModelExportsAsScriptCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "ResourceNotFoundFault":
+    case "com.amazonaws.databasemigrationservice#ResourceNotFoundFault":
+      throw await de_ResourceNotFoundFaultRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
+ * deserializeAws_json1_1DescribeMetadataModelExportsToTargetCommand
+ */
+export const de_DescribeMetadataModelExportsToTargetCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeMetadataModelExportsToTargetCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_DescribeMetadataModelExportsToTargetCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = _json(data);
+  const response: DescribeMetadataModelExportsToTargetCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1DescribeMetadataModelExportsToTargetCommandError
+ */
+const de_DescribeMetadataModelExportsToTargetCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeMetadataModelExportsToTargetCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "ResourceNotFoundFault":
+    case "com.amazonaws.databasemigrationservice#ResourceNotFoundFault":
+      throw await de_ResourceNotFoundFaultRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
+ * deserializeAws_json1_1DescribeMetadataModelImportsCommand
+ */
+export const de_DescribeMetadataModelImportsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeMetadataModelImportsCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_DescribeMetadataModelImportsCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = _json(data);
+  const response: DescribeMetadataModelImportsCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1DescribeMetadataModelImportsCommandError
+ */
+const de_DescribeMetadataModelImportsCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeMetadataModelImportsCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "ResourceNotFoundFault":
+    case "com.amazonaws.databasemigrationservice#ResourceNotFoundFault":
+      throw await de_ResourceNotFoundFaultRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
+ * deserializeAws_json1_1DescribeMigrationProjectsCommand
+ */
+export const de_DescribeMigrationProjectsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeMigrationProjectsCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_DescribeMigrationProjectsCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_DescribeMigrationProjectsResponse(data, context);
+  const response: DescribeMigrationProjectsCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1DescribeMigrationProjectsCommandError
+ */
+const de_DescribeMigrationProjectsCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeMigrationProjectsCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedFault":
+    case "com.amazonaws.databasemigrationservice#AccessDeniedFault":
+      throw await de_AccessDeniedFaultRes(parsedOutput, context);
+    case "ResourceNotFoundFault":
+    case "com.amazonaws.databasemigrationservice#ResourceNotFoundFault":
+      throw await de_ResourceNotFoundFaultRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       return throwDefaultError({
@@ -4215,6 +5518,52 @@ const de_DescribeTableStatisticsCommandError = async (
 };
 
 /**
+ * deserializeAws_json1_1ExportMetadataModelAssessmentCommand
+ */
+export const de_ExportMetadataModelAssessmentCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ExportMetadataModelAssessmentCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_ExportMetadataModelAssessmentCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = _json(data);
+  const response: ExportMetadataModelAssessmentCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1ExportMetadataModelAssessmentCommandError
+ */
+const de_ExportMetadataModelAssessmentCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ExportMetadataModelAssessmentCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "ResourceNotFoundFault":
+    case "com.amazonaws.databasemigrationservice#ResourceNotFoundFault":
+      throw await de_ResourceNotFoundFaultRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
  * deserializeAws_json1_1ImportCertificateCommand
  */
 export const de_ImportCertificateCommand = async (
@@ -4299,6 +5648,107 @@ const de_ListTagsForResourceCommandError = async (
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
+    case "ResourceNotFoundFault":
+    case "com.amazonaws.databasemigrationservice#ResourceNotFoundFault":
+      throw await de_ResourceNotFoundFaultRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
+ * deserializeAws_json1_1ModifyConversionConfigurationCommand
+ */
+export const de_ModifyConversionConfigurationCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ModifyConversionConfigurationCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_ModifyConversionConfigurationCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = _json(data);
+  const response: ModifyConversionConfigurationCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1ModifyConversionConfigurationCommandError
+ */
+const de_ModifyConversionConfigurationCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ModifyConversionConfigurationCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "InvalidResourceStateFault":
+    case "com.amazonaws.databasemigrationservice#InvalidResourceStateFault":
+      throw await de_InvalidResourceStateFaultRes(parsedOutput, context);
+    case "ResourceNotFoundFault":
+    case "com.amazonaws.databasemigrationservice#ResourceNotFoundFault":
+      throw await de_ResourceNotFoundFaultRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
+ * deserializeAws_json1_1ModifyDataProviderCommand
+ */
+export const de_ModifyDataProviderCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ModifyDataProviderCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_ModifyDataProviderCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_ModifyDataProviderResponse(data, context);
+  const response: ModifyDataProviderCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1ModifyDataProviderCommandError
+ */
+const de_ModifyDataProviderCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ModifyDataProviderCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedFault":
+    case "com.amazonaws.databasemigrationservice#AccessDeniedFault":
+      throw await de_AccessDeniedFaultRes(parsedOutput, context);
+    case "InvalidResourceStateFault":
+    case "com.amazonaws.databasemigrationservice#InvalidResourceStateFault":
+      throw await de_InvalidResourceStateFaultRes(parsedOutput, context);
     case "ResourceNotFoundFault":
     case "com.amazonaws.databasemigrationservice#ResourceNotFoundFault":
       throw await de_ResourceNotFoundFaultRes(parsedOutput, context);
@@ -4430,6 +5880,125 @@ const de_ModifyEventSubscriptionCommandError = async (
     case "SNSNoAuthorizationFault":
     case "com.amazonaws.databasemigrationservice#SNSNoAuthorizationFault":
       throw await de_SNSNoAuthorizationFaultRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
+ * deserializeAws_json1_1ModifyInstanceProfileCommand
+ */
+export const de_ModifyInstanceProfileCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ModifyInstanceProfileCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_ModifyInstanceProfileCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_ModifyInstanceProfileResponse(data, context);
+  const response: ModifyInstanceProfileCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1ModifyInstanceProfileCommandError
+ */
+const de_ModifyInstanceProfileCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ModifyInstanceProfileCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedFault":
+    case "com.amazonaws.databasemigrationservice#AccessDeniedFault":
+      throw await de_AccessDeniedFaultRes(parsedOutput, context);
+    case "InvalidResourceStateFault":
+    case "com.amazonaws.databasemigrationservice#InvalidResourceStateFault":
+      throw await de_InvalidResourceStateFaultRes(parsedOutput, context);
+    case "KMSKeyNotAccessibleFault":
+    case "com.amazonaws.databasemigrationservice#KMSKeyNotAccessibleFault":
+      throw await de_KMSKeyNotAccessibleFaultRes(parsedOutput, context);
+    case "ResourceNotFoundFault":
+    case "com.amazonaws.databasemigrationservice#ResourceNotFoundFault":
+      throw await de_ResourceNotFoundFaultRes(parsedOutput, context);
+    case "S3AccessDeniedFault":
+    case "com.amazonaws.databasemigrationservice#S3AccessDeniedFault":
+      throw await de_S3AccessDeniedFaultRes(parsedOutput, context);
+    case "S3ResourceNotFoundFault":
+    case "com.amazonaws.databasemigrationservice#S3ResourceNotFoundFault":
+      throw await de_S3ResourceNotFoundFaultRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
+ * deserializeAws_json1_1ModifyMigrationProjectCommand
+ */
+export const de_ModifyMigrationProjectCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ModifyMigrationProjectCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_ModifyMigrationProjectCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_ModifyMigrationProjectResponse(data, context);
+  const response: ModifyMigrationProjectCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1ModifyMigrationProjectCommandError
+ */
+const de_ModifyMigrationProjectCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ModifyMigrationProjectCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedFault":
+    case "com.amazonaws.databasemigrationservice#AccessDeniedFault":
+      throw await de_AccessDeniedFaultRes(parsedOutput, context);
+    case "InvalidResourceStateFault":
+    case "com.amazonaws.databasemigrationservice#InvalidResourceStateFault":
+      throw await de_InvalidResourceStateFaultRes(parsedOutput, context);
+    case "ResourceNotFoundFault":
+    case "com.amazonaws.databasemigrationservice#ResourceNotFoundFault":
+      throw await de_ResourceNotFoundFaultRes(parsedOutput, context);
+    case "S3AccessDeniedFault":
+    case "com.amazonaws.databasemigrationservice#S3AccessDeniedFault":
+      throw await de_S3AccessDeniedFaultRes(parsedOutput, context);
+    case "S3ResourceNotFoundFault":
+    case "com.amazonaws.databasemigrationservice#S3ResourceNotFoundFault":
+      throw await de_S3ResourceNotFoundFaultRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       return throwDefaultError({
@@ -5026,6 +6595,408 @@ const de_RunFleetAdvisorLsaAnalysisCommandError = async (
     case "ResourceNotFoundFault":
     case "com.amazonaws.databasemigrationservice#ResourceNotFoundFault":
       throw await de_ResourceNotFoundFaultRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
+ * deserializeAws_json1_1StartExtensionPackAssociationCommand
+ */
+export const de_StartExtensionPackAssociationCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<StartExtensionPackAssociationCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_StartExtensionPackAssociationCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = _json(data);
+  const response: StartExtensionPackAssociationCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1StartExtensionPackAssociationCommandError
+ */
+const de_StartExtensionPackAssociationCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<StartExtensionPackAssociationCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedFault":
+    case "com.amazonaws.databasemigrationservice#AccessDeniedFault":
+      throw await de_AccessDeniedFaultRes(parsedOutput, context);
+    case "InvalidResourceStateFault":
+    case "com.amazonaws.databasemigrationservice#InvalidResourceStateFault":
+      throw await de_InvalidResourceStateFaultRes(parsedOutput, context);
+    case "KMSKeyNotAccessibleFault":
+    case "com.amazonaws.databasemigrationservice#KMSKeyNotAccessibleFault":
+      throw await de_KMSKeyNotAccessibleFaultRes(parsedOutput, context);
+    case "ResourceAlreadyExistsFault":
+    case "com.amazonaws.databasemigrationservice#ResourceAlreadyExistsFault":
+      throw await de_ResourceAlreadyExistsFaultRes(parsedOutput, context);
+    case "ResourceNotFoundFault":
+    case "com.amazonaws.databasemigrationservice#ResourceNotFoundFault":
+      throw await de_ResourceNotFoundFaultRes(parsedOutput, context);
+    case "ResourceQuotaExceededFault":
+    case "com.amazonaws.databasemigrationservice#ResourceQuotaExceededFault":
+      throw await de_ResourceQuotaExceededFaultRes(parsedOutput, context);
+    case "S3AccessDeniedFault":
+    case "com.amazonaws.databasemigrationservice#S3AccessDeniedFault":
+      throw await de_S3AccessDeniedFaultRes(parsedOutput, context);
+    case "S3ResourceNotFoundFault":
+    case "com.amazonaws.databasemigrationservice#S3ResourceNotFoundFault":
+      throw await de_S3ResourceNotFoundFaultRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
+ * deserializeAws_json1_1StartMetadataModelAssessmentCommand
+ */
+export const de_StartMetadataModelAssessmentCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<StartMetadataModelAssessmentCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_StartMetadataModelAssessmentCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = _json(data);
+  const response: StartMetadataModelAssessmentCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1StartMetadataModelAssessmentCommandError
+ */
+const de_StartMetadataModelAssessmentCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<StartMetadataModelAssessmentCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedFault":
+    case "com.amazonaws.databasemigrationservice#AccessDeniedFault":
+      throw await de_AccessDeniedFaultRes(parsedOutput, context);
+    case "InvalidResourceStateFault":
+    case "com.amazonaws.databasemigrationservice#InvalidResourceStateFault":
+      throw await de_InvalidResourceStateFaultRes(parsedOutput, context);
+    case "KMSKeyNotAccessibleFault":
+    case "com.amazonaws.databasemigrationservice#KMSKeyNotAccessibleFault":
+      throw await de_KMSKeyNotAccessibleFaultRes(parsedOutput, context);
+    case "ResourceAlreadyExistsFault":
+    case "com.amazonaws.databasemigrationservice#ResourceAlreadyExistsFault":
+      throw await de_ResourceAlreadyExistsFaultRes(parsedOutput, context);
+    case "ResourceNotFoundFault":
+    case "com.amazonaws.databasemigrationservice#ResourceNotFoundFault":
+      throw await de_ResourceNotFoundFaultRes(parsedOutput, context);
+    case "ResourceQuotaExceededFault":
+    case "com.amazonaws.databasemigrationservice#ResourceQuotaExceededFault":
+      throw await de_ResourceQuotaExceededFaultRes(parsedOutput, context);
+    case "S3AccessDeniedFault":
+    case "com.amazonaws.databasemigrationservice#S3AccessDeniedFault":
+      throw await de_S3AccessDeniedFaultRes(parsedOutput, context);
+    case "S3ResourceNotFoundFault":
+    case "com.amazonaws.databasemigrationservice#S3ResourceNotFoundFault":
+      throw await de_S3ResourceNotFoundFaultRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
+ * deserializeAws_json1_1StartMetadataModelConversionCommand
+ */
+export const de_StartMetadataModelConversionCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<StartMetadataModelConversionCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_StartMetadataModelConversionCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = _json(data);
+  const response: StartMetadataModelConversionCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1StartMetadataModelConversionCommandError
+ */
+const de_StartMetadataModelConversionCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<StartMetadataModelConversionCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedFault":
+    case "com.amazonaws.databasemigrationservice#AccessDeniedFault":
+      throw await de_AccessDeniedFaultRes(parsedOutput, context);
+    case "InvalidResourceStateFault":
+    case "com.amazonaws.databasemigrationservice#InvalidResourceStateFault":
+      throw await de_InvalidResourceStateFaultRes(parsedOutput, context);
+    case "KMSKeyNotAccessibleFault":
+    case "com.amazonaws.databasemigrationservice#KMSKeyNotAccessibleFault":
+      throw await de_KMSKeyNotAccessibleFaultRes(parsedOutput, context);
+    case "ResourceAlreadyExistsFault":
+    case "com.amazonaws.databasemigrationservice#ResourceAlreadyExistsFault":
+      throw await de_ResourceAlreadyExistsFaultRes(parsedOutput, context);
+    case "ResourceNotFoundFault":
+    case "com.amazonaws.databasemigrationservice#ResourceNotFoundFault":
+      throw await de_ResourceNotFoundFaultRes(parsedOutput, context);
+    case "ResourceQuotaExceededFault":
+    case "com.amazonaws.databasemigrationservice#ResourceQuotaExceededFault":
+      throw await de_ResourceQuotaExceededFaultRes(parsedOutput, context);
+    case "S3AccessDeniedFault":
+    case "com.amazonaws.databasemigrationservice#S3AccessDeniedFault":
+      throw await de_S3AccessDeniedFaultRes(parsedOutput, context);
+    case "S3ResourceNotFoundFault":
+    case "com.amazonaws.databasemigrationservice#S3ResourceNotFoundFault":
+      throw await de_S3ResourceNotFoundFaultRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
+ * deserializeAws_json1_1StartMetadataModelExportAsScriptCommand
+ */
+export const de_StartMetadataModelExportAsScriptCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<StartMetadataModelExportAsScriptCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_StartMetadataModelExportAsScriptCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = _json(data);
+  const response: StartMetadataModelExportAsScriptCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1StartMetadataModelExportAsScriptCommandError
+ */
+const de_StartMetadataModelExportAsScriptCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<StartMetadataModelExportAsScriptCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedFault":
+    case "com.amazonaws.databasemigrationservice#AccessDeniedFault":
+      throw await de_AccessDeniedFaultRes(parsedOutput, context);
+    case "InvalidResourceStateFault":
+    case "com.amazonaws.databasemigrationservice#InvalidResourceStateFault":
+      throw await de_InvalidResourceStateFaultRes(parsedOutput, context);
+    case "KMSKeyNotAccessibleFault":
+    case "com.amazonaws.databasemigrationservice#KMSKeyNotAccessibleFault":
+      throw await de_KMSKeyNotAccessibleFaultRes(parsedOutput, context);
+    case "ResourceAlreadyExistsFault":
+    case "com.amazonaws.databasemigrationservice#ResourceAlreadyExistsFault":
+      throw await de_ResourceAlreadyExistsFaultRes(parsedOutput, context);
+    case "ResourceNotFoundFault":
+    case "com.amazonaws.databasemigrationservice#ResourceNotFoundFault":
+      throw await de_ResourceNotFoundFaultRes(parsedOutput, context);
+    case "ResourceQuotaExceededFault":
+    case "com.amazonaws.databasemigrationservice#ResourceQuotaExceededFault":
+      throw await de_ResourceQuotaExceededFaultRes(parsedOutput, context);
+    case "S3AccessDeniedFault":
+    case "com.amazonaws.databasemigrationservice#S3AccessDeniedFault":
+      throw await de_S3AccessDeniedFaultRes(parsedOutput, context);
+    case "S3ResourceNotFoundFault":
+    case "com.amazonaws.databasemigrationservice#S3ResourceNotFoundFault":
+      throw await de_S3ResourceNotFoundFaultRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
+ * deserializeAws_json1_1StartMetadataModelExportToTargetCommand
+ */
+export const de_StartMetadataModelExportToTargetCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<StartMetadataModelExportToTargetCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_StartMetadataModelExportToTargetCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = _json(data);
+  const response: StartMetadataModelExportToTargetCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1StartMetadataModelExportToTargetCommandError
+ */
+const de_StartMetadataModelExportToTargetCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<StartMetadataModelExportToTargetCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedFault":
+    case "com.amazonaws.databasemigrationservice#AccessDeniedFault":
+      throw await de_AccessDeniedFaultRes(parsedOutput, context);
+    case "InvalidResourceStateFault":
+    case "com.amazonaws.databasemigrationservice#InvalidResourceStateFault":
+      throw await de_InvalidResourceStateFaultRes(parsedOutput, context);
+    case "KMSKeyNotAccessibleFault":
+    case "com.amazonaws.databasemigrationservice#KMSKeyNotAccessibleFault":
+      throw await de_KMSKeyNotAccessibleFaultRes(parsedOutput, context);
+    case "ResourceAlreadyExistsFault":
+    case "com.amazonaws.databasemigrationservice#ResourceAlreadyExistsFault":
+      throw await de_ResourceAlreadyExistsFaultRes(parsedOutput, context);
+    case "ResourceNotFoundFault":
+    case "com.amazonaws.databasemigrationservice#ResourceNotFoundFault":
+      throw await de_ResourceNotFoundFaultRes(parsedOutput, context);
+    case "ResourceQuotaExceededFault":
+    case "com.amazonaws.databasemigrationservice#ResourceQuotaExceededFault":
+      throw await de_ResourceQuotaExceededFaultRes(parsedOutput, context);
+    case "S3AccessDeniedFault":
+    case "com.amazonaws.databasemigrationservice#S3AccessDeniedFault":
+      throw await de_S3AccessDeniedFaultRes(parsedOutput, context);
+    case "S3ResourceNotFoundFault":
+    case "com.amazonaws.databasemigrationservice#S3ResourceNotFoundFault":
+      throw await de_S3ResourceNotFoundFaultRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
+ * deserializeAws_json1_1StartMetadataModelImportCommand
+ */
+export const de_StartMetadataModelImportCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<StartMetadataModelImportCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_StartMetadataModelImportCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = _json(data);
+  const response: StartMetadataModelImportCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1StartMetadataModelImportCommandError
+ */
+const de_StartMetadataModelImportCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<StartMetadataModelImportCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedFault":
+    case "com.amazonaws.databasemigrationservice#AccessDeniedFault":
+      throw await de_AccessDeniedFaultRes(parsedOutput, context);
+    case "InvalidResourceStateFault":
+    case "com.amazonaws.databasemigrationservice#InvalidResourceStateFault":
+      throw await de_InvalidResourceStateFaultRes(parsedOutput, context);
+    case "KMSKeyNotAccessibleFault":
+    case "com.amazonaws.databasemigrationservice#KMSKeyNotAccessibleFault":
+      throw await de_KMSKeyNotAccessibleFaultRes(parsedOutput, context);
+    case "ResourceAlreadyExistsFault":
+    case "com.amazonaws.databasemigrationservice#ResourceAlreadyExistsFault":
+      throw await de_ResourceAlreadyExistsFaultRes(parsedOutput, context);
+    case "ResourceNotFoundFault":
+    case "com.amazonaws.databasemigrationservice#ResourceNotFoundFault":
+      throw await de_ResourceNotFoundFaultRes(parsedOutput, context);
+    case "ResourceQuotaExceededFault":
+    case "com.amazonaws.databasemigrationservice#ResourceQuotaExceededFault":
+      throw await de_ResourceQuotaExceededFaultRes(parsedOutput, context);
+    case "S3AccessDeniedFault":
+    case "com.amazonaws.databasemigrationservice#S3AccessDeniedFault":
+      throw await de_S3AccessDeniedFaultRes(parsedOutput, context);
+    case "S3ResourceNotFoundFault":
+    case "com.amazonaws.databasemigrationservice#S3ResourceNotFoundFault":
+      throw await de_S3ResourceNotFoundFaultRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       return throwDefaultError({
@@ -5907,17 +7878,25 @@ const de_UpgradeDependencyFailureFaultRes = async (
 
 // se_ArnList omitted.
 
+// se_AssessmentReportTypesList omitted.
+
 // se_BatchStartRecommendationsRequest omitted.
 
 // se_CancelReplicationTaskAssessmentRunMessage omitted.
 
 // se_ComputeConfig omitted.
 
+// se_CreateDataProviderMessage omitted.
+
 // se_CreateEndpointMessage omitted.
 
 // se_CreateEventSubscriptionMessage omitted.
 
 // se_CreateFleetAdvisorCollectorRequest omitted.
+
+// se_CreateInstanceProfileMessage omitted.
+
+// se_CreateMigrationProjectMessage omitted.
 
 // se_CreateReplicationConfigMessage omitted.
 
@@ -5946,17 +7925,29 @@ const se_CreateReplicationTaskMessage = (input: CreateReplicationTaskMessage, co
   });
 };
 
+// se_DataProviderDescriptorDefinition omitted.
+
+// se_DataProviderDescriptorDefinitionList omitted.
+
+// se_DataProviderSettings omitted.
+
 // se_DeleteCertificateMessage omitted.
 
 // se_DeleteCollectorRequest omitted.
 
 // se_DeleteConnectionMessage omitted.
 
+// se_DeleteDataProviderMessage omitted.
+
 // se_DeleteEndpointMessage omitted.
 
 // se_DeleteEventSubscriptionMessage omitted.
 
 // se_DeleteFleetAdvisorDatabasesRequest omitted.
+
+// se_DeleteInstanceProfileMessage omitted.
+
+// se_DeleteMigrationProjectMessage omitted.
 
 // se_DeleteReplicationConfigMessage omitted.
 
@@ -5975,6 +7966,10 @@ const se_CreateReplicationTaskMessage = (input: CreateReplicationTaskMessage, co
 // se_DescribeCertificatesMessage omitted.
 
 // se_DescribeConnectionsMessage omitted.
+
+// se_DescribeConversionConfigurationMessage omitted.
+
+// se_DescribeDataProvidersMessage omitted.
 
 // se_DescribeEndpointSettingsMessage omitted.
 
@@ -6005,6 +8000,8 @@ const se_DescribeEventsMessage = (input: DescribeEventsMessage, context: __Serde
 
 // se_DescribeEventSubscriptionsMessage omitted.
 
+// se_DescribeExtensionPackAssociationsMessage omitted.
+
 // se_DescribeFleetAdvisorCollectorsRequest omitted.
 
 // se_DescribeFleetAdvisorDatabasesRequest omitted.
@@ -6014,6 +8011,20 @@ const se_DescribeEventsMessage = (input: DescribeEventsMessage, context: __Serde
 // se_DescribeFleetAdvisorSchemaObjectSummaryRequest omitted.
 
 // se_DescribeFleetAdvisorSchemasRequest omitted.
+
+// se_DescribeInstanceProfilesMessage omitted.
+
+// se_DescribeMetadataModelAssessmentsMessage omitted.
+
+// se_DescribeMetadataModelConversionsMessage omitted.
+
+// se_DescribeMetadataModelExportsAsScriptMessage omitted.
+
+// se_DescribeMetadataModelExportsToTargetMessage omitted.
+
+// se_DescribeMetadataModelImportsMessage omitted.
+
+// se_DescribeMigrationProjectsMessage omitted.
 
 // se_DescribeOrderableReplicationInstancesMessage omitted.
 
@@ -6061,6 +8072,8 @@ const se_DescribeEventsMessage = (input: DescribeEventsMessage, context: __Serde
 
 // se_ExcludeTestList omitted.
 
+// se_ExportMetadataModelAssessmentMessage omitted.
+
 // se_Filter omitted.
 
 // se_FilterList omitted.
@@ -6095,11 +8108,21 @@ const se_ImportCertificateMessage = (input: ImportCertificateMessage, context: _
 
 // se_ListTagsForResourceMessage omitted.
 
+// se_MicrosoftSqlServerDataProviderSettings omitted.
+
 // se_MicrosoftSQLServerSettings omitted.
+
+// se_ModifyConversionConfigurationMessage omitted.
+
+// se_ModifyDataProviderMessage omitted.
 
 // se_ModifyEndpointMessage omitted.
 
 // se_ModifyEventSubscriptionMessage omitted.
+
+// se_ModifyInstanceProfileMessage omitted.
+
+// se_ModifyMigrationProjectMessage omitted.
 
 // se_ModifyReplicationConfigMessage omitted.
 
@@ -6128,11 +8151,17 @@ const se_ModifyReplicationTaskMessage = (input: ModifyReplicationTaskMessage, co
 
 // se_MoveReplicationTaskMessage omitted.
 
+// se_MySqlDataProviderSettings omitted.
+
 // se_MySQLSettings omitted.
 
 // se_NeptuneSettings omitted.
 
+// se_OracleDataProviderSettings omitted.
+
 // se_OracleSettings omitted.
+
+// se_PostgreSqlDataProviderSettings omitted.
 
 // se_PostgreSQLSettings omitted.
 
@@ -6154,7 +8183,21 @@ const se_ModifyReplicationTaskMessage = (input: ModifyReplicationTaskMessage, co
 
 // se_S3Settings omitted.
 
+// se_SCApplicationAttributes omitted.
+
 // se_SourceIdsList omitted.
+
+// se_StartExtensionPackAssociationMessage omitted.
+
+// se_StartMetadataModelAssessmentMessage omitted.
+
+// se_StartMetadataModelConversionMessage omitted.
+
+// se_StartMetadataModelExportAsScriptMessage omitted.
+
+// se_StartMetadataModelExportToTargetMessage omitted.
+
+// se_StartMetadataModelImportMessage omitted.
 
 // se_StartRecommendationsRequest omitted.
 
@@ -6310,11 +8353,38 @@ const de_CertificateList = (output: any, context: __SerdeContext): Certificate[]
 
 // de_ConnectionList omitted.
 
+/**
+ * deserializeAws_json1_1CreateDataProviderResponse
+ */
+const de_CreateDataProviderResponse = (output: any, context: __SerdeContext): CreateDataProviderResponse => {
+  return take(output, {
+    DataProvider: (_: any) => de_DataProvider(_, context),
+  }) as any;
+};
+
 // de_CreateEndpointResponse omitted.
 
 // de_CreateEventSubscriptionResponse omitted.
 
 // de_CreateFleetAdvisorCollectorResponse omitted.
+
+/**
+ * deserializeAws_json1_1CreateInstanceProfileResponse
+ */
+const de_CreateInstanceProfileResponse = (output: any, context: __SerdeContext): CreateInstanceProfileResponse => {
+  return take(output, {
+    InstanceProfile: (_: any) => de_InstanceProfile(_, context),
+  }) as any;
+};
+
+/**
+ * deserializeAws_json1_1CreateMigrationProjectResponse
+ */
+const de_CreateMigrationProjectResponse = (output: any, context: __SerdeContext): CreateMigrationProjectResponse => {
+  return take(output, {
+    MigrationProject: (_: any) => de_MigrationProject(_, context),
+  }) as any;
+};
 
 /**
  * deserializeAws_json1_1CreateReplicationConfigResponse
@@ -6357,6 +8427,40 @@ const de_CreateReplicationTaskResponse = (output: any, context: __SerdeContext):
 // de_DatabaseShortInfoResponse omitted.
 
 /**
+ * deserializeAws_json1_1DataProvider
+ */
+const de_DataProvider = (output: any, context: __SerdeContext): DataProvider => {
+  return take(output, {
+    DataProviderArn: __expectString,
+    DataProviderCreationTime: (_: any) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
+    DataProviderName: __expectString,
+    Description: __expectString,
+    Engine: __expectString,
+    Settings: (_: any) => _json(__expectUnion(_)),
+  }) as any;
+};
+
+// de_DataProviderDescriptor omitted.
+
+// de_DataProviderDescriptorList omitted.
+
+/**
+ * deserializeAws_json1_1DataProviderList
+ */
+const de_DataProviderList = (output: any, context: __SerdeContext): DataProvider[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      return de_DataProvider(entry, context);
+    });
+  return retVal;
+};
+
+// de_DataProviderSettings omitted.
+
+// de_DefaultErrorDetails omitted.
+
+/**
  * deserializeAws_json1_1DeleteCertificateResponse
  */
 const de_DeleteCertificateResponse = (output: any, context: __SerdeContext): DeleteCertificateResponse => {
@@ -6367,11 +8471,38 @@ const de_DeleteCertificateResponse = (output: any, context: __SerdeContext): Del
 
 // de_DeleteConnectionResponse omitted.
 
+/**
+ * deserializeAws_json1_1DeleteDataProviderResponse
+ */
+const de_DeleteDataProviderResponse = (output: any, context: __SerdeContext): DeleteDataProviderResponse => {
+  return take(output, {
+    DataProvider: (_: any) => de_DataProvider(_, context),
+  }) as any;
+};
+
 // de_DeleteEndpointResponse omitted.
 
 // de_DeleteEventSubscriptionResponse omitted.
 
 // de_DeleteFleetAdvisorDatabasesResponse omitted.
+
+/**
+ * deserializeAws_json1_1DeleteInstanceProfileResponse
+ */
+const de_DeleteInstanceProfileResponse = (output: any, context: __SerdeContext): DeleteInstanceProfileResponse => {
+  return take(output, {
+    InstanceProfile: (_: any) => de_InstanceProfile(_, context),
+  }) as any;
+};
+
+/**
+ * deserializeAws_json1_1DeleteMigrationProjectResponse
+ */
+const de_DeleteMigrationProjectResponse = (output: any, context: __SerdeContext): DeleteMigrationProjectResponse => {
+  return take(output, {
+    MigrationProject: (_: any) => de_MigrationProject(_, context),
+  }) as any;
+};
 
 /**
  * deserializeAws_json1_1DeleteReplicationConfigResponse
@@ -6433,6 +8564,18 @@ const de_DescribeCertificatesResponse = (output: any, context: __SerdeContext): 
 
 // de_DescribeConnectionsResponse omitted.
 
+// de_DescribeConversionConfigurationResponse omitted.
+
+/**
+ * deserializeAws_json1_1DescribeDataProvidersResponse
+ */
+const de_DescribeDataProvidersResponse = (output: any, context: __SerdeContext): DescribeDataProvidersResponse => {
+  return take(output, {
+    DataProviders: (_: any) => de_DataProviderList(_, context),
+    Marker: __expectString,
+  }) as any;
+};
+
 // de_DescribeEndpointSettingsResponse omitted.
 
 // de_DescribeEndpointsResponse omitted.
@@ -6463,6 +8606,8 @@ const de_DescribeEventsResponse = (output: any, context: __SerdeContext): Descri
 
 // de_DescribeEventSubscriptionsResponse omitted.
 
+// de_DescribeExtensionPackAssociationsResponse omitted.
+
 // de_DescribeFleetAdvisorCollectorsResponse omitted.
 
 // de_DescribeFleetAdvisorDatabasesResponse omitted.
@@ -6481,6 +8626,42 @@ const de_DescribeFleetAdvisorSchemasResponse = (
   return take(output, {
     FleetAdvisorSchemas: (_: any) => de_FleetAdvisorSchemaList(_, context),
     NextToken: __expectString,
+  }) as any;
+};
+
+/**
+ * deserializeAws_json1_1DescribeInstanceProfilesResponse
+ */
+const de_DescribeInstanceProfilesResponse = (
+  output: any,
+  context: __SerdeContext
+): DescribeInstanceProfilesResponse => {
+  return take(output, {
+    InstanceProfiles: (_: any) => de_InstanceProfileList(_, context),
+    Marker: __expectString,
+  }) as any;
+};
+
+// de_DescribeMetadataModelAssessmentsResponse omitted.
+
+// de_DescribeMetadataModelConversionsResponse omitted.
+
+// de_DescribeMetadataModelExportsAsScriptResponse omitted.
+
+// de_DescribeMetadataModelExportsToTargetResponse omitted.
+
+// de_DescribeMetadataModelImportsResponse omitted.
+
+/**
+ * deserializeAws_json1_1DescribeMigrationProjectsResponse
+ */
+const de_DescribeMigrationProjectsResponse = (
+  output: any,
+  context: __SerdeContext
+): DescribeMigrationProjectsResponse => {
+  return take(output, {
+    Marker: __expectString,
+    MigrationProjects: (_: any) => de_MigrationProjectList(_, context),
   }) as any;
 };
 
@@ -6689,6 +8870,8 @@ const de_EngineVersionList = (output: any, context: __SerdeContext): EngineVersi
   return retVal;
 };
 
+// de_ErrorDetails omitted.
+
 /**
  * deserializeAws_json1_1Event
  */
@@ -6724,6 +8907,12 @@ const de_EventList = (output: any, context: __SerdeContext): Event[] => {
 
 // de_EventSubscriptionsList omitted.
 
+// de_ExportMetadataModelAssessmentResponse omitted.
+
+// de_ExportMetadataModelAssessmentResultEntry omitted.
+
+// de_ExportSqlDetails omitted.
+
 // de_FleetAdvisorLsaAnalysisResponse omitted.
 
 // de_FleetAdvisorLsaAnalysisResponseList omitted.
@@ -6758,6 +8947,36 @@ const de_ImportCertificateResponse = (output: any, context: __SerdeContext): Imp
 };
 
 // de_IndividualAssessmentNameList omitted.
+
+/**
+ * deserializeAws_json1_1InstanceProfile
+ */
+const de_InstanceProfile = (output: any, context: __SerdeContext): InstanceProfile => {
+  return take(output, {
+    AvailabilityZone: __expectString,
+    Description: __expectString,
+    InstanceProfileArn: __expectString,
+    InstanceProfileCreationTime: (_: any) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
+    InstanceProfileName: __expectString,
+    KmsKeyArn: __expectString,
+    NetworkType: __expectString,
+    PubliclyAccessible: __expectBoolean,
+    SubnetGroupIdentifier: __expectString,
+    VpcSecurityGroups: _json,
+  }) as any;
+};
+
+/**
+ * deserializeAws_json1_1InstanceProfileList
+ */
+const de_InstanceProfileList = (output: any, context: __SerdeContext): InstanceProfile[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      return de_InstanceProfile(entry, context);
+    });
+  return retVal;
+};
 
 // de_InsufficientResourceCapacityFault omitted.
 
@@ -6797,11 +9016,72 @@ const de_ImportCertificateResponse = (output: any, context: __SerdeContext): Imp
 
 // de_ListTagsForResourceResponse omitted.
 
+// de_MicrosoftSqlServerDataProviderSettings omitted.
+
 // de_MicrosoftSQLServerSettings omitted.
+
+/**
+ * deserializeAws_json1_1MigrationProject
+ */
+const de_MigrationProject = (output: any, context: __SerdeContext): MigrationProject => {
+  return take(output, {
+    Description: __expectString,
+    InstanceProfileArn: __expectString,
+    InstanceProfileName: __expectString,
+    MigrationProjectArn: __expectString,
+    MigrationProjectCreationTime: (_: any) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
+    MigrationProjectName: __expectString,
+    SchemaConversionApplicationAttributes: _json,
+    SourceDataProviderDescriptors: _json,
+    TargetDataProviderDescriptors: _json,
+    TransformationRules: __expectString,
+  }) as any;
+};
+
+/**
+ * deserializeAws_json1_1MigrationProjectList
+ */
+const de_MigrationProjectList = (output: any, context: __SerdeContext): MigrationProject[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      return de_MigrationProject(entry, context);
+    });
+  return retVal;
+};
+
+// de_ModifyConversionConfigurationResponse omitted.
+
+/**
+ * deserializeAws_json1_1ModifyDataProviderResponse
+ */
+const de_ModifyDataProviderResponse = (output: any, context: __SerdeContext): ModifyDataProviderResponse => {
+  return take(output, {
+    DataProvider: (_: any) => de_DataProvider(_, context),
+  }) as any;
+};
 
 // de_ModifyEndpointResponse omitted.
 
 // de_ModifyEventSubscriptionResponse omitted.
+
+/**
+ * deserializeAws_json1_1ModifyInstanceProfileResponse
+ */
+const de_ModifyInstanceProfileResponse = (output: any, context: __SerdeContext): ModifyInstanceProfileResponse => {
+  return take(output, {
+    InstanceProfile: (_: any) => de_InstanceProfile(_, context),
+  }) as any;
+};
+
+/**
+ * deserializeAws_json1_1ModifyMigrationProjectResponse
+ */
+const de_ModifyMigrationProjectResponse = (output: any, context: __SerdeContext): ModifyMigrationProjectResponse => {
+  return take(output, {
+    MigrationProject: (_: any) => de_MigrationProject(_, context),
+  }) as any;
+};
 
 /**
  * deserializeAws_json1_1ModifyReplicationConfigResponse
@@ -6846,9 +9126,13 @@ const de_MoveReplicationTaskResponse = (output: any, context: __SerdeContext): M
   }) as any;
 };
 
+// de_MySqlDataProviderSettings omitted.
+
 // de_MySQLSettings omitted.
 
 // de_NeptuneSettings omitted.
+
+// de_OracleDataProviderSettings omitted.
 
 // de_OracleSettings omitted.
 
@@ -6893,6 +9177,8 @@ const de_PendingMaintenanceActions = (output: any, context: __SerdeContext): Res
     });
   return retVal;
 };
+
+// de_PostgreSqlDataProviderSettings omitted.
 
 // de_PostgreSQLSettings omitted.
 
@@ -7377,6 +9663,12 @@ const de_ResourcePendingMaintenanceActions = (
 
 // de_S3Settings omitted.
 
+// de_SCApplicationAttributes omitted.
+
+// de_SchemaConversionRequest omitted.
+
+// de_SchemaConversionRequestList omitted.
+
 // de_SchemaList omitted.
 
 /**
@@ -7405,6 +9697,18 @@ const de_SchemaResponse = (output: any, context: __SerdeContext): SchemaResponse
 // de_SNSNoAuthorizationFault omitted.
 
 // de_SourceIdsList omitted.
+
+// de_StartExtensionPackAssociationResponse omitted.
+
+// de_StartMetadataModelAssessmentResponse omitted.
+
+// de_StartMetadataModelConversionResponse omitted.
+
+// de_StartMetadataModelExportAsScriptResponse omitted.
+
+// de_StartMetadataModelExportToTargetResponse omitted.
+
+// de_StartMetadataModelImportResponse omitted.
 
 /**
  * deserializeAws_json1_1StartReplicationResponse

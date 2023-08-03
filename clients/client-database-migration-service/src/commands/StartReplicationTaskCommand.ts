@@ -18,7 +18,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../DatabaseMigrationServiceClient";
-import { StartReplicationTaskMessage, StartReplicationTaskResponse } from "../models/models_0";
+import { StartReplicationTaskMessage, StartReplicationTaskResponse } from "../models/models_1";
 import { de_StartReplicationTaskCommand, se_StartReplicationTaskCommand } from "../protocols/Aws_json1_1";
 
 /**

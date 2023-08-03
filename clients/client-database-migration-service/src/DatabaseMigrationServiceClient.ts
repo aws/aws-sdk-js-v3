@@ -62,6 +62,7 @@ import {
   CancelReplicationTaskAssessmentRunCommandInput,
   CancelReplicationTaskAssessmentRunCommandOutput,
 } from "./commands/CancelReplicationTaskAssessmentRunCommand";
+import { CreateDataProviderCommandInput, CreateDataProviderCommandOutput } from "./commands/CreateDataProviderCommand";
 import { CreateEndpointCommandInput, CreateEndpointCommandOutput } from "./commands/CreateEndpointCommand";
 import {
   CreateEventSubscriptionCommandInput,
@@ -71,6 +72,14 @@ import {
   CreateFleetAdvisorCollectorCommandInput,
   CreateFleetAdvisorCollectorCommandOutput,
 } from "./commands/CreateFleetAdvisorCollectorCommand";
+import {
+  CreateInstanceProfileCommandInput,
+  CreateInstanceProfileCommandOutput,
+} from "./commands/CreateInstanceProfileCommand";
+import {
+  CreateMigrationProjectCommandInput,
+  CreateMigrationProjectCommandOutput,
+} from "./commands/CreateMigrationProjectCommand";
 import {
   CreateReplicationConfigCommandInput,
   CreateReplicationConfigCommandOutput,
@@ -89,6 +98,7 @@ import {
 } from "./commands/CreateReplicationTaskCommand";
 import { DeleteCertificateCommandInput, DeleteCertificateCommandOutput } from "./commands/DeleteCertificateCommand";
 import { DeleteConnectionCommandInput, DeleteConnectionCommandOutput } from "./commands/DeleteConnectionCommand";
+import { DeleteDataProviderCommandInput, DeleteDataProviderCommandOutput } from "./commands/DeleteDataProviderCommand";
 import { DeleteEndpointCommandInput, DeleteEndpointCommandOutput } from "./commands/DeleteEndpointCommand";
 import {
   DeleteEventSubscriptionCommandInput,
@@ -102,6 +112,14 @@ import {
   DeleteFleetAdvisorDatabasesCommandInput,
   DeleteFleetAdvisorDatabasesCommandOutput,
 } from "./commands/DeleteFleetAdvisorDatabasesCommand";
+import {
+  DeleteInstanceProfileCommandInput,
+  DeleteInstanceProfileCommandOutput,
+} from "./commands/DeleteInstanceProfileCommand";
+import {
+  DeleteMigrationProjectCommandInput,
+  DeleteMigrationProjectCommandOutput,
+} from "./commands/DeleteMigrationProjectCommand";
 import {
   DeleteReplicationConfigCommandInput,
   DeleteReplicationConfigCommandOutput,
@@ -138,6 +156,14 @@ import {
   DescribeConnectionsCommandInput,
   DescribeConnectionsCommandOutput,
 } from "./commands/DescribeConnectionsCommand";
+import {
+  DescribeConversionConfigurationCommandInput,
+  DescribeConversionConfigurationCommandOutput,
+} from "./commands/DescribeConversionConfigurationCommand";
+import {
+  DescribeDataProvidersCommandInput,
+  DescribeDataProvidersCommandOutput,
+} from "./commands/DescribeDataProvidersCommand";
 import { DescribeEndpointsCommandInput, DescribeEndpointsCommandOutput } from "./commands/DescribeEndpointsCommand";
 import {
   DescribeEndpointSettingsCommandInput,
@@ -161,6 +187,10 @@ import {
   DescribeEventSubscriptionsCommandOutput,
 } from "./commands/DescribeEventSubscriptionsCommand";
 import {
+  DescribeExtensionPackAssociationsCommandInput,
+  DescribeExtensionPackAssociationsCommandOutput,
+} from "./commands/DescribeExtensionPackAssociationsCommand";
+import {
   DescribeFleetAdvisorCollectorsCommandInput,
   DescribeFleetAdvisorCollectorsCommandOutput,
 } from "./commands/DescribeFleetAdvisorCollectorsCommand";
@@ -180,6 +210,34 @@ import {
   DescribeFleetAdvisorSchemasCommandInput,
   DescribeFleetAdvisorSchemasCommandOutput,
 } from "./commands/DescribeFleetAdvisorSchemasCommand";
+import {
+  DescribeInstanceProfilesCommandInput,
+  DescribeInstanceProfilesCommandOutput,
+} from "./commands/DescribeInstanceProfilesCommand";
+import {
+  DescribeMetadataModelAssessmentsCommandInput,
+  DescribeMetadataModelAssessmentsCommandOutput,
+} from "./commands/DescribeMetadataModelAssessmentsCommand";
+import {
+  DescribeMetadataModelConversionsCommandInput,
+  DescribeMetadataModelConversionsCommandOutput,
+} from "./commands/DescribeMetadataModelConversionsCommand";
+import {
+  DescribeMetadataModelExportsAsScriptCommandInput,
+  DescribeMetadataModelExportsAsScriptCommandOutput,
+} from "./commands/DescribeMetadataModelExportsAsScriptCommand";
+import {
+  DescribeMetadataModelExportsToTargetCommandInput,
+  DescribeMetadataModelExportsToTargetCommandOutput,
+} from "./commands/DescribeMetadataModelExportsToTargetCommand";
+import {
+  DescribeMetadataModelImportsCommandInput,
+  DescribeMetadataModelImportsCommandOutput,
+} from "./commands/DescribeMetadataModelImportsCommand";
+import {
+  DescribeMigrationProjectsCommandInput,
+  DescribeMigrationProjectsCommandOutput,
+} from "./commands/DescribeMigrationProjectsCommand";
 import {
   DescribeOrderableReplicationInstancesCommandInput,
   DescribeOrderableReplicationInstancesCommandOutput,
@@ -245,16 +303,33 @@ import {
   DescribeTableStatisticsCommandInput,
   DescribeTableStatisticsCommandOutput,
 } from "./commands/DescribeTableStatisticsCommand";
+import {
+  ExportMetadataModelAssessmentCommandInput,
+  ExportMetadataModelAssessmentCommandOutput,
+} from "./commands/ExportMetadataModelAssessmentCommand";
 import { ImportCertificateCommandInput, ImportCertificateCommandOutput } from "./commands/ImportCertificateCommand";
 import {
   ListTagsForResourceCommandInput,
   ListTagsForResourceCommandOutput,
 } from "./commands/ListTagsForResourceCommand";
+import {
+  ModifyConversionConfigurationCommandInput,
+  ModifyConversionConfigurationCommandOutput,
+} from "./commands/ModifyConversionConfigurationCommand";
+import { ModifyDataProviderCommandInput, ModifyDataProviderCommandOutput } from "./commands/ModifyDataProviderCommand";
 import { ModifyEndpointCommandInput, ModifyEndpointCommandOutput } from "./commands/ModifyEndpointCommand";
 import {
   ModifyEventSubscriptionCommandInput,
   ModifyEventSubscriptionCommandOutput,
 } from "./commands/ModifyEventSubscriptionCommand";
+import {
+  ModifyInstanceProfileCommandInput,
+  ModifyInstanceProfileCommandOutput,
+} from "./commands/ModifyInstanceProfileCommand";
+import {
+  ModifyMigrationProjectCommandInput,
+  ModifyMigrationProjectCommandOutput,
+} from "./commands/ModifyMigrationProjectCommand";
 import {
   ModifyReplicationConfigCommandInput,
   ModifyReplicationConfigCommandOutput,
@@ -293,6 +368,30 @@ import {
   RunFleetAdvisorLsaAnalysisCommandInput,
   RunFleetAdvisorLsaAnalysisCommandOutput,
 } from "./commands/RunFleetAdvisorLsaAnalysisCommand";
+import {
+  StartExtensionPackAssociationCommandInput,
+  StartExtensionPackAssociationCommandOutput,
+} from "./commands/StartExtensionPackAssociationCommand";
+import {
+  StartMetadataModelAssessmentCommandInput,
+  StartMetadataModelAssessmentCommandOutput,
+} from "./commands/StartMetadataModelAssessmentCommand";
+import {
+  StartMetadataModelConversionCommandInput,
+  StartMetadataModelConversionCommandOutput,
+} from "./commands/StartMetadataModelConversionCommand";
+import {
+  StartMetadataModelExportAsScriptCommandInput,
+  StartMetadataModelExportAsScriptCommandOutput,
+} from "./commands/StartMetadataModelExportAsScriptCommand";
+import {
+  StartMetadataModelExportToTargetCommandInput,
+  StartMetadataModelExportToTargetCommandOutput,
+} from "./commands/StartMetadataModelExportToTargetCommand";
+import {
+  StartMetadataModelImportCommandInput,
+  StartMetadataModelImportCommandOutput,
+} from "./commands/StartMetadataModelImportCommand";
 import {
   StartRecommendationsCommandInput,
   StartRecommendationsCommandOutput,
@@ -338,19 +437,25 @@ export type ServiceInputTypes =
   | ApplyPendingMaintenanceActionCommandInput
   | BatchStartRecommendationsCommandInput
   | CancelReplicationTaskAssessmentRunCommandInput
+  | CreateDataProviderCommandInput
   | CreateEndpointCommandInput
   | CreateEventSubscriptionCommandInput
   | CreateFleetAdvisorCollectorCommandInput
+  | CreateInstanceProfileCommandInput
+  | CreateMigrationProjectCommandInput
   | CreateReplicationConfigCommandInput
   | CreateReplicationInstanceCommandInput
   | CreateReplicationSubnetGroupCommandInput
   | CreateReplicationTaskCommandInput
   | DeleteCertificateCommandInput
   | DeleteConnectionCommandInput
+  | DeleteDataProviderCommandInput
   | DeleteEndpointCommandInput
   | DeleteEventSubscriptionCommandInput
   | DeleteFleetAdvisorCollectorCommandInput
   | DeleteFleetAdvisorDatabasesCommandInput
+  | DeleteInstanceProfileCommandInput
+  | DeleteMigrationProjectCommandInput
   | DeleteReplicationConfigCommandInput
   | DeleteReplicationInstanceCommandInput
   | DeleteReplicationSubnetGroupCommandInput
@@ -360,6 +465,8 @@ export type ServiceInputTypes =
   | DescribeApplicableIndividualAssessmentsCommandInput
   | DescribeCertificatesCommandInput
   | DescribeConnectionsCommandInput
+  | DescribeConversionConfigurationCommandInput
+  | DescribeDataProvidersCommandInput
   | DescribeEndpointSettingsCommandInput
   | DescribeEndpointTypesCommandInput
   | DescribeEndpointsCommandInput
@@ -367,11 +474,19 @@ export type ServiceInputTypes =
   | DescribeEventCategoriesCommandInput
   | DescribeEventSubscriptionsCommandInput
   | DescribeEventsCommandInput
+  | DescribeExtensionPackAssociationsCommandInput
   | DescribeFleetAdvisorCollectorsCommandInput
   | DescribeFleetAdvisorDatabasesCommandInput
   | DescribeFleetAdvisorLsaAnalysisCommandInput
   | DescribeFleetAdvisorSchemaObjectSummaryCommandInput
   | DescribeFleetAdvisorSchemasCommandInput
+  | DescribeInstanceProfilesCommandInput
+  | DescribeMetadataModelAssessmentsCommandInput
+  | DescribeMetadataModelConversionsCommandInput
+  | DescribeMetadataModelExportsAsScriptCommandInput
+  | DescribeMetadataModelExportsToTargetCommandInput
+  | DescribeMetadataModelImportsCommandInput
+  | DescribeMigrationProjectsCommandInput
   | DescribeOrderableReplicationInstancesCommandInput
   | DescribePendingMaintenanceActionsCommandInput
   | DescribeRecommendationLimitationsCommandInput
@@ -389,10 +504,15 @@ export type ServiceInputTypes =
   | DescribeReplicationsCommandInput
   | DescribeSchemasCommandInput
   | DescribeTableStatisticsCommandInput
+  | ExportMetadataModelAssessmentCommandInput
   | ImportCertificateCommandInput
   | ListTagsForResourceCommandInput
+  | ModifyConversionConfigurationCommandInput
+  | ModifyDataProviderCommandInput
   | ModifyEndpointCommandInput
   | ModifyEventSubscriptionCommandInput
+  | ModifyInstanceProfileCommandInput
+  | ModifyMigrationProjectCommandInput
   | ModifyReplicationConfigCommandInput
   | ModifyReplicationInstanceCommandInput
   | ModifyReplicationSubnetGroupCommandInput
@@ -404,6 +524,12 @@ export type ServiceInputTypes =
   | ReloadTablesCommandInput
   | RemoveTagsFromResourceCommandInput
   | RunFleetAdvisorLsaAnalysisCommandInput
+  | StartExtensionPackAssociationCommandInput
+  | StartMetadataModelAssessmentCommandInput
+  | StartMetadataModelConversionCommandInput
+  | StartMetadataModelExportAsScriptCommandInput
+  | StartMetadataModelExportToTargetCommandInput
+  | StartMetadataModelImportCommandInput
   | StartRecommendationsCommandInput
   | StartReplicationCommandInput
   | StartReplicationTaskAssessmentCommandInput
@@ -422,19 +548,25 @@ export type ServiceOutputTypes =
   | ApplyPendingMaintenanceActionCommandOutput
   | BatchStartRecommendationsCommandOutput
   | CancelReplicationTaskAssessmentRunCommandOutput
+  | CreateDataProviderCommandOutput
   | CreateEndpointCommandOutput
   | CreateEventSubscriptionCommandOutput
   | CreateFleetAdvisorCollectorCommandOutput
+  | CreateInstanceProfileCommandOutput
+  | CreateMigrationProjectCommandOutput
   | CreateReplicationConfigCommandOutput
   | CreateReplicationInstanceCommandOutput
   | CreateReplicationSubnetGroupCommandOutput
   | CreateReplicationTaskCommandOutput
   | DeleteCertificateCommandOutput
   | DeleteConnectionCommandOutput
+  | DeleteDataProviderCommandOutput
   | DeleteEndpointCommandOutput
   | DeleteEventSubscriptionCommandOutput
   | DeleteFleetAdvisorCollectorCommandOutput
   | DeleteFleetAdvisorDatabasesCommandOutput
+  | DeleteInstanceProfileCommandOutput
+  | DeleteMigrationProjectCommandOutput
   | DeleteReplicationConfigCommandOutput
   | DeleteReplicationInstanceCommandOutput
   | DeleteReplicationSubnetGroupCommandOutput
@@ -444,6 +576,8 @@ export type ServiceOutputTypes =
   | DescribeApplicableIndividualAssessmentsCommandOutput
   | DescribeCertificatesCommandOutput
   | DescribeConnectionsCommandOutput
+  | DescribeConversionConfigurationCommandOutput
+  | DescribeDataProvidersCommandOutput
   | DescribeEndpointSettingsCommandOutput
   | DescribeEndpointTypesCommandOutput
   | DescribeEndpointsCommandOutput
@@ -451,11 +585,19 @@ export type ServiceOutputTypes =
   | DescribeEventCategoriesCommandOutput
   | DescribeEventSubscriptionsCommandOutput
   | DescribeEventsCommandOutput
+  | DescribeExtensionPackAssociationsCommandOutput
   | DescribeFleetAdvisorCollectorsCommandOutput
   | DescribeFleetAdvisorDatabasesCommandOutput
   | DescribeFleetAdvisorLsaAnalysisCommandOutput
   | DescribeFleetAdvisorSchemaObjectSummaryCommandOutput
   | DescribeFleetAdvisorSchemasCommandOutput
+  | DescribeInstanceProfilesCommandOutput
+  | DescribeMetadataModelAssessmentsCommandOutput
+  | DescribeMetadataModelConversionsCommandOutput
+  | DescribeMetadataModelExportsAsScriptCommandOutput
+  | DescribeMetadataModelExportsToTargetCommandOutput
+  | DescribeMetadataModelImportsCommandOutput
+  | DescribeMigrationProjectsCommandOutput
   | DescribeOrderableReplicationInstancesCommandOutput
   | DescribePendingMaintenanceActionsCommandOutput
   | DescribeRecommendationLimitationsCommandOutput
@@ -473,10 +615,15 @@ export type ServiceOutputTypes =
   | DescribeReplicationsCommandOutput
   | DescribeSchemasCommandOutput
   | DescribeTableStatisticsCommandOutput
+  | ExportMetadataModelAssessmentCommandOutput
   | ImportCertificateCommandOutput
   | ListTagsForResourceCommandOutput
+  | ModifyConversionConfigurationCommandOutput
+  | ModifyDataProviderCommandOutput
   | ModifyEndpointCommandOutput
   | ModifyEventSubscriptionCommandOutput
+  | ModifyInstanceProfileCommandOutput
+  | ModifyMigrationProjectCommandOutput
   | ModifyReplicationConfigCommandOutput
   | ModifyReplicationInstanceCommandOutput
   | ModifyReplicationSubnetGroupCommandOutput
@@ -488,6 +635,12 @@ export type ServiceOutputTypes =
   | ReloadTablesCommandOutput
   | RemoveTagsFromResourceCommandOutput
   | RunFleetAdvisorLsaAnalysisCommandOutput
+  | StartExtensionPackAssociationCommandOutput
+  | StartMetadataModelAssessmentCommandOutput
+  | StartMetadataModelConversionCommandOutput
+  | StartMetadataModelExportAsScriptCommandOutput
+  | StartMetadataModelExportToTargetCommandOutput
+  | StartMetadataModelImportCommandOutput
   | StartRecommendationsCommandOutput
   | StartReplicationCommandOutput
   | StartReplicationTaskAssessmentCommandOutput

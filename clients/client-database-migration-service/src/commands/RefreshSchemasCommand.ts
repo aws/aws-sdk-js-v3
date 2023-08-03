@@ -18,7 +18,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../DatabaseMigrationServiceClient";
-import { RefreshSchemasMessage, RefreshSchemasResponse } from "../models/models_0";
+import { RefreshSchemasMessage, RefreshSchemasResponse } from "../models/models_1";
 import { de_RefreshSchemasCommand, se_RefreshSchemasCommand } from "../protocols/Aws_json1_1";
 
 /**

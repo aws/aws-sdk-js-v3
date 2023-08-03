@@ -18,7 +18,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../DatabaseMigrationServiceClient";
-import { ReloadTablesMessage, ReloadTablesResponse } from "../models/models_0";
+import { ReloadTablesMessage, ReloadTablesResponse } from "../models/models_1";
 import { de_ReloadTablesCommand, se_ReloadTablesCommand } from "../protocols/Aws_json1_1";
 
 /**

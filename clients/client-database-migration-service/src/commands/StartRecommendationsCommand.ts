@@ -18,7 +18,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../DatabaseMigrationServiceClient";
-import { StartRecommendationsRequest } from "../models/models_0";
+import { StartRecommendationsRequest } from "../models/models_1";
 import { de_StartRecommendationsCommand, se_StartRecommendationsCommand } from "../protocols/Aws_json1_1";
 
 /**
