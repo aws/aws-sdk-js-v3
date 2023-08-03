@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.384.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.383.0...v3.384.0) (2023-08-03)
+
+
+### Features
+
+* **client-database-migration-service:** The release makes public API for DMS Schema Conversion feature. ([ed44271](https://github.com/aws/aws-sdk-js-v3/commit/ed44271a1578d863003c3960b1098fb8a5fafbc0))
+
+
+
+
+
 # [3.382.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.381.0...v3.382.0) (2023-08-01)
 
 

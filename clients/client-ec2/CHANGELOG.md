@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.384.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.383.0...v3.384.0) (2023-08-03)
+
+
+### Features
+
+* **client-ec2:** This release adds new parameter isPrimaryIPv6 to  allow assigning an IPv6 address as a primary IPv6 address to a network interface which cannot be changed to give equivalent functionality available for network interfaces with primary IPv4 address. ([e8eae85](https://github.com/aws/aws-sdk-js-v3/commit/e8eae855ee894e0a22a641683bb9b2e769844a4d))
+
+
+
+
+
 # [3.382.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.381.0...v3.382.0) (2023-08-01)
 
 **Note:** Version bump only for package @aws-sdk/client-ec2

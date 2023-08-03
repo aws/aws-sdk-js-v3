@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.384.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.383.0...v3.384.0) (2023-08-03)
+
+
+### Features
+
+* **client-sagemaker:** Amazon SageMaker now supports running training jobs on p5.48xlarge instance types. ([87fda49](https://github.com/aws/aws-sdk-js-v3/commit/87fda49544750561ccb5d3a6fc2026c5332928c8))
+
+
+
+
+
 # [3.383.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.382.0...v3.383.0) (2023-08-02)
 
 
