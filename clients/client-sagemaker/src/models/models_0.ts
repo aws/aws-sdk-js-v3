@@ -1528,6 +1528,7 @@ export const TrainingInstanceType = {
   ML_P3_2XLARGE: "ml.p3.2xlarge",
   ML_P3_8XLARGE: "ml.p3.8xlarge",
   ML_P4D_24XLARGE: "ml.p4d.24xlarge",
+  ML_P5_48XLARGE: "ml.p5.48xlarge",
   ML_TRN1N_32XLARGE: "ml.trn1n.32xlarge",
   ML_TRN1_2XLARGE: "ml.trn1.2xlarge",
   ML_TRN1_32XLARGE: "ml.trn1.32xlarge",
