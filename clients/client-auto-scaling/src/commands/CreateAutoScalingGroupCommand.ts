@@ -332,6 +332,93 @@ export interface CreateAutoScalingGroupCommandOutput extends __MetadataBearer {}
  * // example id: to-create-an-auto-scaling-group-with-a-mixed-instances-policy-1617815269039
  * ```
  *
+ * @example To create an Auto Scaling group with a mixed instances policy
+ * ```javascript
+ * // This example creates an Auto Scaling group with a mixed instances policy. It specifies the c5.large, c5a.large, and c6g.large instance types and defines a different launch template for the c6g.large instance type.
+ * const input = {
+ *   "AutoScalingGroupName": "my-asg",
+ *   "DesiredCapacity": 3,
+ *   "MaxSize": 5,
+ *   "MinSize": 1,
+ *   "MixedInstancesPolicy": {
+ *     "InstancesDistribution": {
+ *       "OnDemandBaseCapacity": 1,
+ *       "OnDemandPercentageAboveBaseCapacity": 50,
+ *       "SpotAllocationStrategy": "price-capacity-optimized"
+ *     },
+ *     "LaunchTemplate": {
+ *       "LaunchTemplateSpecification": {
+ *         "LaunchTemplateName": "my-launch-template-for-x86",
+ *         "Version": "$Default"
+ *       },
+ *       "Overrides": [
+ *         {
+ *           "InstanceType": "c6g.large",
+ *           "LaunchTemplateSpecification": {
+ *             "LaunchTemplateName": "my-launch-template-for-arm",
+ *             "Version": "$Default"
+ *           }
+ *         },
+ *         {
+ *           "InstanceType": "c5.large"
+ *         },
+ *         {
+ *           "InstanceType": "c5a.large"
+ *         }
+ *       ]
+ *     }
+ *   },
+ *   "VPCZoneIdentifier": "subnet-057fa0918fEXAMPLE, subnet-610acd08EXAMPLE"
+ * };
+ * const command = new CreateAutoScalingGroupCommand(input);
+ * await client.send(command);
+ * // example id: autoscaling-create-auto-scaling-group-3
+ * ```
+ *
+ * @example To create an Auto Scaling group using attribute-based instance type selection
+ * ```javascript
+ * // This example creates an Auto Scaling group using attribute-based instance type selection. It requires the instance types to have a minimum of four vCPUs and a maximum of eight vCPUs, a minimum of 16,384 MiB of memory, and an Intel manufactured CPU.
+ * const input = {
+ *   "AutoScalingGroupName": "my-asg",
+ *   "DesiredCapacity": 4,
+ *   "DesiredCapacityTypes": "units",
+ *   "MaxSize": 100,
+ *   "MinSize": 0,
+ *   "MixedInstancesPolicy": {
+ *     "InstancesDistribution": {
+ *       "OnDemandPercentageAboveBaseCapacity": 50,
+ *       "SpotAllocationStrategy": "price-capacity-optimized"
+ *     },
+ *     "LaunchTemplate": {
+ *       "LaunchTemplateSpecification": {
+ *         "LaunchTemplateName": "my-template-for-auto-scaling",
+ *         "Version": "$Default"
+ *       },
+ *       "Overrides": [
+ *         {
+ *           "InstanceRequirements": {
+ *             "CpuManufacturers": [
+ *               "intel"
+ *             ],
+ *             "MemoryMiB": {
+ *               "Min": 16384
+ *             },
+ *             "VCpuCount": {
+ *               "Max": 8,
+ *               "Min": 4
+ *             }
+ *           }
+ *         }
+ *       ]
+ *     }
+ *   },
+ *   "VPCZoneIdentifier": "subnet-057fa0918fEXAMPLE, subnet-610acd08EXAMPLE"
+ * };
+ * const command = new CreateAutoScalingGroupCommand(input);
+ * await client.send(command);
+ * // example id: autoscaling-create-auto-scaling-group-4
+ * ```
+ *
  */
 export class CreateAutoScalingGroupCommand extends $Command<
   CreateAutoScalingGroupCommandInput,

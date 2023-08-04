@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.385.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.384.0...v3.385.0) (2023-08-04)
+
+
+### Bug Fixes
+
+* **token-providers:** break dependency cycle with sso-oidc ([#5049](https://github.com/aws/aws-sdk-js-v3/issues/5049)) ([d6977c9](https://github.com/aws/aws-sdk-js-v3/commit/d6977c924b3fa98b2a944c19a9a45ae3a5bae80f))
+
+
+
+
+
 # [3.382.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.381.0...v3.382.0) (2023-08-01)
 
 **Note:** Version bump only for package @aws-sdk/token-providers

@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.385.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.384.0...v3.385.0) (2023-08-04)
+
+
+### Features
+
+* **client-connect:** Added a new API UpdateRoutingProfileAgentAvailabilityTimer to update agent availability timer of a routing profile. ([a2d8d18](https://github.com/aws/aws-sdk-js-v3/commit/a2d8d1833e92e36e27b232f5c04a0c6bc2d0e673))
+
+
+
+
+
 # [3.382.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.381.0...v3.382.0) (2023-08-01)
 
 **Note:** Version bump only for package @aws-sdk/client-connect

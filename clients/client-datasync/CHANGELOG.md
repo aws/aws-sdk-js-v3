@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.385.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.384.0...v3.385.0) (2023-08-04)
+
+
+### Features
+
+* **client-datasync:** Display cloud storage used capacity at a cluster level. ([70146be](https://github.com/aws/aws-sdk-js-v3/commit/70146bec4e7975d1ab1f3cb7493f4301839b4c7b))
+
+
+
+
+
 # [3.382.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.381.0...v3.382.0) (2023-08-01)
 
 **Note:** Version bump only for package @aws-sdk/client-datasync

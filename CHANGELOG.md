@@ -3,6 +3,25 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.385.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.384.0...v3.385.0) (2023-08-04)
+
+
+### Bug Fixes
+
+* **token-providers:** break dependency cycle with sso-oidc ([#5049](https://github.com/aws/aws-sdk-js-v3/issues/5049)) ([d6977c9](https://github.com/aws/aws-sdk-js-v3/commit/d6977c924b3fa98b2a944c19a9a45ae3a5bae80f))
+
+
+### Features
+
+* **client-connect:** Added a new API UpdateRoutingProfileAgentAvailabilityTimer to update agent availability timer of a routing profile. ([a2d8d18](https://github.com/aws/aws-sdk-js-v3/commit/a2d8d1833e92e36e27b232f5c04a0c6bc2d0e673))
+* **client-datasync:** Display cloud storage used capacity at a cluster level. ([70146be](https://github.com/aws/aws-sdk-js-v3/commit/70146bec4e7975d1ab1f3cb7493f4301839b4c7b))
+* **client-sagemaker:** Including DataCaptureConfig key in the Amazon Sagemaker Search's transform job object ([126b1c6](https://github.com/aws/aws-sdk-js-v3/commit/126b1c6d83889830a94e30a8c56ec0e0ce1d5682))
+* **clients:** update client endpoints as of 2023-08-04 ([54a679f](https://github.com/aws/aws-sdk-js-v3/commit/54a679f80c3243ca230f187342d750f9a8426288))
+
+
+
+
+
 # [3.384.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.383.0...v3.384.0) (2023-08-03)
 
 
