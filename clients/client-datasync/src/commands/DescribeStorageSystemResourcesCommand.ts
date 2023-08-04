@@ -179,6 +179,7 @@ export interface DescribeStorageSystemResourcesCommandOutput
  * //         ],
  * //         RecommendationStatus: "NONE" || "IN_PROGRESS" || "COMPLETED" || "FAILED",
  * //         LunCount: Number("long"),
+ * //         ClusterCloudStorageUsed: Number("long"),
  * //       },
  * //     ],
  * //   },

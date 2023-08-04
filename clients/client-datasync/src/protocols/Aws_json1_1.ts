@@ -4888,6 +4888,7 @@ const de_NetAppONTAPCluster = (output: any, context: __SerdeContext): NetAppONTA
     ClusterBlockStorageLogicalUsed: __expectLong,
     ClusterBlockStorageSize: __expectLong,
     ClusterBlockStorageUsed: __expectLong,
+    ClusterCloudStorageUsed: __expectLong,
     ClusterName: __expectString,
     LunCount: __expectLong,
     MaxP95Performance: (_: any) => de_MaxP95Performance(_, context),

@@ -36,9 +36,10 @@ export interface UpdateLocationNfsCommandOutput extends UpdateLocationNfsRespons
 
 /**
  * @public
- * <p>Updates some of the parameters of a previously created location for Network File System
- *       (NFS) access. For information about creating an NFS location, see <a href="https://docs.aws.amazon.com/datasync/latest/userguide/create-nfs-location.html">Creating a location for
- *       NFS</a>.</p>
+ * <p>Modifies some configurations of the Network File System (NFS) transfer location that
+ *       you're using with DataSync.</p>
+ *          <p>For more information, see <a href="https://docs.aws.amazon.com/datasync/latest/userguide/create-nfs-location.html">Configuring transfers to or from an
+ *         NFS file server</a>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

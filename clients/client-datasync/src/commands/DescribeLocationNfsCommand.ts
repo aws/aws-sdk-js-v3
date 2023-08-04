@@ -36,7 +36,8 @@ export interface DescribeLocationNfsCommandOutput extends DescribeLocationNfsRes
 
 /**
  * @public
- * <p>Returns metadata, such as the path information, about an NFS location.</p>
+ * <p>Provides details about how an DataSync transfer location for a Network
+ *       File System (NFS) file server is configured.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

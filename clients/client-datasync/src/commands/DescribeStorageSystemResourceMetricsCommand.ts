@@ -90,6 +90,7 @@ export interface DescribeStorageSystemResourceMetricsCommandOutput
  * //         Used: Number("long"),
  * //         Provisioned: Number("long"),
  * //         LogicalUsed: Number("long"),
+ * //         ClusterCloudStorageUsed: Number("long"),
  * //       },
  * //       ResourceId: "STRING_VALUE",
  * //       ResourceType: "SVM" || "VOLUME" || "CLUSTER",
