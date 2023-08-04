@@ -70,6 +70,7 @@ export interface CreateRoutingProfileCommandOutput extends CreateRoutingProfileR
  *   Tags: { // TagMap
  *     "<keys>": "STRING_VALUE",
  *   },
+ *   AgentAvailabilityTimer: "TIME_SINCE_LAST_ACTIVITY" || "TIME_SINCE_LAST_INBOUND",
  * };
  * const command = new CreateRoutingProfileCommand(input);
  * const response = await client.send(command);

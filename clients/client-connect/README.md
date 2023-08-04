@@ -1663,6 +1663,14 @@ UpdateQuickConnectName
 </details>
 <details>
 <summary>
+UpdateRoutingProfileAgentAvailabilityTimer
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-connect/classes/updateroutingprofileagentavailabilitytimercommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-connect/interfaces/updateroutingprofileagentavailabilitytimercommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-connect/interfaces/updateroutingprofileagentavailabilitytimercommandoutput.html)
+
+</details>
+<details>
+<summary>
 UpdateRoutingProfileConcurrency
 </summary>
 

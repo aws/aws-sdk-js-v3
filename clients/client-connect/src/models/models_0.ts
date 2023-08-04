@@ -226,6 +226,20 @@ export class ThrottlingException extends __BaseException {
  * @public
  * @enum
  */
+export const AgentAvailabilityTimer = {
+  TIME_SINCE_LAST_ACTIVITY: "TIME_SINCE_LAST_ACTIVITY",
+  TIME_SINCE_LAST_INBOUND: "TIME_SINCE_LAST_INBOUND",
+} as const;
+
+/**
+ * @public
+ */
+export type AgentAvailabilityTimer = (typeof AgentAvailabilityTimer)[keyof typeof AgentAvailabilityTimer];
+
+/**
+ * @public
+ * @enum
+ */
 export const ContactState = {
   CONNECTED: "CONNECTED",
   CONNECTED_ONHOLD: "CONNECTED_ONHOLD",
@@ -2812,6 +2826,16 @@ export interface CreateRoutingProfileRequest {
    * <p>The tags used to organize, track, or control access for this resource. For example, \{ "tags": \{"key1":"value1", "key2":"value2"\} \}.</p>
    */
   Tags?: Record<string, string>;
+
+  /**
+   * @public
+   * <p>Whether agents with this routing profile
+   *    will have their routing order calculated based on
+   *    <i>time since their last inbound
+   *     contact</i> or <i>longest idle
+   *      time</i>. </p>
+   */
+  AgentAvailabilityTimer?: AgentAvailabilityTimer | string;
 }
 
 /**
@@ -6260,6 +6284,16 @@ export interface RoutingProfile {
    * <p>The number of associated users in routing profile.</p>
    */
   NumberOfAssociatedUsers?: number;
+
+  /**
+   * @public
+   * <p>Whether agents with this routing profile
+   *    will have their routing order calculated based on
+   *    <i>time since their last inbound
+   *     contact</i> or <i>longest idle
+   *      time</i>. </p>
+   */
+  AgentAvailabilityTimer?: AgentAvailabilityTimer | string;
 }
 
 /**
@@ -7319,20 +7353,6 @@ export const Grouping = {
  * @public
  */
 export type Grouping = (typeof Grouping)[keyof typeof Grouping];
-
-/**
- * @public
- * @enum
- */
-export const SortOrder = {
-  ASCENDING: "ASCENDING",
-  DESCENDING: "DESCENDING",
-} as const;
-
-/**
- * @public
- */
-export type SortOrder = (typeof SortOrder)[keyof typeof SortOrder];
 
 /**
  * @internal

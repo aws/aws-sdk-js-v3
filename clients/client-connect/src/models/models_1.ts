@@ -4,6 +4,7 @@ import { ExceptionOptionType as __ExceptionOptionType, SENSITIVE_STRING } from "
 import { ConnectServiceException as __BaseException } from "./ConnectServiceException";
 import {
   ActionSummary,
+  AgentAvailabilityTimer,
   AgentContactReference,
   AgentStatusReference,
   AgentStatusState,
@@ -56,7 +57,6 @@ import {
   RoutingProfileQueueConfig,
   RuleAction,
   RulePublishStatus,
-  SortOrder,
   SourceType,
   TaskTemplateConstraints,
   TaskTemplateDefaults,
@@ -70,6 +70,20 @@ import {
   VocabularyLanguageCode,
   VocabularyState,
 } from "./models_0";
+
+/**
+ * @public
+ * @enum
+ */
+export const SortOrder = {
+  ASCENDING: "ASCENDING",
+  DESCENDING: "DESCENDING",
+} as const;
+
+/**
+ * @public
+ */
+export type SortOrder = (typeof SortOrder)[keyof typeof SortOrder];
 
 /**
  * @public
@@ -7749,6 +7763,33 @@ export interface UpdateQuickConnectNameRequest {
 /**
  * @public
  */
+export interface UpdateRoutingProfileAgentAvailabilityTimerRequest {
+  /**
+   * @public
+   * <p>The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
+   */
+  InstanceId: string | undefined;
+
+  /**
+   * @public
+   * <p>The identifier of the routing profile.</p>
+   */
+  RoutingProfileId: string | undefined;
+
+  /**
+   * @public
+   * <p>Whether agents with this routing profile
+   *    will have their routing order calculated based on
+   *    <i>time since their last inbound
+   *     contact</i> or <i>longest idle
+   *      time</i>. </p>
+   */
+  AgentAvailabilityTimer: AgentAvailabilityTimer | string | undefined;
+}
+
+/**
+ * @public
+ */
 export interface UpdateRoutingProfileConcurrencyRequest {
   /**
    * @public
@@ -8527,82 +8568,6 @@ export interface EvaluationForm {
    * <p>The tags used to organize, track, or control access for this resource. For example, \{ "tags": \{"key1":"value1", "key2":"value2"\} \}.</p>
    */
   Tags?: Record<string, string>;
-}
-
-/**
- * @public
- * <p>Information about an evaluation form used in a contact evaluation.</p>
- */
-export interface EvaluationFormContent {
-  /**
-   * @public
-   * <p>A version of the evaluation form.</p>
-   */
-  EvaluationFormVersion: number | undefined;
-
-  /**
-   * @public
-   * <p>The unique identifier for the evaluation form.</p>
-   */
-  EvaluationFormId: string | undefined;
-
-  /**
-   * @public
-   * <p>The Amazon Resource Name (ARN) for the evaluation form resource.</p>
-   */
-  EvaluationFormArn: string | undefined;
-
-  /**
-   * @public
-   * <p>A title of the evaluation form.</p>
-   */
-  Title: string | undefined;
-
-  /**
-   * @public
-   * <p>The description of the evaluation form.</p>
-   */
-  Description?: string;
-
-  /**
-   * @public
-   * <p>Items that are part of the evaluation form.  The total number of sections and questions must not exceed 100 each.  Questions must be contained in a section.</p>
-   */
-  Items: EvaluationFormItem[] | undefined;
-
-  /**
-   * @public
-   * <p>A scoring strategy of the evaluation form.</p>
-   */
-  ScoringStrategy?: EvaluationFormScoringStrategy;
-}
-
-/**
- * @public
- * <p>The search criteria to be used to return hours of operations.</p>
- */
-export interface HoursOfOperationSearchCriteria {
-  /**
-   * @public
-   * <p>A list of conditions which would be applied together with an OR condition.</p>
-   */
-  OrConditions?: HoursOfOperationSearchCriteria[];
-
-  /**
-   * @public
-   * <p>A list of conditions which would be applied together with an AND condition.</p>
-   */
-  AndConditions?: HoursOfOperationSearchCriteria[];
-
-  /**
-   * @public
-   * <p>A leaf node condition which can be used to specify a string condition.</p>
-   *          <note>
-   *             <p>The currently supported values for <code>FieldName</code> are <code>name</code>,
-   *      <code>description</code>, <code>timezone</code>, and <code>resourceID</code>.</p>
-   *          </note>
-   */
-  StringCondition?: StringCondition;
 }
 
 /**

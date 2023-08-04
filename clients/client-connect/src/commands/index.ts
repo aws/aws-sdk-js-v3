@@ -180,6 +180,7 @@ export * from "./UpdateQueueOutboundCallerConfigCommand";
 export * from "./UpdateQueueStatusCommand";
 export * from "./UpdateQuickConnectConfigCommand";
 export * from "./UpdateQuickConnectNameCommand";
+export * from "./UpdateRoutingProfileAgentAvailabilityTimerCommand";
 export * from "./UpdateRoutingProfileConcurrencyCommand";
 export * from "./UpdateRoutingProfileDefaultOutboundQueueCommand";
 export * from "./UpdateRoutingProfileNameCommand";

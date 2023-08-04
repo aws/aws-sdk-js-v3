@@ -522,6 +522,10 @@ import {
   UpdateQuickConnectNameCommandOutput,
 } from "../commands/UpdateQuickConnectNameCommand";
 import {
+  UpdateRoutingProfileAgentAvailabilityTimerCommandInput,
+  UpdateRoutingProfileAgentAvailabilityTimerCommandOutput,
+} from "../commands/UpdateRoutingProfileAgentAvailabilityTimerCommand";
+import {
   UpdateRoutingProfileConcurrencyCommandInput,
   UpdateRoutingProfileConcurrencyCommandOutput,
 } from "../commands/UpdateRoutingProfileConcurrencyCommand";
@@ -683,7 +687,6 @@ import {
   Distribution,
   EvaluationAnswerInput,
   EvaluationForm,
-  EvaluationFormContent,
   EvaluationFormItem,
   EvaluationFormSection,
   EvaluationFormSummary,
@@ -696,7 +699,6 @@ import {
   HistoricalMetric,
   HistoricalMetricData,
   HistoricalMetricResult,
-  HoursOfOperationSearchCriteria,
   HoursOfOperationSearchFilter,
   InstanceSummary,
   MaximumResultReturnedException,
@@ -733,6 +735,8 @@ import {
   VoiceRecordingConfiguration,
 } from "../models/models_1";
 import {
+  EvaluationFormContent,
+  HoursOfOperationSearchCriteria,
   PromptSearchCriteria,
   QueueSearchCriteria,
   QuickConnectSearchCriteria,
@@ -1554,6 +1558,7 @@ export const se_CreateRoutingProfileCommand = async (
   let body: any;
   body = JSON.stringify(
     take(input, {
+      AgentAvailabilityTimer: [],
       DefaultOutboundQueueId: [],
       Description: [],
       MediaConcurrencies: (_) => _json(_),
@@ -6741,6 +6746,46 @@ export const se_UpdateQuickConnectNameCommand = async (
     take(input, {
       Description: [],
       Name: [],
+    })
+  );
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "POST",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
+/**
+ * serializeAws_restJson1UpdateRoutingProfileAgentAvailabilityTimerCommand
+ */
+export const se_UpdateRoutingProfileAgentAvailabilityTimerCommand = async (
+  input: UpdateRoutingProfileAgentAvailabilityTimerCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
+    "/routing-profiles/{InstanceId}/{RoutingProfileId}/agent-availability-timer";
+  resolvedPath = __resolvedPath(resolvedPath, input, "InstanceId", () => input.InstanceId!, "{InstanceId}", false);
+  resolvedPath = __resolvedPath(
+    resolvedPath,
+    input,
+    "RoutingProfileId",
+    () => input.RoutingProfileId!,
+    "{RoutingProfileId}",
+    false
+  );
+  let body: any;
+  body = JSON.stringify(
+    take(input, {
+      AgentAvailabilityTimer: [],
     })
   );
   return new __HttpRequest({
@@ -17976,6 +18021,61 @@ const de_UpdateQuickConnectNameCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateQuickConnectNameCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "InternalServiceException":
+    case "com.amazonaws.connect#InternalServiceException":
+      throw await de_InternalServiceExceptionRes(parsedOutput, context);
+    case "InvalidParameterException":
+    case "com.amazonaws.connect#InvalidParameterException":
+      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
+    case "InvalidRequestException":
+    case "com.amazonaws.connect#InvalidRequestException":
+      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.connect#ResourceNotFoundException":
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
+    case "ThrottlingException":
+    case "com.amazonaws.connect#ThrottlingException":
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
+ * deserializeAws_restJson1UpdateRoutingProfileAgentAvailabilityTimerCommand
+ */
+export const de_UpdateRoutingProfileAgentAvailabilityTimerCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateRoutingProfileAgentAvailabilityTimerCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_UpdateRoutingProfileAgentAvailabilityTimerCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  await collectBody(output.body, context);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1UpdateRoutingProfileAgentAvailabilityTimerCommandError
+ */
+const de_UpdateRoutingProfileAgentAvailabilityTimerCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateRoutingProfileAgentAvailabilityTimerCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseErrorBody(output.body, context),

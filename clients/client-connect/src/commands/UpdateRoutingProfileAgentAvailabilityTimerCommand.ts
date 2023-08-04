@@ -14,8 +14,11 @@ import {
 } from "@smithy/types";
 
 import { ConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectClient";
-import { DescribeRoutingProfileRequest, DescribeRoutingProfileResponse } from "../models/models_0";
-import { de_DescribeRoutingProfileCommand, se_DescribeRoutingProfileCommand } from "../protocols/Aws_restJson1";
+import { UpdateRoutingProfileAgentAvailabilityTimerRequest } from "../models/models_1";
+import {
+  de_UpdateRoutingProfileAgentAvailabilityTimerCommand,
+  se_UpdateRoutingProfileAgentAvailabilityTimerCommand,
+} from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -24,63 +27,45 @@ export { __MetadataBearer, $Command };
 /**
  * @public
  *
- * The input for {@link DescribeRoutingProfileCommand}.
+ * The input for {@link UpdateRoutingProfileAgentAvailabilityTimerCommand}.
  */
-export interface DescribeRoutingProfileCommandInput extends DescribeRoutingProfileRequest {}
+export interface UpdateRoutingProfileAgentAvailabilityTimerCommandInput
+  extends UpdateRoutingProfileAgentAvailabilityTimerRequest {}
 /**
  * @public
  *
- * The output of {@link DescribeRoutingProfileCommand}.
+ * The output of {@link UpdateRoutingProfileAgentAvailabilityTimerCommand}.
  */
-export interface DescribeRoutingProfileCommandOutput extends DescribeRoutingProfileResponse, __MetadataBearer {}
+export interface UpdateRoutingProfileAgentAvailabilityTimerCommandOutput extends __MetadataBearer {}
 
 /**
  * @public
- * <p>Describes the specified routing profile.</p>
+ * <p>Whether agents with this routing profile
+ *    will have their routing order calculated based on
+ *    <i>time since their last inbound
+ *     contact</i> or <i>longest idle
+ *      time</i>. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ConnectClient, DescribeRoutingProfileCommand } from "@aws-sdk/client-connect"; // ES Modules import
- * // const { ConnectClient, DescribeRoutingProfileCommand } = require("@aws-sdk/client-connect"); // CommonJS import
+ * import { ConnectClient, UpdateRoutingProfileAgentAvailabilityTimerCommand } from "@aws-sdk/client-connect"; // ES Modules import
+ * // const { ConnectClient, UpdateRoutingProfileAgentAvailabilityTimerCommand } = require("@aws-sdk/client-connect"); // CommonJS import
  * const client = new ConnectClient(config);
- * const input = { // DescribeRoutingProfileRequest
+ * const input = { // UpdateRoutingProfileAgentAvailabilityTimerRequest
  *   InstanceId: "STRING_VALUE", // required
  *   RoutingProfileId: "STRING_VALUE", // required
+ *   AgentAvailabilityTimer: "TIME_SINCE_LAST_ACTIVITY" || "TIME_SINCE_LAST_INBOUND", // required
  * };
- * const command = new DescribeRoutingProfileCommand(input);
+ * const command = new UpdateRoutingProfileAgentAvailabilityTimerCommand(input);
  * const response = await client.send(command);
- * // { // DescribeRoutingProfileResponse
- * //   RoutingProfile: { // RoutingProfile
- * //     InstanceId: "STRING_VALUE",
- * //     Name: "STRING_VALUE",
- * //     RoutingProfileArn: "STRING_VALUE",
- * //     RoutingProfileId: "STRING_VALUE",
- * //     Description: "STRING_VALUE",
- * //     MediaConcurrencies: [ // MediaConcurrencies
- * //       { // MediaConcurrency
- * //         Channel: "VOICE" || "CHAT" || "TASK", // required
- * //         Concurrency: Number("int"), // required
- * //         CrossChannelBehavior: { // CrossChannelBehavior
- * //           BehaviorType: "ROUTE_CURRENT_CHANNEL_ONLY" || "ROUTE_ANY_CHANNEL", // required
- * //         },
- * //       },
- * //     ],
- * //     DefaultOutboundQueueId: "STRING_VALUE",
- * //     Tags: { // TagMap
- * //       "<keys>": "STRING_VALUE",
- * //     },
- * //     NumberOfAssociatedQueues: Number("long"),
- * //     NumberOfAssociatedUsers: Number("long"),
- * //     AgentAvailabilityTimer: "TIME_SINCE_LAST_ACTIVITY" || "TIME_SINCE_LAST_INBOUND",
- * //   },
- * // };
+ * // {};
  *
  * ```
  *
- * @param DescribeRoutingProfileCommandInput - {@link DescribeRoutingProfileCommandInput}
- * @returns {@link DescribeRoutingProfileCommandOutput}
- * @see {@link DescribeRoutingProfileCommandInput} for command's `input` shape.
- * @see {@link DescribeRoutingProfileCommandOutput} for command's `response` shape.
+ * @param UpdateRoutingProfileAgentAvailabilityTimerCommandInput - {@link UpdateRoutingProfileAgentAvailabilityTimerCommandInput}
+ * @returns {@link UpdateRoutingProfileAgentAvailabilityTimerCommandOutput}
+ * @see {@link UpdateRoutingProfileAgentAvailabilityTimerCommandInput} for command's `input` shape.
+ * @see {@link UpdateRoutingProfileAgentAvailabilityTimerCommandOutput} for command's `response` shape.
  * @see {@link ConnectClientResolvedConfig | config} for ConnectClient's `config` shape.
  *
  * @throws {@link InternalServiceException} (server fault)
@@ -102,9 +87,9 @@ export interface DescribeRoutingProfileCommandOutput extends DescribeRoutingProf
  * <p>Base exception class for all service exceptions from Connect service.</p>
  *
  */
-export class DescribeRoutingProfileCommand extends $Command<
-  DescribeRoutingProfileCommandInput,
-  DescribeRoutingProfileCommandOutput,
+export class UpdateRoutingProfileAgentAvailabilityTimerCommand extends $Command<
+  UpdateRoutingProfileAgentAvailabilityTimerCommandInput,
+  UpdateRoutingProfileAgentAvailabilityTimerCommandOutput,
   ConnectClientResolvedConfig
 > {
   // Start section: command_properties
@@ -122,7 +107,7 @@ export class DescribeRoutingProfileCommand extends $Command<
   /**
    * @public
    */
-  constructor(readonly input: DescribeRoutingProfileCommandInput) {
+  constructor(readonly input: UpdateRoutingProfileAgentAvailabilityTimerCommandInput) {
     // Start section: command_constructor
     super();
     // End section: command_constructor
@@ -135,17 +120,23 @@ export class DescribeRoutingProfileCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ConnectClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<DescribeRoutingProfileCommandInput, DescribeRoutingProfileCommandOutput> {
+  ): Handler<
+    UpdateRoutingProfileAgentAvailabilityTimerCommandInput,
+    UpdateRoutingProfileAgentAvailabilityTimerCommandOutput
+  > {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
     this.middlewareStack.use(
-      getEndpointPlugin(configuration, DescribeRoutingProfileCommand.getEndpointParameterInstructions())
+      getEndpointPlugin(
+        configuration,
+        UpdateRoutingProfileAgentAvailabilityTimerCommand.getEndpointParameterInstructions()
+      )
     );
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
     const clientName = "ConnectClient";
-    const commandName = "DescribeRoutingProfileCommand";
+    const commandName = "UpdateRoutingProfileAgentAvailabilityTimerCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
       clientName,
@@ -164,15 +155,21 @@ export class DescribeRoutingProfileCommand extends $Command<
   /**
    * @internal
    */
-  private serialize(input: DescribeRoutingProfileCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return se_DescribeRoutingProfileCommand(input, context);
+  private serialize(
+    input: UpdateRoutingProfileAgentAvailabilityTimerCommandInput,
+    context: __SerdeContext
+  ): Promise<__HttpRequest> {
+    return se_UpdateRoutingProfileAgentAvailabilityTimerCommand(input, context);
   }
 
   /**
    * @internal
    */
-  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeRoutingProfileCommandOutput> {
-    return de_DescribeRoutingProfileCommand(output, context);
+  private deserialize(
+    output: __HttpResponse,
+    context: __SerdeContext
+  ): Promise<UpdateRoutingProfileAgentAvailabilityTimerCommandOutput> {
+    return de_UpdateRoutingProfileAgentAvailabilityTimerCommand(output, context);
   }
 
   // Start section: command_body_extra

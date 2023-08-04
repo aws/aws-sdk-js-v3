@@ -848,6 +848,11 @@ import {
   UpdateQuickConnectNameCommandOutput,
 } from "./commands/UpdateQuickConnectNameCommand";
 import {
+  UpdateRoutingProfileAgentAvailabilityTimerCommand,
+  UpdateRoutingProfileAgentAvailabilityTimerCommandInput,
+  UpdateRoutingProfileAgentAvailabilityTimerCommandOutput,
+} from "./commands/UpdateRoutingProfileAgentAvailabilityTimerCommand";
+import {
   UpdateRoutingProfileConcurrencyCommand,
   UpdateRoutingProfileConcurrencyCommandInput,
   UpdateRoutingProfileConcurrencyCommandOutput,
@@ -1102,6 +1107,7 @@ const commands = {
   UpdateQueueStatusCommand,
   UpdateQuickConnectConfigCommand,
   UpdateQuickConnectNameCommand,
+  UpdateRoutingProfileAgentAvailabilityTimerCommand,
   UpdateRoutingProfileConcurrencyCommand,
   UpdateRoutingProfileDefaultOutboundQueueCommand,
   UpdateRoutingProfileNameCommand,
@@ -3964,6 +3970,23 @@ export interface Connect {
     args: UpdateQuickConnectNameCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: UpdateQuickConnectNameCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link UpdateRoutingProfileAgentAvailabilityTimerCommand}
+   */
+  updateRoutingProfileAgentAvailabilityTimer(
+    args: UpdateRoutingProfileAgentAvailabilityTimerCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateRoutingProfileAgentAvailabilityTimerCommandOutput>;
+  updateRoutingProfileAgentAvailabilityTimer(
+    args: UpdateRoutingProfileAgentAvailabilityTimerCommandInput,
+    cb: (err: any, data?: UpdateRoutingProfileAgentAvailabilityTimerCommandOutput) => void
+  ): void;
+  updateRoutingProfileAgentAvailabilityTimer(
+    args: UpdateRoutingProfileAgentAvailabilityTimerCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UpdateRoutingProfileAgentAvailabilityTimerCommandOutput) => void
   ): void;
 
   /**

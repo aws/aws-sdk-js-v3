@@ -118,6 +118,7 @@ export interface SearchRoutingProfilesCommandOutput extends SearchRoutingProfile
  * //       },
  * //       NumberOfAssociatedQueues: Number("long"),
  * //       NumberOfAssociatedUsers: Number("long"),
+ * //       AgentAvailabilityTimer: "TIME_SINCE_LAST_ACTIVITY" || "TIME_SINCE_LAST_INBOUND",
  * //     },
  * //   ],
  * //   NextToken: "STRING_VALUE",

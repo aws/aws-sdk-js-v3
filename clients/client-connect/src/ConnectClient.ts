@@ -543,6 +543,10 @@ import {
   UpdateQuickConnectNameCommandOutput,
 } from "./commands/UpdateQuickConnectNameCommand";
 import {
+  UpdateRoutingProfileAgentAvailabilityTimerCommandInput,
+  UpdateRoutingProfileAgentAvailabilityTimerCommandOutput,
+} from "./commands/UpdateRoutingProfileAgentAvailabilityTimerCommand";
+import {
   UpdateRoutingProfileConcurrencyCommandInput,
   UpdateRoutingProfileConcurrencyCommandOutput,
 } from "./commands/UpdateRoutingProfileConcurrencyCommand";
@@ -791,6 +795,7 @@ export type ServiceInputTypes =
   | UpdateQueueStatusCommandInput
   | UpdateQuickConnectConfigCommandInput
   | UpdateQuickConnectNameCommandInput
+  | UpdateRoutingProfileAgentAvailabilityTimerCommandInput
   | UpdateRoutingProfileConcurrencyCommandInput
   | UpdateRoutingProfileDefaultOutboundQueueCommandInput
   | UpdateRoutingProfileNameCommandInput
@@ -992,6 +997,7 @@ export type ServiceOutputTypes =
   | UpdateQueueStatusCommandOutput
   | UpdateQuickConnectConfigCommandOutput
   | UpdateQuickConnectNameCommandOutput
+  | UpdateRoutingProfileAgentAvailabilityTimerCommandOutput
   | UpdateRoutingProfileConcurrencyCommandOutput
   | UpdateRoutingProfileDefaultOutboundQueueCommandOutput
   | UpdateRoutingProfileNameCommandOutput
