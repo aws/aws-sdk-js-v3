@@ -845,9 +845,9 @@ export interface CreateCertificateAuthorityRequest {
    * 			keys.</p>
    *          <p>Default: FIPS_140_2_LEVEL_3_OR_HIGHER</p>
    *          <note>
-   *             <p>Some Amazon Web Services Regions do not support the default. When creating a CA in these Regions, you
-   * 				must provide <code>FIPS_140_2_LEVEL_2_OR_HIGHER</code> as the argument for
-   * 					<code>KeyStorageSecurityStandard</code>. Failure to do this results in an
+   *             <p>Some Amazon Web Services Regions do not support the default. When creating a CA in these
+   * 				Regions, you must provide <code>FIPS_140_2_LEVEL_2_OR_HIGHER</code> as the argument
+   * 				for <code>KeyStorageSecurityStandard</code>. Failure to do this results in an
    * 					<code>InvalidArgsException</code> with the message, "A certificate authority
    * 				cannot be created in this region with the specified security standard."</p>
    *             <p>For information about security standard support in various Regions, see <a href="https://docs.aws.amazon.com/privateca/latest/userguide/data-protection.html#private-keys">Storage
@@ -2152,8 +2152,8 @@ export interface IssueCertificateRequest {
    *          <p>This parameter should not be confused with the <code>SigningAlgorithm</code> parameter
    * 			used to sign a CSR in the <code>CreateCertificateAuthority</code> action.</p>
    *          <note>
-   *             <p>The specified signing algorithm family (RSA or ECDSA) must match the algorithm family of
-   * 				the CA's secret key.</p>
+   *             <p>The specified signing algorithm family (RSA or ECDSA) must match the algorithm
+   * 				family of the CA's secret key.</p>
    *          </note>
    */
   SigningAlgorithm: SigningAlgorithm | string | undefined;
@@ -2212,11 +2212,11 @@ export interface IssueCertificateRequest {
 
   /**
    * @public
-   * <p>Alphanumeric string that can be used to distinguish between calls to the <b>IssueCertificate</b> action. Idempotency tokens for <b>IssueCertificate</b> time out after one minute. Therefore, if you
-   * 			call <b>IssueCertificate</b> multiple times with the same
-   * 			idempotency token within one minute, Amazon Web Services Private CA recognizes that you are requesting only
-   * 			one certificate and will issue only one. If you change the idempotency token for each
-   * 			call, Amazon Web Services Private CA recognizes that you are requesting multiple certificates.</p>
+   * <p>Alphanumeric string that can be used to distinguish between calls to the <b>IssueCertificate</b> action. Idempotency tokens for <b>IssueCertificate</b> time out after five  minutes. Therefore, if
+   * 			you call <b>IssueCertificate</b> multiple times with the same
+   * 			idempotency token within five minutes, Amazon Web Services Private CA recognizes that you are requesting
+   * 			only one certificate and will issue only one. If you change the idempotency token for
+   * 			each call, Amazon Web Services Private CA recognizes that you are requesting multiple certificates.</p>
    */
   IdempotencyToken?: string;
 }
