@@ -28110,6 +28110,7 @@ const de_TransformJob = (output: any, context: __SerdeContext): TransformJob => 
     AutoMLJobArn: __expectString,
     BatchStrategy: __expectString,
     CreationTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    DataCaptureConfig: _json,
     DataProcessing: _json,
     Environment: _json,
     ExperimentConfig: _json,

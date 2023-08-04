@@ -831,6 +831,11 @@ export interface SearchCommandOutput extends SearchResponse, __MetadataBearer {}
  * //               RunName: "STRING_VALUE",
  * //             },
  * //             Tags: "<TagList>",
+ * //             DataCaptureConfig: { // BatchDataCaptureConfig
+ * //               DestinationS3Uri: "STRING_VALUE", // required
+ * //               KmsKeyId: "STRING_VALUE",
+ * //               GenerateInferenceId: true || false,
+ * //             },
  * //           },
  * //         },
  * //         LineageGroupArn: "STRING_VALUE",
@@ -1821,6 +1826,11 @@ export interface SearchCommandOutput extends SearchResponse, __MetadataBearer {}
  * //           },
  * //           ExperimentConfig: "<ExperimentConfig>",
  * //           Tags: "<TagList>",
+ * //           DataCaptureConfig: {
+ * //             DestinationS3Uri: "STRING_VALUE", // required
+ * //             KmsKeyId: "STRING_VALUE",
+ * //             GenerateInferenceId: true || false,
+ * //           },
  * //         },
  * //         MonitoringSchedules: [ // ModelDashboardMonitoringSchedules
  * //           { // ModelDashboardMonitoringSchedule

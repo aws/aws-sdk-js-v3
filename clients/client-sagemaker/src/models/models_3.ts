@@ -21,6 +21,7 @@ import {
   AutoMLJobSummary,
   AutoMLSortBy,
   AutoMLSortOrder,
+  BatchDataCaptureConfig,
   BatchStrategy,
   CacheHitResult,
   CallbackStepMetadata,
@@ -9867,6 +9868,12 @@ export interface TransformJob {
    * <p>A list of tags associated with the transform job.</p>
    */
   Tags?: Tag[];
+
+  /**
+   * @public
+   * <p>Configuration to control how SageMaker captures inference data for batch transform jobs.</p>
+   */
+  DataCaptureConfig?: BatchDataCaptureConfig;
 }
 
 /**
