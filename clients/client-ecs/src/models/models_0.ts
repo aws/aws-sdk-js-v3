@@ -122,9 +122,9 @@ export interface ManagedScaling {
 
   /**
    * @public
-   * <p>The maximum number of Amazon EC2 instances that Amazon ECS will scale out at one time. The scale
-   * 			in process is not affected by this parameter. If this parameter is omitted, the default
-   * 			value of <code>1</code> is used.</p>
+   * <p>The maximum number of Amazon EC2 instances that Amazon ECS will scale out at one time. The scale in
+   * 			process is not affected by this parameter. If this parameter is omitted, the default
+   * 			value of <code>10000</code> is used.</p>
    */
   maximumScalingStepSize?: number;
 
@@ -159,13 +159,13 @@ export type ManagedTerminationProtection =
 export interface AutoScalingGroupProvider {
   /**
    * @public
-   * <p>The Amazon Resource Name (ARN) that identifies the Auto Scaling group.</p>
+   * <p>The Amazon Resource Name (ARN) that identifies the Auto Scaling group, or the Auto Scaling group name.</p>
    */
   autoScalingGroupArn: string | undefined;
 
   /**
    * @public
-   * <p>The managed scaling settings for the Auto Scaling group capacity provider.</p>
+   * <p>he managed scaling settings for the Auto Scaling group capacity provider.</p>
    */
   managedScaling?: ManagedScaling;
 
@@ -1303,6 +1303,7 @@ export interface DeploymentAlarms {
  * 			can also configure Amazon ECS to roll back your service to the last completed deployment
  * 			after a failure. For more information, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/deployment-type-ecs.html">Rolling
  * 				update</a> in the <i>Amazon Elastic Container Service Developer Guide</i>.</p>
+ *          <p>For more information about API failure reasons, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/api_failures_messages.html">API failure reasons</a> in the <i>Amazon Elastic Container Service Developer Guide</i>.</p>
  */
 export interface DeploymentCircuitBreaker {
   /**
@@ -1517,8 +1518,7 @@ export interface LoadBalancer {
    * @public
    * <p>The full Amazon Resource Name (ARN) of the Elastic Load Balancing target group or groups associated with a service or
    * 			task set.</p>
-   *          <p>A target group ARN is only specified when using an Application Load Balancer or Network Load Balancer. If you're using a
-   * 			Classic Load Balancer, omit the target group ARN.</p>
+   *          <p>A target group ARN is only specified when using an Application Load Balancer or Network Load Balancer. </p>
    *          <p>For services using the <code>ECS</code> deployment controller, you can specify one or
    * 			multiple target groups. For more information, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/register-multiple-targetgroups.html">Registering multiple target groups with a service</a> in
    * 			the <i>Amazon Elastic Container Service Developer Guide</i>.</p>
@@ -1539,8 +1539,8 @@ export interface LoadBalancer {
   /**
    * @public
    * <p>The name of the load balancer to associate with the Amazon ECS service or task set.</p>
-   *          <p>A load balancer name is only specified when using a Classic Load Balancer. If you are using an Application Load Balancer
-   * 			or a Network Load Balancer the load balancer name parameter should be omitted.</p>
+   *          <p>If you are using an Application Load Balancer or a Network Load Balancer the load balancer name parameter should be
+   * 			omitted.</p>
    */
   loadBalancerName?: string;
 
@@ -1822,9 +1822,16 @@ export interface Secret {
  * 			containers.</p>
  *          <ul>
  *             <li>
- *                <p>Amazon ECS currently supports a subset of the logging drivers available to the
- * 					Docker daemon (shown in the valid values below). Additional log drivers may be
- * 					available in future releases of the Amazon ECS container agent.</p>
+ *                <p>Amazon ECS currently supports a subset of the logging drivers available to the Docker daemon.
+ * 					Additional log drivers may be available in future releases of the Amazon ECS
+ * 					container agent.</p>
+ *                <p>For tasks on Fargate, the supported log drivers are <code>awslogs</code>,
+ * 						<code>splunk</code>, and <code>awsfirelens</code>.</p>
+ *                <p>For tasks hosted on Amazon EC2 instances, the supported log drivers are
+ * 						<code>awslogs</code>, <code>fluentd</code>, <code>gelf</code>,
+ * 						<code>json-file</code>, <code>journald</code>,
+ * 						<code>logentries</code>,<code>syslog</code>, <code>splunk</code>, and
+ * 						<code>awsfirelens</code>.</p>
  *             </li>
  *             <li>
  *                <p>This parameter requires version 1.18 of the Docker Remote API or greater on
@@ -2032,9 +2039,16 @@ export interface ServiceConnectConfiguration {
    * 			containers.</p>
    *          <ul>
    *             <li>
-   *                <p>Amazon ECS currently supports a subset of the logging drivers available to the
-   * 					Docker daemon (shown in the valid values below). Additional log drivers may be
-   * 					available in future releases of the Amazon ECS container agent.</p>
+   *                <p>Amazon ECS currently supports a subset of the logging drivers available to the Docker daemon.
+   * 					Additional log drivers may be available in future releases of the Amazon ECS
+   * 					container agent.</p>
+   *                <p>For tasks on Fargate, the supported log drivers are <code>awslogs</code>,
+   * 						<code>splunk</code>, and <code>awsfirelens</code>.</p>
+   *                <p>For tasks hosted on Amazon EC2 instances, the supported log drivers are
+   * 						<code>awslogs</code>, <code>fluentd</code>, <code>gelf</code>,
+   * 						<code>json-file</code>, <code>journald</code>,
+   * 						<code>logentries</code>,<code>syslog</code>, <code>splunk</code>, and
+   * 						<code>awsfirelens</code>.</p>
    *             </li>
    *             <li>
    *                <p>This parameter requires version 1.18 of the Docker Remote API or greater on
@@ -3368,7 +3382,8 @@ export interface CreateTaskSetRequest {
 
   /**
    * @public
-   * <p>The task definition for the tasks in the task set to use.</p>
+   * <p>The task definition for the tasks in the task set to use. If a revision isn't specified, the
+   * 			latest <code>ACTIVE</code> revision is used.</p>
    */
   taskDefinition: string | undefined;
 
@@ -4046,8 +4061,7 @@ export type EnvironmentFileType = (typeof EnvironmentFileType)[keyof typeof Envi
  * 			same variable, they're processed from the top down. We recommend that you use unique
  * 			variable names. For more information, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/taskdef-envfiles.html">Specifying environment
  * 				variables</a> in the <i>Amazon Elastic Container Service Developer Guide</i>.</p>
- *          <p>This parameter is only supported for tasks hosted on Fargate using the
- * 			following platform versions:</p>
+ *          <p>You must use the following platforms for the Fargate launch type:</p>
  *          <ul>
  *             <li>
  *                <p>Linux platform version <code>1.4.0</code> or later.</p>
@@ -4630,10 +4644,10 @@ export interface PortMapping {
    * 			version.</p>
    *          <p>The default ephemeral port range for Docker version 1.6.0 and later is listed on the
    * 			instance under <code>/proc/sys/net/ipv4/ip_local_port_range</code>. If this kernel
-   * 			parameter is unavailable, the default ephemeral port range from 49153 through 65535 is
-   * 			used. Do not attempt to specify a host port in the ephemeral port range as these are
-   * 			reserved for automatic assignment. In general, ports below 32768 are outside of the
-   * 			ephemeral port range.</p>
+   * 			parameter is unavailable, the default ephemeral port range from 49153 through 65535
+   * 			(Linux) or 49152 through 65535 (Windows)  is used. Do not attempt to specify a host port
+   * 			in the ephemeral port range as these are reserved for automatic assignment. In general,
+   * 			ports below 32768 are outside of the ephemeral port range.</p>
    *          <p>The default reserved ports are 22 for SSH, the Docker ports 2375 and 2376, and the
    * 			Amazon ECS container agent ports 51678-51680. Any host port that was previously specified in
    * 			a running task is also reserved while the task is running. That is, after a task stops,
@@ -5320,6 +5334,7 @@ export interface ContainerDefinition {
    * 			later, then they contain the required versions of the container agent and
    * 				<code>ecs-init</code>. For more information, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-optimized_AMI.html">Amazon ECS-optimized Linux AMI</a>
    * 			in the <i>Amazon Elastic Container Service Developer Guide</i>.</p>
+   *          <p>The valid values are 2-120 seconds.</p>
    */
   startTimeout?: number;
 
@@ -5352,6 +5367,7 @@ export interface ContainerDefinition {
    * 				<code>ecs-init</code> package. If your container instances are launched from version
    * 				<code>20190301</code> or later, then they contain the required versions of the
    * 			container agent and <code>ecs-init</code>. For more information, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-optimized_AMI.html">Amazon ECS-optimized Linux AMI</a> in the <i>Amazon Elastic Container Service Developer Guide</i>.</p>
+   *          <p>The valid values are 2-120 seconds.</p>
    */
   stopTimeout?: number;
 
@@ -5656,17 +5672,39 @@ export interface ContainerDefinition {
   /**
    * @public
    * <p>A list of ARNs in SSM or Amazon S3 to a credential spec
-   * 			(<code>credspec</code>code>) file that configures a container for Active Directory
-   * 			authentication. This parameter is only used with domainless authentication.</p>
-   *          <p>The format for each ARN is
-   * 					<code>credentialspecdomainless:MyARN</code>. Replace
-   * 				<code>MyARN</code> with the ARN in SSM or Amazon S3.</p>
-   *          <p>The <code>credspec</code> must provide a ARN in Secrets Manager for a secret
-   * 			containing the username, password, and the domain to connect to. For better security,
-   * 			the instance isn't joined to the domain for domainless authentication. Other
-   * 			applications on the instance can't use the domainless credentials. You can use this
-   * 			parameter to run tasks on the same instance, even it the tasks need to join different
-   * 			domains. For more information, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/windows-gmsa.html">Using gMSAs for Windows
+   * 				(<code>CredSpec</code>) file that configures the container for Active Directory
+   * 			authentication. We recommend that you use this parameter instead of the
+   * 				<code>dockerSecurityOptions</code>. The maximum number of ARNs is
+   * 			1.</p>
+   *          <p>There are two formats for each ARN.</p>
+   *          <dl>
+   *             <dt>credentialspecdomainless:MyARN</dt>
+   *             <dd>
+   *                <p>You use <code>credentialspecdomainless:MyARN</code> to provide a
+   * 							<code>CredSpec</code> with an additional section for a secret in Secrets Manager.
+   * 						You provide the login credentials to the domain in the secret.</p>
+   *                <p>Each task that runs on any container instance can join different
+   * 						domains.</p>
+   *                <p>You can use this format without joining the container instance to a
+   * 						domain.</p>
+   *             </dd>
+   *             <dt>credentialspec:MyARN</dt>
+   *             <dd>
+   *                <p>You use <code>credentialspec:MyARN</code> to provide a
+   * 							<code>CredSpec</code> for a single domain.</p>
+   *                <p>You must join the container instance to the domain before you start any
+   * 						tasks that use this task definition.</p>
+   *             </dd>
+   *          </dl>
+   *          <p>In both formats, replace <code>MyARN</code> with the ARN in
+   * 			SSM or Amazon S3.</p>
+   *          <p>If you provide a <code>credentialspecdomainless:MyARN</code>, the
+   * 				<code>credspec</code> must provide a ARN in Secrets Manager for a secret containing the
+   * 			username, password, and the domain to connect to. For better security, the instance
+   * 			isn't joined to the domain for domainless authentication. Other applications on the
+   * 			instance can't use the domainless credentials. You can use this parameter to run tasks
+   * 			on the same instance, even it the tasks need to join different domains. For more
+   * 			information, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/windows-gmsa.html">Using gMSAs for Windows
    * 				Containers</a> and <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/linux-gmsa.html">Using gMSAs for Linux
    * 				Containers</a>.</p>
    */
@@ -6237,6 +6275,7 @@ export interface Volume {
    * <p>The name of the volume. Up to 255 letters (uppercase and lowercase), numbers, underscores, and hyphens are allowed. This name is referenced in the
    * 				<code>sourceVolume</code> parameter of container definition
    * 			<code>mountPoints</code>.</p>
+   *          <p>This is required wwhen you use an Amazon EFS volume.</p>
    */
   name?: string;
 
@@ -6438,7 +6477,9 @@ export interface TaskDefinition {
 
   /**
    * @public
-   * <p>The task launch types the task definition was validated against.  For more information, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/launch_types.html">Amazon ECS launch types</a>
+   * <p>The task launch types the task definition was validated against. The valid values are
+   * 				<code>EC2</code>, <code>FARGATE</code>, and <code>EXTERNAL</code>. For more
+   * 			information, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/launch_types.html">Amazon ECS launch types</a>
    * 			in the <i>Amazon Elastic Container Service Developer Guide</i>.</p>
    */
   requiresCompatibilities?: (Compatibility | string)[];
@@ -7832,6 +7873,8 @@ export interface Container {
  * 			in. An example of an empty container override is <code>\{"containerOverrides": [ ]
  * 				\}</code>. If a non-empty container override is specified, the <code>name</code>
  * 			parameter must be included.</p>
+ *          <p>You can use Secrets Manager or Amazon Web Services Systems Manager Parameter Store to store the sensitive
+ * 			data. For more information, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/secrets-envvar.html">Retrieve secrets through environment variables</a> in the Amazon ECS Developer Guide.</p>
  */
 export interface ContainerOverride {
   /**
@@ -8272,7 +8315,8 @@ export interface Task {
   /**
    * @public
    * <p>The stop code indicating why a task was stopped. The <code>stoppedReason</code> might
-   * 			contain additional details.</p>
+   * 			contain additional details. </p>
+   *          <p>For more information about stop code, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/userguide/stopped-task-error-codes.html">Stopped tasks error codes</a> in the <i>Amazon ECS User Guide</i>.</p>
    *          <p>The following are valid values:</p>
    *          <ul>
    *             <li>
@@ -8327,7 +8371,7 @@ export interface Task {
    * @public
    * <p>The Unix timestamp for the time when the task stops. More specifically, it's for the
    * 			time when the task transitions from the <code>RUNNING</code> state to
-   * 				<code>STOPPED</code>.</p>
+   * 				<code>STOPPING</code>.</p>
    */
   stoppingAt?: Date;
 

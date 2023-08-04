@@ -143,14 +143,11 @@ export interface UpdateServiceCommandOutput extends UpdateServiceResponse, __Met
  *          </ul>
  *          <note>
  *             <p>You must have a service-linked role when you update any of the following service
- * 				properties. If you specified a custom role when you created the service, Amazon ECS
- * 				automatically replaces the <a href="https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_Service.html#ECS-Type-Service-roleArn">roleARN</a> associated with the service with the ARN of your
- * 				service-linked role. For more information, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/using-service-linked-roles.html">Service-linked roles</a> in the <i>Amazon Elastic Container Service Developer Guide</i>.</p>
+ * 				properties:</p>
  *             <ul>
  *                <li>
  *                   <p>
- *                      <code>loadBalancers,</code>
- *                   </p>
+ *                      <code>loadBalancers</code>,</p>
  *                </li>
  *                <li>
  *                   <p>
@@ -158,6 +155,10 @@ export interface UpdateServiceCommandOutput extends UpdateServiceResponse, __Met
  *                   </p>
  *                </li>
  *             </ul>
+ *             <p>For more information about the role see the <code>CreateService</code> request parameter
+ * 				<a href="https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_CreateService.html#ECS-CreateService-request-role">
+ *                   <code>role</code>
+ *                </a>. </p>
  *          </note>
  * @example
  * Use a bare-bones client and the command you need to make an API call.

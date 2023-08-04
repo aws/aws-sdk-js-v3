@@ -38,6 +38,9 @@ export interface DescribeTasksCommandOutput extends DescribeTasksResponse, __Met
  * @public
  * <p>Describes a specified task or tasks.</p>
  *          <p>Currently, stopped tasks appear in the returned results for at least one hour.</p>
+ *          <p>If you have tasks with tags, and then delete the cluster, the tagged tasks are
+ * 			returned in the response. If you create a new cluster with the same name as the deleted
+ * 			cluster, the tagged tasks are not included in the response.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
