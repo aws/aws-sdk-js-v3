@@ -1,6 +1,6 @@
-import { SSOOIDCClient } from "@aws-sdk/client-sso-oidc";
+import { SSOOIDCClient } from "./client-sso-oidc-bundle/dist-node";
 
-const ssoOidcClientsHash: Record<string, SSOOIDCClient> = {};
+const ssoOidcClientsHash: Record<string, typeof SSOOIDCClient | any> = {};
 
 /**
  * Returns a SSOOIDC client for the given region. If the client has already been created,

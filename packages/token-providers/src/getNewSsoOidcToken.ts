@@ -1,6 +1,6 @@
-import { CreateTokenCommand } from "@aws-sdk/client-sso-oidc";
 import { SSOToken } from "@smithy/shared-ini-file-loader";
 
+import { CreateTokenCommand } from "./client-sso-oidc-bundle/dist-node";
 import { getSsoOidcClient } from "./getSsoOidcClient";
 
 /**
