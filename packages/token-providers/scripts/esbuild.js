@@ -45,7 +45,7 @@ const root = path.join(__dirname, "..", "..", "..");
       mainFields: ["module", "main"],
       entryPoints: [path.join(root, "packages", "token-providers", "scripts", "api", "source.js")],
       outfile: outfile,
-      external: ["tslib", "@aws-crypto/*", "@smithy/*", "@aws-sdk/middleware-*", "@aws-sdk/types", "@aws-sdk/util-*"],
+      external: ["tslib", "@aws-crypto/*", "@smithy/*", "@aws-sdk/*"],
     });
 
     await new Promise((r) => setTimeout(r, 1000));
