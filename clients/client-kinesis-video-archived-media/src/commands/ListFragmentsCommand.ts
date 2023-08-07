@@ -42,32 +42,31 @@ export interface ListFragmentsCommandOutput extends ListFragmentsOutput, __Metad
  * @public
  * <p>Returns a list of <a>Fragment</a> objects from the specified stream and
  *             timestamp range within the archived data.</p>
- *         <p>Listing fragments is eventually consistent. This means that even if the producer
+ *          <p>Listing fragments is eventually consistent. This means that even if the producer
  *             receives an acknowledgment that a fragment is persisted, the result might not be
  *             returned immediately from a request to <code>ListFragments</code>. However, results are
  *             typically available in less than one second.</p>
- *         <note>
+ *          <note>
  *             <p>You must first call the <code>GetDataEndpoint</code> API to get an endpoint.
  *                 Then send the <code>ListFragments</code> requests to this endpoint using the <a href="https://docs.aws.amazon.com/cli/latest/reference/">--endpoint-url
  *                     parameter</a>. </p>
- *         </note>
- *
- *         <important>
+ *          </note>
+ *          <important>
  *             <p>If an error is thrown after invoking a Kinesis Video Streams archived media API,
  *                 in addition to the HTTP status code and the response body, it includes the following
  *                 pieces of information: </p>
  *             <ul>
  *                <li>
- *                     <p>
- *                         <code>x-amz-ErrorType</code> HTTP header – contains a more specific error
+ *                   <p>
+ *                      <code>x-amz-ErrorType</code> HTTP header – contains a more specific error
  *                         type in addition to what the HTTP status code provides. </p>
- *                 </li>
+ *                </li>
  *                <li>
- *                     <p>
- *                         <code>x-amz-RequestId</code> HTTP header – if you want to report an issue to
- *                         AWS, the support team can better diagnose the problem if given the Request
+ *                   <p>
+ *                      <code>x-amz-RequestId</code> HTTP header – if you want to report an issue to
+ *                         Amazon Web Services, the support team can better diagnose the problem if given the Request
  *                         Id.</p>
- *                 </li>
+ *                </li>
  *             </ul>
  *             <p>Both the HTTP status code and the ErrorType header can be utilized to make
  *                 programmatic decisions about whether errors are retry-able and under what
@@ -76,7 +75,7 @@ export interface ListFragmentsCommandOutput extends ListFragmentsOutput, __Metad
  *             <p>For more information, see the <b>Errors</b> section at
  *                 the bottom of this topic, as well as <a href="https://docs.aws.amazon.com/kinesisvideostreams/latest/dg/CommonErrors.html">Common Errors</a>.
  *             </p>
- *         </important>
+ *          </important>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -89,7 +88,7 @@ export interface ListFragmentsCommandOutput extends ListFragmentsOutput, __Metad
  *   MaxResults: Number("long"),
  *   NextToken: "STRING_VALUE",
  *   FragmentSelector: { // FragmentSelector
- *     FragmentSelectorType: "STRING_VALUE", // required
+ *     FragmentSelectorType: "PRODUCER_TIMESTAMP" || "SERVER_TIMESTAMP", // required
  *     TimestampRange: { // TimestampRange
  *       StartTimestamp: new Date("TIMESTAMP"), // required
  *       EndTimestamp: new Date("TIMESTAMP"), // required
@@ -132,9 +131,9 @@ export interface ListFragmentsCommandOutput extends ListFragmentsOutput, __Metad
  *
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>
- *             <code>GetMedia</code> throws this error when Kinesis Video Streams can't find the stream
+ *             <code>GetImages</code> will throw this error when Kinesis Video Streams can't find the stream
  *             that you specified.</p>
- *         <p>
+ *          <p>
  *             <code>GetHLSStreamingSessionURL</code> and <code>GetDASHStreamingSessionURL</code> throw
  *             this error if a session with a <code>PlaybackMode</code> of <code>ON_DEMAND</code> or
  *                 <code>LIVE_REPLAY</code>is requested for a stream that has no fragments within the

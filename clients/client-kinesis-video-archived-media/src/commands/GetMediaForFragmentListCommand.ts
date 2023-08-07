@@ -52,32 +52,29 @@ export interface GetMediaForFragmentListCommandOutput
  * @public
  * <p>Gets media for a list of fragments (specified by fragment number) from the archived
  *             data in an Amazon Kinesis video stream.</p>
- *
- *         <note>
+ *          <note>
  *             <p>You must first call the <code>GetDataEndpoint</code> API to get an endpoint.
  *                 Then send the <code>GetMediaForFragmentList</code> requests to this endpoint using
  *                 the <a href="https://docs.aws.amazon.com/cli/latest/reference/">--endpoint-url
  *                     parameter</a>. </p>
- *         </note>
- *
- *         <p>For limits, see <a href="http://docs.aws.amazon.com/kinesisvideostreams/latest/dg/limits.html">Kinesis Video Streams Limits</a>.</p>
- *
- *         <important>
+ *          </note>
+ *          <p>For limits, see <a href="http://docs.aws.amazon.com/kinesisvideostreams/latest/dg/limits.html">Kinesis Video Streams Limits</a>.</p>
+ *          <important>
  *             <p>If an error is thrown after invoking a Kinesis Video Streams archived media API,
  *                 in addition to the HTTP status code and the response body, it includes the following
  *                 pieces of information: </p>
  *             <ul>
  *                <li>
- *                     <p>
- *                         <code>x-amz-ErrorType</code> HTTP header – contains a more specific error
+ *                   <p>
+ *                      <code>x-amz-ErrorType</code> HTTP header – contains a more specific error
  *                         type in addition to what the HTTP status code provides. </p>
- *                 </li>
+ *                </li>
  *                <li>
- *                     <p>
- *                         <code>x-amz-RequestId</code> HTTP header – if you want to report an issue to
- *                         AWS, the support team can better diagnose the problem if given the Request
+ *                   <p>
+ *                      <code>x-amz-RequestId</code> HTTP header – if you want to report an issue to
+ *                         Amazon Web Services, the support team can better diagnose the problem if given the Request
  *                         Id.</p>
- *                 </li>
+ *                </li>
  *             </ul>
  *             <p>Both the HTTP status code and the ErrorType header can be utilized to make
  *                 programmatic decisions about whether errors are retry-able and under what
@@ -86,7 +83,7 @@ export interface GetMediaForFragmentListCommandOutput
  *             <p>For more information, see the <b>Errors</b> section at
  *                 the bottom of this topic, as well as <a href="https://docs.aws.amazon.com/kinesisvideostreams/latest/dg/CommonErrors.html">Common Errors</a>.
  *             </p>
- *         </important>
+ *          </important>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -128,9 +125,9 @@ export interface GetMediaForFragmentListCommandOutput
  *
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>
- *             <code>GetMedia</code> throws this error when Kinesis Video Streams can't find the stream
+ *             <code>GetImages</code> will throw this error when Kinesis Video Streams can't find the stream
  *             that you specified.</p>
- *         <p>
+ *          <p>
  *             <code>GetHLSStreamingSessionURL</code> and <code>GetDASHStreamingSessionURL</code> throw
  *             this error if a session with a <code>PlaybackMode</code> of <code>ON_DEMAND</code> or
  *                 <code>LIVE_REPLAY</code>is requested for a stream that has no fragments within the

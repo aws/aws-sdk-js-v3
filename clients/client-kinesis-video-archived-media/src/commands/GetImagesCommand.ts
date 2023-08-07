@@ -50,11 +50,11 @@ export interface GetImagesCommandOutput extends GetImagesOutput, __MetadataBeare
  * const input = { // GetImagesInput
  *   StreamName: "STRING_VALUE",
  *   StreamARN: "STRING_VALUE",
- *   ImageSelectorType: "STRING_VALUE", // required
+ *   ImageSelectorType: "PRODUCER_TIMESTAMP" || "SERVER_TIMESTAMP", // required
  *   StartTimestamp: new Date("TIMESTAMP"), // required
  *   EndTimestamp: new Date("TIMESTAMP"), // required
- *   SamplingInterval: Number("int"), // required
- *   Format: "STRING_VALUE", // required
+ *   SamplingInterval: Number("int"),
+ *   Format: "JPEG" || "PNG", // required
  *   FormatConfig: { // FormatConfig
  *     "<keys>": "STRING_VALUE",
  *   },
@@ -69,7 +69,7 @@ export interface GetImagesCommandOutput extends GetImagesOutput, __MetadataBeare
  * //   Images: [ // Images
  * //     { // Image
  * //       TimeStamp: new Date("TIMESTAMP"),
- * //       Error: "STRING_VALUE",
+ * //       Error: "NO_MEDIA" || "MEDIA_ERROR",
  * //       ImageContent: "STRING_VALUE",
  * //     },
  * //   ],
@@ -97,9 +97,9 @@ export interface GetImagesCommandOutput extends GetImagesOutput, __MetadataBeare
  *
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>
- *             <code>GetMedia</code> throws this error when Kinesis Video Streams can't find the stream
+ *             <code>GetImages</code> will throw this error when Kinesis Video Streams can't find the stream
  *             that you specified.</p>
- *         <p>
+ *          <p>
  *             <code>GetHLSStreamingSessionURL</code> and <code>GetDASHStreamingSessionURL</code> throw
  *             this error if a session with a <code>PlaybackMode</code> of <code>ON_DEMAND</code> or
  *                 <code>LIVE_REPLAY</code>is requested for a stream that has no fragments within the
