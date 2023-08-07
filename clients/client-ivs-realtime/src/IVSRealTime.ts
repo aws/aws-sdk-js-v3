@@ -287,19 +287,17 @@ export interface IVSRealTime {
  * <p>
  *             <b>Introduction</b>
  *          </p>
- *          <p>The Amazon Interactive Video Service (IVS) stage API is REST compatible, using a standard HTTP
+ *          <p>The Amazon Interactive Video Service (IVS) real-time API is REST compatible, using a standard HTTP
  * 	  API and an AWS EventBridge event stream for responses. JSON is used for both requests and responses,
  * 	  including errors.
  *     </p>
  *          <p>Terminology:</p>
  *          <ul>
  *             <li>
- *                <p>The IVS stage API sometimes is referred to as the IVS <i>RealTime</i>
- *           API.</p>
+ *                <p>A <i>stage</i>  is a virtual space where participants can exchange video in real time.</p>
  *             </li>
  *             <li>
- *                <p>A <i>participant token</i> is an authorization token used to publish/subscribe
- *           to a stage.</p>
+ *                <p>A <i>participant token</i> is a token that authenticates a participant when they join a stage.</p>
  *             </li>
  *             <li>
  *                <p>A <i>participant object</i> represents participants
@@ -312,11 +310,11 @@ export interface IVSRealTime {
  *          <p>
  *             <b>Resources</b>
  *          </p>
- *          <p>The following resources contain information about your IVS live stream (see <a href="https://docs.aws.amazon.com/ivs/latest/userguide/getting-started.html">Getting Started with Amazon IVS</a>):</p>
+ *          <p>The following resources contain information about your IVS live stream (see <a href="https://docs.aws.amazon.com/ivs/latest/RealTimeUserGuide/getting-started.html">Getting Started with Amazon IVS Real-Time Streaming</a>):</p>
  *          <ul>
  *             <li>
  *                <p>
- *                   <b>Stage</b> — A stage is a virtual space where multiple participants can exchange audio and video in real time.</p>
+ *                   <b>Stage</b> — A stage is a virtual space where participants can exchange video in real time.</p>
  *             </li>
  *          </ul>
  *          <p>
@@ -331,7 +329,7 @@ export interface IVSRealTime {
  *          <p>Tags can help you identify and organize your AWS resources. For example, you can use the
  *       same tag for different resources to indicate that they are related. You can also use tags to
  *       manage access (see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/access_tags.html">Access Tags</a>).</p>
- *          <p>The Amazon IVS stage API has these tag-related endpoints: <a>TagResource</a>, <a>UntagResource</a>, and
+ *          <p>The Amazon IVS real-time API has these tag-related endpoints: <a>TagResource</a>, <a>UntagResource</a>, and
  *       <a>ListTagsForResource</a>. The following resource supports tagging: Stage.</p>
  *          <p>At most 50 tags can be applied to a resource.</p>
  *          <p>

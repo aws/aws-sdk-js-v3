@@ -663,6 +663,8 @@ export interface ListParticipantEventsRequest {
  */
 export const EventErrorCode = {
   INSUFFICIENT_CAPABILITIES: "INSUFFICIENT_CAPABILITIES",
+  PUBLISHER_NOT_FOUND: "PUBLISHER_NOT_FOUND",
+  QUOTA_EXCEEDED: "QUOTA_EXCEEDED",
 } as const;
 
 /**
@@ -728,7 +730,12 @@ export interface Event {
    *          specific error that occurred. If the event is not an error event, this field is null.
    *          <code>INSUFFICIENT_CAPABILITIES</code> indicates that the participant tried to take an action that the
    *          participant’s token is not allowed to do. For more information about participant
-   *          capabilities, see the <code>capabilities</code> field in <a>CreateParticipantToken</a>.</p>
+   *          capabilities, see the <code>capabilities</code> field in <a>CreateParticipantToken</a>.
+   * 		 <code>QUOTA_EXCEEDED</code> indicates that the number of participants who want to publish/subscribe to a
+   * 		 stage exceeds the quota; for more information, see <a href="https://docs.aws.amazon.com/ivs/latest/RealTimeUserGuide/service-quotas.html">Service Quotas</a>.
+   * 		 <code>PUBLISHER_NOT_FOUND</code> indicates that the participant tried to subscribe to a publisher
+   * 		 that doesn’t exist.
+   * </p>
    */
   errorCode?: EventErrorCode | string;
 }
