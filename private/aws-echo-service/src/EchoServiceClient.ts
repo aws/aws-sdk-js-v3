@@ -33,6 +33,7 @@ import {
 import {
   Provider,
   BodyLengthCalculator as __BodyLengthCalculator,
+  CheckOptionalClientConfig as __CheckOptionalClientConfig,
   Checksum as __Checksum,
   ChecksumConstructor as __ChecksumConstructor,
   Decoder as __Decoder,
@@ -202,8 +203,8 @@ export class EchoServiceClient extends __Client<
    */
   readonly config: EchoServiceClientResolvedConfig;
 
-  constructor(configuration: EchoServiceClientConfig) {
-    let _config_0 = __getRuntimeConfig(configuration);
+  constructor(...[configuration]: __CheckOptionalClientConfig<EchoServiceClientConfig>) {
+    let _config_0 = __getRuntimeConfig(configuration || {});
     let _config_1 = resolveCustomEndpointsConfig(_config_0);
     let _config_2 = resolveRetryConfig(_config_1);
     let _config_3 = resolveHostHeaderConfig(_config_2);
