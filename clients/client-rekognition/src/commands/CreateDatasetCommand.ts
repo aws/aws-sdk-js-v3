@@ -38,9 +38,9 @@ export interface CreateDatasetCommandOutput extends CreateDatasetResponse, __Met
  * @public
  * <p>Creates a new Amazon Rekognition Custom Labels dataset. You can create a dataset by using
  *    an Amazon Sagemaker format manifest file or by copying an existing Amazon Rekognition Custom Labels dataset.</p>
- *          <p>To create a training dataset for a project, specify <code>train</code> for the value of
+ *          <p>To create a training dataset for a project, specify <code>TRAIN</code> for the value of
  *       <code>DatasetType</code>. To create the test dataset for a project,
- *       specify <code>test</code> for the value of <code>DatasetType</code>.
+ *       specify <code>TEST</code> for the value of <code>DatasetType</code>.
  *     </p>
  *          <p>The response from <code>CreateDataset</code> is the Amazon Resource Name (ARN) for the dataset.
  *    Creating a dataset takes a while to complete. Use <a>DescribeDataset</a> to check the

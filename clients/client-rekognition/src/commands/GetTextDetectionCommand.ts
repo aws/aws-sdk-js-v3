@@ -46,7 +46,7 @@ export interface GetTextDetectionCommandOutput extends GetTextDetectionResponse,
  *      of <code>StartLabelDetection</code>.</p>
  *          <p>
  *             <code>GetTextDetection</code> returns an array of detected text (<code>TextDetections</code>) sorted by
- *        the time the text was detected, up to 50 words per frame of video.</p>
+ *        the time the text was detected, up to 100 words per frame of video.</p>
  *          <p>Each element of the array includes the detected text, the precentage confidence in the acuracy
  *        of the detected text, the time the text was detected, bounding box information for where the text
  *        was located, and unique identifiers for words and their lines.</p>

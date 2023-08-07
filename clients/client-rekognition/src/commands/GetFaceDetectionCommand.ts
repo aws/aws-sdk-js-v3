@@ -49,6 +49,8 @@ export interface GetFaceDetectionCommandOutput extends GetFaceDetectionResponse,
  *    specified in <code>MaxResults</code>, the value of <code>NextToken</code> in the operation response contains a pagination token for getting the next set
  *    of results. To get the next page of results, call <code>GetFaceDetection</code> and populate the <code>NextToken</code> request parameter with the token
  *     value returned from the previous call to <code>GetFaceDetection</code>.</p>
+ *          <p>Note that for the <code>GetFaceDetection</code> operation, the returned values for
+ *         <code>FaceOccluded</code> and <code>EyeDirection</code> will always be "null".</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

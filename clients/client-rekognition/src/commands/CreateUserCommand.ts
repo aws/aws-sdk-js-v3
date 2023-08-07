@@ -37,13 +37,13 @@ export interface CreateUserCommandOutput extends CreateUserResponse, __MetadataB
 /**
  * @public
  * <p>Creates a new User within a collection specified by <code>CollectionId</code>. Takes
- *       <code>UserId</code> as a parameter, which is a user provided ID which should be unique
- *       within the collection. The provided <code>UserId</code> will alias the system generated
- *       UUID to make the <code>UserId</code> more user friendly. </p>
+ *         <code>UserId</code> as a parameter, which is a user provided ID which should be unique
+ *       within the collection. The provided <code>UserId</code> will alias the system generated UUID
+ *       to make the <code>UserId</code> more user friendly. </p>
  *          <p>Uses a <code>ClientToken</code>, an idempotency token that ensures a call to
- *       <code>CreateUser</code> completes only once. If the value is not supplied, the AWS SDK
- *       generates an idempotency token for the requests. This prevents retries after a network
- *       error results from making multiple <code>CreateUser</code> calls. </p>
+ *         <code>CreateUser</code> completes only once. If the value is not supplied, the AWS SDK
+ *       generates an idempotency token for the requests. This prevents retries after a network error
+ *       results from making multiple <code>CreateUser</code> calls. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -71,9 +71,8 @@ export interface CreateUserCommandOutput extends CreateUserResponse, __MetadataB
  *  <p>You are not authorized to perform the action.</p>
  *
  * @throws {@link ConflictException} (client fault)
- *  <p>
- *       A User with the same Id already exists within the collection, or the update or deletion of the User caused an inconsistent state. **
- *     </p>
+ *  <p> A User with the same Id already exists within the collection, or the update or deletion
+ *       of the User caused an inconsistent state. ** </p>
  *
  * @throws {@link IdempotentParameterMismatchException} (client fault)
  *  <p>A <code>ClientRequestToken</code> input parameter was reused with an operation, but at least one of the other input

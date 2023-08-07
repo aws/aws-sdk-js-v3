@@ -42,9 +42,9 @@ export interface SearchUsersByImageCommandOutput extends SearchUsersByImageRespo
  *       ordered by similarity score with the highest similarity first. It also returns a bounding box
  *       for the face found in the input image. </p>
  *          <p>Information about faces detected in the supplied image, but not used for the search, is
- *       returned in an array of <code>UnsearchedFace</code> objects. If no valid face is detected
- *       in the image, the response will contain an empty <code>UserMatches</code> list and no
- *       <code>SearchedFace</code> object. </p>
+ *       returned in an array of <code>UnsearchedFace</code> objects. If no valid face is detected in
+ *       the image, the response will contain an empty <code>UserMatches</code> list and no
+ *         <code>SearchedFace</code> object. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

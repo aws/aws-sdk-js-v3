@@ -90,9 +90,8 @@ export interface DisassociateFacesCommandOutput extends DisassociateFacesRespons
  *  <p>You are not authorized to perform the action.</p>
  *
  * @throws {@link ConflictException} (client fault)
- *  <p>
- *       A User with the same Id already exists within the collection, or the update or deletion of the User caused an inconsistent state. **
- *     </p>
+ *  <p> A User with the same Id already exists within the collection, or the update or deletion
+ *       of the User caused an inconsistent state. ** </p>
  *
  * @throws {@link IdempotentParameterMismatchException} (client fault)
  *  <p>A <code>ClientRequestToken</code> input parameter was reused with an operation, but at least one of the other input

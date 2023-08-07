@@ -59,9 +59,11 @@ export interface DetectLabelsCommandOutput extends DetectLabelsResponse, __Metad
  *       labels or with label categories. You can specify inclusive filters, exclusive filters, or a
  *       combination of inclusive and exclusive filters. For more information on filtering see <a href="https://docs.aws.amazon.com/rekognition/latest/dg/labels-detect-labels-image.html">Detecting
  *         Labels in an Image</a>.</p>
- *          <p>You can specify <code>MinConfidence</code> to control the confidence threshold for the
- *       labels returned. The default is 55%. You can also add the <code>MaxLabels</code> parameter to
- *       limit the number of labels returned. The default and upper limit is 1000 labels.</p>
+ *          <p>When getting labels, you can specify <code>MinConfidence</code> to control the
+ *       confidence threshold for the labels returned. The default is 55%. You can also add the
+ *         <code>MaxLabels</code> parameter to limit the number of labels returned. The default and
+ *       upper limit is 1000 labels. These arguments are only valid when supplying GENERAL_LABELS as a
+ *       feature type.</p>
  *          <p>
  *             <b>Response Elements</b>
  *          </p>
@@ -108,10 +110,12 @@ export interface DetectLabelsCommandOutput extends DetectLabelsResponse, __Metad
  *                <p>Dominant Color - An array of the dominant colors in the image. </p>
  *             </li>
  *             <li>
- *                <p>Foreground - Information about the sharpness, brightness, and dominant colors of the input image’s foreground. </p>
+ *                <p>Foreground - Information about the sharpness, brightness, and dominant colors of the
+ *           input image’s foreground. </p>
  *             </li>
  *             <li>
- *                <p>Background - Information about the sharpness, brightness, and dominant colors of the input image’s background.</p>
+ *                <p>Background - Information about the sharpness, brightness, and dominant colors of the
+ *           input image’s background.</p>
  *             </li>
  *          </ul>
  *          <p>The list of returned labels will include at least one label for every detected object,

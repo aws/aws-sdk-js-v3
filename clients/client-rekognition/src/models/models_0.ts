@@ -164,8 +164,8 @@ export interface AssociateFacesRequest {
   /**
    * @public
    * <p>Idempotent token used to identify the request to <code>AssociateFaces</code>. If you use
-   *       the same token with multiple <code>AssociateFaces</code> requests, the same response is returned.
-   *       Use ClientRequestToken to prevent the same request from being processed more than
+   *       the same token with multiple <code>AssociateFaces</code> requests, the same response is
+   *       returned. Use ClientRequestToken to prevent the same request from being processed more than
    *       once.</p>
    */
   ClientRequestToken?: string;
@@ -189,7 +189,8 @@ export type UnsuccessfulFaceAssociationReason =
 
 /**
  * @public
- * <p>Contains metadata like FaceId, UserID, and Reasons, for a face that was unsuccessfully associated.</p>
+ * <p>Contains metadata like FaceId, UserID, and Reasons, for a face that was unsuccessfully
+ *       associated.</p>
  */
 export interface UnsuccessfulFaceAssociation {
   /**
@@ -262,9 +263,8 @@ export interface AssociateFacesResponse {
 
 /**
  * @public
- * <p>
- *       A User with the same Id already exists within the collection, or the update or deletion of the User caused an inconsistent state. **
- *     </p>
+ * <p> A User with the same Id already exists within the collection, or the update or deletion
+ *       of the User caused an inconsistent state. ** </p>
  */
 export class ConflictException extends __BaseException {
   readonly name: "ConflictException" = "ConflictException";
@@ -613,12 +613,14 @@ export interface BoundingBox {
 
 /**
  * @public
- * <p>An image that is picked from the Face Liveness video and returned for audit trail purposes, returned as Base64-encoded bytes.</p>
+ * <p>An image that is picked from the Face Liveness video and returned for audit trail
+ *       purposes, returned as Base64-encoded bytes.</p>
  */
 export interface AuditImage {
   /**
    * @public
-   * <p>The Base64-encoded bytes representing an image selected from the Face Liveness video and returned for audit purposes.</p>
+   * <p>The Base64-encoded bytes representing an image selected from the Face Liveness video and
+   *       returned for audit purposes.</p>
    */
   Bytes?: Uint8Array;
 
@@ -1126,7 +1128,8 @@ export interface Celebrity {
 
 /**
  * @public
- * <p>Indicates the direction the eyes are gazing in (independent of the head pose) as determined by its pitch and yaw. </p>
+ * <p>Indicates the direction the eyes are gazing in (independent of the head pose) as
+ *       determined by its pitch and yaw. </p>
  */
 export interface EyeDirection {
   /**
@@ -1615,8 +1618,8 @@ export type QualityFilter = (typeof QualityFilter)[keyof typeof QualityFilter];
 export interface Image {
   /**
    * @public
-   * <p>Blob of image bytes up to 5 MBs. Note that the maximum image size you can pass to
-   *         <code>DetectCustomLabels</code> is 4MB. </p>
+   * <p>Blob of image bytes up to 5 MBs. Note that the maximum image size you can
+   *       pass to <code>DetectCustomLabels</code> is 4MB. </p>
    */
   Bytes?: Uint8Array;
 
@@ -1994,22 +1997,22 @@ export interface ContentModerationDetection {
 
   /**
    * @public
-   * <p>The time in milliseconds defining the start of the timeline
-   *       segment containing a continuously detected moderation label.</p>
+   * <p>The time in milliseconds defining the start of the timeline segment containing a
+   *       continuously detected moderation label.</p>
    */
   StartTimestampMillis?: number;
 
   /**
    * @public
-   * <p> The time in milliseconds defining the end of the
-   *       timeline segment containing a continuously detected moderation label. </p>
+   * <p> The time in milliseconds defining the end of the timeline segment containing a
+   *       continuously detected moderation label. </p>
    */
   EndTimestampMillis?: number;
 
   /**
    * @public
-   * <p> The time duration of a segment in milliseconds,
-   *       I.e. time elapsed from StartTimestampMillis to EndTimestampMillis. </p>
+   * <p> The time duration of a segment in milliseconds, I.e. time elapsed from
+   *       StartTimestampMillis to EndTimestampMillis. </p>
    */
   DurationMillis?: number;
 }
@@ -2321,7 +2324,7 @@ export interface CreateDatasetRequest {
   /**
    * @public
    * <p>
-   * The type of the dataset. Specify <code>train</code> to create a training dataset. Specify <code>test</code>
+   * The type of the dataset. Specify <code>TRAIN</code> to create a training dataset. Specify <code>TEST</code>
    *    to create a test dataset.
    * </p>
    */
@@ -2351,9 +2354,9 @@ export interface CreateDatasetResponse {
 
 /**
  * @public
- * <p>Contains settings that specify the location of an Amazon S3 bucket used
- *       to store the output of a Face Liveness session. Note that the S3 bucket must be located
- *       in the caller's AWS account and in the same region as the Face Liveness end-point. Additionally, the Amazon S3 object keys are
+ * <p>Contains settings that specify the location of an Amazon S3 bucket used to store the output of
+ *       a Face Liveness session. Note that the S3 bucket must be located in the caller's AWS account
+ *       and in the same region as the Face Liveness end-point. Additionally, the Amazon S3 object keys are
  *       auto-generated by the Face Liveness system. </p>
  */
 export interface LivenessOutputConfig {
@@ -2372,8 +2375,8 @@ export interface LivenessOutputConfig {
 
 /**
  * @public
- * <p>A session settings object. It contains settings for the operation
- *       to be performed. It accepts arguments for OutputConfig and AuditImagesLimit.</p>
+ * <p>A session settings object. It contains settings for the operation to be performed. It
+ *       accepts arguments for OutputConfig and AuditImagesLimit.</p>
  */
 export interface CreateFaceLivenessSessionRequestSettings {
   /**
@@ -2402,8 +2405,8 @@ export interface CreateFaceLivenessSessionRequestSettings {
 export interface CreateFaceLivenessSessionRequest {
   /**
    * @public
-   * <p> The identifier for your AWS Key Management Service key (AWS KMS key).
-   *       Used to encrypt audit images and reference images.</p>
+   * <p> The identifier for your AWS Key Management Service key (AWS KMS key). Used to encrypt
+   *       audit images and reference images.</p>
    */
   KmsKeyId?: string;
 
@@ -2912,9 +2915,8 @@ export interface CreateUserRequest {
   /**
    * @public
    * <p>Idempotent token used to identify the request to <code>CreateUser</code>. If you use the
-   *       same token with multiple <code>CreateUser</code> requests, the same response is returned.
-   *       Use ClientRequestToken to prevent the same request from being processed more than
-   *       once.</p>
+   *       same token with multiple <code>CreateUser</code> requests, the same response is returned. Use
+   *       ClientRequestToken to prevent the same request from being processed more than once.</p>
    */
   ClientRequestToken?: string;
 }
@@ -3310,7 +3312,8 @@ export type UnsuccessfulFaceDeletionReason =
 
 /**
  * @public
- * <p>Contains metadata like FaceId, UserID, and Reasons, for a face that was unsuccessfully deleted.</p>
+ * <p>Contains metadata like FaceId, UserID, and Reasons, for a face that was unsuccessfully
+ *       deleted.</p>
  */
 export interface UnsuccessfulFaceDeletion {
   /**
@@ -3525,9 +3528,8 @@ export interface DeleteUserRequest {
   /**
    * @public
    * <p>Idempotent token used to identify the request to <code>DeleteUser</code>. If you use the
-   *       same token with multiple <code>DeleteUser </code>requests, the same response is returned.
-   *       Use ClientRequestToken to prevent the same request from being processed more than
-   *       once.</p>
+   *       same token with multiple <code>DeleteUser </code>requests, the same response is returned. Use
+   *       ClientRequestToken to prevent the same request from being processed more than once.</p>
    */
   ClientRequestToken?: string;
 }
@@ -4245,6 +4247,9 @@ export interface DetectFacesRequest {
    *       response time.</p>
    *          <p>If you provide both, <code>["ALL", "DEFAULT"]</code>, the service uses a logical "AND"
    *       operator to determine which attributes to return (in this case, all attributes). </p>
+   *          <p>Note that while the FaceOccluded and EyeDirection attributes are supported when using
+   *         <code>DetectFaces</code>, they aren't supported when analyzing videos with
+   *         <code>StartFaceDetection</code> and <code>GetFaceDetection</code>.</p>
    */
   Attributes?: (Attribute | string)[];
 }
@@ -4319,8 +4324,8 @@ export type DetectLabelsFeatureName = (typeof DetectLabelsFeatureName)[keyof typ
 /**
  * @public
  * <p>Contains filters for the object labels returned by DetectLabels. Filters can be inclusive,
- *       exclusive, or a combination of both and can be applied to individual labels or entire label categories.
- *       To see a list of label categories, see <a href="https://docs.aws.amazon.com/rekognition/latest/dg/labels.html">Detecting Labels</a>.</p>
+ *       exclusive, or a combination of both and can be applied to individual labels or entire label
+ *       categories. To see a list of label categories, see <a href="https://docs.aws.amazon.com/rekognition/latest/dg/labels.html">Detecting Labels</a>.</p>
  */
 export interface GeneralLabelsSettings {
   /**
@@ -4355,17 +4360,18 @@ export interface GeneralLabelsSettings {
 export interface DetectLabelsImagePropertiesSettings {
   /**
    * @public
-   * <p>The maximum number of dominant colors to return when detecting labels in an image. The default value is 10.</p>
+   * <p>The maximum number of dominant colors to return when detecting labels in an image. The
+   *       default value is 10.</p>
    */
   MaxDominantColors?: number;
 }
 
 /**
  * @public
- * <p>Settings for the DetectLabels request. Settings can include
- *       filters for both GENERAL_LABELS and IMAGE_PROPERTIES. GENERAL_LABELS filters can be inclusive
- *       or exclusive and applied to individual labels or label categories. IMAGE_PROPERTIES filters
- *       allow specification of a maximum number of dominant colors.</p>
+ * <p>Settings for the DetectLabels request. Settings can include filters for both
+ *       GENERAL_LABELS and IMAGE_PROPERTIES. GENERAL_LABELS filters can be inclusive or exclusive and
+ *       applied to individual labels or label categories. IMAGE_PROPERTIES filters allow specification
+ *       of a maximum number of dominant colors.</p>
  */
 export interface DetectLabelsSettings {
   /**
@@ -4399,7 +4405,8 @@ export interface DetectLabelsRequest {
   /**
    * @public
    * <p>Maximum number of labels you want the service to return in the response. The service
-   *       returns the specified number of highest confidence labels. </p>
+   *       returns the specified number of highest confidence labels. Only valid when GENERAL_LABELS is
+   *       specified as a feature type in the Feature input parameter.</p>
    */
   MaxLabels?: number;
 
@@ -4408,24 +4415,25 @@ export interface DetectLabelsRequest {
    * <p>Specifies the minimum confidence level for the labels to return. Amazon Rekognition doesn't
    *       return any labels with confidence lower than this specified value.</p>
    *          <p>If <code>MinConfidence</code> is not specified, the operation returns labels with a
-   *       confidence values greater than or equal to 55 percent.</p>
+   *       confidence values greater than or equal to 55 percent. Only valid when GENERAL_LABELS is
+   *       specified as a feature type in the Feature input parameter.</p>
    */
   MinConfidence?: number;
 
   /**
    * @public
-   * <p>A list of the types of analysis to perform. Specifying GENERAL_LABELS uses the label detection
-   *       feature, while specifying IMAGE_PROPERTIES returns information regarding image color and quality.
-   *       If no option is specified GENERAL_LABELS is used by default.</p>
+   * <p>A list of the types of analysis to perform. Specifying GENERAL_LABELS uses the label
+   *       detection feature, while specifying IMAGE_PROPERTIES returns information regarding image color
+   *       and quality. If no option is specified GENERAL_LABELS is used by default.</p>
    */
   Features?: (DetectLabelsFeatureName | string)[];
 
   /**
    * @public
-   * <p>A list of the filters to be applied to returned detected labels and image properties. Specified
-   *       filters can be inclusive, exclusive, or a combination of both. Filters can be used for individual
-   *       labels or label categories. The exact label names or label categories must be supplied. For
-   *       a full list of labels and label categories, see <a href="https://docs.aws.amazon.com/rekognition/latest/dg/labels.html">Detecting labels</a>.</p>
+   * <p>A list of the filters to be applied to returned detected labels and image properties.
+   *       Specified filters can be inclusive, exclusive, or a combination of both. Filters can be used
+   *       for individual labels or label categories. The exact label names or label categories must be
+   *       supplied. For a full list of labels and label categories, see <a href="https://docs.aws.amazon.com/rekognition/latest/dg/labels.html">Detecting labels</a>.</p>
    */
   Settings?: DetectLabelsSettings;
 }
@@ -4480,7 +4488,8 @@ export interface DominantColor {
 
 /**
  * @public
- * <p>The quality of an image provided for label detection, with regard to brightness, sharpness, and contrast.</p>
+ * <p>The quality of an image provided for label detection, with regard to brightness,
+ *       sharpness, and contrast.</p>
  */
 export interface DetectLabelsImageQuality {
   /**
@@ -4515,9 +4524,9 @@ export interface DetectLabelsImageBackground {
 
   /**
    * @public
-   * <p>The dominant colors found in the background of an image, defined with RGB values,
-   *       CSS color name, simplified color name, and PixelPercentage (the percentage of
-   *       image pixels that have a particular color).</p>
+   * <p>The dominant colors found in the background of an image, defined with RGB values, CSS
+   *       color name, simplified color name, and PixelPercentage (the percentage of image pixels that
+   *       have a particular color).</p>
    */
   DominantColors?: DominantColor[];
 }
@@ -4535,47 +4544,46 @@ export interface DetectLabelsImageForeground {
 
   /**
    * @public
-   * <p>The dominant colors found in the foreground of an image, defined with RGB values,
-   *       CSS color name, simplified color name, and PixelPercentage (the percentage of image
-   *       pixels that have a particular color).</p>
+   * <p>The dominant colors found in the foreground of an image, defined with RGB values, CSS
+   *       color name, simplified color name, and PixelPercentage (the percentage of image pixels that
+   *       have a particular color).</p>
    */
   DominantColors?: DominantColor[];
 }
 
 /**
  * @public
- * <p>Information about the quality and dominant colors of an input image.
- *       Quality and color information is returned for the entire image, foreground, and background.</p>
+ * <p>Information about the quality and dominant colors of an input image. Quality and color
+ *       information is returned for the entire image, foreground, and background.</p>
  */
 export interface DetectLabelsImageProperties {
   /**
    * @public
-   * <p>Information about the quality of the image foreground as defined by brightness,
-   *       sharpness, and contrast. The higher the value the greater the brightness,
-   *       sharpness, and contrast respectively.</p>
+   * <p>Information about the quality of the image foreground as defined by brightness, sharpness,
+   *       and contrast. The higher the value the greater the brightness, sharpness, and contrast
+   *       respectively.</p>
    */
   Quality?: DetectLabelsImageQuality;
 
   /**
    * @public
-   * <p>Information about the dominant colors found in an image, described with RGB values,
-   *       CSS color name, simplified color name, and PixelPercentage (the percentage of image pixels
-   *       that have a particular color).</p>
+   * <p>Information about the dominant colors found in an image, described with RGB values, CSS
+   *       color name, simplified color name, and PixelPercentage (the percentage of image pixels that
+   *       have a particular color).</p>
    */
   DominantColors?: DominantColor[];
 
   /**
    * @public
-   * <p>Information about the properties of an image’s foreground, including the
-   *       foreground’s quality and dominant colors, including the quality and dominant colors of the image.</p>
+   * <p>Information about the properties of an image’s foreground, including the foreground’s
+   *       quality and dominant colors, including the quality and dominant colors of the image.</p>
    */
   Foreground?: DetectLabelsImageForeground;
 
   /**
    * @public
-   * <p>Information about the properties of an image’s background, including
-   *       the background’s quality and dominant colors, including the quality
-   *       and dominant colors of the image.</p>
+   * <p>Information about the properties of an image’s background, including the background’s
+   *       quality and dominant colors, including the quality and dominant colors of the image.</p>
    */
   Background?: DetectLabelsImageBackground;
 }
@@ -4643,10 +4651,9 @@ export interface Parent {
 
 /**
  * @public
- * <p>Structure containing details about the detected label, including the name, detected instances, parent labels, and level of
- *       confidence.</p>
- *          <p>
- *     </p>
+ * <p>Structure containing details about the detected label, including the name, detected
+ *       instances, parent labels, and level of confidence.</p>
+ *          <p> </p>
  */
 export interface Label {
   /**
@@ -4663,8 +4670,9 @@ export interface Label {
 
   /**
    * @public
-   * <p>If <code>Label</code> represents an object, <code>Instances</code> contains the bounding boxes for each instance of the detected object.
-   *       Bounding boxes are returned for common object labels such as people, cars, furniture, apparel or pets.</p>
+   * <p>If <code>Label</code> represents an object, <code>Instances</code> contains the bounding
+   *       boxes for each instance of the detected object. Bounding boxes are returned for common object
+   *       labels such as people, cars, furniture, apparel or pets.</p>
    */
   Instances?: Instance[];
 
@@ -4719,7 +4727,8 @@ export interface DetectLabelsResponse {
 
   /**
    * @public
-   * <p>Information about the properties of the input image, such as brightness, sharpness, contrast, and dominant colors.</p>
+   * <p>Information about the properties of the input image, such as brightness, sharpness,
+   *       contrast, and dominant colors.</p>
    */
   ImageProperties?: DetectLabelsImageProperties;
 }
@@ -5242,7 +5251,8 @@ export type UnsuccessfulFaceDisassociationReason =
 
 /**
  * @public
- * <p>Contains metadata like FaceId, UserID, and Reasons, for a face that was unsuccessfully disassociated.</p>
+ * <p>Contains metadata like FaceId, UserID, and Reasons, for a face that was unsuccessfully
+ *       disassociated.</p>
  */
 export interface UnsuccessfulFaceDisassociation {
   /**
@@ -5285,7 +5295,8 @@ export interface DisassociateFacesResponse {
 
   /**
    * @public
-   * <p>The status of an update made to a User. Reflects if the User has been updated for every requested change.</p>
+   * <p>The status of an update made to a User. Reflects if the User has been updated for every
+   *       requested change.</p>
    */
   UserStatus?: UserStatus | string;
 }
@@ -5662,9 +5673,8 @@ export interface GetCelebrityRecognitionResponse {
 
   /**
    * @public
-   * <p>Job identifier for the celebrity recognition operation for which you
-   *       want to obtain results. The job identifer is returned by an initial call
-   *       to StartCelebrityRecognition.</p>
+   * <p>Job identifier for the celebrity recognition operation for which you want to obtain
+   *       results. The job identifer is returned by an initial call to StartCelebrityRecognition.</p>
    */
   JobId?: string;
 
@@ -5677,9 +5687,8 @@ export interface GetCelebrityRecognitionResponse {
 
   /**
    * @public
-   * <p>A job identifier specified in the call to StartCelebrityRecognition and
-   *       returned in the job completion notification sent to your
-   *       Amazon Simple Notification Service topic.</p>
+   * <p>A job identifier specified in the call to StartCelebrityRecognition and returned in the
+   *       job completion notification sent to your Amazon Simple Notification Service topic.</p>
    */
   JobTag?: string;
 }
@@ -5723,17 +5732,16 @@ export interface GetContentModerationRequest {
 
   /**
    * @public
-   * <p>Defines how to aggregate results of the StartContentModeration request.
-   *       Default aggregation option is TIMESTAMPS.
-   *       SEGMENTS mode aggregates moderation labels over time.</p>
+   * <p>Defines how to aggregate results of the StartContentModeration request. Default
+   *       aggregation option is TIMESTAMPS. SEGMENTS mode aggregates moderation labels over time.</p>
    */
   AggregateBy?: ContentModerationAggregateBy | string;
 }
 
 /**
  * @public
- * <p>Contains metadata about a content moderation request,
- *       including the SortBy and AggregateBy options.</p>
+ * <p>Contains metadata about a content moderation request, including the SortBy and AggregateBy
+ *       options.</p>
  */
 export interface GetContentModerationRequestMetadata {
   /**
@@ -5793,9 +5801,8 @@ export interface GetContentModerationResponse {
 
   /**
    * @public
-   * <p>Job identifier for the content moderation operation for which you
-   *       want to obtain results. The job identifer is returned by an initial call
-   *       to StartContentModeration.</p>
+   * <p>Job identifier for the content moderation operation for which you want to obtain results.
+   *       The job identifer is returned by an initial call to StartContentModeration.</p>
    */
   JobId?: string;
 
@@ -5808,16 +5815,15 @@ export interface GetContentModerationResponse {
 
   /**
    * @public
-   * <p>A job identifier specified in the call to StartContentModeration and
-   *       returned in the job completion notification sent to your
-   *       Amazon Simple Notification Service topic.</p>
+   * <p>A job identifier specified in the call to StartContentModeration and returned in the job
+   *       completion notification sent to your Amazon Simple Notification Service topic.</p>
    */
   JobTag?: string;
 
   /**
    * @public
-   * <p>Information about the paramters used when getting a response. Includes
-   *       information on aggregation and sorting methods.</p>
+   * <p>Information about the paramters used when getting a response. Includes information on
+   *       aggregation and sorting methods.</p>
    */
   GetRequestMetadata?: GetContentModerationRequestMetadata;
 }
@@ -5886,9 +5892,8 @@ export interface GetFaceDetectionResponse {
 
   /**
    * @public
-   * <p>Job identifier for the face detection operation for which you
-   *       want to obtain results. The job identifer is returned by an initial call
-   *       to StartFaceDetection.</p>
+   * <p>Job identifier for the face detection operation for which you want to obtain results. The
+   *       job identifer is returned by an initial call to StartFaceDetection.</p>
    */
   JobId?: string;
 
@@ -5901,9 +5906,8 @@ export interface GetFaceDetectionResponse {
 
   /**
    * @public
-   * <p>A job identifier specified in the call to StartFaceDetection and
-   *       returned in the job completion notification sent to your
-   *       Amazon Simple Notification Service topic.</p>
+   * <p>A job identifier specified in the call to StartFaceDetection and returned in the job
+   *       completion notification sent to your Amazon Simple Notification Service topic.</p>
    */
   JobTag?: string;
 }
@@ -5956,8 +5960,8 @@ export interface GetFaceLivenessSessionResultsResponse {
 
   /**
    * @public
-   * <p>Probabalistic confidence score for if the person in the given video was live, represented as a
-   *       float value between 0 to 100.</p>
+   * <p>Probabalistic confidence score for if the person in the given video was live, represented
+   *       as a float value between 0 to 100.</p>
    */
   Confidence?: number;
 
@@ -5976,7 +5980,8 @@ export interface GetFaceLivenessSessionResultsResponse {
    * <p>A set of images from the Face Liveness video that can be used for audit purposes. It
    *       includes a bounding box of the face and the Base64-encoded bytes that return an image. If the
    *       CreateFaceLivenessSession request included an OutputConfig argument, the image will be
-   *       uploaded to an S3Object specified in the output configuration.</p>
+   *       uploaded to an S3Object specified in the output configuration. If no Amazon S3 bucket is defined,
+   *       raw bytes are sent instead.</p>
    */
   AuditImages?: AuditImage[];
 }
@@ -6140,9 +6145,8 @@ export interface GetFaceSearchResponse {
 
   /**
    * @public
-   * <p>Job identifier for the face search operation for which you
-   *       want to obtain results. The job identifer is returned by an initial call
-   *       to StartFaceSearch.</p>
+   * <p>Job identifier for the face search operation for which you want to obtain results. The job
+   *       identifer is returned by an initial call to StartFaceSearch.</p>
    */
   JobId?: string;
 
@@ -6155,9 +6159,8 @@ export interface GetFaceSearchResponse {
 
   /**
    * @public
-   * <p>A job identifier specified in the call to StartFaceSearch and
-   *       returned in the job completion notification sent to your
-   *       Amazon Simple Notification Service topic.</p>
+   * <p>A job identifier specified in the call to StartFaceSearch and returned in the job
+   *       completion notification sent to your Amazon Simple Notification Service topic.</p>
    */
   JobTag?: string;
 }
@@ -6235,8 +6238,8 @@ export interface GetLabelDetectionRequest {
 
 /**
  * @public
- * <p>Contains metadata about a label detection request,
- *       including the SortBy and AggregateBy options.</p>
+ * <p>Contains metadata about a label detection request, including the SortBy and AggregateBy
+ *       options.</p>
  */
 export interface GetLabelDetectionRequestMetadata {
   /**
@@ -6334,9 +6337,8 @@ export interface GetLabelDetectionResponse {
 
   /**
    * @public
-   * <p>Job identifier for the label detection operation for which you
-   *       want to obtain results. The job identifer is returned by an initial call
-   *       to StartLabelDetection.</p>
+   * <p>Job identifier for the label detection operation for which you want to obtain results. The
+   *       job identifer is returned by an initial call to StartLabelDetection.</p>
    */
   JobId?: string;
 
@@ -6349,16 +6351,15 @@ export interface GetLabelDetectionResponse {
 
   /**
    * @public
-   * <p>A job identifier specified in the call to StartLabelDetection and
-   *       returned in the job completion notification sent to your
-   *       Amazon Simple Notification Service topic.</p>
+   * <p>A job identifier specified in the call to StartLabelDetection and returned in the job
+   *       completion notification sent to your Amazon Simple Notification Service topic.</p>
    */
   JobTag?: string;
 
   /**
    * @public
-   * <p>Information about the paramters used when getting a response. Includes
-   *       information on aggregation and sorting methods.</p>
+   * <p>Information about the paramters used when getting a response. Includes information on
+   *       aggregation and sorting methods.</p>
    */
   GetRequestMetadata?: GetLabelDetectionRequestMetadata;
 }
@@ -6473,9 +6474,8 @@ export interface GetPersonTrackingResponse {
 
   /**
    * @public
-   * <p>Job identifier for the person tracking operation for which you
-   *       want to obtain results. The job identifer is returned by an initial call
-   *       to StartPersonTracking.</p>
+   * <p>Job identifier for the person tracking operation for which you want to obtain results. The
+   *       job identifer is returned by an initial call to StartPersonTracking.</p>
    */
   JobId?: string;
 
@@ -6488,9 +6488,8 @@ export interface GetPersonTrackingResponse {
 
   /**
    * @public
-   * <p>A job identifier specified in the call to StartCelebrityRecognition and
-   *       returned in the job completion notification sent to your
-   *       Amazon Simple Notification Service topic.</p>
+   * <p>A job identifier specified in the call to StartCelebrityRecognition and returned in the
+   *       job completion notification sent to your Amazon Simple Notification Service topic.</p>
    */
   JobTag?: string;
 }
@@ -6765,9 +6764,8 @@ export interface GetSegmentDetectionResponse {
 
   /**
    * @public
-   * <p>Job identifier for the segment detection operation for which you
-   *       want to obtain results. The job identifer is returned by an initial call
-   *       to StartSegmentDetection.</p>
+   * <p>Job identifier for the segment detection operation for which you want to obtain results.
+   *       The job identifer is returned by an initial call to StartSegmentDetection.</p>
    */
   JobId?: string;
 
@@ -6780,9 +6778,8 @@ export interface GetSegmentDetectionResponse {
 
   /**
    * @public
-   * <p>A job identifier specified in the call to StartSegmentDetection and
-   *       returned in the job completion notification sent to your
-   *       Amazon Simple Notification Service topic.</p>
+   * <p>A job identifier specified in the call to StartSegmentDetection and returned in the job
+   *       completion notification sent to your Amazon Simple Notification Service topic.</p>
    */
   JobTag?: string;
 }
@@ -6877,9 +6874,8 @@ export interface GetTextDetectionResponse {
 
   /**
    * @public
-   * <p>Job identifier for the text detection operation for which you
-   *       want to obtain results. The job identifer is returned by an initial call
-   *       to StartTextDetection.</p>
+   * <p>Job identifier for the text detection operation for which you want to obtain results. The
+   *       job identifer is returned by an initial call to StartTextDetection.</p>
    */
   JobId?: string;
 
@@ -6892,9 +6888,8 @@ export interface GetTextDetectionResponse {
 
   /**
    * @public
-   * <p>A job identifier specified in the call to StartTextDetection and
-   *       returned in the job completion notification sent to your
-   *       Amazon Simple Notification Service topic.</p>
+   * <p>A job identifier specified in the call to StartTextDetection and returned in the job
+   *       completion notification sent to your Amazon Simple Notification Service topic.</p>
    */
   JobTag?: string;
 }
@@ -7138,8 +7133,8 @@ export interface LabelDetectionSettings {
   /**
    * @public
    * <p>Contains filters for the object labels returned by DetectLabels. Filters can be inclusive,
-   *       exclusive, or a combination of both and can be applied to individual labels or entire label categories.
-   *       To see a list of label categories, see <a href="https://docs.aws.amazon.com/rekognition/latest/dg/labels.html">Detecting Labels</a>.</p>
+   *       exclusive, or a combination of both and can be applied to individual labels or entire label
+   *       categories. To see a list of label categories, see <a href="https://docs.aws.amazon.com/rekognition/latest/dg/labels.html">Detecting Labels</a>.</p>
    */
   GeneralLabels?: GeneralLabelsSettings;
 }
@@ -7347,13 +7342,13 @@ export interface ListFacesRequest {
 
   /**
    * @public
-   * <p>An array of user IDs to match when listing faces in a collection.</p>
+   * <p>An array of user IDs to filter results with when listing faces in a collection.</p>
    */
   UserId?: string;
 
   /**
    * @public
-   * <p>An array of face IDs to match when listing faces in a collection.</p>
+   * <p>An array of face IDs to filter results with when listing faces in a collection.</p>
    */
   FaceIds?: string[];
 }
@@ -7605,7 +7600,8 @@ export interface ListUsersResponse {
 
   /**
    * @public
-   * <p>A pagination token to be used with the subsequent request if the response is truncated.</p>
+   * <p>A pagination token to be used with the subsequent request if the response is
+   *       truncated.</p>
    */
   NextToken?: string;
 }
@@ -7965,7 +7961,8 @@ export interface SearchUsersRequest {
 
 /**
  * @public
- * <p>Provides face metadata such as FaceId, BoundingBox, Confidence of the input face used for search.</p>
+ * <p>Provides face metadata such as FaceId, BoundingBox, Confidence of the input face used for
+ *       search.</p>
  */
 export interface SearchedFace {
   /**
@@ -8012,15 +8009,14 @@ export interface UserMatch {
 export interface SearchUsersResponse {
   /**
    * @public
-   * <p>An array of UserMatch objects that matched the input face along with the confidence in
-   *       the match. Array will be empty if there are no matches.</p>
+   * <p>An array of UserMatch objects that matched the input face along with the confidence in the
+   *       match. Array will be empty if there are no matches.</p>
    */
   UserMatches?: UserMatch[];
 
   /**
    * @public
-   * <p>Version number of the face detection model associated with the input
-   *       CollectionId.</p>
+   * <p>Version number of the face detection model associated with the input CollectionId.</p>
    */
   FaceModelVersion?: string;
 
@@ -8214,17 +8210,17 @@ export interface SearchUsersByImageResponse {
 
   /**
    * @public
-   * <p>A list of FaceDetail objects containing the BoundingBox for the largest face in image,
-   *       as well as the confidence in the bounding box, that was searched for matches. If no valid
-   *       face is detected in the image the response will contain no SearchedFace object.</p>
+   * <p>A list of FaceDetail objects containing the BoundingBox for the largest face in image, as
+   *       well as the confidence in the bounding box, that was searched for matches. If no valid face is
+   *       detected in the image the response will contain no SearchedFace object.</p>
    */
   SearchedFace?: SearchedFaceDetails;
 
   /**
    * @public
-   * <p>List of UnsearchedFace objects. Contains the face details infered from the specified
-   *       image but not used for search. Contains reasons that describe why a face wasn't used for
-   *       Search. </p>
+   * <p>List of UnsearchedFace objects. Contains the face details infered from the specified image
+   *       but not used for search. Contains reasons that describe why a face wasn't used for Search.
+   *     </p>
    */
   UnsearchedFaces?: UnsearchedFace[];
 }

@@ -38,11 +38,14 @@ export interface CreateFaceLivenessSessionCommandOutput extends CreateFaceLivene
  * @public
  * <p>This API operation initiates a Face Liveness session. It returns a <code>SessionId</code>,
  *       which you can use to start streaming Face Liveness video and get the results for a Face
- *       Liveness session. You can use the <code>OutputConfig</code> option in the Settings parameter
- *       to provide an Amazon S3 bucket location. The Amazon S3 bucket stores reference images and audit images.
- *       You can use <code>AuditImagesLimit</code> to limit the number of audit images returned.  This
- *       number is between 0 and 4. By default, it is set to 0. The limit is best effort and based on
- *       the duration of the selfie-video. </p>
+ *       Liveness session. </p>
+ *          <p>You can use the <code>OutputConfig</code> option in the Settings parameter to provide an
+ *       Amazon S3 bucket location. The Amazon S3 bucket stores reference images and audit images. If no Amazon S3
+ *       bucket is defined, raw bytes are sent instead. </p>
+ *          <p>You can use <code>AuditImagesLimit</code> to limit the number of audit images returned
+ *       when <code>GetFaceLivenessSessionResults</code> is called. This number is between 0 and 4. By
+ *       default, it is set to 0. The limit is best effort and based on the duration of the
+ *       selfie-video. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
