@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.386.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.385.0...v3.386.0) (2023-08-07)
+
+
+### Features
+
+* **client-kinesis-video-archived-media:** This release enables minimum of Images SamplingInterval to be as low as 200 milliseconds in Kinesis Video Stream Image feature. ([5bbf9b2](https://github.com/aws/aws-sdk-js-v3/commit/5bbf9b203d41781aadd3d5f25eb030318468d76e))
+
+
+
+
+
 # [3.385.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.384.0...v3.385.0) (2023-08-04)
 
 **Note:** Version bump only for package @aws-sdk/client-kinesis-video-archived-media

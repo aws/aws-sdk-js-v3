@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.386.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.385.0...v3.386.0) (2023-08-07)
+
+
+### Features
+
+* **client-ivs-realtime:** Add QUOTA_EXCEEDED and PUBLISHER_NOT_FOUND to EventErrorCode for stage health events. ([19047c8](https://github.com/aws/aws-sdk-js-v3/commit/19047c814f1ee2f37db292e0036e1966a9ec05c7))
+
+
+
+
+
 # [3.385.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.384.0...v3.385.0) (2023-08-04)
 
 **Note:** Version bump only for package @aws-sdk/client-ivs-realtime
