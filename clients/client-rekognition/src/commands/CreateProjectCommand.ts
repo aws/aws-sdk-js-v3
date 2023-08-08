@@ -90,6 +90,22 @@ export interface CreateProjectCommandOutput extends CreateProjectResponse, __Met
  * @throws {@link RekognitionServiceException}
  * <p>Base exception class for all service exceptions from Rekognition service.</p>
  *
+ * @example To create an Amazon Rekognition Custom Labels project
+ * ```javascript
+ * // Creates an Amazon Rekognition Custom Labels project.
+ * const input = {
+ *   "ProjectName": "my-project"
+ * };
+ * const command = new CreateProjectCommand(input);
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "ProjectArn": "arn:aws:rekognition:us-east-1:111122223333:project/my-project/1690405809285"
+ * }
+ * *\/
+ * // example id: to-create-an-amazon-rekognition-custom-labels-project-1690405898597
+ * ```
+ *
  */
 export class CreateProjectCommand extends $Command<
   CreateProjectCommandInput,

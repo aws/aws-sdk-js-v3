@@ -165,6 +165,39 @@ export interface DetectCustomLabelsCommandOutput extends DetectCustomLabelsRespo
  * @throws {@link RekognitionServiceException}
  * <p>Base exception class for all service exceptions from Rekognition service.</p>
  *
+ * @example To detect custom labels in an image with an Amazon Rekognition Custom Labels model
+ * ```javascript
+ * // Detects custom labels in an image with an Amazon Rekognition Custom Labels model
+ * const input = {
+ *   "Image": {
+ *     "S3Object": {
+ *       "Bucket": "custom-labels-console-us-east-1-1111111111",
+ *       "Name": "assets/flowers_1_test_dataset/camellia4.jpg"
+ *     }
+ *   },
+ *   "MaxResults": 100,
+ *   "MinConfidence": 50,
+ *   "ProjectVersionArn": "arn:aws:rekognition:us-east-1:111122223333:project/my-project/version/my-project.2023-07-31T11.49.37/1690829378219"
+ * };
+ * const command = new DetectCustomLabelsCommand(input);
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "CustomLabels": [
+ *     {
+ *       "Confidence": 67.56399536132812,
+ *       "Name": "with_leaves"
+ *     },
+ *     {
+ *       "Confidence": 50.65699768066406,
+ *       "Name": "without_leaves"
+ *     }
+ *   ]
+ * }
+ * *\/
+ * // example id: to-detect-custom-labels-in-images-with-an-amazon-rekognition-custom-labels-model-1690832037913
+ * ```
+ *
  */
 export class DetectCustomLabelsCommand extends $Command<
   DetectCustomLabelsCommandInput,

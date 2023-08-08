@@ -113,6 +113,20 @@ export interface UpdateDatasetEntriesCommandOutput extends UpdateDatasetEntriesR
  * @throws {@link RekognitionServiceException}
  * <p>Base exception class for all service exceptions from Rekognition service.</p>
  *
+ * @example To-add dataset entries to an Amazon Rekognition Custom Labels dataset
+ * ```javascript
+ * // Adds dataset entries to an Amazon Rekognition Custom Labels dataset.
+ * const input = {
+ *   "Changes": {
+ *     "GroundTruth": "{\"source-ref\":\"s3://custom-labels-console-us-east-1-111111111/assets/flowers_1_test_dataset/mediterranean_spurge4.jpg\",\"mediterranean_spurge\":1,\"mediterranean_spurge-metadata\":{\"confidence\":1,\"job-name\":\"labeling-job/mediterranean_spurge\",\"class-name\":\"mediterranean_spurge\",\"human-annotated\":\"yes\",\"creation-date\":\"2021-07-11T03:33:42.025Z\",\"type\":\"groundtruth/image-classification\"},\"with_leaves\":1,\"with_leaves-metadata\":{\"confidence\":1,\"job-name\":\"labeling-job/with_leaves\",\"class-name\":\"with_leaves\",\"human-annotated\":\"yes\",\"creation-date\":\"2021-07-11T03:33:42.025Z\",\"type\":\"groundtruth/image-classification\"}}"
+ *   },
+ *   "DatasetArn": "arn:aws:rekognition:us-east-1:111122223333:project/my-proj-2/dataset/train/1690564858106"
+ * };
+ * const command = new UpdateDatasetEntriesCommand(input);
+ * await client.send(command);
+ * // example id: to-add-dataset-entries-to-an-amazon-rekognition-custom-labels-dataset-1690816977073
+ * ```
+ *
  */
 export class UpdateDatasetEntriesCommand extends $Command<
   UpdateDatasetEntriesCommandInput,

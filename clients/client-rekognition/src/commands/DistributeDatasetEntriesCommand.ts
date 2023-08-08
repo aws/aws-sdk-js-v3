@@ -100,6 +100,24 @@ export interface DistributeDatasetEntriesCommandOutput extends DistributeDataset
  * @throws {@link RekognitionServiceException}
  * <p>Base exception class for all service exceptions from Rekognition service.</p>
  *
+ * @example To distribute an Amazon Rekognition Custom Labels dataset
+ * ```javascript
+ * // Distributes an Amazon Rekognition Custom Labels training dataset to a test dataset.
+ * const input = {
+ *   "Datasets": [
+ *     {
+ *       "Arn": "arn:aws:rekognition:us-east-1:111122223333:project/my-proj-2/dataset/train/1690564858106"
+ *     },
+ *     {
+ *       "Arn": "arn:aws:rekognition:us-east-1:111122223333:project/my-proj-2/dataset/test/1690564858106"
+ *     }
+ *   ]
+ * };
+ * const command = new DistributeDatasetEntriesCommand(input);
+ * await client.send(command);
+ * // example id: to-distribute-to-an-amazon-rekognition-custom-labels-dataset-1690816977073
+ * ```
+ *
  */
 export class DistributeDatasetEntriesCommand extends $Command<
   DistributeDatasetEntriesCommandInput,

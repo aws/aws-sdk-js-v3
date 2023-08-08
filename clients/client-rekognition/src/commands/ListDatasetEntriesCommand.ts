@@ -118,6 +118,33 @@ export interface ListDatasetEntriesCommandOutput extends ListDatasetEntriesRespo
  * @throws {@link RekognitionServiceException}
  * <p>Base exception class for all service exceptions from Rekognition service.</p>
  *
+ * @example To list the entries in an Amazon Rekognition Custom Labels dataset
+ * ```javascript
+ * // Lists the JSON line entries in an Amazon Rekognition Custom Labels dataset.
+ * const input = {
+ *   "ContainsLabels": [
+ *     "camellia"
+ *   ],
+ *   "DatasetArn": "arn:aws:rekognition:us-east-1:111122223333:project/my-proj-2/dataset/train/1690564858106",
+ *   "HasErrors": true,
+ *   "Labeled": true,
+ *   "MaxResults": 100,
+ *   "NextToken": "",
+ *   "SourceRefContains": "camellia4.jpg"
+ * };
+ * const command = new ListDatasetEntriesCommand(input);
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "DatasetEntries": [
+ *     "{\"source-ref\":\"s3://custom-labels-console-us-east-1-1111111111/assets/flowers_1_train_dataset/camellia4.jpg\",\"camellia\":1,\"camellia-metadata\":{\"confidence\":1,\"job-name\":\"labeling-job/camellia\",\"class-name\":\"camellia\",\"human-annotated\":\"yes\",\"creation-date\":\"2021-07-11T03:32:13.456Z\",\"type\":\"groundtruth/image-classification\"},\"with_leaves\":1,\"with_leaves-metadata\":{\"confidence\":1,\"job-name\":\"labeling-job/with_leaves\",\"class-name\":\"with_leaves\",\"human-annotated\":\"yes\",\"creation-date\":\"2021-07-11T03:32:13.456Z\",\"type\":\"groundtruth/image-classification\"},\"cl-metadata\":{\"is_labeled\":true}}"
+ *   ],
+ *   "NextToken": ""
+ * }
+ * *\/
+ * // example id: to-list-the-entries-in-an-amazon-rekognition-custom-labels-dataset-1690823292345
+ * ```
+ *
  */
 export class ListDatasetEntriesCommand extends $Command<
   ListDatasetEntriesCommandInput,

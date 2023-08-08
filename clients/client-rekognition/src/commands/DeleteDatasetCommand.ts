@@ -98,6 +98,17 @@ export interface DeleteDatasetCommandOutput extends DeleteDatasetResponse, __Met
  * @throws {@link RekognitionServiceException}
  * <p>Base exception class for all service exceptions from Rekognition service.</p>
  *
+ * @example To delete an Amazon Rekognition Custom Labels dataset
+ * ```javascript
+ * // Deletes an Amazon Rekognition Custom Labels dataset.
+ * const input = {
+ *   "DatasetArn": "arn:aws:rekognition:us-east-1:111122223333:project/my-project/dataset/test/1690556733321"
+ * };
+ * const command = new DeleteDatasetCommand(input);
+ * await client.send(command);
+ * // example id: to-delete-an-amazon-rekognition-custom-labels-dataset-1690826556349
+ * ```
+ *
  */
 export class DeleteDatasetCommand extends $Command<
   DeleteDatasetCommandInput,

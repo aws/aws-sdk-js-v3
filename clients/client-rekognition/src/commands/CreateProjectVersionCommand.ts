@@ -161,6 +161,27 @@ export interface CreateProjectVersionCommandOutput extends CreateProjectVersionR
  * @throws {@link RekognitionServiceException}
  * <p>Base exception class for all service exceptions from Rekognition service.</p>
  *
+ * @example To train an Amazon Rekognition Custom Labels model
+ * ```javascript
+ * // Trains a version of an Amazon Rekognition Custom Labels model.
+ * const input = {
+ *   "OutputConfig": {
+ *     "S3Bucket": "output_bucket",
+ *     "S3KeyPrefix": "output_folder"
+ *   },
+ *   "ProjectArn": "arn:aws:rekognition:us-east-1:111122223333:project/my-project/1690474772815",
+ *   "VersionName": "1"
+ * };
+ * const command = new CreateProjectVersionCommand(input);
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "ProjectVersionArn": "arn:aws:rekognition:us-east-1:111122223333:project/my-project/version/1/1690556751958"
+ * }
+ * *\/
+ * // example id: to-train-an-amazon-rekognition-custom-labels-model-1690555832843
+ * ```
+ *
  */
 export class CreateProjectVersionCommand extends $Command<
   CreateProjectVersionCommandInput,

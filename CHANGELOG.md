@@ -3,6 +3,21 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.387.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.386.0...v3.387.0) (2023-08-08)
+
+
+### Features
+
+* **client-backup:** This release introduces a new logically air-gapped vault (Preview) in AWS Backup that stores immutable backup copies, which are locked by default and isolated with encryption using AWS owned keys. Logically air-gapped vault (Preview) allows secure recovery of application data across accounts. ([9ab7f45](https://github.com/aws/aws-sdk-js-v3/commit/9ab7f45a4dbda630415a24506988add268014fe5))
+* **client-elasticache:** Added support for cluster mode in online migration and test migration API ([f0d3d51](https://github.com/aws/aws-sdk-js-v3/commit/f0d3d51cae33f36070b926d2423c18fe4d830e1e))
+* **client-service-catalog:** Introduce support for HashiCorp Terraform Cloud in Service Catalog by addying TERRAFORM_CLOUD product type in CreateProduct and CreateProvisioningArtifact API. ([27fef8f](https://github.com/aws/aws-sdk-js-v3/commit/27fef8f722432ddd9c9a20d14ea1641d19e524ef))
+* **clients:** allow client creation without configuration ([#5060](https://github.com/aws/aws-sdk-js-v3/issues/5060)) ([a9723dc](https://github.com/aws/aws-sdk-js-v3/commit/a9723dcbbf970402a3131a8ff79153a04b2cfb89))
+* **clients:** update client endpoints as of 2023-08-08 ([809a91b](https://github.com/aws/aws-sdk-js-v3/commit/809a91b67e527da45ac5ca18eb2192dca139faf2))
+
+
+
+
+
 # [3.386.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.385.0...v3.386.0) (2023-08-07)
 
 

@@ -110,6 +110,43 @@ export interface ListDatasetLabelsCommandOutput extends ListDatasetLabelsRespons
  * @throws {@link RekognitionServiceException}
  * <p>Base exception class for all service exceptions from Rekognition service.</p>
  *
+ * @example To list the entries in an Amazon Rekognition Custom Labels dataset
+ * ```javascript
+ * // Lists the JSON line entries in an Amazon Rekognition Custom Labels dataset.
+ * const input = {
+ *   "DatasetArn": "arn:aws:rekognition:us-east-1:111122223333:project/my-proj-2/dataset/train/1690564858106",
+ *   "MaxResults": 100,
+ *   "NextToken": ""
+ * };
+ * const command = new ListDatasetLabelsCommand(input);
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "DatasetLabelDescriptions": [
+ *     {
+ *       "LabelName": "camellia",
+ *       "LabelStats": {
+ *         "EntryCount": 1
+ *       }
+ *     },
+ *     {
+ *       "LabelName": "with_leaves",
+ *       "LabelStats": {
+ *         "EntryCount": 2
+ *       }
+ *     },
+ *     {
+ *       "LabelName": "mediterranean_spurge",
+ *       "LabelStats": {
+ *         "EntryCount": 1
+ *       }
+ *     }
+ *   ]
+ * }
+ * *\/
+ * // example id: to-list-the-entries-in-an-amazon-rekognition-custom-labels-dataset-1690823292345
+ * ```
+ *
  */
 export class ListDatasetLabelsCommand extends $Command<
   ListDatasetLabelsCommandInput,
