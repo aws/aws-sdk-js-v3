@@ -68,7 +68,7 @@ export interface SearchProductsAsAdminCommandOutput extends SearchProductsAsAdmi
  * //         Name: "STRING_VALUE",
  * //         Owner: "STRING_VALUE",
  * //         ShortDescription: "STRING_VALUE",
- * //         Type: "CLOUD_FORMATION_TEMPLATE" || "MARKETPLACE" || "TERRAFORM_OPEN_SOURCE",
+ * //         Type: "CLOUD_FORMATION_TEMPLATE" || "MARKETPLACE" || "TERRAFORM_OPEN_SOURCE" || "TERRAFORM_CLOUD",
  * //         Distributor: "STRING_VALUE",
  * //         HasDefaultPath: true || false,
  * //         SupportEmail: "STRING_VALUE",

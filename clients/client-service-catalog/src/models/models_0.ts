@@ -182,7 +182,7 @@ export interface AccessLevelFilter {
 
   /**
    * @public
-   * <p>The user to which the access level applies. The only supported value is <code>Self</code>.</p>
+   * <p>The user to which the access level applies. The only supported value is <code>self</code>.</p>
    */
   Value?: string;
 }
@@ -1268,6 +1268,7 @@ export class OperationNotSupportedException extends __BaseException {
 export const ProductType = {
   CLOUD_FORMATION_TEMPLATE: "CLOUD_FORMATION_TEMPLATE",
   MARKETPLACE: "MARKETPLACE",
+  TERRAFORM_CLOUD: "TERRAFORM_CLOUD",
   TERRAFORM_OPEN_SOURCE: "TERRAFORM_OPEN_SOURCE",
 } as const;
 
@@ -1284,6 +1285,7 @@ export const ProvisioningArtifactType = {
   CLOUD_FORMATION_TEMPLATE: "CLOUD_FORMATION_TEMPLATE",
   MARKETPLACE_AMI: "MARKETPLACE_AMI",
   MARKETPLACE_CAR: "MARKETPLACE_CAR",
+  TERRAFORM_CLOUD: "TERRAFORM_CLOUD",
   TERRAFORM_OPEN_SOURCE: "TERRAFORM_OPEN_SOURCE",
 } as const;
 
@@ -1336,14 +1338,6 @@ export interface ProvisioningArtifactProperties {
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>MARKETPLACE_AMI</code> - Amazon Web Services Marketplace AMI</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>MARKETPLACE_CAR</code> - Amazon Web Services Marketplace Clusters and Amazon Web Services Resources</p>
-   *             </li>
-   *             <li>
-   *                <p>
    *                   <code>TERRAFORM_OPEN_SOURCE</code> - Terraform open source configuration file</p>
    *             </li>
    *          </ul>
@@ -1352,7 +1346,8 @@ export interface ProvisioningArtifactProperties {
 
   /**
    * @public
-   * <p>If set to true, Service Catalog stops validating the specified provisioning artifact even if it is invalid.</p>
+   * <p>If set to true, Service Catalog stops validating the specified provisioning artifact even if it is invalid. </p>
+   *          <p>Service Catalog does not support template validation for the <code>TERRAFORM_OS</code> product type. </p>
    */
   DisableTemplateValidation?: boolean;
 }
@@ -1848,20 +1843,8 @@ export interface ProvisioningArtifactDetail {
   /**
    * @public
    * <p>The type of provisioning artifact.</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>CLOUD_FORMATION_TEMPLATE</code> - CloudFormation template</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>MARKETPLACE_AMI</code> - Amazon Web Services Marketplace AMI</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>MARKETPLACE_CAR</code> - Amazon Web Services Marketplace Clusters and Amazon Web Services Resources</p>
-   *             </li>
-   *          </ul>
+   *          <p>
+   *             <code>CLOUD_FORMATION_TEMPLATE</code> - CloudFormation template</p>
    */
   Type?: ProvisioningArtifactType | string;
 
@@ -3510,7 +3493,7 @@ export interface ProvisionedProductDetail {
    *          <ul>
    *             <li>
    *                <p>
-   *                ProvisionedProduct
+   *                ProvisionProduct
    *             </p>
    *             </li>
    *             <li>
@@ -3538,7 +3521,7 @@ export interface ProvisionedProductDetail {
    *          <ul>
    *             <li>
    *                <p>
-   *                ProvisionedProduct
+   *                ProvisionProduct
    *             </p>
    *             </li>
    *             <li>
@@ -4514,7 +4497,8 @@ export interface RecordDetail {
 
   /**
    * @public
-   * <p>The type of provisioned product. The supported values are <code>CFN_STACK</code> and <code>CFN_STACKSET</code>.</p>
+   * <p>The type of provisioned product. The supported values are <code>CFN_STACK</code>, <code>CFN_STACKSET</code>,
+   *          <code>TERRAFORM_OPEN_SOURCE</code>, and <code>TERRAFORM_CLOUD</code>.</p>
    */
   ProvisionedProductType?: string;
 
@@ -5175,7 +5159,8 @@ export interface ImportAsProvisionedProductInput {
 
   /**
    * @public
-   * <p>The user-friendly name of the provisioned product. The value must be unique for the Amazon Web Services account. The name cannot be updated after the product is provisioned. </p>
+   * <p>The user-friendly name of the provisioned product. The value must be unique for the Amazon Web Services account.
+   *          The name cannot be updated after the product is provisioned. </p>
    */
   ProvisionedProductName: string | undefined;
 
@@ -7347,7 +7332,7 @@ export interface SearchProvisionedProductsInput {
    *          <p>When the key is <code>SearchQuery</code>, the searchable fields are <code>arn</code>,
    *          <code>createdTime</code>, <code>id</code>, <code>lastRecordId</code>,
    *          <code>idempotencyToken</code>, <code>name</code>, <code>physicalId</code>, <code>productId</code>,
-   *          <code>provisioningArtifact</code>, <code>type</code>, <code>status</code>,
+   *          <code>provisioningArtifactId</code>, <code>type</code>, <code>status</code>,
    *          <code>tags</code>, <code>userArn</code>, <code>userArnSession</code>, <code>lastProvisioningRecordId</code>, <code>lastSuccessfulProvisioningRecordId</code>,
    *          <code>productName</code>, and <code>provisioningArtifactName</code>.</p>
    *          <p>Example: <code>"SearchQuery":["status:AVAILABLE"]</code>
@@ -7475,7 +7460,7 @@ export interface ProvisionedProductAttribute {
    *          <ul>
    *             <li>
    *                <p>
-   *                ProvisionedProduct
+   *                ProvisionProduct
    *             </p>
    *             </li>
    *             <li>
@@ -7503,7 +7488,7 @@ export interface ProvisionedProductAttribute {
    *          <ul>
    *             <li>
    *                <p>
-   *                ProvisionedProduct
+   *                ProvisionProduct
    *             </p>
    *             </li>
    *             <li>
