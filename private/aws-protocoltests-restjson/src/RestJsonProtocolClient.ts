@@ -32,6 +32,7 @@ import {
 } from "@smithy/smithy-client";
 import {
   BodyLengthCalculator as __BodyLengthCalculator,
+  CheckOptionalClientConfig as __CheckOptionalClientConfig,
   Checksum as __Checksum,
   ChecksumConstructor as __ChecksumConstructor,
   Decoder as __Decoder,
@@ -679,8 +680,8 @@ export class RestJsonProtocolClient extends __Client<
    */
   readonly config: RestJsonProtocolClientResolvedConfig;
 
-  constructor(configuration: RestJsonProtocolClientConfig) {
-    const _config_0 = __getRuntimeConfig(configuration);
+  constructor(...[configuration]: __CheckOptionalClientConfig<RestJsonProtocolClientConfig>) {
+    const _config_0 = __getRuntimeConfig(configuration || {});
     const _config_1 = resolveRegionConfig(_config_0);
     const _config_2 = resolveEndpointsConfig(_config_1);
     const _config_3 = resolveRetryConfig(_config_2);
