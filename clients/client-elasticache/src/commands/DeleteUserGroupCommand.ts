@@ -36,7 +36,9 @@ export interface DeleteUserGroupCommandOutput extends UserGroup, __MetadataBeare
 
 /**
  * @public
- * <p>For Redis engine version 6.0 onwards: Deletes a user group. The user group must first be disassociated from the replication group before it can be deleted. For more information, see <a href="http://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/Clusters.RBAC.html">Using Role Based Access Control (RBAC)</a>. </p>
+ * <p>For Redis engine version 6.0 onwards: Deletes a user group. The user group must first
+ *             be disassociated from the replication group before it can be deleted. For more
+ *             information, see <a href="http://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/Clusters.RBAC.html">Using Role Based Access Control (RBAC)</a>. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

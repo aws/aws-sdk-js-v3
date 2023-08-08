@@ -36,28 +36,34 @@ export interface CreateReplicationGroupCommandOutput extends CreateReplicationGr
 
 /**
  * @public
- * <p>Creates a Redis (cluster mode disabled) or a Redis (cluster mode enabled) replication group.</p>
- *          <p>This API can be used to create a standalone regional replication group or a secondary replication group associated with a Global datastore.</p>
- *          <p>A Redis (cluster mode disabled) replication group is a collection of clusters,
- *             where one of the clusters is a read/write primary and the others are read-only replicas.
+ * <p>Creates a Redis (cluster mode disabled) or a Redis (cluster mode enabled) replication
+ *             group.</p>
+ *          <p>This API can be used to create a standalone regional replication group or a secondary
+ *             replication group associated with a Global datastore.</p>
+ *          <p>A Redis (cluster mode disabled) replication group is a collection of clusters, where
+ *             one of the clusters is a read/write primary and the others are read-only replicas.
  *             Writes to the primary are asynchronously propagated to the replicas.</p>
- *          <p>A Redis cluster-mode enabled cluster is comprised of from 1 to 90 shards (API/CLI: node groups).
- *             Each shard has a primary node and up to 5 read-only replica nodes. The configuration can range from 90 shards and 0 replicas to 15 shards and 5 replicas, which is the maximum number or replicas allowed.
- *
- *         </p>
- *          <p>The node or shard limit can be increased to a maximum of 500 per cluster if the Redis engine version is 5.0.6 or higher. For example, you can choose to configure a 500 node cluster that ranges between
- *             83 shards (one primary and 5 replicas per shard) and 500 shards (single primary and no replicas). Make sure there are enough available IP addresses to accommodate the increase.
- *             Common pitfalls include the subnets in the subnet group have too small a CIDR range or the subnets are shared and heavily used by other clusters. For more information, see
- *             <a href="https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/SubnetGroups.Creating.html">Creating a Subnet Group</a>. For versions below 5.0.6,
- *             the limit is 250 per cluster.</p>
- *          <p>To request a limit increase, see
- *             <a href="https://docs.aws.amazon.com/general/latest/gr/aws_service_limits.html">Amazon Service Limits</a>
- *             and choose the limit type <b>Nodes per cluster per instance type</b>. </p>
+ *          <p>A Redis cluster-mode enabled cluster is comprised of from 1 to 90 shards (API/CLI:
+ *             node groups). Each shard has a primary node and up to 5 read-only replica nodes. The
+ *             configuration can range from 90 shards and 0 replicas to 15 shards and 5 replicas, which
+ *             is the maximum number or replicas allowed. </p>
+ *          <p>The node or shard limit can be increased to a maximum of 500 per cluster if the Redis
+ *             engine version is 5.0.6 or higher. For example, you can choose to configure a 500 node
+ *             cluster that ranges between 83 shards (one primary and 5 replicas per shard) and 500
+ *             shards (single primary and no replicas). Make sure there are enough available IP
+ *             addresses to accommodate the increase. Common pitfalls include the subnets in the subnet
+ *             group have too small a CIDR range or the subnets are shared and heavily used by other
+ *             clusters. For more information, see <a href="https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/SubnetGroups.Creating.html">Creating a Subnet
+ *                 Group</a>. For versions below 5.0.6, the limit is 250 per cluster.</p>
+ *          <p>To request a limit increase, see <a href="https://docs.aws.amazon.com/general/latest/gr/aws_service_limits.html">Amazon Service Limits</a> and
+ *             choose the limit type <b>Nodes per cluster per instance
+ *                 type</b>. </p>
  *          <p>When a Redis (cluster mode disabled) replication group has been successfully created,
- *             you can add one or more read replicas to it, up to a total of 5 read replicas.
- *             If you need to increase or decrease the number of node groups (console: shards),
- *             you can avail yourself of ElastiCache for Redis' scaling. For more information,
- *             see <a href="https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/Scaling.html">Scaling ElastiCache for Redis Clusters</a> in the <i>ElastiCache User Guide</i>.</p>
+ *             you can add one or more read replicas to it, up to a total of 5 read replicas. If you
+ *             need to increase or decrease the number of node groups (console: shards), you can avail
+ *             yourself of ElastiCache for Redis' scaling. For more information, see <a href="https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/Scaling.html">Scaling
+ *                 ElastiCache for Redis Clusters</a> in the <i>ElastiCache User
+ *                 Guide</i>.</p>
  *          <note>
  *             <p>This operation is valid for Redis only.</p>
  *          </note>
@@ -288,23 +294,27 @@ export interface CreateReplicationGroupCommandOutput extends CreateReplicationGr
  *  <p>The requested cluster ID does not refer to an existing cluster.</p>
  *
  * @throws {@link CacheParameterGroupNotFoundFault} (client fault)
- *  <p>The requested cache parameter group name does not refer to an existing cache parameter group.</p>
+ *  <p>The requested cache parameter group name does not refer to an existing cache parameter
+ *             group.</p>
  *
  * @throws {@link CacheSecurityGroupNotFoundFault} (client fault)
- *  <p>The requested cache security group name does not refer to an existing cache security group.</p>
+ *  <p>The requested cache security group name does not refer to an existing cache security
+ *             group.</p>
  *
  * @throws {@link CacheSubnetGroupNotFoundFault} (client fault)
- *  <p>The requested cache subnet group name does not refer to an existing cache subnet group.</p>
+ *  <p>The requested cache subnet group name does not refer to an existing cache subnet
+ *             group.</p>
  *
  * @throws {@link ClusterQuotaForCustomerExceededFault} (client fault)
- *  <p>The request cannot be processed because it would exceed the allowed number of clusters per customer.</p>
+ *  <p>The request cannot be processed because it would exceed the allowed number of clusters
+ *             per customer.</p>
  *
  * @throws {@link GlobalReplicationGroupNotFoundFault} (client fault)
  *  <p>The Global datastore does not exist</p>
  *
  * @throws {@link InsufficientCacheClusterCapacityFault} (client fault)
- *  <p>The requested cache node type is not available in the specified Availability Zone.
- *             For more information, see <a href="http://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/ErrorMessages.html#ErrorMessages.INSUFFICIENT_CACHE_CLUSTER_CAPACITY">InsufficientCacheClusterCapacity</a> in the ElastiCache User Guide.</p>
+ *  <p>The requested cache node type is not available in the specified Availability Zone. For
+ *             more information, see <a href="http://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/ErrorMessages.html#ErrorMessages.INSUFFICIENT_CACHE_CLUSTER_CAPACITY">InsufficientCacheClusterCapacity</a> in the ElastiCache User Guide.</p>
  *
  * @throws {@link InvalidCacheClusterStateFault} (client fault)
  *  <p>The requested cluster is not in the <code>available</code> state.</p>
@@ -325,20 +335,24 @@ export interface CreateReplicationGroupCommandOutput extends CreateReplicationGr
  *  <p>The VPC network is in an invalid state.</p>
  *
  * @throws {@link NodeGroupsPerReplicationGroupQuotaExceededFault} (client fault)
- *  <p>The request cannot be processed because it would exceed the maximum allowed number
- *             of node groups (shards) in a single replication group. The default maximum is 90</p>
+ *  <p>The request cannot be processed because it would exceed the maximum allowed number of
+ *             node groups (shards) in a single replication group. The default maximum is 90</p>
  *
  * @throws {@link NodeQuotaForClusterExceededFault} (client fault)
- *  <p>The request cannot be processed because it would exceed the allowed number of cache nodes in a single cluster.</p>
+ *  <p>The request cannot be processed because it would exceed the allowed number of cache
+ *             nodes in a single cluster.</p>
  *
  * @throws {@link NodeQuotaForCustomerExceededFault} (client fault)
- *  <p>The request cannot be processed because it would exceed the allowed number of cache nodes per customer.</p>
+ *  <p>The request cannot be processed because it would exceed the allowed number of cache
+ *             nodes per customer.</p>
  *
  * @throws {@link ReplicationGroupAlreadyExistsFault} (client fault)
  *  <p>The specified replication group already exists.</p>
  *
  * @throws {@link TagQuotaPerResourceExceeded} (client fault)
- *  <p>The request cannot be processed because it would cause the resource to have more than the allowed number of tags. The maximum number of tags permitted on a resource is 50.</p>
+ *  <p>The request cannot be processed because it would cause the resource to have more than
+ *             the allowed number of tags. The maximum number of tags permitted on a resource is
+ *             50.</p>
  *
  * @throws {@link UserGroupNotFoundFault} (client fault)
  *  <p>The user group was not found or does not exist</p>

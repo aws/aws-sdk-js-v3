@@ -44,10 +44,9 @@ export interface PurchaseReservedCacheNodesOfferingCommandOutput
 
 /**
  * @public
- * <p>Allows you to purchase a reserved
- *             cache node offering. Reserved nodes are not eligible for cancellation and are non-refundable. For more information,
- *             see <a href="https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/reserved-nodes.html">Managing Costs with Reserved Nodes</a> for Redis or
- *             <a href="https://docs.aws.amazon.com/AmazonElastiCache/latest/mem-ug/reserved-nodes.html">Managing Costs with Reserved Nodes</a> for Memcached.</p>
+ * <p>Allows you to purchase a reserved cache node offering. Reserved nodes are not eligible
+ *             for cancellation and are non-refundable. For more information, see <a href="https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/reserved-nodes.html">Managing Costs with Reserved Nodes</a> for Redis or <a href="https://docs.aws.amazon.com/AmazonElastiCache/latest/mem-ug/reserved-nodes.html">Managing Costs with
+ *                 Reserved Nodes</a> for Memcached.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -108,13 +107,16 @@ export interface PurchaseReservedCacheNodesOfferingCommandOutput
  *  <p>You already have a reservation with the given identifier.</p>
  *
  * @throws {@link ReservedCacheNodeQuotaExceededFault} (client fault)
- *  <p>The request cannot be processed because it would exceed the user's cache node quota.</p>
+ *  <p>The request cannot be processed because it would exceed the user's cache node
+ *             quota.</p>
  *
  * @throws {@link ReservedCacheNodesOfferingNotFoundFault} (client fault)
  *  <p>The requested cache node offering does not exist.</p>
  *
  * @throws {@link TagQuotaPerResourceExceeded} (client fault)
- *  <p>The request cannot be processed because it would cause the resource to have more than the allowed number of tags. The maximum number of tags permitted on a resource is 50.</p>
+ *  <p>The request cannot be processed because it would cause the resource to have more than
+ *             the allowed number of tags. The maximum number of tags permitted on a resource is
+ *             50.</p>
  *
  * @throws {@link ElastiCacheServiceException}
  * <p>Base exception class for all service exceptions from ElastiCache service.</p>

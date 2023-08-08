@@ -36,7 +36,9 @@ export interface DeleteUserCommandOutput extends User, __MetadataBearer {}
 
 /**
  * @public
- * <p>For Redis engine version 6.0 onwards: Deletes a user. The user will be removed from all user groups and in turn removed from all replication groups. For more information, see <a href="http://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/Clusters.RBAC.html">Using Role Based Access Control (RBAC)</a>. </p>
+ * <p>For Redis engine version 6.0 onwards: Deletes a user. The user will be removed from
+ *             all user groups and in turn removed from all replication groups. For more information,
+ *             see <a href="http://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/Clusters.RBAC.html">Using Role Based Access Control (RBAC)</a>. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

@@ -36,7 +36,8 @@ export interface CreateUserGroupCommandOutput extends UserGroup, __MetadataBeare
 
 /**
  * @public
- * <p>For Redis engine version 6.0 onwards: Creates a Redis user group. For more information, see <a href="http://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/Clusters.RBAC.html">Using Role Based Access Control (RBAC)</a>
+ * <p>For Redis engine version 6.0 onwards: Creates a Redis user group. For more
+ *             information, see <a href="http://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/Clusters.RBAC.html">Using Role Based Access Control (RBAC)</a>
  *          </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -102,7 +103,9 @@ export interface CreateUserGroupCommandOutput extends UserGroup, __MetadataBeare
  *  <p>The specified service linked role (SLR) was not found.</p>
  *
  * @throws {@link TagQuotaPerResourceExceeded} (client fault)
- *  <p>The request cannot be processed because it would cause the resource to have more than the allowed number of tags. The maximum number of tags permitted on a resource is 50.</p>
+ *  <p>The request cannot be processed because it would cause the resource to have more than
+ *             the allowed number of tags. The maximum number of tags permitted on a resource is
+ *             50.</p>
  *
  * @throws {@link UserGroupAlreadyExistsFault} (client fault)
  *  <p>The user group with this ID already exists.</p>

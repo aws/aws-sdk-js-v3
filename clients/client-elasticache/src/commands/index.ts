@@ -64,3 +64,4 @@ export * from "./ResetCacheParameterGroupCommand";
 export * from "./RevokeCacheSecurityGroupIngressCommand";
 export * from "./StartMigrationCommand";
 export * from "./TestFailoverCommand";
+export * from "./TestMigrationCommand";

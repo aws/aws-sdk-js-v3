@@ -36,12 +36,14 @@ export interface ListTagsForResourceCommandOutput extends TagListMessage, __Meta
 
 /**
  * @public
- * <p>Lists all tags currently on a  named resource.</p>
- *          <p>    A  tag is a key-value pair where the key and value are case-sensitive.
- *             You can use tags to categorize and track all your ElastiCache resources, with the exception of global replication group. When you add or remove tags on replication groups, those actions will be replicated to all nodes in the replication group.
- *      For more information, see <a href="http://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/IAM.ResourceLevelPermissions.html">Resource-level permissions</a>.</p>
- *          <p>If the cluster is not in the <i>available</i> state, <code>ListTagsForResource</code>
- *             returns an error.</p>
+ * <p>Lists all tags currently on a named resource.</p>
+ *          <p> A tag is a key-value pair where the key and value are case-sensitive. You can use
+ *             tags to categorize and track all your ElastiCache resources, with the exception of
+ *             global replication group. When you add or remove tags on replication groups, those
+ *             actions will be replicated to all nodes in the replication group. For more information,
+ *             see <a href="http://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/IAM.ResourceLevelPermissions.html">Resource-level permissions</a>.</p>
+ *          <p>If the cluster is not in the <i>available</i> state,
+ *                 <code>ListTagsForResource</code> returns an error.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -74,16 +76,20 @@ export interface ListTagsForResourceCommandOutput extends TagListMessage, __Meta
  *  <p>The requested cluster ID does not refer to an existing cluster.</p>
  *
  * @throws {@link CacheParameterGroupNotFoundFault} (client fault)
- *  <p>The requested cache parameter group name does not refer to an existing cache parameter group.</p>
+ *  <p>The requested cache parameter group name does not refer to an existing cache parameter
+ *             group.</p>
  *
  * @throws {@link CacheSecurityGroupNotFoundFault} (client fault)
- *  <p>The requested cache security group name does not refer to an existing cache security group.</p>
+ *  <p>The requested cache security group name does not refer to an existing cache security
+ *             group.</p>
  *
  * @throws {@link CacheSubnetGroupNotFoundFault} (client fault)
- *  <p>The requested cache subnet group name does not refer to an existing cache subnet group.</p>
+ *  <p>The requested cache subnet group name does not refer to an existing cache subnet
+ *             group.</p>
  *
  * @throws {@link InvalidARNFault} (client fault)
- *  <p>The requested Amazon Resource Name (ARN) does not refer to an existing resource.</p>
+ *  <p>The requested Amazon Resource Name (ARN) does not refer to an existing
+ *             resource.</p>
  *
  * @throws {@link InvalidReplicationGroupStateFault} (client fault)
  *  <p>The requested replication group is not in the <code>available</code> state.</p>

@@ -41,8 +41,7 @@ export interface DescribeReservedCacheNodesOfferingsCommandOutput
 
 /**
  * @public
- * <p>Lists available reserved cache
- *             node offerings.</p>
+ * <p>Lists available reserved cache node offerings.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

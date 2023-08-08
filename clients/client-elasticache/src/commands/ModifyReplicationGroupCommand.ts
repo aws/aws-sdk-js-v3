@@ -40,13 +40,13 @@ export interface ModifyReplicationGroupCommandOutput extends ModifyReplicationGr
  *          <ul>
  *             <li>
  *                <p>
- *                   <a href="https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/scaling-redis-cluster-mode-enabled.html">Scaling for Amazon ElastiCache for Redis (cluster mode enabled)</a>
- *                     in the ElastiCache User Guide</p>
+ *                   <a href="https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/scaling-redis-cluster-mode-enabled.html">Scaling for Amazon ElastiCache for Redis (cluster mode enabled)</a> in
+ *                     the ElastiCache User Guide</p>
  *             </li>
  *             <li>
  *                <p>
- *                   <a href="https://docs.aws.amazon.com/AmazonElastiCache/latest/APIReference/API_ModifyReplicationGroupShardConfiguration.html">ModifyReplicationGroupShardConfiguration</a>
- *                     in the ElastiCache API Reference</p>
+ *                   <a href="https://docs.aws.amazon.com/AmazonElastiCache/latest/APIReference/API_ModifyReplicationGroupShardConfiguration.html">ModifyReplicationGroupShardConfiguration</a> in the ElastiCache API
+ *                     Reference</p>
  *             </li>
  *          </ul>
  *          <note>
@@ -249,14 +249,16 @@ export interface ModifyReplicationGroupCommandOutput extends ModifyReplicationGr
  *  <p>The requested cluster ID does not refer to an existing cluster.</p>
  *
  * @throws {@link CacheParameterGroupNotFoundFault} (client fault)
- *  <p>The requested cache parameter group name does not refer to an existing cache parameter group.</p>
+ *  <p>The requested cache parameter group name does not refer to an existing cache parameter
+ *             group.</p>
  *
  * @throws {@link CacheSecurityGroupNotFoundFault} (client fault)
- *  <p>The requested cache security group name does not refer to an existing cache security group.</p>
+ *  <p>The requested cache security group name does not refer to an existing cache security
+ *             group.</p>
  *
  * @throws {@link InsufficientCacheClusterCapacityFault} (client fault)
- *  <p>The requested cache node type is not available in the specified Availability Zone.
- *             For more information, see <a href="http://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/ErrorMessages.html#ErrorMessages.INSUFFICIENT_CACHE_CLUSTER_CAPACITY">InsufficientCacheClusterCapacity</a> in the ElastiCache User Guide.</p>
+ *  <p>The requested cache node type is not available in the specified Availability Zone. For
+ *             more information, see <a href="http://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/ErrorMessages.html#ErrorMessages.INSUFFICIENT_CACHE_CLUSTER_CAPACITY">InsufficientCacheClusterCapacity</a> in the ElastiCache User Guide.</p>
  *
  * @throws {@link InvalidCacheClusterStateFault} (client fault)
  *  <p>The requested cluster is not in the <code>available</code> state.</p>
@@ -283,10 +285,12 @@ export interface ModifyReplicationGroupCommandOutput extends ModifyReplicationGr
  *  <p>The VPC network is in an invalid state.</p>
  *
  * @throws {@link NodeQuotaForClusterExceededFault} (client fault)
- *  <p>The request cannot be processed because it would exceed the allowed number of cache nodes in a single cluster.</p>
+ *  <p>The request cannot be processed because it would exceed the allowed number of cache
+ *             nodes in a single cluster.</p>
  *
  * @throws {@link NodeQuotaForCustomerExceededFault} (client fault)
- *  <p>The request cannot be processed because it would exceed the allowed number of cache nodes per customer.</p>
+ *  <p>The request cannot be processed because it would exceed the allowed number of cache
+ *             nodes per customer.</p>
  *
  * @throws {@link ReplicationGroupNotFoundFault} (client fault)
  *  <p>The specified replication group does not exist.</p>

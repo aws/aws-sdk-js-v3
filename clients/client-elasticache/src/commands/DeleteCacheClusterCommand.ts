@@ -36,11 +36,10 @@ export interface DeleteCacheClusterCommandOutput extends DeleteCacheClusterResul
 
 /**
  * @public
- * <p>Deletes a previously provisioned cluster.
- *                 <code>DeleteCacheCluster</code> deletes all associated cache nodes, node endpoints and the
- *             cluster itself. When you receive a successful response from this operation,
- *             Amazon ElastiCache immediately begins deleting the cluster; you cannot cancel or revert
- *             this operation.</p>
+ * <p>Deletes a previously provisioned cluster. <code>DeleteCacheCluster</code> deletes all
+ *             associated cache nodes, node endpoints and the cluster itself. When you receive a
+ *             successful response from this operation, Amazon ElastiCache immediately begins deleting
+ *             the cluster; you cannot cancel or revert this operation.</p>
  *          <p>This operation is not valid for:</p>
  *          <ul>
  *             <li>
@@ -219,17 +218,19 @@ export interface DeleteCacheClusterCommandOutput extends DeleteCacheClusterResul
  *  <p>You attempted one of the following operations:</p>
  *          <ul>
  *             <li>
- *                <p>Creating a snapshot of a Redis cluster running on a <code>cache.t1.micro</code> cache
- *                     node.</p>
+ *                <p>Creating a snapshot of a Redis cluster running on a
+ *                         <code>cache.t1.micro</code> cache node.</p>
  *             </li>
  *             <li>
- *                <p>Creating a snapshot of a cluster that is running Memcached rather than Redis.</p>
+ *                <p>Creating a snapshot of a cluster that is running Memcached rather than
+ *                     Redis.</p>
  *             </li>
  *          </ul>
  *          <p>Neither of these are supported by ElastiCache.</p>
  *
  * @throws {@link SnapshotQuotaExceededFault} (client fault)
- *  <p>The request cannot be processed because it would exceed the maximum number of snapshots.</p>
+ *  <p>The request cannot be processed because it would exceed the maximum number of
+ *             snapshots.</p>
  *
  * @throws {@link ElastiCacheServiceException}
  * <p>Base exception class for all service exceptions from ElastiCache service.</p>

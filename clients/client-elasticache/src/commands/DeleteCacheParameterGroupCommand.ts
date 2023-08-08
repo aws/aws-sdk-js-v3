@@ -36,9 +36,9 @@ export interface DeleteCacheParameterGroupCommandOutput extends __MetadataBearer
 
 /**
  * @public
- * <p>Deletes the specified cache parameter
- *             group. You cannot delete a cache parameter group if it is associated with any cache
- *             clusters. You cannot delete the default cache parameter groups in your account.</p>
+ * <p>Deletes the specified cache parameter group. You cannot delete a cache parameter group
+ *             if it is associated with any cache clusters. You cannot delete the default cache
+ *             parameter groups in your account.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -61,10 +61,12 @@ export interface DeleteCacheParameterGroupCommandOutput extends __MetadataBearer
  * @see {@link ElastiCacheClientResolvedConfig | config} for ElastiCacheClient's `config` shape.
  *
  * @throws {@link CacheParameterGroupNotFoundFault} (client fault)
- *  <p>The requested cache parameter group name does not refer to an existing cache parameter group.</p>
+ *  <p>The requested cache parameter group name does not refer to an existing cache parameter
+ *             group.</p>
  *
  * @throws {@link InvalidCacheParameterGroupStateFault} (client fault)
- *  <p>The current state of the cache parameter group does not allow the requested operation to occur.</p>
+ *  <p>The current state of the cache parameter group does not allow the requested operation
+ *             to occur.</p>
  *
  * @throws {@link InvalidParameterCombinationException} (client fault)
  *  <p>Two or more incompatible parameters were specified.</p>

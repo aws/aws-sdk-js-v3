@@ -36,9 +36,8 @@ export interface CreateCacheClusterCommandOutput extends CreateCacheClusterResul
 
 /**
  * @public
- * <p>Creates a cluster. All nodes in the
- *             cluster run the same protocol-compliant cache engine software, either Memcached
- *             or Redis.</p>
+ * <p>Creates a cluster. All nodes in the cluster run the same protocol-compliant cache
+ *             engine software, either Memcached or Redis.</p>
  *          <p>This operation is not supported for Redis (cluster mode enabled) clusters.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -237,20 +236,24 @@ export interface CreateCacheClusterCommandOutput extends CreateCacheClusterResul
  *  <p>You already have a cluster with the given identifier.</p>
  *
  * @throws {@link CacheParameterGroupNotFoundFault} (client fault)
- *  <p>The requested cache parameter group name does not refer to an existing cache parameter group.</p>
+ *  <p>The requested cache parameter group name does not refer to an existing cache parameter
+ *             group.</p>
  *
  * @throws {@link CacheSecurityGroupNotFoundFault} (client fault)
- *  <p>The requested cache security group name does not refer to an existing cache security group.</p>
+ *  <p>The requested cache security group name does not refer to an existing cache security
+ *             group.</p>
  *
  * @throws {@link CacheSubnetGroupNotFoundFault} (client fault)
- *  <p>The requested cache subnet group name does not refer to an existing cache subnet group.</p>
+ *  <p>The requested cache subnet group name does not refer to an existing cache subnet
+ *             group.</p>
  *
  * @throws {@link ClusterQuotaForCustomerExceededFault} (client fault)
- *  <p>The request cannot be processed because it would exceed the allowed number of clusters per customer.</p>
+ *  <p>The request cannot be processed because it would exceed the allowed number of clusters
+ *             per customer.</p>
  *
  * @throws {@link InsufficientCacheClusterCapacityFault} (client fault)
- *  <p>The requested cache node type is not available in the specified Availability Zone.
- *             For more information, see <a href="http://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/ErrorMessages.html#ErrorMessages.INSUFFICIENT_CACHE_CLUSTER_CAPACITY">InsufficientCacheClusterCapacity</a> in the ElastiCache User Guide.</p>
+ *  <p>The requested cache node type is not available in the specified Availability Zone. For
+ *             more information, see <a href="http://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/ErrorMessages.html#ErrorMessages.INSUFFICIENT_CACHE_CLUSTER_CAPACITY">InsufficientCacheClusterCapacity</a> in the ElastiCache User Guide.</p>
  *
  * @throws {@link InvalidParameterCombinationException} (client fault)
  *  <p>Two or more incompatible parameters were specified.</p>
@@ -265,16 +268,20 @@ export interface CreateCacheClusterCommandOutput extends CreateCacheClusterResul
  *  <p>The VPC network is in an invalid state.</p>
  *
  * @throws {@link NodeQuotaForClusterExceededFault} (client fault)
- *  <p>The request cannot be processed because it would exceed the allowed number of cache nodes in a single cluster.</p>
+ *  <p>The request cannot be processed because it would exceed the allowed number of cache
+ *             nodes in a single cluster.</p>
  *
  * @throws {@link NodeQuotaForCustomerExceededFault} (client fault)
- *  <p>The request cannot be processed because it would exceed the allowed number of cache nodes per customer.</p>
+ *  <p>The request cannot be processed because it would exceed the allowed number of cache
+ *             nodes per customer.</p>
  *
  * @throws {@link ReplicationGroupNotFoundFault} (client fault)
  *  <p>The specified replication group does not exist.</p>
  *
  * @throws {@link TagQuotaPerResourceExceeded} (client fault)
- *  <p>The request cannot be processed because it would cause the resource to have more than the allowed number of tags. The maximum number of tags permitted on a resource is 50.</p>
+ *  <p>The request cannot be processed because it would cause the resource to have more than
+ *             the allowed number of tags. The maximum number of tags permitted on a resource is
+ *             50.</p>
  *
  * @throws {@link ElastiCacheServiceException}
  * <p>Base exception class for all service exceptions from ElastiCache service.</p>

@@ -41,9 +41,8 @@ export interface RevokeCacheSecurityGroupIngressCommandOutput
 
 /**
  * @public
- * <p>Revokes ingress from a cache security group.
- *             Use this operation to disallow access from an Amazon EC2 security group
- *             that had been previously authorized.</p>
+ * <p>Revokes ingress from a cache security group. Use this operation to disallow access
+ *             from an Amazon EC2 security group that had been previously authorized.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -82,10 +81,12 @@ export interface RevokeCacheSecurityGroupIngressCommandOutput
  * @see {@link ElastiCacheClientResolvedConfig | config} for ElastiCacheClient's `config` shape.
  *
  * @throws {@link AuthorizationNotFoundFault} (client fault)
- *  <p>The specified Amazon EC2 security group is not authorized for the specified cache security group.</p>
+ *  <p>The specified Amazon EC2 security group is not authorized for the specified cache
+ *             security group.</p>
  *
  * @throws {@link CacheSecurityGroupNotFoundFault} (client fault)
- *  <p>The requested cache security group name does not refer to an existing cache security group.</p>
+ *  <p>The requested cache security group name does not refer to an existing cache security
+ *             group.</p>
  *
  * @throws {@link InvalidCacheSecurityGroupStateFault} (client fault)
  *  <p>The current state of the cache security group does not allow deletion.</p>

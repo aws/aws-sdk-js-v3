@@ -36,9 +36,9 @@ export interface DeleteSnapshotCommandOutput extends DeleteSnapshotResult, __Met
 
 /**
  * @public
- * <p>Deletes an existing snapshot. When you receive a
- *             successful response from this operation, ElastiCache immediately begins deleting the snapshot;
- *             you cannot cancel or revert this operation.</p>
+ * <p>Deletes an existing snapshot. When you receive a successful response from this
+ *             operation, ElastiCache immediately begins deleting the snapshot; you cannot cancel or
+ *             revert this operation.</p>
  *          <note>
  *             <p>This operation is valid for Redis only.</p>
  *          </note>
@@ -123,7 +123,8 @@ export interface DeleteSnapshotCommandOutput extends DeleteSnapshotResult, __Met
  *  <p>The value for a parameter is invalid.</p>
  *
  * @throws {@link InvalidSnapshotStateFault} (client fault)
- *  <p>The current state of the snapshot does not allow the requested operation to occur.</p>
+ *  <p>The current state of the snapshot does not allow the requested operation to
+ *             occur.</p>
  *
  * @throws {@link SnapshotNotFoundFault} (client fault)
  *  <p>The requested snapshot name does not refer to an existing snapshot.</p>

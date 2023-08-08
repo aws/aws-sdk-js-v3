@@ -36,8 +36,7 @@ export interface DescribeCacheEngineVersionsCommandOutput extends CacheEngineVer
 
 /**
  * @public
- * <p>Returns a list of the available cache
- *             engines and their versions.</p>
+ * <p>Returns a list of the available cache engines and their versions.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

@@ -41,8 +41,8 @@ export interface DescribeEngineDefaultParametersCommandOutput
 
 /**
  * @public
- * <p>Returns the default engine and
- *             system parameter information for the specified cache engine.</p>
+ * <p>Returns the default engine and system parameter information for the specified cache
+ *             engine.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

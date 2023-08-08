@@ -36,9 +36,8 @@ export interface ModifyCacheClusterCommandOutput extends ModifyCacheClusterResul
 
 /**
  * @public
- * <p>Modifies the settings for a cluster. You
- *             can use this operation to change one or more cluster configuration parameters by
- *             specifying the parameters and the new values.</p>
+ * <p>Modifies the settings for a cluster. You can use this operation to change one or more
+ *             cluster configuration parameters by specifying the parameters and the new values.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -220,14 +219,16 @@ export interface ModifyCacheClusterCommandOutput extends ModifyCacheClusterResul
  *  <p>The requested cluster ID does not refer to an existing cluster.</p>
  *
  * @throws {@link CacheParameterGroupNotFoundFault} (client fault)
- *  <p>The requested cache parameter group name does not refer to an existing cache parameter group.</p>
+ *  <p>The requested cache parameter group name does not refer to an existing cache parameter
+ *             group.</p>
  *
  * @throws {@link CacheSecurityGroupNotFoundFault} (client fault)
- *  <p>The requested cache security group name does not refer to an existing cache security group.</p>
+ *  <p>The requested cache security group name does not refer to an existing cache security
+ *             group.</p>
  *
  * @throws {@link InsufficientCacheClusterCapacityFault} (client fault)
- *  <p>The requested cache node type is not available in the specified Availability Zone.
- *             For more information, see <a href="http://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/ErrorMessages.html#ErrorMessages.INSUFFICIENT_CACHE_CLUSTER_CAPACITY">InsufficientCacheClusterCapacity</a> in the ElastiCache User Guide.</p>
+ *  <p>The requested cache node type is not available in the specified Availability Zone. For
+ *             more information, see <a href="http://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/ErrorMessages.html#ErrorMessages.INSUFFICIENT_CACHE_CLUSTER_CAPACITY">InsufficientCacheClusterCapacity</a> in the ElastiCache User Guide.</p>
  *
  * @throws {@link InvalidCacheClusterStateFault} (client fault)
  *  <p>The requested cluster is not in the <code>available</code> state.</p>
@@ -245,10 +246,12 @@ export interface ModifyCacheClusterCommandOutput extends ModifyCacheClusterResul
  *  <p>The VPC network is in an invalid state.</p>
  *
  * @throws {@link NodeQuotaForClusterExceededFault} (client fault)
- *  <p>The request cannot be processed because it would exceed the allowed number of cache nodes in a single cluster.</p>
+ *  <p>The request cannot be processed because it would exceed the allowed number of cache
+ *             nodes in a single cluster.</p>
  *
  * @throws {@link NodeQuotaForCustomerExceededFault} (client fault)
- *  <p>The request cannot be processed because it would exceed the allowed number of cache nodes per customer.</p>
+ *  <p>The request cannot be processed because it would exceed the allowed number of cache
+ *             nodes per customer.</p>
  *
  * @throws {@link ElastiCacheServiceException}
  * <p>Base exception class for all service exceptions from ElastiCache service.</p>

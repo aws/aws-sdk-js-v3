@@ -38,7 +38,8 @@ export interface DeleteCacheSecurityGroupCommandOutput extends __MetadataBearer 
  * @public
  * <p>Deletes a cache security group.</p>
  *          <note>
- *             <p>You cannot delete a cache security group if it is associated with any clusters.</p>
+ *             <p>You cannot delete a cache security group if it is associated with any
+ *                 clusters.</p>
  *          </note>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -62,7 +63,8 @@ export interface DeleteCacheSecurityGroupCommandOutput extends __MetadataBearer 
  * @see {@link ElastiCacheClientResolvedConfig | config} for ElastiCacheClient's `config` shape.
  *
  * @throws {@link CacheSecurityGroupNotFoundFault} (client fault)
- *  <p>The requested cache security group name does not refer to an existing cache security group.</p>
+ *  <p>The requested cache security group name does not refer to an existing cache security
+ *             group.</p>
  *
  * @throws {@link InvalidCacheSecurityGroupStateFault} (client fault)
  *  <p>The current state of the cache security group does not allow deletion.</p>

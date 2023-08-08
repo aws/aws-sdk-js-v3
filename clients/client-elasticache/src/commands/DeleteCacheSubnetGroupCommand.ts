@@ -38,7 +38,8 @@ export interface DeleteCacheSubnetGroupCommandOutput extends __MetadataBearer {}
  * @public
  * <p>Deletes a cache subnet group.</p>
  *          <note>
- *             <p>You cannot delete a default cache subnet group or one that is associated with any clusters.</p>
+ *             <p>You cannot delete a default cache subnet group or one that is associated with any
+ *                 clusters.</p>
  *          </note>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -65,7 +66,8 @@ export interface DeleteCacheSubnetGroupCommandOutput extends __MetadataBearer {}
  *  <p>The requested cache subnet group is currently in use.</p>
  *
  * @throws {@link CacheSubnetGroupNotFoundFault} (client fault)
- *  <p>The requested cache subnet group name does not refer to an existing cache subnet group.</p>
+ *  <p>The requested cache subnet group name does not refer to an existing cache subnet
+ *             group.</p>
  *
  * @throws {@link ElastiCacheServiceException}
  * <p>Base exception class for all service exceptions from ElastiCache service.</p>

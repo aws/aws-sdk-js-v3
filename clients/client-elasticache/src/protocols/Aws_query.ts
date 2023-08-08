@@ -219,6 +219,7 @@ import {
 } from "../commands/RevokeCacheSecurityGroupIngressCommand";
 import { StartMigrationCommandInput, StartMigrationCommandOutput } from "../commands/StartMigrationCommand";
 import { TestFailoverCommandInput, TestFailoverCommandOutput } from "../commands/TestFailoverCommand";
+import { TestMigrationCommandInput, TestMigrationCommandOutput } from "../commands/TestMigrationCommand";
 import { ElastiCacheServiceException as __BaseException } from "../models/ElastiCacheServiceException";
 import {
   AddTagsToResourceMessage,
@@ -456,6 +457,8 @@ import {
   TestFailoverMessage,
   TestFailoverNotAvailableFault,
   TestFailoverResult,
+  TestMigrationMessage,
+  TestMigrationResponse,
   TimeRangeFilter,
   UnprocessedUpdateAction,
   UpdateAction,
@@ -1574,6 +1577,23 @@ export const se_TestFailoverCommand = async (
   body = buildFormUrlencodedString({
     ...se_TestFailoverMessage(input, context),
     Action: "TestFailover",
+    Version: "2015-02-02",
+  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+/**
+ * serializeAws_queryTestMigrationCommand
+ */
+export const se_TestMigrationCommand = async (
+  input: TestMigrationCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = SHARED_HEADERS;
+  let body: any;
+  body = buildFormUrlencodedString({
+    ...se_TestMigrationMessage(input, context),
+    Action: "TestMigration",
     Version: "2015-02-02",
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -5438,6 +5458,61 @@ const de_TestFailoverCommandError = async (
     case "TestFailoverNotAvailableFault":
     case "com.amazonaws.elasticache#TestFailoverNotAvailableFault":
       throw await de_TestFailoverNotAvailableFaultRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody: parsedBody.Error,
+        errorCode,
+      });
+  }
+};
+
+/**
+ * deserializeAws_queryTestMigrationCommand
+ */
+export const de_TestMigrationCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<TestMigrationCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_TestMigrationCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_TestMigrationResponse(data.TestMigrationResult, context);
+  const response: TestMigrationCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_queryTestMigrationCommandError
+ */
+const de_TestMigrationCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<TestMigrationCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "InvalidParameterValue":
+    case "com.amazonaws.elasticache#InvalidParameterValueException":
+      throw await de_InvalidParameterValueExceptionRes(parsedOutput, context);
+    case "InvalidReplicationGroupState":
+    case "com.amazonaws.elasticache#InvalidReplicationGroupStateFault":
+      throw await de_InvalidReplicationGroupStateFaultRes(parsedOutput, context);
+    case "ReplicationGroupAlreadyUnderMigrationFault":
+    case "com.amazonaws.elasticache#ReplicationGroupAlreadyUnderMigrationFault":
+      throw await de_ReplicationGroupAlreadyUnderMigrationFaultRes(parsedOutput, context);
+    case "ReplicationGroupNotFoundFault":
+    case "com.amazonaws.elasticache#ReplicationGroupNotFoundFault":
+      throw await de_ReplicationGroupNotFoundFaultRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       return throwDefaultError({
@@ -9319,6 +9394,27 @@ const se_TestFailoverMessage = (input: TestFailoverMessage, context: __SerdeCont
 };
 
 /**
+ * serializeAws_queryTestMigrationMessage
+ */
+const se_TestMigrationMessage = (input: TestMigrationMessage, context: __SerdeContext): any => {
+  const entries: any = {};
+  if (input.ReplicationGroupId != null) {
+    entries["ReplicationGroupId"] = input.ReplicationGroupId;
+  }
+  if (input.CustomerNodeEndpointList != null) {
+    const memberEntries = se_CustomerNodeEndpointList(input.CustomerNodeEndpointList, context);
+    if (input.CustomerNodeEndpointList?.length === 0) {
+      entries.CustomerNodeEndpointList = [];
+    }
+    Object.entries(memberEntries).forEach(([key, value]) => {
+      const loc = `CustomerNodeEndpointList.${key}`;
+      entries[loc] = value;
+    });
+  }
+  return entries;
+};
+
+/**
  * serializeAws_queryTimeRangeFilter
  */
 const se_TimeRangeFilter = (input: TimeRangeFilter, context: __SerdeContext): any => {
@@ -12871,6 +12967,17 @@ const de_TestFailoverNotAvailableFault = (output: any, context: __SerdeContext):
  * deserializeAws_queryTestFailoverResult
  */
 const de_TestFailoverResult = (output: any, context: __SerdeContext): TestFailoverResult => {
+  const contents: any = {};
+  if (output["ReplicationGroup"] !== undefined) {
+    contents.ReplicationGroup = de_ReplicationGroup(output["ReplicationGroup"], context);
+  }
+  return contents;
+};
+
+/**
+ * deserializeAws_queryTestMigrationResponse
+ */
+const de_TestMigrationResponse = (output: any, context: __SerdeContext): TestMigrationResponse => {
   const contents: any = {};
   if (output["ReplicationGroup"] !== undefined) {
     contents.ReplicationGroup = de_ReplicationGroup(output["ReplicationGroup"], context);

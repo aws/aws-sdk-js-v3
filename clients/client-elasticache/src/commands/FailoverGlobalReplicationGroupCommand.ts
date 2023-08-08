@@ -41,7 +41,8 @@ export interface FailoverGlobalReplicationGroupCommandOutput
 
 /**
  * @public
- * <p>Used to failover the primary region to a secondary region. The secondary region will become primary, and all other clusters will become secondary.</p>
+ * <p>Used to failover the primary region to a secondary region. The secondary region will
+ *             become primary, and all other clusters will become secondary.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

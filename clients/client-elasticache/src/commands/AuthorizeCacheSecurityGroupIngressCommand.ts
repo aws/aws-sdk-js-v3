@@ -44,12 +44,12 @@ export interface AuthorizeCacheSecurityGroupIngressCommandOutput
 
 /**
  * @public
- * <p>Allows network ingress to a cache
- *             security group. Applications using ElastiCache must be running on Amazon EC2, and Amazon EC2
- *             security groups are used as the authorization mechanism.</p>
+ * <p>Allows network ingress to a cache security group. Applications using ElastiCache must
+ *             be running on Amazon EC2, and Amazon EC2 security groups are used as the authorization
+ *             mechanism.</p>
  *          <note>
  *             <p>You cannot authorize ingress from an Amazon EC2 security group in one region to an
- *             ElastiCache cluster in another region.</p>
+ *                 ElastiCache cluster in another region.</p>
  *          </note>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -89,10 +89,12 @@ export interface AuthorizeCacheSecurityGroupIngressCommandOutput
  * @see {@link ElastiCacheClientResolvedConfig | config} for ElastiCacheClient's `config` shape.
  *
  * @throws {@link AuthorizationAlreadyExistsFault} (client fault)
- *  <p>The specified Amazon EC2 security group is already authorized for the specified cache security group.</p>
+ *  <p>The specified Amazon EC2 security group is already authorized for the specified cache
+ *             security group.</p>
  *
  * @throws {@link CacheSecurityGroupNotFoundFault} (client fault)
- *  <p>The requested cache security group name does not refer to an existing cache security group.</p>
+ *  <p>The requested cache security group name does not refer to an existing cache security
+ *             group.</p>
  *
  * @throws {@link InvalidCacheSecurityGroupStateFault} (client fault)
  *  <p>The current state of the cache security group does not allow deletion.</p>

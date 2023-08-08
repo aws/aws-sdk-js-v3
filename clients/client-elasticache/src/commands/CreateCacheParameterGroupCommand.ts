@@ -36,12 +36,13 @@ export interface CreateCacheParameterGroupCommandOutput extends CreateCacheParam
 
 /**
  * @public
- * <p>Creates a new Amazon ElastiCache cache parameter group. An ElastiCache
- *             cache parameter group is a collection of parameters and their values that are applied to all of the nodes
- *             in any cluster or replication group using the CacheParameterGroup.</p>
- *          <p>A newly created CacheParameterGroup is an exact duplicate of the default parameter group
- *             for the CacheParameterGroupFamily. To customize the newly created CacheParameterGroup you can
- *             change the values of specific parameters. For more information, see:</p>
+ * <p>Creates a new Amazon ElastiCache cache parameter group. An ElastiCache cache parameter
+ *             group is a collection of parameters and their values that are applied to all of the
+ *             nodes in any cluster or replication group using the CacheParameterGroup.</p>
+ *          <p>A newly created CacheParameterGroup is an exact duplicate of the default parameter
+ *             group for the CacheParameterGroupFamily. To customize the newly created
+ *             CacheParameterGroup you can change the values of specific parameters. For more
+ *             information, see:</p>
  *          <ul>
  *             <li>
  *                <p>
@@ -49,7 +50,8 @@ export interface CreateCacheParameterGroupCommandOutput extends CreateCacheParam
  *             </li>
  *             <li>
  *                <p>
- *                   <a href="https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/ParameterGroups.html">Parameters and Parameter Groups</a> in the ElastiCache User Guide.</p>
+ *                   <a href="https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/ParameterGroups.html">Parameters and
+ *                         Parameter Groups</a> in the ElastiCache User Guide.</p>
  *             </li>
  *          </ul>
  * @example
@@ -93,10 +95,12 @@ export interface CreateCacheParameterGroupCommandOutput extends CreateCacheParam
  *  <p>A cache parameter group with the requested name already exists.</p>
  *
  * @throws {@link CacheParameterGroupQuotaExceededFault} (client fault)
- *  <p>The request cannot be processed because it would exceed the maximum number of cache security groups.</p>
+ *  <p>The request cannot be processed because it would exceed the maximum number of cache
+ *             security groups.</p>
  *
  * @throws {@link InvalidCacheParameterGroupStateFault} (client fault)
- *  <p>The current state of the cache parameter group does not allow the requested operation to occur.</p>
+ *  <p>The current state of the cache parameter group does not allow the requested operation
+ *             to occur.</p>
  *
  * @throws {@link InvalidParameterCombinationException} (client fault)
  *  <p>Two or more incompatible parameters were specified.</p>
@@ -105,7 +109,9 @@ export interface CreateCacheParameterGroupCommandOutput extends CreateCacheParam
  *  <p>The value for a parameter is invalid.</p>
  *
  * @throws {@link TagQuotaPerResourceExceeded} (client fault)
- *  <p>The request cannot be processed because it would cause the resource to have more than the allowed number of tags. The maximum number of tags permitted on a resource is 50.</p>
+ *  <p>The request cannot be processed because it would cause the resource to have more than
+ *             the allowed number of tags. The maximum number of tags permitted on a resource is
+ *             50.</p>
  *
  * @throws {@link ElastiCacheServiceException}
  * <p>Base exception class for all service exceptions from ElastiCache service.</p>

@@ -36,9 +36,10 @@ export interface DecreaseReplicaCountCommandOutput extends DecreaseReplicaCountR
 
 /**
  * @public
- * <p>Dynamically decreases the number of replicas in a Redis (cluster mode disabled) replication group or the number of
- *             replica nodes in one or more node groups (shards) of a Redis (cluster mode enabled) replication group. This operation
- *             is performed with no cluster down time.</p>
+ * <p>Dynamically decreases the number of replicas in a Redis (cluster mode disabled)
+ *             replication group or the number of replica nodes in one or more node groups (shards) of
+ *             a Redis (cluster mode enabled) replication group. This operation is performed with no
+ *             cluster down time.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -199,11 +200,12 @@ export interface DecreaseReplicaCountCommandOutput extends DecreaseReplicaCountR
  * @see {@link ElastiCacheClientResolvedConfig | config} for ElastiCacheClient's `config` shape.
  *
  * @throws {@link ClusterQuotaForCustomerExceededFault} (client fault)
- *  <p>The request cannot be processed because it would exceed the allowed number of clusters per customer.</p>
+ *  <p>The request cannot be processed because it would exceed the allowed number of clusters
+ *             per customer.</p>
  *
  * @throws {@link InsufficientCacheClusterCapacityFault} (client fault)
- *  <p>The requested cache node type is not available in the specified Availability Zone.
- *             For more information, see <a href="http://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/ErrorMessages.html#ErrorMessages.INSUFFICIENT_CACHE_CLUSTER_CAPACITY">InsufficientCacheClusterCapacity</a> in the ElastiCache User Guide.</p>
+ *  <p>The requested cache node type is not available in the specified Availability Zone. For
+ *             more information, see <a href="http://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/ErrorMessages.html#ErrorMessages.INSUFFICIENT_CACHE_CLUSTER_CAPACITY">InsufficientCacheClusterCapacity</a> in the ElastiCache User Guide.</p>
  *
  * @throws {@link InvalidCacheClusterStateFault} (client fault)
  *  <p>The requested cluster is not in the <code>available</code> state.</p>
@@ -221,11 +223,12 @@ export interface DecreaseReplicaCountCommandOutput extends DecreaseReplicaCountR
  *  <p>The VPC network is in an invalid state.</p>
  *
  * @throws {@link NodeGroupsPerReplicationGroupQuotaExceededFault} (client fault)
- *  <p>The request cannot be processed because it would exceed the maximum allowed number
- *             of node groups (shards) in a single replication group. The default maximum is 90</p>
+ *  <p>The request cannot be processed because it would exceed the maximum allowed number of
+ *             node groups (shards) in a single replication group. The default maximum is 90</p>
  *
  * @throws {@link NodeQuotaForCustomerExceededFault} (client fault)
- *  <p>The request cannot be processed because it would exceed the allowed number of cache nodes per customer.</p>
+ *  <p>The request cannot be processed because it would exceed the allowed number of cache
+ *             nodes per customer.</p>
  *
  * @throws {@link NoOperationFault} (client fault)
  *  <p>The operation was not performed because no changes were required.</p>

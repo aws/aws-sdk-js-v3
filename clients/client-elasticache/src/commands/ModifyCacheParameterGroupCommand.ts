@@ -36,9 +36,8 @@ export interface ModifyCacheParameterGroupCommandOutput extends CacheParameterGr
 
 /**
  * @public
- * <p>Modifies the parameters of a cache
- *             parameter group. You can modify up to 20 parameters in a single request by submitting a
- *             list parameter name and value pairs.</p>
+ * <p>Modifies the parameters of a cache parameter group. You can modify up to 20 parameters
+ *             in a single request by submitting a list parameter name and value pairs.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -69,10 +68,12 @@ export interface ModifyCacheParameterGroupCommandOutput extends CacheParameterGr
  * @see {@link ElastiCacheClientResolvedConfig | config} for ElastiCacheClient's `config` shape.
  *
  * @throws {@link CacheParameterGroupNotFoundFault} (client fault)
- *  <p>The requested cache parameter group name does not refer to an existing cache parameter group.</p>
+ *  <p>The requested cache parameter group name does not refer to an existing cache parameter
+ *             group.</p>
  *
  * @throws {@link InvalidCacheParameterGroupStateFault} (client fault)
- *  <p>The current state of the cache parameter group does not allow the requested operation to occur.</p>
+ *  <p>The current state of the cache parameter group does not allow the requested operation
+ *             to occur.</p>
  *
  * @throws {@link InvalidGlobalReplicationGroupStateFault} (client fault)
  *  <p>The Global datastore is not available or in primary-only state.</p>

@@ -41,17 +41,24 @@ export interface DeleteGlobalReplicationGroupCommandOutput
  * <p>Deleting a Global datastore is a two-step process: </p>
  *          <ul>
  *             <li>
- *                <p>First, you must <a>DisassociateGlobalReplicationGroup</a> to remove the secondary clusters in the Global datastore.</p>
+ *                <p>First, you must <a>DisassociateGlobalReplicationGroup</a> to remove
+ *                     the secondary clusters in the Global datastore.</p>
  *             </li>
  *             <li>
- *                <p>Once the Global datastore contains only the primary cluster, you can use the <code>DeleteGlobalReplicationGroup</code> API to delete the Global datastore while retainining the primary cluster using <code>RetainPrimaryReplicationGroup=true</code>.</p>
+ *                <p>Once the Global datastore contains only the primary cluster, you can use the
+ *                         <code>DeleteGlobalReplicationGroup</code> API to delete the Global datastore
+ *                     while retainining the primary cluster using
+ *                         <code>RetainPrimaryReplicationGroup=true</code>.</p>
  *             </li>
  *          </ul>
- *          <p>Since the Global Datastore has only a primary cluster, you can delete the Global Datastore
- *              while retaining the primary by setting <code>RetainPrimaryReplicationGroup=true</code>. The primary cluster is never deleted when deleting a
- *           Global Datastore. It can only be deleted when it no longer is associated with any Global Datastore.</p>
- *          <p>When you receive a successful response from this operation, Amazon ElastiCache immediately begins deleting the selected resources;
- *             you cannot cancel or revert this operation.</p>
+ *          <p>Since the Global Datastore has only a primary cluster, you can delete the Global
+ *             Datastore while retaining the primary by setting
+ *                 <code>RetainPrimaryReplicationGroup=true</code>. The primary cluster is never
+ *             deleted when deleting a Global Datastore. It can only be deleted when it no longer is
+ *             associated with any Global Datastore.</p>
+ *          <p>When you receive a successful response from this operation, Amazon ElastiCache
+ *             immediately begins deleting the selected resources; you cannot cancel or revert this
+ *             operation.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

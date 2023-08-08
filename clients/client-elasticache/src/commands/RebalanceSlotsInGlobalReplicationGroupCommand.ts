@@ -45,7 +45,8 @@ export interface RebalanceSlotsInGlobalReplicationGroupCommandOutput
 
 /**
  * @public
- * <p>Redistribute slots to ensure uniform distribution across existing shards in the cluster.</p>
+ * <p>Redistribute slots to ensure uniform distribution across existing shards in the
+ *             cluster.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

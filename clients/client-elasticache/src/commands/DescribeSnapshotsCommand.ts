@@ -36,8 +36,8 @@ export interface DescribeSnapshotsCommandOutput extends DescribeSnapshotsListMes
 
 /**
  * @public
- * <p>Returns information about cluster or replication group snapshots.
- *             By default, <code>DescribeSnapshots</code> lists all of your snapshots; it can optionally
+ * <p>Returns information about cluster or replication group snapshots. By default,
+ *                 <code>DescribeSnapshots</code> lists all of your snapshots; it can optionally
  *             describe a single snapshot, or just the snapshots associated with a particular cache
  *             cluster.</p>
  *          <note>

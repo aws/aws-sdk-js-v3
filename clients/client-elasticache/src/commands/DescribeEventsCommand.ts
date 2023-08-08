@@ -36,12 +36,11 @@ export interface DescribeEventsCommandOutput extends EventsMessage, __MetadataBe
 
 /**
  * @public
- * <p>Returns events related to clusters, cache
- *             security groups, and cache parameter groups. You can obtain events specific to a
- *             particular cluster, cache security group, or cache parameter group by providing
- *             the name as a parameter.</p>
- *          <p>By default, only the events occurring within the last hour are returned;
- *             however, you can retrieve up to 14 days' worth of events if necessary.</p>
+ * <p>Returns events related to clusters, cache security groups, and cache parameter groups.
+ *             You can obtain events specific to a particular cluster, cache security group, or cache
+ *             parameter group by providing the name as a parameter.</p>
+ *          <p>By default, only the events occurring within the last hour are returned; however, you
+ *             can retrieve up to 14 days' worth of events if necessary.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

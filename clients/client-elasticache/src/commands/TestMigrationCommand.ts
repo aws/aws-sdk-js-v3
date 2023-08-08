@@ -14,14 +14,8 @@ import {
 } from "@smithy/types";
 
 import { ElastiCacheClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ElastiCacheClient";
-import {
-  ModifyReplicationGroupShardConfigurationMessage,
-  ModifyReplicationGroupShardConfigurationResult,
-} from "../models/models_0";
-import {
-  de_ModifyReplicationGroupShardConfigurationCommand,
-  se_ModifyReplicationGroupShardConfigurationCommand,
-} from "../protocols/Aws_query";
+import { TestMigrationMessage, TestMigrationResponse } from "../models/models_0";
+import { de_TestMigrationCommand, se_TestMigrationCommand } from "../protocols/Aws_query";
 
 /**
  * @public
@@ -30,51 +24,37 @@ export { __MetadataBearer, $Command };
 /**
  * @public
  *
- * The input for {@link ModifyReplicationGroupShardConfigurationCommand}.
+ * The input for {@link TestMigrationCommand}.
  */
-export interface ModifyReplicationGroupShardConfigurationCommandInput
-  extends ModifyReplicationGroupShardConfigurationMessage {}
+export interface TestMigrationCommandInput extends TestMigrationMessage {}
 /**
  * @public
  *
- * The output of {@link ModifyReplicationGroupShardConfigurationCommand}.
+ * The output of {@link TestMigrationCommand}.
  */
-export interface ModifyReplicationGroupShardConfigurationCommandOutput
-  extends ModifyReplicationGroupShardConfigurationResult,
-    __MetadataBearer {}
+export interface TestMigrationCommandOutput extends TestMigrationResponse, __MetadataBearer {}
 
 /**
  * @public
- * <p>Modifies a replication group's shards (node groups) by allowing you to add shards,
- *             remove shards, or rebalance the keyspaces among existing shards.</p>
+ * <p> Async API to test connection between source and target replication group. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ElastiCacheClient, ModifyReplicationGroupShardConfigurationCommand } from "@aws-sdk/client-elasticache"; // ES Modules import
- * // const { ElastiCacheClient, ModifyReplicationGroupShardConfigurationCommand } = require("@aws-sdk/client-elasticache"); // CommonJS import
+ * import { ElastiCacheClient, TestMigrationCommand } from "@aws-sdk/client-elasticache"; // ES Modules import
+ * // const { ElastiCacheClient, TestMigrationCommand } = require("@aws-sdk/client-elasticache"); // CommonJS import
  * const client = new ElastiCacheClient(config);
- * const input = { // ModifyReplicationGroupShardConfigurationMessage
+ * const input = { // TestMigrationMessage
  *   ReplicationGroupId: "STRING_VALUE", // required
- *   NodeGroupCount: Number("int"), // required
- *   ApplyImmediately: true || false, // required
- *   ReshardingConfiguration: [ // ReshardingConfigurationList
- *     { // ReshardingConfiguration
- *       NodeGroupId: "STRING_VALUE",
- *       PreferredAvailabilityZones: [ // AvailabilityZonesList
- *         "STRING_VALUE",
- *       ],
+ *   CustomerNodeEndpointList: [ // CustomerNodeEndpointList // required
+ *     { // CustomerNodeEndpoint
+ *       Address: "STRING_VALUE",
+ *       Port: Number("int"),
  *     },
  *   ],
- *   NodeGroupsToRemove: [ // NodeGroupsToRemoveList
- *     "STRING_VALUE",
- *   ],
- *   NodeGroupsToRetain: [ // NodeGroupsToRetainList
- *     "STRING_VALUE",
- *   ],
  * };
- * const command = new ModifyReplicationGroupShardConfigurationCommand(input);
+ * const command = new TestMigrationCommand(input);
  * const response = await client.send(command);
- * // { // ModifyReplicationGroupShardConfigurationResult
+ * // { // TestMigrationResponse
  * //   ReplicationGroup: { // ReplicationGroup
  * //     ReplicationGroupId: "STRING_VALUE",
  * //     Description: "STRING_VALUE",
@@ -199,24 +179,11 @@ export interface ModifyReplicationGroupShardConfigurationCommandOutput
  *
  * ```
  *
- * @param ModifyReplicationGroupShardConfigurationCommandInput - {@link ModifyReplicationGroupShardConfigurationCommandInput}
- * @returns {@link ModifyReplicationGroupShardConfigurationCommandOutput}
- * @see {@link ModifyReplicationGroupShardConfigurationCommandInput} for command's `input` shape.
- * @see {@link ModifyReplicationGroupShardConfigurationCommandOutput} for command's `response` shape.
+ * @param TestMigrationCommandInput - {@link TestMigrationCommandInput}
+ * @returns {@link TestMigrationCommandOutput}
+ * @see {@link TestMigrationCommandInput} for command's `input` shape.
+ * @see {@link TestMigrationCommandOutput} for command's `response` shape.
  * @see {@link ElastiCacheClientResolvedConfig | config} for ElastiCacheClient's `config` shape.
- *
- * @throws {@link InsufficientCacheClusterCapacityFault} (client fault)
- *  <p>The requested cache node type is not available in the specified Availability Zone. For
- *             more information, see <a href="http://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/ErrorMessages.html#ErrorMessages.INSUFFICIENT_CACHE_CLUSTER_CAPACITY">InsufficientCacheClusterCapacity</a> in the ElastiCache User Guide.</p>
- *
- * @throws {@link InvalidCacheClusterStateFault} (client fault)
- *  <p>The requested cluster is not in the <code>available</code> state.</p>
- *
- * @throws {@link InvalidKMSKeyFault} (client fault)
- *  <p>The KMS key supplied is not valid.</p>
- *
- * @throws {@link InvalidParameterCombinationException} (client fault)
- *  <p>Two or more incompatible parameters were specified.</p>
  *
  * @throws {@link InvalidParameterValueException} (client fault)
  *  <p>The value for a parameter is invalid.</p>
@@ -224,16 +191,8 @@ export interface ModifyReplicationGroupShardConfigurationCommandOutput
  * @throws {@link InvalidReplicationGroupStateFault} (client fault)
  *  <p>The requested replication group is not in the <code>available</code> state.</p>
  *
- * @throws {@link InvalidVPCNetworkStateFault} (client fault)
- *  <p>The VPC network is in an invalid state.</p>
- *
- * @throws {@link NodeGroupsPerReplicationGroupQuotaExceededFault} (client fault)
- *  <p>The request cannot be processed because it would exceed the maximum allowed number of
- *             node groups (shards) in a single replication group. The default maximum is 90</p>
- *
- * @throws {@link NodeQuotaForCustomerExceededFault} (client fault)
- *  <p>The request cannot be processed because it would exceed the allowed number of cache
- *             nodes per customer.</p>
+ * @throws {@link ReplicationGroupAlreadyUnderMigrationFault} (client fault)
+ *  <p>The targeted replication group is not available. </p>
  *
  * @throws {@link ReplicationGroupNotFoundFault} (client fault)
  *  <p>The specified replication group does not exist.</p>
@@ -242,9 +201,9 @@ export interface ModifyReplicationGroupShardConfigurationCommandOutput
  * <p>Base exception class for all service exceptions from ElastiCache service.</p>
  *
  */
-export class ModifyReplicationGroupShardConfigurationCommand extends $Command<
-  ModifyReplicationGroupShardConfigurationCommandInput,
-  ModifyReplicationGroupShardConfigurationCommandOutput,
+export class TestMigrationCommand extends $Command<
+  TestMigrationCommandInput,
+  TestMigrationCommandOutput,
   ElastiCacheClientResolvedConfig
 > {
   // Start section: command_properties
@@ -262,7 +221,7 @@ export class ModifyReplicationGroupShardConfigurationCommand extends $Command<
   /**
    * @public
    */
-  constructor(readonly input: ModifyReplicationGroupShardConfigurationCommandInput) {
+  constructor(readonly input: TestMigrationCommandInput) {
     // Start section: command_constructor
     super();
     // End section: command_constructor
@@ -275,23 +234,15 @@ export class ModifyReplicationGroupShardConfigurationCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ElastiCacheClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    ModifyReplicationGroupShardConfigurationCommandInput,
-    ModifyReplicationGroupShardConfigurationCommandOutput
-  > {
+  ): Handler<TestMigrationCommandInput, TestMigrationCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
-    this.middlewareStack.use(
-      getEndpointPlugin(
-        configuration,
-        ModifyReplicationGroupShardConfigurationCommand.getEndpointParameterInstructions()
-      )
-    );
+    this.middlewareStack.use(getEndpointPlugin(configuration, TestMigrationCommand.getEndpointParameterInstructions()));
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
     const clientName = "ElastiCacheClient";
-    const commandName = "ModifyReplicationGroupShardConfigurationCommand";
+    const commandName = "TestMigrationCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
       clientName,
@@ -310,21 +261,15 @@ export class ModifyReplicationGroupShardConfigurationCommand extends $Command<
   /**
    * @internal
    */
-  private serialize(
-    input: ModifyReplicationGroupShardConfigurationCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
-    return se_ModifyReplicationGroupShardConfigurationCommand(input, context);
+  private serialize(input: TestMigrationCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
+    return se_TestMigrationCommand(input, context);
   }
 
   /**
    * @internal
    */
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<ModifyReplicationGroupShardConfigurationCommandOutput> {
-    return de_ModifyReplicationGroupShardConfigurationCommand(output, context);
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<TestMigrationCommandOutput> {
+    return de_TestMigrationCommand(output, context);
   }
 
   // Start section: command_body_extra

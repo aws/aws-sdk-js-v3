@@ -36,8 +36,8 @@ export interface DescribeReservedCacheNodesCommandOutput extends ReservedCacheNo
 
 /**
  * @public
- * <p>Returns information about reserved cache
- *             nodes for this account, or about a specified reserved cache node.</p>
+ * <p>Returns information about reserved cache nodes for this account, or about a specified
+ *             reserved cache node.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

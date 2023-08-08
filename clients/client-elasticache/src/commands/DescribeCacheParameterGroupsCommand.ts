@@ -36,9 +36,8 @@ export interface DescribeCacheParameterGroupsCommandOutput extends CacheParamete
 
 /**
  * @public
- * <p>Returns a list of cache parameter group
- *             descriptions. If a cache parameter group name is specified, the list contains only
- *             the descriptions for that group.</p>
+ * <p>Returns a list of cache parameter group descriptions. If a cache parameter group name
+ *             is specified, the list contains only the descriptions for that group.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -74,7 +73,8 @@ export interface DescribeCacheParameterGroupsCommandOutput extends CacheParamete
  * @see {@link ElastiCacheClientResolvedConfig | config} for ElastiCacheClient's `config` shape.
  *
  * @throws {@link CacheParameterGroupNotFoundFault} (client fault)
- *  <p>The requested cache parameter group name does not refer to an existing cache parameter group.</p>
+ *  <p>The requested cache parameter group name does not refer to an existing cache parameter
+ *             group.</p>
  *
  * @throws {@link InvalidParameterCombinationException} (client fault)
  *  <p>Two or more incompatible parameters were specified.</p>

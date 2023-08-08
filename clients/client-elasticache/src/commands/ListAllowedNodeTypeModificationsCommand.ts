@@ -41,11 +41,12 @@ export interface ListAllowedNodeTypeModificationsCommandOutput
 
 /**
  * @public
- * <p>Lists all available node types that you
- *             can scale your Redis cluster's or replication group's current node type.</p>
- *          <p>When you use the <code>ModifyCacheCluster</code> or <code>ModifyReplicationGroup</code> operations to
- *             scale your cluster or replication group, the value of the <code>CacheNodeType</code> parameter
- *             must be one of the node types returned by this operation.</p>
+ * <p>Lists all available node types that you can scale your Redis cluster's or replication
+ *             group's current node type.</p>
+ *          <p>When you use the <code>ModifyCacheCluster</code> or
+ *                 <code>ModifyReplicationGroup</code> operations to scale your cluster or replication
+ *             group, the value of the <code>CacheNodeType</code> parameter must be one of the node
+ *             types returned by this operation.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

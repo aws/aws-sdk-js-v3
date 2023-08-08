@@ -38,19 +38,20 @@ export interface CreateGlobalReplicationGroupCommandOutput
 
 /**
  * @public
- * <p>Global Datastore for Redis offers fully managed, fast,
- *             reliable and secure cross-region replication.
- *             Using Global Datastore for Redis, you can create cross-region
- *             read replica clusters for ElastiCache for Redis to enable low-latency reads
- *             and disaster recovery across regions. For more information,
- *
- *             see <a href="https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/Redis-Global-Datastore.html">Replication Across Regions Using Global Datastore</a>. </p>
+ * <p>Global Datastore for Redis offers fully managed, fast, reliable and secure
+ *             cross-region replication. Using Global Datastore for Redis, you can create cross-region
+ *             read replica clusters for ElastiCache for Redis to enable low-latency reads and disaster
+ *             recovery across regions. For more information, see <a href="https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/Redis-Global-Datastore.html">Replication
+ *                 Across Regions Using Global Datastore</a>. </p>
  *          <ul>
  *             <li>
- *                <p>The <b>GlobalReplicationGroupIdSuffix</b> is the name of the Global datastore.</p>
+ *                <p>The <b>GlobalReplicationGroupIdSuffix</b> is the
+ *                     name of the Global datastore.</p>
  *             </li>
  *             <li>
- *                <p>The <b>PrimaryReplicationGroupId</b> represents the name of the primary cluster that accepts writes and will replicate updates to the secondary cluster.</p>
+ *                <p>The <b>PrimaryReplicationGroupId</b> represents the
+ *                     name of the primary cluster that accepts writes and will replicate updates to
+ *                     the secondary cluster.</p>
  *             </li>
  *          </ul>
  * @example

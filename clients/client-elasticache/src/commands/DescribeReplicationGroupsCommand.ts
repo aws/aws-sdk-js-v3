@@ -36,9 +36,9 @@ export interface DescribeReplicationGroupsCommandOutput extends ReplicationGroup
 
 /**
  * @public
- * <p>Returns information about a particular
- *             replication group. If no identifier is specified, <code>DescribeReplicationGroups</code>
- *             returns information about all replication groups.</p>
+ * <p>Returns information about a particular replication group. If no identifier is
+ *             specified, <code>DescribeReplicationGroups</code> returns information about all
+ *             replication groups.</p>
  *          <note>
  *             <p>This operation is valid for Redis only.</p>
  *          </note>

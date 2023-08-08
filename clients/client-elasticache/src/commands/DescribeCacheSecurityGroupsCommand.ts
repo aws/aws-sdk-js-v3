@@ -36,10 +36,9 @@ export interface DescribeCacheSecurityGroupsCommandOutput extends CacheSecurityG
 
 /**
  * @public
- * <p>Returns a list of cache security group
- *             descriptions. If a cache security group name is specified, the list contains only
- *             the description of that group. This applicable only when you have ElastiCache in Classic setup
- *         </p>
+ * <p>Returns a list of cache security group descriptions. If a cache security group name is
+ *             specified, the list contains only the description of that group. This applicable only
+ *             when you have ElastiCache in Classic setup </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -81,7 +80,8 @@ export interface DescribeCacheSecurityGroupsCommandOutput extends CacheSecurityG
  * @see {@link ElastiCacheClientResolvedConfig | config} for ElastiCacheClient's `config` shape.
  *
  * @throws {@link CacheSecurityGroupNotFoundFault} (client fault)
- *  <p>The requested cache security group name does not refer to an existing cache security group.</p>
+ *  <p>The requested cache security group name does not refer to an existing cache security
+ *             group.</p>
  *
  * @throws {@link InvalidParameterCombinationException} (client fault)
  *  <p>Two or more incompatible parameters were specified.</p>

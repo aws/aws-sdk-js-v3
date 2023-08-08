@@ -36,10 +36,10 @@ export interface ResetCacheParameterGroupCommandOutput extends CacheParameterGro
 
 /**
  * @public
- * <p>Modifies the parameters of a cache
- *             parameter group to the engine or system default value. You can reset specific parameters
- *             by submitting a list of parameter names. To reset the entire cache parameter group,
- *             specify the <code>ResetAllParameters</code> and <code>CacheParameterGroupName</code> parameters.</p>
+ * <p>Modifies the parameters of a cache parameter group to the engine or system default
+ *             value. You can reset specific parameters by submitting a list of parameter names. To
+ *             reset the entire cache parameter group, specify the <code>ResetAllParameters</code> and
+ *                 <code>CacheParameterGroupName</code> parameters.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -71,10 +71,12 @@ export interface ResetCacheParameterGroupCommandOutput extends CacheParameterGro
  * @see {@link ElastiCacheClientResolvedConfig | config} for ElastiCacheClient's `config` shape.
  *
  * @throws {@link CacheParameterGroupNotFoundFault} (client fault)
- *  <p>The requested cache parameter group name does not refer to an existing cache parameter group.</p>
+ *  <p>The requested cache parameter group name does not refer to an existing cache parameter
+ *             group.</p>
  *
  * @throws {@link InvalidCacheParameterGroupStateFault} (client fault)
- *  <p>The current state of the cache parameter group does not allow the requested operation to occur.</p>
+ *  <p>The current state of the cache parameter group does not allow the requested operation
+ *             to occur.</p>
  *
  * @throws {@link InvalidGlobalReplicationGroupStateFault} (client fault)
  *  <p>The Global datastore is not available or in primary-only state.</p>
