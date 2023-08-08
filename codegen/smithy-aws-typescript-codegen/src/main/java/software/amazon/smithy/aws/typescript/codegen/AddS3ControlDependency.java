@@ -101,6 +101,10 @@ public class AddS3ControlDependency implements TypeScriptIntegration {
         if (!isS3Control(settings.getService(model))) {
             return Collections.emptyMap();
         }
+        if (settings.getExperimentalIdentityAndAuth()) {
+            return Collections.emptyMap();
+        }
+        // feat(experimentalIdentityAndAuth): control branch for S3 Control signingEscapePath
         switch (target) {
             case SHARED:
                 return MapUtils.of("signingEscapePath", writer -> {

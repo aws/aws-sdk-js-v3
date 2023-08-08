@@ -36,10 +36,12 @@ public final class AddTokenAuthPlugin implements TypeScriptIntegration {
             RuntimeClientPlugin.builder()
                     .withConventions(AwsDependency.MIDDLEWARE_TOKEN.dependency, "Token", HAS_CONFIG)
                     .servicePredicate((m, s) -> isHttpBearerAuthService(s))
+                    .settingsPredicate((m, s, settings) -> !settings.getExperimentalIdentityAndAuth())
                     .build(),
             RuntimeClientPlugin.builder()
                     .withConventions(AwsDependency.MIDDLEWARE_TOKEN.dependency, "Token", HAS_MIDDLEWARE)
                     .servicePredicate((m, s) -> isHttpBearerAuthService(s))
+                    .settingsPredicate((m, s, settings) -> !settings.getExperimentalIdentityAndAuth())
                     .build()
         );
     }

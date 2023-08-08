@@ -50,6 +50,7 @@ public class AddBuiltinPlugins implements TypeScriptIntegration {
             RuntimeClientPlugin.builder()
                 .withConventions(TypeScriptDependency.CONFIG_RESOLVER.dependency, "Region", HAS_CONFIG)
                 .servicePredicate((m, s) -> isAwsService(s) || isSigV4Service(s))
+                .settingsPredicate((m, s, settings) -> !settings.getExperimentalIdentityAndAuth())
                 .build(),
             // Only one of Endpoints or CustomEndpoints should be used
             RuntimeClientPlugin.builder()

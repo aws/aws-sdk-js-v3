@@ -72,6 +72,10 @@ public final class AddAwsAuthPlugin implements TypeScriptIntegration {
         SymbolProvider symbolProvider,
         TypeScriptWriter writer
     ) {
+        if (settings.getExperimentalIdentityAndAuth()) {
+            return;
+        }
+        // feat(experimentalIdentityAndAuth): control branch for @aws.auth#sigv4
         ServiceShape service = settings.getService(model);
         if (!isSigV4Service(service) && isAwsService(service)) {
             ServiceTrait serviceTrait = service.getTrait(ServiceTrait.class).get();
@@ -120,12 +124,14 @@ public final class AddAwsAuthPlugin implements TypeScriptIntegration {
                             && isAwsService(s)
                             && !testServiceId(s, "STS")
                             && !areAllOptionalAuthOperations(m, s))
+                    .settingsPredicate((m, s, settings) -> !settings.getExperimentalIdentityAndAuth())
                     .build(),
             RuntimeClientPlugin.builder()
                     .withConventions(AwsDependency.MIDDLEWARE_SIGNING.dependency, "SigV4Auth", HAS_CONFIG)
                     .servicePredicate((m, s) -> isSigV4Service(s)
                             && !isAwsService(s)
                             && !areAllOptionalAuthOperations(m, s))
+                    .settingsPredicate((m, s, settings) -> !settings.getExperimentalIdentityAndAuth())
                     .build(),
             RuntimeClientPlugin.builder()
                     .withConventions(AwsDependency.STS_MIDDLEWARE.dependency,
@@ -134,6 +140,7 @@ public final class AddAwsAuthPlugin implements TypeScriptIntegration {
                         put("stsClientCtor", Symbol.builder().name("STSClient").build());
                     }})
                     .servicePredicate((m, s) -> testServiceId(s, "STS"))
+                    .settingsPredicate((m, s, settings) -> !settings.getExperimentalIdentityAndAuth())
                     .build(),
             RuntimeClientPlugin.builder()
                     .withConventions(AwsDependency.MIDDLEWARE_SIGNING.dependency, "AwsAuth", HAS_MIDDLEWARE)
@@ -141,26 +148,30 @@ public final class AddAwsAuthPlugin implements TypeScriptIntegration {
                     .servicePredicate((m, s) -> isSigV4Service(s)
                             && isAwsService(s)
                             && !testServiceId(s, "STS")
-                            && !hasOptionalAuthOperation(m, s)
-                    ).build(),
+                            && !hasOptionalAuthOperation(m, s))
+                    .settingsPredicate((m, s, settings) -> !settings.getExperimentalIdentityAndAuth())
+                    .build(),
             RuntimeClientPlugin.builder()
                     .withConventions(AwsDependency.MIDDLEWARE_SIGNING.dependency, "SigV4Auth", HAS_MIDDLEWARE)
                     // See operationUsesAwsAuth() below for AwsAuth Middleware customizations.
                     .servicePredicate((m, s) -> isSigV4Service(s)
                             && !isAwsService(s)
-                            && !hasOptionalAuthOperation(m, s)
-                    ).build(),
+                            && !hasOptionalAuthOperation(m, s))
+                    .settingsPredicate((m, s, settings) -> !settings.getExperimentalIdentityAndAuth())
+                    .build(),
             RuntimeClientPlugin.builder()
                     .withConventions(AwsDependency.MIDDLEWARE_SIGNING.dependency, "AwsAuth", HAS_MIDDLEWARE)
                     .operationPredicate((m, s, o) -> isSigV4Service(s)
                             && isAwsService(s)
                             && operationUsesAwsAuth(m, s, o))
+                    .settingsPredicate((m, s, settings) -> !settings.getExperimentalIdentityAndAuth())
                     .build(),
             RuntimeClientPlugin.builder()
                     .withConventions(AwsDependency.MIDDLEWARE_SIGNING.dependency, "SigV4Auth", HAS_MIDDLEWARE)
                     .operationPredicate((m, s, o) -> isSigV4Service(s)
                             && !isAwsService(s)
                             && operationUsesAwsAuth(m, s, o))
+                    .settingsPredicate((m, s, settings) -> !settings.getExperimentalIdentityAndAuth())
                     .build()
 
         );
@@ -173,6 +184,10 @@ public final class AddAwsAuthPlugin implements TypeScriptIntegration {
         SymbolProvider symbolProvider,
         LanguageTarget target
     ) {
+        if (settings.getExperimentalIdentityAndAuth()) {
+            return Collections.emptyMap();
+        }
+        // feat(experimentalIdentityAndAuth): control branch for @aws.auth#sigv4
         ServiceShape service = settings.getService(model);
         if (!isSigV4Service(service) || areAllOptionalAuthOperations(model, service)) {
             return Collections.emptyMap();
@@ -219,6 +234,10 @@ public final class AddAwsAuthPlugin implements TypeScriptIntegration {
 
     @Override
     public void customize(TypeScriptCodegenContext codegenContext) {
+        if (codegenContext.settings().getExperimentalIdentityAndAuth()) {
+            return;
+        }
+        // feat(experimentalIdentityAndAuth): control branch for @aws.auth#sigv4
         TypeScriptSettings settings = codegenContext.settings();
         Model model = codegenContext.model();
         BiConsumer<String, Consumer<TypeScriptWriter>> writerFactory = codegenContext.writerDelegator()::useFileWriter;

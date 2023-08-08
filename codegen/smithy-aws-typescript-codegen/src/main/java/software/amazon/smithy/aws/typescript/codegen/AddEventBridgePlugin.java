@@ -39,6 +39,10 @@ public final class AddEventBridgePlugin implements TypeScriptIntegration {
         if (!testServiceId(settings.getService(model))) {
             return Collections.emptyMap();
         }
+        if (settings.getExperimentalIdentityAndAuth()) {
+            return Collections.emptyMap();
+        }
+        // feat(experimentalIdentityAndAuth): control branch for EventBridge runtime config
         switch (target) {
             case SHARED:
                 return MapUtils.of("signerConstructor", writer -> {
