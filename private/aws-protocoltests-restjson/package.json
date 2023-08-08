@@ -49,7 +49,7 @@
     "@smithy/util-body-length-browser": "^2.0.0",
     "@smithy/util-body-length-node": "^2.0.0",
     "@smithy/util-defaults-mode-browser": "^2.0.2",
-    "@smithy/types": "^2.1.0",
+    "@smithy/util-defaults-mode-node": "^2.0.2",
     "@smithy/util-retry": "^2.0.0",
     "@smithy/util-stream": "^2.0.2",
     "@smithy/util-utf8": "^2.0.0",
