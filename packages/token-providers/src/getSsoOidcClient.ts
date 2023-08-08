@@ -1,4 +1,4 @@
-import { SSOOIDCClient } from "./client-sso-oidc-bundle/dist-node";
+import { SSOOIDCClient } from "./bundle/client-sso-oidc-node";
 
 const ssoOidcClientsHash: Record<string, typeof SSOOIDCClient | any> = {};
 
