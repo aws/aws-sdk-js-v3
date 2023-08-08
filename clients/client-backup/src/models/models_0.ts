@@ -207,7 +207,7 @@ export interface BackupJob {
 
   /**
    * @public
-   * <p>The current state of a resource recovery point.</p>
+   * <p>The current state of a backup job.</p>
    */
   State?: BackupJobState | string;
 
@@ -541,6 +541,7 @@ export interface BackupRuleInput {
    * <p>A value in minutes after a backup is scheduled before a job will be canceled if it
    *          doesn't start successfully. This value is optional.
    *          If this value is included, it must be at least 60 minutes to avoid errors.</p>
+   *          <p>This parameter has a maximum value of 100 years (52,560,000 minutes).</p>
    *          <p>During the start window, the backup job status remains in <code>CREATED</code> status until it
    *          has successfully begun or until the start window time has run out. If within the start
    *          window time Backup receives an error that allows the job to be retried,
@@ -571,6 +572,7 @@ export interface BackupRuleInput {
    *          section of the <a href="https://docs.aws.amazon.com/aws-backup/latest/devguide/whatisbackup.html#features-by-resource">
    *             Feature availability by resource</a> table. Backup ignores this expression for
    *          other resource types.</p>
+   *          <p>This parameter has a maximum value of 100 years (36,500 days).</p>
    */
   Lifecycle?: Lifecycle;
 
@@ -2101,6 +2103,144 @@ export interface CreateLegalHoldOutput {
 
 /**
  * @public
+ */
+export interface CreateLogicallyAirGappedBackupVaultInput {
+  /**
+   * @public
+   * <p>This is the name of the vault that is being created.</p>
+   */
+  BackupVaultName: string | undefined;
+
+  /**
+   * @public
+   * <p>These are the tags that will be included in the newly-created vault.</p>
+   */
+  BackupVaultTags?: Record<string, string>;
+
+  /**
+   * @public
+   * <p>This is the ID of the creation request.</p>
+   */
+  CreatorRequestId?: string;
+
+  /**
+   * @public
+   * <p>This setting specifies the minimum retention period
+   *          that the vault retains its recovery points. If this parameter is not specified,
+   *          no minimum retention period is enforced.</p>
+   *          <p>If specified, any backup or copy job to the vault must have a lifecycle policy with a
+   *          retention period equal to or longer than the minimum retention period. If a job
+   *          retention period is shorter than that minimum retention period, then the vault fails the
+   *          backup or copy job, and you should either modify your lifecycle settings or use a different
+   *          vault.</p>
+   */
+  MinRetentionDays: number | undefined;
+
+  /**
+   * @public
+   * <p>This is the setting that specifies the maximum retention period
+   *          that the vault retains its recovery points. If this parameter is not specified, Backup
+   *          does not enforce a maximum retention period on the recovery points in the vault (allowing
+   *          indefinite storage).</p>
+   *          <p>If specified, any backup or copy job to the vault must have a lifecycle policy with a
+   *          retention period equal to or shorter than the maximum retention period. If the job
+   *          retention period is longer than that maximum retention period, then the vault fails the
+   *          backup or copy job, and you should either modify your lifecycle settings or use a different
+   *          vault.</p>
+   */
+  MaxRetentionDays: number | undefined;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const VaultState = {
+  AVAILABLE: "AVAILABLE",
+  CREATING: "CREATING",
+  FAILED: "FAILED",
+} as const;
+
+/**
+ * @public
+ */
+export type VaultState = (typeof VaultState)[keyof typeof VaultState];
+
+/**
+ * @public
+ */
+export interface CreateLogicallyAirGappedBackupVaultOutput {
+  /**
+   * @public
+   * <p>The name of a logical container where backups are stored. Logically air-gapped
+   *          backup vaults are identified by names that are unique to the account used to create
+   *          them and the Region where they are created. They consist of lowercase letters, numbers,
+   *          and hyphens.</p>
+   */
+  BackupVaultName?: string;
+
+  /**
+   * @public
+   * <p>This is the ARN (Amazon Resource Name) of the vault being created.</p>
+   */
+  BackupVaultArn?: string;
+
+  /**
+   * @public
+   * <p>The date and time when the vault was created.</p>
+   *          <p>This value is in Unix format, Coordinated Universal Time (UTC), and accurate to
+   *          milliseconds. For example, the value 1516925490.087 represents Friday, January 26, 2018
+   *          12:11:30.087 AM.</p>
+   */
+  CreationDate?: Date;
+
+  /**
+   * @public
+   * <p>This is the current state of the vault.</p>
+   */
+  VaultState?: VaultState | string;
+}
+
+/**
+ * @public
+ * <p>Indicates that something is wrong with the input to the request. For example, a
+ *          parameter is of the wrong type.</p>
+ */
+export class InvalidRequestException extends __BaseException {
+  readonly name: "InvalidRequestException" = "InvalidRequestException";
+  readonly $fault: "client" = "client";
+  Code?: string;
+  Message?: string;
+  /**
+   * @public
+   * <p></p>
+   */
+  Type?: string;
+
+  /**
+   * @public
+   * <p></p>
+   */
+  Context?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<InvalidRequestException, __BaseException>) {
+    super({
+      name: "InvalidRequestException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, InvalidRequestException.prototype);
+    this.Code = opts.Code;
+    this.Message = opts.Message;
+    this.Type = opts.Type;
+    this.Context = opts.Context;
+  }
+}
+
+/**
+ * @public
  * <p>Contains information from your report plan about where to deliver your reports,
  *          specifically your Amazon S3 bucket name, S3 key prefix, and the formats of your
  *          reports.</p>
@@ -2301,44 +2441,6 @@ export interface DeleteBackupPlanOutput {
    *          long. Version IDs cannot be edited.</p>
    */
   VersionId?: string;
-}
-
-/**
- * @public
- * <p>Indicates that something is wrong with the input to the request. For example, a
- *          parameter is of the wrong type.</p>
- */
-export class InvalidRequestException extends __BaseException {
-  readonly name: "InvalidRequestException" = "InvalidRequestException";
-  readonly $fault: "client" = "client";
-  Code?: string;
-  Message?: string;
-  /**
-   * @public
-   * <p></p>
-   */
-  Type?: string;
-
-  /**
-   * @public
-   * <p></p>
-   */
-  Context?: string;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<InvalidRequestException, __BaseException>) {
-    super({
-      name: "InvalidRequestException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, InvalidRequestException.prototype);
-    this.Code = opts.Code;
-    this.Message = opts.Message;
-    this.Type = opts.Type;
-    this.Context = opts.Context;
-  }
 }
 
 /**
@@ -2568,7 +2670,7 @@ export interface DescribeBackupJobOutput {
 
   /**
    * @public
-   * <p>The current state of a resource recovery point.</p>
+   * <p>The current state of a backup job.</p>
    */
   State?: BackupJobState | string;
 
@@ -2698,7 +2800,27 @@ export interface DescribeBackupVaultInput {
    *          hyphens.</p>
    */
   BackupVaultName: string | undefined;
+
+  /**
+   * @public
+   * <p>This is the account ID of the specified backup vault.</p>
+   */
+  BackupVaultAccountId?: string;
 }
+
+/**
+ * @public
+ * @enum
+ */
+export const VaultType = {
+  BACKUP_VAULT: "BACKUP_VAULT",
+  LOGICALLY_AIR_GAPPED_BACKUP_VAULT: "LOGICALLY_AIR_GAPPED_BACKUP_VAULT",
+} as const;
+
+/**
+ * @public
+ */
+export type VaultType = (typeof VaultType)[keyof typeof VaultType];
 
 /**
  * @public
@@ -2718,6 +2840,12 @@ export interface DescribeBackupVaultOutput {
    *             <code>arn:aws:backup:us-east-1:123456789012:vault:aBackupVault</code>.</p>
    */
   BackupVaultArn?: string;
+
+  /**
+   * @public
+   * <p>This is the type of vault described.</p>
+   */
+  VaultType?: VaultType | string;
 
   /**
    * @public
@@ -3010,6 +3138,12 @@ export interface DescribeRecoveryPointInput {
    *             <code>arn:aws:backup:us-east-1:123456789012:recovery-point:1EB3B5E7-9EB0-435A-A80B-108B488B0D45</code>.</p>
    */
   RecoveryPointArn: string | undefined;
+
+  /**
+   * @public
+   * <p>This is the account ID of the specified backup vault.</p>
+   */
+  BackupVaultAccountId?: string;
 }
 
 /**
@@ -4086,6 +4220,12 @@ export interface GetRecoveryPointRestoreMetadataInput {
    *             <code>arn:aws:backup:us-east-1:123456789012:recovery-point:1EB3B5E7-9EB0-435A-A80B-108B488B0D45</code>.</p>
    */
   RecoveryPointArn: string | undefined;
+
+  /**
+   * @public
+   * <p>This is the account ID of the specified backup vault.</p>
+   */
+  BackupVaultAccountId?: string;
 }
 
 /**
@@ -4513,6 +4653,18 @@ export interface ListBackupSelectionsOutput {
  * @public
  */
 export interface ListBackupVaultsInput {
+  /**
+   * @public
+   * <p>This parameter will sort the list of vaults by vault type.</p>
+   */
+  ByVaultType?: VaultType | string;
+
+  /**
+   * @public
+   * <p>This parameter will sort the list of vaults by shared vaults.</p>
+   */
+  ByShared?: boolean;
+
   /**
    * @public
    * <p>The next item following a partial list of returned items. For example, if a request is
@@ -4978,6 +5130,58 @@ export interface ListProtectedResourcesOutput {
 /**
  * @public
  */
+export interface ListProtectedResourcesByBackupVaultInput {
+  /**
+   * @public
+   * <p>This is the list of protected resources by backup vault within the vault(s) you specify by name.</p>
+   */
+  BackupVaultName: string | undefined;
+
+  /**
+   * @public
+   * <p>This is the list of protected resources by backup vault within the vault(s) you specify by account ID.</p>
+   */
+  BackupVaultAccountId?: string;
+
+  /**
+   * @public
+   * <p>The next item following a partial list of returned items. For example, if a request is
+   *          made to return <code>maxResults</code> number of items, <code>NextToken</code> allows you
+   *          to return more items in your list starting at the location pointed to by the next
+   *          token.</p>
+   */
+  NextToken?: string;
+
+  /**
+   * @public
+   * <p>The maximum number of items to be returned.</p>
+   */
+  MaxResults?: number;
+}
+
+/**
+ * @public
+ */
+export interface ListProtectedResourcesByBackupVaultOutput {
+  /**
+   * @public
+   * <p>These are the results returned for the request ListProtectedResourcesByBackupVault.</p>
+   */
+  Results?: ProtectedResource[];
+
+  /**
+   * @public
+   * <p>The next item following a partial list of returned items. For example, if a request is
+   *          made to return <code>maxResults</code> number of items, <code>NextToken</code> allows you
+   *          to return more items in your list starting at the location pointed to by the next
+   *          token.</p>
+   */
+  NextToken?: string;
+}
+
+/**
+ * @public
+ */
 export interface ListRecoveryPointsByBackupVaultInput {
   /**
    * @public
@@ -4991,6 +5195,12 @@ export interface ListRecoveryPointsByBackupVaultInput {
    *          </note>
    */
   BackupVaultName: string | undefined;
+
+  /**
+   * @public
+   * <p>This parameter will sort the list of recovery points by account ID.</p>
+   */
+  BackupVaultAccountId?: string;
 
   /**
    * @public
@@ -5983,6 +6193,7 @@ export interface StartBackupJobInput {
    * <p>A value in minutes after a backup is scheduled before a job will be canceled if it
    *          doesn't start successfully. This value is optional, and the default is 8 hours.
    *          If this value is included, it must be at least 60 minutes to avoid errors.</p>
+   *          <p>This parameter has a maximum value of 100 years (52,560,000 minutes).</p>
    *          <p>During the start window, the backup job status remains in <code>CREATED</code> status until it
    *          has successfully begun or until the start window time has run out. If within the start
    *          window time Backup receives an error that allows the job to be retried,
@@ -5999,6 +6210,8 @@ export interface StartBackupJobInput {
    *             Backup will cancel the job. This value is optional. This value begins
    *          counting down from when the backup was scheduled. It does not add additional time for
    *             <code>StartWindowMinutes</code>, or if the backup started later than scheduled.</p>
+   *          <p>Like <code>StartWindowMinutes</code>, this parameter has a maximum value of
+   *          100 years (52,560,000 minutes).</p>
    */
   CompleteWindowMinutes?: number;
 
@@ -6015,6 +6228,7 @@ export interface StartBackupJobInput {
    *          section of the <a href="https://docs.aws.amazon.com/aws-backup/latest/devguide/whatisbackup.html#features-by-resource">
    *             Feature availability by resource</a> table. Backup ignores this expression for
    *          other resource types.</p>
+   *          <p>This parameter has a maximum value of 100 years (36,500 days).</p>
    */
   Lifecycle?: Lifecycle;
 
@@ -6766,6 +6980,16 @@ export const CreateBackupVaultInputFilterSensitiveLog = (obj: CreateBackupVaultI
 export const CreateLegalHoldInputFilterSensitiveLog = (obj: CreateLegalHoldInput): any => ({
   ...obj,
   ...(obj.Tags && { Tags: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const CreateLogicallyAirGappedBackupVaultInputFilterSensitiveLog = (
+  obj: CreateLogicallyAirGappedBackupVaultInput
+): any => ({
+  ...obj,
+  ...(obj.BackupVaultTags && { BackupVaultTags: SENSITIVE_STRING }),
 });
 
 /**

@@ -59,6 +59,10 @@ import {
 import { CreateBackupVaultCommandInput, CreateBackupVaultCommandOutput } from "./commands/CreateBackupVaultCommand";
 import { CreateFrameworkCommandInput, CreateFrameworkCommandOutput } from "./commands/CreateFrameworkCommand";
 import { CreateLegalHoldCommandInput, CreateLegalHoldCommandOutput } from "./commands/CreateLegalHoldCommand";
+import {
+  CreateLogicallyAirGappedBackupVaultCommandInput,
+  CreateLogicallyAirGappedBackupVaultCommandOutput,
+} from "./commands/CreateLogicallyAirGappedBackupVaultCommand";
 import { CreateReportPlanCommandInput, CreateReportPlanCommandOutput } from "./commands/CreateReportPlanCommand";
 import { DeleteBackupPlanCommandInput, DeleteBackupPlanCommandOutput } from "./commands/DeleteBackupPlanCommand";
 import {
@@ -168,6 +172,10 @@ import { ListCopyJobsCommandInput, ListCopyJobsCommandOutput } from "./commands/
 import { ListFrameworksCommandInput, ListFrameworksCommandOutput } from "./commands/ListFrameworksCommand";
 import { ListLegalHoldsCommandInput, ListLegalHoldsCommandOutput } from "./commands/ListLegalHoldsCommand";
 import {
+  ListProtectedResourcesByBackupVaultCommandInput,
+  ListProtectedResourcesByBackupVaultCommandOutput,
+} from "./commands/ListProtectedResourcesByBackupVaultCommand";
+import {
   ListProtectedResourcesCommandInput,
   ListProtectedResourcesCommandOutput,
 } from "./commands/ListProtectedResourcesCommand";
@@ -241,6 +249,7 @@ export type ServiceInputTypes =
   | CreateBackupVaultCommandInput
   | CreateFrameworkCommandInput
   | CreateLegalHoldCommandInput
+  | CreateLogicallyAirGappedBackupVaultCommandInput
   | CreateReportPlanCommandInput
   | DeleteBackupPlanCommandInput
   | DeleteBackupSelectionCommandInput
@@ -283,6 +292,7 @@ export type ServiceInputTypes =
   | ListCopyJobsCommandInput
   | ListFrameworksCommandInput
   | ListLegalHoldsCommandInput
+  | ListProtectedResourcesByBackupVaultCommandInput
   | ListProtectedResourcesCommandInput
   | ListRecoveryPointsByBackupVaultCommandInput
   | ListRecoveryPointsByLegalHoldCommandInput
@@ -318,6 +328,7 @@ export type ServiceOutputTypes =
   | CreateBackupVaultCommandOutput
   | CreateFrameworkCommandOutput
   | CreateLegalHoldCommandOutput
+  | CreateLogicallyAirGappedBackupVaultCommandOutput
   | CreateReportPlanCommandOutput
   | DeleteBackupPlanCommandOutput
   | DeleteBackupSelectionCommandOutput
@@ -360,6 +371,7 @@ export type ServiceOutputTypes =
   | ListCopyJobsCommandOutput
   | ListFrameworksCommandOutput
   | ListLegalHoldsCommandOutput
+  | ListProtectedResourcesByBackupVaultCommandOutput
   | ListProtectedResourcesCommandOutput
   | ListRecoveryPointsByBackupVaultCommandOutput
   | ListRecoveryPointsByLegalHoldCommandOutput

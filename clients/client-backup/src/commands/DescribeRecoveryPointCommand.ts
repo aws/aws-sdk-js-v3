@@ -47,6 +47,7 @@ export interface DescribeRecoveryPointCommandOutput extends DescribeRecoveryPoin
  * const input = { // DescribeRecoveryPointInput
  *   BackupVaultName: "STRING_VALUE", // required
  *   RecoveryPointArn: "STRING_VALUE", // required
+ *   BackupVaultAccountId: "STRING_VALUE",
  * };
  * const command = new DescribeRecoveryPointCommand(input);
  * const response = await client.send(command);

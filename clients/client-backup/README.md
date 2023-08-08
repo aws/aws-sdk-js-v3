@@ -258,6 +258,14 @@ CreateLegalHold
 </details>
 <details>
 <summary>
+CreateLogicallyAirGappedBackupVault
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-backup/classes/createlogicallyairgappedbackupvaultcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-backup/interfaces/createlogicallyairgappedbackupvaultcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-backup/interfaces/createlogicallyairgappedbackupvaultcommandoutput.html)
+
+</details>
+<details>
+<summary>
 CreateReportPlan
 </summary>
 
@@ -598,6 +606,14 @@ ListProtectedResources
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-backup/classes/listprotectedresourcescommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-backup/interfaces/listprotectedresourcescommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-backup/interfaces/listprotectedresourcescommandoutput.html)
+
+</details>
+<details>
+<summary>
+ListProtectedResourcesByBackupVault
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-backup/classes/listprotectedresourcesbybackupvaultcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-backup/interfaces/listprotectedresourcesbybackupvaultcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-backup/interfaces/listprotectedresourcesbybackupvaultcommandoutput.html)
 
 </details>
 <details>

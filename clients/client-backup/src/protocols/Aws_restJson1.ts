@@ -34,6 +34,10 @@ import {
 import { CreateBackupVaultCommandInput, CreateBackupVaultCommandOutput } from "../commands/CreateBackupVaultCommand";
 import { CreateFrameworkCommandInput, CreateFrameworkCommandOutput } from "../commands/CreateFrameworkCommand";
 import { CreateLegalHoldCommandInput, CreateLegalHoldCommandOutput } from "../commands/CreateLegalHoldCommand";
+import {
+  CreateLogicallyAirGappedBackupVaultCommandInput,
+  CreateLogicallyAirGappedBackupVaultCommandOutput,
+} from "../commands/CreateLogicallyAirGappedBackupVaultCommand";
 import { CreateReportPlanCommandInput, CreateReportPlanCommandOutput } from "../commands/CreateReportPlanCommand";
 import { DeleteBackupPlanCommandInput, DeleteBackupPlanCommandOutput } from "../commands/DeleteBackupPlanCommand";
 import {
@@ -142,6 +146,10 @@ import { ListBackupVaultsCommandInput, ListBackupVaultsCommandOutput } from "../
 import { ListCopyJobsCommandInput, ListCopyJobsCommandOutput } from "../commands/ListCopyJobsCommand";
 import { ListFrameworksCommandInput, ListFrameworksCommandOutput } from "../commands/ListFrameworksCommand";
 import { ListLegalHoldsCommandInput, ListLegalHoldsCommandOutput } from "../commands/ListLegalHoldsCommand";
+import {
+  ListProtectedResourcesByBackupVaultCommandInput,
+  ListProtectedResourcesByBackupVaultCommandOutput,
+} from "../commands/ListProtectedResourcesByBackupVaultCommand";
 import {
   ListProtectedResourcesCommandInput,
   ListProtectedResourcesCommandOutput,
@@ -440,6 +448,48 @@ export const se_CreateLegalHoldCommand = async (
     hostname,
     port,
     method: "POST",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
+/**
+ * serializeAws_restJson1CreateLogicallyAirGappedBackupVaultCommand
+ */
+export const se_CreateLogicallyAirGappedBackupVaultCommand = async (
+  input: CreateLogicallyAirGappedBackupVaultCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
+    "/logically-air-gapped-backup-vaults/{BackupVaultName}";
+  resolvedPath = __resolvedPath(
+    resolvedPath,
+    input,
+    "BackupVaultName",
+    () => input.BackupVaultName!,
+    "{BackupVaultName}",
+    false
+  );
+  let body: any;
+  body = JSON.stringify(
+    take(input, {
+      BackupVaultTags: (_) => _json(_),
+      CreatorRequestId: [],
+      MaxRetentionDays: [],
+      MinRetentionDays: [],
+    })
+  );
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "PUT",
     headers,
     path: resolvedPath,
     body,
@@ -816,6 +866,9 @@ export const se_DescribeBackupVaultCommand = async (
     "{BackupVaultName}",
     false
   );
+  const query: any = map({
+    backupVaultAccountId: [, input.BackupVaultAccountId!],
+  });
   let body: any;
   return new __HttpRequest({
     protocol,
@@ -824,6 +877,7 @@ export const se_DescribeBackupVaultCommand = async (
     method: "GET",
     headers,
     path: resolvedPath,
+    query,
     body,
   });
 };
@@ -958,6 +1012,9 @@ export const se_DescribeRecoveryPointCommand = async (
     "{RecoveryPointArn}",
     false
   );
+  const query: any = map({
+    backupVaultAccountId: [, input.BackupVaultAccountId!],
+  });
   let body: any;
   return new __HttpRequest({
     protocol,
@@ -966,6 +1023,7 @@ export const se_DescribeRecoveryPointCommand = async (
     method: "GET",
     headers,
     path: resolvedPath,
+    query,
     body,
   });
 };
@@ -1438,6 +1496,9 @@ export const se_GetRecoveryPointRestoreMetadataCommand = async (
     "{RecoveryPointArn}",
     false
   );
+  const query: any = map({
+    backupVaultAccountId: [, input.BackupVaultAccountId!],
+  });
   let body: any;
   return new __HttpRequest({
     protocol,
@@ -1446,6 +1507,7 @@ export const se_GetRecoveryPointRestoreMetadataCommand = async (
     method: "GET",
     headers,
     path: resolvedPath,
+    query,
     body,
   });
 };
@@ -1663,6 +1725,8 @@ export const se_ListBackupVaultsCommand = async (
   const headers: any = {};
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/backup-vaults";
   const query: any = map({
+    vaultType: [, input.ByVaultType!],
+    shared: [() => input.ByShared !== void 0, () => input.ByShared!.toString()],
     nextToken: [, input.NextToken!],
     maxResults: [() => input.MaxResults !== void 0, () => input.MaxResults!.toString()],
   });
@@ -1810,6 +1874,44 @@ export const se_ListProtectedResourcesCommand = async (
 };
 
 /**
+ * serializeAws_restJson1ListProtectedResourcesByBackupVaultCommand
+ */
+export const se_ListProtectedResourcesByBackupVaultCommand = async (
+  input: ListProtectedResourcesByBackupVaultCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {};
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
+    "/backup-vaults/{BackupVaultName}/resources";
+  resolvedPath = __resolvedPath(
+    resolvedPath,
+    input,
+    "BackupVaultName",
+    () => input.BackupVaultName!,
+    "{BackupVaultName}",
+    false
+  );
+  const query: any = map({
+    backupVaultAccountId: [, input.BackupVaultAccountId!],
+    nextToken: [, input.NextToken!],
+    maxResults: [() => input.MaxResults !== void 0, () => input.MaxResults!.toString()],
+  });
+  let body: any;
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "GET",
+    headers,
+    path: resolvedPath,
+    query,
+    body,
+  });
+};
+
+/**
  * serializeAws_restJson1ListRecoveryPointsByBackupVaultCommand
  */
 export const se_ListRecoveryPointsByBackupVaultCommand = async (
@@ -1830,6 +1932,7 @@ export const se_ListRecoveryPointsByBackupVaultCommand = async (
     false
   );
   const query: any = map({
+    backupVaultAccountId: [, input.BackupVaultAccountId!],
     nextToken: [, input.NextToken!],
     maxResults: [() => input.MaxResults !== void 0, () => input.MaxResults!.toString()],
     resourceArn: [, input.ByResourceArn!],
@@ -2989,6 +3092,71 @@ const de_CreateLegalHoldCommandError = async (
 };
 
 /**
+ * deserializeAws_restJson1CreateLogicallyAirGappedBackupVaultCommand
+ */
+export const de_CreateLogicallyAirGappedBackupVaultCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CreateLogicallyAirGappedBackupVaultCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CreateLogicallyAirGappedBackupVaultCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    BackupVaultArn: __expectString,
+    BackupVaultName: __expectString,
+    CreationDate: (_) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    VaultState: __expectString,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1CreateLogicallyAirGappedBackupVaultCommandError
+ */
+const de_CreateLogicallyAirGappedBackupVaultCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CreateLogicallyAirGappedBackupVaultCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AlreadyExistsException":
+    case "com.amazonaws.backup#AlreadyExistsException":
+      throw await de_AlreadyExistsExceptionRes(parsedOutput, context);
+    case "InvalidParameterValueException":
+    case "com.amazonaws.backup#InvalidParameterValueException":
+      throw await de_InvalidParameterValueExceptionRes(parsedOutput, context);
+    case "InvalidRequestException":
+    case "com.amazonaws.backup#InvalidRequestException":
+      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
+    case "LimitExceededException":
+    case "com.amazonaws.backup#LimitExceededException":
+      throw await de_LimitExceededExceptionRes(parsedOutput, context);
+    case "MissingParameterValueException":
+    case "com.amazonaws.backup#MissingParameterValueException":
+      throw await de_MissingParameterValueExceptionRes(parsedOutput, context);
+    case "ServiceUnavailableException":
+    case "com.amazonaws.backup#ServiceUnavailableException":
+      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
  * deserializeAws_restJson1CreateReportPlanCommand
  */
 export const de_CreateReportPlanCommand = async (
@@ -3653,6 +3821,7 @@ export const de_DescribeBackupVaultCommand = async (
     MaxRetentionDays: __expectLong,
     MinRetentionDays: __expectLong,
     NumberOfRecoveryPoints: __expectLong,
+    VaultType: __expectString,
   });
   Object.assign(contents, doc);
   return contents;
@@ -5450,6 +5619,60 @@ const de_ListProtectedResourcesCommandError = async (
     case "InvalidParameterValueException":
     case "com.amazonaws.backup#InvalidParameterValueException":
       throw await de_InvalidParameterValueExceptionRes(parsedOutput, context);
+    case "ServiceUnavailableException":
+    case "com.amazonaws.backup#ServiceUnavailableException":
+      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
+ * deserializeAws_restJson1ListProtectedResourcesByBackupVaultCommand
+ */
+export const de_ListProtectedResourcesByBackupVaultCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListProtectedResourcesByBackupVaultCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_ListProtectedResourcesByBackupVaultCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    NextToken: __expectString,
+    Results: (_) => de_ProtectedResourcesList(_, context),
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1ListProtectedResourcesByBackupVaultCommandError
+ */
+const de_ListProtectedResourcesByBackupVaultCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListProtectedResourcesByBackupVaultCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "InvalidParameterValueException":
+    case "com.amazonaws.backup#InvalidParameterValueException":
+      throw await de_InvalidParameterValueExceptionRes(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.backup#ResourceNotFoundException":
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "ServiceUnavailableException":
     case "com.amazonaws.backup#ServiceUnavailableException":
       throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);

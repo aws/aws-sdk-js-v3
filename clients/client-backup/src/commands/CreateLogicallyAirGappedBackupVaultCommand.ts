@@ -15,13 +15,13 @@ import {
 
 import { BackupClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../BackupClient";
 import {
-  GetRecoveryPointRestoreMetadataInput,
-  GetRecoveryPointRestoreMetadataOutput,
-  GetRecoveryPointRestoreMetadataOutputFilterSensitiveLog,
+  CreateLogicallyAirGappedBackupVaultInput,
+  CreateLogicallyAirGappedBackupVaultInputFilterSensitiveLog,
+  CreateLogicallyAirGappedBackupVaultOutput,
 } from "../models/models_0";
 import {
-  de_GetRecoveryPointRestoreMetadataCommand,
-  se_GetRecoveryPointRestoreMetadataCommand,
+  de_CreateLogicallyAirGappedBackupVaultCommand,
+  se_CreateLogicallyAirGappedBackupVaultCommand,
 } from "../protocols/Aws_restJson1";
 
 /**
@@ -31,59 +31,76 @@ export { __MetadataBearer, $Command };
 /**
  * @public
  *
- * The input for {@link GetRecoveryPointRestoreMetadataCommand}.
+ * The input for {@link CreateLogicallyAirGappedBackupVaultCommand}.
  */
-export interface GetRecoveryPointRestoreMetadataCommandInput extends GetRecoveryPointRestoreMetadataInput {}
+export interface CreateLogicallyAirGappedBackupVaultCommandInput extends CreateLogicallyAirGappedBackupVaultInput {}
 /**
  * @public
  *
- * The output of {@link GetRecoveryPointRestoreMetadataCommand}.
+ * The output of {@link CreateLogicallyAirGappedBackupVaultCommand}.
  */
-export interface GetRecoveryPointRestoreMetadataCommandOutput
-  extends GetRecoveryPointRestoreMetadataOutput,
+export interface CreateLogicallyAirGappedBackupVaultCommandOutput
+  extends CreateLogicallyAirGappedBackupVaultOutput,
     __MetadataBearer {}
 
 /**
  * @public
- * <p>Returns a set of metadata key-value pairs that were used to create the backup.</p>
+ * <p>This request creates a logical container where backups are stored.</p>
+ *          <p>This request includes a name, optionally one or more resource tags, an encryption key,
+ *          and a request ID.</p>
+ *          <note>
+ *             <p>Do not include sensitive data, such as passport numbers, in the name of a backup
+ *          vault.</p>
+ *          </note>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { BackupClient, GetRecoveryPointRestoreMetadataCommand } from "@aws-sdk/client-backup"; // ES Modules import
- * // const { BackupClient, GetRecoveryPointRestoreMetadataCommand } = require("@aws-sdk/client-backup"); // CommonJS import
+ * import { BackupClient, CreateLogicallyAirGappedBackupVaultCommand } from "@aws-sdk/client-backup"; // ES Modules import
+ * // const { BackupClient, CreateLogicallyAirGappedBackupVaultCommand } = require("@aws-sdk/client-backup"); // CommonJS import
  * const client = new BackupClient(config);
- * const input = { // GetRecoveryPointRestoreMetadataInput
+ * const input = { // CreateLogicallyAirGappedBackupVaultInput
  *   BackupVaultName: "STRING_VALUE", // required
- *   RecoveryPointArn: "STRING_VALUE", // required
- *   BackupVaultAccountId: "STRING_VALUE",
+ *   BackupVaultTags: { // Tags
+ *     "<keys>": "STRING_VALUE",
+ *   },
+ *   CreatorRequestId: "STRING_VALUE",
+ *   MinRetentionDays: Number("long"), // required
+ *   MaxRetentionDays: Number("long"), // required
  * };
- * const command = new GetRecoveryPointRestoreMetadataCommand(input);
+ * const command = new CreateLogicallyAirGappedBackupVaultCommand(input);
  * const response = await client.send(command);
- * // { // GetRecoveryPointRestoreMetadataOutput
+ * // { // CreateLogicallyAirGappedBackupVaultOutput
+ * //   BackupVaultName: "STRING_VALUE",
  * //   BackupVaultArn: "STRING_VALUE",
- * //   RecoveryPointArn: "STRING_VALUE",
- * //   RestoreMetadata: { // Metadata
- * //     "<keys>": "STRING_VALUE",
- * //   },
+ * //   CreationDate: new Date("TIMESTAMP"),
+ * //   VaultState: "CREATING" || "AVAILABLE" || "FAILED",
  * // };
  *
  * ```
  *
- * @param GetRecoveryPointRestoreMetadataCommandInput - {@link GetRecoveryPointRestoreMetadataCommandInput}
- * @returns {@link GetRecoveryPointRestoreMetadataCommandOutput}
- * @see {@link GetRecoveryPointRestoreMetadataCommandInput} for command's `input` shape.
- * @see {@link GetRecoveryPointRestoreMetadataCommandOutput} for command's `response` shape.
+ * @param CreateLogicallyAirGappedBackupVaultCommandInput - {@link CreateLogicallyAirGappedBackupVaultCommandInput}
+ * @returns {@link CreateLogicallyAirGappedBackupVaultCommandOutput}
+ * @see {@link CreateLogicallyAirGappedBackupVaultCommandInput} for command's `input` shape.
+ * @see {@link CreateLogicallyAirGappedBackupVaultCommandOutput} for command's `response` shape.
  * @see {@link BackupClientResolvedConfig | config} for BackupClient's `config` shape.
+ *
+ * @throws {@link AlreadyExistsException} (client fault)
+ *  <p>The required resource already exists.</p>
  *
  * @throws {@link InvalidParameterValueException} (client fault)
  *  <p>Indicates that something is wrong with a parameter's value. For example, the value is
  *          out of range.</p>
  *
+ * @throws {@link InvalidRequestException} (client fault)
+ *  <p>Indicates that something is wrong with the input to the request. For example, a
+ *          parameter is of the wrong type.</p>
+ *
+ * @throws {@link LimitExceededException} (client fault)
+ *  <p>A limit in the request has been exceeded; for example, a maximum number of items allowed
+ *          in a request.</p>
+ *
  * @throws {@link MissingParameterValueException} (client fault)
  *  <p>Indicates that a required parameter is missing.</p>
- *
- * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>A resource that is required for the action doesn't exist.</p>
  *
  * @throws {@link ServiceUnavailableException} (server fault)
  *  <p>The request failed due to a temporary failure of the server.</p>
@@ -92,9 +109,9 @@ export interface GetRecoveryPointRestoreMetadataCommandOutput
  * <p>Base exception class for all service exceptions from Backup service.</p>
  *
  */
-export class GetRecoveryPointRestoreMetadataCommand extends $Command<
-  GetRecoveryPointRestoreMetadataCommandInput,
-  GetRecoveryPointRestoreMetadataCommandOutput,
+export class CreateLogicallyAirGappedBackupVaultCommand extends $Command<
+  CreateLogicallyAirGappedBackupVaultCommandInput,
+  CreateLogicallyAirGappedBackupVaultCommandOutput,
   BackupClientResolvedConfig
 > {
   // Start section: command_properties
@@ -112,7 +129,7 @@ export class GetRecoveryPointRestoreMetadataCommand extends $Command<
   /**
    * @public
    */
-  constructor(readonly input: GetRecoveryPointRestoreMetadataCommandInput) {
+  constructor(readonly input: CreateLogicallyAirGappedBackupVaultCommandInput) {
     // Start section: command_constructor
     super();
     // End section: command_constructor
@@ -125,23 +142,23 @@ export class GetRecoveryPointRestoreMetadataCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: BackupClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<GetRecoveryPointRestoreMetadataCommandInput, GetRecoveryPointRestoreMetadataCommandOutput> {
+  ): Handler<CreateLogicallyAirGappedBackupVaultCommandInput, CreateLogicallyAirGappedBackupVaultCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
     this.middlewareStack.use(
-      getEndpointPlugin(configuration, GetRecoveryPointRestoreMetadataCommand.getEndpointParameterInstructions())
+      getEndpointPlugin(configuration, CreateLogicallyAirGappedBackupVaultCommand.getEndpointParameterInstructions())
     );
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
     const clientName = "BackupClient";
-    const commandName = "GetRecoveryPointRestoreMetadataCommand";
+    const commandName = "CreateLogicallyAirGappedBackupVaultCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: (_: any) => _,
-      outputFilterSensitiveLog: GetRecoveryPointRestoreMetadataOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: CreateLogicallyAirGappedBackupVaultInputFilterSensitiveLog,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -155,10 +172,10 @@ export class GetRecoveryPointRestoreMetadataCommand extends $Command<
    * @internal
    */
   private serialize(
-    input: GetRecoveryPointRestoreMetadataCommandInput,
+    input: CreateLogicallyAirGappedBackupVaultCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return se_GetRecoveryPointRestoreMetadataCommand(input, context);
+    return se_CreateLogicallyAirGappedBackupVaultCommand(input, context);
   }
 
   /**
@@ -167,8 +184,8 @@ export class GetRecoveryPointRestoreMetadataCommand extends $Command<
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
-  ): Promise<GetRecoveryPointRestoreMetadataCommandOutput> {
-    return de_GetRecoveryPointRestoreMetadataCommand(output, context);
+  ): Promise<CreateLogicallyAirGappedBackupVaultCommandOutput> {
+    return de_CreateLogicallyAirGappedBackupVaultCommand(output, context);
   }
 
   // Start section: command_body_extra

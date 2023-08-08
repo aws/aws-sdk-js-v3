@@ -50,6 +50,7 @@ export interface ListRecoveryPointsByBackupVaultCommandOutput
  * const client = new BackupClient(config);
  * const input = { // ListRecoveryPointsByBackupVaultInput
  *   BackupVaultName: "STRING_VALUE", // required
+ *   BackupVaultAccountId: "STRING_VALUE",
  *   NextToken: "STRING_VALUE",
  *   MaxResults: Number("int"),
  *   ByResourceArn: "STRING_VALUE",

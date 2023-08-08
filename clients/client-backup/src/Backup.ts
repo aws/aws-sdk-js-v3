@@ -34,6 +34,11 @@ import {
   CreateLegalHoldCommandOutput,
 } from "./commands/CreateLegalHoldCommand";
 import {
+  CreateLogicallyAirGappedBackupVaultCommand,
+  CreateLogicallyAirGappedBackupVaultCommandInput,
+  CreateLogicallyAirGappedBackupVaultCommandOutput,
+} from "./commands/CreateLogicallyAirGappedBackupVaultCommand";
+import {
   CreateReportPlanCommand,
   CreateReportPlanCommandInput,
   CreateReportPlanCommandOutput,
@@ -244,6 +249,11 @@ import {
   ListLegalHoldsCommandOutput,
 } from "./commands/ListLegalHoldsCommand";
 import {
+  ListProtectedResourcesByBackupVaultCommand,
+  ListProtectedResourcesByBackupVaultCommandInput,
+  ListProtectedResourcesByBackupVaultCommandOutput,
+} from "./commands/ListProtectedResourcesByBackupVaultCommand";
+import {
   ListProtectedResourcesCommand,
   ListProtectedResourcesCommandInput,
   ListProtectedResourcesCommandOutput,
@@ -363,6 +373,7 @@ const commands = {
   CreateBackupVaultCommand,
   CreateFrameworkCommand,
   CreateLegalHoldCommand,
+  CreateLogicallyAirGappedBackupVaultCommand,
   CreateReportPlanCommand,
   DeleteBackupPlanCommand,
   DeleteBackupSelectionCommand,
@@ -406,6 +417,7 @@ const commands = {
   ListFrameworksCommand,
   ListLegalHoldsCommand,
   ListProtectedResourcesCommand,
+  ListProtectedResourcesByBackupVaultCommand,
   ListRecoveryPointsByBackupVaultCommand,
   ListRecoveryPointsByLegalHoldCommand,
   ListRecoveryPointsByResourceCommand,
@@ -523,6 +535,23 @@ export interface Backup {
     args: CreateLegalHoldCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: CreateLegalHoldCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link CreateLogicallyAirGappedBackupVaultCommand}
+   */
+  createLogicallyAirGappedBackupVault(
+    args: CreateLogicallyAirGappedBackupVaultCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateLogicallyAirGappedBackupVaultCommandOutput>;
+  createLogicallyAirGappedBackupVault(
+    args: CreateLogicallyAirGappedBackupVaultCommandInput,
+    cb: (err: any, data?: CreateLogicallyAirGappedBackupVaultCommandOutput) => void
+  ): void;
+  createLogicallyAirGappedBackupVault(
+    args: CreateLogicallyAirGappedBackupVaultCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CreateLogicallyAirGappedBackupVaultCommandOutput) => void
   ): void;
 
   /**
@@ -1218,6 +1247,23 @@ export interface Backup {
     args: ListProtectedResourcesCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: ListProtectedResourcesCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ListProtectedResourcesByBackupVaultCommand}
+   */
+  listProtectedResourcesByBackupVault(
+    args: ListProtectedResourcesByBackupVaultCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListProtectedResourcesByBackupVaultCommandOutput>;
+  listProtectedResourcesByBackupVault(
+    args: ListProtectedResourcesByBackupVaultCommandInput,
+    cb: (err: any, data?: ListProtectedResourcesByBackupVaultCommandOutput) => void
+  ): void;
+  listProtectedResourcesByBackupVault(
+    args: ListProtectedResourcesByBackupVaultCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListProtectedResourcesByBackupVaultCommandOutput) => void
   ): void;
 
   /**

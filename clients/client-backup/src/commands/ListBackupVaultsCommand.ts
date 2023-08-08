@@ -45,6 +45,8 @@ export interface ListBackupVaultsCommandOutput extends ListBackupVaultsOutput, _
  * // const { BackupClient, ListBackupVaultsCommand } = require("@aws-sdk/client-backup"); // CommonJS import
  * const client = new BackupClient(config);
  * const input = { // ListBackupVaultsInput
+ *   ByVaultType: "BACKUP_VAULT" || "LOGICALLY_AIR_GAPPED_BACKUP_VAULT",
+ *   ByShared: true || false,
  *   NextToken: "STRING_VALUE",
  *   MaxResults: Number("int"),
  * };

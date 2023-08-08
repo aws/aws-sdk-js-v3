@@ -14,8 +14,14 @@ import {
 } from "@smithy/types";
 
 import { BackupClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../BackupClient";
-import { DescribeBackupVaultInput, DescribeBackupVaultOutput } from "../models/models_0";
-import { de_DescribeBackupVaultCommand, se_DescribeBackupVaultCommand } from "../protocols/Aws_restJson1";
+import {
+  ListProtectedResourcesByBackupVaultInput,
+  ListProtectedResourcesByBackupVaultOutput,
+} from "../models/models_0";
+import {
+  de_ListProtectedResourcesByBackupVaultCommand,
+  se_ListProtectedResourcesByBackupVaultCommand,
+} from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -24,59 +30,58 @@ export { __MetadataBearer, $Command };
 /**
  * @public
  *
- * The input for {@link DescribeBackupVaultCommand}.
+ * The input for {@link ListProtectedResourcesByBackupVaultCommand}.
  */
-export interface DescribeBackupVaultCommandInput extends DescribeBackupVaultInput {}
+export interface ListProtectedResourcesByBackupVaultCommandInput extends ListProtectedResourcesByBackupVaultInput {}
 /**
  * @public
  *
- * The output of {@link DescribeBackupVaultCommand}.
+ * The output of {@link ListProtectedResourcesByBackupVaultCommand}.
  */
-export interface DescribeBackupVaultCommandOutput extends DescribeBackupVaultOutput, __MetadataBearer {}
+export interface ListProtectedResourcesByBackupVaultCommandOutput
+  extends ListProtectedResourcesByBackupVaultOutput,
+    __MetadataBearer {}
 
 /**
  * @public
- * <p>Returns metadata about a backup vault specified by its name.</p>
+ * <p>This request lists the protected resources corresponding to each backup vault.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { BackupClient, DescribeBackupVaultCommand } from "@aws-sdk/client-backup"; // ES Modules import
- * // const { BackupClient, DescribeBackupVaultCommand } = require("@aws-sdk/client-backup"); // CommonJS import
+ * import { BackupClient, ListProtectedResourcesByBackupVaultCommand } from "@aws-sdk/client-backup"; // ES Modules import
+ * // const { BackupClient, ListProtectedResourcesByBackupVaultCommand } = require("@aws-sdk/client-backup"); // CommonJS import
  * const client = new BackupClient(config);
- * const input = { // DescribeBackupVaultInput
+ * const input = { // ListProtectedResourcesByBackupVaultInput
  *   BackupVaultName: "STRING_VALUE", // required
  *   BackupVaultAccountId: "STRING_VALUE",
+ *   NextToken: "STRING_VALUE",
+ *   MaxResults: Number("int"),
  * };
- * const command = new DescribeBackupVaultCommand(input);
+ * const command = new ListProtectedResourcesByBackupVaultCommand(input);
  * const response = await client.send(command);
- * // { // DescribeBackupVaultOutput
- * //   BackupVaultName: "STRING_VALUE",
- * //   BackupVaultArn: "STRING_VALUE",
- * //   VaultType: "BACKUP_VAULT" || "LOGICALLY_AIR_GAPPED_BACKUP_VAULT",
- * //   EncryptionKeyArn: "STRING_VALUE",
- * //   CreationDate: new Date("TIMESTAMP"),
- * //   CreatorRequestId: "STRING_VALUE",
- * //   NumberOfRecoveryPoints: Number("long"),
- * //   Locked: true || false,
- * //   MinRetentionDays: Number("long"),
- * //   MaxRetentionDays: Number("long"),
- * //   LockDate: new Date("TIMESTAMP"),
+ * // { // ListProtectedResourcesByBackupVaultOutput
+ * //   Results: [ // ProtectedResourcesList
+ * //     { // ProtectedResource
+ * //       ResourceArn: "STRING_VALUE",
+ * //       ResourceType: "STRING_VALUE",
+ * //       LastBackupTime: new Date("TIMESTAMP"),
+ * //       ResourceName: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
  * // };
  *
  * ```
  *
- * @param DescribeBackupVaultCommandInput - {@link DescribeBackupVaultCommandInput}
- * @returns {@link DescribeBackupVaultCommandOutput}
- * @see {@link DescribeBackupVaultCommandInput} for command's `input` shape.
- * @see {@link DescribeBackupVaultCommandOutput} for command's `response` shape.
+ * @param ListProtectedResourcesByBackupVaultCommandInput - {@link ListProtectedResourcesByBackupVaultCommandInput}
+ * @returns {@link ListProtectedResourcesByBackupVaultCommandOutput}
+ * @see {@link ListProtectedResourcesByBackupVaultCommandInput} for command's `input` shape.
+ * @see {@link ListProtectedResourcesByBackupVaultCommandOutput} for command's `response` shape.
  * @see {@link BackupClientResolvedConfig | config} for BackupClient's `config` shape.
  *
  * @throws {@link InvalidParameterValueException} (client fault)
  *  <p>Indicates that something is wrong with a parameter's value. For example, the value is
  *          out of range.</p>
- *
- * @throws {@link MissingParameterValueException} (client fault)
- *  <p>Indicates that a required parameter is missing.</p>
  *
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>A resource that is required for the action doesn't exist.</p>
@@ -88,9 +93,9 @@ export interface DescribeBackupVaultCommandOutput extends DescribeBackupVaultOut
  * <p>Base exception class for all service exceptions from Backup service.</p>
  *
  */
-export class DescribeBackupVaultCommand extends $Command<
-  DescribeBackupVaultCommandInput,
-  DescribeBackupVaultCommandOutput,
+export class ListProtectedResourcesByBackupVaultCommand extends $Command<
+  ListProtectedResourcesByBackupVaultCommandInput,
+  ListProtectedResourcesByBackupVaultCommandOutput,
   BackupClientResolvedConfig
 > {
   // Start section: command_properties
@@ -108,7 +113,7 @@ export class DescribeBackupVaultCommand extends $Command<
   /**
    * @public
    */
-  constructor(readonly input: DescribeBackupVaultCommandInput) {
+  constructor(readonly input: ListProtectedResourcesByBackupVaultCommandInput) {
     // Start section: command_constructor
     super();
     // End section: command_constructor
@@ -121,17 +126,17 @@ export class DescribeBackupVaultCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: BackupClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<DescribeBackupVaultCommandInput, DescribeBackupVaultCommandOutput> {
+  ): Handler<ListProtectedResourcesByBackupVaultCommandInput, ListProtectedResourcesByBackupVaultCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
     this.middlewareStack.use(
-      getEndpointPlugin(configuration, DescribeBackupVaultCommand.getEndpointParameterInstructions())
+      getEndpointPlugin(configuration, ListProtectedResourcesByBackupVaultCommand.getEndpointParameterInstructions())
     );
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
     const clientName = "BackupClient";
-    const commandName = "DescribeBackupVaultCommand";
+    const commandName = "ListProtectedResourcesByBackupVaultCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
       clientName,
@@ -150,15 +155,21 @@ export class DescribeBackupVaultCommand extends $Command<
   /**
    * @internal
    */
-  private serialize(input: DescribeBackupVaultCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return se_DescribeBackupVaultCommand(input, context);
+  private serialize(
+    input: ListProtectedResourcesByBackupVaultCommandInput,
+    context: __SerdeContext
+  ): Promise<__HttpRequest> {
+    return se_ListProtectedResourcesByBackupVaultCommand(input, context);
   }
 
   /**
    * @internal
    */
-  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeBackupVaultCommandOutput> {
-    return de_DescribeBackupVaultCommand(output, context);
+  private deserialize(
+    output: __HttpResponse,
+    context: __SerdeContext
+  ): Promise<ListProtectedResourcesByBackupVaultCommandOutput> {
+    return de_ListProtectedResourcesByBackupVaultCommand(output, context);
   }
 
   // Start section: command_body_extra
