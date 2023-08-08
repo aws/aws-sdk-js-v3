@@ -22,9 +22,6 @@ const root = path.join(__dirname, "..", "..", "..");
     path.join(path.dirname(defaultRuntimeConfigFile), "runtimeConfig.browser.ts")
   );
 
-  const clientSsoOidcPkgJson = require(path.join(root, "clients", "client-sso-oidc", "package.json"));
-  const tokenProvidersPkgJson = require(path.join(root, "packages", "token-providers", "package.json"));
-
   for (const platform of ["browser", "node"]) {
     if (platform === "browser") {
       fs.writeFileSync(defaultRuntimeConfigFile, browserRuntimeConfig);
@@ -57,15 +54,4 @@ const root = path.join(__dirname, "..", "..", "..");
   }
 
   fs.writeFileSync(defaultRuntimeConfigFile, nodeRuntimeConfig);
-
-  // add a dependency on the externals of the bundle, using the declared dependencies of SSOOIDCClient.
-  tokenProvidersPkgJson.dependencies = {
-    ...clientSsoOidcPkgJson.dependencies,
-    ...tokenProvidersPkgJson.dependencies,
-  };
-
-  fs.writeFileSync(
-    path.join(root, "packages", "token-providers", "package.json"),
-    JSON.stringify(tokenProvidersPkgJson, null, 2)
-  );
 })();
