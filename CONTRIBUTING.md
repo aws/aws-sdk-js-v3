@@ -142,6 +142,17 @@ smithy=/Volumes/workplace/smithy
 smithy-typescript=/Volumes/workplace/smithy-typescript
 ```
 
+## Experimental Features
+
+`aws-sdk-js-v3 ` uses `smithy-typescript` to generate code. `smithy-typescript` is under heavy development and has
+experimental features that can affect `aws-sdk-js-v3`. These features are enabled via opt-in settings in `sdk-codegen`.
+Note that any contributions related to these features MUST be reviewed carefully for opt-in behavior via feature flags
+as to not break any existing customers. Here are the experimental features that are currently under development:
+
+| Experimental Feature | Flag                          | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       |
+| -------------------- | ----------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Identity & Auth      | `experimentalIdentityAndAuth` | Standardize identity and auth integrations to match the Smithy specification (see [Authentication Traits](https://smithy.io/2.0/spec/authentication-traits.html)). Newer capabilities include support for multiple auth schemes, `@optionalAuth`, and standardized identity interfaces for authentication schemes both in code generation and TypeScript packages. In `smithy-typescript`, `@httpApiKeyAuth` will be updated to use the new standardized interfaces. In `aws-sdk-js-v3` (`smithy-typescript`'s largest customer), this will affect `@aws.auth#sigv4` and `@httpBearerAuth` implementations, but is planned to be completely backwards-compatible. |
+
 ## Build caching
 
 Build caching is optionally available via Turborepo. See `turbo.json`.

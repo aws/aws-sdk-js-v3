@@ -117,6 +117,10 @@ public final class AddS3Config implements TypeScriptIntegration {
         if (!isS3(service)) {
             return;
         }
+        if (settings.getExperimentalIdentityAndAuth()) {
+            return;
+        }
+        // feat(experimentalIdentityAndAuth): control branch for S3 Config interface fields
         writer.writeDocs("Whether to escape request path when signing the request.")
             .write("signingEscapePath?: boolean;\n");
         writer.writeDocs(
@@ -134,6 +138,10 @@ public final class AddS3Config implements TypeScriptIntegration {
         if (!isS3(settings.getService(model))) {
             return Collections.emptyMap();
         }
+        if (settings.getExperimentalIdentityAndAuth()) {
+            return Collections.emptyMap();
+        }
+        // feat(experimentalIdentityAndAuth): control branch for S3 Config runtime config
         switch (target) {
             case SHARED:
                 return MapUtils.of("signingEscapePath", writer -> {
